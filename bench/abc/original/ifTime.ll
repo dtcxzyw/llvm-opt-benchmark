@@ -1,11 +1,11 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.If_Cut_t_ = type <{ float, float, float, float, i32, i32, i32, i64, [0 x i32] }>
 %struct.If_Man_t_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [5 x i32], i32, float, float, float, float, i32, float, i32, i32, [4 x ptr], ptr, i32, i32, i32, ptr, [3 x [32 x i32]], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [16 x i32], i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i32], [32 x i32], i32, i32, i32, i32, ptr, [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], ptr, ptr, ptr, ptr, [32 x i8], i32, i32, i32, [6 x i64], [2 x i32], [2 x i32], ptr, [15 x i32], ptr, ptr, ptr, [16 x i32], ptr, ptr, ptr, ptr, [2 x i32], [2 x i32], [2 x ptr], ptr }
-%struct.If_Cut_t_ = type <{ float, float, float, float, i32, i32, i32, i48, [0 x i32] }>
 %struct.If_Obj_t_ = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, float, float, float, %union.anon, ptr, %struct.If_Cut_t_ }
 %union.anon = type { ptr }
-%struct.If_Par_t_ = type { i32, i32, i32, i32, i32, i32, float, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.If_Par_t_ = type { i32, i32, i32, i32, i32, i32, float, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.If_LibLut_t_ = type { ptr, i32, i32, [33 x float], [33 x [33 x float]] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.Vec_Ptr_t_ = type { i32, i32, ptr }
@@ -26,24 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @If_CutCopy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.If_Man_t_, ptr %9, i32 0, i32 41
-  %11 = load i32, ptr %10, align 4
-  %12 = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 %12, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -54,17 +36,22 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  store i32 0, ptr %10, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %10, align 4, !tbaa !14
   br label %14
 
 14:                                               ; preds = %49, %4
-  %15 = load i32, ptr %10, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.If_Cut_t_, ptr %16, i32 0, i32 7
+  %15 = load i32, ptr %10, align 4, !tbaa !14
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %16, i32 0, i32 7
   %18 = load i64, ptr %17, align 4
   %19 = lshr i64 %18, 24
   %20 = and i64 %19, 255
@@ -73,15 +60,15 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %14
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.If_Cut_t_, ptr %25, i32 0, i32 8
-  %27 = load i32, ptr %10, align 4
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = load ptr, ptr %6, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %25, i32 0, i32 8
+  %27 = load i32, ptr %10, align 4, !tbaa !14
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [0 x i32], ptr %26, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !14
   %31 = call ptr @If_ManObj(ptr noundef %24, i32 noundef %30)
-  store ptr %31, ptr %9, align 8
+  store ptr %31, ptr %9, align 8, !tbaa !16
   %32 = icmp ne ptr %31, null
   br label %33
 
@@ -90,37 +77,37 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %34, label %35, label %52
 
 35:                                               ; preds = %33
-  %36 = load i32, ptr %10, align 4
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr %10, align 4
+  %36 = load i32, ptr %10, align 4, !tbaa !14
+  %37 = load ptr, ptr %7, align 8, !tbaa !10
+  %38 = load i32, ptr %10, align 4, !tbaa !14
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i32, ptr %37, i64 %39
-  store i32 %36, ptr %40, align 4
-  %41 = load ptr, ptr %9, align 8
+  store i32 %36, ptr %40, align 4, !tbaa !14
+  %41 = load ptr, ptr %9, align 8, !tbaa !16
   %42 = call ptr @If_ObjCutBest(ptr noundef %41)
-  %43 = getelementptr inbounds %struct.If_Cut_t_, ptr %42, i32 0, i32 3
-  %44 = load float, ptr %43, align 4
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %10, align 4
+  %43 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %42, i32 0, i32 3
+  %44 = load float, ptr %43, align 4, !tbaa !18
+  %45 = load ptr, ptr %8, align 8, !tbaa !12
+  %46 = load i32, ptr %10, align 4, !tbaa !14
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds float, ptr %45, i64 %47
-  store float %44, ptr %48, align 4
+  store float %44, ptr %48, align 4, !tbaa !21
   br label %49
 
 49:                                               ; preds = %35
-  %50 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %10, align 4, !tbaa !14
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %10, align 4
-  br label %14, !llvm.loop !4
+  store i32 %51, ptr %10, align 4, !tbaa !14
+  br label %14, !llvm.loop !22
 
 52:                                               ; preds = %33
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !14
   br label %53
 
 53:                                               ; preds = %127, %52
-  %54 = load i32, ptr %10, align 4
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.If_Cut_t_, ptr %55, i32 0, i32 7
+  %54 = load i32, ptr %10, align 4, !tbaa !14
+  %55 = load ptr, ptr %6, align 8, !tbaa !8
+  %56 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %55, i32 0, i32 7
   %57 = load i64, ptr %56, align 4
   %58 = lshr i64 %57, 24
   %59 = and i64 %58, 255
@@ -130,17 +117,17 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %62, label %63, label %130
 
 63:                                               ; preds = %53
-  %64 = load i32, ptr %10, align 4
-  store i32 %64, ptr %12, align 4
-  %65 = load i32, ptr %10, align 4
+  %64 = load i32, ptr %10, align 4, !tbaa !14
+  store i32 %64, ptr %12, align 4, !tbaa !14
+  %65 = load i32, ptr %10, align 4, !tbaa !14
   %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %11, align 4
+  store i32 %66, ptr %11, align 4, !tbaa !14
   br label %67
 
 67:                                               ; preds = %99, %63
-  %68 = load i32, ptr %11, align 4
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.If_Cut_t_, ptr %69, i32 0, i32 7
+  %68 = load i32, ptr %11, align 4, !tbaa !14
+  %69 = load ptr, ptr %6, align 8, !tbaa !8
+  %70 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %69, i32 0, i32 7
   %71 = load i64, ptr %70, align 4
   %72 = lshr i64 %71, 24
   %73 = and i64 %72, 255
@@ -149,44 +136,44 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %75, label %76, label %102
 
 76:                                               ; preds = %67
-  %77 = load ptr, ptr %8, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %11, align 4
+  %77 = load ptr, ptr %8, align 8, !tbaa !12
+  %78 = load ptr, ptr %7, align 8, !tbaa !10
+  %79 = load i32, ptr %11, align 4, !tbaa !14
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %78, i64 %80
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 4, !tbaa !14
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds float, ptr %77, i64 %83
-  %85 = load float, ptr %84, align 4
-  %86 = load ptr, ptr %8, align 8
-  %87 = load ptr, ptr %7, align 8
-  %88 = load i32, ptr %12, align 4
+  %85 = load float, ptr %84, align 4, !tbaa !21
+  %86 = load ptr, ptr %8, align 8, !tbaa !12
+  %87 = load ptr, ptr %7, align 8, !tbaa !10
+  %88 = load i32, ptr %12, align 4, !tbaa !14
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %87, i64 %89
-  %91 = load i32, ptr %90, align 4
+  %91 = load i32, ptr %90, align 4, !tbaa !14
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds float, ptr %86, i64 %92
-  %94 = load float, ptr %93, align 4
+  %94 = load float, ptr %93, align 4, !tbaa !21
   %95 = fcmp ogt float %85, %94
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %76
-  %97 = load i32, ptr %11, align 4
-  store i32 %97, ptr %12, align 4
+  %97 = load i32, ptr %11, align 4, !tbaa !14
+  store i32 %97, ptr %12, align 4, !tbaa !14
   br label %98
 
 98:                                               ; preds = %96, %76
   br label %99
 
 99:                                               ; preds = %98
-  %100 = load i32, ptr %11, align 4
+  %100 = load i32, ptr %11, align 4, !tbaa !14
   %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %11, align 4
-  br label %67, !llvm.loop !6
+  store i32 %101, ptr %11, align 4, !tbaa !14
+  br label %67, !llvm.loop !24
 
 102:                                              ; preds = %67
-  %103 = load i32, ptr %12, align 4
-  %104 = load i32, ptr %10, align 4
+  %103 = load i32, ptr %12, align 4, !tbaa !14
+  %104 = load i32, ptr %10, align 4, !tbaa !14
   %105 = icmp eq i32 %103, %104
   br i1 %105, label %106, label %107
 
@@ -194,62 +181,73 @@ define void @If_CutSortInputPins(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %127
 
 107:                                              ; preds = %102
-  %108 = load ptr, ptr %7, align 8
-  %109 = load i32, ptr %10, align 4
+  %108 = load ptr, ptr %7, align 8, !tbaa !10
+  %109 = load i32, ptr %10, align 4, !tbaa !14
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %108, i64 %110
-  %112 = load i32, ptr %111, align 4
-  store i32 %112, ptr %13, align 4
-  %113 = load ptr, ptr %7, align 8
-  %114 = load i32, ptr %12, align 4
+  %112 = load i32, ptr %111, align 4, !tbaa !14
+  store i32 %112, ptr %13, align 4, !tbaa !14
+  %113 = load ptr, ptr %7, align 8, !tbaa !10
+  %114 = load i32, ptr %12, align 4, !tbaa !14
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %113, i64 %115
-  %117 = load i32, ptr %116, align 4
-  %118 = load ptr, ptr %7, align 8
-  %119 = load i32, ptr %10, align 4
+  %117 = load i32, ptr %116, align 4, !tbaa !14
+  %118 = load ptr, ptr %7, align 8, !tbaa !10
+  %119 = load i32, ptr %10, align 4, !tbaa !14
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i32, ptr %118, i64 %120
-  store i32 %117, ptr %121, align 4
-  %122 = load i32, ptr %13, align 4
-  %123 = load ptr, ptr %7, align 8
-  %124 = load i32, ptr %12, align 4
+  store i32 %117, ptr %121, align 4, !tbaa !14
+  %122 = load i32, ptr %13, align 4, !tbaa !14
+  %123 = load ptr, ptr %7, align 8, !tbaa !10
+  %124 = load i32, ptr %12, align 4, !tbaa !14
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i32, ptr %123, i64 %125
-  store i32 %122, ptr %126, align 4
+  store i32 %122, ptr %126, align 4, !tbaa !14
   br label %127
 
 127:                                              ; preds = %107, %106
-  %128 = load i32, ptr %10, align 4
+  %128 = load i32, ptr %10, align 4, !tbaa !14
   %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %10, align 4
-  br label %53, !llvm.loop !7
+  store i32 %129, ptr %10, align 4, !tbaa !14
+  br label %53, !llvm.loop !25
 
 130:                                              ; preds = %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @If_ManObj(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @If_ManObj(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.If_Man_t_, ptr %5, i32 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %5, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = call ptr @Vec_PtrEntry(ptr noundef %7, i32 noundef %8)
   ret ptr %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @If_ObjCutBest(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @If_ObjCutBest(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.If_Obj_t_, ptr %3, i32 0, i32 14
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %3, i32 0, i32 14
   ret ptr %4
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -264,15 +262,23 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %15 = load ptr, ptr %6, align 8, !tbaa !8
   %16 = call ptr @If_CutPerm(ptr noundef %15)
-  store ptr %16, ptr %7, align 8
-  store float 0xC415AF1D80000000, ptr %9, align 4
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.If_Cut_t_, ptr %17, i32 0, i32 7
+  store ptr %16, ptr %7, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store float 0xC415AF1D80000000, ptr %9, align 4, !tbaa !21
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %17, i32 0, i32 7
   %19 = load i64, ptr %18, align 4
   %20 = lshr i64 %19, 15
   %21 = and i64 %20, 1
@@ -281,13 +287,13 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %23, label %24, label %71
 
 24:                                               ; preds = %3
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %25
 
 25:                                               ; preds = %67, %24
-  %26 = load i32, ptr %12, align 4
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.If_Cut_t_, ptr %27, i32 0, i32 7
+  %26 = load i32, ptr %12, align 4, !tbaa !14
+  %27 = load ptr, ptr %6, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %27, i32 0, i32 7
   %29 = load i64, ptr %28, align 4
   %30 = lshr i64 %29, 24
   %31 = and i64 %30, 255
@@ -296,15 +302,15 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %25
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.If_Cut_t_, ptr %36, i32 0, i32 8
-  %38 = load i32, ptr %12, align 4
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = load ptr, ptr %6, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %36, i32 0, i32 8
+  %38 = load i32, ptr %12, align 4, !tbaa !14
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 4, !tbaa !14
   %42 = call ptr @If_ManObj(ptr noundef %35, i32 noundef %41)
-  store ptr %42, ptr %8, align 8
+  store ptr %42, ptr %8, align 8, !tbaa !16
   %43 = icmp ne ptr %42, null
   br label %44
 
@@ -313,92 +319,92 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %45, label %46, label %70
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %8, align 8, !tbaa !16
   %48 = call ptr @If_ObjCutBest(ptr noundef %47)
-  %49 = getelementptr inbounds %struct.If_Cut_t_, ptr %48, i32 0, i32 3
-  %50 = load float, ptr %49, align 4
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.If_Man_t_, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.If_Par_t_, ptr %53, i32 0, i32 10
-  %55 = load i32, ptr %54, align 8
+  %49 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %48, i32 0, i32 3
+  %50 = load float, ptr %49, align 4, !tbaa !18
+  %51 = load ptr, ptr %4, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !42
+  %54 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %53, i32 0, i32 10
+  %55 = load i32, ptr %54, align 8, !tbaa !43
   %56 = sitofp i32 %55 to float
   %57 = fadd float %50, %56
-  store float %57, ptr %10, align 4
-  %58 = load float, ptr %9, align 4
-  %59 = load float, ptr %10, align 4
+  store float %57, ptr %10, align 4, !tbaa !21
+  %58 = load float, ptr %9, align 4, !tbaa !21
+  %59 = load float, ptr %10, align 4, !tbaa !21
   %60 = fcmp ogt float %58, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %46
-  %62 = load float, ptr %9, align 4
+  %62 = load float, ptr %9, align 4, !tbaa !21
   br label %65
 
 63:                                               ; preds = %46
-  %64 = load float, ptr %10, align 4
+  %64 = load float, ptr %10, align 4, !tbaa !21
   br label %65
 
 65:                                               ; preds = %63, %61
   %66 = phi float [ %62, %61 ], [ %64, %63 ]
-  store float %66, ptr %9, align 4
+  store float %66, ptr %9, align 4, !tbaa !21
   br label %67
 
 67:                                               ; preds = %65
-  %68 = load i32, ptr %12, align 4
+  %68 = load i32, ptr %12, align 4, !tbaa !14
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %12, align 4
-  br label %25, !llvm.loop !8
+  store i32 %69, ptr %12, align 4, !tbaa !14
+  br label %25, !llvm.loop !46
 
 70:                                               ; preds = %44
   br label %377
 
 71:                                               ; preds = %3
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.If_Man_t_, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.If_Par_t_, ptr %74, i32 0, i32 68
-  %76 = load ptr, ptr %75, align 8
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8, !tbaa !42
+  %75 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %74, i32 0, i32 70
+  %76 = load ptr, ptr %75, align 8, !tbaa !47
   %77 = icmp ne ptr %76, null
   br i1 %77, label %78, label %186
 
 78:                                               ; preds = %71
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.If_Man_t_, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.If_Par_t_, ptr %81, i32 0, i32 68
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.If_LibLut_t_, ptr %83, i32 0, i32 4
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.If_Cut_t_, ptr %85, i32 0, i32 7
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %79, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8, !tbaa !42
+  %82 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %81, i32 0, i32 70
+  %83 = load ptr, ptr %82, align 8, !tbaa !47
+  %84 = getelementptr inbounds nuw %struct.If_LibLut_t_, ptr %83, i32 0, i32 4
+  %85 = load ptr, ptr %6, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %85, i32 0, i32 7
   %87 = load i64, ptr %86, align 4
   %88 = lshr i64 %87, 24
   %89 = and i64 %88, 255
   %90 = trunc i64 %89 to i32
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds [33 x [33 x float]], ptr %84, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [33 x [33 x float]], ptr %84, i64 0, i64 %91
   %93 = getelementptr inbounds [33 x float], ptr %92, i64 0, i64 0
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.If_Man_t_, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.If_Par_t_, ptr %96, i32 0, i32 68
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.If_LibLut_t_, ptr %98, i32 0, i32 2
-  %100 = load i32, ptr %99, align 4
+  store ptr %93, ptr %11, align 8, !tbaa !12
+  %94 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8, !tbaa !42
+  %97 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %96, i32 0, i32 70
+  %98 = load ptr, ptr %97, align 8, !tbaa !47
+  %99 = getelementptr inbounds nuw %struct.If_LibLut_t_, ptr %98, i32 0, i32 2
+  %100 = load i32, ptr %99, align 4, !tbaa !48
   %101 = icmp ne i32 %100, 0
   br i1 %101, label %102, label %141
 
 102:                                              ; preds = %78
-  %103 = load ptr, ptr %4, align 8
-  %104 = load ptr, ptr %6, align 8
+  %103 = load ptr, ptr %4, align 8, !tbaa !3
+  %104 = load ptr, ptr %6, align 8, !tbaa !8
   call void @If_CutSortInputPins(ptr noundef %103, ptr noundef %104, ptr noundef @If_CutDelay.pPinPerm, ptr noundef @If_CutDelay.pPinDelays)
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %105
 
 105:                                              ; preds = %137, %102
-  %106 = load i32, ptr %12, align 4
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.If_Cut_t_, ptr %107, i32 0, i32 7
+  %106 = load i32, ptr %12, align 4, !tbaa !14
+  %107 = load ptr, ptr %6, align 8, !tbaa !8
+  %108 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %107, i32 0, i32 7
   %109 = load i64, ptr %108, align 4
   %110 = lshr i64 %109, 24
   %111 = and i64 %110, 255
@@ -407,55 +413,55 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %113, label %114, label %140
 
 114:                                              ; preds = %105
-  %115 = load i32, ptr %12, align 4
+  %115 = load i32, ptr %12, align 4, !tbaa !14
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
+  %118 = load i32, ptr %117, align 4, !tbaa !14
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds [32 x float], ptr @If_CutDelay.pPinDelays, i64 0, i64 %119
-  %121 = load float, ptr %120, align 4
-  %122 = load ptr, ptr %11, align 8
-  %123 = load i32, ptr %12, align 4
+  %121 = load float, ptr %120, align 4, !tbaa !21
+  %122 = load ptr, ptr %11, align 8, !tbaa !12
+  %123 = load i32, ptr %12, align 4, !tbaa !14
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds float, ptr %122, i64 %124
-  %126 = load float, ptr %125, align 4
+  %126 = load float, ptr %125, align 4, !tbaa !21
   %127 = fadd float %121, %126
-  store float %127, ptr %10, align 4
-  %128 = load float, ptr %9, align 4
-  %129 = load float, ptr %10, align 4
+  store float %127, ptr %10, align 4, !tbaa !21
+  %128 = load float, ptr %9, align 4, !tbaa !21
+  %129 = load float, ptr %10, align 4, !tbaa !21
   %130 = fcmp ogt float %128, %129
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %114
-  %132 = load float, ptr %9, align 4
+  %132 = load float, ptr %9, align 4, !tbaa !21
   br label %135
 
 133:                                              ; preds = %114
-  %134 = load float, ptr %10, align 4
+  %134 = load float, ptr %10, align 4, !tbaa !21
   br label %135
 
 135:                                              ; preds = %133, %131
   %136 = phi float [ %132, %131 ], [ %134, %133 ]
-  store float %136, ptr %9, align 4
+  store float %136, ptr %9, align 4, !tbaa !21
   br label %137
 
 137:                                              ; preds = %135
-  %138 = load i32, ptr %12, align 4
+  %138 = load i32, ptr %12, align 4, !tbaa !14
   %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %12, align 4
-  br label %105, !llvm.loop !9
+  store i32 %139, ptr %12, align 4, !tbaa !14
+  br label %105, !llvm.loop !50
 
 140:                                              ; preds = %105
   br label %185
 
 141:                                              ; preds = %78
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %142
 
 142:                                              ; preds = %181, %141
-  %143 = load i32, ptr %12, align 4
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct.If_Cut_t_, ptr %144, i32 0, i32 7
+  %143 = load i32, ptr %12, align 4, !tbaa !14
+  %144 = load ptr, ptr %6, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %144, i32 0, i32 7
   %146 = load i64, ptr %145, align 4
   %147 = lshr i64 %146, 24
   %148 = and i64 %147, 255
@@ -464,15 +470,15 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %150, label %151, label %161
 
 151:                                              ; preds = %142
-  %152 = load ptr, ptr %4, align 8
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %struct.If_Cut_t_, ptr %153, i32 0, i32 8
-  %155 = load i32, ptr %12, align 4
+  %152 = load ptr, ptr %4, align 8, !tbaa !3
+  %153 = load ptr, ptr %6, align 8, !tbaa !8
+  %154 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %153, i32 0, i32 8
+  %155 = load i32, ptr %12, align 4, !tbaa !14
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds [0 x i32], ptr %154, i64 0, i64 %156
-  %158 = load i32, ptr %157, align 4
+  %158 = load i32, ptr %157, align 4, !tbaa !14
   %159 = call ptr @If_ManObj(ptr noundef %152, i32 noundef %158)
-  store ptr %159, ptr %8, align 8
+  store ptr %159, ptr %8, align 8, !tbaa !16
   %160 = icmp ne ptr %159, null
   br label %161
 
@@ -481,38 +487,38 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %162, label %163, label %184
 
 163:                                              ; preds = %161
-  %164 = load ptr, ptr %8, align 8
+  %164 = load ptr, ptr %8, align 8, !tbaa !16
   %165 = call ptr @If_ObjCutBest(ptr noundef %164)
-  %166 = getelementptr inbounds %struct.If_Cut_t_, ptr %165, i32 0, i32 3
-  %167 = load float, ptr %166, align 4
-  %168 = load ptr, ptr %11, align 8
+  %166 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %165, i32 0, i32 3
+  %167 = load float, ptr %166, align 4, !tbaa !18
+  %168 = load ptr, ptr %11, align 8, !tbaa !12
   %169 = getelementptr inbounds float, ptr %168, i64 0
-  %170 = load float, ptr %169, align 4
+  %170 = load float, ptr %169, align 4, !tbaa !21
   %171 = fadd float %167, %170
-  store float %171, ptr %10, align 4
-  %172 = load float, ptr %9, align 4
-  %173 = load float, ptr %10, align 4
+  store float %171, ptr %10, align 4, !tbaa !21
+  %172 = load float, ptr %9, align 4, !tbaa !21
+  %173 = load float, ptr %10, align 4, !tbaa !21
   %174 = fcmp ogt float %172, %173
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %163
-  %176 = load float, ptr %9, align 4
+  %176 = load float, ptr %9, align 4, !tbaa !21
   br label %179
 
 177:                                              ; preds = %163
-  %178 = load float, ptr %10, align 4
+  %178 = load float, ptr %10, align 4, !tbaa !21
   br label %179
 
 179:                                              ; preds = %177, %175
   %180 = phi float [ %176, %175 ], [ %178, %177 ]
-  store float %180, ptr %9, align 4
+  store float %180, ptr %9, align 4, !tbaa !21
   br label %181
 
 181:                                              ; preds = %179
-  %182 = load i32, ptr %12, align 4
+  %182 = load i32, ptr %12, align 4, !tbaa !14
   %183 = add nsw i32 %182, 1
-  store i32 %183, ptr %12, align 4
-  br label %142, !llvm.loop !10
+  store i32 %183, ptr %12, align 4, !tbaa !14
+  br label %142, !llvm.loop !51
 
 184:                                              ; preds = %161
   br label %185
@@ -521,8 +527,8 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %376
 
 186:                                              ; preds = %71
-  %187 = load ptr, ptr %6, align 8
-  %188 = getelementptr inbounds %struct.If_Cut_t_, ptr %187, i32 0, i32 7
+  %187 = load ptr, ptr %6, align 8, !tbaa !8
+  %188 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %187, i32 0, i32 7
   %189 = load i64, ptr %188, align 4
   %190 = lshr i64 %189, 13
   %191 = and i64 %190, 1
@@ -531,13 +537,13 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %193, label %194, label %260
 
 194:                                              ; preds = %186
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %195
 
 195:                                              ; preds = %256, %194
-  %196 = load i32, ptr %12, align 4
-  %197 = load ptr, ptr %6, align 8
-  %198 = getelementptr inbounds %struct.If_Cut_t_, ptr %197, i32 0, i32 7
+  %196 = load i32, ptr %12, align 4, !tbaa !14
+  %197 = load ptr, ptr %6, align 8, !tbaa !8
+  %198 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %197, i32 0, i32 7
   %199 = load i64, ptr %198, align 4
   %200 = lshr i64 %199, 24
   %201 = and i64 %200, 255
@@ -546,15 +552,15 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %203, label %204, label %214
 
 204:                                              ; preds = %195
-  %205 = load ptr, ptr %4, align 8
-  %206 = load ptr, ptr %6, align 8
-  %207 = getelementptr inbounds %struct.If_Cut_t_, ptr %206, i32 0, i32 8
-  %208 = load i32, ptr %12, align 4
+  %205 = load ptr, ptr %4, align 8, !tbaa !3
+  %206 = load ptr, ptr %6, align 8, !tbaa !8
+  %207 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %206, i32 0, i32 8
+  %208 = load i32, ptr %12, align 4, !tbaa !14
   %209 = sext i32 %208 to i64
   %210 = getelementptr inbounds [0 x i32], ptr %207, i64 0, i64 %209
-  %211 = load i32, ptr %210, align 4
+  %211 = load i32, ptr %210, align 4, !tbaa !14
   %212 = call ptr @If_ManObj(ptr noundef %205, i32 noundef %211)
-  store ptr %212, ptr %8, align 8
+  store ptr %212, ptr %8, align 8, !tbaa !16
   %213 = icmp ne ptr %212, null
   br label %214
 
@@ -563,16 +569,16 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %215, label %216, label %259
 
 216:                                              ; preds = %214
-  %217 = load ptr, ptr %7, align 8
+  %217 = load ptr, ptr %7, align 8, !tbaa !41
   %218 = icmp ne ptr %217, null
   br i1 %218, label %219, label %237
 
 219:                                              ; preds = %216
-  %220 = load ptr, ptr %7, align 8
-  %221 = load i32, ptr %12, align 4
+  %220 = load ptr, ptr %7, align 8, !tbaa !41
+  %221 = load i32, ptr %12, align 4, !tbaa !14
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %220, i64 %222
-  %224 = load i8, ptr %223, align 1
+  %224 = load i8, ptr %223, align 1, !tbaa !52
   %225 = sext i8 %224 to i32
   %226 = icmp eq i32 %225, 120
   br i1 %226, label %227, label %228
@@ -581,11 +587,11 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %235
 
 228:                                              ; preds = %219
-  %229 = load ptr, ptr %7, align 8
-  %230 = load i32, ptr %12, align 4
+  %229 = load ptr, ptr %7, align 8, !tbaa !41
+  %230 = load i32, ptr %12, align 4, !tbaa !14
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i8, ptr %229, i64 %231
-  %233 = load i8, ptr %232, align 1
+  %233 = load i8, ptr %232, align 1, !tbaa !52
   %234 = sext i8 %233 to i32
   br label %235
 
@@ -598,59 +604,59 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 238:                                              ; preds = %237, %235
   %239 = phi i32 [ %236, %235 ], [ 1, %237 ]
-  store i32 %239, ptr %14, align 4
-  %240 = load ptr, ptr %8, align 8
+  store i32 %239, ptr %14, align 4, !tbaa !14
+  %240 = load ptr, ptr %8, align 8, !tbaa !16
   %241 = call ptr @If_ObjCutBest(ptr noundef %240)
-  %242 = getelementptr inbounds %struct.If_Cut_t_, ptr %241, i32 0, i32 3
-  %243 = load float, ptr %242, align 4
-  %244 = load i32, ptr %14, align 4
+  %242 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %241, i32 0, i32 3
+  %243 = load float, ptr %242, align 4, !tbaa !18
+  %244 = load i32, ptr %14, align 4, !tbaa !14
   %245 = sitofp i32 %244 to float
   %246 = fadd float %243, %245
-  store float %246, ptr %10, align 4
-  %247 = load float, ptr %9, align 4
-  %248 = load float, ptr %10, align 4
+  store float %246, ptr %10, align 4, !tbaa !21
+  %247 = load float, ptr %9, align 4, !tbaa !21
+  %248 = load float, ptr %10, align 4, !tbaa !21
   %249 = fcmp ogt float %247, %248
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %238
-  %251 = load float, ptr %9, align 4
+  %251 = load float, ptr %9, align 4, !tbaa !21
   br label %254
 
 252:                                              ; preds = %238
-  %253 = load float, ptr %10, align 4
+  %253 = load float, ptr %10, align 4, !tbaa !21
   br label %254
 
 254:                                              ; preds = %252, %250
   %255 = phi float [ %251, %250 ], [ %253, %252 ]
-  store float %255, ptr %9, align 4
+  store float %255, ptr %9, align 4, !tbaa !21
   br label %256
 
 256:                                              ; preds = %254
-  %257 = load i32, ptr %12, align 4
+  %257 = load i32, ptr %12, align 4, !tbaa !14
   %258 = add nsw i32 %257, 1
-  store i32 %258, ptr %12, align 4
-  br label %195, !llvm.loop !11
+  store i32 %258, ptr %12, align 4, !tbaa !14
+  br label %195, !llvm.loop !53
 
 259:                                              ; preds = %214
   br label %375
 
 260:                                              ; preds = %186
-  %261 = load ptr, ptr %4, align 8
-  %262 = getelementptr inbounds %struct.If_Man_t_, ptr %261, i32 0, i32 1
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds %struct.If_Par_t_, ptr %263, i32 0, i32 63
-  %265 = load i32, ptr %264, align 4
+  %261 = load ptr, ptr %4, align 8, !tbaa !3
+  %262 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %261, i32 0, i32 1
+  %263 = load ptr, ptr %262, align 8, !tbaa !42
+  %264 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %263, i32 0, i32 65
+  %265 = load i32, ptr %264, align 8, !tbaa !54
   %266 = icmp ne i32 %265, 0
   br i1 %266, label %267, label %331
 
 267:                                              ; preds = %260
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %268
 
 268:                                              ; preds = %327, %267
-  %269 = load i32, ptr %12, align 4
-  %270 = load ptr, ptr %6, align 8
-  %271 = getelementptr inbounds %struct.If_Cut_t_, ptr %270, i32 0, i32 7
+  %269 = load i32, ptr %12, align 4, !tbaa !14
+  %270 = load ptr, ptr %6, align 8, !tbaa !8
+  %271 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %270, i32 0, i32 7
   %272 = load i64, ptr %271, align 4
   %273 = lshr i64 %272, 24
   %274 = and i64 %273, 255
@@ -659,28 +665,28 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %276, label %277, label %297
 
 277:                                              ; preds = %268
-  %278 = load ptr, ptr %4, align 8
-  %279 = load ptr, ptr %6, align 8
-  %280 = getelementptr inbounds %struct.If_Cut_t_, ptr %279, i32 0, i32 8
-  %281 = load i32, ptr %12, align 4
+  %278 = load ptr, ptr %4, align 8, !tbaa !3
+  %279 = load ptr, ptr %6, align 8, !tbaa !8
+  %280 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %279, i32 0, i32 8
+  %281 = load i32, ptr %12, align 4, !tbaa !14
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds [0 x i32], ptr %280, i64 0, i64 %282
-  %284 = load i32, ptr %283, align 4
+  %284 = load i32, ptr %283, align 4, !tbaa !14
   %285 = ashr i32 %284, 8
   %286 = call ptr @If_ManObj(ptr noundef %278, i32 noundef %285)
-  store ptr %286, ptr %8, align 8
+  store ptr %286, ptr %8, align 8, !tbaa !16
   %287 = icmp ne ptr %286, null
   br i1 %287, label %288, label %297
 
 288:                                              ; preds = %277
-  %289 = load ptr, ptr %6, align 8
-  %290 = getelementptr inbounds %struct.If_Cut_t_, ptr %289, i32 0, i32 8
-  %291 = load i32, ptr %12, align 4
+  %289 = load ptr, ptr %6, align 8, !tbaa !8
+  %290 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %289, i32 0, i32 8
+  %291 = load i32, ptr %12, align 4, !tbaa !14
   %292 = sext i32 %291 to i64
   %293 = getelementptr inbounds [0 x i32], ptr %290, i64 0, i64 %292
-  %294 = load i32, ptr %293, align 4
+  %294 = load i32, ptr %293, align 4, !tbaa !14
   %295 = and i32 %294, 255
-  store i32 %295, ptr %13, align 4
+  store i32 %295, ptr %13, align 4, !tbaa !14
   %296 = icmp sge i32 %295, 0
   br label %297
 
@@ -689,33 +695,33 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %298, label %299, label %330
 
 299:                                              ; preds = %297
-  %300 = load ptr, ptr %8, align 8
+  %300 = load ptr, ptr %8, align 8, !tbaa !16
   %301 = call ptr @If_ObjCutBest(ptr noundef %300)
-  %302 = getelementptr inbounds %struct.If_Cut_t_, ptr %301, i32 0, i32 3
-  %303 = load float, ptr %302, align 4
-  %304 = load i32, ptr %13, align 4
-  %305 = load ptr, ptr %4, align 8
-  %306 = getelementptr inbounds %struct.If_Man_t_, ptr %305, i32 0, i32 37
-  %307 = load i32, ptr %306, align 8
+  %302 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %301, i32 0, i32 3
+  %303 = load float, ptr %302, align 4, !tbaa !18
+  %304 = load i32, ptr %13, align 4, !tbaa !14
+  %305 = load ptr, ptr %4, align 8, !tbaa !3
+  %306 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %305, i32 0, i32 37
+  %307 = load i32, ptr %306, align 8, !tbaa !55
   %308 = mul nsw i32 %304, %307
   %309 = sitofp i32 %308 to float
   %310 = fsub float %303, %309
-  store float %310, ptr %10, align 4
-  %311 = load float, ptr %9, align 4
+  store float %310, ptr %10, align 4, !tbaa !21
+  %311 = load float, ptr %9, align 4, !tbaa !21
   %312 = fpext float %311 to double
-  %313 = load float, ptr %10, align 4
+  %313 = load float, ptr %10, align 4, !tbaa !21
   %314 = fpext float %313 to double
   %315 = fadd double %314, 1.000000e+00
   %316 = fcmp ogt double %312, %315
   br i1 %316, label %317, label %320
 
 317:                                              ; preds = %299
-  %318 = load float, ptr %9, align 4
+  %318 = load float, ptr %9, align 4, !tbaa !21
   %319 = fpext float %318 to double
   br label %324
 
 320:                                              ; preds = %299
-  %321 = load float, ptr %10, align 4
+  %321 = load float, ptr %10, align 4, !tbaa !21
   %322 = fpext float %321 to double
   %323 = fadd double %322, 1.000000e+00
   br label %324
@@ -723,26 +729,26 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 324:                                              ; preds = %320, %317
   %325 = phi double [ %319, %317 ], [ %323, %320 ]
   %326 = fptrunc double %325 to float
-  store float %326, ptr %9, align 4
+  store float %326, ptr %9, align 4, !tbaa !21
   br label %327
 
 327:                                              ; preds = %324
-  %328 = load i32, ptr %12, align 4
+  %328 = load i32, ptr %12, align 4, !tbaa !14
   %329 = add nsw i32 %328, 1
-  store i32 %329, ptr %12, align 4
-  br label %268, !llvm.loop !12
+  store i32 %329, ptr %12, align 4, !tbaa !14
+  br label %268, !llvm.loop !56
 
 330:                                              ; preds = %297
   br label %374
 
 331:                                              ; preds = %260
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %332
 
 332:                                              ; preds = %370, %331
-  %333 = load i32, ptr %12, align 4
-  %334 = load ptr, ptr %6, align 8
-  %335 = getelementptr inbounds %struct.If_Cut_t_, ptr %334, i32 0, i32 7
+  %333 = load i32, ptr %12, align 4, !tbaa !14
+  %334 = load ptr, ptr %6, align 8, !tbaa !8
+  %335 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %334, i32 0, i32 7
   %336 = load i64, ptr %335, align 4
   %337 = lshr i64 %336, 24
   %338 = and i64 %337, 255
@@ -751,15 +757,15 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %340, label %341, label %351
 
 341:                                              ; preds = %332
-  %342 = load ptr, ptr %4, align 8
-  %343 = load ptr, ptr %6, align 8
-  %344 = getelementptr inbounds %struct.If_Cut_t_, ptr %343, i32 0, i32 8
-  %345 = load i32, ptr %12, align 4
+  %342 = load ptr, ptr %4, align 8, !tbaa !3
+  %343 = load ptr, ptr %6, align 8, !tbaa !8
+  %344 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %343, i32 0, i32 8
+  %345 = load i32, ptr %12, align 4, !tbaa !14
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds [0 x i32], ptr %344, i64 0, i64 %346
-  %348 = load i32, ptr %347, align 4
+  %348 = load i32, ptr %347, align 4, !tbaa !14
   %349 = call ptr @If_ManObj(ptr noundef %342, i32 noundef %348)
-  store ptr %349, ptr %8, align 8
+  store ptr %349, ptr %8, align 8, !tbaa !16
   %350 = icmp ne ptr %349, null
   br label %351
 
@@ -768,37 +774,37 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %352, label %353, label %373
 
 353:                                              ; preds = %351
-  %354 = load ptr, ptr %8, align 8
+  %354 = load ptr, ptr %8, align 8, !tbaa !16
   %355 = call ptr @If_ObjCutBest(ptr noundef %354)
-  %356 = getelementptr inbounds %struct.If_Cut_t_, ptr %355, i32 0, i32 3
-  %357 = load float, ptr %356, align 4
+  %356 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %355, i32 0, i32 3
+  %357 = load float, ptr %356, align 4, !tbaa !18
   %358 = fpext float %357 to double
   %359 = fadd double %358, 1.000000e+00
   %360 = fptrunc double %359 to float
-  store float %360, ptr %10, align 4
-  %361 = load float, ptr %9, align 4
-  %362 = load float, ptr %10, align 4
+  store float %360, ptr %10, align 4, !tbaa !21
+  %361 = load float, ptr %9, align 4, !tbaa !21
+  %362 = load float, ptr %10, align 4, !tbaa !21
   %363 = fcmp ogt float %361, %362
   br i1 %363, label %364, label %366
 
 364:                                              ; preds = %353
-  %365 = load float, ptr %9, align 4
+  %365 = load float, ptr %9, align 4, !tbaa !21
   br label %368
 
 366:                                              ; preds = %353
-  %367 = load float, ptr %10, align 4
+  %367 = load float, ptr %10, align 4, !tbaa !21
   br label %368
 
 368:                                              ; preds = %366, %364
   %369 = phi float [ %365, %364 ], [ %367, %366 ]
-  store float %369, ptr %9, align 4
+  store float %369, ptr %9, align 4, !tbaa !21
   br label %370
 
 370:                                              ; preds = %368
-  %371 = load i32, ptr %12, align 4
+  %371 = load i32, ptr %12, align 4, !tbaa !14
   %372 = add nsw i32 %371, 1
-  store i32 %372, ptr %12, align 4
-  br label %332, !llvm.loop !13
+  store i32 %372, ptr %12, align 4, !tbaa !14
+  br label %332, !llvm.loop !57
 
 373:                                              ; preds = %351
   br label %374
@@ -813,19 +819,27 @@ define float @If_CutDelay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %377
 
 377:                                              ; preds = %376, %70
-  %378 = load float, ptr %9, align 4
+  %378 = load float, ptr %9, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret float %378
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @If_CutPerm(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @If_CutPerm(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.If_Cut_t_, ptr %3, i32 0, i32 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %3, i32 0, i32 8
   %5 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 0
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.If_Cut_t_, ptr %6, i32 0, i32 7
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %6, i32 0, i32 7
   %8 = load i64, ptr %7, align 4
   %9 = lshr i64 %8, 24
   %10 = and i64 %9, 255
@@ -851,12 +865,17 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store float %3, ptr %8, align 4
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.If_Cut_t_, ptr %19, i32 0, i32 7
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store float %3, ptr %8, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %19 = load ptr, ptr %7, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %19, i32 0, i32 7
   %21 = load i64, ptr %20, align 4
   %22 = lshr i64 %21, 15
   %23 = and i64 %22, 1
@@ -865,13 +884,13 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %25, label %26, label %82
 
 26:                                               ; preds = %4
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %27
 
 27:                                               ; preds = %78, %26
-  %28 = load i32, ptr %12, align 4
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.If_Cut_t_, ptr %29, i32 0, i32 7
+  %28 = load i32, ptr %12, align 4, !tbaa !14
+  %29 = load ptr, ptr %7, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %29, i32 0, i32 7
   %31 = load i64, ptr %30, align 4
   %32 = lshr i64 %31, 24
   %33 = and i64 %32, 255
@@ -880,15 +899,15 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %27
-  %37 = load ptr, ptr %5, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.If_Cut_t_, ptr %38, i32 0, i32 8
-  %40 = load i32, ptr %12, align 4
+  %37 = load ptr, ptr %5, align 8, !tbaa !3
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %38, i32 0, i32 8
+  %40 = load i32, ptr %12, align 4, !tbaa !14
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds [0 x i32], ptr %39, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = call ptr @If_ManObj(ptr noundef %37, i32 noundef %43)
-  store ptr %44, ptr %9, align 8
+  store ptr %44, ptr %9, align 8, !tbaa !16
   %45 = icmp ne ptr %44, null
   br label %46
 
@@ -897,100 +916,100 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %47, label %48, label %81
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.If_Obj_t_, ptr %49, i32 0, i32 10
-  %51 = load float, ptr %50, align 4
-  %52 = load float, ptr %8, align 4
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.If_Man_t_, ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.If_Par_t_, ptr %55, i32 0, i32 10
-  %57 = load i32, ptr %56, align 8
+  %49 = load ptr, ptr %9, align 8, !tbaa !16
+  %50 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %49, i32 0, i32 10
+  %51 = load float, ptr %50, align 4, !tbaa !58
+  %52 = load float, ptr %8, align 4, !tbaa !21
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !42
+  %56 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %55, i32 0, i32 10
+  %57 = load i32, ptr %56, align 8, !tbaa !43
   %58 = sitofp i32 %57 to float
   %59 = fsub float %52, %58
   %60 = fcmp olt float %51, %59
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %48
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds %struct.If_Obj_t_, ptr %62, i32 0, i32 10
-  %64 = load float, ptr %63, align 4
+  %62 = load ptr, ptr %9, align 8, !tbaa !16
+  %63 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %62, i32 0, i32 10
+  %64 = load float, ptr %63, align 4, !tbaa !58
   br label %74
 
 65:                                               ; preds = %48
-  %66 = load float, ptr %8, align 4
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.If_Man_t_, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.If_Par_t_, ptr %69, i32 0, i32 10
-  %71 = load i32, ptr %70, align 8
+  %66 = load float, ptr %8, align 4, !tbaa !21
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !42
+  %70 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %69, i32 0, i32 10
+  %71 = load i32, ptr %70, align 8, !tbaa !43
   %72 = sitofp i32 %71 to float
   %73 = fsub float %66, %72
   br label %74
 
 74:                                               ; preds = %65, %61
   %75 = phi float [ %64, %61 ], [ %73, %65 ]
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.If_Obj_t_, ptr %76, i32 0, i32 10
-  store float %75, ptr %77, align 4
+  %76 = load ptr, ptr %9, align 8, !tbaa !16
+  %77 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %76, i32 0, i32 10
+  store float %75, ptr %77, align 4, !tbaa !58
   br label %78
 
 78:                                               ; preds = %74
-  %79 = load i32, ptr %12, align 4
+  %79 = load i32, ptr %12, align 4, !tbaa !14
   %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %12, align 4
-  br label %27, !llvm.loop !14
+  store i32 %80, ptr %12, align 4, !tbaa !14
+  br label %27, !llvm.loop !60
 
 81:                                               ; preds = %46
-  br label %444
+  br label %451
 
 82:                                               ; preds = %4
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.If_Man_t_, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.If_Par_t_, ptr %85, i32 0, i32 68
-  %87 = load ptr, ptr %86, align 8
+  %83 = load ptr, ptr %5, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8, !tbaa !42
+  %86 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %85, i32 0, i32 70
+  %87 = load ptr, ptr %86, align 8, !tbaa !47
   %88 = icmp ne ptr %87, null
   br i1 %88, label %89, label %215
 
 89:                                               ; preds = %82
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.If_Man_t_, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.If_Par_t_, ptr %92, i32 0, i32 68
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct.If_LibLut_t_, ptr %94, i32 0, i32 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct.If_Cut_t_, ptr %96, i32 0, i32 7
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !42
+  %93 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %92, i32 0, i32 70
+  %94 = load ptr, ptr %93, align 8, !tbaa !47
+  %95 = getelementptr inbounds nuw %struct.If_LibLut_t_, ptr %94, i32 0, i32 4
+  %96 = load ptr, ptr %7, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %96, i32 0, i32 7
   %98 = load i64, ptr %97, align 4
   %99 = lshr i64 %98, 24
   %100 = and i64 %99, 255
   %101 = trunc i64 %100 to i32
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds [33 x [33 x float]], ptr %95, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [33 x [33 x float]], ptr %95, i64 0, i64 %102
   %104 = getelementptr inbounds [33 x float], ptr %103, i64 0, i64 0
-  store ptr %104, ptr %10, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds %struct.If_Man_t_, ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.If_Par_t_, ptr %107, i32 0, i32 68
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.If_LibLut_t_, ptr %109, i32 0, i32 2
-  %111 = load i32, ptr %110, align 4
+  store ptr %104, ptr %10, align 8, !tbaa !12
+  %105 = load ptr, ptr %5, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8, !tbaa !42
+  %108 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %107, i32 0, i32 70
+  %109 = load ptr, ptr %108, align 8, !tbaa !47
+  %110 = getelementptr inbounds nuw %struct.If_LibLut_t_, ptr %109, i32 0, i32 2
+  %111 = load i32, ptr %110, align 4, !tbaa !48
   %112 = icmp ne i32 %111, 0
   br i1 %112, label %113, label %163
 
 113:                                              ; preds = %89
-  %114 = load ptr, ptr %5, align 8
-  %115 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %5, align 8, !tbaa !3
+  %115 = load ptr, ptr %7, align 8, !tbaa !8
   call void @If_CutSortInputPins(ptr noundef %114, ptr noundef %115, ptr noundef @If_CutPropagateRequired.pPinPerm, ptr noundef @If_CutPropagateRequired.pPinDelays)
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %116
 
 116:                                              ; preds = %159, %113
-  %117 = load i32, ptr %12, align 4
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct.If_Cut_t_, ptr %118, i32 0, i32 7
+  %117 = load i32, ptr %12, align 4, !tbaa !14
+  %118 = load ptr, ptr %7, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %118, i32 0, i32 7
   %120 = load i64, ptr %119, align 4
   %121 = lshr i64 %120, 24
   %122 = and i64 %121, 255
@@ -999,69 +1018,69 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %124, label %125, label %162
 
 125:                                              ; preds = %116
-  %126 = load float, ptr %8, align 4
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i32, ptr %12, align 4
+  %126 = load float, ptr %8, align 4, !tbaa !21
+  %127 = load ptr, ptr %10, align 8, !tbaa !12
+  %128 = load i32, ptr %12, align 4, !tbaa !14
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds float, ptr %127, i64 %129
-  %131 = load float, ptr %130, align 4
+  %131 = load float, ptr %130, align 4, !tbaa !21
   %132 = fsub float %126, %131
-  store float %132, ptr %11, align 4
-  %133 = load ptr, ptr %5, align 8
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds %struct.If_Cut_t_, ptr %134, i32 0, i32 8
-  %136 = load i32, ptr %12, align 4
+  store float %132, ptr %11, align 4, !tbaa !21
+  %133 = load ptr, ptr %5, align 8, !tbaa !3
+  %134 = load ptr, ptr %7, align 8, !tbaa !8
+  %135 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %134, i32 0, i32 8
+  %136 = load i32, ptr %12, align 4, !tbaa !14
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds [32 x i32], ptr @If_CutPropagateRequired.pPinPerm, i64 0, i64 %137
-  %139 = load i32, ptr %138, align 4
+  %139 = load i32, ptr %138, align 4, !tbaa !14
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds [0 x i32], ptr %135, i64 0, i64 %140
-  %142 = load i32, ptr %141, align 4
+  %142 = load i32, ptr %141, align 4, !tbaa !14
   %143 = call ptr @If_ManObj(ptr noundef %133, i32 noundef %142)
-  store ptr %143, ptr %9, align 8
-  %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr inbounds %struct.If_Obj_t_, ptr %144, i32 0, i32 10
-  %146 = load float, ptr %145, align 4
-  %147 = load float, ptr %11, align 4
+  store ptr %143, ptr %9, align 8, !tbaa !16
+  %144 = load ptr, ptr %9, align 8, !tbaa !16
+  %145 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %144, i32 0, i32 10
+  %146 = load float, ptr %145, align 4, !tbaa !58
+  %147 = load float, ptr %11, align 4, !tbaa !21
   %148 = fcmp olt float %146, %147
   br i1 %148, label %149, label %153
 
 149:                                              ; preds = %125
-  %150 = load ptr, ptr %9, align 8
-  %151 = getelementptr inbounds %struct.If_Obj_t_, ptr %150, i32 0, i32 10
-  %152 = load float, ptr %151, align 4
+  %150 = load ptr, ptr %9, align 8, !tbaa !16
+  %151 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %150, i32 0, i32 10
+  %152 = load float, ptr %151, align 4, !tbaa !58
   br label %155
 
 153:                                              ; preds = %125
-  %154 = load float, ptr %11, align 4
+  %154 = load float, ptr %11, align 4, !tbaa !21
   br label %155
 
 155:                                              ; preds = %153, %149
   %156 = phi float [ %152, %149 ], [ %154, %153 ]
-  %157 = load ptr, ptr %9, align 8
-  %158 = getelementptr inbounds %struct.If_Obj_t_, ptr %157, i32 0, i32 10
-  store float %156, ptr %158, align 4
+  %157 = load ptr, ptr %9, align 8, !tbaa !16
+  %158 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %157, i32 0, i32 10
+  store float %156, ptr %158, align 4, !tbaa !58
   br label %159
 
 159:                                              ; preds = %155
-  %160 = load i32, ptr %12, align 4
+  %160 = load i32, ptr %12, align 4, !tbaa !14
   %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %12, align 4
-  br label %116, !llvm.loop !15
+  store i32 %161, ptr %12, align 4, !tbaa !14
+  br label %116, !llvm.loop !61
 
 162:                                              ; preds = %116
   br label %214
 
 163:                                              ; preds = %89
-  %164 = load float, ptr %8, align 4
-  store float %164, ptr %11, align 4
-  store i32 0, ptr %12, align 4
+  %164 = load float, ptr %8, align 4, !tbaa !21
+  store float %164, ptr %11, align 4, !tbaa !21
+  store i32 0, ptr %12, align 4, !tbaa !14
   br label %165
 
 165:                                              ; preds = %210, %163
-  %166 = load i32, ptr %12, align 4
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.If_Cut_t_, ptr %167, i32 0, i32 7
+  %166 = load i32, ptr %12, align 4, !tbaa !14
+  %167 = load ptr, ptr %7, align 8, !tbaa !8
+  %168 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %167, i32 0, i32 7
   %169 = load i64, ptr %168, align 4
   %170 = lshr i64 %169, 24
   %171 = and i64 %170, 255
@@ -1070,15 +1089,15 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %173, label %174, label %184
 
 174:                                              ; preds = %165
-  %175 = load ptr, ptr %5, align 8
-  %176 = load ptr, ptr %7, align 8
-  %177 = getelementptr inbounds %struct.If_Cut_t_, ptr %176, i32 0, i32 8
-  %178 = load i32, ptr %12, align 4
+  %175 = load ptr, ptr %5, align 8, !tbaa !3
+  %176 = load ptr, ptr %7, align 8, !tbaa !8
+  %177 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %176, i32 0, i32 8
+  %178 = load i32, ptr %12, align 4, !tbaa !14
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds [0 x i32], ptr %177, i64 0, i64 %179
-  %181 = load i32, ptr %180, align 4
+  %181 = load i32, ptr %180, align 4, !tbaa !14
   %182 = call ptr @If_ManObj(ptr noundef %175, i32 noundef %181)
-  store ptr %182, ptr %9, align 8
+  store ptr %182, ptr %9, align 8, !tbaa !16
   %183 = icmp ne ptr %182, null
   br label %184
 
@@ -1087,411 +1106,435 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %185, label %186, label %213
 
 186:                                              ; preds = %184
-  %187 = load ptr, ptr %9, align 8
-  %188 = getelementptr inbounds %struct.If_Obj_t_, ptr %187, i32 0, i32 10
-  %189 = load float, ptr %188, align 4
-  %190 = load float, ptr %11, align 4
-  %191 = load ptr, ptr %10, align 8
+  %187 = load ptr, ptr %9, align 8, !tbaa !16
+  %188 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %187, i32 0, i32 10
+  %189 = load float, ptr %188, align 4, !tbaa !58
+  %190 = load float, ptr %11, align 4, !tbaa !21
+  %191 = load ptr, ptr %10, align 8, !tbaa !12
   %192 = getelementptr inbounds float, ptr %191, i64 0
-  %193 = load float, ptr %192, align 4
+  %193 = load float, ptr %192, align 4, !tbaa !21
   %194 = fsub float %190, %193
   %195 = fcmp olt float %189, %194
   br i1 %195, label %196, label %200
 
 196:                                              ; preds = %186
-  %197 = load ptr, ptr %9, align 8
-  %198 = getelementptr inbounds %struct.If_Obj_t_, ptr %197, i32 0, i32 10
-  %199 = load float, ptr %198, align 4
+  %197 = load ptr, ptr %9, align 8, !tbaa !16
+  %198 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %197, i32 0, i32 10
+  %199 = load float, ptr %198, align 4, !tbaa !58
   br label %206
 
 200:                                              ; preds = %186
-  %201 = load float, ptr %11, align 4
-  %202 = load ptr, ptr %10, align 8
+  %201 = load float, ptr %11, align 4, !tbaa !21
+  %202 = load ptr, ptr %10, align 8, !tbaa !12
   %203 = getelementptr inbounds float, ptr %202, i64 0
-  %204 = load float, ptr %203, align 4
+  %204 = load float, ptr %203, align 4, !tbaa !21
   %205 = fsub float %201, %204
   br label %206
 
 206:                                              ; preds = %200, %196
   %207 = phi float [ %199, %196 ], [ %205, %200 ]
-  %208 = load ptr, ptr %9, align 8
-  %209 = getelementptr inbounds %struct.If_Obj_t_, ptr %208, i32 0, i32 10
-  store float %207, ptr %209, align 4
+  %208 = load ptr, ptr %9, align 8, !tbaa !16
+  %209 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %208, i32 0, i32 10
+  store float %207, ptr %209, align 4, !tbaa !58
   br label %210
 
 210:                                              ; preds = %206
-  %211 = load i32, ptr %12, align 4
+  %211 = load i32, ptr %12, align 4, !tbaa !14
   %212 = add nsw i32 %211, 1
-  store i32 %212, ptr %12, align 4
-  br label %165, !llvm.loop !16
+  store i32 %212, ptr %12, align 4, !tbaa !14
+  br label %165, !llvm.loop !62
 
 213:                                              ; preds = %184
   br label %214
 
 214:                                              ; preds = %213, %162
-  br label %443
+  br label %450
 
 215:                                              ; preds = %82
-  %216 = load ptr, ptr %5, align 8
-  %217 = getelementptr inbounds %struct.If_Man_t_, ptr %216, i32 0, i32 1
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.If_Par_t_, ptr %218, i32 0, i32 46
-  %220 = load i32, ptr %219, align 8
+  %216 = load ptr, ptr %5, align 8, !tbaa !3
+  %217 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %216, i32 0, i32 1
+  %218 = load ptr, ptr %217, align 8, !tbaa !42
+  %219 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %218, i32 0, i32 46
+  %220 = load i32, ptr %219, align 8, !tbaa !63
   %221 = icmp ne i32 %220, 0
-  br i1 %221, label %222, label %277
+  br i1 %221, label %229, label %222
 
 222:                                              ; preds = %215
-  %223 = load float, ptr %8, align 4
-  store float %223, ptr %11, align 4
-  store i32 0, ptr %12, align 4
-  br label %224
+  %223 = load ptr, ptr %5, align 8, !tbaa !3
+  %224 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %223, i32 0, i32 1
+  %225 = load ptr, ptr %224, align 8, !tbaa !42
+  %226 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %225, i32 0, i32 47
+  %227 = load i32, ptr %226, align 4, !tbaa !64
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %229, label %284
 
-224:                                              ; preds = %273, %222
-  %225 = load i32, ptr %12, align 4
-  %226 = load ptr, ptr %7, align 8
-  %227 = getelementptr inbounds %struct.If_Cut_t_, ptr %226, i32 0, i32 7
-  %228 = load i64, ptr %227, align 4
-  %229 = lshr i64 %228, 24
-  %230 = and i64 %229, 255
-  %231 = trunc i64 %230 to i32
-  %232 = icmp slt i32 %225, %231
-  br i1 %232, label %233, label %243
+229:                                              ; preds = %222, %215
+  %230 = load float, ptr %8, align 4, !tbaa !21
+  store float %230, ptr %11, align 4, !tbaa !21
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %231
 
-233:                                              ; preds = %224
-  %234 = load ptr, ptr %5, align 8
-  %235 = load ptr, ptr %7, align 8
-  %236 = getelementptr inbounds %struct.If_Cut_t_, ptr %235, i32 0, i32 8
-  %237 = load i32, ptr %12, align 4
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [0 x i32], ptr %236, i64 0, i64 %238
-  %240 = load i32, ptr %239, align 4
-  %241 = call ptr @If_ManObj(ptr noundef %234, i32 noundef %240)
-  store ptr %241, ptr %9, align 8
-  %242 = icmp ne ptr %241, null
-  br label %243
+231:                                              ; preds = %280, %229
+  %232 = load i32, ptr %12, align 4, !tbaa !14
+  %233 = load ptr, ptr %7, align 8, !tbaa !8
+  %234 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %233, i32 0, i32 7
+  %235 = load i64, ptr %234, align 4
+  %236 = lshr i64 %235, 24
+  %237 = and i64 %236, 255
+  %238 = trunc i64 %237 to i32
+  %239 = icmp slt i32 %232, %238
+  br i1 %239, label %240, label %250
 
-243:                                              ; preds = %233, %224
-  %244 = phi i1 [ false, %224 ], [ %242, %233 ]
-  br i1 %244, label %245, label %276
+240:                                              ; preds = %231
+  %241 = load ptr, ptr %5, align 8, !tbaa !3
+  %242 = load ptr, ptr %7, align 8, !tbaa !8
+  %243 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %242, i32 0, i32 8
+  %244 = load i32, ptr %12, align 4, !tbaa !14
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds [0 x i32], ptr %243, i64 0, i64 %245
+  %247 = load i32, ptr %246, align 4, !tbaa !14
+  %248 = call ptr @If_ManObj(ptr noundef %241, i32 noundef %247)
+  store ptr %248, ptr %9, align 8, !tbaa !16
+  %249 = icmp ne ptr %248, null
+  br label %250
 
-245:                                              ; preds = %243
-  %246 = load ptr, ptr %9, align 8
-  %247 = getelementptr inbounds %struct.If_Obj_t_, ptr %246, i32 0, i32 10
-  %248 = load float, ptr %247, align 4
-  %249 = load float, ptr %11, align 4
-  %250 = load ptr, ptr %5, align 8
-  %251 = load ptr, ptr %7, align 8
-  %252 = load i32, ptr %12, align 4
-  %253 = load float, ptr %8, align 4
-  %254 = call float @If_LutDecPinRequired(ptr noundef %250, ptr noundef %251, i32 noundef %252, float noundef %253)
-  %255 = fsub float %249, %254
-  %256 = fcmp olt float %248, %255
-  br i1 %256, label %257, label %261
+250:                                              ; preds = %240, %231
+  %251 = phi i1 [ false, %231 ], [ %249, %240 ]
+  br i1 %251, label %252, label %283
 
-257:                                              ; preds = %245
-  %258 = load ptr, ptr %9, align 8
-  %259 = getelementptr inbounds %struct.If_Obj_t_, ptr %258, i32 0, i32 10
-  %260 = load float, ptr %259, align 4
-  br label %269
+252:                                              ; preds = %250
+  %253 = load ptr, ptr %9, align 8, !tbaa !16
+  %254 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %253, i32 0, i32 10
+  %255 = load float, ptr %254, align 4, !tbaa !58
+  %256 = load float, ptr %11, align 4, !tbaa !21
+  %257 = load ptr, ptr %5, align 8, !tbaa !3
+  %258 = load ptr, ptr %7, align 8, !tbaa !8
+  %259 = load i32, ptr %12, align 4, !tbaa !14
+  %260 = load float, ptr %8, align 4, !tbaa !21
+  %261 = call float @If_LutDecPinRequired(ptr noundef %257, ptr noundef %258, i32 noundef %259, float noundef %260)
+  %262 = fsub float %256, %261
+  %263 = fcmp olt float %255, %262
+  br i1 %263, label %264, label %268
 
-261:                                              ; preds = %245
-  %262 = load float, ptr %11, align 4
-  %263 = load ptr, ptr %5, align 8
-  %264 = load ptr, ptr %7, align 8
-  %265 = load i32, ptr %12, align 4
-  %266 = load float, ptr %8, align 4
-  %267 = call float @If_LutDecPinRequired(ptr noundef %263, ptr noundef %264, i32 noundef %265, float noundef %266)
-  %268 = fsub float %262, %267
-  br label %269
+264:                                              ; preds = %252
+  %265 = load ptr, ptr %9, align 8, !tbaa !16
+  %266 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %265, i32 0, i32 10
+  %267 = load float, ptr %266, align 4, !tbaa !58
+  br label %276
 
-269:                                              ; preds = %261, %257
-  %270 = phi float [ %260, %257 ], [ %268, %261 ]
-  %271 = load ptr, ptr %9, align 8
-  %272 = getelementptr inbounds %struct.If_Obj_t_, ptr %271, i32 0, i32 10
-  store float %270, ptr %272, align 4
-  br label %273
+268:                                              ; preds = %252
+  %269 = load float, ptr %11, align 4, !tbaa !21
+  %270 = load ptr, ptr %5, align 8, !tbaa !3
+  %271 = load ptr, ptr %7, align 8, !tbaa !8
+  %272 = load i32, ptr %12, align 4, !tbaa !14
+  %273 = load float, ptr %8, align 4, !tbaa !21
+  %274 = call float @If_LutDecPinRequired(ptr noundef %270, ptr noundef %271, i32 noundef %272, float noundef %273)
+  %275 = fsub float %269, %274
+  br label %276
 
-273:                                              ; preds = %269
-  %274 = load i32, ptr %12, align 4
-  %275 = add nsw i32 %274, 1
-  store i32 %275, ptr %12, align 4
-  br label %224, !llvm.loop !17
+276:                                              ; preds = %268, %264
+  %277 = phi float [ %267, %264 ], [ %275, %268 ]
+  %278 = load ptr, ptr %9, align 8, !tbaa !16
+  %279 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %278, i32 0, i32 10
+  store float %277, ptr %279, align 4, !tbaa !58
+  br label %280
 
-276:                                              ; preds = %243
-  br label %442
+280:                                              ; preds = %276
+  %281 = load i32, ptr %12, align 4, !tbaa !14
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %12, align 4, !tbaa !14
+  br label %231, !llvm.loop !65
 
-277:                                              ; preds = %215
-  %278 = load ptr, ptr %7, align 8
-  %279 = getelementptr inbounds %struct.If_Cut_t_, ptr %278, i32 0, i32 7
-  %280 = load i64, ptr %279, align 4
-  %281 = lshr i64 %280, 13
-  %282 = and i64 %281, 1
-  %283 = trunc i64 %282 to i32
-  %284 = icmp ne i32 %283, 0
-  br i1 %284, label %285, label %396
+283:                                              ; preds = %250
+  br label %449
 
-285:                                              ; preds = %277
-  %286 = getelementptr inbounds [15 x i8], ptr %14, i64 0, i64 0
-  store ptr %286, ptr %15, align 8
-  %287 = load ptr, ptr %5, align 8
-  %288 = getelementptr inbounds %struct.If_Man_t_, ptr %287, i32 0, i32 1
-  %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds %struct.If_Par_t_, ptr %289, i32 0, i32 22
-  %291 = load i32, ptr %290, align 8
-  %292 = icmp ne i32 %291, 0
-  br i1 %292, label %293, label %298
+284:                                              ; preds = %222
+  %285 = load ptr, ptr %7, align 8, !tbaa !8
+  %286 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %285, i32 0, i32 7
+  %287 = load i64, ptr %286, align 4
+  %288 = lshr i64 %287, 13
+  %289 = and i64 %288, 1
+  %290 = trunc i64 %289 to i32
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %292, label %403
 
-293:                                              ; preds = %285
-  %294 = load ptr, ptr %5, align 8
-  %295 = load ptr, ptr %7, align 8
-  %296 = load ptr, ptr %15, align 8
-  %297 = call i32 @If_CutSopBalancePinDelays(ptr noundef %294, ptr noundef %295, ptr noundef %296)
-  store i32 %297, ptr %16, align 4
-  br label %327
+292:                                              ; preds = %284
+  call void @llvm.lifetime.start.p0(i64 15, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %293 = getelementptr inbounds [15 x i8], ptr %14, i64 0, i64 0
+  store ptr %293, ptr %15, align 8, !tbaa !41
+  %294 = load ptr, ptr %5, align 8, !tbaa !3
+  %295 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %294, i32 0, i32 1
+  %296 = load ptr, ptr %295, align 8, !tbaa !42
+  %297 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %296, i32 0, i32 22
+  %298 = load i32, ptr %297, align 8, !tbaa !66
+  %299 = icmp ne i32 %298, 0
+  br i1 %299, label %300, label %305
 
-298:                                              ; preds = %285
-  %299 = load ptr, ptr %5, align 8
-  %300 = getelementptr inbounds %struct.If_Man_t_, ptr %299, i32 0, i32 1
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds %struct.If_Par_t_, ptr %301, i32 0, i32 23
-  %303 = load i32, ptr %302, align 4
-  %304 = icmp ne i32 %303, 0
-  br i1 %304, label %305, label %310
+300:                                              ; preds = %292
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %301 = load ptr, ptr %5, align 8, !tbaa !3
+  %302 = load ptr, ptr %7, align 8, !tbaa !8
+  %303 = load ptr, ptr %15, align 8, !tbaa !41
+  %304 = call i32 @If_CutSopBalancePinDelays(ptr noundef %301, ptr noundef %302, ptr noundef %303)
+  store i32 %304, ptr %16, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  br label %334
 
-305:                                              ; preds = %298
-  %306 = load ptr, ptr %5, align 8
-  %307 = load ptr, ptr %7, align 8
-  %308 = load ptr, ptr %15, align 8
-  %309 = call i32 @If_CutLutBalancePinDelays(ptr noundef %306, ptr noundef %307, ptr noundef %308)
-  store i32 %309, ptr %17, align 4
-  br label %326
+305:                                              ; preds = %292
+  %306 = load ptr, ptr %5, align 8, !tbaa !3
+  %307 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %306, i32 0, i32 1
+  %308 = load ptr, ptr %307, align 8, !tbaa !42
+  %309 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %308, i32 0, i32 23
+  %310 = load i32, ptr %309, align 4, !tbaa !67
+  %311 = icmp ne i32 %310, 0
+  br i1 %311, label %312, label %317
 
-310:                                              ; preds = %298
-  %311 = load ptr, ptr %5, align 8
-  %312 = getelementptr inbounds %struct.If_Man_t_, ptr %311, i32 0, i32 1
-  %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds %struct.If_Par_t_, ptr %313, i32 0, i32 24
-  %315 = load i32, ptr %314, align 8
-  %316 = icmp ne i32 %315, 0
-  br i1 %316, label %317, label %322
+312:                                              ; preds = %305
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  %313 = load ptr, ptr %5, align 8, !tbaa !3
+  %314 = load ptr, ptr %7, align 8, !tbaa !8
+  %315 = load ptr, ptr %15, align 8, !tbaa !41
+  %316 = call i32 @If_CutLutBalancePinDelays(ptr noundef %313, ptr noundef %314, ptr noundef %315)
+  store i32 %316, ptr %17, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  br label %333
 
-317:                                              ; preds = %310
-  %318 = load ptr, ptr %5, align 8
-  %319 = load ptr, ptr %7, align 8
-  %320 = load ptr, ptr %15, align 8
-  %321 = call i32 @If_CutDsdBalancePinDelays(ptr noundef %318, ptr noundef %319, ptr noundef %320)
-  store i32 %321, ptr %18, align 4
-  br label %325
+317:                                              ; preds = %305
+  %318 = load ptr, ptr %5, align 8, !tbaa !3
+  %319 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %318, i32 0, i32 1
+  %320 = load ptr, ptr %319, align 8, !tbaa !42
+  %321 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %320, i32 0, i32 24
+  %322 = load i32, ptr %321, align 8, !tbaa !68
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %324, label %329
 
-322:                                              ; preds = %310
-  %323 = load ptr, ptr %7, align 8
-  %324 = call ptr @If_CutPerm(ptr noundef %323)
-  store ptr %324, ptr %15, align 8
-  br label %325
+324:                                              ; preds = %317
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  %325 = load ptr, ptr %5, align 8, !tbaa !3
+  %326 = load ptr, ptr %7, align 8, !tbaa !8
+  %327 = load ptr, ptr %15, align 8, !tbaa !41
+  %328 = call i32 @If_CutDsdBalancePinDelays(ptr noundef %325, ptr noundef %326, ptr noundef %327)
+  store i32 %328, ptr %18, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  br label %332
 
-325:                                              ; preds = %322, %317
-  br label %326
+329:                                              ; preds = %317
+  %330 = load ptr, ptr %7, align 8, !tbaa !8
+  %331 = call ptr @If_CutPerm(ptr noundef %330)
+  store ptr %331, ptr %15, align 8, !tbaa !41
+  br label %332
 
-326:                                              ; preds = %325, %305
-  br label %327
+332:                                              ; preds = %329, %324
+  br label %333
 
-327:                                              ; preds = %326, %293
-  store i32 0, ptr %12, align 4
-  br label %328
+333:                                              ; preds = %332, %312
+  br label %334
 
-328:                                              ; preds = %392, %327
-  %329 = load i32, ptr %12, align 4
-  %330 = load ptr, ptr %7, align 8
-  %331 = getelementptr inbounds %struct.If_Cut_t_, ptr %330, i32 0, i32 7
-  %332 = load i64, ptr %331, align 4
-  %333 = lshr i64 %332, 24
-  %334 = and i64 %333, 255
-  %335 = trunc i64 %334 to i32
-  %336 = icmp slt i32 %329, %335
-  br i1 %336, label %337, label %347
+334:                                              ; preds = %333, %300
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %335
 
-337:                                              ; preds = %328
-  %338 = load ptr, ptr %5, align 8
-  %339 = load ptr, ptr %7, align 8
-  %340 = getelementptr inbounds %struct.If_Cut_t_, ptr %339, i32 0, i32 8
-  %341 = load i32, ptr %12, align 4
-  %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds [0 x i32], ptr %340, i64 0, i64 %342
-  %344 = load i32, ptr %343, align 4
-  %345 = call ptr @If_ManObj(ptr noundef %338, i32 noundef %344)
-  store ptr %345, ptr %9, align 8
-  %346 = icmp ne ptr %345, null
-  br label %347
+335:                                              ; preds = %399, %334
+  %336 = load i32, ptr %12, align 4, !tbaa !14
+  %337 = load ptr, ptr %7, align 8, !tbaa !8
+  %338 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %337, i32 0, i32 7
+  %339 = load i64, ptr %338, align 4
+  %340 = lshr i64 %339, 24
+  %341 = and i64 %340, 255
+  %342 = trunc i64 %341 to i32
+  %343 = icmp slt i32 %336, %342
+  br i1 %343, label %344, label %354
 
-347:                                              ; preds = %337, %328
-  %348 = phi i1 [ false, %328 ], [ %346, %337 ]
-  br i1 %348, label %349, label %395
+344:                                              ; preds = %335
+  %345 = load ptr, ptr %5, align 8, !tbaa !3
+  %346 = load ptr, ptr %7, align 8, !tbaa !8
+  %347 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %346, i32 0, i32 8
+  %348 = load i32, ptr %12, align 4, !tbaa !14
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds [0 x i32], ptr %347, i64 0, i64 %349
+  %351 = load i32, ptr %350, align 4, !tbaa !14
+  %352 = call ptr @If_ManObj(ptr noundef %345, i32 noundef %351)
+  store ptr %352, ptr %9, align 8, !tbaa !16
+  %353 = icmp ne ptr %352, null
+  br label %354
 
-349:                                              ; preds = %347
-  %350 = load ptr, ptr %15, align 8
-  %351 = icmp ne ptr %350, null
-  br i1 %351, label %352, label %370
+354:                                              ; preds = %344, %335
+  %355 = phi i1 [ false, %335 ], [ %353, %344 ]
+  br i1 %355, label %356, label %402
 
-352:                                              ; preds = %349
-  %353 = load ptr, ptr %15, align 8
-  %354 = load i32, ptr %12, align 4
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds i8, ptr %353, i64 %355
-  %357 = load i8, ptr %356, align 1
-  %358 = sext i8 %357 to i32
-  %359 = icmp eq i32 %358, 120
-  br i1 %359, label %360, label %361
+356:                                              ; preds = %354
+  %357 = load ptr, ptr %15, align 8, !tbaa !41
+  %358 = icmp ne ptr %357, null
+  br i1 %358, label %359, label %377
 
-360:                                              ; preds = %352
-  br label %368
+359:                                              ; preds = %356
+  %360 = load ptr, ptr %15, align 8, !tbaa !41
+  %361 = load i32, ptr %12, align 4, !tbaa !14
+  %362 = sext i32 %361 to i64
+  %363 = getelementptr inbounds i8, ptr %360, i64 %362
+  %364 = load i8, ptr %363, align 1, !tbaa !52
+  %365 = sext i8 %364 to i32
+  %366 = icmp eq i32 %365, 120
+  br i1 %366, label %367, label %368
 
-361:                                              ; preds = %352
-  %362 = load ptr, ptr %15, align 8
-  %363 = load i32, ptr %12, align 4
-  %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds i8, ptr %362, i64 %364
-  %366 = load i8, ptr %365, align 1
-  %367 = sext i8 %366 to i32
-  br label %368
+367:                                              ; preds = %359
+  br label %375
 
-368:                                              ; preds = %361, %360
-  %369 = phi i32 [ -120, %360 ], [ %367, %361 ]
-  br label %371
+368:                                              ; preds = %359
+  %369 = load ptr, ptr %15, align 8, !tbaa !41
+  %370 = load i32, ptr %12, align 4, !tbaa !14
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds i8, ptr %369, i64 %371
+  %373 = load i8, ptr %372, align 1, !tbaa !52
+  %374 = sext i8 %373 to i32
+  br label %375
 
-370:                                              ; preds = %349
-  br label %371
+375:                                              ; preds = %368, %367
+  %376 = phi i32 [ -120, %367 ], [ %374, %368 ]
+  br label %378
 
-371:                                              ; preds = %370, %368
-  %372 = phi i32 [ %369, %368 ], [ 1, %370 ]
-  store i32 %372, ptr %13, align 4
-  %373 = load float, ptr %8, align 4
-  %374 = load i32, ptr %13, align 4
-  %375 = sitofp i32 %374 to float
-  %376 = fsub float %373, %375
-  store float %376, ptr %11, align 4
-  %377 = load ptr, ptr %9, align 8
-  %378 = getelementptr inbounds %struct.If_Obj_t_, ptr %377, i32 0, i32 10
-  %379 = load float, ptr %378, align 4
-  %380 = load float, ptr %11, align 4
-  %381 = fcmp olt float %379, %380
-  br i1 %381, label %382, label %386
+377:                                              ; preds = %356
+  br label %378
 
-382:                                              ; preds = %371
-  %383 = load ptr, ptr %9, align 8
-  %384 = getelementptr inbounds %struct.If_Obj_t_, ptr %383, i32 0, i32 10
-  %385 = load float, ptr %384, align 4
-  br label %388
+378:                                              ; preds = %377, %375
+  %379 = phi i32 [ %376, %375 ], [ 1, %377 ]
+  store i32 %379, ptr %13, align 4, !tbaa !14
+  %380 = load float, ptr %8, align 4, !tbaa !21
+  %381 = load i32, ptr %13, align 4, !tbaa !14
+  %382 = sitofp i32 %381 to float
+  %383 = fsub float %380, %382
+  store float %383, ptr %11, align 4, !tbaa !21
+  %384 = load ptr, ptr %9, align 8, !tbaa !16
+  %385 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %384, i32 0, i32 10
+  %386 = load float, ptr %385, align 4, !tbaa !58
+  %387 = load float, ptr %11, align 4, !tbaa !21
+  %388 = fcmp olt float %386, %387
+  br i1 %388, label %389, label %393
 
-386:                                              ; preds = %371
-  %387 = load float, ptr %11, align 4
-  br label %388
+389:                                              ; preds = %378
+  %390 = load ptr, ptr %9, align 8, !tbaa !16
+  %391 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %390, i32 0, i32 10
+  %392 = load float, ptr %391, align 4, !tbaa !58
+  br label %395
 
-388:                                              ; preds = %386, %382
-  %389 = phi float [ %385, %382 ], [ %387, %386 ]
-  %390 = load ptr, ptr %9, align 8
-  %391 = getelementptr inbounds %struct.If_Obj_t_, ptr %390, i32 0, i32 10
-  store float %389, ptr %391, align 4
-  br label %392
+393:                                              ; preds = %378
+  %394 = load float, ptr %11, align 4, !tbaa !21
+  br label %395
 
-392:                                              ; preds = %388
-  %393 = load i32, ptr %12, align 4
-  %394 = add nsw i32 %393, 1
-  store i32 %394, ptr %12, align 4
-  br label %328, !llvm.loop !18
+395:                                              ; preds = %393, %389
+  %396 = phi float [ %392, %389 ], [ %394, %393 ]
+  %397 = load ptr, ptr %9, align 8, !tbaa !16
+  %398 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %397, i32 0, i32 10
+  store float %396, ptr %398, align 4, !tbaa !58
+  br label %399
 
-395:                                              ; preds = %347
-  br label %441
+399:                                              ; preds = %395
+  %400 = load i32, ptr %12, align 4, !tbaa !14
+  %401 = add nsw i32 %400, 1
+  store i32 %401, ptr %12, align 4, !tbaa !14
+  br label %335, !llvm.loop !69
 
-396:                                              ; preds = %277
-  %397 = load float, ptr %8, align 4
-  store float %397, ptr %11, align 4
-  store i32 0, ptr %12, align 4
-  br label %398
+402:                                              ; preds = %354
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 15, ptr %14) #7
+  br label %448
 
-398:                                              ; preds = %437, %396
-  %399 = load i32, ptr %12, align 4
-  %400 = load ptr, ptr %7, align 8
-  %401 = getelementptr inbounds %struct.If_Cut_t_, ptr %400, i32 0, i32 7
-  %402 = load i64, ptr %401, align 4
-  %403 = lshr i64 %402, 24
-  %404 = and i64 %403, 255
-  %405 = trunc i64 %404 to i32
-  %406 = icmp slt i32 %399, %405
-  br i1 %406, label %407, label %417
+403:                                              ; preds = %284
+  %404 = load float, ptr %8, align 4, !tbaa !21
+  store float %404, ptr %11, align 4, !tbaa !21
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %405
 
-407:                                              ; preds = %398
-  %408 = load ptr, ptr %5, align 8
-  %409 = load ptr, ptr %7, align 8
-  %410 = getelementptr inbounds %struct.If_Cut_t_, ptr %409, i32 0, i32 8
-  %411 = load i32, ptr %12, align 4
-  %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds [0 x i32], ptr %410, i64 0, i64 %412
-  %414 = load i32, ptr %413, align 4
-  %415 = call ptr @If_ManObj(ptr noundef %408, i32 noundef %414)
-  store ptr %415, ptr %9, align 8
-  %416 = icmp ne ptr %415, null
-  br label %417
+405:                                              ; preds = %444, %403
+  %406 = load i32, ptr %12, align 4, !tbaa !14
+  %407 = load ptr, ptr %7, align 8, !tbaa !8
+  %408 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %407, i32 0, i32 7
+  %409 = load i64, ptr %408, align 4
+  %410 = lshr i64 %409, 24
+  %411 = and i64 %410, 255
+  %412 = trunc i64 %411 to i32
+  %413 = icmp slt i32 %406, %412
+  br i1 %413, label %414, label %424
 
-417:                                              ; preds = %407, %398
-  %418 = phi i1 [ false, %398 ], [ %416, %407 ]
-  br i1 %418, label %419, label %440
+414:                                              ; preds = %405
+  %415 = load ptr, ptr %5, align 8, !tbaa !3
+  %416 = load ptr, ptr %7, align 8, !tbaa !8
+  %417 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %416, i32 0, i32 8
+  %418 = load i32, ptr %12, align 4, !tbaa !14
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr inbounds [0 x i32], ptr %417, i64 0, i64 %419
+  %421 = load i32, ptr %420, align 4, !tbaa !14
+  %422 = call ptr @If_ManObj(ptr noundef %415, i32 noundef %421)
+  store ptr %422, ptr %9, align 8, !tbaa !16
+  %423 = icmp ne ptr %422, null
+  br label %424
 
-419:                                              ; preds = %417
-  %420 = load ptr, ptr %9, align 8
-  %421 = getelementptr inbounds %struct.If_Obj_t_, ptr %420, i32 0, i32 10
-  %422 = load float, ptr %421, align 4
-  %423 = load float, ptr %11, align 4
-  %424 = fsub float %423, 1.000000e+00
-  %425 = fcmp olt float %422, %424
-  br i1 %425, label %426, label %430
+424:                                              ; preds = %414, %405
+  %425 = phi i1 [ false, %405 ], [ %423, %414 ]
+  br i1 %425, label %426, label %447
 
-426:                                              ; preds = %419
-  %427 = load ptr, ptr %9, align 8
-  %428 = getelementptr inbounds %struct.If_Obj_t_, ptr %427, i32 0, i32 10
-  %429 = load float, ptr %428, align 4
-  br label %433
+426:                                              ; preds = %424
+  %427 = load ptr, ptr %9, align 8, !tbaa !16
+  %428 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %427, i32 0, i32 10
+  %429 = load float, ptr %428, align 4, !tbaa !58
+  %430 = load float, ptr %11, align 4, !tbaa !21
+  %431 = fsub float %430, 1.000000e+00
+  %432 = fcmp olt float %429, %431
+  br i1 %432, label %433, label %437
 
-430:                                              ; preds = %419
-  %431 = load float, ptr %11, align 4
-  %432 = fsub float %431, 1.000000e+00
-  br label %433
+433:                                              ; preds = %426
+  %434 = load ptr, ptr %9, align 8, !tbaa !16
+  %435 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %434, i32 0, i32 10
+  %436 = load float, ptr %435, align 4, !tbaa !58
+  br label %440
 
-433:                                              ; preds = %430, %426
-  %434 = phi float [ %429, %426 ], [ %432, %430 ]
-  %435 = load ptr, ptr %9, align 8
-  %436 = getelementptr inbounds %struct.If_Obj_t_, ptr %435, i32 0, i32 10
-  store float %434, ptr %436, align 4
-  br label %437
+437:                                              ; preds = %426
+  %438 = load float, ptr %11, align 4, !tbaa !21
+  %439 = fsub float %438, 1.000000e+00
+  br label %440
 
-437:                                              ; preds = %433
-  %438 = load i32, ptr %12, align 4
-  %439 = add nsw i32 %438, 1
-  store i32 %439, ptr %12, align 4
-  br label %398, !llvm.loop !19
-
-440:                                              ; preds = %417
-  br label %441
-
-441:                                              ; preds = %440, %395
-  br label %442
-
-442:                                              ; preds = %441, %276
-  br label %443
-
-443:                                              ; preds = %442, %214
+440:                                              ; preds = %437, %433
+  %441 = phi float [ %436, %433 ], [ %439, %437 ]
+  %442 = load ptr, ptr %9, align 8, !tbaa !16
+  %443 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %442, i32 0, i32 10
+  store float %441, ptr %443, align 4, !tbaa !58
   br label %444
 
-444:                                              ; preds = %443, %81
+444:                                              ; preds = %440
+  %445 = load i32, ptr %12, align 4, !tbaa !14
+  %446 = add nsw i32 %445, 1
+  store i32 %446, ptr %12, align 4, !tbaa !14
+  br label %405, !llvm.loop !70
+
+447:                                              ; preds = %424
+  br label %448
+
+448:                                              ; preds = %447, %402
+  br label %449
+
+449:                                              ; preds = %448, %283
+  br label %450
+
+450:                                              ; preds = %449, %214
+  br label %451
+
+451:                                              ; preds = %450, %81
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-declare float @If_LutDecPinRequired(ptr noundef, ptr noundef, i32 noundef, float noundef) #1
+declare float @If_LutDecPinRequired(ptr noundef, ptr noundef, i32 noundef, float noundef) #3
 
-declare i32 @If_CutSopBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @If_CutSopBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @If_CutLutBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @If_CutLutBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @If_CutDsdBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @If_CutDsdBalancePinDelays(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
@@ -1500,78 +1543,81 @@ define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.If_Man_t_, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.If_Par_t_, ptr %10, i32 0, i32 17
-  %12 = load i32, ptr %11, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %11 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %10, i32 0, i32 17
+  %12 = load i32, ptr %11, align 4, !tbaa !71
   %13 = icmp ne i32 %12, 0
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.If_Man_t_, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.If_Par_t_, ptr %17, i32 0, i32 59
-  %19 = load i32, ptr %18, align 4
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %18 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %17, i32 0, i32 61
+  %19 = load i32, ptr %18, align 8, !tbaa !72
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.If_Man_t_, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.If_Par_t_, ptr %24, i32 0, i32 60
-  %26 = load i32, ptr %25, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !42
+  %25 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %24, i32 0, i32 62
+  %26 = load i32, ptr %25, align 4, !tbaa !73
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %21, %14
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str)
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.If_Man_t_, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.If_Par_t_, ptr %31, i32 0, i32 17
-  store i32 0, ptr %32, align 4
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
+  %32 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %31, i32 0, i32 17
+  store i32 0, ptr %32, align 4, !tbaa !71
   br label %33
 
 33:                                               ; preds = %28, %21, %2
-  store float 0xC415AF1D80000000, ptr %6, align 4
-  %34 = load i32, ptr %4, align 4
+  store float 0xC415AF1D80000000, ptr %6, align 4, !tbaa !21
+  %34 = load i32, ptr %4, align 4, !tbaa !14
   %35 = icmp ne i32 %34, 0
   br i1 %35, label %36, label %76
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.If_Man_t_, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.If_Par_t_, ptr %39, i32 0, i32 62
-  %41 = load i32, ptr %40, align 8
-  store i32 %41, ptr %7, align 4
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %39, i32 0, i32 64
+  %41 = load i32, ptr %40, align 4, !tbaa !74
+  store i32 %41, ptr %7, align 4, !tbaa !14
   br label %42
 
 42:                                               ; preds = %72, %36
-  %43 = load i32, ptr %7, align 4
-  %44 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %7, align 4, !tbaa !14
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
   %45 = call i32 @If_ManCoNum(ptr noundef %44)
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.If_Man_t_, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.If_Par_t_, ptr %48, i32 0, i32 60
-  %50 = load i32, ptr %49, align 8
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !42
+  %49 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %48, i32 0, i32 62
+  %50 = load i32, ptr %49, align 4, !tbaa !73
   %51 = sub nsw i32 %45, %50
   %52 = icmp slt i32 %43, %51
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %42
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.If_Man_t_, ptr %54, i32 0, i32 4
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %7, align 4
+  %54 = load ptr, ptr %3, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %54, i32 0, i32 4
+  %56 = load ptr, ptr %55, align 8, !tbaa !75
+  %57 = load i32, ptr %7, align 4, !tbaa !14
   %58 = call ptr @Vec_PtrEntry(ptr noundef %56, i32 noundef %57)
-  store ptr %58, ptr %5, align 8
+  store ptr %58, ptr %5, align 8, !tbaa !16
   br label %59
 
 59:                                               ; preds = %53, %42
@@ -1579,69 +1625,69 @@ define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %60, label %61, label %75
 
 61:                                               ; preds = %59
-  %62 = load float, ptr %6, align 4
-  %63 = load ptr, ptr %5, align 8
+  %62 = load float, ptr %6, align 4, !tbaa !21
+  %63 = load ptr, ptr %5, align 8, !tbaa !16
   %64 = call ptr @If_ObjFanin0(ptr noundef %63)
   %65 = call float @If_ObjArrTime(ptr noundef %64)
   %66 = fcmp olt float %62, %65
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %5, align 8, !tbaa !16
   %69 = call ptr @If_ObjFanin0(ptr noundef %68)
   %70 = call float @If_ObjArrTime(ptr noundef %69)
-  store float %70, ptr %6, align 4
+  store float %70, ptr %6, align 4, !tbaa !21
   br label %71
 
 71:                                               ; preds = %67, %61
   br label %72
 
 72:                                               ; preds = %71
-  %73 = load i32, ptr %7, align 4
+  %73 = load i32, ptr %7, align 4, !tbaa !14
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %7, align 4
-  br label %42, !llvm.loop !20
+  store i32 %74, ptr %7, align 4, !tbaa !14
+  br label %42, !llvm.loop !76
 
 75:                                               ; preds = %59
   br label %154
 
 76:                                               ; preds = %33
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.If_Man_t_, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.If_Par_t_, ptr %79, i32 0, i32 17
-  %81 = load i32, ptr %80, align 4
+  %77 = load ptr, ptr %3, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !42
+  %80 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %79, i32 0, i32 17
+  %81 = load i32, ptr %80, align 4, !tbaa !71
   %82 = icmp ne i32 %81, 0
   br i1 %82, label %83, label %122
 
 83:                                               ; preds = %76
-  %84 = load ptr, ptr %3, align 8
+  %84 = load ptr, ptr %3, align 8, !tbaa !3
   %85 = call i32 @If_ManCoNum(ptr noundef %84)
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.If_Man_t_, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.If_Par_t_, ptr %88, i32 0, i32 60
-  %90 = load i32, ptr %89, align 8
+  %86 = load ptr, ptr %3, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !42
+  %89 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %88, i32 0, i32 62
+  %90 = load i32, ptr %89, align 4, !tbaa !73
   %91 = sub nsw i32 %85, %90
-  store i32 %91, ptr %7, align 4
+  store i32 %91, ptr %7, align 4, !tbaa !14
   br label %92
 
 92:                                               ; preds = %118, %83
-  %93 = load i32, ptr %7, align 4
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.If_Man_t_, ptr %94, i32 0, i32 4
-  %96 = load ptr, ptr %95, align 8
+  %93 = load i32, ptr %7, align 4, !tbaa !14
+  %94 = load ptr, ptr %3, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %94, i32 0, i32 4
+  %96 = load ptr, ptr %95, align 8, !tbaa !75
   %97 = call i32 @Vec_PtrSize(ptr noundef %96)
   %98 = icmp slt i32 %93, %97
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %92
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.If_Man_t_, ptr %100, i32 0, i32 4
-  %102 = load ptr, ptr %101, align 8
-  %103 = load i32, ptr %7, align 4
+  %100 = load ptr, ptr %3, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %100, i32 0, i32 4
+  %102 = load ptr, ptr %101, align 8, !tbaa !75
+  %103 = load i32, ptr %7, align 4, !tbaa !14
   %104 = call ptr @Vec_PtrEntry(ptr noundef %102, i32 noundef %103)
-  store ptr %104, ptr %5, align 8
+  store ptr %104, ptr %5, align 8, !tbaa !16
   br label %105
 
 105:                                              ; preds = %99, %92
@@ -1649,52 +1695,52 @@ define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %105
-  %108 = load float, ptr %6, align 4
-  %109 = load ptr, ptr %5, align 8
+  %108 = load float, ptr %6, align 4, !tbaa !21
+  %109 = load ptr, ptr %5, align 8, !tbaa !16
   %110 = call ptr @If_ObjFanin0(ptr noundef %109)
   %111 = call float @If_ObjArrTime(ptr noundef %110)
   %112 = fcmp olt float %108, %111
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %107
-  %114 = load ptr, ptr %5, align 8
+  %114 = load ptr, ptr %5, align 8, !tbaa !16
   %115 = call ptr @If_ObjFanin0(ptr noundef %114)
   %116 = call float @If_ObjArrTime(ptr noundef %115)
-  store float %116, ptr %6, align 4
+  store float %116, ptr %6, align 4, !tbaa !21
   br label %117
 
 117:                                              ; preds = %113, %107
   br label %118
 
 118:                                              ; preds = %117
-  %119 = load i32, ptr %7, align 4
+  %119 = load i32, ptr %7, align 4, !tbaa !14
   %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %7, align 4
-  br label %92, !llvm.loop !21
+  store i32 %120, ptr %7, align 4, !tbaa !14
+  br label %92, !llvm.loop !77
 
 121:                                              ; preds = %105
   br label %153
 
 122:                                              ; preds = %76
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !14
   br label %123
 
 123:                                              ; preds = %149, %122
-  %124 = load i32, ptr %7, align 4
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct.If_Man_t_, ptr %125, i32 0, i32 4
-  %127 = load ptr, ptr %126, align 8
+  %124 = load i32, ptr %7, align 4, !tbaa !14
+  %125 = load ptr, ptr %3, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %125, i32 0, i32 4
+  %127 = load ptr, ptr %126, align 8, !tbaa !75
   %128 = call i32 @Vec_PtrSize(ptr noundef %127)
   %129 = icmp slt i32 %124, %128
   br i1 %129, label %130, label %136
 
 130:                                              ; preds = %123
-  %131 = load ptr, ptr %3, align 8
-  %132 = getelementptr inbounds %struct.If_Man_t_, ptr %131, i32 0, i32 4
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %7, align 4
+  %131 = load ptr, ptr %3, align 8, !tbaa !3
+  %132 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %131, i32 0, i32 4
+  %133 = load ptr, ptr %132, align 8, !tbaa !75
+  %134 = load i32, ptr %7, align 4, !tbaa !14
   %135 = call ptr @Vec_PtrEntry(ptr noundef %133, i32 noundef %134)
-  store ptr %135, ptr %5, align 8
+  store ptr %135, ptr %5, align 8, !tbaa !16
   br label %136
 
 136:                                              ; preds = %130, %123
@@ -1702,28 +1748,28 @@ define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %137, label %138, label %152
 
 138:                                              ; preds = %136
-  %139 = load float, ptr %6, align 4
-  %140 = load ptr, ptr %5, align 8
+  %139 = load float, ptr %6, align 4, !tbaa !21
+  %140 = load ptr, ptr %5, align 8, !tbaa !16
   %141 = call ptr @If_ObjFanin0(ptr noundef %140)
   %142 = call float @If_ObjArrTime(ptr noundef %141)
   %143 = fcmp olt float %139, %142
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %138
-  %145 = load ptr, ptr %5, align 8
+  %145 = load ptr, ptr %5, align 8, !tbaa !16
   %146 = call ptr @If_ObjFanin0(ptr noundef %145)
   %147 = call float @If_ObjArrTime(ptr noundef %146)
-  store float %147, ptr %6, align 4
+  store float %147, ptr %6, align 4, !tbaa !21
   br label %148
 
 148:                                              ; preds = %144, %138
   br label %149
 
 149:                                              ; preds = %148
-  %150 = load i32, ptr %7, align 4
+  %150 = load i32, ptr %7, align 4, !tbaa !14
   %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %7, align 4
-  br label %123, !llvm.loop !22
+  store i32 %151, ptr %7, align 4, !tbaa !14
+  br label %123, !llvm.loop !78
 
 152:                                              ; preds = %136
   br label %153
@@ -1732,172 +1778,192 @@ define float @If_ManDelayMax(ptr noundef %0, i32 noundef %1) #0 {
   br label %154
 
 154:                                              ; preds = %153, %75
-  %155 = load float, ptr %6, align 4
+  %155 = load float, ptr %6, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret float %155
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #7
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !14
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !14
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !14
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !14
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.5)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !14
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.5)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.6)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.6)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
-  %41 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #6
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #7
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #7
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %45 = load ptr, ptr %4, align 8, !tbaa !41
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !41
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %49 = load ptr, ptr %7, align 8, !tbaa !41
+  %50 = call i64 @strlen(ptr noundef %49) #8
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !41
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !41
+  call void @free(ptr noundef %54) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !41
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #7
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #7
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @If_ManCoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @If_ManCoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.If_Man_t_, ptr %3, i32 0, i32 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %3, i32 0, i32 8
   %5 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 3
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !14
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !81
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !84
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal float @If_ObjArrTime(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal float @If_ObjArrTime(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = call ptr @If_ObjCutBest(ptr noundef %3)
-  %5 = getelementptr inbounds %struct.If_Cut_t_, ptr %4, i32 0, i32 3
-  %6 = load float, ptr %5, align 4
+  %5 = getelementptr inbounds nuw %struct.If_Cut_t_, ptr %4, i32 0, i32 3
+  %6 = load float, ptr %5, align 4, !tbaa !18
   ret float %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @If_ObjFanin0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @If_ObjFanin0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.If_Obj_t_, ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !85
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_PtrSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_PtrSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !86
   ret i32 %5
 }
 
@@ -1908,1344 +1974,1369 @@ define void @If_ManComputeRequired(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  call void @If_ManMarkMapping(ptr noundef %7)
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.If_Man_t_, ptr %8, i32 0, i32 83
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %416
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @If_ManMarkMapping(ptr noundef %8)
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %9, i32 0, i32 83
+  %11 = load ptr, ptr %10, align 8, !tbaa !87
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %417
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %2, align 8
-  %14 = call float @If_ManDelayMax(ptr noundef %13, i32 noundef 0)
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.If_Man_t_, ptr %15, i32 0, i32 11
-  store float %14, ptr %16, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.If_Man_t_, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.If_Par_t_, ptr %19, i32 0, i32 70
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %106
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = call float @If_ManDelayMax(ptr noundef %14, i32 noundef 0)
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %16, i32 0, i32 11
+  store float %15, ptr %17, align 4, !tbaa !88
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %21 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %20, i32 0, i32 72
+  %22 = load ptr, ptr %21, align 8, !tbaa !89
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %107
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.If_Man_t_, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.If_Par_t_, ptr %26, i32 0, i32 52
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %106, label %30
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  %28 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %27, i32 0, i32 54
+  %29 = load i32, ptr %28, align 4, !tbaa !90
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %107, label %31
 
-30:                                               ; preds = %23
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %4, align 4
-  br label %31
+31:                                               ; preds = %24
+  store i32 0, ptr %5, align 4, !tbaa !14
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %32
 
-31:                                               ; preds = %87, %30
-  %32 = load i32, ptr %4, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.If_Man_t_, ptr %33, i32 0, i32 4
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 @Vec_PtrSize(ptr noundef %35)
-  %37 = icmp slt i32 %32, %36
-  br i1 %37, label %38, label %44
+32:                                               ; preds = %88, %31
+  %33 = load i32, ptr %4, align 4, !tbaa !14
+  %34 = load ptr, ptr %2, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %34, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %37 = call i32 @Vec_PtrSize(ptr noundef %36)
+  %38 = icmp slt i32 %33, %37
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.If_Man_t_, ptr %39, i32 0, i32 4
-  %41 = load ptr, ptr %40, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = call ptr @Vec_PtrEntry(ptr noundef %41, i32 noundef %42)
-  store ptr %43, ptr %3, align 8
-  br label %44
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %2, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !75
+  %43 = load i32, ptr %4, align 4, !tbaa !14
+  %44 = call ptr @Vec_PtrEntry(ptr noundef %42, i32 noundef %43)
+  store ptr %44, ptr %3, align 8, !tbaa !16
+  br label %45
 
-44:                                               ; preds = %38, %31
-  %45 = phi i1 [ false, %31 ], [ true, %38 ]
-  br i1 %45, label %46, label %90
+45:                                               ; preds = %39, %32
+  %46 = phi i1 [ false, %32 ], [ true, %39 ]
+  br i1 %46, label %47, label %91
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %3, align 8
-  %48 = call ptr @If_ObjFanin0(ptr noundef %47)
-  %49 = call float @If_ObjArrTime(ptr noundef %48)
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.If_Man_t_, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.If_Par_t_, ptr %52, i32 0, i32 70
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %4, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds float, ptr %54, i64 %56
-  %58 = load float, ptr %57, align 4
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.If_Man_t_, ptr %59, i32 0, i32 10
-  %61 = load float, ptr %60, align 8
-  %62 = fadd float %58, %61
-  %63 = fcmp ogt float %49, %62
-  br i1 %63, label %64, label %73
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %3, align 8, !tbaa !16
+  %49 = call ptr @If_ObjFanin0(ptr noundef %48)
+  %50 = call float @If_ObjArrTime(ptr noundef %49)
+  %51 = load ptr, ptr %2, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !42
+  %54 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %53, i32 0, i32 72
+  %55 = load ptr, ptr %54, align 8, !tbaa !89
+  %56 = load i32, ptr %4, align 4, !tbaa !14
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds float, ptr %55, i64 %57
+  %59 = load float, ptr %58, align 4, !tbaa !21
+  %60 = load ptr, ptr %2, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %60, i32 0, i32 10
+  %62 = load float, ptr %61, align 8, !tbaa !91
+  %63 = fadd float %59, %62
+  %64 = fcmp ogt float %50, %63
+  br i1 %64, label %65, label %74
 
-64:                                               ; preds = %46
-  %65 = load ptr, ptr %3, align 8
-  %66 = call ptr @If_ObjFanin0(ptr noundef %65)
-  %67 = call float @If_ObjArrTime(ptr noundef %66)
-  %68 = load ptr, ptr %3, align 8
-  %69 = call ptr @If_ObjFanin0(ptr noundef %68)
-  %70 = getelementptr inbounds %struct.If_Obj_t_, ptr %69, i32 0, i32 10
-  store float %67, ptr %70, align 4
-  %71 = load i32, ptr %5, align 4
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %5, align 4
-  br label %86
-
-73:                                               ; preds = %46
-  %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds %struct.If_Man_t_, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.If_Par_t_, ptr %76, i32 0, i32 70
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %4, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %78, i64 %80
-  %82 = load float, ptr %81, align 4
-  %83 = load ptr, ptr %3, align 8
-  %84 = call ptr @If_ObjFanin0(ptr noundef %83)
-  %85 = getelementptr inbounds %struct.If_Obj_t_, ptr %84, i32 0, i32 10
-  store float %82, ptr %85, align 4
-  br label %86
-
-86:                                               ; preds = %73, %64
+65:                                               ; preds = %47
+  %66 = load ptr, ptr %3, align 8, !tbaa !16
+  %67 = call ptr @If_ObjFanin0(ptr noundef %66)
+  %68 = call float @If_ObjArrTime(ptr noundef %67)
+  %69 = load ptr, ptr %3, align 8, !tbaa !16
+  %70 = call ptr @If_ObjFanin0(ptr noundef %69)
+  %71 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %70, i32 0, i32 10
+  store float %68, ptr %71, align 4, !tbaa !58
+  %72 = load i32, ptr %5, align 4, !tbaa !14
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %5, align 4, !tbaa !14
   br label %87
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr %4, align 4
-  %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %4, align 4
-  br label %31, !llvm.loop !23
+74:                                               ; preds = %47
+  %75 = load ptr, ptr %2, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %78 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %77, i32 0, i32 72
+  %79 = load ptr, ptr %78, align 8, !tbaa !89
+  %80 = load i32, ptr %4, align 4, !tbaa !14
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds float, ptr %79, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !21
+  %84 = load ptr, ptr %3, align 8, !tbaa !16
+  %85 = call ptr @If_ObjFanin0(ptr noundef %84)
+  %86 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %85, i32 0, i32 10
+  store float %83, ptr %86, align 4, !tbaa !58
+  br label %87
 
-90:                                               ; preds = %44
-  %91 = load i32, ptr %5, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %105
+87:                                               ; preds = %74, %65
+  br label %88
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %2, align 8
-  %95 = getelementptr inbounds %struct.If_Man_t_, ptr %94, i32 0, i32 27
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %105, label %98
+88:                                               ; preds = %87
+  %89 = load i32, ptr %4, align 4, !tbaa !14
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %4, align 4, !tbaa !14
+  br label %32, !llvm.loop !92
 
-98:                                               ; preds = %93
-  %99 = load i32, ptr %5, align 4
-  %100 = load i32, ptr %5, align 4
-  %101 = icmp sgt i32 %100, 1
-  %102 = select i1 %101, ptr @.str.2, ptr @.str.3
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.1, i32 noundef %99, ptr noundef %102)
-  %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds %struct.If_Man_t_, ptr %103, i32 0, i32 27
-  store i32 1, ptr %104, align 8
-  br label %105
+91:                                               ; preds = %45
+  %92 = load i32, ptr %5, align 4, !tbaa !14
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %106
 
-105:                                              ; preds = %98, %93, %90
-  br label %382
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %2, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %95, i32 0, i32 27
+  %97 = load i32, ptr %96, align 8, !tbaa !93
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %106, label %99
 
-106:                                              ; preds = %23, %12
-  %107 = load ptr, ptr %2, align 8
-  %108 = getelementptr inbounds %struct.If_Man_t_, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.If_Par_t_, ptr %109, i32 0, i32 8
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %139
+99:                                               ; preds = %94
+  %100 = load i32, ptr %5, align 4, !tbaa !14
+  %101 = load i32, ptr %5, align 4, !tbaa !14
+  %102 = icmp sgt i32 %101, 1
+  %103 = select i1 %102, ptr @.str.2, ptr @.str.3
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.1, i32 noundef %100, ptr noundef %103)
+  %104 = load ptr, ptr %2, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %104, i32 0, i32 27
+  store i32 1, ptr %105, align 8, !tbaa !93
+  br label %106
 
-113:                                              ; preds = %106
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.If_Man_t_, ptr %114, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %struct.If_Par_t_, ptr %116, i32 0, i32 65
-  %118 = load float, ptr %117, align 4
-  %119 = fcmp oeq float %118, 0.000000e+00
-  br i1 %119, label %120, label %139
-
-120:                                              ; preds = %113
-  %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds %struct.If_Man_t_, ptr %121, i32 0, i32 11
-  %123 = load float, ptr %122, align 4
-  %124 = fpext float %123 to double
-  %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds %struct.If_Man_t_, ptr %125, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.If_Par_t_, ptr %127, i32 0, i32 8
-  %129 = load i32, ptr %128, align 8
-  %130 = sitofp i32 %129 to double
-  %131 = fadd double 1.000000e+02, %130
-  %132 = fmul double %124, %131
-  %133 = fdiv double %132, 1.000000e+02
-  %134 = fptrunc double %133 to float
-  %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds %struct.If_Man_t_, ptr %135, i32 0, i32 1
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.If_Par_t_, ptr %137, i32 0, i32 65
-  store float %134, ptr %138, align 4
-  br label %139
-
-139:                                              ; preds = %120, %113, %106
-  %140 = load ptr, ptr %2, align 8
-  %141 = getelementptr inbounds %struct.If_Man_t_, ptr %140, i32 0, i32 1
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %struct.If_Par_t_, ptr %142, i32 0, i32 6
-  %144 = load float, ptr %143, align 8
-  %145 = fcmp une float %144, -1.000000e+00
-  br i1 %145, label %146, label %207
-
-146:                                              ; preds = %139
-  %147 = load ptr, ptr %2, align 8
-  %148 = getelementptr inbounds %struct.If_Man_t_, ptr %147, i32 0, i32 11
-  %149 = load float, ptr %148, align 4
-  %150 = load ptr, ptr %2, align 8
-  %151 = getelementptr inbounds %struct.If_Man_t_, ptr %150, i32 0, i32 1
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct.If_Par_t_, ptr %152, i32 0, i32 6
-  %154 = load float, ptr %153, align 8
-  %155 = load ptr, ptr %2, align 8
-  %156 = getelementptr inbounds %struct.If_Man_t_, ptr %155, i32 0, i32 10
-  %157 = load float, ptr %156, align 8
-  %158 = fadd float %154, %157
-  %159 = fcmp ogt float %149, %158
-  br i1 %159, label %160, label %175
-
-160:                                              ; preds = %146
-  %161 = load ptr, ptr %2, align 8
-  %162 = getelementptr inbounds %struct.If_Man_t_, ptr %161, i32 0, i32 21
-  %163 = load i32, ptr %162, align 4
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %174
-
-165:                                              ; preds = %160
-  %166 = load ptr, ptr %2, align 8
-  %167 = getelementptr inbounds %struct.If_Man_t_, ptr %166, i32 0, i32 21
-  store i32 1, ptr %167, align 4
-  %168 = load ptr, ptr %2, align 8
-  %169 = getelementptr inbounds %struct.If_Man_t_, ptr %168, i32 0, i32 1
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds %struct.If_Par_t_, ptr %170, i32 0, i32 6
-  %172 = load float, ptr %171, align 8
-  %173 = fpext float %172 to double
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.4, double noundef %173)
-  br label %174
-
-174:                                              ; preds = %165, %160
-  br label %206
-
-175:                                              ; preds = %146
-  %176 = load ptr, ptr %2, align 8
-  %177 = getelementptr inbounds %struct.If_Man_t_, ptr %176, i32 0, i32 11
-  %178 = load float, ptr %177, align 4
-  %179 = load ptr, ptr %2, align 8
-  %180 = getelementptr inbounds %struct.If_Man_t_, ptr %179, i32 0, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds %struct.If_Par_t_, ptr %181, i32 0, i32 6
-  %183 = load float, ptr %182, align 8
-  %184 = load ptr, ptr %2, align 8
-  %185 = getelementptr inbounds %struct.If_Man_t_, ptr %184, i32 0, i32 10
-  %186 = load float, ptr %185, align 8
-  %187 = fsub float %183, %186
-  %188 = fcmp olt float %178, %187
-  br i1 %188, label %189, label %205
-
-189:                                              ; preds = %175
-  %190 = load ptr, ptr %2, align 8
-  %191 = getelementptr inbounds %struct.If_Man_t_, ptr %190, i32 0, i32 21
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %197
-
-194:                                              ; preds = %189
-  %195 = load ptr, ptr %2, align 8
-  %196 = getelementptr inbounds %struct.If_Man_t_, ptr %195, i32 0, i32 21
-  store i32 1, ptr %196, align 4
-  br label %197
-
-197:                                              ; preds = %194, %189
-  %198 = load ptr, ptr %2, align 8
-  %199 = getelementptr inbounds %struct.If_Man_t_, ptr %198, i32 0, i32 1
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds %struct.If_Par_t_, ptr %200, i32 0, i32 6
-  %202 = load float, ptr %201, align 8
-  %203 = load ptr, ptr %2, align 8
-  %204 = getelementptr inbounds %struct.If_Man_t_, ptr %203, i32 0, i32 11
-  store float %202, ptr %204, align 4
-  br label %205
-
-205:                                              ; preds = %197, %175
-  br label %206
-
-206:                                              ; preds = %205, %174
-  br label %223
-
-207:                                              ; preds = %139
-  %208 = load ptr, ptr %2, align 8
-  %209 = getelementptr inbounds %struct.If_Man_t_, ptr %208, i32 0, i32 1
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds %struct.If_Par_t_, ptr %210, i32 0, i32 65
-  %212 = load float, ptr %211, align 4
-  %213 = fcmp ogt float %212, 0.000000e+00
-  br i1 %213, label %214, label %222
-
-214:                                              ; preds = %207
-  %215 = load ptr, ptr %2, align 8
-  %216 = getelementptr inbounds %struct.If_Man_t_, ptr %215, i32 0, i32 1
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.If_Par_t_, ptr %217, i32 0, i32 65
-  %219 = load float, ptr %218, align 4
-  %220 = load ptr, ptr %2, align 8
-  %221 = getelementptr inbounds %struct.If_Man_t_, ptr %220, i32 0, i32 11
-  store float %219, ptr %221, align 4
-  br label %222
-
-222:                                              ; preds = %214, %207
-  br label %223
-
-223:                                              ; preds = %222, %206
-  %224 = load ptr, ptr %2, align 8
-  %225 = getelementptr inbounds %struct.If_Man_t_, ptr %224, i32 0, i32 1
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds %struct.If_Par_t_, ptr %226, i32 0, i32 52
-  %228 = load i32, ptr %227, align 8
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %231
-
-230:                                              ; preds = %223
-  br label %887
-
-231:                                              ; preds = %223
-  %232 = load ptr, ptr %2, align 8
-  %233 = getelementptr inbounds %struct.If_Man_t_, ptr %232, i32 0, i32 1
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %struct.If_Par_t_, ptr %234, i32 0, i32 44
-  %236 = load i32, ptr %235, align 8
-  %237 = icmp ne i32 %236, 0
-  br i1 %237, label %238, label %311
-
-238:                                              ; preds = %231
-  %239 = load ptr, ptr %2, align 8
-  %240 = getelementptr inbounds %struct.If_Man_t_, ptr %239, i32 0, i32 1
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.If_Par_t_, ptr %241, i32 0, i32 8
-  %243 = load i32, ptr %242, align 8
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %283
-
-245:                                              ; preds = %238
-  store i32 0, ptr %4, align 4
-  br label %246
-
-246:                                              ; preds = %279, %245
-  %247 = load i32, ptr %4, align 4
-  %248 = load ptr, ptr %2, align 8
-  %249 = getelementptr inbounds %struct.If_Man_t_, ptr %248, i32 0, i32 4
-  %250 = load ptr, ptr %249, align 8
-  %251 = call i32 @Vec_PtrSize(ptr noundef %250)
-  %252 = icmp slt i32 %247, %251
-  br i1 %252, label %253, label %259
-
-253:                                              ; preds = %246
-  %254 = load ptr, ptr %2, align 8
-  %255 = getelementptr inbounds %struct.If_Man_t_, ptr %254, i32 0, i32 4
-  %256 = load ptr, ptr %255, align 8
-  %257 = load i32, ptr %4, align 4
-  %258 = call ptr @Vec_PtrEntry(ptr noundef %256, i32 noundef %257)
-  store ptr %258, ptr %3, align 8
-  br label %259
-
-259:                                              ; preds = %253, %246
-  %260 = phi i1 [ false, %246 ], [ true, %253 ]
-  br i1 %260, label %261, label %282
-
-261:                                              ; preds = %259
-  %262 = load ptr, ptr %3, align 8
-  %263 = call ptr @If_ObjFanin0(ptr noundef %262)
-  %264 = call float @If_ObjArrTime(ptr noundef %263)
-  %265 = fpext float %264 to double
-  %266 = load ptr, ptr %2, align 8
-  %267 = getelementptr inbounds %struct.If_Man_t_, ptr %266, i32 0, i32 1
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds %struct.If_Par_t_, ptr %268, i32 0, i32 8
-  %270 = load i32, ptr %269, align 8
-  %271 = sitofp i32 %270 to double
-  %272 = fadd double 1.000000e+02, %271
-  %273 = fmul double %265, %272
-  %274 = fdiv double %273, 1.000000e+02
-  %275 = fptrunc double %274 to float
-  %276 = load ptr, ptr %3, align 8
-  %277 = call ptr @If_ObjFanin0(ptr noundef %276)
-  %278 = getelementptr inbounds %struct.If_Obj_t_, ptr %277, i32 0, i32 10
-  store float %275, ptr %278, align 4
-  br label %279
-
-279:                                              ; preds = %261
-  %280 = load i32, ptr %4, align 4
-  %281 = add nsw i32 %280, 1
-  store i32 %281, ptr %4, align 4
-  br label %246, !llvm.loop !24
-
-282:                                              ; preds = %259
-  br label %310
-
-283:                                              ; preds = %238
-  store i32 0, ptr %4, align 4
-  br label %284
-
-284:                                              ; preds = %306, %283
-  %285 = load i32, ptr %4, align 4
-  %286 = load ptr, ptr %2, align 8
-  %287 = getelementptr inbounds %struct.If_Man_t_, ptr %286, i32 0, i32 4
-  %288 = load ptr, ptr %287, align 8
-  %289 = call i32 @Vec_PtrSize(ptr noundef %288)
-  %290 = icmp slt i32 %285, %289
-  br i1 %290, label %291, label %297
-
-291:                                              ; preds = %284
-  %292 = load ptr, ptr %2, align 8
-  %293 = getelementptr inbounds %struct.If_Man_t_, ptr %292, i32 0, i32 4
-  %294 = load ptr, ptr %293, align 8
-  %295 = load i32, ptr %4, align 4
-  %296 = call ptr @Vec_PtrEntry(ptr noundef %294, i32 noundef %295)
-  store ptr %296, ptr %3, align 8
-  br label %297
-
-297:                                              ; preds = %291, %284
-  %298 = phi i1 [ false, %284 ], [ true, %291 ]
-  br i1 %298, label %299, label %309
-
-299:                                              ; preds = %297
-  %300 = load ptr, ptr %3, align 8
-  %301 = call ptr @If_ObjFanin0(ptr noundef %300)
-  %302 = call float @If_ObjArrTime(ptr noundef %301)
-  %303 = load ptr, ptr %3, align 8
-  %304 = call ptr @If_ObjFanin0(ptr noundef %303)
-  %305 = getelementptr inbounds %struct.If_Obj_t_, ptr %304, i32 0, i32 10
-  store float %302, ptr %305, align 4
-  br label %306
-
-306:                                              ; preds = %299
-  %307 = load i32, ptr %4, align 4
-  %308 = add nsw i32 %307, 1
-  store i32 %308, ptr %4, align 4
-  br label %284, !llvm.loop !25
-
-309:                                              ; preds = %297
-  br label %310
-
-310:                                              ; preds = %309, %282
-  br label %381
-
-311:                                              ; preds = %231
-  %312 = load ptr, ptr %2, align 8
-  %313 = getelementptr inbounds %struct.If_Man_t_, ptr %312, i32 0, i32 1
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.If_Par_t_, ptr %314, i32 0, i32 17
-  %316 = load i32, ptr %315, align 4
-  %317 = icmp ne i32 %316, 0
-  br i1 %317, label %318, label %353
-
-318:                                              ; preds = %311
-  %319 = load ptr, ptr %2, align 8
-  %320 = call i32 @If_ManCoNum(ptr noundef %319)
-  %321 = load ptr, ptr %2, align 8
-  %322 = getelementptr inbounds %struct.If_Man_t_, ptr %321, i32 0, i32 1
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds %struct.If_Par_t_, ptr %323, i32 0, i32 60
-  %325 = load i32, ptr %324, align 8
-  %326 = sub nsw i32 %320, %325
-  store i32 %326, ptr %4, align 4
-  br label %327
-
-327:                                              ; preds = %349, %318
-  %328 = load i32, ptr %4, align 4
-  %329 = load ptr, ptr %2, align 8
-  %330 = getelementptr inbounds %struct.If_Man_t_, ptr %329, i32 0, i32 4
-  %331 = load ptr, ptr %330, align 8
-  %332 = call i32 @Vec_PtrSize(ptr noundef %331)
-  %333 = icmp slt i32 %328, %332
-  br i1 %333, label %334, label %340
-
-334:                                              ; preds = %327
-  %335 = load ptr, ptr %2, align 8
-  %336 = getelementptr inbounds %struct.If_Man_t_, ptr %335, i32 0, i32 4
-  %337 = load ptr, ptr %336, align 8
-  %338 = load i32, ptr %4, align 4
-  %339 = call ptr @Vec_PtrEntry(ptr noundef %337, i32 noundef %338)
-  store ptr %339, ptr %3, align 8
-  br label %340
-
-340:                                              ; preds = %334, %327
-  %341 = phi i1 [ false, %327 ], [ true, %334 ]
-  br i1 %341, label %342, label %352
-
-342:                                              ; preds = %340
-  %343 = load ptr, ptr %2, align 8
-  %344 = getelementptr inbounds %struct.If_Man_t_, ptr %343, i32 0, i32 11
-  %345 = load float, ptr %344, align 4
-  %346 = load ptr, ptr %3, align 8
-  %347 = call ptr @If_ObjFanin0(ptr noundef %346)
-  %348 = getelementptr inbounds %struct.If_Obj_t_, ptr %347, i32 0, i32 10
-  store float %345, ptr %348, align 4
-  br label %349
-
-349:                                              ; preds = %342
-  %350 = load i32, ptr %4, align 4
-  %351 = add nsw i32 %350, 1
-  store i32 %351, ptr %4, align 4
-  br label %327, !llvm.loop !26
-
-352:                                              ; preds = %340
-  br label %380
-
-353:                                              ; preds = %311
-  store i32 0, ptr %4, align 4
-  br label %354
-
-354:                                              ; preds = %376, %353
-  %355 = load i32, ptr %4, align 4
-  %356 = load ptr, ptr %2, align 8
-  %357 = getelementptr inbounds %struct.If_Man_t_, ptr %356, i32 0, i32 4
-  %358 = load ptr, ptr %357, align 8
-  %359 = call i32 @Vec_PtrSize(ptr noundef %358)
-  %360 = icmp slt i32 %355, %359
-  br i1 %360, label %361, label %367
-
-361:                                              ; preds = %354
-  %362 = load ptr, ptr %2, align 8
-  %363 = getelementptr inbounds %struct.If_Man_t_, ptr %362, i32 0, i32 4
-  %364 = load ptr, ptr %363, align 8
-  %365 = load i32, ptr %4, align 4
-  %366 = call ptr @Vec_PtrEntry(ptr noundef %364, i32 noundef %365)
-  store ptr %366, ptr %3, align 8
-  br label %367
-
-367:                                              ; preds = %361, %354
-  %368 = phi i1 [ false, %354 ], [ true, %361 ]
-  br i1 %368, label %369, label %379
-
-369:                                              ; preds = %367
-  %370 = load ptr, ptr %2, align 8
-  %371 = getelementptr inbounds %struct.If_Man_t_, ptr %370, i32 0, i32 11
-  %372 = load float, ptr %371, align 4
-  %373 = load ptr, ptr %3, align 8
-  %374 = call ptr @If_ObjFanin0(ptr noundef %373)
-  %375 = getelementptr inbounds %struct.If_Obj_t_, ptr %374, i32 0, i32 10
-  store float %372, ptr %375, align 4
-  br label %376
-
-376:                                              ; preds = %369
-  %377 = load i32, ptr %4, align 4
-  %378 = add nsw i32 %377, 1
-  store i32 %378, ptr %4, align 4
-  br label %354, !llvm.loop !27
-
-379:                                              ; preds = %367
-  br label %380
-
-380:                                              ; preds = %379, %352
-  br label %381
-
-381:                                              ; preds = %380, %310
-  br label %382
-
-382:                                              ; preds = %381, %105
-  store i32 0, ptr %4, align 4
+106:                                              ; preds = %99, %94, %91
   br label %383
 
-383:                                              ; preds = %412, %382
-  %384 = load i32, ptr %4, align 4
-  %385 = load ptr, ptr %2, align 8
-  %386 = getelementptr inbounds %struct.If_Man_t_, ptr %385, i32 0, i32 6
-  %387 = load ptr, ptr %386, align 8
-  %388 = call i32 @Vec_PtrSize(ptr noundef %387)
-  %389 = icmp slt i32 %384, %388
-  br i1 %389, label %390, label %396
+107:                                              ; preds = %24, %13
+  %108 = load ptr, ptr %2, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !42
+  %111 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %110, i32 0, i32 8
+  %112 = load i32, ptr %111, align 8, !tbaa !94
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %140
 
-390:                                              ; preds = %383
-  %391 = load ptr, ptr %2, align 8
-  %392 = getelementptr inbounds %struct.If_Man_t_, ptr %391, i32 0, i32 6
-  %393 = load ptr, ptr %392, align 8
-  %394 = load i32, ptr %4, align 4
-  %395 = call ptr @Vec_PtrEntry(ptr noundef %393, i32 noundef %394)
-  store ptr %395, ptr %3, align 8
-  br label %396
+114:                                              ; preds = %107
+  %115 = load ptr, ptr %2, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8, !tbaa !42
+  %118 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %117, i32 0, i32 67
+  %119 = load float, ptr %118, align 8, !tbaa !95
+  %120 = fcmp oeq float %119, 0.000000e+00
+  br i1 %120, label %121, label %140
 
-396:                                              ; preds = %390, %383
-  %397 = phi i1 [ false, %383 ], [ true, %390 ]
-  br i1 %397, label %398, label %415
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %2, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %122, i32 0, i32 11
+  %124 = load float, ptr %123, align 4, !tbaa !88
+  %125 = fpext float %124 to double
+  %126 = load ptr, ptr %2, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8, !tbaa !42
+  %129 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %128, i32 0, i32 8
+  %130 = load i32, ptr %129, align 8, !tbaa !94
+  %131 = sitofp i32 %130 to double
+  %132 = fadd double 1.000000e+02, %131
+  %133 = fmul double %125, %132
+  %134 = fdiv double %133, 1.000000e+02
+  %135 = fptrunc double %134 to float
+  %136 = load ptr, ptr %2, align 8, !tbaa !3
+  %137 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %136, i32 0, i32 1
+  %138 = load ptr, ptr %137, align 8, !tbaa !42
+  %139 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %138, i32 0, i32 67
+  store float %135, ptr %139, align 8, !tbaa !95
+  br label %140
 
-398:                                              ; preds = %396
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.If_Obj_t_, ptr %399, i32 0, i32 3
-  %401 = load i32, ptr %400, align 4
-  %402 = icmp eq i32 %401, 0
-  br i1 %402, label %403, label %404
+140:                                              ; preds = %121, %114, %107
+  %141 = load ptr, ptr %2, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %142, align 8, !tbaa !42
+  %144 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %143, i32 0, i32 6
+  %145 = load float, ptr %144, align 8, !tbaa !96
+  %146 = fcmp une float %145, -1.000000e+00
+  br i1 %146, label %147, label %208
 
-403:                                              ; preds = %398
-  br label %412
+147:                                              ; preds = %140
+  %148 = load ptr, ptr %2, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %148, i32 0, i32 11
+  %150 = load float, ptr %149, align 4, !tbaa !88
+  %151 = load ptr, ptr %2, align 8, !tbaa !3
+  %152 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %151, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8, !tbaa !42
+  %154 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %153, i32 0, i32 6
+  %155 = load float, ptr %154, align 8, !tbaa !96
+  %156 = load ptr, ptr %2, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %156, i32 0, i32 10
+  %158 = load float, ptr %157, align 8, !tbaa !91
+  %159 = fadd float %155, %158
+  %160 = fcmp ogt float %150, %159
+  br i1 %160, label %161, label %176
 
-404:                                              ; preds = %398
-  %405 = load ptr, ptr %2, align 8
-  %406 = load ptr, ptr %3, align 8
-  %407 = load ptr, ptr %3, align 8
-  %408 = call ptr @If_ObjCutBest(ptr noundef %407)
-  %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr inbounds %struct.If_Obj_t_, ptr %409, i32 0, i32 10
-  %411 = load float, ptr %410, align 4
-  call void @If_CutPropagateRequired(ptr noundef %405, ptr noundef %406, ptr noundef %408, float noundef %411)
-  br label %412
+161:                                              ; preds = %147
+  %162 = load ptr, ptr %2, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %162, i32 0, i32 21
+  %164 = load i32, ptr %163, align 4, !tbaa !97
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %175
 
-412:                                              ; preds = %404, %403
-  %413 = load i32, ptr %4, align 4
-  %414 = add nsw i32 %413, 1
-  store i32 %414, ptr %4, align 4
-  br label %383, !llvm.loop !28
+166:                                              ; preds = %161
+  %167 = load ptr, ptr %2, align 8, !tbaa !3
+  %168 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %167, i32 0, i32 21
+  store i32 1, ptr %168, align 4, !tbaa !97
+  %169 = load ptr, ptr %2, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %169, i32 0, i32 1
+  %171 = load ptr, ptr %170, align 8, !tbaa !42
+  %172 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %171, i32 0, i32 6
+  %173 = load float, ptr %172, align 8, !tbaa !96
+  %174 = fpext float %173 to double
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.4, double noundef %174)
+  br label %175
 
-415:                                              ; preds = %396
-  br label %887
+175:                                              ; preds = %166, %161
+  br label %207
 
-416:                                              ; preds = %1
-  %417 = load ptr, ptr %2, align 8
-  %418 = call float @If_ManDelayMax(ptr noundef %417, i32 noundef 0)
-  %419 = load ptr, ptr %2, align 8
-  %420 = getelementptr inbounds %struct.If_Man_t_, ptr %419, i32 0, i32 11
-  store float %418, ptr %420, align 4
-  %421 = load ptr, ptr %2, align 8
-  %422 = getelementptr inbounds %struct.If_Man_t_, ptr %421, i32 0, i32 1
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds %struct.If_Par_t_, ptr %423, i32 0, i32 8
-  %425 = load i32, ptr %424, align 8
-  %426 = icmp ne i32 %425, 0
-  br i1 %426, label %427, label %453
+176:                                              ; preds = %147
+  %177 = load ptr, ptr %2, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %177, i32 0, i32 11
+  %179 = load float, ptr %178, align 4, !tbaa !88
+  %180 = load ptr, ptr %2, align 8, !tbaa !3
+  %181 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %180, i32 0, i32 1
+  %182 = load ptr, ptr %181, align 8, !tbaa !42
+  %183 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %182, i32 0, i32 6
+  %184 = load float, ptr %183, align 8, !tbaa !96
+  %185 = load ptr, ptr %2, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %185, i32 0, i32 10
+  %187 = load float, ptr %186, align 8, !tbaa !91
+  %188 = fsub float %184, %187
+  %189 = fcmp olt float %179, %188
+  br i1 %189, label %190, label %206
 
-427:                                              ; preds = %416
-  %428 = load ptr, ptr %2, align 8
-  %429 = getelementptr inbounds %struct.If_Man_t_, ptr %428, i32 0, i32 1
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds %struct.If_Par_t_, ptr %430, i32 0, i32 65
-  %432 = load float, ptr %431, align 4
-  %433 = fcmp oeq float %432, 0.000000e+00
-  br i1 %433, label %434, label %453
+190:                                              ; preds = %176
+  %191 = load ptr, ptr %2, align 8, !tbaa !3
+  %192 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %191, i32 0, i32 21
+  %193 = load i32, ptr %192, align 4, !tbaa !97
+  %194 = icmp eq i32 %193, 0
+  br i1 %194, label %195, label %198
 
-434:                                              ; preds = %427
-  %435 = load ptr, ptr %2, align 8
-  %436 = getelementptr inbounds %struct.If_Man_t_, ptr %435, i32 0, i32 11
-  %437 = load float, ptr %436, align 4
-  %438 = fpext float %437 to double
-  %439 = load ptr, ptr %2, align 8
-  %440 = getelementptr inbounds %struct.If_Man_t_, ptr %439, i32 0, i32 1
-  %441 = load ptr, ptr %440, align 8
-  %442 = getelementptr inbounds %struct.If_Par_t_, ptr %441, i32 0, i32 8
-  %443 = load i32, ptr %442, align 8
-  %444 = sitofp i32 %443 to double
-  %445 = fadd double 1.000000e+02, %444
-  %446 = fmul double %438, %445
-  %447 = fdiv double %446, 1.000000e+02
-  %448 = fptrunc double %447 to float
-  %449 = load ptr, ptr %2, align 8
-  %450 = getelementptr inbounds %struct.If_Man_t_, ptr %449, i32 0, i32 1
-  %451 = load ptr, ptr %450, align 8
-  %452 = getelementptr inbounds %struct.If_Par_t_, ptr %451, i32 0, i32 65
-  store float %448, ptr %452, align 4
-  br label %453
+195:                                              ; preds = %190
+  %196 = load ptr, ptr %2, align 8, !tbaa !3
+  %197 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %196, i32 0, i32 21
+  store i32 1, ptr %197, align 4, !tbaa !97
+  br label %198
 
-453:                                              ; preds = %434, %427, %416
-  %454 = load ptr, ptr %2, align 8
-  %455 = getelementptr inbounds %struct.If_Man_t_, ptr %454, i32 0, i32 1
-  %456 = load ptr, ptr %455, align 8
-  %457 = getelementptr inbounds %struct.If_Par_t_, ptr %456, i32 0, i32 6
-  %458 = load float, ptr %457, align 8
-  %459 = fcmp une float %458, -1.000000e+00
-  br i1 %459, label %460, label %521
+198:                                              ; preds = %195, %190
+  %199 = load ptr, ptr %2, align 8, !tbaa !3
+  %200 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %199, i32 0, i32 1
+  %201 = load ptr, ptr %200, align 8, !tbaa !42
+  %202 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %201, i32 0, i32 6
+  %203 = load float, ptr %202, align 8, !tbaa !96
+  %204 = load ptr, ptr %2, align 8, !tbaa !3
+  %205 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %204, i32 0, i32 11
+  store float %203, ptr %205, align 4, !tbaa !88
+  br label %206
 
-460:                                              ; preds = %453
-  %461 = load ptr, ptr %2, align 8
-  %462 = getelementptr inbounds %struct.If_Man_t_, ptr %461, i32 0, i32 11
-  %463 = load float, ptr %462, align 4
-  %464 = load ptr, ptr %2, align 8
-  %465 = getelementptr inbounds %struct.If_Man_t_, ptr %464, i32 0, i32 1
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds %struct.If_Par_t_, ptr %466, i32 0, i32 6
-  %468 = load float, ptr %467, align 8
-  %469 = load ptr, ptr %2, align 8
-  %470 = getelementptr inbounds %struct.If_Man_t_, ptr %469, i32 0, i32 10
-  %471 = load float, ptr %470, align 8
-  %472 = fadd float %468, %471
-  %473 = fcmp ogt float %463, %472
-  br i1 %473, label %474, label %489
+206:                                              ; preds = %198, %176
+  br label %207
 
-474:                                              ; preds = %460
-  %475 = load ptr, ptr %2, align 8
-  %476 = getelementptr inbounds %struct.If_Man_t_, ptr %475, i32 0, i32 21
-  %477 = load i32, ptr %476, align 4
-  %478 = icmp eq i32 %477, 0
-  br i1 %478, label %479, label %488
+207:                                              ; preds = %206, %175
+  br label %224
 
-479:                                              ; preds = %474
-  %480 = load ptr, ptr %2, align 8
-  %481 = getelementptr inbounds %struct.If_Man_t_, ptr %480, i32 0, i32 21
-  store i32 1, ptr %481, align 4
-  %482 = load ptr, ptr %2, align 8
-  %483 = getelementptr inbounds %struct.If_Man_t_, ptr %482, i32 0, i32 1
-  %484 = load ptr, ptr %483, align 8
-  %485 = getelementptr inbounds %struct.If_Par_t_, ptr %484, i32 0, i32 6
-  %486 = load float, ptr %485, align 8
-  %487 = fpext float %486 to double
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.4, double noundef %487)
-  br label %488
+208:                                              ; preds = %140
+  %209 = load ptr, ptr %2, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %209, i32 0, i32 1
+  %211 = load ptr, ptr %210, align 8, !tbaa !42
+  %212 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %211, i32 0, i32 67
+  %213 = load float, ptr %212, align 8, !tbaa !95
+  %214 = fcmp ogt float %213, 0.000000e+00
+  br i1 %214, label %215, label %223
 
-488:                                              ; preds = %479, %474
+215:                                              ; preds = %208
+  %216 = load ptr, ptr %2, align 8, !tbaa !3
+  %217 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %216, i32 0, i32 1
+  %218 = load ptr, ptr %217, align 8, !tbaa !42
+  %219 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %218, i32 0, i32 67
+  %220 = load float, ptr %219, align 8, !tbaa !95
+  %221 = load ptr, ptr %2, align 8, !tbaa !3
+  %222 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %221, i32 0, i32 11
+  store float %220, ptr %222, align 4, !tbaa !88
+  br label %223
+
+223:                                              ; preds = %215, %208
+  br label %224
+
+224:                                              ; preds = %223, %207
+  %225 = load ptr, ptr %2, align 8, !tbaa !3
+  %226 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %225, i32 0, i32 1
+  %227 = load ptr, ptr %226, align 8, !tbaa !42
+  %228 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %227, i32 0, i32 54
+  %229 = load i32, ptr %228, align 4, !tbaa !90
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %231, label %232
+
+231:                                              ; preds = %224
+  store i32 1, ptr %7, align 4
+  br label %889
+
+232:                                              ; preds = %224
+  %233 = load ptr, ptr %2, align 8, !tbaa !3
+  %234 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %233, i32 0, i32 1
+  %235 = load ptr, ptr %234, align 8, !tbaa !42
+  %236 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %235, i32 0, i32 44
+  %237 = load i32, ptr %236, align 8, !tbaa !98
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %239, label %312
+
+239:                                              ; preds = %232
+  %240 = load ptr, ptr %2, align 8, !tbaa !3
+  %241 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %240, i32 0, i32 1
+  %242 = load ptr, ptr %241, align 8, !tbaa !42
+  %243 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %242, i32 0, i32 8
+  %244 = load i32, ptr %243, align 8, !tbaa !94
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %284
+
+246:                                              ; preds = %239
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %247
+
+247:                                              ; preds = %280, %246
+  %248 = load i32, ptr %4, align 4, !tbaa !14
+  %249 = load ptr, ptr %2, align 8, !tbaa !3
+  %250 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %249, i32 0, i32 4
+  %251 = load ptr, ptr %250, align 8, !tbaa !75
+  %252 = call i32 @Vec_PtrSize(ptr noundef %251)
+  %253 = icmp slt i32 %248, %252
+  br i1 %253, label %254, label %260
+
+254:                                              ; preds = %247
+  %255 = load ptr, ptr %2, align 8, !tbaa !3
+  %256 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %255, i32 0, i32 4
+  %257 = load ptr, ptr %256, align 8, !tbaa !75
+  %258 = load i32, ptr %4, align 4, !tbaa !14
+  %259 = call ptr @Vec_PtrEntry(ptr noundef %257, i32 noundef %258)
+  store ptr %259, ptr %3, align 8, !tbaa !16
+  br label %260
+
+260:                                              ; preds = %254, %247
+  %261 = phi i1 [ false, %247 ], [ true, %254 ]
+  br i1 %261, label %262, label %283
+
+262:                                              ; preds = %260
+  %263 = load ptr, ptr %3, align 8, !tbaa !16
+  %264 = call ptr @If_ObjFanin0(ptr noundef %263)
+  %265 = call float @If_ObjArrTime(ptr noundef %264)
+  %266 = fpext float %265 to double
+  %267 = load ptr, ptr %2, align 8, !tbaa !3
+  %268 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %267, i32 0, i32 1
+  %269 = load ptr, ptr %268, align 8, !tbaa !42
+  %270 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %269, i32 0, i32 8
+  %271 = load i32, ptr %270, align 8, !tbaa !94
+  %272 = sitofp i32 %271 to double
+  %273 = fadd double 1.000000e+02, %272
+  %274 = fmul double %266, %273
+  %275 = fdiv double %274, 1.000000e+02
+  %276 = fptrunc double %275 to float
+  %277 = load ptr, ptr %3, align 8, !tbaa !16
+  %278 = call ptr @If_ObjFanin0(ptr noundef %277)
+  %279 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %278, i32 0, i32 10
+  store float %276, ptr %279, align 4, !tbaa !58
+  br label %280
+
+280:                                              ; preds = %262
+  %281 = load i32, ptr %4, align 4, !tbaa !14
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %4, align 4, !tbaa !14
+  br label %247, !llvm.loop !99
+
+283:                                              ; preds = %260
+  br label %311
+
+284:                                              ; preds = %239
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %285
+
+285:                                              ; preds = %307, %284
+  %286 = load i32, ptr %4, align 4, !tbaa !14
+  %287 = load ptr, ptr %2, align 8, !tbaa !3
+  %288 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %287, i32 0, i32 4
+  %289 = load ptr, ptr %288, align 8, !tbaa !75
+  %290 = call i32 @Vec_PtrSize(ptr noundef %289)
+  %291 = icmp slt i32 %286, %290
+  br i1 %291, label %292, label %298
+
+292:                                              ; preds = %285
+  %293 = load ptr, ptr %2, align 8, !tbaa !3
+  %294 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %293, i32 0, i32 4
+  %295 = load ptr, ptr %294, align 8, !tbaa !75
+  %296 = load i32, ptr %4, align 4, !tbaa !14
+  %297 = call ptr @Vec_PtrEntry(ptr noundef %295, i32 noundef %296)
+  store ptr %297, ptr %3, align 8, !tbaa !16
+  br label %298
+
+298:                                              ; preds = %292, %285
+  %299 = phi i1 [ false, %285 ], [ true, %292 ]
+  br i1 %299, label %300, label %310
+
+300:                                              ; preds = %298
+  %301 = load ptr, ptr %3, align 8, !tbaa !16
+  %302 = call ptr @If_ObjFanin0(ptr noundef %301)
+  %303 = call float @If_ObjArrTime(ptr noundef %302)
+  %304 = load ptr, ptr %3, align 8, !tbaa !16
+  %305 = call ptr @If_ObjFanin0(ptr noundef %304)
+  %306 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %305, i32 0, i32 10
+  store float %303, ptr %306, align 4, !tbaa !58
+  br label %307
+
+307:                                              ; preds = %300
+  %308 = load i32, ptr %4, align 4, !tbaa !14
+  %309 = add nsw i32 %308, 1
+  store i32 %309, ptr %4, align 4, !tbaa !14
+  br label %285, !llvm.loop !100
+
+310:                                              ; preds = %298
+  br label %311
+
+311:                                              ; preds = %310, %283
+  br label %382
+
+312:                                              ; preds = %232
+  %313 = load ptr, ptr %2, align 8, !tbaa !3
+  %314 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %313, i32 0, i32 1
+  %315 = load ptr, ptr %314, align 8, !tbaa !42
+  %316 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %315, i32 0, i32 17
+  %317 = load i32, ptr %316, align 4, !tbaa !71
+  %318 = icmp ne i32 %317, 0
+  br i1 %318, label %319, label %354
+
+319:                                              ; preds = %312
+  %320 = load ptr, ptr %2, align 8, !tbaa !3
+  %321 = call i32 @If_ManCoNum(ptr noundef %320)
+  %322 = load ptr, ptr %2, align 8, !tbaa !3
+  %323 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %322, i32 0, i32 1
+  %324 = load ptr, ptr %323, align 8, !tbaa !42
+  %325 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %324, i32 0, i32 62
+  %326 = load i32, ptr %325, align 4, !tbaa !73
+  %327 = sub nsw i32 %321, %326
+  store i32 %327, ptr %4, align 4, !tbaa !14
+  br label %328
+
+328:                                              ; preds = %350, %319
+  %329 = load i32, ptr %4, align 4, !tbaa !14
+  %330 = load ptr, ptr %2, align 8, !tbaa !3
+  %331 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %330, i32 0, i32 4
+  %332 = load ptr, ptr %331, align 8, !tbaa !75
+  %333 = call i32 @Vec_PtrSize(ptr noundef %332)
+  %334 = icmp slt i32 %329, %333
+  br i1 %334, label %335, label %341
+
+335:                                              ; preds = %328
+  %336 = load ptr, ptr %2, align 8, !tbaa !3
+  %337 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %336, i32 0, i32 4
+  %338 = load ptr, ptr %337, align 8, !tbaa !75
+  %339 = load i32, ptr %4, align 4, !tbaa !14
+  %340 = call ptr @Vec_PtrEntry(ptr noundef %338, i32 noundef %339)
+  store ptr %340, ptr %3, align 8, !tbaa !16
+  br label %341
+
+341:                                              ; preds = %335, %328
+  %342 = phi i1 [ false, %328 ], [ true, %335 ]
+  br i1 %342, label %343, label %353
+
+343:                                              ; preds = %341
+  %344 = load ptr, ptr %2, align 8, !tbaa !3
+  %345 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %344, i32 0, i32 11
+  %346 = load float, ptr %345, align 4, !tbaa !88
+  %347 = load ptr, ptr %3, align 8, !tbaa !16
+  %348 = call ptr @If_ObjFanin0(ptr noundef %347)
+  %349 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %348, i32 0, i32 10
+  store float %346, ptr %349, align 4, !tbaa !58
+  br label %350
+
+350:                                              ; preds = %343
+  %351 = load i32, ptr %4, align 4, !tbaa !14
+  %352 = add nsw i32 %351, 1
+  store i32 %352, ptr %4, align 4, !tbaa !14
+  br label %328, !llvm.loop !101
+
+353:                                              ; preds = %341
+  br label %381
+
+354:                                              ; preds = %312
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %355
+
+355:                                              ; preds = %377, %354
+  %356 = load i32, ptr %4, align 4, !tbaa !14
+  %357 = load ptr, ptr %2, align 8, !tbaa !3
+  %358 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %357, i32 0, i32 4
+  %359 = load ptr, ptr %358, align 8, !tbaa !75
+  %360 = call i32 @Vec_PtrSize(ptr noundef %359)
+  %361 = icmp slt i32 %356, %360
+  br i1 %361, label %362, label %368
+
+362:                                              ; preds = %355
+  %363 = load ptr, ptr %2, align 8, !tbaa !3
+  %364 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %363, i32 0, i32 4
+  %365 = load ptr, ptr %364, align 8, !tbaa !75
+  %366 = load i32, ptr %4, align 4, !tbaa !14
+  %367 = call ptr @Vec_PtrEntry(ptr noundef %365, i32 noundef %366)
+  store ptr %367, ptr %3, align 8, !tbaa !16
+  br label %368
+
+368:                                              ; preds = %362, %355
+  %369 = phi i1 [ false, %355 ], [ true, %362 ]
+  br i1 %369, label %370, label %380
+
+370:                                              ; preds = %368
+  %371 = load ptr, ptr %2, align 8, !tbaa !3
+  %372 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %371, i32 0, i32 11
+  %373 = load float, ptr %372, align 4, !tbaa !88
+  %374 = load ptr, ptr %3, align 8, !tbaa !16
+  %375 = call ptr @If_ObjFanin0(ptr noundef %374)
+  %376 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %375, i32 0, i32 10
+  store float %373, ptr %376, align 4, !tbaa !58
+  br label %377
+
+377:                                              ; preds = %370
+  %378 = load i32, ptr %4, align 4, !tbaa !14
+  %379 = add nsw i32 %378, 1
+  store i32 %379, ptr %4, align 4, !tbaa !14
+  br label %355, !llvm.loop !102
+
+380:                                              ; preds = %368
+  br label %381
+
+381:                                              ; preds = %380, %353
+  br label %382
+
+382:                                              ; preds = %381, %311
+  br label %383
+
+383:                                              ; preds = %382, %106
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %384
+
+384:                                              ; preds = %413, %383
+  %385 = load i32, ptr %4, align 4, !tbaa !14
+  %386 = load ptr, ptr %2, align 8, !tbaa !3
+  %387 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %386, i32 0, i32 6
+  %388 = load ptr, ptr %387, align 8, !tbaa !103
+  %389 = call i32 @Vec_PtrSize(ptr noundef %388)
+  %390 = icmp slt i32 %385, %389
+  br i1 %390, label %391, label %397
+
+391:                                              ; preds = %384
+  %392 = load ptr, ptr %2, align 8, !tbaa !3
+  %393 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %392, i32 0, i32 6
+  %394 = load ptr, ptr %393, align 8, !tbaa !103
+  %395 = load i32, ptr %4, align 4, !tbaa !14
+  %396 = call ptr @Vec_PtrEntry(ptr noundef %394, i32 noundef %395)
+  store ptr %396, ptr %3, align 8, !tbaa !16
+  br label %397
+
+397:                                              ; preds = %391, %384
+  %398 = phi i1 [ false, %384 ], [ true, %391 ]
+  br i1 %398, label %399, label %416
+
+399:                                              ; preds = %397
+  %400 = load ptr, ptr %3, align 8, !tbaa !16
+  %401 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %400, i32 0, i32 3
+  %402 = load i32, ptr %401, align 4, !tbaa !104
+  %403 = icmp eq i32 %402, 0
+  br i1 %403, label %404, label %405
+
+404:                                              ; preds = %399
+  br label %413
+
+405:                                              ; preds = %399
+  %406 = load ptr, ptr %2, align 8, !tbaa !3
+  %407 = load ptr, ptr %3, align 8, !tbaa !16
+  %408 = load ptr, ptr %3, align 8, !tbaa !16
+  %409 = call ptr @If_ObjCutBest(ptr noundef %408)
+  %410 = load ptr, ptr %3, align 8, !tbaa !16
+  %411 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %410, i32 0, i32 10
+  %412 = load float, ptr %411, align 4, !tbaa !58
+  call void @If_CutPropagateRequired(ptr noundef %406, ptr noundef %407, ptr noundef %409, float noundef %412)
+  br label %413
+
+413:                                              ; preds = %405, %404
+  %414 = load i32, ptr %4, align 4, !tbaa !14
+  %415 = add nsw i32 %414, 1
+  store i32 %415, ptr %4, align 4, !tbaa !14
+  br label %384, !llvm.loop !105
+
+416:                                              ; preds = %397
+  br label %888
+
+417:                                              ; preds = %1
+  %418 = load ptr, ptr %2, align 8, !tbaa !3
+  %419 = call float @If_ManDelayMax(ptr noundef %418, i32 noundef 0)
+  %420 = load ptr, ptr %2, align 8, !tbaa !3
+  %421 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %420, i32 0, i32 11
+  store float %419, ptr %421, align 4, !tbaa !88
+  %422 = load ptr, ptr %2, align 8, !tbaa !3
+  %423 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %422, i32 0, i32 1
+  %424 = load ptr, ptr %423, align 8, !tbaa !42
+  %425 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %424, i32 0, i32 8
+  %426 = load i32, ptr %425, align 8, !tbaa !94
+  %427 = icmp ne i32 %426, 0
+  br i1 %427, label %428, label %454
+
+428:                                              ; preds = %417
+  %429 = load ptr, ptr %2, align 8, !tbaa !3
+  %430 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %429, i32 0, i32 1
+  %431 = load ptr, ptr %430, align 8, !tbaa !42
+  %432 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %431, i32 0, i32 67
+  %433 = load float, ptr %432, align 8, !tbaa !95
+  %434 = fcmp oeq float %433, 0.000000e+00
+  br i1 %434, label %435, label %454
+
+435:                                              ; preds = %428
+  %436 = load ptr, ptr %2, align 8, !tbaa !3
+  %437 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %436, i32 0, i32 11
+  %438 = load float, ptr %437, align 4, !tbaa !88
+  %439 = fpext float %438 to double
+  %440 = load ptr, ptr %2, align 8, !tbaa !3
+  %441 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %440, i32 0, i32 1
+  %442 = load ptr, ptr %441, align 8, !tbaa !42
+  %443 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %442, i32 0, i32 8
+  %444 = load i32, ptr %443, align 8, !tbaa !94
+  %445 = sitofp i32 %444 to double
+  %446 = fadd double 1.000000e+02, %445
+  %447 = fmul double %439, %446
+  %448 = fdiv double %447, 1.000000e+02
+  %449 = fptrunc double %448 to float
+  %450 = load ptr, ptr %2, align 8, !tbaa !3
+  %451 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %450, i32 0, i32 1
+  %452 = load ptr, ptr %451, align 8, !tbaa !42
+  %453 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %452, i32 0, i32 67
+  store float %449, ptr %453, align 8, !tbaa !95
+  br label %454
+
+454:                                              ; preds = %435, %428, %417
+  %455 = load ptr, ptr %2, align 8, !tbaa !3
+  %456 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %455, i32 0, i32 1
+  %457 = load ptr, ptr %456, align 8, !tbaa !42
+  %458 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %457, i32 0, i32 6
+  %459 = load float, ptr %458, align 8, !tbaa !96
+  %460 = fcmp une float %459, -1.000000e+00
+  br i1 %460, label %461, label %522
+
+461:                                              ; preds = %454
+  %462 = load ptr, ptr %2, align 8, !tbaa !3
+  %463 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %462, i32 0, i32 11
+  %464 = load float, ptr %463, align 4, !tbaa !88
+  %465 = load ptr, ptr %2, align 8, !tbaa !3
+  %466 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %465, i32 0, i32 1
+  %467 = load ptr, ptr %466, align 8, !tbaa !42
+  %468 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %467, i32 0, i32 6
+  %469 = load float, ptr %468, align 8, !tbaa !96
+  %470 = load ptr, ptr %2, align 8, !tbaa !3
+  %471 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %470, i32 0, i32 10
+  %472 = load float, ptr %471, align 8, !tbaa !91
+  %473 = fadd float %469, %472
+  %474 = fcmp ogt float %464, %473
+  br i1 %474, label %475, label %490
+
+475:                                              ; preds = %461
+  %476 = load ptr, ptr %2, align 8, !tbaa !3
+  %477 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %476, i32 0, i32 21
+  %478 = load i32, ptr %477, align 4, !tbaa !97
+  %479 = icmp eq i32 %478, 0
+  br i1 %479, label %480, label %489
+
+480:                                              ; preds = %475
+  %481 = load ptr, ptr %2, align 8, !tbaa !3
+  %482 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %481, i32 0, i32 21
+  store i32 1, ptr %482, align 4, !tbaa !97
+  %483 = load ptr, ptr %2, align 8, !tbaa !3
+  %484 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %483, i32 0, i32 1
+  %485 = load ptr, ptr %484, align 8, !tbaa !42
+  %486 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %485, i32 0, i32 6
+  %487 = load float, ptr %486, align 8, !tbaa !96
+  %488 = fpext float %487 to double
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef @.str.4, double noundef %488)
+  br label %489
+
+489:                                              ; preds = %480, %475
+  br label %521
+
+490:                                              ; preds = %461
+  %491 = load ptr, ptr %2, align 8, !tbaa !3
+  %492 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %491, i32 0, i32 11
+  %493 = load float, ptr %492, align 4, !tbaa !88
+  %494 = load ptr, ptr %2, align 8, !tbaa !3
+  %495 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %494, i32 0, i32 1
+  %496 = load ptr, ptr %495, align 8, !tbaa !42
+  %497 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %496, i32 0, i32 6
+  %498 = load float, ptr %497, align 8, !tbaa !96
+  %499 = load ptr, ptr %2, align 8, !tbaa !3
+  %500 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %499, i32 0, i32 10
+  %501 = load float, ptr %500, align 8, !tbaa !91
+  %502 = fsub float %498, %501
+  %503 = fcmp olt float %493, %502
+  br i1 %503, label %504, label %520
+
+504:                                              ; preds = %490
+  %505 = load ptr, ptr %2, align 8, !tbaa !3
+  %506 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %505, i32 0, i32 21
+  %507 = load i32, ptr %506, align 4, !tbaa !97
+  %508 = icmp eq i32 %507, 0
+  br i1 %508, label %509, label %512
+
+509:                                              ; preds = %504
+  %510 = load ptr, ptr %2, align 8, !tbaa !3
+  %511 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %510, i32 0, i32 21
+  store i32 1, ptr %511, align 4, !tbaa !97
+  br label %512
+
+512:                                              ; preds = %509, %504
+  %513 = load ptr, ptr %2, align 8, !tbaa !3
+  %514 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %513, i32 0, i32 1
+  %515 = load ptr, ptr %514, align 8, !tbaa !42
+  %516 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %515, i32 0, i32 6
+  %517 = load float, ptr %516, align 8, !tbaa !96
+  %518 = load ptr, ptr %2, align 8, !tbaa !3
+  %519 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %518, i32 0, i32 11
+  store float %517, ptr %519, align 4, !tbaa !88
   br label %520
 
-489:                                              ; preds = %460
-  %490 = load ptr, ptr %2, align 8
-  %491 = getelementptr inbounds %struct.If_Man_t_, ptr %490, i32 0, i32 11
-  %492 = load float, ptr %491, align 4
-  %493 = load ptr, ptr %2, align 8
-  %494 = getelementptr inbounds %struct.If_Man_t_, ptr %493, i32 0, i32 1
-  %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds %struct.If_Par_t_, ptr %495, i32 0, i32 6
-  %497 = load float, ptr %496, align 8
-  %498 = load ptr, ptr %2, align 8
-  %499 = getelementptr inbounds %struct.If_Man_t_, ptr %498, i32 0, i32 10
-  %500 = load float, ptr %499, align 8
-  %501 = fsub float %497, %500
-  %502 = fcmp olt float %492, %501
-  br i1 %502, label %503, label %519
+520:                                              ; preds = %512, %490
+  br label %521
 
-503:                                              ; preds = %489
-  %504 = load ptr, ptr %2, align 8
-  %505 = getelementptr inbounds %struct.If_Man_t_, ptr %504, i32 0, i32 21
-  %506 = load i32, ptr %505, align 4
-  %507 = icmp eq i32 %506, 0
-  br i1 %507, label %508, label %511
+521:                                              ; preds = %520, %489
+  br label %538
 
-508:                                              ; preds = %503
-  %509 = load ptr, ptr %2, align 8
-  %510 = getelementptr inbounds %struct.If_Man_t_, ptr %509, i32 0, i32 21
-  store i32 1, ptr %510, align 4
-  br label %511
+522:                                              ; preds = %454
+  %523 = load ptr, ptr %2, align 8, !tbaa !3
+  %524 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %523, i32 0, i32 1
+  %525 = load ptr, ptr %524, align 8, !tbaa !42
+  %526 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %525, i32 0, i32 67
+  %527 = load float, ptr %526, align 8, !tbaa !95
+  %528 = fcmp ogt float %527, 0.000000e+00
+  br i1 %528, label %529, label %537
 
-511:                                              ; preds = %508, %503
-  %512 = load ptr, ptr %2, align 8
-  %513 = getelementptr inbounds %struct.If_Man_t_, ptr %512, i32 0, i32 1
-  %514 = load ptr, ptr %513, align 8
-  %515 = getelementptr inbounds %struct.If_Par_t_, ptr %514, i32 0, i32 6
-  %516 = load float, ptr %515, align 8
-  %517 = load ptr, ptr %2, align 8
-  %518 = getelementptr inbounds %struct.If_Man_t_, ptr %517, i32 0, i32 11
-  store float %516, ptr %518, align 4
-  br label %519
-
-519:                                              ; preds = %511, %489
-  br label %520
-
-520:                                              ; preds = %519, %488
+529:                                              ; preds = %522
+  %530 = load ptr, ptr %2, align 8, !tbaa !3
+  %531 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %530, i32 0, i32 1
+  %532 = load ptr, ptr %531, align 8, !tbaa !42
+  %533 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %532, i32 0, i32 67
+  %534 = load float, ptr %533, align 8, !tbaa !95
+  %535 = load ptr, ptr %2, align 8, !tbaa !3
+  %536 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %535, i32 0, i32 11
+  store float %534, ptr %536, align 4, !tbaa !88
   br label %537
 
-521:                                              ; preds = %453
-  %522 = load ptr, ptr %2, align 8
-  %523 = getelementptr inbounds %struct.If_Man_t_, ptr %522, i32 0, i32 1
-  %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds %struct.If_Par_t_, ptr %524, i32 0, i32 65
-  %526 = load float, ptr %525, align 4
-  %527 = fcmp ogt float %526, 0.000000e+00
-  br i1 %527, label %528, label %536
+537:                                              ; preds = %529, %522
+  br label %538
 
-528:                                              ; preds = %521
-  %529 = load ptr, ptr %2, align 8
-  %530 = getelementptr inbounds %struct.If_Man_t_, ptr %529, i32 0, i32 1
-  %531 = load ptr, ptr %530, align 8
-  %532 = getelementptr inbounds %struct.If_Par_t_, ptr %531, i32 0, i32 65
-  %533 = load float, ptr %532, align 4
-  %534 = load ptr, ptr %2, align 8
-  %535 = getelementptr inbounds %struct.If_Man_t_, ptr %534, i32 0, i32 11
-  store float %533, ptr %535, align 4
-  br label %536
+538:                                              ; preds = %537, %521
+  %539 = load ptr, ptr %2, align 8, !tbaa !3
+  %540 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %539, i32 0, i32 1
+  %541 = load ptr, ptr %540, align 8, !tbaa !42
+  %542 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %541, i32 0, i32 54
+  %543 = load i32, ptr %542, align 4, !tbaa !90
+  %544 = icmp ne i32 %543, 0
+  br i1 %544, label %545, label %546
 
-536:                                              ; preds = %528, %521
-  br label %537
+545:                                              ; preds = %538
+  store i32 1, ptr %7, align 4
+  br label %889
 
-537:                                              ; preds = %536, %520
-  %538 = load ptr, ptr %2, align 8
-  %539 = getelementptr inbounds %struct.If_Man_t_, ptr %538, i32 0, i32 1
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds %struct.If_Par_t_, ptr %540, i32 0, i32 52
-  %542 = load i32, ptr %541, align 8
-  %543 = icmp ne i32 %542, 0
-  br i1 %543, label %544, label %545
+546:                                              ; preds = %538
+  %547 = load ptr, ptr %2, align 8, !tbaa !3
+  %548 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %547, i32 0, i32 83
+  %549 = load ptr, ptr %548, align 8, !tbaa !87
+  call void @Tim_ManIncrementTravId(ptr noundef %549)
+  %550 = load ptr, ptr %2, align 8, !tbaa !3
+  %551 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %550, i32 0, i32 84
+  %552 = load ptr, ptr %551, align 8, !tbaa !106
+  %553 = icmp ne ptr %552, null
+  br i1 %553, label %554, label %628
 
-544:                                              ; preds = %537
-  br label %887
+554:                                              ; preds = %546
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %555
 
-545:                                              ; preds = %537
-  %546 = load ptr, ptr %2, align 8
-  %547 = getelementptr inbounds %struct.If_Man_t_, ptr %546, i32 0, i32 83
-  %548 = load ptr, ptr %547, align 8
-  call void @Tim_ManIncrementTravId(ptr noundef %548)
-  %549 = load ptr, ptr %2, align 8
-  %550 = getelementptr inbounds %struct.If_Man_t_, ptr %549, i32 0, i32 84
-  %551 = load ptr, ptr %550, align 8
-  %552 = icmp ne ptr %551, null
-  br i1 %552, label %553, label %627
+555:                                              ; preds = %624, %554
+  %556 = load i32, ptr %4, align 4, !tbaa !14
+  %557 = load ptr, ptr %2, align 8, !tbaa !3
+  %558 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %557, i32 0, i32 4
+  %559 = load ptr, ptr %558, align 8, !tbaa !75
+  %560 = call i32 @Vec_PtrSize(ptr noundef %559)
+  %561 = icmp slt i32 %556, %560
+  br i1 %561, label %562, label %568
 
-553:                                              ; preds = %545
-  store i32 0, ptr %4, align 4
-  br label %554
+562:                                              ; preds = %555
+  %563 = load ptr, ptr %2, align 8, !tbaa !3
+  %564 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %563, i32 0, i32 4
+  %565 = load ptr, ptr %564, align 8, !tbaa !75
+  %566 = load i32, ptr %4, align 4, !tbaa !14
+  %567 = call ptr @Vec_PtrEntry(ptr noundef %565, i32 noundef %566)
+  store ptr %567, ptr %3, align 8, !tbaa !16
+  br label %568
 
-554:                                              ; preds = %623, %553
-  %555 = load i32, ptr %4, align 4
-  %556 = load ptr, ptr %2, align 8
-  %557 = getelementptr inbounds %struct.If_Man_t_, ptr %556, i32 0, i32 4
-  %558 = load ptr, ptr %557, align 8
-  %559 = call i32 @Vec_PtrSize(ptr noundef %558)
-  %560 = icmp slt i32 %555, %559
-  br i1 %560, label %561, label %567
+568:                                              ; preds = %562, %555
+  %569 = phi i1 [ false, %555 ], [ true, %562 ]
+  br i1 %569, label %570, label %627
 
-561:                                              ; preds = %554
-  %562 = load ptr, ptr %2, align 8
-  %563 = getelementptr inbounds %struct.If_Man_t_, ptr %562, i32 0, i32 4
-  %564 = load ptr, ptr %563, align 8
-  %565 = load i32, ptr %4, align 4
-  %566 = call ptr @Vec_PtrEntry(ptr noundef %564, i32 noundef %565)
-  store ptr %566, ptr %3, align 8
-  br label %567
+570:                                              ; preds = %568
+  %571 = load ptr, ptr %2, align 8, !tbaa !3
+  %572 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %571, i32 0, i32 84
+  %573 = load ptr, ptr %572, align 8, !tbaa !106
+  %574 = load i32, ptr %4, align 4, !tbaa !14
+  %575 = call i32 @Vec_IntEntry(ptr noundef %573, i32 noundef %574)
+  %576 = icmp eq i32 %575, -1
+  br i1 %576, label %577, label %578
 
-567:                                              ; preds = %561, %554
-  %568 = phi i1 [ false, %554 ], [ true, %561 ]
-  br i1 %568, label %569, label %626
+577:                                              ; preds = %570
+  br label %624
 
-569:                                              ; preds = %567
-  %570 = load ptr, ptr %2, align 8
-  %571 = getelementptr inbounds %struct.If_Man_t_, ptr %570, i32 0, i32 84
-  %572 = load ptr, ptr %571, align 8
-  %573 = load i32, ptr %4, align 4
-  %574 = call i32 @Vec_IntEntry(ptr noundef %572, i32 noundef %573)
-  %575 = icmp eq i32 %574, -1
-  br i1 %575, label %576, label %577
+578:                                              ; preds = %570
+  %579 = load ptr, ptr %2, align 8, !tbaa !3
+  %580 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %579, i32 0, i32 84
+  %581 = load ptr, ptr %580, align 8, !tbaa !106
+  %582 = load i32, ptr %4, align 4, !tbaa !14
+  %583 = call i32 @Vec_IntEntry(ptr noundef %581, i32 noundef %582)
+  %584 = icmp eq i32 %583, 0
+  br i1 %584, label %585, label %593
 
-576:                                              ; preds = %569
+585:                                              ; preds = %578
+  %586 = load ptr, ptr %2, align 8, !tbaa !3
+  %587 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %586, i32 0, i32 83
+  %588 = load ptr, ptr %587, align 8, !tbaa !87
+  %589 = load i32, ptr %4, align 4, !tbaa !14
+  %590 = load ptr, ptr %2, align 8, !tbaa !3
+  %591 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %590, i32 0, i32 11
+  %592 = load float, ptr %591, align 4, !tbaa !88
+  call void @Tim_ManSetCoRequired(ptr noundef %588, i32 noundef %589, float noundef %592)
   br label %623
 
-577:                                              ; preds = %569
-  %578 = load ptr, ptr %2, align 8
-  %579 = getelementptr inbounds %struct.If_Man_t_, ptr %578, i32 0, i32 84
-  %580 = load ptr, ptr %579, align 8
-  %581 = load i32, ptr %4, align 4
-  %582 = call i32 @Vec_IntEntry(ptr noundef %580, i32 noundef %581)
-  %583 = icmp eq i32 %582, 0
-  br i1 %583, label %584, label %592
+593:                                              ; preds = %578
+  %594 = load ptr, ptr %2, align 8, !tbaa !3
+  %595 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %594, i32 0, i32 84
+  %596 = load ptr, ptr %595, align 8, !tbaa !106
+  %597 = load i32, ptr %4, align 4, !tbaa !14
+  %598 = call i32 @Vec_IntEntry(ptr noundef %596, i32 noundef %597)
+  %599 = icmp eq i32 %598, 1
+  br i1 %599, label %600, label %608
 
-584:                                              ; preds = %577
-  %585 = load ptr, ptr %2, align 8
-  %586 = getelementptr inbounds %struct.If_Man_t_, ptr %585, i32 0, i32 83
-  %587 = load ptr, ptr %586, align 8
-  %588 = load i32, ptr %4, align 4
-  %589 = load ptr, ptr %2, align 8
-  %590 = getelementptr inbounds %struct.If_Man_t_, ptr %589, i32 0, i32 11
-  %591 = load float, ptr %590, align 4
-  call void @Tim_ManSetCoRequired(ptr noundef %587, i32 noundef %588, float noundef %591)
+600:                                              ; preds = %593
+  %601 = load ptr, ptr %2, align 8, !tbaa !3
+  %602 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %601, i32 0, i32 83
+  %603 = load ptr, ptr %602, align 8, !tbaa !87
+  %604 = load i32, ptr %4, align 4, !tbaa !14
+  %605 = load ptr, ptr %3, align 8, !tbaa !16
+  %606 = call ptr @If_ObjFanin0(ptr noundef %605)
+  %607 = call float @If_ObjArrTime(ptr noundef %606)
+  call void @Tim_ManSetCoRequired(ptr noundef %603, i32 noundef %604, float noundef %607)
   br label %622
 
-592:                                              ; preds = %577
-  %593 = load ptr, ptr %2, align 8
-  %594 = getelementptr inbounds %struct.If_Man_t_, ptr %593, i32 0, i32 84
-  %595 = load ptr, ptr %594, align 8
-  %596 = load i32, ptr %4, align 4
-  %597 = call i32 @Vec_IntEntry(ptr noundef %595, i32 noundef %596)
-  %598 = icmp eq i32 %597, 1
-  br i1 %598, label %599, label %607
+608:                                              ; preds = %593
+  %609 = load ptr, ptr %2, align 8, !tbaa !3
+  %610 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %609, i32 0, i32 84
+  %611 = load ptr, ptr %610, align 8, !tbaa !106
+  %612 = load i32, ptr %4, align 4, !tbaa !14
+  %613 = call i32 @Vec_IntEntry(ptr noundef %611, i32 noundef %612)
+  %614 = icmp eq i32 %613, 2
+  br i1 %614, label %615, label %620
 
-599:                                              ; preds = %592
-  %600 = load ptr, ptr %2, align 8
-  %601 = getelementptr inbounds %struct.If_Man_t_, ptr %600, i32 0, i32 83
-  %602 = load ptr, ptr %601, align 8
-  %603 = load i32, ptr %4, align 4
-  %604 = load ptr, ptr %3, align 8
-  %605 = call ptr @If_ObjFanin0(ptr noundef %604)
-  %606 = call float @If_ObjArrTime(ptr noundef %605)
-  call void @Tim_ManSetCoRequired(ptr noundef %602, i32 noundef %603, float noundef %606)
+615:                                              ; preds = %608
+  %616 = load ptr, ptr %2, align 8, !tbaa !3
+  %617 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %616, i32 0, i32 83
+  %618 = load ptr, ptr %617, align 8, !tbaa !87
+  %619 = load i32, ptr %4, align 4, !tbaa !14
+  call void @Tim_ManSetCoRequired(ptr noundef %618, i32 noundef %619, float noundef 0x4415AF1D80000000)
   br label %621
 
-607:                                              ; preds = %592
-  %608 = load ptr, ptr %2, align 8
-  %609 = getelementptr inbounds %struct.If_Man_t_, ptr %608, i32 0, i32 84
-  %610 = load ptr, ptr %609, align 8
-  %611 = load i32, ptr %4, align 4
-  %612 = call i32 @Vec_IntEntry(ptr noundef %610, i32 noundef %611)
-  %613 = icmp eq i32 %612, 2
-  br i1 %613, label %614, label %619
-
-614:                                              ; preds = %607
-  %615 = load ptr, ptr %2, align 8
-  %616 = getelementptr inbounds %struct.If_Man_t_, ptr %615, i32 0, i32 83
-  %617 = load ptr, ptr %616, align 8
-  %618 = load i32, ptr %4, align 4
-  call void @Tim_ManSetCoRequired(ptr noundef %617, i32 noundef %618, float noundef 0x4415AF1D80000000)
-  br label %620
-
-619:                                              ; preds = %607
-  br label %620
-
-620:                                              ; preds = %619, %614
+620:                                              ; preds = %608
   br label %621
 
-621:                                              ; preds = %620, %599
+621:                                              ; preds = %620, %615
   br label %622
 
-622:                                              ; preds = %621, %584
+622:                                              ; preds = %621, %600
   br label %623
 
-623:                                              ; preds = %622, %576
-  %624 = load i32, ptr %4, align 4
-  %625 = add nsw i32 %624, 1
-  store i32 %625, ptr %4, align 4
-  br label %554, !llvm.loop !29
+623:                                              ; preds = %622, %585
+  br label %624
 
-626:                                              ; preds = %567
-  br label %794
+624:                                              ; preds = %623, %577
+  %625 = load i32, ptr %4, align 4, !tbaa !14
+  %626 = add nsw i32 %625, 1
+  store i32 %626, ptr %4, align 4, !tbaa !14
+  br label %555, !llvm.loop !107
 
-627:                                              ; preds = %545
-  %628 = load ptr, ptr %2, align 8
-  %629 = getelementptr inbounds %struct.If_Man_t_, ptr %628, i32 0, i32 1
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds %struct.If_Par_t_, ptr %630, i32 0, i32 44
-  %632 = load i32, ptr %631, align 8
-  %633 = icmp ne i32 %632, 0
-  br i1 %633, label %634, label %709
-
-634:                                              ; preds = %627
-  %635 = load ptr, ptr %2, align 8
-  %636 = getelementptr inbounds %struct.If_Man_t_, ptr %635, i32 0, i32 1
-  %637 = load ptr, ptr %636, align 8
-  %638 = getelementptr inbounds %struct.If_Par_t_, ptr %637, i32 0, i32 8
-  %639 = load i32, ptr %638, align 8
-  %640 = icmp ne i32 %639, 0
-  br i1 %640, label %641, label %680
-
-641:                                              ; preds = %634
-  store i32 0, ptr %4, align 4
-  br label %642
-
-642:                                              ; preds = %676, %641
-  %643 = load i32, ptr %4, align 4
-  %644 = load ptr, ptr %2, align 8
-  %645 = getelementptr inbounds %struct.If_Man_t_, ptr %644, i32 0, i32 4
-  %646 = load ptr, ptr %645, align 8
-  %647 = call i32 @Vec_PtrSize(ptr noundef %646)
-  %648 = icmp slt i32 %643, %647
-  br i1 %648, label %649, label %655
-
-649:                                              ; preds = %642
-  %650 = load ptr, ptr %2, align 8
-  %651 = getelementptr inbounds %struct.If_Man_t_, ptr %650, i32 0, i32 4
-  %652 = load ptr, ptr %651, align 8
-  %653 = load i32, ptr %4, align 4
-  %654 = call ptr @Vec_PtrEntry(ptr noundef %652, i32 noundef %653)
-  store ptr %654, ptr %3, align 8
-  br label %655
-
-655:                                              ; preds = %649, %642
-  %656 = phi i1 [ false, %642 ], [ true, %649 ]
-  br i1 %656, label %657, label %679
-
-657:                                              ; preds = %655
-  %658 = load ptr, ptr %2, align 8
-  %659 = getelementptr inbounds %struct.If_Man_t_, ptr %658, i32 0, i32 83
-  %660 = load ptr, ptr %659, align 8
-  %661 = load i32, ptr %4, align 4
-  %662 = load ptr, ptr %3, align 8
-  %663 = call ptr @If_ObjFanin0(ptr noundef %662)
-  %664 = call float @If_ObjArrTime(ptr noundef %663)
-  %665 = fpext float %664 to double
-  %666 = load ptr, ptr %2, align 8
-  %667 = getelementptr inbounds %struct.If_Man_t_, ptr %666, i32 0, i32 1
-  %668 = load ptr, ptr %667, align 8
-  %669 = getelementptr inbounds %struct.If_Par_t_, ptr %668, i32 0, i32 8
-  %670 = load i32, ptr %669, align 8
-  %671 = sitofp i32 %670 to double
-  %672 = fadd double 1.000000e+02, %671
-  %673 = fmul double %665, %672
-  %674 = fdiv double %673, 1.000000e+02
-  %675 = fptrunc double %674 to float
-  call void @Tim_ManSetCoRequired(ptr noundef %660, i32 noundef %661, float noundef %675)
-  br label %676
-
-676:                                              ; preds = %657
-  %677 = load i32, ptr %4, align 4
-  %678 = add nsw i32 %677, 1
-  store i32 %678, ptr %4, align 4
-  br label %642, !llvm.loop !30
-
-679:                                              ; preds = %655
-  br label %708
-
-680:                                              ; preds = %634
-  store i32 0, ptr %4, align 4
-  br label %681
-
-681:                                              ; preds = %704, %680
-  %682 = load i32, ptr %4, align 4
-  %683 = load ptr, ptr %2, align 8
-  %684 = getelementptr inbounds %struct.If_Man_t_, ptr %683, i32 0, i32 4
-  %685 = load ptr, ptr %684, align 8
-  %686 = call i32 @Vec_PtrSize(ptr noundef %685)
-  %687 = icmp slt i32 %682, %686
-  br i1 %687, label %688, label %694
-
-688:                                              ; preds = %681
-  %689 = load ptr, ptr %2, align 8
-  %690 = getelementptr inbounds %struct.If_Man_t_, ptr %689, i32 0, i32 4
-  %691 = load ptr, ptr %690, align 8
-  %692 = load i32, ptr %4, align 4
-  %693 = call ptr @Vec_PtrEntry(ptr noundef %691, i32 noundef %692)
-  store ptr %693, ptr %3, align 8
-  br label %694
-
-694:                                              ; preds = %688, %681
-  %695 = phi i1 [ false, %681 ], [ true, %688 ]
-  br i1 %695, label %696, label %707
-
-696:                                              ; preds = %694
-  %697 = load ptr, ptr %2, align 8
-  %698 = getelementptr inbounds %struct.If_Man_t_, ptr %697, i32 0, i32 83
-  %699 = load ptr, ptr %698, align 8
-  %700 = load i32, ptr %4, align 4
-  %701 = load ptr, ptr %3, align 8
-  %702 = call ptr @If_ObjFanin0(ptr noundef %701)
-  %703 = call float @If_ObjArrTime(ptr noundef %702)
-  call void @Tim_ManSetCoRequired(ptr noundef %699, i32 noundef %700, float noundef %703)
-  br label %704
-
-704:                                              ; preds = %696
-  %705 = load i32, ptr %4, align 4
-  %706 = add nsw i32 %705, 1
-  store i32 %706, ptr %4, align 4
-  br label %681, !llvm.loop !31
-
-707:                                              ; preds = %694
-  br label %708
-
-708:                                              ; preds = %707, %679
-  br label %793
-
-709:                                              ; preds = %627
-  %710 = load ptr, ptr %2, align 8
-  %711 = getelementptr inbounds %struct.If_Man_t_, ptr %710, i32 0, i32 1
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds %struct.If_Par_t_, ptr %712, i32 0, i32 17
-  %714 = load i32, ptr %713, align 4
-  %715 = icmp ne i32 %714, 0
-  br i1 %715, label %716, label %785
-
-716:                                              ; preds = %709
-  %717 = load ptr, ptr %2, align 8
-  %718 = getelementptr inbounds %struct.If_Man_t_, ptr %717, i32 0, i32 1
-  %719 = load ptr, ptr %718, align 8
-  %720 = getelementptr inbounds %struct.If_Par_t_, ptr %719, i32 0, i32 62
-  %721 = load i32, ptr %720, align 8
-  store i32 %721, ptr %4, align 4
-  br label %722
-
-722:                                              ; preds = %746, %716
-  %723 = load i32, ptr %4, align 4
-  %724 = load ptr, ptr %2, align 8
-  %725 = call i32 @If_ManCoNum(ptr noundef %724)
-  %726 = load ptr, ptr %2, align 8
-  %727 = getelementptr inbounds %struct.If_Man_t_, ptr %726, i32 0, i32 1
-  %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds %struct.If_Par_t_, ptr %728, i32 0, i32 60
-  %730 = load i32, ptr %729, align 8
-  %731 = sub nsw i32 %725, %730
-  %732 = icmp slt i32 %723, %731
-  br i1 %732, label %733, label %739
-
-733:                                              ; preds = %722
-  %734 = load ptr, ptr %2, align 8
-  %735 = getelementptr inbounds %struct.If_Man_t_, ptr %734, i32 0, i32 4
-  %736 = load ptr, ptr %735, align 8
-  %737 = load i32, ptr %4, align 4
-  %738 = call ptr @Vec_PtrEntry(ptr noundef %736, i32 noundef %737)
-  store ptr %738, ptr %3, align 8
-  br label %739
-
-739:                                              ; preds = %733, %722
-  %740 = phi i1 [ false, %722 ], [ true, %733 ]
-  br i1 %740, label %741, label %749
-
-741:                                              ; preds = %739
-  %742 = load ptr, ptr %2, align 8
-  %743 = getelementptr inbounds %struct.If_Man_t_, ptr %742, i32 0, i32 83
-  %744 = load ptr, ptr %743, align 8
-  %745 = load i32, ptr %4, align 4
-  call void @Tim_ManSetCoRequired(ptr noundef %744, i32 noundef %745, float noundef 0x4415AF1D80000000)
-  br label %746
-
-746:                                              ; preds = %741
-  %747 = load i32, ptr %4, align 4
-  %748 = add nsw i32 %747, 1
-  store i32 %748, ptr %4, align 4
-  br label %722, !llvm.loop !32
-
-749:                                              ; preds = %739
-  %750 = load ptr, ptr %2, align 8
-  %751 = call i32 @If_ManCoNum(ptr noundef %750)
-  %752 = load ptr, ptr %2, align 8
-  %753 = getelementptr inbounds %struct.If_Man_t_, ptr %752, i32 0, i32 1
-  %754 = load ptr, ptr %753, align 8
-  %755 = getelementptr inbounds %struct.If_Par_t_, ptr %754, i32 0, i32 60
-  %756 = load i32, ptr %755, align 8
-  %757 = sub nsw i32 %751, %756
-  store i32 %757, ptr %4, align 4
-  br label %758
-
-758:                                              ; preds = %781, %749
-  %759 = load i32, ptr %4, align 4
-  %760 = load ptr, ptr %2, align 8
-  %761 = getelementptr inbounds %struct.If_Man_t_, ptr %760, i32 0, i32 4
-  %762 = load ptr, ptr %761, align 8
-  %763 = call i32 @Vec_PtrSize(ptr noundef %762)
-  %764 = icmp slt i32 %759, %763
-  br i1 %764, label %765, label %771
-
-765:                                              ; preds = %758
-  %766 = load ptr, ptr %2, align 8
-  %767 = getelementptr inbounds %struct.If_Man_t_, ptr %766, i32 0, i32 4
-  %768 = load ptr, ptr %767, align 8
-  %769 = load i32, ptr %4, align 4
-  %770 = call ptr @Vec_PtrEntry(ptr noundef %768, i32 noundef %769)
-  store ptr %770, ptr %3, align 8
-  br label %771
-
-771:                                              ; preds = %765, %758
-  %772 = phi i1 [ false, %758 ], [ true, %765 ]
-  br i1 %772, label %773, label %784
-
-773:                                              ; preds = %771
-  %774 = load ptr, ptr %2, align 8
-  %775 = getelementptr inbounds %struct.If_Man_t_, ptr %774, i32 0, i32 83
-  %776 = load ptr, ptr %775, align 8
-  %777 = load i32, ptr %4, align 4
-  %778 = load ptr, ptr %2, align 8
-  %779 = getelementptr inbounds %struct.If_Man_t_, ptr %778, i32 0, i32 11
-  %780 = load float, ptr %779, align 4
-  call void @Tim_ManSetCoRequired(ptr noundef %776, i32 noundef %777, float noundef %780)
-  br label %781
-
-781:                                              ; preds = %773
-  %782 = load i32, ptr %4, align 4
-  %783 = add nsw i32 %782, 1
-  store i32 %783, ptr %4, align 4
-  br label %758, !llvm.loop !33
-
-784:                                              ; preds = %771
-  br label %792
-
-785:                                              ; preds = %709
-  %786 = load ptr, ptr %2, align 8
-  %787 = getelementptr inbounds %struct.If_Man_t_, ptr %786, i32 0, i32 83
-  %788 = load ptr, ptr %787, align 8
-  %789 = load ptr, ptr %2, align 8
-  %790 = getelementptr inbounds %struct.If_Man_t_, ptr %789, i32 0, i32 11
-  %791 = load float, ptr %790, align 4
-  call void @Tim_ManInitPoRequiredAll(ptr noundef %788, float noundef %791)
-  br label %792
-
-792:                                              ; preds = %785, %784
-  br label %793
-
-793:                                              ; preds = %792, %708
-  br label %794
-
-794:                                              ; preds = %793, %626
-  store i32 0, ptr %4, align 4
+627:                                              ; preds = %568
   br label %795
 
-795:                                              ; preds = %883, %794
-  %796 = load i32, ptr %4, align 4
-  %797 = load ptr, ptr %2, align 8
-  %798 = getelementptr inbounds %struct.If_Man_t_, ptr %797, i32 0, i32 6
-  %799 = load ptr, ptr %798, align 8
-  %800 = call i32 @Vec_PtrSize(ptr noundef %799)
-  %801 = icmp slt i32 %796, %800
-  br i1 %801, label %802, label %808
+628:                                              ; preds = %546
+  %629 = load ptr, ptr %2, align 8, !tbaa !3
+  %630 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %629, i32 0, i32 1
+  %631 = load ptr, ptr %630, align 8, !tbaa !42
+  %632 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %631, i32 0, i32 44
+  %633 = load i32, ptr %632, align 8, !tbaa !98
+  %634 = icmp ne i32 %633, 0
+  br i1 %634, label %635, label %710
 
-802:                                              ; preds = %795
-  %803 = load ptr, ptr %2, align 8
-  %804 = getelementptr inbounds %struct.If_Man_t_, ptr %803, i32 0, i32 6
-  %805 = load ptr, ptr %804, align 8
-  %806 = load i32, ptr %4, align 4
-  %807 = call ptr @Vec_PtrEntry(ptr noundef %805, i32 noundef %806)
-  store ptr %807, ptr %3, align 8
-  br label %808
+635:                                              ; preds = %628
+  %636 = load ptr, ptr %2, align 8, !tbaa !3
+  %637 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %636, i32 0, i32 1
+  %638 = load ptr, ptr %637, align 8, !tbaa !42
+  %639 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %638, i32 0, i32 8
+  %640 = load i32, ptr %639, align 8, !tbaa !94
+  %641 = icmp ne i32 %640, 0
+  br i1 %641, label %642, label %681
 
-808:                                              ; preds = %802, %795
-  %809 = phi i1 [ false, %795 ], [ true, %802 ]
-  br i1 %809, label %810, label %886
+642:                                              ; preds = %635
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %643
 
-810:                                              ; preds = %808
-  %811 = load ptr, ptr %3, align 8
-  %812 = call i32 @If_ObjIsAnd(ptr noundef %811)
-  %813 = icmp ne i32 %812, 0
-  br i1 %813, label %814, label %828
+643:                                              ; preds = %677, %642
+  %644 = load i32, ptr %4, align 4, !tbaa !14
+  %645 = load ptr, ptr %2, align 8, !tbaa !3
+  %646 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %645, i32 0, i32 4
+  %647 = load ptr, ptr %646, align 8, !tbaa !75
+  %648 = call i32 @Vec_PtrSize(ptr noundef %647)
+  %649 = icmp slt i32 %644, %648
+  br i1 %649, label %650, label %656
 
-814:                                              ; preds = %810
-  %815 = load ptr, ptr %3, align 8
-  %816 = getelementptr inbounds %struct.If_Obj_t_, ptr %815, i32 0, i32 3
-  %817 = load i32, ptr %816, align 4
-  %818 = icmp eq i32 %817, 0
-  br i1 %818, label %819, label %820
+650:                                              ; preds = %643
+  %651 = load ptr, ptr %2, align 8, !tbaa !3
+  %652 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %651, i32 0, i32 4
+  %653 = load ptr, ptr %652, align 8, !tbaa !75
+  %654 = load i32, ptr %4, align 4, !tbaa !14
+  %655 = call ptr @Vec_PtrEntry(ptr noundef %653, i32 noundef %654)
+  store ptr %655, ptr %3, align 8, !tbaa !16
+  br label %656
 
-819:                                              ; preds = %814
+656:                                              ; preds = %650, %643
+  %657 = phi i1 [ false, %643 ], [ true, %650 ]
+  br i1 %657, label %658, label %680
+
+658:                                              ; preds = %656
+  %659 = load ptr, ptr %2, align 8, !tbaa !3
+  %660 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %659, i32 0, i32 83
+  %661 = load ptr, ptr %660, align 8, !tbaa !87
+  %662 = load i32, ptr %4, align 4, !tbaa !14
+  %663 = load ptr, ptr %3, align 8, !tbaa !16
+  %664 = call ptr @If_ObjFanin0(ptr noundef %663)
+  %665 = call float @If_ObjArrTime(ptr noundef %664)
+  %666 = fpext float %665 to double
+  %667 = load ptr, ptr %2, align 8, !tbaa !3
+  %668 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %667, i32 0, i32 1
+  %669 = load ptr, ptr %668, align 8, !tbaa !42
+  %670 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %669, i32 0, i32 8
+  %671 = load i32, ptr %670, align 8, !tbaa !94
+  %672 = sitofp i32 %671 to double
+  %673 = fadd double 1.000000e+02, %672
+  %674 = fmul double %666, %673
+  %675 = fdiv double %674, 1.000000e+02
+  %676 = fptrunc double %675 to float
+  call void @Tim_ManSetCoRequired(ptr noundef %661, i32 noundef %662, float noundef %676)
+  br label %677
+
+677:                                              ; preds = %658
+  %678 = load i32, ptr %4, align 4, !tbaa !14
+  %679 = add nsw i32 %678, 1
+  store i32 %679, ptr %4, align 4, !tbaa !14
+  br label %643, !llvm.loop !108
+
+680:                                              ; preds = %656
+  br label %709
+
+681:                                              ; preds = %635
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %682
+
+682:                                              ; preds = %705, %681
+  %683 = load i32, ptr %4, align 4, !tbaa !14
+  %684 = load ptr, ptr %2, align 8, !tbaa !3
+  %685 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %684, i32 0, i32 4
+  %686 = load ptr, ptr %685, align 8, !tbaa !75
+  %687 = call i32 @Vec_PtrSize(ptr noundef %686)
+  %688 = icmp slt i32 %683, %687
+  br i1 %688, label %689, label %695
+
+689:                                              ; preds = %682
+  %690 = load ptr, ptr %2, align 8, !tbaa !3
+  %691 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %690, i32 0, i32 4
+  %692 = load ptr, ptr %691, align 8, !tbaa !75
+  %693 = load i32, ptr %4, align 4, !tbaa !14
+  %694 = call ptr @Vec_PtrEntry(ptr noundef %692, i32 noundef %693)
+  store ptr %694, ptr %3, align 8, !tbaa !16
+  br label %695
+
+695:                                              ; preds = %689, %682
+  %696 = phi i1 [ false, %682 ], [ true, %689 ]
+  br i1 %696, label %697, label %708
+
+697:                                              ; preds = %695
+  %698 = load ptr, ptr %2, align 8, !tbaa !3
+  %699 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %698, i32 0, i32 83
+  %700 = load ptr, ptr %699, align 8, !tbaa !87
+  %701 = load i32, ptr %4, align 4, !tbaa !14
+  %702 = load ptr, ptr %3, align 8, !tbaa !16
+  %703 = call ptr @If_ObjFanin0(ptr noundef %702)
+  %704 = call float @If_ObjArrTime(ptr noundef %703)
+  call void @Tim_ManSetCoRequired(ptr noundef %700, i32 noundef %701, float noundef %704)
+  br label %705
+
+705:                                              ; preds = %697
+  %706 = load i32, ptr %4, align 4, !tbaa !14
+  %707 = add nsw i32 %706, 1
+  store i32 %707, ptr %4, align 4, !tbaa !14
+  br label %682, !llvm.loop !109
+
+708:                                              ; preds = %695
+  br label %709
+
+709:                                              ; preds = %708, %680
+  br label %794
+
+710:                                              ; preds = %628
+  %711 = load ptr, ptr %2, align 8, !tbaa !3
+  %712 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %711, i32 0, i32 1
+  %713 = load ptr, ptr %712, align 8, !tbaa !42
+  %714 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %713, i32 0, i32 17
+  %715 = load i32, ptr %714, align 4, !tbaa !71
+  %716 = icmp ne i32 %715, 0
+  br i1 %716, label %717, label %786
+
+717:                                              ; preds = %710
+  %718 = load ptr, ptr %2, align 8, !tbaa !3
+  %719 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %718, i32 0, i32 1
+  %720 = load ptr, ptr %719, align 8, !tbaa !42
+  %721 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %720, i32 0, i32 64
+  %722 = load i32, ptr %721, align 4, !tbaa !74
+  store i32 %722, ptr %4, align 4, !tbaa !14
+  br label %723
+
+723:                                              ; preds = %747, %717
+  %724 = load i32, ptr %4, align 4, !tbaa !14
+  %725 = load ptr, ptr %2, align 8, !tbaa !3
+  %726 = call i32 @If_ManCoNum(ptr noundef %725)
+  %727 = load ptr, ptr %2, align 8, !tbaa !3
+  %728 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %727, i32 0, i32 1
+  %729 = load ptr, ptr %728, align 8, !tbaa !42
+  %730 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %729, i32 0, i32 62
+  %731 = load i32, ptr %730, align 4, !tbaa !73
+  %732 = sub nsw i32 %726, %731
+  %733 = icmp slt i32 %724, %732
+  br i1 %733, label %734, label %740
+
+734:                                              ; preds = %723
+  %735 = load ptr, ptr %2, align 8, !tbaa !3
+  %736 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %735, i32 0, i32 4
+  %737 = load ptr, ptr %736, align 8, !tbaa !75
+  %738 = load i32, ptr %4, align 4, !tbaa !14
+  %739 = call ptr @Vec_PtrEntry(ptr noundef %737, i32 noundef %738)
+  store ptr %739, ptr %3, align 8, !tbaa !16
+  br label %740
+
+740:                                              ; preds = %734, %723
+  %741 = phi i1 [ false, %723 ], [ true, %734 ]
+  br i1 %741, label %742, label %750
+
+742:                                              ; preds = %740
+  %743 = load ptr, ptr %2, align 8, !tbaa !3
+  %744 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %743, i32 0, i32 83
+  %745 = load ptr, ptr %744, align 8, !tbaa !87
+  %746 = load i32, ptr %4, align 4, !tbaa !14
+  call void @Tim_ManSetCoRequired(ptr noundef %745, i32 noundef %746, float noundef 0x4415AF1D80000000)
+  br label %747
+
+747:                                              ; preds = %742
+  %748 = load i32, ptr %4, align 4, !tbaa !14
+  %749 = add nsw i32 %748, 1
+  store i32 %749, ptr %4, align 4, !tbaa !14
+  br label %723, !llvm.loop !110
+
+750:                                              ; preds = %740
+  %751 = load ptr, ptr %2, align 8, !tbaa !3
+  %752 = call i32 @If_ManCoNum(ptr noundef %751)
+  %753 = load ptr, ptr %2, align 8, !tbaa !3
+  %754 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %753, i32 0, i32 1
+  %755 = load ptr, ptr %754, align 8, !tbaa !42
+  %756 = getelementptr inbounds nuw %struct.If_Par_t_, ptr %755, i32 0, i32 62
+  %757 = load i32, ptr %756, align 4, !tbaa !73
+  %758 = sub nsw i32 %752, %757
+  store i32 %758, ptr %4, align 4, !tbaa !14
+  br label %759
+
+759:                                              ; preds = %782, %750
+  %760 = load i32, ptr %4, align 4, !tbaa !14
+  %761 = load ptr, ptr %2, align 8, !tbaa !3
+  %762 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %761, i32 0, i32 4
+  %763 = load ptr, ptr %762, align 8, !tbaa !75
+  %764 = call i32 @Vec_PtrSize(ptr noundef %763)
+  %765 = icmp slt i32 %760, %764
+  br i1 %765, label %766, label %772
+
+766:                                              ; preds = %759
+  %767 = load ptr, ptr %2, align 8, !tbaa !3
+  %768 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %767, i32 0, i32 4
+  %769 = load ptr, ptr %768, align 8, !tbaa !75
+  %770 = load i32, ptr %4, align 4, !tbaa !14
+  %771 = call ptr @Vec_PtrEntry(ptr noundef %769, i32 noundef %770)
+  store ptr %771, ptr %3, align 8, !tbaa !16
+  br label %772
+
+772:                                              ; preds = %766, %759
+  %773 = phi i1 [ false, %759 ], [ true, %766 ]
+  br i1 %773, label %774, label %785
+
+774:                                              ; preds = %772
+  %775 = load ptr, ptr %2, align 8, !tbaa !3
+  %776 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %775, i32 0, i32 83
+  %777 = load ptr, ptr %776, align 8, !tbaa !87
+  %778 = load i32, ptr %4, align 4, !tbaa !14
+  %779 = load ptr, ptr %2, align 8, !tbaa !3
+  %780 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %779, i32 0, i32 11
+  %781 = load float, ptr %780, align 4, !tbaa !88
+  call void @Tim_ManSetCoRequired(ptr noundef %777, i32 noundef %778, float noundef %781)
+  br label %782
+
+782:                                              ; preds = %774
+  %783 = load i32, ptr %4, align 4, !tbaa !14
+  %784 = add nsw i32 %783, 1
+  store i32 %784, ptr %4, align 4, !tbaa !14
+  br label %759, !llvm.loop !111
+
+785:                                              ; preds = %772
+  br label %793
+
+786:                                              ; preds = %710
+  %787 = load ptr, ptr %2, align 8, !tbaa !3
+  %788 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %787, i32 0, i32 83
+  %789 = load ptr, ptr %788, align 8, !tbaa !87
+  %790 = load ptr, ptr %2, align 8, !tbaa !3
+  %791 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %790, i32 0, i32 11
+  %792 = load float, ptr %791, align 4, !tbaa !88
+  call void @Tim_ManInitPoRequiredAll(ptr noundef %789, float noundef %792)
+  br label %793
+
+793:                                              ; preds = %786, %785
+  br label %794
+
+794:                                              ; preds = %793, %709
+  br label %795
+
+795:                                              ; preds = %794, %627
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %796
+
+796:                                              ; preds = %884, %795
+  %797 = load i32, ptr %4, align 4, !tbaa !14
+  %798 = load ptr, ptr %2, align 8, !tbaa !3
+  %799 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %798, i32 0, i32 6
+  %800 = load ptr, ptr %799, align 8, !tbaa !103
+  %801 = call i32 @Vec_PtrSize(ptr noundef %800)
+  %802 = icmp slt i32 %797, %801
+  br i1 %802, label %803, label %809
+
+803:                                              ; preds = %796
+  %804 = load ptr, ptr %2, align 8, !tbaa !3
+  %805 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %804, i32 0, i32 6
+  %806 = load ptr, ptr %805, align 8, !tbaa !103
+  %807 = load i32, ptr %4, align 4, !tbaa !14
+  %808 = call ptr @Vec_PtrEntry(ptr noundef %806, i32 noundef %807)
+  store ptr %808, ptr %3, align 8, !tbaa !16
+  br label %809
+
+809:                                              ; preds = %803, %796
+  %810 = phi i1 [ false, %796 ], [ true, %803 ]
+  br i1 %810, label %811, label %887
+
+811:                                              ; preds = %809
+  %812 = load ptr, ptr %3, align 8, !tbaa !16
+  %813 = call i32 @If_ObjIsAnd(ptr noundef %812)
+  %814 = icmp ne i32 %813, 0
+  br i1 %814, label %815, label %829
+
+815:                                              ; preds = %811
+  %816 = load ptr, ptr %3, align 8, !tbaa !16
+  %817 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %816, i32 0, i32 3
+  %818 = load i32, ptr %817, align 4, !tbaa !104
+  %819 = icmp eq i32 %818, 0
+  br i1 %819, label %820, label %821
+
+820:                                              ; preds = %815
+  br label %884
+
+821:                                              ; preds = %815
+  %822 = load ptr, ptr %2, align 8, !tbaa !3
+  %823 = load ptr, ptr %3, align 8, !tbaa !16
+  %824 = load ptr, ptr %3, align 8, !tbaa !16
+  %825 = call ptr @If_ObjCutBest(ptr noundef %824)
+  %826 = load ptr, ptr %3, align 8, !tbaa !16
+  %827 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %826, i32 0, i32 10
+  %828 = load float, ptr %827, align 4, !tbaa !58
+  call void @If_CutPropagateRequired(ptr noundef %822, ptr noundef %823, ptr noundef %825, float noundef %828)
   br label %883
 
-820:                                              ; preds = %814
-  %821 = load ptr, ptr %2, align 8
-  %822 = load ptr, ptr %3, align 8
-  %823 = load ptr, ptr %3, align 8
-  %824 = call ptr @If_ObjCutBest(ptr noundef %823)
-  %825 = load ptr, ptr %3, align 8
-  %826 = getelementptr inbounds %struct.If_Obj_t_, ptr %825, i32 0, i32 10
-  %827 = load float, ptr %826, align 4
-  call void @If_CutPropagateRequired(ptr noundef %821, ptr noundef %822, ptr noundef %824, float noundef %827)
+829:                                              ; preds = %811
+  %830 = load ptr, ptr %3, align 8, !tbaa !16
+  %831 = call i32 @If_ObjIsCi(ptr noundef %830)
+  %832 = icmp ne i32 %831, 0
+  br i1 %832, label %833, label %844
+
+833:                                              ; preds = %829
+  %834 = load ptr, ptr %3, align 8, !tbaa !16
+  %835 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %834, i32 0, i32 10
+  %836 = load float, ptr %835, align 4, !tbaa !58
+  store float %836, ptr %6, align 4, !tbaa !21
+  %837 = load ptr, ptr %2, align 8, !tbaa !3
+  %838 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %837, i32 0, i32 83
+  %839 = load ptr, ptr %838, align 8, !tbaa !87
+  %840 = load ptr, ptr %3, align 8, !tbaa !16
+  %841 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %840, i32 0, i32 2
+  %842 = load i32, ptr %841, align 8, !tbaa !112
+  %843 = load float, ptr %6, align 4, !tbaa !21
+  call void @Tim_ManSetCiRequired(ptr noundef %839, i32 noundef %842, float noundef %843)
   br label %882
 
-828:                                              ; preds = %810
-  %829 = load ptr, ptr %3, align 8
-  %830 = call i32 @If_ObjIsCi(ptr noundef %829)
-  %831 = icmp ne i32 %830, 0
-  br i1 %831, label %832, label %843
+844:                                              ; preds = %829
+  %845 = load ptr, ptr %3, align 8, !tbaa !16
+  %846 = call i32 @If_ObjIsCo(ptr noundef %845)
+  %847 = icmp ne i32 %846, 0
+  br i1 %847, label %848, label %874
 
-832:                                              ; preds = %828
-  %833 = load ptr, ptr %3, align 8
-  %834 = getelementptr inbounds %struct.If_Obj_t_, ptr %833, i32 0, i32 10
-  %835 = load float, ptr %834, align 4
-  store float %835, ptr %6, align 4
-  %836 = load ptr, ptr %2, align 8
-  %837 = getelementptr inbounds %struct.If_Man_t_, ptr %836, i32 0, i32 83
-  %838 = load ptr, ptr %837, align 8
-  %839 = load ptr, ptr %3, align 8
-  %840 = getelementptr inbounds %struct.If_Obj_t_, ptr %839, i32 0, i32 2
-  %841 = load i32, ptr %840, align 8
-  %842 = load float, ptr %6, align 4
-  call void @Tim_ManSetCiRequired(ptr noundef %838, i32 noundef %841, float noundef %842)
+848:                                              ; preds = %844
+  %849 = load ptr, ptr %2, align 8, !tbaa !3
+  %850 = getelementptr inbounds nuw %struct.If_Man_t_, ptr %849, i32 0, i32 83
+  %851 = load ptr, ptr %850, align 8, !tbaa !87
+  %852 = load ptr, ptr %3, align 8, !tbaa !16
+  %853 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %852, i32 0, i32 2
+  %854 = load i32, ptr %853, align 8, !tbaa !112
+  %855 = call float @Tim_ManGetCoRequired(ptr noundef %851, i32 noundef %854)
+  store float %855, ptr %6, align 4, !tbaa !21
+  %856 = load float, ptr %6, align 4, !tbaa !21
+  %857 = load ptr, ptr %3, align 8, !tbaa !16
+  %858 = call ptr @If_ObjFanin0(ptr noundef %857)
+  %859 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %858, i32 0, i32 10
+  %860 = load float, ptr %859, align 4, !tbaa !58
+  %861 = fcmp olt float %856, %860
+  br i1 %861, label %862, label %864
+
+862:                                              ; preds = %848
+  %863 = load float, ptr %6, align 4, !tbaa !21
+  br label %869
+
+864:                                              ; preds = %848
+  %865 = load ptr, ptr %3, align 8, !tbaa !16
+  %866 = call ptr @If_ObjFanin0(ptr noundef %865)
+  %867 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %866, i32 0, i32 10
+  %868 = load float, ptr %867, align 4, !tbaa !58
+  br label %869
+
+869:                                              ; preds = %864, %862
+  %870 = phi float [ %863, %862 ], [ %868, %864 ]
+  %871 = load ptr, ptr %3, align 8, !tbaa !16
+  %872 = call ptr @If_ObjFanin0(ptr noundef %871)
+  %873 = getelementptr inbounds nuw %struct.If_Obj_t_, ptr %872, i32 0, i32 10
+  store float %870, ptr %873, align 4, !tbaa !58
   br label %881
 
-843:                                              ; preds = %828
-  %844 = load ptr, ptr %3, align 8
-  %845 = call i32 @If_ObjIsCo(ptr noundef %844)
-  %846 = icmp ne i32 %845, 0
-  br i1 %846, label %847, label %873
+874:                                              ; preds = %844
+  %875 = load ptr, ptr %3, align 8, !tbaa !16
+  %876 = call i32 @If_ObjIsConst1(ptr noundef %875)
+  %877 = icmp ne i32 %876, 0
+  br i1 %877, label %878, label %879
 
-847:                                              ; preds = %843
-  %848 = load ptr, ptr %2, align 8
-  %849 = getelementptr inbounds %struct.If_Man_t_, ptr %848, i32 0, i32 83
-  %850 = load ptr, ptr %849, align 8
-  %851 = load ptr, ptr %3, align 8
-  %852 = getelementptr inbounds %struct.If_Obj_t_, ptr %851, i32 0, i32 2
-  %853 = load i32, ptr %852, align 8
-  %854 = call float @Tim_ManGetCoRequired(ptr noundef %850, i32 noundef %853)
-  store float %854, ptr %6, align 4
-  %855 = load float, ptr %6, align 4
-  %856 = load ptr, ptr %3, align 8
-  %857 = call ptr @If_ObjFanin0(ptr noundef %856)
-  %858 = getelementptr inbounds %struct.If_Obj_t_, ptr %857, i32 0, i32 10
-  %859 = load float, ptr %858, align 4
-  %860 = fcmp olt float %855, %859
-  br i1 %860, label %861, label %863
-
-861:                                              ; preds = %847
-  %862 = load float, ptr %6, align 4
-  br label %868
-
-863:                                              ; preds = %847
-  %864 = load ptr, ptr %3, align 8
-  %865 = call ptr @If_ObjFanin0(ptr noundef %864)
-  %866 = getelementptr inbounds %struct.If_Obj_t_, ptr %865, i32 0, i32 10
-  %867 = load float, ptr %866, align 4
-  br label %868
-
-868:                                              ; preds = %863, %861
-  %869 = phi float [ %862, %861 ], [ %867, %863 ]
-  %870 = load ptr, ptr %3, align 8
-  %871 = call ptr @If_ObjFanin0(ptr noundef %870)
-  %872 = getelementptr inbounds %struct.If_Obj_t_, ptr %871, i32 0, i32 10
-  store float %869, ptr %872, align 4
+878:                                              ; preds = %874
   br label %880
 
-873:                                              ; preds = %843
-  %874 = load ptr, ptr %3, align 8
-  %875 = call i32 @If_ObjIsConst1(ptr noundef %874)
-  %876 = icmp ne i32 %875, 0
-  br i1 %876, label %877, label %878
-
-877:                                              ; preds = %873
-  br label %879
-
-878:                                              ; preds = %873
-  br label %879
-
-879:                                              ; preds = %878, %877
+879:                                              ; preds = %874
   br label %880
 
-880:                                              ; preds = %879, %868
+880:                                              ; preds = %879, %878
   br label %881
 
-881:                                              ; preds = %880, %832
+881:                                              ; preds = %880, %869
   br label %882
 
-882:                                              ; preds = %881, %820
+882:                                              ; preds = %881, %833
   br label %883
 
-883:                                              ; preds = %882, %819
-  %884 = load i32, ptr %4, align 4
-  %885 = add nsw i32 %884, 1
-  store i32 %885, ptr %4, align 4
-  br label %795, !llvm.loop !34
+883:                                              ; preds = %882, %821
+  br label %884
 
-886:                                              ; preds = %808
-  br label %887
+884:                                              ; preds = %883, %820
+  %885 = load i32, ptr %4, align 4, !tbaa !14
+  %886 = add nsw i32 %885, 1
+  store i32 %886, ptr %4, align 4, !tbaa !14
+  br label %796, !llvm.loop !113
 
-887:                                              ; preds = %886, %544, %415, %230
+887:                                              ; preds = %809
+  br label %888
+
+888:                                              ; preds = %887, %416
+  store i32 0, ptr %7, align 4
+  br label %889
+
+889:                                              ; preds = %888, %545, %231
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  %890 = load i32, ptr %7, align 4
+  switch i32 %890, label %892 [
+    i32 0, label %891
+    i32 1, label %891
+  ]
+
+891:                                              ; preds = %889, %889
   ret void
+
+892:                                              ; preds = %889
+  unreachable
 }
 
-declare void @If_ManMarkMapping(ptr noundef) #1
+declare void @If_ManMarkMapping(ptr noundef) #3
 
-declare void @Tim_ManIncrementTravId(ptr noundef) #1
+declare void @Tim_ManIncrementTravId(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !114
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !114
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !115
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !14
   ret i32 %11
 }
 
-declare void @Tim_ManSetCoRequired(ptr noundef, i32 noundef, float noundef) #1
+declare void @Tim_ManSetCoRequired(ptr noundef, i32 noundef, float noundef) #3
 
-declare void @Tim_ManInitPoRequiredAll(ptr noundef, float noundef) #1
+declare void @Tim_ManInitPoRequiredAll(ptr noundef, float noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @If_ObjIsAnd(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @If_ObjIsAnd(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
   %6 = icmp eq i32 %5, 4
@@ -3253,11 +3344,11 @@ define internal i32 @If_ObjIsAnd(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @If_ObjIsCi(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @If_ObjIsCi(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
   %6 = icmp eq i32 %5, 2
@@ -3265,13 +3356,13 @@ define internal i32 @If_ObjIsCi(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) #1
+declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @If_ObjIsCo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @If_ObjIsCo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
   %6 = icmp eq i32 %5, 3
@@ -3279,13 +3370,13 @@ define internal i32 @If_ObjIsCo(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-declare float @Tim_ManGetCoRequired(ptr noundef, i32 noundef) #1
+declare float @Tim_ManGetCoRequired(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @If_ObjIsConst1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @If_ObjIsConst1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
   %6 = icmp eq i32 %5, 1
@@ -3293,75 +3384,170 @@ define internal i32 @If_ObjIsConst1(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare i32 @Abc_FrameIsBridgeMode(...) #3
 
-declare i32 @Abc_FrameIsBridgeMode(...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
-declare i32 @printf(ptr noundef, ...) #1
-
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
+declare void @llvm.va_start.p0(ptr) #4
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
+declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #6
 
-; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #5
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store ptr %1, ptr %4, align 8, !tbaa !117
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %6 = load ptr, ptr %3, align 8, !tbaa !41
+  %7 = load ptr, ptr %4, align 8, !tbaa !117
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #7
+  ret i32 %8
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_end.p0(ptr) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
+; Function Attrs: nounwind
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #6
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9If_Man_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9If_Cut_t_", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 int", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 float", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS9If_Obj_t_", !5, i64 0}
+!18 = !{!19, !20, i64 12}
+!19 = !{!"If_Cut_t_", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 29, !15, i64 29, !15, i64 29, !15, i64 29, !15, i64 30, !15, i64 31, !15, i64 32, !6, i64 36}
+!20 = !{!"float", !6, i64 0}
+!21 = !{!20, !20, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!27, !30, i64 40}
+!27 = !{!"If_Man_t_", !28, i64 0, !29, i64 8, !17, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48, !30, i64 56, !6, i64 64, !15, i64 84, !20, i64 88, !20, i64 92, !20, i64 96, !20, i64 100, !15, i64 104, !20, i64 108, !15, i64 112, !15, i64 116, !6, i64 120, !31, i64 152, !15, i64 160, !15, i64 164, !15, i64 168, !32, i64 176, !6, i64 184, !15, i64 568, !15, i64 572, !15, i64 576, !32, i64 584, !32, i64 592, !33, i64 600, !33, i64 608, !33, i64 616, !30, i64 624, !32, i64 632, !15, i64 640, !15, i64 644, !15, i64 648, !6, i64 652, !15, i64 716, !15, i64 720, !15, i64 724, !15, i64 728, !34, i64 736, !34, i64 744, !35, i64 752, !35, i64 760, !35, i64 768, !15, i64 776, !15, i64 780, !6, i64 784, !6, i64 912, !15, i64 1040, !15, i64 1044, !15, i64 1048, !15, i64 1052, !36, i64 1056, !6, i64 1064, !6, i64 1192, !6, i64 1320, !6, i64 1448, !6, i64 1576, !6, i64 1704, !6, i64 1832, !37, i64 1960, !32, i64 1968, !38, i64 1976, !39, i64 1984, !6, i64 1992, !15, i64 2024, !15, i64 2028, !15, i64 2032, !6, i64 2040, !6, i64 2088, !6, i64 2096, !32, i64 2104, !6, i64 2112, !30, i64 2176, !5, i64 2184, !32, i64 2192, !6, i64 2200, !38, i64 2264, !32, i64 2272, !40, i64 2280, !32, i64 2288, !6, i64 2296, !6, i64 2304, !6, i64 2312, !34, i64 2328}
+!28 = !{!"p1 omnipotent char", !5, i64 0}
+!29 = !{!"p1 _ZTS9If_Par_t_", !5, i64 0}
+!30 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!31 = !{!"p1 long", !5, i64 0}
+!32 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!33 = !{!"p1 _ZTS10Vec_Wrd_t_", !5, i64 0}
+!34 = !{!"p1 _ZTS12Mem_Fixed_t_", !5, i64 0}
+!35 = !{!"p1 _ZTS9If_Set_t_", !5, i64 0}
+!36 = !{!"p1 _ZTS12If_DsdMan_t_", !5, i64 0}
+!37 = !{!"p1 _ZTS14Hash_IntMan_t_", !5, i64 0}
+!38 = !{!"p1 _ZTS10Vec_Str_t_", !5, i64 0}
+!39 = !{!"p1 _ZTS10Vec_Mem_t_", !5, i64 0}
+!40 = !{!"p1 _ZTS10Tim_Man_t_", !5, i64 0}
+!41 = !{!28, !28, i64 0}
+!42 = !{!27, !29, i64 8}
+!43 = !{!44, !15, i64 40}
+!44 = !{!"If_Par_t_", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !20, i64 24, !20, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !15, i64 148, !15, i64 152, !15, i64 156, !15, i64 160, !15, i64 164, !15, i64 168, !15, i64 172, !15, i64 176, !15, i64 180, !15, i64 184, !15, i64 188, !15, i64 192, !15, i64 196, !28, i64 200, !15, i64 208, !20, i64 212, !15, i64 216, !15, i64 220, !15, i64 224, !15, i64 228, !15, i64 232, !15, i64 236, !15, i64 240, !15, i64 244, !15, i64 248, !15, i64 252, !15, i64 256, !15, i64 260, !15, i64 264, !15, i64 268, !20, i64 272, !20, i64 276, !20, i64 280, !45, i64 288, !13, i64 296, !13, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352}
+!45 = !{!"p1 _ZTS12If_LibLut_t_", !5, i64 0}
+!46 = distinct !{!46, !23}
+!47 = !{!44, !45, i64 288}
+!48 = !{!49, !15, i64 12}
+!49 = !{!"If_LibLut_t_", !28, i64 0, !15, i64 8, !15, i64 12, !6, i64 16, !6, i64 148}
+!50 = distinct !{!50, !23}
+!51 = distinct !{!51, !23}
+!52 = !{!6, !6, i64 0}
+!53 = distinct !{!53, !23}
+!54 = !{!44, !15, i64 264}
+!55 = !{!27, !15, i64 648}
+!56 = distinct !{!56, !23}
+!57 = distinct !{!57, !23}
+!58 = !{!59, !20, i64 52}
+!59 = !{!"If_Obj_t_", !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !17, i64 24, !17, i64 32, !17, i64 40, !20, i64 48, !20, i64 52, !20, i64 56, !6, i64 64, !35, i64 72, !19, i64 80}
+!60 = distinct !{!60, !23}
+!61 = distinct !{!61, !23}
+!62 = distinct !{!62, !23}
+!63 = !{!44, !15, i64 184}
+!64 = !{!44, !15, i64 188}
+!65 = distinct !{!65, !23}
+!66 = !{!44, !15, i64 88}
+!67 = !{!44, !15, i64 92}
+!68 = !{!44, !15, i64 96}
+!69 = distinct !{!69, !23}
+!70 = distinct !{!70, !23}
+!71 = !{!44, !15, i64 68}
+!72 = !{!44, !15, i64 248}
+!73 = !{!44, !15, i64 252}
+!74 = !{!44, !15, i64 260}
+!75 = !{!27, !30, i64 32}
+!76 = distinct !{!76, !23}
+!77 = distinct !{!77, !23}
+!78 = distinct !{!78, !23}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!81 = !{!30, !30, i64 0}
+!82 = !{!83, !5, i64 8}
+!83 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !5, i64 8}
+!84 = !{!5, !5, i64 0}
+!85 = !{!59, !17, i64 24}
+!86 = !{!83, !15, i64 4}
+!87 = !{!27, !40, i64 2280}
+!88 = !{!27, !20, i64 92}
+!89 = !{!44, !13, i64 304}
+!90 = !{!44, !15, i64 220}
+!91 = !{!27, !20, i64 88}
+!92 = distinct !{!92, !23}
+!93 = !{!27, !15, i64 576}
+!94 = !{!44, !15, i64 32}
+!95 = !{!44, !20, i64 272}
+!96 = !{!44, !20, i64 24}
+!97 = !{!27, !15, i64 164}
+!98 = !{!44, !15, i64 176}
+!99 = distinct !{!99, !23}
+!100 = distinct !{!100, !23}
+!101 = distinct !{!101, !23}
+!102 = distinct !{!102, !23}
+!103 = !{!27, !30, i64 48}
+!104 = !{!59, !15, i64 12}
+!105 = distinct !{!105, !23}
+!106 = !{!27, !32, i64 2288}
+!107 = distinct !{!107, !23}
+!108 = distinct !{!108, !23}
+!109 = distinct !{!109, !23}
+!110 = distinct !{!110, !23}
+!111 = distinct !{!111, !23}
+!112 = !{!59, !15, i64 8}
+!113 = distinct !{!113, !23}
+!114 = !{!32, !32, i64 0}
+!115 = !{!116, !11, i64 8}
+!116 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !11, i64 8}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTS13__va_list_tag", !5, i64 0}

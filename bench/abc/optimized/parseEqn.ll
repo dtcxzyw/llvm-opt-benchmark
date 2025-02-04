@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/parseEqn.c.ll'
-source_filename = "bench/abc/original/parseEqn.c.ll"
+; ModuleID = 'bench/abc/original/parseEqn.ll'
+source_filename = "bench/abc/original/parseEqn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -25,7 +25,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
 5:                                                ; preds = %11, %4
   %.0151 = phi ptr [ %1, %4 ], [ %12, %11 ]
   %.0149 = phi i32 [ 0, %4 ], [ %.1150, %11 ]
-  %6 = load i8, ptr %.0151, align 1
+  %6 = load i8, ptr %.0151, align 1, !tbaa !3
   switch i8 %6, label %11 [
     i8 0, label %13
     i8 40, label %7
@@ -43,7 +43,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
 11:                                               ; preds = %5, %7, %9
   %.1150 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %.0149, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0151, i64 1
-  br label %5, !llvm.loop !4
+  br label %5, !llvm.loop !6
 
 13:                                               ; preds = %5
   %.not171 = icmp eq i32 %.0149, 0
@@ -68,7 +68,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
 26:                                               ; preds = %.loopexit, %16
   %.1152 = phi ptr [ %19, %16 ], [ %120, %.loopexit ]
   %.0147 = phi i32 [ 1, %16 ], [ %.2, %.loopexit ]
-  %27 = load i8, ptr %.1152, align 1
+  %27 = load i8, ptr %.1152, align 1, !tbaa !3
   switch i8 %27, label %.preheader220 [
     i8 0, label %121
     i8 32, label %.loopexit
@@ -86,7 +86,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
   ]
 
 28:                                               ; preds = %26
-  %.val = load ptr, ptr %23, align 8
+  %.val = load ptr, ptr %23, align 8, !tbaa !8
   %29 = ptrtoint ptr %.val to i64
   %30 = xor i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -99,7 +99,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
   br label %.thread216
 
 35:                                               ; preds = %26
-  %.val196 = load ptr, ptr %23, align 8
+  %.val196 = load ptr, ptr %23, align 8, !tbaa !8
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.val196) #9
   %36 = icmp eq i32 %.0147, 2
   br i1 %36, label %37, label %.preheader219
@@ -220,8 +220,8 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 72:                                               ; preds = %.preheader220
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv.next
-  %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %.preheader220, !llvm.loop !6
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !3
+  br label %.preheader220, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220
   %73 = icmp eq i32 %.0147, 2
@@ -230,19 +230,19 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 .critedge:                                        ; preds = %.critedge.loopexit, %70
   %.6 = phi i1 [ false, %70 ], [ %73, %.critedge.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv
-  %.val197 = load i32, ptr %24, align 4
+  %.val197 = load i32, ptr %24, align 4, !tbaa !18
   %.not187257 = icmp sgt i32 %.val197, 0
   br i1 %.not187257, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.critedge
-  %.val198 = load ptr, ptr %25, align 8
+  %.val198 = load ptr, ptr %25, align 8, !tbaa !20
   %wide.trip.count = zext nneg i32 %.val197 to i64
   br label %75
 
 75:                                               ; preds = %.lr.ph, %83
   %indvars.iv304 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next305, %83 ]
   %76 = getelementptr inbounds nuw ptr, ptr %.val198, i64 %indvars.iv304
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !21
   %78 = tail call i32 @strncmp(ptr noundef nonnull %.1152, ptr noundef %77, i64 noundef %indvars.iv) #7
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
@@ -255,7 +255,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 83:                                               ; preds = %75, %80
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %75, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge2, label %75, !llvm.loop !22
 
 .critedge2:                                       ; preds = %.critedge, %83
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1152) #9
@@ -375,7 +375,7 @@ Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserP
   %.2153 = phi ptr [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %92 ], [ %.3154310, %.preheader219 ], [ %.2153.ph, %.loopexit.sink.split ], [ %.3154310, %97 ]
   %.2 = phi i32 [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ 1, %92 ], [ 2, %.preheader219 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %97 ]
   %120 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
-  br label %26, !llvm.loop !8
+  br label %26, !llvm.loop !23
 
 121:                                              ; preds = %26
   %122 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
@@ -469,25 +469,40 @@ declare ptr @Hop_Exor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!9, !12, i64 24}
+!9 = !{!"Hop_Man_t_", !10, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !13, i64 32, !4, i64 72, !14, i64 96, !14, i64 100, !15, i64 104, !14, i64 112, !11, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !10, i64 144, !10, i64 152, !12, i64 160, !16, i64 168, !16, i64 176}
+!10 = !{!"p1 _ZTS10Vec_Ptr_t_", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = !{!"p1 _ZTS10Hop_Obj_t_", !11, i64 0}
+!13 = !{!"Hop_Obj_t_", !4, i64 0, !4, i64 8, !12, i64 16, !12, i64 24, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 36}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!"p2 _ZTS10Hop_Obj_t_", !11, i64 0}
+!16 = !{!"long", !4, i64 0}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !14, i64 4}
+!19 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !11, i64 8}
+!20 = !{!19, !11, i64 8}
+!21 = !{!11, !11, i64 0}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

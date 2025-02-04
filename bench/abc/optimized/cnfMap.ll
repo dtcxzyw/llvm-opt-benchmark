@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/cnfMap.c.ll'
-source_filename = "bench/abc/original/cnfMap.c.ll"
+; ModuleID = 'bench/abc/original/cnfMap.ll'
+source_filename = "bench/abc/original/cnfMap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -10,20 +10,20 @@ define void @Cnf_CutAssignAreaFlow(ptr noundef readonly captures(none) %0, ptr n
   %6 = and i32 %5, -134152193
   store i32 %6, ptr %4, align 4
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %7, align 8
+  %.val = load ptr, ptr %7, align 8, !tbaa !3
   %8 = and i32 %5, 65535
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 1, !tbaa !15
   %12 = sext i8 %11 to i32
   %13 = xor i32 %8, 65535
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
-  %16 = load i8, ptr %15, align 1
+  %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = sext i8 %16 to i32
   %18 = add nsw i32 %17, %12
   %19 = mul nsw i32 %18, 10
-  store i32 %19, ptr %1, align 4
+  store i32 %19, ptr %1, align 4, !tbaa !16
   %.not = icmp ult i32 %5, 536870912
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -35,20 +35,20 @@ define void @Cnf_CutAssignAreaFlow(ptr noundef readonly captures(none) %0, ptr n
   %22 = phi i32 [ %19, %.lr.ph ], [ %56, %55 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %23 = phi i32 [ %6, %.lr.ph ], [ %42, %55 ]
-  %24 = load ptr, ptr %0, align 8
+  %24 = load ptr, ptr %0, align 8, !tbaa !18
   %25 = getelementptr i8, ptr %24, i64 32
-  %.val20 = load ptr, ptr %25, align 8
+  %.val20 = load ptr, ptr %25, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.val20, null
   br i1 %.not.i, label %Aig_ManObj.exit, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !29
   %29 = getelementptr i8, ptr %.val20, i64 8
-  %.val.i = load ptr, ptr %29, align 8
+  %.val.i = load ptr, ptr %29, align 8, !tbaa !30
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %.val.i, i64 %30
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !32
   br label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %21, %26
@@ -72,15 +72,15 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
 
 46:                                               ; preds = %Aig_ManObj.exit
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 36
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !33
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %2, i64 %49
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = tail call i32 @llvm.umax.i32(i32 %43, i32 64)
   %spec.select = lshr i32 %52, 6
   %53 = sdiv i32 %51, %spec.select
   %54 = add i32 %22, %53
-  store i32 %54, ptr %1, align 4
+  store i32 %54, ptr %1, align 4, !tbaa !16
   br label %55
 
 55:                                               ; preds = %Aig_ManObj.exit, %46
@@ -89,7 +89,7 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
   %57 = lshr i32 %23, 29
   %58 = zext nneg i32 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %21, label %.critedge, !llvm.loop !4
+  br i1 %59, label %21, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %55, %3
   ret void
@@ -98,7 +98,7 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 4
-  %.val17 = load i32, ptr %3, align 4
+  %.val17 = load i32, ptr %3, align 4, !tbaa !36
   %4 = mul i32 %.val17, 100
   %5 = add i32 %4, 100
   %6 = icmp sgt i32 %.val17, 0
@@ -106,7 +106,7 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %7, align 8
+  %.val = load ptr, ptr %7, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %.val17 to i64
   br label %8
 
@@ -114,7 +114,7 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.020 = phi i32 [ %5, %.lr.ph ], [ %.1, %27 ]
   %9 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
@@ -128,10 +128,10 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !33
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %1, i64 %21
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = tail call i32 @llvm.umax.i32(i32 %15, i32 64)
   %spec.select = lshr i32 %24, 6
   %25 = sdiv i32 %23, %spec.select
@@ -142,7 +142,7 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
   %.1 = phi i32 [ %26, %18 ], [ %.020, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !37
 
 .critedge:                                        ; preds = %27, %2
   %.0.lcssa = phi i32 [ %5, %2 ], [ %.1, %27 ]
@@ -151,21 +151,21 @@ define i32 @Cnf_CutSuperAreaFlow(ptr noundef readonly captures(none) %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = getelementptr i8, ptr %2, i64 32
-  %.val52 = load ptr, ptr %3, align 8
+  %.val52 = load ptr, ptr %3, align 8, !tbaa !19
   %4 = getelementptr i8, ptr %.val52, i64 4
-  %.val52.val = load i32, ptr %4, align 4
+  %.val52.val = load i32, ptr %4, align 4, !tbaa !36
   %5 = sext i32 %.val52.val to i64
   %6 = shl nsw i64 %5, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %6)
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %8, align 4
-  store i32 100, ptr %7, align 8
+  store i32 0, ptr %8, align 4, !tbaa !36
+  store i32 100, ptr %7, align 8, !tbaa !38
   %9 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %10, align 8
+  store ptr %9, ptr %10, align 8, !tbaa !30
   %11 = icmp sgt i32 %.val52.val, 0
   br i1 %11, label %.lr.ph64, label %.critedge
 
@@ -177,9 +177,9 @@ define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unn
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %124 ]
   %14 = phi ptr [ %.val52, %.lr.ph64 ], [ %127, %124 ]
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val = load ptr, ptr %15, align 8
+  %.val = load ptr, ptr %15, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = icmp eq ptr %17, null
   br i1 %18, label %124, label %19
 
@@ -194,7 +194,7 @@ define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unn
 
 24:                                               ; preds = %19
   %25 = getelementptr i8, ptr %17, i64 40
-  %.val54 = load ptr, ptr %25, align 8
+  %.val54 = load ptr, ptr %25, align 8, !tbaa !15
   %26 = icmp ugt i64 %.val50, 72057594037927935
   tail call void @llvm.assume(i1 %26)
   br label %.lr.ph
@@ -218,20 +218,20 @@ define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unn
 34:                                               ; preds = %31
   %35 = and i32 %28, -268369921
   store i32 %35, ptr %27, align 4
-  %.val.i = load ptr, ptr %12, align 8
+  %.val.i = load ptr, ptr %12, align 8, !tbaa !3
   %36 = and i32 %28, 65535
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %37
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = sext i8 %39 to i32
   %41 = xor i32 %36, 65535
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %42
-  %44 = load i8, ptr %43, align 1
+  %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %45, %40
   %47 = mul nsw i32 %46, 10
-  store i32 %47, ptr %.058, align 4
+  store i32 %47, ptr %.058, align 4, !tbaa !16
   %.not.i = icmp ult i32 %28, 536870912
   br i1 %.not.i, label %Cnf_CutAssignAreaFlow.exit, label %.lr.ph.i
 
@@ -243,20 +243,20 @@ define void @Cnf_DeriveMapping(ptr noundef readonly captures(none) %0) local_unn
   %50 = phi i32 [ %47, %.lr.ph.i ], [ %84, %83 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %83 ]
   %51 = phi i32 [ %35, %.lr.ph.i ], [ %70, %83 ]
-  %52 = load ptr, ptr %0, align 8
+  %52 = load ptr, ptr %0, align 8, !tbaa !18
   %53 = getelementptr i8, ptr %52, i64 32
-  %.val20.i = load ptr, ptr %53, align 8
+  %.val20.i = load ptr, ptr %53, align 8, !tbaa !19
   %.not.i.i = icmp eq ptr %.val20.i, null
   br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw [4 x i32], ptr %48, i64 0, i64 %indvars.iv.i
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 4, !tbaa !29
   %57 = getelementptr i8, ptr %.val20.i, i64 8
-  %.val.i.i = load ptr, ptr %57, align 8
+  %.val.i.i = load ptr, ptr %57, align 8, !tbaa !30
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %58
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !32
   br label %Aig_ManObj.exit.i
 
 Aig_ManObj.exit.i:                                ; preds = %54, %49
@@ -280,15 +280,15 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
 
 74:                                               ; preds = %Aig_ManObj.exit.i
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %76 = load i32, ptr %75, align 4
+  %76 = load i32, ptr %75, align 4, !tbaa !33
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %calloc, i64 %77
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !29
   %80 = tail call i32 @llvm.umax.i32(i32 %71, i32 64)
   %spec.select.i = lshr i32 %80, 6
   %81 = sdiv i32 %79, %spec.select.i
   %82 = add i32 %81, %50
-  store i32 %82, ptr %.058, align 4
+  store i32 %82, ptr %.058, align 4, !tbaa !16
   br label %83
 
 83:                                               ; preds = %74, %Aig_ManObj.exit.i
@@ -297,7 +297,7 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
   %85 = lshr i32 %51, 29
   %86 = zext nneg i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next.i, %86
-  br i1 %87, label %49, label %Cnf_CutAssignAreaFlow.exit, !llvm.loop !4
+  br i1 %87, label %49, label %Cnf_CutAssignAreaFlow.exit, !llvm.loop !34
 
 Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %88 = phi i32 [ %35, %34 ], [ %70, %83 ]
@@ -306,7 +306,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   br i1 %90, label %104, label %91
 
 91:                                               ; preds = %Cnf_CutAssignAreaFlow.exit
-  %92 = load i32, ptr %.04356, align 4
+  %92 = load i32, ptr %.04356, align 4, !tbaa !16
   %93 = icmp ugt i32 %92, %89
   br i1 %93, label %104, label %94
 
@@ -335,19 +335,19 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %109 = lshr i64 %108, 56
   %110 = trunc nuw nsw i64 %109 to i32
   %111 = icmp samesign ult i32 %106, %110
-  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %105
-  %112 = load i32, ptr %.1, align 4
+  %112 = load i32, ptr %.1, align 4, !tbaa !16
   %113 = icmp slt i32 %112, 1000000001
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 4, !tbaa !33
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i32, ptr %calloc, i64 %116
   br i1 %113, label %118, label %122
 
 118:                                              ; preds = %._crit_edge
-  store i32 %112, ptr %117, align 4
+  store i32 %112, ptr %117, align 4, !tbaa !29
   %119 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = or i32 %120, 134217728
@@ -355,24 +355,24 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   br label %124
 
 122:                                              ; preds = %._crit_edge
-  store i32 1000000000, ptr %117, align 4
+  store i32 1000000000, ptr %117, align 4, !tbaa !29
   %123 = or i64 %108, 32
   store i64 %123, ptr %20, align 8
   br label %124
 
 124:                                              ; preds = %19, %13, %122, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = load ptr, ptr %0, align 8
+  %125 = load ptr, ptr %0, align 8, !tbaa !18
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %127 = load ptr, ptr %126, align 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !19
   %128 = getelementptr i8, ptr %127, i64 4
-  %.val51 = load i32, ptr %128, align 4
+  %.val51 = load i32, ptr %128, align 4, !tbaa !36
   %129 = sext i32 %.val51 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %13, label %.critedge.loopexit, !llvm.loop !8
+  br i1 %130, label %13, label %.critedge.loopexit, !llvm.loop !40
 
 .critedge.loopexit:                               ; preds = %124
-  %.pre = load ptr, ptr %10, align 8
+  %.pre = load ptr, ptr %10, align 8, !tbaa !30
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %1
@@ -412,25 +412,57 @@ declare void @llvm.assume(i1 noundef) #6
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"Cnf_Man_t_", !5, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !12, i64 32, !11, i64 40, !7, i64 48, !13, i64 80, !14, i64 88, !14, i64 96, !14, i64 104}
+!5 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !6, i64 0}
+!10 = !{!"p2 omnipotent char", !6, i64 0}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!"p1 _ZTS13Aig_MmFlex_t_", !6, i64 0}
+!13 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!7, !7, i64 0}
+!16 = !{!17, !11, i64 0}
+!17 = !{!"Dar_Cut_t_", !11, i64 0, !11, i64 4, !11, i64 6, !11, i64 7, !11, i64 7, !11, i64 7, !7, i64 8}
+!18 = !{!4, !5, i64 0}
+!19 = !{!20, !21, i64 32}
+!20 = !{!"Aig_Man_t_", !9, i64 0, !9, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !22, i64 48, !23, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !11, i64 124, !7, i64 128, !11, i64 156, !24, i64 160, !11, i64 168, !25, i64 176, !11, i64 184, !26, i64 192, !11, i64 200, !11, i64 204, !11, i64 208, !25, i64 216, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !24, i64 248, !24, i64 256, !11, i64 264, !27, i64 272, !13, i64 280, !11, i64 288, !6, i64 296, !6, i64 304, !11, i64 312, !11, i64 316, !11, i64 320, !24, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !25, i64 368, !25, i64 376, !21, i64 384, !13, i64 392, !13, i64 400, !28, i64 408, !21, i64 416, !5, i64 424, !21, i64 432, !11, i64 440, !13, i64 448, !26, i64 456, !13, i64 464, !13, i64 472, !11, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !21, i64 512, !21, i64 520}
+!21 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!22 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
+!23 = !{!"Aig_Obj_t_", !7, i64 0, !22, i64 8, !22, i64 16, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 28, !11, i64 31, !11, i64 32, !11, i64 36, !7, i64 40}
+!24 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
+!25 = !{!"p1 int", !6, i64 0}
+!26 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
+!27 = !{!"p1 _ZTS14Aig_MmFixed_t_", !6, i64 0}
+!28 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!29 = !{!11, !11, i64 0}
+!30 = !{!31, !6, i64 8}
+!31 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
+!32 = !{!6, !6, i64 0}
+!33 = !{!23, !11, i64 36}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!31, !11, i64 4}
+!37 = distinct !{!37, !35}
+!38 = !{!31, !11, i64 0}
+!39 = distinct !{!39, !35}
+!40 = distinct !{!40, !35}

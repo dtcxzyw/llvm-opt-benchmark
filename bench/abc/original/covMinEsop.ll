@@ -15,53 +15,78 @@ define void @Min_EsopMinimize(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Min_Man_t_, ptr %6, i32 0, i32 9
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp slt i32 %8, 3
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  br label %34
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %7, i32 0, i32 9
+  %9 = load i32, ptr %8, align 8, !tbaa !8
+  %10 = icmp slt i32 %9, 3
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  store i32 0, ptr %5, align 4
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.Min_Man_t_, ptr %12, i32 0, i32 9
-  %14 = load i32, ptr %13, align 8
-  store i32 %14, ptr %3, align 4
-  br label %15
+  store i32 1, ptr %6, align 4
+  br label %36
 
-15:                                               ; preds = %22, %11
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.Min_Man_t_, ptr %16, i32 0, i32 9
-  %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %4, align 4
-  %19 = load ptr, ptr %2, align 8
-  call void @Min_EsopRewrite(ptr noundef %19)
-  %20 = load i32, ptr %5, align 4
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %5, align 4
-  br label %22
+12:                                               ; preds = %1
+  store i32 0, ptr %5, align 4, !tbaa !14
+  %13 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %13, i32 0, i32 9
+  %15 = load i32, ptr %14, align 8, !tbaa !8
+  store i32 %15, ptr %3, align 4, !tbaa !14
+  br label %16
 
-22:                                               ; preds = %15
-  %23 = load i32, ptr %4, align 4
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.Min_Man_t_, ptr %24, i32 0, i32 9
-  %26 = load i32, ptr %25, align 8
-  %27 = sub nsw i32 %23, %26
-  %28 = sitofp i32 %27 to double
-  %29 = fmul double 1.000000e+02, %28
-  %30 = load i32, ptr %4, align 4
-  %31 = sitofp i32 %30 to double
-  %32 = fdiv double %29, %31
-  %33 = fcmp ogt double %32, 3.000000e+00
-  br i1 %33, label %15, label %34, !llvm.loop !4
+16:                                               ; preds = %23, %12
+  %17 = load ptr, ptr %2, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %17, i32 0, i32 9
+  %19 = load i32, ptr %18, align 8, !tbaa !8
+  store i32 %19, ptr %4, align 4, !tbaa !14
+  %20 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @Min_EsopRewrite(ptr noundef %20)
+  %21 = load i32, ptr %5, align 4, !tbaa !14
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %5, align 4, !tbaa !14
+  br label %23
 
-34:                                               ; preds = %22, %10
+23:                                               ; preds = %16
+  %24 = load i32, ptr %4, align 4, !tbaa !14
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %25, i32 0, i32 9
+  %27 = load i32, ptr %26, align 8, !tbaa !8
+  %28 = sub nsw i32 %24, %27
+  %29 = sitofp i32 %28 to double
+  %30 = fmul double 1.000000e+02, %29
+  %31 = load i32, ptr %4, align 4, !tbaa !14
+  %32 = sitofp i32 %31 to double
+  %33 = fdiv double %30, %32
+  %34 = fcmp ogt double %33, 3.000000e+00
+  br i1 %34, label %16, label %35, !llvm.loop !15
+
+35:                                               ; preds = %23
+  store i32 0, ptr %6, align 4
+  br label %36
+
+36:                                               ; preds = %35, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  %37 = load i32, ptr %6, align 4
+  switch i32 %37, label %39 [
+    i32 0, label %38
+    i32 1, label %38
+  ]
+
+38:                                               ; preds = %36, %36
   ret void
+
+39:                                               ; preds = %36
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @Min_EsopRewrite(ptr noundef %0) #0 {
@@ -79,699 +104,731 @@ define internal void @Min_EsopRewrite(ptr noundef %0) #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %15, align 4
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.Min_Man_t_, ptr %16, i32 0, i32 10
-  %18 = load ptr, ptr %17, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store i32 0, ptr %15, align 4, !tbaa !14
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %16, i32 0, i32 10
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds ptr, ptr %18, i64 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.Min_Man_t_, ptr %21, i32 0, i32 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.Min_Cube_t_, ptr %23, i32 0, i32 0
-  store ptr %20, ptr %24, align 8
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Min_Man_t_, ptr %25, i32 0, i32 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.Min_Man_t_, ptr %28, i32 0, i32 10
-  %30 = load ptr, ptr %29, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %21, i32 0, i32 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %23, i32 0, i32 0
+  store ptr %20, ptr %24, align 8, !tbaa !20
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %25, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !19
+  %28 = load ptr, ptr %2, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %28, i32 0, i32 10
+  %30 = load ptr, ptr %29, align 8, !tbaa !17
   %31 = getelementptr inbounds ptr, ptr %30, i64 0
-  store ptr %27, ptr %31, align 8
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.Min_Man_t_, ptr %32, i32 0, i32 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.Min_Cube_t_, ptr %34, i32 0, i32 1
+  store ptr %27, ptr %31, align 8, !tbaa !18
+  %32 = load ptr, ptr %2, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %32, i32 0, i32 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %34, i32 0, i32 1
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 4194303
   %38 = or i32 %37, 0
   store i32 %38, ptr %35, align 8
   br label %39
 
-39:                                               ; preds = %390, %389, %241, %1
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.Min_Man_t_, ptr %40, i32 0, i32 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Min_Cube_t_, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = lshr i32 %44, 22
-  store i32 %45, ptr %13, align 4
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.Min_Man_t_, ptr %46, i32 0, i32 10
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %13, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %3, align 8
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.Min_Man_t_, ptr %53, i32 0, i32 10
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i32, ptr %13, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
-  store ptr %58, ptr %4, align 8
-  br label %59
+39:                                               ; preds = %391, %390, %242, %1
+  br label %40
 
-59:                                               ; preds = %70, %39
-  %60 = load ptr, ptr %3, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %76
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %2, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  %46 = lshr i32 %45, 22
+  store i32 %46, ptr %13, align 4, !tbaa !14
+  %47 = load ptr, ptr %2, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %47, i32 0, i32 10
+  %49 = load ptr, ptr %48, align 8, !tbaa !17
+  %50 = load i32, ptr %13, align 4, !tbaa !14
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !18
+  store ptr %53, ptr %3, align 8, !tbaa !18
+  %54 = load ptr, ptr %2, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %54, i32 0, i32 10
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
+  %57 = load i32, ptr %13, align 4, !tbaa !14
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  store ptr %59, ptr %4, align 8, !tbaa !22
+  br label %60
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %3, align 8
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.Min_Man_t_, ptr %64, i32 0, i32 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %63, %66
-  br i1 %67, label %68, label %69
+60:                                               ; preds = %71, %40
+  %61 = load ptr, ptr %3, align 8, !tbaa !18
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %77
 
-68:                                               ; preds = %62
-  br label %76
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %3, align 8, !tbaa !18
+  %65 = load ptr, ptr %2, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !19
+  %68 = icmp eq ptr %64, %67
+  br i1 %68, label %69, label %70
 
-69:                                               ; preds = %62
-  br label %70
+69:                                               ; preds = %63
+  br label %77
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.Min_Cube_t_, ptr %71, i32 0, i32 0
-  store ptr %72, ptr %4, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.Min_Cube_t_, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %3, align 8
-  br label %59, !llvm.loop !6
+70:                                               ; preds = %63
+  br label %71
 
-76:                                               ; preds = %68, %59
-  %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.Min_Man_t_, ptr %77, i32 0, i32 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.Min_Cube_t_, ptr %79, i32 0, i32 0
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %4, align 8
-  store ptr %81, ptr %82, align 8
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.Min_Man_t_, ptr %83, i32 0, i32 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.Min_Cube_t_, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %3, align 8
-  %88 = load ptr, ptr %3, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %127
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %3, align 8, !tbaa !18
+  %73 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %72, i32 0, i32 0
+  store ptr %73, ptr %4, align 8, !tbaa !22
+  %74 = load ptr, ptr %3, align 8, !tbaa !18
+  %75 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !20
+  store ptr %76, ptr %3, align 8, !tbaa !18
+  br label %60, !llvm.loop !23
 
-90:                                               ; preds = %76
-  %91 = load i32, ptr %13, align 4
-  %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %13, align 4
-  br label %93
+77:                                               ; preds = %69, %60
+  %78 = load ptr, ptr %2, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %78, i32 0, i32 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !20
+  %83 = load ptr, ptr %4, align 8, !tbaa !22
+  store ptr %82, ptr %83, align 8, !tbaa !18
+  %84 = load ptr, ptr %2, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %84, i32 0, i32 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !19
+  %87 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8, !tbaa !20
+  store ptr %88, ptr %3, align 8, !tbaa !18
+  %89 = load ptr, ptr %3, align 8, !tbaa !18
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %128
 
-93:                                               ; preds = %123, %90
-  %94 = load i32, ptr %13, align 4
-  %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds %struct.Min_Man_t_, ptr %95, i32 0, i32 0
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp sle i32 %94, %97
-  br i1 %98, label %99, label %126
+91:                                               ; preds = %77
+  %92 = load i32, ptr %13, align 4, !tbaa !14
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %13, align 4, !tbaa !14
+  br label %94
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.Min_Man_t_, ptr %100, i32 0, i32 10
-  %102 = load ptr, ptr %101, align 8
-  %103 = load i32, ptr %13, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %102, i64 %104
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp ne ptr %106, null
-  br i1 %107, label %108, label %122
+94:                                               ; preds = %124, %91
+  %95 = load i32, ptr %13, align 4, !tbaa !14
+  %96 = load ptr, ptr %2, align 8, !tbaa !3
+  %97 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %96, i32 0, i32 0
+  %98 = load i32, ptr %97, align 8, !tbaa !24
+  %99 = icmp sle i32 %95, %98
+  br i1 %99, label %100, label %127
 
-108:                                              ; preds = %99
-  %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.Min_Man_t_, ptr %109, i32 0, i32 10
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i32, ptr %13, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr %111, i64 %113
-  store ptr %114, ptr %4, align 8
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds %struct.Min_Man_t_, ptr %115, i32 0, i32 10
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %13, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  store ptr %121, ptr %3, align 8
-  br label %126
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %2, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %101, i32 0, i32 10
+  %103 = load ptr, ptr %102, align 8, !tbaa !17
+  %104 = load i32, ptr %13, align 4, !tbaa !14
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds ptr, ptr %103, i64 %105
+  %107 = load ptr, ptr %106, align 8, !tbaa !18
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %123
 
-122:                                              ; preds = %99
-  br label %123
-
-123:                                              ; preds = %122
-  %124 = load i32, ptr %13, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %13, align 4
-  br label %93, !llvm.loop !7
-
-126:                                              ; preds = %108, %93
+109:                                              ; preds = %100
+  %110 = load ptr, ptr %2, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %110, i32 0, i32 10
+  %112 = load ptr, ptr %111, align 8, !tbaa !17
+  %113 = load i32, ptr %13, align 4, !tbaa !14
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds ptr, ptr %112, i64 %114
+  store ptr %115, ptr %4, align 8, !tbaa !22
+  %116 = load ptr, ptr %2, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %116, i32 0, i32 10
+  %118 = load ptr, ptr %117, align 8, !tbaa !17
+  %119 = load i32, ptr %13, align 4, !tbaa !14
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds ptr, ptr %118, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !18
+  store ptr %122, ptr %3, align 8, !tbaa !18
   br label %127
 
-127:                                              ; preds = %126, %76
-  %128 = load ptr, ptr %3, align 8
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %130, label %131
+123:                                              ; preds = %100
+  br label %124
 
-130:                                              ; preds = %127
-  br label %547
+124:                                              ; preds = %123
+  %125 = load i32, ptr %13, align 4, !tbaa !14
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %13, align 4, !tbaa !14
+  br label %94, !llvm.loop !25
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.Min_Cube_t_, ptr %132, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr %5, align 8
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.Min_Cube_t_, ptr %135, i32 0, i32 0
-  store ptr %136, ptr %6, align 8
-  br label %137
+127:                                              ; preds = %109, %94
+  br label %128
 
-137:                                              ; preds = %147, %131
-  %138 = load ptr, ptr %5, align 8
-  %139 = icmp ne ptr %138, null
-  br i1 %139, label %140, label %153
+128:                                              ; preds = %127, %77
+  %129 = load ptr, ptr %3, align 8, !tbaa !18
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %131, label %132
 
-140:                                              ; preds = %137
-  %141 = load ptr, ptr %3, align 8
-  %142 = load ptr, ptr %5, align 8
-  %143 = call i32 @Min_CubesDistTwo(ptr noundef %141, ptr noundef %142, ptr noundef %11, ptr noundef %12)
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %146
+131:                                              ; preds = %128
+  br label %548
 
-145:                                              ; preds = %140
-  br label %153
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %3, align 8, !tbaa !18
+  %134 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8, !tbaa !20
+  store ptr %135, ptr %5, align 8, !tbaa !18
+  %136 = load ptr, ptr %3, align 8, !tbaa !18
+  %137 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %136, i32 0, i32 0
+  store ptr %137, ptr %6, align 8, !tbaa !22
+  br label %138
 
-146:                                              ; preds = %140
-  br label %147
+138:                                              ; preds = %148, %132
+  %139 = load ptr, ptr %5, align 8, !tbaa !18
+  %140 = icmp ne ptr %139, null
+  br i1 %140, label %141, label %154
 
-147:                                              ; preds = %146
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds %struct.Min_Cube_t_, ptr %148, i32 0, i32 0
-  store ptr %149, ptr %6, align 8
-  %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds %struct.Min_Cube_t_, ptr %150, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %5, align 8
-  br label %137, !llvm.loop !8
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %3, align 8, !tbaa !18
+  %143 = load ptr, ptr %5, align 8, !tbaa !18
+  %144 = call i32 @Min_CubesDistTwo(ptr noundef %142, ptr noundef %143, ptr noundef %11, ptr noundef %12)
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %147
 
-153:                                              ; preds = %145, %137
-  %154 = load ptr, ptr %5, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %195
+146:                                              ; preds = %141
+  br label %154
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %13, align 4
-  %158 = load ptr, ptr %2, align 8
-  %159 = getelementptr inbounds %struct.Min_Man_t_, ptr %158, i32 0, i32 0
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp slt i32 %157, %160
-  br i1 %161, label %162, label %195
+147:                                              ; preds = %141
+  br label %148
 
-162:                                              ; preds = %156
-  %163 = load ptr, ptr %2, align 8
-  %164 = getelementptr inbounds %struct.Min_Man_t_, ptr %163, i32 0, i32 10
-  %165 = load ptr, ptr %164, align 8
-  %166 = load i32, ptr %13, align 4
-  %167 = add nsw i32 %166, 1
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %165, i64 %168
-  %170 = load ptr, ptr %169, align 8
-  store ptr %170, ptr %5, align 8
-  %171 = load ptr, ptr %2, align 8
-  %172 = getelementptr inbounds %struct.Min_Man_t_, ptr %171, i32 0, i32 10
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %13, align 4
-  %175 = add nsw i32 %174, 1
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %173, i64 %176
-  store ptr %177, ptr %6, align 8
-  br label %178
+148:                                              ; preds = %147
+  %149 = load ptr, ptr %5, align 8, !tbaa !18
+  %150 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %149, i32 0, i32 0
+  store ptr %150, ptr %6, align 8, !tbaa !22
+  %151 = load ptr, ptr %5, align 8, !tbaa !18
+  %152 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %151, i32 0, i32 0
+  %153 = load ptr, ptr %152, align 8, !tbaa !20
+  store ptr %153, ptr %5, align 8, !tbaa !18
+  br label %138, !llvm.loop !26
 
-178:                                              ; preds = %188, %162
-  %179 = load ptr, ptr %5, align 8
-  %180 = icmp ne ptr %179, null
-  br i1 %180, label %181, label %194
+154:                                              ; preds = %146, %138
+  %155 = load ptr, ptr %5, align 8, !tbaa !18
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %157, label %196
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %3, align 8
-  %183 = load ptr, ptr %5, align 8
-  %184 = call i32 @Min_CubesDistTwo(ptr noundef %182, ptr noundef %183, ptr noundef %11, ptr noundef %12)
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %187
+157:                                              ; preds = %154
+  %158 = load i32, ptr %13, align 4, !tbaa !14
+  %159 = load ptr, ptr %2, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %159, i32 0, i32 0
+  %161 = load i32, ptr %160, align 8, !tbaa !24
+  %162 = icmp slt i32 %158, %161
+  br i1 %162, label %163, label %196
 
-186:                                              ; preds = %181
-  br label %194
+163:                                              ; preds = %157
+  %164 = load ptr, ptr %2, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %164, i32 0, i32 10
+  %166 = load ptr, ptr %165, align 8, !tbaa !17
+  %167 = load i32, ptr %13, align 4, !tbaa !14
+  %168 = add nsw i32 %167, 1
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds ptr, ptr %166, i64 %169
+  %171 = load ptr, ptr %170, align 8, !tbaa !18
+  store ptr %171, ptr %5, align 8, !tbaa !18
+  %172 = load ptr, ptr %2, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %172, i32 0, i32 10
+  %174 = load ptr, ptr %173, align 8, !tbaa !17
+  %175 = load i32, ptr %13, align 4, !tbaa !14
+  %176 = add nsw i32 %175, 1
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds ptr, ptr %174, i64 %177
+  store ptr %178, ptr %6, align 8, !tbaa !22
+  br label %179
 
-187:                                              ; preds = %181
-  br label %188
+179:                                              ; preds = %189, %163
+  %180 = load ptr, ptr %5, align 8, !tbaa !18
+  %181 = icmp ne ptr %180, null
+  br i1 %181, label %182, label %195
 
-188:                                              ; preds = %187
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.Min_Cube_t_, ptr %189, i32 0, i32 0
-  store ptr %190, ptr %6, align 8
-  %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds %struct.Min_Cube_t_, ptr %191, i32 0, i32 0
-  %193 = load ptr, ptr %192, align 8
-  store ptr %193, ptr %5, align 8
-  br label %178, !llvm.loop !9
+182:                                              ; preds = %179
+  %183 = load ptr, ptr %3, align 8, !tbaa !18
+  %184 = load ptr, ptr %5, align 8, !tbaa !18
+  %185 = call i32 @Min_CubesDistTwo(ptr noundef %183, ptr noundef %184, ptr noundef %11, ptr noundef %12)
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %187, label %188
 
-194:                                              ; preds = %186, %178
+187:                                              ; preds = %182
   br label %195
 
-195:                                              ; preds = %194, %156, %153
-  %196 = load ptr, ptr %5, align 8
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %238
+188:                                              ; preds = %182
+  br label %189
 
-198:                                              ; preds = %195
-  %199 = load i32, ptr %13, align 4
-  %200 = load ptr, ptr %2, align 8
-  %201 = getelementptr inbounds %struct.Min_Man_t_, ptr %200, i32 0, i32 0
-  %202 = load i32, ptr %201, align 8
-  %203 = sub nsw i32 %202, 1
-  %204 = icmp slt i32 %199, %203
-  br i1 %204, label %205, label %238
+189:                                              ; preds = %188
+  %190 = load ptr, ptr %5, align 8, !tbaa !18
+  %191 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %190, i32 0, i32 0
+  store ptr %191, ptr %6, align 8, !tbaa !22
+  %192 = load ptr, ptr %5, align 8, !tbaa !18
+  %193 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %192, i32 0, i32 0
+  %194 = load ptr, ptr %193, align 8, !tbaa !20
+  store ptr %194, ptr %5, align 8, !tbaa !18
+  br label %179, !llvm.loop !27
 
-205:                                              ; preds = %198
-  %206 = load ptr, ptr %2, align 8
-  %207 = getelementptr inbounds %struct.Min_Man_t_, ptr %206, i32 0, i32 10
-  %208 = load ptr, ptr %207, align 8
-  %209 = load i32, ptr %13, align 4
-  %210 = add nsw i32 %209, 2
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds ptr, ptr %208, i64 %211
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %5, align 8
-  %214 = load ptr, ptr %2, align 8
-  %215 = getelementptr inbounds %struct.Min_Man_t_, ptr %214, i32 0, i32 10
-  %216 = load ptr, ptr %215, align 8
-  %217 = load i32, ptr %13, align 4
-  %218 = add nsw i32 %217, 2
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %216, i64 %219
-  store ptr %220, ptr %6, align 8
-  br label %221
+195:                                              ; preds = %187, %179
+  br label %196
 
-221:                                              ; preds = %231, %205
-  %222 = load ptr, ptr %5, align 8
-  %223 = icmp ne ptr %222, null
-  br i1 %223, label %224, label %237
+196:                                              ; preds = %195, %157, %154
+  %197 = load ptr, ptr %5, align 8, !tbaa !18
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %199, label %239
 
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %3, align 8
-  %226 = load ptr, ptr %5, align 8
-  %227 = call i32 @Min_CubesDistTwo(ptr noundef %225, ptr noundef %226, ptr noundef %11, ptr noundef %12)
-  %228 = icmp ne i32 %227, 0
-  br i1 %228, label %229, label %230
+199:                                              ; preds = %196
+  %200 = load i32, ptr %13, align 4, !tbaa !14
+  %201 = load ptr, ptr %2, align 8, !tbaa !3
+  %202 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr %202, align 8, !tbaa !24
+  %204 = sub nsw i32 %203, 1
+  %205 = icmp slt i32 %200, %204
+  br i1 %205, label %206, label %239
 
-229:                                              ; preds = %224
-  br label %237
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %2, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %207, i32 0, i32 10
+  %209 = load ptr, ptr %208, align 8, !tbaa !17
+  %210 = load i32, ptr %13, align 4, !tbaa !14
+  %211 = add nsw i32 %210, 2
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds ptr, ptr %209, i64 %212
+  %214 = load ptr, ptr %213, align 8, !tbaa !18
+  store ptr %214, ptr %5, align 8, !tbaa !18
+  %215 = load ptr, ptr %2, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %215, i32 0, i32 10
+  %217 = load ptr, ptr %216, align 8, !tbaa !17
+  %218 = load i32, ptr %13, align 4, !tbaa !14
+  %219 = add nsw i32 %218, 2
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds ptr, ptr %217, i64 %220
+  store ptr %221, ptr %6, align 8, !tbaa !22
+  br label %222
 
-230:                                              ; preds = %224
-  br label %231
+222:                                              ; preds = %232, %206
+  %223 = load ptr, ptr %5, align 8, !tbaa !18
+  %224 = icmp ne ptr %223, null
+  br i1 %224, label %225, label %238
 
-231:                                              ; preds = %230
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds %struct.Min_Cube_t_, ptr %232, i32 0, i32 0
-  store ptr %233, ptr %6, align 8
-  %234 = load ptr, ptr %5, align 8
-  %235 = getelementptr inbounds %struct.Min_Cube_t_, ptr %234, i32 0, i32 0
-  %236 = load ptr, ptr %235, align 8
-  store ptr %236, ptr %5, align 8
-  br label %221, !llvm.loop !10
+225:                                              ; preds = %222
+  %226 = load ptr, ptr %3, align 8, !tbaa !18
+  %227 = load ptr, ptr %5, align 8, !tbaa !18
+  %228 = call i32 @Min_CubesDistTwo(ptr noundef %226, ptr noundef %227, ptr noundef %11, ptr noundef %12)
+  %229 = icmp ne i32 %228, 0
+  br i1 %229, label %230, label %231
 
-237:                                              ; preds = %229, %221
+230:                                              ; preds = %225
   br label %238
 
-238:                                              ; preds = %237, %198, %195
-  %239 = load ptr, ptr %5, align 8
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %241, label %267
+231:                                              ; preds = %225
+  br label %232
 
-241:                                              ; preds = %238
-  %242 = load ptr, ptr %3, align 8
-  %243 = getelementptr inbounds %struct.Min_Cube_t_, ptr %242, i32 0, i32 0
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr %2, align 8
-  %246 = getelementptr inbounds %struct.Min_Man_t_, ptr %245, i32 0, i32 8
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.Min_Cube_t_, ptr %247, i32 0, i32 0
-  store ptr %244, ptr %248, align 8
-  %249 = load ptr, ptr %2, align 8
-  %250 = getelementptr inbounds %struct.Min_Man_t_, ptr %249, i32 0, i32 8
-  %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %3, align 8
-  %253 = getelementptr inbounds %struct.Min_Cube_t_, ptr %252, i32 0, i32 0
-  store ptr %251, ptr %253, align 8
-  %254 = load ptr, ptr %3, align 8
-  %255 = getelementptr inbounds %struct.Min_Cube_t_, ptr %254, i32 0, i32 1
-  %256 = load i32, ptr %255, align 8
-  %257 = lshr i32 %256, 22
-  %258 = load ptr, ptr %2, align 8
-  %259 = getelementptr inbounds %struct.Min_Man_t_, ptr %258, i32 0, i32 8
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds %struct.Min_Cube_t_, ptr %260, i32 0, i32 1
-  %262 = load i32, ptr %261, align 8
-  %263 = and i32 %257, 1023
-  %264 = shl i32 %263, 22
-  %265 = and i32 %262, 4194303
-  %266 = or i32 %265, %264
-  store i32 %266, ptr %261, align 8
+232:                                              ; preds = %231
+  %233 = load ptr, ptr %5, align 8, !tbaa !18
+  %234 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %233, i32 0, i32 0
+  store ptr %234, ptr %6, align 8, !tbaa !22
+  %235 = load ptr, ptr %5, align 8, !tbaa !18
+  %236 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %235, i32 0, i32 0
+  %237 = load ptr, ptr %236, align 8, !tbaa !20
+  store ptr %237, ptr %5, align 8, !tbaa !18
+  br label %222, !llvm.loop !28
+
+238:                                              ; preds = %230, %222
+  br label %239
+
+239:                                              ; preds = %238, %199, %196
+  %240 = load ptr, ptr %5, align 8, !tbaa !18
+  %241 = icmp eq ptr %240, null
+  br i1 %241, label %242, label %268
+
+242:                                              ; preds = %239
+  %243 = load ptr, ptr %3, align 8, !tbaa !18
+  %244 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %243, i32 0, i32 0
+  %245 = load ptr, ptr %244, align 8, !tbaa !20
+  %246 = load ptr, ptr %2, align 8, !tbaa !3
+  %247 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %246, i32 0, i32 8
+  %248 = load ptr, ptr %247, align 8, !tbaa !19
+  %249 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %248, i32 0, i32 0
+  store ptr %245, ptr %249, align 8, !tbaa !20
+  %250 = load ptr, ptr %2, align 8, !tbaa !3
+  %251 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %250, i32 0, i32 8
+  %252 = load ptr, ptr %251, align 8, !tbaa !19
+  %253 = load ptr, ptr %3, align 8, !tbaa !18
+  %254 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %253, i32 0, i32 0
+  store ptr %252, ptr %254, align 8, !tbaa !20
+  %255 = load ptr, ptr %3, align 8, !tbaa !18
+  %256 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %255, i32 0, i32 1
+  %257 = load i32, ptr %256, align 8
+  %258 = lshr i32 %257, 22
+  %259 = load ptr, ptr %2, align 8, !tbaa !3
+  %260 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %259, i32 0, i32 8
+  %261 = load ptr, ptr %260, align 8, !tbaa !19
+  %262 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %261, i32 0, i32 1
+  %263 = load i32, ptr %262, align 8
+  %264 = and i32 %258, 1023
+  %265 = shl i32 %264, 22
+  %266 = and i32 %263, 4194303
+  %267 = or i32 %266, %265
+  store i32 %267, ptr %262, align 8
   br label %39
 
-267:                                              ; preds = %238
-  %268 = load i32, ptr %15, align 4
-  %269 = add nsw i32 %268, 1
-  store i32 %269, ptr %15, align 4
-  %270 = load ptr, ptr %5, align 8
-  %271 = getelementptr inbounds %struct.Min_Cube_t_, ptr %270, i32 0, i32 0
-  %272 = load ptr, ptr %271, align 8
-  %273 = load ptr, ptr %6, align 8
-  store ptr %272, ptr %273, align 8
-  %274 = load ptr, ptr %2, align 8
-  %275 = getelementptr inbounds %struct.Min_Man_t_, ptr %274, i32 0, i32 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = load ptr, ptr %4, align 8
-  store ptr %276, ptr %277, align 8
-  %278 = load ptr, ptr %3, align 8
-  %279 = getelementptr inbounds %struct.Min_Cube_t_, ptr %278, i32 0, i32 0
-  %280 = load ptr, ptr %279, align 8
-  %281 = load ptr, ptr %2, align 8
-  %282 = getelementptr inbounds %struct.Min_Man_t_, ptr %281, i32 0, i32 8
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds %struct.Min_Cube_t_, ptr %283, i32 0, i32 0
-  store ptr %280, ptr %284, align 8
-  %285 = load ptr, ptr %3, align 8
-  %286 = getelementptr inbounds %struct.Min_Cube_t_, ptr %285, i32 0, i32 1
-  %287 = load i32, ptr %286, align 8
-  %288 = lshr i32 %287, 22
-  %289 = load ptr, ptr %2, align 8
-  %290 = getelementptr inbounds %struct.Min_Man_t_, ptr %289, i32 0, i32 8
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds %struct.Min_Cube_t_, ptr %291, i32 0, i32 1
-  %293 = load i32, ptr %292, align 8
-  %294 = and i32 %288, 1023
-  %295 = shl i32 %294, 22
-  %296 = and i32 %293, 4194303
-  %297 = or i32 %296, %295
-  store i32 %297, ptr %292, align 8
-  %298 = load ptr, ptr %2, align 8
-  %299 = getelementptr inbounds %struct.Min_Man_t_, ptr %298, i32 0, i32 9
-  %300 = load i32, ptr %299, align 8
-  %301 = sub nsw i32 %300, 2
-  store i32 %301, ptr %299, align 8
-  %302 = load ptr, ptr %3, align 8
-  %303 = load i32, ptr %11, align 4
-  %304 = call i32 @Min_CubeGetVar(ptr noundef %302, i32 noundef %303)
-  store i32 %304, ptr %7, align 4
-  %305 = load ptr, ptr %3, align 8
-  %306 = load i32, ptr %12, align 4
-  %307 = call i32 @Min_CubeGetVar(ptr noundef %305, i32 noundef %306)
-  store i32 %307, ptr %8, align 4
-  %308 = load ptr, ptr %5, align 8
-  %309 = load i32, ptr %11, align 4
-  %310 = call i32 @Min_CubeGetVar(ptr noundef %308, i32 noundef %309)
-  store i32 %310, ptr %9, align 4
-  %311 = load ptr, ptr %5, align 8
-  %312 = load i32, ptr %12, align 4
-  %313 = call i32 @Min_CubeGetVar(ptr noundef %311, i32 noundef %312)
-  store i32 %313, ptr %10, align 4
-  %314 = load ptr, ptr %3, align 8
-  %315 = load i32, ptr %11, align 4
-  %316 = load i32, ptr %9, align 4
-  call void @Min_CubeXorVar(ptr noundef %314, i32 noundef %315, i32 noundef %316)
-  %317 = load i32, ptr %7, align 4
-  %318 = icmp ne i32 %317, 3
-  %319 = zext i1 %318 to i32
-  %320 = load ptr, ptr %3, align 8
-  %321 = getelementptr inbounds %struct.Min_Cube_t_, ptr %320, i32 0, i32 1
-  %322 = load i32, ptr %321, align 8
-  %323 = lshr i32 %322, 22
-  %324 = sub nsw i32 %323, %319
-  %325 = load i32, ptr %321, align 8
-  %326 = and i32 %324, 1023
-  %327 = shl i32 %326, 22
-  %328 = and i32 %325, 4194303
-  %329 = or i32 %328, %327
-  store i32 %329, ptr %321, align 8
-  %330 = load i32, ptr %7, align 4
-  %331 = load i32, ptr %9, align 4
-  %332 = xor i32 %330, %331
-  %333 = icmp ne i32 %332, 3
-  %334 = zext i1 %333 to i32
-  %335 = load ptr, ptr %3, align 8
-  %336 = getelementptr inbounds %struct.Min_Cube_t_, ptr %335, i32 0, i32 1
-  %337 = load i32, ptr %336, align 8
-  %338 = lshr i32 %337, 22
-  %339 = add nsw i32 %338, %334
-  %340 = load i32, ptr %336, align 8
-  %341 = and i32 %339, 1023
-  %342 = shl i32 %341, 22
-  %343 = and i32 %340, 4194303
-  %344 = or i32 %343, %342
-  store i32 %344, ptr %336, align 8
-  %345 = load ptr, ptr %5, align 8
-  %346 = load i32, ptr %12, align 4
-  %347 = load i32, ptr %8, align 4
-  call void @Min_CubeXorVar(ptr noundef %345, i32 noundef %346, i32 noundef %347)
-  %348 = load i32, ptr %10, align 4
-  %349 = icmp ne i32 %348, 3
-  %350 = zext i1 %349 to i32
-  %351 = load ptr, ptr %5, align 8
-  %352 = getelementptr inbounds %struct.Min_Cube_t_, ptr %351, i32 0, i32 1
-  %353 = load i32, ptr %352, align 8
-  %354 = lshr i32 %353, 22
-  %355 = sub nsw i32 %354, %350
-  %356 = load i32, ptr %352, align 8
-  %357 = and i32 %355, 1023
-  %358 = shl i32 %357, 22
-  %359 = and i32 %356, 4194303
-  %360 = or i32 %359, %358
-  store i32 %360, ptr %352, align 8
-  %361 = load i32, ptr %8, align 4
-  %362 = load i32, ptr %10, align 4
-  %363 = xor i32 %361, %362
-  %364 = icmp ne i32 %363, 3
-  %365 = zext i1 %364 to i32
-  %366 = load ptr, ptr %5, align 8
-  %367 = getelementptr inbounds %struct.Min_Cube_t_, ptr %366, i32 0, i32 1
-  %368 = load i32, ptr %367, align 8
-  %369 = lshr i32 %368, 22
-  %370 = add nsw i32 %369, %365
-  %371 = load i32, ptr %367, align 8
-  %372 = and i32 %370, 1023
-  %373 = shl i32 %372, 22
-  %374 = and i32 %371, 4194303
-  %375 = or i32 %374, %373
-  store i32 %375, ptr %367, align 8
-  %376 = load ptr, ptr %2, align 8
-  %377 = getelementptr inbounds %struct.Min_Man_t_, ptr %376, i32 0, i32 9
-  %378 = load i32, ptr %377, align 8
-  store i32 %378, ptr %14, align 4
-  %379 = load ptr, ptr %2, align 8
-  %380 = load ptr, ptr %3, align 8
-  call void @Min_EsopAddCube(ptr noundef %379, ptr noundef %380)
-  %381 = load ptr, ptr %2, align 8
-  %382 = load ptr, ptr %5, align 8
-  call void @Min_EsopAddCube(ptr noundef %381, ptr noundef %382)
-  %383 = load ptr, ptr %2, align 8
-  %384 = getelementptr inbounds %struct.Min_Man_t_, ptr %383, i32 0, i32 9
-  %385 = load i32, ptr %384, align 8
-  %386 = load i32, ptr %14, align 4
-  %387 = add nsw i32 %386, 2
-  %388 = icmp slt i32 %385, %387
-  br i1 %388, label %389, label %390
+268:                                              ; preds = %239
+  %269 = load i32, ptr %15, align 4, !tbaa !14
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %15, align 4, !tbaa !14
+  %271 = load ptr, ptr %5, align 8, !tbaa !18
+  %272 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %271, i32 0, i32 0
+  %273 = load ptr, ptr %272, align 8, !tbaa !20
+  %274 = load ptr, ptr %6, align 8, !tbaa !22
+  store ptr %273, ptr %274, align 8, !tbaa !18
+  %275 = load ptr, ptr %2, align 8, !tbaa !3
+  %276 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %275, i32 0, i32 8
+  %277 = load ptr, ptr %276, align 8, !tbaa !19
+  %278 = load ptr, ptr %4, align 8, !tbaa !22
+  store ptr %277, ptr %278, align 8, !tbaa !18
+  %279 = load ptr, ptr %3, align 8, !tbaa !18
+  %280 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %279, i32 0, i32 0
+  %281 = load ptr, ptr %280, align 8, !tbaa !20
+  %282 = load ptr, ptr %2, align 8, !tbaa !3
+  %283 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %282, i32 0, i32 8
+  %284 = load ptr, ptr %283, align 8, !tbaa !19
+  %285 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %284, i32 0, i32 0
+  store ptr %281, ptr %285, align 8, !tbaa !20
+  %286 = load ptr, ptr %3, align 8, !tbaa !18
+  %287 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %286, i32 0, i32 1
+  %288 = load i32, ptr %287, align 8
+  %289 = lshr i32 %288, 22
+  %290 = load ptr, ptr %2, align 8, !tbaa !3
+  %291 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %290, i32 0, i32 8
+  %292 = load ptr, ptr %291, align 8, !tbaa !19
+  %293 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %292, i32 0, i32 1
+  %294 = load i32, ptr %293, align 8
+  %295 = and i32 %289, 1023
+  %296 = shl i32 %295, 22
+  %297 = and i32 %294, 4194303
+  %298 = or i32 %297, %296
+  store i32 %298, ptr %293, align 8
+  %299 = load ptr, ptr %2, align 8, !tbaa !3
+  %300 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %299, i32 0, i32 9
+  %301 = load i32, ptr %300, align 8, !tbaa !8
+  %302 = sub nsw i32 %301, 2
+  store i32 %302, ptr %300, align 8, !tbaa !8
+  %303 = load ptr, ptr %3, align 8, !tbaa !18
+  %304 = load i32, ptr %11, align 4, !tbaa !14
+  %305 = call i32 @Min_CubeGetVar(ptr noundef %303, i32 noundef %304)
+  store i32 %305, ptr %7, align 4, !tbaa !14
+  %306 = load ptr, ptr %3, align 8, !tbaa !18
+  %307 = load i32, ptr %12, align 4, !tbaa !14
+  %308 = call i32 @Min_CubeGetVar(ptr noundef %306, i32 noundef %307)
+  store i32 %308, ptr %8, align 4, !tbaa !14
+  %309 = load ptr, ptr %5, align 8, !tbaa !18
+  %310 = load i32, ptr %11, align 4, !tbaa !14
+  %311 = call i32 @Min_CubeGetVar(ptr noundef %309, i32 noundef %310)
+  store i32 %311, ptr %9, align 4, !tbaa !14
+  %312 = load ptr, ptr %5, align 8, !tbaa !18
+  %313 = load i32, ptr %12, align 4, !tbaa !14
+  %314 = call i32 @Min_CubeGetVar(ptr noundef %312, i32 noundef %313)
+  store i32 %314, ptr %10, align 4, !tbaa !14
+  %315 = load ptr, ptr %3, align 8, !tbaa !18
+  %316 = load i32, ptr %11, align 4, !tbaa !14
+  %317 = load i32, ptr %9, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %315, i32 noundef %316, i32 noundef %317)
+  %318 = load i32, ptr %7, align 4, !tbaa !14
+  %319 = icmp ne i32 %318, 3
+  %320 = zext i1 %319 to i32
+  %321 = load ptr, ptr %3, align 8, !tbaa !18
+  %322 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %321, i32 0, i32 1
+  %323 = load i32, ptr %322, align 8
+  %324 = lshr i32 %323, 22
+  %325 = sub nsw i32 %324, %320
+  %326 = load i32, ptr %322, align 8
+  %327 = and i32 %325, 1023
+  %328 = shl i32 %327, 22
+  %329 = and i32 %326, 4194303
+  %330 = or i32 %329, %328
+  store i32 %330, ptr %322, align 8
+  %331 = load i32, ptr %7, align 4, !tbaa !14
+  %332 = load i32, ptr %9, align 4, !tbaa !14
+  %333 = xor i32 %331, %332
+  %334 = icmp ne i32 %333, 3
+  %335 = zext i1 %334 to i32
+  %336 = load ptr, ptr %3, align 8, !tbaa !18
+  %337 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %336, i32 0, i32 1
+  %338 = load i32, ptr %337, align 8
+  %339 = lshr i32 %338, 22
+  %340 = add nsw i32 %339, %335
+  %341 = load i32, ptr %337, align 8
+  %342 = and i32 %340, 1023
+  %343 = shl i32 %342, 22
+  %344 = and i32 %341, 4194303
+  %345 = or i32 %344, %343
+  store i32 %345, ptr %337, align 8
+  %346 = load ptr, ptr %5, align 8, !tbaa !18
+  %347 = load i32, ptr %12, align 4, !tbaa !14
+  %348 = load i32, ptr %8, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %346, i32 noundef %347, i32 noundef %348)
+  %349 = load i32, ptr %10, align 4, !tbaa !14
+  %350 = icmp ne i32 %349, 3
+  %351 = zext i1 %350 to i32
+  %352 = load ptr, ptr %5, align 8, !tbaa !18
+  %353 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %352, i32 0, i32 1
+  %354 = load i32, ptr %353, align 8
+  %355 = lshr i32 %354, 22
+  %356 = sub nsw i32 %355, %351
+  %357 = load i32, ptr %353, align 8
+  %358 = and i32 %356, 1023
+  %359 = shl i32 %358, 22
+  %360 = and i32 %357, 4194303
+  %361 = or i32 %360, %359
+  store i32 %361, ptr %353, align 8
+  %362 = load i32, ptr %8, align 4, !tbaa !14
+  %363 = load i32, ptr %10, align 4, !tbaa !14
+  %364 = xor i32 %362, %363
+  %365 = icmp ne i32 %364, 3
+  %366 = zext i1 %365 to i32
+  %367 = load ptr, ptr %5, align 8, !tbaa !18
+  %368 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %367, i32 0, i32 1
+  %369 = load i32, ptr %368, align 8
+  %370 = lshr i32 %369, 22
+  %371 = add nsw i32 %370, %366
+  %372 = load i32, ptr %368, align 8
+  %373 = and i32 %371, 1023
+  %374 = shl i32 %373, 22
+  %375 = and i32 %372, 4194303
+  %376 = or i32 %375, %374
+  store i32 %376, ptr %368, align 8
+  %377 = load ptr, ptr %2, align 8, !tbaa !3
+  %378 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %377, i32 0, i32 9
+  %379 = load i32, ptr %378, align 8, !tbaa !8
+  store i32 %379, ptr %14, align 4, !tbaa !14
+  %380 = load ptr, ptr %2, align 8, !tbaa !3
+  %381 = load ptr, ptr %3, align 8, !tbaa !18
+  call void @Min_EsopAddCube(ptr noundef %380, ptr noundef %381)
+  %382 = load ptr, ptr %2, align 8, !tbaa !3
+  %383 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @Min_EsopAddCube(ptr noundef %382, ptr noundef %383)
+  %384 = load ptr, ptr %2, align 8, !tbaa !3
+  %385 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %384, i32 0, i32 9
+  %386 = load i32, ptr %385, align 8, !tbaa !8
+  %387 = load i32, ptr %14, align 4, !tbaa !14
+  %388 = add nsw i32 %387, 2
+  %389 = icmp slt i32 %386, %388
+  br i1 %389, label %390, label %391
 
-389:                                              ; preds = %267
+390:                                              ; preds = %268
   br label %39
 
-390:                                              ; preds = %267
-  %391 = load ptr, ptr %5, align 8
-  %392 = getelementptr inbounds %struct.Min_Cube_t_, ptr %391, i32 0, i32 0
-  %393 = load ptr, ptr %392, align 8
-  %394 = load ptr, ptr %2, align 8
-  %395 = getelementptr inbounds %struct.Min_Man_t_, ptr %394, i32 0, i32 10
-  %396 = load ptr, ptr %395, align 8
-  %397 = load ptr, ptr %5, align 8
-  %398 = getelementptr inbounds %struct.Min_Cube_t_, ptr %397, i32 0, i32 1
-  %399 = load i32, ptr %398, align 8
-  %400 = lshr i32 %399, 22
-  %401 = zext i32 %400 to i64
-  %402 = getelementptr inbounds ptr, ptr %396, i64 %401
-  store ptr %393, ptr %402, align 8
-  %403 = load ptr, ptr %3, align 8
-  %404 = getelementptr inbounds %struct.Min_Cube_t_, ptr %403, i32 0, i32 0
-  %405 = load ptr, ptr %404, align 8
-  %406 = load ptr, ptr %2, align 8
-  %407 = getelementptr inbounds %struct.Min_Man_t_, ptr %406, i32 0, i32 10
-  %408 = load ptr, ptr %407, align 8
-  %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr inbounds %struct.Min_Cube_t_, ptr %409, i32 0, i32 1
-  %411 = load i32, ptr %410, align 8
-  %412 = lshr i32 %411, 22
-  %413 = zext i32 %412 to i64
-  %414 = getelementptr inbounds ptr, ptr %408, i64 %413
-  store ptr %405, ptr %414, align 8
-  %415 = load ptr, ptr %2, align 8
-  %416 = getelementptr inbounds %struct.Min_Man_t_, ptr %415, i32 0, i32 9
-  %417 = load i32, ptr %416, align 8
-  %418 = sub nsw i32 %417, 2
-  store i32 %418, ptr %416, align 8
-  %419 = load ptr, ptr %3, align 8
-  %420 = load i32, ptr %11, align 4
-  %421 = load i32, ptr %9, align 4
-  call void @Min_CubeXorVar(ptr noundef %419, i32 noundef %420, i32 noundef %421)
-  %422 = load i32, ptr %7, align 4
-  %423 = load i32, ptr %9, align 4
-  %424 = xor i32 %422, %423
-  %425 = icmp ne i32 %424, 3
-  %426 = zext i1 %425 to i32
-  %427 = load ptr, ptr %3, align 8
-  %428 = getelementptr inbounds %struct.Min_Cube_t_, ptr %427, i32 0, i32 1
-  %429 = load i32, ptr %428, align 8
-  %430 = lshr i32 %429, 22
-  %431 = sub nsw i32 %430, %426
-  %432 = load i32, ptr %428, align 8
-  %433 = and i32 %431, 1023
-  %434 = shl i32 %433, 22
-  %435 = and i32 %432, 4194303
-  %436 = or i32 %435, %434
-  store i32 %436, ptr %428, align 8
-  %437 = load i32, ptr %7, align 4
-  %438 = icmp ne i32 %437, 3
-  %439 = zext i1 %438 to i32
-  %440 = load ptr, ptr %3, align 8
-  %441 = getelementptr inbounds %struct.Min_Cube_t_, ptr %440, i32 0, i32 1
-  %442 = load i32, ptr %441, align 8
-  %443 = lshr i32 %442, 22
-  %444 = add nsw i32 %443, %439
-  %445 = load i32, ptr %441, align 8
-  %446 = and i32 %444, 1023
-  %447 = shl i32 %446, 22
-  %448 = and i32 %445, 4194303
-  %449 = or i32 %448, %447
-  store i32 %449, ptr %441, align 8
-  %450 = load ptr, ptr %3, align 8
-  %451 = load i32, ptr %12, align 4
-  %452 = load i32, ptr %10, align 4
-  call void @Min_CubeXorVar(ptr noundef %450, i32 noundef %451, i32 noundef %452)
-  %453 = load i32, ptr %8, align 4
-  %454 = icmp ne i32 %453, 3
-  %455 = zext i1 %454 to i32
-  %456 = load ptr, ptr %3, align 8
-  %457 = getelementptr inbounds %struct.Min_Cube_t_, ptr %456, i32 0, i32 1
-  %458 = load i32, ptr %457, align 8
-  %459 = lshr i32 %458, 22
-  %460 = sub nsw i32 %459, %455
-  %461 = load i32, ptr %457, align 8
-  %462 = and i32 %460, 1023
-  %463 = shl i32 %462, 22
-  %464 = and i32 %461, 4194303
-  %465 = or i32 %464, %463
-  store i32 %465, ptr %457, align 8
-  %466 = load i32, ptr %8, align 4
-  %467 = load i32, ptr %10, align 4
-  %468 = xor i32 %466, %467
-  %469 = icmp ne i32 %468, 3
-  %470 = zext i1 %469 to i32
-  %471 = load ptr, ptr %3, align 8
-  %472 = getelementptr inbounds %struct.Min_Cube_t_, ptr %471, i32 0, i32 1
-  %473 = load i32, ptr %472, align 8
-  %474 = lshr i32 %473, 22
-  %475 = add nsw i32 %474, %470
-  %476 = load i32, ptr %472, align 8
-  %477 = and i32 %475, 1023
-  %478 = shl i32 %477, 22
-  %479 = and i32 %476, 4194303
-  %480 = or i32 %479, %478
-  store i32 %480, ptr %472, align 8
-  %481 = load ptr, ptr %5, align 8
-  %482 = load i32, ptr %11, align 4
-  %483 = load i32, ptr %7, align 4
-  call void @Min_CubeXorVar(ptr noundef %481, i32 noundef %482, i32 noundef %483)
-  %484 = load i32, ptr %9, align 4
-  %485 = icmp ne i32 %484, 3
-  %486 = zext i1 %485 to i32
-  %487 = load ptr, ptr %5, align 8
-  %488 = getelementptr inbounds %struct.Min_Cube_t_, ptr %487, i32 0, i32 1
-  %489 = load i32, ptr %488, align 8
-  %490 = lshr i32 %489, 22
-  %491 = sub nsw i32 %490, %486
-  %492 = load i32, ptr %488, align 8
-  %493 = and i32 %491, 1023
-  %494 = shl i32 %493, 22
-  %495 = and i32 %492, 4194303
-  %496 = or i32 %495, %494
-  store i32 %496, ptr %488, align 8
-  %497 = load i32, ptr %7, align 4
-  %498 = load i32, ptr %9, align 4
-  %499 = xor i32 %497, %498
-  %500 = icmp ne i32 %499, 3
-  %501 = zext i1 %500 to i32
-  %502 = load ptr, ptr %5, align 8
-  %503 = getelementptr inbounds %struct.Min_Cube_t_, ptr %502, i32 0, i32 1
-  %504 = load i32, ptr %503, align 8
-  %505 = lshr i32 %504, 22
-  %506 = add nsw i32 %505, %501
-  %507 = load i32, ptr %503, align 8
-  %508 = and i32 %506, 1023
-  %509 = shl i32 %508, 22
-  %510 = and i32 %507, 4194303
-  %511 = or i32 %510, %509
-  store i32 %511, ptr %503, align 8
-  %512 = load ptr, ptr %5, align 8
-  %513 = load i32, ptr %12, align 4
-  %514 = load i32, ptr %8, align 4
-  call void @Min_CubeXorVar(ptr noundef %512, i32 noundef %513, i32 noundef %514)
-  %515 = load i32, ptr %8, align 4
-  %516 = load i32, ptr %10, align 4
-  %517 = xor i32 %515, %516
-  %518 = icmp ne i32 %517, 3
-  %519 = zext i1 %518 to i32
-  %520 = load ptr, ptr %5, align 8
-  %521 = getelementptr inbounds %struct.Min_Cube_t_, ptr %520, i32 0, i32 1
-  %522 = load i32, ptr %521, align 8
-  %523 = lshr i32 %522, 22
-  %524 = sub nsw i32 %523, %519
-  %525 = load i32, ptr %521, align 8
-  %526 = and i32 %524, 1023
-  %527 = shl i32 %526, 22
-  %528 = and i32 %525, 4194303
-  %529 = or i32 %528, %527
-  store i32 %529, ptr %521, align 8
-  %530 = load i32, ptr %10, align 4
-  %531 = icmp ne i32 %530, 3
-  %532 = zext i1 %531 to i32
-  %533 = load ptr, ptr %5, align 8
-  %534 = getelementptr inbounds %struct.Min_Cube_t_, ptr %533, i32 0, i32 1
-  %535 = load i32, ptr %534, align 8
-  %536 = lshr i32 %535, 22
-  %537 = add nsw i32 %536, %532
-  %538 = load i32, ptr %534, align 8
-  %539 = and i32 %537, 1023
-  %540 = shl i32 %539, 22
-  %541 = and i32 %538, 4194303
-  %542 = or i32 %541, %540
-  store i32 %542, ptr %534, align 8
-  %543 = load ptr, ptr %2, align 8
-  %544 = load ptr, ptr %3, align 8
-  call void @Min_EsopAddCube(ptr noundef %543, ptr noundef %544)
-  %545 = load ptr, ptr %2, align 8
-  %546 = load ptr, ptr %5, align 8
-  call void @Min_EsopAddCube(ptr noundef %545, ptr noundef %546)
+391:                                              ; preds = %268
+  %392 = load ptr, ptr %5, align 8, !tbaa !18
+  %393 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %392, i32 0, i32 0
+  %394 = load ptr, ptr %393, align 8, !tbaa !20
+  %395 = load ptr, ptr %2, align 8, !tbaa !3
+  %396 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %395, i32 0, i32 10
+  %397 = load ptr, ptr %396, align 8, !tbaa !17
+  %398 = load ptr, ptr %5, align 8, !tbaa !18
+  %399 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %398, i32 0, i32 1
+  %400 = load i32, ptr %399, align 8
+  %401 = lshr i32 %400, 22
+  %402 = zext i32 %401 to i64
+  %403 = getelementptr inbounds nuw ptr, ptr %397, i64 %402
+  store ptr %394, ptr %403, align 8, !tbaa !18
+  %404 = load ptr, ptr %3, align 8, !tbaa !18
+  %405 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %404, i32 0, i32 0
+  %406 = load ptr, ptr %405, align 8, !tbaa !20
+  %407 = load ptr, ptr %2, align 8, !tbaa !3
+  %408 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %407, i32 0, i32 10
+  %409 = load ptr, ptr %408, align 8, !tbaa !17
+  %410 = load ptr, ptr %3, align 8, !tbaa !18
+  %411 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %410, i32 0, i32 1
+  %412 = load i32, ptr %411, align 8
+  %413 = lshr i32 %412, 22
+  %414 = zext i32 %413 to i64
+  %415 = getelementptr inbounds nuw ptr, ptr %409, i64 %414
+  store ptr %406, ptr %415, align 8, !tbaa !18
+  %416 = load ptr, ptr %2, align 8, !tbaa !3
+  %417 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %416, i32 0, i32 9
+  %418 = load i32, ptr %417, align 8, !tbaa !8
+  %419 = sub nsw i32 %418, 2
+  store i32 %419, ptr %417, align 8, !tbaa !8
+  %420 = load ptr, ptr %3, align 8, !tbaa !18
+  %421 = load i32, ptr %11, align 4, !tbaa !14
+  %422 = load i32, ptr %9, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %420, i32 noundef %421, i32 noundef %422)
+  %423 = load i32, ptr %7, align 4, !tbaa !14
+  %424 = load i32, ptr %9, align 4, !tbaa !14
+  %425 = xor i32 %423, %424
+  %426 = icmp ne i32 %425, 3
+  %427 = zext i1 %426 to i32
+  %428 = load ptr, ptr %3, align 8, !tbaa !18
+  %429 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %428, i32 0, i32 1
+  %430 = load i32, ptr %429, align 8
+  %431 = lshr i32 %430, 22
+  %432 = sub nsw i32 %431, %427
+  %433 = load i32, ptr %429, align 8
+  %434 = and i32 %432, 1023
+  %435 = shl i32 %434, 22
+  %436 = and i32 %433, 4194303
+  %437 = or i32 %436, %435
+  store i32 %437, ptr %429, align 8
+  %438 = load i32, ptr %7, align 4, !tbaa !14
+  %439 = icmp ne i32 %438, 3
+  %440 = zext i1 %439 to i32
+  %441 = load ptr, ptr %3, align 8, !tbaa !18
+  %442 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %441, i32 0, i32 1
+  %443 = load i32, ptr %442, align 8
+  %444 = lshr i32 %443, 22
+  %445 = add nsw i32 %444, %440
+  %446 = load i32, ptr %442, align 8
+  %447 = and i32 %445, 1023
+  %448 = shl i32 %447, 22
+  %449 = and i32 %446, 4194303
+  %450 = or i32 %449, %448
+  store i32 %450, ptr %442, align 8
+  %451 = load ptr, ptr %3, align 8, !tbaa !18
+  %452 = load i32, ptr %12, align 4, !tbaa !14
+  %453 = load i32, ptr %10, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %451, i32 noundef %452, i32 noundef %453)
+  %454 = load i32, ptr %8, align 4, !tbaa !14
+  %455 = icmp ne i32 %454, 3
+  %456 = zext i1 %455 to i32
+  %457 = load ptr, ptr %3, align 8, !tbaa !18
+  %458 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %457, i32 0, i32 1
+  %459 = load i32, ptr %458, align 8
+  %460 = lshr i32 %459, 22
+  %461 = sub nsw i32 %460, %456
+  %462 = load i32, ptr %458, align 8
+  %463 = and i32 %461, 1023
+  %464 = shl i32 %463, 22
+  %465 = and i32 %462, 4194303
+  %466 = or i32 %465, %464
+  store i32 %466, ptr %458, align 8
+  %467 = load i32, ptr %8, align 4, !tbaa !14
+  %468 = load i32, ptr %10, align 4, !tbaa !14
+  %469 = xor i32 %467, %468
+  %470 = icmp ne i32 %469, 3
+  %471 = zext i1 %470 to i32
+  %472 = load ptr, ptr %3, align 8, !tbaa !18
+  %473 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %472, i32 0, i32 1
+  %474 = load i32, ptr %473, align 8
+  %475 = lshr i32 %474, 22
+  %476 = add nsw i32 %475, %471
+  %477 = load i32, ptr %473, align 8
+  %478 = and i32 %476, 1023
+  %479 = shl i32 %478, 22
+  %480 = and i32 %477, 4194303
+  %481 = or i32 %480, %479
+  store i32 %481, ptr %473, align 8
+  %482 = load ptr, ptr %5, align 8, !tbaa !18
+  %483 = load i32, ptr %11, align 4, !tbaa !14
+  %484 = load i32, ptr %7, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %482, i32 noundef %483, i32 noundef %484)
+  %485 = load i32, ptr %9, align 4, !tbaa !14
+  %486 = icmp ne i32 %485, 3
+  %487 = zext i1 %486 to i32
+  %488 = load ptr, ptr %5, align 8, !tbaa !18
+  %489 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %488, i32 0, i32 1
+  %490 = load i32, ptr %489, align 8
+  %491 = lshr i32 %490, 22
+  %492 = sub nsw i32 %491, %487
+  %493 = load i32, ptr %489, align 8
+  %494 = and i32 %492, 1023
+  %495 = shl i32 %494, 22
+  %496 = and i32 %493, 4194303
+  %497 = or i32 %496, %495
+  store i32 %497, ptr %489, align 8
+  %498 = load i32, ptr %7, align 4, !tbaa !14
+  %499 = load i32, ptr %9, align 4, !tbaa !14
+  %500 = xor i32 %498, %499
+  %501 = icmp ne i32 %500, 3
+  %502 = zext i1 %501 to i32
+  %503 = load ptr, ptr %5, align 8, !tbaa !18
+  %504 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %503, i32 0, i32 1
+  %505 = load i32, ptr %504, align 8
+  %506 = lshr i32 %505, 22
+  %507 = add nsw i32 %506, %502
+  %508 = load i32, ptr %504, align 8
+  %509 = and i32 %507, 1023
+  %510 = shl i32 %509, 22
+  %511 = and i32 %508, 4194303
+  %512 = or i32 %511, %510
+  store i32 %512, ptr %504, align 8
+  %513 = load ptr, ptr %5, align 8, !tbaa !18
+  %514 = load i32, ptr %12, align 4, !tbaa !14
+  %515 = load i32, ptr %8, align 4, !tbaa !14
+  call void @Min_CubeXorVar(ptr noundef %513, i32 noundef %514, i32 noundef %515)
+  %516 = load i32, ptr %8, align 4, !tbaa !14
+  %517 = load i32, ptr %10, align 4, !tbaa !14
+  %518 = xor i32 %516, %517
+  %519 = icmp ne i32 %518, 3
+  %520 = zext i1 %519 to i32
+  %521 = load ptr, ptr %5, align 8, !tbaa !18
+  %522 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %521, i32 0, i32 1
+  %523 = load i32, ptr %522, align 8
+  %524 = lshr i32 %523, 22
+  %525 = sub nsw i32 %524, %520
+  %526 = load i32, ptr %522, align 8
+  %527 = and i32 %525, 1023
+  %528 = shl i32 %527, 22
+  %529 = and i32 %526, 4194303
+  %530 = or i32 %529, %528
+  store i32 %530, ptr %522, align 8
+  %531 = load i32, ptr %10, align 4, !tbaa !14
+  %532 = icmp ne i32 %531, 3
+  %533 = zext i1 %532 to i32
+  %534 = load ptr, ptr %5, align 8, !tbaa !18
+  %535 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %534, i32 0, i32 1
+  %536 = load i32, ptr %535, align 8
+  %537 = lshr i32 %536, 22
+  %538 = add nsw i32 %537, %533
+  %539 = load i32, ptr %535, align 8
+  %540 = and i32 %538, 1023
+  %541 = shl i32 %540, 22
+  %542 = and i32 %539, 4194303
+  %543 = or i32 %542, %541
+  store i32 %543, ptr %535, align 8
+  %544 = load ptr, ptr %2, align 8, !tbaa !3
+  %545 = load ptr, ptr %3, align 8, !tbaa !18
+  call void @Min_EsopAddCube(ptr noundef %544, ptr noundef %545)
+  %546 = load ptr, ptr %2, align 8, !tbaa !3
+  %547 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @Min_EsopAddCube(ptr noundef %546, ptr noundef %547)
   br label %39
 
-547:                                              ; preds = %130
+548:                                              ; preds = %131
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef %1) #0 {
@@ -780,466 +837,481 @@ define i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Min_Man_t_, ptr %8, i32 0, i32 10
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.Min_Cube_t_, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = lshr i32 %13, 22
-  %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %10, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.Min_Man_t_, ptr %18, i32 0, i32 10
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.Min_Cube_t_, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = lshr i32 %23, 22
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %20, i64 %25
-  store ptr %26, ptr %7, align 8
-  br label %27
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %9, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = lshr i32 %14, 22
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  store ptr %18, ptr %6, align 8, !tbaa !18
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %19, i32 0, i32 10
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = lshr i32 %24, 22
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
+  store ptr %27, ptr %7, align 8, !tbaa !22
+  br label %28
 
-27:                                               ; preds = %49, %2
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %55
+28:                                               ; preds = %50, %2
+  %29 = load ptr, ptr %6, align 8, !tbaa !18
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %56
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = call i32 @Min_CubesAreEqual(ptr noundef %31, ptr noundef %32)
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %48
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %5, align 8, !tbaa !18
+  %33 = load ptr, ptr %6, align 8, !tbaa !18
+  %34 = call i32 @Min_CubesAreEqual(ptr noundef %32, ptr noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %49
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.Min_Cube_t_, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %7, align 8
-  store ptr %38, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = load ptr, ptr %5, align 8
-  call void @Min_CubeRecycle(ptr noundef %40, ptr noundef %41)
-  %42 = load ptr, ptr %4, align 8
-  %43 = load ptr, ptr %6, align 8
-  call void @Min_CubeRecycle(ptr noundef %42, ptr noundef %43)
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.Min_Man_t_, ptr %44, i32 0, i32 9
-  %46 = load i32, ptr %45, align 8
-  %47 = add nsw i32 %46, -1
-  store i32 %47, ptr %45, align 8
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %6, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %40 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %39, ptr %40, align 8, !tbaa !18
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @Min_CubeRecycle(ptr noundef %41, ptr noundef %42)
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeRecycle(ptr noundef %43, ptr noundef %44)
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %45, i32 0, i32 9
+  %47 = load i32, ptr %46, align 8, !tbaa !8
+  %48 = add nsw i32 %47, -1
+  store i32 %48, ptr %46, align 8, !tbaa !8
   store i32 0, ptr %3, align 4
-  br label %286
+  store i32 1, ptr %8, align 4
+  br label %287
 
-48:                                               ; preds = %30
-  br label %49
+49:                                               ; preds = %31
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.Min_Cube_t_, ptr %50, i32 0, i32 0
-  store ptr %51, ptr %7, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.Min_Cube_t_, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %6, align 8
-  br label %27, !llvm.loop !11
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %6, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %51, i32 0, i32 0
+  store ptr %52, ptr %7, align 8, !tbaa !22
+  %53 = load ptr, ptr %6, align 8, !tbaa !18
+  %54 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !20
+  store ptr %55, ptr %6, align 8, !tbaa !18
+  br label %28, !llvm.loop !29
 
-55:                                               ; preds = %27
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.Min_Cube_t_, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 8
-  %59 = lshr i32 %58, 22
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.Min_Cube_t_, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, 1023
-  %64 = icmp slt i32 %59, %63
-  br i1 %64, label %65, label %132
+56:                                               ; preds = %28
+  %57 = load ptr, ptr %5, align 8, !tbaa !18
+  %58 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 8
+  %60 = lshr i32 %59, 22
+  %61 = load ptr, ptr %5, align 8, !tbaa !18
+  %62 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 8
+  %64 = and i32 %63, 1023
+  %65 = icmp slt i32 %60, %64
+  br i1 %65, label %66, label %133
 
-65:                                               ; preds = %55
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.Min_Man_t_, ptr %66, i32 0, i32 10
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.Min_Cube_t_, ptr %69, i32 0, i32 1
-  %71 = load i32, ptr %70, align 8
-  %72 = lshr i32 %71, 22
-  %73 = add nsw i32 %72, 1
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %68, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %6, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.Min_Man_t_, ptr %77, i32 0, i32 10
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.Min_Cube_t_, ptr %80, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  %83 = lshr i32 %82, 22
-  %84 = add nsw i32 %83, 1
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %79, i64 %85
-  store ptr %86, ptr %7, align 8
-  br label %87
+66:                                               ; preds = %56
+  %67 = load ptr, ptr %4, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %67, i32 0, i32 10
+  %69 = load ptr, ptr %68, align 8, !tbaa !17
+  %70 = load ptr, ptr %5, align 8, !tbaa !18
+  %71 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8
+  %73 = lshr i32 %72, 22
+  %74 = add nsw i32 %73, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %69, i64 %75
+  %77 = load ptr, ptr %76, align 8, !tbaa !18
+  store ptr %77, ptr %6, align 8, !tbaa !18
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %78, i32 0, i32 10
+  %80 = load ptr, ptr %79, align 8, !tbaa !17
+  %81 = load ptr, ptr %5, align 8, !tbaa !18
+  %82 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %81, i32 0, i32 1
+  %83 = load i32, ptr %82, align 8
+  %84 = lshr i32 %83, 22
+  %85 = add nsw i32 %84, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds ptr, ptr %80, i64 %86
+  store ptr %87, ptr %7, align 8, !tbaa !22
+  br label %88
 
-87:                                               ; preds = %125, %65
-  %88 = load ptr, ptr %6, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %131
+88:                                               ; preds = %126, %66
+  %89 = load ptr, ptr %6, align 8, !tbaa !18
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %132
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %5, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct.Min_Man_t_, ptr %93, i32 0, i32 7
-  %95 = load ptr, ptr %94, align 8
-  %96 = call i32 @Min_CubesDistOne(ptr noundef %91, ptr noundef %92, ptr noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %124
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %5, align 8, !tbaa !18
+  %93 = load ptr, ptr %6, align 8, !tbaa !18
+  %94 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %94, i32 0, i32 7
+  %96 = load ptr, ptr %95, align 8, !tbaa !30
+  %97 = call i32 @Min_CubesDistOne(ptr noundef %92, ptr noundef %93, ptr noundef %96)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %125
 
-98:                                               ; preds = %90
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.Min_Cube_t_, ptr %99, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %7, align 8
-  store ptr %101, ptr %102, align 8
-  %103 = load ptr, ptr %5, align 8
-  %104 = load ptr, ptr %6, align 8
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.Min_Man_t_, ptr %105, i32 0, i32 7
-  %107 = load ptr, ptr %106, align 8
-  call void @Min_CubesTransform(ptr noundef %103, ptr noundef %104, ptr noundef %107)
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.Min_Cube_t_, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 8
-  %111 = lshr i32 %110, 22
-  %112 = add i32 %111, 1
-  %113 = load i32, ptr %109, align 8
-  %114 = and i32 %112, 1023
-  %115 = shl i32 %114, 22
-  %116 = and i32 %113, 4194303
-  %117 = or i32 %116, %115
-  store i32 %117, ptr %109, align 8
-  %118 = load ptr, ptr %4, align 8
-  %119 = load ptr, ptr %6, align 8
-  call void @Min_CubeRecycle(ptr noundef %118, ptr noundef %119)
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct.Min_Man_t_, ptr %120, i32 0, i32 9
-  %122 = load i32, ptr %121, align 8
-  %123 = add nsw i32 %122, -1
-  store i32 %123, ptr %121, align 8
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %6, align 8, !tbaa !18
+  %101 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %100, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8, !tbaa !20
+  %103 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %102, ptr %103, align 8, !tbaa !18
+  %104 = load ptr, ptr %5, align 8, !tbaa !18
+  %105 = load ptr, ptr %6, align 8, !tbaa !18
+  %106 = load ptr, ptr %4, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %106, i32 0, i32 7
+  %108 = load ptr, ptr %107, align 8, !tbaa !30
+  call void @Min_CubesTransform(ptr noundef %104, ptr noundef %105, ptr noundef %108)
+  %109 = load ptr, ptr %5, align 8, !tbaa !18
+  %110 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 8
+  %112 = lshr i32 %111, 22
+  %113 = add i32 %112, 1
+  %114 = load i32, ptr %110, align 8
+  %115 = and i32 %113, 1023
+  %116 = shl i32 %115, 22
+  %117 = and i32 %114, 4194303
+  %118 = or i32 %117, %116
+  store i32 %118, ptr %110, align 8
+  %119 = load ptr, ptr %4, align 8, !tbaa !3
+  %120 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeRecycle(ptr noundef %119, ptr noundef %120)
+  %121 = load ptr, ptr %4, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %121, i32 0, i32 9
+  %123 = load i32, ptr %122, align 8, !tbaa !8
+  %124 = add nsw i32 %123, -1
+  store i32 %124, ptr %122, align 8, !tbaa !8
   store i32 1, ptr %3, align 4
-  br label %286
+  store i32 1, ptr %8, align 4
+  br label %287
 
-124:                                              ; preds = %90
-  br label %125
+125:                                              ; preds = %91
+  br label %126
 
-125:                                              ; preds = %124
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds %struct.Min_Cube_t_, ptr %126, i32 0, i32 0
-  store ptr %127, ptr %7, align 8
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct.Min_Cube_t_, ptr %128, i32 0, i32 0
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %6, align 8
-  br label %87, !llvm.loop !12
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %6, align 8, !tbaa !18
+  %128 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %127, i32 0, i32 0
+  store ptr %128, ptr %7, align 8, !tbaa !22
+  %129 = load ptr, ptr %6, align 8, !tbaa !18
+  %130 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %129, i32 0, i32 0
+  %131 = load ptr, ptr %130, align 8, !tbaa !20
+  store ptr %131, ptr %6, align 8, !tbaa !18
+  br label %88, !llvm.loop !31
 
-131:                                              ; preds = %87
-  br label %132
+132:                                              ; preds = %88
+  br label %133
 
-132:                                              ; preds = %131, %55
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.Min_Man_t_, ptr %133, i32 0, i32 10
-  %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds %struct.Min_Cube_t_, ptr %136, i32 0, i32 1
-  %138 = load i32, ptr %137, align 8
-  %139 = lshr i32 %138, 22
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %135, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %6, align 8
-  %143 = load ptr, ptr %4, align 8
-  %144 = getelementptr inbounds %struct.Min_Man_t_, ptr %143, i32 0, i32 10
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds %struct.Min_Cube_t_, ptr %146, i32 0, i32 1
-  %148 = load i32, ptr %147, align 8
-  %149 = lshr i32 %148, 22
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds ptr, ptr %145, i64 %150
-  store ptr %151, ptr %7, align 8
-  br label %152
+133:                                              ; preds = %132, %56
+  %134 = load ptr, ptr %4, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %134, i32 0, i32 10
+  %136 = load ptr, ptr %135, align 8, !tbaa !17
+  %137 = load ptr, ptr %5, align 8, !tbaa !18
+  %138 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %137, i32 0, i32 1
+  %139 = load i32, ptr %138, align 8
+  %140 = lshr i32 %139, 22
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw ptr, ptr %136, i64 %141
+  %143 = load ptr, ptr %142, align 8, !tbaa !18
+  store ptr %143, ptr %6, align 8, !tbaa !18
+  %144 = load ptr, ptr %4, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %144, i32 0, i32 10
+  %146 = load ptr, ptr %145, align 8, !tbaa !17
+  %147 = load ptr, ptr %5, align 8, !tbaa !18
+  %148 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %147, i32 0, i32 1
+  %149 = load i32, ptr %148, align 8
+  %150 = lshr i32 %149, 22
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds nuw ptr, ptr %146, i64 %151
+  store ptr %152, ptr %7, align 8, !tbaa !22
+  br label %153
 
-152:                                              ; preds = %190, %132
-  %153 = load ptr, ptr %6, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %196
+153:                                              ; preds = %191, %133
+  %154 = load ptr, ptr %6, align 8, !tbaa !18
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %156, label %197
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %5, align 8
-  %157 = load ptr, ptr %6, align 8
-  %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds %struct.Min_Man_t_, ptr %158, i32 0, i32 7
-  %160 = load ptr, ptr %159, align 8
-  %161 = call i32 @Min_CubesDistOne(ptr noundef %156, ptr noundef %157, ptr noundef %160)
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %189
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %5, align 8, !tbaa !18
+  %158 = load ptr, ptr %6, align 8, !tbaa !18
+  %159 = load ptr, ptr %4, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %159, i32 0, i32 7
+  %161 = load ptr, ptr %160, align 8, !tbaa !30
+  %162 = call i32 @Min_CubesDistOne(ptr noundef %157, ptr noundef %158, ptr noundef %161)
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %190
 
-163:                                              ; preds = %155
-  %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds %struct.Min_Cube_t_, ptr %164, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %7, align 8
-  store ptr %166, ptr %167, align 8
-  %168 = load ptr, ptr %5, align 8
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds %struct.Min_Man_t_, ptr %170, i32 0, i32 7
-  %172 = load ptr, ptr %171, align 8
-  call void @Min_CubesTransform(ptr noundef %168, ptr noundef %169, ptr noundef %172)
-  %173 = load ptr, ptr %5, align 8
-  %174 = getelementptr inbounds %struct.Min_Cube_t_, ptr %173, i32 0, i32 1
-  %175 = load i32, ptr %174, align 8
-  %176 = lshr i32 %175, 22
-  %177 = add i32 %176, -1
-  %178 = load i32, ptr %174, align 8
-  %179 = and i32 %177, 1023
-  %180 = shl i32 %179, 22
-  %181 = and i32 %178, 4194303
-  %182 = or i32 %181, %180
-  store i32 %182, ptr %174, align 8
-  %183 = load ptr, ptr %4, align 8
-  %184 = load ptr, ptr %6, align 8
-  call void @Min_CubeRecycle(ptr noundef %183, ptr noundef %184)
-  %185 = load ptr, ptr %4, align 8
-  %186 = getelementptr inbounds %struct.Min_Man_t_, ptr %185, i32 0, i32 9
-  %187 = load i32, ptr %186, align 8
-  %188 = add nsw i32 %187, -1
-  store i32 %188, ptr %186, align 8
+164:                                              ; preds = %156
+  %165 = load ptr, ptr %6, align 8, !tbaa !18
+  %166 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %165, i32 0, i32 0
+  %167 = load ptr, ptr %166, align 8, !tbaa !20
+  %168 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %167, ptr %168, align 8, !tbaa !18
+  %169 = load ptr, ptr %5, align 8, !tbaa !18
+  %170 = load ptr, ptr %6, align 8, !tbaa !18
+  %171 = load ptr, ptr %4, align 8, !tbaa !3
+  %172 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %171, i32 0, i32 7
+  %173 = load ptr, ptr %172, align 8, !tbaa !30
+  call void @Min_CubesTransform(ptr noundef %169, ptr noundef %170, ptr noundef %173)
+  %174 = load ptr, ptr %5, align 8, !tbaa !18
+  %175 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %174, i32 0, i32 1
+  %176 = load i32, ptr %175, align 8
+  %177 = lshr i32 %176, 22
+  %178 = add i32 %177, -1
+  %179 = load i32, ptr %175, align 8
+  %180 = and i32 %178, 1023
+  %181 = shl i32 %180, 22
+  %182 = and i32 %179, 4194303
+  %183 = or i32 %182, %181
+  store i32 %183, ptr %175, align 8
+  %184 = load ptr, ptr %4, align 8, !tbaa !3
+  %185 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeRecycle(ptr noundef %184, ptr noundef %185)
+  %186 = load ptr, ptr %4, align 8, !tbaa !3
+  %187 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %186, i32 0, i32 9
+  %188 = load i32, ptr %187, align 8, !tbaa !8
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %187, align 8, !tbaa !8
   store i32 1, ptr %3, align 4
-  br label %286
+  store i32 1, ptr %8, align 4
+  br label %287
 
-189:                                              ; preds = %155
-  br label %190
+190:                                              ; preds = %156
+  br label %191
 
-190:                                              ; preds = %189
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.Min_Cube_t_, ptr %191, i32 0, i32 0
-  store ptr %192, ptr %7, align 8
-  %193 = load ptr, ptr %6, align 8
-  %194 = getelementptr inbounds %struct.Min_Cube_t_, ptr %193, i32 0, i32 0
-  %195 = load ptr, ptr %194, align 8
-  store ptr %195, ptr %6, align 8
-  br label %152, !llvm.loop !13
+191:                                              ; preds = %190
+  %192 = load ptr, ptr %6, align 8, !tbaa !18
+  %193 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %192, i32 0, i32 0
+  store ptr %193, ptr %7, align 8, !tbaa !22
+  %194 = load ptr, ptr %6, align 8, !tbaa !18
+  %195 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8, !tbaa !20
+  store ptr %196, ptr %6, align 8, !tbaa !18
+  br label %153, !llvm.loop !32
 
-196:                                              ; preds = %152
-  %197 = load ptr, ptr %5, align 8
-  %198 = getelementptr inbounds %struct.Min_Cube_t_, ptr %197, i32 0, i32 1
-  %199 = load i32, ptr %198, align 8
-  %200 = lshr i32 %199, 22
-  %201 = icmp sgt i32 %200, 0
-  br i1 %201, label %202, label %259
+197:                                              ; preds = %153
+  %198 = load ptr, ptr %5, align 8, !tbaa !18
+  %199 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %198, i32 0, i32 1
+  %200 = load i32, ptr %199, align 8
+  %201 = lshr i32 %200, 22
+  %202 = icmp sgt i32 %201, 0
+  br i1 %202, label %203, label %260
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %4, align 8
-  %204 = getelementptr inbounds %struct.Min_Man_t_, ptr %203, i32 0, i32 10
-  %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr %5, align 8
-  %207 = getelementptr inbounds %struct.Min_Cube_t_, ptr %206, i32 0, i32 1
-  %208 = load i32, ptr %207, align 8
-  %209 = lshr i32 %208, 22
-  %210 = sub nsw i32 %209, 1
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds ptr, ptr %205, i64 %211
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %6, align 8
-  %214 = load ptr, ptr %4, align 8
-  %215 = getelementptr inbounds %struct.Min_Man_t_, ptr %214, i32 0, i32 10
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %5, align 8
-  %218 = getelementptr inbounds %struct.Min_Cube_t_, ptr %217, i32 0, i32 1
-  %219 = load i32, ptr %218, align 8
-  %220 = lshr i32 %219, 22
-  %221 = sub nsw i32 %220, 1
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr %216, i64 %222
-  store ptr %223, ptr %7, align 8
-  br label %224
+203:                                              ; preds = %197
+  %204 = load ptr, ptr %4, align 8, !tbaa !3
+  %205 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %204, i32 0, i32 10
+  %206 = load ptr, ptr %205, align 8, !tbaa !17
+  %207 = load ptr, ptr %5, align 8, !tbaa !18
+  %208 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %207, i32 0, i32 1
+  %209 = load i32, ptr %208, align 8
+  %210 = lshr i32 %209, 22
+  %211 = sub nsw i32 %210, 1
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds ptr, ptr %206, i64 %212
+  %214 = load ptr, ptr %213, align 8, !tbaa !18
+  store ptr %214, ptr %6, align 8, !tbaa !18
+  %215 = load ptr, ptr %4, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %215, i32 0, i32 10
+  %217 = load ptr, ptr %216, align 8, !tbaa !17
+  %218 = load ptr, ptr %5, align 8, !tbaa !18
+  %219 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %218, i32 0, i32 1
+  %220 = load i32, ptr %219, align 8
+  %221 = lshr i32 %220, 22
+  %222 = sub nsw i32 %221, 1
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds ptr, ptr %217, i64 %223
+  store ptr %224, ptr %7, align 8, !tbaa !22
+  br label %225
 
-224:                                              ; preds = %252, %202
-  %225 = load ptr, ptr %6, align 8
-  %226 = icmp ne ptr %225, null
-  br i1 %226, label %227, label %258
+225:                                              ; preds = %253, %203
+  %226 = load ptr, ptr %6, align 8, !tbaa !18
+  %227 = icmp ne ptr %226, null
+  br i1 %227, label %228, label %259
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %5, align 8
-  %229 = load ptr, ptr %6, align 8
-  %230 = load ptr, ptr %4, align 8
-  %231 = getelementptr inbounds %struct.Min_Man_t_, ptr %230, i32 0, i32 7
-  %232 = load ptr, ptr %231, align 8
-  %233 = call i32 @Min_CubesDistOne(ptr noundef %228, ptr noundef %229, ptr noundef %232)
-  %234 = icmp ne i32 %233, 0
-  br i1 %234, label %235, label %251
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %5, align 8, !tbaa !18
+  %230 = load ptr, ptr %6, align 8, !tbaa !18
+  %231 = load ptr, ptr %4, align 8, !tbaa !3
+  %232 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %231, i32 0, i32 7
+  %233 = load ptr, ptr %232, align 8, !tbaa !30
+  %234 = call i32 @Min_CubesDistOne(ptr noundef %229, ptr noundef %230, ptr noundef %233)
+  %235 = icmp ne i32 %234, 0
+  br i1 %235, label %236, label %252
 
-235:                                              ; preds = %227
-  %236 = load ptr, ptr %6, align 8
-  %237 = getelementptr inbounds %struct.Min_Cube_t_, ptr %236, i32 0, i32 0
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %7, align 8
-  store ptr %238, ptr %239, align 8
-  %240 = load ptr, ptr %5, align 8
-  %241 = load ptr, ptr %6, align 8
-  %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds %struct.Min_Man_t_, ptr %242, i32 0, i32 7
-  %244 = load ptr, ptr %243, align 8
-  call void @Min_CubesTransform(ptr noundef %240, ptr noundef %241, ptr noundef %244)
-  %245 = load ptr, ptr %4, align 8
-  %246 = load ptr, ptr %6, align 8
-  call void @Min_CubeRecycle(ptr noundef %245, ptr noundef %246)
-  %247 = load ptr, ptr %4, align 8
-  %248 = getelementptr inbounds %struct.Min_Man_t_, ptr %247, i32 0, i32 9
-  %249 = load i32, ptr %248, align 8
-  %250 = add nsw i32 %249, -1
-  store i32 %250, ptr %248, align 8
+236:                                              ; preds = %228
+  %237 = load ptr, ptr %6, align 8, !tbaa !18
+  %238 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %237, i32 0, i32 0
+  %239 = load ptr, ptr %238, align 8, !tbaa !20
+  %240 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %239, ptr %240, align 8, !tbaa !18
+  %241 = load ptr, ptr %5, align 8, !tbaa !18
+  %242 = load ptr, ptr %6, align 8, !tbaa !18
+  %243 = load ptr, ptr %4, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %243, i32 0, i32 7
+  %245 = load ptr, ptr %244, align 8, !tbaa !30
+  call void @Min_CubesTransform(ptr noundef %241, ptr noundef %242, ptr noundef %245)
+  %246 = load ptr, ptr %4, align 8, !tbaa !3
+  %247 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeRecycle(ptr noundef %246, ptr noundef %247)
+  %248 = load ptr, ptr %4, align 8, !tbaa !3
+  %249 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %248, i32 0, i32 9
+  %250 = load i32, ptr %249, align 8, !tbaa !8
+  %251 = add nsw i32 %250, -1
+  store i32 %251, ptr %249, align 8, !tbaa !8
   store i32 1, ptr %3, align 4
-  br label %286
+  store i32 1, ptr %8, align 4
+  br label %287
 
-251:                                              ; preds = %227
-  br label %252
+252:                                              ; preds = %228
+  br label %253
 
-252:                                              ; preds = %251
-  %253 = load ptr, ptr %6, align 8
-  %254 = getelementptr inbounds %struct.Min_Cube_t_, ptr %253, i32 0, i32 0
-  store ptr %254, ptr %7, align 8
-  %255 = load ptr, ptr %6, align 8
-  %256 = getelementptr inbounds %struct.Min_Cube_t_, ptr %255, i32 0, i32 0
-  %257 = load ptr, ptr %256, align 8
-  store ptr %257, ptr %6, align 8
-  br label %224, !llvm.loop !14
+253:                                              ; preds = %252
+  %254 = load ptr, ptr %6, align 8, !tbaa !18
+  %255 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %254, i32 0, i32 0
+  store ptr %255, ptr %7, align 8, !tbaa !22
+  %256 = load ptr, ptr %6, align 8, !tbaa !18
+  %257 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %256, i32 0, i32 0
+  %258 = load ptr, ptr %257, align 8, !tbaa !20
+  store ptr %258, ptr %6, align 8, !tbaa !18
+  br label %225, !llvm.loop !33
 
-258:                                              ; preds = %224
-  br label %259
+259:                                              ; preds = %225
+  br label %260
 
-259:                                              ; preds = %258, %196
-  %260 = load ptr, ptr %4, align 8
-  %261 = getelementptr inbounds %struct.Min_Man_t_, ptr %260, i32 0, i32 10
-  %262 = load ptr, ptr %261, align 8
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds %struct.Min_Cube_t_, ptr %263, i32 0, i32 1
-  %265 = load i32, ptr %264, align 8
-  %266 = lshr i32 %265, 22
-  %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds ptr, ptr %262, i64 %267
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %5, align 8
-  %271 = getelementptr inbounds %struct.Min_Cube_t_, ptr %270, i32 0, i32 0
-  store ptr %269, ptr %271, align 8
-  %272 = load ptr, ptr %5, align 8
-  %273 = load ptr, ptr %4, align 8
-  %274 = getelementptr inbounds %struct.Min_Man_t_, ptr %273, i32 0, i32 10
-  %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %5, align 8
-  %277 = getelementptr inbounds %struct.Min_Cube_t_, ptr %276, i32 0, i32 1
-  %278 = load i32, ptr %277, align 8
-  %279 = lshr i32 %278, 22
-  %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds ptr, ptr %275, i64 %280
-  store ptr %272, ptr %281, align 8
-  %282 = load ptr, ptr %4, align 8
-  %283 = getelementptr inbounds %struct.Min_Man_t_, ptr %282, i32 0, i32 9
-  %284 = load i32, ptr %283, align 8
-  %285 = add nsw i32 %284, 1
-  store i32 %285, ptr %283, align 8
+260:                                              ; preds = %259, %197
+  %261 = load ptr, ptr %4, align 8, !tbaa !3
+  %262 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %261, i32 0, i32 10
+  %263 = load ptr, ptr %262, align 8, !tbaa !17
+  %264 = load ptr, ptr %5, align 8, !tbaa !18
+  %265 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %264, i32 0, i32 1
+  %266 = load i32, ptr %265, align 8
+  %267 = lshr i32 %266, 22
+  %268 = zext i32 %267 to i64
+  %269 = getelementptr inbounds nuw ptr, ptr %263, i64 %268
+  %270 = load ptr, ptr %269, align 8, !tbaa !18
+  %271 = load ptr, ptr %5, align 8, !tbaa !18
+  %272 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %271, i32 0, i32 0
+  store ptr %270, ptr %272, align 8, !tbaa !20
+  %273 = load ptr, ptr %5, align 8, !tbaa !18
+  %274 = load ptr, ptr %4, align 8, !tbaa !3
+  %275 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %274, i32 0, i32 10
+  %276 = load ptr, ptr %275, align 8, !tbaa !17
+  %277 = load ptr, ptr %5, align 8, !tbaa !18
+  %278 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %277, i32 0, i32 1
+  %279 = load i32, ptr %278, align 8
+  %280 = lshr i32 %279, 22
+  %281 = zext i32 %280 to i64
+  %282 = getelementptr inbounds nuw ptr, ptr %276, i64 %281
+  store ptr %273, ptr %282, align 8, !tbaa !18
+  %283 = load ptr, ptr %4, align 8, !tbaa !3
+  %284 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %283, i32 0, i32 9
+  %285 = load i32, ptr %284, align 8, !tbaa !8
+  %286 = add nsw i32 %285, 1
+  store i32 %286, ptr %284, align 8, !tbaa !8
   store i32 0, ptr %3, align 4
-  br label %286
+  store i32 1, ptr %8, align 4
+  br label %287
 
-286:                                              ; preds = %259, %235, %163, %98, %35
-  %287 = load i32, ptr %3, align 4
-  ret i32 %287
+287:                                              ; preds = %260, %236, %164, %99, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %288 = load i32, ptr %3, align 4
+  ret i32 %288
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Min_CubesAreEqual(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Min_CubesAreEqual(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  br label %7
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !14
+  br label %8
 
-7:                                                ; preds = %31, %2
-  %8 = load i32, ptr %6, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.Min_Cube_t_, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
-  %12 = lshr i32 %11, 10
-  %13 = and i32 %12, 4095
-  %14 = icmp slt i32 %8, %13
-  br i1 %14, label %15, label %34
+8:                                                ; preds = %32, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !14
+  %10 = load ptr, ptr %4, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = lshr i32 %12, 10
+  %14 = and i32 %13, 4095
+  %15 = icmp slt i32 %9, %14
+  br i1 %15, label %16, label %35
 
-15:                                               ; preds = %7
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Min_Cube_t_, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [1 x i32], ptr %17, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.Min_Cube_t_, ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %6, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [1 x i32], ptr %23, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp ne i32 %21, %27
-  br i1 %28, label %29, label %30
+16:                                               ; preds = %8
+  %17 = load ptr, ptr %4, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %6, align 4, !tbaa !14
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [1 x i32], ptr %18, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4, !tbaa !14
+  %23 = load ptr, ptr %5, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %6, align 4, !tbaa !14
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [1 x i32], ptr %24, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !14
+  %29 = icmp ne i32 %22, %28
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %15
+30:                                               ; preds = %16
   store i32 0, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-30:                                               ; preds = %15
-  br label %31
+31:                                               ; preds = %16
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %6, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %6, align 4
-  br label %7, !llvm.loop !15
+32:                                               ; preds = %31
+  %33 = load i32, ptr %6, align 4, !tbaa !14
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %6, align 4, !tbaa !14
+  br label %8, !llvm.loop !34
 
-34:                                               ; preds = %7
+35:                                               ; preds = %8
   store i32 1, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-35:                                               ; preds = %34, %29
-  %36 = load i32, ptr %3, align 4
-  ret i32 %36
+36:                                               ; preds = %35, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Min_CubeRecycle(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Min_CubeRecycle(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Min_Man_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.Min_Man_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %8 = load ptr, ptr %4, align 8, !tbaa !18
   call void @Extra_MmFixedEntryRecycle(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1247,155 +1319,166 @@ define internal i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %9, align 4
-  br label %11
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  store i32 0, ptr %10, align 4, !tbaa !14
+  store i32 0, ptr %9, align 4, !tbaa !14
+  br label %12
 
-11:                                               ; preds = %75, %3
-  %12 = load i32, ptr %9, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.Min_Cube_t_, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 8
-  %16 = lshr i32 %15, 10
-  %17 = and i32 %16, 4095
-  %18 = icmp slt i32 %12, %17
-  br i1 %18, label %19, label %78
+12:                                               ; preds = %76, %3
+  %13 = load i32, ptr %9, align 4, !tbaa !14
+  %14 = load ptr, ptr %5, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  %17 = lshr i32 %16, 10
+  %18 = and i32 %17, 4095
+  %19 = icmp slt i32 %13, %18
+  br i1 %19, label %20, label %79
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.Min_Cube_t_, ptr %20, i32 0, i32 2
-  %22 = load i32, ptr %9, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [1 x i32], ptr %21, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.Min_Cube_t_, ptr %26, i32 0, i32 2
-  %28 = load i32, ptr %9, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [1 x i32], ptr %27, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = xor i32 %25, %31
-  store i32 %32, ptr %8, align 4
-  %33 = load i32, ptr %8, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %45
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %9, align 4, !tbaa !14
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [1 x i32], ptr %22, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !14
+  %27 = load ptr, ptr %6, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %9, align 4, !tbaa !14
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [1 x i32], ptr %28, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = xor i32 %26, %32
+  store i32 %33, ptr %8, align 4, !tbaa !14
+  %34 = load i32, ptr %8, align 4, !tbaa !14
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %46
 
-35:                                               ; preds = %19
-  %36 = load ptr, ptr %7, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %44
+36:                                               ; preds = %20
+  %37 = load ptr, ptr %7, align 8, !tbaa !18
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.Min_Cube_t_, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %9, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [1 x i32], ptr %40, i64 0, i64 %42
-  store i32 0, ptr %43, align 4
-  br label %44
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %7, align 8, !tbaa !18
+  %41 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %40, i32 0, i32 2
+  %42 = load i32, ptr %9, align 4, !tbaa !14
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [1 x i32], ptr %41, i64 0, i64 %43
+  store i32 0, ptr %44, align 4, !tbaa !14
+  br label %45
 
-44:                                               ; preds = %38, %35
+45:                                               ; preds = %39, %36
+  br label %76
+
+46:                                               ; preds = %20
+  %47 = load i32, ptr %10, align 4, !tbaa !14
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %46
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
+
+50:                                               ; preds = %46
+  %51 = load i32, ptr %8, align 4, !tbaa !14
+  %52 = load i32, ptr %8, align 4, !tbaa !14
+  %53 = lshr i32 %52, 1
+  %54 = or i32 %51, %53
+  %55 = and i32 %54, 1431655765
+  store i32 %55, ptr %8, align 4, !tbaa !14
+  %56 = load i32, ptr %8, align 4, !tbaa !14
+  %57 = load i32, ptr %8, align 4, !tbaa !14
+  %58 = sub i32 %57, 1
+  %59 = and i32 %56, %58
+  %60 = icmp ugt i32 %59, 0
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %50
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %90
+
+62:                                               ; preds = %50
+  %63 = load ptr, ptr %7, align 8, !tbaa !18
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %75
+
+65:                                               ; preds = %62
+  %66 = load i32, ptr %8, align 4, !tbaa !14
+  %67 = load i32, ptr %8, align 4, !tbaa !14
+  %68 = shl i32 %67, 1
+  %69 = or i32 %66, %68
+  %70 = load ptr, ptr %7, align 8, !tbaa !18
+  %71 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %9, align 4, !tbaa !14
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [1 x i32], ptr %71, i64 0, i64 %73
+  store i32 %69, ptr %74, align 4, !tbaa !14
   br label %75
 
-45:                                               ; preds = %19
-  %46 = load i32, ptr %10, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %49
+75:                                               ; preds = %65, %62
+  store i32 1, ptr %10, align 4, !tbaa !14
+  br label %76
 
-48:                                               ; preds = %45
-  store i32 0, ptr %4, align 4
+76:                                               ; preds = %75, %45
+  %77 = load i32, ptr %9, align 4, !tbaa !14
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %9, align 4, !tbaa !14
+  br label %12, !llvm.loop !36
+
+79:                                               ; preds = %12
+  %80 = load i32, ptr %10, align 4, !tbaa !14
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %89
+
+82:                                               ; preds = %79
+  %83 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  %84 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %85 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @Min_CubeWrite(ptr noundef %84, ptr noundef %85)
+  %86 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %87 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeWrite(ptr noundef %86, ptr noundef %87)
+  %88 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
   br label %89
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %8, align 4
-  %51 = load i32, ptr %8, align 4
-  %52 = lshr i32 %51, 1
-  %53 = or i32 %50, %52
-  %54 = and i32 %53, 1431655765
-  store i32 %54, ptr %8, align 4
-  %55 = load i32, ptr %8, align 4
-  %56 = load i32, ptr %8, align 4
-  %57 = sub i32 %56, 1
-  %58 = and i32 %55, %57
-  %59 = icmp ugt i32 %58, 0
-  br i1 %59, label %60, label %61
-
-60:                                               ; preds = %49
-  store i32 0, ptr %4, align 4
-  br label %89
-
-61:                                               ; preds = %49
-  %62 = load ptr, ptr %7, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %74
-
-64:                                               ; preds = %61
-  %65 = load i32, ptr %8, align 4
-  %66 = load i32, ptr %8, align 4
-  %67 = shl i32 %66, 1
-  %68 = or i32 %65, %67
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.Min_Cube_t_, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %9, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [1 x i32], ptr %70, i64 0, i64 %72
-  store i32 %68, ptr %73, align 4
-  br label %74
-
-74:                                               ; preds = %64, %61
-  store i32 1, ptr %10, align 4
-  br label %75
-
-75:                                               ; preds = %74, %44
-  %76 = load i32, ptr %9, align 4
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %9, align 4
-  br label %11, !llvm.loop !16
-
-78:                                               ; preds = %11
-  %79 = load i32, ptr %10, align 4
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %88
-
-81:                                               ; preds = %78
-  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  %83 = load ptr, ptr @stdout, align 8
-  %84 = load ptr, ptr %5, align 8
-  call void @Min_CubeWrite(ptr noundef %83, ptr noundef %84)
-  %85 = load ptr, ptr @stdout, align 8
-  %86 = load ptr, ptr %6, align 8
-  call void @Min_CubeWrite(ptr noundef %85, ptr noundef %86)
-  %87 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
-  br label %88
-
-88:                                               ; preds = %81, %78
+89:                                               ; preds = %82, %79
   store i32 1, ptr %4, align 4
-  br label %89
+  store i32 1, ptr %11, align 4
+  br label %90
 
-89:                                               ; preds = %88, %60, %48
-  %90 = load i32, ptr %4, align 4
-  ret i32 %90
+90:                                               ; preds = %89, %61, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %91 = load i32, ptr %4, align 4
+  ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Min_CubesTransform(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Min_CubesTransform(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i32 0, ptr %7, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !14
   br label %8
 
 8:                                                ; preds = %56, %3
-  %9 = load i32, ptr %7, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.Min_Cube_t_, ptr %10, i32 0, i32 1
+  %9 = load i32, ptr %7, align 4, !tbaa !14
+  %10 = load ptr, ptr %4, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 10
   %14 = and i32 %13, 4095
@@ -1403,56 +1486,57 @@ define internal void @Min_CubesTransform(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %15, label %16, label %59
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.Min_Cube_t_, ptr %17, i32 0, i32 2
-  %19 = load i32, ptr %7, align 4
+  %17 = load ptr, ptr %4, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %7, align 4, !tbaa !14
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [1 x i32], ptr %18, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.Min_Cube_t_, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !14
+  %23 = load ptr, ptr %5, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %7, align 4, !tbaa !14
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [1 x i32], ptr %24, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !14
   %29 = xor i32 %22, %28
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Min_Cube_t_, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %4, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %30, i32 0, i32 2
+  %32 = load i32, ptr %7, align 4, !tbaa !14
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [1 x i32], ptr %31, i64 0, i64 %33
-  store i32 %29, ptr %34, align 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.Min_Cube_t_, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %7, align 4
+  store i32 %29, ptr %34, align 4, !tbaa !14
+  %35 = load ptr, ptr %5, align 8, !tbaa !18
+  %36 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %7, align 4, !tbaa !14
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [1 x i32], ptr %36, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.Min_Cube_t_, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %7, align 4
+  %40 = load i32, ptr %39, align 4, !tbaa !14
+  %41 = load ptr, ptr %6, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %7, align 4, !tbaa !14
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [1 x i32], ptr %42, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !14
   %47 = xor i32 %46, -1
   %48 = and i32 %40, %47
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.Min_Cube_t_, ptr %49, i32 0, i32 2
-  %51 = load i32, ptr %7, align 4
+  %49 = load ptr, ptr %4, align 8, !tbaa !18
+  %50 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %7, align 4, !tbaa !14
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [1 x i32], ptr %50, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 4, !tbaa !14
   %55 = or i32 %54, %48
-  store i32 %55, ptr %53, align 4
+  store i32 %55, ptr %53, align 4, !tbaa !14
   br label %56
 
 56:                                               ; preds = %16
-  %57 = load i32, ptr %7, align 4
+  %57 = load i32, ptr %7, align 4, !tbaa !14
   %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %7, align 4
-  br label %8, !llvm.loop !17
+  store i32 %58, ptr %7, align 4, !tbaa !14
+  br label %8, !llvm.loop !39
 
 59:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret void
 }
 
@@ -1460,26 +1544,26 @@ define internal void @Min_CubesTransform(ptr noundef %0, ptr noundef %1, ptr nou
 define void @Min_EsopAddCube(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
   br label %5
 
 5:                                                ; preds = %10, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
   %8 = call i32 @Min_EsopAddCubeInt(ptr noundef %6, ptr noundef %7)
   %9 = icmp ne i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  br label %5, !llvm.loop !18
+  br label %5, !llvm.loop !40
 
 11:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Min_CubesDistTwo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Min_CubesDistTwo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1490,227 +1574,243 @@ define internal i32 @Min_CubesDistTwo(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 -1, ptr %13, align 4
-  store i32 -1, ptr %14, align 4
-  store i32 0, ptr %11, align 4
-  br label %15
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store ptr %2, ptr %8, align 8, !tbaa !41
+  store ptr %3, ptr %9, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  store i32 -1, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  store i32 -1, ptr %14, align 4, !tbaa !14
+  store i32 0, ptr %11, align 4, !tbaa !14
+  br label %16
 
-15:                                               ; preds = %101, %4
-  %16 = load i32, ptr %11, align 4
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.Min_Cube_t_, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 8
-  %20 = lshr i32 %19, 10
-  %21 = and i32 %20, 4095
-  %22 = icmp slt i32 %16, %21
-  br i1 %22, label %23, label %104
+16:                                               ; preds = %102, %4
+  %17 = load i32, ptr %11, align 4, !tbaa !14
+  %18 = load ptr, ptr %6, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = lshr i32 %20, 10
+  %22 = and i32 %21, 4095
+  %23 = icmp slt i32 %17, %22
+  br i1 %23, label %24, label %105
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.Min_Cube_t_, ptr %24, i32 0, i32 2
-  %26 = load i32, ptr %11, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [1 x i32], ptr %25, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.Min_Cube_t_, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %11, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [1 x i32], ptr %31, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = xor i32 %29, %35
-  store i32 %36, ptr %10, align 4
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %40
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %6, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %11, align 4, !tbaa !14
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [1 x i32], ptr %26, i64 0, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !14
+  %31 = load ptr, ptr %7, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %11, align 4, !tbaa !14
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [1 x i32], ptr %32, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !14
+  %37 = xor i32 %30, %36
+  store i32 %37, ptr %10, align 4, !tbaa !14
+  %38 = load i32, ptr %10, align 4, !tbaa !14
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %23
-  br label %101
+40:                                               ; preds = %24
+  br label %102
 
-40:                                               ; preds = %23
-  %41 = load i32, ptr %13, align 4
-  %42 = icmp sge i32 %41, 0
-  br i1 %42, label %43, label %47
+41:                                               ; preds = %24
+  %42 = load i32, ptr %13, align 4, !tbaa !14
+  %43 = icmp sge i32 %42, 0
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %14, align 4
-  %45 = icmp sge i32 %44, 0
-  br i1 %45, label %46, label %47
+44:                                               ; preds = %41
+  %45 = load i32, ptr %14, align 4, !tbaa !14
+  %46 = icmp sge i32 %45, 0
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   store i32 0, ptr %5, align 4
-  br label %129
+  store i32 1, ptr %15, align 4
+  br label %130
 
-47:                                               ; preds = %43, %40
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %10, align 4
-  %50 = lshr i32 %49, 1
-  %51 = or i32 %48, %50
-  %52 = and i32 %51, 1431655765
-  store i32 %52, ptr %10, align 4
-  %53 = load i32, ptr %13, align 4
-  %54 = icmp sge i32 %53, 0
-  br i1 %54, label %58, label %55
+48:                                               ; preds = %44, %41
+  %49 = load i32, ptr %10, align 4, !tbaa !14
+  %50 = load i32, ptr %10, align 4, !tbaa !14
+  %51 = lshr i32 %50, 1
+  %52 = or i32 %49, %51
+  %53 = and i32 %52, 1431655765
+  store i32 %53, ptr %10, align 4, !tbaa !14
+  %54 = load i32, ptr %13, align 4, !tbaa !14
+  %55 = icmp sge i32 %54, 0
+  br i1 %55, label %59, label %56
 
-55:                                               ; preds = %47
-  %56 = load i32, ptr %14, align 4
-  %57 = icmp sge i32 %56, 0
-  br i1 %57, label %58, label %65
+56:                                               ; preds = %48
+  %57 = load i32, ptr %14, align 4, !tbaa !14
+  %58 = icmp sge i32 %57, 0
+  br i1 %58, label %59, label %66
 
-58:                                               ; preds = %55, %47
-  %59 = load i32, ptr %10, align 4
-  %60 = load i32, ptr %10, align 4
-  %61 = sub i32 %60, 1
-  %62 = and i32 %59, %61
-  %63 = icmp ugt i32 %62, 0
-  br i1 %63, label %64, label %65
+59:                                               ; preds = %56, %48
+  %60 = load i32, ptr %10, align 4, !tbaa !14
+  %61 = load i32, ptr %10, align 4, !tbaa !14
+  %62 = sub i32 %61, 1
+  %63 = and i32 %60, %62
+  %64 = icmp ugt i32 %63, 0
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   store i32 0, ptr %5, align 4
-  br label %129
+  store i32 1, ptr %15, align 4
+  br label %130
 
-65:                                               ; preds = %58, %55
-  store i32 0, ptr %12, align 4
-  br label %66
+66:                                               ; preds = %59, %56
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %67
 
-66:                                               ; preds = %97, %65
-  %67 = load i32, ptr %12, align 4
-  %68 = icmp slt i32 %67, 32
-  br i1 %68, label %69, label %100
+67:                                               ; preds = %98, %66
+  %68 = load i32, ptr %12, align 4, !tbaa !14
+  %69 = icmp slt i32 %68, 32
+  br i1 %69, label %70, label %101
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %10, align 4
-  %71 = load i32, ptr %12, align 4
-  %72 = shl i32 1, %71
-  %73 = and i32 %70, %72
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %96
+70:                                               ; preds = %67
+  %71 = load i32, ptr %10, align 4, !tbaa !14
+  %72 = load i32, ptr %12, align 4, !tbaa !14
+  %73 = shl i32 1, %72
+  %74 = and i32 %71, %73
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %97
 
-75:                                               ; preds = %69
-  %76 = load i32, ptr %13, align 4
-  %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %84
+76:                                               ; preds = %70
+  %77 = load i32, ptr %13, align 4, !tbaa !14
+  %78 = icmp eq i32 %77, -1
+  br i1 %78, label %79, label %85
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %11, align 4
-  %80 = mul nsw i32 16, %79
-  %81 = load i32, ptr %12, align 4
-  %82 = sdiv i32 %81, 2
-  %83 = add nsw i32 %80, %82
-  store i32 %83, ptr %13, align 4
-  br label %95
-
-84:                                               ; preds = %75
-  %85 = load i32, ptr %14, align 4
-  %86 = icmp eq i32 %85, -1
-  br i1 %86, label %87, label %93
-
-87:                                               ; preds = %84
-  %88 = load i32, ptr %11, align 4
-  %89 = mul nsw i32 16, %88
-  %90 = load i32, ptr %12, align 4
-  %91 = sdiv i32 %90, 2
-  %92 = add nsw i32 %89, %91
-  store i32 %92, ptr %14, align 4
-  br label %94
-
-93:                                               ; preds = %84
-  store i32 0, ptr %5, align 4
-  br label %129
-
-94:                                               ; preds = %87
-  br label %95
-
-95:                                               ; preds = %94, %78
+79:                                               ; preds = %76
+  %80 = load i32, ptr %11, align 4, !tbaa !14
+  %81 = mul nsw i32 16, %80
+  %82 = load i32, ptr %12, align 4, !tbaa !14
+  %83 = sdiv i32 %82, 2
+  %84 = add nsw i32 %81, %83
+  store i32 %84, ptr %13, align 4, !tbaa !14
   br label %96
 
-96:                                               ; preds = %95, %69
+85:                                               ; preds = %76
+  %86 = load i32, ptr %14, align 4, !tbaa !14
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %88, label %94
+
+88:                                               ; preds = %85
+  %89 = load i32, ptr %11, align 4, !tbaa !14
+  %90 = mul nsw i32 16, %89
+  %91 = load i32, ptr %12, align 4, !tbaa !14
+  %92 = sdiv i32 %91, 2
+  %93 = add nsw i32 %90, %92
+  store i32 %93, ptr %14, align 4, !tbaa !14
+  br label %95
+
+94:                                               ; preds = %85
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %130
+
+95:                                               ; preds = %88
+  br label %96
+
+96:                                               ; preds = %95, %79
   br label %97
 
-97:                                               ; preds = %96
-  %98 = load i32, ptr %12, align 4
-  %99 = add nsw i32 %98, 2
-  store i32 %99, ptr %12, align 4
-  br label %66, !llvm.loop !19
+97:                                               ; preds = %96, %70
+  br label %98
 
-100:                                              ; preds = %66
-  br label %101
+98:                                               ; preds = %97
+  %99 = load i32, ptr %12, align 4, !tbaa !14
+  %100 = add nsw i32 %99, 2
+  store i32 %100, ptr %12, align 4, !tbaa !14
+  br label %67, !llvm.loop !43
 
-101:                                              ; preds = %100, %39
-  %102 = load i32, ptr %11, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %11, align 4
-  br label %15, !llvm.loop !20
+101:                                              ; preds = %67
+  br label %102
 
-104:                                              ; preds = %15
-  %105 = load i32, ptr %13, align 4
-  %106 = icmp sge i32 %105, 0
-  br i1 %106, label %107, label %115
+102:                                              ; preds = %101, %40
+  %103 = load i32, ptr %11, align 4, !tbaa !14
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %11, align 4, !tbaa !14
+  br label %16, !llvm.loop !44
 
-107:                                              ; preds = %104
-  %108 = load i32, ptr %14, align 4
-  %109 = icmp sge i32 %108, 0
-  br i1 %109, label %110, label %115
+105:                                              ; preds = %16
+  %106 = load i32, ptr %13, align 4, !tbaa !14
+  %107 = icmp sge i32 %106, 0
+  br i1 %107, label %108, label %116
 
-110:                                              ; preds = %107
-  %111 = load i32, ptr %13, align 4
-  %112 = load ptr, ptr %8, align 8
-  store i32 %111, ptr %112, align 4
-  %113 = load i32, ptr %14, align 4
-  %114 = load ptr, ptr %9, align 8
-  store i32 %113, ptr %114, align 4
+108:                                              ; preds = %105
+  %109 = load i32, ptr %14, align 4, !tbaa !14
+  %110 = icmp sge i32 %109, 0
+  br i1 %110, label %111, label %116
+
+111:                                              ; preds = %108
+  %112 = load i32, ptr %13, align 4, !tbaa !14
+  %113 = load ptr, ptr %8, align 8, !tbaa !41
+  store i32 %112, ptr %113, align 4, !tbaa !14
+  %114 = load i32, ptr %14, align 4, !tbaa !14
+  %115 = load ptr, ptr %9, align 8, !tbaa !41
+  store i32 %114, ptr %115, align 4, !tbaa !14
   store i32 1, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %130
+
+116:                                              ; preds = %108, %105
+  %117 = load i32, ptr %13, align 4, !tbaa !14
+  %118 = icmp eq i32 %117, -1
+  br i1 %118, label %122, label %119
+
+119:                                              ; preds = %116
+  %120 = load i32, ptr %14, align 4, !tbaa !14
+  %121 = icmp eq i32 %120, -1
+  br i1 %121, label %122, label %129
+
+122:                                              ; preds = %119, %116
+  %123 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  %124 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %125 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @Min_CubeWrite(ptr noundef %124, ptr noundef %125)
+  %126 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %127 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @Min_CubeWrite(ptr noundef %126, ptr noundef %127)
+  %128 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
   br label %129
 
-115:                                              ; preds = %107, %104
-  %116 = load i32, ptr %13, align 4
-  %117 = icmp eq i32 %116, -1
-  br i1 %117, label %121, label %118
-
-118:                                              ; preds = %115
-  %119 = load i32, ptr %14, align 4
-  %120 = icmp eq i32 %119, -1
-  br i1 %120, label %121, label %128
-
-121:                                              ; preds = %118, %115
-  %122 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  %123 = load ptr, ptr @stdout, align 8
-  %124 = load ptr, ptr %6, align 8
-  call void @Min_CubeWrite(ptr noundef %123, ptr noundef %124)
-  %125 = load ptr, ptr @stdout, align 8
-  %126 = load ptr, ptr %7, align 8
-  call void @Min_CubeWrite(ptr noundef %125, ptr noundef %126)
-  %127 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
-  br label %128
-
-128:                                              ; preds = %121, %118
+129:                                              ; preds = %122, %119
   store i32 0, ptr %5, align 4
-  br label %129
+  store i32 1, ptr %15, align 4
+  br label %130
 
-129:                                              ; preds = %128, %110, %93, %64, %46
-  %130 = load i32, ptr %5, align 4
-  ret i32 %130
+130:                                              ; preds = %129, %111, %94, %65, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %131 = load i32, ptr %5, align 4
+  ret i32 %131
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Min_CubeGetVar(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Min_CubeGetVar(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Min_Cube_t_, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %4, align 4, !tbaa !14
   %8 = mul nsw i32 2, %7
   %9 = ashr i32 %8, 5
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !14
+  %13 = load i32, ptr %4, align 4, !tbaa !14
   %14 = mul nsw i32 2, %13
   %15 = and i32 %14, 31
   %16 = lshr i32 %12, %15
@@ -1718,61 +1818,88 @@ define internal i32 @Min_CubeGetVar(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Min_CubeXorVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Min_CubeXorVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
-  %8 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %8 = load i32, ptr %5, align 4, !tbaa !14
   %9 = mul nsw i32 2, %8
   %10 = and i32 %9, 31
   %11 = shl i32 %7, %10
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.Min_Cube_t_, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %5, align 4
+  %12 = load ptr, ptr %4, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %struct.Min_Cube_t_, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %5, align 4, !tbaa !14
   %15 = mul nsw i32 2, %14
   %16 = ashr i32 %15, 5
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !14
   %20 = xor i32 %19, %11
-  store i32 %20, ptr %18, align 4
+  store i32 %20, ptr %18, align 4, !tbaa !14
   ret void
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
-declare void @Min_CubeWrite(ptr noundef, ptr noundef) #1
+declare void @Min_CubeWrite(ptr noundef, ptr noundef) #3
 
-declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) #1
+declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10Min_Man_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !10, i64 80}
+!9 = !{!"Min_Man_t_", !10, i64 0, !10, i64 4, !11, i64 8, !12, i64 16, !12, i64 24, !6, i64 32, !6, i64 48, !12, i64 64, !12, i64 72, !10, i64 80, !13, i64 88}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"p1 _ZTS16Extra_MmFixed_t_", !5, i64 0}
+!12 = !{!"p1 _ZTS11Min_Cube_t_", !5, i64 0}
+!13 = !{!"p2 _ZTS11Min_Cube_t_", !5, i64 0}
+!14 = !{!10, !10, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!9, !13, i64 88}
+!18 = !{!12, !12, i64 0}
+!19 = !{!9, !12, i64 72}
+!20 = !{!21, !12, i64 0}
+!21 = !{!"Min_Cube_t_", !12, i64 0, !10, i64 8, !10, i64 9, !10, i64 10, !6, i64 12}
+!22 = !{!13, !13, i64 0}
+!23 = distinct !{!23, !16}
+!24 = !{!9, !10, i64 0}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}
+!27 = distinct !{!27, !16}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}
+!30 = !{!9, !12, i64 64}
+!31 = distinct !{!31, !16}
+!32 = distinct !{!32, !16}
+!33 = distinct !{!33, !16}
+!34 = distinct !{!34, !16}
+!35 = !{!9, !11, i64 8}
+!36 = distinct !{!36, !16}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!39 = distinct !{!39, !16}
+!40 = distinct !{!40, !16}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 int", !5, i64 0}
+!43 = distinct !{!43, !16}
+!44 = distinct !{!44, !16}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/fraIndVer.c.ll'
-source_filename = "bench/abc/original/fraIndVer.c.ll"
+; ModuleID = 'bench/abc/original/fraIndVer.ll'
+source_filename = "bench/abc/original/fraIndVer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -21,23 +21,23 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @Fra_InvariantVerify(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %6, align 8
+  %10 = load i64, ptr %6, align 8, !tbaa !3
   %.neg142 = mul i64 %10, -1000000
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !8
   %.neg = sdiv i64 %12, -1000
   %.neg143 = add i64 %.neg, %.neg142
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %4, %9
   %.0.i.neg = phi i64 [ %.neg143, %9 ], [ 1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %14, label %13
 
@@ -47,13 +47,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 14:                                               ; preds = %Abc_Clock.exit
   %15 = getelementptr i8, ptr %0, i64 140
-  %.val = load i32, ptr %15, align 4
-  %16 = call ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %.val) #9
-  %17 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %16, i32 noundef 1, i32 noundef 1) #9
+  %.val = load i32, ptr %15, align 4, !tbaa !9
+  %16 = call ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %.val) #10
+  %17 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %16, i32 noundef 1, i32 noundef 1) #10
   %18 = getelementptr i8, ptr %3, i64 8
-  %.val128 = load ptr, ptr %18, align 8
+  %.val128 = load ptr, ptr %18, align 8, !tbaa !11
   %19 = getelementptr i8, ptr %2, i64 4
-  %.val131149 = load i32, ptr %19, align 4
+  %.val131149 = load i32, ptr %19, align 4, !tbaa !15
   %20 = icmp sgt i32 %.val131149, 0
   br i1 %20, label %.lr.ph154, label %.critedge
 
@@ -65,9 +65,9 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %indvars.iv180 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next181, %._crit_edge148 ]
   %.0110152 = phi i32 [ 0, %.lr.ph154 ], [ %spec.select, %._crit_edge148 ]
   %.0117150 = phi i32 [ 0, %.lr.ph154 ], [ %24, %._crit_edge148 ]
-  %.val137 = load ptr, ptr %21, align 8
+  %.val137 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i32, ptr %.val137, i64 %indvars.iv180
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = icmp slt i32 %.0117150, %24
   %26 = sext i32 %.0117150 to i64
   %wide.trip.count = sext i32 %24 to i64
@@ -76,34 +76,34 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 ._crit_edge.thread:                               ; preds = %22
   %27 = getelementptr inbounds i32, ptr %.val128, i64 %26
   %28 = getelementptr inbounds i32, ptr %.val128, i64 %wide.trip.count
-  %29 = call i32 @sat_solver_solve(ptr noundef %17, ptr noundef %27, ptr noundef %28, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %29 = call i32 @sat_solver_solve(ptr noundef %17, ptr noundef %27, ptr noundef %28, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   br label %._crit_edge148
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %26, %22 ]
   %30 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !9
   %32 = xor i32 %31, 1
-  store i32 %32, ptr %30, align 4
+  store i32 %32, ptr %30, align 4, !tbaa !9
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %33 = getelementptr inbounds i32, ptr %.val128, i64 %26
   %34 = getelementptr inbounds i32, ptr %.val128, i64 %wide.trip.count
-  %35 = call i32 @sat_solver_solve(ptr noundef %17, ptr noundef %33, ptr noundef %34, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %35 = call i32 @sat_solver_solve(ptr noundef %17, ptr noundef %33, ptr noundef %34, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   br label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %._crit_edge, %.lr.ph147
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.lr.ph147 ], [ %26, %._crit_edge ]
   %36 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv175
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = xor i32 %37, 1
-  store i32 %38, ptr %36, align 4
+  store i32 %38, ptr %36, align 4, !tbaa !9
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
-  br i1 %exitcond179.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !6
+  br i1 %exitcond179.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !18
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %._crit_edge.thread
   %39 = phi i32 [ %29, %._crit_edge.thread ], [ %35, %.lr.ph147 ]
@@ -111,17 +111,17 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %41 = zext i1 %40 to i32
   %spec.select = add nuw nsw i32 %.0110152, %41
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %.val131 = load i32, ptr %19, align 4
+  %.val131 = load i32, ptr %19, align 4, !tbaa !15
   %42 = sext i32 %.val131 to i64
   %43 = icmp slt i64 %indvars.iv.next181, %42
-  br i1 %43, label %22, label %.critedge, !llvm.loop !7
+  br i1 %43, label %22, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %._crit_edge148, %14
   %.0110.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %._crit_edge148 ]
-  call void @sat_solver_delete(ptr noundef %17) #9
-  %44 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %16, i32 noundef 2, i32 noundef 0) #9
-  %.val129 = load ptr, ptr %18, align 8
-  %.val132155 = load i32, ptr %19, align 4
+  call void @sat_solver_delete(ptr noundef %17) #10
+  %44 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %16, i32 noundef 2, i32 noundef 0) #10
+  %.val129 = load ptr, ptr %18, align 8, !tbaa !11
+  %.val132155 = load i32, ptr %19, align 4, !tbaa !15
   %45 = icmp sgt i32 %.val132155, 0
   br i1 %45, label %.lr.ph158, label %.critedge2
 
@@ -131,48 +131,48 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 47:                                               ; preds = %50
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %.val132 = load i32, ptr %19, align 4
+  %.val132 = load i32, ptr %19, align 4, !tbaa !15
   %48 = sext i32 %.val132 to i64
   %49 = icmp slt i64 %indvars.iv.next184, %48
-  br i1 %49, label %50, label %.critedge2, !llvm.loop !8
+  br i1 %49, label %50, label %.critedge2, !llvm.loop !20
 
 50:                                               ; preds = %.lr.ph158, %47
   %indvars.iv183 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next184, %47 ]
   %.1118156 = phi i32 [ 0, %.lr.ph158 ], [ %52, %47 ]
-  %.val138 = load ptr, ptr %46, align 8
+  %.val138 = load ptr, ptr %46, align 8, !tbaa !11
   %51 = getelementptr inbounds nuw i32, ptr %.val138, i64 %indvars.iv183
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = sext i32 %.1118156 to i64
   %54 = getelementptr inbounds i32, ptr %.val129, i64 %53
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds i32, ptr %.val129, i64 %55
-  %57 = call i32 @sat_solver_addclause(ptr noundef %44, ptr noundef %54, ptr noundef %56) #9
+  %57 = call i32 @sat_solver_addclause(ptr noundef %44, ptr noundef %54, ptr noundef %56) #10
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %47
 
 59:                                               ; preds = %50
-  call void @Cnf_DataFree(ptr noundef %16) #9
-  call void @sat_solver_delete(ptr noundef %44) #9
+  call void @Cnf_DataFree(ptr noundef %16) #10
+  call void @sat_solver_delete(ptr noundef %44) #10
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %119
 
 .critedge2:                                       ; preds = %47, %.critedge
   %.val133167200 = phi i32 [ %.val132155, %.critedge ], [ %.val132, %47 ]
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 4, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %63 = load i32, ptr %62, align 8
+  %63 = load i32, ptr %62, align 8, !tbaa !34
   %.not123 = icmp eq i32 %61, %63
   br i1 %.not123, label %66, label %64
 
 64:                                               ; preds = %.critedge2
-  %65 = call i32 @sat_solver_simplify(ptr noundef nonnull %44) #9
-  %.val133167.pre = load i32, ptr %19, align 4
+  %65 = call i32 @sat_solver_simplify(ptr noundef nonnull %44) #10
+  %.val133167.pre = load i32, ptr %19, align 4, !tbaa !15
   br label %66
 
 66:                                               ; preds = %64, %.critedge2
   %.val133167 = phi i32 [ %.val133167.pre, %64 ], [ %.val133167200, %.critedge2 ]
-  %.val130 = load ptr, ptr %18, align 8
+  %.val130 = load ptr, ptr %18, align 8, !tbaa !11
   %67 = icmp sgt i32 %.val133167, 0
   br i1 %67, label %.lr.ph172, label %.critedge4
 
@@ -185,9 +185,9 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %indvars.iv196 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next197, %._crit_edge166 ]
   %.0109170 = phi i32 [ 0, %.lr.ph172 ], [ %spec.select127, %._crit_edge166 ]
   %.2119168 = phi i32 [ 0, %.lr.ph172 ], [ %72, %._crit_edge166 ]
-  %.val139 = load ptr, ptr %68, align 8
+  %.val139 = load ptr, ptr %68, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i32, ptr %.val139, i64 %indvars.iv196
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 4, !tbaa !9
   %73 = icmp slt i32 %.2119168, %72
   %74 = sext i32 %.2119168 to i64
   %wide.trip.count189 = sext i32 %72 to i64
@@ -196,41 +196,41 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 ._crit_edge162.thread:                            ; preds = %70
   %75 = getelementptr inbounds i32, ptr %.val130, i64 %74
   %76 = getelementptr inbounds i32, ptr %.val130, i64 %wide.trip.count189
-  %77 = call i32 @sat_solver_solve(ptr noundef %44, ptr noundef %75, ptr noundef %76, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %77 = call i32 @sat_solver_solve(ptr noundef %44, ptr noundef %75, ptr noundef %76, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   br label %._crit_edge166
 
 .lr.ph161:                                        ; preds = %70, %.lr.ph161
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph161 ], [ %74, %70 ]
-  %78 = load i32, ptr %69, align 8
+  %78 = load i32, ptr %69, align 8, !tbaa !35
   %79 = shl nsw i32 %78, 1
   %80 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv186
-  %81 = load i32, ptr %80, align 4
+  %81 = load i32, ptr %80, align 4, !tbaa !9
   %82 = add nsw i32 %81, %79
   %83 = xor i32 %82, 1
-  store i32 %83, ptr %80, align 4
+  store i32 %83, ptr %80, align 4, !tbaa !9
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !9
+  br i1 %exitcond190.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !39
 
 ._crit_edge162:                                   ; preds = %.lr.ph161
   %84 = getelementptr inbounds i32, ptr %.val130, i64 %74
   %85 = getelementptr inbounds i32, ptr %.val130, i64 %wide.trip.count189
-  %86 = call i32 @sat_solver_solve(ptr noundef %44, ptr noundef %84, ptr noundef %85, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %86 = call i32 @sat_solver_solve(ptr noundef %44, ptr noundef %84, ptr noundef %85, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %._crit_edge162, %.lr.ph165
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.lr.ph165 ], [ %74, %._crit_edge162 ]
   %87 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv191
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !9
   %89 = xor i32 %88, 1
-  store i32 %89, ptr %87, align 4
-  %90 = load i32, ptr %69, align 8
+  store i32 %89, ptr %87, align 4, !tbaa !9
+  %90 = load i32, ptr %69, align 8, !tbaa !35
   %91 = shl nsw i32 %90, 1
   %92 = sub nsw i32 %89, %91
-  store i32 %92, ptr %87, align 4
+  store i32 %92, ptr %87, align 4, !tbaa !9
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count189
-  br i1 %exitcond195.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !10
+  br i1 %exitcond195.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !40
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %._crit_edge162.thread
   %93 = phi i32 [ %77, %._crit_edge162.thread ], [ %86, %.lr.ph165 ]
@@ -238,20 +238,20 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %95 = zext i1 %94 to i32
   %spec.select127 = add nuw nsw i32 %.0109170, %95
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %.val133 = load i32, ptr %19, align 4
+  %.val133 = load i32, ptr %19, align 4, !tbaa !15
   %96 = sext i32 %.val133 to i64
   %97 = icmp slt i64 %indvars.iv.next197, %96
-  br i1 %97, label %70, label %.critedge4, !llvm.loop !11
+  br i1 %97, label %70, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %._crit_edge166, %66
   %.0109.lcssa = phi i32 [ 0, %66 ], [ %spec.select127, %._crit_edge166 ]
-  call void @sat_solver_delete(ptr noundef %44) #9
-  call void @Cnf_DataFree(ptr noundef %16) #9
+  call void @sat_solver_delete(ptr noundef %44) #10
+  call void @Cnf_DataFree(ptr noundef %16) #10
   %.not124 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not124, label %100, label %98
 
 98:                                               ; preds = %.critedge4
-  %.val134 = load i32, ptr %19, align 4
+  %.val134 = load i32, ptr %19, align 4, !tbaa !15
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0110.lcssa, i32 noundef %.val134)
   br label %100
 
@@ -260,7 +260,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not125, label %103, label %101
 
 101:                                              ; preds = %100
-  %.val135 = load i32, ptr %19, align 4
+  %.val135 = load i32, ptr %19, align 4, !tbaa !15
   %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0109.lcssa, i32 noundef %.val135)
   br label %103
 
@@ -270,26 +270,26 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %or.cond.not, label %105, label %119
 
 105:                                              ; preds = %103
-  %.val136 = load i32, ptr %19, align 4
+  %.val136 = load i32, ptr %19, align 4, !tbaa !15
   %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.val136)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %107 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  %107 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %Abc_Clock.exit141, label %109
 
 109:                                              ; preds = %105
-  %110 = load i64, ptr %5, align 8
+  %110 = load i64, ptr %5, align 8, !tbaa !3
   %111 = mul nsw i64 %110, 1000000
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %113 = load i64, ptr %112, align 8
+  %113 = load i64, ptr %112, align 8, !tbaa !8
   %114 = sdiv i64 %113, 1000
   %115 = add nsw i64 %114, %111
   br label %Abc_Clock.exit141
 
 Abc_Clock.exit141:                                ; preds = %105, %109
   %.0.i140 = phi i64 [ %115, %109 ], [ -1, %105 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   %116 = add i64 %.0.i140, %.0.i.neg
   %117 = sitofp i64 %116 to double
   %118 = fdiv double %117, 1.000000e+06
@@ -301,114 +301,152 @@ Abc_Clock.exit141:                                ; preds = %105, %109
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @Cnf_DeriveSimple(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Cnf_DeriveSimple(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @Cnf_DataWriteIntoSolver(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Cnf_DataWriteIntoSolver(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #2
+declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #3
 
-declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #2
+declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #3
 
-declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #2
+declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = load i32, ptr @enable_dbg_outs, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !9
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %17, label %5
+  br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #9
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #10
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #9
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #10
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #10
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #9
-  call void @free(ptr noundef %9) #9
-  br label %16
-
-14:                                               ; preds = %5
-  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  br label %16
-
-16:                                               ; preds = %14, %8
-  call void @llvm.va_end.p0(ptr nonnull %3)
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #10
+  call void @free(ptr noundef %9) #10
   br label %17
 
-17:                                               ; preds = %2, %16
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !43
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #10
+  br label %17
+
+17:                                               ; preds = %14, %8
+  call void @llvm.va_end.p0(ptr nonnull %3)
+  br label %18
+
+18:                                               ; preds = %2, %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #6
+
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"timespec", !5, i64 0, !5, i64 8}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 8}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !13, i64 8}
+!12 = !{!"Vec_Int_t_", !10, i64 0, !10, i64 4, !13, i64 8}
+!13 = !{!"p1 int", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!12, !10, i64 4}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !10, i64 12}
+!22 = !{!"sat_solver_t", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !23, i64 16, !10, i64 72, !10, i64 76, !25, i64 80, !26, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !27, i64 144, !27, i64 152, !10, i64 160, !10, i64 164, !28, i64 168, !29, i64 184, !10, i64 192, !13, i64 200, !29, i64 208, !29, i64 216, !29, i64 224, !29, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !28, i64 264, !28, i64 280, !28, i64 296, !28, i64 312, !13, i64 328, !28, i64 336, !10, i64 352, !10, i64 356, !10, i64 360, !30, i64 368, !30, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !31, i64 400, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !5, i64 496, !5, i64 504, !5, i64 512, !28, i64 520, !32, i64 536, !10, i64 544, !10, i64 548, !10, i64 552, !28, i64 560, !28, i64 576, !10, i64 592, !10, i64 596, !10, i64 600, !13, i64 608, !14, i64 616, !10, i64 624, !33, i64 632, !10, i64 640, !10, i64 644, !28, i64 648, !28, i64 664, !28, i64 680, !14, i64 696, !14, i64 704, !10, i64 712, !14, i64 720}
+!23 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !24, i64 48}
+!24 = !{!"p2 int", !14, i64 0}
+!25 = !{!"p1 _ZTS8clause_t", !14, i64 0}
+!26 = !{!"p1 _ZTS6veci_t", !14, i64 0}
+!27 = !{!"p1 long", !14, i64 0}
+!28 = !{!"veci_t", !10, i64 0, !10, i64 4, !13, i64 8}
+!29 = !{!"p1 omnipotent char", !14, i64 0}
+!30 = !{!"double", !6, i64 0}
+!31 = !{!"stats_t", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
+!32 = !{!"p1 double", !14, i64 0}
+!33 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!34 = !{!22, !10, i64 8}
+!35 = !{!36, !10, i64 8}
+!36 = !{!"Cnf_Dat_t_", !37, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !24, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !29, i64 56, !38, i64 64}
+!37 = !{!"p1 _ZTS10Aig_Man_t_", !14, i64 0}
+!38 = !{!"p1 _ZTS10Vec_Int_t_", !14, i64 0}
+!39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}
+!41 = distinct !{!41, !17}
+!42 = !{!33, !33, i64 0}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"vprintf: argument 0"}
+!45 = distinct !{!45, !"vprintf"}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/cuddZddIsop.c.ll'
-source_filename = "bench/abc/original/cuddZddIsop.c.ll"
+; ModuleID = 'bench/abc/original/cuddZddIsop.ll'
+source_filename = "bench/abc/original/cuddZddIsop.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,22 +8,25 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %6 = load i32, ptr %5, align 8
-  store i32 0, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %8
 
 8:                                                ; preds = %8, %4
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %7, align 8, !tbaa !24
   %9 = tail call ptr @cuddZddIsop(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %10 = load i32, ptr %7, align 8
+  %10 = load i32, ptr %7, align 8, !tbaa !24
   %11 = icmp eq i32 %10, 1
-  br i1 %11, label %8, label %12, !llvm.loop !4
+  br i1 %11, label %8, label %12, !llvm.loop !25
 
 12:                                               ; preds = %8
-  store i32 %6, ptr %5, align 8
+  store i32 %6, ptr %5, align 8, !tbaa !3
   ret ptr %9
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
@@ -31,17 +34,20 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = ptrtoint ptr %9 to i64
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   %15 = icmp eq ptr %1, %12
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  store ptr %14, ptr %3, align 8
+  store ptr %14, ptr %3, align 8, !tbaa !29
   br label %192
 
 17:                                               ; preds = %4
@@ -49,7 +55,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  store ptr %9, ptr %3, align 8
+  store ptr %9, ptr %3, align 8, !tbaa !29
   br label %192
 
 20:                                               ; preds = %17
@@ -60,7 +66,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 23:                                               ; preds = %20
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @exit(i32 noundef 1) #4
+  tail call void @exit(i32 noundef 1) #6
   unreachable
 
 24:                                               ; preds = %20
@@ -70,7 +76,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 26:                                               ; preds = %24
   %27 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddIsop, ptr noundef %1, ptr noundef %2) #5
-  store ptr %27, ptr %3, align 8
+  store ptr %27, ptr %3, align 8, !tbaa !29
   %.not343 = icmp eq ptr %27, null
   br i1 %.not343, label %28, label %192
 
@@ -79,37 +85,37 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 4, !tbaa !30
   %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !30
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %25) #5
   br label %35
 
 35:                                               ; preds = %28, %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
   %38 = ptrtoint ptr %1 to i64
   %39 = and i64 %38, -2
   %40 = inttoptr i64 %39 to ptr
-  %41 = load i32, ptr %40, align 8
+  %41 = load i32, ptr %40, align 8, !tbaa !32
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = ptrtoint ptr %2 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = load i32, ptr %47, align 8
+  %48 = load i32, ptr %47, align 8, !tbaa !32
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %37, i64 %49
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 4, !tbaa !33
   %.not344 = icmp sgt i32 %44, %51
   br i1 %.not344, label %65, label %52
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !34
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %56 = load ptr, ptr %55, align 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
   %57 = and i64 %38, 1
   %.not345 = icmp eq i64 %57, 0
   br i1 %.not345, label %65, label %58
@@ -132,9 +138,9 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %68 = load ptr, ptr %67, align 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !34
   %69 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %70 = load ptr, ptr %69, align 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !34
   %71 = and i64 %45, 1
   %.not347 = icmp eq i64 %71, 0
   br i1 %.not347, label %79, label %72
@@ -184,7 +190,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 96:                                               ; preds = %92
   tail call void @Cudd_Ref(ptr noundef nonnull %93) #5
-  %97 = load ptr, ptr %5, align 8
+  %97 = load ptr, ptr %5, align 8, !tbaa !29
   tail call void @Cudd_Ref(ptr noundef %97) #5
   %98 = call ptr @cuddZddIsop(ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %.0317, ptr noundef nonnull %6)
   %99 = icmp eq ptr %98, null
@@ -199,7 +205,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 101:                                              ; preds = %96
   tail call void @Cudd_Ref(ptr noundef nonnull %98) #5
-  %102 = load ptr, ptr %6, align 8
+  %102 = load ptr, ptr %6, align 8, !tbaa !29
   tail call void @Cudd_Ref(ptr noundef %102) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %83) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %89) #5
@@ -293,7 +299,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 137:                                              ; preds = %133
   tail call void @Cudd_Ref(ptr noundef nonnull %134) #5
-  %138 = load ptr, ptr %7, align 8
+  %138 = load ptr, ptr %7, align 8, !tbaa !29
   tail call void @Cudd_Ref(ptr noundef %138) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %129) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %130) #5
@@ -448,13 +454,19 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddIsop, ptr noundef %1, ptr noundef %2, ptr noundef %.0314) #5
   tail call void @Cudd_Deref(ptr noundef %175) #5
   tail call void @Cudd_Deref(ptr noundef %.0314) #5
-  store ptr %.0314, ptr %3, align 8
+  store ptr %.0314, ptr %3, align 8, !tbaa !29
   br label %192
 
 192:                                              ; preds = %79, %26, %191, %190, %184, %177, %162, %152, %148, %141, %136, %132, %125, %115, %108, %100, %95, %91, %19, %16
   %.0 = phi ptr [ %12, %16 ], [ %9, %19 ], [ null, %91 ], [ null, %95 ], [ null, %100 ], [ null, %108 ], [ null, %115 ], [ null, %125 ], [ null, %132 ], [ null, %136 ], [ null, %141 ], [ null, %148 ], [ null, %152 ], [ null, %162 ], [ null, %177 ], [ null, %184 ], [ null, %190 ], [ %175, %191 ], [ %25, %26 ], [ null, %79 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   ret ptr %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -462,11 +474,11 @@ define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1,
   br label %5
 
 5:                                                ; preds = %5, %3
-  store i32 0, ptr %4, align 8
+  store i32 0, ptr %4, align 8, !tbaa !24
   %6 = tail call ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %7 = load i32, ptr %4, align 8
+  %7 = load i32, ptr %4, align 8, !tbaa !24
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %5, label %9, !llvm.loop !6
+  br i1 %8, label %5, label %9, !llvm.loop !35
 
 9:                                                ; preds = %5
   ret ptr %6
@@ -475,7 +487,7 @@ define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
@@ -493,29 +505,29 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 8
+  %20 = load i32, ptr %19, align 8, !tbaa !32
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %16, i64 %21
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !33
   %24 = ptrtoint ptr %2 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = load i32, ptr %26, align 8
+  %27 = load i32, ptr %26, align 8, !tbaa !32
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i32, ptr %16, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !33
   %.not257 = icmp sgt i32 %23, %30
   br i1 %.not257, label %44, label %31
 
 31:                                               ; preds = %14
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = and i64 %17, 1
   %.not258 = icmp eq i64 %36, 0
   br i1 %.not258, label %44, label %37
@@ -538,9 +550,9 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !34
   %48 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = and i64 %24, 1
   %.not260 = icmp eq i64 %50, 0
   br i1 %.not260, label %58, label %51
@@ -795,11 +807,11 @@ define ptr @Cudd_MakeBddFromZddCover(ptr noundef initializes((448, 452)) %0, ptr
   br label %4
 
 4:                                                ; preds = %4, %2
-  store i32 0, ptr %3, align 8
+  store i32 0, ptr %3, align 8, !tbaa !24
   %5 = tail call ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1)
-  %6 = load i32, ptr %3, align 8
+  %6 = load i32, ptr %3, align 8, !tbaa !24
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %4, label %8, !llvm.loop !7
+  br i1 %7, label %4, label %8, !llvm.loop !36
 
 8:                                                ; preds = %4
   ret ptr %5
@@ -810,14 +822,17 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = icmp eq ptr %1, %7
   br i1 %8, label %95, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %13, label %17
 
@@ -836,57 +851,57 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = load i32, ptr %22, align 8
+  %23 = load i32, ptr %22, align 8, !tbaa !32
   %24 = call i32 @cuddZddGetCofactors3(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   %.not120 = icmp eq i32 %24, 0
   br i1 %.not120, label %25, label %95
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !29
   call void @Cudd_Ref(ptr noundef %26) #5
-  %27 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !29
   call void @Cudd_Ref(ptr noundef %27) #5
-  %28 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !29
   call void @Cudd_Ref(ptr noundef %28) #5
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !29
   %30 = call ptr @cuddMakeBddFromZddCover(ptr noundef nonnull %0, ptr noundef %29)
   %.not121 = icmp eq ptr %30, null
   br i1 %.not121, label %31, label %35
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %32) #5
-  %33 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %33) #5
-  %34 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %5, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %34) #5
   br label %95
 
 35:                                               ; preds = %25
   call void @Cudd_Ref(ptr noundef nonnull %30) #5
-  %36 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %4, align 8, !tbaa !29
   %37 = call ptr @cuddMakeBddFromZddCover(ptr noundef nonnull %0, ptr noundef %36)
   %.not122 = icmp eq ptr %37, null
   br i1 %.not122, label %38, label %42
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %3, align 8
+  %39 = load ptr, ptr %3, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %39) #5
-  %40 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %4, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %40) #5
-  %41 = load ptr, ptr %5, align 8
+  %41 = load ptr, ptr %5, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %41) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %30) #5
   br label %95
 
 42:                                               ; preds = %35
   call void @Cudd_Ref(ptr noundef nonnull %37) #5
-  %43 = load ptr, ptr %3, align 8
+  %43 = load ptr, ptr %3, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %43) #5
-  %44 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %4, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %44) #5
-  %45 = load ptr, ptr %5, align 8
-  %46 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %5, align 8, !tbaa !29
+  %46 = load ptr, ptr %10, align 8, !tbaa !28
   %.not123 = icmp eq ptr %45, %46
   br i1 %.not123, label %74, label %47
 
@@ -896,7 +911,7 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not124, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %5, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %50) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %30) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %37) #5
@@ -904,7 +919,7 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
 
 51:                                               ; preds = %47
   call void @Cudd_Ref(ptr noundef nonnull %48) #5
-  %52 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %5, align 8, !tbaa !29
   call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %52) #5
   %53 = ptrtoint ptr %30 to i64
   %54 = xor i64 %53, 1
@@ -1005,57 +1020,90 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
 
 95:                                               ; preds = %19, %17, %2, %94, %93, %86, %69, %60, %49, %38, %31, %13
   %.0106 = phi ptr [ %16, %13 ], [ %.0107, %94 ], [ null, %86 ], [ null, %93 ], [ null, %69 ], [ null, %60 ], [ null, %49 ], [ null, %38 ], [ null, %31 ], [ %7, %2 ], [ %18, %17 ], [ null, %19 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   ret ptr %.0106
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #1
+declare void @exit(i32 noundef) local_unnamed_addr #2
 
-declare ptr @cuddCacheLookup2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddCacheLookup2Zdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup2Zdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddZddGetNodeIVO(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddZddGetNodeIVO(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @cuddZddGetCofactors3(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @cuddZddGetCofactors3(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @cuddUniqueInterIVO(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddUniqueInterIVO(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind }
-attributes #4 = { cold noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
+attributes #6 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !6, i64 488}
+!4 = !{!"DdManager", !5, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 100, !13, i64 104, !13, i64 112, !13, i64 120, !6, i64 128, !6, i64 132, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !14, i64 152, !14, i64 160, !15, i64 168, !6, i64 224, !6, i64 228, !6, i64 232, !6, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !13, i64 256, !6, i64 264, !6, i64 268, !6, i64 272, !16, i64 280, !11, i64 288, !13, i64 296, !6, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !16, i64 344, !17, i64 352, !16, i64 360, !6, i64 368, !18, i64 376, !18, i64 384, !16, i64 392, !9, i64 400, !19, i64 408, !16, i64 416, !6, i64 424, !6, i64 428, !6, i64 432, !13, i64 440, !6, i64 448, !6, i64 452, !6, i64 456, !6, i64 460, !13, i64 464, !13, i64 472, !6, i64 480, !6, i64 484, !6, i64 488, !6, i64 492, !6, i64 496, !6, i64 500, !6, i64 504, !6, i64 508, !6, i64 512, !20, i64 520, !20, i64 528, !6, i64 536, !6, i64 540, !6, i64 544, !6, i64 548, !6, i64 552, !6, i64 556, !21, i64 560, !19, i64 568, !22, i64 576, !22, i64 584, !22, i64 592, !22, i64 600, !23, i64 608, !23, i64 616, !6, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !6, i64 656, !11, i64 664, !11, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !13, i64 720, !6, i64 728, !9, i64 736, !9, i64 744, !11, i64 752}
+!5 = !{!"DdNode", !6, i64 0, !6, i64 4, !9, i64 8, !7, i64 16, !11, i64 32}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS6DdNode", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!"p1 _ZTS7DdCache", !10, i64 0}
+!13 = !{!"double", !7, i64 0}
+!14 = !{!"p1 _ZTS10DdSubtable", !10, i64 0}
+!15 = !{!"DdSubtable", !16, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48}
+!16 = !{!"p2 _ZTS6DdNode", !10, i64 0}
+!17 = !{!"p1 int", !10, i64 0}
+!18 = !{!"p1 long", !10, i64 0}
+!19 = !{!"p1 omnipotent char", !10, i64 0}
+!20 = !{!"p1 _ZTS7MtrNode", !10, i64 0}
+!21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
+!22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!24 = !{!4, !6, i64 448}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!4, !9, i64 40}
+!28 = !{!4, !9, i64 48}
+!29 = !{!9, !9, i64 0}
+!30 = !{!5, !6, i64 4}
+!31 = !{!4, !17, i64 312}
+!32 = !{!5, !6, i64 0}
+!33 = !{!6, !6, i64 0}
+!34 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !26}
+!36 = distinct !{!36, !26}

@@ -41,206 +41,221 @@ define i32 @Ivy_TruthDsd(i32 noundef %0, ptr noundef %1) #0 {
   %6 = alloca %struct.Ivy_Dec_t_, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca %struct.Ivy_Dec_t_, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
-  call void @Vec_IntClear(ptr noundef %10)
-  store i32 0, ptr %7, align 4
-  br label %11
+  %9 = alloca i32, align 4
+  %10 = alloca %struct.Ivy_Dec_t_, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @Vec_IntClear(ptr noundef %11)
+  store i32 0, ptr %7, align 4, !tbaa !3
+  br label %12
 
-11:                                               ; preds = %16, %2
-  %12 = load i32, ptr %7, align 4
-  %13 = icmp slt i32 %12, 5
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %17, %2
+  %13 = load i32, ptr %7, align 4, !tbaa !3
+  %14 = icmp slt i32 %13, 5
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %5, align 8
-  call void @Vec_IntPush(ptr noundef %15, i32 noundef 0)
-  br label %16
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @Vec_IntPush(ptr noundef %16, i32 noundef 0)
+  br label %17
 
-16:                                               ; preds = %14
-  %17 = load i32, ptr %7, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %7, align 4
-  br label %11, !llvm.loop !4
+17:                                               ; preds = %15
+  %18 = load i32, ptr %7, align 4, !tbaa !3
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %7, align 4, !tbaa !3
+  br label %12, !llvm.loop !10
 
-19:                                               ; preds = %11
-  %20 = load i32, ptr %4, align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %26, label %22
+20:                                               ; preds = %12
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %4, align 4
-  %24 = xor i32 %23, -1
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %42
+23:                                               ; preds = %20
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = xor i32 %24, -1
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %43
 
-26:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %20
   call void @Ivy_DecClear(ptr noundef %6)
-  %27 = load i32, ptr %6, align 4
-  %28 = and i32 %27, -16
-  %29 = or i32 %28, 1
-  store i32 %29, ptr %6, align 4
-  %30 = load i32, ptr %4, align 4
-  %31 = icmp eq i32 %30, 0
-  %32 = zext i1 %31 to i32
-  %33 = load i32, ptr %6, align 4
-  %34 = and i32 %32, 1
-  %35 = shl i32 %34, 4
-  %36 = and i32 %33, -17
-  %37 = or i32 %36, %35
-  store i32 %37, ptr %6, align 4
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
-  %40 = load i32, ptr %39, align 4
-  %41 = call i32 @Ivy_DecToInt(i32 %40)
-  call void @Vec_IntPush(ptr noundef %38, i32 noundef %41)
+  %28 = load i32, ptr %6, align 4
+  %29 = and i32 %28, -16
+  %30 = or i32 %29, 1
+  store i32 %30, ptr %6, align 4
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = icmp eq i32 %31, 0
+  %33 = zext i1 %32 to i32
+  %34 = load i32, ptr %6, align 4
+  %35 = and i32 %33, 1
+  %36 = shl i32 %35, 4
+  %37 = and i32 %34, -17
+  %38 = or i32 %37, %36
+  store i32 %38, ptr %6, align 4
+  %39 = load ptr, ptr %5, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
+  %41 = load i32, ptr %40, align 4
+  %42 = call i32 @Ivy_DecToInt(i32 %41)
+  call void @Vec_IntPush(ptr noundef %39, i32 noundef %42)
   store i32 1, ptr %3, align 4
-  br label %105
+  store i32 1, ptr %9, align 4
+  br label %106
 
-42:                                               ; preds = %22
-  %43 = load i32, ptr %4, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %43, ptr noundef %44)
-  store i32 %45, ptr %8, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %48, label %49
+43:                                               ; preds = %23
+  %44 = load i32, ptr %4, align 4, !tbaa !3
+  %45 = load ptr, ptr %5, align 8, !tbaa !7
+  %46 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %44, ptr noundef %45)
+  store i32 %46, ptr %8, align 4, !tbaa !3
+  %47 = load i32, ptr %8, align 4, !tbaa !3
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %42
+49:                                               ; preds = %43
   store i32 0, ptr %3, align 4
-  br label %105
+  store i32 1, ptr %9, align 4
+  br label %106
 
-49:                                               ; preds = %42
-  %50 = load i32, ptr %8, align 4
-  %51 = ashr i32 %50, 1
-  %52 = icmp slt i32 %51, 5
-  br i1 %52, label %53, label %76
+50:                                               ; preds = %43
+  %51 = load i32, ptr %8, align 4, !tbaa !3
+  %52 = ashr i32 %51, 1
+  %53 = icmp slt i32 %52, 5
+  br i1 %53, label %54, label %77
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   call void @Ivy_DecClear(ptr noundef %6)
-  %54 = load i32, ptr %6, align 4
-  %55 = and i32 %54, -16
-  %56 = or i32 %55, 2
-  store i32 %56, ptr %6, align 4
-  %57 = load i32, ptr %8, align 4
-  %58 = and i32 %57, 1
-  %59 = load i32, ptr %6, align 4
-  %60 = and i32 %58, 1
-  %61 = shl i32 %60, 4
-  %62 = and i32 %59, -17
-  %63 = or i32 %62, %61
-  store i32 %63, ptr %6, align 4
-  %64 = load i32, ptr %8, align 4
-  %65 = ashr i32 %64, 1
-  %66 = shl i32 %65, 1
-  %67 = load i32, ptr %6, align 4
-  %68 = and i32 %66, 15
-  %69 = shl i32 %68, 8
-  %70 = and i32 %67, -3841
-  %71 = or i32 %70, %69
-  store i32 %71, ptr %6, align 4
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
-  %74 = load i32, ptr %73, align 4
-  %75 = call i32 @Ivy_DecToInt(i32 %74)
-  call void @Vec_IntPush(ptr noundef %72, i32 noundef %75)
+  %55 = load i32, ptr %6, align 4
+  %56 = and i32 %55, -16
+  %57 = or i32 %56, 2
+  store i32 %57, ptr %6, align 4
+  %58 = load i32, ptr %8, align 4, !tbaa !3
+  %59 = and i32 %58, 1
+  %60 = load i32, ptr %6, align 4
+  %61 = and i32 %59, 1
+  %62 = shl i32 %61, 4
+  %63 = and i32 %60, -17
+  %64 = or i32 %63, %62
+  store i32 %64, ptr %6, align 4
+  %65 = load i32, ptr %8, align 4, !tbaa !3
+  %66 = ashr i32 %65, 1
+  %67 = shl i32 %66, 1
+  %68 = load i32, ptr %6, align 4
+  %69 = and i32 %67, 15
+  %70 = shl i32 %69, 8
+  %71 = and i32 %68, -3841
+  %72 = or i32 %71, %70
+  store i32 %72, ptr %6, align 4
+  %73 = load ptr, ptr %5, align 8, !tbaa !7
+  %74 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
+  %75 = load i32, ptr %74, align 4
+  %76 = call i32 @Ivy_DecToInt(i32 %75)
+  call void @Vec_IntPush(ptr noundef %73, i32 noundef %76)
+  br label %98
+
+77:                                               ; preds = %50
+  %78 = load i32, ptr %8, align 4, !tbaa !3
+  %79 = and i32 %78, 1
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %97
+
+81:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %82 = load ptr, ptr %5, align 8, !tbaa !7
+  %83 = call i32 @Vec_IntPop(ptr noundef %82)
+  %84 = call i32 @Ivy_IntToDec(i32 noundef %83)
+  %85 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
+  store i32 %84, ptr %85, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %10, i64 4, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %86 = load i32, ptr %8, align 4, !tbaa !3
+  %87 = and i32 %86, 1
+  %88 = load i32, ptr %6, align 4
+  %89 = and i32 %87, 1
+  %90 = shl i32 %89, 4
+  %91 = and i32 %88, -17
+  %92 = or i32 %91, %90
+  store i32 %92, ptr %6, align 4
+  %93 = load ptr, ptr %5, align 8, !tbaa !7
+  %94 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
+  %95 = load i32, ptr %94, align 4
+  %96 = call i32 @Ivy_DecToInt(i32 %95)
+  call void @Vec_IntPush(ptr noundef %93, i32 noundef %96)
   br label %97
 
-76:                                               ; preds = %49
-  %77 = load i32, ptr %8, align 4
-  %78 = and i32 %77, 1
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %96
+97:                                               ; preds = %81, %77
+  br label %98
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %5, align 8
-  %82 = call i32 @Vec_IntPop(ptr noundef %81)
-  %83 = call i32 @Ivy_IntToDec(i32 noundef %82)
-  %84 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %9, i32 0, i32 0
-  store i32 %83, ptr %84, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %9, i64 4, i1 false)
-  %85 = load i32, ptr %8, align 4
-  %86 = and i32 %85, 1
-  %87 = load i32, ptr %6, align 4
-  %88 = and i32 %86, 1
-  %89 = shl i32 %88, 4
-  %90 = and i32 %87, -17
-  %91 = or i32 %90, %89
-  store i32 %91, ptr %6, align 4
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
-  %94 = load i32, ptr %93, align 4
-  %95 = call i32 @Ivy_DecToInt(i32 %94)
-  call void @Vec_IntPush(ptr noundef %92, i32 noundef %95)
-  br label %96
+98:                                               ; preds = %97, %54
+  %99 = load i32, ptr %4, align 4, !tbaa !3
+  %100 = load ptr, ptr %5, align 8, !tbaa !7
+  %101 = call i32 @Ivy_TruthDsdCompute(ptr noundef %100)
+  %102 = icmp ne i32 %99, %101
+  br i1 %102, label %103, label %105
 
-96:                                               ; preds = %80, %76
-  br label %97
-
-97:                                               ; preds = %96, %53
-  %98 = load i32, ptr %4, align 4
-  %99 = load ptr, ptr %5, align 8
-  %100 = call i32 @Ivy_TruthDsdCompute(ptr noundef %99)
-  %101 = icmp ne i32 %98, %100
-  br i1 %101, label %102, label %104
-
-102:                                              ; preds = %97
-  %103 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  br label %104
-
-104:                                              ; preds = %102, %97
-  store i32 1, ptr %3, align 4
+103:                                              ; preds = %98
+  %104 = call i32 (ptr, ...) @printf(ptr noundef @.str)
   br label %105
 
-105:                                              ; preds = %104, %48, %26
-  %106 = load i32, ptr %3, align 4
-  ret i32 %106
+105:                                              ; preds = %103, %98
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %106
+
+106:                                              ; preds = %105, %49, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %107 = load i32, ptr %3, align 4
+  ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntClear(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntClear(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %8 = load ptr, ptr %3, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
   call void @Vec_IntGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !7
+  %21 = load ptr, ptr %3, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !17
   %24 = mul nsw i32 2, %23
   call void @Vec_IntGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -249,42 +264,46 @@ define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !3
+  %28 = load ptr, ptr %3, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
+  %31 = load ptr, ptr %3, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !14
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !14
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
-  store i32 %27, ptr %36, align 4
+  store i32 %27, ptr %36, align 4, !tbaa !3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Ivy_DecClear(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Ivy_DecClear(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.Ivy_Dec_t_, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
   %5 = call i32 @Ivy_IntToDec(i32 noundef 0)
-  %6 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %3, i32 0, i32 0
   store i32 %5, ptr %6, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %3, i64 4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %3, i64 4, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_DecToInt(i32 %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_DecToInt(i32 %0) #2 {
   %2 = alloca %struct.Ivy_Dec_t_, align 4
   %3 = alloca %union.anon, align 4
-  %4 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %2, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %2, i32 0, i32 0
   store i32 %0, ptr %4, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %2, i64 4, i1 false)
-  %5 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %2, i64 4, i1 false), !tbaa.struct !12
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret i32 %5
 }
 
@@ -310,470 +329,514 @@ define internal i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %1) #0 {
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr null, ptr %11, align 8
-  store i32 0, ptr %16, align 4
-  store i32 0, ptr %18, align 4
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %19, align 4
-  br label %23
+  %23 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 20, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 20, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 20, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 20, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store ptr null, ptr %11, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  store i32 0, ptr %16, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  store i32 0, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  store i32 0, ptr %12, align 4, !tbaa !3
+  store i32 0, ptr %15, align 4, !tbaa !3
+  store i32 0, ptr %14, align 4, !tbaa !3
+  store i32 0, ptr %13, align 4, !tbaa !3
+  store i32 0, ptr %19, align 4, !tbaa !3
+  br label %24
 
-23:                                               ; preds = %117, %2
-  %24 = load i32, ptr %19, align 4
-  %25 = icmp slt i32 %24, 5
-  br i1 %25, label %26, label %120
+24:                                               ; preds = %118, %2
+  %25 = load i32, ptr %19, align 4, !tbaa !3
+  %26 = icmp slt i32 %25, 5
+  br i1 %26, label %27, label %121
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %4, align 4
-  %28 = load i32, ptr %19, align 4
-  %29 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %27, i32 noundef %28, i32 noundef 0, i32 noundef 0)
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %39
+27:                                               ; preds = %24
+  %28 = load i32, ptr %4, align 4, !tbaa !3
+  %29 = load i32, ptr %19, align 4, !tbaa !3
+  %30 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %28, i32 noundef %29, i32 noundef 0, i32 noundef 0)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %40
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %19, align 4
-  %33 = shl i32 %32, 1
-  %34 = or i32 %33, 0
-  %35 = load i32, ptr %13, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %13, align 4
-  %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %37
-  store i32 %34, ptr %38, align 4
-  br label %116
-
-39:                                               ; preds = %26
-  %40 = load i32, ptr %4, align 4
-  %41 = load i32, ptr %19, align 4
-  %42 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %40, i32 noundef %41, i32 noundef 1, i32 noundef 0)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %52
-
-44:                                               ; preds = %39
-  %45 = load i32, ptr %19, align 4
-  %46 = shl i32 %45, 1
-  %47 = or i32 %46, 1
-  %48 = load i32, ptr %13, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %13, align 4
-  %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %50
-  store i32 %47, ptr %51, align 4
-  br label %115
-
-52:                                               ; preds = %39
-  %53 = load i32, ptr %4, align 4
-  %54 = load i32, ptr %19, align 4
-  %55 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %53, i32 noundef %54, i32 noundef 0, i32 noundef 1)
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %65
-
-57:                                               ; preds = %52
-  %58 = load i32, ptr %19, align 4
-  %59 = shl i32 %58, 1
-  %60 = or i32 %59, 0
-  %61 = load i32, ptr %14, align 4
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %14, align 4
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %63
-  store i32 %60, ptr %64, align 4
-  br label %114
-
-65:                                               ; preds = %52
-  %66 = load i32, ptr %4, align 4
-  %67 = load i32, ptr %19, align 4
-  %68 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %66, i32 noundef %67, i32 noundef 1, i32 noundef 1)
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %78
-
-70:                                               ; preds = %65
-  %71 = load i32, ptr %19, align 4
-  %72 = shl i32 %71, 1
-  %73 = or i32 %72, 1
-  %74 = load i32, ptr %14, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %14, align 4
-  %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %76
-  store i32 %73, ptr %77, align 4
-  br label %113
-
-78:                                               ; preds = %65
-  %79 = load i32, ptr %4, align 4
-  %80 = load i32, ptr %19, align 4
-  %81 = shl i32 %80, 1
-  %82 = or i32 %81, 1
-  %83 = call i32 @Ivy_TruthCofactor(i32 noundef %79, i32 noundef %82)
-  store i32 %83, ptr %21, align 4
-  %84 = load i32, ptr %4, align 4
-  %85 = load i32, ptr %19, align 4
-  %86 = shl i32 %85, 1
-  %87 = or i32 %86, 0
-  %88 = call i32 @Ivy_TruthCofactor(i32 noundef %84, i32 noundef %87)
-  store i32 %88, ptr %22, align 4
-  %89 = load i32, ptr %21, align 4
-  %90 = load i32, ptr %22, align 4
-  %91 = xor i32 %90, -1
-  %92 = icmp eq i32 %89, %91
-  br i1 %92, label %93, label %101
-
-93:                                               ; preds = %78
-  %94 = load i32, ptr %19, align 4
-  %95 = shl i32 %94, 1
-  %96 = or i32 %95, 0
-  %97 = load i32, ptr %15, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %15, align 4
-  %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 %99
-  store i32 %96, ptr %100, align 4
-  br label %112
-
-101:                                              ; preds = %78
-  %102 = load i32, ptr %21, align 4
-  %103 = load i32, ptr %22, align 4
-  %104 = icmp ne i32 %102, %103
-  br i1 %104, label %105, label %111
-
-105:                                              ; preds = %101
-  %106 = load i32, ptr %19, align 4
-  %107 = load i32, ptr %12, align 4
-  %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %12, align 4
-  %109 = sext i32 %107 to i64
-  %110 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %109
-  store i32 %106, ptr %110, align 4
-  br label %111
-
-111:                                              ; preds = %105, %101
-  br label %112
-
-112:                                              ; preds = %111, %93
-  br label %113
-
-113:                                              ; preds = %112, %70
-  br label %114
-
-114:                                              ; preds = %113, %57
-  br label %115
-
-115:                                              ; preds = %114, %44
-  br label %116
-
-116:                                              ; preds = %115, %31
+32:                                               ; preds = %27
+  %33 = load i32, ptr %19, align 4, !tbaa !3
+  %34 = shl i32 %33, 1
+  %35 = or i32 %34, 0
+  %36 = load i32, ptr %13, align 4, !tbaa !3
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %13, align 4, !tbaa !3
+  %38 = sext i32 %36 to i64
+  %39 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %38
+  store i32 %35, ptr %39, align 4, !tbaa !3
   br label %117
 
-117:                                              ; preds = %116
-  %118 = load i32, ptr %19, align 4
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %19, align 4
-  br label %23, !llvm.loop !6
+40:                                               ; preds = %27
+  %41 = load i32, ptr %4, align 4, !tbaa !3
+  %42 = load i32, ptr %19, align 4, !tbaa !3
+  %43 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %41, i32 noundef %42, i32 noundef 1, i32 noundef 0)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %53
 
-120:                                              ; preds = %23
-  %121 = load i32, ptr %13, align 4
-  %122 = icmp eq i32 %121, 1
-  br i1 %122, label %123, label %129
+45:                                               ; preds = %40
+  %46 = load i32, ptr %19, align 4, !tbaa !3
+  %47 = shl i32 %46, 1
+  %48 = or i32 %47, 1
+  %49 = load i32, ptr %13, align 4, !tbaa !3
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %13, align 4, !tbaa !3
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %51
+  store i32 %48, ptr %52, align 4, !tbaa !3
+  br label %116
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %12, align 4
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %129
+53:                                               ; preds = %40
+  %54 = load i32, ptr %4, align 4, !tbaa !3
+  %55 = load i32, ptr %19, align 4, !tbaa !3
+  %56 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %54, i32 noundef %55, i32 noundef 0, i32 noundef 1)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %66
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 0
-  %128 = load i32, ptr %127, align 16
-  store i32 %128, ptr %3, align 4
-  br label %270
+58:                                               ; preds = %53
+  %59 = load i32, ptr %19, align 4, !tbaa !3
+  %60 = shl i32 %59, 1
+  %61 = or i32 %60, 0
+  %62 = load i32, ptr %14, align 4, !tbaa !3
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %14, align 4, !tbaa !3
+  %64 = sext i32 %62 to i64
+  %65 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %64
+  store i32 %61, ptr %65, align 4, !tbaa !3
+  br label %115
 
-129:                                              ; preds = %123, %120
-  %130 = load i32, ptr %13, align 4
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %144
+66:                                               ; preds = %53
+  %67 = load i32, ptr %4, align 4, !tbaa !3
+  %68 = load i32, ptr %19, align 4, !tbaa !3
+  %69 = call i32 @Ivy_TruthCofactorIsConst(i32 noundef %67, i32 noundef %68, i32 noundef 1, i32 noundef 1)
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %79
 
-132:                                              ; preds = %129
-  %133 = load i32, ptr %14, align 4
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %144
+71:                                               ; preds = %66
+  %72 = load i32, ptr %19, align 4, !tbaa !3
+  %73 = shl i32 %72, 1
+  %74 = or i32 %73, 1
+  %75 = load i32, ptr %14, align 4, !tbaa !3
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %14, align 4, !tbaa !3
+  %77 = sext i32 %75 to i64
+  %78 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %77
+  store i32 %74, ptr %78, align 4, !tbaa !3
+  br label %114
 
-135:                                              ; preds = %132
-  %136 = load i32, ptr %15, align 4
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %144
+79:                                               ; preds = %66
+  %80 = load i32, ptr %4, align 4, !tbaa !3
+  %81 = load i32, ptr %19, align 4, !tbaa !3
+  %82 = shl i32 %81, 1
+  %83 = or i32 %82, 1
+  %84 = call i32 @Ivy_TruthCofactor(i32 noundef %80, i32 noundef %83)
+  store i32 %84, ptr %21, align 4, !tbaa !3
+  %85 = load i32, ptr %4, align 4, !tbaa !3
+  %86 = load i32, ptr %19, align 4, !tbaa !3
+  %87 = shl i32 %86, 1
+  %88 = or i32 %87, 0
+  %89 = call i32 @Ivy_TruthCofactor(i32 noundef %85, i32 noundef %88)
+  store i32 %89, ptr %22, align 4, !tbaa !3
+  %90 = load i32, ptr %21, align 4, !tbaa !3
+  %91 = load i32, ptr %22, align 4, !tbaa !3
+  %92 = xor i32 %91, -1
+  %93 = icmp eq i32 %90, %92
+  br i1 %93, label %94, label %102
 
-138:                                              ; preds = %135
-  %139 = load i32, ptr %4, align 4
-  %140 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 0
-  %141 = load i32, ptr %12, align 4
-  %142 = load ptr, ptr %5, align 8
-  %143 = call i32 @Ivy_TruthRecognizeMuxMaj(i32 noundef %139, ptr noundef %140, i32 noundef %141, ptr noundef %142)
-  store i32 %143, ptr %3, align 4
-  br label %270
+94:                                               ; preds = %79
+  %95 = load i32, ptr %19, align 4, !tbaa !3
+  %96 = shl i32 %95, 1
+  %97 = or i32 %96, 0
+  %98 = load i32, ptr %15, align 4, !tbaa !3
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %15, align 4, !tbaa !3
+  %100 = sext i32 %98 to i64
+  %101 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 %100
+  store i32 %97, ptr %101, align 4, !tbaa !3
+  br label %113
 
-144:                                              ; preds = %135, %132, %129
+102:                                              ; preds = %79
+  %103 = load i32, ptr %21, align 4, !tbaa !3
+  %104 = load i32, ptr %22, align 4, !tbaa !3
+  %105 = icmp ne i32 %103, %104
+  br i1 %105, label %106, label %112
+
+106:                                              ; preds = %102
+  %107 = load i32, ptr %19, align 4, !tbaa !3
+  %108 = load i32, ptr %12, align 4, !tbaa !3
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %12, align 4, !tbaa !3
+  %110 = sext i32 %108 to i64
+  %111 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %110
+  store i32 %107, ptr %111, align 4, !tbaa !3
+  br label %112
+
+112:                                              ; preds = %106, %102
+  br label %113
+
+113:                                              ; preds = %112, %94
+  br label %114
+
+114:                                              ; preds = %113, %71
+  br label %115
+
+115:                                              ; preds = %114, %58
+  br label %116
+
+116:                                              ; preds = %115, %45
+  br label %117
+
+117:                                              ; preds = %116, %32
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = load i32, ptr %19, align 4, !tbaa !3
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %19, align 4, !tbaa !3
+  br label %24, !llvm.loop !22
+
+121:                                              ; preds = %24
+  %122 = load i32, ptr %13, align 4, !tbaa !3
+  %123 = icmp eq i32 %122, 1
+  br i1 %123, label %124, label %130
+
+124:                                              ; preds = %121
+  %125 = load i32, ptr %12, align 4, !tbaa !3
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %130
+
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 0
+  %129 = load i32, ptr %128, align 16, !tbaa !3
+  store i32 %129, ptr %3, align 4
+  store i32 1, ptr %23, align 4
+  br label %271
+
+130:                                              ; preds = %124, %121
+  %131 = load i32, ptr %13, align 4, !tbaa !3
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %145
+
+133:                                              ; preds = %130
+  %134 = load i32, ptr %14, align 4, !tbaa !3
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %145
+
+136:                                              ; preds = %133
+  %137 = load i32, ptr %15, align 4, !tbaa !3
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %145
+
+139:                                              ; preds = %136
+  %140 = load i32, ptr %4, align 4, !tbaa !3
+  %141 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 0
+  %142 = load i32, ptr %12, align 4, !tbaa !3
+  %143 = load ptr, ptr %5, align 8, !tbaa !7
+  %144 = call i32 @Ivy_TruthRecognizeMuxMaj(i32 noundef %140, ptr noundef %141, i32 noundef %142, ptr noundef %143)
+  store i32 %144, ptr %3, align 4
+  store i32 1, ptr %23, align 4
+  br label %271
+
+145:                                              ; preds = %136, %133, %130
   call void @Ivy_DecClear(ptr noundef %6)
-  %145 = load i32, ptr %13, align 4
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %153
+  %146 = load i32, ptr %13, align 4, !tbaa !3
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %148, label %154
 
-147:                                              ; preds = %144
-  %148 = load i32, ptr %13, align 4
-  store i32 %148, ptr %16, align 4
-  %149 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 0
-  store ptr %149, ptr %11, align 8
-  %150 = load i32, ptr %6, align 4
-  %151 = and i32 %150, -16
-  %152 = or i32 %151, 3
-  store i32 %152, ptr %6, align 4
-  store i32 0, ptr %18, align 4
+148:                                              ; preds = %145
+  %149 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %149, ptr %16, align 4, !tbaa !3
+  %150 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 0
+  store ptr %150, ptr %11, align 8, !tbaa !21
+  %151 = load i32, ptr %6, align 4
+  %152 = and i32 %151, -16
+  %153 = or i32 %152, 3
+  store i32 %153, ptr %6, align 4
+  store i32 0, ptr %18, align 4, !tbaa !3
+  br label %177
+
+154:                                              ; preds = %145
+  %155 = load i32, ptr %14, align 4, !tbaa !3
+  %156 = icmp sgt i32 %155, 0
+  br i1 %156, label %157, label %165
+
+157:                                              ; preds = %154
+  %158 = load i32, ptr %14, align 4, !tbaa !3
+  store i32 %158, ptr %16, align 4, !tbaa !3
+  %159 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 0
+  store ptr %159, ptr %11, align 8, !tbaa !21
+  %160 = load i32, ptr %6, align 4
+  %161 = and i32 %160, -16
+  %162 = or i32 %161, 3
+  store i32 %162, ptr %6, align 4
+  store i32 1, ptr %18, align 4, !tbaa !3
+  %163 = load i32, ptr %4, align 4, !tbaa !3
+  %164 = xor i32 %163, -1
+  store i32 %164, ptr %4, align 4, !tbaa !3
   br label %176
 
-153:                                              ; preds = %144
-  %154 = load i32, ptr %14, align 4
-  %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %156, label %164
+165:                                              ; preds = %154
+  %166 = load i32, ptr %15, align 4, !tbaa !3
+  %167 = icmp sgt i32 %166, 0
+  br i1 %167, label %168, label %174
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %14, align 4
-  store i32 %157, ptr %16, align 4
-  %158 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 0
-  store ptr %158, ptr %11, align 8
-  %159 = load i32, ptr %6, align 4
-  %160 = and i32 %159, -16
-  %161 = or i32 %160, 3
-  store i32 %161, ptr %6, align 4
-  store i32 1, ptr %18, align 4
-  %162 = load i32, ptr %4, align 4
-  %163 = xor i32 %162, -1
-  store i32 %163, ptr %4, align 4
+168:                                              ; preds = %165
+  %169 = load i32, ptr %15, align 4, !tbaa !3
+  store i32 %169, ptr %16, align 4, !tbaa !3
+  %170 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 0
+  store ptr %170, ptr %11, align 8, !tbaa !21
+  %171 = load i32, ptr %6, align 4
+  %172 = and i32 %171, -16
+  %173 = or i32 %172, 4
+  store i32 %173, ptr %6, align 4
+  store i32 0, ptr %18, align 4, !tbaa !3
   br label %175
 
-164:                                              ; preds = %153
-  %165 = load i32, ptr %15, align 4
-  %166 = icmp sgt i32 %165, 0
-  br i1 %166, label %167, label %173
-
-167:                                              ; preds = %164
-  %168 = load i32, ptr %15, align 4
-  store i32 %168, ptr %16, align 4
-  %169 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 0
-  store ptr %169, ptr %11, align 8
-  %170 = load i32, ptr %6, align 4
-  %171 = and i32 %170, -16
-  %172 = or i32 %171, 4
-  store i32 %172, ptr %6, align 4
-  store i32 0, ptr %18, align 4
-  br label %174
-
-173:                                              ; preds = %164
-  br label %174
-
-174:                                              ; preds = %173, %167
+174:                                              ; preds = %165
   br label %175
 
-175:                                              ; preds = %174, %156
+175:                                              ; preds = %174, %168
   br label %176
 
-176:                                              ; preds = %175, %147
-  %177 = load i32, ptr %16, align 4
-  %178 = load i32, ptr %12, align 4
-  %179 = icmp sgt i32 %178, 0
-  %180 = zext i1 %179 to i32
-  %181 = add nsw i32 %177, %180
-  %182 = load i32, ptr %6, align 4
-  %183 = and i32 %181, 7
-  %184 = shl i32 %183, 5
-  %185 = and i32 %182, -225
-  %186 = or i32 %185, %184
-  store i32 %186, ptr %6, align 4
-  %187 = load i32, ptr %4, align 4
-  store i32 %187, ptr %20, align 4
-  store i32 0, ptr %19, align 4
-  br label %188
+176:                                              ; preds = %175, %157
+  br label %177
 
-188:                                              ; preds = %206, %176
-  %189 = load i32, ptr %19, align 4
-  %190 = load i32, ptr %16, align 4
-  %191 = icmp slt i32 %189, %190
-  br i1 %191, label %192, label %209
+177:                                              ; preds = %176, %148
+  %178 = load i32, ptr %16, align 4, !tbaa !3
+  %179 = load i32, ptr %12, align 4, !tbaa !3
+  %180 = icmp sgt i32 %179, 0
+  %181 = zext i1 %180 to i32
+  %182 = add nsw i32 %178, %181
+  %183 = load i32, ptr %6, align 4
+  %184 = and i32 %182, 7
+  %185 = shl i32 %184, 5
+  %186 = and i32 %183, -225
+  %187 = or i32 %186, %185
+  store i32 %187, ptr %6, align 4
+  %188 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %188, ptr %20, align 4, !tbaa !3
+  store i32 0, ptr %19, align 4, !tbaa !3
+  br label %189
 
-192:                                              ; preds = %188
-  %193 = load i32, ptr %20, align 4
-  %194 = load ptr, ptr %11, align 8
-  %195 = load i32, ptr %19, align 4
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i32, ptr %194, i64 %196
-  %198 = load i32, ptr %197, align 4
-  %199 = call i32 @Ivy_TruthCofactor(i32 noundef %193, i32 noundef %198)
-  store i32 %199, ptr %20, align 4
-  %200 = load i32, ptr %19, align 4
-  %201 = load ptr, ptr %11, align 8
-  %202 = load i32, ptr %19, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i32, ptr %201, i64 %203
-  %205 = load i32, ptr %204, align 4
-  call void @Ivy_DecSetVar(ptr noundef %6, i32 noundef %200, i32 noundef %205)
-  br label %206
+189:                                              ; preds = %207, %177
+  %190 = load i32, ptr %19, align 4, !tbaa !3
+  %191 = load i32, ptr %16, align 4, !tbaa !3
+  %192 = icmp slt i32 %190, %191
+  br i1 %192, label %193, label %210
 
-206:                                              ; preds = %192
-  %207 = load i32, ptr %19, align 4
-  %208 = add nsw i32 %207, 1
-  store i32 %208, ptr %19, align 4
-  br label %188, !llvm.loop !7
+193:                                              ; preds = %189
+  %194 = load i32, ptr %20, align 4, !tbaa !3
+  %195 = load ptr, ptr %11, align 8, !tbaa !21
+  %196 = load i32, ptr %19, align 4, !tbaa !3
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds i32, ptr %195, i64 %197
+  %199 = load i32, ptr %198, align 4, !tbaa !3
+  %200 = call i32 @Ivy_TruthCofactor(i32 noundef %194, i32 noundef %199)
+  store i32 %200, ptr %20, align 4, !tbaa !3
+  %201 = load i32, ptr %19, align 4, !tbaa !3
+  %202 = load ptr, ptr %11, align 8, !tbaa !21
+  %203 = load i32, ptr %19, align 4, !tbaa !3
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds i32, ptr %202, i64 %204
+  %206 = load i32, ptr %205, align 4, !tbaa !3
+  call void @Ivy_DecSetVar(ptr noundef %6, i32 noundef %201, i32 noundef %206)
+  br label %207
 
-209:                                              ; preds = %188
-  %210 = load i32, ptr %6, align 4
-  %211 = and i32 %210, 15
-  %212 = icmp eq i32 %211, 4
-  br i1 %212, label %213, label %222
+207:                                              ; preds = %193
+  %208 = load i32, ptr %19, align 4, !tbaa !3
+  %209 = add nsw i32 %208, 1
+  store i32 %209, ptr %19, align 4, !tbaa !3
+  br label %189, !llvm.loop !23
 
-213:                                              ; preds = %209
-  %214 = load i32, ptr %6, align 4
-  %215 = lshr i32 %214, 5
-  %216 = and i32 %215, 7
-  %217 = and i32 %216, 1
-  %218 = icmp eq i32 %217, 0
-  %219 = zext i1 %218 to i32
-  %220 = load i32, ptr %18, align 4
-  %221 = xor i32 %220, %219
-  store i32 %221, ptr %18, align 4
-  br label %222
+210:                                              ; preds = %189
+  %211 = load i32, ptr %6, align 4
+  %212 = and i32 %211, 15
+  %213 = icmp eq i32 %212, 4
+  br i1 %213, label %214, label %223
 
-222:                                              ; preds = %213, %209
-  %223 = load i32, ptr %12, align 4
-  %224 = icmp sgt i32 %223, 0
-  br i1 %224, label %225, label %248
+214:                                              ; preds = %210
+  %215 = load i32, ptr %6, align 4
+  %216 = lshr i32 %215, 5
+  %217 = and i32 %216, 7
+  %218 = and i32 %217, 1
+  %219 = icmp eq i32 %218, 0
+  %220 = zext i1 %219 to i32
+  %221 = load i32, ptr %18, align 4, !tbaa !3
+  %222 = xor i32 %221, %220
+  store i32 %222, ptr %18, align 4, !tbaa !3
+  br label %223
 
-225:                                              ; preds = %222
-  %226 = load i32, ptr %20, align 4
-  %227 = load ptr, ptr %5, align 8
-  %228 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %226, ptr noundef %227)
-  store i32 %228, ptr %17, align 4
-  %229 = load i32, ptr %17, align 4
-  %230 = icmp eq i32 %229, -1
-  br i1 %230, label %231, label %232
+223:                                              ; preds = %214, %210
+  %224 = load i32, ptr %12, align 4, !tbaa !3
+  %225 = icmp sgt i32 %224, 0
+  br i1 %225, label %226, label %249
 
-231:                                              ; preds = %225
+226:                                              ; preds = %223
+  %227 = load i32, ptr %20, align 4, !tbaa !3
+  %228 = load ptr, ptr %5, align 8, !tbaa !7
+  %229 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %227, ptr noundef %228)
+  store i32 %229, ptr %17, align 4, !tbaa !3
+  %230 = load i32, ptr %17, align 4, !tbaa !3
+  %231 = icmp eq i32 %230, -1
+  br i1 %231, label %232, label %233
+
+232:                                              ; preds = %226
   store i32 -1, ptr %3, align 4
-  br label %270
+  store i32 1, ptr %23, align 4
+  br label %271
 
-232:                                              ; preds = %225
-  %233 = load i32, ptr %6, align 4
-  %234 = and i32 %233, 15
-  %235 = icmp eq i32 %234, 4
-  br i1 %235, label %236, label %245
+233:                                              ; preds = %226
+  %234 = load i32, ptr %6, align 4
+  %235 = and i32 %234, 15
+  %236 = icmp eq i32 %235, 4
+  br i1 %236, label %237, label %246
 
-236:                                              ; preds = %232
-  %237 = load i32, ptr %17, align 4
-  %238 = and i32 %237, 1
-  %239 = icmp ne i32 %238, 0
-  br i1 %239, label %240, label %245
+237:                                              ; preds = %233
+  %238 = load i32, ptr %17, align 4, !tbaa !3
+  %239 = and i32 %238, 1
+  %240 = icmp ne i32 %239, 0
+  br i1 %240, label %241, label %246
 
-240:                                              ; preds = %236
-  %241 = load i32, ptr %18, align 4
-  %242 = xor i32 %241, 1
-  store i32 %242, ptr %18, align 4
-  %243 = load i32, ptr %17, align 4
-  %244 = xor i32 %243, 1
-  store i32 %244, ptr %17, align 4
-  br label %245
+241:                                              ; preds = %237
+  %242 = load i32, ptr %18, align 4, !tbaa !3
+  %243 = xor i32 %242, 1
+  store i32 %243, ptr %18, align 4, !tbaa !3
+  %244 = load i32, ptr %17, align 4, !tbaa !3
+  %245 = xor i32 %244, 1
+  store i32 %245, ptr %17, align 4, !tbaa !3
+  br label %246
 
-245:                                              ; preds = %240, %236, %232
-  %246 = load i32, ptr %16, align 4
-  %247 = load i32, ptr %17, align 4
-  call void @Ivy_DecSetVar(ptr noundef %6, i32 noundef %246, i32 noundef %247)
+246:                                              ; preds = %241, %237, %233
+  %247 = load i32, ptr %16, align 4, !tbaa !3
+  %248 = load i32, ptr %17, align 4, !tbaa !3
+  call void @Ivy_DecSetVar(ptr noundef %6, i32 noundef %247, i32 noundef %248)
+  br label %260
+
+249:                                              ; preds = %223
+  %250 = load i32, ptr %6, align 4
+  %251 = and i32 %250, 15
+  %252 = icmp eq i32 %251, 4
+  br i1 %252, label %253, label %259
+
+253:                                              ; preds = %249
+  %254 = load i32, ptr %20, align 4, !tbaa !3
+  %255 = icmp eq i32 %254, 0
+  %256 = zext i1 %255 to i32
+  %257 = load i32, ptr %18, align 4, !tbaa !3
+  %258 = xor i32 %257, %256
+  store i32 %258, ptr %18, align 4, !tbaa !3
   br label %259
 
-248:                                              ; preds = %222
-  %249 = load i32, ptr %6, align 4
-  %250 = and i32 %249, 15
-  %251 = icmp eq i32 %250, 4
-  br i1 %251, label %252, label %258
+259:                                              ; preds = %253, %249
+  br label %260
 
-252:                                              ; preds = %248
-  %253 = load i32, ptr %20, align 4
-  %254 = icmp eq i32 %253, 0
-  %255 = zext i1 %254 to i32
-  %256 = load i32, ptr %18, align 4
-  %257 = xor i32 %256, %255
-  store i32 %257, ptr %18, align 4
-  br label %258
+260:                                              ; preds = %259, %246
+  %261 = load ptr, ptr %5, align 8, !tbaa !7
+  %262 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
+  %263 = load i32, ptr %262, align 4
+  %264 = call i32 @Ivy_DecToInt(i32 %263)
+  call void @Vec_IntPush(ptr noundef %261, i32 noundef %264)
+  %265 = load ptr, ptr %5, align 8, !tbaa !7
+  %266 = call i32 @Vec_IntSize(ptr noundef %265)
+  %267 = sub nsw i32 %266, 1
+  %268 = shl i32 %267, 1
+  %269 = load i32, ptr %18, align 4, !tbaa !3
+  %270 = or i32 %268, %269
+  store i32 %270, ptr %3, align 4
+  store i32 1, ptr %23, align 4
+  br label %271
 
-258:                                              ; preds = %252, %248
-  br label %259
-
-259:                                              ; preds = %258, %245
-  %260 = load ptr, ptr %5, align 8
-  %261 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %6, i32 0, i32 0
-  %262 = load i32, ptr %261, align 4
-  %263 = call i32 @Ivy_DecToInt(i32 %262)
-  call void @Vec_IntPush(ptr noundef %260, i32 noundef %263)
-  %264 = load ptr, ptr %5, align 8
-  %265 = call i32 @Vec_IntSize(ptr noundef %264)
-  %266 = sub nsw i32 %265, 1
-  %267 = shl i32 %266, 1
-  %268 = load i32, ptr %18, align 4
-  %269 = or i32 %267, %268
-  store i32 %269, ptr %3, align 4
-  br label %270
-
-270:                                              ; preds = %259, %231, %138, %126
-  %271 = load i32, ptr %3, align 4
-  ret i32 %271
+271:                                              ; preds = %260, %232, %139, %127
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %272 = load i32, ptr %3, align 4
+  ret i32 %272
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_IntToDec(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_IntToDec(i32 noundef %0) #2 {
   %2 = alloca %struct.Ivy_Dec_t_, align 4
   %3 = alloca i32, align 4
   %4 = alloca %union.anon.0, align 4
-  store i32 %0, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
-  store i32 %5, ptr %4, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %4, i64 4, i1 false)
-  %6 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %2, i32 0, i32 0
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  store i32 %5, ptr %4, align 4, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %4, i64 4, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %6 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %2, i32 0, i32 0
   %7 = load i32, ptr %6, align 4
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntPop(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntPop(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Vec_Int_t_, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !14
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %5, i64 %10
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !3
   ret i32 %12
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Ivy_TruthDsdCompute(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = call i32 @Vec_IntSize(ptr noundef %3)
   %5 = sub nsw i32 %4, 1
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
   %7 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %5, ptr noundef %6)
   ret i32 %7
 }
 
-declare i32 @printf(ptr noundef, ...) #2
+declare i32 @printf(ptr noundef, ...) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
@@ -791,31 +854,37 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = call i32 @Vec_IntEntry(ptr noundef %17, i32 noundef %18)
-  %20 = call i32 @Ivy_IntToDec(i32 noundef %19)
-  %21 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
-  store i32 %20, ptr %21, align 4
-  %22 = load i32, ptr %10, align 4
-  %23 = and i32 %22, 15
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %36
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %18 = load ptr, ptr %5, align 8, !tbaa !7
+  %19 = load i32, ptr %4, align 4, !tbaa !3
+  %20 = call i32 @Vec_IntEntry(ptr noundef %18, i32 noundef %19)
+  %21 = call i32 @Ivy_IntToDec(i32 noundef %20)
+  %22 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
+  store i32 %21, ptr %22, align 4
+  %23 = load i32, ptr %10, align 4
+  %24 = and i32 %23, 15
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %36
 
-25:                                               ; preds = %2
-  %26 = load i32, ptr %10, align 4
-  %27 = lshr i32 %26, 4
-  %28 = and i32 %27, 1
-  %29 = icmp ne i32 %28, 0
-  %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5
-  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 %32
-  %35 = load i32, ptr %34, align 4
+26:                                               ; preds = %2
+  %27 = load i32, ptr %10, align 4
+  %28 = lshr i32 %27, 4
+  %29 = and i32 %28, 1
+  %30 = icmp ne i32 %29, 0
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [2 x i32], ptr getelementptr inbounds ([6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5), i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !3
   store i32 %35, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
 36:                                               ; preds = %2
@@ -825,7 +894,7 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %39, label %40, label %53
 
 40:                                               ; preds = %36
-  %41 = load i32, ptr %4, align 4
+  %41 = load i32, ptr %4, align 4, !tbaa !3
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %42
   %44 = load i32, ptr %10, align 4
@@ -836,8 +905,9 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   %49 = zext i1 %48 to i32
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [2 x i32], ptr %43, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 4, !tbaa !3
   store i32 %52, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
 53:                                               ; preds = %36
@@ -851,9 +921,9 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   %59 = lshr i32 %58, 8
   %60 = and i32 %59, 15
   %61 = ashr i32 %60, 1
-  %62 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %5, align 8, !tbaa !7
   %63 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %61, ptr noundef %62)
-  store i32 %63, ptr %7, align 4
+  store i32 %63, ptr %7, align 4, !tbaa !3
   %64 = load i32, ptr %10, align 4
   %65 = lshr i32 %64, 4
   %66 = and i32 %65, 1
@@ -861,308 +931,333 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %57
-  %69 = load i32, ptr %7, align 4
+  %69 = load i32, ptr %7, align 4, !tbaa !3
   %70 = xor i32 %69, -1
   br label %73
 
 71:                                               ; preds = %57
-  %72 = load i32, ptr %7, align 4
+  %72 = load i32, ptr %7, align 4, !tbaa !3
   br label %73
 
 73:                                               ; preds = %71, %68
   %74 = phi i32 [ %70, %68 ], [ %72, %71 ]
   store i32 %74, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
 75:                                               ; preds = %53
   %76 = load i32, ptr %10, align 4
   %77 = and i32 %76, 15
   %78 = icmp eq i32 %77, 3
-  br i1 %78, label %79, label %124
+  br i1 %78, label %79, label %123
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5, i64 1
-  %81 = load i32, ptr %80, align 4
-  store i32 %81, ptr %7, align 4
-  store i32 0, ptr %9, align 4
-  br label %82
+  %80 = load i32, ptr getelementptr inbounds ([2 x i32], ptr getelementptr inbounds ([6 x [2 x i32]], ptr @s_Masks, i64 0, i64 5), i64 0, i64 1), align 4, !tbaa !3
+  store i32 %80, ptr %7, align 4, !tbaa !3
+  store i32 0, ptr %9, align 4, !tbaa !3
+  br label %81
 
-82:                                               ; preds = %109, %79
-  %83 = load i32, ptr %9, align 4
-  %84 = load i32, ptr %10, align 4
-  %85 = lshr i32 %84, 5
-  %86 = and i32 %85, 7
-  %87 = icmp slt i32 %83, %86
-  br i1 %87, label %88, label %112
+81:                                               ; preds = %108, %79
+  %82 = load i32, ptr %9, align 4, !tbaa !3
+  %83 = load i32, ptr %10, align 4
+  %84 = lshr i32 %83, 5
+  %85 = and i32 %84, 7
+  %86 = icmp slt i32 %82, %85
+  br i1 %86, label %87, label %111
 
-88:                                               ; preds = %82
-  %89 = load i32, ptr %9, align 4
-  %90 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %89)
-  store i32 %90, ptr %8, align 4
-  %91 = load i32, ptr %8, align 4
-  %92 = ashr i32 %91, 1
-  %93 = load ptr, ptr %5, align 8
-  %94 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %92, ptr noundef %93)
-  store i32 %94, ptr %6, align 4
-  %95 = load i32, ptr %8, align 4
-  %96 = and i32 %95, 1
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %103
+87:                                               ; preds = %81
+  %88 = load i32, ptr %9, align 4, !tbaa !3
+  %89 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %88)
+  store i32 %89, ptr %8, align 4, !tbaa !3
+  %90 = load i32, ptr %8, align 4, !tbaa !3
+  %91 = ashr i32 %90, 1
+  %92 = load ptr, ptr %5, align 8, !tbaa !7
+  %93 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %91, ptr noundef %92)
+  store i32 %93, ptr %6, align 4, !tbaa !3
+  %94 = load i32, ptr %8, align 4, !tbaa !3
+  %95 = and i32 %94, 1
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %102
 
-98:                                               ; preds = %88
-  %99 = load i32, ptr %7, align 4
-  %100 = load i32, ptr %6, align 4
-  %101 = xor i32 %100, -1
-  %102 = and i32 %99, %101
-  br label %107
+97:                                               ; preds = %87
+  %98 = load i32, ptr %7, align 4, !tbaa !3
+  %99 = load i32, ptr %6, align 4, !tbaa !3
+  %100 = xor i32 %99, -1
+  %101 = and i32 %98, %100
+  br label %106
 
-103:                                              ; preds = %88
-  %104 = load i32, ptr %7, align 4
-  %105 = load i32, ptr %6, align 4
-  %106 = and i32 %104, %105
-  br label %107
+102:                                              ; preds = %87
+  %103 = load i32, ptr %7, align 4, !tbaa !3
+  %104 = load i32, ptr %6, align 4, !tbaa !3
+  %105 = and i32 %103, %104
+  br label %106
 
-107:                                              ; preds = %103, %98
-  %108 = phi i32 [ %102, %98 ], [ %106, %103 ]
-  store i32 %108, ptr %7, align 4
-  br label %109
+106:                                              ; preds = %102, %97
+  %107 = phi i32 [ %101, %97 ], [ %105, %102 ]
+  store i32 %107, ptr %7, align 4, !tbaa !3
+  br label %108
 
-109:                                              ; preds = %107
-  %110 = load i32, ptr %9, align 4
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %9, align 4
-  br label %82, !llvm.loop !8
+108:                                              ; preds = %106
+  %109 = load i32, ptr %9, align 4, !tbaa !3
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %9, align 4, !tbaa !3
+  br label %81, !llvm.loop !24
 
-112:                                              ; preds = %82
-  %113 = load i32, ptr %10, align 4
-  %114 = lshr i32 %113, 4
-  %115 = and i32 %114, 1
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %120
+111:                                              ; preds = %81
+  %112 = load i32, ptr %10, align 4
+  %113 = lshr i32 %112, 4
+  %114 = and i32 %113, 1
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %119
 
-117:                                              ; preds = %112
-  %118 = load i32, ptr %7, align 4
-  %119 = xor i32 %118, -1
-  br label %122
+116:                                              ; preds = %111
+  %117 = load i32, ptr %7, align 4, !tbaa !3
+  %118 = xor i32 %117, -1
+  br label %121
 
-120:                                              ; preds = %112
-  %121 = load i32, ptr %7, align 4
-  br label %122
+119:                                              ; preds = %111
+  %120 = load i32, ptr %7, align 4, !tbaa !3
+  br label %121
 
-122:                                              ; preds = %120, %117
-  %123 = phi i32 [ %119, %117 ], [ %121, %120 ]
-  store i32 %123, ptr %3, align 4
+121:                                              ; preds = %119, %116
+  %122 = phi i32 [ %118, %116 ], [ %120, %119 ]
+  store i32 %122, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
-124:                                              ; preds = %75
-  %125 = load i32, ptr %10, align 4
-  %126 = and i32 %125, 15
-  %127 = icmp eq i32 %126, 4
-  br i1 %127, label %128, label %159
+123:                                              ; preds = %75
+  %124 = load i32, ptr %10, align 4
+  %125 = and i32 %124, 15
+  %126 = icmp eq i32 %125, 4
+  br i1 %126, label %127, label %158
 
-128:                                              ; preds = %124
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %9, align 4
-  br label %129
+127:                                              ; preds = %123
+  store i32 0, ptr %7, align 4, !tbaa !3
+  store i32 0, ptr %9, align 4, !tbaa !3
+  br label %128
 
-129:                                              ; preds = %144, %128
-  %130 = load i32, ptr %9, align 4
-  %131 = load i32, ptr %10, align 4
-  %132 = lshr i32 %131, 5
-  %133 = and i32 %132, 7
-  %134 = icmp slt i32 %130, %133
-  br i1 %134, label %135, label %147
+128:                                              ; preds = %143, %127
+  %129 = load i32, ptr %9, align 4, !tbaa !3
+  %130 = load i32, ptr %10, align 4
+  %131 = lshr i32 %130, 5
+  %132 = and i32 %131, 7
+  %133 = icmp slt i32 %129, %132
+  br i1 %133, label %134, label %146
 
-135:                                              ; preds = %129
-  %136 = load i32, ptr %9, align 4
-  %137 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %136)
-  store i32 %137, ptr %8, align 4
-  %138 = load i32, ptr %8, align 4
-  %139 = ashr i32 %138, 1
-  %140 = load ptr, ptr %5, align 8
-  %141 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %139, ptr noundef %140)
-  %142 = load i32, ptr %7, align 4
-  %143 = xor i32 %142, %141
-  store i32 %143, ptr %7, align 4
-  br label %144
+134:                                              ; preds = %128
+  %135 = load i32, ptr %9, align 4, !tbaa !3
+  %136 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef %135)
+  store i32 %136, ptr %8, align 4, !tbaa !3
+  %137 = load i32, ptr %8, align 4, !tbaa !3
+  %138 = ashr i32 %137, 1
+  %139 = load ptr, ptr %5, align 8, !tbaa !7
+  %140 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %138, ptr noundef %139)
+  %141 = load i32, ptr %7, align 4, !tbaa !3
+  %142 = xor i32 %141, %140
+  store i32 %142, ptr %7, align 4, !tbaa !3
+  br label %143
 
-144:                                              ; preds = %135
-  %145 = load i32, ptr %9, align 4
-  %146 = add nsw i32 %145, 1
-  store i32 %146, ptr %9, align 4
-  br label %129, !llvm.loop !9
+143:                                              ; preds = %134
+  %144 = load i32, ptr %9, align 4, !tbaa !3
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %9, align 4, !tbaa !3
+  br label %128, !llvm.loop !25
 
-147:                                              ; preds = %129
-  %148 = load i32, ptr %10, align 4
-  %149 = lshr i32 %148, 4
-  %150 = and i32 %149, 1
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %155
+146:                                              ; preds = %128
+  %147 = load i32, ptr %10, align 4
+  %148 = lshr i32 %147, 4
+  %149 = and i32 %148, 1
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %154
 
-152:                                              ; preds = %147
-  %153 = load i32, ptr %7, align 4
-  %154 = xor i32 %153, -1
-  br label %157
+151:                                              ; preds = %146
+  %152 = load i32, ptr %7, align 4, !tbaa !3
+  %153 = xor i32 %152, -1
+  br label %156
 
-155:                                              ; preds = %147
-  %156 = load i32, ptr %7, align 4
-  br label %157
+154:                                              ; preds = %146
+  %155 = load i32, ptr %7, align 4, !tbaa !3
+  br label %156
 
-157:                                              ; preds = %155, %152
-  %158 = phi i32 [ %154, %152 ], [ %156, %155 ]
-  store i32 %158, ptr %3, align 4
+156:                                              ; preds = %154, %151
+  %157 = phi i32 [ %153, %151 ], [ %155, %154 ]
+  store i32 %157, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
-159:                                              ; preds = %124
-  %160 = load i32, ptr %10, align 4
-  %161 = and i32 %160, 15
-  %162 = icmp eq i32 %161, 5
-  br i1 %162, label %167, label %163
+158:                                              ; preds = %123
+  %159 = load i32, ptr %10, align 4
+  %160 = and i32 %159, 15
+  %161 = icmp eq i32 %160, 5
+  br i1 %161, label %166, label %162
 
-163:                                              ; preds = %159
-  %164 = load i32, ptr %10, align 4
-  %165 = and i32 %164, 15
-  %166 = icmp eq i32 %165, 6
-  br i1 %166, label %167, label %237
+162:                                              ; preds = %158
+  %163 = load i32, ptr %10, align 4
+  %164 = and i32 %163, 15
+  %165 = icmp eq i32 %164, 6
+  br i1 %165, label %166, label %237
 
-167:                                              ; preds = %163, %159
-  %168 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 0)
-  store i32 %168, ptr %14, align 4
-  %169 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 1)
-  store i32 %169, ptr %15, align 4
-  %170 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 2)
-  store i32 %170, ptr %16, align 4
-  %171 = load i32, ptr %14, align 4
-  %172 = ashr i32 %171, 1
-  %173 = load ptr, ptr %5, align 8
-  %174 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %172, ptr noundef %173)
-  store i32 %174, ptr %11, align 4
-  %175 = load i32, ptr %15, align 4
-  %176 = ashr i32 %175, 1
-  %177 = load ptr, ptr %5, align 8
-  %178 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %176, ptr noundef %177)
-  store i32 %178, ptr %12, align 4
-  %179 = load i32, ptr %16, align 4
-  %180 = ashr i32 %179, 1
-  %181 = load ptr, ptr %5, align 8
-  %182 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %180, ptr noundef %181)
-  store i32 %182, ptr %13, align 4
-  %183 = load i32, ptr %14, align 4
-  %184 = and i32 %183, 1
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %189
+166:                                              ; preds = %162, %158
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %167 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 0)
+  store i32 %167, ptr %15, align 4, !tbaa !3
+  %168 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 1)
+  store i32 %168, ptr %16, align 4, !tbaa !3
+  %169 = call i32 @Ivy_DecGetVar(ptr noundef %10, i32 noundef 2)
+  store i32 %169, ptr %17, align 4, !tbaa !3
+  %170 = load i32, ptr %15, align 4, !tbaa !3
+  %171 = ashr i32 %170, 1
+  %172 = load ptr, ptr %5, align 8, !tbaa !7
+  %173 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %171, ptr noundef %172)
+  store i32 %173, ptr %12, align 4, !tbaa !3
+  %174 = load i32, ptr %16, align 4, !tbaa !3
+  %175 = ashr i32 %174, 1
+  %176 = load ptr, ptr %5, align 8, !tbaa !7
+  %177 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %175, ptr noundef %176)
+  store i32 %177, ptr %13, align 4, !tbaa !3
+  %178 = load i32, ptr %17, align 4, !tbaa !3
+  %179 = ashr i32 %178, 1
+  %180 = load ptr, ptr %5, align 8, !tbaa !7
+  %181 = call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %179, ptr noundef %180)
+  store i32 %181, ptr %14, align 4, !tbaa !3
+  %182 = load i32, ptr %15, align 4, !tbaa !3
+  %183 = and i32 %182, 1
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %188
 
-186:                                              ; preds = %167
-  %187 = load i32, ptr %11, align 4
-  %188 = xor i32 %187, -1
-  br label %191
+185:                                              ; preds = %166
+  %186 = load i32, ptr %12, align 4, !tbaa !3
+  %187 = xor i32 %186, -1
+  br label %190
 
-189:                                              ; preds = %167
-  %190 = load i32, ptr %11, align 4
-  br label %191
+188:                                              ; preds = %166
+  %189 = load i32, ptr %12, align 4, !tbaa !3
+  br label %190
 
-191:                                              ; preds = %189, %186
-  %192 = phi i32 [ %188, %186 ], [ %190, %189 ]
-  store i32 %192, ptr %11, align 4
-  %193 = load i32, ptr %15, align 4
-  %194 = and i32 %193, 1
-  %195 = icmp ne i32 %194, 0
-  br i1 %195, label %196, label %199
+190:                                              ; preds = %188, %185
+  %191 = phi i32 [ %187, %185 ], [ %189, %188 ]
+  store i32 %191, ptr %12, align 4, !tbaa !3
+  %192 = load i32, ptr %16, align 4, !tbaa !3
+  %193 = and i32 %192, 1
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %198
 
-196:                                              ; preds = %191
-  %197 = load i32, ptr %12, align 4
-  %198 = xor i32 %197, -1
-  br label %201
+195:                                              ; preds = %190
+  %196 = load i32, ptr %13, align 4, !tbaa !3
+  %197 = xor i32 %196, -1
+  br label %200
 
-199:                                              ; preds = %191
-  %200 = load i32, ptr %12, align 4
-  br label %201
+198:                                              ; preds = %190
+  %199 = load i32, ptr %13, align 4, !tbaa !3
+  br label %200
 
-201:                                              ; preds = %199, %196
-  %202 = phi i32 [ %198, %196 ], [ %200, %199 ]
-  store i32 %202, ptr %12, align 4
-  %203 = load i32, ptr %16, align 4
-  %204 = and i32 %203, 1
-  %205 = icmp ne i32 %204, 0
-  br i1 %205, label %206, label %209
+200:                                              ; preds = %198, %195
+  %201 = phi i32 [ %197, %195 ], [ %199, %198 ]
+  store i32 %201, ptr %13, align 4, !tbaa !3
+  %202 = load i32, ptr %17, align 4, !tbaa !3
+  %203 = and i32 %202, 1
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %208
 
-206:                                              ; preds = %201
-  %207 = load i32, ptr %13, align 4
-  %208 = xor i32 %207, -1
-  br label %211
+205:                                              ; preds = %200
+  %206 = load i32, ptr %14, align 4, !tbaa !3
+  %207 = xor i32 %206, -1
+  br label %210
 
-209:                                              ; preds = %201
-  %210 = load i32, ptr %13, align 4
-  br label %211
+208:                                              ; preds = %200
+  %209 = load i32, ptr %14, align 4, !tbaa !3
+  br label %210
 
-211:                                              ; preds = %209, %206
-  %212 = phi i32 [ %208, %206 ], [ %210, %209 ]
-  store i32 %212, ptr %13, align 4
-  %213 = load i32, ptr %10, align 4
-  %214 = and i32 %213, 15
-  %215 = icmp eq i32 %214, 5
-  br i1 %215, label %216, label %225
+210:                                              ; preds = %208, %205
+  %211 = phi i32 [ %207, %205 ], [ %209, %208 ]
+  store i32 %211, ptr %14, align 4, !tbaa !3
+  %212 = load i32, ptr %10, align 4
+  %213 = and i32 %212, 15
+  %214 = icmp eq i32 %213, 5
+  br i1 %214, label %215, label %224
 
-216:                                              ; preds = %211
-  %217 = load i32, ptr %11, align 4
-  %218 = load i32, ptr %12, align 4
-  %219 = and i32 %217, %218
-  %220 = load i32, ptr %11, align 4
-  %221 = xor i32 %220, -1
-  %222 = load i32, ptr %13, align 4
-  %223 = and i32 %221, %222
-  %224 = or i32 %219, %223
-  store i32 %224, ptr %3, align 4
+215:                                              ; preds = %210
+  %216 = load i32, ptr %12, align 4, !tbaa !3
+  %217 = load i32, ptr %13, align 4, !tbaa !3
+  %218 = and i32 %216, %217
+  %219 = load i32, ptr %12, align 4, !tbaa !3
+  %220 = xor i32 %219, -1
+  %221 = load i32, ptr %14, align 4, !tbaa !3
+  %222 = and i32 %220, %221
+  %223 = or i32 %218, %222
+  store i32 %223, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %236
+
+224:                                              ; preds = %210
+  %225 = load i32, ptr %12, align 4, !tbaa !3
+  %226 = load i32, ptr %13, align 4, !tbaa !3
+  %227 = and i32 %225, %226
+  %228 = load i32, ptr %12, align 4, !tbaa !3
+  %229 = load i32, ptr %14, align 4, !tbaa !3
+  %230 = and i32 %228, %229
+  %231 = or i32 %227, %230
+  %232 = load i32, ptr %13, align 4, !tbaa !3
+  %233 = load i32, ptr %14, align 4, !tbaa !3
+  %234 = and i32 %232, %233
+  %235 = or i32 %231, %234
+  store i32 %235, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %236
+
+236:                                              ; preds = %224, %215
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
   br label %238
 
-225:                                              ; preds = %211
-  %226 = load i32, ptr %11, align 4
-  %227 = load i32, ptr %12, align 4
-  %228 = and i32 %226, %227
-  %229 = load i32, ptr %11, align 4
-  %230 = load i32, ptr %13, align 4
-  %231 = and i32 %229, %230
-  %232 = or i32 %228, %231
-  %233 = load i32, ptr %12, align 4
-  %234 = load i32, ptr %13, align 4
-  %235 = and i32 %233, %234
-  %236 = or i32 %232, %235
-  store i32 %236, ptr %3, align 4
-  br label %238
-
-237:                                              ; preds = %163
+237:                                              ; preds = %162
   store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
   br label %238
 
-238:                                              ; preds = %237, %225, %216, %157, %122, %73, %40, %25
+238:                                              ; preds = %237, %236, %156, %121, %73, %40, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
   %239 = load i32, ptr %3, align 4
   ret i32 %239
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %6 = load i32, ptr %5, align 4, !tbaa !3
   switch i32 %6, label %36 [
     i32 0, label %7
     i32 1, label %12
@@ -1173,7 +1268,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !19
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 8
   %11 = and i32 %10, 15
@@ -1181,7 +1276,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   br label %37
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8, !tbaa !19
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 12
   %16 = and i32 %15, 15
@@ -1189,7 +1284,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   br label %37
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !19
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 16
   %21 = and i32 %20, 15
@@ -1197,7 +1292,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   br label %37
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %4, align 8, !tbaa !19
   %24 = load i32, ptr %23, align 4
   %25 = lshr i32 %24, 20
   %26 = and i32 %25, 15
@@ -1205,7 +1300,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   br label %37
 
 27:                                               ; preds = %2
-  %28 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !19
   %29 = load i32, ptr %28, align 4
   %30 = lshr i32 %29, 24
   %31 = and i32 %30, 15
@@ -1213,7 +1308,7 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   br label %37
 
 32:                                               ; preds = %2
-  %33 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !19
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 28
   store i32 %35, ptr %3, align 4
@@ -1228,13 +1323,13 @@ define internal i32 @Ivy_DecGetVar(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !14
   ret i32 %5
 }
 
@@ -1249,14 +1344,17 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = load i32, ptr %5, align 4, !tbaa !3
   %15 = call i32 @Vec_IntEntry(ptr noundef %13, i32 noundef %14)
   %16 = call i32 @Ivy_IntToDec(i32 noundef %15)
-  %17 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %9, i32 0, i32 0
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %9, align 4
   %19 = and i32 %18, 15
@@ -1264,13 +1362,13 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %3
-  %22 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8, !tbaa !26
   %23 = load i32, ptr %9, align 4
   %24 = lshr i32 %23, 4
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
   %27 = select i1 %26, ptr @.str.2, ptr @.str.3
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.1, ptr noundef %27) #6
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.1, ptr noundef %27) #8
   br label %209
 
 29:                                               ; preds = %3
@@ -1280,15 +1378,15 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %5, align 4
+  %34 = load ptr, ptr %4, align 8, !tbaa !26
+  %35 = load i32, ptr %5, align 4, !tbaa !3
   %36 = add nsw i32 97, %35
   %37 = load i32, ptr %9, align 4
   %38 = lshr i32 %37, 4
   %39 = and i32 %38, 1
   %40 = icmp ne i32 %39, 0
   %41 = select i1 %40, ptr @.str.2, ptr @.str.3
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.4, i32 noundef %36, ptr noundef %41) #6
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.4, i32 noundef %36, ptr noundef %41) #8
   br label %208
 
 43:                                               ; preds = %29
@@ -1298,20 +1396,20 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %4, align 8
+  %48 = load ptr, ptr %4, align 8, !tbaa !26
   %49 = load i32, ptr %9, align 4
   %50 = lshr i32 %49, 8
   %51 = and i32 %50, 15
   %52 = ashr i32 %51, 1
-  %53 = load ptr, ptr %6, align 8
+  %53 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %48, i32 noundef %52, ptr noundef %53)
-  %54 = load ptr, ptr %4, align 8
+  %54 = load ptr, ptr %4, align 8, !tbaa !26
   %55 = load i32, ptr %9, align 4
   %56 = lshr i32 %55, 4
   %57 = and i32 %56, 1
   %58 = icmp ne i32 %57, 0
   %59 = select i1 %58, ptr @.str.2, ptr @.str.3
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.5, ptr noundef %59) #6
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.5, ptr noundef %59) #8
   br label %207
 
 61:                                               ; preds = %43
@@ -1321,13 +1419,13 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %64, label %65, label %108
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr %4, align 8
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.6) #6
-  store i32 0, ptr %8, align 4
+  %66 = load ptr, ptr %4, align 8, !tbaa !26
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.6) #8
+  store i32 0, ptr %8, align 4, !tbaa !3
   br label %68
 
 68:                                               ; preds = %97, %65
-  %69 = load i32, ptr %8, align 4
+  %69 = load i32, ptr %8, align 4, !tbaa !3
   %70 = load i32, ptr %9, align 4
   %71 = lshr i32 %70, 5
   %72 = and i32 %71, 7
@@ -1335,21 +1433,21 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %73, label %74, label %100
 
 74:                                               ; preds = %68
-  %75 = load i32, ptr %8, align 4
+  %75 = load i32, ptr %8, align 4, !tbaa !3
   %76 = call i32 @Ivy_DecGetVar(ptr noundef %9, i32 noundef %75)
-  store i32 %76, ptr %7, align 4
-  %77 = load ptr, ptr %4, align 8
-  %78 = load i32, ptr %7, align 4
+  store i32 %76, ptr %7, align 4, !tbaa !3
+  %77 = load ptr, ptr %4, align 8, !tbaa !26
+  %78 = load i32, ptr %7, align 4, !tbaa !3
   %79 = ashr i32 %78, 1
-  %80 = load ptr, ptr %6, align 8
+  %80 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %77, i32 noundef %79, ptr noundef %80)
-  %81 = load ptr, ptr %4, align 8
-  %82 = load i32, ptr %7, align 4
+  %81 = load ptr, ptr %4, align 8, !tbaa !26
+  %82 = load i32, ptr %7, align 4, !tbaa !3
   %83 = and i32 %82, 1
   %84 = icmp ne i32 %83, 0
   %85 = select i1 %84, ptr @.str.2, ptr @.str.3
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.5, ptr noundef %85) #6
-  %87 = load i32, ptr %8, align 4
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.5, ptr noundef %85) #8
+  %87 = load i32, ptr %8, align 4, !tbaa !3
   %88 = load i32, ptr %9, align 4
   %89 = lshr i32 %88, 5
   %90 = and i32 %89, 7
@@ -1358,27 +1456,27 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %74
-  %94 = load ptr, ptr %4, align 8
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.7) #6
+  %94 = load ptr, ptr %4, align 8, !tbaa !26
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.7) #8
   br label %96
 
 96:                                               ; preds = %93, %74
   br label %97
 
 97:                                               ; preds = %96
-  %98 = load i32, ptr %8, align 4
+  %98 = load i32, ptr %8, align 4, !tbaa !3
   %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %8, align 4
-  br label %68, !llvm.loop !10
+  store i32 %99, ptr %8, align 4, !tbaa !3
+  br label %68, !llvm.loop !28
 
 100:                                              ; preds = %68
-  %101 = load ptr, ptr %4, align 8
+  %101 = load ptr, ptr %4, align 8, !tbaa !26
   %102 = load i32, ptr %9, align 4
   %103 = lshr i32 %102, 4
   %104 = and i32 %103, 1
   %105 = icmp ne i32 %104, 0
   %106 = select i1 %105, ptr @.str.2, ptr @.str.3
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.8, ptr noundef %106) #6
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.8, ptr noundef %106) #8
   br label %206
 
 108:                                              ; preds = %61
@@ -1388,13 +1486,13 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %111, label %112, label %149
 
 112:                                              ; preds = %108
-  %113 = load ptr, ptr %4, align 8
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.9) #6
-  store i32 0, ptr %8, align 4
+  %113 = load ptr, ptr %4, align 8, !tbaa !26
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.9) #8
+  store i32 0, ptr %8, align 4, !tbaa !3
   br label %115
 
 115:                                              ; preds = %138, %112
-  %116 = load i32, ptr %8, align 4
+  %116 = load i32, ptr %8, align 4, !tbaa !3
   %117 = load i32, ptr %9, align 4
   %118 = lshr i32 %117, 5
   %119 = and i32 %118, 7
@@ -1402,15 +1500,15 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %120, label %121, label %141
 
 121:                                              ; preds = %115
-  %122 = load i32, ptr %8, align 4
+  %122 = load i32, ptr %8, align 4, !tbaa !3
   %123 = call i32 @Ivy_DecGetVar(ptr noundef %9, i32 noundef %122)
-  store i32 %123, ptr %7, align 4
-  %124 = load ptr, ptr %4, align 8
-  %125 = load i32, ptr %7, align 4
+  store i32 %123, ptr %7, align 4, !tbaa !3
+  %124 = load ptr, ptr %4, align 8, !tbaa !26
+  %125 = load i32, ptr %7, align 4, !tbaa !3
   %126 = ashr i32 %125, 1
-  %127 = load ptr, ptr %6, align 8
+  %127 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %124, i32 noundef %126, ptr noundef %127)
-  %128 = load i32, ptr %8, align 4
+  %128 = load i32, ptr %8, align 4, !tbaa !3
   %129 = load i32, ptr %9, align 4
   %130 = lshr i32 %129, 5
   %131 = and i32 %130, 7
@@ -1419,27 +1517,27 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %121
-  %135 = load ptr, ptr %4, align 8
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef @.str.7) #6
+  %135 = load ptr, ptr %4, align 8, !tbaa !26
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef @.str.7) #8
   br label %137
 
 137:                                              ; preds = %134, %121
   br label %138
 
 138:                                              ; preds = %137
-  %139 = load i32, ptr %8, align 4
+  %139 = load i32, ptr %8, align 4, !tbaa !3
   %140 = add nsw i32 %139, 1
-  store i32 %140, ptr %8, align 4
-  br label %115, !llvm.loop !11
+  store i32 %140, ptr %8, align 4, !tbaa !3
+  br label %115, !llvm.loop !29
 
 141:                                              ; preds = %115
-  %142 = load ptr, ptr %4, align 8
+  %142 = load ptr, ptr %4, align 8, !tbaa !26
   %143 = load i32, ptr %9, align 4
   %144 = lshr i32 %143, 4
   %145 = and i32 %144, 1
   %146 = icmp ne i32 %145, 0
   %147 = select i1 %146, ptr @.str.2, ptr @.str.3
-  %148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.8, ptr noundef %147) #6
+  %148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.8, ptr noundef %147) #8
   br label %205
 
 149:                                              ; preds = %108
@@ -1455,57 +1553,63 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %156, label %157, label %203
 
 157:                                              ; preds = %153, %149
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
   %158 = call i32 @Ivy_DecGetVar(ptr noundef %9, i32 noundef 0)
-  store i32 %158, ptr %10, align 4
+  store i32 %158, ptr %10, align 4, !tbaa !3
   %159 = call i32 @Ivy_DecGetVar(ptr noundef %9, i32 noundef 1)
-  store i32 %159, ptr %11, align 4
+  store i32 %159, ptr %11, align 4, !tbaa !3
   %160 = call i32 @Ivy_DecGetVar(ptr noundef %9, i32 noundef 2)
-  store i32 %160, ptr %12, align 4
-  %161 = load ptr, ptr %4, align 8
+  store i32 %160, ptr %12, align 4, !tbaa !3
+  %161 = load ptr, ptr %4, align 8, !tbaa !26
   %162 = load i32, ptr %9, align 4
   %163 = and i32 %162, 15
   %164 = icmp eq i32 %163, 5
   %165 = select i1 %164, ptr @.str.10, ptr @.str.11
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.5, ptr noundef %165) #6
-  %167 = load ptr, ptr %4, align 8
-  %168 = load i32, ptr %10, align 4
+  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.5, ptr noundef %165) #8
+  %167 = load ptr, ptr %4, align 8, !tbaa !26
+  %168 = load i32, ptr %10, align 4, !tbaa !3
   %169 = ashr i32 %168, 1
-  %170 = load ptr, ptr %6, align 8
+  %170 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %167, i32 noundef %169, ptr noundef %170)
-  %171 = load ptr, ptr %4, align 8
-  %172 = load i32, ptr %10, align 4
+  %171 = load ptr, ptr %4, align 8, !tbaa !26
+  %172 = load i32, ptr %10, align 4, !tbaa !3
   %173 = and i32 %172, 1
   %174 = icmp ne i32 %173, 0
   %175 = select i1 %174, ptr @.str.2, ptr @.str.3
-  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef @.str.5, ptr noundef %175) #6
-  %177 = load ptr, ptr %4, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef @.str.7) #6
-  %179 = load ptr, ptr %4, align 8
-  %180 = load i32, ptr %11, align 4
+  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef @.str.5, ptr noundef %175) #8
+  %177 = load ptr, ptr %4, align 8, !tbaa !26
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef @.str.7) #8
+  %179 = load ptr, ptr %4, align 8, !tbaa !26
+  %180 = load i32, ptr %11, align 4, !tbaa !3
   %181 = ashr i32 %180, 1
-  %182 = load ptr, ptr %6, align 8
+  %182 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %179, i32 noundef %181, ptr noundef %182)
-  %183 = load ptr, ptr %4, align 8
-  %184 = load i32, ptr %11, align 4
+  %183 = load ptr, ptr %4, align 8, !tbaa !26
+  %184 = load i32, ptr %11, align 4, !tbaa !3
   %185 = and i32 %184, 1
   %186 = icmp ne i32 %185, 0
   %187 = select i1 %186, ptr @.str.2, ptr @.str.3
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef @.str.5, ptr noundef %187) #6
-  %189 = load ptr, ptr %4, align 8
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.7) #6
-  %191 = load ptr, ptr %4, align 8
-  %192 = load i32, ptr %12, align 4
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef @.str.5, ptr noundef %187) #8
+  %189 = load ptr, ptr %4, align 8, !tbaa !26
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.7) #8
+  %191 = load ptr, ptr %4, align 8, !tbaa !26
+  %192 = load i32, ptr %12, align 4, !tbaa !3
   %193 = ashr i32 %192, 1
-  %194 = load ptr, ptr %6, align 8
+  %194 = load ptr, ptr %6, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %191, i32 noundef %193, ptr noundef %194)
-  %195 = load ptr, ptr %4, align 8
-  %196 = load i32, ptr %12, align 4
+  %195 = load ptr, ptr %4, align 8, !tbaa !26
+  %196 = load i32, ptr %12, align 4, !tbaa !3
   %197 = and i32 %196, 1
   %198 = icmp ne i32 %197, 0
   %199 = select i1 %198, ptr @.str.2, ptr @.str.3
-  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef @.str.5, ptr noundef %199) #6
-  %201 = load ptr, ptr %4, align 8
-  %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef @.str.12) #6
+  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef @.str.5, ptr noundef %199) #8
+  %201 = load ptr, ptr %4, align 8, !tbaa !26
+  %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef @.str.12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
   br label %204
 
 203:                                              ; preds = %153
@@ -1527,28 +1631,31 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %209
 
 209:                                              ; preds = %208, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_TruthDsdPrint(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.13) #6
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
+  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.13) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !7
   %9 = call i32 @Vec_IntSize(ptr noundef %8)
   %10 = sub nsw i32 %9, 1
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %7, i32 noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %3, align 8
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.14) #6
+  %12 = load ptr, ptr %3, align 8, !tbaa !26
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.14) #8
   ret void
 }
 
@@ -1568,295 +1675,324 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = call i32 @Vec_IntEntry(ptr noundef %19, i32 noundef %20)
-  %22 = call i32 @Ivy_IntToDec(i32 noundef %21)
-  %23 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %15, i32 0, i32 0
-  store i32 %22, ptr %23, align 4
-  %24 = load i32, ptr %15, align 4
-  %25 = and i32 %24, 15
-  %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %34
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !30
+  store ptr %1, ptr %7, align 8, !tbaa !7
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 128, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %20 = load ptr, ptr %9, align 8, !tbaa !7
+  %21 = load i32, ptr %8, align 4, !tbaa !3
+  %22 = call i32 @Vec_IntEntry(ptr noundef %20, i32 noundef %21)
+  %23 = call i32 @Ivy_IntToDec(i32 noundef %22)
+  %24 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %15, i32 0, i32 0
+  store i32 %23, ptr %24, align 4
+  %25 = load i32, ptr %15, align 4
+  %26 = and i32 %25, 15
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %35
 
-27:                                               ; preds = %4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @Ivy_ManConst1(ptr noundef %28)
-  %30 = load i32, ptr %15, align 4
-  %31 = lshr i32 %30, 4
-  %32 = and i32 %31, 1
-  %33 = call ptr @Ivy_NotCond(ptr noundef %29, i32 noundef %32)
-  store ptr %33, ptr %5, align 8
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %6, align 8, !tbaa !30
+  %30 = call ptr @Ivy_ManConst1(ptr noundef %29)
+  %31 = load i32, ptr %15, align 4
+  %32 = lshr i32 %31, 4
+  %33 = and i32 %32, 1
+  %34 = call ptr @Ivy_NotCond(ptr noundef %30, i32 noundef %33)
+  store ptr %34, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  br label %193
+
+35:                                               ; preds = %4
+  %36 = load i32, ptr %15, align 4
+  %37 = and i32 %36, 15
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %50
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %6, align 8, !tbaa !30
+  %41 = load ptr, ptr %7, align 8, !tbaa !7
+  %42 = load i32, ptr %8, align 4, !tbaa !3
+  %43 = call i32 @Vec_IntEntry(ptr noundef %41, i32 noundef %42)
+  %44 = call ptr @Ivy_ManObj(ptr noundef %40, i32 noundef %43)
+  store ptr %44, ptr %10, align 8, !tbaa !32
+  %45 = load ptr, ptr %10, align 8, !tbaa !32
+  %46 = load i32, ptr %15, align 4
+  %47 = lshr i32 %46, 4
+  %48 = and i32 %47, 1
+  %49 = call ptr @Ivy_NotCond(ptr noundef %45, i32 noundef %48)
+  store ptr %49, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  br label %193
+
+50:                                               ; preds = %35
+  %51 = load i32, ptr %15, align 4
+  %52 = and i32 %51, 15
+  %53 = icmp eq i32 %52, 2
+  br i1 %53, label %54, label %68
+
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %6, align 8, !tbaa !30
+  %56 = load ptr, ptr %7, align 8, !tbaa !7
+  %57 = load i32, ptr %15, align 4
+  %58 = lshr i32 %57, 8
+  %59 = and i32 %58, 15
+  %60 = ashr i32 %59, 1
+  %61 = load ptr, ptr %9, align 8, !tbaa !7
+  %62 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %55, ptr noundef %56, i32 noundef %60, ptr noundef %61)
+  store ptr %62, ptr %10, align 8, !tbaa !32
+  %63 = load ptr, ptr %10, align 8, !tbaa !32
+  %64 = load i32, ptr %15, align 4
+  %65 = lshr i32 %64, 4
+  %66 = and i32 %65, 1
+  %67 = call ptr @Ivy_NotCond(ptr noundef %63, i32 noundef %66)
+  store ptr %67, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  br label %193
+
+68:                                               ; preds = %50
+  %69 = load i32, ptr %15, align 4
+  %70 = and i32 %69, 15
+  %71 = icmp eq i32 %70, 3
+  br i1 %71, label %76, label %72
+
+72:                                               ; preds = %68
+  %73 = load i32, ptr %15, align 4
+  %74 = and i32 %73, 15
+  %75 = icmp eq i32 %74, 4
+  br i1 %75, label %76, label %119
+
+76:                                               ; preds = %72, %68
+  store i32 0, ptr %14, align 4, !tbaa !3
+  br label %77
+
+77:                                               ; preds = %100, %76
+  %78 = load i32, ptr %14, align 4, !tbaa !3
+  %79 = load i32, ptr %15, align 4
+  %80 = lshr i32 %79, 5
+  %81 = and i32 %80, 7
+  %82 = icmp slt i32 %78, %81
+  br i1 %82, label %83, label %103
+
+83:                                               ; preds = %77
+  %84 = load i32, ptr %14, align 4, !tbaa !3
+  %85 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef %84)
+  store i32 %85, ptr %13, align 4, !tbaa !3
+  %86 = load ptr, ptr %6, align 8, !tbaa !30
+  %87 = load ptr, ptr %7, align 8, !tbaa !7
+  %88 = load i32, ptr %13, align 4, !tbaa !3
+  %89 = ashr i32 %88, 1
+  %90 = load ptr, ptr %9, align 8, !tbaa !7
+  %91 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %86, ptr noundef %87, i32 noundef %89, ptr noundef %90)
+  store ptr %91, ptr %11, align 8, !tbaa !32
+  %92 = load ptr, ptr %11, align 8, !tbaa !32
+  %93 = load i32, ptr %13, align 4, !tbaa !3
+  %94 = and i32 %93, 1
+  %95 = call ptr @Ivy_NotCond(ptr noundef %92, i32 noundef %94)
+  store ptr %95, ptr %11, align 8, !tbaa !32
+  %96 = load ptr, ptr %11, align 8, !tbaa !32
+  %97 = load i32, ptr %14, align 4, !tbaa !3
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 %98
+  store ptr %96, ptr %99, align 8, !tbaa !32
+  br label %100
+
+100:                                              ; preds = %83
+  %101 = load i32, ptr %14, align 4, !tbaa !3
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %14, align 4, !tbaa !3
+  br label %77, !llvm.loop !34
+
+103:                                              ; preds = %77
+  %104 = load ptr, ptr %6, align 8, !tbaa !30
+  %105 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  %106 = load i32, ptr %15, align 4
+  %107 = lshr i32 %106, 5
+  %108 = and i32 %107, 7
+  %109 = load i32, ptr %15, align 4
+  %110 = and i32 %109, 15
+  %111 = icmp eq i32 %110, 3
+  %112 = select i1 %111, i32 5, i32 6
+  %113 = call ptr @Ivy_Multi(ptr noundef %104, ptr noundef %105, i32 noundef %108, i32 noundef %112)
+  store ptr %113, ptr %10, align 8, !tbaa !32
+  %114 = load ptr, ptr %10, align 8, !tbaa !32
+  %115 = load i32, ptr %15, align 4
+  %116 = lshr i32 %115, 4
+  %117 = and i32 %116, 1
+  %118 = call ptr @Ivy_NotCond(ptr noundef %114, i32 noundef %117)
+  store ptr %118, ptr %5, align 8
+  store i32 1, ptr %16, align 4
+  br label %193
+
+119:                                              ; preds = %72
+  %120 = load i32, ptr %15, align 4
+  %121 = and i32 %120, 15
+  %122 = icmp eq i32 %121, 5
+  br i1 %122, label %127, label %123
+
+123:                                              ; preds = %119
+  %124 = load i32, ptr %15, align 4
+  %125 = and i32 %124, 15
+  %126 = icmp eq i32 %125, 6
+  br i1 %126, label %127, label %192
+
+127:                                              ; preds = %123, %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %128 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 0)
+  store i32 %128, ptr %17, align 4, !tbaa !3
+  %129 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 1)
+  store i32 %129, ptr %18, align 4, !tbaa !3
+  %130 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 2)
+  store i32 %130, ptr %19, align 4, !tbaa !3
+  %131 = load ptr, ptr %6, align 8, !tbaa !30
+  %132 = load ptr, ptr %7, align 8, !tbaa !7
+  %133 = load i32, ptr %17, align 4, !tbaa !3
+  %134 = ashr i32 %133, 1
+  %135 = load ptr, ptr %9, align 8, !tbaa !7
+  %136 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %131, ptr noundef %132, i32 noundef %134, ptr noundef %135)
+  %137 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  store ptr %136, ptr %137, align 16, !tbaa !32
+  %138 = load ptr, ptr %6, align 8, !tbaa !30
+  %139 = load ptr, ptr %7, align 8, !tbaa !7
+  %140 = load i32, ptr %18, align 4, !tbaa !3
+  %141 = ashr i32 %140, 1
+  %142 = load ptr, ptr %9, align 8, !tbaa !7
+  %143 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %138, ptr noundef %139, i32 noundef %141, ptr noundef %142)
+  %144 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
+  store ptr %143, ptr %144, align 8, !tbaa !32
+  %145 = load ptr, ptr %6, align 8, !tbaa !30
+  %146 = load ptr, ptr %7, align 8, !tbaa !7
+  %147 = load i32, ptr %19, align 4, !tbaa !3
+  %148 = ashr i32 %147, 1
+  %149 = load ptr, ptr %9, align 8, !tbaa !7
+  %150 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %145, ptr noundef %146, i32 noundef %148, ptr noundef %149)
+  %151 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
+  store ptr %150, ptr %151, align 16, !tbaa !32
+  %152 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  %153 = load ptr, ptr %152, align 16, !tbaa !32
+  %154 = load i32, ptr %17, align 4, !tbaa !3
+  %155 = and i32 %154, 1
+  %156 = call ptr @Ivy_NotCond(ptr noundef %153, i32 noundef %155)
+  %157 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  store ptr %156, ptr %157, align 16, !tbaa !32
+  %158 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !32
+  %160 = load i32, ptr %18, align 4, !tbaa !3
+  %161 = and i32 %160, 1
+  %162 = call ptr @Ivy_NotCond(ptr noundef %159, i32 noundef %161)
+  %163 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
+  store ptr %162, ptr %163, align 8, !tbaa !32
+  %164 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
+  %165 = load ptr, ptr %164, align 16, !tbaa !32
+  %166 = load i32, ptr %19, align 4, !tbaa !3
+  %167 = and i32 %166, 1
+  %168 = call ptr @Ivy_NotCond(ptr noundef %165, i32 noundef %167)
+  %169 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
+  store ptr %168, ptr %169, align 16, !tbaa !32
+  %170 = load i32, ptr %15, align 4
+  %171 = and i32 %170, 15
+  %172 = icmp eq i32 %171, 5
+  br i1 %172, label %173, label %182
+
+173:                                              ; preds = %127
+  %174 = load ptr, ptr %6, align 8, !tbaa !30
+  %175 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  %176 = load ptr, ptr %175, align 16, !tbaa !32
+  %177 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
+  %178 = load ptr, ptr %177, align 8, !tbaa !32
+  %179 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
+  %180 = load ptr, ptr %179, align 16, !tbaa !32
+  %181 = call ptr @Ivy_Mux(ptr noundef %174, ptr noundef %176, ptr noundef %178, ptr noundef %180)
+  store ptr %181, ptr %5, align 8
+  store i32 1, ptr %16, align 4
   br label %191
 
-34:                                               ; preds = %4
-  %35 = load i32, ptr %15, align 4
-  %36 = and i32 %35, 15
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %49
-
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr %8, align 4
-  %42 = call i32 @Vec_IntEntry(ptr noundef %40, i32 noundef %41)
-  %43 = call ptr @Ivy_ManObj(ptr noundef %39, i32 noundef %42)
-  store ptr %43, ptr %10, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = lshr i32 %45, 4
-  %47 = and i32 %46, 1
-  %48 = call ptr @Ivy_NotCond(ptr noundef %44, i32 noundef %47)
-  store ptr %48, ptr %5, align 8
+182:                                              ; preds = %127
+  %183 = load ptr, ptr %6, align 8, !tbaa !30
+  %184 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
+  %185 = load ptr, ptr %184, align 16, !tbaa !32
+  %186 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
+  %187 = load ptr, ptr %186, align 8, !tbaa !32
+  %188 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
+  %189 = load ptr, ptr %188, align 16, !tbaa !32
+  %190 = call ptr @Ivy_Maj(ptr noundef %183, ptr noundef %185, ptr noundef %187, ptr noundef %189)
+  store ptr %190, ptr %5, align 8
+  store i32 1, ptr %16, align 4
   br label %191
 
-49:                                               ; preds = %34
-  %50 = load i32, ptr %15, align 4
-  %51 = and i32 %50, 15
-  %52 = icmp eq i32 %51, 2
-  br i1 %52, label %53, label %67
+191:                                              ; preds = %182, %173
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  br label %193
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %6, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = lshr i32 %56, 8
-  %58 = and i32 %57, 15
-  %59 = ashr i32 %58, 1
-  %60 = load ptr, ptr %9, align 8
-  %61 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %54, ptr noundef %55, i32 noundef %59, ptr noundef %60)
-  store ptr %61, ptr %10, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = load i32, ptr %15, align 4
-  %64 = lshr i32 %63, 4
-  %65 = and i32 %64, 1
-  %66 = call ptr @Ivy_NotCond(ptr noundef %62, i32 noundef %65)
-  store ptr %66, ptr %5, align 8
-  br label %191
-
-67:                                               ; preds = %49
-  %68 = load i32, ptr %15, align 4
-  %69 = and i32 %68, 15
-  %70 = icmp eq i32 %69, 3
-  br i1 %70, label %75, label %71
-
-71:                                               ; preds = %67
-  %72 = load i32, ptr %15, align 4
-  %73 = and i32 %72, 15
-  %74 = icmp eq i32 %73, 4
-  br i1 %74, label %75, label %118
-
-75:                                               ; preds = %71, %67
-  store i32 0, ptr %14, align 4
-  br label %76
-
-76:                                               ; preds = %99, %75
-  %77 = load i32, ptr %14, align 4
-  %78 = load i32, ptr %15, align 4
-  %79 = lshr i32 %78, 5
-  %80 = and i32 %79, 7
-  %81 = icmp slt i32 %77, %80
-  br i1 %81, label %82, label %102
-
-82:                                               ; preds = %76
-  %83 = load i32, ptr %14, align 4
-  %84 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef %83)
-  store i32 %84, ptr %13, align 4
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %13, align 4
-  %88 = ashr i32 %87, 1
-  %89 = load ptr, ptr %9, align 8
-  %90 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %85, ptr noundef %86, i32 noundef %88, ptr noundef %89)
-  store ptr %90, ptr %11, align 8
-  %91 = load ptr, ptr %11, align 8
-  %92 = load i32, ptr %13, align 4
-  %93 = and i32 %92, 1
-  %94 = call ptr @Ivy_NotCond(ptr noundef %91, i32 noundef %93)
-  store ptr %94, ptr %11, align 8
-  %95 = load ptr, ptr %11, align 8
-  %96 = load i32, ptr %14, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 %97
-  store ptr %95, ptr %98, align 8
-  br label %99
-
-99:                                               ; preds = %82
-  %100 = load i32, ptr %14, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %14, align 4
-  br label %76, !llvm.loop !12
-
-102:                                              ; preds = %76
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  %105 = load i32, ptr %15, align 4
-  %106 = lshr i32 %105, 5
-  %107 = and i32 %106, 7
-  %108 = load i32, ptr %15, align 4
-  %109 = and i32 %108, 15
-  %110 = icmp eq i32 %109, 3
-  %111 = select i1 %110, i32 5, i32 6
-  %112 = call ptr @Ivy_Multi(ptr noundef %103, ptr noundef %104, i32 noundef %107, i32 noundef %111)
-  store ptr %112, ptr %10, align 8
-  %113 = load ptr, ptr %10, align 8
-  %114 = load i32, ptr %15, align 4
-  %115 = lshr i32 %114, 4
-  %116 = and i32 %115, 1
-  %117 = call ptr @Ivy_NotCond(ptr noundef %113, i32 noundef %116)
-  store ptr %117, ptr %5, align 8
-  br label %191
-
-118:                                              ; preds = %71
-  %119 = load i32, ptr %15, align 4
-  %120 = and i32 %119, 15
-  %121 = icmp eq i32 %120, 5
-  br i1 %121, label %126, label %122
-
-122:                                              ; preds = %118
-  %123 = load i32, ptr %15, align 4
-  %124 = and i32 %123, 15
-  %125 = icmp eq i32 %124, 6
-  br i1 %125, label %126, label %190
-
-126:                                              ; preds = %122, %118
-  %127 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 0)
-  store i32 %127, ptr %16, align 4
-  %128 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 1)
-  store i32 %128, ptr %17, align 4
-  %129 = call i32 @Ivy_DecGetVar(ptr noundef %15, i32 noundef 2)
-  store i32 %129, ptr %18, align 4
-  %130 = load ptr, ptr %6, align 8
-  %131 = load ptr, ptr %7, align 8
-  %132 = load i32, ptr %16, align 4
-  %133 = ashr i32 %132, 1
-  %134 = load ptr, ptr %9, align 8
-  %135 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %130, ptr noundef %131, i32 noundef %133, ptr noundef %134)
-  %136 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  store ptr %135, ptr %136, align 16
-  %137 = load ptr, ptr %6, align 8
-  %138 = load ptr, ptr %7, align 8
-  %139 = load i32, ptr %17, align 4
-  %140 = ashr i32 %139, 1
-  %141 = load ptr, ptr %9, align 8
-  %142 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %137, ptr noundef %138, i32 noundef %140, ptr noundef %141)
-  %143 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
-  store ptr %142, ptr %143, align 8
-  %144 = load ptr, ptr %6, align 8
-  %145 = load ptr, ptr %7, align 8
-  %146 = load i32, ptr %18, align 4
-  %147 = ashr i32 %146, 1
-  %148 = load ptr, ptr %9, align 8
-  %149 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %144, ptr noundef %145, i32 noundef %147, ptr noundef %148)
-  %150 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
-  store ptr %149, ptr %150, align 16
-  %151 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  %152 = load ptr, ptr %151, align 16
-  %153 = load i32, ptr %16, align 4
-  %154 = and i32 %153, 1
-  %155 = call ptr @Ivy_NotCond(ptr noundef %152, i32 noundef %154)
-  %156 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  store ptr %155, ptr %156, align 16
-  %157 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr %17, align 4
-  %160 = and i32 %159, 1
-  %161 = call ptr @Ivy_NotCond(ptr noundef %158, i32 noundef %160)
-  %162 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
-  store ptr %161, ptr %162, align 8
-  %163 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
-  %164 = load ptr, ptr %163, align 16
-  %165 = load i32, ptr %18, align 4
-  %166 = and i32 %165, 1
-  %167 = call ptr @Ivy_NotCond(ptr noundef %164, i32 noundef %166)
-  %168 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
-  store ptr %167, ptr %168, align 16
-  %169 = load i32, ptr %15, align 4
-  %170 = and i32 %169, 15
-  %171 = icmp eq i32 %170, 5
-  br i1 %171, label %172, label %181
-
-172:                                              ; preds = %126
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  %175 = load ptr, ptr %174, align 16
-  %176 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
-  %179 = load ptr, ptr %178, align 16
-  %180 = call ptr @Ivy_Mux(ptr noundef %173, ptr noundef %175, ptr noundef %177, ptr noundef %179)
-  store ptr %180, ptr %5, align 8
-  br label %191
-
-181:                                              ; preds = %126
-  %182 = load ptr, ptr %6, align 8
-  %183 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 0
-  %184 = load ptr, ptr %183, align 16
-  %185 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 1
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds [16 x ptr], ptr %12, i64 0, i64 2
-  %188 = load ptr, ptr %187, align 16
-  %189 = call ptr @Ivy_Maj(ptr noundef %182, ptr noundef %184, ptr noundef %186, ptr noundef %188)
-  store ptr %189, ptr %5, align 8
-  br label %191
-
-190:                                              ; preds = %122
+192:                                              ; preds = %123
   store ptr null, ptr %5, align 8
-  br label %191
+  store i32 1, ptr %16, align 4
+  br label %193
 
-191:                                              ; preds = %190, %181, %172, %102, %53, %38, %27
-  %192 = load ptr, ptr %5, align 8
-  ret ptr %192
+193:                                              ; preds = %192, %191, %103, %54, %39, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 128, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %194 = load ptr, ptr %5, align 8
+  ret ptr %194
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Ivy_NotCond(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Ivy_NotCond(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
   %6 = ptrtoint ptr %5 to i64
-  %7 = load i32, ptr %4, align 4
+  %7 = load i32, ptr %4, align 4, !tbaa !3
   %8 = sext i32 %7 to i64
   %9 = xor i64 %6, %8
   %10 = inttoptr i64 %9 to ptr
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Ivy_ManConst1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Ivy_ManConst1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Ivy_Man_t_, ptr %3, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds nuw %struct.Ivy_Man_t_, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Ivy_ManObj(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Ivy_ManObj(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Ivy_Man_t_, ptr %5, i32 0, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !30
+  %6 = getelementptr inbounds nuw %struct.Ivy_Man_t_, ptr %5, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = call ptr @Vec_PtrEntry(ptr noundef %7, i32 noundef %8)
   ret ptr %9
 }
 
-declare ptr @Ivy_Multi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+declare ptr @Ivy_Multi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #4
 
-declare ptr @Ivy_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Ivy_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
-declare ptr @Ivy_Maj(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Ivy_Maj(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -1865,24 +2001,26 @@ define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i32 0, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !3
   br label %9
 
 9:                                                ; preds = %25, %3
-  %10 = load i32, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
   %12 = call i32 @Vec_IntSize(ptr noundef %11)
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = load i32, ptr %8, align 4, !tbaa !3
   %17 = call i32 @Vec_IntEntry(ptr noundef %15, i32 noundef %16)
-  store i32 %17, ptr %7, align 4
+  store i32 %17, ptr %7, align 4, !tbaa !3
   br label %18
 
 18:                                               ; preds = %14, %9
@@ -1890,54 +2028,56 @@ define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = load i32, ptr %7, align 4
+  %21 = load ptr, ptr %5, align 8, !tbaa !7
+  %22 = load i32, ptr %8, align 4, !tbaa !3
+  %23 = load i32, ptr %7, align 4, !tbaa !3
   %24 = call i32 @Ivy_LeafId(i32 noundef %23)
   call void @Vec_IntWriteEntry(ptr noundef %21, i32 noundef %22, i32 noundef %24)
   br label %25
 
 25:                                               ; preds = %20
-  %26 = load i32, ptr %8, align 4
+  %26 = load i32, ptr %8, align 4, !tbaa !3
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %8, align 4
-  br label %9, !llvm.loop !13
+  store i32 %27, ptr %8, align 4, !tbaa !3
+  br label %9, !llvm.loop !41
 
 28:                                               ; preds = %18
-  %29 = load ptr, ptr %4, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %4, align 8, !tbaa !30
+  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %31 = load ptr, ptr %6, align 8, !tbaa !7
   %32 = call i32 @Vec_IntSize(ptr noundef %31)
   %33 = sub nsw i32 %32, 1
-  %34 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %6, align 8, !tbaa !7
   %35 = call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %29, ptr noundef %30, i32 noundef %33, ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret ptr %35
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  %7 = load i32, ptr %6, align 4, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %11 = load i32, ptr %5, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %10, i64 %12
-  store i32 %7, ptr %13, align 4
+  store i32 %7, ptr %13, align 4, !tbaa !3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_LeafId(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_LeafId(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = ashr i32 %3, 8
   ret i32 %4
 }
@@ -1945,26 +2085,26 @@ define internal i32 @Ivy_LeafId(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define void @Ivy_TruthDsdComputePrint(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = call ptr @Vec_IntAlloc(i32 noundef 12)
-  store ptr %6, ptr @Ivy_TruthDsdComputePrint.vTree, align 8
+  store ptr %6, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !7
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = load i32, ptr %2, align 4
-  %9 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8
+  %8 = load i32, ptr %2, align 4, !tbaa !3
+  %9 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !7
   %10 = call i32 @Ivy_TruthDsd(i32 noundef %8, ptr noundef %9)
   %11 = icmp ne i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr @stdout, align 8
-  %14 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %14 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint(ptr noundef %13, ptr noundef %14)
   br label %17
 
@@ -1976,47 +2116,48 @@ define void @Ivy_TruthDsdComputePrint(i32 noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #7
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = call noalias ptr @malloc(i64 noundef 16) #9
+  store ptr %4, ptr %3, align 8, !tbaa !7
+  %5 = load i32, ptr %2, align 4, !tbaa !3
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !3
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !3
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !14
+  %14 = load i32, ptr %2, align 4, !tbaa !3
+  %15 = load ptr, ptr %3, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %3, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !17
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !17
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #7
+  %27 = call noalias ptr @malloc(i64 noundef %26) #9
   br label %29
 
 28:                                               ; preds = %11
@@ -2024,29 +2165,30 @@ define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !18
+  %33 = load ptr, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %33
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_TruthTestOne(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = call ptr @Vec_IntAlloc(i32 noundef 12)
-  store ptr %6, ptr @Ivy_TruthTestOne.vTree, align 8
+  store ptr %6, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !7
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = load i32, ptr %2, align 4
-  %9 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8
+  %8 = load i32, ptr %2, align 4, !tbaa !3
+  %9 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !7
   %10 = call i32 @Ivy_TruthDsd(i32 noundef %8, ptr noundef %9)
   %11 = icmp ne i32 %10, 0
   br i1 %11, label %13, label %12
@@ -2055,18 +2197,18 @@ define void @Ivy_TruthTestOne(i32 noundef %0) #0 {
   br label %28
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr @Ivy_TruthTestOne.Counter, align 4
+  %14 = load i32, ptr @Ivy_TruthTestOne.Counter, align 4, !tbaa !3
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr @Ivy_TruthTestOne.Counter, align 4
+  store i32 %15, ptr @Ivy_TruthTestOne.Counter, align 4, !tbaa !3
   %16 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, i32 noundef %14)
-  %17 = load ptr, ptr @stdout, align 8
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !26
   call void @Extra_PrintBinary(ptr noundef %17, ptr noundef %2, i32 noundef 32)
   %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
-  %19 = load ptr, ptr @stdout, align 8
-  %20 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %20 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !7
   call void @Ivy_TruthDsdPrint(ptr noundef %19, ptr noundef %20)
-  %21 = load i32, ptr %2, align 4
-  %22 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8
+  %21 = load i32, ptr %2, align 4, !tbaa !3
+  %22 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !7
   %23 = call i32 @Ivy_TruthDsdCompute(ptr noundef %22)
   %24 = icmp ne i32 %21, %23
   br i1 %24, label %25, label %27
@@ -2082,18 +2224,18 @@ define void @Ivy_TruthTestOne(i32 noundef %0) #0 {
   ret void
 }
 
-declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !17
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -2101,38 +2243,38 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %20 = load i32, ptr %4, align 4, !tbaa !3
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #8
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #10
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !3
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #7
+  %28 = call noalias ptr @malloc(i64 noundef %27) #9
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !18
+  %33 = load i32, ptr %4, align 4, !tbaa !3
+  %34 = load ptr, ptr %3, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !17
   br label %36
 
 36:                                               ; preds = %29, %10
@@ -2140,35 +2282,35 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #4
+declare ptr @realloc(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #5
+declare noalias ptr @malloc(i64 noundef) #7
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_TruthCofactorIsConst(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_TruthCofactorIsConst(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %10 = load i32, ptr %9, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %6, align 4
-  %14 = load i32, ptr %7, align 4
+  %13 = load i32, ptr %6, align 4, !tbaa !3
+  %14 = load i32, ptr %7, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %15
-  %17 = load i32, ptr %8, align 4
+  %17 = load i32, ptr %8, align 4, !tbaa !3
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = and i32 %13, %20
   %22 = icmp eq i32 %21, 0
   %23 = zext i1 %22 to i32
@@ -2176,22 +2318,22 @@ define internal i32 @Ivy_TruthCofactorIsConst(i32 noundef %0, i32 noundef %1, i3
   br label %43
 
 24:                                               ; preds = %4
-  %25 = load i32, ptr %6, align 4
-  %26 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %6, align 4, !tbaa !3
+  %26 = load i32, ptr %7, align 4, !tbaa !3
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %27
-  %29 = load i32, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4, !tbaa !3
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4
+  %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = and i32 %25, %32
-  %34 = load i32, ptr %7, align 4
+  %34 = load i32, ptr %7, align 4, !tbaa !3
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %35
-  %37 = load i32, ptr %8, align 4
+  %37 = load i32, ptr %8, align 4, !tbaa !3
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [2 x i32], ptr %36, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4
+  %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = icmp eq i32 %33, %40
   %42 = zext i1 %41 to i32
   store i32 %42, ptr %5, align 4
@@ -2202,59 +2344,66 @@ define internal i32 @Ivy_TruthCofactorIsConst(i32 noundef %0, i32 noundef %1, i3
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_TruthCofactor(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_TruthCofactor(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  %8 = load i32, ptr %4, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = ashr i32 %9, 1
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %11
-  %13 = load i32, ptr %5, align 4
-  %14 = and i32 %13, 1
-  %15 = icmp eq i32 %14, 0
-  %16 = zext i1 %15 to i32
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = and i32 %8, %19
-  store i32 %20, ptr %6, align 4
-  %21 = load i32, ptr %5, align 4
-  %22 = ashr i32 %21, 1
-  %23 = shl i32 1, %22
-  store i32 %23, ptr %7, align 4
-  %24 = load i32, ptr %5, align 4
-  %25 = and i32 %24, 1
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %33
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  %11 = ashr i32 %10, 1
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %12
+  %14 = load i32, ptr %5, align 4, !tbaa !3
+  %15 = and i32 %14, 1
+  %16 = icmp eq i32 %15, 0
+  %17 = zext i1 %16 to i32
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [2 x i32], ptr %13, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !3
+  %21 = and i32 %9, %20
+  store i32 %21, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %22 = load i32, ptr %5, align 4, !tbaa !3
+  %23 = ashr i32 %22, 1
+  %24 = shl i32 1, %23
+  store i32 %24, ptr %7, align 4, !tbaa !3
+  %25 = load i32, ptr %5, align 4, !tbaa !3
+  %26 = and i32 %25, 1
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %2
-  %28 = load i32, ptr %6, align 4
-  %29 = load i32, ptr %6, align 4
-  %30 = load i32, ptr %7, align 4
-  %31 = shl i32 %29, %30
-  %32 = or i32 %28, %31
-  store i32 %32, ptr %3, align 4
-  br label %39
+28:                                               ; preds = %2
+  %29 = load i32, ptr %6, align 4, !tbaa !3
+  %30 = load i32, ptr %6, align 4, !tbaa !3
+  %31 = load i32, ptr %7, align 4, !tbaa !3
+  %32 = shl i32 %30, %31
+  %33 = or i32 %29, %32
+  store i32 %33, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %40
 
-33:                                               ; preds = %2
-  %34 = load i32, ptr %6, align 4
-  %35 = load i32, ptr %6, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = lshr i32 %35, %36
-  %38 = or i32 %34, %37
-  store i32 %38, ptr %3, align 4
-  br label %39
+34:                                               ; preds = %2
+  %35 = load i32, ptr %6, align 4, !tbaa !3
+  %36 = load i32, ptr %6, align 4, !tbaa !3
+  %37 = load i32, ptr %7, align 4, !tbaa !3
+  %38 = lshr i32 %36, %37
+  %39 = or i32 %35, %38
+  store i32 %39, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %40
 
-39:                                               ; preds = %33, %27
-  %40 = load i32, ptr %3, align 4
-  ret i32 %40
+40:                                               ; preds = %34, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %41 = load i32, ptr %3, align 4
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2273,357 +2422,380 @@ define internal i32 @Ivy_TruthRecognizeMuxMaj(i32 noundef %0, ptr noundef %1, i3
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca [3 x i8], align 1
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
+  %19 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 3, ptr %18) #8
   call void @Ivy_DecClear(ptr noundef %10)
-  %19 = load i32, ptr %10, align 4
-  %20 = and i32 %19, -16
-  %21 = or i32 %20, 5
-  store i32 %21, ptr %10, align 4
-  %22 = load i32, ptr %10, align 4
-  %23 = and i32 %22, -225
-  %24 = or i32 %23, 96
-  store i32 %24, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  br label %25
+  %20 = load i32, ptr %10, align 4
+  %21 = and i32 %20, -16
+  %22 = or i32 %21, 5
+  store i32 %22, ptr %10, align 4
+  %23 = load i32, ptr %10, align 4
+  %24 = and i32 %23, -225
+  %25 = or i32 %24, 96
+  store i32 %25, ptr %10, align 4
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %26
 
-25:                                               ; preds = %116, %4
-  %26 = load i32, ptr %11, align 4
-  %27 = load i32, ptr %8, align 4
-  %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %119
+26:                                               ; preds = %117, %4
+  %27 = load i32, ptr %11, align 4, !tbaa !3
+  %28 = load i32, ptr %8, align 4, !tbaa !3
+  %29 = icmp slt i32 %27, %28
+  br i1 %29, label %30, label %120
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %6, align 4
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %11, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = shl i32 %35, 1
-  %37 = or i32 %36, 1
-  %38 = call i32 @Ivy_TruthCofactor(i32 noundef %30, i32 noundef %37)
-  store i32 %38, ptr %15, align 4
-  %39 = load i32, ptr %6, align 4
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = shl i32 %44, 1
-  %46 = call i32 @Ivy_TruthCofactor(i32 noundef %39, i32 noundef %45)
-  store i32 %46, ptr %16, align 4
-  store i32 0, ptr %12, align 4
-  br label %47
+30:                                               ; preds = %26
+  %31 = load i32, ptr %6, align 4, !tbaa !3
+  %32 = load ptr, ptr %7, align 8, !tbaa !21
+  %33 = load i32, ptr %11, align 4, !tbaa !3
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i32, ptr %32, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !3
+  %37 = shl i32 %36, 1
+  %38 = or i32 %37, 1
+  %39 = call i32 @Ivy_TruthCofactor(i32 noundef %31, i32 noundef %38)
+  store i32 %39, ptr %15, align 4, !tbaa !3
+  %40 = load i32, ptr %6, align 4, !tbaa !3
+  %41 = load ptr, ptr %7, align 8, !tbaa !21
+  %42 = load i32, ptr %11, align 4, !tbaa !3
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %41, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !3
+  %46 = shl i32 %45, 1
+  %47 = call i32 @Ivy_TruthCofactor(i32 noundef %40, i32 noundef %46)
+  store i32 %47, ptr %16, align 4, !tbaa !3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  br label %48
 
-47:                                               ; preds = %76, %29
-  %48 = load i32, ptr %12, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %51, label %79
+48:                                               ; preds = %77, %30
+  %49 = load i32, ptr %12, align 4, !tbaa !3
+  %50 = load i32, ptr %8, align 4, !tbaa !3
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %80
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %12, align 4
-  %53 = load i32, ptr %11, align 4
-  %54 = icmp eq i32 %52, %53
-  br i1 %54, label %55, label %56
+52:                                               ; preds = %48
+  %53 = load i32, ptr %12, align 4, !tbaa !3
+  %54 = load i32, ptr %11, align 4, !tbaa !3
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %51
-  br label %76
+56:                                               ; preds = %52
+  br label %77
 
-56:                                               ; preds = %51
-  %57 = load i32, ptr %15, align 4
-  %58 = load ptr, ptr %7, align 8
-  %59 = load i32, ptr %12, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %58, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = call i32 @Ivy_TruthDepends(i32 noundef %57, i32 noundef %62)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %75
+57:                                               ; preds = %52
+  %58 = load i32, ptr %15, align 4, !tbaa !3
+  %59 = load ptr, ptr %7, align 8, !tbaa !21
+  %60 = load i32, ptr %12, align 4, !tbaa !3
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !3
+  %64 = call i32 @Ivy_TruthDepends(i32 noundef %58, i32 noundef %63)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %76
 
-65:                                               ; preds = %56
-  %66 = load i32, ptr %16, align 4
-  %67 = load ptr, ptr %7, align 8
-  %68 = load i32, ptr %12, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %67, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = call i32 @Ivy_TruthDepends(i32 noundef %66, i32 noundef %71)
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %75
+66:                                               ; preds = %57
+  %67 = load i32, ptr %16, align 4, !tbaa !3
+  %68 = load ptr, ptr %7, align 8, !tbaa !21
+  %69 = load i32, ptr %12, align 4, !tbaa !3
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %68, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !3
+  %73 = call i32 @Ivy_TruthDepends(i32 noundef %67, i32 noundef %72)
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %65
-  br label %79
+75:                                               ; preds = %66
+  br label %80
 
-75:                                               ; preds = %65, %56
-  br label %76
+76:                                               ; preds = %66, %57
+  br label %77
 
-76:                                               ; preds = %75, %55
-  %77 = load i32, ptr %12, align 4
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %12, align 4
-  br label %47, !llvm.loop !14
+77:                                               ; preds = %76, %56
+  %78 = load i32, ptr %12, align 4, !tbaa !3
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %12, align 4, !tbaa !3
+  br label %48, !llvm.loop !42
 
-79:                                               ; preds = %74, %47
-  %80 = load i32, ptr %12, align 4
-  %81 = load i32, ptr %8, align 4
-  %82 = icmp slt i32 %80, %81
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %75, %48
+  %81 = load i32, ptr %12, align 4, !tbaa !3
+  %82 = load i32, ptr %8, align 4, !tbaa !3
+  %83 = icmp slt i32 %81, %82
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %79
-  br label %116
+84:                                               ; preds = %80
+  br label %117
 
-84:                                               ; preds = %79
-  %85 = load i32, ptr %15, align 4
-  %86 = load ptr, ptr %9, align 8
-  %87 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %85, ptr noundef %86)
-  store i32 %87, ptr %13, align 4
-  %88 = load i32, ptr %13, align 4
-  %89 = icmp eq i32 %88, -1
-  br i1 %89, label %90, label %91
+85:                                               ; preds = %80
+  %86 = load i32, ptr %15, align 4, !tbaa !3
+  %87 = load ptr, ptr %9, align 8, !tbaa !7
+  %88 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %86, ptr noundef %87)
+  store i32 %88, ptr %13, align 4, !tbaa !3
+  %89 = load i32, ptr %13, align 4, !tbaa !3
+  %90 = icmp eq i32 %89, -1
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %84
-  br label %119
+91:                                               ; preds = %85
+  br label %120
 
-91:                                               ; preds = %84
-  %92 = load i32, ptr %16, align 4
-  %93 = load ptr, ptr %9, align 8
-  %94 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %92, ptr noundef %93)
-  store i32 %94, ptr %14, align 4
-  %95 = load i32, ptr %14, align 4
-  %96 = icmp eq i32 %95, -1
-  br i1 %96, label %97, label %98
+92:                                               ; preds = %85
+  %93 = load i32, ptr %16, align 4, !tbaa !3
+  %94 = load ptr, ptr %9, align 8, !tbaa !7
+  %95 = call i32 @Ivy_TruthDecompose_rec(i32 noundef %93, ptr noundef %94)
+  store i32 %95, ptr %14, align 4, !tbaa !3
+  %96 = load i32, ptr %14, align 4, !tbaa !3
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %91
-  br label %119
+98:                                               ; preds = %92
+  br label %120
 
-98:                                               ; preds = %91
-  %99 = load ptr, ptr %7, align 8
-  %100 = load i32, ptr %11, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %99, i64 %101
-  %103 = load i32, ptr %102, align 4
-  %104 = shl i32 %103, 1
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 0, i32 noundef %104)
-  %105 = load i32, ptr %14, align 4
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 1, i32 noundef %105)
-  %106 = load i32, ptr %13, align 4
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 2, i32 noundef %106)
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
-  %109 = load i32, ptr %108, align 4
-  %110 = call i32 @Ivy_DecToInt(i32 %109)
-  call void @Vec_IntPush(ptr noundef %107, i32 noundef %110)
-  %111 = load ptr, ptr %9, align 8
-  %112 = call i32 @Vec_IntSize(ptr noundef %111)
-  %113 = sub nsw i32 %112, 1
-  %114 = shl i32 %113, 1
-  %115 = or i32 %114, 0
-  store i32 %115, ptr %5, align 4
-  br label %232
+99:                                               ; preds = %92
+  %100 = load ptr, ptr %7, align 8, !tbaa !21
+  %101 = load i32, ptr %11, align 4, !tbaa !3
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i32, ptr %100, i64 %102
+  %104 = load i32, ptr %103, align 4, !tbaa !3
+  %105 = shl i32 %104, 1
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 0, i32 noundef %105)
+  %106 = load i32, ptr %14, align 4, !tbaa !3
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 1, i32 noundef %106)
+  %107 = load i32, ptr %13, align 4, !tbaa !3
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 2, i32 noundef %107)
+  %108 = load ptr, ptr %9, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
+  %110 = load i32, ptr %109, align 4
+  %111 = call i32 @Ivy_DecToInt(i32 %110)
+  call void @Vec_IntPush(ptr noundef %108, i32 noundef %111)
+  %112 = load ptr, ptr %9, align 8, !tbaa !7
+  %113 = call i32 @Vec_IntSize(ptr noundef %112)
+  %114 = sub nsw i32 %113, 1
+  %115 = shl i32 %114, 1
+  %116 = or i32 %115, 0
+  store i32 %116, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %233
 
-116:                                              ; preds = %83
-  %117 = load i32, ptr %11, align 4
-  %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %11, align 4
-  br label %25, !llvm.loop !15
+117:                                              ; preds = %84
+  %118 = load i32, ptr %11, align 4, !tbaa !3
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %11, align 4, !tbaa !3
+  br label %26, !llvm.loop !43
 
-119:                                              ; preds = %97, %90, %25
-  %120 = load i32, ptr %8, align 4
-  %121 = icmp sgt i32 %120, 3
-  br i1 %121, label %122, label %123
+120:                                              ; preds = %98, %91, %26
+  %121 = load i32, ptr %8, align 4, !tbaa !3
+  %122 = icmp sgt i32 %121, 3
+  br i1 %122, label %123, label %124
 
-122:                                              ; preds = %119
+123:                                              ; preds = %120
   store i32 -1, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %19, align 4
+  br label %233
 
-123:                                              ; preds = %119
-  %124 = load i32, ptr %6, align 4
-  %125 = call i32 @Ivy_TruthWordCountOnes(i32 noundef %124)
-  %126 = icmp ne i32 %125, 16
-  br i1 %126, label %127, label %128
+124:                                              ; preds = %120
+  %125 = load i32, ptr %6, align 4, !tbaa !3
+  %126 = call i32 @Ivy_TruthWordCountOnes(i32 noundef %125)
+  %127 = icmp ne i32 %126, 16
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %123
+128:                                              ; preds = %124
   store i32 -1, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %19, align 4
+  br label %233
 
-128:                                              ; preds = %123
-  %129 = load i32, ptr %10, align 4
-  %130 = and i32 %129, -16
-  %131 = or i32 %130, 6
-  store i32 %131, ptr %10, align 4
-  %132 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 2
-  store i8 0, ptr %132, align 1
-  %133 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 1
-  store i8 0, ptr %133, align 1
-  %134 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 0
-  store i8 0, ptr %134, align 1
-  store i32 0, ptr %11, align 4
-  br label %135
+129:                                              ; preds = %124
+  %130 = load i32, ptr %10, align 4
+  %131 = and i32 %130, -16
+  %132 = or i32 %131, 6
+  store i32 %132, ptr %10, align 4
+  %133 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 2
+  store i8 0, ptr %133, align 1, !tbaa !13
+  %134 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 1
+  store i8 0, ptr %134, align 1, !tbaa !13
+  %135 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 0
+  store i8 0, ptr %135, align 1, !tbaa !13
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %136
 
-135:                                              ; preds = %189, %128
-  %136 = load i32, ptr %11, align 4
-  %137 = icmp slt i32 %136, 8
-  br i1 %137, label %138, label %192
+136:                                              ; preds = %190, %129
+  %137 = load i32, ptr %11, align 4, !tbaa !3
+  %138 = icmp slt i32 %137, 8
+  br i1 %138, label %139, label %193
 
-138:                                              ; preds = %135
-  store i32 0, ptr %17, align 4
-  store i32 0, ptr %12, align 4
-  br label %139
+139:                                              ; preds = %136
+  store i32 0, ptr %17, align 4, !tbaa !3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  br label %140
 
-139:                                              ; preds = %158, %138
-  %140 = load i32, ptr %12, align 4
-  %141 = icmp slt i32 %140, 3
-  br i1 %141, label %142, label %161
+140:                                              ; preds = %159, %139
+  %141 = load i32, ptr %12, align 4, !tbaa !3
+  %142 = icmp slt i32 %141, 3
+  br i1 %142, label %143, label %162
 
-142:                                              ; preds = %139
-  %143 = load i32, ptr %11, align 4
-  %144 = load i32, ptr %12, align 4
-  %145 = shl i32 1, %144
-  %146 = and i32 %143, %145
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %148, label %157
+143:                                              ; preds = %140
+  %144 = load i32, ptr %11, align 4, !tbaa !3
+  %145 = load i32, ptr %12, align 4, !tbaa !3
+  %146 = shl i32 1, %145
+  %147 = and i32 %144, %146
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %158
 
-148:                                              ; preds = %142
-  %149 = load ptr, ptr %7, align 8
-  %150 = load i32, ptr %12, align 4
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %149, i64 %151
-  %153 = load i32, ptr %152, align 4
-  %154 = shl i32 1, %153
-  %155 = load i32, ptr %17, align 4
-  %156 = or i32 %155, %154
-  store i32 %156, ptr %17, align 4
-  br label %157
-
-157:                                              ; preds = %148, %142
+149:                                              ; preds = %143
+  %150 = load ptr, ptr %7, align 8, !tbaa !21
+  %151 = load i32, ptr %12, align 4, !tbaa !3
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds i32, ptr %150, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !3
+  %155 = shl i32 1, %154
+  %156 = load i32, ptr %17, align 4, !tbaa !3
+  %157 = or i32 %156, %155
+  store i32 %157, ptr %17, align 4, !tbaa !3
   br label %158
 
-158:                                              ; preds = %157
-  %159 = load i32, ptr %12, align 4
-  %160 = add nsw i32 %159, 1
-  store i32 %160, ptr %12, align 4
-  br label %139, !llvm.loop !16
+158:                                              ; preds = %149, %143
+  br label %159
 
-161:                                              ; preds = %139
-  %162 = load i32, ptr %6, align 4
-  %163 = load i32, ptr %17, align 4
-  %164 = shl i32 1, %163
-  %165 = and i32 %162, %164
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %168
+159:                                              ; preds = %158
+  %160 = load i32, ptr %12, align 4, !tbaa !3
+  %161 = add nsw i32 %160, 1
+  store i32 %161, ptr %12, align 4, !tbaa !3
+  br label %140, !llvm.loop !44
 
-167:                                              ; preds = %161
-  br label %189
+162:                                              ; preds = %140
+  %163 = load i32, ptr %6, align 4, !tbaa !3
+  %164 = load i32, ptr %17, align 4, !tbaa !3
+  %165 = shl i32 1, %164
+  %166 = and i32 %163, %165
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %169
 
-168:                                              ; preds = %161
-  store i32 0, ptr %12, align 4
-  br label %169
+168:                                              ; preds = %162
+  br label %190
 
-169:                                              ; preds = %185, %168
-  %170 = load i32, ptr %12, align 4
-  %171 = icmp slt i32 %170, 3
-  br i1 %171, label %172, label %188
+169:                                              ; preds = %162
+  store i32 0, ptr %12, align 4, !tbaa !3
+  br label %170
 
-172:                                              ; preds = %169
-  %173 = load i32, ptr %11, align 4
-  %174 = load i32, ptr %12, align 4
-  %175 = shl i32 1, %174
-  %176 = and i32 %173, %175
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %178, label %184
+170:                                              ; preds = %186, %169
+  %171 = load i32, ptr %12, align 4, !tbaa !3
+  %172 = icmp slt i32 %171, 3
+  br i1 %172, label %173, label %189
 
-178:                                              ; preds = %172
-  %179 = load i32, ptr %12, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 %180
-  %182 = load i8, ptr %181, align 1
-  %183 = add i8 %182, 1
-  store i8 %183, ptr %181, align 1
-  br label %184
+173:                                              ; preds = %170
+  %174 = load i32, ptr %11, align 4, !tbaa !3
+  %175 = load i32, ptr %12, align 4, !tbaa !3
+  %176 = shl i32 1, %175
+  %177 = and i32 %174, %176
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %185
 
-184:                                              ; preds = %178, %172
+179:                                              ; preds = %173
+  %180 = load i32, ptr %12, align 4, !tbaa !3
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 %181
+  %183 = load i8, ptr %182, align 1, !tbaa !13
+  %184 = add i8 %183, 1
+  store i8 %184, ptr %182, align 1, !tbaa !13
   br label %185
 
-185:                                              ; preds = %184
-  %186 = load i32, ptr %12, align 4
-  %187 = add nsw i32 %186, 1
-  store i32 %187, ptr %12, align 4
-  br label %169, !llvm.loop !17
+185:                                              ; preds = %179, %173
+  br label %186
 
-188:                                              ; preds = %169
-  br label %189
+186:                                              ; preds = %185
+  %187 = load i32, ptr %12, align 4, !tbaa !3
+  %188 = add nsw i32 %187, 1
+  store i32 %188, ptr %12, align 4, !tbaa !3
+  br label %170, !llvm.loop !45
 
-189:                                              ; preds = %188, %167
-  %190 = load i32, ptr %11, align 4
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %11, align 4
-  br label %135, !llvm.loop !18
+189:                                              ; preds = %170
+  br label %190
 
-192:                                              ; preds = %135
-  %193 = load ptr, ptr %7, align 8
-  %194 = getelementptr inbounds i32, ptr %193, i64 0
-  %195 = load i32, ptr %194, align 4
-  %196 = shl i32 %195, 1
-  %197 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 0
-  %198 = load i8, ptr %197, align 1
-  %199 = sext i8 %198 to i32
-  %200 = icmp eq i32 %199, 1
-  %201 = zext i1 %200 to i32
-  %202 = or i32 %196, %201
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 0, i32 noundef %202)
-  %203 = load ptr, ptr %7, align 8
-  %204 = getelementptr inbounds i32, ptr %203, i64 1
-  %205 = load i32, ptr %204, align 4
-  %206 = shl i32 %205, 1
-  %207 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 1
-  %208 = load i8, ptr %207, align 1
-  %209 = sext i8 %208 to i32
-  %210 = icmp eq i32 %209, 1
-  %211 = zext i1 %210 to i32
-  %212 = or i32 %206, %211
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 1, i32 noundef %212)
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds i32, ptr %213, i64 2
-  %215 = load i32, ptr %214, align 4
-  %216 = shl i32 %215, 1
-  %217 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 2
-  %218 = load i8, ptr %217, align 1
-  %219 = sext i8 %218 to i32
-  %220 = icmp eq i32 %219, 1
-  %221 = zext i1 %220 to i32
-  %222 = or i32 %216, %221
-  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 2, i32 noundef %222)
-  %223 = load ptr, ptr %9, align 8
-  %224 = getelementptr inbounds %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
-  %225 = load i32, ptr %224, align 4
-  %226 = call i32 @Ivy_DecToInt(i32 %225)
-  call void @Vec_IntPush(ptr noundef %223, i32 noundef %226)
-  %227 = load ptr, ptr %9, align 8
-  %228 = call i32 @Vec_IntSize(ptr noundef %227)
-  %229 = sub nsw i32 %228, 1
-  %230 = shl i32 %229, 1
-  %231 = or i32 %230, 0
-  store i32 %231, ptr %5, align 4
-  br label %232
+190:                                              ; preds = %189, %168
+  %191 = load i32, ptr %11, align 4, !tbaa !3
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %11, align 4, !tbaa !3
+  br label %136, !llvm.loop !46
 
-232:                                              ; preds = %192, %127, %122, %98
-  %233 = load i32, ptr %5, align 4
-  ret i32 %233
+193:                                              ; preds = %136
+  %194 = load ptr, ptr %7, align 8, !tbaa !21
+  %195 = getelementptr inbounds i32, ptr %194, i64 0
+  %196 = load i32, ptr %195, align 4, !tbaa !3
+  %197 = shl i32 %196, 1
+  %198 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 0
+  %199 = load i8, ptr %198, align 1, !tbaa !13
+  %200 = sext i8 %199 to i32
+  %201 = icmp eq i32 %200, 1
+  %202 = zext i1 %201 to i32
+  %203 = or i32 %197, %202
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 0, i32 noundef %203)
+  %204 = load ptr, ptr %7, align 8, !tbaa !21
+  %205 = getelementptr inbounds i32, ptr %204, i64 1
+  %206 = load i32, ptr %205, align 4, !tbaa !3
+  %207 = shl i32 %206, 1
+  %208 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 1
+  %209 = load i8, ptr %208, align 1, !tbaa !13
+  %210 = sext i8 %209 to i32
+  %211 = icmp eq i32 %210, 1
+  %212 = zext i1 %211 to i32
+  %213 = or i32 %207, %212
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 1, i32 noundef %213)
+  %214 = load ptr, ptr %7, align 8, !tbaa !21
+  %215 = getelementptr inbounds i32, ptr %214, i64 2
+  %216 = load i32, ptr %215, align 4, !tbaa !3
+  %217 = shl i32 %216, 1
+  %218 = getelementptr inbounds [3 x i8], ptr %18, i64 0, i64 2
+  %219 = load i8, ptr %218, align 1, !tbaa !13
+  %220 = sext i8 %219 to i32
+  %221 = icmp eq i32 %220, 1
+  %222 = zext i1 %221 to i32
+  %223 = or i32 %217, %222
+  call void @Ivy_DecSetVar(ptr noundef %10, i32 noundef 2, i32 noundef %223)
+  %224 = load ptr, ptr %9, align 8, !tbaa !7
+  %225 = getelementptr inbounds nuw %struct.Ivy_Dec_t_, ptr %10, i32 0, i32 0
+  %226 = load i32, ptr %225, align 4
+  %227 = call i32 @Ivy_DecToInt(i32 %226)
+  call void @Vec_IntPush(ptr noundef %224, i32 noundef %227)
+  %228 = load ptr, ptr %9, align 8, !tbaa !7
+  %229 = call i32 @Vec_IntSize(ptr noundef %228)
+  %230 = sub nsw i32 %229, 1
+  %231 = shl i32 %230, 1
+  %232 = or i32 %231, 0
+  store i32 %232, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %233
+
+233:                                              ; preds = %193, %128, %123, %99
+  call void @llvm.lifetime.end.p0(i64 3, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %234 = load i32, ptr %5, align 4
+  ret i32 %234
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  %7 = load i32, ptr %5, align 4, !tbaa !3
   switch i32 %7, label %56 [
     i32 0, label %8
     i32 1, label %16
@@ -2634,8 +2806,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   ]
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %6, align 4
-  %10 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !19
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %9, 15
   %13 = shl i32 %12, 8
@@ -2645,8 +2817,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %56
 
 16:                                               ; preds = %3
-  %17 = load i32, ptr %6, align 4
-  %18 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %6, align 4, !tbaa !3
+  %18 = load ptr, ptr %4, align 8, !tbaa !19
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %17, 15
   %21 = shl i32 %20, 12
@@ -2656,8 +2828,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %56
 
 24:                                               ; preds = %3
-  %25 = load i32, ptr %6, align 4
-  %26 = load ptr, ptr %4, align 8
+  %25 = load i32, ptr %6, align 4, !tbaa !3
+  %26 = load ptr, ptr %4, align 8, !tbaa !19
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %25, 15
   %29 = shl i32 %28, 16
@@ -2667,8 +2839,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %56
 
 32:                                               ; preds = %3
-  %33 = load i32, ptr %6, align 4
-  %34 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %6, align 4, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !19
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %33, 15
   %37 = shl i32 %36, 20
@@ -2678,8 +2850,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %56
 
 40:                                               ; preds = %3
-  %41 = load i32, ptr %6, align 4
-  %42 = load ptr, ptr %4, align 8
+  %41 = load i32, ptr %6, align 4, !tbaa !3
+  %42 = load ptr, ptr %4, align 8, !tbaa !19
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %41, 15
   %45 = shl i32 %44, 24
@@ -2689,8 +2861,8 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %56
 
 48:                                               ; preds = %3
-  %49 = load i32, ptr %6, align 4
-  %50 = load ptr, ptr %4, align 8
+  %49 = load i32, ptr %6, align 4, !tbaa !3
+  %50 = load ptr, ptr %4, align 8, !tbaa !19
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %49, 15
   %53 = shl i32 %52, 28
@@ -2699,22 +2871,22 @@ define internal void @Ivy_DecSetVar(ptr noundef %0, i32 noundef %1, i32 noundef 
   store i32 %55, ptr %50, align 4
   br label %56
 
-56:                                               ; preds = %48, %40, %32, %24, %16, %8, %3
+56:                                               ; preds = %3, %48, %40, %32, %24, %16, %8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_TruthDepends(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_TruthDepends(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = shl i32 %6, 1
   %8 = call i32 @Ivy_TruthCofactor(i32 noundef %5, i32 noundef %7)
-  %9 = load i32, ptr %3, align 4
-  %10 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !3
+  %10 = load i32, ptr %4, align 4, !tbaa !3
   %11 = shl i32 %10, 1
   %12 = or i32 %11, 1
   %13 = call i32 @Ivy_TruthCofactor(i32 noundef %9, i32 noundef %12)
@@ -2723,90 +2895,124 @@ define internal i32 @Ivy_TruthDepends(i32 noundef %0, i32 noundef %1) #0 {
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Ivy_TruthWordCountOnes(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Ivy_TruthWordCountOnes(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = and i32 %3, 1431655765
-  %5 = load i32, ptr %2, align 4
+  %5 = load i32, ptr %2, align 4, !tbaa !3
   %6 = lshr i32 %5, 1
   %7 = and i32 %6, 1431655765
   %8 = add i32 %4, %7
-  store i32 %8, ptr %2, align 4
-  %9 = load i32, ptr %2, align 4
+  store i32 %8, ptr %2, align 4, !tbaa !3
+  %9 = load i32, ptr %2, align 4, !tbaa !3
   %10 = and i32 %9, 858993459
-  %11 = load i32, ptr %2, align 4
+  %11 = load i32, ptr %2, align 4, !tbaa !3
   %12 = lshr i32 %11, 2
   %13 = and i32 %12, 858993459
   %14 = add i32 %10, %13
-  store i32 %14, ptr %2, align 4
-  %15 = load i32, ptr %2, align 4
+  store i32 %14, ptr %2, align 4, !tbaa !3
+  %15 = load i32, ptr %2, align 4, !tbaa !3
   %16 = and i32 %15, 252645135
-  %17 = load i32, ptr %2, align 4
+  %17 = load i32, ptr %2, align 4, !tbaa !3
   %18 = lshr i32 %17, 4
   %19 = and i32 %18, 252645135
   %20 = add i32 %16, %19
-  store i32 %20, ptr %2, align 4
-  %21 = load i32, ptr %2, align 4
+  store i32 %20, ptr %2, align 4, !tbaa !3
+  %21 = load i32, ptr %2, align 4, !tbaa !3
   %22 = and i32 %21, 16711935
-  %23 = load i32, ptr %2, align 4
+  %23 = load i32, ptr %2, align 4, !tbaa !3
   %24 = lshr i32 %23, 8
   %25 = and i32 %24, 16711935
   %26 = add i32 %22, %25
-  store i32 %26, ptr %2, align 4
-  %27 = load i32, ptr %2, align 4
+  store i32 %26, ptr %2, align 4, !tbaa !3
+  %27 = load i32, ptr %2, align 4, !tbaa !3
   %28 = and i32 %27, 65535
-  %29 = load i32, ptr %2, align 4
+  %29 = load i32, ptr %2, align 4, !tbaa !3
   %30 = lshr i32 %29, 16
   %31 = add i32 %28, %30
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   ret ptr %11
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind allocsize(1) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{i64 0, i64 4, !13}
+!13 = !{!5, !5, i64 0}
+!14 = !{!15, !4, i64 4}
+!15 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !16, i64 8}
+!16 = !{!"p1 int", !9, i64 0}
+!17 = !{!15, !4, i64 0}
+!18 = !{!15, !16, i64 8}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS10Ivy_Dec_t_", !9, i64 0}
+!21 = !{!16, !16, i64 0}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS10Ivy_Man_t_", !9, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS10Ivy_Obj_t_", !9, i64 0}
+!34 = distinct !{!34, !11}
+!35 = !{!36, !33, i64 32}
+!36 = !{!"Ivy_Man_t_", !37, i64 0, !37, i64 8, !37, i64 16, !37, i64 24, !33, i64 32, !38, i64 40, !5, i64 120, !4, i64 152, !4, i64 156, !16, i64 160, !4, i64 168, !4, i64 172, !4, i64 176, !4, i64 180, !8, i64 184, !4, i64 192, !9, i64 200, !9, i64 208, !31, i64 216, !4, i64 224, !37, i64 232, !37, i64 240, !33, i64 248, !39, i64 256, !39, i64 264}
+!37 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!38 = !{!"Ivy_Obj_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 8, !4, i64 8, !4, i64 8, !4, i64 8, !4, i64 9, !4, i64 9, !4, i64 9, !4, i64 12, !33, i64 16, !33, i64 24, !33, i64 32, !33, i64 40, !33, i64 48, !33, i64 56, !33, i64 64, !33, i64 72}
+!39 = !{!"long", !5, i64 0}
+!40 = !{!36, !37, i64 24}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = distinct !{!43, !11}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = !{!37, !37, i64 0}
+!48 = !{!49, !9, i64 8}
+!49 = !{!"Vec_Ptr_t_", !4, i64 0, !4, i64 4, !9, i64 8}
+!50 = !{!9, !9, i64 0}

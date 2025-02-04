@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/ifCom.c.ll'
-source_filename = "bench/abc/original/ifCom.c.ll"
+; ModuleID = 'bench/abc/original/ifCom.ll'
+source_filename = "bench/abc/original/ifCom.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -53,36 +53,41 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @If_Init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.If_LibLut_t_, align 8
+  call void @llvm.lifetime.start.p0(i64 4504, ptr nonnull %2) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %2, ptr noundef nonnull align 8 dereferenceable(4504) @__const.If_Init.s_LutLib, i64 4504, i1 false)
-  %3 = call ptr @If_LibLutDup(ptr noundef nonnull %2) #5
-  call void @Abc_FrameSetLibLut(ptr noundef %3) #5
-  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @If_CommandReadLut, i32 noundef 0) #5
-  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @If_CommandPrintLut, i32 noundef 0) #5
-  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @If_CommandReadBox, i32 noundef 0) #5
-  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @If_CommandPrintBox, i32 noundef 0) #5
+  %3 = call ptr @If_LibLutDup(ptr noundef nonnull %2) #6
+  call void @Abc_FrameSetLibLut(ptr noundef %3) #6
+  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @If_CommandReadLut, i32 noundef 0) #6
+  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @If_CommandPrintLut, i32 noundef 0) #6
+  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @If_CommandReadBox, i32 noundef 0) #6
+  call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @If_CommandPrintBox, i32 noundef 0) #6
+  call void @llvm.lifetime.end.p0(i64 4504, ptr nonnull %2) #6
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @Abc_FrameSetLibLut(ptr noundef) local_unnamed_addr #2
+declare void @Abc_FrameSetLibLut(ptr noundef) local_unnamed_addr #3
 
-declare ptr @If_LibLutDup(ptr noundef) local_unnamed_addr #2
+declare ptr @If_LibLutDup(ptr noundef) local_unnamed_addr #3
 
-declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
-  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
-  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
-  tail call void (...) @Extra_UtilGetoptReset() #5
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #6
+  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #6
+  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #6
+  tail call void (...) @Extra_UtilGetoptReset() #6
   br label %7
 
 7:                                                ; preds = %9, %3
   %.038 = phi i32 [ 1, %3 ], [ %10, %9 ]
-  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #5
+  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #6
   switch i32 %8, label %.loopexit [
     i32 -1, label %11
     i32 118, label %9
@@ -90,10 +95,10 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 
 9:                                                ; preds = %7
   %10 = xor i32 %.038, 1
-  br label %7, !llvm.loop !4
+  br label %7, !llvm.loop !3
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %13 = add nsw i32 %12, 1
   %.not43 = icmp eq i32 %1, %13
   br i1 %.not43, label %14, label %.loopexit
@@ -101,19 +106,19 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 14:                                               ; preds = %11
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds ptr, ptr %2, i64 %15
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call noalias ptr @fopen(ptr noundef %17, ptr noundef nonnull @.str.7)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %14
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %17) #5
-  %22 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %17, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef null) #5
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %17) #6
+  %22 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %17, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef null) #6
   %.not44 = icmp eq ptr %22, null
   br i1 %.not44, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %22) #5
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %22) #6
   br label %25
 
 25:                                               ; preds = %23, %20
@@ -122,7 +127,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 
 26:                                               ; preds = %14
   %27 = tail call i32 @fclose(ptr noundef nonnull %18)
-  %28 = tail call ptr @If_LibLutRead(ptr noundef %17) #5
+  %28 = tail call ptr @If_LibLutRead(ptr noundef %17) #6
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
 
@@ -131,9 +136,9 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = tail call ptr (...) @Abc_FrameReadLibLut() #5
-  tail call void @If_LibLutFree(ptr noundef %33) #5
-  tail call void @Abc_FrameSetLibLut(ptr noundef nonnull %28) #5
+  %33 = tail call ptr (...) @Abc_FrameReadLibLut() #6
+  tail call void @If_LibLutFree(ptr noundef %33) #6
+  tail call void @Abc_FrameSetLibLut(ptr noundef nonnull %28) #6
   br label %51
 
 .loopexit:                                        ; preds = %7, %11, %30
@@ -141,7 +146,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
   %35 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 46, i64 1, ptr %6)
   %.not45 = icmp eq i32 %.038, 0
   %36 = select i1 %.not45, ptr @.str.20, ptr @.str.19
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %36) #5
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %36) #6
   %38 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %6)
   %39 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 42, i64 1, ptr %6)
   %40 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 42, i64 1, ptr %6)
@@ -164,15 +169,15 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
-  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
-  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
-  tail call void (...) @Extra_UtilGetoptReset() #5
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #6
+  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #6
+  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #6
+  tail call void (...) @Extra_UtilGetoptReset() #6
   br label %7
 
 7:                                                ; preds = %9, %3
   %.013 = phi i32 [ 1, %3 ], [ %10, %9 ]
-  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #5
+  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #6
   switch i32 %8, label %.loopexit [
     i32 -1, label %11
     i32 118, label %9
@@ -180,16 +185,16 @@ define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %7
   %10 = xor i32 %.013, 1
-  br label %7, !llvm.loop !6
+  br label %7, !llvm.loop !12
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = tail call ptr (...) @Abc_FrameReadLibLut() #5
-  tail call void @If_LibLutPrint(ptr noundef %14) #5
+  %14 = tail call ptr (...) @Abc_FrameReadLibLut() #6
+  tail call void @If_LibLutPrint(ptr noundef %14) #6
   br label %20
 
 .loopexit:                                        ; preds = %7, %11
@@ -197,7 +202,7 @@ define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noun
   %16 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 41, i64 1, ptr %6)
   %.not16 = icmp eq i32 %.013, 0
   %17 = select i1 %.not16, ptr @.str.20, ptr @.str.19
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #5
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #6
   %19 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %6)
   br label %20
 
@@ -208,10 +213,10 @@ define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
-  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
-  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
-  tail call void (...) @Extra_UtilGetoptReset() #5
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #6
+  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #6
+  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #6
+  tail call void (...) @Extra_UtilGetoptReset() #6
   br label %.outer
 
 .outer:                                           ; preds = %9, %3
@@ -221,7 +226,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 
 7:                                                ; preds = %.outer, %11
   %.031 = phi i32 [ %12, %11 ], [ %.031.ph, %.outer ]
-  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.35) #5
+  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.35) #6
   switch i32 %8, label %.loopexit [
     i32 -1, label %13
     i32 101, label %9
@@ -230,14 +235,14 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 
 9:                                                ; preds = %7
   %10 = xor i32 %.032.ph, 1
-  br label %.outer, !llvm.loop !7
+  br label %.outer, !llvm.loop !13
 
 11:                                               ; preds = %7
   %12 = xor i32 %.031, 1
-  br label %7, !llvm.loop !7
+  br label %7, !llvm.loop !13
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr @globalUtilOptind, align 4
+  %14 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %15 = add nsw i32 %14, 1
   %.not38 = icmp eq i32 %1, %15
   br i1 %.not38, label %16, label %.loopexit
@@ -245,19 +250,19 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 16:                                               ; preds = %13
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.7)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %16
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %19) #5
-  %24 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %19, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef null) #5
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %19) #6
+  %24 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %19, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef null) #6
   %.not40 = icmp eq ptr %24, null
   br i1 %.not40, label %27, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %24) #5
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %24) #6
   br label %27
 
 27:                                               ; preds = %25, %22
@@ -270,11 +275,11 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
   br i1 %.not39, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @If_LibBoxRead2(ptr noundef %19) #5
+  %31 = tail call ptr @If_LibBoxRead2(ptr noundef %19) #6
   br label %34
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @If_LibBoxRead(ptr noundef %19) #5
+  %33 = tail call ptr @If_LibBoxRead(ptr noundef %19) #6
   br label %34
 
 34:                                               ; preds = %32, %30
@@ -287,9 +292,9 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
   br label %.loopexit
 
 39:                                               ; preds = %34
-  %40 = tail call ptr (...) @Abc_FrameReadLibBox() #5
-  tail call void @If_LibBoxFree(ptr noundef %40) #5
-  tail call void @Abc_FrameSetLibBox(ptr noundef nonnull %35) #5
+  %40 = tail call ptr (...) @Abc_FrameReadLibBox() #6
+  tail call void @If_LibBoxFree(ptr noundef %40) #6
+  tail call void @Abc_FrameSetLibBox(ptr noundef nonnull %35) #6
   br label %48
 
 .loopexit:                                        ; preds = %7, %13, %37
@@ -297,10 +302,10 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
   %42 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 46, i64 1, ptr %6)
   %.not41 = icmp eq i32 %.032.ph, 0
   %43 = select i1 %.not41, ptr @.str.20, ptr @.str.19
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.39, ptr noundef nonnull %43) #5
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.39, ptr noundef nonnull %43) #6
   %.not42 = icmp eq i32 %.031, 0
   %45 = select i1 %.not42, ptr @.str.20, ptr @.str.19
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %45) #5
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %45) #6
   %47 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %6)
   br label %48
 
@@ -311,15 +316,15 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
-  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
-  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
-  tail call void (...) @Extra_UtilGetoptReset() #5
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #6
+  %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #6
+  %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #6
+  tail call void (...) @Extra_UtilGetoptReset() #6
   br label %7
 
 7:                                                ; preds = %9, %3
   %.013 = phi i32 [ 1, %3 ], [ %10, %9 ]
-  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #5
+  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.6) #6
   switch i32 %8, label %.loopexit [
     i32 -1, label %11
     i32 118, label %9
@@ -327,17 +332,17 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %7
   %10 = xor i32 %.013, 1
-  br label %7, !llvm.loop !8
+  br label %7, !llvm.loop !14
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr @stdout, align 8
-  %15 = tail call ptr (...) @Abc_FrameReadLibBox() #5
-  tail call void @If_LibBoxPrint(ptr noundef %14, ptr noundef %15) #5
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %15 = tail call ptr (...) @Abc_FrameReadLibBox() #6
+  tail call void @If_LibBoxPrint(ptr noundef %14, ptr noundef %15) #6
   br label %21
 
 .loopexit:                                        ; preds = %7, %11
@@ -345,7 +350,7 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
   %17 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 41, i64 1, ptr %6)
   %.not16 = icmp eq i32 %.013, 0
   %18 = select i1 %.not16, ptr @.str.20, ptr @.str.19
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %18) #5
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %18) #6
   %20 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %6)
   br label %21
 
@@ -354,77 +359,89 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define void @If_End(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr (...) @Abc_FrameReadLibLut() #5
-  tail call void @If_LibLutFree(ptr noundef %2) #5
-  %3 = tail call ptr (...) @Abc_FrameReadLibBox() #5
-  tail call void @If_LibBoxFree(ptr noundef %3) #5
+  %2 = tail call ptr (...) @Abc_FrameReadLibLut() #6
+  tail call void @If_LibLutFree(ptr noundef %2) #6
+  %3 = tail call ptr (...) @Abc_FrameReadLibBox() #6
+  tail call void @If_LibBoxFree(ptr noundef %3) #6
   ret void
 }
 
-declare void @If_LibLutFree(ptr noundef) local_unnamed_addr #2
+declare void @If_LibLutFree(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #2
+declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #3
 
-declare void @If_LibBoxFree(ptr noundef) local_unnamed_addr #2
+declare void @If_LibBoxFree(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #2
+declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #3
 
-declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #3
 
-declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #2
+declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #3
 
-declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
-
-declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare ptr @If_LibLutRead(ptr noundef) local_unnamed_addr #2
-
-declare void @If_LibLutPrint(ptr noundef) local_unnamed_addr #2
-
-declare ptr @If_LibBoxRead2(ptr noundef) local_unnamed_addr #2
-
-declare ptr @If_LibBoxRead(ptr noundef) local_unnamed_addr #2
-
-declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #2
-
-declare void @If_LibBoxPrint(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+
+declare ptr @If_LibLutRead(ptr noundef) local_unnamed_addr #3
+
+declare void @If_LibLutPrint(ptr noundef) local_unnamed_addr #3
+
+declare ptr @If_LibBoxRead2(ptr noundef) local_unnamed_addr #3
+
+declare ptr @If_LibBoxRead(ptr noundef) local_unnamed_addr #3
+
+declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #3
+
+declare void @If_LibBoxPrint(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind }
-attributes #5 = { nounwind }
+; Function Attrs: nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

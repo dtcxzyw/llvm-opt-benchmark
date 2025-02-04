@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/mapper.c.ll'
-source_filename = "bench/abc/original/mapper.c.ll"
+; ModuleID = 'bench/abc/original/mapper.ll'
+source_filename = "bench/abc/original/mapper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -66,28 +66,28 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
   ]
 
 9:                                                ; preds = %7
-  %10 = load i32, ptr @globalUtilOptind, align 4
+  %10 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %2, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !7
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %9
   %16 = add nsw i32 %10, 1
-  store i32 %16, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !4
+  store i32 %16, ptr @globalUtilOptind, align 4, !tbaa !3
+  br label %.outer, !llvm.loop !10
 
 17:                                               ; preds = %7
   %18 = xor i32 %.036, 1
-  br label %7, !llvm.loop !4
+  br label %7, !llvm.loop !10
 
 19:                                               ; preds = %7
   %20 = xor i32 %.037.ph71, 1
-  br label %.outer70, !llvm.loop !4
+  br label %.outer70, !llvm.loop !10
 
 21:                                               ; preds = %7
-  %22 = load i32, ptr @globalUtilOptind, align 4
+  %22 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %23 = add nsw i32 %22, 1
   %.not46 = icmp eq i32 %1, %23
   br i1 %.not46, label %24, label %.loopexit
@@ -95,7 +95,7 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
 24:                                               ; preds = %21
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds ptr, ptr %2, i64 %25
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !7
   %28 = tail call ptr @Io_FileOpen(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0) #4
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %36
@@ -201,17 +201,23 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}

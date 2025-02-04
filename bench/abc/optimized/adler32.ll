@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/adler32.c.ll'
-source_filename = "bench/abc/original/adler32.c.ll"
+; ModuleID = 'bench/abc/original/adler32.ll'
+source_filename = "bench/abc/original/adler32.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -12,7 +12,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %3
-  %9 = load i8, ptr %1, align 1
+  %9 = load i8, ptr %1, align 1, !tbaa !3
   %10 = zext i8 %9 to i64
   %11 = add nuw nsw i64 %6, %10
   %12 = icmp samesign ugt i64 %11, 65520
@@ -49,12 +49,12 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   %.1183231 = phi i64 [ %29, %.lr.ph235 ], [ %6, %.preheader ]
   %25 = add i32 %.0173233, -1
   %26 = getelementptr inbounds nuw i8, ptr %.0177232, i64 1
-  %27 = load i8, ptr %.0177232, align 1
+  %27 = load i8, ptr %.0177232, align 1, !tbaa !3
   %28 = zext i8 %27 to i64
   %29 = add i64 %.1183231, %28
   %30 = add i64 %29, %.1234
   %.not198 = icmp eq i32 %25, 0
-  br i1 %.not198, label %._crit_edge236, label %.lr.ph235, !llvm.loop !4
+  br i1 %.not198, label %._crit_edge236, label %.lr.ph235, !llvm.loop !6
 
 ._crit_edge236:                                   ; preds = %.lr.ph235, %.preheader
   %.1183.lcssa = phi i64 [ %6, %.preheader ], [ %29, %.lr.ph235 ]
@@ -80,96 +80,96 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   %.2179 = phi ptr [ %.1178206, %.lr.ph ], [ %117, %37 ]
   %.3 = phi i64 [ %.2208, %.lr.ph ], [ %116, %37 ]
   %.0 = phi i32 [ 347, %.lr.ph ], [ %118, %37 ]
-  %38 = load i8, ptr %.2179, align 1
+  %38 = load i8, ptr %.2179, align 1, !tbaa !3
   %39 = zext i8 %38 to i64
   %40 = add i64 %.4186, %39
   %41 = add i64 %40, %.3
   %42 = getelementptr inbounds nuw i8, ptr %.2179, i64 1
-  %43 = load i8, ptr %42, align 1
+  %43 = load i8, ptr %42, align 1, !tbaa !3
   %44 = zext i8 %43 to i64
   %45 = add i64 %40, %44
   %46 = add i64 %41, %45
   %47 = getelementptr inbounds nuw i8, ptr %.2179, i64 2
-  %48 = load i8, ptr %47, align 1
+  %48 = load i8, ptr %47, align 1, !tbaa !3
   %49 = zext i8 %48 to i64
   %50 = add i64 %45, %49
   %51 = add i64 %46, %50
   %52 = getelementptr inbounds nuw i8, ptr %.2179, i64 3
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = zext i8 %53 to i64
   %55 = add i64 %50, %54
   %56 = add i64 %51, %55
   %57 = getelementptr inbounds nuw i8, ptr %.2179, i64 4
-  %58 = load i8, ptr %57, align 1
+  %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = zext i8 %58 to i64
   %60 = add i64 %55, %59
   %61 = add i64 %56, %60
   %62 = getelementptr inbounds nuw i8, ptr %.2179, i64 5
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !3
   %64 = zext i8 %63 to i64
   %65 = add i64 %60, %64
   %66 = add i64 %61, %65
   %67 = getelementptr inbounds nuw i8, ptr %.2179, i64 6
-  %68 = load i8, ptr %67, align 1
+  %68 = load i8, ptr %67, align 1, !tbaa !3
   %69 = zext i8 %68 to i64
   %70 = add i64 %65, %69
   %71 = add i64 %66, %70
   %72 = getelementptr inbounds nuw i8, ptr %.2179, i64 7
-  %73 = load i8, ptr %72, align 1
+  %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = zext i8 %73 to i64
   %75 = add i64 %70, %74
   %76 = add i64 %71, %75
   %77 = getelementptr inbounds nuw i8, ptr %.2179, i64 8
-  %78 = load i8, ptr %77, align 1
+  %78 = load i8, ptr %77, align 1, !tbaa !3
   %79 = zext i8 %78 to i64
   %80 = add i64 %75, %79
   %81 = add i64 %76, %80
   %82 = getelementptr inbounds nuw i8, ptr %.2179, i64 9
-  %83 = load i8, ptr %82, align 1
+  %83 = load i8, ptr %82, align 1, !tbaa !3
   %84 = zext i8 %83 to i64
   %85 = add i64 %80, %84
   %86 = add i64 %81, %85
   %87 = getelementptr inbounds nuw i8, ptr %.2179, i64 10
-  %88 = load i8, ptr %87, align 1
+  %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = zext i8 %88 to i64
   %90 = add i64 %85, %89
   %91 = add i64 %86, %90
   %92 = getelementptr inbounds nuw i8, ptr %.2179, i64 11
-  %93 = load i8, ptr %92, align 1
+  %93 = load i8, ptr %92, align 1, !tbaa !3
   %94 = zext i8 %93 to i64
   %95 = add i64 %90, %94
   %96 = add i64 %91, %95
   %97 = getelementptr inbounds nuw i8, ptr %.2179, i64 12
-  %98 = load i8, ptr %97, align 1
+  %98 = load i8, ptr %97, align 1, !tbaa !3
   %99 = zext i8 %98 to i64
   %100 = add i64 %95, %99
   %101 = add i64 %96, %100
   %102 = getelementptr inbounds nuw i8, ptr %.2179, i64 13
-  %103 = load i8, ptr %102, align 1
+  %103 = load i8, ptr %102, align 1, !tbaa !3
   %104 = zext i8 %103 to i64
   %105 = add i64 %100, %104
   %106 = add i64 %101, %105
   %107 = getelementptr inbounds nuw i8, ptr %.2179, i64 14
-  %108 = load i8, ptr %107, align 1
+  %108 = load i8, ptr %107, align 1, !tbaa !3
   %109 = zext i8 %108 to i64
   %110 = add i64 %105, %109
   %111 = add i64 %106, %110
   %112 = getelementptr inbounds nuw i8, ptr %.2179, i64 15
-  %113 = load i8, ptr %112, align 1
+  %113 = load i8, ptr %112, align 1, !tbaa !3
   %114 = zext i8 %113 to i64
   %115 = add i64 %110, %114
   %116 = add i64 %111, %115
   %117 = getelementptr inbounds nuw i8, ptr %.2179, i64 16
   %118 = add nsw i32 %.0, -1
   %.not197 = icmp eq i32 %118, 0
-  br i1 %.not197, label %119, label %37, !llvm.loop !6
+  br i1 %.not197, label %119, label %37, !llvm.loop !8
 
 119:                                              ; preds = %37
   %scevgep = getelementptr i8, ptr %.1178206, i64 5552
   %120 = urem i64 %115, 65521
   %121 = urem i64 %116, 65521
   %122 = icmp ugt i32 %36, 5551
-  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %119
   %.not = icmp eq i32 %36, 0
@@ -203,88 +203,88 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   %.3180213 = phi ptr [ %204, %.lr.ph216 ], [ %.3180213.ph, %.lr.ph216.preheader ]
   %.6188212 = phi i64 [ %202, %.lr.ph216 ], [ %.6188212.ph, %.lr.ph216.preheader ]
   %124 = add nsw i32 %.2175214, -16
-  %125 = load i8, ptr %.3180213, align 1
+  %125 = load i8, ptr %.3180213, align 1, !tbaa !3
   %126 = zext i8 %125 to i64
   %127 = add i64 %.6188212, %126
   %128 = add i64 %127, %.5215
   %129 = getelementptr inbounds nuw i8, ptr %.3180213, i64 1
-  %130 = load i8, ptr %129, align 1
+  %130 = load i8, ptr %129, align 1, !tbaa !3
   %131 = zext i8 %130 to i64
   %132 = add i64 %127, %131
   %133 = add i64 %128, %132
   %134 = getelementptr inbounds nuw i8, ptr %.3180213, i64 2
-  %135 = load i8, ptr %134, align 1
+  %135 = load i8, ptr %134, align 1, !tbaa !3
   %136 = zext i8 %135 to i64
   %137 = add i64 %132, %136
   %138 = add i64 %133, %137
   %139 = getelementptr inbounds nuw i8, ptr %.3180213, i64 3
-  %140 = load i8, ptr %139, align 1
+  %140 = load i8, ptr %139, align 1, !tbaa !3
   %141 = zext i8 %140 to i64
   %142 = add i64 %137, %141
   %143 = add i64 %138, %142
   %144 = getelementptr inbounds nuw i8, ptr %.3180213, i64 4
-  %145 = load i8, ptr %144, align 1
+  %145 = load i8, ptr %144, align 1, !tbaa !3
   %146 = zext i8 %145 to i64
   %147 = add i64 %142, %146
   %148 = add i64 %143, %147
   %149 = getelementptr inbounds nuw i8, ptr %.3180213, i64 5
-  %150 = load i8, ptr %149, align 1
+  %150 = load i8, ptr %149, align 1, !tbaa !3
   %151 = zext i8 %150 to i64
   %152 = add i64 %147, %151
   %153 = add i64 %148, %152
   %154 = getelementptr inbounds nuw i8, ptr %.3180213, i64 6
-  %155 = load i8, ptr %154, align 1
+  %155 = load i8, ptr %154, align 1, !tbaa !3
   %156 = zext i8 %155 to i64
   %157 = add i64 %152, %156
   %158 = add i64 %153, %157
   %159 = getelementptr inbounds nuw i8, ptr %.3180213, i64 7
-  %160 = load i8, ptr %159, align 1
+  %160 = load i8, ptr %159, align 1, !tbaa !3
   %161 = zext i8 %160 to i64
   %162 = add i64 %157, %161
   %163 = add i64 %158, %162
   %164 = getelementptr inbounds nuw i8, ptr %.3180213, i64 8
-  %165 = load i8, ptr %164, align 1
+  %165 = load i8, ptr %164, align 1, !tbaa !3
   %166 = zext i8 %165 to i64
   %167 = add i64 %162, %166
   %168 = add i64 %163, %167
   %169 = getelementptr inbounds nuw i8, ptr %.3180213, i64 9
-  %170 = load i8, ptr %169, align 1
+  %170 = load i8, ptr %169, align 1, !tbaa !3
   %171 = zext i8 %170 to i64
   %172 = add i64 %167, %171
   %173 = add i64 %168, %172
   %174 = getelementptr inbounds nuw i8, ptr %.3180213, i64 10
-  %175 = load i8, ptr %174, align 1
+  %175 = load i8, ptr %174, align 1, !tbaa !3
   %176 = zext i8 %175 to i64
   %177 = add i64 %172, %176
   %178 = add i64 %173, %177
   %179 = getelementptr inbounds nuw i8, ptr %.3180213, i64 11
-  %180 = load i8, ptr %179, align 1
+  %180 = load i8, ptr %179, align 1, !tbaa !3
   %181 = zext i8 %180 to i64
   %182 = add i64 %177, %181
   %183 = add i64 %178, %182
   %184 = getelementptr inbounds nuw i8, ptr %.3180213, i64 12
-  %185 = load i8, ptr %184, align 1
+  %185 = load i8, ptr %184, align 1, !tbaa !3
   %186 = zext i8 %185 to i64
   %187 = add i64 %182, %186
   %188 = add i64 %183, %187
   %189 = getelementptr inbounds nuw i8, ptr %.3180213, i64 13
-  %190 = load i8, ptr %189, align 1
+  %190 = load i8, ptr %189, align 1, !tbaa !3
   %191 = zext i8 %190 to i64
   %192 = add i64 %187, %191
   %193 = add i64 %188, %192
   %194 = getelementptr inbounds nuw i8, ptr %.3180213, i64 14
-  %195 = load i8, ptr %194, align 1
+  %195 = load i8, ptr %194, align 1, !tbaa !3
   %196 = zext i8 %195 to i64
   %197 = add i64 %192, %196
   %198 = add i64 %193, %197
   %199 = getelementptr inbounds nuw i8, ptr %.3180213, i64 15
-  %200 = load i8, ptr %199, align 1
+  %200 = load i8, ptr %199, align 1, !tbaa !3
   %201 = zext i8 %200 to i64
   %202 = add i64 %197, %201
   %203 = add i64 %198, %202
   %204 = getelementptr inbounds nuw i8, ptr %.3180213, i64 16
   %205 = icmp ugt i32 %124, 15
-  br i1 %205, label %.lr.ph216, label %.preheader200, !llvm.loop !8
+  br i1 %205, label %.lr.ph216, label %.preheader200, !llvm.loop !10
 
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %.lr.ph226
   %.6225 = phi i64 [ %211, %.lr.ph226 ], [ %.6225.ph, %.lr.ph226.preheader ]
@@ -293,12 +293,12 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) loc
   %.7222 = phi i64 [ %210, %.lr.ph226 ], [ %.7222.ph, %.lr.ph226.preheader ]
   %206 = add i32 %.3176224, -1
   %207 = getelementptr inbounds nuw i8, ptr %.4181223, i64 1
-  %208 = load i8, ptr %.4181223, align 1
+  %208 = load i8, ptr %.4181223, align 1, !tbaa !3
   %209 = zext i8 %208 to i64
   %210 = add i64 %.7222, %209
   %211 = add i64 %210, %.6225
   %.not196 = icmp eq i32 %206, 0
-  br i1 %.not196, label %._crit_edge227, label %.lr.ph226, !llvm.loop !9
+  br i1 %.not196, label %._crit_edge227, label %.lr.ph226, !llvm.loop !11
 
 ._crit_edge227:                                   ; preds = %.lr.ph226, %.preheader200
   %.7.lcssa = phi i64 [ %202, %.preheader200 ], [ %210, %.lr.ph226 ]
@@ -391,18 +391,20 @@ define range(i64 0, 4295884800) i64 @adler32_combine64(i64 noundef %0, i64 nound
   ret i64 %29
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -23,686 +23,718 @@ define ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %12, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %22, align 8
-  %24 = lshr i32 %23, 28
-  store i32 %24, ptr %10, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %25, align 8
-  %27 = lshr i32 %26, 28
-  store i32 %27, ptr %11, align 4
-  %28 = load i32, ptr %10, align 4
-  %29 = load i32, ptr %12, align 4
-  %30 = icmp eq i32 %28, %29
-  br i1 %30, label %31, label %90
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 4, !tbaa !18
+  store i32 %22, ptr %12, align 4, !tbaa !20
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load i32, ptr %23, align 8
+  %25 = lshr i32 %24, 28
+  store i32 %25, ptr %10, align 4, !tbaa !20
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  %27 = load i32, ptr %26, align 8
+  %28 = lshr i32 %27, 28
+  store i32 %28, ptr %11, align 4, !tbaa !20
+  %29 = load i32, ptr %10, align 4, !tbaa !20
+  %30 = load i32, ptr %12, align 4, !tbaa !20
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %91
 
-31:                                               ; preds = %3
-  %32 = load i32, ptr %11, align 4
-  %33 = load i32, ptr %12, align 4
-  %34 = icmp eq i32 %32, %33
-  br i1 %34, label %35, label %90
+32:                                               ; preds = %3
+  %33 = load i32, ptr %11, align 4, !tbaa !20
+  %34 = load i32, ptr %12, align 4, !tbaa !20
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %91
 
-35:                                               ; preds = %31
-  store i32 0, ptr %13, align 4
-  br label %36
+36:                                               ; preds = %32
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %37
 
-36:                                               ; preds = %56, %35
-  %37 = load i32, ptr %13, align 4
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp slt i32 %37, %38
-  br i1 %39, label %40, label %59
+37:                                               ; preds = %57, %36
+  %38 = load i32, ptr %13, align 4, !tbaa !20
+  %39 = load i32, ptr %10, align 4, !tbaa !20
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %60
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %41, i32 0, i32 5
-  %43 = load i32, ptr %13, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %47, i32 0, i32 5
-  %49 = load i32, ptr %13, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp ne i32 %46, %52
-  br i1 %53, label %54, label %55
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %42, i32 0, i32 5
+  %44 = load i32, ptr %13, align 4, !tbaa !20
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [0 x i32], ptr %43, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !20
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %48, i32 0, i32 5
+  %50 = load i32, ptr %13, align 4, !tbaa !20
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [0 x i32], ptr %49, i64 0, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !20
+  %54 = icmp ne i32 %47, %53
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %40
+55:                                               ; preds = %41
   store ptr null, ptr %4, align 8
-  br label %446
+  store i32 1, ptr %17, align 4
+  br label %447
 
-55:                                               ; preds = %40
-  br label %56
+56:                                               ; preds = %41
+  br label %57
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr %13, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %13, align 4
-  br label %36, !llvm.loop !4
+57:                                               ; preds = %56
+  %58 = load i32, ptr %13, align 4, !tbaa !20
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %13, align 4, !tbaa !20
+  br label %37, !llvm.loop !21
 
-59:                                               ; preds = %36
-  %60 = load ptr, ptr %5, align 8
-  %61 = call ptr @Cut_CutAlloc(ptr noundef %60)
-  store ptr %61, ptr %8, align 8
-  store i32 0, ptr %13, align 4
-  br label %62
+60:                                               ; preds = %37
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = call ptr @Cut_CutAlloc(ptr noundef %61)
+  store ptr %62, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %63
 
-62:                                               ; preds = %78, %59
-  %63 = load i32, ptr %13, align 4
-  %64 = load i32, ptr %10, align 4
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %66, label %81
+63:                                               ; preds = %79, %60
+  %64 = load i32, ptr %13, align 4, !tbaa !20
+  %65 = load i32, ptr %10, align 4, !tbaa !20
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %82
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %67, i32 0, i32 5
-  %69 = load i32, ptr %13, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [0 x i32], ptr %68, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %73, i32 0, i32 5
-  %75 = load i32, ptr %13, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [0 x i32], ptr %74, i64 0, i64 %76
-  store i32 %72, ptr %77, align 4
-  br label %78
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %6, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %68, i32 0, i32 5
+  %70 = load i32, ptr %13, align 4, !tbaa !20
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [0 x i32], ptr %69, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !20
+  %74 = load ptr, ptr %8, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %13, align 4, !tbaa !20
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [0 x i32], ptr %75, i64 0, i64 %77
+  store i32 %73, ptr %78, align 4, !tbaa !20
+  br label %79
 
-78:                                               ; preds = %66
-  %79 = load i32, ptr %13, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %13, align 4
-  br label %62, !llvm.loop !6
+79:                                               ; preds = %67
+  %80 = load i32, ptr %13, align 4, !tbaa !20
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %13, align 4, !tbaa !20
+  br label %63, !llvm.loop !23
 
-81:                                               ; preds = %62
-  %82 = load i32, ptr %10, align 4
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i32, ptr %83, align 8
-  %85 = and i32 %82, 15
-  %86 = shl i32 %85, 28
-  %87 = and i32 %84, 268435455
-  %88 = or i32 %87, %86
-  store i32 %88, ptr %83, align 8
-  %89 = load ptr, ptr %8, align 8
-  store ptr %89, ptr %4, align 8
-  br label %446
+82:                                               ; preds = %63
+  %83 = load i32, ptr %10, align 4, !tbaa !20
+  %84 = load ptr, ptr %8, align 8, !tbaa !8
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %83, 15
+  %87 = shl i32 %86, 28
+  %88 = and i32 %85, 268435455
+  %89 = or i32 %88, %87
+  store i32 %89, ptr %84, align 8
+  %90 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %90, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %447
 
-90:                                               ; preds = %31, %3
-  %91 = load i32, ptr %10, align 4
-  %92 = load i32, ptr %12, align 4
-  %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %163
+91:                                               ; preds = %32, %3
+  %92 = load i32, ptr %10, align 4, !tbaa !20
+  %93 = load i32, ptr %12, align 4, !tbaa !20
+  %94 = icmp eq i32 %92, %93
+  br i1 %94, label %95, label %164
 
-94:                                               ; preds = %90
-  store i32 0, ptr %13, align 4
-  br label %95
+95:                                               ; preds = %91
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %96
 
-95:                                               ; preds = %129, %94
-  %96 = load i32, ptr %13, align 4
-  %97 = load i32, ptr %11, align 4
-  %98 = icmp slt i32 %96, %97
-  br i1 %98, label %99, label %132
+96:                                               ; preds = %130, %95
+  %97 = load i32, ptr %13, align 4, !tbaa !20
+  %98 = load i32, ptr %11, align 4, !tbaa !20
+  %99 = icmp slt i32 %97, %98
+  br i1 %99, label %100, label %133
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %10, align 4
-  %101 = sub nsw i32 %100, 1
-  store i32 %101, ptr %14, align 4
-  br label %102
+100:                                              ; preds = %96
+  %101 = load i32, ptr %10, align 4, !tbaa !20
+  %102 = sub nsw i32 %101, 1
+  store i32 %102, ptr %14, align 4, !tbaa !20
+  br label %103
 
-102:                                              ; preds = %121, %99
-  %103 = load i32, ptr %14, align 4
-  %104 = icmp sge i32 %103, 0
-  br i1 %104, label %105, label %124
+103:                                              ; preds = %122, %100
+  %104 = load i32, ptr %14, align 4, !tbaa !20
+  %105 = icmp sge i32 %104, 0
+  br i1 %105, label %106, label %125
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %106, i32 0, i32 5
-  %108 = load i32, ptr %14, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [0 x i32], ptr %107, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %112, i32 0, i32 5
-  %114 = load i32, ptr %13, align 4
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds [0 x i32], ptr %113, i64 0, i64 %115
-  %117 = load i32, ptr %116, align 4
-  %118 = icmp eq i32 %111, %117
-  br i1 %118, label %119, label %120
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %6, align 8, !tbaa !8
+  %108 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %107, i32 0, i32 5
+  %109 = load i32, ptr %14, align 4, !tbaa !20
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [0 x i32], ptr %108, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !20
+  %113 = load ptr, ptr %7, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %113, i32 0, i32 5
+  %115 = load i32, ptr %13, align 4, !tbaa !20
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds [0 x i32], ptr %114, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !20
+  %119 = icmp eq i32 %112, %118
+  br i1 %119, label %120, label %121
 
-119:                                              ; preds = %105
-  br label %124
+120:                                              ; preds = %106
+  br label %125
 
-120:                                              ; preds = %105
-  br label %121
+121:                                              ; preds = %106
+  br label %122
 
-121:                                              ; preds = %120
-  %122 = load i32, ptr %14, align 4
-  %123 = add nsw i32 %122, -1
-  store i32 %123, ptr %14, align 4
-  br label %102, !llvm.loop !7
+122:                                              ; preds = %121
+  %123 = load i32, ptr %14, align 4, !tbaa !20
+  %124 = add nsw i32 %123, -1
+  store i32 %124, ptr %14, align 4, !tbaa !20
+  br label %103, !llvm.loop !24
 
-124:                                              ; preds = %119, %102
-  %125 = load i32, ptr %14, align 4
-  %126 = icmp eq i32 %125, -1
-  br i1 %126, label %127, label %128
+125:                                              ; preds = %120, %103
+  %126 = load i32, ptr %14, align 4, !tbaa !20
+  %127 = icmp eq i32 %126, -1
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %124
+128:                                              ; preds = %125
   store ptr null, ptr %4, align 8
-  br label %446
+  store i32 1, ptr %17, align 4
+  br label %447
 
-128:                                              ; preds = %124
-  br label %129
+129:                                              ; preds = %125
+  br label %130
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr %13, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %13, align 4
-  br label %95, !llvm.loop !8
+130:                                              ; preds = %129
+  %131 = load i32, ptr %13, align 4, !tbaa !20
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %13, align 4, !tbaa !20
+  br label %96, !llvm.loop !25
 
-132:                                              ; preds = %95
-  %133 = load ptr, ptr %5, align 8
-  %134 = call ptr @Cut_CutAlloc(ptr noundef %133)
-  store ptr %134, ptr %8, align 8
-  store i32 0, ptr %13, align 4
-  br label %135
+133:                                              ; preds = %96
+  %134 = load ptr, ptr %5, align 8, !tbaa !3
+  %135 = call ptr @Cut_CutAlloc(ptr noundef %134)
+  store ptr %135, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %136
 
-135:                                              ; preds = %151, %132
-  %136 = load i32, ptr %13, align 4
-  %137 = load i32, ptr %10, align 4
-  %138 = icmp slt i32 %136, %137
-  br i1 %138, label %139, label %154
+136:                                              ; preds = %152, %133
+  %137 = load i32, ptr %13, align 4, !tbaa !20
+  %138 = load i32, ptr %10, align 4, !tbaa !20
+  %139 = icmp slt i32 %137, %138
+  br i1 %139, label %140, label %155
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %140, i32 0, i32 5
-  %142 = load i32, ptr %13, align 4
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds [0 x i32], ptr %141, i64 0, i64 %143
-  %145 = load i32, ptr %144, align 4
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %146, i32 0, i32 5
-  %148 = load i32, ptr %13, align 4
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [0 x i32], ptr %147, i64 0, i64 %149
-  store i32 %145, ptr %150, align 4
-  br label %151
+140:                                              ; preds = %136
+  %141 = load ptr, ptr %6, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %141, i32 0, i32 5
+  %143 = load i32, ptr %13, align 4, !tbaa !20
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds [0 x i32], ptr %142, i64 0, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !20
+  %147 = load ptr, ptr %8, align 8, !tbaa !8
+  %148 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %147, i32 0, i32 5
+  %149 = load i32, ptr %13, align 4, !tbaa !20
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds [0 x i32], ptr %148, i64 0, i64 %150
+  store i32 %146, ptr %151, align 4, !tbaa !20
+  br label %152
 
-151:                                              ; preds = %139
-  %152 = load i32, ptr %13, align 4
-  %153 = add nsw i32 %152, 1
-  store i32 %153, ptr %13, align 4
-  br label %135, !llvm.loop !9
+152:                                              ; preds = %140
+  %153 = load i32, ptr %13, align 4, !tbaa !20
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %13, align 4, !tbaa !20
+  br label %136, !llvm.loop !26
 
-154:                                              ; preds = %135
-  %155 = load i32, ptr %10, align 4
-  %156 = load ptr, ptr %8, align 8
-  %157 = load i32, ptr %156, align 8
-  %158 = and i32 %155, 15
-  %159 = shl i32 %158, 28
-  %160 = and i32 %157, 268435455
-  %161 = or i32 %160, %159
-  store i32 %161, ptr %156, align 8
-  %162 = load ptr, ptr %8, align 8
-  store ptr %162, ptr %4, align 8
-  br label %446
+155:                                              ; preds = %136
+  %156 = load i32, ptr %10, align 4, !tbaa !20
+  %157 = load ptr, ptr %8, align 8, !tbaa !8
+  %158 = load i32, ptr %157, align 8
+  %159 = and i32 %156, 15
+  %160 = shl i32 %159, 28
+  %161 = and i32 %158, 268435455
+  %162 = or i32 %161, %160
+  store i32 %162, ptr %157, align 8
+  %163 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %163, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %447
 
-163:                                              ; preds = %90
-  %164 = load i32, ptr %10, align 4
-  store i32 %164, ptr %16, align 4
-  store i32 0, ptr %13, align 4
-  br label %165
+164:                                              ; preds = %91
+  %165 = load i32, ptr %10, align 4, !tbaa !20
+  store i32 %165, ptr %16, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %166
 
-165:                                              ; preds = %355, %163
-  %166 = load i32, ptr %13, align 4
-  %167 = load i32, ptr %11, align 4
-  %168 = icmp slt i32 %166, %167
-  br i1 %168, label %169, label %358
+166:                                              ; preds = %356, %164
+  %167 = load i32, ptr %13, align 4, !tbaa !20
+  %168 = load i32, ptr %11, align 4, !tbaa !20
+  %169 = icmp slt i32 %167, %168
+  br i1 %169, label %170, label %359
 
-169:                                              ; preds = %165
-  %170 = load i32, ptr %10, align 4
-  %171 = sub nsw i32 %170, 1
-  store i32 %171, ptr %14, align 4
-  br label %172
+170:                                              ; preds = %166
+  %171 = load i32, ptr %10, align 4, !tbaa !20
+  %172 = sub nsw i32 %171, 1
+  store i32 %172, ptr %14, align 4, !tbaa !20
+  br label %173
 
-172:                                              ; preds = %279, %169
-  %173 = load i32, ptr %14, align 4
-  %174 = icmp sge i32 %173, 0
-  br i1 %174, label %175, label %282
+173:                                              ; preds = %280, %170
+  %174 = load i32, ptr %14, align 4, !tbaa !20
+  %175 = icmp sge i32 %174, 0
+  br i1 %175, label %176, label %283
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %6, align 8
-  %177 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %176, i32 0, i32 5
-  %178 = load i32, ptr %14, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [0 x i32], ptr %177, i64 0, i64 %179
-  %181 = load i32, ptr %180, align 4
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %182, i32 0, i32 5
-  %184 = load i32, ptr %13, align 4
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [0 x i32], ptr %183, i64 0, i64 %185
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp sgt i32 %181, %187
-  br i1 %188, label %189, label %190
+176:                                              ; preds = %173
+  %177 = load ptr, ptr %6, align 8, !tbaa !8
+  %178 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %177, i32 0, i32 5
+  %179 = load i32, ptr %14, align 4, !tbaa !20
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds [0 x i32], ptr %178, i64 0, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !20
+  %183 = load ptr, ptr %7, align 8, !tbaa !8
+  %184 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %183, i32 0, i32 5
+  %185 = load i32, ptr %13, align 4, !tbaa !20
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds [0 x i32], ptr %184, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !20
+  %189 = icmp sgt i32 %182, %188
+  br i1 %189, label %190, label %191
 
-189:                                              ; preds = %175
+190:                                              ; preds = %176
+  br label %280
+
+191:                                              ; preds = %176
+  %192 = load ptr, ptr %6, align 8, !tbaa !8
+  %193 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %192, i32 0, i32 5
+  %194 = load i32, ptr %14, align 4, !tbaa !20
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [0 x i32], ptr %193, i64 0, i64 %195
+  %197 = load i32, ptr %196, align 4, !tbaa !20
+  %198 = load ptr, ptr %7, align 8, !tbaa !8
+  %199 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %198, i32 0, i32 5
+  %200 = load i32, ptr %13, align 4, !tbaa !20
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds [0 x i32], ptr %199, i64 0, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !20
+  %204 = icmp slt i32 %197, %203
+  br i1 %204, label %205, label %279
+
+205:                                              ; preds = %191
+  %206 = load i32, ptr %14, align 4, !tbaa !20
+  %207 = add nsw i32 %206, 1
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %208
+  %210 = getelementptr inbounds [3 x i32], ptr %209, i64 0, i64 0
+  store ptr %210, ptr %9, align 8, !tbaa !27
+  %211 = load ptr, ptr %9, align 8, !tbaa !27
+  %212 = getelementptr inbounds i32, ptr %211, i64 0
+  %213 = load i32, ptr %212, align 4, !tbaa !20
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %215, label %226
+
+215:                                              ; preds = %205
+  %216 = load ptr, ptr %7, align 8, !tbaa !8
+  %217 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %216, i32 0, i32 5
+  %218 = load i32, ptr %13, align 4, !tbaa !20
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds [0 x i32], ptr %217, i64 0, i64 %219
+  %221 = load i32, ptr %220, align 4, !tbaa !20
+  %222 = load ptr, ptr %9, align 8, !tbaa !27
+  %223 = getelementptr inbounds i32, ptr %222, i64 0
+  store i32 %221, ptr %223, align 4, !tbaa !20
+  %224 = load ptr, ptr %9, align 8, !tbaa !27
+  %225 = getelementptr inbounds i32, ptr %224, i64 1
+  store i32 0, ptr %225, align 4, !tbaa !20
+  br label %259
+
+226:                                              ; preds = %205
+  %227 = load ptr, ptr %9, align 8, !tbaa !27
+  %228 = getelementptr inbounds i32, ptr %227, i64 1
+  %229 = load i32, ptr %228, align 4, !tbaa !20
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %242
+
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %7, align 8, !tbaa !8
+  %233 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %232, i32 0, i32 5
+  %234 = load i32, ptr %13, align 4, !tbaa !20
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds [0 x i32], ptr %233, i64 0, i64 %235
+  %237 = load i32, ptr %236, align 4, !tbaa !20
+  %238 = load ptr, ptr %9, align 8, !tbaa !27
+  %239 = getelementptr inbounds i32, ptr %238, i64 1
+  store i32 %237, ptr %239, align 4, !tbaa !20
+  %240 = load ptr, ptr %9, align 8, !tbaa !27
+  %241 = getelementptr inbounds i32, ptr %240, i64 2
+  store i32 0, ptr %241, align 4, !tbaa !20
+  br label %258
+
+242:                                              ; preds = %226
+  %243 = load ptr, ptr %9, align 8, !tbaa !27
+  %244 = getelementptr inbounds i32, ptr %243, i64 2
+  %245 = load i32, ptr %244, align 4, !tbaa !20
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %256
+
+247:                                              ; preds = %242
+  %248 = load ptr, ptr %7, align 8, !tbaa !8
+  %249 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %248, i32 0, i32 5
+  %250 = load i32, ptr %13, align 4, !tbaa !20
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds [0 x i32], ptr %249, i64 0, i64 %251
+  %253 = load i32, ptr %252, align 4, !tbaa !20
+  %254 = load ptr, ptr %9, align 8, !tbaa !27
+  %255 = getelementptr inbounds i32, ptr %254, i64 2
+  store i32 %253, ptr %255, align 4, !tbaa !20
+  br label %257
+
+256:                                              ; preds = %242
+  br label %257
+
+257:                                              ; preds = %256, %247
+  br label %258
+
+258:                                              ; preds = %257, %231
+  br label %259
+
+259:                                              ; preds = %258, %215
+  %260 = load i32, ptr %16, align 4, !tbaa !20
+  %261 = add nsw i32 %260, 1
+  store i32 %261, ptr %16, align 4, !tbaa !20
+  %262 = load i32, ptr %12, align 4, !tbaa !20
+  %263 = icmp sgt i32 %261, %262
+  br i1 %263, label %264, label %278
+
+264:                                              ; preds = %259
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %265
+
+265:                                              ; preds = %274, %264
+  %266 = load i32, ptr %13, align 4, !tbaa !20
+  %267 = load i32, ptr %10, align 4, !tbaa !20
+  %268 = icmp sle i32 %266, %267
+  br i1 %268, label %269, label %277
+
+269:                                              ; preds = %265
+  %270 = load i32, ptr %13, align 4, !tbaa !20
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %271
+  %273 = getelementptr inbounds [3 x i32], ptr %272, i64 0, i64 0
+  store i32 0, ptr %273, align 4, !tbaa !20
+  br label %274
+
+274:                                              ; preds = %269
+  %275 = load i32, ptr %13, align 4, !tbaa !20
+  %276 = add nsw i32 %275, 1
+  store i32 %276, ptr %13, align 4, !tbaa !20
+  br label %265, !llvm.loop !29
+
+277:                                              ; preds = %265
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %447
+
+278:                                              ; preds = %259
   br label %279
 
-190:                                              ; preds = %175
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %191, i32 0, i32 5
-  %193 = load i32, ptr %14, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds [0 x i32], ptr %192, i64 0, i64 %194
-  %196 = load i32, ptr %195, align 4
-  %197 = load ptr, ptr %7, align 8
-  %198 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %197, i32 0, i32 5
-  %199 = load i32, ptr %13, align 4
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [0 x i32], ptr %198, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4
-  %203 = icmp slt i32 %196, %202
-  br i1 %203, label %204, label %278
+279:                                              ; preds = %278, %191
+  br label %283
 
-204:                                              ; preds = %190
-  %205 = load i32, ptr %14, align 4
-  %206 = add nsw i32 %205, 1
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %207
-  %209 = getelementptr inbounds [3 x i32], ptr %208, i64 0, i64 0
-  store ptr %209, ptr %9, align 8
-  %210 = load ptr, ptr %9, align 8
-  %211 = getelementptr inbounds i32, ptr %210, i64 0
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %225
+280:                                              ; preds = %190
+  %281 = load i32, ptr %14, align 4, !tbaa !20
+  %282 = add nsw i32 %281, -1
+  store i32 %282, ptr %14, align 4, !tbaa !20
+  br label %173, !llvm.loop !30
 
-214:                                              ; preds = %204
-  %215 = load ptr, ptr %7, align 8
-  %216 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %215, i32 0, i32 5
-  %217 = load i32, ptr %13, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds [0 x i32], ptr %216, i64 0, i64 %218
-  %220 = load i32, ptr %219, align 4
-  %221 = load ptr, ptr %9, align 8
-  %222 = getelementptr inbounds i32, ptr %221, i64 0
-  store i32 %220, ptr %222, align 4
-  %223 = load ptr, ptr %9, align 8
-  %224 = getelementptr inbounds i32, ptr %223, i64 1
-  store i32 0, ptr %224, align 4
-  br label %258
+283:                                              ; preds = %279, %173
+  %284 = load i32, ptr %14, align 4, !tbaa !20
+  %285 = icmp eq i32 %284, -1
+  br i1 %285, label %286, label %355
 
-225:                                              ; preds = %204
-  %226 = load ptr, ptr %9, align 8
-  %227 = getelementptr inbounds i32, ptr %226, i64 1
-  %228 = load i32, ptr %227, align 4
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %230, label %241
+286:                                              ; preds = %283
+  store ptr @Cut_CutMergeTwo2.M, ptr %9, align 8, !tbaa !27
+  %287 = load ptr, ptr %9, align 8, !tbaa !27
+  %288 = getelementptr inbounds i32, ptr %287, i64 0
+  %289 = load i32, ptr %288, align 4, !tbaa !20
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %291, label %302
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %7, align 8
-  %232 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %231, i32 0, i32 5
-  %233 = load i32, ptr %13, align 4
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds [0 x i32], ptr %232, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 4
-  %237 = load ptr, ptr %9, align 8
-  %238 = getelementptr inbounds i32, ptr %237, i64 1
-  store i32 %236, ptr %238, align 4
-  %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds i32, ptr %239, i64 2
-  store i32 0, ptr %240, align 4
-  br label %257
+291:                                              ; preds = %286
+  %292 = load ptr, ptr %7, align 8, !tbaa !8
+  %293 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %292, i32 0, i32 5
+  %294 = load i32, ptr %13, align 4, !tbaa !20
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds [0 x i32], ptr %293, i64 0, i64 %295
+  %297 = load i32, ptr %296, align 4, !tbaa !20
+  %298 = load ptr, ptr %9, align 8, !tbaa !27
+  %299 = getelementptr inbounds i32, ptr %298, i64 0
+  store i32 %297, ptr %299, align 4, !tbaa !20
+  %300 = load ptr, ptr %9, align 8, !tbaa !27
+  %301 = getelementptr inbounds i32, ptr %300, i64 1
+  store i32 0, ptr %301, align 4, !tbaa !20
+  br label %335
 
-241:                                              ; preds = %225
-  %242 = load ptr, ptr %9, align 8
-  %243 = getelementptr inbounds i32, ptr %242, i64 2
-  %244 = load i32, ptr %243, align 4
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %255
+302:                                              ; preds = %286
+  %303 = load ptr, ptr %9, align 8, !tbaa !27
+  %304 = getelementptr inbounds i32, ptr %303, i64 1
+  %305 = load i32, ptr %304, align 4, !tbaa !20
+  %306 = icmp eq i32 %305, 0
+  br i1 %306, label %307, label %318
 
-246:                                              ; preds = %241
-  %247 = load ptr, ptr %7, align 8
-  %248 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %247, i32 0, i32 5
-  %249 = load i32, ptr %13, align 4
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds [0 x i32], ptr %248, i64 0, i64 %250
-  %252 = load i32, ptr %251, align 4
-  %253 = load ptr, ptr %9, align 8
-  %254 = getelementptr inbounds i32, ptr %253, i64 2
-  store i32 %252, ptr %254, align 4
-  br label %256
-
-255:                                              ; preds = %241
-  br label %256
-
-256:                                              ; preds = %255, %246
-  br label %257
-
-257:                                              ; preds = %256, %230
-  br label %258
-
-258:                                              ; preds = %257, %214
-  %259 = load i32, ptr %16, align 4
-  %260 = add nsw i32 %259, 1
-  store i32 %260, ptr %16, align 4
-  %261 = load i32, ptr %12, align 4
-  %262 = icmp sgt i32 %260, %261
-  br i1 %262, label %263, label %277
-
-263:                                              ; preds = %258
-  store i32 0, ptr %13, align 4
-  br label %264
-
-264:                                              ; preds = %273, %263
-  %265 = load i32, ptr %13, align 4
-  %266 = load i32, ptr %10, align 4
-  %267 = icmp sle i32 %265, %266
-  br i1 %267, label %268, label %276
-
-268:                                              ; preds = %264
-  %269 = load i32, ptr %13, align 4
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %270
-  %272 = getelementptr inbounds [3 x i32], ptr %271, i64 0, i64 0
-  store i32 0, ptr %272, align 4
-  br label %273
-
-273:                                              ; preds = %268
-  %274 = load i32, ptr %13, align 4
-  %275 = add nsw i32 %274, 1
-  store i32 %275, ptr %13, align 4
-  br label %264, !llvm.loop !10
-
-276:                                              ; preds = %264
-  store ptr null, ptr %4, align 8
-  br label %446
-
-277:                                              ; preds = %258
-  br label %278
-
-278:                                              ; preds = %277, %190
-  br label %282
-
-279:                                              ; preds = %189
-  %280 = load i32, ptr %14, align 4
-  %281 = add nsw i32 %280, -1
-  store i32 %281, ptr %14, align 4
-  br label %172, !llvm.loop !11
-
-282:                                              ; preds = %278, %172
-  %283 = load i32, ptr %14, align 4
-  %284 = icmp eq i32 %283, -1
-  br i1 %284, label %285, label %354
-
-285:                                              ; preds = %282
-  store ptr @Cut_CutMergeTwo2.M, ptr %9, align 8
-  %286 = load ptr, ptr %9, align 8
-  %287 = getelementptr inbounds i32, ptr %286, i64 0
-  %288 = load i32, ptr %287, align 4
-  %289 = icmp eq i32 %288, 0
-  br i1 %289, label %290, label %301
-
-290:                                              ; preds = %285
-  %291 = load ptr, ptr %7, align 8
-  %292 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %291, i32 0, i32 5
-  %293 = load i32, ptr %13, align 4
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds [0 x i32], ptr %292, i64 0, i64 %294
-  %296 = load i32, ptr %295, align 4
-  %297 = load ptr, ptr %9, align 8
-  %298 = getelementptr inbounds i32, ptr %297, i64 0
-  store i32 %296, ptr %298, align 4
-  %299 = load ptr, ptr %9, align 8
-  %300 = getelementptr inbounds i32, ptr %299, i64 1
-  store i32 0, ptr %300, align 4
+307:                                              ; preds = %302
+  %308 = load ptr, ptr %7, align 8, !tbaa !8
+  %309 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %308, i32 0, i32 5
+  %310 = load i32, ptr %13, align 4, !tbaa !20
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr inbounds [0 x i32], ptr %309, i64 0, i64 %311
+  %313 = load i32, ptr %312, align 4, !tbaa !20
+  %314 = load ptr, ptr %9, align 8, !tbaa !27
+  %315 = getelementptr inbounds i32, ptr %314, i64 1
+  store i32 %313, ptr %315, align 4, !tbaa !20
+  %316 = load ptr, ptr %9, align 8, !tbaa !27
+  %317 = getelementptr inbounds i32, ptr %316, i64 2
+  store i32 0, ptr %317, align 4, !tbaa !20
   br label %334
 
-301:                                              ; preds = %285
-  %302 = load ptr, ptr %9, align 8
-  %303 = getelementptr inbounds i32, ptr %302, i64 1
-  %304 = load i32, ptr %303, align 4
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %306, label %317
+318:                                              ; preds = %302
+  %319 = load ptr, ptr %9, align 8, !tbaa !27
+  %320 = getelementptr inbounds i32, ptr %319, i64 2
+  %321 = load i32, ptr %320, align 4, !tbaa !20
+  %322 = icmp eq i32 %321, 0
+  br i1 %322, label %323, label %332
 
-306:                                              ; preds = %301
-  %307 = load ptr, ptr %7, align 8
-  %308 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %307, i32 0, i32 5
-  %309 = load i32, ptr %13, align 4
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds [0 x i32], ptr %308, i64 0, i64 %310
-  %312 = load i32, ptr %311, align 4
-  %313 = load ptr, ptr %9, align 8
-  %314 = getelementptr inbounds i32, ptr %313, i64 1
-  store i32 %312, ptr %314, align 4
-  %315 = load ptr, ptr %9, align 8
-  %316 = getelementptr inbounds i32, ptr %315, i64 2
-  store i32 0, ptr %316, align 4
+323:                                              ; preds = %318
+  %324 = load ptr, ptr %7, align 8, !tbaa !8
+  %325 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %324, i32 0, i32 5
+  %326 = load i32, ptr %13, align 4, !tbaa !20
+  %327 = sext i32 %326 to i64
+  %328 = getelementptr inbounds [0 x i32], ptr %325, i64 0, i64 %327
+  %329 = load i32, ptr %328, align 4, !tbaa !20
+  %330 = load ptr, ptr %9, align 8, !tbaa !27
+  %331 = getelementptr inbounds i32, ptr %330, i64 2
+  store i32 %329, ptr %331, align 4, !tbaa !20
   br label %333
 
-317:                                              ; preds = %301
-  %318 = load ptr, ptr %9, align 8
-  %319 = getelementptr inbounds i32, ptr %318, i64 2
-  %320 = load i32, ptr %319, align 4
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %322, label %331
-
-322:                                              ; preds = %317
-  %323 = load ptr, ptr %7, align 8
-  %324 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %323, i32 0, i32 5
-  %325 = load i32, ptr %13, align 4
-  %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds [0 x i32], ptr %324, i64 0, i64 %326
-  %328 = load i32, ptr %327, align 4
-  %329 = load ptr, ptr %9, align 8
-  %330 = getelementptr inbounds i32, ptr %329, i64 2
-  store i32 %328, ptr %330, align 4
-  br label %332
-
-331:                                              ; preds = %317
-  br label %332
-
-332:                                              ; preds = %331, %322
+332:                                              ; preds = %318
   br label %333
 
-333:                                              ; preds = %332, %306
+333:                                              ; preds = %332, %323
   br label %334
 
-334:                                              ; preds = %333, %290
-  %335 = load i32, ptr %16, align 4
-  %336 = add nsw i32 %335, 1
-  store i32 %336, ptr %16, align 4
-  %337 = load i32, ptr %12, align 4
-  %338 = icmp sgt i32 %336, %337
-  br i1 %338, label %339, label %353
+334:                                              ; preds = %333, %307
+  br label %335
 
-339:                                              ; preds = %334
-  store i32 0, ptr %13, align 4
-  br label %340
+335:                                              ; preds = %334, %291
+  %336 = load i32, ptr %16, align 4, !tbaa !20
+  %337 = add nsw i32 %336, 1
+  store i32 %337, ptr %16, align 4, !tbaa !20
+  %338 = load i32, ptr %12, align 4, !tbaa !20
+  %339 = icmp sgt i32 %337, %338
+  br i1 %339, label %340, label %354
 
-340:                                              ; preds = %349, %339
-  %341 = load i32, ptr %13, align 4
-  %342 = load i32, ptr %10, align 4
-  %343 = icmp sle i32 %341, %342
-  br i1 %343, label %344, label %352
+340:                                              ; preds = %335
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %341
 
-344:                                              ; preds = %340
-  %345 = load i32, ptr %13, align 4
-  %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %346
-  %348 = getelementptr inbounds [3 x i32], ptr %347, i64 0, i64 0
-  store i32 0, ptr %348, align 4
-  br label %349
+341:                                              ; preds = %350, %340
+  %342 = load i32, ptr %13, align 4, !tbaa !20
+  %343 = load i32, ptr %10, align 4, !tbaa !20
+  %344 = icmp sle i32 %342, %343
+  br i1 %344, label %345, label %353
 
-349:                                              ; preds = %344
-  %350 = load i32, ptr %13, align 4
-  %351 = add nsw i32 %350, 1
-  store i32 %351, ptr %13, align 4
-  br label %340, !llvm.loop !12
+345:                                              ; preds = %341
+  %346 = load i32, ptr %13, align 4, !tbaa !20
+  %347 = sext i32 %346 to i64
+  %348 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %347
+  %349 = getelementptr inbounds [3 x i32], ptr %348, i64 0, i64 0
+  store i32 0, ptr %349, align 4, !tbaa !20
+  br label %350
 
-352:                                              ; preds = %340
+350:                                              ; preds = %345
+  %351 = load i32, ptr %13, align 4, !tbaa !20
+  %352 = add nsw i32 %351, 1
+  store i32 %352, ptr %13, align 4, !tbaa !20
+  br label %341, !llvm.loop !31
+
+353:                                              ; preds = %341
   store ptr null, ptr %4, align 8
-  br label %446
+  store i32 1, ptr %17, align 4
+  br label %447
 
-353:                                              ; preds = %334
-  br label %355
+354:                                              ; preds = %335
+  br label %356
 
-354:                                              ; preds = %282
-  br label %355
+355:                                              ; preds = %283
+  br label %356
 
-355:                                              ; preds = %354, %353
-  %356 = load i32, ptr %13, align 4
-  %357 = add nsw i32 %356, 1
-  store i32 %357, ptr %13, align 4
-  br label %165, !llvm.loop !13
+356:                                              ; preds = %355, %354
+  %357 = load i32, ptr %13, align 4, !tbaa !20
+  %358 = add nsw i32 %357, 1
+  store i32 %358, ptr %13, align 4, !tbaa !20
+  br label %166, !llvm.loop !32
 
-358:                                              ; preds = %165
-  %359 = load ptr, ptr %5, align 8
-  %360 = call ptr @Cut_CutAlloc(ptr noundef %359)
-  store ptr %360, ptr %8, align 8
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %13, align 4
-  br label %361
+359:                                              ; preds = %166
+  %360 = load ptr, ptr %5, align 8, !tbaa !3
+  %361 = call ptr @Cut_CutAlloc(ptr noundef %360)
+  store ptr %361, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %15, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %362
 
-361:                                              ; preds = %434, %358
-  %362 = load i32, ptr %13, align 4
-  %363 = load i32, ptr %10, align 4
-  %364 = icmp sle i32 %362, %363
-  br i1 %364, label %365, label %437
+362:                                              ; preds = %435, %359
+  %363 = load i32, ptr %13, align 4, !tbaa !20
+  %364 = load i32, ptr %10, align 4, !tbaa !20
+  %365 = icmp sle i32 %363, %364
+  br i1 %365, label %366, label %438
 
-365:                                              ; preds = %361
-  %366 = load i32, ptr %13, align 4
-  %367 = icmp sgt i32 %366, 0
-  br i1 %367, label %368, label %382
+366:                                              ; preds = %362
+  %367 = load i32, ptr %13, align 4, !tbaa !20
+  %368 = icmp sgt i32 %367, 0
+  br i1 %368, label %369, label %383
 
-368:                                              ; preds = %365
-  %369 = load ptr, ptr %6, align 8
-  %370 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %369, i32 0, i32 5
-  %371 = load i32, ptr %13, align 4
-  %372 = sub nsw i32 %371, 1
-  %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds [0 x i32], ptr %370, i64 0, i64 %373
-  %375 = load i32, ptr %374, align 4
-  %376 = load ptr, ptr %8, align 8
-  %377 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %376, i32 0, i32 5
-  %378 = load i32, ptr %15, align 4
-  %379 = add nsw i32 %378, 1
-  store i32 %379, ptr %15, align 4
-  %380 = sext i32 %378 to i64
-  %381 = getelementptr inbounds [0 x i32], ptr %377, i64 0, i64 %380
-  store i32 %375, ptr %381, align 4
-  br label %382
+369:                                              ; preds = %366
+  %370 = load ptr, ptr %6, align 8, !tbaa !8
+  %371 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %370, i32 0, i32 5
+  %372 = load i32, ptr %13, align 4, !tbaa !20
+  %373 = sub nsw i32 %372, 1
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds [0 x i32], ptr %371, i64 0, i64 %374
+  %376 = load i32, ptr %375, align 4, !tbaa !20
+  %377 = load ptr, ptr %8, align 8, !tbaa !8
+  %378 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %377, i32 0, i32 5
+  %379 = load i32, ptr %15, align 4, !tbaa !20
+  %380 = add nsw i32 %379, 1
+  store i32 %380, ptr %15, align 4, !tbaa !20
+  %381 = sext i32 %379 to i64
+  %382 = getelementptr inbounds [0 x i32], ptr %378, i64 0, i64 %381
+  store i32 %376, ptr %382, align 4, !tbaa !20
+  br label %383
 
-382:                                              ; preds = %368, %365
-  %383 = load i32, ptr %13, align 4
-  %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %384
-  %386 = getelementptr inbounds [3 x i32], ptr %385, i64 0, i64 0
-  store ptr %386, ptr %9, align 8
-  %387 = load ptr, ptr %9, align 8
-  %388 = getelementptr inbounds i32, ptr %387, i64 0
-  %389 = load i32, ptr %388, align 4
-  %390 = icmp ne i32 %389, 0
-  br i1 %390, label %391, label %433
+383:                                              ; preds = %369, %366
+  %384 = load i32, ptr %13, align 4, !tbaa !20
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo2.M, i64 0, i64 %385
+  %387 = getelementptr inbounds [3 x i32], ptr %386, i64 0, i64 0
+  store ptr %387, ptr %9, align 8, !tbaa !27
+  %388 = load ptr, ptr %9, align 8, !tbaa !27
+  %389 = getelementptr inbounds i32, ptr %388, i64 0
+  %390 = load i32, ptr %389, align 4, !tbaa !20
+  %391 = icmp ne i32 %390, 0
+  br i1 %391, label %392, label %434
 
-391:                                              ; preds = %382
-  %392 = load ptr, ptr %9, align 8
-  %393 = getelementptr inbounds i32, ptr %392, i64 0
-  %394 = load i32, ptr %393, align 4
-  %395 = load ptr, ptr %8, align 8
-  %396 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %395, i32 0, i32 5
-  %397 = load i32, ptr %15, align 4
-  %398 = add nsw i32 %397, 1
-  store i32 %398, ptr %15, align 4
-  %399 = sext i32 %397 to i64
-  %400 = getelementptr inbounds [0 x i32], ptr %396, i64 0, i64 %399
-  store i32 %394, ptr %400, align 4
-  %401 = load ptr, ptr %9, align 8
-  %402 = getelementptr inbounds i32, ptr %401, i64 1
-  %403 = load i32, ptr %402, align 4
-  %404 = icmp ne i32 %403, 0
-  br i1 %404, label %405, label %430
+392:                                              ; preds = %383
+  %393 = load ptr, ptr %9, align 8, !tbaa !27
+  %394 = getelementptr inbounds i32, ptr %393, i64 0
+  %395 = load i32, ptr %394, align 4, !tbaa !20
+  %396 = load ptr, ptr %8, align 8, !tbaa !8
+  %397 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %396, i32 0, i32 5
+  %398 = load i32, ptr %15, align 4, !tbaa !20
+  %399 = add nsw i32 %398, 1
+  store i32 %399, ptr %15, align 4, !tbaa !20
+  %400 = sext i32 %398 to i64
+  %401 = getelementptr inbounds [0 x i32], ptr %397, i64 0, i64 %400
+  store i32 %395, ptr %401, align 4, !tbaa !20
+  %402 = load ptr, ptr %9, align 8, !tbaa !27
+  %403 = getelementptr inbounds i32, ptr %402, i64 1
+  %404 = load i32, ptr %403, align 4, !tbaa !20
+  %405 = icmp ne i32 %404, 0
+  br i1 %405, label %406, label %431
 
-405:                                              ; preds = %391
-  %406 = load ptr, ptr %9, align 8
-  %407 = getelementptr inbounds i32, ptr %406, i64 1
-  %408 = load i32, ptr %407, align 4
-  %409 = load ptr, ptr %8, align 8
-  %410 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %409, i32 0, i32 5
-  %411 = load i32, ptr %15, align 4
-  %412 = add nsw i32 %411, 1
-  store i32 %412, ptr %15, align 4
-  %413 = sext i32 %411 to i64
-  %414 = getelementptr inbounds [0 x i32], ptr %410, i64 0, i64 %413
-  store i32 %408, ptr %414, align 4
-  %415 = load ptr, ptr %9, align 8
-  %416 = getelementptr inbounds i32, ptr %415, i64 2
-  %417 = load i32, ptr %416, align 4
-  %418 = icmp ne i32 %417, 0
-  br i1 %418, label %419, label %429
+406:                                              ; preds = %392
+  %407 = load ptr, ptr %9, align 8, !tbaa !27
+  %408 = getelementptr inbounds i32, ptr %407, i64 1
+  %409 = load i32, ptr %408, align 4, !tbaa !20
+  %410 = load ptr, ptr %8, align 8, !tbaa !8
+  %411 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %410, i32 0, i32 5
+  %412 = load i32, ptr %15, align 4, !tbaa !20
+  %413 = add nsw i32 %412, 1
+  store i32 %413, ptr %15, align 4, !tbaa !20
+  %414 = sext i32 %412 to i64
+  %415 = getelementptr inbounds [0 x i32], ptr %411, i64 0, i64 %414
+  store i32 %409, ptr %415, align 4, !tbaa !20
+  %416 = load ptr, ptr %9, align 8, !tbaa !27
+  %417 = getelementptr inbounds i32, ptr %416, i64 2
+  %418 = load i32, ptr %417, align 4, !tbaa !20
+  %419 = icmp ne i32 %418, 0
+  br i1 %419, label %420, label %430
 
-419:                                              ; preds = %405
-  %420 = load ptr, ptr %9, align 8
-  %421 = getelementptr inbounds i32, ptr %420, i64 2
-  %422 = load i32, ptr %421, align 4
-  %423 = load ptr, ptr %8, align 8
-  %424 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %423, i32 0, i32 5
-  %425 = load i32, ptr %15, align 4
-  %426 = add nsw i32 %425, 1
-  store i32 %426, ptr %15, align 4
-  %427 = sext i32 %425 to i64
-  %428 = getelementptr inbounds [0 x i32], ptr %424, i64 0, i64 %427
-  store i32 %422, ptr %428, align 4
-  br label %429
-
-429:                                              ; preds = %419, %405
+420:                                              ; preds = %406
+  %421 = load ptr, ptr %9, align 8, !tbaa !27
+  %422 = getelementptr inbounds i32, ptr %421, i64 2
+  %423 = load i32, ptr %422, align 4, !tbaa !20
+  %424 = load ptr, ptr %8, align 8, !tbaa !8
+  %425 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %424, i32 0, i32 5
+  %426 = load i32, ptr %15, align 4, !tbaa !20
+  %427 = add nsw i32 %426, 1
+  store i32 %427, ptr %15, align 4, !tbaa !20
+  %428 = sext i32 %426 to i64
+  %429 = getelementptr inbounds [0 x i32], ptr %425, i64 0, i64 %428
+  store i32 %423, ptr %429, align 4, !tbaa !20
   br label %430
 
-430:                                              ; preds = %429, %391
-  %431 = load ptr, ptr %9, align 8
-  %432 = getelementptr inbounds i32, ptr %431, i64 0
-  store i32 0, ptr %432, align 4
-  br label %433
+430:                                              ; preds = %420, %406
+  br label %431
 
-433:                                              ; preds = %430, %382
+431:                                              ; preds = %430, %392
+  %432 = load ptr, ptr %9, align 8, !tbaa !27
+  %433 = getelementptr inbounds i32, ptr %432, i64 0
+  store i32 0, ptr %433, align 4, !tbaa !20
   br label %434
 
-434:                                              ; preds = %433
-  %435 = load i32, ptr %13, align 4
-  %436 = add nsw i32 %435, 1
-  store i32 %436, ptr %13, align 4
-  br label %361, !llvm.loop !14
+434:                                              ; preds = %431, %383
+  br label %435
 
-437:                                              ; preds = %361
-  %438 = load i32, ptr %16, align 4
-  %439 = load ptr, ptr %8, align 8
-  %440 = load i32, ptr %439, align 8
-  %441 = and i32 %438, 15
-  %442 = shl i32 %441, 28
-  %443 = and i32 %440, 268435455
-  %444 = or i32 %443, %442
-  store i32 %444, ptr %439, align 8
-  %445 = load ptr, ptr %8, align 8
-  store ptr %445, ptr %4, align 8
-  br label %446
+435:                                              ; preds = %434
+  %436 = load i32, ptr %13, align 4, !tbaa !20
+  %437 = add nsw i32 %436, 1
+  store i32 %437, ptr %13, align 4, !tbaa !20
+  br label %362, !llvm.loop !33
 
-446:                                              ; preds = %437, %352, %276, %154, %127, %81, %54
-  %447 = load ptr, ptr %4, align 8
-  ret ptr %447
+438:                                              ; preds = %362
+  %439 = load i32, ptr %16, align 4, !tbaa !20
+  %440 = load ptr, ptr %8, align 8, !tbaa !8
+  %441 = load i32, ptr %440, align 8
+  %442 = and i32 %439, 15
+  %443 = shl i32 %442, 28
+  %444 = and i32 %441, 268435455
+  %445 = or i32 %444, %443
+  store i32 %445, ptr %440, align 8
+  %446 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %446, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %447
+
+447:                                              ; preds = %438, %353, %277, %155, %128, %82, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %448 = load ptr, ptr %4, align 8
+  ret ptr %448
 }
 
-declare ptr @Cut_CutAlloc(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @Cut_CutAlloc(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -718,507 +750,532 @@ define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %16, align 8
-  %18 = lshr i32 %17, 28
-  store i32 %18, ptr %11, align 4
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %19, align 8
-  %21 = lshr i32 %20, 28
-  store i32 %21, ptr %12, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %10, align 4
-  %27 = load i32, ptr %11, align 4
-  %28 = load i32, ptr %10, align 4
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %91
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = load i32, ptr %17, align 8
+  %19 = lshr i32 %18, 28
+  store i32 %19, ptr %11, align 4, !tbaa !20
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  %21 = load i32, ptr %20, align 8
+  %22 = lshr i32 %21, 28
+  store i32 %22, ptr %12, align 4, !tbaa !20
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 4, !tbaa !18
+  store i32 %27, ptr %10, align 4, !tbaa !20
+  %28 = load i32, ptr %11, align 4, !tbaa !20
+  %29 = load i32, ptr %10, align 4, !tbaa !20
+  %30 = icmp eq i32 %28, %29
+  br i1 %30, label %31, label %92
 
-30:                                               ; preds = %3
-  %31 = load i32, ptr %12, align 4
-  %32 = load i32, ptr %10, align 4
-  %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %91
+31:                                               ; preds = %3
+  %32 = load i32, ptr %12, align 4, !tbaa !20
+  %33 = load i32, ptr %10, align 4, !tbaa !20
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %35, label %92
 
-34:                                               ; preds = %30
-  store i32 0, ptr %13, align 4
-  br label %35
+35:                                               ; preds = %31
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %36
 
-35:                                               ; preds = %55, %34
-  %36 = load i32, ptr %13, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp slt i32 %36, %37
-  br i1 %38, label %39, label %58
+36:                                               ; preds = %56, %35
+  %37 = load i32, ptr %13, align 4, !tbaa !20
+  %38 = load i32, ptr %11, align 4, !tbaa !20
+  %39 = icmp slt i32 %37, %38
+  br i1 %39, label %40, label %59
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %40, i32 0, i32 5
-  %42 = load i32, ptr %13, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [0 x i32], ptr %41, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %46, i32 0, i32 5
-  %48 = load i32, ptr %13, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [0 x i32], ptr %47, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp ne i32 %45, %51
-  br i1 %52, label %53, label %54
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %6, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %41, i32 0, i32 5
+  %43 = load i32, ptr %13, align 4, !tbaa !20
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !20
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %47, i32 0, i32 5
+  %49 = load i32, ptr %13, align 4, !tbaa !20
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %53 = icmp ne i32 %46, %52
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %39
+54:                                               ; preds = %40
   store ptr null, ptr %4, align 8
-  br label %352
+  store i32 1, ptr %16, align 4
+  br label %353
 
-54:                                               ; preds = %39
-  br label %55
+55:                                               ; preds = %40
+  br label %56
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %13, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %13, align 4
-  br label %35, !llvm.loop !15
+56:                                               ; preds = %55
+  %57 = load i32, ptr %13, align 4, !tbaa !20
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %13, align 4, !tbaa !20
+  br label %36, !llvm.loop !34
 
-58:                                               ; preds = %35
-  %59 = load ptr, ptr %5, align 8
-  %60 = call ptr @Cut_CutAlloc(ptr noundef %59)
-  store ptr %60, ptr %8, align 8
-  store i32 0, ptr %13, align 4
-  br label %61
+59:                                               ; preds = %36
+  %60 = load ptr, ptr %5, align 8, !tbaa !3
+  %61 = call ptr @Cut_CutAlloc(ptr noundef %60)
+  store ptr %61, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %62
 
-61:                                               ; preds = %77, %58
-  %62 = load i32, ptr %13, align 4
-  %63 = load i32, ptr %11, align 4
-  %64 = icmp slt i32 %62, %63
-  br i1 %64, label %65, label %80
+62:                                               ; preds = %78, %59
+  %63 = load i32, ptr %13, align 4, !tbaa !20
+  %64 = load i32, ptr %11, align 4, !tbaa !20
+  %65 = icmp slt i32 %63, %64
+  br i1 %65, label %66, label %81
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %66, i32 0, i32 5
-  %68 = load i32, ptr %13, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [0 x i32], ptr %67, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %72, i32 0, i32 5
-  %74 = load i32, ptr %13, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [0 x i32], ptr %73, i64 0, i64 %75
-  store i32 %71, ptr %76, align 4
-  br label %77
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %6, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %67, i32 0, i32 5
+  %69 = load i32, ptr %13, align 4, !tbaa !20
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [0 x i32], ptr %68, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !20
+  %73 = load ptr, ptr %8, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %73, i32 0, i32 5
+  %75 = load i32, ptr %13, align 4, !tbaa !20
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds [0 x i32], ptr %74, i64 0, i64 %76
+  store i32 %72, ptr %77, align 4, !tbaa !20
+  br label %78
 
-77:                                               ; preds = %65
-  %78 = load i32, ptr %13, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %13, align 4
-  br label %61, !llvm.loop !16
+78:                                               ; preds = %66
+  %79 = load i32, ptr %13, align 4, !tbaa !20
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %13, align 4, !tbaa !20
+  br label %62, !llvm.loop !35
 
-80:                                               ; preds = %61
-  %81 = load ptr, ptr %6, align 8
-  %82 = load i32, ptr %81, align 8
-  %83 = lshr i32 %82, 28
-  %84 = load ptr, ptr %8, align 8
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %83, 15
-  %87 = shl i32 %86, 28
-  %88 = and i32 %85, 268435455
-  %89 = or i32 %88, %87
-  store i32 %89, ptr %84, align 8
-  %90 = load ptr, ptr %8, align 8
-  store ptr %90, ptr %4, align 8
-  br label %352
+81:                                               ; preds = %62
+  %82 = load ptr, ptr %6, align 8, !tbaa !8
+  %83 = load i32, ptr %82, align 8
+  %84 = lshr i32 %83, 28
+  %85 = load ptr, ptr %8, align 8, !tbaa !8
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %84, 15
+  %88 = shl i32 %87, 28
+  %89 = and i32 %86, 268435455
+  %90 = or i32 %89, %88
+  store i32 %90, ptr %85, align 8
+  %91 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %91, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %353
 
-91:                                               ; preds = %30, %3
-  %92 = load i32, ptr %11, align 4
-  %93 = load i32, ptr %10, align 4
-  %94 = icmp eq i32 %92, %93
-  br i1 %94, label %95, label %166
+92:                                               ; preds = %31, %3
+  %93 = load i32, ptr %11, align 4, !tbaa !20
+  %94 = load i32, ptr %10, align 4, !tbaa !20
+  %95 = icmp eq i32 %93, %94
+  br i1 %95, label %96, label %167
 
-95:                                               ; preds = %91
-  store i32 0, ptr %13, align 4
-  br label %96
+96:                                               ; preds = %92
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %97
 
-96:                                               ; preds = %130, %95
-  %97 = load i32, ptr %13, align 4
-  %98 = load i32, ptr %12, align 4
-  %99 = icmp slt i32 %97, %98
-  br i1 %99, label %100, label %133
+97:                                               ; preds = %131, %96
+  %98 = load i32, ptr %13, align 4, !tbaa !20
+  %99 = load i32, ptr %12, align 4, !tbaa !20
+  %100 = icmp slt i32 %98, %99
+  br i1 %100, label %101, label %134
 
-100:                                              ; preds = %96
-  %101 = load i32, ptr %11, align 4
-  %102 = sub nsw i32 %101, 1
-  store i32 %102, ptr %14, align 4
-  br label %103
+101:                                              ; preds = %97
+  %102 = load i32, ptr %11, align 4, !tbaa !20
+  %103 = sub nsw i32 %102, 1
+  store i32 %103, ptr %14, align 4, !tbaa !20
+  br label %104
 
-103:                                              ; preds = %122, %100
-  %104 = load i32, ptr %14, align 4
-  %105 = icmp sge i32 %104, 0
-  br i1 %105, label %106, label %125
+104:                                              ; preds = %123, %101
+  %105 = load i32, ptr %14, align 4, !tbaa !20
+  %106 = icmp sge i32 %105, 0
+  br i1 %106, label %107, label %126
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %107, i32 0, i32 5
-  %109 = load i32, ptr %14, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [0 x i32], ptr %108, i64 0, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %113, i32 0, i32 5
-  %115 = load i32, ptr %13, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [0 x i32], ptr %114, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %112, %118
-  br i1 %119, label %120, label %121
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %6, align 8, !tbaa !8
+  %109 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %108, i32 0, i32 5
+  %110 = load i32, ptr %14, align 4, !tbaa !20
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [0 x i32], ptr %109, i64 0, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %114 = load ptr, ptr %7, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %114, i32 0, i32 5
+  %116 = load i32, ptr %13, align 4, !tbaa !20
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds [0 x i32], ptr %115, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !20
+  %120 = icmp eq i32 %113, %119
+  br i1 %120, label %121, label %122
 
-120:                                              ; preds = %106
-  br label %125
+121:                                              ; preds = %107
+  br label %126
 
-121:                                              ; preds = %106
-  br label %122
+122:                                              ; preds = %107
+  br label %123
 
-122:                                              ; preds = %121
-  %123 = load i32, ptr %14, align 4
-  %124 = add nsw i32 %123, -1
-  store i32 %124, ptr %14, align 4
-  br label %103, !llvm.loop !17
+123:                                              ; preds = %122
+  %124 = load i32, ptr %14, align 4, !tbaa !20
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr %14, align 4, !tbaa !20
+  br label %104, !llvm.loop !36
 
-125:                                              ; preds = %120, %103
-  %126 = load i32, ptr %14, align 4
-  %127 = icmp eq i32 %126, -1
-  br i1 %127, label %128, label %129
+126:                                              ; preds = %121, %104
+  %127 = load i32, ptr %14, align 4, !tbaa !20
+  %128 = icmp eq i32 %127, -1
+  br i1 %128, label %129, label %130
 
-128:                                              ; preds = %125
+129:                                              ; preds = %126
   store ptr null, ptr %4, align 8
-  br label %352
+  store i32 1, ptr %16, align 4
+  br label %353
 
-129:                                              ; preds = %125
-  br label %130
+130:                                              ; preds = %126
+  br label %131
 
-130:                                              ; preds = %129
-  %131 = load i32, ptr %13, align 4
-  %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %13, align 4
-  br label %96, !llvm.loop !18
+131:                                              ; preds = %130
+  %132 = load i32, ptr %13, align 4, !tbaa !20
+  %133 = add nsw i32 %132, 1
+  store i32 %133, ptr %13, align 4, !tbaa !20
+  br label %97, !llvm.loop !37
 
-133:                                              ; preds = %96
-  %134 = load ptr, ptr %5, align 8
-  %135 = call ptr @Cut_CutAlloc(ptr noundef %134)
-  store ptr %135, ptr %8, align 8
-  store i32 0, ptr %13, align 4
-  br label %136
+134:                                              ; preds = %97
+  %135 = load ptr, ptr %5, align 8, !tbaa !3
+  %136 = call ptr @Cut_CutAlloc(ptr noundef %135)
+  store ptr %136, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %137
 
-136:                                              ; preds = %152, %133
-  %137 = load i32, ptr %13, align 4
-  %138 = load i32, ptr %11, align 4
-  %139 = icmp slt i32 %137, %138
-  br i1 %139, label %140, label %155
+137:                                              ; preds = %153, %134
+  %138 = load i32, ptr %13, align 4, !tbaa !20
+  %139 = load i32, ptr %11, align 4, !tbaa !20
+  %140 = icmp slt i32 %138, %139
+  br i1 %140, label %141, label %156
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %141, i32 0, i32 5
-  %143 = load i32, ptr %13, align 4
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [0 x i32], ptr %142, i64 0, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = load ptr, ptr %8, align 8
-  %148 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %147, i32 0, i32 5
-  %149 = load i32, ptr %13, align 4
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [0 x i32], ptr %148, i64 0, i64 %150
-  store i32 %146, ptr %151, align 4
-  br label %152
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %6, align 8, !tbaa !8
+  %143 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %142, i32 0, i32 5
+  %144 = load i32, ptr %13, align 4, !tbaa !20
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds [0 x i32], ptr %143, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !20
+  %148 = load ptr, ptr %8, align 8, !tbaa !8
+  %149 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %148, i32 0, i32 5
+  %150 = load i32, ptr %13, align 4, !tbaa !20
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds [0 x i32], ptr %149, i64 0, i64 %151
+  store i32 %147, ptr %152, align 4, !tbaa !20
+  br label %153
 
-152:                                              ; preds = %140
-  %153 = load i32, ptr %13, align 4
-  %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %13, align 4
-  br label %136, !llvm.loop !19
+153:                                              ; preds = %141
+  %154 = load i32, ptr %13, align 4, !tbaa !20
+  %155 = add nsw i32 %154, 1
+  store i32 %155, ptr %13, align 4, !tbaa !20
+  br label %137, !llvm.loop !38
 
-155:                                              ; preds = %136
-  %156 = load ptr, ptr %6, align 8
-  %157 = load i32, ptr %156, align 8
-  %158 = lshr i32 %157, 28
-  %159 = load ptr, ptr %8, align 8
-  %160 = load i32, ptr %159, align 8
-  %161 = and i32 %158, 15
-  %162 = shl i32 %161, 28
-  %163 = and i32 %160, 268435455
-  %164 = or i32 %163, %162
-  store i32 %164, ptr %159, align 8
-  %165 = load ptr, ptr %8, align 8
-  store ptr %165, ptr %4, align 8
-  br label %352
+156:                                              ; preds = %137
+  %157 = load ptr, ptr %6, align 8, !tbaa !8
+  %158 = load i32, ptr %157, align 8
+  %159 = lshr i32 %158, 28
+  %160 = load ptr, ptr %8, align 8, !tbaa !8
+  %161 = load i32, ptr %160, align 8
+  %162 = and i32 %159, 15
+  %163 = shl i32 %162, 28
+  %164 = and i32 %161, 268435455
+  %165 = or i32 %164, %163
+  store i32 %165, ptr %160, align 8
+  %166 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %166, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %353
 
-166:                                              ; preds = %91
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %167, i32 0, i32 9
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %171, label %176
+167:                                              ; preds = %92
+  %168 = load ptr, ptr %5, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %168, i32 0, i32 9
+  %170 = load ptr, ptr %169, align 8, !tbaa !39
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %177
 
-171:                                              ; preds = %166
-  %172 = load ptr, ptr %5, align 8
-  %173 = call ptr @Cut_CutAlloc(ptr noundef %172)
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %174, i32 0, i32 9
-  store ptr %173, ptr %175, align 8
-  br label %176
+172:                                              ; preds = %167
+  %173 = load ptr, ptr %5, align 8, !tbaa !3
+  %174 = call ptr @Cut_CutAlloc(ptr noundef %173)
+  %175 = load ptr, ptr %5, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %175, i32 0, i32 9
+  store ptr %174, ptr %176, align 8, !tbaa !39
+  br label %177
 
-176:                                              ; preds = %171, %166
-  %177 = load ptr, ptr %5, align 8
-  %178 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %177, i32 0, i32 9
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %179, i32 0, i32 5
-  %181 = getelementptr inbounds [0 x i32], ptr %180, i64 0, i64 0
-  store ptr %181, ptr %9, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %15, align 4
-  br label %182
+177:                                              ; preds = %172, %167
+  %178 = load ptr, ptr %5, align 8, !tbaa !3
+  %179 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %178, i32 0, i32 9
+  %180 = load ptr, ptr %179, align 8, !tbaa !39
+  %181 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %180, i32 0, i32 5
+  %182 = getelementptr inbounds [0 x i32], ptr %181, i64 0, i64 0
+  store ptr %182, ptr %9, align 8, !tbaa !27
+  store i32 0, ptr %14, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !20
+  store i32 0, ptr %15, align 4, !tbaa !20
+  br label %183
 
-182:                                              ; preds = %324, %176
-  %183 = load i32, ptr %15, align 4
-  %184 = load i32, ptr %10, align 4
-  %185 = icmp slt i32 %183, %184
-  br i1 %185, label %186, label %327
+183:                                              ; preds = %325, %177
+  %184 = load i32, ptr %15, align 4, !tbaa !20
+  %185 = load i32, ptr %10, align 4, !tbaa !20
+  %186 = icmp slt i32 %184, %185
+  br i1 %186, label %187, label %328
 
-186:                                              ; preds = %182
-  %187 = load i32, ptr %14, align 4
-  %188 = load i32, ptr %12, align 4
-  %189 = icmp eq i32 %187, %188
-  br i1 %189, label %190, label %222
+187:                                              ; preds = %183
+  %188 = load i32, ptr %14, align 4, !tbaa !20
+  %189 = load i32, ptr %12, align 4, !tbaa !20
+  %190 = icmp eq i32 %188, %189
+  br i1 %190, label %191, label %223
 
-190:                                              ; preds = %186
-  %191 = load i32, ptr %13, align 4
-  %192 = load i32, ptr %11, align 4
-  %193 = icmp eq i32 %191, %192
-  br i1 %193, label %194, label %210
+191:                                              ; preds = %187
+  %192 = load i32, ptr %13, align 4, !tbaa !20
+  %193 = load i32, ptr %11, align 4, !tbaa !20
+  %194 = icmp eq i32 %192, %193
+  br i1 %194, label %195, label %211
 
-194:                                              ; preds = %190
-  %195 = load i32, ptr %15, align 4
-  %196 = load ptr, ptr %5, align 8
-  %197 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %196, i32 0, i32 9
-  %198 = load ptr, ptr %197, align 8
-  %199 = load i32, ptr %198, align 8
-  %200 = and i32 %195, 15
-  %201 = shl i32 %200, 28
-  %202 = and i32 %199, 268435455
-  %203 = or i32 %202, %201
-  store i32 %203, ptr %198, align 8
-  %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %204, i32 0, i32 9
-  %206 = load ptr, ptr %205, align 8
-  store ptr %206, ptr %8, align 8
-  %207 = load ptr, ptr %5, align 8
-  %208 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %207, i32 0, i32 9
-  store ptr null, ptr %208, align 8
-  %209 = load ptr, ptr %8, align 8
-  store ptr %209, ptr %4, align 8
-  br label %352
+195:                                              ; preds = %191
+  %196 = load i32, ptr %15, align 4, !tbaa !20
+  %197 = load ptr, ptr %5, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %197, i32 0, i32 9
+  %199 = load ptr, ptr %198, align 8, !tbaa !39
+  %200 = load i32, ptr %199, align 8
+  %201 = and i32 %196, 15
+  %202 = shl i32 %201, 28
+  %203 = and i32 %200, 268435455
+  %204 = or i32 %203, %202
+  store i32 %204, ptr %199, align 8
+  %205 = load ptr, ptr %5, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %205, i32 0, i32 9
+  %207 = load ptr, ptr %206, align 8, !tbaa !39
+  store ptr %207, ptr %8, align 8, !tbaa !8
+  %208 = load ptr, ptr %5, align 8, !tbaa !3
+  %209 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %208, i32 0, i32 9
+  store ptr null, ptr %209, align 8, !tbaa !39
+  %210 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %210, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %353
 
-210:                                              ; preds = %190
-  %211 = load ptr, ptr %6, align 8
-  %212 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %211, i32 0, i32 5
-  %213 = load i32, ptr %13, align 4
-  %214 = add nsw i32 %213, 1
-  store i32 %214, ptr %13, align 4
-  %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds [0 x i32], ptr %212, i64 0, i64 %215
-  %217 = load i32, ptr %216, align 4
-  %218 = load ptr, ptr %9, align 8
-  %219 = load i32, ptr %15, align 4
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds i32, ptr %218, i64 %220
-  store i32 %217, ptr %221, align 4
-  br label %324
+211:                                              ; preds = %191
+  %212 = load ptr, ptr %6, align 8, !tbaa !8
+  %213 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %212, i32 0, i32 5
+  %214 = load i32, ptr %13, align 4, !tbaa !20
+  %215 = add nsw i32 %214, 1
+  store i32 %215, ptr %13, align 4, !tbaa !20
+  %216 = sext i32 %214 to i64
+  %217 = getelementptr inbounds [0 x i32], ptr %213, i64 0, i64 %216
+  %218 = load i32, ptr %217, align 4, !tbaa !20
+  %219 = load ptr, ptr %9, align 8, !tbaa !27
+  %220 = load i32, ptr %15, align 4, !tbaa !20
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i32, ptr %219, i64 %221
+  store i32 %218, ptr %222, align 4, !tbaa !20
+  br label %325
 
-222:                                              ; preds = %186
-  %223 = load i32, ptr %13, align 4
-  %224 = load i32, ptr %11, align 4
-  %225 = icmp eq i32 %223, %224
-  br i1 %225, label %226, label %258
+223:                                              ; preds = %187
+  %224 = load i32, ptr %13, align 4, !tbaa !20
+  %225 = load i32, ptr %11, align 4, !tbaa !20
+  %226 = icmp eq i32 %224, %225
+  br i1 %226, label %227, label %259
 
-226:                                              ; preds = %222
-  %227 = load i32, ptr %14, align 4
-  %228 = load i32, ptr %12, align 4
-  %229 = icmp eq i32 %227, %228
-  br i1 %229, label %230, label %246
+227:                                              ; preds = %223
+  %228 = load i32, ptr %14, align 4, !tbaa !20
+  %229 = load i32, ptr %12, align 4, !tbaa !20
+  %230 = icmp eq i32 %228, %229
+  br i1 %230, label %231, label %247
 
-230:                                              ; preds = %226
-  %231 = load i32, ptr %15, align 4
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %232, i32 0, i32 9
-  %234 = load ptr, ptr %233, align 8
-  %235 = load i32, ptr %234, align 8
-  %236 = and i32 %231, 15
-  %237 = shl i32 %236, 28
-  %238 = and i32 %235, 268435455
-  %239 = or i32 %238, %237
-  store i32 %239, ptr %234, align 8
-  %240 = load ptr, ptr %5, align 8
-  %241 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %240, i32 0, i32 9
-  %242 = load ptr, ptr %241, align 8
-  store ptr %242, ptr %8, align 8
-  %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %243, i32 0, i32 9
-  store ptr null, ptr %244, align 8
-  %245 = load ptr, ptr %8, align 8
-  store ptr %245, ptr %4, align 8
-  br label %352
+231:                                              ; preds = %227
+  %232 = load i32, ptr %15, align 4, !tbaa !20
+  %233 = load ptr, ptr %5, align 8, !tbaa !3
+  %234 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %233, i32 0, i32 9
+  %235 = load ptr, ptr %234, align 8, !tbaa !39
+  %236 = load i32, ptr %235, align 8
+  %237 = and i32 %232, 15
+  %238 = shl i32 %237, 28
+  %239 = and i32 %236, 268435455
+  %240 = or i32 %239, %238
+  store i32 %240, ptr %235, align 8
+  %241 = load ptr, ptr %5, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %241, i32 0, i32 9
+  %243 = load ptr, ptr %242, align 8, !tbaa !39
+  store ptr %243, ptr %8, align 8, !tbaa !8
+  %244 = load ptr, ptr %5, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %244, i32 0, i32 9
+  store ptr null, ptr %245, align 8, !tbaa !39
+  %246 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %246, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %353
 
-246:                                              ; preds = %226
-  %247 = load ptr, ptr %7, align 8
-  %248 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %247, i32 0, i32 5
-  %249 = load i32, ptr %14, align 4
-  %250 = add nsw i32 %249, 1
-  store i32 %250, ptr %14, align 4
-  %251 = sext i32 %249 to i64
-  %252 = getelementptr inbounds [0 x i32], ptr %248, i64 0, i64 %251
-  %253 = load i32, ptr %252, align 4
-  %254 = load ptr, ptr %9, align 8
-  %255 = load i32, ptr %15, align 4
-  %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds i32, ptr %254, i64 %256
-  store i32 %253, ptr %257, align 4
-  br label %324
+247:                                              ; preds = %227
+  %248 = load ptr, ptr %7, align 8, !tbaa !8
+  %249 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %248, i32 0, i32 5
+  %250 = load i32, ptr %14, align 4, !tbaa !20
+  %251 = add nsw i32 %250, 1
+  store i32 %251, ptr %14, align 4, !tbaa !20
+  %252 = sext i32 %250 to i64
+  %253 = getelementptr inbounds [0 x i32], ptr %249, i64 0, i64 %252
+  %254 = load i32, ptr %253, align 4, !tbaa !20
+  %255 = load ptr, ptr %9, align 8, !tbaa !27
+  %256 = load i32, ptr %15, align 4, !tbaa !20
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds i32, ptr %255, i64 %257
+  store i32 %254, ptr %258, align 4, !tbaa !20
+  br label %325
 
-258:                                              ; preds = %222
-  %259 = load ptr, ptr %6, align 8
-  %260 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %259, i32 0, i32 5
-  %261 = load i32, ptr %13, align 4
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [0 x i32], ptr %260, i64 0, i64 %262
-  %264 = load i32, ptr %263, align 4
-  %265 = load ptr, ptr %7, align 8
-  %266 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %265, i32 0, i32 5
-  %267 = load i32, ptr %14, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [0 x i32], ptr %266, i64 0, i64 %268
-  %270 = load i32, ptr %269, align 4
-  %271 = icmp slt i32 %264, %270
-  br i1 %271, label %272, label %284
+259:                                              ; preds = %223
+  %260 = load ptr, ptr %6, align 8, !tbaa !8
+  %261 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %260, i32 0, i32 5
+  %262 = load i32, ptr %13, align 4, !tbaa !20
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds [0 x i32], ptr %261, i64 0, i64 %263
+  %265 = load i32, ptr %264, align 4, !tbaa !20
+  %266 = load ptr, ptr %7, align 8, !tbaa !8
+  %267 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %266, i32 0, i32 5
+  %268 = load i32, ptr %14, align 4, !tbaa !20
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds [0 x i32], ptr %267, i64 0, i64 %269
+  %271 = load i32, ptr %270, align 4, !tbaa !20
+  %272 = icmp slt i32 %265, %271
+  br i1 %272, label %273, label %285
 
-272:                                              ; preds = %258
-  %273 = load ptr, ptr %6, align 8
-  %274 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %273, i32 0, i32 5
-  %275 = load i32, ptr %13, align 4
-  %276 = add nsw i32 %275, 1
-  store i32 %276, ptr %13, align 4
-  %277 = sext i32 %275 to i64
-  %278 = getelementptr inbounds [0 x i32], ptr %274, i64 0, i64 %277
-  %279 = load i32, ptr %278, align 4
-  %280 = load ptr, ptr %9, align 8
-  %281 = load i32, ptr %15, align 4
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds i32, ptr %280, i64 %282
-  store i32 %279, ptr %283, align 4
-  br label %324
+273:                                              ; preds = %259
+  %274 = load ptr, ptr %6, align 8, !tbaa !8
+  %275 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %274, i32 0, i32 5
+  %276 = load i32, ptr %13, align 4, !tbaa !20
+  %277 = add nsw i32 %276, 1
+  store i32 %277, ptr %13, align 4, !tbaa !20
+  %278 = sext i32 %276 to i64
+  %279 = getelementptr inbounds [0 x i32], ptr %275, i64 0, i64 %278
+  %280 = load i32, ptr %279, align 4, !tbaa !20
+  %281 = load ptr, ptr %9, align 8, !tbaa !27
+  %282 = load i32, ptr %15, align 4, !tbaa !20
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr inbounds i32, ptr %281, i64 %283
+  store i32 %280, ptr %284, align 4, !tbaa !20
+  br label %325
 
-284:                                              ; preds = %258
-  %285 = load ptr, ptr %6, align 8
-  %286 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %285, i32 0, i32 5
-  %287 = load i32, ptr %13, align 4
-  %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds [0 x i32], ptr %286, i64 0, i64 %288
-  %290 = load i32, ptr %289, align 4
-  %291 = load ptr, ptr %7, align 8
-  %292 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %291, i32 0, i32 5
-  %293 = load i32, ptr %14, align 4
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds [0 x i32], ptr %292, i64 0, i64 %294
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp sgt i32 %290, %296
-  br i1 %297, label %298, label %310
+285:                                              ; preds = %259
+  %286 = load ptr, ptr %6, align 8, !tbaa !8
+  %287 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %286, i32 0, i32 5
+  %288 = load i32, ptr %13, align 4, !tbaa !20
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds [0 x i32], ptr %287, i64 0, i64 %289
+  %291 = load i32, ptr %290, align 4, !tbaa !20
+  %292 = load ptr, ptr %7, align 8, !tbaa !8
+  %293 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %292, i32 0, i32 5
+  %294 = load i32, ptr %14, align 4, !tbaa !20
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds [0 x i32], ptr %293, i64 0, i64 %295
+  %297 = load i32, ptr %296, align 4, !tbaa !20
+  %298 = icmp sgt i32 %291, %297
+  br i1 %298, label %299, label %311
 
-298:                                              ; preds = %284
-  %299 = load ptr, ptr %7, align 8
-  %300 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %299, i32 0, i32 5
-  %301 = load i32, ptr %14, align 4
-  %302 = add nsw i32 %301, 1
-  store i32 %302, ptr %14, align 4
-  %303 = sext i32 %301 to i64
-  %304 = getelementptr inbounds [0 x i32], ptr %300, i64 0, i64 %303
-  %305 = load i32, ptr %304, align 4
-  %306 = load ptr, ptr %9, align 8
-  %307 = load i32, ptr %15, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds i32, ptr %306, i64 %308
-  store i32 %305, ptr %309, align 4
-  br label %324
+299:                                              ; preds = %285
+  %300 = load ptr, ptr %7, align 8, !tbaa !8
+  %301 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %300, i32 0, i32 5
+  %302 = load i32, ptr %14, align 4, !tbaa !20
+  %303 = add nsw i32 %302, 1
+  store i32 %303, ptr %14, align 4, !tbaa !20
+  %304 = sext i32 %302 to i64
+  %305 = getelementptr inbounds [0 x i32], ptr %301, i64 0, i64 %304
+  %306 = load i32, ptr %305, align 4, !tbaa !20
+  %307 = load ptr, ptr %9, align 8, !tbaa !27
+  %308 = load i32, ptr %15, align 4, !tbaa !20
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds i32, ptr %307, i64 %309
+  store i32 %306, ptr %310, align 4, !tbaa !20
+  br label %325
 
-310:                                              ; preds = %284
-  %311 = load ptr, ptr %6, align 8
-  %312 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %311, i32 0, i32 5
-  %313 = load i32, ptr %13, align 4
-  %314 = add nsw i32 %313, 1
-  store i32 %314, ptr %13, align 4
-  %315 = sext i32 %313 to i64
-  %316 = getelementptr inbounds [0 x i32], ptr %312, i64 0, i64 %315
-  %317 = load i32, ptr %316, align 4
-  %318 = load ptr, ptr %9, align 8
-  %319 = load i32, ptr %15, align 4
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i32, ptr %318, i64 %320
-  store i32 %317, ptr %321, align 4
-  %322 = load i32, ptr %14, align 4
-  %323 = add nsw i32 %322, 1
-  store i32 %323, ptr %14, align 4
-  br label %324
+311:                                              ; preds = %285
+  %312 = load ptr, ptr %6, align 8, !tbaa !8
+  %313 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %312, i32 0, i32 5
+  %314 = load i32, ptr %13, align 4, !tbaa !20
+  %315 = add nsw i32 %314, 1
+  store i32 %315, ptr %13, align 4, !tbaa !20
+  %316 = sext i32 %314 to i64
+  %317 = getelementptr inbounds [0 x i32], ptr %313, i64 0, i64 %316
+  %318 = load i32, ptr %317, align 4, !tbaa !20
+  %319 = load ptr, ptr %9, align 8, !tbaa !27
+  %320 = load i32, ptr %15, align 4, !tbaa !20
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds i32, ptr %319, i64 %321
+  store i32 %318, ptr %322, align 4, !tbaa !20
+  %323 = load i32, ptr %14, align 4, !tbaa !20
+  %324 = add nsw i32 %323, 1
+  store i32 %324, ptr %14, align 4, !tbaa !20
+  br label %325
 
-324:                                              ; preds = %310, %298, %272, %246, %210
-  %325 = load i32, ptr %15, align 4
-  %326 = add nsw i32 %325, 1
-  store i32 %326, ptr %15, align 4
-  br label %182, !llvm.loop !20
+325:                                              ; preds = %311, %299, %273, %247, %211
+  %326 = load i32, ptr %15, align 4, !tbaa !20
+  %327 = add nsw i32 %326, 1
+  store i32 %327, ptr %15, align 4, !tbaa !20
+  br label %183, !llvm.loop !40
 
-327:                                              ; preds = %182
-  %328 = load i32, ptr %13, align 4
-  %329 = load i32, ptr %11, align 4
-  %330 = icmp slt i32 %328, %329
-  br i1 %330, label %335, label %331
+328:                                              ; preds = %183
+  %329 = load i32, ptr %13, align 4, !tbaa !20
+  %330 = load i32, ptr %11, align 4, !tbaa !20
+  %331 = icmp slt i32 %329, %330
+  br i1 %331, label %336, label %332
 
-331:                                              ; preds = %327
-  %332 = load i32, ptr %14, align 4
-  %333 = load i32, ptr %12, align 4
-  %334 = icmp slt i32 %332, %333
-  br i1 %334, label %335, label %336
+332:                                              ; preds = %328
+  %333 = load i32, ptr %14, align 4, !tbaa !20
+  %334 = load i32, ptr %12, align 4, !tbaa !20
+  %335 = icmp slt i32 %333, %334
+  br i1 %335, label %336, label %337
 
-335:                                              ; preds = %331, %327
+336:                                              ; preds = %332, %328
   store ptr null, ptr %4, align 8
-  br label %352
+  store i32 1, ptr %16, align 4
+  br label %353
 
-336:                                              ; preds = %331
-  %337 = load i32, ptr %15, align 4
-  %338 = load ptr, ptr %5, align 8
-  %339 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %338, i32 0, i32 9
-  %340 = load ptr, ptr %339, align 8
-  %341 = load i32, ptr %340, align 8
-  %342 = and i32 %337, 15
-  %343 = shl i32 %342, 28
-  %344 = and i32 %341, 268435455
-  %345 = or i32 %344, %343
-  store i32 %345, ptr %340, align 8
-  %346 = load ptr, ptr %5, align 8
-  %347 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %346, i32 0, i32 9
-  %348 = load ptr, ptr %347, align 8
-  store ptr %348, ptr %8, align 8
-  %349 = load ptr, ptr %5, align 8
-  %350 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %349, i32 0, i32 9
-  store ptr null, ptr %350, align 8
-  %351 = load ptr, ptr %8, align 8
-  store ptr %351, ptr %4, align 8
-  br label %352
+337:                                              ; preds = %332
+  %338 = load i32, ptr %15, align 4, !tbaa !20
+  %339 = load ptr, ptr %5, align 8, !tbaa !3
+  %340 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %339, i32 0, i32 9
+  %341 = load ptr, ptr %340, align 8, !tbaa !39
+  %342 = load i32, ptr %341, align 8
+  %343 = and i32 %338, 15
+  %344 = shl i32 %343, 28
+  %345 = and i32 %342, 268435455
+  %346 = or i32 %345, %344
+  store i32 %346, ptr %341, align 8
+  %347 = load ptr, ptr %5, align 8, !tbaa !3
+  %348 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %347, i32 0, i32 9
+  %349 = load ptr, ptr %348, align 8, !tbaa !39
+  store ptr %349, ptr %8, align 8, !tbaa !8
+  %350 = load ptr, ptr %5, align 8, !tbaa !3
+  %351 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %350, i32 0, i32 9
+  store ptr null, ptr %351, align 8, !tbaa !39
+  %352 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %352, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %353
 
-352:                                              ; preds = %336, %335, %230, %194, %155, %128, %80, %53
-  %353 = load ptr, ptr %4, align 8
-  ret ptr %353
+353:                                              ; preds = %337, %336, %231, %195, %156, %129, %81, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %354 = load ptr, ptr %4, align 8
+  ret ptr %354
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1235,463 +1292,488 @@ define ptr @Cut_CutMergeTwo3(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %16, i32 0, i32 9
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %25
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %17, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %3
-  %21 = load ptr, ptr %5, align 8
-  %22 = call ptr @Cut_CutAlloc(ptr noundef %21)
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %23, i32 0, i32 9
-  store ptr %22, ptr %24, align 8
-  br label %25
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = call ptr @Cut_CutAlloc(ptr noundef %22)
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %24, i32 0, i32 9
+  store ptr %23, ptr %25, align 8, !tbaa !39
+  br label %26
 
-25:                                               ; preds = %20, %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %26, i32 0, i32 9
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %28, i32 0, i32 5
-  %30 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 0
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 4
-  store i32 %35, ptr %10, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %36, align 8
-  %38 = lshr i32 %37, 28
-  store i32 %38, ptr %11, align 4
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %39, align 8
-  %41 = lshr i32 %40, 28
-  store i32 %41, ptr %12, align 4
-  %42 = load i32, ptr %11, align 4
-  %43 = load i32, ptr %10, align 4
-  %44 = icmp eq i32 %42, %43
-  br i1 %44, label %45, label %158
+26:                                               ; preds = %21, %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %27, i32 0, i32 9
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
+  %30 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %29, i32 0, i32 5
+  %31 = getelementptr inbounds [0 x i32], ptr %30, i64 0, i64 0
+  store ptr %31, ptr %9, align 8, !tbaa !27
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4, !tbaa !18
+  store i32 %36, ptr %10, align 4, !tbaa !20
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = load i32, ptr %37, align 8
+  %39 = lshr i32 %38, 28
+  store i32 %39, ptr %11, align 4, !tbaa !20
+  %40 = load ptr, ptr %7, align 8, !tbaa !8
+  %41 = load i32, ptr %40, align 8
+  %42 = lshr i32 %41, 28
+  store i32 %42, ptr %12, align 4, !tbaa !20
+  %43 = load i32, ptr %11, align 4, !tbaa !20
+  %44 = load i32, ptr %10, align 4, !tbaa !20
+  %45 = icmp eq i32 %43, %44
+  br i1 %45, label %46, label %159
 
-45:                                               ; preds = %25
-  %46 = load i32, ptr %12, align 4
-  %47 = load i32, ptr %10, align 4
-  %48 = icmp eq i32 %46, %47
-  br i1 %48, label %49, label %83
+46:                                               ; preds = %26
+  %47 = load i32, ptr %12, align 4, !tbaa !20
+  %48 = load i32, ptr %10, align 4, !tbaa !20
+  %49 = icmp eq i32 %47, %48
+  br i1 %49, label %50, label %84
 
-49:                                               ; preds = %45
-  store i32 0, ptr %13, align 4
-  br label %50
+50:                                               ; preds = %46
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %51
 
-50:                                               ; preds = %79, %49
-  %51 = load i32, ptr %13, align 4
-  %52 = load i32, ptr %11, align 4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %82
+51:                                               ; preds = %80, %50
+  %52 = load i32, ptr %13, align 4, !tbaa !20
+  %53 = load i32, ptr %11, align 4, !tbaa !20
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %83
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %55, i32 0, i32 5
-  %57 = load i32, ptr %13, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i32, ptr %13, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
-  store i32 %60, ptr %64, align 4
-  %65 = load ptr, ptr %9, align 8
-  %66 = load i32, ptr %13, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %65, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %70, i32 0, i32 5
-  %72 = load i32, ptr %13, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [0 x i32], ptr %71, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %69, %75
-  br i1 %76, label %77, label %78
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %6, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %56, i32 0, i32 5
+  %58 = load i32, ptr %13, align 4, !tbaa !20
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !20
+  %62 = load ptr, ptr %9, align 8, !tbaa !27
+  %63 = load i32, ptr %13, align 4, !tbaa !20
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  store i32 %61, ptr %65, align 4, !tbaa !20
+  %66 = load ptr, ptr %9, align 8, !tbaa !27
+  %67 = load i32, ptr %13, align 4, !tbaa !20
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %66, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !20
+  %71 = load ptr, ptr %7, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %71, i32 0, i32 5
+  %73 = load i32, ptr %13, align 4, !tbaa !20
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [0 x i32], ptr %72, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !20
+  %77 = icmp ne i32 %70, %76
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %54
+78:                                               ; preds = %55
   store ptr null, ptr %4, align 8
-  br label %329
+  store i32 1, ptr %16, align 4
+  br label %330
 
-78:                                               ; preds = %54
-  br label %79
+79:                                               ; preds = %55
+  br label %80
 
-79:                                               ; preds = %78
-  %80 = load i32, ptr %13, align 4
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %13, align 4
-  br label %50, !llvm.loop !21
+80:                                               ; preds = %79
+  %81 = load i32, ptr %13, align 4, !tbaa !20
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %13, align 4, !tbaa !20
+  br label %51, !llvm.loop !41
 
-82:                                               ; preds = %50
-  br label %142
+83:                                               ; preds = %51
+  br label %143
 
-83:                                               ; preds = %45
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  br label %84
+84:                                               ; preds = %46
+  store i32 0, ptr %14, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !20
+  br label %85
 
-84:                                               ; preds = %133, %83
-  %85 = load i32, ptr %13, align 4
-  %86 = load i32, ptr %11, align 4
-  %87 = icmp slt i32 %85, %86
-  br i1 %87, label %88, label %136
+85:                                               ; preds = %134, %84
+  %86 = load i32, ptr %13, align 4, !tbaa !20
+  %87 = load i32, ptr %11, align 4, !tbaa !20
+  %88 = icmp slt i32 %86, %87
+  br i1 %88, label %89, label %137
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %89, i32 0, i32 5
-  %91 = load i32, ptr %13, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [0 x i32], ptr %90, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = load ptr, ptr %9, align 8
-  %96 = load i32, ptr %13, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %95, i64 %97
-  store i32 %94, ptr %98, align 4
-  %99 = load i32, ptr %14, align 4
-  %100 = load i32, ptr %12, align 4
-  %101 = icmp eq i32 %99, %100
-  br i1 %101, label %102, label %103
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %6, align 8, !tbaa !8
+  %91 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %90, i32 0, i32 5
+  %92 = load i32, ptr %13, align 4, !tbaa !20
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds [0 x i32], ptr %91, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4, !tbaa !20
+  %96 = load ptr, ptr %9, align 8, !tbaa !27
+  %97 = load i32, ptr %13, align 4, !tbaa !20
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i32, ptr %96, i64 %98
+  store i32 %95, ptr %99, align 4, !tbaa !20
+  %100 = load i32, ptr %14, align 4, !tbaa !20
+  %101 = load i32, ptr %12, align 4, !tbaa !20
+  %102 = icmp eq i32 %100, %101
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %88
-  br label %133
+103:                                              ; preds = %89
+  br label %134
 
-103:                                              ; preds = %88
-  %104 = load ptr, ptr %9, align 8
-  %105 = load i32, ptr %13, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
-  %108 = load i32, ptr %107, align 4
-  %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %109, i32 0, i32 5
-  %111 = load i32, ptr %14, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [0 x i32], ptr %110, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp slt i32 %108, %114
-  br i1 %115, label %116, label %117
+104:                                              ; preds = %89
+  %105 = load ptr, ptr %9, align 8, !tbaa !27
+  %106 = load i32, ptr %13, align 4, !tbaa !20
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i32, ptr %105, i64 %107
+  %109 = load i32, ptr %108, align 4, !tbaa !20
+  %110 = load ptr, ptr %7, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %110, i32 0, i32 5
+  %112 = load i32, ptr %14, align 4, !tbaa !20
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds [0 x i32], ptr %111, i64 0, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !20
+  %116 = icmp slt i32 %109, %115
+  br i1 %116, label %117, label %118
 
-116:                                              ; preds = %103
-  br label %133
+117:                                              ; preds = %104
+  br label %134
 
-117:                                              ; preds = %103
-  %118 = load ptr, ptr %9, align 8
-  %119 = load i32, ptr %13, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i32, ptr %118, i64 %120
-  %122 = load i32, ptr %121, align 4
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %123, i32 0, i32 5
-  %125 = load i32, ptr %14, align 4
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %14, align 4
-  %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds [0 x i32], ptr %124, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp eq i32 %122, %129
-  br i1 %130, label %131, label %132
+118:                                              ; preds = %104
+  %119 = load ptr, ptr %9, align 8, !tbaa !27
+  %120 = load i32, ptr %13, align 4, !tbaa !20
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %119, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !20
+  %124 = load ptr, ptr %7, align 8, !tbaa !8
+  %125 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %124, i32 0, i32 5
+  %126 = load i32, ptr %14, align 4, !tbaa !20
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %14, align 4, !tbaa !20
+  %128 = sext i32 %126 to i64
+  %129 = getelementptr inbounds [0 x i32], ptr %125, i64 0, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !20
+  %131 = icmp eq i32 %123, %130
+  br i1 %131, label %132, label %133
 
-131:                                              ; preds = %117
-  br label %133
+132:                                              ; preds = %118
+  br label %134
 
-132:                                              ; preds = %117
+133:                                              ; preds = %118
   store ptr null, ptr %4, align 8
-  br label %329
+  store i32 1, ptr %16, align 4
+  br label %330
 
-133:                                              ; preds = %131, %116, %102
-  %134 = load i32, ptr %13, align 4
-  %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %13, align 4
-  br label %84, !llvm.loop !22
+134:                                              ; preds = %132, %117, %103
+  %135 = load i32, ptr %13, align 4, !tbaa !20
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %13, align 4, !tbaa !20
+  br label %85, !llvm.loop !42
 
-136:                                              ; preds = %84
-  %137 = load i32, ptr %14, align 4
-  %138 = load i32, ptr %12, align 4
-  %139 = icmp slt i32 %137, %138
-  br i1 %139, label %140, label %141
+137:                                              ; preds = %85
+  %138 = load i32, ptr %14, align 4, !tbaa !20
+  %139 = load i32, ptr %12, align 4, !tbaa !20
+  %140 = icmp slt i32 %138, %139
+  br i1 %140, label %141, label %142
 
-140:                                              ; preds = %136
+141:                                              ; preds = %137
   store ptr null, ptr %4, align 8
-  br label %329
+  store i32 1, ptr %16, align 4
+  br label %330
 
-141:                                              ; preds = %136
-  br label %142
+142:                                              ; preds = %137
+  br label %143
 
-142:                                              ; preds = %141, %82
-  %143 = load i32, ptr %11, align 4
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %144, i32 0, i32 9
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %146, align 8
-  %148 = and i32 %143, 15
-  %149 = shl i32 %148, 28
-  %150 = and i32 %147, 268435455
-  %151 = or i32 %150, %149
-  store i32 %151, ptr %146, align 8
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %152, i32 0, i32 9
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %8, align 8
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %155, i32 0, i32 9
-  store ptr null, ptr %156, align 8
-  %157 = load ptr, ptr %8, align 8
-  store ptr %157, ptr %4, align 8
-  br label %329
+143:                                              ; preds = %142, %83
+  %144 = load i32, ptr %11, align 4, !tbaa !20
+  %145 = load ptr, ptr %5, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %145, i32 0, i32 9
+  %147 = load ptr, ptr %146, align 8, !tbaa !39
+  %148 = load i32, ptr %147, align 8
+  %149 = and i32 %144, 15
+  %150 = shl i32 %149, 28
+  %151 = and i32 %148, 268435455
+  %152 = or i32 %151, %150
+  store i32 %152, ptr %147, align 8
+  %153 = load ptr, ptr %5, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %153, i32 0, i32 9
+  %155 = load ptr, ptr %154, align 8, !tbaa !39
+  store ptr %155, ptr %8, align 8, !tbaa !8
+  %156 = load ptr, ptr %5, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %156, i32 0, i32 9
+  store ptr null, ptr %157, align 8, !tbaa !39
+  %158 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %158, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %330
 
-158:                                              ; preds = %25
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %15, align 4
-  br label %159
+159:                                              ; preds = %26
+  store i32 0, ptr %14, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !20
+  store i32 0, ptr %15, align 4, !tbaa !20
+  br label %160
 
-159:                                              ; preds = %301, %158
-  %160 = load i32, ptr %15, align 4
-  %161 = load i32, ptr %10, align 4
-  %162 = icmp slt i32 %160, %161
-  br i1 %162, label %163, label %304
+160:                                              ; preds = %302, %159
+  %161 = load i32, ptr %15, align 4, !tbaa !20
+  %162 = load i32, ptr %10, align 4, !tbaa !20
+  %163 = icmp slt i32 %161, %162
+  br i1 %163, label %164, label %305
 
-163:                                              ; preds = %159
-  %164 = load i32, ptr %14, align 4
-  %165 = load i32, ptr %12, align 4
-  %166 = icmp eq i32 %164, %165
-  br i1 %166, label %167, label %199
+164:                                              ; preds = %160
+  %165 = load i32, ptr %14, align 4, !tbaa !20
+  %166 = load i32, ptr %12, align 4, !tbaa !20
+  %167 = icmp eq i32 %165, %166
+  br i1 %167, label %168, label %200
 
-167:                                              ; preds = %163
-  %168 = load i32, ptr %13, align 4
-  %169 = load i32, ptr %11, align 4
-  %170 = icmp eq i32 %168, %169
-  br i1 %170, label %171, label %187
+168:                                              ; preds = %164
+  %169 = load i32, ptr %13, align 4, !tbaa !20
+  %170 = load i32, ptr %11, align 4, !tbaa !20
+  %171 = icmp eq i32 %169, %170
+  br i1 %171, label %172, label %188
 
-171:                                              ; preds = %167
-  %172 = load i32, ptr %15, align 4
-  %173 = load ptr, ptr %5, align 8
-  %174 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %173, i32 0, i32 9
-  %175 = load ptr, ptr %174, align 8
-  %176 = load i32, ptr %175, align 8
-  %177 = and i32 %172, 15
-  %178 = shl i32 %177, 28
-  %179 = and i32 %176, 268435455
-  %180 = or i32 %179, %178
-  store i32 %180, ptr %175, align 8
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %181, i32 0, i32 9
-  %183 = load ptr, ptr %182, align 8
-  store ptr %183, ptr %8, align 8
-  %184 = load ptr, ptr %5, align 8
-  %185 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %184, i32 0, i32 9
-  store ptr null, ptr %185, align 8
-  %186 = load ptr, ptr %8, align 8
-  store ptr %186, ptr %4, align 8
-  br label %329
+172:                                              ; preds = %168
+  %173 = load i32, ptr %15, align 4, !tbaa !20
+  %174 = load ptr, ptr %5, align 8, !tbaa !3
+  %175 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %174, i32 0, i32 9
+  %176 = load ptr, ptr %175, align 8, !tbaa !39
+  %177 = load i32, ptr %176, align 8
+  %178 = and i32 %173, 15
+  %179 = shl i32 %178, 28
+  %180 = and i32 %177, 268435455
+  %181 = or i32 %180, %179
+  store i32 %181, ptr %176, align 8
+  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %182, i32 0, i32 9
+  %184 = load ptr, ptr %183, align 8, !tbaa !39
+  store ptr %184, ptr %8, align 8, !tbaa !8
+  %185 = load ptr, ptr %5, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %185, i32 0, i32 9
+  store ptr null, ptr %186, align 8, !tbaa !39
+  %187 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %187, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %330
 
-187:                                              ; preds = %167
-  %188 = load ptr, ptr %6, align 8
-  %189 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %188, i32 0, i32 5
-  %190 = load i32, ptr %13, align 4
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %13, align 4
-  %192 = sext i32 %190 to i64
-  %193 = getelementptr inbounds [0 x i32], ptr %189, i64 0, i64 %192
-  %194 = load i32, ptr %193, align 4
-  %195 = load ptr, ptr %9, align 8
-  %196 = load i32, ptr %15, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i32, ptr %195, i64 %197
-  store i32 %194, ptr %198, align 4
-  br label %301
+188:                                              ; preds = %168
+  %189 = load ptr, ptr %6, align 8, !tbaa !8
+  %190 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %189, i32 0, i32 5
+  %191 = load i32, ptr %13, align 4, !tbaa !20
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %13, align 4, !tbaa !20
+  %193 = sext i32 %191 to i64
+  %194 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %193
+  %195 = load i32, ptr %194, align 4, !tbaa !20
+  %196 = load ptr, ptr %9, align 8, !tbaa !27
+  %197 = load i32, ptr %15, align 4, !tbaa !20
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds i32, ptr %196, i64 %198
+  store i32 %195, ptr %199, align 4, !tbaa !20
+  br label %302
 
-199:                                              ; preds = %163
-  %200 = load i32, ptr %13, align 4
-  %201 = load i32, ptr %11, align 4
-  %202 = icmp eq i32 %200, %201
-  br i1 %202, label %203, label %235
+200:                                              ; preds = %164
+  %201 = load i32, ptr %13, align 4, !tbaa !20
+  %202 = load i32, ptr %11, align 4, !tbaa !20
+  %203 = icmp eq i32 %201, %202
+  br i1 %203, label %204, label %236
 
-203:                                              ; preds = %199
-  %204 = load i32, ptr %14, align 4
-  %205 = load i32, ptr %12, align 4
-  %206 = icmp eq i32 %204, %205
-  br i1 %206, label %207, label %223
+204:                                              ; preds = %200
+  %205 = load i32, ptr %14, align 4, !tbaa !20
+  %206 = load i32, ptr %12, align 4, !tbaa !20
+  %207 = icmp eq i32 %205, %206
+  br i1 %207, label %208, label %224
 
-207:                                              ; preds = %203
-  %208 = load i32, ptr %15, align 4
-  %209 = load ptr, ptr %5, align 8
-  %210 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %209, i32 0, i32 9
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i32, ptr %211, align 8
-  %213 = and i32 %208, 15
-  %214 = shl i32 %213, 28
-  %215 = and i32 %212, 268435455
-  %216 = or i32 %215, %214
-  store i32 %216, ptr %211, align 8
-  %217 = load ptr, ptr %5, align 8
-  %218 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %217, i32 0, i32 9
-  %219 = load ptr, ptr %218, align 8
-  store ptr %219, ptr %8, align 8
-  %220 = load ptr, ptr %5, align 8
-  %221 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %220, i32 0, i32 9
-  store ptr null, ptr %221, align 8
-  %222 = load ptr, ptr %8, align 8
-  store ptr %222, ptr %4, align 8
-  br label %329
+208:                                              ; preds = %204
+  %209 = load i32, ptr %15, align 4, !tbaa !20
+  %210 = load ptr, ptr %5, align 8, !tbaa !3
+  %211 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %210, i32 0, i32 9
+  %212 = load ptr, ptr %211, align 8, !tbaa !39
+  %213 = load i32, ptr %212, align 8
+  %214 = and i32 %209, 15
+  %215 = shl i32 %214, 28
+  %216 = and i32 %213, 268435455
+  %217 = or i32 %216, %215
+  store i32 %217, ptr %212, align 8
+  %218 = load ptr, ptr %5, align 8, !tbaa !3
+  %219 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %218, i32 0, i32 9
+  %220 = load ptr, ptr %219, align 8, !tbaa !39
+  store ptr %220, ptr %8, align 8, !tbaa !8
+  %221 = load ptr, ptr %5, align 8, !tbaa !3
+  %222 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %221, i32 0, i32 9
+  store ptr null, ptr %222, align 8, !tbaa !39
+  %223 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %223, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %330
 
-223:                                              ; preds = %203
-  %224 = load ptr, ptr %7, align 8
-  %225 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %224, i32 0, i32 5
-  %226 = load i32, ptr %14, align 4
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %14, align 4
-  %228 = sext i32 %226 to i64
-  %229 = getelementptr inbounds [0 x i32], ptr %225, i64 0, i64 %228
-  %230 = load i32, ptr %229, align 4
-  %231 = load ptr, ptr %9, align 8
-  %232 = load i32, ptr %15, align 4
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds i32, ptr %231, i64 %233
-  store i32 %230, ptr %234, align 4
-  br label %301
+224:                                              ; preds = %204
+  %225 = load ptr, ptr %7, align 8, !tbaa !8
+  %226 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %225, i32 0, i32 5
+  %227 = load i32, ptr %14, align 4, !tbaa !20
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %14, align 4, !tbaa !20
+  %229 = sext i32 %227 to i64
+  %230 = getelementptr inbounds [0 x i32], ptr %226, i64 0, i64 %229
+  %231 = load i32, ptr %230, align 4, !tbaa !20
+  %232 = load ptr, ptr %9, align 8, !tbaa !27
+  %233 = load i32, ptr %15, align 4, !tbaa !20
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i32, ptr %232, i64 %234
+  store i32 %231, ptr %235, align 4, !tbaa !20
+  br label %302
 
-235:                                              ; preds = %199
-  %236 = load ptr, ptr %6, align 8
-  %237 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %236, i32 0, i32 5
-  %238 = load i32, ptr %13, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [0 x i32], ptr %237, i64 0, i64 %239
-  %241 = load i32, ptr %240, align 4
-  %242 = load ptr, ptr %7, align 8
-  %243 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %242, i32 0, i32 5
-  %244 = load i32, ptr %14, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds [0 x i32], ptr %243, i64 0, i64 %245
-  %247 = load i32, ptr %246, align 4
-  %248 = icmp slt i32 %241, %247
-  br i1 %248, label %249, label %261
+236:                                              ; preds = %200
+  %237 = load ptr, ptr %6, align 8, !tbaa !8
+  %238 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %237, i32 0, i32 5
+  %239 = load i32, ptr %13, align 4, !tbaa !20
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds [0 x i32], ptr %238, i64 0, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !20
+  %243 = load ptr, ptr %7, align 8, !tbaa !8
+  %244 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %243, i32 0, i32 5
+  %245 = load i32, ptr %14, align 4, !tbaa !20
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [0 x i32], ptr %244, i64 0, i64 %246
+  %248 = load i32, ptr %247, align 4, !tbaa !20
+  %249 = icmp slt i32 %242, %248
+  br i1 %249, label %250, label %262
 
-249:                                              ; preds = %235
-  %250 = load ptr, ptr %6, align 8
-  %251 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %250, i32 0, i32 5
-  %252 = load i32, ptr %13, align 4
-  %253 = add nsw i32 %252, 1
-  store i32 %253, ptr %13, align 4
-  %254 = sext i32 %252 to i64
-  %255 = getelementptr inbounds [0 x i32], ptr %251, i64 0, i64 %254
-  %256 = load i32, ptr %255, align 4
-  %257 = load ptr, ptr %9, align 8
-  %258 = load i32, ptr %15, align 4
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %257, i64 %259
-  store i32 %256, ptr %260, align 4
-  br label %301
+250:                                              ; preds = %236
+  %251 = load ptr, ptr %6, align 8, !tbaa !8
+  %252 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %251, i32 0, i32 5
+  %253 = load i32, ptr %13, align 4, !tbaa !20
+  %254 = add nsw i32 %253, 1
+  store i32 %254, ptr %13, align 4, !tbaa !20
+  %255 = sext i32 %253 to i64
+  %256 = getelementptr inbounds [0 x i32], ptr %252, i64 0, i64 %255
+  %257 = load i32, ptr %256, align 4, !tbaa !20
+  %258 = load ptr, ptr %9, align 8, !tbaa !27
+  %259 = load i32, ptr %15, align 4, !tbaa !20
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds i32, ptr %258, i64 %260
+  store i32 %257, ptr %261, align 4, !tbaa !20
+  br label %302
 
-261:                                              ; preds = %235
-  %262 = load ptr, ptr %6, align 8
-  %263 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %262, i32 0, i32 5
-  %264 = load i32, ptr %13, align 4
-  %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds [0 x i32], ptr %263, i64 0, i64 %265
-  %267 = load i32, ptr %266, align 4
-  %268 = load ptr, ptr %7, align 8
-  %269 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %268, i32 0, i32 5
-  %270 = load i32, ptr %14, align 4
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds [0 x i32], ptr %269, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp sgt i32 %267, %273
-  br i1 %274, label %275, label %287
+262:                                              ; preds = %236
+  %263 = load ptr, ptr %6, align 8, !tbaa !8
+  %264 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %263, i32 0, i32 5
+  %265 = load i32, ptr %13, align 4, !tbaa !20
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds [0 x i32], ptr %264, i64 0, i64 %266
+  %268 = load i32, ptr %267, align 4, !tbaa !20
+  %269 = load ptr, ptr %7, align 8, !tbaa !8
+  %270 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %269, i32 0, i32 5
+  %271 = load i32, ptr %14, align 4, !tbaa !20
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds [0 x i32], ptr %270, i64 0, i64 %272
+  %274 = load i32, ptr %273, align 4, !tbaa !20
+  %275 = icmp sgt i32 %268, %274
+  br i1 %275, label %276, label %288
 
-275:                                              ; preds = %261
-  %276 = load ptr, ptr %7, align 8
-  %277 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %276, i32 0, i32 5
-  %278 = load i32, ptr %14, align 4
-  %279 = add nsw i32 %278, 1
-  store i32 %279, ptr %14, align 4
-  %280 = sext i32 %278 to i64
-  %281 = getelementptr inbounds [0 x i32], ptr %277, i64 0, i64 %280
-  %282 = load i32, ptr %281, align 4
-  %283 = load ptr, ptr %9, align 8
-  %284 = load i32, ptr %15, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i32, ptr %283, i64 %285
-  store i32 %282, ptr %286, align 4
-  br label %301
+276:                                              ; preds = %262
+  %277 = load ptr, ptr %7, align 8, !tbaa !8
+  %278 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %277, i32 0, i32 5
+  %279 = load i32, ptr %14, align 4, !tbaa !20
+  %280 = add nsw i32 %279, 1
+  store i32 %280, ptr %14, align 4, !tbaa !20
+  %281 = sext i32 %279 to i64
+  %282 = getelementptr inbounds [0 x i32], ptr %278, i64 0, i64 %281
+  %283 = load i32, ptr %282, align 4, !tbaa !20
+  %284 = load ptr, ptr %9, align 8, !tbaa !27
+  %285 = load i32, ptr %15, align 4, !tbaa !20
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds i32, ptr %284, i64 %286
+  store i32 %283, ptr %287, align 4, !tbaa !20
+  br label %302
 
-287:                                              ; preds = %261
-  %288 = load ptr, ptr %6, align 8
-  %289 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %288, i32 0, i32 5
-  %290 = load i32, ptr %13, align 4
-  %291 = add nsw i32 %290, 1
-  store i32 %291, ptr %13, align 4
-  %292 = sext i32 %290 to i64
-  %293 = getelementptr inbounds [0 x i32], ptr %289, i64 0, i64 %292
-  %294 = load i32, ptr %293, align 4
-  %295 = load ptr, ptr %9, align 8
-  %296 = load i32, ptr %15, align 4
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds i32, ptr %295, i64 %297
-  store i32 %294, ptr %298, align 4
-  %299 = load i32, ptr %14, align 4
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %14, align 4
-  br label %301
+288:                                              ; preds = %262
+  %289 = load ptr, ptr %6, align 8, !tbaa !8
+  %290 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %289, i32 0, i32 5
+  %291 = load i32, ptr %13, align 4, !tbaa !20
+  %292 = add nsw i32 %291, 1
+  store i32 %292, ptr %13, align 4, !tbaa !20
+  %293 = sext i32 %291 to i64
+  %294 = getelementptr inbounds [0 x i32], ptr %290, i64 0, i64 %293
+  %295 = load i32, ptr %294, align 4, !tbaa !20
+  %296 = load ptr, ptr %9, align 8, !tbaa !27
+  %297 = load i32, ptr %15, align 4, !tbaa !20
+  %298 = sext i32 %297 to i64
+  %299 = getelementptr inbounds i32, ptr %296, i64 %298
+  store i32 %295, ptr %299, align 4, !tbaa !20
+  %300 = load i32, ptr %14, align 4, !tbaa !20
+  %301 = add nsw i32 %300, 1
+  store i32 %301, ptr %14, align 4, !tbaa !20
+  br label %302
 
-301:                                              ; preds = %287, %275, %249, %223, %187
-  %302 = load i32, ptr %15, align 4
-  %303 = add nsw i32 %302, 1
-  store i32 %303, ptr %15, align 4
-  br label %159, !llvm.loop !23
+302:                                              ; preds = %288, %276, %250, %224, %188
+  %303 = load i32, ptr %15, align 4, !tbaa !20
+  %304 = add nsw i32 %303, 1
+  store i32 %304, ptr %15, align 4, !tbaa !20
+  br label %160, !llvm.loop !43
 
-304:                                              ; preds = %159
-  %305 = load i32, ptr %13, align 4
-  %306 = load i32, ptr %11, align 4
-  %307 = icmp slt i32 %305, %306
-  br i1 %307, label %312, label %308
+305:                                              ; preds = %160
+  %306 = load i32, ptr %13, align 4, !tbaa !20
+  %307 = load i32, ptr %11, align 4, !tbaa !20
+  %308 = icmp slt i32 %306, %307
+  br i1 %308, label %313, label %309
 
-308:                                              ; preds = %304
-  %309 = load i32, ptr %14, align 4
-  %310 = load i32, ptr %12, align 4
-  %311 = icmp slt i32 %309, %310
-  br i1 %311, label %312, label %313
+309:                                              ; preds = %305
+  %310 = load i32, ptr %14, align 4, !tbaa !20
+  %311 = load i32, ptr %12, align 4, !tbaa !20
+  %312 = icmp slt i32 %310, %311
+  br i1 %312, label %313, label %314
 
-312:                                              ; preds = %308, %304
+313:                                              ; preds = %309, %305
   store ptr null, ptr %4, align 8
-  br label %329
+  store i32 1, ptr %16, align 4
+  br label %330
 
-313:                                              ; preds = %308
-  %314 = load i32, ptr %15, align 4
-  %315 = load ptr, ptr %5, align 8
-  %316 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %315, i32 0, i32 9
-  %317 = load ptr, ptr %316, align 8
-  %318 = load i32, ptr %317, align 8
-  %319 = and i32 %314, 15
-  %320 = shl i32 %319, 28
-  %321 = and i32 %318, 268435455
-  %322 = or i32 %321, %320
-  store i32 %322, ptr %317, align 8
-  %323 = load ptr, ptr %5, align 8
-  %324 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %323, i32 0, i32 9
-  %325 = load ptr, ptr %324, align 8
-  store ptr %325, ptr %8, align 8
-  %326 = load ptr, ptr %5, align 8
-  %327 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %326, i32 0, i32 9
-  store ptr null, ptr %327, align 8
-  %328 = load ptr, ptr %8, align 8
-  store ptr %328, ptr %4, align 8
-  br label %329
+314:                                              ; preds = %309
+  %315 = load i32, ptr %15, align 4, !tbaa !20
+  %316 = load ptr, ptr %5, align 8, !tbaa !3
+  %317 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %316, i32 0, i32 9
+  %318 = load ptr, ptr %317, align 8, !tbaa !39
+  %319 = load i32, ptr %318, align 8
+  %320 = and i32 %315, 15
+  %321 = shl i32 %320, 28
+  %322 = and i32 %319, 268435455
+  %323 = or i32 %322, %321
+  store i32 %323, ptr %318, align 8
+  %324 = load ptr, ptr %5, align 8, !tbaa !3
+  %325 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %324, i32 0, i32 9
+  %326 = load ptr, ptr %325, align 8, !tbaa !39
+  store ptr %326, ptr %8, align 8, !tbaa !8
+  %327 = load ptr, ptr %5, align 8, !tbaa !3
+  %328 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %327, i32 0, i32 9
+  store ptr null, ptr %328, align 8, !tbaa !39
+  %329 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %329, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %330
 
-329:                                              ; preds = %313, %312, %207, %171, %142, %140, %132, %77
-  %330 = load ptr, ptr %4, align 8
-  ret ptr %330
+330:                                              ; preds = %314, %313, %208, %172, %143, %141, %133, %78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %331 = load ptr, ptr %4, align 8
+  ret ptr %331
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1708,467 +1790,490 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %16, i32 0, i32 9
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %25
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %17, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %3
-  %21 = load ptr, ptr %5, align 8
-  %22 = call ptr @Cut_CutAlloc(ptr noundef %21)
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %23, i32 0, i32 9
-  store ptr %22, ptr %24, align 8
-  br label %25
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = call ptr @Cut_CutAlloc(ptr noundef %22)
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %24, i32 0, i32 9
+  store ptr %23, ptr %25, align 8, !tbaa !39
+  br label %26
 
-25:                                               ; preds = %20, %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %26, i32 0, i32 9
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %28, i32 0, i32 5
-  %30 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 0
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 4
-  store i32 %35, ptr %14, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %36, align 8
-  %38 = lshr i32 %37, 28
-  %39 = load i32, ptr %14, align 4
-  %40 = icmp eq i32 %38, %39
-  br i1 %40, label %41, label %166
+26:                                               ; preds = %21, %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %27, i32 0, i32 9
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
+  %30 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %29, i32 0, i32 5
+  %31 = getelementptr inbounds [0 x i32], ptr %30, i64 0, i64 0
+  store ptr %31, ptr %9, align 8, !tbaa !27
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 4, !tbaa !18
+  store i32 %36, ptr %14, align 4, !tbaa !20
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = load i32, ptr %37, align 8
+  %39 = lshr i32 %38, 28
+  %40 = load i32, ptr %14, align 4, !tbaa !20
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %167
 
-41:                                               ; preds = %25
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %42, align 8
-  %44 = lshr i32 %43, 28
-  %45 = load i32, ptr %14, align 4
-  %46 = icmp eq i32 %44, %45
-  br i1 %46, label %47, label %83
+42:                                               ; preds = %26
+  %43 = load ptr, ptr %7, align 8, !tbaa !8
+  %44 = load i32, ptr %43, align 8
+  %45 = lshr i32 %44, 28
+  %46 = load i32, ptr %14, align 4, !tbaa !20
+  %47 = icmp eq i32 %45, %46
+  br i1 %47, label %48, label %84
 
-47:                                               ; preds = %41
-  store i32 0, ptr %10, align 4
-  br label %48
+48:                                               ; preds = %42
+  store i32 0, ptr %10, align 4, !tbaa !20
+  br label %49
 
-48:                                               ; preds = %79, %47
-  %49 = load i32, ptr %10, align 4
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr %50, align 8
-  %52 = lshr i32 %51, 28
-  %53 = icmp slt i32 %49, %52
-  br i1 %53, label %54, label %82
+49:                                               ; preds = %80, %48
+  %50 = load i32, ptr %10, align 4, !tbaa !20
+  %51 = load ptr, ptr %6, align 8, !tbaa !8
+  %52 = load i32, ptr %51, align 8
+  %53 = lshr i32 %52, 28
+  %54 = icmp slt i32 %50, %53
+  br i1 %54, label %55, label %83
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %55, i32 0, i32 5
-  %57 = load i32, ptr %10, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i32, ptr %10, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
-  store i32 %60, ptr %64, align 4
-  %65 = load ptr, ptr %9, align 8
-  %66 = load i32, ptr %10, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %65, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %70, i32 0, i32 5
-  %72 = load i32, ptr %10, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [0 x i32], ptr %71, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %69, %75
-  br i1 %76, label %77, label %78
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %6, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %56, i32 0, i32 5
+  %58 = load i32, ptr %10, align 4, !tbaa !20
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !20
+  %62 = load ptr, ptr %9, align 8, !tbaa !27
+  %63 = load i32, ptr %10, align 4, !tbaa !20
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  store i32 %61, ptr %65, align 4, !tbaa !20
+  %66 = load ptr, ptr %9, align 8, !tbaa !27
+  %67 = load i32, ptr %10, align 4, !tbaa !20
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %66, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !20
+  %71 = load ptr, ptr %7, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %71, i32 0, i32 5
+  %73 = load i32, ptr %10, align 4, !tbaa !20
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [0 x i32], ptr %72, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !20
+  %77 = icmp ne i32 %70, %76
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %54
+78:                                               ; preds = %55
   store ptr null, ptr %4, align 8
-  br label %321
+  store i32 1, ptr %16, align 4
+  br label %322
 
-78:                                               ; preds = %54
-  br label %79
+79:                                               ; preds = %55
+  br label %80
 
-79:                                               ; preds = %78
-  %80 = load i32, ptr %10, align 4
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %10, align 4
-  br label %48, !llvm.loop !24
+80:                                               ; preds = %79
+  %81 = load i32, ptr %10, align 4, !tbaa !20
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %10, align 4, !tbaa !20
+  br label %49, !llvm.loop !44
 
-82:                                               ; preds = %48
-  br label %148
+83:                                               ; preds = %49
+  br label %149
 
-83:                                               ; preds = %41
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %10, align 4
-  br label %84
+84:                                               ; preds = %42
+  store i32 0, ptr %11, align 4, !tbaa !20
+  store i32 0, ptr %10, align 4, !tbaa !20
+  br label %85
 
-84:                                               ; preds = %137, %83
-  %85 = load i32, ptr %10, align 4
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %86, align 8
-  %88 = lshr i32 %87, 28
-  %89 = icmp slt i32 %85, %88
-  br i1 %89, label %90, label %140
+85:                                               ; preds = %138, %84
+  %86 = load i32, ptr %10, align 4, !tbaa !20
+  %87 = load ptr, ptr %6, align 8, !tbaa !8
+  %88 = load i32, ptr %87, align 8
+  %89 = lshr i32 %88, 28
+  %90 = icmp slt i32 %86, %89
+  br i1 %90, label %91, label %141
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %91, i32 0, i32 5
-  %93 = load i32, ptr %10, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [0 x i32], ptr %92, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4
-  %97 = load ptr, ptr %9, align 8
-  %98 = load i32, ptr %10, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %97, i64 %99
-  store i32 %96, ptr %100, align 4
-  %101 = load i32, ptr %11, align 4
-  %102 = load ptr, ptr %7, align 8
-  %103 = load i32, ptr %102, align 8
-  %104 = lshr i32 %103, 28
-  %105 = icmp eq i32 %101, %104
-  br i1 %105, label %106, label %107
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %6, align 8, !tbaa !8
+  %93 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %92, i32 0, i32 5
+  %94 = load i32, ptr %10, align 4, !tbaa !20
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [0 x i32], ptr %93, i64 0, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !20
+  %98 = load ptr, ptr %9, align 8, !tbaa !27
+  %99 = load i32, ptr %10, align 4, !tbaa !20
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %98, i64 %100
+  store i32 %97, ptr %101, align 4, !tbaa !20
+  %102 = load i32, ptr %11, align 4, !tbaa !20
+  %103 = load ptr, ptr %7, align 8, !tbaa !8
+  %104 = load i32, ptr %103, align 8
+  %105 = lshr i32 %104, 28
+  %106 = icmp eq i32 %102, %105
+  br i1 %106, label %107, label %108
 
-106:                                              ; preds = %90
-  br label %137
+107:                                              ; preds = %91
+  br label %138
 
-107:                                              ; preds = %90
-  %108 = load ptr, ptr %9, align 8
-  %109 = load i32, ptr %10, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i32, ptr %108, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %113, i32 0, i32 5
-  %115 = load i32, ptr %11, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [0 x i32], ptr %114, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp slt i32 %112, %118
-  br i1 %119, label %120, label %121
+108:                                              ; preds = %91
+  %109 = load ptr, ptr %9, align 8, !tbaa !27
+  %110 = load i32, ptr %10, align 4, !tbaa !20
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i32, ptr %109, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %114 = load ptr, ptr %7, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %114, i32 0, i32 5
+  %116 = load i32, ptr %11, align 4, !tbaa !20
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds [0 x i32], ptr %115, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !20
+  %120 = icmp slt i32 %113, %119
+  br i1 %120, label %121, label %122
 
-120:                                              ; preds = %107
-  br label %137
+121:                                              ; preds = %108
+  br label %138
 
-121:                                              ; preds = %107
-  %122 = load ptr, ptr %9, align 8
-  %123 = load i32, ptr %10, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %122, i64 %124
-  %126 = load i32, ptr %125, align 4
-  %127 = load ptr, ptr %7, align 8
-  %128 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %127, i32 0, i32 5
-  %129 = load i32, ptr %11, align 4
-  %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %11, align 4
-  %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds [0 x i32], ptr %128, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp eq i32 %126, %133
-  br i1 %134, label %135, label %136
+122:                                              ; preds = %108
+  %123 = load ptr, ptr %9, align 8, !tbaa !27
+  %124 = load i32, ptr %10, align 4, !tbaa !20
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i32, ptr %123, i64 %125
+  %127 = load i32, ptr %126, align 4, !tbaa !20
+  %128 = load ptr, ptr %7, align 8, !tbaa !8
+  %129 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %128, i32 0, i32 5
+  %130 = load i32, ptr %11, align 4, !tbaa !20
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %11, align 4, !tbaa !20
+  %132 = sext i32 %130 to i64
+  %133 = getelementptr inbounds [0 x i32], ptr %129, i64 0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !20
+  %135 = icmp eq i32 %127, %134
+  br i1 %135, label %136, label %137
 
-135:                                              ; preds = %121
-  br label %137
+136:                                              ; preds = %122
+  br label %138
 
-136:                                              ; preds = %121
+137:                                              ; preds = %122
   store ptr null, ptr %4, align 8
-  br label %321
+  store i32 1, ptr %16, align 4
+  br label %322
 
-137:                                              ; preds = %135, %120, %106
-  %138 = load i32, ptr %10, align 4
-  %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %10, align 4
-  br label %84, !llvm.loop !25
+138:                                              ; preds = %136, %121, %107
+  %139 = load i32, ptr %10, align 4, !tbaa !20
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %10, align 4, !tbaa !20
+  br label %85, !llvm.loop !45
 
-140:                                              ; preds = %84
-  %141 = load i32, ptr %11, align 4
-  %142 = load ptr, ptr %7, align 8
-  %143 = load i32, ptr %142, align 8
-  %144 = lshr i32 %143, 28
-  %145 = icmp slt i32 %141, %144
-  br i1 %145, label %146, label %147
+141:                                              ; preds = %85
+  %142 = load i32, ptr %11, align 4, !tbaa !20
+  %143 = load ptr, ptr %7, align 8, !tbaa !8
+  %144 = load i32, ptr %143, align 8
+  %145 = lshr i32 %144, 28
+  %146 = icmp slt i32 %142, %145
+  br i1 %146, label %147, label %148
 
-146:                                              ; preds = %140
+147:                                              ; preds = %141
   store ptr null, ptr %4, align 8
-  br label %321
+  store i32 1, ptr %16, align 4
+  br label %322
 
-147:                                              ; preds = %140
-  br label %148
+148:                                              ; preds = %141
+  br label %149
 
-148:                                              ; preds = %147, %82
-  %149 = load ptr, ptr %6, align 8
-  %150 = load i32, ptr %149, align 8
-  %151 = lshr i32 %150, 28
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %152, i32 0, i32 9
-  %154 = load ptr, ptr %153, align 8
-  %155 = load i32, ptr %154, align 8
-  %156 = and i32 %151, 15
-  %157 = shl i32 %156, 28
-  %158 = and i32 %155, 268435455
-  %159 = or i32 %158, %157
-  store i32 %159, ptr %154, align 8
-  %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %160, i32 0, i32 9
-  %162 = load ptr, ptr %161, align 8
-  store ptr %162, ptr %8, align 8
-  %163 = load ptr, ptr %5, align 8
-  %164 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %163, i32 0, i32 9
-  store ptr null, ptr %164, align 8
-  %165 = load ptr, ptr %8, align 8
-  store ptr %165, ptr %4, align 8
-  br label %321
+149:                                              ; preds = %148, %83
+  %150 = load ptr, ptr %6, align 8, !tbaa !8
+  %151 = load i32, ptr %150, align 8
+  %152 = lshr i32 %151, 28
+  %153 = load ptr, ptr %5, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %153, i32 0, i32 9
+  %155 = load ptr, ptr %154, align 8, !tbaa !39
+  %156 = load i32, ptr %155, align 8
+  %157 = and i32 %152, 15
+  %158 = shl i32 %157, 28
+  %159 = and i32 %156, 268435455
+  %160 = or i32 %159, %158
+  store i32 %160, ptr %155, align 8
+  %161 = load ptr, ptr %5, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %161, i32 0, i32 9
+  %163 = load ptr, ptr %162, align 8, !tbaa !39
+  store ptr %163, ptr %8, align 8, !tbaa !8
+  %164 = load ptr, ptr %5, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %164, i32 0, i32 9
+  store ptr null, ptr %165, align 8, !tbaa !39
+  %166 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %166, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %322
 
-166:                                              ; preds = %25
-  %167 = load ptr, ptr %6, align 8
-  %168 = load i32, ptr %167, align 8
-  %169 = lshr i32 %168, 28
-  store i32 %169, ptr %15, align 4
-  store i32 0, ptr %10, align 4
-  br label %170
+167:                                              ; preds = %26
+  %168 = load ptr, ptr %6, align 8, !tbaa !8
+  %169 = load i32, ptr %168, align 8
+  %170 = lshr i32 %169, 28
+  store i32 %170, ptr %15, align 4, !tbaa !20
+  store i32 0, ptr %10, align 4, !tbaa !20
+  br label %171
 
-170:                                              ; preds = %226, %166
-  %171 = load i32, ptr %10, align 4
-  %172 = load ptr, ptr %7, align 8
-  %173 = load i32, ptr %172, align 8
-  %174 = lshr i32 %173, 28
-  %175 = icmp slt i32 %171, %174
-  br i1 %175, label %176, label %229
+171:                                              ; preds = %227, %167
+  %172 = load i32, ptr %10, align 4, !tbaa !20
+  %173 = load ptr, ptr %7, align 8, !tbaa !8
+  %174 = load i32, ptr %173, align 8
+  %175 = lshr i32 %174, 28
+  %176 = icmp slt i32 %172, %175
+  br i1 %176, label %177, label %230
 
-176:                                              ; preds = %170
-  store i32 0, ptr %11, align 4
-  br label %177
+177:                                              ; preds = %171
+  store i32 0, ptr %11, align 4, !tbaa !20
+  br label %178
 
-177:                                              ; preds = %199, %176
-  %178 = load i32, ptr %11, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = load i32, ptr %179, align 8
-  %181 = lshr i32 %180, 28
-  %182 = icmp slt i32 %178, %181
-  br i1 %182, label %183, label %202
+178:                                              ; preds = %200, %177
+  %179 = load i32, ptr %11, align 4, !tbaa !20
+  %180 = load ptr, ptr %6, align 8, !tbaa !8
+  %181 = load i32, ptr %180, align 8
+  %182 = lshr i32 %181, 28
+  %183 = icmp slt i32 %179, %182
+  br i1 %183, label %184, label %203
 
-183:                                              ; preds = %177
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %184, i32 0, i32 5
-  %186 = load i32, ptr %10, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds [0 x i32], ptr %185, i64 0, i64 %187
-  %189 = load i32, ptr %188, align 4
-  %190 = load ptr, ptr %6, align 8
-  %191 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %190, i32 0, i32 5
-  %192 = load i32, ptr %11, align 4
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [0 x i32], ptr %191, i64 0, i64 %193
-  %195 = load i32, ptr %194, align 4
-  %196 = icmp eq i32 %189, %195
-  br i1 %196, label %197, label %198
+184:                                              ; preds = %178
+  %185 = load ptr, ptr %7, align 8, !tbaa !8
+  %186 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %185, i32 0, i32 5
+  %187 = load i32, ptr %10, align 4, !tbaa !20
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds [0 x i32], ptr %186, i64 0, i64 %188
+  %190 = load i32, ptr %189, align 4, !tbaa !20
+  %191 = load ptr, ptr %6, align 8, !tbaa !8
+  %192 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %191, i32 0, i32 5
+  %193 = load i32, ptr %11, align 4, !tbaa !20
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds [0 x i32], ptr %192, i64 0, i64 %194
+  %196 = load i32, ptr %195, align 4, !tbaa !20
+  %197 = icmp eq i32 %190, %196
+  br i1 %197, label %198, label %199
 
-197:                                              ; preds = %183
-  br label %202
+198:                                              ; preds = %184
+  br label %203
 
-198:                                              ; preds = %183
-  br label %199
+199:                                              ; preds = %184
+  br label %200
 
-199:                                              ; preds = %198
-  %200 = load i32, ptr %11, align 4
-  %201 = add nsw i32 %200, 1
-  store i32 %201, ptr %11, align 4
-  br label %177, !llvm.loop !26
+200:                                              ; preds = %199
+  %201 = load i32, ptr %11, align 4, !tbaa !20
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %11, align 4, !tbaa !20
+  br label %178, !llvm.loop !46
 
-202:                                              ; preds = %197, %177
-  %203 = load i32, ptr %11, align 4
-  %204 = load ptr, ptr %6, align 8
-  %205 = load i32, ptr %204, align 8
-  %206 = lshr i32 %205, 28
-  %207 = icmp slt i32 %203, %206
-  br i1 %207, label %208, label %209
+203:                                              ; preds = %198, %178
+  %204 = load i32, ptr %11, align 4, !tbaa !20
+  %205 = load ptr, ptr %6, align 8, !tbaa !8
+  %206 = load i32, ptr %205, align 8
+  %207 = lshr i32 %206, 28
+  %208 = icmp slt i32 %204, %207
+  br i1 %208, label %209, label %210
 
-208:                                              ; preds = %202
-  br label %226
+209:                                              ; preds = %203
+  br label %227
 
-209:                                              ; preds = %202
-  %210 = load i32, ptr %15, align 4
-  %211 = load i32, ptr %14, align 4
-  %212 = icmp eq i32 %210, %211
-  br i1 %212, label %213, label %214
+210:                                              ; preds = %203
+  %211 = load i32, ptr %15, align 4, !tbaa !20
+  %212 = load i32, ptr %14, align 4, !tbaa !20
+  %213 = icmp eq i32 %211, %212
+  br i1 %213, label %214, label %215
 
-213:                                              ; preds = %209
+214:                                              ; preds = %210
   store ptr null, ptr %4, align 8
-  br label %321
+  store i32 1, ptr %16, align 4
+  br label %322
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr %7, align 8
-  %216 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %215, i32 0, i32 5
-  %217 = load i32, ptr %10, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds [0 x i32], ptr %216, i64 0, i64 %218
-  %220 = load i32, ptr %219, align 4
-  %221 = load ptr, ptr %9, align 8
-  %222 = load i32, ptr %15, align 4
-  %223 = add nsw i32 %222, 1
-  store i32 %223, ptr %15, align 4
-  %224 = sext i32 %222 to i64
-  %225 = getelementptr inbounds i32, ptr %221, i64 %224
-  store i32 %220, ptr %225, align 4
-  br label %226
+215:                                              ; preds = %210
+  %216 = load ptr, ptr %7, align 8, !tbaa !8
+  %217 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %216, i32 0, i32 5
+  %218 = load i32, ptr %10, align 4, !tbaa !20
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds [0 x i32], ptr %217, i64 0, i64 %219
+  %221 = load i32, ptr %220, align 4, !tbaa !20
+  %222 = load ptr, ptr %9, align 8, !tbaa !27
+  %223 = load i32, ptr %15, align 4, !tbaa !20
+  %224 = add nsw i32 %223, 1
+  store i32 %224, ptr %15, align 4, !tbaa !20
+  %225 = sext i32 %223 to i64
+  %226 = getelementptr inbounds i32, ptr %222, i64 %225
+  store i32 %221, ptr %226, align 4, !tbaa !20
+  br label %227
 
-226:                                              ; preds = %214, %208
-  %227 = load i32, ptr %10, align 4
-  %228 = add nsw i32 %227, 1
-  store i32 %228, ptr %10, align 4
-  br label %170, !llvm.loop !27
+227:                                              ; preds = %215, %209
+  %228 = load i32, ptr %10, align 4, !tbaa !20
+  %229 = add nsw i32 %228, 1
+  store i32 %229, ptr %10, align 4, !tbaa !20
+  br label %171, !llvm.loop !47
 
-229:                                              ; preds = %170
-  store i32 0, ptr %11, align 4
-  br label %230
+230:                                              ; preds = %171
+  store i32 0, ptr %11, align 4, !tbaa !20
+  br label %231
 
-230:                                              ; preds = %247, %229
-  %231 = load i32, ptr %11, align 4
-  %232 = load ptr, ptr %6, align 8
-  %233 = load i32, ptr %232, align 8
-  %234 = lshr i32 %233, 28
-  %235 = icmp slt i32 %231, %234
-  br i1 %235, label %236, label %250
+231:                                              ; preds = %248, %230
+  %232 = load i32, ptr %11, align 4, !tbaa !20
+  %233 = load ptr, ptr %6, align 8, !tbaa !8
+  %234 = load i32, ptr %233, align 8
+  %235 = lshr i32 %234, 28
+  %236 = icmp slt i32 %232, %235
+  br i1 %236, label %237, label %251
 
-236:                                              ; preds = %230
-  %237 = load ptr, ptr %6, align 8
-  %238 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %237, i32 0, i32 5
-  %239 = load i32, ptr %11, align 4
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds [0 x i32], ptr %238, i64 0, i64 %240
-  %242 = load i32, ptr %241, align 4
-  %243 = load ptr, ptr %9, align 8
-  %244 = load i32, ptr %11, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds i32, ptr %243, i64 %245
-  store i32 %242, ptr %246, align 4
-  br label %247
+237:                                              ; preds = %231
+  %238 = load ptr, ptr %6, align 8, !tbaa !8
+  %239 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %238, i32 0, i32 5
+  %240 = load i32, ptr %11, align 4, !tbaa !20
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds [0 x i32], ptr %239, i64 0, i64 %241
+  %243 = load i32, ptr %242, align 4, !tbaa !20
+  %244 = load ptr, ptr %9, align 8, !tbaa !27
+  %245 = load i32, ptr %11, align 4, !tbaa !20
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds i32, ptr %244, i64 %246
+  store i32 %243, ptr %247, align 4, !tbaa !20
+  br label %248
 
-247:                                              ; preds = %236
-  %248 = load i32, ptr %11, align 4
-  %249 = add nsw i32 %248, 1
-  store i32 %249, ptr %11, align 4
-  br label %230, !llvm.loop !28
+248:                                              ; preds = %237
+  %249 = load i32, ptr %11, align 4, !tbaa !20
+  %250 = add nsw i32 %249, 1
+  store i32 %250, ptr %11, align 4, !tbaa !20
+  br label %231, !llvm.loop !48
 
-250:                                              ; preds = %230
-  store i32 0, ptr %10, align 4
-  br label %251
+251:                                              ; preds = %231
+  store i32 0, ptr %10, align 4, !tbaa !20
+  br label %252
 
-251:                                              ; preds = %302, %250
-  %252 = load i32, ptr %10, align 4
-  %253 = load i32, ptr %15, align 4
-  %254 = sub nsw i32 %253, 1
-  %255 = icmp slt i32 %252, %254
-  br i1 %255, label %256, label %305
+252:                                              ; preds = %303, %251
+  %253 = load i32, ptr %10, align 4, !tbaa !20
+  %254 = load i32, ptr %15, align 4, !tbaa !20
+  %255 = sub nsw i32 %254, 1
+  %256 = icmp slt i32 %253, %255
+  br i1 %256, label %257, label %306
 
-256:                                              ; preds = %251
-  %257 = load i32, ptr %10, align 4
-  store i32 %257, ptr %12, align 4
-  %258 = load i32, ptr %10, align 4
-  %259 = add nsw i32 %258, 1
-  store i32 %259, ptr %11, align 4
-  br label %260
+257:                                              ; preds = %252
+  %258 = load i32, ptr %10, align 4, !tbaa !20
+  store i32 %258, ptr %12, align 4, !tbaa !20
+  %259 = load i32, ptr %10, align 4, !tbaa !20
+  %260 = add nsw i32 %259, 1
+  store i32 %260, ptr %11, align 4, !tbaa !20
+  br label %261
 
-260:                                              ; preds = %279, %256
-  %261 = load i32, ptr %11, align 4
-  %262 = load i32, ptr %15, align 4
-  %263 = icmp slt i32 %261, %262
-  br i1 %263, label %264, label %282
+261:                                              ; preds = %280, %257
+  %262 = load i32, ptr %11, align 4, !tbaa !20
+  %263 = load i32, ptr %15, align 4, !tbaa !20
+  %264 = icmp slt i32 %262, %263
+  br i1 %264, label %265, label %283
 
-264:                                              ; preds = %260
-  %265 = load ptr, ptr %9, align 8
-  %266 = load i32, ptr %11, align 4
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds i32, ptr %265, i64 %267
-  %269 = load i32, ptr %268, align 4
-  %270 = load ptr, ptr %9, align 8
-  %271 = load i32, ptr %12, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds i32, ptr %270, i64 %272
-  %274 = load i32, ptr %273, align 4
-  %275 = icmp slt i32 %269, %274
-  br i1 %275, label %276, label %278
+265:                                              ; preds = %261
+  %266 = load ptr, ptr %9, align 8, !tbaa !27
+  %267 = load i32, ptr %11, align 4, !tbaa !20
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds i32, ptr %266, i64 %268
+  %270 = load i32, ptr %269, align 4, !tbaa !20
+  %271 = load ptr, ptr %9, align 8, !tbaa !27
+  %272 = load i32, ptr %12, align 4, !tbaa !20
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i32, ptr %271, i64 %273
+  %275 = load i32, ptr %274, align 4, !tbaa !20
+  %276 = icmp slt i32 %270, %275
+  br i1 %276, label %277, label %279
 
-276:                                              ; preds = %264
-  %277 = load i32, ptr %11, align 4
-  store i32 %277, ptr %12, align 4
-  br label %278
-
-278:                                              ; preds = %276, %264
+277:                                              ; preds = %265
+  %278 = load i32, ptr %11, align 4, !tbaa !20
+  store i32 %278, ptr %12, align 4, !tbaa !20
   br label %279
 
-279:                                              ; preds = %278
-  %280 = load i32, ptr %11, align 4
-  %281 = add nsw i32 %280, 1
-  store i32 %281, ptr %11, align 4
-  br label %260, !llvm.loop !29
+279:                                              ; preds = %277, %265
+  br label %280
 
-282:                                              ; preds = %260
-  %283 = load ptr, ptr %9, align 8
-  %284 = load i32, ptr %10, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i32, ptr %283, i64 %285
-  %287 = load i32, ptr %286, align 4
-  store i32 %287, ptr %13, align 4
-  %288 = load ptr, ptr %9, align 8
-  %289 = load i32, ptr %12, align 4
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds i32, ptr %288, i64 %290
-  %292 = load i32, ptr %291, align 4
-  %293 = load ptr, ptr %9, align 8
-  %294 = load i32, ptr %10, align 4
-  %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds i32, ptr %293, i64 %295
-  store i32 %292, ptr %296, align 4
-  %297 = load i32, ptr %13, align 4
-  %298 = load ptr, ptr %9, align 8
-  %299 = load i32, ptr %12, align 4
-  %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds i32, ptr %298, i64 %300
-  store i32 %297, ptr %301, align 4
-  br label %302
+280:                                              ; preds = %279
+  %281 = load i32, ptr %11, align 4, !tbaa !20
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %11, align 4, !tbaa !20
+  br label %261, !llvm.loop !49
 
-302:                                              ; preds = %282
-  %303 = load i32, ptr %10, align 4
-  %304 = add nsw i32 %303, 1
-  store i32 %304, ptr %10, align 4
-  br label %251, !llvm.loop !30
+283:                                              ; preds = %261
+  %284 = load ptr, ptr %9, align 8, !tbaa !27
+  %285 = load i32, ptr %10, align 4, !tbaa !20
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds i32, ptr %284, i64 %286
+  %288 = load i32, ptr %287, align 4, !tbaa !20
+  store i32 %288, ptr %13, align 4, !tbaa !20
+  %289 = load ptr, ptr %9, align 8, !tbaa !27
+  %290 = load i32, ptr %12, align 4, !tbaa !20
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds i32, ptr %289, i64 %291
+  %293 = load i32, ptr %292, align 4, !tbaa !20
+  %294 = load ptr, ptr %9, align 8, !tbaa !27
+  %295 = load i32, ptr %10, align 4, !tbaa !20
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds i32, ptr %294, i64 %296
+  store i32 %293, ptr %297, align 4, !tbaa !20
+  %298 = load i32, ptr %13, align 4, !tbaa !20
+  %299 = load ptr, ptr %9, align 8, !tbaa !27
+  %300 = load i32, ptr %12, align 4, !tbaa !20
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds i32, ptr %299, i64 %301
+  store i32 %298, ptr %302, align 4, !tbaa !20
+  br label %303
 
-305:                                              ; preds = %251
-  %306 = load i32, ptr %15, align 4
-  %307 = load ptr, ptr %5, align 8
-  %308 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %307, i32 0, i32 9
-  %309 = load ptr, ptr %308, align 8
-  %310 = load i32, ptr %309, align 8
-  %311 = and i32 %306, 15
-  %312 = shl i32 %311, 28
-  %313 = and i32 %310, 268435455
-  %314 = or i32 %313, %312
-  store i32 %314, ptr %309, align 8
-  %315 = load ptr, ptr %5, align 8
-  %316 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %315, i32 0, i32 9
-  %317 = load ptr, ptr %316, align 8
-  store ptr %317, ptr %8, align 8
-  %318 = load ptr, ptr %5, align 8
-  %319 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %318, i32 0, i32 9
-  store ptr null, ptr %319, align 8
-  %320 = load ptr, ptr %8, align 8
-  store ptr %320, ptr %4, align 8
-  br label %321
+303:                                              ; preds = %283
+  %304 = load i32, ptr %10, align 4, !tbaa !20
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %10, align 4, !tbaa !20
+  br label %252, !llvm.loop !50
 
-321:                                              ; preds = %305, %213, %148, %146, %136, %77
-  %322 = load ptr, ptr %4, align 8
-  ret ptr %322
+306:                                              ; preds = %252
+  %307 = load i32, ptr %15, align 4, !tbaa !20
+  %308 = load ptr, ptr %5, align 8, !tbaa !3
+  %309 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %308, i32 0, i32 9
+  %310 = load ptr, ptr %309, align 8, !tbaa !39
+  %311 = load i32, ptr %310, align 8
+  %312 = and i32 %307, 15
+  %313 = shl i32 %312, 28
+  %314 = and i32 %311, 268435455
+  %315 = or i32 %314, %313
+  store i32 %315, ptr %310, align 8
+  %316 = load ptr, ptr %5, align 8, !tbaa !3
+  %317 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %316, i32 0, i32 9
+  %318 = load ptr, ptr %317, align 8, !tbaa !39
+  store ptr %318, ptr %8, align 8, !tbaa !8
+  %319 = load ptr, ptr %5, align 8, !tbaa !3
+  %320 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %319, i32 0, i32 9
+  store ptr null, ptr %320, align 8, !tbaa !39
+  %321 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %321, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %322
+
+322:                                              ; preds = %306, %214, %149, %147, %137, %78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %323 = load ptr, ptr %4, align 8
+  ret ptr %323
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2186,1033 +2291,1084 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %16, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %22, align 8
-  %24 = lshr i32 %23, 28
-  %25 = load i32, ptr %16, align 4
-  %26 = icmp eq i32 %24, %25
-  br i1 %26, label %27, label %94
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 4, !tbaa !18
+  store i32 %22, ptr %16, align 4, !tbaa !20
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load i32, ptr %23, align 8
+  %25 = lshr i32 %24, 28
+  %26 = load i32, ptr %16, align 4, !tbaa !20
+  %27 = icmp eq i32 %25, %26
+  br i1 %27, label %28, label %95
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %28, align 8
-  %30 = lshr i32 %29, 28
-  %31 = load i32, ptr %16, align 4
-  %32 = icmp eq i32 %30, %31
-  br i1 %32, label %33, label %94
+28:                                               ; preds = %3
+  %29 = load ptr, ptr %7, align 8, !tbaa !8
+  %30 = load i32, ptr %29, align 8
+  %31 = lshr i32 %30, 28
+  %32 = load i32, ptr %16, align 4, !tbaa !20
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %34, label %95
 
-33:                                               ; preds = %27
-  store i32 0, ptr %12, align 4
-  br label %34
+34:                                               ; preds = %28
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %35
 
-34:                                               ; preds = %56, %33
-  %35 = load i32, ptr %12, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %36, align 8
-  %38 = lshr i32 %37, 28
-  %39 = icmp slt i32 %35, %38
-  br i1 %39, label %40, label %59
+35:                                               ; preds = %57, %34
+  %36 = load i32, ptr %12, align 4, !tbaa !20
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = load i32, ptr %37, align 8
+  %39 = lshr i32 %38, 28
+  %40 = icmp slt i32 %36, %39
+  br i1 %40, label %41, label %60
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %41, i32 0, i32 5
-  %43 = load i32, ptr %12, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [0 x i32], ptr %42, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %47, i32 0, i32 5
-  %49 = load i32, ptr %12, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp ne i32 %46, %52
-  br i1 %53, label %54, label %55
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %42, i32 0, i32 5
+  %44 = load i32, ptr %12, align 4, !tbaa !20
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [0 x i32], ptr %43, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !20
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %48, i32 0, i32 5
+  %50 = load i32, ptr %12, align 4, !tbaa !20
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [0 x i32], ptr %49, i64 0, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !20
+  %54 = icmp ne i32 %47, %53
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %40
+55:                                               ; preds = %41
   store ptr null, ptr %4, align 8
-  br label %660
+  store i32 1, ptr %17, align 4
+  br label %661
 
-55:                                               ; preds = %40
-  br label %56
+56:                                               ; preds = %41
+  br label %57
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr %12, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %12, align 4
-  br label %34, !llvm.loop !31
+57:                                               ; preds = %56
+  %58 = load i32, ptr %12, align 4, !tbaa !20
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %12, align 4, !tbaa !20
+  br label %35, !llvm.loop !51
 
-59:                                               ; preds = %34
-  %60 = load ptr, ptr %5, align 8
-  %61 = call ptr @Cut_CutAlloc(ptr noundef %60)
-  store ptr %61, ptr %8, align 8
-  store i32 0, ptr %12, align 4
-  br label %62
+60:                                               ; preds = %35
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = call ptr @Cut_CutAlloc(ptr noundef %61)
+  store ptr %62, ptr %8, align 8, !tbaa !8
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %63
 
-62:                                               ; preds = %80, %59
-  %63 = load i32, ptr %12, align 4
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr %64, align 8
-  %66 = lshr i32 %65, 28
-  %67 = icmp slt i32 %63, %66
-  br i1 %67, label %68, label %83
+63:                                               ; preds = %81, %60
+  %64 = load i32, ptr %12, align 4, !tbaa !20
+  %65 = load ptr, ptr %6, align 8, !tbaa !8
+  %66 = load i32, ptr %65, align 8
+  %67 = lshr i32 %66, 28
+  %68 = icmp slt i32 %64, %67
+  br i1 %68, label %69, label %84
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %69, i32 0, i32 5
-  %71 = load i32, ptr %12, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %75, i32 0, i32 5
-  %77 = load i32, ptr %12, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [0 x i32], ptr %76, i64 0, i64 %78
-  store i32 %74, ptr %79, align 4
-  br label %80
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %6, align 8, !tbaa !8
+  %71 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %70, i32 0, i32 5
+  %72 = load i32, ptr %12, align 4, !tbaa !20
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [0 x i32], ptr %71, i64 0, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !20
+  %76 = load ptr, ptr %8, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %76, i32 0, i32 5
+  %78 = load i32, ptr %12, align 4, !tbaa !20
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds [0 x i32], ptr %77, i64 0, i64 %79
+  store i32 %75, ptr %80, align 4, !tbaa !20
+  br label %81
 
-80:                                               ; preds = %68
-  %81 = load i32, ptr %12, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %12, align 4
-  br label %62, !llvm.loop !32
+81:                                               ; preds = %69
+  %82 = load i32, ptr %12, align 4, !tbaa !20
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %12, align 4, !tbaa !20
+  br label %63, !llvm.loop !52
 
-83:                                               ; preds = %62
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %84, align 8
-  %86 = lshr i32 %85, 28
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %87, align 8
-  %89 = and i32 %86, 15
-  %90 = shl i32 %89, 28
-  %91 = and i32 %88, 268435455
-  %92 = or i32 %91, %90
-  store i32 %92, ptr %87, align 8
-  %93 = load ptr, ptr %8, align 8
-  store ptr %93, ptr %4, align 8
-  br label %660
+84:                                               ; preds = %63
+  %85 = load ptr, ptr %6, align 8, !tbaa !8
+  %86 = load i32, ptr %85, align 8
+  %87 = lshr i32 %86, 28
+  %88 = load ptr, ptr %8, align 8, !tbaa !8
+  %89 = load i32, ptr %88, align 8
+  %90 = and i32 %87, 15
+  %91 = shl i32 %90, 28
+  %92 = and i32 %89, 268435455
+  %93 = or i32 %92, %91
+  store i32 %93, ptr %88, align 8
+  %94 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %94, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
 
-94:                                               ; preds = %27, %3
-  %95 = load ptr, ptr %6, align 8
-  %96 = load i32, ptr %95, align 8
-  %97 = lshr i32 %96, 28
-  %98 = load i32, ptr %16, align 4
-  %99 = icmp eq i32 %97, %98
-  br i1 %99, label %100, label %241
+95:                                               ; preds = %28, %3
+  %96 = load ptr, ptr %6, align 8, !tbaa !8
+  %97 = load i32, ptr %96, align 8
+  %98 = lshr i32 %97, 28
+  %99 = load i32, ptr %16, align 4, !tbaa !20
+  %100 = icmp eq i32 %98, %99
+  br i1 %100, label %101, label %242
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %103, i32 0, i32 5
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %152, label %107
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %5, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8, !tbaa !10
+  %105 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %104, i32 0, i32 5
+  %106 = load i32, ptr %105, align 4, !tbaa !53
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %153, label %108
 
-107:                                              ; preds = %100
-  store i32 0, ptr %12, align 4
-  br label %108
+108:                                              ; preds = %101
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %109
 
-108:                                              ; preds = %146, %107
-  %109 = load i32, ptr %12, align 4
-  %110 = load ptr, ptr %7, align 8
-  %111 = load i32, ptr %110, align 8
-  %112 = lshr i32 %111, 28
-  %113 = icmp slt i32 %109, %112
-  br i1 %113, label %114, label %149
+109:                                              ; preds = %147, %108
+  %110 = load i32, ptr %12, align 4, !tbaa !20
+  %111 = load ptr, ptr %7, align 8, !tbaa !8
+  %112 = load i32, ptr %111, align 8
+  %113 = lshr i32 %112, 28
+  %114 = icmp slt i32 %110, %113
+  br i1 %114, label %115, label %150
 
-114:                                              ; preds = %108
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %115, align 8
-  %117 = lshr i32 %116, 28
-  %118 = sub nsw i32 %117, 1
-  store i32 %118, ptr %13, align 4
-  br label %119
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %6, align 8, !tbaa !8
+  %117 = load i32, ptr %116, align 8
+  %118 = lshr i32 %117, 28
+  %119 = sub nsw i32 %118, 1
+  store i32 %119, ptr %13, align 4, !tbaa !20
+  br label %120
 
-119:                                              ; preds = %138, %114
-  %120 = load i32, ptr %13, align 4
-  %121 = icmp sge i32 %120, 0
-  br i1 %121, label %122, label %141
+120:                                              ; preds = %139, %115
+  %121 = load i32, ptr %13, align 4, !tbaa !20
+  %122 = icmp sge i32 %121, 0
+  br i1 %122, label %123, label %142
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %123, i32 0, i32 5
-  %125 = load i32, ptr %13, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [0 x i32], ptr %124, i64 0, i64 %126
-  %128 = load i32, ptr %127, align 4
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %129, i32 0, i32 5
-  %131 = load i32, ptr %12, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [0 x i32], ptr %130, i64 0, i64 %132
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp eq i32 %128, %134
-  br i1 %135, label %136, label %137
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %6, align 8, !tbaa !8
+  %125 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %124, i32 0, i32 5
+  %126 = load i32, ptr %13, align 4, !tbaa !20
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds [0 x i32], ptr %125, i64 0, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !20
+  %130 = load ptr, ptr %7, align 8, !tbaa !8
+  %131 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %130, i32 0, i32 5
+  %132 = load i32, ptr %12, align 4, !tbaa !20
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds [0 x i32], ptr %131, i64 0, i64 %133
+  %135 = load i32, ptr %134, align 4, !tbaa !20
+  %136 = icmp eq i32 %129, %135
+  br i1 %136, label %137, label %138
 
-136:                                              ; preds = %122
-  br label %141
+137:                                              ; preds = %123
+  br label %142
 
-137:                                              ; preds = %122
-  br label %138
+138:                                              ; preds = %123
+  br label %139
 
-138:                                              ; preds = %137
-  %139 = load i32, ptr %13, align 4
-  %140 = add nsw i32 %139, -1
-  store i32 %140, ptr %13, align 4
-  br label %119, !llvm.loop !33
+139:                                              ; preds = %138
+  %140 = load i32, ptr %13, align 4, !tbaa !20
+  %141 = add nsw i32 %140, -1
+  store i32 %141, ptr %13, align 4, !tbaa !20
+  br label %120, !llvm.loop !54
 
-141:                                              ; preds = %136, %119
-  %142 = load i32, ptr %13, align 4
-  %143 = icmp eq i32 %142, -1
-  br i1 %143, label %144, label %145
+142:                                              ; preds = %137, %120
+  %143 = load i32, ptr %13, align 4, !tbaa !20
+  %144 = icmp eq i32 %143, -1
+  br i1 %144, label %145, label %146
 
-144:                                              ; preds = %141
+145:                                              ; preds = %142
   store ptr null, ptr %4, align 8
-  br label %660
+  store i32 1, ptr %17, align 4
+  br label %661
 
-145:                                              ; preds = %141
-  br label %146
+146:                                              ; preds = %142
+  br label %147
 
-146:                                              ; preds = %145
-  %147 = load i32, ptr %12, align 4
-  %148 = add nsw i32 %147, 1
-  store i32 %148, ptr %12, align 4
-  br label %108, !llvm.loop !34
+147:                                              ; preds = %146
+  %148 = load i32, ptr %12, align 4, !tbaa !20
+  %149 = add nsw i32 %148, 1
+  store i32 %149, ptr %12, align 4, !tbaa !20
+  br label %109, !llvm.loop !55
 
-149:                                              ; preds = %108
-  %150 = load ptr, ptr %5, align 8
-  %151 = call ptr @Cut_CutAlloc(ptr noundef %150)
-  store ptr %151, ptr %8, align 8
-  br label %208
-
-152:                                              ; preds = %100
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 4
-  br label %153
-
-153:                                              ; preds = %195, %152
-  %154 = load i32, ptr %12, align 4
-  %155 = load ptr, ptr %7, align 8
-  %156 = load i32, ptr %155, align 8
-  %157 = lshr i32 %156, 28
-  %158 = icmp slt i32 %154, %157
-  br i1 %158, label %159, label %198
-
-159:                                              ; preds = %153
-  %160 = load ptr, ptr %6, align 8
-  %161 = load i32, ptr %160, align 8
-  %162 = lshr i32 %161, 28
-  %163 = sub nsw i32 %162, 1
-  store i32 %163, ptr %13, align 4
-  br label %164
-
-164:                                              ; preds = %187, %159
-  %165 = load i32, ptr %13, align 4
-  %166 = icmp sge i32 %165, 0
-  br i1 %166, label %167, label %190
-
-167:                                              ; preds = %164
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %168, i32 0, i32 5
-  %170 = load i32, ptr %13, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [0 x i32], ptr %169, i64 0, i64 %171
-  %173 = load i32, ptr %172, align 4
-  %174 = load ptr, ptr %7, align 8
-  %175 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %174, i32 0, i32 5
-  %176 = load i32, ptr %12, align 4
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds [0 x i32], ptr %175, i64 0, i64 %177
-  %179 = load i32, ptr %178, align 4
-  %180 = icmp eq i32 %173, %179
-  br i1 %180, label %181, label %186
-
-181:                                              ; preds = %167
-  %182 = load i32, ptr %12, align 4
-  %183 = shl i32 1, %182
-  %184 = load i32, ptr %11, align 4
-  %185 = or i32 %184, %183
-  store i32 %185, ptr %11, align 4
-  br label %190
-
-186:                                              ; preds = %167
-  br label %187
-
-187:                                              ; preds = %186
-  %188 = load i32, ptr %13, align 4
-  %189 = add nsw i32 %188, -1
-  store i32 %189, ptr %13, align 4
-  br label %164, !llvm.loop !35
-
-190:                                              ; preds = %181, %164
-  %191 = load i32, ptr %13, align 4
-  %192 = icmp eq i32 %191, -1
-  br i1 %192, label %193, label %194
-
-193:                                              ; preds = %190
-  store ptr null, ptr %4, align 8
-  br label %660
-
-194:                                              ; preds = %190
-  br label %195
-
-195:                                              ; preds = %194
-  %196 = load i32, ptr %12, align 4
-  %197 = add nsw i32 %196, 1
-  store i32 %197, ptr %12, align 4
-  br label %153, !llvm.loop !36
-
-198:                                              ; preds = %153
-  %199 = load ptr, ptr %5, align 8
-  %200 = call ptr @Cut_CutAlloc(ptr noundef %199)
-  store ptr %200, ptr %8, align 8
-  %201 = load i32, ptr %11, align 4
-  %202 = load ptr, ptr %8, align 8
-  %203 = load i32, ptr %202, align 8
-  %204 = and i32 %201, 2047
-  %205 = shl i32 %204, 11
-  %206 = and i32 %203, -4192257
-  %207 = or i32 %206, %205
-  store i32 %207, ptr %202, align 8
-  br label %208
-
-208:                                              ; preds = %198, %149
-  store i32 0, ptr %12, align 4
+150:                                              ; preds = %109
+  %151 = load ptr, ptr %5, align 8, !tbaa !3
+  %152 = call ptr @Cut_CutAlloc(ptr noundef %151)
+  store ptr %152, ptr %8, align 8, !tbaa !8
   br label %209
 
-209:                                              ; preds = %227, %208
-  %210 = load i32, ptr %12, align 4
-  %211 = load ptr, ptr %6, align 8
-  %212 = load i32, ptr %211, align 8
-  %213 = lshr i32 %212, 28
-  %214 = icmp slt i32 %210, %213
-  br i1 %214, label %215, label %230
+153:                                              ; preds = %101
+  store i32 0, ptr %11, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %154
 
-215:                                              ; preds = %209
-  %216 = load ptr, ptr %6, align 8
-  %217 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %216, i32 0, i32 5
-  %218 = load i32, ptr %12, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds [0 x i32], ptr %217, i64 0, i64 %219
-  %221 = load i32, ptr %220, align 4
-  %222 = load ptr, ptr %8, align 8
-  %223 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %222, i32 0, i32 5
-  %224 = load i32, ptr %12, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds [0 x i32], ptr %223, i64 0, i64 %225
-  store i32 %221, ptr %226, align 4
-  br label %227
+154:                                              ; preds = %196, %153
+  %155 = load i32, ptr %12, align 4, !tbaa !20
+  %156 = load ptr, ptr %7, align 8, !tbaa !8
+  %157 = load i32, ptr %156, align 8
+  %158 = lshr i32 %157, 28
+  %159 = icmp slt i32 %155, %158
+  br i1 %159, label %160, label %199
 
-227:                                              ; preds = %215
-  %228 = load i32, ptr %12, align 4
-  %229 = add nsw i32 %228, 1
-  store i32 %229, ptr %12, align 4
-  br label %209, !llvm.loop !37
+160:                                              ; preds = %154
+  %161 = load ptr, ptr %6, align 8, !tbaa !8
+  %162 = load i32, ptr %161, align 8
+  %163 = lshr i32 %162, 28
+  %164 = sub nsw i32 %163, 1
+  store i32 %164, ptr %13, align 4, !tbaa !20
+  br label %165
 
-230:                                              ; preds = %209
-  %231 = load ptr, ptr %6, align 8
-  %232 = load i32, ptr %231, align 8
-  %233 = lshr i32 %232, 28
-  %234 = load ptr, ptr %8, align 8
-  %235 = load i32, ptr %234, align 8
-  %236 = and i32 %233, 15
-  %237 = shl i32 %236, 28
-  %238 = and i32 %235, 268435455
-  %239 = or i32 %238, %237
-  store i32 %239, ptr %234, align 8
-  %240 = load ptr, ptr %8, align 8
-  store ptr %240, ptr %4, align 8
-  br label %660
+165:                                              ; preds = %188, %160
+  %166 = load i32, ptr %13, align 4, !tbaa !20
+  %167 = icmp sge i32 %166, 0
+  br i1 %167, label %168, label %191
 
-241:                                              ; preds = %94
-  %242 = load ptr, ptr %6, align 8
-  %243 = load i32, ptr %242, align 8
-  %244 = lshr i32 %243, 28
-  store i32 %244, ptr %14, align 4
-  store i32 0, ptr %12, align 4
-  br label %245
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %6, align 8, !tbaa !8
+  %170 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %169, i32 0, i32 5
+  %171 = load i32, ptr %13, align 4, !tbaa !20
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds [0 x i32], ptr %170, i64 0, i64 %172
+  %174 = load i32, ptr %173, align 4, !tbaa !20
+  %175 = load ptr, ptr %7, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %175, i32 0, i32 5
+  %177 = load i32, ptr %12, align 4, !tbaa !20
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [0 x i32], ptr %176, i64 0, i64 %178
+  %180 = load i32, ptr %179, align 4, !tbaa !20
+  %181 = icmp eq i32 %174, %180
+  br i1 %181, label %182, label %187
 
-245:                                              ; preds = %443, %241
-  %246 = load i32, ptr %12, align 4
-  %247 = load ptr, ptr %7, align 8
-  %248 = load i32, ptr %247, align 8
-  %249 = lshr i32 %248, 28
-  %250 = icmp slt i32 %246, %249
-  br i1 %250, label %251, label %446
+182:                                              ; preds = %168
+  %183 = load i32, ptr %12, align 4, !tbaa !20
+  %184 = shl i32 1, %183
+  %185 = load i32, ptr %11, align 4, !tbaa !20
+  %186 = or i32 %185, %184
+  store i32 %186, ptr %11, align 4, !tbaa !20
+  br label %191
 
-251:                                              ; preds = %245
-  %252 = load ptr, ptr %6, align 8
-  %253 = load i32, ptr %252, align 8
-  %254 = lshr i32 %253, 28
-  %255 = sub nsw i32 %254, 1
-  store i32 %255, ptr %13, align 4
-  br label %256
+187:                                              ; preds = %168
+  br label %188
 
-256:                                              ; preds = %365, %251
-  %257 = load i32, ptr %13, align 4
-  %258 = icmp sge i32 %257, 0
-  br i1 %258, label %259, label %368
+188:                                              ; preds = %187
+  %189 = load i32, ptr %13, align 4, !tbaa !20
+  %190 = add nsw i32 %189, -1
+  store i32 %190, ptr %13, align 4, !tbaa !20
+  br label %165, !llvm.loop !56
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr %6, align 8
-  %261 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %260, i32 0, i32 5
-  %262 = load i32, ptr %13, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds [0 x i32], ptr %261, i64 0, i64 %263
-  %265 = load i32, ptr %264, align 4
-  %266 = load ptr, ptr %7, align 8
-  %267 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %266, i32 0, i32 5
-  %268 = load i32, ptr %12, align 4
-  %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds [0 x i32], ptr %267, i64 0, i64 %269
-  %271 = load i32, ptr %270, align 4
-  %272 = icmp sgt i32 %265, %271
-  br i1 %272, label %273, label %274
+191:                                              ; preds = %182, %165
+  %192 = load i32, ptr %13, align 4, !tbaa !20
+  %193 = icmp eq i32 %192, -1
+  br i1 %193, label %194, label %195
 
-273:                                              ; preds = %259
+194:                                              ; preds = %191
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
+
+195:                                              ; preds = %191
+  br label %196
+
+196:                                              ; preds = %195
+  %197 = load i32, ptr %12, align 4, !tbaa !20
+  %198 = add nsw i32 %197, 1
+  store i32 %198, ptr %12, align 4, !tbaa !20
+  br label %154, !llvm.loop !57
+
+199:                                              ; preds = %154
+  %200 = load ptr, ptr %5, align 8, !tbaa !3
+  %201 = call ptr @Cut_CutAlloc(ptr noundef %200)
+  store ptr %201, ptr %8, align 8, !tbaa !8
+  %202 = load i32, ptr %11, align 4, !tbaa !20
+  %203 = load ptr, ptr %8, align 8, !tbaa !8
+  %204 = load i32, ptr %203, align 8
+  %205 = and i32 %202, 2047
+  %206 = shl i32 %205, 11
+  %207 = and i32 %204, -4192257
+  %208 = or i32 %207, %206
+  store i32 %208, ptr %203, align 8
+  br label %209
+
+209:                                              ; preds = %199, %150
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %210
+
+210:                                              ; preds = %228, %209
+  %211 = load i32, ptr %12, align 4, !tbaa !20
+  %212 = load ptr, ptr %6, align 8, !tbaa !8
+  %213 = load i32, ptr %212, align 8
+  %214 = lshr i32 %213, 28
+  %215 = icmp slt i32 %211, %214
+  br i1 %215, label %216, label %231
+
+216:                                              ; preds = %210
+  %217 = load ptr, ptr %6, align 8, !tbaa !8
+  %218 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %217, i32 0, i32 5
+  %219 = load i32, ptr %12, align 4, !tbaa !20
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds [0 x i32], ptr %218, i64 0, i64 %220
+  %222 = load i32, ptr %221, align 4, !tbaa !20
+  %223 = load ptr, ptr %8, align 8, !tbaa !8
+  %224 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %223, i32 0, i32 5
+  %225 = load i32, ptr %12, align 4, !tbaa !20
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds [0 x i32], ptr %224, i64 0, i64 %226
+  store i32 %222, ptr %227, align 4, !tbaa !20
+  br label %228
+
+228:                                              ; preds = %216
+  %229 = load i32, ptr %12, align 4, !tbaa !20
+  %230 = add nsw i32 %229, 1
+  store i32 %230, ptr %12, align 4, !tbaa !20
+  br label %210, !llvm.loop !58
+
+231:                                              ; preds = %210
+  %232 = load ptr, ptr %6, align 8, !tbaa !8
+  %233 = load i32, ptr %232, align 8
+  %234 = lshr i32 %233, 28
+  %235 = load ptr, ptr %8, align 8, !tbaa !8
+  %236 = load i32, ptr %235, align 8
+  %237 = and i32 %234, 15
+  %238 = shl i32 %237, 28
+  %239 = and i32 %236, 268435455
+  %240 = or i32 %239, %238
+  store i32 %240, ptr %235, align 8
+  %241 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %241, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
+
+242:                                              ; preds = %95
+  %243 = load ptr, ptr %6, align 8, !tbaa !8
+  %244 = load i32, ptr %243, align 8
+  %245 = lshr i32 %244, 28
+  store i32 %245, ptr %14, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %246
+
+246:                                              ; preds = %444, %242
+  %247 = load i32, ptr %12, align 4, !tbaa !20
+  %248 = load ptr, ptr %7, align 8, !tbaa !8
+  %249 = load i32, ptr %248, align 8
+  %250 = lshr i32 %249, 28
+  %251 = icmp slt i32 %247, %250
+  br i1 %251, label %252, label %447
+
+252:                                              ; preds = %246
+  %253 = load ptr, ptr %6, align 8, !tbaa !8
+  %254 = load i32, ptr %253, align 8
+  %255 = lshr i32 %254, 28
+  %256 = sub nsw i32 %255, 1
+  store i32 %256, ptr %13, align 4, !tbaa !20
+  br label %257
+
+257:                                              ; preds = %366, %252
+  %258 = load i32, ptr %13, align 4, !tbaa !20
+  %259 = icmp sge i32 %258, 0
+  br i1 %259, label %260, label %369
+
+260:                                              ; preds = %257
+  %261 = load ptr, ptr %6, align 8, !tbaa !8
+  %262 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %261, i32 0, i32 5
+  %263 = load i32, ptr %13, align 4, !tbaa !20
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds [0 x i32], ptr %262, i64 0, i64 %264
+  %266 = load i32, ptr %265, align 4, !tbaa !20
+  %267 = load ptr, ptr %7, align 8, !tbaa !8
+  %268 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %267, i32 0, i32 5
+  %269 = load i32, ptr %12, align 4, !tbaa !20
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds [0 x i32], ptr %268, i64 0, i64 %270
+  %272 = load i32, ptr %271, align 4, !tbaa !20
+  %273 = icmp sgt i32 %266, %272
+  br i1 %273, label %274, label %275
+
+274:                                              ; preds = %260
+  br label %366
+
+275:                                              ; preds = %260
+  %276 = load ptr, ptr %6, align 8, !tbaa !8
+  %277 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %276, i32 0, i32 5
+  %278 = load i32, ptr %13, align 4, !tbaa !20
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds [0 x i32], ptr %277, i64 0, i64 %279
+  %281 = load i32, ptr %280, align 4, !tbaa !20
+  %282 = load ptr, ptr %7, align 8, !tbaa !8
+  %283 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %282, i32 0, i32 5
+  %284 = load i32, ptr %12, align 4, !tbaa !20
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds [0 x i32], ptr %283, i64 0, i64 %285
+  %287 = load i32, ptr %286, align 4, !tbaa !20
+  %288 = icmp slt i32 %281, %287
+  br i1 %288, label %289, label %365
+
+289:                                              ; preds = %275
+  %290 = load i32, ptr %13, align 4, !tbaa !20
+  %291 = add nsw i32 %290, 1
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %292
+  %294 = getelementptr inbounds [3 x i32], ptr %293, i64 0, i64 0
+  store ptr %294, ptr %9, align 8, !tbaa !27
+  %295 = load ptr, ptr %9, align 8, !tbaa !27
+  %296 = getelementptr inbounds i32, ptr %295, i64 0
+  %297 = load i32, ptr %296, align 4, !tbaa !20
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %299, label %310
+
+299:                                              ; preds = %289
+  %300 = load ptr, ptr %7, align 8, !tbaa !8
+  %301 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %300, i32 0, i32 5
+  %302 = load i32, ptr %12, align 4, !tbaa !20
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds [0 x i32], ptr %301, i64 0, i64 %303
+  %305 = load i32, ptr %304, align 4, !tbaa !20
+  %306 = load ptr, ptr %9, align 8, !tbaa !27
+  %307 = getelementptr inbounds i32, ptr %306, i64 0
+  store i32 %305, ptr %307, align 4, !tbaa !20
+  %308 = load ptr, ptr %9, align 8, !tbaa !27
+  %309 = getelementptr inbounds i32, ptr %308, i64 1
+  store i32 0, ptr %309, align 4, !tbaa !20
+  br label %343
+
+310:                                              ; preds = %289
+  %311 = load ptr, ptr %9, align 8, !tbaa !27
+  %312 = getelementptr inbounds i32, ptr %311, i64 1
+  %313 = load i32, ptr %312, align 4, !tbaa !20
+  %314 = icmp eq i32 %313, 0
+  br i1 %314, label %315, label %326
+
+315:                                              ; preds = %310
+  %316 = load ptr, ptr %7, align 8, !tbaa !8
+  %317 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %316, i32 0, i32 5
+  %318 = load i32, ptr %12, align 4, !tbaa !20
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds [0 x i32], ptr %317, i64 0, i64 %319
+  %321 = load i32, ptr %320, align 4, !tbaa !20
+  %322 = load ptr, ptr %9, align 8, !tbaa !27
+  %323 = getelementptr inbounds i32, ptr %322, i64 1
+  store i32 %321, ptr %323, align 4, !tbaa !20
+  %324 = load ptr, ptr %9, align 8, !tbaa !27
+  %325 = getelementptr inbounds i32, ptr %324, i64 2
+  store i32 0, ptr %325, align 4, !tbaa !20
+  br label %342
+
+326:                                              ; preds = %310
+  %327 = load ptr, ptr %9, align 8, !tbaa !27
+  %328 = getelementptr inbounds i32, ptr %327, i64 2
+  %329 = load i32, ptr %328, align 4, !tbaa !20
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %340
+
+331:                                              ; preds = %326
+  %332 = load ptr, ptr %7, align 8, !tbaa !8
+  %333 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %332, i32 0, i32 5
+  %334 = load i32, ptr %12, align 4, !tbaa !20
+  %335 = sext i32 %334 to i64
+  %336 = getelementptr inbounds [0 x i32], ptr %333, i64 0, i64 %335
+  %337 = load i32, ptr %336, align 4, !tbaa !20
+  %338 = load ptr, ptr %9, align 8, !tbaa !27
+  %339 = getelementptr inbounds i32, ptr %338, i64 2
+  store i32 %337, ptr %339, align 4, !tbaa !20
+  br label %341
+
+340:                                              ; preds = %326
+  br label %341
+
+341:                                              ; preds = %340, %331
+  br label %342
+
+342:                                              ; preds = %341, %315
+  br label %343
+
+343:                                              ; preds = %342, %299
+  %344 = load i32, ptr %14, align 4, !tbaa !20
+  %345 = add nsw i32 %344, 1
+  store i32 %345, ptr %14, align 4, !tbaa !20
+  %346 = load i32, ptr %16, align 4, !tbaa !20
+  %347 = icmp sgt i32 %345, %346
+  br i1 %347, label %348, label %364
+
+348:                                              ; preds = %343
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %349
+
+349:                                              ; preds = %360, %348
+  %350 = load i32, ptr %12, align 4, !tbaa !20
+  %351 = load ptr, ptr %6, align 8, !tbaa !8
+  %352 = load i32, ptr %351, align 8
+  %353 = lshr i32 %352, 28
+  %354 = icmp sle i32 %350, %353
+  br i1 %354, label %355, label %363
+
+355:                                              ; preds = %349
+  %356 = load i32, ptr %12, align 4, !tbaa !20
+  %357 = sext i32 %356 to i64
+  %358 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %357
+  %359 = getelementptr inbounds [3 x i32], ptr %358, i64 0, i64 0
+  store i32 0, ptr %359, align 4, !tbaa !20
+  br label %360
+
+360:                                              ; preds = %355
+  %361 = load i32, ptr %12, align 4, !tbaa !20
+  %362 = add nsw i32 %361, 1
+  store i32 %362, ptr %12, align 4, !tbaa !20
+  br label %349, !llvm.loop !59
+
+363:                                              ; preds = %349
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
+
+364:                                              ; preds = %343
   br label %365
 
-274:                                              ; preds = %259
-  %275 = load ptr, ptr %6, align 8
-  %276 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %275, i32 0, i32 5
-  %277 = load i32, ptr %13, align 4
-  %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds [0 x i32], ptr %276, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 4
-  %281 = load ptr, ptr %7, align 8
-  %282 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %281, i32 0, i32 5
-  %283 = load i32, ptr %12, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds [0 x i32], ptr %282, i64 0, i64 %284
-  %286 = load i32, ptr %285, align 4
-  %287 = icmp slt i32 %280, %286
-  br i1 %287, label %288, label %364
+365:                                              ; preds = %364, %275
+  br label %369
 
-288:                                              ; preds = %274
-  %289 = load i32, ptr %13, align 4
-  %290 = add nsw i32 %289, 1
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %291
-  %293 = getelementptr inbounds [3 x i32], ptr %292, i64 0, i64 0
-  store ptr %293, ptr %9, align 8
-  %294 = load ptr, ptr %9, align 8
-  %295 = getelementptr inbounds i32, ptr %294, i64 0
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp eq i32 %296, 0
-  br i1 %297, label %298, label %309
+366:                                              ; preds = %274
+  %367 = load i32, ptr %13, align 4, !tbaa !20
+  %368 = add nsw i32 %367, -1
+  store i32 %368, ptr %13, align 4, !tbaa !20
+  br label %257, !llvm.loop !60
 
-298:                                              ; preds = %288
-  %299 = load ptr, ptr %7, align 8
-  %300 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %299, i32 0, i32 5
-  %301 = load i32, ptr %12, align 4
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds [0 x i32], ptr %300, i64 0, i64 %302
-  %304 = load i32, ptr %303, align 4
-  %305 = load ptr, ptr %9, align 8
-  %306 = getelementptr inbounds i32, ptr %305, i64 0
-  store i32 %304, ptr %306, align 4
-  %307 = load ptr, ptr %9, align 8
-  %308 = getelementptr inbounds i32, ptr %307, i64 1
-  store i32 0, ptr %308, align 4
-  br label %342
+369:                                              ; preds = %365, %257
+  %370 = load i32, ptr %13, align 4, !tbaa !20
+  %371 = icmp eq i32 %370, -1
+  br i1 %371, label %372, label %443
 
-309:                                              ; preds = %288
-  %310 = load ptr, ptr %9, align 8
-  %311 = getelementptr inbounds i32, ptr %310, i64 1
-  %312 = load i32, ptr %311, align 4
-  %313 = icmp eq i32 %312, 0
-  br i1 %313, label %314, label %325
+372:                                              ; preds = %369
+  store ptr @Cut_CutMergeTwo5.M, ptr %9, align 8, !tbaa !27
+  %373 = load ptr, ptr %9, align 8, !tbaa !27
+  %374 = getelementptr inbounds i32, ptr %373, i64 0
+  %375 = load i32, ptr %374, align 4, !tbaa !20
+  %376 = icmp eq i32 %375, 0
+  br i1 %376, label %377, label %388
 
-314:                                              ; preds = %309
-  %315 = load ptr, ptr %7, align 8
-  %316 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %315, i32 0, i32 5
-  %317 = load i32, ptr %12, align 4
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds [0 x i32], ptr %316, i64 0, i64 %318
-  %320 = load i32, ptr %319, align 4
-  %321 = load ptr, ptr %9, align 8
-  %322 = getelementptr inbounds i32, ptr %321, i64 1
-  store i32 %320, ptr %322, align 4
-  %323 = load ptr, ptr %9, align 8
-  %324 = getelementptr inbounds i32, ptr %323, i64 2
-  store i32 0, ptr %324, align 4
-  br label %341
+377:                                              ; preds = %372
+  %378 = load ptr, ptr %7, align 8, !tbaa !8
+  %379 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %378, i32 0, i32 5
+  %380 = load i32, ptr %12, align 4, !tbaa !20
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds [0 x i32], ptr %379, i64 0, i64 %381
+  %383 = load i32, ptr %382, align 4, !tbaa !20
+  %384 = load ptr, ptr %9, align 8, !tbaa !27
+  %385 = getelementptr inbounds i32, ptr %384, i64 0
+  store i32 %383, ptr %385, align 4, !tbaa !20
+  %386 = load ptr, ptr %9, align 8, !tbaa !27
+  %387 = getelementptr inbounds i32, ptr %386, i64 1
+  store i32 0, ptr %387, align 4, !tbaa !20
+  br label %421
 
-325:                                              ; preds = %309
-  %326 = load ptr, ptr %9, align 8
-  %327 = getelementptr inbounds i32, ptr %326, i64 2
-  %328 = load i32, ptr %327, align 4
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %339
+388:                                              ; preds = %372
+  %389 = load ptr, ptr %9, align 8, !tbaa !27
+  %390 = getelementptr inbounds i32, ptr %389, i64 1
+  %391 = load i32, ptr %390, align 4, !tbaa !20
+  %392 = icmp eq i32 %391, 0
+  br i1 %392, label %393, label %404
 
-330:                                              ; preds = %325
-  %331 = load ptr, ptr %7, align 8
-  %332 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %331, i32 0, i32 5
-  %333 = load i32, ptr %12, align 4
-  %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds [0 x i32], ptr %332, i64 0, i64 %334
-  %336 = load i32, ptr %335, align 4
-  %337 = load ptr, ptr %9, align 8
-  %338 = getelementptr inbounds i32, ptr %337, i64 2
-  store i32 %336, ptr %338, align 4
-  br label %340
-
-339:                                              ; preds = %325
-  br label %340
-
-340:                                              ; preds = %339, %330
-  br label %341
-
-341:                                              ; preds = %340, %314
-  br label %342
-
-342:                                              ; preds = %341, %298
-  %343 = load i32, ptr %14, align 4
-  %344 = add nsw i32 %343, 1
-  store i32 %344, ptr %14, align 4
-  %345 = load i32, ptr %16, align 4
-  %346 = icmp sgt i32 %344, %345
-  br i1 %346, label %347, label %363
-
-347:                                              ; preds = %342
-  store i32 0, ptr %12, align 4
-  br label %348
-
-348:                                              ; preds = %359, %347
-  %349 = load i32, ptr %12, align 4
-  %350 = load ptr, ptr %6, align 8
-  %351 = load i32, ptr %350, align 8
-  %352 = lshr i32 %351, 28
-  %353 = icmp sle i32 %349, %352
-  br i1 %353, label %354, label %362
-
-354:                                              ; preds = %348
-  %355 = load i32, ptr %12, align 4
-  %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %356
-  %358 = getelementptr inbounds [3 x i32], ptr %357, i64 0, i64 0
-  store i32 0, ptr %358, align 4
-  br label %359
-
-359:                                              ; preds = %354
-  %360 = load i32, ptr %12, align 4
-  %361 = add nsw i32 %360, 1
-  store i32 %361, ptr %12, align 4
-  br label %348, !llvm.loop !38
-
-362:                                              ; preds = %348
-  store ptr null, ptr %4, align 8
-  br label %660
-
-363:                                              ; preds = %342
-  br label %364
-
-364:                                              ; preds = %363, %274
-  br label %368
-
-365:                                              ; preds = %273
-  %366 = load i32, ptr %13, align 4
-  %367 = add nsw i32 %366, -1
-  store i32 %367, ptr %13, align 4
-  br label %256, !llvm.loop !39
-
-368:                                              ; preds = %364, %256
-  %369 = load i32, ptr %13, align 4
-  %370 = icmp eq i32 %369, -1
-  br i1 %370, label %371, label %442
-
-371:                                              ; preds = %368
-  store ptr @Cut_CutMergeTwo5.M, ptr %9, align 8
-  %372 = load ptr, ptr %9, align 8
-  %373 = getelementptr inbounds i32, ptr %372, i64 0
-  %374 = load i32, ptr %373, align 4
-  %375 = icmp eq i32 %374, 0
-  br i1 %375, label %376, label %387
-
-376:                                              ; preds = %371
-  %377 = load ptr, ptr %7, align 8
-  %378 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %377, i32 0, i32 5
-  %379 = load i32, ptr %12, align 4
-  %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds [0 x i32], ptr %378, i64 0, i64 %380
-  %382 = load i32, ptr %381, align 4
-  %383 = load ptr, ptr %9, align 8
-  %384 = getelementptr inbounds i32, ptr %383, i64 0
-  store i32 %382, ptr %384, align 4
-  %385 = load ptr, ptr %9, align 8
-  %386 = getelementptr inbounds i32, ptr %385, i64 1
-  store i32 0, ptr %386, align 4
+393:                                              ; preds = %388
+  %394 = load ptr, ptr %7, align 8, !tbaa !8
+  %395 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %394, i32 0, i32 5
+  %396 = load i32, ptr %12, align 4, !tbaa !20
+  %397 = sext i32 %396 to i64
+  %398 = getelementptr inbounds [0 x i32], ptr %395, i64 0, i64 %397
+  %399 = load i32, ptr %398, align 4, !tbaa !20
+  %400 = load ptr, ptr %9, align 8, !tbaa !27
+  %401 = getelementptr inbounds i32, ptr %400, i64 1
+  store i32 %399, ptr %401, align 4, !tbaa !20
+  %402 = load ptr, ptr %9, align 8, !tbaa !27
+  %403 = getelementptr inbounds i32, ptr %402, i64 2
+  store i32 0, ptr %403, align 4, !tbaa !20
   br label %420
 
-387:                                              ; preds = %371
-  %388 = load ptr, ptr %9, align 8
-  %389 = getelementptr inbounds i32, ptr %388, i64 1
-  %390 = load i32, ptr %389, align 4
-  %391 = icmp eq i32 %390, 0
-  br i1 %391, label %392, label %403
+404:                                              ; preds = %388
+  %405 = load ptr, ptr %9, align 8, !tbaa !27
+  %406 = getelementptr inbounds i32, ptr %405, i64 2
+  %407 = load i32, ptr %406, align 4, !tbaa !20
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %418
 
-392:                                              ; preds = %387
-  %393 = load ptr, ptr %7, align 8
-  %394 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %393, i32 0, i32 5
-  %395 = load i32, ptr %12, align 4
-  %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds [0 x i32], ptr %394, i64 0, i64 %396
-  %398 = load i32, ptr %397, align 4
-  %399 = load ptr, ptr %9, align 8
-  %400 = getelementptr inbounds i32, ptr %399, i64 1
-  store i32 %398, ptr %400, align 4
-  %401 = load ptr, ptr %9, align 8
-  %402 = getelementptr inbounds i32, ptr %401, i64 2
-  store i32 0, ptr %402, align 4
+409:                                              ; preds = %404
+  %410 = load ptr, ptr %7, align 8, !tbaa !8
+  %411 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %410, i32 0, i32 5
+  %412 = load i32, ptr %12, align 4, !tbaa !20
+  %413 = sext i32 %412 to i64
+  %414 = getelementptr inbounds [0 x i32], ptr %411, i64 0, i64 %413
+  %415 = load i32, ptr %414, align 4, !tbaa !20
+  %416 = load ptr, ptr %9, align 8, !tbaa !27
+  %417 = getelementptr inbounds i32, ptr %416, i64 2
+  store i32 %415, ptr %417, align 4, !tbaa !20
   br label %419
 
-403:                                              ; preds = %387
-  %404 = load ptr, ptr %9, align 8
-  %405 = getelementptr inbounds i32, ptr %404, i64 2
-  %406 = load i32, ptr %405, align 4
-  %407 = icmp eq i32 %406, 0
-  br i1 %407, label %408, label %417
-
-408:                                              ; preds = %403
-  %409 = load ptr, ptr %7, align 8
-  %410 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %409, i32 0, i32 5
-  %411 = load i32, ptr %12, align 4
-  %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds [0 x i32], ptr %410, i64 0, i64 %412
-  %414 = load i32, ptr %413, align 4
-  %415 = load ptr, ptr %9, align 8
-  %416 = getelementptr inbounds i32, ptr %415, i64 2
-  store i32 %414, ptr %416, align 4
-  br label %418
-
-417:                                              ; preds = %403
-  br label %418
-
-418:                                              ; preds = %417, %408
+418:                                              ; preds = %404
   br label %419
 
-419:                                              ; preds = %418, %392
+419:                                              ; preds = %418, %409
   br label %420
 
-420:                                              ; preds = %419, %376
-  %421 = load i32, ptr %14, align 4
-  %422 = add nsw i32 %421, 1
-  store i32 %422, ptr %14, align 4
-  %423 = load i32, ptr %16, align 4
-  %424 = icmp sgt i32 %422, %423
-  br i1 %424, label %425, label %441
+420:                                              ; preds = %419, %393
+  br label %421
 
-425:                                              ; preds = %420
-  store i32 0, ptr %12, align 4
-  br label %426
+421:                                              ; preds = %420, %377
+  %422 = load i32, ptr %14, align 4, !tbaa !20
+  %423 = add nsw i32 %422, 1
+  store i32 %423, ptr %14, align 4, !tbaa !20
+  %424 = load i32, ptr %16, align 4, !tbaa !20
+  %425 = icmp sgt i32 %423, %424
+  br i1 %425, label %426, label %442
 
-426:                                              ; preds = %437, %425
-  %427 = load i32, ptr %12, align 4
-  %428 = load ptr, ptr %6, align 8
-  %429 = load i32, ptr %428, align 8
-  %430 = lshr i32 %429, 28
-  %431 = icmp sle i32 %427, %430
-  br i1 %431, label %432, label %440
+426:                                              ; preds = %421
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %427
 
-432:                                              ; preds = %426
-  %433 = load i32, ptr %12, align 4
-  %434 = sext i32 %433 to i64
-  %435 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %434
-  %436 = getelementptr inbounds [3 x i32], ptr %435, i64 0, i64 0
-  store i32 0, ptr %436, align 4
-  br label %437
+427:                                              ; preds = %438, %426
+  %428 = load i32, ptr %12, align 4, !tbaa !20
+  %429 = load ptr, ptr %6, align 8, !tbaa !8
+  %430 = load i32, ptr %429, align 8
+  %431 = lshr i32 %430, 28
+  %432 = icmp sle i32 %428, %431
+  br i1 %432, label %433, label %441
 
-437:                                              ; preds = %432
-  %438 = load i32, ptr %12, align 4
-  %439 = add nsw i32 %438, 1
-  store i32 %439, ptr %12, align 4
-  br label %426, !llvm.loop !40
+433:                                              ; preds = %427
+  %434 = load i32, ptr %12, align 4, !tbaa !20
+  %435 = sext i32 %434 to i64
+  %436 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %435
+  %437 = getelementptr inbounds [3 x i32], ptr %436, i64 0, i64 0
+  store i32 0, ptr %437, align 4, !tbaa !20
+  br label %438
 
-440:                                              ; preds = %426
+438:                                              ; preds = %433
+  %439 = load i32, ptr %12, align 4, !tbaa !20
+  %440 = add nsw i32 %439, 1
+  store i32 %440, ptr %12, align 4, !tbaa !20
+  br label %427, !llvm.loop !61
+
+441:                                              ; preds = %427
   store ptr null, ptr %4, align 8
-  br label %660
+  store i32 1, ptr %17, align 4
+  br label %661
 
-441:                                              ; preds = %420
-  br label %443
+442:                                              ; preds = %421
+  br label %444
 
-442:                                              ; preds = %368
-  br label %443
+443:                                              ; preds = %369
+  br label %444
 
-443:                                              ; preds = %442, %441
-  %444 = load i32, ptr %12, align 4
-  %445 = add nsw i32 %444, 1
-  store i32 %445, ptr %12, align 4
-  br label %245, !llvm.loop !41
+444:                                              ; preds = %443, %442
+  %445 = load i32, ptr %12, align 4, !tbaa !20
+  %446 = add nsw i32 %445, 1
+  store i32 %446, ptr %12, align 4, !tbaa !20
+  br label %246, !llvm.loop !62
 
-446:                                              ; preds = %245
-  %447 = load ptr, ptr %5, align 8
-  %448 = call ptr @Cut_CutAlloc(ptr noundef %447)
-  store ptr %448, ptr %8, align 8
-  %449 = load ptr, ptr %5, align 8
-  %450 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %449, i32 0, i32 0
-  %451 = load ptr, ptr %450, align 8
-  %452 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %451, i32 0, i32 5
-  %453 = load i32, ptr %452, align 4
-  %454 = icmp ne i32 %453, 0
-  br i1 %454, label %543, label %455
+447:                                              ; preds = %246
+  %448 = load ptr, ptr %5, align 8, !tbaa !3
+  %449 = call ptr @Cut_CutAlloc(ptr noundef %448)
+  store ptr %449, ptr %8, align 8, !tbaa !8
+  %450 = load ptr, ptr %5, align 8, !tbaa !3
+  %451 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %450, i32 0, i32 0
+  %452 = load ptr, ptr %451, align 8, !tbaa !10
+  %453 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %452, i32 0, i32 5
+  %454 = load i32, ptr %453, align 4, !tbaa !53
+  %455 = icmp ne i32 %454, 0
+  br i1 %455, label %544, label %456
 
-455:                                              ; preds = %446
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %12, align 4
-  br label %456
+456:                                              ; preds = %447
+  store i32 0, ptr %15, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %457
 
-456:                                              ; preds = %531, %455
-  %457 = load i32, ptr %12, align 4
-  %458 = load ptr, ptr %6, align 8
-  %459 = load i32, ptr %458, align 8
-  %460 = lshr i32 %459, 28
-  %461 = icmp sle i32 %457, %460
-  br i1 %461, label %462, label %534
+457:                                              ; preds = %532, %456
+  %458 = load i32, ptr %12, align 4, !tbaa !20
+  %459 = load ptr, ptr %6, align 8, !tbaa !8
+  %460 = load i32, ptr %459, align 8
+  %461 = lshr i32 %460, 28
+  %462 = icmp sle i32 %458, %461
+  br i1 %462, label %463, label %535
 
-462:                                              ; preds = %456
-  %463 = load i32, ptr %12, align 4
-  %464 = icmp sgt i32 %463, 0
-  br i1 %464, label %465, label %479
+463:                                              ; preds = %457
+  %464 = load i32, ptr %12, align 4, !tbaa !20
+  %465 = icmp sgt i32 %464, 0
+  br i1 %465, label %466, label %480
 
-465:                                              ; preds = %462
-  %466 = load ptr, ptr %6, align 8
-  %467 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %466, i32 0, i32 5
-  %468 = load i32, ptr %12, align 4
-  %469 = sub nsw i32 %468, 1
-  %470 = sext i32 %469 to i64
-  %471 = getelementptr inbounds [0 x i32], ptr %467, i64 0, i64 %470
-  %472 = load i32, ptr %471, align 4
-  %473 = load ptr, ptr %8, align 8
-  %474 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %473, i32 0, i32 5
-  %475 = load i32, ptr %15, align 4
-  %476 = add nsw i32 %475, 1
-  store i32 %476, ptr %15, align 4
-  %477 = sext i32 %475 to i64
-  %478 = getelementptr inbounds [0 x i32], ptr %474, i64 0, i64 %477
-  store i32 %472, ptr %478, align 4
-  br label %479
+466:                                              ; preds = %463
+  %467 = load ptr, ptr %6, align 8, !tbaa !8
+  %468 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %467, i32 0, i32 5
+  %469 = load i32, ptr %12, align 4, !tbaa !20
+  %470 = sub nsw i32 %469, 1
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds [0 x i32], ptr %468, i64 0, i64 %471
+  %473 = load i32, ptr %472, align 4, !tbaa !20
+  %474 = load ptr, ptr %8, align 8, !tbaa !8
+  %475 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %474, i32 0, i32 5
+  %476 = load i32, ptr %15, align 4, !tbaa !20
+  %477 = add nsw i32 %476, 1
+  store i32 %477, ptr %15, align 4, !tbaa !20
+  %478 = sext i32 %476 to i64
+  %479 = getelementptr inbounds [0 x i32], ptr %475, i64 0, i64 %478
+  store i32 %473, ptr %479, align 4, !tbaa !20
+  br label %480
 
-479:                                              ; preds = %465, %462
-  %480 = load i32, ptr %12, align 4
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %481
-  %483 = getelementptr inbounds [3 x i32], ptr %482, i64 0, i64 0
-  store ptr %483, ptr %9, align 8
-  %484 = load ptr, ptr %9, align 8
-  %485 = getelementptr inbounds i32, ptr %484, i64 0
-  %486 = load i32, ptr %485, align 4
-  %487 = icmp ne i32 %486, 0
-  br i1 %487, label %488, label %530
+480:                                              ; preds = %466, %463
+  %481 = load i32, ptr %12, align 4, !tbaa !20
+  %482 = sext i32 %481 to i64
+  %483 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %482
+  %484 = getelementptr inbounds [3 x i32], ptr %483, i64 0, i64 0
+  store ptr %484, ptr %9, align 8, !tbaa !27
+  %485 = load ptr, ptr %9, align 8, !tbaa !27
+  %486 = getelementptr inbounds i32, ptr %485, i64 0
+  %487 = load i32, ptr %486, align 4, !tbaa !20
+  %488 = icmp ne i32 %487, 0
+  br i1 %488, label %489, label %531
 
-488:                                              ; preds = %479
-  %489 = load ptr, ptr %9, align 8
-  %490 = getelementptr inbounds i32, ptr %489, i64 0
-  %491 = load i32, ptr %490, align 4
-  %492 = load ptr, ptr %8, align 8
-  %493 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %492, i32 0, i32 5
-  %494 = load i32, ptr %15, align 4
-  %495 = add nsw i32 %494, 1
-  store i32 %495, ptr %15, align 4
-  %496 = sext i32 %494 to i64
-  %497 = getelementptr inbounds [0 x i32], ptr %493, i64 0, i64 %496
-  store i32 %491, ptr %497, align 4
-  %498 = load ptr, ptr %9, align 8
-  %499 = getelementptr inbounds i32, ptr %498, i64 1
-  %500 = load i32, ptr %499, align 4
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %527
+489:                                              ; preds = %480
+  %490 = load ptr, ptr %9, align 8, !tbaa !27
+  %491 = getelementptr inbounds i32, ptr %490, i64 0
+  %492 = load i32, ptr %491, align 4, !tbaa !20
+  %493 = load ptr, ptr %8, align 8, !tbaa !8
+  %494 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %493, i32 0, i32 5
+  %495 = load i32, ptr %15, align 4, !tbaa !20
+  %496 = add nsw i32 %495, 1
+  store i32 %496, ptr %15, align 4, !tbaa !20
+  %497 = sext i32 %495 to i64
+  %498 = getelementptr inbounds [0 x i32], ptr %494, i64 0, i64 %497
+  store i32 %492, ptr %498, align 4, !tbaa !20
+  %499 = load ptr, ptr %9, align 8, !tbaa !27
+  %500 = getelementptr inbounds i32, ptr %499, i64 1
+  %501 = load i32, ptr %500, align 4, !tbaa !20
+  %502 = icmp ne i32 %501, 0
+  br i1 %502, label %503, label %528
 
-502:                                              ; preds = %488
-  %503 = load ptr, ptr %9, align 8
-  %504 = getelementptr inbounds i32, ptr %503, i64 1
-  %505 = load i32, ptr %504, align 4
-  %506 = load ptr, ptr %8, align 8
-  %507 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %506, i32 0, i32 5
-  %508 = load i32, ptr %15, align 4
-  %509 = add nsw i32 %508, 1
-  store i32 %509, ptr %15, align 4
-  %510 = sext i32 %508 to i64
-  %511 = getelementptr inbounds [0 x i32], ptr %507, i64 0, i64 %510
-  store i32 %505, ptr %511, align 4
-  %512 = load ptr, ptr %9, align 8
-  %513 = getelementptr inbounds i32, ptr %512, i64 2
-  %514 = load i32, ptr %513, align 4
-  %515 = icmp ne i32 %514, 0
-  br i1 %515, label %516, label %526
+503:                                              ; preds = %489
+  %504 = load ptr, ptr %9, align 8, !tbaa !27
+  %505 = getelementptr inbounds i32, ptr %504, i64 1
+  %506 = load i32, ptr %505, align 4, !tbaa !20
+  %507 = load ptr, ptr %8, align 8, !tbaa !8
+  %508 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %507, i32 0, i32 5
+  %509 = load i32, ptr %15, align 4, !tbaa !20
+  %510 = add nsw i32 %509, 1
+  store i32 %510, ptr %15, align 4, !tbaa !20
+  %511 = sext i32 %509 to i64
+  %512 = getelementptr inbounds [0 x i32], ptr %508, i64 0, i64 %511
+  store i32 %506, ptr %512, align 4, !tbaa !20
+  %513 = load ptr, ptr %9, align 8, !tbaa !27
+  %514 = getelementptr inbounds i32, ptr %513, i64 2
+  %515 = load i32, ptr %514, align 4, !tbaa !20
+  %516 = icmp ne i32 %515, 0
+  br i1 %516, label %517, label %527
 
-516:                                              ; preds = %502
-  %517 = load ptr, ptr %9, align 8
-  %518 = getelementptr inbounds i32, ptr %517, i64 2
-  %519 = load i32, ptr %518, align 4
-  %520 = load ptr, ptr %8, align 8
-  %521 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %520, i32 0, i32 5
-  %522 = load i32, ptr %15, align 4
-  %523 = add nsw i32 %522, 1
-  store i32 %523, ptr %15, align 4
-  %524 = sext i32 %522 to i64
-  %525 = getelementptr inbounds [0 x i32], ptr %521, i64 0, i64 %524
-  store i32 %519, ptr %525, align 4
-  br label %526
-
-526:                                              ; preds = %516, %502
+517:                                              ; preds = %503
+  %518 = load ptr, ptr %9, align 8, !tbaa !27
+  %519 = getelementptr inbounds i32, ptr %518, i64 2
+  %520 = load i32, ptr %519, align 4, !tbaa !20
+  %521 = load ptr, ptr %8, align 8, !tbaa !8
+  %522 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %521, i32 0, i32 5
+  %523 = load i32, ptr %15, align 4, !tbaa !20
+  %524 = add nsw i32 %523, 1
+  store i32 %524, ptr %15, align 4, !tbaa !20
+  %525 = sext i32 %523 to i64
+  %526 = getelementptr inbounds [0 x i32], ptr %522, i64 0, i64 %525
+  store i32 %520, ptr %526, align 4, !tbaa !20
   br label %527
 
-527:                                              ; preds = %526, %488
-  %528 = load ptr, ptr %9, align 8
-  %529 = getelementptr inbounds i32, ptr %528, i64 0
-  store i32 0, ptr %529, align 4
-  br label %530
+527:                                              ; preds = %517, %503
+  br label %528
 
-530:                                              ; preds = %527, %479
+528:                                              ; preds = %527, %489
+  %529 = load ptr, ptr %9, align 8, !tbaa !27
+  %530 = getelementptr inbounds i32, ptr %529, i64 0
+  store i32 0, ptr %530, align 4, !tbaa !20
   br label %531
 
-531:                                              ; preds = %530
-  %532 = load i32, ptr %12, align 4
-  %533 = add nsw i32 %532, 1
-  store i32 %533, ptr %12, align 4
-  br label %456, !llvm.loop !42
+531:                                              ; preds = %528, %480
+  br label %532
 
-534:                                              ; preds = %456
-  %535 = load i32, ptr %14, align 4
-  %536 = load ptr, ptr %8, align 8
-  %537 = load i32, ptr %536, align 8
-  %538 = and i32 %535, 15
-  %539 = shl i32 %538, 28
-  %540 = and i32 %537, 268435455
-  %541 = or i32 %540, %539
-  store i32 %541, ptr %536, align 8
-  %542 = load ptr, ptr %8, align 8
-  store ptr %542, ptr %4, align 8
-  br label %660
+532:                                              ; preds = %531
+  %533 = load i32, ptr %12, align 4, !tbaa !20
+  %534 = add nsw i32 %533, 1
+  store i32 %534, ptr %12, align 4, !tbaa !20
+  br label %457, !llvm.loop !63
 
-543:                                              ; preds = %446
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %12, align 4
-  br label %544
+535:                                              ; preds = %457
+  %536 = load i32, ptr %14, align 4, !tbaa !20
+  %537 = load ptr, ptr %8, align 8, !tbaa !8
+  %538 = load i32, ptr %537, align 8
+  %539 = and i32 %536, 15
+  %540 = shl i32 %539, 28
+  %541 = and i32 %538, 268435455
+  %542 = or i32 %541, %540
+  store i32 %542, ptr %537, align 8
+  %543 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %543, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
 
-544:                                              ; preds = %635, %543
-  %545 = load i32, ptr %12, align 4
-  %546 = load ptr, ptr %6, align 8
-  %547 = load i32, ptr %546, align 8
-  %548 = lshr i32 %547, 28
-  %549 = icmp sle i32 %545, %548
-  br i1 %549, label %550, label %638
+544:                                              ; preds = %447
+  store i32 0, ptr %11, align 4, !tbaa !20
+  store i32 0, ptr %10, align 4, !tbaa !20
+  store i32 0, ptr %15, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !20
+  br label %545
 
-550:                                              ; preds = %544
-  %551 = load i32, ptr %12, align 4
-  %552 = icmp sgt i32 %551, 0
-  br i1 %552, label %553, label %571
+545:                                              ; preds = %636, %544
+  %546 = load i32, ptr %12, align 4, !tbaa !20
+  %547 = load ptr, ptr %6, align 8, !tbaa !8
+  %548 = load i32, ptr %547, align 8
+  %549 = lshr i32 %548, 28
+  %550 = icmp sle i32 %546, %549
+  br i1 %550, label %551, label %639
 
-553:                                              ; preds = %550
-  %554 = load i32, ptr %15, align 4
-  %555 = shl i32 1, %554
-  %556 = load i32, ptr %10, align 4
-  %557 = or i32 %556, %555
-  store i32 %557, ptr %10, align 4
-  %558 = load ptr, ptr %7, align 8
-  %559 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %558, i32 0, i32 5
-  %560 = load i32, ptr %12, align 4
-  %561 = sub nsw i32 %560, 1
-  %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds [0 x i32], ptr %559, i64 0, i64 %562
-  %564 = load i32, ptr %563, align 4
-  %565 = load ptr, ptr %8, align 8
-  %566 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %565, i32 0, i32 5
-  %567 = load i32, ptr %15, align 4
-  %568 = add nsw i32 %567, 1
-  store i32 %568, ptr %15, align 4
-  %569 = sext i32 %567 to i64
-  %570 = getelementptr inbounds [0 x i32], ptr %566, i64 0, i64 %569
-  store i32 %564, ptr %570, align 4
-  br label %571
+551:                                              ; preds = %545
+  %552 = load i32, ptr %12, align 4, !tbaa !20
+  %553 = icmp sgt i32 %552, 0
+  br i1 %553, label %554, label %572
 
-571:                                              ; preds = %553, %550
-  %572 = load i32, ptr %12, align 4
-  %573 = sext i32 %572 to i64
-  %574 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %573
-  %575 = getelementptr inbounds [3 x i32], ptr %574, i64 0, i64 0
-  store ptr %575, ptr %9, align 8
-  %576 = load ptr, ptr %9, align 8
-  %577 = getelementptr inbounds i32, ptr %576, i64 0
-  %578 = load i32, ptr %577, align 4
-  %579 = icmp ne i32 %578, 0
-  br i1 %579, label %580, label %634
+554:                                              ; preds = %551
+  %555 = load i32, ptr %15, align 4, !tbaa !20
+  %556 = shl i32 1, %555
+  %557 = load i32, ptr %10, align 4, !tbaa !20
+  %558 = or i32 %557, %556
+  store i32 %558, ptr %10, align 4, !tbaa !20
+  %559 = load ptr, ptr %7, align 8, !tbaa !8
+  %560 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %559, i32 0, i32 5
+  %561 = load i32, ptr %12, align 4, !tbaa !20
+  %562 = sub nsw i32 %561, 1
+  %563 = sext i32 %562 to i64
+  %564 = getelementptr inbounds [0 x i32], ptr %560, i64 0, i64 %563
+  %565 = load i32, ptr %564, align 4, !tbaa !20
+  %566 = load ptr, ptr %8, align 8, !tbaa !8
+  %567 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %566, i32 0, i32 5
+  %568 = load i32, ptr %15, align 4, !tbaa !20
+  %569 = add nsw i32 %568, 1
+  store i32 %569, ptr %15, align 4, !tbaa !20
+  %570 = sext i32 %568 to i64
+  %571 = getelementptr inbounds [0 x i32], ptr %567, i64 0, i64 %570
+  store i32 %565, ptr %571, align 4, !tbaa !20
+  br label %572
 
-580:                                              ; preds = %571
-  %581 = load i32, ptr %15, align 4
-  %582 = shl i32 1, %581
-  %583 = load i32, ptr %11, align 4
-  %584 = or i32 %583, %582
-  store i32 %584, ptr %11, align 4
-  %585 = load ptr, ptr %9, align 8
-  %586 = getelementptr inbounds i32, ptr %585, i64 0
-  %587 = load i32, ptr %586, align 4
-  %588 = load ptr, ptr %8, align 8
-  %589 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %588, i32 0, i32 5
-  %590 = load i32, ptr %15, align 4
-  %591 = add nsw i32 %590, 1
-  store i32 %591, ptr %15, align 4
-  %592 = sext i32 %590 to i64
-  %593 = getelementptr inbounds [0 x i32], ptr %589, i64 0, i64 %592
-  store i32 %587, ptr %593, align 4
-  %594 = load ptr, ptr %9, align 8
-  %595 = getelementptr inbounds i32, ptr %594, i64 1
-  %596 = load i32, ptr %595, align 4
-  %597 = icmp ne i32 %596, 0
-  br i1 %597, label %598, label %631
+572:                                              ; preds = %554, %551
+  %573 = load i32, ptr %12, align 4, !tbaa !20
+  %574 = sext i32 %573 to i64
+  %575 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %574
+  %576 = getelementptr inbounds [3 x i32], ptr %575, i64 0, i64 0
+  store ptr %576, ptr %9, align 8, !tbaa !27
+  %577 = load ptr, ptr %9, align 8, !tbaa !27
+  %578 = getelementptr inbounds i32, ptr %577, i64 0
+  %579 = load i32, ptr %578, align 4, !tbaa !20
+  %580 = icmp ne i32 %579, 0
+  br i1 %580, label %581, label %635
 
-598:                                              ; preds = %580
-  %599 = load i32, ptr %15, align 4
-  %600 = shl i32 1, %599
-  %601 = load i32, ptr %11, align 4
-  %602 = or i32 %601, %600
-  store i32 %602, ptr %11, align 4
-  %603 = load ptr, ptr %9, align 8
-  %604 = getelementptr inbounds i32, ptr %603, i64 1
-  %605 = load i32, ptr %604, align 4
-  %606 = load ptr, ptr %8, align 8
-  %607 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %606, i32 0, i32 5
-  %608 = load i32, ptr %15, align 4
-  %609 = add nsw i32 %608, 1
-  store i32 %609, ptr %15, align 4
-  %610 = sext i32 %608 to i64
-  %611 = getelementptr inbounds [0 x i32], ptr %607, i64 0, i64 %610
-  store i32 %605, ptr %611, align 4
-  %612 = load ptr, ptr %9, align 8
-  %613 = getelementptr inbounds i32, ptr %612, i64 2
-  %614 = load i32, ptr %613, align 4
-  %615 = icmp ne i32 %614, 0
-  br i1 %615, label %616, label %630
+581:                                              ; preds = %572
+  %582 = load i32, ptr %15, align 4, !tbaa !20
+  %583 = shl i32 1, %582
+  %584 = load i32, ptr %11, align 4, !tbaa !20
+  %585 = or i32 %584, %583
+  store i32 %585, ptr %11, align 4, !tbaa !20
+  %586 = load ptr, ptr %9, align 8, !tbaa !27
+  %587 = getelementptr inbounds i32, ptr %586, i64 0
+  %588 = load i32, ptr %587, align 4, !tbaa !20
+  %589 = load ptr, ptr %8, align 8, !tbaa !8
+  %590 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %589, i32 0, i32 5
+  %591 = load i32, ptr %15, align 4, !tbaa !20
+  %592 = add nsw i32 %591, 1
+  store i32 %592, ptr %15, align 4, !tbaa !20
+  %593 = sext i32 %591 to i64
+  %594 = getelementptr inbounds [0 x i32], ptr %590, i64 0, i64 %593
+  store i32 %588, ptr %594, align 4, !tbaa !20
+  %595 = load ptr, ptr %9, align 8, !tbaa !27
+  %596 = getelementptr inbounds i32, ptr %595, i64 1
+  %597 = load i32, ptr %596, align 4, !tbaa !20
+  %598 = icmp ne i32 %597, 0
+  br i1 %598, label %599, label %632
 
-616:                                              ; preds = %598
-  %617 = load i32, ptr %15, align 4
-  %618 = shl i32 1, %617
-  %619 = load i32, ptr %11, align 4
-  %620 = or i32 %619, %618
-  store i32 %620, ptr %11, align 4
-  %621 = load ptr, ptr %9, align 8
-  %622 = getelementptr inbounds i32, ptr %621, i64 2
-  %623 = load i32, ptr %622, align 4
-  %624 = load ptr, ptr %8, align 8
-  %625 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %624, i32 0, i32 5
-  %626 = load i32, ptr %15, align 4
-  %627 = add nsw i32 %626, 1
-  store i32 %627, ptr %15, align 4
-  %628 = sext i32 %626 to i64
-  %629 = getelementptr inbounds [0 x i32], ptr %625, i64 0, i64 %628
-  store i32 %623, ptr %629, align 4
-  br label %630
+599:                                              ; preds = %581
+  %600 = load i32, ptr %15, align 4, !tbaa !20
+  %601 = shl i32 1, %600
+  %602 = load i32, ptr %11, align 4, !tbaa !20
+  %603 = or i32 %602, %601
+  store i32 %603, ptr %11, align 4, !tbaa !20
+  %604 = load ptr, ptr %9, align 8, !tbaa !27
+  %605 = getelementptr inbounds i32, ptr %604, i64 1
+  %606 = load i32, ptr %605, align 4, !tbaa !20
+  %607 = load ptr, ptr %8, align 8, !tbaa !8
+  %608 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %607, i32 0, i32 5
+  %609 = load i32, ptr %15, align 4, !tbaa !20
+  %610 = add nsw i32 %609, 1
+  store i32 %610, ptr %15, align 4, !tbaa !20
+  %611 = sext i32 %609 to i64
+  %612 = getelementptr inbounds [0 x i32], ptr %608, i64 0, i64 %611
+  store i32 %606, ptr %612, align 4, !tbaa !20
+  %613 = load ptr, ptr %9, align 8, !tbaa !27
+  %614 = getelementptr inbounds i32, ptr %613, i64 2
+  %615 = load i32, ptr %614, align 4, !tbaa !20
+  %616 = icmp ne i32 %615, 0
+  br i1 %616, label %617, label %631
 
-630:                                              ; preds = %616, %598
+617:                                              ; preds = %599
+  %618 = load i32, ptr %15, align 4, !tbaa !20
+  %619 = shl i32 1, %618
+  %620 = load i32, ptr %11, align 4, !tbaa !20
+  %621 = or i32 %620, %619
+  store i32 %621, ptr %11, align 4, !tbaa !20
+  %622 = load ptr, ptr %9, align 8, !tbaa !27
+  %623 = getelementptr inbounds i32, ptr %622, i64 2
+  %624 = load i32, ptr %623, align 4, !tbaa !20
+  %625 = load ptr, ptr %8, align 8, !tbaa !8
+  %626 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %625, i32 0, i32 5
+  %627 = load i32, ptr %15, align 4, !tbaa !20
+  %628 = add nsw i32 %627, 1
+  store i32 %628, ptr %15, align 4, !tbaa !20
+  %629 = sext i32 %627 to i64
+  %630 = getelementptr inbounds [0 x i32], ptr %626, i64 0, i64 %629
+  store i32 %624, ptr %630, align 4, !tbaa !20
   br label %631
 
-631:                                              ; preds = %630, %580
-  %632 = load ptr, ptr %9, align 8
-  %633 = getelementptr inbounds i32, ptr %632, i64 0
-  store i32 0, ptr %633, align 4
-  br label %634
+631:                                              ; preds = %617, %599
+  br label %632
 
-634:                                              ; preds = %631, %571
+632:                                              ; preds = %631, %581
+  %633 = load ptr, ptr %9, align 8, !tbaa !27
+  %634 = getelementptr inbounds i32, ptr %633, i64 0
+  store i32 0, ptr %634, align 4, !tbaa !20
   br label %635
 
-635:                                              ; preds = %634
-  %636 = load i32, ptr %12, align 4
-  %637 = add nsw i32 %636, 1
-  store i32 %637, ptr %12, align 4
-  br label %544, !llvm.loop !43
+635:                                              ; preds = %632, %572
+  br label %636
 
-638:                                              ; preds = %544
-  %639 = load i32, ptr %14, align 4
-  %640 = load ptr, ptr %8, align 8
-  %641 = load i32, ptr %640, align 8
-  %642 = and i32 %639, 15
-  %643 = shl i32 %642, 28
-  %644 = and i32 %641, 268435455
-  %645 = or i32 %644, %643
-  store i32 %645, ptr %640, align 8
-  %646 = load i32, ptr %11, align 4
-  %647 = load ptr, ptr %8, align 8
-  %648 = load i32, ptr %647, align 8
-  %649 = and i32 %646, 2047
-  %650 = shl i32 %649, 11
-  %651 = and i32 %648, -4192257
-  %652 = or i32 %651, %650
-  store i32 %652, ptr %647, align 8
-  %653 = load i32, ptr %10, align 4
-  %654 = load ptr, ptr %8, align 8
-  %655 = load i32, ptr %654, align 8
-  %656 = and i32 %653, 2047
-  %657 = and i32 %655, -2048
-  %658 = or i32 %657, %656
-  store i32 %658, ptr %654, align 8
-  %659 = load ptr, ptr %8, align 8
-  store ptr %659, ptr %4, align 8
-  br label %660
+636:                                              ; preds = %635
+  %637 = load i32, ptr %12, align 4, !tbaa !20
+  %638 = add nsw i32 %637, 1
+  store i32 %638, ptr %12, align 4, !tbaa !20
+  br label %545, !llvm.loop !64
 
-660:                                              ; preds = %638, %534, %440, %362, %230, %193, %144, %83, %54
-  %661 = load ptr, ptr %4, align 8
-  ret ptr %661
+639:                                              ; preds = %545
+  %640 = load i32, ptr %14, align 4, !tbaa !20
+  %641 = load ptr, ptr %8, align 8, !tbaa !8
+  %642 = load i32, ptr %641, align 8
+  %643 = and i32 %640, 15
+  %644 = shl i32 %643, 28
+  %645 = and i32 %642, 268435455
+  %646 = or i32 %645, %644
+  store i32 %646, ptr %641, align 8
+  %647 = load i32, ptr %11, align 4, !tbaa !20
+  %648 = load ptr, ptr %8, align 8, !tbaa !8
+  %649 = load i32, ptr %648, align 8
+  %650 = and i32 %647, 2047
+  %651 = shl i32 %650, 11
+  %652 = and i32 %649, -4192257
+  %653 = or i32 %652, %651
+  store i32 %653, ptr %648, align 8
+  %654 = load i32, ptr %10, align 4, !tbaa !20
+  %655 = load ptr, ptr %8, align 8, !tbaa !8
+  %656 = load i32, ptr %655, align 8
+  %657 = and i32 %654, 2047
+  %658 = and i32 %656, -2048
+  %659 = or i32 %658, %657
+  store i32 %659, ptr %655, align 8
+  %660 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %660, ptr %4, align 8
+  store i32 1, ptr %17, align 4
+  br label %661
+
+661:                                              ; preds = %639, %535, %441, %363, %231, %194, %145, %84, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %662 = load ptr, ptr %4, align 8
+  ret ptr %662
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS16Cut_ManStruct_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS16Cut_CutStruct_t_", !5, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"Cut_ManStruct_t_", !12, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !15, i64 48, !16, i64 56, !16, i64 60, !9, i64 64, !14, i64 72, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !6, i64 96, !6, i64 112, !9, i64 128, !9, i64 136, !6, i64 144, !13, i64 176, !13, i64 184, !13, i64 192, !14, i64 200, !13, i64 208, !13, i64 216, !16, i64 224, !16, i64 228, !16, i64 232, !16, i64 236, !16, i64 240, !16, i64 244, !16, i64 248, !16, i64 252, !16, i64 256, !16, i64 260, !16, i64 264, !17, i64 272, !17, i64 280, !17, i64 288, !17, i64 296, !17, i64 304, !17, i64 312}
+!12 = !{!"p1 _ZTS19Cut_ParamsStruct_t_", !5, i64 0}
+!13 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!14 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!15 = !{!"p1 _ZTS16Extra_MmFixed_t_", !5, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!19, !16, i64 0}
+!19 = !{!"Cut_ParamsStruct_t_", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76}
+!20 = !{!16, !16, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}
+!26 = distinct !{!26, !22}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 int", !5, i64 0}
+!29 = distinct !{!29, !22}
+!30 = distinct !{!30, !22}
+!31 = distinct !{!31, !22}
+!32 = distinct !{!32, !22}
+!33 = distinct !{!33, !22}
+!34 = distinct !{!34, !22}
+!35 = distinct !{!35, !22}
+!36 = distinct !{!36, !22}
+!37 = distinct !{!37, !22}
+!38 = distinct !{!38, !22}
+!39 = !{!11, !9, i64 64}
+!40 = distinct !{!40, !22}
+!41 = distinct !{!41, !22}
+!42 = distinct !{!42, !22}
+!43 = distinct !{!43, !22}
+!44 = distinct !{!44, !22}
+!45 = distinct !{!45, !22}
+!46 = distinct !{!46, !22}
+!47 = distinct !{!47, !22}
+!48 = distinct !{!48, !22}
+!49 = distinct !{!49, !22}
+!50 = distinct !{!50, !22}
+!51 = distinct !{!51, !22}
+!52 = distinct !{!52, !22}
+!53 = !{!19, !16, i64 20}
+!54 = distinct !{!54, !22}
+!55 = distinct !{!55, !22}
+!56 = distinct !{!56, !22}
+!57 = distinct !{!57, !22}
+!58 = distinct !{!58, !22}
+!59 = distinct !{!59, !22}
+!60 = distinct !{!60, !22}
+!61 = distinct !{!61, !22}
+!62 = distinct !{!62, !22}
+!63 = distinct !{!63, !22}
+!64 = distinct !{!64, !22}

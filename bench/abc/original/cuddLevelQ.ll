@@ -14,323 +14,340 @@ define ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i32 noundef %2) #
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store i32 %0, ptr %5, align 4
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %10 = call noalias ptr @malloc(i64 noundef 56) #5
-  store ptr %10, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %114
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %11 = call noalias ptr @malloc(i64 noundef 56) #7
+  store ptr %11, ptr %8, align 8, !tbaa !7
+  %12 = load ptr, ptr %8, align 8, !tbaa !7
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load i32, ptr %5, align 4
-  %16 = sext i32 %15 to i64
-  %17 = mul i64 8, %16
-  %18 = call noalias ptr @malloc(i64 noundef %17) #5
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.DdLevelQueue, ptr %19, i32 0, i32 1
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.DdLevelQueue, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %32
-
-25:                                               ; preds = %14
-  %26 = load ptr, ptr %8, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %30
-
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %29) #6
-  store ptr null, ptr %8, align 8
-  br label %31
-
-30:                                               ; preds = %25
-  br label %31
-
-31:                                               ; preds = %30, %28
   store ptr null, ptr %4, align 8
-  br label %114
+  store i32 1, ptr %10, align 4
+  br label %115
 
-32:                                               ; preds = %14
-  %33 = load i32, ptr %7, align 4
-  %34 = icmp slt i32 %33, 2
-  br i1 %34, label %35, label %36
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4, !tbaa !3
+  %17 = sext i32 %16 to i64
+  %18 = mul i64 8, %17
+  %19 = call noalias ptr @malloc(i64 noundef %18) #7
+  %20 = load ptr, ptr %8, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %20, i32 0, i32 1
+  store ptr %19, ptr %21, align 8, !tbaa !10
+  %22 = load ptr, ptr %8, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %33
 
-35:                                               ; preds = %32
-  store i32 2, ptr %7, align 4
-  br label %36
+26:                                               ; preds = %15
+  %27 = load ptr, ptr %8, align 8, !tbaa !7
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %31
 
-36:                                               ; preds = %35, %32
-  %37 = load i32, ptr %7, align 4
-  %38 = call i32 @cuddComputeFloorLog2(i32 noundef %37)
-  store i32 %38, ptr %9, align 4
-  %39 = load i32, ptr %9, align 4
-  %40 = shl i32 1, %39
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.DdLevelQueue, ptr %41, i32 0, i32 8
-  store i32 %40, ptr %42, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = sext i32 %43 to i64
-  %45 = sub i64 32, %44
-  %46 = trunc i64 %45 to i32
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.DdLevelQueue, ptr %47, i32 0, i32 9
-  store i32 %46, ptr %48, align 4
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.DdLevelQueue, ptr %49, i32 0, i32 8
-  %51 = load i32, ptr %50, align 8
-  %52 = sext i32 %51 to i64
-  %53 = mul i64 8, %52
-  %54 = call noalias ptr @malloc(i64 noundef %53) #5
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.DdLevelQueue, ptr %55, i32 0, i32 3
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.DdLevelQueue, ptr %57, i32 0, i32 3
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %80
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @free(ptr noundef %30) #6
+  store ptr null, ptr %8, align 8, !tbaa !7
+  br label %32
 
-61:                                               ; preds = %36
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.DdLevelQueue, ptr %62, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %72
+31:                                               ; preds = %26
+  br label %32
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.DdLevelQueue, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  call void @free(ptr noundef %69) #6
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.DdLevelQueue, ptr %70, i32 0, i32 1
-  store ptr null, ptr %71, align 8
-  br label %73
-
-72:                                               ; preds = %61
-  br label %73
-
-73:                                               ; preds = %72, %66
-  %74 = load ptr, ptr %8, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %73
-  %77 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %77) #6
-  store ptr null, ptr %8, align 8
-  br label %79
-
-78:                                               ; preds = %73
-  br label %79
-
-79:                                               ; preds = %78, %76
+32:                                               ; preds = %31, %29
   store ptr null, ptr %4, align 8
-  br label %114
+  store i32 1, ptr %10, align 4
+  br label %115
 
-80:                                               ; preds = %36
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct.DdLevelQueue, ptr %81, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %5, align 4
-  %85 = sext i32 %84 to i64
-  %86 = mul i64 %85, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 %86, i1 false)
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.DdLevelQueue, ptr %87, i32 0, i32 3
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.DdLevelQueue, ptr %90, i32 0, i32 8
-  %92 = load i32, ptr %91, align 8
-  %93 = sext i32 %92 to i64
-  %94 = mul i64 %93, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %89, i8 0, i64 %94, i1 false)
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct.DdLevelQueue, ptr %95, i32 0, i32 0
-  store ptr null, ptr %96, align 8
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct.DdLevelQueue, ptr %97, i32 0, i32 2
-  store ptr null, ptr %98, align 8
-  %99 = load i32, ptr %5, align 4
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds %struct.DdLevelQueue, ptr %100, i32 0, i32 4
-  store i32 %99, ptr %101, align 8
-  %102 = load i32, ptr %6, align 4
-  %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds %struct.DdLevelQueue, ptr %103, i32 0, i32 5
-  store i32 %102, ptr %104, align 4
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.DdLevelQueue, ptr %105, i32 0, i32 6
-  store i32 0, ptr %106, align 8
-  %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.DdLevelQueue, ptr %107, i32 0, i32 8
-  %109 = load i32, ptr %108, align 8
-  %110 = mul nsw i32 %109, 4
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.DdLevelQueue, ptr %111, i32 0, i32 7
-  store i32 %110, ptr %112, align 4
-  %113 = load ptr, ptr %8, align 8
-  store ptr %113, ptr %4, align 8
-  br label %114
+33:                                               ; preds = %15
+  %34 = load i32, ptr %7, align 4, !tbaa !3
+  %35 = icmp slt i32 %34, 2
+  br i1 %35, label %36, label %37
 
-114:                                              ; preds = %80, %79, %31, %13
-  %115 = load ptr, ptr %4, align 8
-  ret ptr %115
+36:                                               ; preds = %33
+  store i32 2, ptr %7, align 4, !tbaa !3
+  br label %37
+
+37:                                               ; preds = %36, %33
+  %38 = load i32, ptr %7, align 4, !tbaa !3
+  %39 = call i32 @cuddComputeFloorLog2(i32 noundef %38)
+  store i32 %39, ptr %9, align 4, !tbaa !3
+  %40 = load i32, ptr %9, align 4, !tbaa !3
+  %41 = shl i32 1, %40
+  %42 = load ptr, ptr %8, align 8, !tbaa !7
+  %43 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %42, i32 0, i32 8
+  store i32 %41, ptr %43, align 8, !tbaa !14
+  %44 = load i32, ptr %9, align 4, !tbaa !3
+  %45 = sext i32 %44 to i64
+  %46 = sub i64 32, %45
+  %47 = trunc i64 %46 to i32
+  %48 = load ptr, ptr %8, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %48, i32 0, i32 9
+  store i32 %47, ptr %49, align 4, !tbaa !15
+  %50 = load ptr, ptr %8, align 8, !tbaa !7
+  %51 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %50, i32 0, i32 8
+  %52 = load i32, ptr %51, align 8, !tbaa !14
+  %53 = sext i32 %52 to i64
+  %54 = mul i64 8, %53
+  %55 = call noalias ptr @malloc(i64 noundef %54) #7
+  %56 = load ptr, ptr %8, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %56, i32 0, i32 3
+  store ptr %55, ptr %57, align 8, !tbaa !16
+  %58 = load ptr, ptr %8, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8, !tbaa !16
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %81
+
+62:                                               ; preds = %37
+  %63 = load ptr, ptr %8, align 8, !tbaa !7
+  %64 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !10
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %73
+
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %8, align 8, !tbaa !7
+  %69 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !10
+  call void @free(ptr noundef %70) #6
+  %71 = load ptr, ptr %8, align 8, !tbaa !7
+  %72 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %71, i32 0, i32 1
+  store ptr null, ptr %72, align 8, !tbaa !10
+  br label %74
+
+73:                                               ; preds = %62
+  br label %74
+
+74:                                               ; preds = %73, %67
+  %75 = load ptr, ptr %8, align 8, !tbaa !7
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @free(ptr noundef %78) #6
+  store ptr null, ptr %8, align 8, !tbaa !7
+  br label %80
+
+79:                                               ; preds = %74
+  br label %80
+
+80:                                               ; preds = %79, %77
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %115
+
+81:                                               ; preds = %37
+  %82 = load ptr, ptr %8, align 8, !tbaa !7
+  %83 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !10
+  %85 = load i32, ptr %5, align 4, !tbaa !3
+  %86 = sext i32 %85 to i64
+  %87 = mul i64 %86, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %84, i8 0, i64 %87, i1 false)
+  %88 = load ptr, ptr %8, align 8, !tbaa !7
+  %89 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %88, i32 0, i32 3
+  %90 = load ptr, ptr %89, align 8, !tbaa !16
+  %91 = load ptr, ptr %8, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %91, i32 0, i32 8
+  %93 = load i32, ptr %92, align 8, !tbaa !14
+  %94 = sext i32 %93 to i64
+  %95 = mul i64 %94, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %90, i8 0, i64 %95, i1 false)
+  %96 = load ptr, ptr %8, align 8, !tbaa !7
+  %97 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %96, i32 0, i32 0
+  store ptr null, ptr %97, align 8, !tbaa !17
+  %98 = load ptr, ptr %8, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %98, i32 0, i32 2
+  store ptr null, ptr %99, align 8, !tbaa !18
+  %100 = load i32, ptr %5, align 4, !tbaa !3
+  %101 = load ptr, ptr %8, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %101, i32 0, i32 4
+  store i32 %100, ptr %102, align 8, !tbaa !19
+  %103 = load i32, ptr %6, align 4, !tbaa !3
+  %104 = load ptr, ptr %8, align 8, !tbaa !7
+  %105 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %104, i32 0, i32 5
+  store i32 %103, ptr %105, align 4, !tbaa !20
+  %106 = load ptr, ptr %8, align 8, !tbaa !7
+  %107 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %106, i32 0, i32 6
+  store i32 0, ptr %107, align 8, !tbaa !21
+  %108 = load ptr, ptr %8, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %108, i32 0, i32 8
+  %110 = load i32, ptr %109, align 8, !tbaa !14
+  %111 = mul nsw i32 %110, 4
+  %112 = load ptr, ptr %8, align 8, !tbaa !7
+  %113 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %112, i32 0, i32 7
+  store i32 %111, ptr %113, align 4, !tbaa !22
+  %114 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %114, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %115
+
+115:                                              ; preds = %81, %80, %32, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %116 = load ptr, ptr %4, align 8
+  ret ptr %116
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
+declare noalias ptr @malloc(i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
-declare i32 @cuddComputeFloorLog2(i32 noundef) #3
+declare i32 @cuddComputeFloorLog2(i32 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @cuddLevelQueueQuit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
   br label %4
 
 4:                                                ; preds = %23, %1
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.DdLevelQueue, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.DdLevelQueue, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.DdQueueItem, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.DdLevelQueue, ptr %16, i32 0, i32 2
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %2, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  store ptr %12, ptr %3, align 8, !tbaa !23
+  %13 = load ptr, ptr %3, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %16 = load ptr, ptr %2, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %16, i32 0, i32 2
+  store ptr %15, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %3, align 8, !tbaa !23
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %9
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !23
   call void @free(ptr noundef %21) #6
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !23
   br label %23
 
 22:                                               ; preds = %9
   br label %23
 
 23:                                               ; preds = %22, %20
-  br label %4, !llvm.loop !4
+  br label %4, !llvm.loop !26
 
 24:                                               ; preds = %4
   br label %25
 
 25:                                               ; preds = %44, %24
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.DdLevelQueue, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
+  %26 = load ptr, ptr %2, align 8, !tbaa !7
+  %27 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.DdLevelQueue, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %3, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.DdQueueItem, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.DdLevelQueue, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %2, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !17
+  store ptr %33, ptr %3, align 8, !tbaa !23
+  %34 = load ptr, ptr %3, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = load ptr, ptr %2, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %37, i32 0, i32 0
+  store ptr %36, ptr %38, align 8, !tbaa !17
+  %39 = load ptr, ptr %3, align 8, !tbaa !23
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %30
-  %42 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !23
   call void @free(ptr noundef %42) #6
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !23
   br label %44
 
 43:                                               ; preds = %30
   br label %44
 
 44:                                               ; preds = %43, %41
-  br label %25, !llvm.loop !6
+  br label %25, !llvm.loop !28
 
 45:                                               ; preds = %25
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.DdLevelQueue, ptr %46, i32 0, i32 3
-  %48 = load ptr, ptr %47, align 8
+  %46 = load ptr, ptr %2, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %46, i32 0, i32 3
+  %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = icmp ne ptr %48, null
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.DdLevelQueue, ptr %51, i32 0, i32 3
-  %53 = load ptr, ptr %52, align 8
+  %51 = load ptr, ptr %2, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8, !tbaa !16
   call void @free(ptr noundef %53) #6
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.DdLevelQueue, ptr %54, i32 0, i32 3
-  store ptr null, ptr %55, align 8
+  %54 = load ptr, ptr %2, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %54, i32 0, i32 3
+  store ptr null, ptr %55, align 8, !tbaa !16
   br label %57
 
 56:                                               ; preds = %45
   br label %57
 
 57:                                               ; preds = %56, %50
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.DdLevelQueue, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
+  %58 = load ptr, ptr %2, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
   %61 = icmp ne ptr %60, null
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %57
-  %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds %struct.DdLevelQueue, ptr %63, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
+  %63 = load ptr, ptr %2, align 8, !tbaa !7
+  %64 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !10
   call void @free(ptr noundef %65) #6
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.DdLevelQueue, ptr %66, i32 0, i32 1
-  store ptr null, ptr %67, align 8
+  %66 = load ptr, ptr %2, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %66, i32 0, i32 1
+  store ptr null, ptr %67, align 8, !tbaa !10
   br label %69
 
 68:                                               ; preds = %57
   br label %69
 
 69:                                               ; preds = %68, %62
-  %70 = load ptr, ptr %2, align 8
+  %70 = load ptr, ptr %2, align 8, !tbaa !7
   %71 = icmp ne ptr %70, null
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr %2, align 8
+  %73 = load ptr, ptr %2, align 8, !tbaa !7
   call void @free(ptr noundef %73) #6
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !7
   br label %75
 
 74:                                               ; preds = %69
   br label %75
 
 75:                                               ; preds = %74, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
 }
 
@@ -342,222 +359,231 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = call ptr @hashLookup(ptr noundef %10, ptr noundef %11)
-  store ptr %12, ptr %9, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %17
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  %12 = load ptr, ptr %6, align 8, !tbaa !29
+  %13 = call ptr @hashLookup(ptr noundef %11, ptr noundef %12)
+  store ptr %13, ptr %9, align 8, !tbaa !23
+  %14 = load ptr, ptr %9, align 8, !tbaa !23
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %9, align 8
-  store ptr %16, ptr %4, align 8
-  br label %158
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %17, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %159
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.DdLevelQueue, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %33
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !18
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %34
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.DdLevelQueue, ptr %23, i32 0, i32 5
-  %25 = load i32, ptr %24, align 4
-  %26 = sext i32 %25 to i64
-  %27 = mul i64 1, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #5
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %32
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %5, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %24, i32 0, i32 5
+  %26 = load i32, ptr %25, align 4, !tbaa !20
+  %27 = sext i32 %26 to i64
+  %28 = mul i64 1, %27
+  %29 = call noalias ptr @malloc(i64 noundef %28) #7
+  store ptr %29, ptr %9, align 8, !tbaa !23
+  %30 = load ptr, ptr %9, align 8, !tbaa !23
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %22
+32:                                               ; preds = %23
   store ptr null, ptr %4, align 8
-  br label %158
+  store i32 1, ptr %10, align 4
+  br label %159
 
-32:                                               ; preds = %22
-  br label %42
+33:                                               ; preds = %23
+  br label %43
 
-33:                                               ; preds = %17
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.DdLevelQueue, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %9, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.DdQueueItem, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.DdLevelQueue, ptr %40, i32 0, i32 2
-  store ptr %39, ptr %41, align 8
-  br label %42
+34:                                               ; preds = %18
+  %35 = load ptr, ptr %5, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  store ptr %37, ptr %9, align 8, !tbaa !23
+  %38 = load ptr, ptr %9, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !24
+  %41 = load ptr, ptr %5, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %41, i32 0, i32 2
+  store ptr %40, ptr %42, align 8, !tbaa !18
+  br label %43
 
-42:                                               ; preds = %33, %32
-  %43 = load ptr, ptr %9, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.DdLevelQueue, ptr %44, i32 0, i32 5
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %47, i1 false)
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.DdQueueItem, ptr %49, i32 0, i32 2
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.DdLevelQueue, ptr %51, i32 0, i32 6
-  %53 = load i32, ptr %52, align 8
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.DdLevelQueue, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %84
+43:                                               ; preds = %34, %33
+  %44 = load ptr, ptr %9, align 8, !tbaa !23
+  %45 = load ptr, ptr %5, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %45, i32 0, i32 5
+  %47 = load i32, ptr %46, align 4, !tbaa !20
+  %48 = sext i32 %47 to i64
+  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %48, i1 false)
+  %49 = load ptr, ptr %6, align 8, !tbaa !29
+  %50 = load ptr, ptr %9, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %50, i32 0, i32 2
+  store ptr %49, ptr %51, align 8, !tbaa !30
+  %52 = load ptr, ptr %5, align 8, !tbaa !7
+  %53 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %52, i32 0, i32 6
+  %54 = load i32, ptr %53, align 8, !tbaa !21
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %53, align 8, !tbaa !21
+  %56 = load ptr, ptr %5, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !10
+  %59 = load i32, ptr %7, align 4, !tbaa !3
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !23
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %85
 
-63:                                               ; preds = %42
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.DdLevelQueue, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %7, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.DdQueueItem, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.DdQueueItem, ptr %73, i32 0, i32 0
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %9, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.DdLevelQueue, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %7, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.DdQueueItem, ptr %82, i32 0, i32 0
-  store ptr %75, ptr %83, align 8
+64:                                               ; preds = %43
+  %65 = load ptr, ptr %5, align 8, !tbaa !7
+  %66 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !10
+  %68 = load i32, ptr %7, align 4, !tbaa !3
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = load ptr, ptr %9, align 8, !tbaa !23
+  %75 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %74, i32 0, i32 0
+  store ptr %73, ptr %75, align 8, !tbaa !24
+  %76 = load ptr, ptr %9, align 8, !tbaa !23
+  %77 = load ptr, ptr %5, align 8, !tbaa !7
+  %78 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !10
+  %80 = load i32, ptr %7, align 4, !tbaa !3
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds ptr, ptr %79, i64 %81
+  %83 = load ptr, ptr %82, align 8, !tbaa !23
+  %84 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %83, i32 0, i32 0
+  store ptr %76, ptr %84, align 8, !tbaa !24
+  br label %144
+
+85:                                               ; preds = %43
+  %86 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %86, ptr %8, align 4, !tbaa !3
+  br label %87
+
+87:                                               ; preds = %101, %85
+  %88 = load i32, ptr %8, align 4, !tbaa !3
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %99
+
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %5, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8, !tbaa !10
+  %94 = load i32, ptr %8, align 4, !tbaa !3
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !23
+  %98 = icmp eq ptr %97, null
+  br label %99
+
+99:                                               ; preds = %90, %87
+  %100 = phi i1 [ false, %87 ], [ %98, %90 ]
+  br i1 %100, label %101, label %104
+
+101:                                              ; preds = %99
+  %102 = load i32, ptr %8, align 4, !tbaa !3
+  %103 = add nsw i32 %102, -1
+  store i32 %103, ptr %8, align 4, !tbaa !3
+  br label %87, !llvm.loop !31
+
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %5, align 8, !tbaa !7
+  %106 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8, !tbaa !10
+  %108 = load i32, ptr %8, align 4, !tbaa !3
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %111 = load ptr, ptr %110, align 8, !tbaa !23
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %122
+
+113:                                              ; preds = %104
+  %114 = load ptr, ptr %5, align 8, !tbaa !7
+  %115 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8, !tbaa !17
+  %117 = load ptr, ptr %9, align 8, !tbaa !23
+  %118 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %117, i32 0, i32 0
+  store ptr %116, ptr %118, align 8, !tbaa !24
+  %119 = load ptr, ptr %9, align 8, !tbaa !23
+  %120 = load ptr, ptr %5, align 8, !tbaa !7
+  %121 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %120, i32 0, i32 0
+  store ptr %119, ptr %121, align 8, !tbaa !17
   br label %143
 
-84:                                               ; preds = %42
-  %85 = load i32, ptr %7, align 4
-  store i32 %85, ptr %8, align 4
-  br label %86
-
-86:                                               ; preds = %100, %84
-  %87 = load i32, ptr %8, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %98
-
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.DdLevelQueue, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr %8, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br label %98
-
-98:                                               ; preds = %89, %86
-  %99 = phi i1 [ false, %86 ], [ %97, %89 ]
-  br i1 %99, label %100, label %103
-
-100:                                              ; preds = %98
-  %101 = load i32, ptr %8, align 4
-  %102 = add nsw i32 %101, -1
-  store i32 %102, ptr %8, align 4
-  br label %86, !llvm.loop !7
-
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.DdLevelQueue, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i32, ptr %8, align 4
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %121
-
-112:                                              ; preds = %103
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct.DdLevelQueue, ptr %113, i32 0, i32 0
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.DdQueueItem, ptr %116, i32 0, i32 0
-  store ptr %115, ptr %117, align 8
-  %118 = load ptr, ptr %9, align 8
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.DdLevelQueue, ptr %119, i32 0, i32 0
-  store ptr %118, ptr %120, align 8
-  br label %142
-
-121:                                              ; preds = %103
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.DdLevelQueue, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %8, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.DdQueueItem, ptr %128, i32 0, i32 0
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %9, align 8
-  %132 = getelementptr inbounds %struct.DdQueueItem, ptr %131, i32 0, i32 0
-  store ptr %130, ptr %132, align 8
-  %133 = load ptr, ptr %9, align 8
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.DdLevelQueue, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  %137 = load i32, ptr %8, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %136, i64 %138
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct.DdQueueItem, ptr %140, i32 0, i32 0
-  store ptr %133, ptr %141, align 8
-  br label %142
-
-142:                                              ; preds = %121, %112
+122:                                              ; preds = %104
+  %123 = load ptr, ptr %5, align 8, !tbaa !7
+  %124 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8, !tbaa !10
+  %126 = load i32, ptr %8, align 4, !tbaa !3
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds ptr, ptr %125, i64 %127
+  %129 = load ptr, ptr %128, align 8, !tbaa !23
+  %130 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %129, i32 0, i32 0
+  %131 = load ptr, ptr %130, align 8, !tbaa !24
+  %132 = load ptr, ptr %9, align 8, !tbaa !23
+  %133 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %132, i32 0, i32 0
+  store ptr %131, ptr %133, align 8, !tbaa !24
+  %134 = load ptr, ptr %9, align 8, !tbaa !23
+  %135 = load ptr, ptr %5, align 8, !tbaa !7
+  %136 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %135, i32 0, i32 1
+  %137 = load ptr, ptr %136, align 8, !tbaa !10
+  %138 = load i32, ptr %8, align 4, !tbaa !3
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
+  %141 = load ptr, ptr %140, align 8, !tbaa !23
+  %142 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %141, i32 0, i32 0
+  store ptr %134, ptr %142, align 8, !tbaa !24
   br label %143
 
-143:                                              ; preds = %142, %63
-  %144 = load ptr, ptr %9, align 8
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.DdLevelQueue, ptr %145, i32 0, i32 1
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i32, ptr %7, align 4
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds ptr, ptr %147, i64 %149
-  store ptr %144, ptr %150, align 8
-  %151 = load ptr, ptr %5, align 8
-  %152 = load ptr, ptr %9, align 8
-  %153 = call i32 @hashInsert(ptr noundef %151, ptr noundef %152)
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %155, label %156
+143:                                              ; preds = %122, %113
+  br label %144
 
-155:                                              ; preds = %143
+144:                                              ; preds = %143, %64
+  %145 = load ptr, ptr %9, align 8, !tbaa !23
+  %146 = load ptr, ptr %5, align 8, !tbaa !7
+  %147 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8, !tbaa !10
+  %149 = load i32, ptr %7, align 4, !tbaa !3
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds ptr, ptr %148, i64 %150
+  store ptr %145, ptr %151, align 8, !tbaa !23
+  %152 = load ptr, ptr %5, align 8, !tbaa !7
+  %153 = load ptr, ptr %9, align 8, !tbaa !23
+  %154 = call i32 @hashInsert(ptr noundef %152, ptr noundef %153)
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %144
   store ptr null, ptr %4, align 8
-  br label %158
+  store i32 1, ptr %10, align 4
+  br label %159
 
-156:                                              ; preds = %143
-  %157 = load ptr, ptr %9, align 8
-  store ptr %157, ptr %4, align 8
-  br label %158
+157:                                              ; preds = %144
+  %158 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %158, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %159
 
-158:                                              ; preds = %156, %155, %31, %15
-  %159 = load ptr, ptr %4, align 8
-  ret ptr %159
+159:                                              ; preds = %157, %156, %32, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %160 = load ptr, ptr %4, align 8
+  ret ptr %160
 }
 
 ; Function Attrs: nounwind uwtable
@@ -567,59 +593,66 @@ define internal ptr @hashLookup(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = mul i32 %10, 12582917
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.DdLevelQueue, ptr %12, i32 0, i32 9
-  %14 = load i32, ptr %13, align 4
-  %15 = lshr i32 %11, %14
-  store i32 %15, ptr %6, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.DdLevelQueue, ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %7, align 8
-  br label %23
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %9 = load ptr, ptr %5, align 8, !tbaa !29
+  %10 = ptrtoint ptr %9 to i64
+  %11 = trunc i64 %10 to i32
+  %12 = mul i32 %11, 12582917
+  %13 = load ptr, ptr %4, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %13, i32 0, i32 9
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  %16 = lshr i32 %12, %15
+  store i32 %16, ptr %6, align 4, !tbaa !3
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %20 = load i32, ptr %6, align 4, !tbaa !3
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  store ptr %23, ptr %7, align 8, !tbaa !23
+  br label %24
 
-23:                                               ; preds = %34, %2
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %38
+24:                                               ; preds = %35, %2
+  %25 = load ptr, ptr %7, align 8, !tbaa !23
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %39
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.DdQueueItem, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = icmp eq ptr %29, %30
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
+  %31 = load ptr, ptr %5, align 8, !tbaa !29
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %7, align 8
-  store ptr %33, ptr %3, align 8
-  br label %39
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %34, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %40
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.DdQueueItem, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %7, align 8
-  br label %23, !llvm.loop !8
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %7, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !32
+  store ptr %38, ptr %7, align 8, !tbaa !23
+  br label %24, !llvm.loop !33
 
-38:                                               ; preds = %23
+39:                                               ; preds = %24
   store ptr null, ptr %3, align 8
-  br label %39
+  store i32 1, ptr %8, align 4
+  br label %40
 
-39:                                               ; preds = %38, %32
-  %40 = load ptr, ptr %3, align 8
-  ret ptr %40
+40:                                               ; preds = %39, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %41 = load ptr, ptr %3, align 8
+  ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -629,68 +662,75 @@ define internal i32 @hashInsert(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.DdLevelQueue, ptr %8, i32 0, i32 6
-  %10 = load i32, ptr %9, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.DdLevelQueue, ptr %11, i32 0, i32 7
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %10, %13
-  br i1 %14, label %15, label %22
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %9 = load ptr, ptr %4, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %9, i32 0, i32 6
+  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %12, i32 0, i32 7
+  %14 = load i32, ptr %13, align 4, !tbaa !22
+  %15 = icmp sgt i32 %11, %14
+  br i1 %15, label %16, label %23
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @hashResize(ptr noundef %16)
-  store i32 %17, ptr %6, align 4
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
+  %18 = call i32 @hashResize(ptr noundef %17)
+  store i32 %18, ptr %6, align 4, !tbaa !3
+  %19 = load i32, ptr %6, align 4, !tbaa !3
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %15
+21:                                               ; preds = %16
   store i32 0, ptr %3, align 4
-  br label %49
+  store i32 1, ptr %8, align 4
+  br label %50
 
-21:                                               ; preds = %15
-  br label %22
+22:                                               ; preds = %16
+  br label %23
 
-22:                                               ; preds = %21, %2
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.DdQueueItem, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = trunc i64 %26 to i32
-  %28 = mul i32 %27, 12582917
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.DdLevelQueue, ptr %29, i32 0, i32 9
-  %31 = load i32, ptr %30, align 4
-  %32 = lshr i32 %28, %31
-  store i32 %32, ptr %7, align 4
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.DdLevelQueue, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %7, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.DdQueueItem, ptr %40, i32 0, i32 1
-  store ptr %39, ptr %41, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.DdLevelQueue, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %7, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  store ptr %42, ptr %48, align 8
+23:                                               ; preds = %22, %2
+  %24 = load ptr, ptr %5, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = mul i32 %28, 12582917
+  %30 = load ptr, ptr %4, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 4, !tbaa !15
+  %33 = lshr i32 %29, %32
+  store i32 %33, ptr %7, align 4, !tbaa !3
+  %34 = load ptr, ptr %4, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8, !tbaa !16
+  %37 = load i32, ptr %7, align 4, !tbaa !3
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %41 = load ptr, ptr %5, align 8, !tbaa !23
+  %42 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %41, i32 0, i32 1
+  store ptr %40, ptr %42, align 8, !tbaa !32
+  %43 = load ptr, ptr %5, align 8, !tbaa !23
+  %44 = load ptr, ptr %4, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8, !tbaa !16
+  %47 = load i32, ptr %7, align 4, !tbaa !3
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  store ptr %43, ptr %49, align 8, !tbaa !23
   store i32 1, ptr %3, align 4
-  br label %49
+  store i32 1, ptr %8, align 4
+  br label %50
 
-49:                                               ; preds = %22, %20
-  %50 = load i32, ptr %3, align 4
-  ret i32 %50
+50:                                               ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %51 = load i32, ptr %3, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -698,58 +738,60 @@ define void @cuddLevelQueueDequeue(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.DdLevelQueue, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  store ptr %8, ptr %5, align 8, !tbaa !23
+  %9 = load ptr, ptr %3, align 8, !tbaa !7
+  %10 = load ptr, ptr %5, align 8, !tbaa !23
   call void @hashDelete(ptr noundef %9, ptr noundef %10)
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.DdLevelQueue, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %4, align 4
+  %11 = load ptr, ptr %3, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = load i32, ptr %4, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %13, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %18 = load ptr, ptr %5, align 8, !tbaa !23
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.DdLevelQueue, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %4, align 4
+  %21 = load ptr, ptr %3, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  %24 = load i32, ptr %4, align 4, !tbaa !3
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %23, i64 %25
-  store ptr null, ptr %26, align 8
+  store ptr null, ptr %26, align 8, !tbaa !23
   br label %27
 
 27:                                               ; preds = %20, %2
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.DdQueueItem, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.DdLevelQueue, ptr %31, i32 0, i32 0
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.DdLevelQueue, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.DdQueueItem, ptr %36, i32 0, i32 0
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.DdLevelQueue, ptr %39, i32 0, i32 2
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.DdLevelQueue, ptr %41, i32 0, i32 6
-  %43 = load i32, ptr %42, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !24
+  %31 = load ptr, ptr %3, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %31, i32 0, i32 0
+  store ptr %30, ptr %32, align 8, !tbaa !17
+  %33 = load ptr, ptr %3, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  %36 = load ptr, ptr %5, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %37, align 8, !tbaa !24
+  %38 = load ptr, ptr %5, align 8, !tbaa !23
+  %39 = load ptr, ptr %3, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %39, i32 0, i32 2
+  store ptr %38, ptr %40, align 8, !tbaa !18
+  %41 = load ptr, ptr %3, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %41, i32 0, i32 6
+  %43 = load i32, ptr %42, align 8, !tbaa !21
   %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %42, align 8
+  store i32 %44, ptr %42, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
@@ -759,91 +801,100 @@ define internal void @hashDelete(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.DdQueueItem, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = mul i32 %11, 12582917
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.DdLevelQueue, ptr %13, i32 0, i32 9
-  %15 = load i32, ptr %14, align 4
-  %16 = lshr i32 %12, %15
-  store i32 %16, ptr %5, align 4
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.DdLevelQueue, ptr %17, i32 0, i32 3
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %5, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %6, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %2
-  br label %64
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %11 = ptrtoint ptr %10 to i64
+  %12 = trunc i64 %11 to i32
+  %13 = mul i32 %12, 12582917
+  %14 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %14, i32 0, i32 9
+  %16 = load i32, ptr %15, align 4, !tbaa !15
+  %17 = lshr i32 %13, %16
+  store i32 %17, ptr %5, align 4, !tbaa !3
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %18, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  %21 = load i32, ptr %5, align 4, !tbaa !3
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  store ptr %24, ptr %6, align 8, !tbaa !23
+  %25 = load ptr, ptr %6, align 8, !tbaa !23
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %2
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %31, label %41
+  store i32 1, ptr %7, align 4
+  br label %65
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.DdQueueItem, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.DdLevelQueue, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
-  store ptr %34, ptr %40, align 8
-  br label %64
+28:                                               ; preds = %2
+  %29 = load ptr, ptr %6, align 8, !tbaa !23
+  %30 = load ptr, ptr %4, align 8, !tbaa !23
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %42
 
-41:                                               ; preds = %27
-  br label %42
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %6, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8, !tbaa !32
+  %36 = load ptr, ptr %3, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  %39 = load i32, ptr %5, align 4, !tbaa !3
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  store ptr %35, ptr %41, align 8, !tbaa !23
+  store i32 1, ptr %7, align 4
+  br label %65
 
-42:                                               ; preds = %59, %41
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.DdQueueItem, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %63
+42:                                               ; preds = %28
+  br label %43
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.DdQueueItem, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = icmp eq ptr %50, %51
-  br i1 %52, label %53, label %59
+43:                                               ; preds = %60, %42
+  %44 = load ptr, ptr %6, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !32
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %64
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.DdQueueItem, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct.DdQueueItem, ptr %57, i32 0, i32 1
-  store ptr %56, ptr %58, align 8
-  br label %64
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %6, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !32
+  %52 = load ptr, ptr %4, align 8, !tbaa !23
+  %53 = icmp eq ptr %51, %52
+  br i1 %53, label %54, label %60
 
-59:                                               ; preds = %47
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.DdQueueItem, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %6, align 8
-  br label %42, !llvm.loop !9
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !23
+  %56 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %58 = load ptr, ptr %6, align 8, !tbaa !23
+  %59 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %58, i32 0, i32 1
+  store ptr %57, ptr %59, align 8, !tbaa !32
+  store i32 1, ptr %7, align 4
+  br label %65
 
-63:                                               ; preds = %42
-  br label %64
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %6, align 8, !tbaa !23
+  %62 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !32
+  store ptr %63, ptr %6, align 8, !tbaa !23
+  br label %43, !llvm.loop !34
 
-64:                                               ; preds = %63, %53, %31, %26
+64:                                               ; preds = %43
+  store i32 1, ptr %7, align 4
+  br label %65
+
+65:                                               ; preds = %64, %54, %32, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret void
 }
 
@@ -861,173 +912,223 @@ define internal i32 @hashResize(ptr noundef %0) #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.DdLevelQueue, ptr %14, i32 0, i32 3
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %10, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.DdLevelQueue, ptr %17, i32 0, i32 8
-  %19 = load i32, ptr %18, align 8
-  store i32 %19, ptr %12, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = shl i32 %20, 1
-  store i32 %21, ptr %8, align 4
-  %22 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8
-  store ptr %22, ptr %13, align 8
-  store ptr @Cudd_OutOfMem, ptr @Extra_UtilMMoutOfMemory, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = sext i32 %23 to i64
-  %25 = mul i64 8, %24
-  %26 = call noalias ptr @malloc(i64 noundef %25) #5
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.DdLevelQueue, ptr %27, i32 0, i32 3
-  store ptr %26, ptr %28, align 8
-  store ptr %26, ptr %9, align 8
-  %29 = load ptr, ptr %13, align 8
-  store ptr %29, ptr @Extra_UtilMMoutOfMemory, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %37
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %15 = load ptr, ptr %3, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  store ptr %17, ptr %10, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %18, i32 0, i32 8
+  %20 = load i32, ptr %19, align 8, !tbaa !14
+  store i32 %20, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %21 = load i32, ptr %12, align 4, !tbaa !3
+  %22 = shl i32 %21, 1
+  store i32 %22, ptr %8, align 4, !tbaa !3
+  %23 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !29
+  store ptr %23, ptr %13, align 8, !tbaa !29
+  store ptr @Cudd_OutOfMem, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !29
+  %24 = load i32, ptr %8, align 4, !tbaa !3
+  %25 = sext i32 %24 to i64
+  %26 = mul i64 8, %25
+  %27 = call noalias ptr @malloc(i64 noundef %26) #7
+  %28 = load ptr, ptr %3, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %28, i32 0, i32 3
+  store ptr %27, ptr %29, align 8, !tbaa !16
+  store ptr %27, ptr %9, align 8, !tbaa !35
+  %30 = load ptr, ptr %13, align 8, !tbaa !29
+  store ptr %30, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !29
+  %31 = load ptr, ptr %9, align 8, !tbaa !35
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %1
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.DdLevelQueue, ptr %33, i32 0, i32 7
-  %35 = load i32, ptr %34, align 4
-  %36 = shl i32 %35, 1
-  store i32 %36, ptr %34, align 4
+33:                                               ; preds = %1
+  %34 = load ptr, ptr %3, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %34, i32 0, i32 7
+  %36 = load i32, ptr %35, align 4, !tbaa !22
+  %37 = shl i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !22
   store i32 1, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %103
+
+38:                                               ; preds = %1
+  %39 = load i32, ptr %8, align 4, !tbaa !3
+  %40 = load ptr, ptr %3, align 8, !tbaa !7
+  %41 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %40, i32 0, i32 8
+  store i32 %39, ptr %41, align 8, !tbaa !14
+  %42 = load ptr, ptr %3, align 8, !tbaa !7
+  %43 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %42, i32 0, i32 9
+  %44 = load i32, ptr %43, align 4, !tbaa !15
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %43, align 4, !tbaa !15
+  store i32 %45, ptr %11, align 4, !tbaa !3
+  %46 = load ptr, ptr %3, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.DdLevelQueue, ptr %46, i32 0, i32 7
+  %48 = load i32, ptr %47, align 4, !tbaa !22
+  %49 = shl i32 %48, 1
+  store i32 %49, ptr %47, align 4, !tbaa !22
+  %50 = load ptr, ptr %9, align 8, !tbaa !35
+  %51 = load i32, ptr %8, align 4, !tbaa !3
+  %52 = sext i32 %51 to i64
+  %53 = mul i64 %52, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %50, i8 0, i64 %53, i1 false)
+  store i32 0, ptr %4, align 4, !tbaa !3
+  br label %54
+
+54:                                               ; preds = %93, %38
+  %55 = load i32, ptr %4, align 4, !tbaa !3
+  %56 = load i32, ptr %12, align 4, !tbaa !3
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %58, label %96
+
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %10, align 8, !tbaa !35
+  %60 = load i32, ptr %4, align 4, !tbaa !3
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !23
+  store ptr %63, ptr %6, align 8, !tbaa !23
+  br label %64
+
+64:                                               ; preds = %67, %58
+  %65 = load ptr, ptr %6, align 8, !tbaa !23
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %92
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %6, align 8, !tbaa !23
+  %69 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !32
+  store ptr %70, ptr %7, align 8, !tbaa !23
+  %71 = load ptr, ptr %6, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %74 = ptrtoint ptr %73 to i64
+  %75 = trunc i64 %74 to i32
+  %76 = mul i32 %75, 12582917
+  %77 = load i32, ptr %11, align 4, !tbaa !3
+  %78 = lshr i32 %76, %77
+  store i32 %78, ptr %5, align 4, !tbaa !3
+  %79 = load ptr, ptr %9, align 8, !tbaa !35
+  %80 = load i32, ptr %5, align 4, !tbaa !3
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds ptr, ptr %79, i64 %81
+  %83 = load ptr, ptr %82, align 8, !tbaa !23
+  %84 = load ptr, ptr %6, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw %struct.DdQueueItem, ptr %84, i32 0, i32 1
+  store ptr %83, ptr %85, align 8, !tbaa !32
+  %86 = load ptr, ptr %6, align 8, !tbaa !23
+  %87 = load ptr, ptr %9, align 8, !tbaa !35
+  %88 = load i32, ptr %5, align 4, !tbaa !3
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds ptr, ptr %87, i64 %89
+  store ptr %86, ptr %90, align 8, !tbaa !23
+  %91 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %91, ptr %6, align 8, !tbaa !23
+  br label %64, !llvm.loop !36
+
+92:                                               ; preds = %64
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i32, ptr %4, align 4, !tbaa !3
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %4, align 4, !tbaa !3
+  br label %54, !llvm.loop !37
+
+96:                                               ; preds = %54
+  %97 = load ptr, ptr %10, align 8, !tbaa !35
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %10, align 8, !tbaa !35
+  call void @free(ptr noundef %100) #6
+  store ptr null, ptr %10, align 8, !tbaa !35
   br label %102
 
-37:                                               ; preds = %1
-  %38 = load i32, ptr %8, align 4
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.DdLevelQueue, ptr %39, i32 0, i32 8
-  store i32 %38, ptr %40, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.DdLevelQueue, ptr %41, i32 0, i32 9
-  %43 = load i32, ptr %42, align 4
-  %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %42, align 4
-  store i32 %44, ptr %11, align 4
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.DdLevelQueue, ptr %45, i32 0, i32 7
-  %47 = load i32, ptr %46, align 4
-  %48 = shl i32 %47, 1
-  store i32 %48, ptr %46, align 4
-  %49 = load ptr, ptr %9, align 8
-  %50 = load i32, ptr %8, align 4
-  %51 = sext i32 %50 to i64
-  %52 = mul i64 %51, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %52, i1 false)
-  store i32 0, ptr %4, align 4
-  br label %53
-
-53:                                               ; preds = %92, %37
-  %54 = load i32, ptr %4, align 4
-  %55 = load i32, ptr %12, align 4
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %57, label %95
-
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %10, align 8
-  %59 = load i32, ptr %4, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %6, align 8
-  br label %63
-
-63:                                               ; preds = %66, %57
-  %64 = load ptr, ptr %6, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %91
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.DdQueueItem, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %7, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.DdQueueItem, ptr %70, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = trunc i64 %73 to i32
-  %75 = mul i32 %74, 12582917
-  %76 = load i32, ptr %11, align 4
-  %77 = lshr i32 %75, %76
-  store i32 %77, ptr %5, align 4
-  %78 = load ptr, ptr %9, align 8
-  %79 = load i32, ptr %5, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.DdQueueItem, ptr %83, i32 0, i32 1
-  store ptr %82, ptr %84, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = load i32, ptr %5, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
-  store ptr %85, ptr %89, align 8
-  %90 = load ptr, ptr %7, align 8
-  store ptr %90, ptr %6, align 8
-  br label %63, !llvm.loop !10
-
-91:                                               ; preds = %63
-  br label %92
-
-92:                                               ; preds = %91
-  %93 = load i32, ptr %4, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %4, align 4
-  br label %53, !llvm.loop !11
-
-95:                                               ; preds = %53
-  %96 = load ptr, ptr %10, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %98, label %100
-
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %99) #6
-  store ptr null, ptr %10, align 8
-  br label %101
-
-100:                                              ; preds = %95
-  br label %101
-
-101:                                              ; preds = %100, %98
-  store i32 1, ptr %2, align 4
+101:                                              ; preds = %96
   br label %102
 
-102:                                              ; preds = %101, %32
-  %103 = load i32, ptr %2, align 4
-  ret i32 %103
+102:                                              ; preds = %101, %99
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %14, align 4
+  br label %103
+
+103:                                              ; preds = %102, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %104 = load i32, ptr %2, align 4
+  ret i32 %104
 }
 
-declare void @Cudd_OutOfMem(i64 noundef) #3
+declare void @Cudd_OutOfMem(i64 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS12DdLevelQueue", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"DdLevelQueue", !9, i64 0, !12, i64 8, !13, i64 16, !12, i64 24, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !4, i64 52}
+!12 = !{!"p2 _ZTS11DdQueueItem", !9, i64 0}
+!13 = !{!"p1 _ZTS11DdQueueItem", !9, i64 0}
+!14 = !{!11, !4, i64 48}
+!15 = !{!11, !4, i64 52}
+!16 = !{!11, !12, i64 24}
+!17 = !{!11, !9, i64 0}
+!18 = !{!11, !13, i64 16}
+!19 = !{!11, !4, i64 32}
+!20 = !{!11, !4, i64 36}
+!21 = !{!11, !4, i64 40}
+!22 = !{!11, !4, i64 44}
+!23 = !{!13, !13, i64 0}
+!24 = !{!25, !13, i64 0}
+!25 = !{!"DdQueueItem", !13, i64 0, !13, i64 8, !9, i64 16}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = distinct !{!28, !27}
+!29 = !{!9, !9, i64 0}
+!30 = !{!25, !9, i64 16}
+!31 = distinct !{!31, !27}
+!32 = !{!25, !13, i64 8}
+!33 = distinct !{!33, !27}
+!34 = distinct !{!34, !27}
+!35 = !{!12, !12, i64 0}
+!36 = distinct !{!36, !27}
+!37 = distinct !{!37, !27}

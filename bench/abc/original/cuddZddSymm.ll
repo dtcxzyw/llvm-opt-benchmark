@@ -27,114 +27,130 @@ define void @Cudd_zddSymmProfile(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %12 = load i32, ptr %5, align 4
-  store i32 %12, ptr %7, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !8
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %12, ptr %7, align 4, !tbaa !8
   br label %13
 
 13:                                               ; preds = %70, %3
-  %14 = load i32, ptr %7, align 4
-  %15 = load i32, ptr %6, align 4
+  %14 = load i32, ptr %7, align 4, !tbaa !8
+  %15 = load i32, ptr %6, align 4, !tbaa !8
   %16 = icmp slt i32 %14, %15
   br i1 %16, label %17, label %73
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.DdManager, ptr %18, i32 0, i32 20
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.DdManager, ptr %18, i32 0, i32 20
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  %21 = load i32, ptr %7, align 4, !tbaa !8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.DdSubtable, ptr %20, i64 %22
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %23, i32 0, i32 6
-  %25 = load i32, ptr %24, align 4
-  %26 = load i32, ptr %7, align 4
+  %24 = getelementptr inbounds nuw %struct.DdSubtable, ptr %23, i32 0, i32 6
+  %25 = load i32, ptr %24, align 4, !tbaa !27
+  %26 = load i32, ptr %7, align 4, !tbaa !8
   %27 = icmp ne i32 %25, %26
   br i1 %27, label %28, label %69
 
 28:                                               ; preds = %17
-  %29 = load i32, ptr %7, align 4
-  store i32 %29, ptr %8, align 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.DdManager, ptr %30, i32 0, i32 84
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str) #4
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %29, ptr %8, align 4, !tbaa !8
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.DdManager, ptr %30, i32 0, i32 84
+  %32 = load ptr, ptr %31, align 8, !tbaa !28
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str) #5
   br label %34
 
 34:                                               ; preds = %57, %28
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.DdManager, ptr %35, i32 0, i32 84
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.DdManager, ptr %38, i32 0, i32 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.DdManager, ptr %35, i32 0, i32 84
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.DdManager, ptr %38, i32 0, i32 40
+  %40 = load ptr, ptr %39, align 8, !tbaa !29
+  %41 = load i32, ptr %8, align 4, !tbaa !8
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.1, i32 noundef %44) #4
-  %46 = load i32, ptr %10, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !8
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.1, i32 noundef %44) #5
+  %46 = load i32, ptr %10, align 4, !tbaa !8
   %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %10, align 4
-  %48 = load i32, ptr %8, align 4
-  store i32 %48, ptr %9, align 4
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.DdManager, ptr %49, i32 0, i32 20
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %8, align 4
+  store i32 %47, ptr %10, align 4, !tbaa !8
+  %48 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %48, ptr %9, align 4, !tbaa !8
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.DdManager, ptr %49, i32 0, i32 20
+  %51 = load ptr, ptr %50, align 8, !tbaa !10
+  %52 = load i32, ptr %8, align 4, !tbaa !8
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds %struct.DdSubtable, ptr %51, i64 %53
-  %55 = getelementptr inbounds %struct.DdSubtable, ptr %54, i32 0, i32 6
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %8, align 4
+  %55 = getelementptr inbounds nuw %struct.DdSubtable, ptr %54, i32 0, i32 6
+  %56 = load i32, ptr %55, align 4, !tbaa !27
+  store i32 %56, ptr %8, align 4, !tbaa !8
   br label %57
 
 57:                                               ; preds = %34
-  %58 = load i32, ptr %8, align 4
-  %59 = load i32, ptr %7, align 4
+  %58 = load i32, ptr %8, align 4, !tbaa !8
+  %59 = load i32, ptr %7, align 4, !tbaa !8
   %60 = icmp ne i32 %58, %59
-  br i1 %60, label %34, label %61, !llvm.loop !4
+  br i1 %60, label %34, label %61, !llvm.loop !30
 
 61:                                               ; preds = %57
-  %62 = load i32, ptr %11, align 4
+  %62 = load i32, ptr %11, align 4, !tbaa !8
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %11, align 4
-  %64 = load i32, ptr %9, align 4
-  store i32 %64, ptr %7, align 4
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.DdManager, ptr %65, i32 0, i32 84
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.2) #4
+  store i32 %63, ptr %11, align 4, !tbaa !8
+  %64 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %64, ptr %7, align 4, !tbaa !8
+  %65 = load ptr, ptr %4, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.DdManager, ptr %65, i32 0, i32 84
+  %67 = load ptr, ptr %66, align 8, !tbaa !28
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.2) #5
   br label %69
 
 69:                                               ; preds = %61, %17
   br label %70
 
 70:                                               ; preds = %69
-  %71 = load i32, ptr %7, align 4
+  %71 = load i32, ptr %7, align 4, !tbaa !8
   %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %7, align 4
-  br label %13, !llvm.loop !6
+  store i32 %72, ptr %7, align 4, !tbaa !8
+  br label %13, !llvm.loop !32
 
 73:                                               ; preds = %13
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.DdManager, ptr %74, i32 0, i32 84
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %10, align 4
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.3, i32 noundef %77) #4
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.DdManager, ptr %79, i32 0, i32 84
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr %11, align 4
-  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.4, i32 noundef %82) #4
+  %74 = load ptr, ptr %4, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.DdManager, ptr %74, i32 0, i32 84
+  %76 = load ptr, ptr %75, align 8, !tbaa !28
+  %77 = load i32, ptr %10, align 4, !tbaa !8
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.3, i32 noundef %77) #5
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.DdManager, ptr %79, i32 0, i32 84
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %82 = load i32, ptr %11, align 4, !tbaa !8
+  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.4, i32 noundef %82) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @cuddZddSymmCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -156,301 +172,333 @@ define i32 @cuddZddSymmCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 1, ptr %17, align 4
-  store i32 1, ptr %18, align 4
-  store i32 0, ptr %19, align 4
-  store i32 0, ptr %20, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.DdManager, ptr %22, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr @empty, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.DdManager, ptr %25, i32 0, i32 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %27, i64 %29
-  %31 = load i32, ptr %30, align 4
-  store i32 %31, ptr %16, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.DdManager, ptr %32, i32 0, i32 20
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %6, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.DdSubtable, ptr %34, i64 %36
-  %38 = getelementptr inbounds %struct.DdSubtable, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %38, align 4
-  %40 = sub i32 %39, 1
-  store i32 %40, ptr %8, align 4
-  br label %41
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  store i32 1, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  store i32 1, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  store i32 0, ptr %19, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  store i32 0, ptr %20, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.DdManager, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  store ptr %25, ptr @empty, align 8, !tbaa !34
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.DdManager, ptr %26, i32 0, i32 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !29
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !8
+  store i32 %32, ptr %16, align 4, !tbaa !8
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.DdManager, ptr %33, i32 0, i32 20
+  %35 = load ptr, ptr %34, align 8, !tbaa !10
+  %36 = load i32, ptr %6, align 4, !tbaa !8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds %struct.DdSubtable, ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw %struct.DdSubtable, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 4, !tbaa !35
+  %41 = sub i32 %40, 1
+  store i32 %41, ptr %8, align 4, !tbaa !8
+  br label %42
 
-41:                                               ; preds = %147, %3
-  %42 = load i32, ptr %8, align 4
-  %43 = icmp sge i32 %42, 0
-  br i1 %43, label %44, label %150
+42:                                               ; preds = %148, %3
+  %43 = load i32, ptr %8, align 4, !tbaa !8
+  %44 = icmp sge i32 %43, 0
+  br i1 %44, label %45, label %151
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.DdManager, ptr %45, i32 0, i32 20
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i32, ptr %6, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.DdSubtable, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.DdSubtable, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %8, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %9, align 8
-  br label %57
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.DdManager, ptr %46, i32 0, i32 20
+  %48 = load ptr, ptr %47, align 8, !tbaa !10
+  %49 = load i32, ptr %6, align 4, !tbaa !8
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %struct.DdSubtable, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %struct.DdSubtable, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !36
+  %54 = load i32, ptr %8, align 4, !tbaa !8
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !34
+  store ptr %57, ptr %9, align 8, !tbaa !34
+  br label %58
 
-57:                                               ; preds = %142, %44
-  %58 = load ptr, ptr %9, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %146
+58:                                               ; preds = %143, %45
+  %59 = load ptr, ptr %9, align 8, !tbaa !34
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %147
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds %struct.DdNode, ptr %61, i32 0, i32 3
-  %63 = getelementptr inbounds %struct.DdChildren, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %11, align 8
-  %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct.DdNode, ptr %65, i32 0, i32 3
-  %67 = getelementptr inbounds %struct.DdChildren, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %10, align 8
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.DdNode, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = load i32, ptr %16, align 4
-  %73 = icmp eq i32 %71, %72
-  br i1 %73, label %74, label %90
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %9, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw %struct.DdNode, ptr %62, i32 0, i32 3
+  %64 = getelementptr inbounds nuw %struct.DdChildren, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !37
+  store ptr %65, ptr %11, align 8, !tbaa !34
+  %66 = load ptr, ptr %9, align 8, !tbaa !34
+  %67 = getelementptr inbounds nuw %struct.DdNode, ptr %66, i32 0, i32 3
+  %68 = getelementptr inbounds nuw %struct.DdChildren, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !37
+  store ptr %69, ptr %10, align 8, !tbaa !34
+  %70 = load ptr, ptr %11, align 8, !tbaa !34
+  %71 = getelementptr inbounds nuw %struct.DdNode, ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %71, align 8, !tbaa !38
+  %73 = load i32, ptr %16, align 4, !tbaa !8
+  %74 = icmp eq i32 %72, %73
+  br i1 %74, label %75, label %91
 
-74:                                               ; preds = %60
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct.DdNode, ptr %75, i32 0, i32 3
-  %77 = getelementptr inbounds %struct.DdChildren, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %14, align 8
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct.DdNode, ptr %79, i32 0, i32 3
-  %81 = getelementptr inbounds %struct.DdChildren, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %15, align 8
-  %83 = load ptr, ptr %15, align 8
-  %84 = load ptr, ptr @empty, align 8
-  %85 = icmp ne ptr %83, %84
-  br i1 %85, label %86, label %89
+75:                                               ; preds = %61
+  %76 = load ptr, ptr %11, align 8, !tbaa !34
+  %77 = getelementptr inbounds nuw %struct.DdNode, ptr %76, i32 0, i32 3
+  %78 = getelementptr inbounds nuw %struct.DdChildren, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  store ptr %79, ptr %14, align 8, !tbaa !34
+  %80 = load ptr, ptr %11, align 8, !tbaa !34
+  %81 = getelementptr inbounds nuw %struct.DdNode, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds nuw %struct.DdChildren, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !37
+  store ptr %83, ptr %15, align 8, !tbaa !34
+  %84 = load ptr, ptr %15, align 8, !tbaa !34
+  %85 = load ptr, ptr @empty, align 8, !tbaa !34
+  %86 = icmp ne ptr %84, %85
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %74
-  %87 = load i32, ptr %19, align 4
-  %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %19, align 4
-  br label %89
+87:                                               ; preds = %75
+  %88 = load i32, ptr %19, align 4, !tbaa !8
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %19, align 4, !tbaa !8
+  br label %90
 
-89:                                               ; preds = %86, %74
-  br label %100
+90:                                               ; preds = %87, %75
+  br label %101
 
-90:                                               ; preds = %60
-  %91 = load ptr, ptr %10, align 8
-  %92 = getelementptr inbounds %struct.DdNode, ptr %91, i32 0, i32 0
-  %93 = load i32, ptr %92, align 8
-  %94 = load i32, ptr %16, align 4
-  %95 = icmp ne i32 %93, %94
-  br i1 %95, label %96, label %97
+91:                                               ; preds = %61
+  %92 = load ptr, ptr %10, align 8, !tbaa !34
+  %93 = getelementptr inbounds nuw %struct.DdNode, ptr %92, i32 0, i32 0
+  %94 = load i32, ptr %93, align 8, !tbaa !38
+  %95 = load i32, ptr %16, align 4, !tbaa !8
+  %96 = icmp ne i32 %94, %95
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %90
+97:                                               ; preds = %91
   store i32 0, ptr %4, align 4
-  br label %206
+  store i32 1, ptr %22, align 4
+  br label %207
 
-97:                                               ; preds = %90
-  %98 = load ptr, ptr @empty, align 8
-  store ptr %98, ptr %14, align 8
-  %99 = load ptr, ptr %11, align 8
-  store ptr %99, ptr %15, align 8
-  br label %100
+98:                                               ; preds = %91
+  %99 = load ptr, ptr @empty, align 8, !tbaa !34
+  store ptr %99, ptr %14, align 8, !tbaa !34
+  %100 = load ptr, ptr %11, align 8, !tbaa !34
+  store ptr %100, ptr %15, align 8, !tbaa !34
+  br label %101
 
-100:                                              ; preds = %97, %89
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct.DdNode, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = load i32, ptr %16, align 4
-  %105 = icmp eq i32 %103, %104
-  br i1 %105, label %106, label %122
+101:                                              ; preds = %98, %90
+  %102 = load ptr, ptr %10, align 8, !tbaa !34
+  %103 = getelementptr inbounds nuw %struct.DdNode, ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8, !tbaa !38
+  %105 = load i32, ptr %16, align 4, !tbaa !8
+  %106 = icmp eq i32 %104, %105
+  br i1 %106, label %107, label %123
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %10, align 8
-  %108 = getelementptr inbounds %struct.DdNode, ptr %107, i32 0, i32 3
-  %109 = getelementptr inbounds %struct.DdChildren, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %12, align 8
-  %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds %struct.DdNode, ptr %111, i32 0, i32 3
-  %113 = getelementptr inbounds %struct.DdChildren, ptr %112, i32 0, i32 1
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %13, align 8
-  %115 = load ptr, ptr %13, align 8
-  %116 = load ptr, ptr @empty, align 8
-  %117 = icmp ne ptr %115, %116
-  br i1 %117, label %118, label %121
+107:                                              ; preds = %101
+  %108 = load ptr, ptr %10, align 8, !tbaa !34
+  %109 = getelementptr inbounds nuw %struct.DdNode, ptr %108, i32 0, i32 3
+  %110 = getelementptr inbounds nuw %struct.DdChildren, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !37
+  store ptr %111, ptr %12, align 8, !tbaa !34
+  %112 = load ptr, ptr %10, align 8, !tbaa !34
+  %113 = getelementptr inbounds nuw %struct.DdNode, ptr %112, i32 0, i32 3
+  %114 = getelementptr inbounds nuw %struct.DdChildren, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8, !tbaa !37
+  store ptr %115, ptr %13, align 8, !tbaa !34
+  %116 = load ptr, ptr %13, align 8, !tbaa !34
+  %117 = load ptr, ptr @empty, align 8, !tbaa !34
+  %118 = icmp ne ptr %116, %117
+  br i1 %118, label %119, label %122
 
-118:                                              ; preds = %106
-  %119 = load i32, ptr %19, align 4
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %19, align 4
-  br label %121
+119:                                              ; preds = %107
+  %120 = load i32, ptr %19, align 4, !tbaa !8
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %19, align 4, !tbaa !8
+  br label %122
 
-121:                                              ; preds = %118, %106
-  br label %125
+122:                                              ; preds = %119, %107
+  br label %126
 
-122:                                              ; preds = %100
-  %123 = load ptr, ptr @empty, align 8
-  store ptr %123, ptr %12, align 8
-  %124 = load ptr, ptr %10, align 8
-  store ptr %124, ptr %13, align 8
-  br label %125
+123:                                              ; preds = %101
+  %124 = load ptr, ptr @empty, align 8, !tbaa !34
+  store ptr %124, ptr %12, align 8, !tbaa !34
+  %125 = load ptr, ptr %10, align 8, !tbaa !34
+  store ptr %125, ptr %13, align 8, !tbaa !34
+  br label %126
 
-125:                                              ; preds = %122, %121
-  %126 = load ptr, ptr %12, align 8
-  %127 = load ptr, ptr %15, align 8
-  %128 = icmp ne ptr %126, %127
-  br i1 %128, label %129, label %130
+126:                                              ; preds = %123, %122
+  %127 = load ptr, ptr %12, align 8, !tbaa !34
+  %128 = load ptr, ptr %15, align 8, !tbaa !34
+  %129 = icmp ne ptr %127, %128
+  br i1 %129, label %130, label %131
 
-129:                                              ; preds = %125
-  store i32 0, ptr %17, align 4
-  br label %130
+130:                                              ; preds = %126
+  store i32 0, ptr %17, align 4, !tbaa !8
+  br label %131
 
-130:                                              ; preds = %129, %125
-  %131 = load ptr, ptr %14, align 8
-  %132 = load ptr, ptr %13, align 8
-  %133 = icmp ne ptr %131, %132
-  br i1 %133, label %134, label %135
+131:                                              ; preds = %130, %126
+  %132 = load ptr, ptr %14, align 8, !tbaa !34
+  %133 = load ptr, ptr %13, align 8, !tbaa !34
+  %134 = icmp ne ptr %132, %133
+  br i1 %134, label %135, label %136
 
-134:                                              ; preds = %130
-  store i32 0, ptr %18, align 4
-  br label %135
+135:                                              ; preds = %131
+  store i32 0, ptr %18, align 4, !tbaa !8
+  br label %136
 
-135:                                              ; preds = %134, %130
-  %136 = load i32, ptr %17, align 4
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %142
+136:                                              ; preds = %135, %131
+  %137 = load i32, ptr %17, align 4, !tbaa !8
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %143
 
-138:                                              ; preds = %135
-  %139 = load i32, ptr %18, align 4
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %142
+139:                                              ; preds = %136
+  %140 = load i32, ptr %18, align 4, !tbaa !8
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %143
 
-141:                                              ; preds = %138
+142:                                              ; preds = %139
   store i32 0, ptr %4, align 4
-  br label %206
+  store i32 1, ptr %22, align 4
+  br label %207
 
-142:                                              ; preds = %138, %135
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct.DdNode, ptr %143, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %9, align 8
-  br label %57, !llvm.loop !7
+143:                                              ; preds = %139, %136
+  %144 = load ptr, ptr %9, align 8, !tbaa !34
+  %145 = getelementptr inbounds nuw %struct.DdNode, ptr %144, i32 0, i32 2
+  %146 = load ptr, ptr %145, align 8, !tbaa !39
+  store ptr %146, ptr %9, align 8, !tbaa !34
+  br label %58, !llvm.loop !40
 
-146:                                              ; preds = %57
-  br label %147
+147:                                              ; preds = %58
+  br label %148
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %8, align 4
-  %149 = add nsw i32 %148, -1
-  store i32 %149, ptr %8, align 4
-  br label %41, !llvm.loop !8
+148:                                              ; preds = %147
+  %149 = load i32, ptr %8, align 4, !tbaa !8
+  %150 = add nsw i32 %149, -1
+  store i32 %150, ptr %8, align 4, !tbaa !8
+  br label %42, !llvm.loop !41
 
-150:                                              ; preds = %41
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds %struct.DdManager, ptr %151, i32 0, i32 20
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %7, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.DdSubtable, ptr %153, i64 %155
-  %157 = getelementptr inbounds %struct.DdSubtable, ptr %156, i32 0, i32 2
-  %158 = load i32, ptr %157, align 4
-  %159 = sub i32 %158, 1
-  store i32 %159, ptr %8, align 4
-  br label %160
+151:                                              ; preds = %42
+  %152 = load ptr, ptr %5, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.DdManager, ptr %152, i32 0, i32 20
+  %154 = load ptr, ptr %153, align 8, !tbaa !10
+  %155 = load i32, ptr %7, align 4, !tbaa !8
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds %struct.DdSubtable, ptr %154, i64 %156
+  %158 = getelementptr inbounds nuw %struct.DdSubtable, ptr %157, i32 0, i32 2
+  %159 = load i32, ptr %158, align 4, !tbaa !35
+  %160 = sub i32 %159, 1
+  store i32 %160, ptr %8, align 4, !tbaa !8
+  br label %161
 
-160:                                              ; preds = %197, %150
-  %161 = load i32, ptr %8, align 4
-  %162 = icmp sge i32 %161, 0
-  br i1 %162, label %163, label %200
+161:                                              ; preds = %198, %151
+  %162 = load i32, ptr %8, align 4, !tbaa !8
+  %163 = icmp sge i32 %162, 0
+  br i1 %163, label %164, label %201
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.DdManager, ptr %164, i32 0, i32 20
-  %166 = load ptr, ptr %165, align 8
-  %167 = load i32, ptr %7, align 4
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct.DdSubtable, ptr %166, i64 %168
-  %170 = getelementptr inbounds %struct.DdSubtable, ptr %169, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = load i32, ptr %8, align 4
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds ptr, ptr %171, i64 %173
-  %175 = load ptr, ptr %174, align 8
-  store ptr %175, ptr %9, align 8
-  br label %176
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %5, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw %struct.DdManager, ptr %165, i32 0, i32 20
+  %167 = load ptr, ptr %166, align 8, !tbaa !10
+  %168 = load i32, ptr %7, align 4, !tbaa !8
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds %struct.DdSubtable, ptr %167, i64 %169
+  %171 = getelementptr inbounds nuw %struct.DdSubtable, ptr %170, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8, !tbaa !36
+  %173 = load i32, ptr %8, align 4, !tbaa !8
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds ptr, ptr %172, i64 %174
+  %176 = load ptr, ptr %175, align 8, !tbaa !34
+  store ptr %176, ptr %9, align 8, !tbaa !34
+  br label %177
 
-176:                                              ; preds = %192, %163
-  %177 = load ptr, ptr %9, align 8
-  %178 = icmp ne ptr %177, null
-  br i1 %178, label %179, label %196
+177:                                              ; preds = %193, %164
+  %178 = load ptr, ptr %9, align 8, !tbaa !34
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %197
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %9, align 8
-  %181 = getelementptr inbounds %struct.DdNode, ptr %180, i32 0, i32 3
-  %182 = getelementptr inbounds %struct.DdChildren, ptr %181, i32 0, i32 1
-  %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr @empty, align 8
-  %185 = icmp ne ptr %183, %184
-  br i1 %185, label %186, label %192
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %9, align 8, !tbaa !34
+  %182 = getelementptr inbounds nuw %struct.DdNode, ptr %181, i32 0, i32 3
+  %183 = getelementptr inbounds nuw %struct.DdChildren, ptr %182, i32 0, i32 1
+  %184 = load ptr, ptr %183, align 8, !tbaa !37
+  %185 = load ptr, ptr @empty, align 8, !tbaa !34
+  %186 = icmp ne ptr %184, %185
+  br i1 %186, label %187, label %193
 
-186:                                              ; preds = %179
-  %187 = load ptr, ptr %9, align 8
-  %188 = getelementptr inbounds %struct.DdNode, ptr %187, i32 0, i32 1
-  %189 = load i32, ptr %188, align 4
-  %190 = load i32, ptr %20, align 4
-  %191 = add i32 %190, %189
-  store i32 %191, ptr %20, align 4
-  br label %192
+187:                                              ; preds = %180
+  %188 = load ptr, ptr %9, align 8, !tbaa !34
+  %189 = getelementptr inbounds nuw %struct.DdNode, ptr %188, i32 0, i32 1
+  %190 = load i32, ptr %189, align 4, !tbaa !42
+  %191 = load i32, ptr %20, align 4, !tbaa !8
+  %192 = add i32 %191, %190
+  store i32 %192, ptr %20, align 4, !tbaa !8
+  br label %193
 
-192:                                              ; preds = %186, %179
-  %193 = load ptr, ptr %9, align 8
-  %194 = getelementptr inbounds %struct.DdNode, ptr %193, i32 0, i32 2
-  %195 = load ptr, ptr %194, align 8
-  store ptr %195, ptr %9, align 8
-  br label %176, !llvm.loop !9
+193:                                              ; preds = %187, %180
+  %194 = load ptr, ptr %9, align 8, !tbaa !34
+  %195 = getelementptr inbounds nuw %struct.DdNode, ptr %194, i32 0, i32 2
+  %196 = load ptr, ptr %195, align 8, !tbaa !39
+  store ptr %196, ptr %9, align 8, !tbaa !34
+  br label %177, !llvm.loop !43
 
-196:                                              ; preds = %176
-  br label %197
+197:                                              ; preds = %177
+  br label %198
 
-197:                                              ; preds = %196
-  %198 = load i32, ptr %8, align 4
-  %199 = add nsw i32 %198, -1
-  store i32 %199, ptr %8, align 4
-  br label %160, !llvm.loop !10
+198:                                              ; preds = %197
+  %199 = load i32, ptr %8, align 4, !tbaa !8
+  %200 = add nsw i32 %199, -1
+  store i32 %200, ptr %8, align 4, !tbaa !8
+  br label %161, !llvm.loop !44
 
-200:                                              ; preds = %160
-  %201 = load i32, ptr %19, align 4
-  %202 = load i32, ptr %20, align 4
-  %203 = icmp eq i32 %201, %202
-  %204 = zext i1 %203 to i32
-  store i32 %204, ptr %21, align 4
-  %205 = load i32, ptr %21, align 4
-  store i32 %205, ptr %4, align 4
-  br label %206
+201:                                              ; preds = %161
+  %202 = load i32, ptr %19, align 4, !tbaa !8
+  %203 = load i32, ptr %20, align 4, !tbaa !8
+  %204 = icmp eq i32 %202, %203
+  %205 = zext i1 %204 to i32
+  store i32 %205, ptr %21, align 4, !tbaa !8
+  %206 = load i32, ptr %21, align 4, !tbaa !8
+  store i32 %206, ptr %4, align 4
+  store i32 1, ptr %22, align 4
+  br label %207
 
-206:                                              ; preds = %200, %141, %96
-  %207 = load i32, ptr %4, align 4
-  ret i32 %207
+207:                                              ; preds = %201, %142, %97
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %208 = load i32, ptr %4, align 4
+  ret i32 %208
 }
 
 ; Function Attrs: nounwind uwtable
@@ -467,328 +515,347 @@ define i32 @cuddZddSymmSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.DdManager, ptr %16, i32 0, i32 16
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %10, align 4
-  store ptr null, ptr %9, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = sext i32 %19 to i64
-  %21 = mul i64 4, %20
-  %22 = call noalias ptr @malloc(i64 noundef %21) #5
-  store ptr %22, ptr @zdd_entry, align 8
-  %23 = load ptr, ptr @zdd_entry, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.DdManager, ptr %17, i32 0, i32 16
+  %19 = load i32, ptr %18, align 4, !tbaa !45
+  store i32 %19, ptr %10, align 4, !tbaa !8
+  store ptr null, ptr %9, align 8, !tbaa !46
+  %20 = load i32, ptr %10, align 4, !tbaa !8
+  %21 = sext i32 %20 to i64
+  %22 = mul i64 4, %21
+  %23 = call noalias ptr @malloc(i64 noundef %22) #6
+  store ptr %23, ptr @zdd_entry, align 8, !tbaa !46
+  %24 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.DdManager, ptr %26, i32 0, i32 86
-  store i32 1, ptr %27, align 8
-  br label %180
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.DdManager, ptr %27, i32 0, i32 86
+  store i32 1, ptr %28, align 8, !tbaa !47
+  br label %181
 
-28:                                               ; preds = %3
-  %29 = load i32, ptr %10, align 4
-  %30 = sext i32 %29 to i64
-  %31 = mul i64 4, %30
-  %32 = call noalias ptr @malloc(i64 noundef %31) #5
-  store ptr %32, ptr %9, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %38
+29:                                               ; preds = %3
+  %30 = load i32, ptr %10, align 4, !tbaa !8
+  %31 = sext i32 %30 to i64
+  %32 = mul i64 4, %31
+  %33 = call noalias ptr @malloc(i64 noundef %32) #6
+  store ptr %33, ptr %9, align 8, !tbaa !46
+  %34 = load ptr, ptr %9, align 8, !tbaa !46
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.DdManager, ptr %36, i32 0, i32 86
-  store i32 1, ptr %37, align 8
-  br label %180
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %5, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.DdManager, ptr %37, i32 0, i32 86
+  store i32 1, ptr %38, align 8, !tbaa !47
+  br label %181
 
-38:                                               ; preds = %28
-  store i32 0, ptr %8, align 4
-  br label %39
+39:                                               ; preds = %29
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %40
 
-39:                                               ; preds = %68, %38
-  %40 = load i32, ptr %8, align 4
-  %41 = load i32, ptr %10, align 4
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %43, label %71
+40:                                               ; preds = %69, %39
+  %41 = load i32, ptr %8, align 4, !tbaa !8
+  %42 = load i32, ptr %10, align 4, !tbaa !8
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %44, label %72
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.DdManager, ptr %44, i32 0, i32 38
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %46, i64 %48
-  %50 = load i32, ptr %49, align 4
-  store i32 %50, ptr %11, align 4
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.DdManager, ptr %51, i32 0, i32 20
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.DdSubtable, ptr %53, i64 %55
-  %57 = getelementptr inbounds %struct.DdSubtable, ptr %56, i32 0, i32 3
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr @zdd_entry, align 8
-  %60 = load i32, ptr %8, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %59, i64 %61
-  store i32 %58, ptr %62, align 4
-  %63 = load i32, ptr %8, align 4
-  %64 = load ptr, ptr %9, align 8
-  %65 = load i32, ptr %8, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
-  store i32 %63, ptr %67, align 4
-  br label %68
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %5, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.DdManager, ptr %45, i32 0, i32 38
+  %47 = load ptr, ptr %46, align 8, !tbaa !48
+  %48 = load i32, ptr %8, align 4, !tbaa !8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %47, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !8
+  store i32 %51, ptr %11, align 4, !tbaa !8
+  %52 = load ptr, ptr %5, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.DdManager, ptr %52, i32 0, i32 20
+  %54 = load ptr, ptr %53, align 8, !tbaa !10
+  %55 = load i32, ptr %11, align 4, !tbaa !8
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds %struct.DdSubtable, ptr %54, i64 %56
+  %58 = getelementptr inbounds nuw %struct.DdSubtable, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 8, !tbaa !49
+  %60 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %61 = load i32, ptr %8, align 4, !tbaa !8
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i32, ptr %60, i64 %62
+  store i32 %59, ptr %63, align 4, !tbaa !8
+  %64 = load i32, ptr %8, align 4, !tbaa !8
+  %65 = load ptr, ptr %9, align 8, !tbaa !46
+  %66 = load i32, ptr %8, align 4, !tbaa !8
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %65, i64 %67
+  store i32 %64, ptr %68, align 4, !tbaa !8
+  br label %69
 
-68:                                               ; preds = %43
-  %69 = load i32, ptr %8, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %8, align 4
-  br label %39, !llvm.loop !11
+69:                                               ; preds = %44
+  %70 = load i32, ptr %8, align 4, !tbaa !8
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %8, align 4, !tbaa !8
+  br label %40, !llvm.loop !50
 
-71:                                               ; preds = %39
-  %72 = load ptr, ptr %9, align 8
-  %73 = load i32, ptr %10, align 4
-  %74 = sext i32 %73 to i64
-  call void @qsort(ptr noundef %72, i64 noundef %74, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
-  %75 = load i32, ptr %6, align 4
-  store i32 %75, ptr %8, align 4
-  br label %76
+72:                                               ; preds = %40
+  %73 = load ptr, ptr %9, align 8, !tbaa !46
+  %74 = load i32, ptr %10, align 4, !tbaa !8
+  %75 = sext i32 %74 to i64
+  call void @qsort(ptr noundef %73, i64 noundef %75, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
+  %76 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %76, ptr %8, align 4, !tbaa !8
+  br label %77
 
-76:                                               ; preds = %89, %71
-  %77 = load i32, ptr %8, align 4
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp sle i32 %77, %78
-  br i1 %79, label %80, label %92
+77:                                               ; preds = %90, %72
+  %78 = load i32, ptr %8, align 4, !tbaa !8
+  %79 = load i32, ptr %7, align 4, !tbaa !8
+  %80 = icmp sle i32 %78, %79
+  br i1 %80, label %81, label %93
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr %8, align 4
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.DdManager, ptr %82, i32 0, i32 20
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %8, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.DdSubtable, ptr %84, i64 %86
-  %88 = getelementptr inbounds %struct.DdSubtable, ptr %87, i32 0, i32 6
-  store i32 %81, ptr %88, align 4
-  br label %89
+81:                                               ; preds = %77
+  %82 = load i32, ptr %8, align 4, !tbaa !8
+  %83 = load ptr, ptr %5, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.DdManager, ptr %83, i32 0, i32 20
+  %85 = load ptr, ptr %84, align 8, !tbaa !10
+  %86 = load i32, ptr %8, align 4, !tbaa !8
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds %struct.DdSubtable, ptr %85, i64 %87
+  %89 = getelementptr inbounds nuw %struct.DdSubtable, ptr %88, i32 0, i32 6
+  store i32 %82, ptr %89, align 4, !tbaa !27
+  br label %90
 
-89:                                               ; preds = %80
-  %90 = load i32, ptr %8, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %8, align 4
-  br label %76, !llvm.loop !12
+90:                                               ; preds = %81
+  %91 = load i32, ptr %8, align 4, !tbaa !8
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %8, align 4, !tbaa !8
+  br label %77, !llvm.loop !51
 
-92:                                               ; preds = %76
-  %93 = load i32, ptr %10, align 4
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct.DdManager, ptr %94, i32 0, i32 57
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp slt i32 %93, %96
-  br i1 %97, label %98, label %100
+93:                                               ; preds = %77
+  %94 = load i32, ptr %10, align 4, !tbaa !8
+  %95 = load ptr, ptr %5, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.DdManager, ptr %95, i32 0, i32 57
+  %97 = load i32, ptr %96, align 8, !tbaa !52
+  %98 = icmp slt i32 %94, %97
+  br i1 %98, label %99, label %101
 
-98:                                               ; preds = %92
-  %99 = load i32, ptr %10, align 4
-  br label %104
+99:                                               ; preds = %93
+  %100 = load i32, ptr %10, align 4, !tbaa !8
+  br label %105
 
-100:                                              ; preds = %92
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.DdManager, ptr %101, i32 0, i32 57
-  %103 = load i32, ptr %102, align 8
-  br label %104
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %5, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.DdManager, ptr %102, i32 0, i32 57
+  %104 = load i32, ptr %103, align 8, !tbaa !52
+  br label %105
 
-104:                                              ; preds = %100, %98
-  %105 = phi i32 [ %99, %98 ], [ %103, %100 ]
-  store i32 %105, ptr %15, align 4
-  store i32 0, ptr %8, align 4
-  br label %106
+105:                                              ; preds = %101, %99
+  %106 = phi i32 [ %100, %99 ], [ %104, %101 ]
+  store i32 %106, ptr %15, align 4, !tbaa !8
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %107
 
-106:                                              ; preds = %159, %104
-  %107 = load i32, ptr %8, align 4
-  %108 = load i32, ptr %15, align 4
-  %109 = icmp slt i32 %107, %108
-  br i1 %109, label %110, label %162
+107:                                              ; preds = %160, %105
+  %108 = load i32, ptr %8, align 4, !tbaa !8
+  %109 = load i32, ptr %15, align 4, !tbaa !8
+  %110 = icmp slt i32 %108, %109
+  br i1 %110, label %111, label %163
 
-110:                                              ; preds = %106
-  %111 = load i32, ptr @zddTotalNumberSwapping, align 4
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.DdManager, ptr %112, i32 0, i32 58
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp sge i32 %111, %114
-  br i1 %115, label %116, label %117
+111:                                              ; preds = %107
+  %112 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !8
+  %113 = load ptr, ptr %5, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.DdManager, ptr %113, i32 0, i32 58
+  %115 = load i32, ptr %114, align 4, !tbaa !53
+  %116 = icmp sge i32 %112, %115
+  br i1 %116, label %117, label %118
 
-116:                                              ; preds = %110
-  br label %162
+117:                                              ; preds = %111
+  br label %163
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds %struct.DdManager, ptr %118, i32 0, i32 38
-  %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %9, align 8
-  %122 = load i32, ptr %8, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %121, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %120, i64 %126
-  %128 = load i32, ptr %127, align 4
-  store i32 %128, ptr %11, align 4
-  %129 = load i32, ptr %11, align 4
-  %130 = load i32, ptr %6, align 4
-  %131 = icmp slt i32 %129, %130
-  br i1 %131, label %136, label %132
+118:                                              ; preds = %111
+  %119 = load ptr, ptr %5, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.DdManager, ptr %119, i32 0, i32 38
+  %121 = load ptr, ptr %120, align 8, !tbaa !48
+  %122 = load ptr, ptr %9, align 8, !tbaa !46
+  %123 = load i32, ptr %8, align 4, !tbaa !8
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i32, ptr %122, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !8
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i32, ptr %121, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !8
+  store i32 %129, ptr %11, align 4, !tbaa !8
+  %130 = load i32, ptr %11, align 4, !tbaa !8
+  %131 = load i32, ptr %6, align 4, !tbaa !8
+  %132 = icmp slt i32 %130, %131
+  br i1 %132, label %137, label %133
 
-132:                                              ; preds = %117
-  %133 = load i32, ptr %11, align 4
-  %134 = load i32, ptr %7, align 4
-  %135 = icmp sgt i32 %133, %134
-  br i1 %135, label %136, label %137
+133:                                              ; preds = %118
+  %134 = load i32, ptr %11, align 4, !tbaa !8
+  %135 = load i32, ptr %7, align 4, !tbaa !8
+  %136 = icmp sgt i32 %134, %135
+  br i1 %136, label %137, label %138
 
-136:                                              ; preds = %132, %117
+137:                                              ; preds = %133, %118
+  br label %160
+
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %5, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw %struct.DdManager, ptr %139, i32 0, i32 20
+  %141 = load ptr, ptr %140, align 8, !tbaa !10
+  %142 = load i32, ptr %11, align 4, !tbaa !8
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds %struct.DdSubtable, ptr %141, i64 %143
+  %145 = getelementptr inbounds nuw %struct.DdSubtable, ptr %144, i32 0, i32 6
+  %146 = load i32, ptr %145, align 4, !tbaa !27
+  %147 = load i32, ptr %11, align 4, !tbaa !8
+  %148 = icmp eq i32 %146, %147
+  br i1 %148, label %149, label %159
+
+149:                                              ; preds = %138
+  %150 = load ptr, ptr %5, align 8, !tbaa !3
+  %151 = load i32, ptr %11, align 4, !tbaa !8
+  %152 = load i32, ptr %6, align 4, !tbaa !8
+  %153 = load i32, ptr %7, align 4, !tbaa !8
+  %154 = call i32 @cuddZddSymmSiftingAux(ptr noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153)
+  store i32 %154, ptr %12, align 4, !tbaa !8
+  %155 = load i32, ptr %12, align 4, !tbaa !8
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %158, label %157
+
+157:                                              ; preds = %149
+  br label %181
+
+158:                                              ; preds = %149
   br label %159
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds %struct.DdManager, ptr %138, i32 0, i32 20
-  %140 = load ptr, ptr %139, align 8
-  %141 = load i32, ptr %11, align 4
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.DdSubtable, ptr %140, i64 %142
-  %144 = getelementptr inbounds %struct.DdSubtable, ptr %143, i32 0, i32 6
-  %145 = load i32, ptr %144, align 4
-  %146 = load i32, ptr %11, align 4
-  %147 = icmp eq i32 %145, %146
-  br i1 %147, label %148, label %158
+159:                                              ; preds = %158, %138
+  br label %160
 
-148:                                              ; preds = %137
-  %149 = load ptr, ptr %5, align 8
-  %150 = load i32, ptr %11, align 4
-  %151 = load i32, ptr %6, align 4
-  %152 = load i32, ptr %7, align 4
-  %153 = call i32 @cuddZddSymmSiftingAux(ptr noundef %149, i32 noundef %150, i32 noundef %151, i32 noundef %152)
-  store i32 %153, ptr %12, align 4
-  %154 = load i32, ptr %12, align 4
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %157, label %156
+160:                                              ; preds = %159, %137
+  %161 = load i32, ptr %8, align 4, !tbaa !8
+  %162 = add nsw i32 %161, 1
+  store i32 %162, ptr %8, align 4, !tbaa !8
+  br label %107, !llvm.loop !54
 
-156:                                              ; preds = %148
-  br label %180
+163:                                              ; preds = %117, %107
+  %164 = load ptr, ptr %9, align 8, !tbaa !46
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %168
 
-157:                                              ; preds = %148
-  br label %158
+166:                                              ; preds = %163
+  %167 = load ptr, ptr %9, align 8, !tbaa !46
+  call void @free(ptr noundef %167) #5
+  store ptr null, ptr %9, align 8, !tbaa !46
+  br label %169
 
-158:                                              ; preds = %157, %137
-  br label %159
+168:                                              ; preds = %163
+  br label %169
 
-159:                                              ; preds = %158, %136
-  %160 = load i32, ptr %8, align 4
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %8, align 4
-  br label %106, !llvm.loop !13
+169:                                              ; preds = %168, %166
+  %170 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %174
 
-162:                                              ; preds = %116, %106
-  %163 = load ptr, ptr %9, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %165, label %167
+172:                                              ; preds = %169
+  %173 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  call void @free(ptr noundef %173) #5
+  store ptr null, ptr @zdd_entry, align 8, !tbaa !46
+  br label %175
 
-165:                                              ; preds = %162
-  %166 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %166) #4
-  store ptr null, ptr %9, align 8
-  br label %168
+174:                                              ; preds = %169
+  br label %175
 
-167:                                              ; preds = %162
-  br label %168
+175:                                              ; preds = %174, %172
+  %176 = load ptr, ptr %5, align 8, !tbaa !3
+  %177 = load i32, ptr %6, align 4, !tbaa !8
+  %178 = load i32, ptr %7, align 4, !tbaa !8
+  call void @cuddZddSymmSummary(ptr noundef %176, i32 noundef %177, i32 noundef %178, ptr noundef %13, ptr noundef %14)
+  %179 = load i32, ptr %13, align 4, !tbaa !8
+  %180 = add nsw i32 1, %179
+  store i32 %180, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %202
 
-168:                                              ; preds = %167, %165
-  %169 = load ptr, ptr @zdd_entry, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %173
+181:                                              ; preds = %157, %36, %26
+  %182 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %183 = icmp ne ptr %182, null
+  br i1 %183, label %184, label %191
 
-171:                                              ; preds = %168
-  %172 = load ptr, ptr @zdd_entry, align 8
-  call void @free(ptr noundef %172) #4
-  store ptr null, ptr @zdd_entry, align 8
-  br label %174
+184:                                              ; preds = %181
+  %185 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %186 = icmp ne ptr %185, null
+  br i1 %186, label %187, label %189
 
-173:                                              ; preds = %168
-  br label %174
-
-174:                                              ; preds = %173, %171
-  %175 = load ptr, ptr %5, align 8
-  %176 = load i32, ptr %6, align 4
-  %177 = load i32, ptr %7, align 4
-  call void @cuddZddSymmSummary(ptr noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef %13, ptr noundef %14)
-  %178 = load i32, ptr %13, align 4
-  %179 = add nsw i32 1, %178
-  store i32 %179, ptr %4, align 4
-  br label %201
-
-180:                                              ; preds = %156, %35, %25
-  %181 = load ptr, ptr @zdd_entry, align 8
-  %182 = icmp ne ptr %181, null
-  br i1 %182, label %183, label %190
-
-183:                                              ; preds = %180
-  %184 = load ptr, ptr @zdd_entry, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %188
-
-186:                                              ; preds = %183
-  %187 = load ptr, ptr @zdd_entry, align 8
-  call void @free(ptr noundef %187) #4
-  store ptr null, ptr @zdd_entry, align 8
-  br label %189
-
-188:                                              ; preds = %183
-  br label %189
-
-189:                                              ; preds = %188, %186
+187:                                              ; preds = %184
+  %188 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  call void @free(ptr noundef %188) #5
+  store ptr null, ptr @zdd_entry, align 8, !tbaa !46
   br label %190
 
-190:                                              ; preds = %189, %180
-  %191 = load ptr, ptr %9, align 8
-  %192 = icmp ne ptr %191, null
-  br i1 %192, label %193, label %200
+189:                                              ; preds = %184
+  br label %190
 
-193:                                              ; preds = %190
-  %194 = load ptr, ptr %9, align 8
-  %195 = icmp ne ptr %194, null
-  br i1 %195, label %196, label %198
+190:                                              ; preds = %189, %187
+  br label %191
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %197) #4
-  store ptr null, ptr %9, align 8
-  br label %199
+191:                                              ; preds = %190, %181
+  %192 = load ptr, ptr %9, align 8, !tbaa !46
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %194, label %201
 
-198:                                              ; preds = %193
-  br label %199
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %9, align 8, !tbaa !46
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %197, label %199
 
-199:                                              ; preds = %198, %196
+197:                                              ; preds = %194
+  %198 = load ptr, ptr %9, align 8, !tbaa !46
+  call void @free(ptr noundef %198) #5
+  store ptr null, ptr %9, align 8, !tbaa !46
   br label %200
 
-200:                                              ; preds = %199, %190
-  store i32 0, ptr %4, align 4
+199:                                              ; preds = %194
+  br label %200
+
+200:                                              ; preds = %199, %197
   br label %201
 
-201:                                              ; preds = %200, %174
-  %202 = load i32, ptr %4, align 4
-  ret i32 %202
+201:                                              ; preds = %200, %191
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %202
+
+202:                                              ; preds = %201, %175
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %203 = load i32, ptr %4, align 4
+  ret i32 %203
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #4
 
-declare i32 @cuddZddUniqueCompare(ptr noundef, ptr noundef) #3
+declare i32 @cuddZddUniqueCompare(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cuddZddSymmSiftingAux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -806,1333 +873,1346 @@ define internal i32 @cuddZddSymmSiftingAux(ptr noundef %0, i32 noundef %1, i32 n
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.DdManager, ptr %19, i32 0, i32 24
-  %21 = load i32, ptr %20, align 8
-  store i32 %21, ptr %13, align 4
-  store ptr null, ptr %12, align 8
-  store ptr null, ptr %11, align 8
-  %22 = load i32, ptr %7, align 4
-  store i32 %22, ptr %15, align 4
-  br label %23
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.DdManager, ptr %20, i32 0, i32 24
+  %22 = load i32, ptr %21, align 8, !tbaa !55
+  store i32 %22, ptr %13, align 4, !tbaa !8
+  store ptr null, ptr %12, align 8, !tbaa !56
+  store ptr null, ptr %11, align 8, !tbaa !56
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %23, ptr %15, align 4, !tbaa !8
+  br label %24
 
-23:                                               ; preds = %64, %4
-  %24 = load i32, ptr %15, align 4
-  %25 = load i32, ptr %8, align 4
-  %26 = icmp sgt i32 %24, %25
-  br i1 %26, label %27, label %67
+24:                                               ; preds = %65, %4
+  %25 = load i32, ptr %15, align 4, !tbaa !8
+  %26 = load i32, ptr %8, align 4, !tbaa !8
+  %27 = icmp sgt i32 %25, %26
+  br i1 %27, label %28, label %68
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %15, align 4
-  %30 = sub nsw i32 %29, 1
-  %31 = load i32, ptr %15, align 4
-  %32 = call i32 @cuddZddSymmCheck(ptr noundef %28, i32 noundef %30, i32 noundef %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %35, label %34
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = load i32, ptr %15, align 4, !tbaa !8
+  %31 = sub nsw i32 %30, 1
+  %32 = load i32, ptr %15, align 4, !tbaa !8
+  %33 = call i32 @cuddZddSymmCheck(ptr noundef %29, i32 noundef %31, i32 noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %36, label %35
 
-34:                                               ; preds = %27
-  br label %67
+35:                                               ; preds = %28
+  br label %68
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.DdManager, ptr %36, i32 0, i32 20
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %15, align 4
-  %40 = sub nsw i32 %39, 1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.DdSubtable, ptr %38, i64 %41
-  %43 = getelementptr inbounds %struct.DdSubtable, ptr %42, i32 0, i32 6
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %16, align 4
-  %45 = load i32, ptr %15, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.DdManager, ptr %46, i32 0, i32 20
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %15, align 4
-  %50 = sub nsw i32 %49, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.DdSubtable, ptr %48, i64 %51
-  %53 = getelementptr inbounds %struct.DdSubtable, ptr %52, i32 0, i32 6
-  store i32 %45, ptr %53, align 4
-  %54 = load i32, ptr %16, align 4
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.DdManager, ptr %55, i32 0, i32 20
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.DdSubtable, ptr %57, i64 %59
-  %61 = getelementptr inbounds %struct.DdSubtable, ptr %60, i32 0, i32 6
-  store i32 %54, ptr %61, align 4
-  %62 = load i32, ptr %16, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %15, align 4
-  br label %64
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.DdManager, ptr %37, i32 0, i32 20
+  %39 = load ptr, ptr %38, align 8, !tbaa !10
+  %40 = load i32, ptr %15, align 4, !tbaa !8
+  %41 = sub nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds %struct.DdSubtable, ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw %struct.DdSubtable, ptr %43, i32 0, i32 6
+  %45 = load i32, ptr %44, align 4, !tbaa !27
+  store i32 %45, ptr %16, align 4, !tbaa !8
+  %46 = load i32, ptr %15, align 4, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.DdManager, ptr %47, i32 0, i32 20
+  %49 = load ptr, ptr %48, align 8, !tbaa !10
+  %50 = load i32, ptr %15, align 4, !tbaa !8
+  %51 = sub nsw i32 %50, 1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.DdSubtable, ptr %49, i64 %52
+  %54 = getelementptr inbounds nuw %struct.DdSubtable, ptr %53, i32 0, i32 6
+  store i32 %46, ptr %54, align 4, !tbaa !27
+  %55 = load i32, ptr %16, align 4, !tbaa !8
+  %56 = load ptr, ptr %6, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.DdManager, ptr %56, i32 0, i32 20
+  %58 = load ptr, ptr %57, align 8, !tbaa !10
+  %59 = load i32, ptr %7, align 4, !tbaa !8
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %struct.DdSubtable, ptr %58, i64 %60
+  %62 = getelementptr inbounds nuw %struct.DdSubtable, ptr %61, i32 0, i32 6
+  store i32 %55, ptr %62, align 4, !tbaa !27
+  %63 = load i32, ptr %16, align 4, !tbaa !8
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %15, align 4, !tbaa !8
+  br label %65
 
-64:                                               ; preds = %35
-  %65 = load i32, ptr %15, align 4
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr %15, align 4
-  br label %23, !llvm.loop !14
+65:                                               ; preds = %36
+  %66 = load i32, ptr %15, align 4, !tbaa !8
+  %67 = add nsw i32 %66, -1
+  store i32 %67, ptr %15, align 4, !tbaa !8
+  br label %24, !llvm.loop !58
 
-67:                                               ; preds = %34, %23
-  %68 = load i32, ptr %7, align 4
-  store i32 %68, ptr %15, align 4
-  br label %69
+68:                                               ; preds = %35, %24
+  %69 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %69, ptr %15, align 4, !tbaa !8
+  br label %70
 
-69:                                               ; preds = %131, %67
-  %70 = load i32, ptr %15, align 4
-  %71 = load i32, ptr %9, align 4
-  %72 = icmp slt i32 %70, %71
-  br i1 %72, label %73, label %134
+70:                                               ; preds = %132, %68
+  %71 = load i32, ptr %15, align 4, !tbaa !8
+  %72 = load i32, ptr %9, align 4, !tbaa !8
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %74, label %135
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %6, align 8
-  %75 = load i32, ptr %15, align 4
-  %76 = load i32, ptr %15, align 4
-  %77 = add nsw i32 %76, 1
-  %78 = call i32 @cuddZddSymmCheck(ptr noundef %74, i32 noundef %75, i32 noundef %77)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %81, label %80
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %6, align 8, !tbaa !3
+  %76 = load i32, ptr %15, align 4, !tbaa !8
+  %77 = load i32, ptr %15, align 4, !tbaa !8
+  %78 = add nsw i32 %77, 1
+  %79 = call i32 @cuddZddSymmCheck(ptr noundef %75, i32 noundef %76, i32 noundef %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %82, label %81
 
-80:                                               ; preds = %73
-  br label %134
+81:                                               ; preds = %74
+  br label %135
 
-81:                                               ; preds = %73
-  %82 = load i32, ptr %15, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %16, align 4
-  br label %84
+82:                                               ; preds = %74
+  %83 = load i32, ptr %15, align 4, !tbaa !8
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %16, align 4, !tbaa !8
+  br label %85
 
-84:                                               ; preds = %95, %81
-  %85 = load i32, ptr %16, align 4
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.DdManager, ptr %86, i32 0, i32 20
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i32, ptr %16, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.DdSubtable, ptr %88, i64 %90
-  %92 = getelementptr inbounds %struct.DdSubtable, ptr %91, i32 0, i32 6
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp ult i32 %85, %93
-  br i1 %94, label %95, label %104
+85:                                               ; preds = %96, %82
+  %86 = load i32, ptr %16, align 4, !tbaa !8
+  %87 = load ptr, ptr %6, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.DdManager, ptr %87, i32 0, i32 20
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
+  %90 = load i32, ptr %16, align 4, !tbaa !8
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds %struct.DdSubtable, ptr %89, i64 %91
+  %93 = getelementptr inbounds nuw %struct.DdSubtable, ptr %92, i32 0, i32 6
+  %94 = load i32, ptr %93, align 4, !tbaa !27
+  %95 = icmp ult i32 %86, %94
+  br i1 %95, label %96, label %105
 
-95:                                               ; preds = %84
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct.DdManager, ptr %96, i32 0, i32 20
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %16, align 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.DdSubtable, ptr %98, i64 %100
-  %102 = getelementptr inbounds %struct.DdSubtable, ptr %101, i32 0, i32 6
-  %103 = load i32, ptr %102, align 4
-  store i32 %103, ptr %16, align 4
-  br label %84, !llvm.loop !15
+96:                                               ; preds = %85
+  %97 = load ptr, ptr %6, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %struct.DdManager, ptr %97, i32 0, i32 20
+  %99 = load ptr, ptr %98, align 8, !tbaa !10
+  %100 = load i32, ptr %16, align 4, !tbaa !8
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds %struct.DdSubtable, ptr %99, i64 %101
+  %103 = getelementptr inbounds nuw %struct.DdSubtable, ptr %102, i32 0, i32 6
+  %104 = load i32, ptr %103, align 4, !tbaa !27
+  store i32 %104, ptr %16, align 4, !tbaa !8
+  br label %85, !llvm.loop !59
 
-104:                                              ; preds = %84
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.DdManager, ptr %105, i32 0, i32 20
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %15, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct.DdSubtable, ptr %107, i64 %109
-  %111 = getelementptr inbounds %struct.DdSubtable, ptr %110, i32 0, i32 6
-  %112 = load i32, ptr %111, align 4
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct.DdManager, ptr %113, i32 0, i32 20
-  %115 = load ptr, ptr %114, align 8
-  %116 = load i32, ptr %16, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.DdSubtable, ptr %115, i64 %117
-  %119 = getelementptr inbounds %struct.DdSubtable, ptr %118, i32 0, i32 6
-  store i32 %112, ptr %119, align 4
-  %120 = load i32, ptr %15, align 4
-  %121 = add nsw i32 %120, 1
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct.DdManager, ptr %122, i32 0, i32 20
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i32, ptr %15, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.DdSubtable, ptr %124, i64 %126
-  %128 = getelementptr inbounds %struct.DdSubtable, ptr %127, i32 0, i32 6
-  store i32 %121, ptr %128, align 4
-  %129 = load i32, ptr %16, align 4
-  %130 = sub nsw i32 %129, 1
-  store i32 %130, ptr %15, align 4
-  br label %131
+105:                                              ; preds = %85
+  %106 = load ptr, ptr %6, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.DdManager, ptr %106, i32 0, i32 20
+  %108 = load ptr, ptr %107, align 8, !tbaa !10
+  %109 = load i32, ptr %15, align 4, !tbaa !8
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds %struct.DdSubtable, ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw %struct.DdSubtable, ptr %111, i32 0, i32 6
+  %113 = load i32, ptr %112, align 4, !tbaa !27
+  %114 = load ptr, ptr %6, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.DdManager, ptr %114, i32 0, i32 20
+  %116 = load ptr, ptr %115, align 8, !tbaa !10
+  %117 = load i32, ptr %16, align 4, !tbaa !8
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds %struct.DdSubtable, ptr %116, i64 %118
+  %120 = getelementptr inbounds nuw %struct.DdSubtable, ptr %119, i32 0, i32 6
+  store i32 %113, ptr %120, align 4, !tbaa !27
+  %121 = load i32, ptr %15, align 4, !tbaa !8
+  %122 = add nsw i32 %121, 1
+  %123 = load ptr, ptr %6, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct.DdManager, ptr %123, i32 0, i32 20
+  %125 = load ptr, ptr %124, align 8, !tbaa !10
+  %126 = load i32, ptr %15, align 4, !tbaa !8
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds %struct.DdSubtable, ptr %125, i64 %127
+  %129 = getelementptr inbounds nuw %struct.DdSubtable, ptr %128, i32 0, i32 6
+  store i32 %122, ptr %129, align 4, !tbaa !27
+  %130 = load i32, ptr %16, align 4, !tbaa !8
+  %131 = sub nsw i32 %130, 1
+  store i32 %131, ptr %15, align 4, !tbaa !8
+  br label %132
 
-131:                                              ; preds = %104
-  %132 = load i32, ptr %15, align 4
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %15, align 4
-  br label %69, !llvm.loop !16
+132:                                              ; preds = %105
+  %133 = load i32, ptr %15, align 4, !tbaa !8
+  %134 = add nsw i32 %133, 1
+  store i32 %134, ptr %15, align 4, !tbaa !8
+  br label %70, !llvm.loop !60
 
-134:                                              ; preds = %80, %69
-  %135 = load i32, ptr %7, align 4
-  %136 = load i32, ptr %8, align 4
-  %137 = icmp eq i32 %135, %136
-  br i1 %137, label %138, label %274
+135:                                              ; preds = %81, %70
+  %136 = load i32, ptr %7, align 4, !tbaa !8
+  %137 = load i32, ptr %8, align 4, !tbaa !8
+  %138 = icmp eq i32 %136, %137
+  br i1 %138, label %139, label %274
 
-138:                                              ; preds = %134
-  br label %139
+139:                                              ; preds = %135
+  br label %140
 
-139:                                              ; preds = %150, %138
-  %140 = load i32, ptr %7, align 4
-  %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds %struct.DdManager, ptr %141, i32 0, i32 20
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i32, ptr %7, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds %struct.DdSubtable, ptr %143, i64 %145
-  %147 = getelementptr inbounds %struct.DdSubtable, ptr %146, i32 0, i32 6
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp ult i32 %140, %148
-  br i1 %149, label %150, label %159
+140:                                              ; preds = %151, %139
+  %141 = load i32, ptr %7, align 4, !tbaa !8
+  %142 = load ptr, ptr %6, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw %struct.DdManager, ptr %142, i32 0, i32 20
+  %144 = load ptr, ptr %143, align 8, !tbaa !10
+  %145 = load i32, ptr %7, align 4, !tbaa !8
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %struct.DdSubtable, ptr %144, i64 %146
+  %148 = getelementptr inbounds nuw %struct.DdSubtable, ptr %147, i32 0, i32 6
+  %149 = load i32, ptr %148, align 4, !tbaa !27
+  %150 = icmp ult i32 %141, %149
+  br i1 %150, label %151, label %160
 
-150:                                              ; preds = %139
-  %151 = load ptr, ptr %6, align 8
-  %152 = getelementptr inbounds %struct.DdManager, ptr %151, i32 0, i32 20
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %7, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.DdSubtable, ptr %153, i64 %155
-  %157 = getelementptr inbounds %struct.DdSubtable, ptr %156, i32 0, i32 6
-  %158 = load i32, ptr %157, align 4
-  store i32 %158, ptr %7, align 4
-  br label %139, !llvm.loop !17
+151:                                              ; preds = %140
+  %152 = load ptr, ptr %6, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.DdManager, ptr %152, i32 0, i32 20
+  %154 = load ptr, ptr %153, align 8, !tbaa !10
+  %155 = load i32, ptr %7, align 4, !tbaa !8
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds %struct.DdSubtable, ptr %154, i64 %156
+  %158 = getelementptr inbounds nuw %struct.DdSubtable, ptr %157, i32 0, i32 6
+  %159 = load i32, ptr %158, align 4, !tbaa !27
+  store i32 %159, ptr %7, align 4, !tbaa !8
+  br label %140, !llvm.loop !61
 
-159:                                              ; preds = %139
-  %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds %struct.DdManager, ptr %160, i32 0, i32 20
-  %162 = load ptr, ptr %161, align 8
-  %163 = load i32, ptr %7, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.DdSubtable, ptr %162, i64 %164
-  %166 = getelementptr inbounds %struct.DdSubtable, ptr %165, i32 0, i32 6
-  %167 = load i32, ptr %166, align 4
-  store i32 %167, ptr %15, align 4
-  %168 = load i32, ptr %7, align 4
-  %169 = load i32, ptr %15, align 4
-  %170 = sub nsw i32 %168, %169
-  %171 = add nsw i32 %170, 1
-  store i32 %171, ptr %17, align 4
-  %172 = load ptr, ptr %6, align 8
-  %173 = load i32, ptr %7, align 4
-  %174 = load i32, ptr %9, align 4
-  %175 = load i32, ptr %13, align 4
-  %176 = call ptr @cuddZddSymmSifting_down(ptr noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175)
-  store ptr %176, ptr %12, align 8
-  %177 = load ptr, ptr %12, align 8
-  %178 = inttoptr i64 1 to ptr
-  %179 = icmp eq ptr %177, %178
+160:                                              ; preds = %140
+  %161 = load ptr, ptr %6, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct.DdManager, ptr %161, i32 0, i32 20
+  %163 = load ptr, ptr %162, align 8, !tbaa !10
+  %164 = load i32, ptr %7, align 4, !tbaa !8
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds %struct.DdSubtable, ptr %163, i64 %165
+  %167 = getelementptr inbounds nuw %struct.DdSubtable, ptr %166, i32 0, i32 6
+  %168 = load i32, ptr %167, align 4, !tbaa !27
+  store i32 %168, ptr %15, align 4, !tbaa !8
+  %169 = load i32, ptr %7, align 4, !tbaa !8
+  %170 = load i32, ptr %15, align 4, !tbaa !8
+  %171 = sub nsw i32 %169, %170
+  %172 = add nsw i32 %171, 1
+  store i32 %172, ptr %17, align 4, !tbaa !8
+  %173 = load ptr, ptr %6, align 8, !tbaa !3
+  %174 = load i32, ptr %7, align 4, !tbaa !8
+  %175 = load i32, ptr %9, align 4, !tbaa !8
+  %176 = load i32, ptr %13, align 4, !tbaa !8
+  %177 = call ptr @cuddZddSymmSifting_down(ptr noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176)
+  store ptr %177, ptr %12, align 8, !tbaa !56
+  %178 = load ptr, ptr %12, align 8, !tbaa !56
+  %179 = icmp eq ptr %178, inttoptr (i64 1 to ptr)
   br i1 %179, label %180, label %181
 
-180:                                              ; preds = %159
-  br label %880
+180:                                              ; preds = %160
+  br label %875
 
-181:                                              ; preds = %159
-  %182 = load ptr, ptr %12, align 8
+181:                                              ; preds = %160
+  %182 = load ptr, ptr %12, align 8, !tbaa !56
   %183 = icmp eq ptr %182, null
   br i1 %183, label %199, label %184
 
 184:                                              ; preds = %181
-  %185 = load ptr, ptr %6, align 8
-  %186 = getelementptr inbounds %struct.DdManager, ptr %185, i32 0, i32 20
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %12, align 8
-  %189 = getelementptr inbounds %struct.Move, ptr %188, i32 0, i32 1
-  %190 = load i32, ptr %189, align 4
+  %185 = load ptr, ptr %6, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.DdManager, ptr %185, i32 0, i32 20
+  %187 = load ptr, ptr %186, align 8, !tbaa !10
+  %188 = load ptr, ptr %12, align 8, !tbaa !56
+  %189 = getelementptr inbounds nuw %struct.Move, ptr %188, i32 0, i32 1
+  %190 = load i32, ptr %189, align 4, !tbaa !62
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds %struct.DdSubtable, ptr %187, i64 %191
-  %193 = getelementptr inbounds %struct.DdSubtable, ptr %192, i32 0, i32 6
-  %194 = load i32, ptr %193, align 4
-  %195 = load ptr, ptr %12, align 8
-  %196 = getelementptr inbounds %struct.Move, ptr %195, i32 0, i32 1
-  %197 = load i32, ptr %196, align 4
+  %192 = getelementptr inbounds nuw %struct.DdSubtable, ptr %187, i64 %191
+  %193 = getelementptr inbounds nuw %struct.DdSubtable, ptr %192, i32 0, i32 6
+  %194 = load i32, ptr %193, align 4, !tbaa !27
+  %195 = load ptr, ptr %12, align 8, !tbaa !56
+  %196 = getelementptr inbounds nuw %struct.Move, ptr %195, i32 0, i32 1
+  %197 = load i32, ptr %196, align 4, !tbaa !62
   %198 = icmp ne i32 %194, %197
   br i1 %198, label %199, label %264
 
 199:                                              ; preds = %184, %181
-  %200 = load ptr, ptr %12, align 8
+  %200 = load ptr, ptr %12, align 8, !tbaa !56
   %201 = icmp ne ptr %200, null
   br i1 %201, label %202, label %206
 
 202:                                              ; preds = %199
-  %203 = load ptr, ptr %12, align 8
-  %204 = getelementptr inbounds %struct.Move, ptr %203, i32 0, i32 1
-  %205 = load i32, ptr %204, align 4
-  store i32 %205, ptr %7, align 4
+  %203 = load ptr, ptr %12, align 8, !tbaa !56
+  %204 = getelementptr inbounds nuw %struct.Move, ptr %203, i32 0, i32 1
+  %205 = load i32, ptr %204, align 4, !tbaa !62
+  store i32 %205, ptr %7, align 4, !tbaa !8
   br label %215
 
 206:                                              ; preds = %199
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds %struct.DdManager, ptr %207, i32 0, i32 20
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i32, ptr %7, align 4
+  %207 = load ptr, ptr %6, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.DdManager, ptr %207, i32 0, i32 20
+  %209 = load ptr, ptr %208, align 8, !tbaa !10
+  %210 = load i32, ptr %7, align 4, !tbaa !8
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds %struct.DdSubtable, ptr %209, i64 %211
-  %213 = getelementptr inbounds %struct.DdSubtable, ptr %212, i32 0, i32 6
-  %214 = load i32, ptr %213, align 4
-  store i32 %214, ptr %7, align 4
+  %213 = getelementptr inbounds nuw %struct.DdSubtable, ptr %212, i32 0, i32 6
+  %214 = load i32, ptr %213, align 4, !tbaa !27
+  store i32 %214, ptr %7, align 4, !tbaa !8
   br label %215
 
 215:                                              ; preds = %206, %202
-  %216 = load i32, ptr %7, align 4
-  store i32 %216, ptr %15, align 4
+  %216 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %216, ptr %15, align 4, !tbaa !8
   br label %217
 
 217:                                              ; preds = %228, %215
-  %218 = load i32, ptr %15, align 4
-  %219 = load ptr, ptr %6, align 8
-  %220 = getelementptr inbounds %struct.DdManager, ptr %219, i32 0, i32 20
-  %221 = load ptr, ptr %220, align 8
-  %222 = load i32, ptr %15, align 4
+  %218 = load i32, ptr %15, align 4, !tbaa !8
+  %219 = load ptr, ptr %6, align 8, !tbaa !3
+  %220 = getelementptr inbounds nuw %struct.DdManager, ptr %219, i32 0, i32 20
+  %221 = load ptr, ptr %220, align 8, !tbaa !10
+  %222 = load i32, ptr %15, align 4, !tbaa !8
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds %struct.DdSubtable, ptr %221, i64 %223
-  %225 = getelementptr inbounds %struct.DdSubtable, ptr %224, i32 0, i32 6
-  %226 = load i32, ptr %225, align 4
+  %225 = getelementptr inbounds nuw %struct.DdSubtable, ptr %224, i32 0, i32 6
+  %226 = load i32, ptr %225, align 4, !tbaa !27
   %227 = icmp ult i32 %218, %226
   br i1 %227, label %228, label %237
 
 228:                                              ; preds = %217
-  %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr inbounds %struct.DdManager, ptr %229, i32 0, i32 20
-  %231 = load ptr, ptr %230, align 8
-  %232 = load i32, ptr %15, align 4
+  %229 = load ptr, ptr %6, align 8, !tbaa !3
+  %230 = getelementptr inbounds nuw %struct.DdManager, ptr %229, i32 0, i32 20
+  %231 = load ptr, ptr %230, align 8, !tbaa !10
+  %232 = load i32, ptr %15, align 4, !tbaa !8
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds %struct.DdSubtable, ptr %231, i64 %233
-  %235 = getelementptr inbounds %struct.DdSubtable, ptr %234, i32 0, i32 6
-  %236 = load i32, ptr %235, align 4
-  store i32 %236, ptr %15, align 4
-  br label %217, !llvm.loop !18
+  %235 = getelementptr inbounds nuw %struct.DdSubtable, ptr %234, i32 0, i32 6
+  %236 = load i32, ptr %235, align 4, !tbaa !27
+  store i32 %236, ptr %15, align 4, !tbaa !8
+  br label %217, !llvm.loop !64
 
 237:                                              ; preds = %217
-  %238 = load i32, ptr %15, align 4
-  %239 = load i32, ptr %7, align 4
+  %238 = load i32, ptr %15, align 4, !tbaa !8
+  %239 = load i32, ptr %7, align 4, !tbaa !8
   %240 = sub nsw i32 %238, %239
   %241 = add nsw i32 %240, 1
-  store i32 %241, ptr %18, align 4
-  %242 = load i32, ptr %17, align 4
-  %243 = load i32, ptr %18, align 4
+  store i32 %241, ptr %18, align 4, !tbaa !8
+  %242 = load i32, ptr %17, align 4, !tbaa !8
+  %243 = load i32, ptr %18, align 4, !tbaa !8
   %244 = icmp eq i32 %242, %243
   br i1 %244, label %245, label %250
 
 245:                                              ; preds = %237
-  %246 = load ptr, ptr %6, align 8
-  %247 = load ptr, ptr %12, align 8
-  %248 = load i32, ptr %13, align 4
+  %246 = load ptr, ptr %6, align 8, !tbaa !3
+  %247 = load ptr, ptr %12, align 8, !tbaa !56
+  %248 = load i32, ptr %13, align 4, !tbaa !8
   %249 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %246, ptr noundef %247, i32 noundef %248)
-  store i32 %249, ptr %14, align 4
+  store i32 %249, ptr %14, align 4, !tbaa !8
   br label %263
 
 250:                                              ; preds = %237
-  %251 = load ptr, ptr %6, align 8
-  %252 = getelementptr inbounds %struct.DdManager, ptr %251, i32 0, i32 24
-  %253 = load i32, ptr %252, align 8
-  store i32 %253, ptr %13, align 4
-  %254 = load ptr, ptr %6, align 8
-  %255 = load i32, ptr %7, align 4
-  %256 = load i32, ptr %8, align 4
-  %257 = load i32, ptr %13, align 4
+  %251 = load ptr, ptr %6, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.DdManager, ptr %251, i32 0, i32 24
+  %253 = load i32, ptr %252, align 8, !tbaa !55
+  store i32 %253, ptr %13, align 4, !tbaa !8
+  %254 = load ptr, ptr %6, align 8, !tbaa !3
+  %255 = load i32, ptr %7, align 4, !tbaa !8
+  %256 = load i32, ptr %8, align 4, !tbaa !8
+  %257 = load i32, ptr %13, align 4, !tbaa !8
   %258 = call ptr @cuddZddSymmSifting_up(ptr noundef %254, i32 noundef %255, i32 noundef %256, i32 noundef %257)
-  store ptr %258, ptr %11, align 8
-  %259 = load ptr, ptr %6, align 8
-  %260 = load ptr, ptr %11, align 8
-  %261 = load i32, ptr %13, align 4
+  store ptr %258, ptr %11, align 8, !tbaa !56
+  %259 = load ptr, ptr %6, align 8, !tbaa !3
+  %260 = load ptr, ptr %11, align 8, !tbaa !56
+  %261 = load i32, ptr %13, align 4, !tbaa !8
   %262 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %259, ptr noundef %260, i32 noundef %261)
-  store i32 %262, ptr %14, align 4
+  store i32 %262, ptr %14, align 4, !tbaa !8
   br label %263
 
 263:                                              ; preds = %250, %245
   br label %269
 
 264:                                              ; preds = %184
-  %265 = load ptr, ptr %6, align 8
-  %266 = load ptr, ptr %12, align 8
-  %267 = load i32, ptr %13, align 4
+  %265 = load ptr, ptr %6, align 8, !tbaa !3
+  %266 = load ptr, ptr %12, align 8, !tbaa !56
+  %267 = load i32, ptr %13, align 4, !tbaa !8
   %268 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %265, ptr noundef %266, i32 noundef %267)
-  store i32 %268, ptr %14, align 4
+  store i32 %268, ptr %14, align 4, !tbaa !8
   br label %269
 
 269:                                              ; preds = %264, %263
-  %270 = load i32, ptr %14, align 4
+  %270 = load i32, ptr %14, align 4, !tbaa !8
   %271 = icmp ne i32 %270, 0
   br i1 %271, label %273, label %272
 
 272:                                              ; preds = %269
-  br label %880
+  br label %875
 
 273:                                              ; preds = %269
-  br label %841
+  br label %836
 
-274:                                              ; preds = %134
-  %275 = load i32, ptr %7, align 4
-  %276 = load i32, ptr %9, align 4
+274:                                              ; preds = %135
+  %275 = load i32, ptr %7, align 4, !tbaa !8
+  %276 = load i32, ptr %9, align 4, !tbaa !8
   %277 = icmp eq i32 %275, %276
-  br i1 %277, label %278, label %435
+  br i1 %277, label %278, label %434
 
 278:                                              ; preds = %274
   br label %279
 
 279:                                              ; preds = %290, %278
-  %280 = load i32, ptr %7, align 4
-  %281 = load ptr, ptr %6, align 8
-  %282 = getelementptr inbounds %struct.DdManager, ptr %281, i32 0, i32 20
-  %283 = load ptr, ptr %282, align 8
-  %284 = load i32, ptr %7, align 4
+  %280 = load i32, ptr %7, align 4, !tbaa !8
+  %281 = load ptr, ptr %6, align 8, !tbaa !3
+  %282 = getelementptr inbounds nuw %struct.DdManager, ptr %281, i32 0, i32 20
+  %283 = load ptr, ptr %282, align 8, !tbaa !10
+  %284 = load i32, ptr %7, align 4, !tbaa !8
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds %struct.DdSubtable, ptr %283, i64 %285
-  %287 = getelementptr inbounds %struct.DdSubtable, ptr %286, i32 0, i32 6
-  %288 = load i32, ptr %287, align 4
+  %287 = getelementptr inbounds nuw %struct.DdSubtable, ptr %286, i32 0, i32 6
+  %288 = load i32, ptr %287, align 4, !tbaa !27
   %289 = icmp ult i32 %280, %288
   br i1 %289, label %290, label %299
 
 290:                                              ; preds = %279
-  %291 = load ptr, ptr %6, align 8
-  %292 = getelementptr inbounds %struct.DdManager, ptr %291, i32 0, i32 20
-  %293 = load ptr, ptr %292, align 8
-  %294 = load i32, ptr %7, align 4
+  %291 = load ptr, ptr %6, align 8, !tbaa !3
+  %292 = getelementptr inbounds nuw %struct.DdManager, ptr %291, i32 0, i32 20
+  %293 = load ptr, ptr %292, align 8, !tbaa !10
+  %294 = load i32, ptr %7, align 4, !tbaa !8
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds %struct.DdSubtable, ptr %293, i64 %295
-  %297 = getelementptr inbounds %struct.DdSubtable, ptr %296, i32 0, i32 6
-  %298 = load i32, ptr %297, align 4
-  store i32 %298, ptr %7, align 4
-  br label %279, !llvm.loop !19
+  %297 = getelementptr inbounds nuw %struct.DdSubtable, ptr %296, i32 0, i32 6
+  %298 = load i32, ptr %297, align 4, !tbaa !27
+  store i32 %298, ptr %7, align 4, !tbaa !8
+  br label %279, !llvm.loop !65
 
 299:                                              ; preds = %279
-  %300 = load ptr, ptr %6, align 8
-  %301 = getelementptr inbounds %struct.DdManager, ptr %300, i32 0, i32 20
-  %302 = load ptr, ptr %301, align 8
-  %303 = load i32, ptr %7, align 4
+  %300 = load ptr, ptr %6, align 8, !tbaa !3
+  %301 = getelementptr inbounds nuw %struct.DdManager, ptr %300, i32 0, i32 20
+  %302 = load ptr, ptr %301, align 8, !tbaa !10
+  %303 = load i32, ptr %7, align 4, !tbaa !8
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds %struct.DdSubtable, ptr %302, i64 %304
-  %306 = getelementptr inbounds %struct.DdSubtable, ptr %305, i32 0, i32 6
-  %307 = load i32, ptr %306, align 4
-  store i32 %307, ptr %7, align 4
-  %308 = load i32, ptr %7, align 4
-  store i32 %308, ptr %15, align 4
+  %306 = getelementptr inbounds nuw %struct.DdSubtable, ptr %305, i32 0, i32 6
+  %307 = load i32, ptr %306, align 4, !tbaa !27
+  store i32 %307, ptr %7, align 4, !tbaa !8
+  %308 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %308, ptr %15, align 4, !tbaa !8
   br label %309
 
 309:                                              ; preds = %320, %299
-  %310 = load i32, ptr %15, align 4
-  %311 = load ptr, ptr %6, align 8
-  %312 = getelementptr inbounds %struct.DdManager, ptr %311, i32 0, i32 20
-  %313 = load ptr, ptr %312, align 8
-  %314 = load i32, ptr %15, align 4
+  %310 = load i32, ptr %15, align 4, !tbaa !8
+  %311 = load ptr, ptr %6, align 8, !tbaa !3
+  %312 = getelementptr inbounds nuw %struct.DdManager, ptr %311, i32 0, i32 20
+  %313 = load ptr, ptr %312, align 8, !tbaa !10
+  %314 = load i32, ptr %15, align 4, !tbaa !8
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds %struct.DdSubtable, ptr %313, i64 %315
-  %317 = getelementptr inbounds %struct.DdSubtable, ptr %316, i32 0, i32 6
-  %318 = load i32, ptr %317, align 4
+  %317 = getelementptr inbounds nuw %struct.DdSubtable, ptr %316, i32 0, i32 6
+  %318 = load i32, ptr %317, align 4, !tbaa !27
   %319 = icmp ult i32 %310, %318
   br i1 %319, label %320, label %329
 
 320:                                              ; preds = %309
-  %321 = load ptr, ptr %6, align 8
-  %322 = getelementptr inbounds %struct.DdManager, ptr %321, i32 0, i32 20
-  %323 = load ptr, ptr %322, align 8
-  %324 = load i32, ptr %15, align 4
+  %321 = load ptr, ptr %6, align 8, !tbaa !3
+  %322 = getelementptr inbounds nuw %struct.DdManager, ptr %321, i32 0, i32 20
+  %323 = load ptr, ptr %322, align 8, !tbaa !10
+  %324 = load i32, ptr %15, align 4, !tbaa !8
   %325 = sext i32 %324 to i64
   %326 = getelementptr inbounds %struct.DdSubtable, ptr %323, i64 %325
-  %327 = getelementptr inbounds %struct.DdSubtable, ptr %326, i32 0, i32 6
-  %328 = load i32, ptr %327, align 4
-  store i32 %328, ptr %15, align 4
-  br label %309, !llvm.loop !20
+  %327 = getelementptr inbounds nuw %struct.DdSubtable, ptr %326, i32 0, i32 6
+  %328 = load i32, ptr %327, align 4, !tbaa !27
+  store i32 %328, ptr %15, align 4, !tbaa !8
+  br label %309, !llvm.loop !66
 
 329:                                              ; preds = %309
-  %330 = load i32, ptr %15, align 4
-  %331 = load i32, ptr %7, align 4
+  %330 = load i32, ptr %15, align 4, !tbaa !8
+  %331 = load i32, ptr %7, align 4, !tbaa !8
   %332 = sub nsw i32 %330, %331
   %333 = add nsw i32 %332, 1
-  store i32 %333, ptr %17, align 4
-  %334 = load ptr, ptr %6, align 8
-  %335 = load i32, ptr %7, align 4
-  %336 = load i32, ptr %8, align 4
-  %337 = load i32, ptr %13, align 4
+  store i32 %333, ptr %17, align 4, !tbaa !8
+  %334 = load ptr, ptr %6, align 8, !tbaa !3
+  %335 = load i32, ptr %7, align 4, !tbaa !8
+  %336 = load i32, ptr %8, align 4, !tbaa !8
+  %337 = load i32, ptr %13, align 4, !tbaa !8
   %338 = call ptr @cuddZddSymmSifting_up(ptr noundef %334, i32 noundef %335, i32 noundef %336, i32 noundef %337)
-  store ptr %338, ptr %11, align 8
-  %339 = load ptr, ptr %11, align 8
-  %340 = inttoptr i64 1 to ptr
-  %341 = icmp eq ptr %339, %340
-  br i1 %341, label %342, label %343
+  store ptr %338, ptr %11, align 8, !tbaa !56
+  %339 = load ptr, ptr %11, align 8, !tbaa !56
+  %340 = icmp eq ptr %339, inttoptr (i64 1 to ptr)
+  br i1 %340, label %341, label %342
+
+341:                                              ; preds = %329
+  br label %875
 
 342:                                              ; preds = %329
-  br label %880
+  %343 = load ptr, ptr %11, align 8, !tbaa !56
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %360, label %345
 
-343:                                              ; preds = %329
-  %344 = load ptr, ptr %11, align 8
-  %345 = icmp eq ptr %344, null
-  br i1 %345, label %361, label %346
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %6, align 8, !tbaa !3
+  %347 = getelementptr inbounds nuw %struct.DdManager, ptr %346, i32 0, i32 20
+  %348 = load ptr, ptr %347, align 8, !tbaa !10
+  %349 = load ptr, ptr %11, align 8, !tbaa !56
+  %350 = getelementptr inbounds nuw %struct.Move, ptr %349, i32 0, i32 0
+  %351 = load i32, ptr %350, align 8, !tbaa !67
+  %352 = zext i32 %351 to i64
+  %353 = getelementptr inbounds nuw %struct.DdSubtable, ptr %348, i64 %352
+  %354 = getelementptr inbounds nuw %struct.DdSubtable, ptr %353, i32 0, i32 6
+  %355 = load i32, ptr %354, align 4, !tbaa !27
+  %356 = load ptr, ptr %11, align 8, !tbaa !56
+  %357 = getelementptr inbounds nuw %struct.Move, ptr %356, i32 0, i32 0
+  %358 = load i32, ptr %357, align 8, !tbaa !67
+  %359 = icmp ne i32 %355, %358
+  br i1 %359, label %360, label %424
 
-346:                                              ; preds = %343
-  %347 = load ptr, ptr %6, align 8
-  %348 = getelementptr inbounds %struct.DdManager, ptr %347, i32 0, i32 20
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %11, align 8
-  %351 = getelementptr inbounds %struct.Move, ptr %350, i32 0, i32 0
-  %352 = load i32, ptr %351, align 8
-  %353 = zext i32 %352 to i64
-  %354 = getelementptr inbounds %struct.DdSubtable, ptr %349, i64 %353
-  %355 = getelementptr inbounds %struct.DdSubtable, ptr %354, i32 0, i32 6
-  %356 = load i32, ptr %355, align 4
-  %357 = load ptr, ptr %11, align 8
-  %358 = getelementptr inbounds %struct.Move, ptr %357, i32 0, i32 0
-  %359 = load i32, ptr %358, align 8
-  %360 = icmp ne i32 %356, %359
-  br i1 %360, label %361, label %425
+360:                                              ; preds = %345, %342
+  %361 = load ptr, ptr %11, align 8, !tbaa !56
+  %362 = icmp ne ptr %361, null
+  br i1 %362, label %363, label %367
 
-361:                                              ; preds = %346, %343
-  %362 = load ptr, ptr %11, align 8
-  %363 = icmp ne ptr %362, null
-  br i1 %363, label %364, label %368
+363:                                              ; preds = %360
+  %364 = load ptr, ptr %11, align 8, !tbaa !56
+  %365 = getelementptr inbounds nuw %struct.Move, ptr %364, i32 0, i32 0
+  %366 = load i32, ptr %365, align 8, !tbaa !67
+  store i32 %366, ptr %7, align 4, !tbaa !8
+  br label %389
 
-364:                                              ; preds = %361
-  %365 = load ptr, ptr %11, align 8
-  %366 = getelementptr inbounds %struct.Move, ptr %365, i32 0, i32 0
-  %367 = load i32, ptr %366, align 8
-  store i32 %367, ptr %7, align 4
-  br label %390
+367:                                              ; preds = %360
+  br label %368
 
-368:                                              ; preds = %361
-  br label %369
+368:                                              ; preds = %379, %367
+  %369 = load i32, ptr %7, align 4, !tbaa !8
+  %370 = load ptr, ptr %6, align 8, !tbaa !3
+  %371 = getelementptr inbounds nuw %struct.DdManager, ptr %370, i32 0, i32 20
+  %372 = load ptr, ptr %371, align 8, !tbaa !10
+  %373 = load i32, ptr %7, align 4, !tbaa !8
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds %struct.DdSubtable, ptr %372, i64 %374
+  %376 = getelementptr inbounds nuw %struct.DdSubtable, ptr %375, i32 0, i32 6
+  %377 = load i32, ptr %376, align 4, !tbaa !27
+  %378 = icmp ult i32 %369, %377
+  br i1 %378, label %379, label %388
 
-369:                                              ; preds = %380, %368
-  %370 = load i32, ptr %7, align 4
-  %371 = load ptr, ptr %6, align 8
-  %372 = getelementptr inbounds %struct.DdManager, ptr %371, i32 0, i32 20
-  %373 = load ptr, ptr %372, align 8
-  %374 = load i32, ptr %7, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds %struct.DdSubtable, ptr %373, i64 %375
-  %377 = getelementptr inbounds %struct.DdSubtable, ptr %376, i32 0, i32 6
-  %378 = load i32, ptr %377, align 4
-  %379 = icmp ult i32 %370, %378
-  br i1 %379, label %380, label %389
+379:                                              ; preds = %368
+  %380 = load ptr, ptr %6, align 8, !tbaa !3
+  %381 = getelementptr inbounds nuw %struct.DdManager, ptr %380, i32 0, i32 20
+  %382 = load ptr, ptr %381, align 8, !tbaa !10
+  %383 = load i32, ptr %7, align 4, !tbaa !8
+  %384 = sext i32 %383 to i64
+  %385 = getelementptr inbounds %struct.DdSubtable, ptr %382, i64 %384
+  %386 = getelementptr inbounds nuw %struct.DdSubtable, ptr %385, i32 0, i32 6
+  %387 = load i32, ptr %386, align 4, !tbaa !27
+  store i32 %387, ptr %7, align 4, !tbaa !8
+  br label %368, !llvm.loop !68
 
-380:                                              ; preds = %369
-  %381 = load ptr, ptr %6, align 8
-  %382 = getelementptr inbounds %struct.DdManager, ptr %381, i32 0, i32 20
-  %383 = load ptr, ptr %382, align 8
-  %384 = load i32, ptr %7, align 4
-  %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds %struct.DdSubtable, ptr %383, i64 %385
-  %387 = getelementptr inbounds %struct.DdSubtable, ptr %386, i32 0, i32 6
-  %388 = load i32, ptr %387, align 4
-  store i32 %388, ptr %7, align 4
-  br label %369, !llvm.loop !21
+388:                                              ; preds = %368
+  br label %389
 
-389:                                              ; preds = %369
-  br label %390
+389:                                              ; preds = %388, %363
+  %390 = load ptr, ptr %6, align 8, !tbaa !3
+  %391 = getelementptr inbounds nuw %struct.DdManager, ptr %390, i32 0, i32 20
+  %392 = load ptr, ptr %391, align 8, !tbaa !10
+  %393 = load i32, ptr %7, align 4, !tbaa !8
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr inbounds %struct.DdSubtable, ptr %392, i64 %394
+  %396 = getelementptr inbounds nuw %struct.DdSubtable, ptr %395, i32 0, i32 6
+  %397 = load i32, ptr %396, align 4, !tbaa !27
+  store i32 %397, ptr %15, align 4, !tbaa !8
+  %398 = load i32, ptr %7, align 4, !tbaa !8
+  %399 = load i32, ptr %15, align 4, !tbaa !8
+  %400 = sub nsw i32 %398, %399
+  %401 = add nsw i32 %400, 1
+  store i32 %401, ptr %18, align 4, !tbaa !8
+  %402 = load i32, ptr %17, align 4, !tbaa !8
+  %403 = load i32, ptr %18, align 4, !tbaa !8
+  %404 = icmp eq i32 %402, %403
+  br i1 %404, label %405, label %410
 
-390:                                              ; preds = %389, %364
-  %391 = load ptr, ptr %6, align 8
-  %392 = getelementptr inbounds %struct.DdManager, ptr %391, i32 0, i32 20
-  %393 = load ptr, ptr %392, align 8
-  %394 = load i32, ptr %7, align 4
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds %struct.DdSubtable, ptr %393, i64 %395
-  %397 = getelementptr inbounds %struct.DdSubtable, ptr %396, i32 0, i32 6
-  %398 = load i32, ptr %397, align 4
-  store i32 %398, ptr %15, align 4
-  %399 = load i32, ptr %7, align 4
-  %400 = load i32, ptr %15, align 4
-  %401 = sub nsw i32 %399, %400
-  %402 = add nsw i32 %401, 1
-  store i32 %402, ptr %18, align 4
-  %403 = load i32, ptr %17, align 4
-  %404 = load i32, ptr %18, align 4
-  %405 = icmp eq i32 %403, %404
-  br i1 %405, label %406, label %411
+405:                                              ; preds = %389
+  %406 = load ptr, ptr %6, align 8, !tbaa !3
+  %407 = load ptr, ptr %11, align 8, !tbaa !56
+  %408 = load i32, ptr %13, align 4, !tbaa !8
+  %409 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %406, ptr noundef %407, i32 noundef %408)
+  store i32 %409, ptr %14, align 4, !tbaa !8
+  br label %423
 
-406:                                              ; preds = %390
-  %407 = load ptr, ptr %6, align 8
-  %408 = load ptr, ptr %11, align 8
-  %409 = load i32, ptr %13, align 4
-  %410 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %407, ptr noundef %408, i32 noundef %409)
-  store i32 %410, ptr %14, align 4
-  br label %424
+410:                                              ; preds = %389
+  %411 = load ptr, ptr %6, align 8, !tbaa !3
+  %412 = getelementptr inbounds nuw %struct.DdManager, ptr %411, i32 0, i32 24
+  %413 = load i32, ptr %412, align 8, !tbaa !55
+  store i32 %413, ptr %13, align 4, !tbaa !8
+  %414 = load ptr, ptr %6, align 8, !tbaa !3
+  %415 = load i32, ptr %7, align 4, !tbaa !8
+  %416 = load i32, ptr %9, align 4, !tbaa !8
+  %417 = load i32, ptr %13, align 4, !tbaa !8
+  %418 = call ptr @cuddZddSymmSifting_down(ptr noundef %414, i32 noundef %415, i32 noundef %416, i32 noundef %417)
+  store ptr %418, ptr %12, align 8, !tbaa !56
+  %419 = load ptr, ptr %6, align 8, !tbaa !3
+  %420 = load ptr, ptr %12, align 8, !tbaa !56
+  %421 = load i32, ptr %13, align 4, !tbaa !8
+  %422 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %419, ptr noundef %420, i32 noundef %421)
+  store i32 %422, ptr %14, align 4, !tbaa !8
+  br label %423
 
-411:                                              ; preds = %390
-  %412 = load ptr, ptr %6, align 8
-  %413 = getelementptr inbounds %struct.DdManager, ptr %412, i32 0, i32 24
-  %414 = load i32, ptr %413, align 8
-  store i32 %414, ptr %13, align 4
-  %415 = load ptr, ptr %6, align 8
-  %416 = load i32, ptr %7, align 4
-  %417 = load i32, ptr %9, align 4
-  %418 = load i32, ptr %13, align 4
-  %419 = call ptr @cuddZddSymmSifting_down(ptr noundef %415, i32 noundef %416, i32 noundef %417, i32 noundef %418)
-  store ptr %419, ptr %12, align 8
-  %420 = load ptr, ptr %6, align 8
-  %421 = load ptr, ptr %12, align 8
-  %422 = load i32, ptr %13, align 4
-  %423 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %420, ptr noundef %421, i32 noundef %422)
-  store i32 %423, ptr %14, align 4
-  br label %424
+423:                                              ; preds = %410, %405
+  br label %429
 
-424:                                              ; preds = %411, %406
-  br label %430
+424:                                              ; preds = %345
+  %425 = load ptr, ptr %6, align 8, !tbaa !3
+  %426 = load ptr, ptr %11, align 8, !tbaa !56
+  %427 = load i32, ptr %13, align 4, !tbaa !8
+  %428 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %425, ptr noundef %426, i32 noundef %427)
+  store i32 %428, ptr %14, align 4, !tbaa !8
+  br label %429
 
-425:                                              ; preds = %346
-  %426 = load ptr, ptr %6, align 8
-  %427 = load ptr, ptr %11, align 8
-  %428 = load i32, ptr %13, align 4
-  %429 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %426, ptr noundef %427, i32 noundef %428)
-  store i32 %429, ptr %14, align 4
-  br label %430
+429:                                              ; preds = %424, %423
+  %430 = load i32, ptr %14, align 4, !tbaa !8
+  %431 = icmp ne i32 %430, 0
+  br i1 %431, label %433, label %432
 
-430:                                              ; preds = %425, %424
-  %431 = load i32, ptr %14, align 4
-  %432 = icmp ne i32 %431, 0
-  br i1 %432, label %434, label %433
+432:                                              ; preds = %429
+  br label %875
 
-433:                                              ; preds = %430
-  br label %880
+433:                                              ; preds = %429
+  br label %835
 
-434:                                              ; preds = %430
-  br label %840
+434:                                              ; preds = %274
+  %435 = load i32, ptr %7, align 4, !tbaa !8
+  %436 = load i32, ptr %8, align 4, !tbaa !8
+  %437 = sub nsw i32 %435, %436
+  %438 = load i32, ptr %9, align 4, !tbaa !8
+  %439 = load i32, ptr %7, align 4, !tbaa !8
+  %440 = sub nsw i32 %438, %439
+  %441 = icmp sgt i32 %437, %440
+  br i1 %441, label %442, label %634
 
-435:                                              ; preds = %274
-  %436 = load i32, ptr %7, align 4
-  %437 = load i32, ptr %8, align 4
-  %438 = sub nsw i32 %436, %437
-  %439 = load i32, ptr %9, align 4
-  %440 = load i32, ptr %7, align 4
-  %441 = sub nsw i32 %439, %440
-  %442 = icmp sgt i32 %438, %441
-  br i1 %442, label %443, label %637
+442:                                              ; preds = %434
+  br label %443
 
-443:                                              ; preds = %435
-  br label %444
+443:                                              ; preds = %454, %442
+  %444 = load i32, ptr %7, align 4, !tbaa !8
+  %445 = load ptr, ptr %6, align 8, !tbaa !3
+  %446 = getelementptr inbounds nuw %struct.DdManager, ptr %445, i32 0, i32 20
+  %447 = load ptr, ptr %446, align 8, !tbaa !10
+  %448 = load i32, ptr %7, align 4, !tbaa !8
+  %449 = sext i32 %448 to i64
+  %450 = getelementptr inbounds %struct.DdSubtable, ptr %447, i64 %449
+  %451 = getelementptr inbounds nuw %struct.DdSubtable, ptr %450, i32 0, i32 6
+  %452 = load i32, ptr %451, align 4, !tbaa !27
+  %453 = icmp ult i32 %444, %452
+  br i1 %453, label %454, label %463
 
-444:                                              ; preds = %455, %443
-  %445 = load i32, ptr %7, align 4
-  %446 = load ptr, ptr %6, align 8
-  %447 = getelementptr inbounds %struct.DdManager, ptr %446, i32 0, i32 20
-  %448 = load ptr, ptr %447, align 8
-  %449 = load i32, ptr %7, align 4
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds %struct.DdSubtable, ptr %448, i64 %450
-  %452 = getelementptr inbounds %struct.DdSubtable, ptr %451, i32 0, i32 6
-  %453 = load i32, ptr %452, align 4
-  %454 = icmp ult i32 %445, %453
-  br i1 %454, label %455, label %464
+454:                                              ; preds = %443
+  %455 = load ptr, ptr %6, align 8, !tbaa !3
+  %456 = getelementptr inbounds nuw %struct.DdManager, ptr %455, i32 0, i32 20
+  %457 = load ptr, ptr %456, align 8, !tbaa !10
+  %458 = load i32, ptr %7, align 4, !tbaa !8
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds %struct.DdSubtable, ptr %457, i64 %459
+  %461 = getelementptr inbounds nuw %struct.DdSubtable, ptr %460, i32 0, i32 6
+  %462 = load i32, ptr %461, align 4, !tbaa !27
+  store i32 %462, ptr %7, align 4, !tbaa !8
+  br label %443, !llvm.loop !69
 
-455:                                              ; preds = %444
-  %456 = load ptr, ptr %6, align 8
-  %457 = getelementptr inbounds %struct.DdManager, ptr %456, i32 0, i32 20
-  %458 = load ptr, ptr %457, align 8
-  %459 = load i32, ptr %7, align 4
-  %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds %struct.DdSubtable, ptr %458, i64 %460
-  %462 = getelementptr inbounds %struct.DdSubtable, ptr %461, i32 0, i32 6
-  %463 = load i32, ptr %462, align 4
-  store i32 %463, ptr %7, align 4
-  br label %444, !llvm.loop !22
+463:                                              ; preds = %443
+  %464 = load ptr, ptr %6, align 8, !tbaa !3
+  %465 = load i32, ptr %7, align 4, !tbaa !8
+  %466 = load i32, ptr %9, align 4, !tbaa !8
+  %467 = load i32, ptr %13, align 4, !tbaa !8
+  %468 = call ptr @cuddZddSymmSifting_down(ptr noundef %464, i32 noundef %465, i32 noundef %466, i32 noundef %467)
+  store ptr %468, ptr %12, align 8, !tbaa !56
+  %469 = load ptr, ptr %12, align 8, !tbaa !56
+  %470 = icmp eq ptr %469, inttoptr (i64 1 to ptr)
+  br i1 %470, label %471, label %472
 
-464:                                              ; preds = %444
-  %465 = load ptr, ptr %6, align 8
-  %466 = load i32, ptr %7, align 4
-  %467 = load i32, ptr %9, align 4
-  %468 = load i32, ptr %13, align 4
-  %469 = call ptr @cuddZddSymmSifting_down(ptr noundef %465, i32 noundef %466, i32 noundef %467, i32 noundef %468)
-  store ptr %469, ptr %12, align 8
-  %470 = load ptr, ptr %12, align 8
-  %471 = inttoptr i64 1 to ptr
-  %472 = icmp eq ptr %470, %471
-  br i1 %472, label %473, label %474
+471:                                              ; preds = %463
+  br label %875
 
-473:                                              ; preds = %464
-  br label %880
+472:                                              ; preds = %463
+  %473 = load ptr, ptr %12, align 8, !tbaa !56
+  %474 = icmp ne ptr %473, null
+  br i1 %474, label %475, label %479
 
-474:                                              ; preds = %464
-  %475 = load ptr, ptr %12, align 8
-  %476 = icmp ne ptr %475, null
-  br i1 %476, label %477, label %481
+475:                                              ; preds = %472
+  %476 = load ptr, ptr %12, align 8, !tbaa !56
+  %477 = getelementptr inbounds nuw %struct.Move, ptr %476, i32 0, i32 1
+  %478 = load i32, ptr %477, align 4, !tbaa !62
+  store i32 %478, ptr %7, align 4, !tbaa !8
+  br label %488
 
-477:                                              ; preds = %474
-  %478 = load ptr, ptr %12, align 8
-  %479 = getelementptr inbounds %struct.Move, ptr %478, i32 0, i32 1
-  %480 = load i32, ptr %479, align 4
-  store i32 %480, ptr %7, align 4
+479:                                              ; preds = %472
+  %480 = load ptr, ptr %6, align 8, !tbaa !3
+  %481 = getelementptr inbounds nuw %struct.DdManager, ptr %480, i32 0, i32 20
+  %482 = load ptr, ptr %481, align 8, !tbaa !10
+  %483 = load i32, ptr %7, align 4, !tbaa !8
+  %484 = sext i32 %483 to i64
+  %485 = getelementptr inbounds %struct.DdSubtable, ptr %482, i64 %484
+  %486 = getelementptr inbounds nuw %struct.DdSubtable, ptr %485, i32 0, i32 6
+  %487 = load i32, ptr %486, align 4, !tbaa !27
+  store i32 %487, ptr %7, align 4, !tbaa !8
+  br label %488
+
+488:                                              ; preds = %479, %475
+  %489 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %489, ptr %15, align 4, !tbaa !8
   br label %490
 
-481:                                              ; preds = %474
-  %482 = load ptr, ptr %6, align 8
-  %483 = getelementptr inbounds %struct.DdManager, ptr %482, i32 0, i32 20
-  %484 = load ptr, ptr %483, align 8
-  %485 = load i32, ptr %7, align 4
-  %486 = sext i32 %485 to i64
-  %487 = getelementptr inbounds %struct.DdSubtable, ptr %484, i64 %486
-  %488 = getelementptr inbounds %struct.DdSubtable, ptr %487, i32 0, i32 6
-  %489 = load i32, ptr %488, align 4
-  store i32 %489, ptr %7, align 4
-  br label %490
+490:                                              ; preds = %501, %488
+  %491 = load i32, ptr %15, align 4, !tbaa !8
+  %492 = load ptr, ptr %6, align 8, !tbaa !3
+  %493 = getelementptr inbounds nuw %struct.DdManager, ptr %492, i32 0, i32 20
+  %494 = load ptr, ptr %493, align 8, !tbaa !10
+  %495 = load i32, ptr %15, align 4, !tbaa !8
+  %496 = sext i32 %495 to i64
+  %497 = getelementptr inbounds %struct.DdSubtable, ptr %494, i64 %496
+  %498 = getelementptr inbounds nuw %struct.DdSubtable, ptr %497, i32 0, i32 6
+  %499 = load i32, ptr %498, align 4, !tbaa !27
+  %500 = icmp ult i32 %491, %499
+  br i1 %500, label %501, label %510
 
-490:                                              ; preds = %481, %477
-  %491 = load i32, ptr %7, align 4
-  store i32 %491, ptr %15, align 4
-  br label %492
+501:                                              ; preds = %490
+  %502 = load ptr, ptr %6, align 8, !tbaa !3
+  %503 = getelementptr inbounds nuw %struct.DdManager, ptr %502, i32 0, i32 20
+  %504 = load ptr, ptr %503, align 8, !tbaa !10
+  %505 = load i32, ptr %15, align 4, !tbaa !8
+  %506 = sext i32 %505 to i64
+  %507 = getelementptr inbounds %struct.DdSubtable, ptr %504, i64 %506
+  %508 = getelementptr inbounds nuw %struct.DdSubtable, ptr %507, i32 0, i32 6
+  %509 = load i32, ptr %508, align 4, !tbaa !27
+  store i32 %509, ptr %15, align 4, !tbaa !8
+  br label %490, !llvm.loop !70
 
-492:                                              ; preds = %503, %490
-  %493 = load i32, ptr %15, align 4
-  %494 = load ptr, ptr %6, align 8
-  %495 = getelementptr inbounds %struct.DdManager, ptr %494, i32 0, i32 20
-  %496 = load ptr, ptr %495, align 8
-  %497 = load i32, ptr %15, align 4
-  %498 = sext i32 %497 to i64
-  %499 = getelementptr inbounds %struct.DdSubtable, ptr %496, i64 %498
-  %500 = getelementptr inbounds %struct.DdSubtable, ptr %499, i32 0, i32 6
-  %501 = load i32, ptr %500, align 4
-  %502 = icmp ult i32 %493, %501
-  br i1 %502, label %503, label %512
+510:                                              ; preds = %490
+  %511 = load i32, ptr %15, align 4, !tbaa !8
+  %512 = load i32, ptr %7, align 4, !tbaa !8
+  %513 = sub nsw i32 %511, %512
+  %514 = add nsw i32 %513, 1
+  store i32 %514, ptr %17, align 4, !tbaa !8
+  %515 = load ptr, ptr %6, align 8, !tbaa !3
+  %516 = load i32, ptr %7, align 4, !tbaa !8
+  %517 = load i32, ptr %8, align 4, !tbaa !8
+  %518 = load i32, ptr %13, align 4, !tbaa !8
+  %519 = call ptr @cuddZddSymmSifting_up(ptr noundef %515, i32 noundef %516, i32 noundef %517, i32 noundef %518)
+  store ptr %519, ptr %11, align 8, !tbaa !56
+  %520 = load ptr, ptr %11, align 8, !tbaa !56
+  %521 = icmp eq ptr %520, inttoptr (i64 1 to ptr)
+  br i1 %521, label %522, label %523
 
-503:                                              ; preds = %492
-  %504 = load ptr, ptr %6, align 8
-  %505 = getelementptr inbounds %struct.DdManager, ptr %504, i32 0, i32 20
-  %506 = load ptr, ptr %505, align 8
-  %507 = load i32, ptr %15, align 4
-  %508 = sext i32 %507 to i64
-  %509 = getelementptr inbounds %struct.DdSubtable, ptr %506, i64 %508
-  %510 = getelementptr inbounds %struct.DdSubtable, ptr %509, i32 0, i32 6
-  %511 = load i32, ptr %510, align 4
-  store i32 %511, ptr %15, align 4
-  br label %492, !llvm.loop !23
+522:                                              ; preds = %510
+  br label %875
 
-512:                                              ; preds = %492
-  %513 = load i32, ptr %15, align 4
-  %514 = load i32, ptr %7, align 4
-  %515 = sub nsw i32 %513, %514
-  %516 = add nsw i32 %515, 1
-  store i32 %516, ptr %17, align 4
-  %517 = load ptr, ptr %6, align 8
-  %518 = load i32, ptr %7, align 4
-  %519 = load i32, ptr %8, align 4
-  %520 = load i32, ptr %13, align 4
-  %521 = call ptr @cuddZddSymmSifting_up(ptr noundef %517, i32 noundef %518, i32 noundef %519, i32 noundef %520)
-  store ptr %521, ptr %11, align 8
-  %522 = load ptr, ptr %11, align 8
-  %523 = inttoptr i64 1 to ptr
-  %524 = icmp eq ptr %522, %523
-  br i1 %524, label %525, label %526
+523:                                              ; preds = %510
+  %524 = load ptr, ptr %11, align 8, !tbaa !56
+  %525 = icmp eq ptr %524, null
+  br i1 %525, label %541, label %526
 
-525:                                              ; preds = %512
-  br label %880
+526:                                              ; preds = %523
+  %527 = load ptr, ptr %6, align 8, !tbaa !3
+  %528 = getelementptr inbounds nuw %struct.DdManager, ptr %527, i32 0, i32 20
+  %529 = load ptr, ptr %528, align 8, !tbaa !10
+  %530 = load ptr, ptr %11, align 8, !tbaa !56
+  %531 = getelementptr inbounds nuw %struct.Move, ptr %530, i32 0, i32 0
+  %532 = load i32, ptr %531, align 8, !tbaa !67
+  %533 = zext i32 %532 to i64
+  %534 = getelementptr inbounds nuw %struct.DdSubtable, ptr %529, i64 %533
+  %535 = getelementptr inbounds nuw %struct.DdSubtable, ptr %534, i32 0, i32 6
+  %536 = load i32, ptr %535, align 4, !tbaa !27
+  %537 = load ptr, ptr %11, align 8, !tbaa !56
+  %538 = getelementptr inbounds nuw %struct.Move, ptr %537, i32 0, i32 0
+  %539 = load i32, ptr %538, align 8, !tbaa !67
+  %540 = icmp ne i32 %536, %539
+  br i1 %540, label %541, label %624
 
-526:                                              ; preds = %512
-  %527 = load ptr, ptr %11, align 8
-  %528 = icmp eq ptr %527, null
-  br i1 %528, label %544, label %529
+541:                                              ; preds = %526, %523
+  %542 = load ptr, ptr %11, align 8, !tbaa !56
+  %543 = icmp ne ptr %542, null
+  br i1 %543, label %544, label %548
 
-529:                                              ; preds = %526
-  %530 = load ptr, ptr %6, align 8
-  %531 = getelementptr inbounds %struct.DdManager, ptr %530, i32 0, i32 20
-  %532 = load ptr, ptr %531, align 8
-  %533 = load ptr, ptr %11, align 8
-  %534 = getelementptr inbounds %struct.Move, ptr %533, i32 0, i32 0
-  %535 = load i32, ptr %534, align 8
-  %536 = zext i32 %535 to i64
-  %537 = getelementptr inbounds %struct.DdSubtable, ptr %532, i64 %536
-  %538 = getelementptr inbounds %struct.DdSubtable, ptr %537, i32 0, i32 6
-  %539 = load i32, ptr %538, align 4
-  %540 = load ptr, ptr %11, align 8
-  %541 = getelementptr inbounds %struct.Move, ptr %540, i32 0, i32 0
-  %542 = load i32, ptr %541, align 8
-  %543 = icmp ne i32 %539, %542
-  br i1 %543, label %544, label %627
+544:                                              ; preds = %541
+  %545 = load ptr, ptr %11, align 8, !tbaa !56
+  %546 = getelementptr inbounds nuw %struct.Move, ptr %545, i32 0, i32 0
+  %547 = load i32, ptr %546, align 8, !tbaa !67
+  store i32 %547, ptr %7, align 4, !tbaa !8
+  br label %570
 
-544:                                              ; preds = %529, %526
-  %545 = load ptr, ptr %11, align 8
-  %546 = icmp ne ptr %545, null
-  br i1 %546, label %547, label %551
+548:                                              ; preds = %541
+  br label %549
 
-547:                                              ; preds = %544
-  %548 = load ptr, ptr %11, align 8
-  %549 = getelementptr inbounds %struct.Move, ptr %548, i32 0, i32 0
-  %550 = load i32, ptr %549, align 8
-  store i32 %550, ptr %7, align 4
-  br label %573
+549:                                              ; preds = %560, %548
+  %550 = load i32, ptr %7, align 4, !tbaa !8
+  %551 = load ptr, ptr %6, align 8, !tbaa !3
+  %552 = getelementptr inbounds nuw %struct.DdManager, ptr %551, i32 0, i32 20
+  %553 = load ptr, ptr %552, align 8, !tbaa !10
+  %554 = load i32, ptr %7, align 4, !tbaa !8
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds %struct.DdSubtable, ptr %553, i64 %555
+  %557 = getelementptr inbounds nuw %struct.DdSubtable, ptr %556, i32 0, i32 6
+  %558 = load i32, ptr %557, align 4, !tbaa !27
+  %559 = icmp ult i32 %550, %558
+  br i1 %559, label %560, label %569
 
-551:                                              ; preds = %544
-  br label %552
+560:                                              ; preds = %549
+  %561 = load ptr, ptr %6, align 8, !tbaa !3
+  %562 = getelementptr inbounds nuw %struct.DdManager, ptr %561, i32 0, i32 20
+  %563 = load ptr, ptr %562, align 8, !tbaa !10
+  %564 = load i32, ptr %7, align 4, !tbaa !8
+  %565 = sext i32 %564 to i64
+  %566 = getelementptr inbounds %struct.DdSubtable, ptr %563, i64 %565
+  %567 = getelementptr inbounds nuw %struct.DdSubtable, ptr %566, i32 0, i32 6
+  %568 = load i32, ptr %567, align 4, !tbaa !27
+  store i32 %568, ptr %7, align 4, !tbaa !8
+  br label %549, !llvm.loop !71
 
-552:                                              ; preds = %563, %551
-  %553 = load i32, ptr %7, align 4
-  %554 = load ptr, ptr %6, align 8
-  %555 = getelementptr inbounds %struct.DdManager, ptr %554, i32 0, i32 20
-  %556 = load ptr, ptr %555, align 8
-  %557 = load i32, ptr %7, align 4
-  %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds %struct.DdSubtable, ptr %556, i64 %558
-  %560 = getelementptr inbounds %struct.DdSubtable, ptr %559, i32 0, i32 6
-  %561 = load i32, ptr %560, align 4
-  %562 = icmp ult i32 %553, %561
-  br i1 %562, label %563, label %572
+569:                                              ; preds = %549
+  br label %570
 
-563:                                              ; preds = %552
-  %564 = load ptr, ptr %6, align 8
-  %565 = getelementptr inbounds %struct.DdManager, ptr %564, i32 0, i32 20
-  %566 = load ptr, ptr %565, align 8
-  %567 = load i32, ptr %7, align 4
-  %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds %struct.DdSubtable, ptr %566, i64 %568
-  %570 = getelementptr inbounds %struct.DdSubtable, ptr %569, i32 0, i32 6
-  %571 = load i32, ptr %570, align 4
-  store i32 %571, ptr %7, align 4
-  br label %552, !llvm.loop !24
+570:                                              ; preds = %569, %544
+  %571 = load ptr, ptr %6, align 8, !tbaa !3
+  %572 = getelementptr inbounds nuw %struct.DdManager, ptr %571, i32 0, i32 20
+  %573 = load ptr, ptr %572, align 8, !tbaa !10
+  %574 = load i32, ptr %7, align 4, !tbaa !8
+  %575 = sext i32 %574 to i64
+  %576 = getelementptr inbounds %struct.DdSubtable, ptr %573, i64 %575
+  %577 = getelementptr inbounds nuw %struct.DdSubtable, ptr %576, i32 0, i32 6
+  %578 = load i32, ptr %577, align 4, !tbaa !27
+  store i32 %578, ptr %15, align 4, !tbaa !8
+  %579 = load i32, ptr %7, align 4, !tbaa !8
+  %580 = load i32, ptr %15, align 4, !tbaa !8
+  %581 = sub nsw i32 %579, %580
+  %582 = add nsw i32 %581, 1
+  store i32 %582, ptr %18, align 4, !tbaa !8
+  %583 = load i32, ptr %17, align 4, !tbaa !8
+  %584 = load i32, ptr %18, align 4, !tbaa !8
+  %585 = icmp eq i32 %583, %584
+  br i1 %585, label %586, label %591
 
-572:                                              ; preds = %552
-  br label %573
+586:                                              ; preds = %570
+  %587 = load ptr, ptr %6, align 8, !tbaa !3
+  %588 = load ptr, ptr %11, align 8, !tbaa !56
+  %589 = load i32, ptr %13, align 4, !tbaa !8
+  %590 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %587, ptr noundef %588, i32 noundef %589)
+  store i32 %590, ptr %14, align 4, !tbaa !8
+  br label %623
 
-573:                                              ; preds = %572, %547
-  %574 = load ptr, ptr %6, align 8
-  %575 = getelementptr inbounds %struct.DdManager, ptr %574, i32 0, i32 20
-  %576 = load ptr, ptr %575, align 8
-  %577 = load i32, ptr %7, align 4
-  %578 = sext i32 %577 to i64
-  %579 = getelementptr inbounds %struct.DdSubtable, ptr %576, i64 %578
-  %580 = getelementptr inbounds %struct.DdSubtable, ptr %579, i32 0, i32 6
-  %581 = load i32, ptr %580, align 4
-  store i32 %581, ptr %15, align 4
-  %582 = load i32, ptr %7, align 4
-  %583 = load i32, ptr %15, align 4
-  %584 = sub nsw i32 %582, %583
-  %585 = add nsw i32 %584, 1
-  store i32 %585, ptr %18, align 4
-  %586 = load i32, ptr %17, align 4
-  %587 = load i32, ptr %18, align 4
-  %588 = icmp eq i32 %586, %587
-  br i1 %588, label %589, label %594
+591:                                              ; preds = %570
+  br label %592
 
-589:                                              ; preds = %573
-  %590 = load ptr, ptr %6, align 8
-  %591 = load ptr, ptr %11, align 8
-  %592 = load i32, ptr %13, align 4
-  %593 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %590, ptr noundef %591, i32 noundef %592)
-  store i32 %593, ptr %14, align 4
-  br label %626
+592:                                              ; preds = %595, %591
+  %593 = load ptr, ptr %12, align 8, !tbaa !56
+  %594 = icmp ne ptr %593, null
+  br i1 %594, label %595, label %610
 
-594:                                              ; preds = %573
-  br label %595
+595:                                              ; preds = %592
+  %596 = load ptr, ptr %12, align 8, !tbaa !56
+  %597 = getelementptr inbounds nuw %struct.Move, ptr %596, i32 0, i32 4
+  %598 = load ptr, ptr %597, align 8, !tbaa !72
+  store ptr %598, ptr %10, align 8, !tbaa !56
+  %599 = load ptr, ptr %12, align 8, !tbaa !56
+  %600 = getelementptr inbounds nuw %struct.DdNode, ptr %599, i32 0, i32 1
+  store i32 0, ptr %600, align 4, !tbaa !42
+  %601 = load ptr, ptr %6, align 8, !tbaa !3
+  %602 = getelementptr inbounds nuw %struct.DdManager, ptr %601, i32 0, i32 48
+  %603 = load ptr, ptr %602, align 8, !tbaa !73
+  %604 = load ptr, ptr %12, align 8, !tbaa !56
+  %605 = getelementptr inbounds nuw %struct.DdNode, ptr %604, i32 0, i32 2
+  store ptr %603, ptr %605, align 8, !tbaa !39
+  %606 = load ptr, ptr %12, align 8, !tbaa !56
+  %607 = load ptr, ptr %6, align 8, !tbaa !3
+  %608 = getelementptr inbounds nuw %struct.DdManager, ptr %607, i32 0, i32 48
+  store ptr %606, ptr %608, align 8, !tbaa !73
+  %609 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %609, ptr %12, align 8, !tbaa !56
+  br label %592, !llvm.loop !74
 
-595:                                              ; preds = %598, %594
-  %596 = load ptr, ptr %12, align 8
-  %597 = icmp ne ptr %596, null
-  br i1 %597, label %598, label %613
+610:                                              ; preds = %592
+  %611 = load ptr, ptr %6, align 8, !tbaa !3
+  %612 = getelementptr inbounds nuw %struct.DdManager, ptr %611, i32 0, i32 24
+  %613 = load i32, ptr %612, align 8, !tbaa !55
+  store i32 %613, ptr %13, align 4, !tbaa !8
+  %614 = load ptr, ptr %6, align 8, !tbaa !3
+  %615 = load i32, ptr %7, align 4, !tbaa !8
+  %616 = load i32, ptr %9, align 4, !tbaa !8
+  %617 = load i32, ptr %13, align 4, !tbaa !8
+  %618 = call ptr @cuddZddSymmSifting_down(ptr noundef %614, i32 noundef %615, i32 noundef %616, i32 noundef %617)
+  store ptr %618, ptr %12, align 8, !tbaa !56
+  %619 = load ptr, ptr %6, align 8, !tbaa !3
+  %620 = load ptr, ptr %12, align 8, !tbaa !56
+  %621 = load i32, ptr %13, align 4, !tbaa !8
+  %622 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %619, ptr noundef %620, i32 noundef %621)
+  store i32 %622, ptr %14, align 4, !tbaa !8
+  br label %623
 
-598:                                              ; preds = %595
-  %599 = load ptr, ptr %12, align 8
-  %600 = getelementptr inbounds %struct.Move, ptr %599, i32 0, i32 4
-  %601 = load ptr, ptr %600, align 8
-  store ptr %601, ptr %10, align 8
-  %602 = load ptr, ptr %12, align 8
-  %603 = getelementptr inbounds %struct.DdNode, ptr %602, i32 0, i32 1
-  store i32 0, ptr %603, align 4
-  %604 = load ptr, ptr %6, align 8
-  %605 = getelementptr inbounds %struct.DdManager, ptr %604, i32 0, i32 48
-  %606 = load ptr, ptr %605, align 8
-  %607 = load ptr, ptr %12, align 8
-  %608 = getelementptr inbounds %struct.DdNode, ptr %607, i32 0, i32 2
-  store ptr %606, ptr %608, align 8
-  %609 = load ptr, ptr %12, align 8
-  %610 = load ptr, ptr %6, align 8
-  %611 = getelementptr inbounds %struct.DdManager, ptr %610, i32 0, i32 48
-  store ptr %609, ptr %611, align 8
-  %612 = load ptr, ptr %10, align 8
-  store ptr %612, ptr %12, align 8
-  br label %595, !llvm.loop !25
+623:                                              ; preds = %610, %586
+  br label %629
 
-613:                                              ; preds = %595
-  %614 = load ptr, ptr %6, align 8
-  %615 = getelementptr inbounds %struct.DdManager, ptr %614, i32 0, i32 24
-  %616 = load i32, ptr %615, align 8
-  store i32 %616, ptr %13, align 4
-  %617 = load ptr, ptr %6, align 8
-  %618 = load i32, ptr %7, align 4
-  %619 = load i32, ptr %9, align 4
-  %620 = load i32, ptr %13, align 4
-  %621 = call ptr @cuddZddSymmSifting_down(ptr noundef %617, i32 noundef %618, i32 noundef %619, i32 noundef %620)
-  store ptr %621, ptr %12, align 8
-  %622 = load ptr, ptr %6, align 8
-  %623 = load ptr, ptr %12, align 8
-  %624 = load i32, ptr %13, align 4
-  %625 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %622, ptr noundef %623, i32 noundef %624)
-  store i32 %625, ptr %14, align 4
-  br label %626
+624:                                              ; preds = %526
+  %625 = load ptr, ptr %6, align 8, !tbaa !3
+  %626 = load ptr, ptr %11, align 8, !tbaa !56
+  %627 = load i32, ptr %13, align 4, !tbaa !8
+  %628 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %625, ptr noundef %626, i32 noundef %627)
+  store i32 %628, ptr %14, align 4, !tbaa !8
+  br label %629
 
-626:                                              ; preds = %613, %589
-  br label %632
+629:                                              ; preds = %624, %623
+  %630 = load i32, ptr %14, align 4, !tbaa !8
+  %631 = icmp ne i32 %630, 0
+  br i1 %631, label %633, label %632
 
-627:                                              ; preds = %529
-  %628 = load ptr, ptr %6, align 8
-  %629 = load ptr, ptr %11, align 8
-  %630 = load i32, ptr %13, align 4
-  %631 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %628, ptr noundef %629, i32 noundef %630)
-  store i32 %631, ptr %14, align 4
-  br label %632
+632:                                              ; preds = %629
+  br label %875
 
-632:                                              ; preds = %627, %626
-  %633 = load i32, ptr %14, align 4
-  %634 = icmp ne i32 %633, 0
-  br i1 %634, label %636, label %635
-
-635:                                              ; preds = %632
-  br label %880
-
-636:                                              ; preds = %632
-  br label %839
-
-637:                                              ; preds = %435
-  br label %638
-
-638:                                              ; preds = %649, %637
-  %639 = load i32, ptr %7, align 4
-  %640 = load ptr, ptr %6, align 8
-  %641 = getelementptr inbounds %struct.DdManager, ptr %640, i32 0, i32 20
-  %642 = load ptr, ptr %641, align 8
-  %643 = load i32, ptr %7, align 4
-  %644 = sext i32 %643 to i64
-  %645 = getelementptr inbounds %struct.DdSubtable, ptr %642, i64 %644
-  %646 = getelementptr inbounds %struct.DdSubtable, ptr %645, i32 0, i32 6
-  %647 = load i32, ptr %646, align 4
-  %648 = icmp ult i32 %639, %647
-  br i1 %648, label %649, label %658
-
-649:                                              ; preds = %638
-  %650 = load ptr, ptr %6, align 8
-  %651 = getelementptr inbounds %struct.DdManager, ptr %650, i32 0, i32 20
-  %652 = load ptr, ptr %651, align 8
-  %653 = load i32, ptr %7, align 4
-  %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds %struct.DdSubtable, ptr %652, i64 %654
-  %656 = getelementptr inbounds %struct.DdSubtable, ptr %655, i32 0, i32 6
-  %657 = load i32, ptr %656, align 4
-  store i32 %657, ptr %7, align 4
-  br label %638, !llvm.loop !26
-
-658:                                              ; preds = %638
-  %659 = load ptr, ptr %6, align 8
-  %660 = getelementptr inbounds %struct.DdManager, ptr %659, i32 0, i32 20
-  %661 = load ptr, ptr %660, align 8
-  %662 = load i32, ptr %7, align 4
-  %663 = sext i32 %662 to i64
-  %664 = getelementptr inbounds %struct.DdSubtable, ptr %661, i64 %663
-  %665 = getelementptr inbounds %struct.DdSubtable, ptr %664, i32 0, i32 6
-  %666 = load i32, ptr %665, align 4
-  store i32 %666, ptr %7, align 4
-  %667 = load ptr, ptr %6, align 8
-  %668 = load i32, ptr %7, align 4
-  %669 = load i32, ptr %8, align 4
-  %670 = load i32, ptr %13, align 4
-  %671 = call ptr @cuddZddSymmSifting_up(ptr noundef %667, i32 noundef %668, i32 noundef %669, i32 noundef %670)
-  store ptr %671, ptr %11, align 8
-  %672 = load ptr, ptr %11, align 8
-  %673 = inttoptr i64 1 to ptr
-  %674 = icmp eq ptr %672, %673
-  br i1 %674, label %675, label %676
-
-675:                                              ; preds = %658
-  br label %880
-
-676:                                              ; preds = %658
-  %677 = load ptr, ptr %11, align 8
-  %678 = icmp ne ptr %677, null
-  br i1 %678, label %679, label %683
-
-679:                                              ; preds = %676
-  %680 = load ptr, ptr %11, align 8
-  %681 = getelementptr inbounds %struct.Move, ptr %680, i32 0, i32 0
-  %682 = load i32, ptr %681, align 8
-  store i32 %682, ptr %7, align 4
-  br label %705
-
-683:                                              ; preds = %676
-  br label %684
-
-684:                                              ; preds = %695, %683
-  %685 = load i32, ptr %7, align 4
-  %686 = load ptr, ptr %6, align 8
-  %687 = getelementptr inbounds %struct.DdManager, ptr %686, i32 0, i32 20
-  %688 = load ptr, ptr %687, align 8
-  %689 = load i32, ptr %7, align 4
-  %690 = sext i32 %689 to i64
-  %691 = getelementptr inbounds %struct.DdSubtable, ptr %688, i64 %690
-  %692 = getelementptr inbounds %struct.DdSubtable, ptr %691, i32 0, i32 6
-  %693 = load i32, ptr %692, align 4
-  %694 = icmp ult i32 %685, %693
-  br i1 %694, label %695, label %704
-
-695:                                              ; preds = %684
-  %696 = load ptr, ptr %6, align 8
-  %697 = getelementptr inbounds %struct.DdManager, ptr %696, i32 0, i32 20
-  %698 = load ptr, ptr %697, align 8
-  %699 = load i32, ptr %7, align 4
-  %700 = sext i32 %699 to i64
-  %701 = getelementptr inbounds %struct.DdSubtable, ptr %698, i64 %700
-  %702 = getelementptr inbounds %struct.DdSubtable, ptr %701, i32 0, i32 6
-  %703 = load i32, ptr %702, align 4
-  store i32 %703, ptr %7, align 4
-  br label %684, !llvm.loop !27
-
-704:                                              ; preds = %684
-  br label %705
-
-705:                                              ; preds = %704, %679
-  %706 = load ptr, ptr %6, align 8
-  %707 = getelementptr inbounds %struct.DdManager, ptr %706, i32 0, i32 20
-  %708 = load ptr, ptr %707, align 8
-  %709 = load i32, ptr %7, align 4
-  %710 = sext i32 %709 to i64
-  %711 = getelementptr inbounds %struct.DdSubtable, ptr %708, i64 %710
-  %712 = getelementptr inbounds %struct.DdSubtable, ptr %711, i32 0, i32 6
-  %713 = load i32, ptr %712, align 4
-  store i32 %713, ptr %15, align 4
-  %714 = load i32, ptr %7, align 4
-  %715 = load i32, ptr %15, align 4
-  %716 = sub nsw i32 %714, %715
-  %717 = add nsw i32 %716, 1
-  store i32 %717, ptr %17, align 4
-  %718 = load ptr, ptr %6, align 8
-  %719 = load i32, ptr %7, align 4
-  %720 = load i32, ptr %9, align 4
-  %721 = load i32, ptr %13, align 4
-  %722 = call ptr @cuddZddSymmSifting_down(ptr noundef %718, i32 noundef %719, i32 noundef %720, i32 noundef %721)
-  store ptr %722, ptr %12, align 8
-  %723 = load ptr, ptr %12, align 8
-  %724 = inttoptr i64 1 to ptr
-  %725 = icmp eq ptr %723, %724
-  br i1 %725, label %726, label %727
-
-726:                                              ; preds = %705
-  br label %880
-
-727:                                              ; preds = %705
-  %728 = load ptr, ptr %12, align 8
-  %729 = icmp eq ptr %728, null
-  br i1 %729, label %745, label %730
-
-730:                                              ; preds = %727
-  %731 = load ptr, ptr %6, align 8
-  %732 = getelementptr inbounds %struct.DdManager, ptr %731, i32 0, i32 20
-  %733 = load ptr, ptr %732, align 8
-  %734 = load ptr, ptr %12, align 8
-  %735 = getelementptr inbounds %struct.Move, ptr %734, i32 0, i32 1
-  %736 = load i32, ptr %735, align 4
-  %737 = zext i32 %736 to i64
-  %738 = getelementptr inbounds %struct.DdSubtable, ptr %733, i64 %737
-  %739 = getelementptr inbounds %struct.DdSubtable, ptr %738, i32 0, i32 6
-  %740 = load i32, ptr %739, align 4
-  %741 = load ptr, ptr %12, align 8
-  %742 = getelementptr inbounds %struct.Move, ptr %741, i32 0, i32 1
-  %743 = load i32, ptr %742, align 4
-  %744 = icmp ne i32 %740, %743
-  br i1 %744, label %745, label %829
-
-745:                                              ; preds = %730, %727
-  %746 = load ptr, ptr %12, align 8
-  %747 = icmp ne ptr %746, null
-  br i1 %747, label %748, label %752
-
-748:                                              ; preds = %745
-  %749 = load ptr, ptr %12, align 8
-  %750 = getelementptr inbounds %struct.Move, ptr %749, i32 0, i32 1
-  %751 = load i32, ptr %750, align 4
-  store i32 %751, ptr %7, align 4
-  br label %761
-
-752:                                              ; preds = %745
-  %753 = load ptr, ptr %6, align 8
-  %754 = getelementptr inbounds %struct.DdManager, ptr %753, i32 0, i32 20
-  %755 = load ptr, ptr %754, align 8
-  %756 = load i32, ptr %7, align 4
-  %757 = sext i32 %756 to i64
-  %758 = getelementptr inbounds %struct.DdSubtable, ptr %755, i64 %757
-  %759 = getelementptr inbounds %struct.DdSubtable, ptr %758, i32 0, i32 6
-  %760 = load i32, ptr %759, align 4
-  store i32 %760, ptr %7, align 4
-  br label %761
-
-761:                                              ; preds = %752, %748
-  %762 = load i32, ptr %7, align 4
-  store i32 %762, ptr %15, align 4
-  br label %763
-
-763:                                              ; preds = %774, %761
-  %764 = load i32, ptr %15, align 4
-  %765 = load ptr, ptr %6, align 8
-  %766 = getelementptr inbounds %struct.DdManager, ptr %765, i32 0, i32 20
-  %767 = load ptr, ptr %766, align 8
-  %768 = load i32, ptr %15, align 4
-  %769 = sext i32 %768 to i64
-  %770 = getelementptr inbounds %struct.DdSubtable, ptr %767, i64 %769
-  %771 = getelementptr inbounds %struct.DdSubtable, ptr %770, i32 0, i32 6
-  %772 = load i32, ptr %771, align 4
-  %773 = icmp ult i32 %764, %772
-  br i1 %773, label %774, label %783
-
-774:                                              ; preds = %763
-  %775 = load ptr, ptr %6, align 8
-  %776 = getelementptr inbounds %struct.DdManager, ptr %775, i32 0, i32 20
-  %777 = load ptr, ptr %776, align 8
-  %778 = load i32, ptr %15, align 4
-  %779 = sext i32 %778 to i64
-  %780 = getelementptr inbounds %struct.DdSubtable, ptr %777, i64 %779
-  %781 = getelementptr inbounds %struct.DdSubtable, ptr %780, i32 0, i32 6
-  %782 = load i32, ptr %781, align 4
-  store i32 %782, ptr %15, align 4
-  br label %763, !llvm.loop !28
-
-783:                                              ; preds = %763
-  %784 = load i32, ptr %15, align 4
-  %785 = load i32, ptr %7, align 4
-  %786 = sub nsw i32 %784, %785
-  %787 = add nsw i32 %786, 1
-  store i32 %787, ptr %18, align 4
-  %788 = load i32, ptr %17, align 4
-  %789 = load i32, ptr %18, align 4
-  %790 = icmp eq i32 %788, %789
-  br i1 %790, label %791, label %796
-
-791:                                              ; preds = %783
-  %792 = load ptr, ptr %6, align 8
-  %793 = load ptr, ptr %12, align 8
-  %794 = load i32, ptr %13, align 4
-  %795 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %792, ptr noundef %793, i32 noundef %794)
-  store i32 %795, ptr %14, align 4
-  br label %828
-
-796:                                              ; preds = %783
-  br label %797
-
-797:                                              ; preds = %800, %796
-  %798 = load ptr, ptr %11, align 8
-  %799 = icmp ne ptr %798, null
-  br i1 %799, label %800, label %815
-
-800:                                              ; preds = %797
-  %801 = load ptr, ptr %11, align 8
-  %802 = getelementptr inbounds %struct.Move, ptr %801, i32 0, i32 4
-  %803 = load ptr, ptr %802, align 8
-  store ptr %803, ptr %10, align 8
-  %804 = load ptr, ptr %11, align 8
-  %805 = getelementptr inbounds %struct.DdNode, ptr %804, i32 0, i32 1
-  store i32 0, ptr %805, align 4
-  %806 = load ptr, ptr %6, align 8
-  %807 = getelementptr inbounds %struct.DdManager, ptr %806, i32 0, i32 48
-  %808 = load ptr, ptr %807, align 8
-  %809 = load ptr, ptr %11, align 8
-  %810 = getelementptr inbounds %struct.DdNode, ptr %809, i32 0, i32 2
-  store ptr %808, ptr %810, align 8
-  %811 = load ptr, ptr %11, align 8
-  %812 = load ptr, ptr %6, align 8
-  %813 = getelementptr inbounds %struct.DdManager, ptr %812, i32 0, i32 48
-  store ptr %811, ptr %813, align 8
-  %814 = load ptr, ptr %10, align 8
-  store ptr %814, ptr %11, align 8
-  br label %797, !llvm.loop !29
-
-815:                                              ; preds = %797
-  %816 = load ptr, ptr %6, align 8
-  %817 = getelementptr inbounds %struct.DdManager, ptr %816, i32 0, i32 24
-  %818 = load i32, ptr %817, align 8
-  store i32 %818, ptr %13, align 4
-  %819 = load ptr, ptr %6, align 8
-  %820 = load i32, ptr %7, align 4
-  %821 = load i32, ptr %8, align 4
-  %822 = load i32, ptr %13, align 4
-  %823 = call ptr @cuddZddSymmSifting_up(ptr noundef %819, i32 noundef %820, i32 noundef %821, i32 noundef %822)
-  store ptr %823, ptr %11, align 8
-  %824 = load ptr, ptr %6, align 8
-  %825 = load ptr, ptr %11, align 8
-  %826 = load i32, ptr %13, align 4
-  %827 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %824, ptr noundef %825, i32 noundef %826)
-  store i32 %827, ptr %14, align 4
-  br label %828
-
-828:                                              ; preds = %815, %791
+633:                                              ; preds = %629
   br label %834
 
-829:                                              ; preds = %730
-  %830 = load ptr, ptr %6, align 8
-  %831 = load ptr, ptr %12, align 8
-  %832 = load i32, ptr %13, align 4
-  %833 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %830, ptr noundef %831, i32 noundef %832)
-  store i32 %833, ptr %14, align 4
+634:                                              ; preds = %434
+  br label %635
+
+635:                                              ; preds = %646, %634
+  %636 = load i32, ptr %7, align 4, !tbaa !8
+  %637 = load ptr, ptr %6, align 8, !tbaa !3
+  %638 = getelementptr inbounds nuw %struct.DdManager, ptr %637, i32 0, i32 20
+  %639 = load ptr, ptr %638, align 8, !tbaa !10
+  %640 = load i32, ptr %7, align 4, !tbaa !8
+  %641 = sext i32 %640 to i64
+  %642 = getelementptr inbounds %struct.DdSubtable, ptr %639, i64 %641
+  %643 = getelementptr inbounds nuw %struct.DdSubtable, ptr %642, i32 0, i32 6
+  %644 = load i32, ptr %643, align 4, !tbaa !27
+  %645 = icmp ult i32 %636, %644
+  br i1 %645, label %646, label %655
+
+646:                                              ; preds = %635
+  %647 = load ptr, ptr %6, align 8, !tbaa !3
+  %648 = getelementptr inbounds nuw %struct.DdManager, ptr %647, i32 0, i32 20
+  %649 = load ptr, ptr %648, align 8, !tbaa !10
+  %650 = load i32, ptr %7, align 4, !tbaa !8
+  %651 = sext i32 %650 to i64
+  %652 = getelementptr inbounds %struct.DdSubtable, ptr %649, i64 %651
+  %653 = getelementptr inbounds nuw %struct.DdSubtable, ptr %652, i32 0, i32 6
+  %654 = load i32, ptr %653, align 4, !tbaa !27
+  store i32 %654, ptr %7, align 4, !tbaa !8
+  br label %635, !llvm.loop !75
+
+655:                                              ; preds = %635
+  %656 = load ptr, ptr %6, align 8, !tbaa !3
+  %657 = getelementptr inbounds nuw %struct.DdManager, ptr %656, i32 0, i32 20
+  %658 = load ptr, ptr %657, align 8, !tbaa !10
+  %659 = load i32, ptr %7, align 4, !tbaa !8
+  %660 = sext i32 %659 to i64
+  %661 = getelementptr inbounds %struct.DdSubtable, ptr %658, i64 %660
+  %662 = getelementptr inbounds nuw %struct.DdSubtable, ptr %661, i32 0, i32 6
+  %663 = load i32, ptr %662, align 4, !tbaa !27
+  store i32 %663, ptr %7, align 4, !tbaa !8
+  %664 = load ptr, ptr %6, align 8, !tbaa !3
+  %665 = load i32, ptr %7, align 4, !tbaa !8
+  %666 = load i32, ptr %8, align 4, !tbaa !8
+  %667 = load i32, ptr %13, align 4, !tbaa !8
+  %668 = call ptr @cuddZddSymmSifting_up(ptr noundef %664, i32 noundef %665, i32 noundef %666, i32 noundef %667)
+  store ptr %668, ptr %11, align 8, !tbaa !56
+  %669 = load ptr, ptr %11, align 8, !tbaa !56
+  %670 = icmp eq ptr %669, inttoptr (i64 1 to ptr)
+  br i1 %670, label %671, label %672
+
+671:                                              ; preds = %655
+  br label %875
+
+672:                                              ; preds = %655
+  %673 = load ptr, ptr %11, align 8, !tbaa !56
+  %674 = icmp ne ptr %673, null
+  br i1 %674, label %675, label %679
+
+675:                                              ; preds = %672
+  %676 = load ptr, ptr %11, align 8, !tbaa !56
+  %677 = getelementptr inbounds nuw %struct.Move, ptr %676, i32 0, i32 0
+  %678 = load i32, ptr %677, align 8, !tbaa !67
+  store i32 %678, ptr %7, align 4, !tbaa !8
+  br label %701
+
+679:                                              ; preds = %672
+  br label %680
+
+680:                                              ; preds = %691, %679
+  %681 = load i32, ptr %7, align 4, !tbaa !8
+  %682 = load ptr, ptr %6, align 8, !tbaa !3
+  %683 = getelementptr inbounds nuw %struct.DdManager, ptr %682, i32 0, i32 20
+  %684 = load ptr, ptr %683, align 8, !tbaa !10
+  %685 = load i32, ptr %7, align 4, !tbaa !8
+  %686 = sext i32 %685 to i64
+  %687 = getelementptr inbounds %struct.DdSubtable, ptr %684, i64 %686
+  %688 = getelementptr inbounds nuw %struct.DdSubtable, ptr %687, i32 0, i32 6
+  %689 = load i32, ptr %688, align 4, !tbaa !27
+  %690 = icmp ult i32 %681, %689
+  br i1 %690, label %691, label %700
+
+691:                                              ; preds = %680
+  %692 = load ptr, ptr %6, align 8, !tbaa !3
+  %693 = getelementptr inbounds nuw %struct.DdManager, ptr %692, i32 0, i32 20
+  %694 = load ptr, ptr %693, align 8, !tbaa !10
+  %695 = load i32, ptr %7, align 4, !tbaa !8
+  %696 = sext i32 %695 to i64
+  %697 = getelementptr inbounds %struct.DdSubtable, ptr %694, i64 %696
+  %698 = getelementptr inbounds nuw %struct.DdSubtable, ptr %697, i32 0, i32 6
+  %699 = load i32, ptr %698, align 4, !tbaa !27
+  store i32 %699, ptr %7, align 4, !tbaa !8
+  br label %680, !llvm.loop !76
+
+700:                                              ; preds = %680
+  br label %701
+
+701:                                              ; preds = %700, %675
+  %702 = load ptr, ptr %6, align 8, !tbaa !3
+  %703 = getelementptr inbounds nuw %struct.DdManager, ptr %702, i32 0, i32 20
+  %704 = load ptr, ptr %703, align 8, !tbaa !10
+  %705 = load i32, ptr %7, align 4, !tbaa !8
+  %706 = sext i32 %705 to i64
+  %707 = getelementptr inbounds %struct.DdSubtable, ptr %704, i64 %706
+  %708 = getelementptr inbounds nuw %struct.DdSubtable, ptr %707, i32 0, i32 6
+  %709 = load i32, ptr %708, align 4, !tbaa !27
+  store i32 %709, ptr %15, align 4, !tbaa !8
+  %710 = load i32, ptr %7, align 4, !tbaa !8
+  %711 = load i32, ptr %15, align 4, !tbaa !8
+  %712 = sub nsw i32 %710, %711
+  %713 = add nsw i32 %712, 1
+  store i32 %713, ptr %17, align 4, !tbaa !8
+  %714 = load ptr, ptr %6, align 8, !tbaa !3
+  %715 = load i32, ptr %7, align 4, !tbaa !8
+  %716 = load i32, ptr %9, align 4, !tbaa !8
+  %717 = load i32, ptr %13, align 4, !tbaa !8
+  %718 = call ptr @cuddZddSymmSifting_down(ptr noundef %714, i32 noundef %715, i32 noundef %716, i32 noundef %717)
+  store ptr %718, ptr %12, align 8, !tbaa !56
+  %719 = load ptr, ptr %12, align 8, !tbaa !56
+  %720 = icmp eq ptr %719, inttoptr (i64 1 to ptr)
+  br i1 %720, label %721, label %722
+
+721:                                              ; preds = %701
+  br label %875
+
+722:                                              ; preds = %701
+  %723 = load ptr, ptr %12, align 8, !tbaa !56
+  %724 = icmp eq ptr %723, null
+  br i1 %724, label %740, label %725
+
+725:                                              ; preds = %722
+  %726 = load ptr, ptr %6, align 8, !tbaa !3
+  %727 = getelementptr inbounds nuw %struct.DdManager, ptr %726, i32 0, i32 20
+  %728 = load ptr, ptr %727, align 8, !tbaa !10
+  %729 = load ptr, ptr %12, align 8, !tbaa !56
+  %730 = getelementptr inbounds nuw %struct.Move, ptr %729, i32 0, i32 1
+  %731 = load i32, ptr %730, align 4, !tbaa !62
+  %732 = zext i32 %731 to i64
+  %733 = getelementptr inbounds nuw %struct.DdSubtable, ptr %728, i64 %732
+  %734 = getelementptr inbounds nuw %struct.DdSubtable, ptr %733, i32 0, i32 6
+  %735 = load i32, ptr %734, align 4, !tbaa !27
+  %736 = load ptr, ptr %12, align 8, !tbaa !56
+  %737 = getelementptr inbounds nuw %struct.Move, ptr %736, i32 0, i32 1
+  %738 = load i32, ptr %737, align 4, !tbaa !62
+  %739 = icmp ne i32 %735, %738
+  br i1 %739, label %740, label %824
+
+740:                                              ; preds = %725, %722
+  %741 = load ptr, ptr %12, align 8, !tbaa !56
+  %742 = icmp ne ptr %741, null
+  br i1 %742, label %743, label %747
+
+743:                                              ; preds = %740
+  %744 = load ptr, ptr %12, align 8, !tbaa !56
+  %745 = getelementptr inbounds nuw %struct.Move, ptr %744, i32 0, i32 1
+  %746 = load i32, ptr %745, align 4, !tbaa !62
+  store i32 %746, ptr %7, align 4, !tbaa !8
+  br label %756
+
+747:                                              ; preds = %740
+  %748 = load ptr, ptr %6, align 8, !tbaa !3
+  %749 = getelementptr inbounds nuw %struct.DdManager, ptr %748, i32 0, i32 20
+  %750 = load ptr, ptr %749, align 8, !tbaa !10
+  %751 = load i32, ptr %7, align 4, !tbaa !8
+  %752 = sext i32 %751 to i64
+  %753 = getelementptr inbounds %struct.DdSubtable, ptr %750, i64 %752
+  %754 = getelementptr inbounds nuw %struct.DdSubtable, ptr %753, i32 0, i32 6
+  %755 = load i32, ptr %754, align 4, !tbaa !27
+  store i32 %755, ptr %7, align 4, !tbaa !8
+  br label %756
+
+756:                                              ; preds = %747, %743
+  %757 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %757, ptr %15, align 4, !tbaa !8
+  br label %758
+
+758:                                              ; preds = %769, %756
+  %759 = load i32, ptr %15, align 4, !tbaa !8
+  %760 = load ptr, ptr %6, align 8, !tbaa !3
+  %761 = getelementptr inbounds nuw %struct.DdManager, ptr %760, i32 0, i32 20
+  %762 = load ptr, ptr %761, align 8, !tbaa !10
+  %763 = load i32, ptr %15, align 4, !tbaa !8
+  %764 = sext i32 %763 to i64
+  %765 = getelementptr inbounds %struct.DdSubtable, ptr %762, i64 %764
+  %766 = getelementptr inbounds nuw %struct.DdSubtable, ptr %765, i32 0, i32 6
+  %767 = load i32, ptr %766, align 4, !tbaa !27
+  %768 = icmp ult i32 %759, %767
+  br i1 %768, label %769, label %778
+
+769:                                              ; preds = %758
+  %770 = load ptr, ptr %6, align 8, !tbaa !3
+  %771 = getelementptr inbounds nuw %struct.DdManager, ptr %770, i32 0, i32 20
+  %772 = load ptr, ptr %771, align 8, !tbaa !10
+  %773 = load i32, ptr %15, align 4, !tbaa !8
+  %774 = sext i32 %773 to i64
+  %775 = getelementptr inbounds %struct.DdSubtable, ptr %772, i64 %774
+  %776 = getelementptr inbounds nuw %struct.DdSubtable, ptr %775, i32 0, i32 6
+  %777 = load i32, ptr %776, align 4, !tbaa !27
+  store i32 %777, ptr %15, align 4, !tbaa !8
+  br label %758, !llvm.loop !77
+
+778:                                              ; preds = %758
+  %779 = load i32, ptr %15, align 4, !tbaa !8
+  %780 = load i32, ptr %7, align 4, !tbaa !8
+  %781 = sub nsw i32 %779, %780
+  %782 = add nsw i32 %781, 1
+  store i32 %782, ptr %18, align 4, !tbaa !8
+  %783 = load i32, ptr %17, align 4, !tbaa !8
+  %784 = load i32, ptr %18, align 4, !tbaa !8
+  %785 = icmp eq i32 %783, %784
+  br i1 %785, label %786, label %791
+
+786:                                              ; preds = %778
+  %787 = load ptr, ptr %6, align 8, !tbaa !3
+  %788 = load ptr, ptr %12, align 8, !tbaa !56
+  %789 = load i32, ptr %13, align 4, !tbaa !8
+  %790 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %787, ptr noundef %788, i32 noundef %789)
+  store i32 %790, ptr %14, align 4, !tbaa !8
+  br label %823
+
+791:                                              ; preds = %778
+  br label %792
+
+792:                                              ; preds = %795, %791
+  %793 = load ptr, ptr %11, align 8, !tbaa !56
+  %794 = icmp ne ptr %793, null
+  br i1 %794, label %795, label %810
+
+795:                                              ; preds = %792
+  %796 = load ptr, ptr %11, align 8, !tbaa !56
+  %797 = getelementptr inbounds nuw %struct.Move, ptr %796, i32 0, i32 4
+  %798 = load ptr, ptr %797, align 8, !tbaa !72
+  store ptr %798, ptr %10, align 8, !tbaa !56
+  %799 = load ptr, ptr %11, align 8, !tbaa !56
+  %800 = getelementptr inbounds nuw %struct.DdNode, ptr %799, i32 0, i32 1
+  store i32 0, ptr %800, align 4, !tbaa !42
+  %801 = load ptr, ptr %6, align 8, !tbaa !3
+  %802 = getelementptr inbounds nuw %struct.DdManager, ptr %801, i32 0, i32 48
+  %803 = load ptr, ptr %802, align 8, !tbaa !73
+  %804 = load ptr, ptr %11, align 8, !tbaa !56
+  %805 = getelementptr inbounds nuw %struct.DdNode, ptr %804, i32 0, i32 2
+  store ptr %803, ptr %805, align 8, !tbaa !39
+  %806 = load ptr, ptr %11, align 8, !tbaa !56
+  %807 = load ptr, ptr %6, align 8, !tbaa !3
+  %808 = getelementptr inbounds nuw %struct.DdManager, ptr %807, i32 0, i32 48
+  store ptr %806, ptr %808, align 8, !tbaa !73
+  %809 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %809, ptr %11, align 8, !tbaa !56
+  br label %792, !llvm.loop !78
+
+810:                                              ; preds = %792
+  %811 = load ptr, ptr %6, align 8, !tbaa !3
+  %812 = getelementptr inbounds nuw %struct.DdManager, ptr %811, i32 0, i32 24
+  %813 = load i32, ptr %812, align 8, !tbaa !55
+  store i32 %813, ptr %13, align 4, !tbaa !8
+  %814 = load ptr, ptr %6, align 8, !tbaa !3
+  %815 = load i32, ptr %7, align 4, !tbaa !8
+  %816 = load i32, ptr %8, align 4, !tbaa !8
+  %817 = load i32, ptr %13, align 4, !tbaa !8
+  %818 = call ptr @cuddZddSymmSifting_up(ptr noundef %814, i32 noundef %815, i32 noundef %816, i32 noundef %817)
+  store ptr %818, ptr %11, align 8, !tbaa !56
+  %819 = load ptr, ptr %6, align 8, !tbaa !3
+  %820 = load ptr, ptr %11, align 8, !tbaa !56
+  %821 = load i32, ptr %13, align 4, !tbaa !8
+  %822 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %819, ptr noundef %820, i32 noundef %821)
+  store i32 %822, ptr %14, align 4, !tbaa !8
+  br label %823
+
+823:                                              ; preds = %810, %786
+  br label %829
+
+824:                                              ; preds = %725
+  %825 = load ptr, ptr %6, align 8, !tbaa !3
+  %826 = load ptr, ptr %12, align 8, !tbaa !56
+  %827 = load i32, ptr %13, align 4, !tbaa !8
+  %828 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %825, ptr noundef %826, i32 noundef %827)
+  store i32 %828, ptr %14, align 4, !tbaa !8
+  br label %829
+
+829:                                              ; preds = %824, %823
+  %830 = load i32, ptr %14, align 4, !tbaa !8
+  %831 = icmp ne i32 %830, 0
+  br i1 %831, label %833, label %832
+
+832:                                              ; preds = %829
+  br label %875
+
+833:                                              ; preds = %829
   br label %834
 
-834:                                              ; preds = %829, %828
-  %835 = load i32, ptr %14, align 4
-  %836 = icmp ne i32 %835, 0
-  br i1 %836, label %838, label %837
+834:                                              ; preds = %833, %633
+  br label %835
 
-837:                                              ; preds = %834
-  br label %880
+835:                                              ; preds = %834, %433
+  br label %836
 
-838:                                              ; preds = %834
-  br label %839
+836:                                              ; preds = %835, %273
+  br label %837
 
-839:                                              ; preds = %838, %636
-  br label %840
+837:                                              ; preds = %840, %836
+  %838 = load ptr, ptr %12, align 8, !tbaa !56
+  %839 = icmp ne ptr %838, null
+  br i1 %839, label %840, label %855
 
-840:                                              ; preds = %839, %434
-  br label %841
+840:                                              ; preds = %837
+  %841 = load ptr, ptr %12, align 8, !tbaa !56
+  %842 = getelementptr inbounds nuw %struct.Move, ptr %841, i32 0, i32 4
+  %843 = load ptr, ptr %842, align 8, !tbaa !72
+  store ptr %843, ptr %10, align 8, !tbaa !56
+  %844 = load ptr, ptr %12, align 8, !tbaa !56
+  %845 = getelementptr inbounds nuw %struct.DdNode, ptr %844, i32 0, i32 1
+  store i32 0, ptr %845, align 4, !tbaa !42
+  %846 = load ptr, ptr %6, align 8, !tbaa !3
+  %847 = getelementptr inbounds nuw %struct.DdManager, ptr %846, i32 0, i32 48
+  %848 = load ptr, ptr %847, align 8, !tbaa !73
+  %849 = load ptr, ptr %12, align 8, !tbaa !56
+  %850 = getelementptr inbounds nuw %struct.DdNode, ptr %849, i32 0, i32 2
+  store ptr %848, ptr %850, align 8, !tbaa !39
+  %851 = load ptr, ptr %12, align 8, !tbaa !56
+  %852 = load ptr, ptr %6, align 8, !tbaa !3
+  %853 = getelementptr inbounds nuw %struct.DdManager, ptr %852, i32 0, i32 48
+  store ptr %851, ptr %853, align 8, !tbaa !73
+  %854 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %854, ptr %12, align 8, !tbaa !56
+  br label %837, !llvm.loop !79
 
-841:                                              ; preds = %840, %273
-  br label %842
+855:                                              ; preds = %837
+  br label %856
 
-842:                                              ; preds = %845, %841
-  %843 = load ptr, ptr %12, align 8
-  %844 = icmp ne ptr %843, null
-  br i1 %844, label %845, label %860
+856:                                              ; preds = %859, %855
+  %857 = load ptr, ptr %11, align 8, !tbaa !56
+  %858 = icmp ne ptr %857, null
+  br i1 %858, label %859, label %874
 
-845:                                              ; preds = %842
-  %846 = load ptr, ptr %12, align 8
-  %847 = getelementptr inbounds %struct.Move, ptr %846, i32 0, i32 4
-  %848 = load ptr, ptr %847, align 8
-  store ptr %848, ptr %10, align 8
-  %849 = load ptr, ptr %12, align 8
-  %850 = getelementptr inbounds %struct.DdNode, ptr %849, i32 0, i32 1
-  store i32 0, ptr %850, align 4
-  %851 = load ptr, ptr %6, align 8
-  %852 = getelementptr inbounds %struct.DdManager, ptr %851, i32 0, i32 48
-  %853 = load ptr, ptr %852, align 8
-  %854 = load ptr, ptr %12, align 8
-  %855 = getelementptr inbounds %struct.DdNode, ptr %854, i32 0, i32 2
-  store ptr %853, ptr %855, align 8
-  %856 = load ptr, ptr %12, align 8
-  %857 = load ptr, ptr %6, align 8
-  %858 = getelementptr inbounds %struct.DdManager, ptr %857, i32 0, i32 48
-  store ptr %856, ptr %858, align 8
-  %859 = load ptr, ptr %10, align 8
-  store ptr %859, ptr %12, align 8
-  br label %842, !llvm.loop !30
+859:                                              ; preds = %856
+  %860 = load ptr, ptr %11, align 8, !tbaa !56
+  %861 = getelementptr inbounds nuw %struct.Move, ptr %860, i32 0, i32 4
+  %862 = load ptr, ptr %861, align 8, !tbaa !72
+  store ptr %862, ptr %10, align 8, !tbaa !56
+  %863 = load ptr, ptr %11, align 8, !tbaa !56
+  %864 = getelementptr inbounds nuw %struct.DdNode, ptr %863, i32 0, i32 1
+  store i32 0, ptr %864, align 4, !tbaa !42
+  %865 = load ptr, ptr %6, align 8, !tbaa !3
+  %866 = getelementptr inbounds nuw %struct.DdManager, ptr %865, i32 0, i32 48
+  %867 = load ptr, ptr %866, align 8, !tbaa !73
+  %868 = load ptr, ptr %11, align 8, !tbaa !56
+  %869 = getelementptr inbounds nuw %struct.DdNode, ptr %868, i32 0, i32 2
+  store ptr %867, ptr %869, align 8, !tbaa !39
+  %870 = load ptr, ptr %11, align 8, !tbaa !56
+  %871 = load ptr, ptr %6, align 8, !tbaa !3
+  %872 = getelementptr inbounds nuw %struct.DdManager, ptr %871, i32 0, i32 48
+  store ptr %870, ptr %872, align 8, !tbaa !73
+  %873 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %873, ptr %11, align 8, !tbaa !56
+  br label %856, !llvm.loop !80
 
-860:                                              ; preds = %842
-  br label %861
-
-861:                                              ; preds = %864, %860
-  %862 = load ptr, ptr %11, align 8
-  %863 = icmp ne ptr %862, null
-  br i1 %863, label %864, label %879
-
-864:                                              ; preds = %861
-  %865 = load ptr, ptr %11, align 8
-  %866 = getelementptr inbounds %struct.Move, ptr %865, i32 0, i32 4
-  %867 = load ptr, ptr %866, align 8
-  store ptr %867, ptr %10, align 8
-  %868 = load ptr, ptr %11, align 8
-  %869 = getelementptr inbounds %struct.DdNode, ptr %868, i32 0, i32 1
-  store i32 0, ptr %869, align 4
-  %870 = load ptr, ptr %6, align 8
-  %871 = getelementptr inbounds %struct.DdManager, ptr %870, i32 0, i32 48
-  %872 = load ptr, ptr %871, align 8
-  %873 = load ptr, ptr %11, align 8
-  %874 = getelementptr inbounds %struct.DdNode, ptr %873, i32 0, i32 2
-  store ptr %872, ptr %874, align 8
-  %875 = load ptr, ptr %11, align 8
-  %876 = load ptr, ptr %6, align 8
-  %877 = getelementptr inbounds %struct.DdManager, ptr %876, i32 0, i32 48
-  store ptr %875, ptr %877, align 8
-  %878 = load ptr, ptr %10, align 8
-  store ptr %878, ptr %11, align 8
-  br label %861, !llvm.loop !31
-
-879:                                              ; preds = %861
+874:                                              ; preds = %856
   store i32 1, ptr %5, align 4
-  br label %929
+  store i32 1, ptr %19, align 4
+  br label %922
 
-880:                                              ; preds = %837, %726, %675, %635, %525, %473, %433, %342, %272, %180
-  %881 = load ptr, ptr %12, align 8
-  %882 = inttoptr i64 1 to ptr
-  %883 = icmp ne ptr %881, %882
-  br i1 %883, label %884, label %904
+875:                                              ; preds = %832, %721, %671, %632, %522, %471, %432, %341, %272, %180
+  %876 = load ptr, ptr %12, align 8, !tbaa !56
+  %877 = icmp ne ptr %876, inttoptr (i64 1 to ptr)
+  br i1 %877, label %878, label %898
 
-884:                                              ; preds = %880
-  br label %885
+878:                                              ; preds = %875
+  br label %879
 
-885:                                              ; preds = %888, %884
-  %886 = load ptr, ptr %12, align 8
-  %887 = icmp ne ptr %886, null
-  br i1 %887, label %888, label %903
+879:                                              ; preds = %882, %878
+  %880 = load ptr, ptr %12, align 8, !tbaa !56
+  %881 = icmp ne ptr %880, null
+  br i1 %881, label %882, label %897
 
-888:                                              ; preds = %885
-  %889 = load ptr, ptr %12, align 8
-  %890 = getelementptr inbounds %struct.Move, ptr %889, i32 0, i32 4
-  %891 = load ptr, ptr %890, align 8
-  store ptr %891, ptr %10, align 8
-  %892 = load ptr, ptr %12, align 8
-  %893 = getelementptr inbounds %struct.DdNode, ptr %892, i32 0, i32 1
-  store i32 0, ptr %893, align 4
-  %894 = load ptr, ptr %6, align 8
-  %895 = getelementptr inbounds %struct.DdManager, ptr %894, i32 0, i32 48
-  %896 = load ptr, ptr %895, align 8
-  %897 = load ptr, ptr %12, align 8
-  %898 = getelementptr inbounds %struct.DdNode, ptr %897, i32 0, i32 2
-  store ptr %896, ptr %898, align 8
-  %899 = load ptr, ptr %12, align 8
-  %900 = load ptr, ptr %6, align 8
-  %901 = getelementptr inbounds %struct.DdManager, ptr %900, i32 0, i32 48
-  store ptr %899, ptr %901, align 8
-  %902 = load ptr, ptr %10, align 8
-  store ptr %902, ptr %12, align 8
-  br label %885, !llvm.loop !32
+882:                                              ; preds = %879
+  %883 = load ptr, ptr %12, align 8, !tbaa !56
+  %884 = getelementptr inbounds nuw %struct.Move, ptr %883, i32 0, i32 4
+  %885 = load ptr, ptr %884, align 8, !tbaa !72
+  store ptr %885, ptr %10, align 8, !tbaa !56
+  %886 = load ptr, ptr %12, align 8, !tbaa !56
+  %887 = getelementptr inbounds nuw %struct.DdNode, ptr %886, i32 0, i32 1
+  store i32 0, ptr %887, align 4, !tbaa !42
+  %888 = load ptr, ptr %6, align 8, !tbaa !3
+  %889 = getelementptr inbounds nuw %struct.DdManager, ptr %888, i32 0, i32 48
+  %890 = load ptr, ptr %889, align 8, !tbaa !73
+  %891 = load ptr, ptr %12, align 8, !tbaa !56
+  %892 = getelementptr inbounds nuw %struct.DdNode, ptr %891, i32 0, i32 2
+  store ptr %890, ptr %892, align 8, !tbaa !39
+  %893 = load ptr, ptr %12, align 8, !tbaa !56
+  %894 = load ptr, ptr %6, align 8, !tbaa !3
+  %895 = getelementptr inbounds nuw %struct.DdManager, ptr %894, i32 0, i32 48
+  store ptr %893, ptr %895, align 8, !tbaa !73
+  %896 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %896, ptr %12, align 8, !tbaa !56
+  br label %879, !llvm.loop !81
 
-903:                                              ; preds = %885
-  br label %904
+897:                                              ; preds = %879
+  br label %898
 
-904:                                              ; preds = %903, %880
-  %905 = load ptr, ptr %11, align 8
-  %906 = inttoptr i64 1 to ptr
-  %907 = icmp ne ptr %905, %906
-  br i1 %907, label %908, label %928
+898:                                              ; preds = %897, %875
+  %899 = load ptr, ptr %11, align 8, !tbaa !56
+  %900 = icmp ne ptr %899, inttoptr (i64 1 to ptr)
+  br i1 %900, label %901, label %921
 
-908:                                              ; preds = %904
-  br label %909
+901:                                              ; preds = %898
+  br label %902
 
-909:                                              ; preds = %912, %908
-  %910 = load ptr, ptr %11, align 8
-  %911 = icmp ne ptr %910, null
-  br i1 %911, label %912, label %927
+902:                                              ; preds = %905, %901
+  %903 = load ptr, ptr %11, align 8, !tbaa !56
+  %904 = icmp ne ptr %903, null
+  br i1 %904, label %905, label %920
 
-912:                                              ; preds = %909
-  %913 = load ptr, ptr %11, align 8
-  %914 = getelementptr inbounds %struct.Move, ptr %913, i32 0, i32 4
-  %915 = load ptr, ptr %914, align 8
-  store ptr %915, ptr %10, align 8
-  %916 = load ptr, ptr %11, align 8
-  %917 = getelementptr inbounds %struct.DdNode, ptr %916, i32 0, i32 1
-  store i32 0, ptr %917, align 4
-  %918 = load ptr, ptr %6, align 8
-  %919 = getelementptr inbounds %struct.DdManager, ptr %918, i32 0, i32 48
-  %920 = load ptr, ptr %919, align 8
-  %921 = load ptr, ptr %11, align 8
-  %922 = getelementptr inbounds %struct.DdNode, ptr %921, i32 0, i32 2
-  store ptr %920, ptr %922, align 8
-  %923 = load ptr, ptr %11, align 8
-  %924 = load ptr, ptr %6, align 8
-  %925 = getelementptr inbounds %struct.DdManager, ptr %924, i32 0, i32 48
-  store ptr %923, ptr %925, align 8
-  %926 = load ptr, ptr %10, align 8
-  store ptr %926, ptr %11, align 8
-  br label %909, !llvm.loop !33
+905:                                              ; preds = %902
+  %906 = load ptr, ptr %11, align 8, !tbaa !56
+  %907 = getelementptr inbounds nuw %struct.Move, ptr %906, i32 0, i32 4
+  %908 = load ptr, ptr %907, align 8, !tbaa !72
+  store ptr %908, ptr %10, align 8, !tbaa !56
+  %909 = load ptr, ptr %11, align 8, !tbaa !56
+  %910 = getelementptr inbounds nuw %struct.DdNode, ptr %909, i32 0, i32 1
+  store i32 0, ptr %910, align 4, !tbaa !42
+  %911 = load ptr, ptr %6, align 8, !tbaa !3
+  %912 = getelementptr inbounds nuw %struct.DdManager, ptr %911, i32 0, i32 48
+  %913 = load ptr, ptr %912, align 8, !tbaa !73
+  %914 = load ptr, ptr %11, align 8, !tbaa !56
+  %915 = getelementptr inbounds nuw %struct.DdNode, ptr %914, i32 0, i32 2
+  store ptr %913, ptr %915, align 8, !tbaa !39
+  %916 = load ptr, ptr %11, align 8, !tbaa !56
+  %917 = load ptr, ptr %6, align 8, !tbaa !3
+  %918 = getelementptr inbounds nuw %struct.DdManager, ptr %917, i32 0, i32 48
+  store ptr %916, ptr %918, align 8, !tbaa !73
+  %919 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %919, ptr %11, align 8, !tbaa !56
+  br label %902, !llvm.loop !82
 
-927:                                              ; preds = %909
-  br label %928
+920:                                              ; preds = %902
+  br label %921
 
-928:                                              ; preds = %927, %904
+921:                                              ; preds = %920, %898
   store i32 0, ptr %5, align 4
-  br label %929
+  store i32 1, ptr %19, align 4
+  br label %922
 
-929:                                              ; preds = %928, %879
-  %930 = load i32, ptr %5, align 4
-  ret i32 %930
+922:                                              ; preds = %921, %874
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %923 = load i32, ptr %5, align 4
+  ret i32 %923
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @cuddZddSymmSummary(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -2146,88 +2226,98 @@ define internal void @cuddZddSymmSummary(ptr noundef %0, i32 noundef %1, i32 nou
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %11, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !46
+  store ptr %4, ptr %10, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  store i32 0, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 0, ptr %15, align 4, !tbaa !8
+  %16 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %16, ptr %11, align 4, !tbaa !8
   br label %17
 
 17:                                               ; preds = %55, %5
-  %18 = load i32, ptr %11, align 4
-  %19 = load i32, ptr %8, align 4
+  %18 = load i32, ptr %11, align 4, !tbaa !8
+  %19 = load i32, ptr %8, align 4, !tbaa !8
   %20 = icmp sle i32 %18, %19
   br i1 %20, label %21, label %58
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.DdManager, ptr %22, i32 0, i32 20
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %11, align 4
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.DdManager, ptr %22, i32 0, i32 20
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = load i32, ptr %11, align 4, !tbaa !8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.DdSubtable, ptr %24, i64 %26
-  %28 = getelementptr inbounds %struct.DdSubtable, ptr %27, i32 0, i32 6
-  %29 = load i32, ptr %28, align 4
-  %30 = load i32, ptr %11, align 4
+  %28 = getelementptr inbounds nuw %struct.DdSubtable, ptr %27, i32 0, i32 6
+  %29 = load i32, ptr %28, align 4, !tbaa !27
+  %30 = load i32, ptr %11, align 4, !tbaa !8
   %31 = icmp ne i32 %29, %30
   br i1 %31, label %32, label %54
 
 32:                                               ; preds = %21
-  %33 = load i32, ptr %15, align 4
+  %33 = load i32, ptr %15, align 4, !tbaa !8
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %15, align 4
-  %35 = load i32, ptr %11, align 4
-  store i32 %35, ptr %12, align 4
+  store i32 %34, ptr %15, align 4, !tbaa !8
+  %35 = load i32, ptr %11, align 4, !tbaa !8
+  store i32 %35, ptr %12, align 4, !tbaa !8
   br label %36
 
 36:                                               ; preds = %48, %32
-  %37 = load i32, ptr %14, align 4
+  %37 = load i32, ptr %14, align 4, !tbaa !8
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %14, align 4
-  %39 = load i32, ptr %12, align 4
-  store i32 %39, ptr %13, align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.DdManager, ptr %40, i32 0, i32 20
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %12, align 4
+  store i32 %38, ptr %14, align 4, !tbaa !8
+  %39 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %39, ptr %13, align 4, !tbaa !8
+  %40 = load ptr, ptr %6, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.DdManager, ptr %40, i32 0, i32 20
+  %42 = load ptr, ptr %41, align 8, !tbaa !10
+  %43 = load i32, ptr %12, align 4, !tbaa !8
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %struct.DdSubtable, ptr %42, i64 %44
-  %46 = getelementptr inbounds %struct.DdSubtable, ptr %45, i32 0, i32 6
-  %47 = load i32, ptr %46, align 4
-  store i32 %47, ptr %12, align 4
+  %46 = getelementptr inbounds nuw %struct.DdSubtable, ptr %45, i32 0, i32 6
+  %47 = load i32, ptr %46, align 4, !tbaa !27
+  store i32 %47, ptr %12, align 4, !tbaa !8
   br label %48
 
 48:                                               ; preds = %36
-  %49 = load i32, ptr %12, align 4
-  %50 = load i32, ptr %11, align 4
+  %49 = load i32, ptr %12, align 4, !tbaa !8
+  %50 = load i32, ptr %11, align 4, !tbaa !8
   %51 = icmp ne i32 %49, %50
-  br i1 %51, label %36, label %52, !llvm.loop !34
+  br i1 %51, label %36, label %52, !llvm.loop !83
 
 52:                                               ; preds = %48
-  %53 = load i32, ptr %13, align 4
-  store i32 %53, ptr %11, align 4
+  %53 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %53, ptr %11, align 4, !tbaa !8
   br label %54
 
 54:                                               ; preds = %52, %21
   br label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr %11, align 4
+  %56 = load i32, ptr %11, align 4, !tbaa !8
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %11, align 4
-  br label %17, !llvm.loop !35
+  store i32 %57, ptr %11, align 4, !tbaa !8
+  br label %17, !llvm.loop !84
 
 58:                                               ; preds = %17
-  %59 = load i32, ptr %14, align 4
-  %60 = load ptr, ptr %9, align 8
-  store i32 %59, ptr %60, align 4
-  %61 = load i32, ptr %15, align 4
-  %62 = load ptr, ptr %10, align 8
-  store i32 %61, ptr %62, align 4
+  %59 = load i32, ptr %14, align 4, !tbaa !8
+  %60 = load ptr, ptr %9, align 8, !tbaa !46
+  store i32 %59, ptr %60, align 4, !tbaa !8
+  %61 = load i32, ptr %15, align 4, !tbaa !8
+  %62 = load ptr, ptr %10, align 8, !tbaa !46
+  store i32 %61, ptr %62, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret void
 }
 
@@ -2247,521 +2337,544 @@ define i32 @cuddZddSymmSiftingConv(ptr noundef %0, i32 noundef %1, i32 noundef %
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.DdManager, ptr %18, i32 0, i32 24
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %11, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.DdManager, ptr %21, i32 0, i32 16
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %10, align 4
-  store ptr null, ptr %9, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = sext i32 %24 to i64
-  %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #5
-  store ptr %27, ptr @zdd_entry, align 8
-  %28 = load ptr, ptr @zdd_entry, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %33
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.DdManager, ptr %19, i32 0, i32 24
+  %21 = load i32, ptr %20, align 8, !tbaa !55
+  store i32 %21, ptr %11, align 4, !tbaa !8
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.DdManager, ptr %22, i32 0, i32 16
+  %24 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %24, ptr %10, align 4, !tbaa !8
+  store ptr null, ptr %9, align 8, !tbaa !46
+  %25 = load i32, ptr %10, align 4, !tbaa !8
+  %26 = sext i32 %25 to i64
+  %27 = mul i64 4, %26
+  %28 = call noalias ptr @malloc(i64 noundef %27) #6
+  store ptr %28, ptr @zdd_entry, align 8, !tbaa !46
+  %29 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.DdManager, ptr %31, i32 0, i32 86
-  store i32 1, ptr %32, align 8
-  br label %321
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.DdManager, ptr %32, i32 0, i32 86
+  store i32 1, ptr %33, align 8, !tbaa !47
+  br label %322
 
-33:                                               ; preds = %3
-  %34 = load i32, ptr %10, align 4
-  %35 = sext i32 %34 to i64
-  %36 = mul i64 4, %35
-  %37 = call noalias ptr @malloc(i64 noundef %36) #5
-  store ptr %37, ptr %9, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %43
+34:                                               ; preds = %3
+  %35 = load i32, ptr %10, align 4, !tbaa !8
+  %36 = sext i32 %35 to i64
+  %37 = mul i64 4, %36
+  %38 = call noalias ptr @malloc(i64 noundef %37) #6
+  store ptr %38, ptr %9, align 8, !tbaa !46
+  %39 = load ptr, ptr %9, align 8, !tbaa !46
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %33
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.DdManager, ptr %41, i32 0, i32 86
-  store i32 1, ptr %42, align 8
-  br label %321
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.DdManager, ptr %42, i32 0, i32 86
+  store i32 1, ptr %43, align 8, !tbaa !47
+  br label %322
 
-43:                                               ; preds = %33
-  store i32 0, ptr %8, align 4
-  br label %44
+44:                                               ; preds = %34
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %45
 
-44:                                               ; preds = %73, %43
-  %45 = load i32, ptr %8, align 4
-  %46 = load i32, ptr %10, align 4
-  %47 = icmp slt i32 %45, %46
-  br i1 %47, label %48, label %76
+45:                                               ; preds = %74, %44
+  %46 = load i32, ptr %8, align 4, !tbaa !8
+  %47 = load i32, ptr %10, align 4, !tbaa !8
+  %48 = icmp slt i32 %46, %47
+  br i1 %48, label %49, label %77
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.DdManager, ptr %49, i32 0, i32 38
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %8, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %51, i64 %53
-  %55 = load i32, ptr %54, align 4
-  store i32 %55, ptr %12, align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.DdManager, ptr %56, i32 0, i32 20
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %12, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.DdSubtable, ptr %58, i64 %60
-  %62 = getelementptr inbounds %struct.DdSubtable, ptr %61, i32 0, i32 3
-  %63 = load i32, ptr %62, align 8
-  %64 = load ptr, ptr @zdd_entry, align 8
-  %65 = load i32, ptr %8, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
-  store i32 %63, ptr %67, align 4
-  %68 = load i32, ptr %8, align 4
-  %69 = load ptr, ptr %9, align 8
-  %70 = load i32, ptr %8, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %69, i64 %71
-  store i32 %68, ptr %72, align 4
-  br label %73
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.DdManager, ptr %50, i32 0, i32 38
+  %52 = load ptr, ptr %51, align 8, !tbaa !48
+  %53 = load i32, ptr %8, align 4, !tbaa !8
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !8
+  store i32 %56, ptr %12, align 4, !tbaa !8
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.DdManager, ptr %57, i32 0, i32 20
+  %59 = load ptr, ptr %58, align 8, !tbaa !10
+  %60 = load i32, ptr %12, align 4, !tbaa !8
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds %struct.DdSubtable, ptr %59, i64 %61
+  %63 = getelementptr inbounds nuw %struct.DdSubtable, ptr %62, i32 0, i32 3
+  %64 = load i32, ptr %63, align 8, !tbaa !49
+  %65 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %66 = load i32, ptr %8, align 4, !tbaa !8
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %65, i64 %67
+  store i32 %64, ptr %68, align 4, !tbaa !8
+  %69 = load i32, ptr %8, align 4, !tbaa !8
+  %70 = load ptr, ptr %9, align 8, !tbaa !46
+  %71 = load i32, ptr %8, align 4, !tbaa !8
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i32, ptr %70, i64 %72
+  store i32 %69, ptr %73, align 4, !tbaa !8
+  br label %74
 
-73:                                               ; preds = %48
-  %74 = load i32, ptr %8, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %8, align 4
-  br label %44, !llvm.loop !36
+74:                                               ; preds = %49
+  %75 = load i32, ptr %8, align 4, !tbaa !8
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %8, align 4, !tbaa !8
+  br label %45, !llvm.loop !85
 
-76:                                               ; preds = %44
-  %77 = load ptr, ptr %9, align 8
-  %78 = load i32, ptr %10, align 4
-  %79 = sext i32 %78 to i64
-  call void @qsort(ptr noundef %77, i64 noundef %79, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
-  %80 = load i32, ptr %6, align 4
-  store i32 %80, ptr %8, align 4
-  br label %81
+77:                                               ; preds = %45
+  %78 = load ptr, ptr %9, align 8, !tbaa !46
+  %79 = load i32, ptr %10, align 4, !tbaa !8
+  %80 = sext i32 %79 to i64
+  call void @qsort(ptr noundef %78, i64 noundef %80, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
+  %81 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %81, ptr %8, align 4, !tbaa !8
+  br label %82
 
-81:                                               ; preds = %94, %76
-  %82 = load i32, ptr %8, align 4
-  %83 = load i32, ptr %7, align 4
-  %84 = icmp sle i32 %82, %83
-  br i1 %84, label %85, label %97
+82:                                               ; preds = %95, %77
+  %83 = load i32, ptr %8, align 4, !tbaa !8
+  %84 = load i32, ptr %7, align 4, !tbaa !8
+  %85 = icmp sle i32 %83, %84
+  br i1 %85, label %86, label %98
 
-85:                                               ; preds = %81
-  %86 = load i32, ptr %8, align 4
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds %struct.DdManager, ptr %87, i32 0, i32 20
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr %8, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.DdSubtable, ptr %89, i64 %91
-  %93 = getelementptr inbounds %struct.DdSubtable, ptr %92, i32 0, i32 6
-  store i32 %86, ptr %93, align 4
-  br label %94
+86:                                               ; preds = %82
+  %87 = load i32, ptr %8, align 4, !tbaa !8
+  %88 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.DdManager, ptr %88, i32 0, i32 20
+  %90 = load ptr, ptr %89, align 8, !tbaa !10
+  %91 = load i32, ptr %8, align 4, !tbaa !8
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds %struct.DdSubtable, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw %struct.DdSubtable, ptr %93, i32 0, i32 6
+  store i32 %87, ptr %94, align 4, !tbaa !27
+  br label %95
 
-94:                                               ; preds = %85
-  %95 = load i32, ptr %8, align 4
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %8, align 4
-  br label %81, !llvm.loop !37
+95:                                               ; preds = %86
+  %96 = load i32, ptr %8, align 4, !tbaa !8
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %8, align 4, !tbaa !8
+  br label %82, !llvm.loop !86
 
-97:                                               ; preds = %81
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.DdManager, ptr %98, i32 0, i32 16
-  %100 = load i32, ptr %99, align 4
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.DdManager, ptr %101, i32 0, i32 57
-  %103 = load i32, ptr %102, align 8
-  %104 = icmp slt i32 %100, %103
-  br i1 %104, label %105, label %109
+98:                                               ; preds = %82
+  %99 = load ptr, ptr %5, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.DdManager, ptr %99, i32 0, i32 16
+  %101 = load i32, ptr %100, align 4, !tbaa !45
+  %102 = load ptr, ptr %5, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.DdManager, ptr %102, i32 0, i32 57
+  %104 = load i32, ptr %103, align 8, !tbaa !52
+  %105 = icmp slt i32 %101, %104
+  br i1 %105, label %106, label %110
 
-105:                                              ; preds = %97
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.DdManager, ptr %106, i32 0, i32 16
-  %108 = load i32, ptr %107, align 4
-  br label %113
+106:                                              ; preds = %98
+  %107 = load ptr, ptr %5, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.DdManager, ptr %107, i32 0, i32 16
+  %109 = load i32, ptr %108, align 4, !tbaa !45
+  br label %114
 
-109:                                              ; preds = %97
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.DdManager, ptr %110, i32 0, i32 57
-  %112 = load i32, ptr %111, align 8
-  br label %113
+110:                                              ; preds = %98
+  %111 = load ptr, ptr %5, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.DdManager, ptr %111, i32 0, i32 57
+  %113 = load i32, ptr %112, align 8, !tbaa !52
+  br label %114
 
-113:                                              ; preds = %109, %105
-  %114 = phi i32 [ %108, %105 ], [ %112, %109 ]
-  store i32 %114, ptr %17, align 4
-  store i32 0, ptr %8, align 4
-  br label %115
+114:                                              ; preds = %110, %106
+  %115 = phi i32 [ %109, %106 ], [ %113, %110 ]
+  store i32 %115, ptr %17, align 4, !tbaa !8
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %116
 
-115:                                              ; preds = %168, %113
-  %116 = load i32, ptr %8, align 4
-  %117 = load i32, ptr %17, align 4
-  %118 = icmp slt i32 %116, %117
-  br i1 %118, label %119, label %171
+116:                                              ; preds = %169, %114
+  %117 = load i32, ptr %8, align 4, !tbaa !8
+  %118 = load i32, ptr %17, align 4, !tbaa !8
+  %119 = icmp slt i32 %117, %118
+  br i1 %119, label %120, label %172
 
-119:                                              ; preds = %115
-  %120 = load i32, ptr @zddTotalNumberSwapping, align 4
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct.DdManager, ptr %121, i32 0, i32 58
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp sge i32 %120, %123
-  br i1 %124, label %125, label %126
+120:                                              ; preds = %116
+  %121 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !8
+  %122 = load ptr, ptr %5, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.DdManager, ptr %122, i32 0, i32 58
+  %124 = load i32, ptr %123, align 4, !tbaa !53
+  %125 = icmp sge i32 %121, %124
+  br i1 %125, label %126, label %127
 
-125:                                              ; preds = %119
-  br label %171
-
-126:                                              ; preds = %119
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds %struct.DdManager, ptr %127, i32 0, i32 38
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %9, align 8
-  %131 = load i32, ptr %8, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %130, i64 %132
-  %134 = load i32, ptr %133, align 4
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %129, i64 %135
-  %137 = load i32, ptr %136, align 4
-  store i32 %137, ptr %12, align 4
-  %138 = load i32, ptr %12, align 4
-  %139 = load i32, ptr %6, align 4
-  %140 = icmp slt i32 %138, %139
-  br i1 %140, label %145, label %141
-
-141:                                              ; preds = %126
-  %142 = load i32, ptr %12, align 4
-  %143 = load i32, ptr %7, align 4
-  %144 = icmp sgt i32 %142, %143
-  br i1 %144, label %145, label %146
-
-145:                                              ; preds = %141, %126
-  br label %168
-
-146:                                              ; preds = %141
-  %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds %struct.DdManager, ptr %147, i32 0, i32 20
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i32, ptr %12, align 4
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds %struct.DdSubtable, ptr %149, i64 %151
-  %153 = getelementptr inbounds %struct.DdSubtable, ptr %152, i32 0, i32 6
-  %154 = load i32, ptr %153, align 4
-  %155 = load i32, ptr %12, align 4
-  %156 = icmp eq i32 %154, %155
-  br i1 %156, label %157, label %167
-
-157:                                              ; preds = %146
-  %158 = load ptr, ptr %5, align 8
-  %159 = load i32, ptr %12, align 4
-  %160 = load i32, ptr %6, align 4
-  %161 = load i32, ptr %7, align 4
-  %162 = call i32 @cuddZddSymmSiftingAux(ptr noundef %158, i32 noundef %159, i32 noundef %160, i32 noundef %161)
-  store i32 %162, ptr %13, align 4
-  %163 = load i32, ptr %13, align 4
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %166, label %165
-
-165:                                              ; preds = %157
-  br label %321
-
-166:                                              ; preds = %157
-  br label %167
-
-167:                                              ; preds = %166, %146
-  br label %168
-
-168:                                              ; preds = %167, %145
-  %169 = load i32, ptr %8, align 4
-  %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %8, align 4
-  br label %115, !llvm.loop !38
-
-171:                                              ; preds = %125, %115
+126:                                              ; preds = %120
   br label %172
 
-172:                                              ; preds = %302, %171
-  %173 = load i32, ptr %11, align 4
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.DdManager, ptr %174, i32 0, i32 24
-  %176 = load i32, ptr %175, align 8
-  %177 = icmp ugt i32 %173, %176
-  br i1 %177, label %178, label %303
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %5, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.DdManager, ptr %128, i32 0, i32 38
+  %130 = load ptr, ptr %129, align 8, !tbaa !48
+  %131 = load ptr, ptr %9, align 8, !tbaa !46
+  %132 = load i32, ptr %8, align 4, !tbaa !8
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i32, ptr %131, i64 %133
+  %135 = load i32, ptr %134, align 4, !tbaa !8
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i32, ptr %130, i64 %136
+  %138 = load i32, ptr %137, align 4, !tbaa !8
+  store i32 %138, ptr %12, align 4, !tbaa !8
+  %139 = load i32, ptr %12, align 4, !tbaa !8
+  %140 = load i32, ptr %6, align 4, !tbaa !8
+  %141 = icmp slt i32 %139, %140
+  br i1 %141, label %146, label %142
 
-178:                                              ; preds = %172
-  %179 = load ptr, ptr %5, align 8
-  %180 = getelementptr inbounds %struct.DdManager, ptr %179, i32 0, i32 24
-  %181 = load i32, ptr %180, align 8
-  store i32 %181, ptr %11, align 4
-  %182 = load i32, ptr %6, align 4
-  store i32 %182, ptr %12, align 4
-  store i32 0, ptr %16, align 4
-  br label %183
+142:                                              ; preds = %127
+  %143 = load i32, ptr %12, align 4, !tbaa !8
+  %144 = load i32, ptr %7, align 4, !tbaa !8
+  %145 = icmp sgt i32 %143, %144
+  br i1 %145, label %146, label %147
 
-183:                                              ; preds = %233, %178
-  %184 = load i32, ptr %12, align 4
-  %185 = load i32, ptr %7, align 4
-  %186 = icmp sle i32 %184, %185
-  br i1 %186, label %187, label %238
+146:                                              ; preds = %142, %127
+  br label %169
 
-187:                                              ; preds = %183
-  br label %188
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %5, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.DdManager, ptr %148, i32 0, i32 20
+  %150 = load ptr, ptr %149, align 8, !tbaa !10
+  %151 = load i32, ptr %12, align 4, !tbaa !8
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds %struct.DdSubtable, ptr %150, i64 %152
+  %154 = getelementptr inbounds nuw %struct.DdSubtable, ptr %153, i32 0, i32 6
+  %155 = load i32, ptr %154, align 4, !tbaa !27
+  %156 = load i32, ptr %12, align 4, !tbaa !8
+  %157 = icmp eq i32 %155, %156
+  br i1 %157, label %158, label %168
 
-188:                                              ; preds = %199, %187
-  %189 = load i32, ptr %12, align 4
-  %190 = load ptr, ptr %5, align 8
-  %191 = getelementptr inbounds %struct.DdManager, ptr %190, i32 0, i32 20
-  %192 = load ptr, ptr %191, align 8
-  %193 = load i32, ptr %12, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %struct.DdSubtable, ptr %192, i64 %194
-  %196 = getelementptr inbounds %struct.DdSubtable, ptr %195, i32 0, i32 6
-  %197 = load i32, ptr %196, align 4
-  %198 = icmp ult i32 %189, %197
-  br i1 %198, label %199, label %208
+158:                                              ; preds = %147
+  %159 = load ptr, ptr %5, align 8, !tbaa !3
+  %160 = load i32, ptr %12, align 4, !tbaa !8
+  %161 = load i32, ptr %6, align 4, !tbaa !8
+  %162 = load i32, ptr %7, align 4, !tbaa !8
+  %163 = call i32 @cuddZddSymmSiftingAux(ptr noundef %159, i32 noundef %160, i32 noundef %161, i32 noundef %162)
+  store i32 %163, ptr %13, align 4, !tbaa !8
+  %164 = load i32, ptr %13, align 4, !tbaa !8
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %167, label %166
 
-199:                                              ; preds = %188
-  %200 = load ptr, ptr %5, align 8
-  %201 = getelementptr inbounds %struct.DdManager, ptr %200, i32 0, i32 20
-  %202 = load ptr, ptr %201, align 8
-  %203 = load i32, ptr %12, align 4
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds %struct.DdSubtable, ptr %202, i64 %204
-  %206 = getelementptr inbounds %struct.DdSubtable, ptr %205, i32 0, i32 6
-  %207 = load i32, ptr %206, align 4
-  store i32 %207, ptr %12, align 4
-  br label %188, !llvm.loop !39
+166:                                              ; preds = %158
+  br label %322
 
-208:                                              ; preds = %188
-  %209 = load ptr, ptr %5, align 8
-  %210 = getelementptr inbounds %struct.DdManager, ptr %209, i32 0, i32 40
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i32, ptr %12, align 4
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i32, ptr %211, i64 %213
-  %215 = load i32, ptr %214, align 4
-  store i32 %215, ptr %8, align 4
-  %216 = load ptr, ptr %5, align 8
-  %217 = getelementptr inbounds %struct.DdManager, ptr %216, i32 0, i32 20
-  %218 = load ptr, ptr %217, align 8
-  %219 = load i32, ptr %12, align 4
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds %struct.DdSubtable, ptr %218, i64 %220
-  %222 = getelementptr inbounds %struct.DdSubtable, ptr %221, i32 0, i32 3
-  %223 = load i32, ptr %222, align 8
-  %224 = load ptr, ptr @zdd_entry, align 8
-  %225 = load i32, ptr %8, align 4
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds i32, ptr %224, i64 %226
-  store i32 %223, ptr %227, align 4
-  %228 = load i32, ptr %8, align 4
-  %229 = load ptr, ptr %9, align 8
-  %230 = load i32, ptr %16, align 4
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i32, ptr %229, i64 %231
-  store i32 %228, ptr %232, align 4
-  br label %233
+167:                                              ; preds = %158
+  br label %168
 
-233:                                              ; preds = %208
-  %234 = load i32, ptr %12, align 4
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %12, align 4
-  %236 = load i32, ptr %16, align 4
-  %237 = add nsw i32 %236, 1
-  store i32 %237, ptr %16, align 4
-  br label %183, !llvm.loop !40
+168:                                              ; preds = %167, %147
+  br label %169
 
-238:                                              ; preds = %183
-  %239 = load ptr, ptr %9, align 8
-  %240 = load i32, ptr %16, align 4
-  %241 = sext i32 %240 to i64
-  call void @qsort(ptr noundef %239, i64 noundef %241, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
-  %242 = load i32, ptr %10, align 4
-  %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds %struct.DdManager, ptr %243, i32 0, i32 57
-  %245 = load i32, ptr %244, align 8
-  %246 = icmp slt i32 %242, %245
-  br i1 %246, label %247, label %249
+169:                                              ; preds = %168, %146
+  %170 = load i32, ptr %8, align 4, !tbaa !8
+  %171 = add nsw i32 %170, 1
+  store i32 %171, ptr %8, align 4, !tbaa !8
+  br label %116, !llvm.loop !87
 
-247:                                              ; preds = %238
-  %248 = load i32, ptr %10, align 4
-  br label %253
+172:                                              ; preds = %126, %116
+  br label %173
 
-249:                                              ; preds = %238
-  %250 = load ptr, ptr %5, align 8
-  %251 = getelementptr inbounds %struct.DdManager, ptr %250, i32 0, i32 57
-  %252 = load i32, ptr %251, align 8
-  br label %253
+173:                                              ; preds = %303, %172
+  %174 = load i32, ptr %11, align 4, !tbaa !8
+  %175 = load ptr, ptr %5, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw %struct.DdManager, ptr %175, i32 0, i32 24
+  %177 = load i32, ptr %176, align 8, !tbaa !55
+  %178 = icmp ugt i32 %174, %177
+  br i1 %178, label %179, label %304
 
-253:                                              ; preds = %249, %247
-  %254 = phi i32 [ %248, %247 ], [ %252, %249 ]
-  store i32 %254, ptr %17, align 4
-  store i32 0, ptr %8, align 4
-  br label %255
+179:                                              ; preds = %173
+  %180 = load ptr, ptr %5, align 8, !tbaa !3
+  %181 = getelementptr inbounds nuw %struct.DdManager, ptr %180, i32 0, i32 24
+  %182 = load i32, ptr %181, align 8, !tbaa !55
+  store i32 %182, ptr %11, align 4, !tbaa !8
+  %183 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %183, ptr %12, align 4, !tbaa !8
+  store i32 0, ptr %16, align 4, !tbaa !8
+  br label %184
 
-255:                                              ; preds = %299, %253
-  %256 = load i32, ptr %8, align 4
-  %257 = load i32, ptr %17, align 4
-  %258 = icmp slt i32 %256, %257
-  br i1 %258, label %259, label %302
+184:                                              ; preds = %234, %179
+  %185 = load i32, ptr %12, align 4, !tbaa !8
+  %186 = load i32, ptr %7, align 4, !tbaa !8
+  %187 = icmp sle i32 %185, %186
+  br i1 %187, label %188, label %239
 
-259:                                              ; preds = %255
-  %260 = load i32, ptr @zddTotalNumberSwapping, align 4
-  %261 = load ptr, ptr %5, align 8
-  %262 = getelementptr inbounds %struct.DdManager, ptr %261, i32 0, i32 58
-  %263 = load i32, ptr %262, align 4
-  %264 = icmp sge i32 %260, %263
-  br i1 %264, label %265, label %266
+188:                                              ; preds = %184
+  br label %189
 
-265:                                              ; preds = %259
-  br label %302
+189:                                              ; preds = %200, %188
+  %190 = load i32, ptr %12, align 4, !tbaa !8
+  %191 = load ptr, ptr %5, align 8, !tbaa !3
+  %192 = getelementptr inbounds nuw %struct.DdManager, ptr %191, i32 0, i32 20
+  %193 = load ptr, ptr %192, align 8, !tbaa !10
+  %194 = load i32, ptr %12, align 4, !tbaa !8
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds %struct.DdSubtable, ptr %193, i64 %195
+  %197 = getelementptr inbounds nuw %struct.DdSubtable, ptr %196, i32 0, i32 6
+  %198 = load i32, ptr %197, align 4, !tbaa !27
+  %199 = icmp ult i32 %190, %198
+  br i1 %199, label %200, label %209
 
-266:                                              ; preds = %259
-  %267 = load ptr, ptr %5, align 8
-  %268 = getelementptr inbounds %struct.DdManager, ptr %267, i32 0, i32 38
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %9, align 8
-  %271 = load i32, ptr %8, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds i32, ptr %270, i64 %272
-  %274 = load i32, ptr %273, align 4
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds i32, ptr %269, i64 %275
-  %277 = load i32, ptr %276, align 4
-  store i32 %277, ptr %12, align 4
-  %278 = load i32, ptr %12, align 4
-  %279 = load ptr, ptr %5, align 8
-  %280 = getelementptr inbounds %struct.DdManager, ptr %279, i32 0, i32 20
-  %281 = load ptr, ptr %280, align 8
-  %282 = load i32, ptr %12, align 4
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %struct.DdSubtable, ptr %281, i64 %283
-  %285 = getelementptr inbounds %struct.DdSubtable, ptr %284, i32 0, i32 6
-  %286 = load i32, ptr %285, align 4
-  %287 = icmp uge i32 %278, %286
-  br i1 %287, label %288, label %298
+200:                                              ; preds = %189
+  %201 = load ptr, ptr %5, align 8, !tbaa !3
+  %202 = getelementptr inbounds nuw %struct.DdManager, ptr %201, i32 0, i32 20
+  %203 = load ptr, ptr %202, align 8, !tbaa !10
+  %204 = load i32, ptr %12, align 4, !tbaa !8
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds %struct.DdSubtable, ptr %203, i64 %205
+  %207 = getelementptr inbounds nuw %struct.DdSubtable, ptr %206, i32 0, i32 6
+  %208 = load i32, ptr %207, align 4, !tbaa !27
+  store i32 %208, ptr %12, align 4, !tbaa !8
+  br label %189, !llvm.loop !88
 
-288:                                              ; preds = %266
-  %289 = load ptr, ptr %5, align 8
-  %290 = load i32, ptr %12, align 4
-  %291 = load i32, ptr %6, align 4
-  %292 = load i32, ptr %7, align 4
-  %293 = call i32 @cuddZddSymmSiftingConvAux(ptr noundef %289, i32 noundef %290, i32 noundef %291, i32 noundef %292)
-  store i32 %293, ptr %13, align 4
-  %294 = load i32, ptr %13, align 4
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %297, label %296
+209:                                              ; preds = %189
+  %210 = load ptr, ptr %5, align 8, !tbaa !3
+  %211 = getelementptr inbounds nuw %struct.DdManager, ptr %210, i32 0, i32 40
+  %212 = load ptr, ptr %211, align 8, !tbaa !29
+  %213 = load i32, ptr %12, align 4, !tbaa !8
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds i32, ptr %212, i64 %214
+  %216 = load i32, ptr %215, align 4, !tbaa !8
+  store i32 %216, ptr %8, align 4, !tbaa !8
+  %217 = load ptr, ptr %5, align 8, !tbaa !3
+  %218 = getelementptr inbounds nuw %struct.DdManager, ptr %217, i32 0, i32 20
+  %219 = load ptr, ptr %218, align 8, !tbaa !10
+  %220 = load i32, ptr %12, align 4, !tbaa !8
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds %struct.DdSubtable, ptr %219, i64 %221
+  %223 = getelementptr inbounds nuw %struct.DdSubtable, ptr %222, i32 0, i32 3
+  %224 = load i32, ptr %223, align 8, !tbaa !49
+  %225 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %226 = load i32, ptr %8, align 4, !tbaa !8
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds i32, ptr %225, i64 %227
+  store i32 %224, ptr %228, align 4, !tbaa !8
+  %229 = load i32, ptr %8, align 4, !tbaa !8
+  %230 = load ptr, ptr %9, align 8, !tbaa !46
+  %231 = load i32, ptr %16, align 4, !tbaa !8
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds i32, ptr %230, i64 %232
+  store i32 %229, ptr %233, align 4, !tbaa !8
+  br label %234
 
-296:                                              ; preds = %288
-  br label %321
+234:                                              ; preds = %209
+  %235 = load i32, ptr %12, align 4, !tbaa !8
+  %236 = add nsw i32 %235, 1
+  store i32 %236, ptr %12, align 4, !tbaa !8
+  %237 = load i32, ptr %16, align 4, !tbaa !8
+  %238 = add nsw i32 %237, 1
+  store i32 %238, ptr %16, align 4, !tbaa !8
+  br label %184, !llvm.loop !89
 
-297:                                              ; preds = %288
-  br label %298
+239:                                              ; preds = %184
+  %240 = load ptr, ptr %9, align 8, !tbaa !46
+  %241 = load i32, ptr %16, align 4, !tbaa !8
+  %242 = sext i32 %241 to i64
+  call void @qsort(ptr noundef %240, i64 noundef %242, i64 noundef 4, ptr noundef @cuddZddUniqueCompare)
+  %243 = load i32, ptr %10, align 4, !tbaa !8
+  %244 = load ptr, ptr %5, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw %struct.DdManager, ptr %244, i32 0, i32 57
+  %246 = load i32, ptr %245, align 8, !tbaa !52
+  %247 = icmp slt i32 %243, %246
+  br i1 %247, label %248, label %250
 
-298:                                              ; preds = %297, %266
+248:                                              ; preds = %239
+  %249 = load i32, ptr %10, align 4, !tbaa !8
+  br label %254
+
+250:                                              ; preds = %239
+  %251 = load ptr, ptr %5, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.DdManager, ptr %251, i32 0, i32 57
+  %253 = load i32, ptr %252, align 8, !tbaa !52
+  br label %254
+
+254:                                              ; preds = %250, %248
+  %255 = phi i32 [ %249, %248 ], [ %253, %250 ]
+  store i32 %255, ptr %17, align 4, !tbaa !8
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %256
+
+256:                                              ; preds = %300, %254
+  %257 = load i32, ptr %8, align 4, !tbaa !8
+  %258 = load i32, ptr %17, align 4, !tbaa !8
+  %259 = icmp slt i32 %257, %258
+  br i1 %259, label %260, label %303
+
+260:                                              ; preds = %256
+  %261 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !8
+  %262 = load ptr, ptr %5, align 8, !tbaa !3
+  %263 = getelementptr inbounds nuw %struct.DdManager, ptr %262, i32 0, i32 58
+  %264 = load i32, ptr %263, align 4, !tbaa !53
+  %265 = icmp sge i32 %261, %264
+  br i1 %265, label %266, label %267
+
+266:                                              ; preds = %260
+  br label %303
+
+267:                                              ; preds = %260
+  %268 = load ptr, ptr %5, align 8, !tbaa !3
+  %269 = getelementptr inbounds nuw %struct.DdManager, ptr %268, i32 0, i32 38
+  %270 = load ptr, ptr %269, align 8, !tbaa !48
+  %271 = load ptr, ptr %9, align 8, !tbaa !46
+  %272 = load i32, ptr %8, align 4, !tbaa !8
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i32, ptr %271, i64 %273
+  %275 = load i32, ptr %274, align 4, !tbaa !8
+  %276 = sext i32 %275 to i64
+  %277 = getelementptr inbounds i32, ptr %270, i64 %276
+  %278 = load i32, ptr %277, align 4, !tbaa !8
+  store i32 %278, ptr %12, align 4, !tbaa !8
+  %279 = load i32, ptr %12, align 4, !tbaa !8
+  %280 = load ptr, ptr %5, align 8, !tbaa !3
+  %281 = getelementptr inbounds nuw %struct.DdManager, ptr %280, i32 0, i32 20
+  %282 = load ptr, ptr %281, align 8, !tbaa !10
+  %283 = load i32, ptr %12, align 4, !tbaa !8
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr inbounds %struct.DdSubtable, ptr %282, i64 %284
+  %286 = getelementptr inbounds nuw %struct.DdSubtable, ptr %285, i32 0, i32 6
+  %287 = load i32, ptr %286, align 4, !tbaa !27
+  %288 = icmp uge i32 %279, %287
+  br i1 %288, label %289, label %299
+
+289:                                              ; preds = %267
+  %290 = load ptr, ptr %5, align 8, !tbaa !3
+  %291 = load i32, ptr %12, align 4, !tbaa !8
+  %292 = load i32, ptr %6, align 4, !tbaa !8
+  %293 = load i32, ptr %7, align 4, !tbaa !8
+  %294 = call i32 @cuddZddSymmSiftingConvAux(ptr noundef %290, i32 noundef %291, i32 noundef %292, i32 noundef %293)
+  store i32 %294, ptr %13, align 4, !tbaa !8
+  %295 = load i32, ptr %13, align 4, !tbaa !8
+  %296 = icmp ne i32 %295, 0
+  br i1 %296, label %298, label %297
+
+297:                                              ; preds = %289
+  br label %322
+
+298:                                              ; preds = %289
   br label %299
 
-299:                                              ; preds = %298
-  %300 = load i32, ptr %8, align 4
-  %301 = add nsw i32 %300, 1
-  store i32 %301, ptr %8, align 4
-  br label %255, !llvm.loop !41
+299:                                              ; preds = %298, %267
+  br label %300
 
-302:                                              ; preds = %265, %255
-  br label %172, !llvm.loop !42
+300:                                              ; preds = %299
+  %301 = load i32, ptr %8, align 4, !tbaa !8
+  %302 = add nsw i32 %301, 1
+  store i32 %302, ptr %8, align 4, !tbaa !8
+  br label %256, !llvm.loop !90
 
-303:                                              ; preds = %172
-  %304 = load ptr, ptr %5, align 8
-  %305 = load i32, ptr %6, align 4
-  %306 = load i32, ptr %7, align 4
-  call void @cuddZddSymmSummary(ptr noundef %304, i32 noundef %305, i32 noundef %306, ptr noundef %14, ptr noundef %15)
-  %307 = load ptr, ptr %9, align 8
-  %308 = icmp ne ptr %307, null
-  br i1 %308, label %309, label %311
+303:                                              ; preds = %266, %256
+  br label %173, !llvm.loop !91
 
-309:                                              ; preds = %303
-  %310 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %310) #4
-  store ptr null, ptr %9, align 8
-  br label %312
+304:                                              ; preds = %173
+  %305 = load ptr, ptr %5, align 8, !tbaa !3
+  %306 = load i32, ptr %6, align 4, !tbaa !8
+  %307 = load i32, ptr %7, align 4, !tbaa !8
+  call void @cuddZddSymmSummary(ptr noundef %305, i32 noundef %306, i32 noundef %307, ptr noundef %14, ptr noundef %15)
+  %308 = load ptr, ptr %9, align 8, !tbaa !46
+  %309 = icmp ne ptr %308, null
+  br i1 %309, label %310, label %312
 
-311:                                              ; preds = %303
-  br label %312
+310:                                              ; preds = %304
+  %311 = load ptr, ptr %9, align 8, !tbaa !46
+  call void @free(ptr noundef %311) #5
+  store ptr null, ptr %9, align 8, !tbaa !46
+  br label %313
 
-312:                                              ; preds = %311, %309
-  %313 = load ptr, ptr @zdd_entry, align 8
-  %314 = icmp ne ptr %313, null
-  br i1 %314, label %315, label %317
+312:                                              ; preds = %304
+  br label %313
 
-315:                                              ; preds = %312
-  %316 = load ptr, ptr @zdd_entry, align 8
-  call void @free(ptr noundef %316) #4
-  store ptr null, ptr @zdd_entry, align 8
-  br label %318
+313:                                              ; preds = %312, %310
+  %314 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %315 = icmp ne ptr %314, null
+  br i1 %315, label %316, label %318
 
-317:                                              ; preds = %312
-  br label %318
+316:                                              ; preds = %313
+  %317 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  call void @free(ptr noundef %317) #5
+  store ptr null, ptr @zdd_entry, align 8, !tbaa !46
+  br label %319
 
-318:                                              ; preds = %317, %315
-  %319 = load i32, ptr %14, align 4
-  %320 = add nsw i32 1, %319
-  store i32 %320, ptr %4, align 4
-  br label %342
+318:                                              ; preds = %313
+  br label %319
 
-321:                                              ; preds = %296, %165, %40, %30
-  %322 = load ptr, ptr @zdd_entry, align 8
-  %323 = icmp ne ptr %322, null
-  br i1 %323, label %324, label %331
+319:                                              ; preds = %318, %316
+  %320 = load i32, ptr %14, align 4, !tbaa !8
+  %321 = add nsw i32 1, %320
+  store i32 %321, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %343
 
-324:                                              ; preds = %321
-  %325 = load ptr, ptr @zdd_entry, align 8
-  %326 = icmp ne ptr %325, null
-  br i1 %326, label %327, label %329
+322:                                              ; preds = %297, %166, %41, %31
+  %323 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %324 = icmp ne ptr %323, null
+  br i1 %324, label %325, label %332
 
-327:                                              ; preds = %324
-  %328 = load ptr, ptr @zdd_entry, align 8
-  call void @free(ptr noundef %328) #4
-  store ptr null, ptr @zdd_entry, align 8
-  br label %330
+325:                                              ; preds = %322
+  %326 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  %327 = icmp ne ptr %326, null
+  br i1 %327, label %328, label %330
 
-329:                                              ; preds = %324
-  br label %330
-
-330:                                              ; preds = %329, %327
+328:                                              ; preds = %325
+  %329 = load ptr, ptr @zdd_entry, align 8, !tbaa !46
+  call void @free(ptr noundef %329) #5
+  store ptr null, ptr @zdd_entry, align 8, !tbaa !46
   br label %331
 
-331:                                              ; preds = %330, %321
-  %332 = load ptr, ptr %9, align 8
-  %333 = icmp ne ptr %332, null
-  br i1 %333, label %334, label %341
+330:                                              ; preds = %325
+  br label %331
 
-334:                                              ; preds = %331
-  %335 = load ptr, ptr %9, align 8
-  %336 = icmp ne ptr %335, null
-  br i1 %336, label %337, label %339
+331:                                              ; preds = %330, %328
+  br label %332
 
-337:                                              ; preds = %334
-  %338 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %338) #4
-  store ptr null, ptr %9, align 8
-  br label %340
+332:                                              ; preds = %331, %322
+  %333 = load ptr, ptr %9, align 8, !tbaa !46
+  %334 = icmp ne ptr %333, null
+  br i1 %334, label %335, label %342
 
-339:                                              ; preds = %334
-  br label %340
+335:                                              ; preds = %332
+  %336 = load ptr, ptr %9, align 8, !tbaa !46
+  %337 = icmp ne ptr %336, null
+  br i1 %337, label %338, label %340
 
-340:                                              ; preds = %339, %337
+338:                                              ; preds = %335
+  %339 = load ptr, ptr %9, align 8, !tbaa !46
+  call void @free(ptr noundef %339) #5
+  store ptr null, ptr %9, align 8, !tbaa !46
   br label %341
 
-341:                                              ; preds = %340, %331
-  store i32 0, ptr %4, align 4
+340:                                              ; preds = %335
+  br label %341
+
+341:                                              ; preds = %340, %338
   br label %342
 
-342:                                              ; preds = %341, %318
-  %343 = load i32, ptr %4, align 4
-  ret i32 %343
+342:                                              ; preds = %341, %332
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %343
+
+343:                                              ; preds = %342, %319
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %344 = load i32, ptr %4, align 4
+  ret i32 %344
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2779,1173 +2892,1184 @@ define internal i32 @cuddZddSymmSiftingConvAux(ptr noundef %0, i32 noundef %1, i
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.DdManager, ptr %18, i32 0, i32 24
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %13, align 4
-  store ptr null, ptr %12, align 8
-  store ptr null, ptr %11, align 8
-  %21 = load i32, ptr %7, align 4
-  %22 = load i32, ptr %8, align 4
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %160
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.DdManager, ptr %19, i32 0, i32 24
+  %21 = load i32, ptr %20, align 8, !tbaa !55
+  store i32 %21, ptr %13, align 4, !tbaa !8
+  store ptr null, ptr %12, align 8, !tbaa !56
+  store ptr null, ptr %11, align 8, !tbaa !56
+  %22 = load i32, ptr %7, align 4, !tbaa !8
+  %23 = load i32, ptr %8, align 4, !tbaa !8
+  %24 = icmp eq i32 %22, %23
+  br i1 %24, label %25, label %160
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.DdManager, ptr %25, i32 0, i32 20
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %29
-  %31 = getelementptr inbounds %struct.DdSubtable, ptr %30, i32 0, i32 6
-  %32 = load i32, ptr %31, align 4
-  store i32 %32, ptr %15, align 4
-  %33 = load i32, ptr %7, align 4
-  %34 = load i32, ptr %15, align 4
-  %35 = sub nsw i32 %33, %34
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %16, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr %7, align 4
-  %39 = load i32, ptr %9, align 4
-  %40 = load i32, ptr %13, align 4
-  %41 = call ptr @cuddZddSymmSifting_down(ptr noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40)
-  store ptr %41, ptr %12, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = inttoptr i64 1 to ptr
-  %44 = icmp eq ptr %42, %43
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.DdManager, ptr %26, i32 0, i32 20
+  %28 = load ptr, ptr %27, align 8, !tbaa !10
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.DdSubtable, ptr %28, i64 %30
+  %32 = getelementptr inbounds nuw %struct.DdSubtable, ptr %31, i32 0, i32 6
+  %33 = load i32, ptr %32, align 4, !tbaa !27
+  store i32 %33, ptr %15, align 4, !tbaa !8
+  %34 = load i32, ptr %7, align 4, !tbaa !8
+  %35 = load i32, ptr %15, align 4, !tbaa !8
+  %36 = sub nsw i32 %34, %35
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %16, align 4, !tbaa !8
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = load i32, ptr %7, align 4, !tbaa !8
+  %40 = load i32, ptr %9, align 4, !tbaa !8
+  %41 = load i32, ptr %13, align 4, !tbaa !8
+  %42 = call ptr @cuddZddSymmSifting_down(ptr noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41)
+  store ptr %42, ptr %12, align 8, !tbaa !56
+  %43 = load ptr, ptr %12, align 8, !tbaa !56
+  %44 = icmp eq ptr %43, inttoptr (i64 1 to ptr)
   br i1 %44, label %45, label %46
 
-45:                                               ; preds = %24
-  br label %766
+45:                                               ; preds = %25
+  br label %761
 
-46:                                               ; preds = %24
-  %47 = load ptr, ptr %12, align 8
+46:                                               ; preds = %25
+  %47 = load ptr, ptr %12, align 8, !tbaa !56
   %48 = icmp eq ptr %47, null
   br i1 %48, label %64, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.DdManager, ptr %50, i32 0, i32 20
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %struct.Move, ptr %53, i32 0, i32 1
-  %55 = load i32, ptr %54, align 4
+  %50 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.DdManager, ptr %50, i32 0, i32 20
+  %52 = load ptr, ptr %51, align 8, !tbaa !10
+  %53 = load ptr, ptr %12, align 8, !tbaa !56
+  %54 = getelementptr inbounds nuw %struct.Move, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4, !tbaa !62
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.DdSubtable, ptr %52, i64 %56
-  %58 = getelementptr inbounds %struct.DdSubtable, ptr %57, i32 0, i32 6
-  %59 = load i32, ptr %58, align 4
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.Move, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 4
+  %57 = getelementptr inbounds nuw %struct.DdSubtable, ptr %52, i64 %56
+  %58 = getelementptr inbounds nuw %struct.DdSubtable, ptr %57, i32 0, i32 6
+  %59 = load i32, ptr %58, align 4, !tbaa !27
+  %60 = load ptr, ptr %12, align 8, !tbaa !56
+  %61 = getelementptr inbounds nuw %struct.Move, ptr %60, i32 0, i32 1
+  %62 = load i32, ptr %61, align 4, !tbaa !62
   %63 = icmp ne i32 %59, %62
   br i1 %63, label %64, label %150
 
 64:                                               ; preds = %49, %46
-  %65 = load ptr, ptr %12, align 8
+  %65 = load ptr, ptr %12, align 8, !tbaa !56
   %66 = icmp ne ptr %65, null
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr inbounds %struct.Move, ptr %68, i32 0, i32 1
-  %70 = load i32, ptr %69, align 4
-  store i32 %70, ptr %7, align 4
+  %68 = load ptr, ptr %12, align 8, !tbaa !56
+  %69 = getelementptr inbounds nuw %struct.Move, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !62
+  store i32 %70, ptr %7, align 4, !tbaa !8
   br label %101
 
 71:                                               ; preds = %64
   br label %72
 
 72:                                               ; preds = %83, %71
-  %73 = load i32, ptr %7, align 4
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.DdManager, ptr %74, i32 0, i32 20
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %7, align 4
+  %73 = load i32, ptr %7, align 4, !tbaa !8
+  %74 = load ptr, ptr %6, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.DdManager, ptr %74, i32 0, i32 20
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = load i32, ptr %7, align 4, !tbaa !8
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds %struct.DdSubtable, ptr %76, i64 %78
-  %80 = getelementptr inbounds %struct.DdSubtable, ptr %79, i32 0, i32 6
-  %81 = load i32, ptr %80, align 4
+  %80 = getelementptr inbounds nuw %struct.DdSubtable, ptr %79, i32 0, i32 6
+  %81 = load i32, ptr %80, align 4, !tbaa !27
   %82 = icmp ult i32 %73, %81
   br i1 %82, label %83, label %92
 
 83:                                               ; preds = %72
-  %84 = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds %struct.DdManager, ptr %84, i32 0, i32 20
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i32, ptr %7, align 4
+  %84 = load ptr, ptr %6, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.DdManager, ptr %84, i32 0, i32 20
+  %86 = load ptr, ptr %85, align 8, !tbaa !10
+  %87 = load i32, ptr %7, align 4, !tbaa !8
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds %struct.DdSubtable, ptr %86, i64 %88
-  %90 = getelementptr inbounds %struct.DdSubtable, ptr %89, i32 0, i32 6
-  %91 = load i32, ptr %90, align 4
-  store i32 %91, ptr %7, align 4
-  br label %72, !llvm.loop !43
+  %90 = getelementptr inbounds nuw %struct.DdSubtable, ptr %89, i32 0, i32 6
+  %91 = load i32, ptr %90, align 4, !tbaa !27
+  store i32 %91, ptr %7, align 4, !tbaa !8
+  br label %72, !llvm.loop !92
 
 92:                                               ; preds = %72
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.DdManager, ptr %93, i32 0, i32 20
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i32, ptr %7, align 4
+  %93 = load ptr, ptr %6, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.DdManager, ptr %93, i32 0, i32 20
+  %95 = load ptr, ptr %94, align 8, !tbaa !10
+  %96 = load i32, ptr %7, align 4, !tbaa !8
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds %struct.DdSubtable, ptr %95, i64 %97
-  %99 = getelementptr inbounds %struct.DdSubtable, ptr %98, i32 0, i32 6
-  %100 = load i32, ptr %99, align 4
-  store i32 %100, ptr %7, align 4
+  %99 = getelementptr inbounds nuw %struct.DdSubtable, ptr %98, i32 0, i32 6
+  %100 = load i32, ptr %99, align 4, !tbaa !27
+  store i32 %100, ptr %7, align 4, !tbaa !8
   br label %101
 
 101:                                              ; preds = %92, %67
-  %102 = load i32, ptr %7, align 4
-  store i32 %102, ptr %15, align 4
+  %102 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %102, ptr %15, align 4, !tbaa !8
   br label %103
 
 103:                                              ; preds = %114, %101
-  %104 = load i32, ptr %15, align 4
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.DdManager, ptr %105, i32 0, i32 20
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %15, align 4
+  %104 = load i32, ptr %15, align 4, !tbaa !8
+  %105 = load ptr, ptr %6, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw %struct.DdManager, ptr %105, i32 0, i32 20
+  %107 = load ptr, ptr %106, align 8, !tbaa !10
+  %108 = load i32, ptr %15, align 4, !tbaa !8
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds %struct.DdSubtable, ptr %107, i64 %109
-  %111 = getelementptr inbounds %struct.DdSubtable, ptr %110, i32 0, i32 6
-  %112 = load i32, ptr %111, align 4
+  %111 = getelementptr inbounds nuw %struct.DdSubtable, ptr %110, i32 0, i32 6
+  %112 = load i32, ptr %111, align 4, !tbaa !27
   %113 = icmp ult i32 %104, %112
   br i1 %113, label %114, label %123
 
 114:                                              ; preds = %103
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.DdManager, ptr %115, i32 0, i32 20
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %15, align 4
+  %115 = load ptr, ptr %6, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.DdManager, ptr %115, i32 0, i32 20
+  %117 = load ptr, ptr %116, align 8, !tbaa !10
+  %118 = load i32, ptr %15, align 4, !tbaa !8
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds %struct.DdSubtable, ptr %117, i64 %119
-  %121 = getelementptr inbounds %struct.DdSubtable, ptr %120, i32 0, i32 6
-  %122 = load i32, ptr %121, align 4
-  store i32 %122, ptr %15, align 4
-  br label %103, !llvm.loop !44
+  %121 = getelementptr inbounds nuw %struct.DdSubtable, ptr %120, i32 0, i32 6
+  %122 = load i32, ptr %121, align 4, !tbaa !27
+  store i32 %122, ptr %15, align 4, !tbaa !8
+  br label %103, !llvm.loop !93
 
 123:                                              ; preds = %103
-  %124 = load i32, ptr %15, align 4
-  %125 = load i32, ptr %7, align 4
+  %124 = load i32, ptr %15, align 4, !tbaa !8
+  %125 = load i32, ptr %7, align 4, !tbaa !8
   %126 = sub nsw i32 %124, %125
   %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %17, align 4
-  %128 = load i32, ptr %16, align 4
-  %129 = load i32, ptr %17, align 4
+  store i32 %127, ptr %17, align 4, !tbaa !8
+  %128 = load i32, ptr %16, align 4, !tbaa !8
+  %129 = load i32, ptr %17, align 4, !tbaa !8
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %131, label %136
 
 131:                                              ; preds = %123
-  %132 = load ptr, ptr %6, align 8
-  %133 = load ptr, ptr %12, align 8
-  %134 = load i32, ptr %13, align 4
+  %132 = load ptr, ptr %6, align 8, !tbaa !3
+  %133 = load ptr, ptr %12, align 8, !tbaa !56
+  %134 = load i32, ptr %13, align 4, !tbaa !8
   %135 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %132, ptr noundef %133, i32 noundef %134)
-  store i32 %135, ptr %14, align 4
+  store i32 %135, ptr %14, align 4, !tbaa !8
   br label %149
 
 136:                                              ; preds = %123
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct.DdManager, ptr %137, i32 0, i32 24
-  %139 = load i32, ptr %138, align 8
-  store i32 %139, ptr %13, align 4
-  %140 = load ptr, ptr %6, align 8
-  %141 = load i32, ptr %7, align 4
-  %142 = load i32, ptr %8, align 4
-  %143 = load i32, ptr %13, align 4
+  %137 = load ptr, ptr %6, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.DdManager, ptr %137, i32 0, i32 24
+  %139 = load i32, ptr %138, align 8, !tbaa !55
+  store i32 %139, ptr %13, align 4, !tbaa !8
+  %140 = load ptr, ptr %6, align 8, !tbaa !3
+  %141 = load i32, ptr %7, align 4, !tbaa !8
+  %142 = load i32, ptr %8, align 4, !tbaa !8
+  %143 = load i32, ptr %13, align 4, !tbaa !8
   %144 = call ptr @cuddZddSymmSifting_up(ptr noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %143)
-  store ptr %144, ptr %11, align 8
-  %145 = load ptr, ptr %6, align 8
-  %146 = load ptr, ptr %11, align 8
-  %147 = load i32, ptr %13, align 4
+  store ptr %144, ptr %11, align 8, !tbaa !56
+  %145 = load ptr, ptr %6, align 8, !tbaa !3
+  %146 = load ptr, ptr %11, align 8, !tbaa !56
+  %147 = load i32, ptr %13, align 4, !tbaa !8
   %148 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %145, ptr noundef %146, i32 noundef %147)
-  store i32 %148, ptr %14, align 4
+  store i32 %148, ptr %14, align 4, !tbaa !8
   br label %149
 
 149:                                              ; preds = %136, %131
   br label %155
 
 150:                                              ; preds = %49
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %12, align 8
-  %153 = load i32, ptr %13, align 4
+  %151 = load ptr, ptr %6, align 8, !tbaa !3
+  %152 = load ptr, ptr %12, align 8, !tbaa !56
+  %153 = load i32, ptr %13, align 4, !tbaa !8
   %154 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %151, ptr noundef %152, i32 noundef %153)
-  store i32 %154, ptr %14, align 4
+  store i32 %154, ptr %14, align 4, !tbaa !8
   br label %155
 
 155:                                              ; preds = %150, %149
-  %156 = load i32, ptr %14, align 4
+  %156 = load i32, ptr %14, align 4, !tbaa !8
   %157 = icmp ne i32 %156, 0
   br i1 %157, label %159, label %158
 
 158:                                              ; preds = %155
-  br label %766
+  br label %761
 
 159:                                              ; preds = %155
-  br label %727
+  br label %722
 
 160:                                              ; preds = %4
-  %161 = load i32, ptr %7, align 4
-  %162 = load i32, ptr %9, align 4
+  %161 = load i32, ptr %7, align 4, !tbaa !8
+  %162 = load i32, ptr %9, align 4, !tbaa !8
   %163 = icmp eq i32 %161, %162
-  br i1 %163, label %164, label %321
+  br i1 %163, label %164, label %320
 
 164:                                              ; preds = %160
   br label %165
 
 165:                                              ; preds = %176, %164
-  %166 = load i32, ptr %7, align 4
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds %struct.DdManager, ptr %167, i32 0, i32 20
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %7, align 4
+  %166 = load i32, ptr %7, align 4, !tbaa !8
+  %167 = load ptr, ptr %6, align 8, !tbaa !3
+  %168 = getelementptr inbounds nuw %struct.DdManager, ptr %167, i32 0, i32 20
+  %169 = load ptr, ptr %168, align 8, !tbaa !10
+  %170 = load i32, ptr %7, align 4, !tbaa !8
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %171
-  %173 = getelementptr inbounds %struct.DdSubtable, ptr %172, i32 0, i32 6
-  %174 = load i32, ptr %173, align 4
+  %173 = getelementptr inbounds nuw %struct.DdSubtable, ptr %172, i32 0, i32 6
+  %174 = load i32, ptr %173, align 4, !tbaa !27
   %175 = icmp ult i32 %166, %174
   br i1 %175, label %176, label %185
 
 176:                                              ; preds = %165
-  %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds %struct.DdManager, ptr %177, i32 0, i32 20
-  %179 = load ptr, ptr %178, align 8
-  %180 = load i32, ptr %7, align 4
+  %177 = load ptr, ptr %6, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.DdManager, ptr %177, i32 0, i32 20
+  %179 = load ptr, ptr %178, align 8, !tbaa !10
+  %180 = load i32, ptr %7, align 4, !tbaa !8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds %struct.DdSubtable, ptr %179, i64 %181
-  %183 = getelementptr inbounds %struct.DdSubtable, ptr %182, i32 0, i32 6
-  %184 = load i32, ptr %183, align 4
-  store i32 %184, ptr %7, align 4
-  br label %165, !llvm.loop !45
+  %183 = getelementptr inbounds nuw %struct.DdSubtable, ptr %182, i32 0, i32 6
+  %184 = load i32, ptr %183, align 4, !tbaa !27
+  store i32 %184, ptr %7, align 4, !tbaa !8
+  br label %165, !llvm.loop !94
 
 185:                                              ; preds = %165
-  %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds %struct.DdManager, ptr %186, i32 0, i32 20
-  %188 = load ptr, ptr %187, align 8
-  %189 = load i32, ptr %7, align 4
+  %186 = load ptr, ptr %6, align 8, !tbaa !3
+  %187 = getelementptr inbounds nuw %struct.DdManager, ptr %186, i32 0, i32 20
+  %188 = load ptr, ptr %187, align 8, !tbaa !10
+  %189 = load i32, ptr %7, align 4, !tbaa !8
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds %struct.DdSubtable, ptr %188, i64 %190
-  %192 = getelementptr inbounds %struct.DdSubtable, ptr %191, i32 0, i32 6
-  %193 = load i32, ptr %192, align 4
-  store i32 %193, ptr %7, align 4
-  %194 = load i32, ptr %7, align 4
-  store i32 %194, ptr %15, align 4
+  %192 = getelementptr inbounds nuw %struct.DdSubtable, ptr %191, i32 0, i32 6
+  %193 = load i32, ptr %192, align 4, !tbaa !27
+  store i32 %193, ptr %7, align 4, !tbaa !8
+  %194 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %194, ptr %15, align 4, !tbaa !8
   br label %195
 
 195:                                              ; preds = %206, %185
-  %196 = load i32, ptr %15, align 4
-  %197 = load ptr, ptr %6, align 8
-  %198 = getelementptr inbounds %struct.DdManager, ptr %197, i32 0, i32 20
-  %199 = load ptr, ptr %198, align 8
-  %200 = load i32, ptr %15, align 4
+  %196 = load i32, ptr %15, align 4, !tbaa !8
+  %197 = load ptr, ptr %6, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw %struct.DdManager, ptr %197, i32 0, i32 20
+  %199 = load ptr, ptr %198, align 8, !tbaa !10
+  %200 = load i32, ptr %15, align 4, !tbaa !8
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds %struct.DdSubtable, ptr %199, i64 %201
-  %203 = getelementptr inbounds %struct.DdSubtable, ptr %202, i32 0, i32 6
-  %204 = load i32, ptr %203, align 4
+  %203 = getelementptr inbounds nuw %struct.DdSubtable, ptr %202, i32 0, i32 6
+  %204 = load i32, ptr %203, align 4, !tbaa !27
   %205 = icmp ult i32 %196, %204
   br i1 %205, label %206, label %215
 
 206:                                              ; preds = %195
-  %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr inbounds %struct.DdManager, ptr %207, i32 0, i32 20
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i32, ptr %15, align 4
+  %207 = load ptr, ptr %6, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.DdManager, ptr %207, i32 0, i32 20
+  %209 = load ptr, ptr %208, align 8, !tbaa !10
+  %210 = load i32, ptr %15, align 4, !tbaa !8
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds %struct.DdSubtable, ptr %209, i64 %211
-  %213 = getelementptr inbounds %struct.DdSubtable, ptr %212, i32 0, i32 6
-  %214 = load i32, ptr %213, align 4
-  store i32 %214, ptr %15, align 4
-  br label %195, !llvm.loop !46
+  %213 = getelementptr inbounds nuw %struct.DdSubtable, ptr %212, i32 0, i32 6
+  %214 = load i32, ptr %213, align 4, !tbaa !27
+  store i32 %214, ptr %15, align 4, !tbaa !8
+  br label %195, !llvm.loop !95
 
 215:                                              ; preds = %195
-  %216 = load i32, ptr %15, align 4
-  %217 = load i32, ptr %7, align 4
+  %216 = load i32, ptr %15, align 4, !tbaa !8
+  %217 = load i32, ptr %7, align 4, !tbaa !8
   %218 = sub nsw i32 %216, %217
   %219 = add nsw i32 %218, 1
-  store i32 %219, ptr %16, align 4
-  %220 = load ptr, ptr %6, align 8
-  %221 = load i32, ptr %7, align 4
-  %222 = load i32, ptr %8, align 4
-  %223 = load i32, ptr %13, align 4
+  store i32 %219, ptr %16, align 4, !tbaa !8
+  %220 = load ptr, ptr %6, align 8, !tbaa !3
+  %221 = load i32, ptr %7, align 4, !tbaa !8
+  %222 = load i32, ptr %8, align 4, !tbaa !8
+  %223 = load i32, ptr %13, align 4, !tbaa !8
   %224 = call ptr @cuddZddSymmSifting_up(ptr noundef %220, i32 noundef %221, i32 noundef %222, i32 noundef %223)
-  store ptr %224, ptr %11, align 8
-  %225 = load ptr, ptr %11, align 8
-  %226 = inttoptr i64 1 to ptr
-  %227 = icmp eq ptr %225, %226
-  br i1 %227, label %228, label %229
+  store ptr %224, ptr %11, align 8, !tbaa !56
+  %225 = load ptr, ptr %11, align 8, !tbaa !56
+  %226 = icmp eq ptr %225, inttoptr (i64 1 to ptr)
+  br i1 %226, label %227, label %228
+
+227:                                              ; preds = %215
+  br label %761
 
 228:                                              ; preds = %215
-  br label %766
+  %229 = load ptr, ptr %11, align 8, !tbaa !56
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %246, label %231
 
-229:                                              ; preds = %215
-  %230 = load ptr, ptr %11, align 8
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %247, label %232
+231:                                              ; preds = %228
+  %232 = load ptr, ptr %6, align 8, !tbaa !3
+  %233 = getelementptr inbounds nuw %struct.DdManager, ptr %232, i32 0, i32 20
+  %234 = load ptr, ptr %233, align 8, !tbaa !10
+  %235 = load ptr, ptr %11, align 8, !tbaa !56
+  %236 = getelementptr inbounds nuw %struct.Move, ptr %235, i32 0, i32 0
+  %237 = load i32, ptr %236, align 8, !tbaa !67
+  %238 = zext i32 %237 to i64
+  %239 = getelementptr inbounds nuw %struct.DdSubtable, ptr %234, i64 %238
+  %240 = getelementptr inbounds nuw %struct.DdSubtable, ptr %239, i32 0, i32 6
+  %241 = load i32, ptr %240, align 4, !tbaa !27
+  %242 = load ptr, ptr %11, align 8, !tbaa !56
+  %243 = getelementptr inbounds nuw %struct.Move, ptr %242, i32 0, i32 0
+  %244 = load i32, ptr %243, align 8, !tbaa !67
+  %245 = icmp ne i32 %241, %244
+  br i1 %245, label %246, label %310
 
-232:                                              ; preds = %229
-  %233 = load ptr, ptr %6, align 8
-  %234 = getelementptr inbounds %struct.DdManager, ptr %233, i32 0, i32 20
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %11, align 8
-  %237 = getelementptr inbounds %struct.Move, ptr %236, i32 0, i32 0
-  %238 = load i32, ptr %237, align 8
-  %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds %struct.DdSubtable, ptr %235, i64 %239
-  %241 = getelementptr inbounds %struct.DdSubtable, ptr %240, i32 0, i32 6
-  %242 = load i32, ptr %241, align 4
-  %243 = load ptr, ptr %11, align 8
-  %244 = getelementptr inbounds %struct.Move, ptr %243, i32 0, i32 0
-  %245 = load i32, ptr %244, align 8
-  %246 = icmp ne i32 %242, %245
-  br i1 %246, label %247, label %311
+246:                                              ; preds = %231, %228
+  %247 = load ptr, ptr %11, align 8, !tbaa !56
+  %248 = icmp ne ptr %247, null
+  br i1 %248, label %249, label %253
 
-247:                                              ; preds = %232, %229
-  %248 = load ptr, ptr %11, align 8
-  %249 = icmp ne ptr %248, null
-  br i1 %249, label %250, label %254
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %11, align 8, !tbaa !56
+  %251 = getelementptr inbounds nuw %struct.Move, ptr %250, i32 0, i32 0
+  %252 = load i32, ptr %251, align 8, !tbaa !67
+  store i32 %252, ptr %7, align 4, !tbaa !8
+  br label %275
 
-250:                                              ; preds = %247
-  %251 = load ptr, ptr %11, align 8
-  %252 = getelementptr inbounds %struct.Move, ptr %251, i32 0, i32 0
-  %253 = load i32, ptr %252, align 8
-  store i32 %253, ptr %7, align 4
-  br label %276
+253:                                              ; preds = %246
+  br label %254
 
-254:                                              ; preds = %247
-  br label %255
+254:                                              ; preds = %265, %253
+  %255 = load i32, ptr %7, align 4, !tbaa !8
+  %256 = load ptr, ptr %6, align 8, !tbaa !3
+  %257 = getelementptr inbounds nuw %struct.DdManager, ptr %256, i32 0, i32 20
+  %258 = load ptr, ptr %257, align 8, !tbaa !10
+  %259 = load i32, ptr %7, align 4, !tbaa !8
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds %struct.DdSubtable, ptr %258, i64 %260
+  %262 = getelementptr inbounds nuw %struct.DdSubtable, ptr %261, i32 0, i32 6
+  %263 = load i32, ptr %262, align 4, !tbaa !27
+  %264 = icmp ult i32 %255, %263
+  br i1 %264, label %265, label %274
 
-255:                                              ; preds = %266, %254
-  %256 = load i32, ptr %7, align 4
-  %257 = load ptr, ptr %6, align 8
-  %258 = getelementptr inbounds %struct.DdManager, ptr %257, i32 0, i32 20
-  %259 = load ptr, ptr %258, align 8
-  %260 = load i32, ptr %7, align 4
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %struct.DdSubtable, ptr %259, i64 %261
-  %263 = getelementptr inbounds %struct.DdSubtable, ptr %262, i32 0, i32 6
-  %264 = load i32, ptr %263, align 4
-  %265 = icmp ult i32 %256, %264
-  br i1 %265, label %266, label %275
+265:                                              ; preds = %254
+  %266 = load ptr, ptr %6, align 8, !tbaa !3
+  %267 = getelementptr inbounds nuw %struct.DdManager, ptr %266, i32 0, i32 20
+  %268 = load ptr, ptr %267, align 8, !tbaa !10
+  %269 = load i32, ptr %7, align 4, !tbaa !8
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds %struct.DdSubtable, ptr %268, i64 %270
+  %272 = getelementptr inbounds nuw %struct.DdSubtable, ptr %271, i32 0, i32 6
+  %273 = load i32, ptr %272, align 4, !tbaa !27
+  store i32 %273, ptr %7, align 4, !tbaa !8
+  br label %254, !llvm.loop !96
 
-266:                                              ; preds = %255
-  %267 = load ptr, ptr %6, align 8
-  %268 = getelementptr inbounds %struct.DdManager, ptr %267, i32 0, i32 20
-  %269 = load ptr, ptr %268, align 8
-  %270 = load i32, ptr %7, align 4
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds %struct.DdSubtable, ptr %269, i64 %271
-  %273 = getelementptr inbounds %struct.DdSubtable, ptr %272, i32 0, i32 6
-  %274 = load i32, ptr %273, align 4
-  store i32 %274, ptr %7, align 4
-  br label %255, !llvm.loop !47
+274:                                              ; preds = %254
+  br label %275
 
-275:                                              ; preds = %255
-  br label %276
+275:                                              ; preds = %274, %249
+  %276 = load ptr, ptr %6, align 8, !tbaa !3
+  %277 = getelementptr inbounds nuw %struct.DdManager, ptr %276, i32 0, i32 20
+  %278 = load ptr, ptr %277, align 8, !tbaa !10
+  %279 = load i32, ptr %7, align 4, !tbaa !8
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds %struct.DdSubtable, ptr %278, i64 %280
+  %282 = getelementptr inbounds nuw %struct.DdSubtable, ptr %281, i32 0, i32 6
+  %283 = load i32, ptr %282, align 4, !tbaa !27
+  store i32 %283, ptr %15, align 4, !tbaa !8
+  %284 = load i32, ptr %7, align 4, !tbaa !8
+  %285 = load i32, ptr %15, align 4, !tbaa !8
+  %286 = sub nsw i32 %284, %285
+  %287 = add nsw i32 %286, 1
+  store i32 %287, ptr %17, align 4, !tbaa !8
+  %288 = load i32, ptr %16, align 4, !tbaa !8
+  %289 = load i32, ptr %17, align 4, !tbaa !8
+  %290 = icmp eq i32 %288, %289
+  br i1 %290, label %291, label %296
 
-276:                                              ; preds = %275, %250
-  %277 = load ptr, ptr %6, align 8
-  %278 = getelementptr inbounds %struct.DdManager, ptr %277, i32 0, i32 20
-  %279 = load ptr, ptr %278, align 8
-  %280 = load i32, ptr %7, align 4
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds %struct.DdSubtable, ptr %279, i64 %281
-  %283 = getelementptr inbounds %struct.DdSubtable, ptr %282, i32 0, i32 6
-  %284 = load i32, ptr %283, align 4
-  store i32 %284, ptr %15, align 4
-  %285 = load i32, ptr %7, align 4
-  %286 = load i32, ptr %15, align 4
-  %287 = sub nsw i32 %285, %286
-  %288 = add nsw i32 %287, 1
-  store i32 %288, ptr %17, align 4
-  %289 = load i32, ptr %16, align 4
-  %290 = load i32, ptr %17, align 4
-  %291 = icmp eq i32 %289, %290
-  br i1 %291, label %292, label %297
+291:                                              ; preds = %275
+  %292 = load ptr, ptr %6, align 8, !tbaa !3
+  %293 = load ptr, ptr %11, align 8, !tbaa !56
+  %294 = load i32, ptr %13, align 4, !tbaa !8
+  %295 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %292, ptr noundef %293, i32 noundef %294)
+  store i32 %295, ptr %14, align 4, !tbaa !8
+  br label %309
 
-292:                                              ; preds = %276
-  %293 = load ptr, ptr %6, align 8
-  %294 = load ptr, ptr %11, align 8
-  %295 = load i32, ptr %13, align 4
-  %296 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %293, ptr noundef %294, i32 noundef %295)
-  store i32 %296, ptr %14, align 4
-  br label %310
+296:                                              ; preds = %275
+  %297 = load ptr, ptr %6, align 8, !tbaa !3
+  %298 = getelementptr inbounds nuw %struct.DdManager, ptr %297, i32 0, i32 24
+  %299 = load i32, ptr %298, align 8, !tbaa !55
+  store i32 %299, ptr %13, align 4, !tbaa !8
+  %300 = load ptr, ptr %6, align 8, !tbaa !3
+  %301 = load i32, ptr %7, align 4, !tbaa !8
+  %302 = load i32, ptr %9, align 4, !tbaa !8
+  %303 = load i32, ptr %13, align 4, !tbaa !8
+  %304 = call ptr @cuddZddSymmSifting_down(ptr noundef %300, i32 noundef %301, i32 noundef %302, i32 noundef %303)
+  store ptr %304, ptr %12, align 8, !tbaa !56
+  %305 = load ptr, ptr %6, align 8, !tbaa !3
+  %306 = load ptr, ptr %12, align 8, !tbaa !56
+  %307 = load i32, ptr %13, align 4, !tbaa !8
+  %308 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %305, ptr noundef %306, i32 noundef %307)
+  store i32 %308, ptr %14, align 4, !tbaa !8
+  br label %309
 
-297:                                              ; preds = %276
-  %298 = load ptr, ptr %6, align 8
-  %299 = getelementptr inbounds %struct.DdManager, ptr %298, i32 0, i32 24
-  %300 = load i32, ptr %299, align 8
-  store i32 %300, ptr %13, align 4
-  %301 = load ptr, ptr %6, align 8
-  %302 = load i32, ptr %7, align 4
-  %303 = load i32, ptr %9, align 4
-  %304 = load i32, ptr %13, align 4
-  %305 = call ptr @cuddZddSymmSifting_down(ptr noundef %301, i32 noundef %302, i32 noundef %303, i32 noundef %304)
-  store ptr %305, ptr %12, align 8
-  %306 = load ptr, ptr %6, align 8
-  %307 = load ptr, ptr %12, align 8
-  %308 = load i32, ptr %13, align 4
-  %309 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %306, ptr noundef %307, i32 noundef %308)
-  store i32 %309, ptr %14, align 4
-  br label %310
+309:                                              ; preds = %296, %291
+  br label %315
 
-310:                                              ; preds = %297, %292
-  br label %316
+310:                                              ; preds = %231
+  %311 = load ptr, ptr %6, align 8, !tbaa !3
+  %312 = load ptr, ptr %11, align 8, !tbaa !56
+  %313 = load i32, ptr %13, align 4, !tbaa !8
+  %314 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %311, ptr noundef %312, i32 noundef %313)
+  store i32 %314, ptr %14, align 4, !tbaa !8
+  br label %315
 
-311:                                              ; preds = %232
-  %312 = load ptr, ptr %6, align 8
-  %313 = load ptr, ptr %11, align 8
-  %314 = load i32, ptr %13, align 4
-  %315 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %312, ptr noundef %313, i32 noundef %314)
-  store i32 %315, ptr %14, align 4
-  br label %316
+315:                                              ; preds = %310, %309
+  %316 = load i32, ptr %14, align 4, !tbaa !8
+  %317 = icmp ne i32 %316, 0
+  br i1 %317, label %319, label %318
 
-316:                                              ; preds = %311, %310
-  %317 = load i32, ptr %14, align 4
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %320, label %319
+318:                                              ; preds = %315
+  br label %761
 
-319:                                              ; preds = %316
-  br label %766
+319:                                              ; preds = %315
+  br label %721
 
-320:                                              ; preds = %316
-  br label %726
+320:                                              ; preds = %160
+  %321 = load i32, ptr %7, align 4, !tbaa !8
+  %322 = load i32, ptr %8, align 4, !tbaa !8
+  %323 = sub nsw i32 %321, %322
+  %324 = load i32, ptr %9, align 4, !tbaa !8
+  %325 = load i32, ptr %7, align 4, !tbaa !8
+  %326 = sub nsw i32 %324, %325
+  %327 = icmp sgt i32 %323, %326
+  br i1 %327, label %328, label %520
 
-321:                                              ; preds = %160
-  %322 = load i32, ptr %7, align 4
-  %323 = load i32, ptr %8, align 4
-  %324 = sub nsw i32 %322, %323
-  %325 = load i32, ptr %9, align 4
-  %326 = load i32, ptr %7, align 4
-  %327 = sub nsw i32 %325, %326
-  %328 = icmp sgt i32 %324, %327
-  br i1 %328, label %329, label %523
+328:                                              ; preds = %320
+  %329 = load ptr, ptr %6, align 8, !tbaa !3
+  %330 = load i32, ptr %7, align 4, !tbaa !8
+  %331 = load i32, ptr %9, align 4, !tbaa !8
+  %332 = load i32, ptr %13, align 4, !tbaa !8
+  %333 = call ptr @cuddZddSymmSifting_down(ptr noundef %329, i32 noundef %330, i32 noundef %331, i32 noundef %332)
+  store ptr %333, ptr %12, align 8, !tbaa !56
+  %334 = load ptr, ptr %12, align 8, !tbaa !56
+  %335 = icmp eq ptr %334, inttoptr (i64 1 to ptr)
+  br i1 %335, label %336, label %337
 
-329:                                              ; preds = %321
-  %330 = load ptr, ptr %6, align 8
-  %331 = load i32, ptr %7, align 4
-  %332 = load i32, ptr %9, align 4
-  %333 = load i32, ptr %13, align 4
-  %334 = call ptr @cuddZddSymmSifting_down(ptr noundef %330, i32 noundef %331, i32 noundef %332, i32 noundef %333)
-  store ptr %334, ptr %12, align 8
-  %335 = load ptr, ptr %12, align 8
-  %336 = inttoptr i64 1 to ptr
-  %337 = icmp eq ptr %335, %336
-  br i1 %337, label %338, label %339
+336:                                              ; preds = %328
+  br label %761
 
-338:                                              ; preds = %329
-  br label %766
+337:                                              ; preds = %328
+  %338 = load ptr, ptr %12, align 8, !tbaa !56
+  %339 = icmp ne ptr %338, null
+  br i1 %339, label %340, label %344
 
-339:                                              ; preds = %329
-  %340 = load ptr, ptr %12, align 8
-  %341 = icmp ne ptr %340, null
-  br i1 %341, label %342, label %346
+340:                                              ; preds = %337
+  %341 = load ptr, ptr %12, align 8, !tbaa !56
+  %342 = getelementptr inbounds nuw %struct.Move, ptr %341, i32 0, i32 1
+  %343 = load i32, ptr %342, align 4, !tbaa !62
+  store i32 %343, ptr %7, align 4, !tbaa !8
+  br label %374
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %12, align 8
-  %344 = getelementptr inbounds %struct.Move, ptr %343, i32 0, i32 1
-  %345 = load i32, ptr %344, align 4
-  store i32 %345, ptr %7, align 4
+344:                                              ; preds = %337
+  br label %345
+
+345:                                              ; preds = %356, %344
+  %346 = load i32, ptr %7, align 4, !tbaa !8
+  %347 = load ptr, ptr %6, align 8, !tbaa !3
+  %348 = getelementptr inbounds nuw %struct.DdManager, ptr %347, i32 0, i32 20
+  %349 = load ptr, ptr %348, align 8, !tbaa !10
+  %350 = load i32, ptr %7, align 4, !tbaa !8
+  %351 = sext i32 %350 to i64
+  %352 = getelementptr inbounds %struct.DdSubtable, ptr %349, i64 %351
+  %353 = getelementptr inbounds nuw %struct.DdSubtable, ptr %352, i32 0, i32 6
+  %354 = load i32, ptr %353, align 4, !tbaa !27
+  %355 = icmp ult i32 %346, %354
+  br i1 %355, label %356, label %365
+
+356:                                              ; preds = %345
+  %357 = load ptr, ptr %6, align 8, !tbaa !3
+  %358 = getelementptr inbounds nuw %struct.DdManager, ptr %357, i32 0, i32 20
+  %359 = load ptr, ptr %358, align 8, !tbaa !10
+  %360 = load i32, ptr %7, align 4, !tbaa !8
+  %361 = sext i32 %360 to i64
+  %362 = getelementptr inbounds %struct.DdSubtable, ptr %359, i64 %361
+  %363 = getelementptr inbounds nuw %struct.DdSubtable, ptr %362, i32 0, i32 6
+  %364 = load i32, ptr %363, align 4, !tbaa !27
+  store i32 %364, ptr %7, align 4, !tbaa !8
+  br label %345, !llvm.loop !97
+
+365:                                              ; preds = %345
+  %366 = load ptr, ptr %6, align 8, !tbaa !3
+  %367 = getelementptr inbounds nuw %struct.DdManager, ptr %366, i32 0, i32 20
+  %368 = load ptr, ptr %367, align 8, !tbaa !10
+  %369 = load i32, ptr %7, align 4, !tbaa !8
+  %370 = sext i32 %369 to i64
+  %371 = getelementptr inbounds %struct.DdSubtable, ptr %368, i64 %370
+  %372 = getelementptr inbounds nuw %struct.DdSubtable, ptr %371, i32 0, i32 6
+  %373 = load i32, ptr %372, align 4, !tbaa !27
+  store i32 %373, ptr %7, align 4, !tbaa !8
+  br label %374
+
+374:                                              ; preds = %365, %340
+  %375 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %375, ptr %15, align 4, !tbaa !8
   br label %376
 
-346:                                              ; preds = %339
-  br label %347
+376:                                              ; preds = %387, %374
+  %377 = load i32, ptr %15, align 4, !tbaa !8
+  %378 = load ptr, ptr %6, align 8, !tbaa !3
+  %379 = getelementptr inbounds nuw %struct.DdManager, ptr %378, i32 0, i32 20
+  %380 = load ptr, ptr %379, align 8, !tbaa !10
+  %381 = load i32, ptr %15, align 4, !tbaa !8
+  %382 = sext i32 %381 to i64
+  %383 = getelementptr inbounds %struct.DdSubtable, ptr %380, i64 %382
+  %384 = getelementptr inbounds nuw %struct.DdSubtable, ptr %383, i32 0, i32 6
+  %385 = load i32, ptr %384, align 4, !tbaa !27
+  %386 = icmp ult i32 %377, %385
+  br i1 %386, label %387, label %396
 
-347:                                              ; preds = %358, %346
-  %348 = load i32, ptr %7, align 4
-  %349 = load ptr, ptr %6, align 8
-  %350 = getelementptr inbounds %struct.DdManager, ptr %349, i32 0, i32 20
-  %351 = load ptr, ptr %350, align 8
-  %352 = load i32, ptr %7, align 4
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds %struct.DdSubtable, ptr %351, i64 %353
-  %355 = getelementptr inbounds %struct.DdSubtable, ptr %354, i32 0, i32 6
-  %356 = load i32, ptr %355, align 4
-  %357 = icmp ult i32 %348, %356
-  br i1 %357, label %358, label %367
+387:                                              ; preds = %376
+  %388 = load ptr, ptr %6, align 8, !tbaa !3
+  %389 = getelementptr inbounds nuw %struct.DdManager, ptr %388, i32 0, i32 20
+  %390 = load ptr, ptr %389, align 8, !tbaa !10
+  %391 = load i32, ptr %15, align 4, !tbaa !8
+  %392 = sext i32 %391 to i64
+  %393 = getelementptr inbounds %struct.DdSubtable, ptr %390, i64 %392
+  %394 = getelementptr inbounds nuw %struct.DdSubtable, ptr %393, i32 0, i32 6
+  %395 = load i32, ptr %394, align 4, !tbaa !27
+  store i32 %395, ptr %15, align 4, !tbaa !8
+  br label %376, !llvm.loop !98
 
-358:                                              ; preds = %347
-  %359 = load ptr, ptr %6, align 8
-  %360 = getelementptr inbounds %struct.DdManager, ptr %359, i32 0, i32 20
-  %361 = load ptr, ptr %360, align 8
-  %362 = load i32, ptr %7, align 4
-  %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds %struct.DdSubtable, ptr %361, i64 %363
-  %365 = getelementptr inbounds %struct.DdSubtable, ptr %364, i32 0, i32 6
-  %366 = load i32, ptr %365, align 4
-  store i32 %366, ptr %7, align 4
-  br label %347, !llvm.loop !48
+396:                                              ; preds = %376
+  %397 = load i32, ptr %15, align 4, !tbaa !8
+  %398 = load i32, ptr %7, align 4, !tbaa !8
+  %399 = sub nsw i32 %397, %398
+  %400 = add nsw i32 %399, 1
+  store i32 %400, ptr %16, align 4, !tbaa !8
+  %401 = load ptr, ptr %6, align 8, !tbaa !3
+  %402 = load i32, ptr %7, align 4, !tbaa !8
+  %403 = load i32, ptr %8, align 4, !tbaa !8
+  %404 = load i32, ptr %13, align 4, !tbaa !8
+  %405 = call ptr @cuddZddSymmSifting_up(ptr noundef %401, i32 noundef %402, i32 noundef %403, i32 noundef %404)
+  store ptr %405, ptr %11, align 8, !tbaa !56
+  %406 = load ptr, ptr %11, align 8, !tbaa !56
+  %407 = icmp eq ptr %406, inttoptr (i64 1 to ptr)
+  br i1 %407, label %408, label %409
 
-367:                                              ; preds = %347
-  %368 = load ptr, ptr %6, align 8
-  %369 = getelementptr inbounds %struct.DdManager, ptr %368, i32 0, i32 20
-  %370 = load ptr, ptr %369, align 8
-  %371 = load i32, ptr %7, align 4
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds %struct.DdSubtable, ptr %370, i64 %372
-  %374 = getelementptr inbounds %struct.DdSubtable, ptr %373, i32 0, i32 6
-  %375 = load i32, ptr %374, align 4
-  store i32 %375, ptr %7, align 4
-  br label %376
+408:                                              ; preds = %396
+  br label %761
 
-376:                                              ; preds = %367, %342
-  %377 = load i32, ptr %7, align 4
-  store i32 %377, ptr %15, align 4
-  br label %378
+409:                                              ; preds = %396
+  %410 = load ptr, ptr %11, align 8, !tbaa !56
+  %411 = icmp eq ptr %410, null
+  br i1 %411, label %427, label %412
 
-378:                                              ; preds = %389, %376
-  %379 = load i32, ptr %15, align 4
-  %380 = load ptr, ptr %6, align 8
-  %381 = getelementptr inbounds %struct.DdManager, ptr %380, i32 0, i32 20
-  %382 = load ptr, ptr %381, align 8
-  %383 = load i32, ptr %15, align 4
-  %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds %struct.DdSubtable, ptr %382, i64 %384
-  %386 = getelementptr inbounds %struct.DdSubtable, ptr %385, i32 0, i32 6
-  %387 = load i32, ptr %386, align 4
-  %388 = icmp ult i32 %379, %387
-  br i1 %388, label %389, label %398
+412:                                              ; preds = %409
+  %413 = load ptr, ptr %6, align 8, !tbaa !3
+  %414 = getelementptr inbounds nuw %struct.DdManager, ptr %413, i32 0, i32 20
+  %415 = load ptr, ptr %414, align 8, !tbaa !10
+  %416 = load ptr, ptr %11, align 8, !tbaa !56
+  %417 = getelementptr inbounds nuw %struct.Move, ptr %416, i32 0, i32 0
+  %418 = load i32, ptr %417, align 8, !tbaa !67
+  %419 = zext i32 %418 to i64
+  %420 = getelementptr inbounds nuw %struct.DdSubtable, ptr %415, i64 %419
+  %421 = getelementptr inbounds nuw %struct.DdSubtable, ptr %420, i32 0, i32 6
+  %422 = load i32, ptr %421, align 4, !tbaa !27
+  %423 = load ptr, ptr %11, align 8, !tbaa !56
+  %424 = getelementptr inbounds nuw %struct.Move, ptr %423, i32 0, i32 0
+  %425 = load i32, ptr %424, align 8, !tbaa !67
+  %426 = icmp ne i32 %422, %425
+  br i1 %426, label %427, label %510
 
-389:                                              ; preds = %378
-  %390 = load ptr, ptr %6, align 8
-  %391 = getelementptr inbounds %struct.DdManager, ptr %390, i32 0, i32 20
-  %392 = load ptr, ptr %391, align 8
-  %393 = load i32, ptr %15, align 4
-  %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds %struct.DdSubtable, ptr %392, i64 %394
-  %396 = getelementptr inbounds %struct.DdSubtable, ptr %395, i32 0, i32 6
-  %397 = load i32, ptr %396, align 4
-  store i32 %397, ptr %15, align 4
-  br label %378, !llvm.loop !49
+427:                                              ; preds = %412, %409
+  %428 = load ptr, ptr %11, align 8, !tbaa !56
+  %429 = icmp ne ptr %428, null
+  br i1 %429, label %430, label %434
 
-398:                                              ; preds = %378
-  %399 = load i32, ptr %15, align 4
-  %400 = load i32, ptr %7, align 4
-  %401 = sub nsw i32 %399, %400
-  %402 = add nsw i32 %401, 1
-  store i32 %402, ptr %16, align 4
-  %403 = load ptr, ptr %6, align 8
-  %404 = load i32, ptr %7, align 4
-  %405 = load i32, ptr %8, align 4
-  %406 = load i32, ptr %13, align 4
-  %407 = call ptr @cuddZddSymmSifting_up(ptr noundef %403, i32 noundef %404, i32 noundef %405, i32 noundef %406)
-  store ptr %407, ptr %11, align 8
-  %408 = load ptr, ptr %11, align 8
-  %409 = inttoptr i64 1 to ptr
-  %410 = icmp eq ptr %408, %409
-  br i1 %410, label %411, label %412
+430:                                              ; preds = %427
+  %431 = load ptr, ptr %11, align 8, !tbaa !56
+  %432 = getelementptr inbounds nuw %struct.Move, ptr %431, i32 0, i32 0
+  %433 = load i32, ptr %432, align 8, !tbaa !67
+  store i32 %433, ptr %7, align 4, !tbaa !8
+  br label %456
 
-411:                                              ; preds = %398
-  br label %766
+434:                                              ; preds = %427
+  br label %435
 
-412:                                              ; preds = %398
-  %413 = load ptr, ptr %11, align 8
-  %414 = icmp eq ptr %413, null
-  br i1 %414, label %430, label %415
+435:                                              ; preds = %446, %434
+  %436 = load i32, ptr %7, align 4, !tbaa !8
+  %437 = load ptr, ptr %6, align 8, !tbaa !3
+  %438 = getelementptr inbounds nuw %struct.DdManager, ptr %437, i32 0, i32 20
+  %439 = load ptr, ptr %438, align 8, !tbaa !10
+  %440 = load i32, ptr %7, align 4, !tbaa !8
+  %441 = sext i32 %440 to i64
+  %442 = getelementptr inbounds %struct.DdSubtable, ptr %439, i64 %441
+  %443 = getelementptr inbounds nuw %struct.DdSubtable, ptr %442, i32 0, i32 6
+  %444 = load i32, ptr %443, align 4, !tbaa !27
+  %445 = icmp ult i32 %436, %444
+  br i1 %445, label %446, label %455
 
-415:                                              ; preds = %412
-  %416 = load ptr, ptr %6, align 8
-  %417 = getelementptr inbounds %struct.DdManager, ptr %416, i32 0, i32 20
-  %418 = load ptr, ptr %417, align 8
-  %419 = load ptr, ptr %11, align 8
-  %420 = getelementptr inbounds %struct.Move, ptr %419, i32 0, i32 0
-  %421 = load i32, ptr %420, align 8
-  %422 = zext i32 %421 to i64
-  %423 = getelementptr inbounds %struct.DdSubtable, ptr %418, i64 %422
-  %424 = getelementptr inbounds %struct.DdSubtable, ptr %423, i32 0, i32 6
-  %425 = load i32, ptr %424, align 4
-  %426 = load ptr, ptr %11, align 8
-  %427 = getelementptr inbounds %struct.Move, ptr %426, i32 0, i32 0
-  %428 = load i32, ptr %427, align 8
-  %429 = icmp ne i32 %425, %428
-  br i1 %429, label %430, label %513
+446:                                              ; preds = %435
+  %447 = load ptr, ptr %6, align 8, !tbaa !3
+  %448 = getelementptr inbounds nuw %struct.DdManager, ptr %447, i32 0, i32 20
+  %449 = load ptr, ptr %448, align 8, !tbaa !10
+  %450 = load i32, ptr %7, align 4, !tbaa !8
+  %451 = sext i32 %450 to i64
+  %452 = getelementptr inbounds %struct.DdSubtable, ptr %449, i64 %451
+  %453 = getelementptr inbounds nuw %struct.DdSubtable, ptr %452, i32 0, i32 6
+  %454 = load i32, ptr %453, align 4, !tbaa !27
+  store i32 %454, ptr %7, align 4, !tbaa !8
+  br label %435, !llvm.loop !99
 
-430:                                              ; preds = %415, %412
-  %431 = load ptr, ptr %11, align 8
-  %432 = icmp ne ptr %431, null
-  br i1 %432, label %433, label %437
+455:                                              ; preds = %435
+  br label %456
 
-433:                                              ; preds = %430
-  %434 = load ptr, ptr %11, align 8
-  %435 = getelementptr inbounds %struct.Move, ptr %434, i32 0, i32 0
-  %436 = load i32, ptr %435, align 8
-  store i32 %436, ptr %7, align 4
-  br label %459
+456:                                              ; preds = %455, %430
+  %457 = load ptr, ptr %6, align 8, !tbaa !3
+  %458 = getelementptr inbounds nuw %struct.DdManager, ptr %457, i32 0, i32 20
+  %459 = load ptr, ptr %458, align 8, !tbaa !10
+  %460 = load i32, ptr %7, align 4, !tbaa !8
+  %461 = sext i32 %460 to i64
+  %462 = getelementptr inbounds %struct.DdSubtable, ptr %459, i64 %461
+  %463 = getelementptr inbounds nuw %struct.DdSubtable, ptr %462, i32 0, i32 6
+  %464 = load i32, ptr %463, align 4, !tbaa !27
+  store i32 %464, ptr %15, align 4, !tbaa !8
+  %465 = load i32, ptr %7, align 4, !tbaa !8
+  %466 = load i32, ptr %15, align 4, !tbaa !8
+  %467 = sub nsw i32 %465, %466
+  %468 = add nsw i32 %467, 1
+  store i32 %468, ptr %17, align 4, !tbaa !8
+  %469 = load i32, ptr %16, align 4, !tbaa !8
+  %470 = load i32, ptr %17, align 4, !tbaa !8
+  %471 = icmp eq i32 %469, %470
+  br i1 %471, label %472, label %477
 
-437:                                              ; preds = %430
-  br label %438
+472:                                              ; preds = %456
+  %473 = load ptr, ptr %6, align 8, !tbaa !3
+  %474 = load ptr, ptr %11, align 8, !tbaa !56
+  %475 = load i32, ptr %13, align 4, !tbaa !8
+  %476 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %473, ptr noundef %474, i32 noundef %475)
+  store i32 %476, ptr %14, align 4, !tbaa !8
+  br label %509
 
-438:                                              ; preds = %449, %437
-  %439 = load i32, ptr %7, align 4
-  %440 = load ptr, ptr %6, align 8
-  %441 = getelementptr inbounds %struct.DdManager, ptr %440, i32 0, i32 20
-  %442 = load ptr, ptr %441, align 8
-  %443 = load i32, ptr %7, align 4
-  %444 = sext i32 %443 to i64
-  %445 = getelementptr inbounds %struct.DdSubtable, ptr %442, i64 %444
-  %446 = getelementptr inbounds %struct.DdSubtable, ptr %445, i32 0, i32 6
-  %447 = load i32, ptr %446, align 4
-  %448 = icmp ult i32 %439, %447
-  br i1 %448, label %449, label %458
+477:                                              ; preds = %456
+  br label %478
 
-449:                                              ; preds = %438
-  %450 = load ptr, ptr %6, align 8
-  %451 = getelementptr inbounds %struct.DdManager, ptr %450, i32 0, i32 20
-  %452 = load ptr, ptr %451, align 8
-  %453 = load i32, ptr %7, align 4
-  %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds %struct.DdSubtable, ptr %452, i64 %454
-  %456 = getelementptr inbounds %struct.DdSubtable, ptr %455, i32 0, i32 6
-  %457 = load i32, ptr %456, align 4
-  store i32 %457, ptr %7, align 4
-  br label %438, !llvm.loop !50
+478:                                              ; preds = %481, %477
+  %479 = load ptr, ptr %12, align 8, !tbaa !56
+  %480 = icmp ne ptr %479, null
+  br i1 %480, label %481, label %496
 
-458:                                              ; preds = %438
-  br label %459
+481:                                              ; preds = %478
+  %482 = load ptr, ptr %12, align 8, !tbaa !56
+  %483 = getelementptr inbounds nuw %struct.Move, ptr %482, i32 0, i32 4
+  %484 = load ptr, ptr %483, align 8, !tbaa !72
+  store ptr %484, ptr %10, align 8, !tbaa !56
+  %485 = load ptr, ptr %12, align 8, !tbaa !56
+  %486 = getelementptr inbounds nuw %struct.DdNode, ptr %485, i32 0, i32 1
+  store i32 0, ptr %486, align 4, !tbaa !42
+  %487 = load ptr, ptr %6, align 8, !tbaa !3
+  %488 = getelementptr inbounds nuw %struct.DdManager, ptr %487, i32 0, i32 48
+  %489 = load ptr, ptr %488, align 8, !tbaa !73
+  %490 = load ptr, ptr %12, align 8, !tbaa !56
+  %491 = getelementptr inbounds nuw %struct.DdNode, ptr %490, i32 0, i32 2
+  store ptr %489, ptr %491, align 8, !tbaa !39
+  %492 = load ptr, ptr %12, align 8, !tbaa !56
+  %493 = load ptr, ptr %6, align 8, !tbaa !3
+  %494 = getelementptr inbounds nuw %struct.DdManager, ptr %493, i32 0, i32 48
+  store ptr %492, ptr %494, align 8, !tbaa !73
+  %495 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %495, ptr %12, align 8, !tbaa !56
+  br label %478, !llvm.loop !100
 
-459:                                              ; preds = %458, %433
-  %460 = load ptr, ptr %6, align 8
-  %461 = getelementptr inbounds %struct.DdManager, ptr %460, i32 0, i32 20
-  %462 = load ptr, ptr %461, align 8
-  %463 = load i32, ptr %7, align 4
-  %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds %struct.DdSubtable, ptr %462, i64 %464
-  %466 = getelementptr inbounds %struct.DdSubtable, ptr %465, i32 0, i32 6
-  %467 = load i32, ptr %466, align 4
-  store i32 %467, ptr %15, align 4
-  %468 = load i32, ptr %7, align 4
-  %469 = load i32, ptr %15, align 4
-  %470 = sub nsw i32 %468, %469
-  %471 = add nsw i32 %470, 1
-  store i32 %471, ptr %17, align 4
-  %472 = load i32, ptr %16, align 4
-  %473 = load i32, ptr %17, align 4
-  %474 = icmp eq i32 %472, %473
-  br i1 %474, label %475, label %480
+496:                                              ; preds = %478
+  %497 = load ptr, ptr %6, align 8, !tbaa !3
+  %498 = getelementptr inbounds nuw %struct.DdManager, ptr %497, i32 0, i32 24
+  %499 = load i32, ptr %498, align 8, !tbaa !55
+  store i32 %499, ptr %13, align 4, !tbaa !8
+  %500 = load ptr, ptr %6, align 8, !tbaa !3
+  %501 = load i32, ptr %7, align 4, !tbaa !8
+  %502 = load i32, ptr %9, align 4, !tbaa !8
+  %503 = load i32, ptr %13, align 4, !tbaa !8
+  %504 = call ptr @cuddZddSymmSifting_down(ptr noundef %500, i32 noundef %501, i32 noundef %502, i32 noundef %503)
+  store ptr %504, ptr %12, align 8, !tbaa !56
+  %505 = load ptr, ptr %6, align 8, !tbaa !3
+  %506 = load ptr, ptr %12, align 8, !tbaa !56
+  %507 = load i32, ptr %13, align 4, !tbaa !8
+  %508 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %505, ptr noundef %506, i32 noundef %507)
+  store i32 %508, ptr %14, align 4, !tbaa !8
+  br label %509
 
-475:                                              ; preds = %459
-  %476 = load ptr, ptr %6, align 8
-  %477 = load ptr, ptr %11, align 8
-  %478 = load i32, ptr %13, align 4
-  %479 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %476, ptr noundef %477, i32 noundef %478)
-  store i32 %479, ptr %14, align 4
-  br label %512
+509:                                              ; preds = %496, %472
+  br label %515
 
-480:                                              ; preds = %459
-  br label %481
+510:                                              ; preds = %412
+  %511 = load ptr, ptr %6, align 8, !tbaa !3
+  %512 = load ptr, ptr %11, align 8, !tbaa !56
+  %513 = load i32, ptr %13, align 4, !tbaa !8
+  %514 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %511, ptr noundef %512, i32 noundef %513)
+  store i32 %514, ptr %14, align 4, !tbaa !8
+  br label %515
 
-481:                                              ; preds = %484, %480
-  %482 = load ptr, ptr %12, align 8
-  %483 = icmp ne ptr %482, null
-  br i1 %483, label %484, label %499
+515:                                              ; preds = %510, %509
+  %516 = load i32, ptr %14, align 4, !tbaa !8
+  %517 = icmp ne i32 %516, 0
+  br i1 %517, label %519, label %518
 
-484:                                              ; preds = %481
-  %485 = load ptr, ptr %12, align 8
-  %486 = getelementptr inbounds %struct.Move, ptr %485, i32 0, i32 4
-  %487 = load ptr, ptr %486, align 8
-  store ptr %487, ptr %10, align 8
-  %488 = load ptr, ptr %12, align 8
-  %489 = getelementptr inbounds %struct.DdNode, ptr %488, i32 0, i32 1
-  store i32 0, ptr %489, align 4
-  %490 = load ptr, ptr %6, align 8
-  %491 = getelementptr inbounds %struct.DdManager, ptr %490, i32 0, i32 48
-  %492 = load ptr, ptr %491, align 8
-  %493 = load ptr, ptr %12, align 8
-  %494 = getelementptr inbounds %struct.DdNode, ptr %493, i32 0, i32 2
-  store ptr %492, ptr %494, align 8
-  %495 = load ptr, ptr %12, align 8
-  %496 = load ptr, ptr %6, align 8
-  %497 = getelementptr inbounds %struct.DdManager, ptr %496, i32 0, i32 48
-  store ptr %495, ptr %497, align 8
-  %498 = load ptr, ptr %10, align 8
-  store ptr %498, ptr %12, align 8
-  br label %481, !llvm.loop !51
+518:                                              ; preds = %515
+  br label %761
 
-499:                                              ; preds = %481
-  %500 = load ptr, ptr %6, align 8
-  %501 = getelementptr inbounds %struct.DdManager, ptr %500, i32 0, i32 24
-  %502 = load i32, ptr %501, align 8
-  store i32 %502, ptr %13, align 4
-  %503 = load ptr, ptr %6, align 8
-  %504 = load i32, ptr %7, align 4
-  %505 = load i32, ptr %9, align 4
-  %506 = load i32, ptr %13, align 4
-  %507 = call ptr @cuddZddSymmSifting_down(ptr noundef %503, i32 noundef %504, i32 noundef %505, i32 noundef %506)
-  store ptr %507, ptr %12, align 8
-  %508 = load ptr, ptr %6, align 8
-  %509 = load ptr, ptr %12, align 8
-  %510 = load i32, ptr %13, align 4
-  %511 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %508, ptr noundef %509, i32 noundef %510)
-  store i32 %511, ptr %14, align 4
-  br label %512
-
-512:                                              ; preds = %499, %475
-  br label %518
-
-513:                                              ; preds = %415
-  %514 = load ptr, ptr %6, align 8
-  %515 = load ptr, ptr %11, align 8
-  %516 = load i32, ptr %13, align 4
-  %517 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %514, ptr noundef %515, i32 noundef %516)
-  store i32 %517, ptr %14, align 4
-  br label %518
-
-518:                                              ; preds = %513, %512
-  %519 = load i32, ptr %14, align 4
-  %520 = icmp ne i32 %519, 0
-  br i1 %520, label %522, label %521
-
-521:                                              ; preds = %518
-  br label %766
-
-522:                                              ; preds = %518
-  br label %725
-
-523:                                              ; preds = %321
-  %524 = load ptr, ptr %6, align 8
-  %525 = getelementptr inbounds %struct.DdManager, ptr %524, i32 0, i32 20
-  %526 = load ptr, ptr %525, align 8
-  %527 = load i32, ptr %7, align 4
-  %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds %struct.DdSubtable, ptr %526, i64 %528
-  %530 = getelementptr inbounds %struct.DdSubtable, ptr %529, i32 0, i32 6
-  %531 = load i32, ptr %530, align 4
-  store i32 %531, ptr %7, align 4
-  %532 = load ptr, ptr %6, align 8
-  %533 = load i32, ptr %7, align 4
-  %534 = load i32, ptr %8, align 4
-  %535 = load i32, ptr %13, align 4
-  %536 = call ptr @cuddZddSymmSifting_up(ptr noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535)
-  store ptr %536, ptr %11, align 8
-  %537 = load ptr, ptr %11, align 8
-  %538 = inttoptr i64 1 to ptr
-  %539 = icmp eq ptr %537, %538
-  br i1 %539, label %540, label %541
-
-540:                                              ; preds = %523
-  br label %766
-
-541:                                              ; preds = %523
-  %542 = load ptr, ptr %11, align 8
-  %543 = icmp ne ptr %542, null
-  br i1 %543, label %544, label %548
-
-544:                                              ; preds = %541
-  %545 = load ptr, ptr %11, align 8
-  %546 = getelementptr inbounds %struct.Move, ptr %545, i32 0, i32 0
-  %547 = load i32, ptr %546, align 8
-  store i32 %547, ptr %7, align 4
-  br label %570
-
-548:                                              ; preds = %541
-  br label %549
-
-549:                                              ; preds = %560, %548
-  %550 = load i32, ptr %7, align 4
-  %551 = load ptr, ptr %6, align 8
-  %552 = getelementptr inbounds %struct.DdManager, ptr %551, i32 0, i32 20
-  %553 = load ptr, ptr %552, align 8
-  %554 = load i32, ptr %7, align 4
-  %555 = sext i32 %554 to i64
-  %556 = getelementptr inbounds %struct.DdSubtable, ptr %553, i64 %555
-  %557 = getelementptr inbounds %struct.DdSubtable, ptr %556, i32 0, i32 6
-  %558 = load i32, ptr %557, align 4
-  %559 = icmp ult i32 %550, %558
-  br i1 %559, label %560, label %569
-
-560:                                              ; preds = %549
-  %561 = load ptr, ptr %6, align 8
-  %562 = getelementptr inbounds %struct.DdManager, ptr %561, i32 0, i32 20
-  %563 = load ptr, ptr %562, align 8
-  %564 = load i32, ptr %7, align 4
-  %565 = sext i32 %564 to i64
-  %566 = getelementptr inbounds %struct.DdSubtable, ptr %563, i64 %565
-  %567 = getelementptr inbounds %struct.DdSubtable, ptr %566, i32 0, i32 6
-  %568 = load i32, ptr %567, align 4
-  store i32 %568, ptr %7, align 4
-  br label %549, !llvm.loop !52
-
-569:                                              ; preds = %549
-  br label %570
-
-570:                                              ; preds = %569, %544
-  %571 = load ptr, ptr %6, align 8
-  %572 = getelementptr inbounds %struct.DdManager, ptr %571, i32 0, i32 20
-  %573 = load ptr, ptr %572, align 8
-  %574 = load i32, ptr %7, align 4
-  %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds %struct.DdSubtable, ptr %573, i64 %575
-  %577 = getelementptr inbounds %struct.DdSubtable, ptr %576, i32 0, i32 6
-  %578 = load i32, ptr %577, align 4
-  store i32 %578, ptr %15, align 4
-  %579 = load i32, ptr %7, align 4
-  %580 = load i32, ptr %15, align 4
-  %581 = sub nsw i32 %579, %580
-  %582 = add nsw i32 %581, 1
-  store i32 %582, ptr %16, align 4
-  %583 = load ptr, ptr %6, align 8
-  %584 = load i32, ptr %7, align 4
-  %585 = load i32, ptr %9, align 4
-  %586 = load i32, ptr %13, align 4
-  %587 = call ptr @cuddZddSymmSifting_down(ptr noundef %583, i32 noundef %584, i32 noundef %585, i32 noundef %586)
-  store ptr %587, ptr %12, align 8
-  %588 = load ptr, ptr %12, align 8
-  %589 = inttoptr i64 1 to ptr
-  %590 = icmp eq ptr %588, %589
-  br i1 %590, label %591, label %592
-
-591:                                              ; preds = %570
-  br label %766
-
-592:                                              ; preds = %570
-  %593 = load ptr, ptr %12, align 8
-  %594 = icmp eq ptr %593, null
-  br i1 %594, label %610, label %595
-
-595:                                              ; preds = %592
-  %596 = load ptr, ptr %6, align 8
-  %597 = getelementptr inbounds %struct.DdManager, ptr %596, i32 0, i32 20
-  %598 = load ptr, ptr %597, align 8
-  %599 = load ptr, ptr %12, align 8
-  %600 = getelementptr inbounds %struct.Move, ptr %599, i32 0, i32 1
-  %601 = load i32, ptr %600, align 4
-  %602 = zext i32 %601 to i64
-  %603 = getelementptr inbounds %struct.DdSubtable, ptr %598, i64 %602
-  %604 = getelementptr inbounds %struct.DdSubtable, ptr %603, i32 0, i32 6
-  %605 = load i32, ptr %604, align 4
-  %606 = load ptr, ptr %12, align 8
-  %607 = getelementptr inbounds %struct.Move, ptr %606, i32 0, i32 1
-  %608 = load i32, ptr %607, align 4
-  %609 = icmp ne i32 %605, %608
-  br i1 %609, label %610, label %715
-
-610:                                              ; preds = %595, %592
-  %611 = load ptr, ptr %12, align 8
-  %612 = icmp ne ptr %611, null
-  br i1 %612, label %613, label %617
-
-613:                                              ; preds = %610
-  %614 = load ptr, ptr %12, align 8
-  %615 = getelementptr inbounds %struct.Move, ptr %614, i32 0, i32 1
-  %616 = load i32, ptr %615, align 4
-  store i32 %616, ptr %7, align 4
-  br label %647
-
-617:                                              ; preds = %610
-  br label %618
-
-618:                                              ; preds = %629, %617
-  %619 = load i32, ptr %7, align 4
-  %620 = load ptr, ptr %6, align 8
-  %621 = getelementptr inbounds %struct.DdManager, ptr %620, i32 0, i32 20
-  %622 = load ptr, ptr %621, align 8
-  %623 = load i32, ptr %7, align 4
-  %624 = sext i32 %623 to i64
-  %625 = getelementptr inbounds %struct.DdSubtable, ptr %622, i64 %624
-  %626 = getelementptr inbounds %struct.DdSubtable, ptr %625, i32 0, i32 6
-  %627 = load i32, ptr %626, align 4
-  %628 = icmp ult i32 %619, %627
-  br i1 %628, label %629, label %638
-
-629:                                              ; preds = %618
-  %630 = load ptr, ptr %6, align 8
-  %631 = getelementptr inbounds %struct.DdManager, ptr %630, i32 0, i32 20
-  %632 = load ptr, ptr %631, align 8
-  %633 = load i32, ptr %7, align 4
-  %634 = sext i32 %633 to i64
-  %635 = getelementptr inbounds %struct.DdSubtable, ptr %632, i64 %634
-  %636 = getelementptr inbounds %struct.DdSubtable, ptr %635, i32 0, i32 6
-  %637 = load i32, ptr %636, align 4
-  store i32 %637, ptr %7, align 4
-  br label %618, !llvm.loop !53
-
-638:                                              ; preds = %618
-  %639 = load ptr, ptr %6, align 8
-  %640 = getelementptr inbounds %struct.DdManager, ptr %639, i32 0, i32 20
-  %641 = load ptr, ptr %640, align 8
-  %642 = load i32, ptr %7, align 4
-  %643 = sext i32 %642 to i64
-  %644 = getelementptr inbounds %struct.DdSubtable, ptr %641, i64 %643
-  %645 = getelementptr inbounds %struct.DdSubtable, ptr %644, i32 0, i32 6
-  %646 = load i32, ptr %645, align 4
-  store i32 %646, ptr %7, align 4
-  br label %647
-
-647:                                              ; preds = %638, %613
-  %648 = load i32, ptr %7, align 4
-  store i32 %648, ptr %15, align 4
-  br label %649
-
-649:                                              ; preds = %660, %647
-  %650 = load i32, ptr %15, align 4
-  %651 = load ptr, ptr %6, align 8
-  %652 = getelementptr inbounds %struct.DdManager, ptr %651, i32 0, i32 20
-  %653 = load ptr, ptr %652, align 8
-  %654 = load i32, ptr %15, align 4
-  %655 = sext i32 %654 to i64
-  %656 = getelementptr inbounds %struct.DdSubtable, ptr %653, i64 %655
-  %657 = getelementptr inbounds %struct.DdSubtable, ptr %656, i32 0, i32 6
-  %658 = load i32, ptr %657, align 4
-  %659 = icmp ult i32 %650, %658
-  br i1 %659, label %660, label %669
-
-660:                                              ; preds = %649
-  %661 = load ptr, ptr %6, align 8
-  %662 = getelementptr inbounds %struct.DdManager, ptr %661, i32 0, i32 20
-  %663 = load ptr, ptr %662, align 8
-  %664 = load i32, ptr %15, align 4
-  %665 = sext i32 %664 to i64
-  %666 = getelementptr inbounds %struct.DdSubtable, ptr %663, i64 %665
-  %667 = getelementptr inbounds %struct.DdSubtable, ptr %666, i32 0, i32 6
-  %668 = load i32, ptr %667, align 4
-  store i32 %668, ptr %15, align 4
-  br label %649, !llvm.loop !54
-
-669:                                              ; preds = %649
-  %670 = load i32, ptr %15, align 4
-  %671 = load i32, ptr %7, align 4
-  %672 = sub nsw i32 %670, %671
-  %673 = add nsw i32 %672, 1
-  store i32 %673, ptr %17, align 4
-  %674 = load i32, ptr %16, align 4
-  %675 = load i32, ptr %17, align 4
-  %676 = icmp eq i32 %674, %675
-  br i1 %676, label %677, label %682
-
-677:                                              ; preds = %669
-  %678 = load ptr, ptr %6, align 8
-  %679 = load ptr, ptr %12, align 8
-  %680 = load i32, ptr %13, align 4
-  %681 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %678, ptr noundef %679, i32 noundef %680)
-  store i32 %681, ptr %14, align 4
-  br label %714
-
-682:                                              ; preds = %669
-  br label %683
-
-683:                                              ; preds = %686, %682
-  %684 = load ptr, ptr %11, align 8
-  %685 = icmp ne ptr %684, null
-  br i1 %685, label %686, label %701
-
-686:                                              ; preds = %683
-  %687 = load ptr, ptr %11, align 8
-  %688 = getelementptr inbounds %struct.Move, ptr %687, i32 0, i32 4
-  %689 = load ptr, ptr %688, align 8
-  store ptr %689, ptr %10, align 8
-  %690 = load ptr, ptr %11, align 8
-  %691 = getelementptr inbounds %struct.DdNode, ptr %690, i32 0, i32 1
-  store i32 0, ptr %691, align 4
-  %692 = load ptr, ptr %6, align 8
-  %693 = getelementptr inbounds %struct.DdManager, ptr %692, i32 0, i32 48
-  %694 = load ptr, ptr %693, align 8
-  %695 = load ptr, ptr %11, align 8
-  %696 = getelementptr inbounds %struct.DdNode, ptr %695, i32 0, i32 2
-  store ptr %694, ptr %696, align 8
-  %697 = load ptr, ptr %11, align 8
-  %698 = load ptr, ptr %6, align 8
-  %699 = getelementptr inbounds %struct.DdManager, ptr %698, i32 0, i32 48
-  store ptr %697, ptr %699, align 8
-  %700 = load ptr, ptr %10, align 8
-  store ptr %700, ptr %11, align 8
-  br label %683, !llvm.loop !55
-
-701:                                              ; preds = %683
-  %702 = load ptr, ptr %6, align 8
-  %703 = getelementptr inbounds %struct.DdManager, ptr %702, i32 0, i32 24
-  %704 = load i32, ptr %703, align 8
-  store i32 %704, ptr %13, align 4
-  %705 = load ptr, ptr %6, align 8
-  %706 = load i32, ptr %7, align 4
-  %707 = load i32, ptr %8, align 4
-  %708 = load i32, ptr %13, align 4
-  %709 = call ptr @cuddZddSymmSifting_up(ptr noundef %705, i32 noundef %706, i32 noundef %707, i32 noundef %708)
-  store ptr %709, ptr %11, align 8
-  %710 = load ptr, ptr %6, align 8
-  %711 = load ptr, ptr %11, align 8
-  %712 = load i32, ptr %13, align 4
-  %713 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %710, ptr noundef %711, i32 noundef %712)
-  store i32 %713, ptr %14, align 4
-  br label %714
-
-714:                                              ; preds = %701, %677
+519:                                              ; preds = %515
   br label %720
 
-715:                                              ; preds = %595
-  %716 = load ptr, ptr %6, align 8
-  %717 = load ptr, ptr %12, align 8
-  %718 = load i32, ptr %13, align 4
-  %719 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %716, ptr noundef %717, i32 noundef %718)
-  store i32 %719, ptr %14, align 4
+520:                                              ; preds = %320
+  %521 = load ptr, ptr %6, align 8, !tbaa !3
+  %522 = getelementptr inbounds nuw %struct.DdManager, ptr %521, i32 0, i32 20
+  %523 = load ptr, ptr %522, align 8, !tbaa !10
+  %524 = load i32, ptr %7, align 4, !tbaa !8
+  %525 = sext i32 %524 to i64
+  %526 = getelementptr inbounds %struct.DdSubtable, ptr %523, i64 %525
+  %527 = getelementptr inbounds nuw %struct.DdSubtable, ptr %526, i32 0, i32 6
+  %528 = load i32, ptr %527, align 4, !tbaa !27
+  store i32 %528, ptr %7, align 4, !tbaa !8
+  %529 = load ptr, ptr %6, align 8, !tbaa !3
+  %530 = load i32, ptr %7, align 4, !tbaa !8
+  %531 = load i32, ptr %8, align 4, !tbaa !8
+  %532 = load i32, ptr %13, align 4, !tbaa !8
+  %533 = call ptr @cuddZddSymmSifting_up(ptr noundef %529, i32 noundef %530, i32 noundef %531, i32 noundef %532)
+  store ptr %533, ptr %11, align 8, !tbaa !56
+  %534 = load ptr, ptr %11, align 8, !tbaa !56
+  %535 = icmp eq ptr %534, inttoptr (i64 1 to ptr)
+  br i1 %535, label %536, label %537
+
+536:                                              ; preds = %520
+  br label %761
+
+537:                                              ; preds = %520
+  %538 = load ptr, ptr %11, align 8, !tbaa !56
+  %539 = icmp ne ptr %538, null
+  br i1 %539, label %540, label %544
+
+540:                                              ; preds = %537
+  %541 = load ptr, ptr %11, align 8, !tbaa !56
+  %542 = getelementptr inbounds nuw %struct.Move, ptr %541, i32 0, i32 0
+  %543 = load i32, ptr %542, align 8, !tbaa !67
+  store i32 %543, ptr %7, align 4, !tbaa !8
+  br label %566
+
+544:                                              ; preds = %537
+  br label %545
+
+545:                                              ; preds = %556, %544
+  %546 = load i32, ptr %7, align 4, !tbaa !8
+  %547 = load ptr, ptr %6, align 8, !tbaa !3
+  %548 = getelementptr inbounds nuw %struct.DdManager, ptr %547, i32 0, i32 20
+  %549 = load ptr, ptr %548, align 8, !tbaa !10
+  %550 = load i32, ptr %7, align 4, !tbaa !8
+  %551 = sext i32 %550 to i64
+  %552 = getelementptr inbounds %struct.DdSubtable, ptr %549, i64 %551
+  %553 = getelementptr inbounds nuw %struct.DdSubtable, ptr %552, i32 0, i32 6
+  %554 = load i32, ptr %553, align 4, !tbaa !27
+  %555 = icmp ult i32 %546, %554
+  br i1 %555, label %556, label %565
+
+556:                                              ; preds = %545
+  %557 = load ptr, ptr %6, align 8, !tbaa !3
+  %558 = getelementptr inbounds nuw %struct.DdManager, ptr %557, i32 0, i32 20
+  %559 = load ptr, ptr %558, align 8, !tbaa !10
+  %560 = load i32, ptr %7, align 4, !tbaa !8
+  %561 = sext i32 %560 to i64
+  %562 = getelementptr inbounds %struct.DdSubtable, ptr %559, i64 %561
+  %563 = getelementptr inbounds nuw %struct.DdSubtable, ptr %562, i32 0, i32 6
+  %564 = load i32, ptr %563, align 4, !tbaa !27
+  store i32 %564, ptr %7, align 4, !tbaa !8
+  br label %545, !llvm.loop !101
+
+565:                                              ; preds = %545
+  br label %566
+
+566:                                              ; preds = %565, %540
+  %567 = load ptr, ptr %6, align 8, !tbaa !3
+  %568 = getelementptr inbounds nuw %struct.DdManager, ptr %567, i32 0, i32 20
+  %569 = load ptr, ptr %568, align 8, !tbaa !10
+  %570 = load i32, ptr %7, align 4, !tbaa !8
+  %571 = sext i32 %570 to i64
+  %572 = getelementptr inbounds %struct.DdSubtable, ptr %569, i64 %571
+  %573 = getelementptr inbounds nuw %struct.DdSubtable, ptr %572, i32 0, i32 6
+  %574 = load i32, ptr %573, align 4, !tbaa !27
+  store i32 %574, ptr %15, align 4, !tbaa !8
+  %575 = load i32, ptr %7, align 4, !tbaa !8
+  %576 = load i32, ptr %15, align 4, !tbaa !8
+  %577 = sub nsw i32 %575, %576
+  %578 = add nsw i32 %577, 1
+  store i32 %578, ptr %16, align 4, !tbaa !8
+  %579 = load ptr, ptr %6, align 8, !tbaa !3
+  %580 = load i32, ptr %7, align 4, !tbaa !8
+  %581 = load i32, ptr %9, align 4, !tbaa !8
+  %582 = load i32, ptr %13, align 4, !tbaa !8
+  %583 = call ptr @cuddZddSymmSifting_down(ptr noundef %579, i32 noundef %580, i32 noundef %581, i32 noundef %582)
+  store ptr %583, ptr %12, align 8, !tbaa !56
+  %584 = load ptr, ptr %12, align 8, !tbaa !56
+  %585 = icmp eq ptr %584, inttoptr (i64 1 to ptr)
+  br i1 %585, label %586, label %587
+
+586:                                              ; preds = %566
+  br label %761
+
+587:                                              ; preds = %566
+  %588 = load ptr, ptr %12, align 8, !tbaa !56
+  %589 = icmp eq ptr %588, null
+  br i1 %589, label %605, label %590
+
+590:                                              ; preds = %587
+  %591 = load ptr, ptr %6, align 8, !tbaa !3
+  %592 = getelementptr inbounds nuw %struct.DdManager, ptr %591, i32 0, i32 20
+  %593 = load ptr, ptr %592, align 8, !tbaa !10
+  %594 = load ptr, ptr %12, align 8, !tbaa !56
+  %595 = getelementptr inbounds nuw %struct.Move, ptr %594, i32 0, i32 1
+  %596 = load i32, ptr %595, align 4, !tbaa !62
+  %597 = zext i32 %596 to i64
+  %598 = getelementptr inbounds nuw %struct.DdSubtable, ptr %593, i64 %597
+  %599 = getelementptr inbounds nuw %struct.DdSubtable, ptr %598, i32 0, i32 6
+  %600 = load i32, ptr %599, align 4, !tbaa !27
+  %601 = load ptr, ptr %12, align 8, !tbaa !56
+  %602 = getelementptr inbounds nuw %struct.Move, ptr %601, i32 0, i32 1
+  %603 = load i32, ptr %602, align 4, !tbaa !62
+  %604 = icmp ne i32 %600, %603
+  br i1 %604, label %605, label %710
+
+605:                                              ; preds = %590, %587
+  %606 = load ptr, ptr %12, align 8, !tbaa !56
+  %607 = icmp ne ptr %606, null
+  br i1 %607, label %608, label %612
+
+608:                                              ; preds = %605
+  %609 = load ptr, ptr %12, align 8, !tbaa !56
+  %610 = getelementptr inbounds nuw %struct.Move, ptr %609, i32 0, i32 1
+  %611 = load i32, ptr %610, align 4, !tbaa !62
+  store i32 %611, ptr %7, align 4, !tbaa !8
+  br label %642
+
+612:                                              ; preds = %605
+  br label %613
+
+613:                                              ; preds = %624, %612
+  %614 = load i32, ptr %7, align 4, !tbaa !8
+  %615 = load ptr, ptr %6, align 8, !tbaa !3
+  %616 = getelementptr inbounds nuw %struct.DdManager, ptr %615, i32 0, i32 20
+  %617 = load ptr, ptr %616, align 8, !tbaa !10
+  %618 = load i32, ptr %7, align 4, !tbaa !8
+  %619 = sext i32 %618 to i64
+  %620 = getelementptr inbounds %struct.DdSubtable, ptr %617, i64 %619
+  %621 = getelementptr inbounds nuw %struct.DdSubtable, ptr %620, i32 0, i32 6
+  %622 = load i32, ptr %621, align 4, !tbaa !27
+  %623 = icmp ult i32 %614, %622
+  br i1 %623, label %624, label %633
+
+624:                                              ; preds = %613
+  %625 = load ptr, ptr %6, align 8, !tbaa !3
+  %626 = getelementptr inbounds nuw %struct.DdManager, ptr %625, i32 0, i32 20
+  %627 = load ptr, ptr %626, align 8, !tbaa !10
+  %628 = load i32, ptr %7, align 4, !tbaa !8
+  %629 = sext i32 %628 to i64
+  %630 = getelementptr inbounds %struct.DdSubtable, ptr %627, i64 %629
+  %631 = getelementptr inbounds nuw %struct.DdSubtable, ptr %630, i32 0, i32 6
+  %632 = load i32, ptr %631, align 4, !tbaa !27
+  store i32 %632, ptr %7, align 4, !tbaa !8
+  br label %613, !llvm.loop !102
+
+633:                                              ; preds = %613
+  %634 = load ptr, ptr %6, align 8, !tbaa !3
+  %635 = getelementptr inbounds nuw %struct.DdManager, ptr %634, i32 0, i32 20
+  %636 = load ptr, ptr %635, align 8, !tbaa !10
+  %637 = load i32, ptr %7, align 4, !tbaa !8
+  %638 = sext i32 %637 to i64
+  %639 = getelementptr inbounds %struct.DdSubtable, ptr %636, i64 %638
+  %640 = getelementptr inbounds nuw %struct.DdSubtable, ptr %639, i32 0, i32 6
+  %641 = load i32, ptr %640, align 4, !tbaa !27
+  store i32 %641, ptr %7, align 4, !tbaa !8
+  br label %642
+
+642:                                              ; preds = %633, %608
+  %643 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %643, ptr %15, align 4, !tbaa !8
+  br label %644
+
+644:                                              ; preds = %655, %642
+  %645 = load i32, ptr %15, align 4, !tbaa !8
+  %646 = load ptr, ptr %6, align 8, !tbaa !3
+  %647 = getelementptr inbounds nuw %struct.DdManager, ptr %646, i32 0, i32 20
+  %648 = load ptr, ptr %647, align 8, !tbaa !10
+  %649 = load i32, ptr %15, align 4, !tbaa !8
+  %650 = sext i32 %649 to i64
+  %651 = getelementptr inbounds %struct.DdSubtable, ptr %648, i64 %650
+  %652 = getelementptr inbounds nuw %struct.DdSubtable, ptr %651, i32 0, i32 6
+  %653 = load i32, ptr %652, align 4, !tbaa !27
+  %654 = icmp ult i32 %645, %653
+  br i1 %654, label %655, label %664
+
+655:                                              ; preds = %644
+  %656 = load ptr, ptr %6, align 8, !tbaa !3
+  %657 = getelementptr inbounds nuw %struct.DdManager, ptr %656, i32 0, i32 20
+  %658 = load ptr, ptr %657, align 8, !tbaa !10
+  %659 = load i32, ptr %15, align 4, !tbaa !8
+  %660 = sext i32 %659 to i64
+  %661 = getelementptr inbounds %struct.DdSubtable, ptr %658, i64 %660
+  %662 = getelementptr inbounds nuw %struct.DdSubtable, ptr %661, i32 0, i32 6
+  %663 = load i32, ptr %662, align 4, !tbaa !27
+  store i32 %663, ptr %15, align 4, !tbaa !8
+  br label %644, !llvm.loop !103
+
+664:                                              ; preds = %644
+  %665 = load i32, ptr %15, align 4, !tbaa !8
+  %666 = load i32, ptr %7, align 4, !tbaa !8
+  %667 = sub nsw i32 %665, %666
+  %668 = add nsw i32 %667, 1
+  store i32 %668, ptr %17, align 4, !tbaa !8
+  %669 = load i32, ptr %16, align 4, !tbaa !8
+  %670 = load i32, ptr %17, align 4, !tbaa !8
+  %671 = icmp eq i32 %669, %670
+  br i1 %671, label %672, label %677
+
+672:                                              ; preds = %664
+  %673 = load ptr, ptr %6, align 8, !tbaa !3
+  %674 = load ptr, ptr %12, align 8, !tbaa !56
+  %675 = load i32, ptr %13, align 4, !tbaa !8
+  %676 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %673, ptr noundef %674, i32 noundef %675)
+  store i32 %676, ptr %14, align 4, !tbaa !8
+  br label %709
+
+677:                                              ; preds = %664
+  br label %678
+
+678:                                              ; preds = %681, %677
+  %679 = load ptr, ptr %11, align 8, !tbaa !56
+  %680 = icmp ne ptr %679, null
+  br i1 %680, label %681, label %696
+
+681:                                              ; preds = %678
+  %682 = load ptr, ptr %11, align 8, !tbaa !56
+  %683 = getelementptr inbounds nuw %struct.Move, ptr %682, i32 0, i32 4
+  %684 = load ptr, ptr %683, align 8, !tbaa !72
+  store ptr %684, ptr %10, align 8, !tbaa !56
+  %685 = load ptr, ptr %11, align 8, !tbaa !56
+  %686 = getelementptr inbounds nuw %struct.DdNode, ptr %685, i32 0, i32 1
+  store i32 0, ptr %686, align 4, !tbaa !42
+  %687 = load ptr, ptr %6, align 8, !tbaa !3
+  %688 = getelementptr inbounds nuw %struct.DdManager, ptr %687, i32 0, i32 48
+  %689 = load ptr, ptr %688, align 8, !tbaa !73
+  %690 = load ptr, ptr %11, align 8, !tbaa !56
+  %691 = getelementptr inbounds nuw %struct.DdNode, ptr %690, i32 0, i32 2
+  store ptr %689, ptr %691, align 8, !tbaa !39
+  %692 = load ptr, ptr %11, align 8, !tbaa !56
+  %693 = load ptr, ptr %6, align 8, !tbaa !3
+  %694 = getelementptr inbounds nuw %struct.DdManager, ptr %693, i32 0, i32 48
+  store ptr %692, ptr %694, align 8, !tbaa !73
+  %695 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %695, ptr %11, align 8, !tbaa !56
+  br label %678, !llvm.loop !104
+
+696:                                              ; preds = %678
+  %697 = load ptr, ptr %6, align 8, !tbaa !3
+  %698 = getelementptr inbounds nuw %struct.DdManager, ptr %697, i32 0, i32 24
+  %699 = load i32, ptr %698, align 8, !tbaa !55
+  store i32 %699, ptr %13, align 4, !tbaa !8
+  %700 = load ptr, ptr %6, align 8, !tbaa !3
+  %701 = load i32, ptr %7, align 4, !tbaa !8
+  %702 = load i32, ptr %8, align 4, !tbaa !8
+  %703 = load i32, ptr %13, align 4, !tbaa !8
+  %704 = call ptr @cuddZddSymmSifting_up(ptr noundef %700, i32 noundef %701, i32 noundef %702, i32 noundef %703)
+  store ptr %704, ptr %11, align 8, !tbaa !56
+  %705 = load ptr, ptr %6, align 8, !tbaa !3
+  %706 = load ptr, ptr %11, align 8, !tbaa !56
+  %707 = load i32, ptr %13, align 4, !tbaa !8
+  %708 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %705, ptr noundef %706, i32 noundef %707)
+  store i32 %708, ptr %14, align 4, !tbaa !8
+  br label %709
+
+709:                                              ; preds = %696, %672
+  br label %715
+
+710:                                              ; preds = %590
+  %711 = load ptr, ptr %6, align 8, !tbaa !3
+  %712 = load ptr, ptr %12, align 8, !tbaa !56
+  %713 = load i32, ptr %13, align 4, !tbaa !8
+  %714 = call i32 @cuddZddSymmSiftingBackward(ptr noundef %711, ptr noundef %712, i32 noundef %713)
+  store i32 %714, ptr %14, align 4, !tbaa !8
+  br label %715
+
+715:                                              ; preds = %710, %709
+  %716 = load i32, ptr %14, align 4, !tbaa !8
+  %717 = icmp ne i32 %716, 0
+  br i1 %717, label %719, label %718
+
+718:                                              ; preds = %715
+  br label %761
+
+719:                                              ; preds = %715
   br label %720
 
-720:                                              ; preds = %715, %714
-  %721 = load i32, ptr %14, align 4
-  %722 = icmp ne i32 %721, 0
-  br i1 %722, label %724, label %723
+720:                                              ; preds = %719, %519
+  br label %721
 
-723:                                              ; preds = %720
-  br label %766
+721:                                              ; preds = %720, %319
+  br label %722
 
-724:                                              ; preds = %720
-  br label %725
+722:                                              ; preds = %721, %159
+  br label %723
 
-725:                                              ; preds = %724, %522
-  br label %726
+723:                                              ; preds = %726, %722
+  %724 = load ptr, ptr %12, align 8, !tbaa !56
+  %725 = icmp ne ptr %724, null
+  br i1 %725, label %726, label %741
 
-726:                                              ; preds = %725, %320
-  br label %727
+726:                                              ; preds = %723
+  %727 = load ptr, ptr %12, align 8, !tbaa !56
+  %728 = getelementptr inbounds nuw %struct.Move, ptr %727, i32 0, i32 4
+  %729 = load ptr, ptr %728, align 8, !tbaa !72
+  store ptr %729, ptr %10, align 8, !tbaa !56
+  %730 = load ptr, ptr %12, align 8, !tbaa !56
+  %731 = getelementptr inbounds nuw %struct.DdNode, ptr %730, i32 0, i32 1
+  store i32 0, ptr %731, align 4, !tbaa !42
+  %732 = load ptr, ptr %6, align 8, !tbaa !3
+  %733 = getelementptr inbounds nuw %struct.DdManager, ptr %732, i32 0, i32 48
+  %734 = load ptr, ptr %733, align 8, !tbaa !73
+  %735 = load ptr, ptr %12, align 8, !tbaa !56
+  %736 = getelementptr inbounds nuw %struct.DdNode, ptr %735, i32 0, i32 2
+  store ptr %734, ptr %736, align 8, !tbaa !39
+  %737 = load ptr, ptr %12, align 8, !tbaa !56
+  %738 = load ptr, ptr %6, align 8, !tbaa !3
+  %739 = getelementptr inbounds nuw %struct.DdManager, ptr %738, i32 0, i32 48
+  store ptr %737, ptr %739, align 8, !tbaa !73
+  %740 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %740, ptr %12, align 8, !tbaa !56
+  br label %723, !llvm.loop !105
 
-727:                                              ; preds = %726, %159
-  br label %728
+741:                                              ; preds = %723
+  br label %742
 
-728:                                              ; preds = %731, %727
-  %729 = load ptr, ptr %12, align 8
-  %730 = icmp ne ptr %729, null
-  br i1 %730, label %731, label %746
+742:                                              ; preds = %745, %741
+  %743 = load ptr, ptr %11, align 8, !tbaa !56
+  %744 = icmp ne ptr %743, null
+  br i1 %744, label %745, label %760
 
-731:                                              ; preds = %728
-  %732 = load ptr, ptr %12, align 8
-  %733 = getelementptr inbounds %struct.Move, ptr %732, i32 0, i32 4
-  %734 = load ptr, ptr %733, align 8
-  store ptr %734, ptr %10, align 8
-  %735 = load ptr, ptr %12, align 8
-  %736 = getelementptr inbounds %struct.DdNode, ptr %735, i32 0, i32 1
-  store i32 0, ptr %736, align 4
-  %737 = load ptr, ptr %6, align 8
-  %738 = getelementptr inbounds %struct.DdManager, ptr %737, i32 0, i32 48
-  %739 = load ptr, ptr %738, align 8
-  %740 = load ptr, ptr %12, align 8
-  %741 = getelementptr inbounds %struct.DdNode, ptr %740, i32 0, i32 2
-  store ptr %739, ptr %741, align 8
-  %742 = load ptr, ptr %12, align 8
-  %743 = load ptr, ptr %6, align 8
-  %744 = getelementptr inbounds %struct.DdManager, ptr %743, i32 0, i32 48
-  store ptr %742, ptr %744, align 8
-  %745 = load ptr, ptr %10, align 8
-  store ptr %745, ptr %12, align 8
-  br label %728, !llvm.loop !56
+745:                                              ; preds = %742
+  %746 = load ptr, ptr %11, align 8, !tbaa !56
+  %747 = getelementptr inbounds nuw %struct.Move, ptr %746, i32 0, i32 4
+  %748 = load ptr, ptr %747, align 8, !tbaa !72
+  store ptr %748, ptr %10, align 8, !tbaa !56
+  %749 = load ptr, ptr %11, align 8, !tbaa !56
+  %750 = getelementptr inbounds nuw %struct.DdNode, ptr %749, i32 0, i32 1
+  store i32 0, ptr %750, align 4, !tbaa !42
+  %751 = load ptr, ptr %6, align 8, !tbaa !3
+  %752 = getelementptr inbounds nuw %struct.DdManager, ptr %751, i32 0, i32 48
+  %753 = load ptr, ptr %752, align 8, !tbaa !73
+  %754 = load ptr, ptr %11, align 8, !tbaa !56
+  %755 = getelementptr inbounds nuw %struct.DdNode, ptr %754, i32 0, i32 2
+  store ptr %753, ptr %755, align 8, !tbaa !39
+  %756 = load ptr, ptr %11, align 8, !tbaa !56
+  %757 = load ptr, ptr %6, align 8, !tbaa !3
+  %758 = getelementptr inbounds nuw %struct.DdManager, ptr %757, i32 0, i32 48
+  store ptr %756, ptr %758, align 8, !tbaa !73
+  %759 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %759, ptr %11, align 8, !tbaa !56
+  br label %742, !llvm.loop !106
 
-746:                                              ; preds = %728
-  br label %747
-
-747:                                              ; preds = %750, %746
-  %748 = load ptr, ptr %11, align 8
-  %749 = icmp ne ptr %748, null
-  br i1 %749, label %750, label %765
-
-750:                                              ; preds = %747
-  %751 = load ptr, ptr %11, align 8
-  %752 = getelementptr inbounds %struct.Move, ptr %751, i32 0, i32 4
-  %753 = load ptr, ptr %752, align 8
-  store ptr %753, ptr %10, align 8
-  %754 = load ptr, ptr %11, align 8
-  %755 = getelementptr inbounds %struct.DdNode, ptr %754, i32 0, i32 1
-  store i32 0, ptr %755, align 4
-  %756 = load ptr, ptr %6, align 8
-  %757 = getelementptr inbounds %struct.DdManager, ptr %756, i32 0, i32 48
-  %758 = load ptr, ptr %757, align 8
-  %759 = load ptr, ptr %11, align 8
-  %760 = getelementptr inbounds %struct.DdNode, ptr %759, i32 0, i32 2
-  store ptr %758, ptr %760, align 8
-  %761 = load ptr, ptr %11, align 8
-  %762 = load ptr, ptr %6, align 8
-  %763 = getelementptr inbounds %struct.DdManager, ptr %762, i32 0, i32 48
-  store ptr %761, ptr %763, align 8
-  %764 = load ptr, ptr %10, align 8
-  store ptr %764, ptr %11, align 8
-  br label %747, !llvm.loop !57
-
-765:                                              ; preds = %747
+760:                                              ; preds = %742
   store i32 1, ptr %5, align 4
-  br label %815
+  store i32 1, ptr %18, align 4
+  br label %808
 
-766:                                              ; preds = %723, %591, %540, %521, %411, %338, %319, %228, %158, %45
-  %767 = load ptr, ptr %12, align 8
-  %768 = inttoptr i64 1 to ptr
-  %769 = icmp ne ptr %767, %768
-  br i1 %769, label %770, label %790
+761:                                              ; preds = %718, %586, %536, %518, %408, %336, %318, %227, %158, %45
+  %762 = load ptr, ptr %12, align 8, !tbaa !56
+  %763 = icmp ne ptr %762, inttoptr (i64 1 to ptr)
+  br i1 %763, label %764, label %784
 
-770:                                              ; preds = %766
-  br label %771
+764:                                              ; preds = %761
+  br label %765
 
-771:                                              ; preds = %774, %770
-  %772 = load ptr, ptr %12, align 8
-  %773 = icmp ne ptr %772, null
-  br i1 %773, label %774, label %789
+765:                                              ; preds = %768, %764
+  %766 = load ptr, ptr %12, align 8, !tbaa !56
+  %767 = icmp ne ptr %766, null
+  br i1 %767, label %768, label %783
 
-774:                                              ; preds = %771
-  %775 = load ptr, ptr %12, align 8
-  %776 = getelementptr inbounds %struct.Move, ptr %775, i32 0, i32 4
-  %777 = load ptr, ptr %776, align 8
-  store ptr %777, ptr %10, align 8
-  %778 = load ptr, ptr %12, align 8
-  %779 = getelementptr inbounds %struct.DdNode, ptr %778, i32 0, i32 1
-  store i32 0, ptr %779, align 4
-  %780 = load ptr, ptr %6, align 8
-  %781 = getelementptr inbounds %struct.DdManager, ptr %780, i32 0, i32 48
-  %782 = load ptr, ptr %781, align 8
-  %783 = load ptr, ptr %12, align 8
-  %784 = getelementptr inbounds %struct.DdNode, ptr %783, i32 0, i32 2
-  store ptr %782, ptr %784, align 8
-  %785 = load ptr, ptr %12, align 8
-  %786 = load ptr, ptr %6, align 8
-  %787 = getelementptr inbounds %struct.DdManager, ptr %786, i32 0, i32 48
-  store ptr %785, ptr %787, align 8
-  %788 = load ptr, ptr %10, align 8
-  store ptr %788, ptr %12, align 8
-  br label %771, !llvm.loop !58
+768:                                              ; preds = %765
+  %769 = load ptr, ptr %12, align 8, !tbaa !56
+  %770 = getelementptr inbounds nuw %struct.Move, ptr %769, i32 0, i32 4
+  %771 = load ptr, ptr %770, align 8, !tbaa !72
+  store ptr %771, ptr %10, align 8, !tbaa !56
+  %772 = load ptr, ptr %12, align 8, !tbaa !56
+  %773 = getelementptr inbounds nuw %struct.DdNode, ptr %772, i32 0, i32 1
+  store i32 0, ptr %773, align 4, !tbaa !42
+  %774 = load ptr, ptr %6, align 8, !tbaa !3
+  %775 = getelementptr inbounds nuw %struct.DdManager, ptr %774, i32 0, i32 48
+  %776 = load ptr, ptr %775, align 8, !tbaa !73
+  %777 = load ptr, ptr %12, align 8, !tbaa !56
+  %778 = getelementptr inbounds nuw %struct.DdNode, ptr %777, i32 0, i32 2
+  store ptr %776, ptr %778, align 8, !tbaa !39
+  %779 = load ptr, ptr %12, align 8, !tbaa !56
+  %780 = load ptr, ptr %6, align 8, !tbaa !3
+  %781 = getelementptr inbounds nuw %struct.DdManager, ptr %780, i32 0, i32 48
+  store ptr %779, ptr %781, align 8, !tbaa !73
+  %782 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %782, ptr %12, align 8, !tbaa !56
+  br label %765, !llvm.loop !107
 
-789:                                              ; preds = %771
-  br label %790
+783:                                              ; preds = %765
+  br label %784
 
-790:                                              ; preds = %789, %766
-  %791 = load ptr, ptr %11, align 8
-  %792 = inttoptr i64 1 to ptr
-  %793 = icmp ne ptr %791, %792
-  br i1 %793, label %794, label %814
+784:                                              ; preds = %783, %761
+  %785 = load ptr, ptr %11, align 8, !tbaa !56
+  %786 = icmp ne ptr %785, inttoptr (i64 1 to ptr)
+  br i1 %786, label %787, label %807
 
-794:                                              ; preds = %790
-  br label %795
+787:                                              ; preds = %784
+  br label %788
 
-795:                                              ; preds = %798, %794
-  %796 = load ptr, ptr %11, align 8
-  %797 = icmp ne ptr %796, null
-  br i1 %797, label %798, label %813
+788:                                              ; preds = %791, %787
+  %789 = load ptr, ptr %11, align 8, !tbaa !56
+  %790 = icmp ne ptr %789, null
+  br i1 %790, label %791, label %806
 
-798:                                              ; preds = %795
-  %799 = load ptr, ptr %11, align 8
-  %800 = getelementptr inbounds %struct.Move, ptr %799, i32 0, i32 4
-  %801 = load ptr, ptr %800, align 8
-  store ptr %801, ptr %10, align 8
-  %802 = load ptr, ptr %11, align 8
-  %803 = getelementptr inbounds %struct.DdNode, ptr %802, i32 0, i32 1
-  store i32 0, ptr %803, align 4
-  %804 = load ptr, ptr %6, align 8
-  %805 = getelementptr inbounds %struct.DdManager, ptr %804, i32 0, i32 48
-  %806 = load ptr, ptr %805, align 8
-  %807 = load ptr, ptr %11, align 8
-  %808 = getelementptr inbounds %struct.DdNode, ptr %807, i32 0, i32 2
-  store ptr %806, ptr %808, align 8
-  %809 = load ptr, ptr %11, align 8
-  %810 = load ptr, ptr %6, align 8
-  %811 = getelementptr inbounds %struct.DdManager, ptr %810, i32 0, i32 48
-  store ptr %809, ptr %811, align 8
-  %812 = load ptr, ptr %10, align 8
-  store ptr %812, ptr %11, align 8
-  br label %795, !llvm.loop !59
+791:                                              ; preds = %788
+  %792 = load ptr, ptr %11, align 8, !tbaa !56
+  %793 = getelementptr inbounds nuw %struct.Move, ptr %792, i32 0, i32 4
+  %794 = load ptr, ptr %793, align 8, !tbaa !72
+  store ptr %794, ptr %10, align 8, !tbaa !56
+  %795 = load ptr, ptr %11, align 8, !tbaa !56
+  %796 = getelementptr inbounds nuw %struct.DdNode, ptr %795, i32 0, i32 1
+  store i32 0, ptr %796, align 4, !tbaa !42
+  %797 = load ptr, ptr %6, align 8, !tbaa !3
+  %798 = getelementptr inbounds nuw %struct.DdManager, ptr %797, i32 0, i32 48
+  %799 = load ptr, ptr %798, align 8, !tbaa !73
+  %800 = load ptr, ptr %11, align 8, !tbaa !56
+  %801 = getelementptr inbounds nuw %struct.DdNode, ptr %800, i32 0, i32 2
+  store ptr %799, ptr %801, align 8, !tbaa !39
+  %802 = load ptr, ptr %11, align 8, !tbaa !56
+  %803 = load ptr, ptr %6, align 8, !tbaa !3
+  %804 = getelementptr inbounds nuw %struct.DdManager, ptr %803, i32 0, i32 48
+  store ptr %802, ptr %804, align 8, !tbaa !73
+  %805 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %805, ptr %11, align 8, !tbaa !56
+  br label %788, !llvm.loop !108
 
-813:                                              ; preds = %795
-  br label %814
+806:                                              ; preds = %788
+  br label %807
 
-814:                                              ; preds = %813, %790
+807:                                              ; preds = %806, %784
   store i32 0, ptr %5, align 4
-  br label %815
+  store i32 1, ptr %18, align 4
+  br label %808
 
-815:                                              ; preds = %814, %765
-  %816 = load i32, ptr %5, align 4
-  ret i32 %816
+808:                                              ; preds = %807, %760
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %809 = load i32, ptr %5, align 4
+  ret i32 %809
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3963,331 +4087,351 @@ define internal ptr @cuddZddSymmSifting_down(ptr noundef %0, i32 noundef %1, i32
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %18 = load i32, ptr %9, align 4
-  store i32 %18, ptr %14, align 4
-  store ptr null, ptr %10, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i32, ptr %7, align 4
-  %21 = call i32 @cuddZddNextHigh(ptr noundef %19, i32 noundef %20)
-  store i32 %21, ptr %12, align 4
-  br label %22
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %19 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %19, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  store ptr null, ptr %10, align 8, !tbaa !56
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load i32, ptr %7, align 4, !tbaa !8
+  %22 = call i32 @cuddZddNextHigh(ptr noundef %20, i32 noundef %21)
+  store i32 %22, ptr %12, align 4, !tbaa !8
+  br label %23
 
-22:                                               ; preds = %211, %4
-  %23 = load i32, ptr %12, align 4
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp sle i32 %23, %24
-  br i1 %25, label %26, label %216
+23:                                               ; preds = %212, %4
+  %24 = load i32, ptr %12, align 4, !tbaa !8
+  %25 = load i32, ptr %8, align 4, !tbaa !8
+  %26 = icmp sle i32 %24, %25
+  br i1 %26, label %27, label %217
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.DdManager, ptr %27, i32 0, i32 20
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.DdSubtable, ptr %29, i64 %31
-  %33 = getelementptr inbounds %struct.DdSubtable, ptr %32, i32 0, i32 6
-  %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr %17, align 4
-  br label %35
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.DdManager, ptr %28, i32 0, i32 20
+  %30 = load ptr, ptr %29, align 8, !tbaa !10
+  %31 = load i32, ptr %12, align 4, !tbaa !8
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds %struct.DdSubtable, ptr %30, i64 %32
+  %34 = getelementptr inbounds nuw %struct.DdSubtable, ptr %33, i32 0, i32 6
+  %35 = load i32, ptr %34, align 4, !tbaa !27
+  store i32 %35, ptr %17, align 4, !tbaa !8
+  br label %36
 
-35:                                               ; preds = %46, %26
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.DdManager, ptr %36, i32 0, i32 20
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %17, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.DdSubtable, ptr %38, i64 %40
-  %42 = getelementptr inbounds %struct.DdSubtable, ptr %41, i32 0, i32 6
-  %43 = load i32, ptr %42, align 4
-  %44 = load i32, ptr %12, align 4
-  %45 = icmp ne i32 %43, %44
-  br i1 %45, label %46, label %55
+36:                                               ; preds = %47, %27
+  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.DdManager, ptr %37, i32 0, i32 20
+  %39 = load ptr, ptr %38, align 8, !tbaa !10
+  %40 = load i32, ptr %17, align 4, !tbaa !8
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %struct.DdSubtable, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw %struct.DdSubtable, ptr %42, i32 0, i32 6
+  %44 = load i32, ptr %43, align 4, !tbaa !27
+  %45 = load i32, ptr %12, align 4, !tbaa !8
+  %46 = icmp ne i32 %44, %45
+  br i1 %46, label %47, label %56
 
-46:                                               ; preds = %35
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.DdManager, ptr %47, i32 0, i32 20
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr %17, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.DdSubtable, ptr %49, i64 %51
-  %53 = getelementptr inbounds %struct.DdSubtable, ptr %52, i32 0, i32 6
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %17, align 4
-  br label %35, !llvm.loop !60
+47:                                               ; preds = %36
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.DdManager, ptr %48, i32 0, i32 20
+  %50 = load ptr, ptr %49, align 8, !tbaa !10
+  %51 = load i32, ptr %17, align 4, !tbaa !8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.DdSubtable, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw %struct.DdSubtable, ptr %53, i32 0, i32 6
+  %55 = load i32, ptr %54, align 4, !tbaa !27
+  store i32 %55, ptr %17, align 4, !tbaa !8
+  br label %36, !llvm.loop !109
 
-55:                                               ; preds = %35
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = load i32, ptr %12, align 4
-  %59 = call i32 @cuddZddSymmCheck(ptr noundef %56, i32 noundef %57, i32 noundef %58)
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %115
+56:                                               ; preds = %36
+  %57 = load ptr, ptr %6, align 8, !tbaa !3
+  %58 = load i32, ptr %7, align 4, !tbaa !8
+  %59 = load i32, ptr %12, align 4, !tbaa !8
+  %60 = call i32 @cuddZddSymmCheck(ptr noundef %57, i32 noundef %58, i32 noundef %59)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %116
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct.DdManager, ptr %62, i32 0, i32 20
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %7, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.DdSubtable, ptr %64, i64 %66
-  %68 = getelementptr inbounds %struct.DdSubtable, ptr %67, i32 0, i32 6
-  %69 = load i32, ptr %68, align 4
-  store i32 %69, ptr %16, align 4
-  %70 = load i32, ptr %12, align 4
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.DdManager, ptr %71, i32 0, i32 20
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %7, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.DdSubtable, ptr %73, i64 %75
-  %77 = getelementptr inbounds %struct.DdSubtable, ptr %76, i32 0, i32 6
-  store i32 %70, ptr %77, align 4
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.DdManager, ptr %78, i32 0, i32 20
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %12, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.DdSubtable, ptr %80, i64 %82
-  %84 = getelementptr inbounds %struct.DdSubtable, ptr %83, i32 0, i32 6
-  %85 = load i32, ptr %84, align 4
-  store i32 %85, ptr %15, align 4
-  br label %86
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %6, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.DdManager, ptr %63, i32 0, i32 20
+  %65 = load ptr, ptr %64, align 8, !tbaa !10
+  %66 = load i32, ptr %7, align 4, !tbaa !8
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %struct.DdSubtable, ptr %65, i64 %67
+  %69 = getelementptr inbounds nuw %struct.DdSubtable, ptr %68, i32 0, i32 6
+  %70 = load i32, ptr %69, align 4, !tbaa !27
+  store i32 %70, ptr %16, align 4, !tbaa !8
+  %71 = load i32, ptr %12, align 4, !tbaa !8
+  %72 = load ptr, ptr %6, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.DdManager, ptr %72, i32 0, i32 20
+  %74 = load ptr, ptr %73, align 8, !tbaa !10
+  %75 = load i32, ptr %7, align 4, !tbaa !8
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.DdSubtable, ptr %74, i64 %76
+  %78 = getelementptr inbounds nuw %struct.DdSubtable, ptr %77, i32 0, i32 6
+  store i32 %71, ptr %78, align 4, !tbaa !27
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.DdManager, ptr %79, i32 0, i32 20
+  %81 = load ptr, ptr %80, align 8, !tbaa !10
+  %82 = load i32, ptr %12, align 4, !tbaa !8
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.DdSubtable, ptr %81, i64 %83
+  %85 = getelementptr inbounds nuw %struct.DdSubtable, ptr %84, i32 0, i32 6
+  %86 = load i32, ptr %85, align 4, !tbaa !27
+  store i32 %86, ptr %15, align 4, !tbaa !8
+  br label %87
 
-86:                                               ; preds = %97, %61
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.DdManager, ptr %87, i32 0, i32 20
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr %15, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.DdSubtable, ptr %89, i64 %91
-  %93 = getelementptr inbounds %struct.DdSubtable, ptr %92, i32 0, i32 6
-  %94 = load i32, ptr %93, align 4
-  %95 = load i32, ptr %12, align 4
-  %96 = icmp ne i32 %94, %95
-  br i1 %96, label %97, label %106
+87:                                               ; preds = %98, %62
+  %88 = load ptr, ptr %6, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.DdManager, ptr %88, i32 0, i32 20
+  %90 = load ptr, ptr %89, align 8, !tbaa !10
+  %91 = load i32, ptr %15, align 4, !tbaa !8
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds %struct.DdSubtable, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw %struct.DdSubtable, ptr %93, i32 0, i32 6
+  %95 = load i32, ptr %94, align 4, !tbaa !27
+  %96 = load i32, ptr %12, align 4, !tbaa !8
+  %97 = icmp ne i32 %95, %96
+  br i1 %97, label %98, label %107
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct.DdManager, ptr %98, i32 0, i32 20
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i32, ptr %15, align 4
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %102
-  %104 = getelementptr inbounds %struct.DdSubtable, ptr %103, i32 0, i32 6
-  %105 = load i32, ptr %104, align 4
-  store i32 %105, ptr %15, align 4
-  br label %86, !llvm.loop !61
+98:                                               ; preds = %87
+  %99 = load ptr, ptr %6, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.DdManager, ptr %99, i32 0, i32 20
+  %101 = load ptr, ptr %100, align 8, !tbaa !10
+  %102 = load i32, ptr %15, align 4, !tbaa !8
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds %struct.DdSubtable, ptr %101, i64 %103
+  %105 = getelementptr inbounds nuw %struct.DdSubtable, ptr %104, i32 0, i32 6
+  %106 = load i32, ptr %105, align 4, !tbaa !27
+  store i32 %106, ptr %15, align 4, !tbaa !8
+  br label %87, !llvm.loop !110
 
-106:                                              ; preds = %86
-  %107 = load i32, ptr %16, align 4
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.DdManager, ptr %108, i32 0, i32 20
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %15, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.DdSubtable, ptr %110, i64 %112
-  %114 = getelementptr inbounds %struct.DdSubtable, ptr %113, i32 0, i32 6
-  store i32 %107, ptr %114, align 4
-  br label %211
+107:                                              ; preds = %87
+  %108 = load i32, ptr %16, align 4, !tbaa !8
+  %109 = load ptr, ptr %6, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.DdManager, ptr %109, i32 0, i32 20
+  %111 = load ptr, ptr %110, align 8, !tbaa !10
+  %112 = load i32, ptr %15, align 4, !tbaa !8
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds %struct.DdSubtable, ptr %111, i64 %113
+  %115 = getelementptr inbounds nuw %struct.DdSubtable, ptr %114, i32 0, i32 6
+  store i32 %108, ptr %115, align 4, !tbaa !27
+  br label %212
 
-115:                                              ; preds = %55
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %struct.DdManager, ptr %116, i32 0, i32 20
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %7, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %struct.DdSubtable, ptr %118, i64 %120
-  %122 = getelementptr inbounds %struct.DdSubtable, ptr %121, i32 0, i32 6
-  %123 = load i32, ptr %122, align 4
-  %124 = load i32, ptr %7, align 4
-  %125 = icmp eq i32 %123, %124
-  br i1 %125, label %126, label %187
+116:                                              ; preds = %56
+  %117 = load ptr, ptr %6, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.DdManager, ptr %117, i32 0, i32 20
+  %119 = load ptr, ptr %118, align 8, !tbaa !10
+  %120 = load i32, ptr %7, align 4, !tbaa !8
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds %struct.DdSubtable, ptr %119, i64 %121
+  %123 = getelementptr inbounds nuw %struct.DdSubtable, ptr %122, i32 0, i32 6
+  %124 = load i32, ptr %123, align 4, !tbaa !27
+  %125 = load i32, ptr %7, align 4, !tbaa !8
+  %126 = icmp eq i32 %124, %125
+  br i1 %126, label %127, label %188
 
-126:                                              ; preds = %115
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %struct.DdManager, ptr %127, i32 0, i32 20
-  %129 = load ptr, ptr %128, align 8
-  %130 = load i32, ptr %12, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds %struct.DdSubtable, ptr %129, i64 %131
-  %133 = getelementptr inbounds %struct.DdSubtable, ptr %132, i32 0, i32 6
-  %134 = load i32, ptr %133, align 4
-  %135 = load i32, ptr %12, align 4
-  %136 = icmp eq i32 %134, %135
-  br i1 %136, label %137, label %187
+127:                                              ; preds = %116
+  %128 = load ptr, ptr %6, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.DdManager, ptr %128, i32 0, i32 20
+  %130 = load ptr, ptr %129, align 8, !tbaa !10
+  %131 = load i32, ptr %12, align 4, !tbaa !8
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds %struct.DdSubtable, ptr %130, i64 %132
+  %134 = getelementptr inbounds nuw %struct.DdSubtable, ptr %133, i32 0, i32 6
+  %135 = load i32, ptr %134, align 4, !tbaa !27
+  %136 = load i32, ptr %12, align 4, !tbaa !8
+  %137 = icmp eq i32 %135, %136
+  br i1 %137, label %138, label %188
 
-137:                                              ; preds = %126
-  %138 = load ptr, ptr %6, align 8
-  %139 = load i32, ptr %7, align 4
-  %140 = load i32, ptr %12, align 4
-  %141 = call i32 @cuddZddSwapInPlace(ptr noundef %138, i32 noundef %139, i32 noundef %140)
-  store i32 %141, ptr %13, align 4
-  %142 = load i32, ptr %13, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %145
+138:                                              ; preds = %127
+  %139 = load ptr, ptr %6, align 8, !tbaa !3
+  %140 = load i32, ptr %7, align 4, !tbaa !8
+  %141 = load i32, ptr %12, align 4, !tbaa !8
+  %142 = call i32 @cuddZddSwapInPlace(ptr noundef %139, i32 noundef %140, i32 noundef %141)
+  store i32 %142, ptr %13, align 4, !tbaa !8
+  %143 = load i32, ptr %13, align 4, !tbaa !8
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %146
 
-144:                                              ; preds = %137
-  br label %218
-
-145:                                              ; preds = %137
-  %146 = load ptr, ptr %6, align 8
-  %147 = call ptr @cuddDynamicAllocNode(ptr noundef %146)
-  store ptr %147, ptr %11, align 8
-  %148 = load ptr, ptr %11, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %150, label %151
-
-150:                                              ; preds = %145
-  br label %218
-
-151:                                              ; preds = %145
-  %152 = load i32, ptr %7, align 4
-  %153 = load ptr, ptr %11, align 8
-  %154 = getelementptr inbounds %struct.Move, ptr %153, i32 0, i32 0
-  store i32 %152, ptr %154, align 8
-  %155 = load i32, ptr %12, align 4
-  %156 = load ptr, ptr %11, align 8
-  %157 = getelementptr inbounds %struct.Move, ptr %156, i32 0, i32 1
-  store i32 %155, ptr %157, align 4
-  %158 = load i32, ptr %13, align 4
-  %159 = load ptr, ptr %11, align 8
-  %160 = getelementptr inbounds %struct.Move, ptr %159, i32 0, i32 3
-  store i32 %158, ptr %160, align 4
-  %161 = load ptr, ptr %10, align 8
-  %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds %struct.Move, ptr %162, i32 0, i32 4
-  store ptr %161, ptr %163, align 8
-  %164 = load ptr, ptr %11, align 8
-  store ptr %164, ptr %10, align 8
-  %165 = load i32, ptr %13, align 4
-  %166 = sitofp i32 %165 to double
-  %167 = load i32, ptr %14, align 4
-  %168 = sitofp i32 %167 to double
-  %169 = load ptr, ptr %6, align 8
-  %170 = getelementptr inbounds %struct.DdManager, ptr %169, i32 0, i32 59
-  %171 = load double, ptr %170, align 8
-  %172 = fmul double %168, %171
-  %173 = fcmp ogt double %166, %172
-  br i1 %173, label %174, label %176
-
-174:                                              ; preds = %151
-  %175 = load ptr, ptr %10, align 8
-  store ptr %175, ptr %5, align 8
-  br label %239
-
-176:                                              ; preds = %151
-  %177 = load i32, ptr %13, align 4
-  %178 = load i32, ptr %14, align 4
-  %179 = icmp slt i32 %177, %178
-  br i1 %179, label %180, label %182
-
-180:                                              ; preds = %176
-  %181 = load i32, ptr %13, align 4
-  store i32 %181, ptr %14, align 4
-  br label %182
-
-182:                                              ; preds = %180, %176
-  %183 = load i32, ptr %12, align 4
-  store i32 %183, ptr %7, align 4
-  %184 = load ptr, ptr %6, align 8
-  %185 = load i32, ptr %7, align 4
-  %186 = call i32 @cuddZddNextHigh(ptr noundef %184, i32 noundef %185)
-  store i32 %186, ptr %12, align 4
-  br label %210
-
-187:                                              ; preds = %126, %115
-  %188 = load ptr, ptr %6, align 8
-  %189 = load i32, ptr %7, align 4
-  %190 = load i32, ptr %12, align 4
-  %191 = call i32 @zdd_group_move(ptr noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef %10)
-  store i32 %191, ptr %13, align 4
-  %192 = load i32, ptr %13, align 4
-  %193 = sitofp i32 %192 to double
-  %194 = load i32, ptr %14, align 4
-  %195 = sitofp i32 %194 to double
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds %struct.DdManager, ptr %196, i32 0, i32 59
-  %198 = load double, ptr %197, align 8
-  %199 = fmul double %195, %198
-  %200 = fcmp ogt double %193, %199
-  br i1 %200, label %201, label %203
-
-201:                                              ; preds = %187
-  %202 = load ptr, ptr %10, align 8
-  store ptr %202, ptr %5, align 8
-  br label %239
-
-203:                                              ; preds = %187
-  %204 = load i32, ptr %13, align 4
-  %205 = load i32, ptr %14, align 4
-  %206 = icmp slt i32 %204, %205
-  br i1 %206, label %207, label %209
-
-207:                                              ; preds = %203
-  %208 = load i32, ptr %13, align 4
-  store i32 %208, ptr %14, align 4
-  br label %209
-
-209:                                              ; preds = %207, %203
-  br label %210
-
-210:                                              ; preds = %209, %182
-  br label %211
-
-211:                                              ; preds = %210, %106
-  %212 = load i32, ptr %17, align 4
-  store i32 %212, ptr %7, align 4
-  %213 = load ptr, ptr %6, align 8
-  %214 = load i32, ptr %7, align 4
-  %215 = call i32 @cuddZddNextHigh(ptr noundef %213, i32 noundef %214)
-  store i32 %215, ptr %12, align 4
-  br label %22, !llvm.loop !62
-
-216:                                              ; preds = %22
-  %217 = load ptr, ptr %10, align 8
-  store ptr %217, ptr %5, align 8
-  br label %239
-
-218:                                              ; preds = %150, %144
+145:                                              ; preds = %138
   br label %219
 
-219:                                              ; preds = %222, %218
-  %220 = load ptr, ptr %10, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %237
+146:                                              ; preds = %138
+  %147 = load ptr, ptr %6, align 8, !tbaa !3
+  %148 = call ptr @cuddDynamicAllocNode(ptr noundef %147)
+  store ptr %148, ptr %11, align 8, !tbaa !56
+  %149 = load ptr, ptr %11, align 8, !tbaa !56
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %151, label %152
 
-222:                                              ; preds = %219
-  %223 = load ptr, ptr %10, align 8
-  %224 = getelementptr inbounds %struct.Move, ptr %223, i32 0, i32 4
-  %225 = load ptr, ptr %224, align 8
-  store ptr %225, ptr %11, align 8
-  %226 = load ptr, ptr %10, align 8
-  %227 = getelementptr inbounds %struct.DdNode, ptr %226, i32 0, i32 1
-  store i32 0, ptr %227, align 4
-  %228 = load ptr, ptr %6, align 8
-  %229 = getelementptr inbounds %struct.DdManager, ptr %228, i32 0, i32 48
-  %230 = load ptr, ptr %229, align 8
-  %231 = load ptr, ptr %10, align 8
-  %232 = getelementptr inbounds %struct.DdNode, ptr %231, i32 0, i32 2
-  store ptr %230, ptr %232, align 8
-  %233 = load ptr, ptr %10, align 8
-  %234 = load ptr, ptr %6, align 8
-  %235 = getelementptr inbounds %struct.DdManager, ptr %234, i32 0, i32 48
-  store ptr %233, ptr %235, align 8
-  %236 = load ptr, ptr %11, align 8
-  store ptr %236, ptr %10, align 8
-  br label %219, !llvm.loop !63
+151:                                              ; preds = %146
+  br label %219
 
-237:                                              ; preds = %219
-  %238 = inttoptr i64 1 to ptr
-  store ptr %238, ptr %5, align 8
+152:                                              ; preds = %146
+  %153 = load i32, ptr %7, align 4, !tbaa !8
+  %154 = load ptr, ptr %11, align 8, !tbaa !56
+  %155 = getelementptr inbounds nuw %struct.Move, ptr %154, i32 0, i32 0
+  store i32 %153, ptr %155, align 8, !tbaa !67
+  %156 = load i32, ptr %12, align 4, !tbaa !8
+  %157 = load ptr, ptr %11, align 8, !tbaa !56
+  %158 = getelementptr inbounds nuw %struct.Move, ptr %157, i32 0, i32 1
+  store i32 %156, ptr %158, align 4, !tbaa !62
+  %159 = load i32, ptr %13, align 4, !tbaa !8
+  %160 = load ptr, ptr %11, align 8, !tbaa !56
+  %161 = getelementptr inbounds nuw %struct.Move, ptr %160, i32 0, i32 3
+  store i32 %159, ptr %161, align 4, !tbaa !111
+  %162 = load ptr, ptr %10, align 8, !tbaa !56
+  %163 = load ptr, ptr %11, align 8, !tbaa !56
+  %164 = getelementptr inbounds nuw %struct.Move, ptr %163, i32 0, i32 4
+  store ptr %162, ptr %164, align 8, !tbaa !72
+  %165 = load ptr, ptr %11, align 8, !tbaa !56
+  store ptr %165, ptr %10, align 8, !tbaa !56
+  %166 = load i32, ptr %13, align 4, !tbaa !8
+  %167 = sitofp i32 %166 to double
+  %168 = load i32, ptr %14, align 4, !tbaa !8
+  %169 = sitofp i32 %168 to double
+  %170 = load ptr, ptr %6, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %struct.DdManager, ptr %170, i32 0, i32 59
+  %172 = load double, ptr %171, align 8, !tbaa !112
+  %173 = fmul double %169, %172
+  %174 = fcmp ogt double %167, %173
+  br i1 %174, label %175, label %177
+
+175:                                              ; preds = %152
+  %176 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %176, ptr %5, align 8
+  store i32 1, ptr %18, align 4
   br label %239
 
-239:                                              ; preds = %237, %216, %201, %174
+177:                                              ; preds = %152
+  %178 = load i32, ptr %13, align 4, !tbaa !8
+  %179 = load i32, ptr %14, align 4, !tbaa !8
+  %180 = icmp slt i32 %178, %179
+  br i1 %180, label %181, label %183
+
+181:                                              ; preds = %177
+  %182 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %182, ptr %14, align 4, !tbaa !8
+  br label %183
+
+183:                                              ; preds = %181, %177
+  %184 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %184, ptr %7, align 4, !tbaa !8
+  %185 = load ptr, ptr %6, align 8, !tbaa !3
+  %186 = load i32, ptr %7, align 4, !tbaa !8
+  %187 = call i32 @cuddZddNextHigh(ptr noundef %185, i32 noundef %186)
+  store i32 %187, ptr %12, align 4, !tbaa !8
+  br label %211
+
+188:                                              ; preds = %127, %116
+  %189 = load ptr, ptr %6, align 8, !tbaa !3
+  %190 = load i32, ptr %7, align 4, !tbaa !8
+  %191 = load i32, ptr %12, align 4, !tbaa !8
+  %192 = call i32 @zdd_group_move(ptr noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef %10)
+  store i32 %192, ptr %13, align 4, !tbaa !8
+  %193 = load i32, ptr %13, align 4, !tbaa !8
+  %194 = sitofp i32 %193 to double
+  %195 = load i32, ptr %14, align 4, !tbaa !8
+  %196 = sitofp i32 %195 to double
+  %197 = load ptr, ptr %6, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw %struct.DdManager, ptr %197, i32 0, i32 59
+  %199 = load double, ptr %198, align 8, !tbaa !112
+  %200 = fmul double %196, %199
+  %201 = fcmp ogt double %194, %200
+  br i1 %201, label %202, label %204
+
+202:                                              ; preds = %188
+  %203 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %203, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %239
+
+204:                                              ; preds = %188
+  %205 = load i32, ptr %13, align 4, !tbaa !8
+  %206 = load i32, ptr %14, align 4, !tbaa !8
+  %207 = icmp slt i32 %205, %206
+  br i1 %207, label %208, label %210
+
+208:                                              ; preds = %204
+  %209 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %209, ptr %14, align 4, !tbaa !8
+  br label %210
+
+210:                                              ; preds = %208, %204
+  br label %211
+
+211:                                              ; preds = %210, %183
+  br label %212
+
+212:                                              ; preds = %211, %107
+  %213 = load i32, ptr %17, align 4, !tbaa !8
+  store i32 %213, ptr %7, align 4, !tbaa !8
+  %214 = load ptr, ptr %6, align 8, !tbaa !3
+  %215 = load i32, ptr %7, align 4, !tbaa !8
+  %216 = call i32 @cuddZddNextHigh(ptr noundef %214, i32 noundef %215)
+  store i32 %216, ptr %12, align 4, !tbaa !8
+  br label %23, !llvm.loop !113
+
+217:                                              ; preds = %23
+  %218 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %218, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %239
+
+219:                                              ; preds = %151, %145
+  br label %220
+
+220:                                              ; preds = %223, %219
+  %221 = load ptr, ptr %10, align 8, !tbaa !56
+  %222 = icmp ne ptr %221, null
+  br i1 %222, label %223, label %238
+
+223:                                              ; preds = %220
+  %224 = load ptr, ptr %10, align 8, !tbaa !56
+  %225 = getelementptr inbounds nuw %struct.Move, ptr %224, i32 0, i32 4
+  %226 = load ptr, ptr %225, align 8, !tbaa !72
+  store ptr %226, ptr %11, align 8, !tbaa !56
+  %227 = load ptr, ptr %10, align 8, !tbaa !56
+  %228 = getelementptr inbounds nuw %struct.DdNode, ptr %227, i32 0, i32 1
+  store i32 0, ptr %228, align 4, !tbaa !42
+  %229 = load ptr, ptr %6, align 8, !tbaa !3
+  %230 = getelementptr inbounds nuw %struct.DdManager, ptr %229, i32 0, i32 48
+  %231 = load ptr, ptr %230, align 8, !tbaa !73
+  %232 = load ptr, ptr %10, align 8, !tbaa !56
+  %233 = getelementptr inbounds nuw %struct.DdNode, ptr %232, i32 0, i32 2
+  store ptr %231, ptr %233, align 8, !tbaa !39
+  %234 = load ptr, ptr %10, align 8, !tbaa !56
+  %235 = load ptr, ptr %6, align 8, !tbaa !3
+  %236 = getelementptr inbounds nuw %struct.DdManager, ptr %235, i32 0, i32 48
+  store ptr %234, ptr %236, align 8, !tbaa !73
+  %237 = load ptr, ptr %11, align 8, !tbaa !56
+  store ptr %237, ptr %10, align 8, !tbaa !56
+  br label %220, !llvm.loop !114
+
+238:                                              ; preds = %220
+  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %239
+
+239:                                              ; preds = %238, %217, %202, %175
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
   %240 = load ptr, ptr %5, align 8
   ret ptr %240
 }
@@ -4302,172 +4446,183 @@ define internal i32 @cuddZddSymmSiftingBackward(ptr noundef %0, ptr noundef %1, 
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 -1, ptr %11, align 4
-  store i32 -1, ptr %9, align 4
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %10, align 8
-  store i32 0, ptr %8, align 4
-  br label %13
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !56
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 -1, ptr %11, align 4, !tbaa !8
+  store i32 -1, ptr %9, align 4, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !56
+  store ptr %13, ptr %10, align 8, !tbaa !56
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %14
 
-13:                                               ; preds = %28, %3
-  %14 = load ptr, ptr %10, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %34
+14:                                               ; preds = %29, %3
+  %15 = load ptr, ptr %10, align 8, !tbaa !56
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %35
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds %struct.Move, ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp slt i32 %19, %20
-  br i1 %21, label %22, label %27
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %10, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw %struct.Move, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4, !tbaa !111
+  %21 = load i32, ptr %7, align 4, !tbaa !8
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %16
-  %23 = load i32, ptr %8, align 4
-  store i32 %23, ptr %9, align 4
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.Move, ptr %24, i32 0, i32 3
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %7, align 4
-  br label %27
-
-27:                                               ; preds = %22, %16
+23:                                               ; preds = %17
+  %24 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %24, ptr %9, align 4, !tbaa !8
+  %25 = load ptr, ptr %10, align 8, !tbaa !56
+  %26 = getelementptr inbounds nuw %struct.Move, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4, !tbaa !111
+  store i32 %27, ptr %7, align 4, !tbaa !8
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.Move, ptr %29, i32 0, i32 4
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %10, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %8, align 4
-  br label %13, !llvm.loop !64
+28:                                               ; preds = %23, %17
+  br label %29
 
-34:                                               ; preds = %13
-  %35 = load ptr, ptr %6, align 8
-  store ptr %35, ptr %10, align 8
-  store i32 0, ptr %8, align 4
-  br label %36
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %10, align 8, !tbaa !56
+  %31 = getelementptr inbounds nuw %struct.Move, ptr %30, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8, !tbaa !72
+  store ptr %32, ptr %10, align 8, !tbaa !56
+  %33 = load i32, ptr %8, align 4, !tbaa !8
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %8, align 4, !tbaa !8
+  br label %14, !llvm.loop !115
 
-36:                                               ; preds = %105, %34
-  %37 = load ptr, ptr %10, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %111
+35:                                               ; preds = %14
+  %36 = load ptr, ptr %6, align 8, !tbaa !56
+  store ptr %36, ptr %10, align 8, !tbaa !56
+  store i32 0, ptr %8, align 4, !tbaa !8
+  br label %37
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %8, align 4
-  %41 = load i32, ptr %9, align 4
-  %42 = icmp eq i32 %40, %41
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %106, %35
+  %38 = load ptr, ptr %10, align 8, !tbaa !56
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %112
 
-43:                                               ; preds = %39
-  br label %111
+40:                                               ; preds = %37
+  %41 = load i32, ptr %8, align 4, !tbaa !8
+  %42 = load i32, ptr %9, align 4, !tbaa !8
+  %43 = icmp eq i32 %41, %42
+  br i1 %43, label %44, label %45
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.DdManager, ptr %45, i32 0, i32 20
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.Move, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.DdSubtable, ptr %47, i64 %51
-  %53 = getelementptr inbounds %struct.DdSubtable, ptr %52, i32 0, i32 6
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.Move, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %54, %57
-  br i1 %58, label %59, label %87
+44:                                               ; preds = %40
+  br label %112
 
-59:                                               ; preds = %44
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.DdManager, ptr %60, i32 0, i32 20
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.Move, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 4
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.DdSubtable, ptr %62, i64 %66
-  %68 = getelementptr inbounds %struct.DdSubtable, ptr %67, i32 0, i32 6
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds %struct.Move, ptr %70, i32 0, i32 1
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %69, %72
-  br i1 %73, label %74, label %87
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.DdManager, ptr %46, i32 0, i32 20
+  %48 = load ptr, ptr %47, align 8, !tbaa !10
+  %49 = load ptr, ptr %10, align 8, !tbaa !56
+  %50 = getelementptr inbounds nuw %struct.Move, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !67
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %struct.DdSubtable, ptr %48, i64 %52
+  %54 = getelementptr inbounds nuw %struct.DdSubtable, ptr %53, i32 0, i32 6
+  %55 = load i32, ptr %54, align 4, !tbaa !27
+  %56 = load ptr, ptr %10, align 8, !tbaa !56
+  %57 = getelementptr inbounds nuw %struct.Move, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 8, !tbaa !67
+  %59 = icmp eq i32 %55, %58
+  br i1 %59, label %60, label %88
 
-74:                                               ; preds = %59
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct.Move, ptr %76, i32 0, i32 0
-  %78 = load i32, ptr %77, align 8
-  %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds %struct.Move, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 4
-  %82 = call i32 @cuddZddSwapInPlace(ptr noundef %75, i32 noundef %78, i32 noundef %81)
-  store i32 %82, ptr %11, align 4
-  %83 = load i32, ptr %11, align 4
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %86, label %85
+60:                                               ; preds = %45
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.DdManager, ptr %61, i32 0, i32 20
+  %63 = load ptr, ptr %62, align 8, !tbaa !10
+  %64 = load ptr, ptr %10, align 8, !tbaa !56
+  %65 = getelementptr inbounds nuw %struct.Move, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4, !tbaa !62
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %struct.DdSubtable, ptr %63, i64 %67
+  %69 = getelementptr inbounds nuw %struct.DdSubtable, ptr %68, i32 0, i32 6
+  %70 = load i32, ptr %69, align 4, !tbaa !27
+  %71 = load ptr, ptr %10, align 8, !tbaa !56
+  %72 = getelementptr inbounds nuw %struct.Move, ptr %71, i32 0, i32 1
+  %73 = load i32, ptr %72, align 4, !tbaa !62
+  %74 = icmp eq i32 %70, %73
+  br i1 %74, label %75, label %88
 
-85:                                               ; preds = %74
+75:                                               ; preds = %60
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = load ptr, ptr %10, align 8, !tbaa !56
+  %78 = getelementptr inbounds nuw %struct.Move, ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8, !tbaa !67
+  %80 = load ptr, ptr %10, align 8, !tbaa !56
+  %81 = getelementptr inbounds nuw %struct.Move, ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %81, align 4, !tbaa !62
+  %83 = call i32 @cuddZddSwapInPlace(ptr noundef %76, i32 noundef %79, i32 noundef %82)
+  store i32 %83, ptr %11, align 4, !tbaa !8
+  %84 = load i32, ptr %11, align 4, !tbaa !8
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %75
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %113
+
+87:                                               ; preds = %75
+  br label %97
+
+88:                                               ; preds = %60, %45
+  %89 = load ptr, ptr %5, align 8, !tbaa !3
+  %90 = load ptr, ptr %10, align 8, !tbaa !56
+  %91 = getelementptr inbounds nuw %struct.Move, ptr %90, i32 0, i32 0
+  %92 = load i32, ptr %91, align 8, !tbaa !67
+  %93 = load ptr, ptr %10, align 8, !tbaa !56
+  %94 = getelementptr inbounds nuw %struct.Move, ptr %93, i32 0, i32 1
+  %95 = load i32, ptr %94, align 4, !tbaa !62
+  %96 = call i32 @zdd_group_move_backward(ptr noundef %89, i32 noundef %92, i32 noundef %95)
+  store i32 %96, ptr %11, align 4, !tbaa !8
+  br label %97
+
+97:                                               ; preds = %88, %87
+  %98 = load i32, ptr %9, align 4, !tbaa !8
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %100, label %105
+
+100:                                              ; preds = %97
+  %101 = load i32, ptr %11, align 4, !tbaa !8
+  %102 = load i32, ptr %7, align 4, !tbaa !8
+  %103 = icmp eq i32 %101, %102
+  br i1 %103, label %104, label %105
+
+104:                                              ; preds = %100
   br label %112
 
-86:                                               ; preds = %74
-  br label %96
+105:                                              ; preds = %100, %97
+  br label %106
 
-87:                                               ; preds = %59, %44
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds %struct.Move, ptr %89, i32 0, i32 0
-  %91 = load i32, ptr %90, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds %struct.Move, ptr %92, i32 0, i32 1
-  %94 = load i32, ptr %93, align 4
-  %95 = call i32 @zdd_group_move_backward(ptr noundef %88, i32 noundef %91, i32 noundef %94)
-  store i32 %95, ptr %11, align 4
-  br label %96
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %10, align 8, !tbaa !56
+  %108 = getelementptr inbounds nuw %struct.Move, ptr %107, i32 0, i32 4
+  %109 = load ptr, ptr %108, align 8, !tbaa !72
+  store ptr %109, ptr %10, align 8, !tbaa !56
+  %110 = load i32, ptr %8, align 4, !tbaa !8
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %8, align 4, !tbaa !8
+  br label %37, !llvm.loop !116
 
-96:                                               ; preds = %87, %86
-  %97 = load i32, ptr %9, align 4
-  %98 = icmp eq i32 %97, -1
-  br i1 %98, label %99, label %104
-
-99:                                               ; preds = %96
-  %100 = load i32, ptr %11, align 4
-  %101 = load i32, ptr %7, align 4
-  %102 = icmp eq i32 %100, %101
-  br i1 %102, label %103, label %104
-
-103:                                              ; preds = %99
-  br label %111
-
-104:                                              ; preds = %99, %96
-  br label %105
-
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds %struct.Move, ptr %106, i32 0, i32 4
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %10, align 8
-  %109 = load i32, ptr %8, align 4
-  %110 = add nsw i32 %109, 1
-  store i32 %110, ptr %8, align 4
-  br label %36, !llvm.loop !65
-
-111:                                              ; preds = %103, %43, %36
+112:                                              ; preds = %104, %44, %37
   store i32 1, ptr %4, align 4
-  br label %112
+  store i32 1, ptr %12, align 4
+  br label %113
 
-112:                                              ; preds = %111, %85
-  %113 = load i32, ptr %4, align 4
-  ret i32 %113
+113:                                              ; preds = %112, %86
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %114 = load i32, ptr %4, align 4
+  ret i32 %114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4484,297 +4639,315 @@ define internal ptr @cuddZddSymmSifting_up(ptr noundef %0, i32 noundef %1, i32 n
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %14, align 4
-  store ptr null, ptr %10, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = call i32 @cuddZddNextLow(ptr noundef %18, i32 noundef %19)
-  store i32 %20, ptr %12, align 4
-  br label %21
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %18 = load i32, ptr %9, align 4, !tbaa !8
+  store i32 %18, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  store ptr null, ptr %10, align 8, !tbaa !56
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  %21 = call i32 @cuddZddNextLow(ptr noundef %19, i32 noundef %20)
+  store i32 %21, ptr %12, align 4, !tbaa !8
+  br label %22
 
-21:                                               ; preds = %177, %4
-  %22 = load i32, ptr %12, align 4
-  %23 = load i32, ptr %8, align 4
-  %24 = icmp sge i32 %22, %23
-  br i1 %24, label %25, label %182
+22:                                               ; preds = %178, %4
+  %23 = load i32, ptr %12, align 4, !tbaa !8
+  %24 = load i32, ptr %8, align 4, !tbaa !8
+  %25 = icmp sge i32 %23, %24
+  br i1 %25, label %26, label %183
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.DdManager, ptr %26, i32 0, i32 20
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %12, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.DdSubtable, ptr %28, i64 %30
-  %32 = getelementptr inbounds %struct.DdSubtable, ptr %31, i32 0, i32 6
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %16, align 4
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %12, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = call i32 @cuddZddSymmCheck(ptr noundef %34, i32 noundef %35, i32 noundef %36)
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %85
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.DdManager, ptr %27, i32 0, i32 20
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  %30 = load i32, ptr %12, align 4, !tbaa !8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %struct.DdSubtable, ptr %29, i64 %31
+  %33 = getelementptr inbounds nuw %struct.DdSubtable, ptr %32, i32 0, i32 6
+  %34 = load i32, ptr %33, align 4, !tbaa !27
+  store i32 %34, ptr %16, align 4, !tbaa !8
+  %35 = load ptr, ptr %6, align 8, !tbaa !3
+  %36 = load i32, ptr %12, align 4, !tbaa !8
+  %37 = load i32, ptr %7, align 4, !tbaa !8
+  %38 = call i32 @cuddZddSymmCheck(ptr noundef %35, i32 noundef %36, i32 noundef %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %86
 
-39:                                               ; preds = %25
-  %40 = load i32, ptr %7, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.DdManager, ptr %41, i32 0, i32 20
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %12, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.DdSubtable, ptr %43, i64 %45
-  %47 = getelementptr inbounds %struct.DdSubtable, ptr %46, i32 0, i32 6
-  store i32 %40, ptr %47, align 4
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.DdManager, ptr %48, i32 0, i32 20
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.DdSubtable, ptr %50, i64 %52
-  %54 = getelementptr inbounds %struct.DdSubtable, ptr %53, i32 0, i32 6
-  %55 = load i32, ptr %54, align 4
-  store i32 %55, ptr %15, align 4
-  br label %56
+40:                                               ; preds = %26
+  %41 = load i32, ptr %7, align 4, !tbaa !8
+  %42 = load ptr, ptr %6, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.DdManager, ptr %42, i32 0, i32 20
+  %44 = load ptr, ptr %43, align 8, !tbaa !10
+  %45 = load i32, ptr %12, align 4, !tbaa !8
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct.DdSubtable, ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw %struct.DdSubtable, ptr %47, i32 0, i32 6
+  store i32 %41, ptr %48, align 4, !tbaa !27
+  %49 = load ptr, ptr %6, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.DdManager, ptr %49, i32 0, i32 20
+  %51 = load ptr, ptr %50, align 8, !tbaa !10
+  %52 = load i32, ptr %7, align 4, !tbaa !8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.DdSubtable, ptr %51, i64 %53
+  %55 = getelementptr inbounds nuw %struct.DdSubtable, ptr %54, i32 0, i32 6
+  %56 = load i32, ptr %55, align 4, !tbaa !27
+  store i32 %56, ptr %15, align 4, !tbaa !8
+  br label %57
 
-56:                                               ; preds = %67, %39
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct.DdManager, ptr %57, i32 0, i32 20
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %15, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.DdSubtable, ptr %59, i64 %61
-  %63 = getelementptr inbounds %struct.DdSubtable, ptr %62, i32 0, i32 6
-  %64 = load i32, ptr %63, align 4
-  %65 = load i32, ptr %7, align 4
-  %66 = icmp ne i32 %64, %65
-  br i1 %66, label %67, label %76
+57:                                               ; preds = %68, %40
+  %58 = load ptr, ptr %6, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.DdManager, ptr %58, i32 0, i32 20
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = load i32, ptr %15, align 4, !tbaa !8
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %struct.DdSubtable, ptr %60, i64 %62
+  %64 = getelementptr inbounds nuw %struct.DdSubtable, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !27
+  %66 = load i32, ptr %7, align 4, !tbaa !8
+  %67 = icmp ne i32 %65, %66
+  br i1 %67, label %68, label %77
 
-67:                                               ; preds = %56
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.DdManager, ptr %68, i32 0, i32 20
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %15, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.DdSubtable, ptr %70, i64 %72
-  %74 = getelementptr inbounds %struct.DdSubtable, ptr %73, i32 0, i32 6
-  %75 = load i32, ptr %74, align 4
-  store i32 %75, ptr %15, align 4
-  br label %56, !llvm.loop !66
+68:                                               ; preds = %57
+  %69 = load ptr, ptr %6, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.DdManager, ptr %69, i32 0, i32 20
+  %71 = load ptr, ptr %70, align 8, !tbaa !10
+  %72 = load i32, ptr %15, align 4, !tbaa !8
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds %struct.DdSubtable, ptr %71, i64 %73
+  %75 = getelementptr inbounds nuw %struct.DdSubtable, ptr %74, i32 0, i32 6
+  %76 = load i32, ptr %75, align 4, !tbaa !27
+  store i32 %76, ptr %15, align 4, !tbaa !8
+  br label %57, !llvm.loop !117
 
-76:                                               ; preds = %56
-  %77 = load i32, ptr %16, align 4
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.DdManager, ptr %78, i32 0, i32 20
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %15, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.DdSubtable, ptr %80, i64 %82
-  %84 = getelementptr inbounds %struct.DdSubtable, ptr %83, i32 0, i32 6
-  store i32 %77, ptr %84, align 4
-  br label %177
+77:                                               ; preds = %57
+  %78 = load i32, ptr %16, align 4, !tbaa !8
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.DdManager, ptr %79, i32 0, i32 20
+  %81 = load ptr, ptr %80, align 8, !tbaa !10
+  %82 = load i32, ptr %15, align 4, !tbaa !8
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.DdSubtable, ptr %81, i64 %83
+  %85 = getelementptr inbounds nuw %struct.DdSubtable, ptr %84, i32 0, i32 6
+  store i32 %78, ptr %85, align 4, !tbaa !27
+  br label %178
 
-85:                                               ; preds = %25
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct.DdManager, ptr %86, i32 0, i32 20
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i32, ptr %7, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.DdSubtable, ptr %88, i64 %90
-  %92 = getelementptr inbounds %struct.DdSubtable, ptr %91, i32 0, i32 6
-  %93 = load i32, ptr %92, align 4
-  %94 = load i32, ptr %7, align 4
-  %95 = icmp eq i32 %93, %94
-  br i1 %95, label %96, label %153
+86:                                               ; preds = %26
+  %87 = load ptr, ptr %6, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.DdManager, ptr %87, i32 0, i32 20
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
+  %90 = load i32, ptr %7, align 4, !tbaa !8
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds %struct.DdSubtable, ptr %89, i64 %91
+  %93 = getelementptr inbounds nuw %struct.DdSubtable, ptr %92, i32 0, i32 6
+  %94 = load i32, ptr %93, align 4, !tbaa !27
+  %95 = load i32, ptr %7, align 4, !tbaa !8
+  %96 = icmp eq i32 %94, %95
+  br i1 %96, label %97, label %154
 
-96:                                               ; preds = %85
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.DdManager, ptr %97, i32 0, i32 20
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i32, ptr %12, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct.DdSubtable, ptr %99, i64 %101
-  %103 = getelementptr inbounds %struct.DdSubtable, ptr %102, i32 0, i32 6
-  %104 = load i32, ptr %103, align 4
-  %105 = load i32, ptr %12, align 4
-  %106 = icmp eq i32 %104, %105
-  br i1 %106, label %107, label %153
+97:                                               ; preds = %86
+  %98 = load ptr, ptr %6, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.DdManager, ptr %98, i32 0, i32 20
+  %100 = load ptr, ptr %99, align 8, !tbaa !10
+  %101 = load i32, ptr %12, align 4, !tbaa !8
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %102
+  %104 = getelementptr inbounds nuw %struct.DdSubtable, ptr %103, i32 0, i32 6
+  %105 = load i32, ptr %104, align 4, !tbaa !27
+  %106 = load i32, ptr %12, align 4, !tbaa !8
+  %107 = icmp eq i32 %105, %106
+  br i1 %107, label %108, label %154
 
-107:                                              ; preds = %96
-  %108 = load ptr, ptr %6, align 8
-  %109 = load i32, ptr %12, align 4
-  %110 = load i32, ptr %7, align 4
-  %111 = call i32 @cuddZddSwapInPlace(ptr noundef %108, i32 noundef %109, i32 noundef %110)
-  store i32 %111, ptr %13, align 4
-  %112 = load i32, ptr %13, align 4
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %115
+108:                                              ; preds = %97
+  %109 = load ptr, ptr %6, align 8, !tbaa !3
+  %110 = load i32, ptr %12, align 4, !tbaa !8
+  %111 = load i32, ptr %7, align 4, !tbaa !8
+  %112 = call i32 @cuddZddSwapInPlace(ptr noundef %109, i32 noundef %110, i32 noundef %111)
+  store i32 %112, ptr %13, align 4, !tbaa !8
+  %113 = load i32, ptr %13, align 4, !tbaa !8
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %107
-  br label %184
-
-115:                                              ; preds = %107
-  %116 = load ptr, ptr %6, align 8
-  %117 = call ptr @cuddDynamicAllocNode(ptr noundef %116)
-  store ptr %117, ptr %11, align 8
-  %118 = load ptr, ptr %11, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %120, label %121
-
-120:                                              ; preds = %115
-  br label %184
-
-121:                                              ; preds = %115
-  %122 = load i32, ptr %12, align 4
-  %123 = load ptr, ptr %11, align 8
-  %124 = getelementptr inbounds %struct.Move, ptr %123, i32 0, i32 0
-  store i32 %122, ptr %124, align 8
-  %125 = load i32, ptr %7, align 4
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct.Move, ptr %126, i32 0, i32 1
-  store i32 %125, ptr %127, align 4
-  %128 = load i32, ptr %13, align 4
-  %129 = load ptr, ptr %11, align 8
-  %130 = getelementptr inbounds %struct.Move, ptr %129, i32 0, i32 3
-  store i32 %128, ptr %130, align 4
-  %131 = load ptr, ptr %10, align 8
-  %132 = load ptr, ptr %11, align 8
-  %133 = getelementptr inbounds %struct.Move, ptr %132, i32 0, i32 4
-  store ptr %131, ptr %133, align 8
-  %134 = load ptr, ptr %11, align 8
-  store ptr %134, ptr %10, align 8
-  %135 = load i32, ptr %13, align 4
-  %136 = sitofp i32 %135 to double
-  %137 = load i32, ptr %14, align 4
-  %138 = sitofp i32 %137 to double
-  %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds %struct.DdManager, ptr %139, i32 0, i32 59
-  %141 = load double, ptr %140, align 8
-  %142 = fmul double %138, %141
-  %143 = fcmp ogt double %136, %142
-  br i1 %143, label %144, label %146
-
-144:                                              ; preds = %121
-  %145 = load ptr, ptr %10, align 8
-  store ptr %145, ptr %5, align 8
-  br label %205
-
-146:                                              ; preds = %121
-  %147 = load i32, ptr %13, align 4
-  %148 = load i32, ptr %14, align 4
-  %149 = icmp slt i32 %147, %148
-  br i1 %149, label %150, label %152
-
-150:                                              ; preds = %146
-  %151 = load i32, ptr %13, align 4
-  store i32 %151, ptr %14, align 4
-  br label %152
-
-152:                                              ; preds = %150, %146
-  br label %176
-
-153:                                              ; preds = %96, %85
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i32, ptr %12, align 4
-  %156 = load i32, ptr %7, align 4
-  %157 = call i32 @zdd_group_move(ptr noundef %154, i32 noundef %155, i32 noundef %156, ptr noundef %10)
-  store i32 %157, ptr %13, align 4
-  %158 = load i32, ptr %13, align 4
-  %159 = sitofp i32 %158 to double
-  %160 = load i32, ptr %14, align 4
-  %161 = sitofp i32 %160 to double
-  %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds %struct.DdManager, ptr %162, i32 0, i32 59
-  %164 = load double, ptr %163, align 8
-  %165 = fmul double %161, %164
-  %166 = fcmp ogt double %159, %165
-  br i1 %166, label %167, label %169
-
-167:                                              ; preds = %153
-  %168 = load ptr, ptr %10, align 8
-  store ptr %168, ptr %5, align 8
-  br label %205
-
-169:                                              ; preds = %153
-  %170 = load i32, ptr %13, align 4
-  %171 = load i32, ptr %14, align 4
-  %172 = icmp slt i32 %170, %171
-  br i1 %172, label %173, label %175
-
-173:                                              ; preds = %169
-  %174 = load i32, ptr %13, align 4
-  store i32 %174, ptr %14, align 4
-  br label %175
-
-175:                                              ; preds = %173, %169
-  br label %176
-
-176:                                              ; preds = %175, %152
-  br label %177
-
-177:                                              ; preds = %176, %76
-  %178 = load i32, ptr %16, align 4
-  store i32 %178, ptr %7, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = load i32, ptr %7, align 4
-  %181 = call i32 @cuddZddNextLow(ptr noundef %179, i32 noundef %180)
-  store i32 %181, ptr %12, align 4
-  br label %21, !llvm.loop !67
-
-182:                                              ; preds = %21
-  %183 = load ptr, ptr %10, align 8
-  store ptr %183, ptr %5, align 8
-  br label %205
-
-184:                                              ; preds = %120, %114
+115:                                              ; preds = %108
   br label %185
 
-185:                                              ; preds = %188, %184
-  %186 = load ptr, ptr %10, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %188, label %203
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %6, align 8, !tbaa !3
+  %118 = call ptr @cuddDynamicAllocNode(ptr noundef %117)
+  store ptr %118, ptr %11, align 8, !tbaa !56
+  %119 = load ptr, ptr %11, align 8, !tbaa !56
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %122
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %10, align 8
-  %190 = getelementptr inbounds %struct.Move, ptr %189, i32 0, i32 4
-  %191 = load ptr, ptr %190, align 8
-  store ptr %191, ptr %11, align 8
-  %192 = load ptr, ptr %10, align 8
-  %193 = getelementptr inbounds %struct.DdNode, ptr %192, i32 0, i32 1
-  store i32 0, ptr %193, align 4
-  %194 = load ptr, ptr %6, align 8
-  %195 = getelementptr inbounds %struct.DdManager, ptr %194, i32 0, i32 48
-  %196 = load ptr, ptr %195, align 8
-  %197 = load ptr, ptr %10, align 8
-  %198 = getelementptr inbounds %struct.DdNode, ptr %197, i32 0, i32 2
-  store ptr %196, ptr %198, align 8
-  %199 = load ptr, ptr %10, align 8
-  %200 = load ptr, ptr %6, align 8
-  %201 = getelementptr inbounds %struct.DdManager, ptr %200, i32 0, i32 48
-  store ptr %199, ptr %201, align 8
-  %202 = load ptr, ptr %11, align 8
-  store ptr %202, ptr %10, align 8
-  br label %185, !llvm.loop !68
+121:                                              ; preds = %116
+  br label %185
 
-203:                                              ; preds = %185
-  %204 = inttoptr i64 1 to ptr
-  store ptr %204, ptr %5, align 8
+122:                                              ; preds = %116
+  %123 = load i32, ptr %12, align 4, !tbaa !8
+  %124 = load ptr, ptr %11, align 8, !tbaa !56
+  %125 = getelementptr inbounds nuw %struct.Move, ptr %124, i32 0, i32 0
+  store i32 %123, ptr %125, align 8, !tbaa !67
+  %126 = load i32, ptr %7, align 4, !tbaa !8
+  %127 = load ptr, ptr %11, align 8, !tbaa !56
+  %128 = getelementptr inbounds nuw %struct.Move, ptr %127, i32 0, i32 1
+  store i32 %126, ptr %128, align 4, !tbaa !62
+  %129 = load i32, ptr %13, align 4, !tbaa !8
+  %130 = load ptr, ptr %11, align 8, !tbaa !56
+  %131 = getelementptr inbounds nuw %struct.Move, ptr %130, i32 0, i32 3
+  store i32 %129, ptr %131, align 4, !tbaa !111
+  %132 = load ptr, ptr %10, align 8, !tbaa !56
+  %133 = load ptr, ptr %11, align 8, !tbaa !56
+  %134 = getelementptr inbounds nuw %struct.Move, ptr %133, i32 0, i32 4
+  store ptr %132, ptr %134, align 8, !tbaa !72
+  %135 = load ptr, ptr %11, align 8, !tbaa !56
+  store ptr %135, ptr %10, align 8, !tbaa !56
+  %136 = load i32, ptr %13, align 4, !tbaa !8
+  %137 = sitofp i32 %136 to double
+  %138 = load i32, ptr %14, align 4, !tbaa !8
+  %139 = sitofp i32 %138 to double
+  %140 = load ptr, ptr %6, align 8, !tbaa !3
+  %141 = getelementptr inbounds nuw %struct.DdManager, ptr %140, i32 0, i32 59
+  %142 = load double, ptr %141, align 8, !tbaa !112
+  %143 = fmul double %139, %142
+  %144 = fcmp ogt double %137, %143
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %122
+  %146 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %146, ptr %5, align 8
+  store i32 1, ptr %17, align 4
   br label %205
 
-205:                                              ; preds = %203, %182, %167, %144
+147:                                              ; preds = %122
+  %148 = load i32, ptr %13, align 4, !tbaa !8
+  %149 = load i32, ptr %14, align 4, !tbaa !8
+  %150 = icmp slt i32 %148, %149
+  br i1 %150, label %151, label %153
+
+151:                                              ; preds = %147
+  %152 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %152, ptr %14, align 4, !tbaa !8
+  br label %153
+
+153:                                              ; preds = %151, %147
+  br label %177
+
+154:                                              ; preds = %97, %86
+  %155 = load ptr, ptr %6, align 8, !tbaa !3
+  %156 = load i32, ptr %12, align 4, !tbaa !8
+  %157 = load i32, ptr %7, align 4, !tbaa !8
+  %158 = call i32 @zdd_group_move(ptr noundef %155, i32 noundef %156, i32 noundef %157, ptr noundef %10)
+  store i32 %158, ptr %13, align 4, !tbaa !8
+  %159 = load i32, ptr %13, align 4, !tbaa !8
+  %160 = sitofp i32 %159 to double
+  %161 = load i32, ptr %14, align 4, !tbaa !8
+  %162 = sitofp i32 %161 to double
+  %163 = load ptr, ptr %6, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.DdManager, ptr %163, i32 0, i32 59
+  %165 = load double, ptr %164, align 8, !tbaa !112
+  %166 = fmul double %162, %165
+  %167 = fcmp ogt double %160, %166
+  br i1 %167, label %168, label %170
+
+168:                                              ; preds = %154
+  %169 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %169, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  br label %205
+
+170:                                              ; preds = %154
+  %171 = load i32, ptr %13, align 4, !tbaa !8
+  %172 = load i32, ptr %14, align 4, !tbaa !8
+  %173 = icmp slt i32 %171, %172
+  br i1 %173, label %174, label %176
+
+174:                                              ; preds = %170
+  %175 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %175, ptr %14, align 4, !tbaa !8
+  br label %176
+
+176:                                              ; preds = %174, %170
+  br label %177
+
+177:                                              ; preds = %176, %153
+  br label %178
+
+178:                                              ; preds = %177, %77
+  %179 = load i32, ptr %16, align 4, !tbaa !8
+  store i32 %179, ptr %7, align 4, !tbaa !8
+  %180 = load ptr, ptr %6, align 8, !tbaa !3
+  %181 = load i32, ptr %7, align 4, !tbaa !8
+  %182 = call i32 @cuddZddNextLow(ptr noundef %180, i32 noundef %181)
+  store i32 %182, ptr %12, align 4, !tbaa !8
+  br label %22, !llvm.loop !118
+
+183:                                              ; preds = %22
+  %184 = load ptr, ptr %10, align 8, !tbaa !56
+  store ptr %184, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  br label %205
+
+185:                                              ; preds = %121, %115
+  br label %186
+
+186:                                              ; preds = %189, %185
+  %187 = load ptr, ptr %10, align 8, !tbaa !56
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %204
+
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %10, align 8, !tbaa !56
+  %191 = getelementptr inbounds nuw %struct.Move, ptr %190, i32 0, i32 4
+  %192 = load ptr, ptr %191, align 8, !tbaa !72
+  store ptr %192, ptr %11, align 8, !tbaa !56
+  %193 = load ptr, ptr %10, align 8, !tbaa !56
+  %194 = getelementptr inbounds nuw %struct.DdNode, ptr %193, i32 0, i32 1
+  store i32 0, ptr %194, align 4, !tbaa !42
+  %195 = load ptr, ptr %6, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.DdManager, ptr %195, i32 0, i32 48
+  %197 = load ptr, ptr %196, align 8, !tbaa !73
+  %198 = load ptr, ptr %10, align 8, !tbaa !56
+  %199 = getelementptr inbounds nuw %struct.DdNode, ptr %198, i32 0, i32 2
+  store ptr %197, ptr %199, align 8, !tbaa !39
+  %200 = load ptr, ptr %10, align 8, !tbaa !56
+  %201 = load ptr, ptr %6, align 8, !tbaa !3
+  %202 = getelementptr inbounds nuw %struct.DdManager, ptr %201, i32 0, i32 48
+  store ptr %200, ptr %202, align 8, !tbaa !73
+  %203 = load ptr, ptr %11, align 8, !tbaa !56
+  store ptr %203, ptr %10, align 8, !tbaa !56
+  br label %186, !llvm.loop !119
+
+204:                                              ; preds = %186
+  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  br label %205
+
+205:                                              ; preds = %204, %183, %168, %145
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
   %206 = load ptr, ptr %5, align 8
   ret ptr %206
 }
 
-declare i32 @cuddZddNextHigh(ptr noundef, i32 noundef) #3
+declare i32 @cuddZddNextHigh(ptr noundef, i32 noundef) #4
 
-declare i32 @cuddZddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) #3
+declare i32 @cuddZddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) #4
 
-declare ptr @cuddDynamicAllocNode(ptr noundef) #3
+declare ptr @cuddDynamicAllocNode(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -4793,371 +4966,394 @@ define internal i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 noundef 
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store i32 -1, ptr %18, align 4
-  store i32 -1, ptr %19, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.DdManager, ptr %20, i32 0, i32 20
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %7, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.DdSubtable, ptr %22, i64 %24
-  %26 = getelementptr inbounds %struct.DdSubtable, ptr %25, i32 0, i32 6
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %14, align 4
-  %28 = load i32, ptr %7, align 4
-  store i32 %28, ptr %15, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.DdManager, ptr %29, i32 0, i32 20
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.DdSubtable, ptr %31, i64 %33
-  %35 = getelementptr inbounds %struct.DdSubtable, ptr %34, i32 0, i32 6
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %16, align 4
-  br label %37
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  store i32 -1, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  store i32 -1, ptr %19, align 4, !tbaa !8
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.DdManager, ptr %21, i32 0, i32 20
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  %24 = load i32, ptr %7, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %25
+  %27 = getelementptr inbounds nuw %struct.DdSubtable, ptr %26, i32 0, i32 6
+  %28 = load i32, ptr %27, align 4, !tbaa !27
+  store i32 %28, ptr %14, align 4, !tbaa !8
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %29, ptr %15, align 4, !tbaa !8
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.DdManager, ptr %30, i32 0, i32 20
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  %33 = load i32, ptr %8, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds %struct.DdSubtable, ptr %32, i64 %34
+  %36 = getelementptr inbounds nuw %struct.DdSubtable, ptr %35, i32 0, i32 6
+  %37 = load i32, ptr %36, align 4, !tbaa !27
+  store i32 %37, ptr %16, align 4, !tbaa !8
+  br label %38
 
-37:                                               ; preds = %48, %4
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.DdManager, ptr %38, i32 0, i32 20
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %16, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.DdSubtable, ptr %40, i64 %42
-  %44 = getelementptr inbounds %struct.DdSubtable, ptr %43, i32 0, i32 6
-  %45 = load i32, ptr %44, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = icmp ne i32 %45, %46
-  br i1 %47, label %48, label %57
+38:                                               ; preds = %49, %4
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.DdManager, ptr %39, i32 0, i32 20
+  %41 = load ptr, ptr %40, align 8, !tbaa !10
+  %42 = load i32, ptr %16, align 4, !tbaa !8
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds %struct.DdSubtable, ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw %struct.DdSubtable, ptr %44, i32 0, i32 6
+  %46 = load i32, ptr %45, align 4, !tbaa !27
+  %47 = load i32, ptr %8, align 4, !tbaa !8
+  %48 = icmp ne i32 %46, %47
+  br i1 %48, label %49, label %58
 
-48:                                               ; preds = %37
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.DdManager, ptr %49, i32 0, i32 20
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.DdSubtable, ptr %51, i64 %53
-  %55 = getelementptr inbounds %struct.DdSubtable, ptr %54, i32 0, i32 6
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %16, align 4
-  br label %37, !llvm.loop !69
+49:                                               ; preds = %38
+  %50 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.DdManager, ptr %50, i32 0, i32 20
+  %52 = load ptr, ptr %51, align 8, !tbaa !10
+  %53 = load i32, ptr %16, align 4, !tbaa !8
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.DdSubtable, ptr %52, i64 %54
+  %56 = getelementptr inbounds nuw %struct.DdSubtable, ptr %55, i32 0, i32 6
+  %57 = load i32, ptr %56, align 4, !tbaa !27
+  store i32 %57, ptr %16, align 4, !tbaa !8
+  br label %38, !llvm.loop !122
 
-57:                                               ; preds = %37
-  %58 = load i32, ptr %16, align 4
-  store i32 %58, ptr %17, align 4
-  br label %59
+58:                                               ; preds = %38
+  %59 = load i32, ptr %16, align 4, !tbaa !8
+  store i32 %59, ptr %17, align 4, !tbaa !8
+  br label %60
 
-59:                                               ; preds = %209, %57
-  %60 = load i32, ptr %7, align 4
-  %61 = load i32, ptr %8, align 4
-  %62 = icmp sle i32 %60, %61
-  br i1 %62, label %63, label %216
+60:                                               ; preds = %210, %58
+  %61 = load i32, ptr %7, align 4, !tbaa !8
+  %62 = load i32, ptr %8, align 4, !tbaa !8
+  %63 = icmp sle i32 %61, %62
+  br i1 %63, label %64, label %217
 
-63:                                               ; preds = %59
-  br label %64
+64:                                               ; preds = %60
+  br label %65
 
-64:                                               ; preds = %181, %63
-  %65 = load i32, ptr %8, align 4
-  %66 = load i32, ptr %14, align 4
-  %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %68, label %187
+65:                                               ; preds = %182, %64
+  %66 = load i32, ptr %8, align 4, !tbaa !8
+  %67 = load i32, ptr %14, align 4, !tbaa !8
+  %68 = icmp sgt i32 %66, %67
+  br i1 %68, label %69, label %188
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.DdManager, ptr %69, i32 0, i32 20
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %7, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.DdSubtable, ptr %71, i64 %73
-  %75 = getelementptr inbounds %struct.DdSubtable, ptr %74, i32 0, i32 6
-  %76 = load i32, ptr %75, align 4
-  store i32 %76, ptr %13, align 4
-  %77 = load i32, ptr %13, align 4
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp eq i32 %77, %78
-  br i1 %79, label %80, label %82
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %6, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.DdManager, ptr %70, i32 0, i32 20
+  %72 = load ptr, ptr %71, align 8, !tbaa !10
+  %73 = load i32, ptr %7, align 4, !tbaa !8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds %struct.DdSubtable, ptr %72, i64 %74
+  %76 = getelementptr inbounds nuw %struct.DdSubtable, ptr %75, i32 0, i32 6
+  %77 = load i32, ptr %76, align 4, !tbaa !27
+  store i32 %77, ptr %13, align 4, !tbaa !8
+  %78 = load i32, ptr %13, align 4, !tbaa !8
+  %79 = load i32, ptr %7, align 4, !tbaa !8
+  %80 = icmp eq i32 %78, %79
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %68
-  %81 = load i32, ptr %8, align 4
-  store i32 %81, ptr %13, align 4
-  br label %82
+81:                                               ; preds = %69
+  %82 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %82, ptr %13, align 4, !tbaa !8
+  br label %83
 
-82:                                               ; preds = %80, %68
-  %83 = load i32, ptr %14, align 4
-  store i32 %83, ptr %12, align 4
-  br label %84
+83:                                               ; preds = %81, %69
+  %84 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %84, ptr %12, align 4, !tbaa !8
+  br label %85
 
-84:                                               ; preds = %113, %82
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.DdManager, ptr %85, i32 0, i32 20
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %12, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.DdSubtable, ptr %87, i64 %89
-  %91 = getelementptr inbounds %struct.DdSubtable, ptr %90, i32 0, i32 6
-  %92 = load i32, ptr %91, align 4
-  %93 = load i32, ptr %7, align 4
-  %94 = icmp eq i32 %92, %93
-  br i1 %94, label %95, label %104
+85:                                               ; preds = %114, %83
+  %86 = load ptr, ptr %6, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.DdManager, ptr %86, i32 0, i32 20
+  %88 = load ptr, ptr %87, align 8, !tbaa !10
+  %89 = load i32, ptr %12, align 4, !tbaa !8
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.DdSubtable, ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw %struct.DdSubtable, ptr %91, i32 0, i32 6
+  %93 = load i32, ptr %92, align 4, !tbaa !27
+  %94 = load i32, ptr %7, align 4, !tbaa !8
+  %95 = icmp eq i32 %93, %94
+  br i1 %95, label %96, label %105
 
-95:                                               ; preds = %84
-  %96 = load i32, ptr %8, align 4
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.DdManager, ptr %97, i32 0, i32 20
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i32, ptr %12, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct.DdSubtable, ptr %99, i64 %101
-  %103 = getelementptr inbounds %struct.DdSubtable, ptr %102, i32 0, i32 6
-  store i32 %96, ptr %103, align 4
+96:                                               ; preds = %85
+  %97 = load i32, ptr %8, align 4, !tbaa !8
+  %98 = load ptr, ptr %6, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.DdManager, ptr %98, i32 0, i32 20
+  %100 = load ptr, ptr %99, align 8, !tbaa !10
+  %101 = load i32, ptr %12, align 4, !tbaa !8
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %102
+  %104 = getelementptr inbounds nuw %struct.DdSubtable, ptr %103, i32 0, i32 6
+  store i32 %97, ptr %104, align 4, !tbaa !27
+  br label %115
+
+105:                                              ; preds = %85
+  %106 = load ptr, ptr %6, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.DdManager, ptr %106, i32 0, i32 20
+  %108 = load ptr, ptr %107, align 8, !tbaa !10
+  %109 = load i32, ptr %12, align 4, !tbaa !8
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds %struct.DdSubtable, ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw %struct.DdSubtable, ptr %111, i32 0, i32 6
+  %113 = load i32, ptr %112, align 4, !tbaa !27
+  store i32 %113, ptr %12, align 4, !tbaa !8
   br label %114
 
-104:                                              ; preds = %84
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.DdManager, ptr %105, i32 0, i32 20
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %12, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct.DdSubtable, ptr %107, i64 %109
-  %111 = getelementptr inbounds %struct.DdSubtable, ptr %110, i32 0, i32 6
-  %112 = load i32, ptr %111, align 4
-  store i32 %112, ptr %12, align 4
-  br label %113
+114:                                              ; preds = %105
+  br label %85
 
-113:                                              ; preds = %104
-  br label %84
+115:                                              ; preds = %96
+  %116 = load ptr, ptr %6, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.DdManager, ptr %116, i32 0, i32 20
+  %118 = load ptr, ptr %117, align 8, !tbaa !10
+  %119 = load i32, ptr %8, align 4, !tbaa !8
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %struct.DdSubtable, ptr %118, i64 %120
+  %122 = getelementptr inbounds nuw %struct.DdSubtable, ptr %121, i32 0, i32 6
+  %123 = load i32, ptr %122, align 4, !tbaa !27
+  %124 = load i32, ptr %8, align 4, !tbaa !8
+  %125 = icmp ne i32 %123, %124
+  br i1 %125, label %126, label %142
 
-114:                                              ; preds = %95
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.DdManager, ptr %115, i32 0, i32 20
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %8, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.DdSubtable, ptr %117, i64 %119
-  %121 = getelementptr inbounds %struct.DdSubtable, ptr %120, i32 0, i32 6
-  %122 = load i32, ptr %121, align 4
-  %123 = load i32, ptr %8, align 4
-  %124 = icmp ne i32 %122, %123
-  br i1 %124, label %125, label %141
+126:                                              ; preds = %115
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.DdManager, ptr %127, i32 0, i32 20
+  %129 = load ptr, ptr %128, align 8, !tbaa !10
+  %130 = load i32, ptr %8, align 4, !tbaa !8
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds %struct.DdSubtable, ptr %129, i64 %131
+  %133 = getelementptr inbounds nuw %struct.DdSubtable, ptr %132, i32 0, i32 6
+  %134 = load i32, ptr %133, align 4, !tbaa !27
+  %135 = load ptr, ptr %6, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.DdManager, ptr %135, i32 0, i32 20
+  %137 = load ptr, ptr %136, align 8, !tbaa !10
+  %138 = load i32, ptr %7, align 4, !tbaa !8
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds %struct.DdSubtable, ptr %137, i64 %139
+  %141 = getelementptr inbounds nuw %struct.DdSubtable, ptr %140, i32 0, i32 6
+  store i32 %134, ptr %141, align 4, !tbaa !27
+  br label %151
 
-125:                                              ; preds = %114
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds %struct.DdManager, ptr %126, i32 0, i32 20
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %8, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %struct.DdSubtable, ptr %128, i64 %130
-  %132 = getelementptr inbounds %struct.DdSubtable, ptr %131, i32 0, i32 6
-  %133 = load i32, ptr %132, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds %struct.DdManager, ptr %134, i32 0, i32 20
-  %136 = load ptr, ptr %135, align 8
-  %137 = load i32, ptr %7, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds %struct.DdSubtable, ptr %136, i64 %138
-  %140 = getelementptr inbounds %struct.DdSubtable, ptr %139, i32 0, i32 6
-  store i32 %133, ptr %140, align 4
-  br label %150
+142:                                              ; preds = %115
+  %143 = load i32, ptr %7, align 4, !tbaa !8
+  %144 = load ptr, ptr %6, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.DdManager, ptr %144, i32 0, i32 20
+  %146 = load ptr, ptr %145, align 8, !tbaa !10
+  %147 = load i32, ptr %7, align 4, !tbaa !8
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds %struct.DdSubtable, ptr %146, i64 %148
+  %150 = getelementptr inbounds nuw %struct.DdSubtable, ptr %149, i32 0, i32 6
+  store i32 %143, ptr %150, align 4, !tbaa !27
+  br label %151
 
-141:                                              ; preds = %114
-  %142 = load i32, ptr %7, align 4
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct.DdManager, ptr %143, i32 0, i32 20
-  %145 = load ptr, ptr %144, align 8
-  %146 = load i32, ptr %7, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.DdSubtable, ptr %145, i64 %147
-  %149 = getelementptr inbounds %struct.DdSubtable, ptr %148, i32 0, i32 6
-  store i32 %142, ptr %149, align 4
-  br label %150
+151:                                              ; preds = %142, %126
+  %152 = load i32, ptr %17, align 4, !tbaa !8
+  %153 = load i32, ptr %8, align 4, !tbaa !8
+  %154 = icmp ne i32 %152, %153
+  br i1 %154, label %155, label %164
 
-150:                                              ; preds = %141, %125
-  %151 = load i32, ptr %17, align 4
-  %152 = load i32, ptr %8, align 4
-  %153 = icmp ne i32 %151, %152
-  br i1 %153, label %154, label %163
+155:                                              ; preds = %151
+  %156 = load i32, ptr %7, align 4, !tbaa !8
+  %157 = load ptr, ptr %6, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw %struct.DdManager, ptr %157, i32 0, i32 20
+  %159 = load ptr, ptr %158, align 8, !tbaa !10
+  %160 = load i32, ptr %17, align 4, !tbaa !8
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds %struct.DdSubtable, ptr %159, i64 %161
+  %163 = getelementptr inbounds nuw %struct.DdSubtable, ptr %162, i32 0, i32 6
+  store i32 %156, ptr %163, align 4, !tbaa !27
+  br label %166
 
-154:                                              ; preds = %150
-  %155 = load i32, ptr %7, align 4
-  %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds %struct.DdManager, ptr %156, i32 0, i32 20
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr %17, align 4
-  %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.DdSubtable, ptr %158, i64 %160
-  %162 = getelementptr inbounds %struct.DdSubtable, ptr %161, i32 0, i32 6
-  store i32 %155, ptr %162, align 4
-  br label %165
+164:                                              ; preds = %151
+  %165 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %165, ptr %17, align 4, !tbaa !8
+  br label %166
 
-163:                                              ; preds = %150
-  %164 = load i32, ptr %7, align 4
-  store i32 %164, ptr %17, align 4
-  br label %165
+166:                                              ; preds = %164, %155
+  %167 = load i32, ptr %13, align 4, !tbaa !8
+  %168 = load ptr, ptr %6, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw %struct.DdManager, ptr %168, i32 0, i32 20
+  %170 = load ptr, ptr %169, align 8, !tbaa !10
+  %171 = load i32, ptr %8, align 4, !tbaa !8
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds %struct.DdSubtable, ptr %170, i64 %172
+  %174 = getelementptr inbounds nuw %struct.DdSubtable, ptr %173, i32 0, i32 6
+  store i32 %167, ptr %174, align 4, !tbaa !27
+  %175 = load ptr, ptr %6, align 8, !tbaa !3
+  %176 = load i32, ptr %7, align 4, !tbaa !8
+  %177 = load i32, ptr %8, align 4, !tbaa !8
+  %178 = call i32 @cuddZddSwapInPlace(ptr noundef %175, i32 noundef %176, i32 noundef %177)
+  store i32 %178, ptr %11, align 4, !tbaa !8
+  %179 = load i32, ptr %11, align 4, !tbaa !8
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %182
 
-165:                                              ; preds = %163, %154
-  %166 = load i32, ptr %13, align 4
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds %struct.DdManager, ptr %167, i32 0, i32 20
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %8, align 4
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %171
-  %173 = getelementptr inbounds %struct.DdSubtable, ptr %172, i32 0, i32 6
-  store i32 %166, ptr %173, align 4
-  %174 = load ptr, ptr %6, align 8
-  %175 = load i32, ptr %7, align 4
-  %176 = load i32, ptr %8, align 4
-  %177 = call i32 @cuddZddSwapInPlace(ptr noundef %174, i32 noundef %175, i32 noundef %176)
-  store i32 %177, ptr %11, align 4
-  %178 = load i32, ptr %11, align 4
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %181
-
-180:                                              ; preds = %165
-  br label %243
-
-181:                                              ; preds = %165
-  %182 = load i32, ptr %7, align 4
-  store i32 %182, ptr %18, align 4
-  %183 = load i32, ptr %8, align 4
-  store i32 %183, ptr %19, align 4
-  %184 = load i32, ptr %7, align 4
-  store i32 %184, ptr %8, align 4
-  %185 = load i32, ptr %7, align 4
-  %186 = add nsw i32 %185, -1
-  store i32 %186, ptr %7, align 4
-  br label %64, !llvm.loop !70
-
-187:                                              ; preds = %64
-  %188 = load ptr, ptr %6, align 8
-  %189 = getelementptr inbounds %struct.DdManager, ptr %188, i32 0, i32 20
-  %190 = load ptr, ptr %189, align 8
-  %191 = load i32, ptr %8, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds %struct.DdSubtable, ptr %190, i64 %192
-  %194 = getelementptr inbounds %struct.DdSubtable, ptr %193, i32 0, i32 6
-  %195 = load i32, ptr %194, align 4
-  %196 = load i32, ptr %8, align 4
-  %197 = icmp ule i32 %195, %196
-  br i1 %197, label %198, label %200
-
-198:                                              ; preds = %187
-  %199 = load i32, ptr %8, align 4
-  store i32 %199, ptr %16, align 4
-  br label %209
-
-200:                                              ; preds = %187
-  %201 = load ptr, ptr %6, align 8
-  %202 = getelementptr inbounds %struct.DdManager, ptr %201, i32 0, i32 20
-  %203 = load ptr, ptr %202, align 8
-  %204 = load i32, ptr %8, align 4
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds %struct.DdSubtable, ptr %203, i64 %205
-  %207 = getelementptr inbounds %struct.DdSubtable, ptr %206, i32 0, i32 6
-  %208 = load i32, ptr %207, align 4
-  store i32 %208, ptr %8, align 4
-  br label %209
-
-209:                                              ; preds = %200, %198
-  %210 = load i32, ptr %14, align 4
-  store i32 %210, ptr %17, align 4
-  %211 = load i32, ptr %14, align 4
-  %212 = add nsw i32 %211, 1
-  store i32 %212, ptr %14, align 4
-  %213 = load i32, ptr %15, align 4
-  %214 = add nsw i32 %213, 1
-  store i32 %214, ptr %15, align 4
-  %215 = load i32, ptr %15, align 4
-  store i32 %215, ptr %7, align 4
-  br label %59, !llvm.loop !71
-
-216:                                              ; preds = %59
-  %217 = load ptr, ptr %6, align 8
-  %218 = call ptr @cuddDynamicAllocNode(ptr noundef %217)
-  store ptr %218, ptr %10, align 8
-  %219 = load ptr, ptr %10, align 8
-  %220 = icmp eq ptr %219, null
-  br i1 %220, label %221, label %222
-
-221:                                              ; preds = %216
-  br label %243
-
-222:                                              ; preds = %216
-  %223 = load i32, ptr %18, align 4
-  %224 = load ptr, ptr %10, align 8
-  %225 = getelementptr inbounds %struct.Move, ptr %224, i32 0, i32 0
-  store i32 %223, ptr %225, align 8
-  %226 = load i32, ptr %19, align 4
-  %227 = load ptr, ptr %10, align 8
-  %228 = getelementptr inbounds %struct.Move, ptr %227, i32 0, i32 1
-  store i32 %226, ptr %228, align 4
-  %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr inbounds %struct.DdManager, ptr %229, i32 0, i32 24
-  %231 = load i32, ptr %230, align 8
-  %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds %struct.Move, ptr %232, i32 0, i32 3
-  store i32 %231, ptr %233, align 4
-  %234 = load ptr, ptr %9, align 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %10, align 8
-  %237 = getelementptr inbounds %struct.Move, ptr %236, i32 0, i32 4
-  store ptr %235, ptr %237, align 8
-  %238 = load ptr, ptr %10, align 8
-  %239 = load ptr, ptr %9, align 8
-  store ptr %238, ptr %239, align 8
-  %240 = load ptr, ptr %6, align 8
-  %241 = getelementptr inbounds %struct.DdManager, ptr %240, i32 0, i32 24
-  %242 = load i32, ptr %241, align 8
-  store i32 %242, ptr %5, align 4
-  br label %269
-
-243:                                              ; preds = %221, %180
+181:                                              ; preds = %166
   br label %244
 
-244:                                              ; preds = %248, %243
-  %245 = load ptr, ptr %9, align 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp ne ptr %246, null
-  br i1 %247, label %248, label %268
+182:                                              ; preds = %166
+  %183 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %183, ptr %18, align 4, !tbaa !8
+  %184 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %184, ptr %19, align 4, !tbaa !8
+  %185 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %185, ptr %8, align 4, !tbaa !8
+  %186 = load i32, ptr %7, align 4, !tbaa !8
+  %187 = add nsw i32 %186, -1
+  store i32 %187, ptr %7, align 4, !tbaa !8
+  br label %65, !llvm.loop !123
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr %9, align 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %struct.Move, ptr %250, i32 0, i32 4
-  %252 = load ptr, ptr %251, align 8
-  store ptr %252, ptr %10, align 8
-  %253 = load ptr, ptr %9, align 8
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds %struct.DdNode, ptr %254, i32 0, i32 1
-  store i32 0, ptr %255, align 4
-  %256 = load ptr, ptr %6, align 8
-  %257 = getelementptr inbounds %struct.DdManager, ptr %256, i32 0, i32 48
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %9, align 8
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds %struct.DdNode, ptr %260, i32 0, i32 2
-  store ptr %258, ptr %261, align 8
-  %262 = load ptr, ptr %9, align 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = load ptr, ptr %6, align 8
-  %265 = getelementptr inbounds %struct.DdManager, ptr %264, i32 0, i32 48
-  store ptr %263, ptr %265, align 8
-  %266 = load ptr, ptr %10, align 8
-  %267 = load ptr, ptr %9, align 8
-  store ptr %266, ptr %267, align 8
-  br label %244, !llvm.loop !72
+188:                                              ; preds = %65
+  %189 = load ptr, ptr %6, align 8, !tbaa !3
+  %190 = getelementptr inbounds nuw %struct.DdManager, ptr %189, i32 0, i32 20
+  %191 = load ptr, ptr %190, align 8, !tbaa !10
+  %192 = load i32, ptr %8, align 4, !tbaa !8
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds %struct.DdSubtable, ptr %191, i64 %193
+  %195 = getelementptr inbounds nuw %struct.DdSubtable, ptr %194, i32 0, i32 6
+  %196 = load i32, ptr %195, align 4, !tbaa !27
+  %197 = load i32, ptr %8, align 4, !tbaa !8
+  %198 = icmp ule i32 %196, %197
+  br i1 %198, label %199, label %201
 
-268:                                              ; preds = %244
+199:                                              ; preds = %188
+  %200 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %200, ptr %16, align 4, !tbaa !8
+  br label %210
+
+201:                                              ; preds = %188
+  %202 = load ptr, ptr %6, align 8, !tbaa !3
+  %203 = getelementptr inbounds nuw %struct.DdManager, ptr %202, i32 0, i32 20
+  %204 = load ptr, ptr %203, align 8, !tbaa !10
+  %205 = load i32, ptr %8, align 4, !tbaa !8
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds %struct.DdSubtable, ptr %204, i64 %206
+  %208 = getelementptr inbounds nuw %struct.DdSubtable, ptr %207, i32 0, i32 6
+  %209 = load i32, ptr %208, align 4, !tbaa !27
+  store i32 %209, ptr %8, align 4, !tbaa !8
+  br label %210
+
+210:                                              ; preds = %201, %199
+  %211 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %211, ptr %17, align 4, !tbaa !8
+  %212 = load i32, ptr %14, align 4, !tbaa !8
+  %213 = add nsw i32 %212, 1
+  store i32 %213, ptr %14, align 4, !tbaa !8
+  %214 = load i32, ptr %15, align 4, !tbaa !8
+  %215 = add nsw i32 %214, 1
+  store i32 %215, ptr %15, align 4, !tbaa !8
+  %216 = load i32, ptr %15, align 4, !tbaa !8
+  store i32 %216, ptr %7, align 4, !tbaa !8
+  br label %60, !llvm.loop !124
+
+217:                                              ; preds = %60
+  %218 = load ptr, ptr %6, align 8, !tbaa !3
+  %219 = call ptr @cuddDynamicAllocNode(ptr noundef %218)
+  store ptr %219, ptr %10, align 8, !tbaa !56
+  %220 = load ptr, ptr %10, align 8, !tbaa !56
+  %221 = icmp eq ptr %220, null
+  br i1 %221, label %222, label %223
+
+222:                                              ; preds = %217
+  br label %244
+
+223:                                              ; preds = %217
+  %224 = load i32, ptr %18, align 4, !tbaa !8
+  %225 = load ptr, ptr %10, align 8, !tbaa !56
+  %226 = getelementptr inbounds nuw %struct.Move, ptr %225, i32 0, i32 0
+  store i32 %224, ptr %226, align 8, !tbaa !67
+  %227 = load i32, ptr %19, align 4, !tbaa !8
+  %228 = load ptr, ptr %10, align 8, !tbaa !56
+  %229 = getelementptr inbounds nuw %struct.Move, ptr %228, i32 0, i32 1
+  store i32 %227, ptr %229, align 4, !tbaa !62
+  %230 = load ptr, ptr %6, align 8, !tbaa !3
+  %231 = getelementptr inbounds nuw %struct.DdManager, ptr %230, i32 0, i32 24
+  %232 = load i32, ptr %231, align 8, !tbaa !55
+  %233 = load ptr, ptr %10, align 8, !tbaa !56
+  %234 = getelementptr inbounds nuw %struct.Move, ptr %233, i32 0, i32 3
+  store i32 %232, ptr %234, align 4, !tbaa !111
+  %235 = load ptr, ptr %9, align 8, !tbaa !120
+  %236 = load ptr, ptr %235, align 8, !tbaa !56
+  %237 = load ptr, ptr %10, align 8, !tbaa !56
+  %238 = getelementptr inbounds nuw %struct.Move, ptr %237, i32 0, i32 4
+  store ptr %236, ptr %238, align 8, !tbaa !72
+  %239 = load ptr, ptr %10, align 8, !tbaa !56
+  %240 = load ptr, ptr %9, align 8, !tbaa !120
+  store ptr %239, ptr %240, align 8, !tbaa !56
+  %241 = load ptr, ptr %6, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw %struct.DdManager, ptr %241, i32 0, i32 24
+  %243 = load i32, ptr %242, align 8, !tbaa !55
+  store i32 %243, ptr %5, align 4
+  store i32 1, ptr %20, align 4
+  br label %270
+
+244:                                              ; preds = %222, %181
+  br label %245
+
+245:                                              ; preds = %249, %244
+  %246 = load ptr, ptr %9, align 8, !tbaa !120
+  %247 = load ptr, ptr %246, align 8, !tbaa !56
+  %248 = icmp ne ptr %247, null
+  br i1 %248, label %249, label %269
+
+249:                                              ; preds = %245
+  %250 = load ptr, ptr %9, align 8, !tbaa !120
+  %251 = load ptr, ptr %250, align 8, !tbaa !56
+  %252 = getelementptr inbounds nuw %struct.Move, ptr %251, i32 0, i32 4
+  %253 = load ptr, ptr %252, align 8, !tbaa !72
+  store ptr %253, ptr %10, align 8, !tbaa !56
+  %254 = load ptr, ptr %9, align 8, !tbaa !120
+  %255 = load ptr, ptr %254, align 8, !tbaa !56
+  %256 = getelementptr inbounds nuw %struct.DdNode, ptr %255, i32 0, i32 1
+  store i32 0, ptr %256, align 4, !tbaa !42
+  %257 = load ptr, ptr %6, align 8, !tbaa !3
+  %258 = getelementptr inbounds nuw %struct.DdManager, ptr %257, i32 0, i32 48
+  %259 = load ptr, ptr %258, align 8, !tbaa !73
+  %260 = load ptr, ptr %9, align 8, !tbaa !120
+  %261 = load ptr, ptr %260, align 8, !tbaa !56
+  %262 = getelementptr inbounds nuw %struct.DdNode, ptr %261, i32 0, i32 2
+  store ptr %259, ptr %262, align 8, !tbaa !39
+  %263 = load ptr, ptr %9, align 8, !tbaa !120
+  %264 = load ptr, ptr %263, align 8, !tbaa !56
+  %265 = load ptr, ptr %6, align 8, !tbaa !3
+  %266 = getelementptr inbounds nuw %struct.DdManager, ptr %265, i32 0, i32 48
+  store ptr %264, ptr %266, align 8, !tbaa !73
+  %267 = load ptr, ptr %10, align 8, !tbaa !56
+  %268 = load ptr, ptr %9, align 8, !tbaa !120
+  store ptr %267, ptr %268, align 8, !tbaa !56
+  br label %245, !llvm.loop !125
+
+269:                                              ; preds = %245
   store i32 0, ptr %5, align 4
-  br label %269
+  store i32 1, ptr %20, align 4
+  br label %270
 
-269:                                              ; preds = %268, %222
-  %270 = load i32, ptr %5, align 4
-  ret i32 %270
+270:                                              ; preds = %269, %223
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %271 = load i32, ptr %5, align 4
+  ret i32 %271
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5173,377 +5369,448 @@ define internal i32 @zdd_group_move_backward(ptr noundef %0, i32 noundef %1, i32
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 -1, ptr %8, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.DdManager, ptr %15, i32 0, i32 20
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.DdSubtable, ptr %17, i64 %19
-  %21 = getelementptr inbounds %struct.DdSubtable, ptr %20, i32 0, i32 6
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %11, align 4
-  %23 = load i32, ptr %6, align 4
-  store i32 %23, ptr %12, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.DdManager, ptr %24, i32 0, i32 20
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.DdSubtable, ptr %26, i64 %28
-  %30 = getelementptr inbounds %struct.DdSubtable, ptr %29, i32 0, i32 6
-  %31 = load i32, ptr %30, align 4
-  store i32 %31, ptr %13, align 4
-  br label %32
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 -1, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.DdManager, ptr %16, i32 0, i32 20
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds %struct.DdSubtable, ptr %18, i64 %20
+  %22 = getelementptr inbounds nuw %struct.DdSubtable, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 4, !tbaa !27
+  store i32 %23, ptr %11, align 4, !tbaa !8
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %24, ptr %12, align 4, !tbaa !8
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.DdManager, ptr %25, i32 0, i32 20
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = load i32, ptr %7, align 4, !tbaa !8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw %struct.DdSubtable, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !27
+  store i32 %32, ptr %13, align 4, !tbaa !8
+  br label %33
 
-32:                                               ; preds = %43, %3
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.DdManager, ptr %33, i32 0, i32 20
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %13, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.DdSubtable, ptr %35, i64 %37
-  %39 = getelementptr inbounds %struct.DdSubtable, ptr %38, i32 0, i32 6
-  %40 = load i32, ptr %39, align 4
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp ne i32 %40, %41
-  br i1 %42, label %43, label %52
+33:                                               ; preds = %44, %3
+  %34 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.DdManager, ptr %34, i32 0, i32 20
+  %36 = load ptr, ptr %35, align 8, !tbaa !10
+  %37 = load i32, ptr %13, align 4, !tbaa !8
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.DdSubtable, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw %struct.DdSubtable, ptr %39, i32 0, i32 6
+  %41 = load i32, ptr %40, align 4, !tbaa !27
+  %42 = load i32, ptr %7, align 4, !tbaa !8
+  %43 = icmp ne i32 %41, %42
+  br i1 %43, label %44, label %53
 
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.DdManager, ptr %44, i32 0, i32 20
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %13, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %48
-  %50 = getelementptr inbounds %struct.DdSubtable, ptr %49, i32 0, i32 6
-  %51 = load i32, ptr %50, align 4
-  store i32 %51, ptr %13, align 4
-  br label %32, !llvm.loop !73
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %5, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.DdManager, ptr %45, i32 0, i32 20
+  %47 = load ptr, ptr %46, align 8, !tbaa !10
+  %48 = load i32, ptr %13, align 4, !tbaa !8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %struct.DdSubtable, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw %struct.DdSubtable, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !27
+  store i32 %52, ptr %13, align 4, !tbaa !8
+  br label %33, !llvm.loop !126
 
-52:                                               ; preds = %32
-  %53 = load i32, ptr %13, align 4
-  store i32 %53, ptr %14, align 4
-  br label %54
+53:                                               ; preds = %33
+  %54 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %54, ptr %14, align 4, !tbaa !8
+  br label %55
 
-54:                                               ; preds = %202, %52
-  %55 = load i32, ptr %6, align 4
-  %56 = load i32, ptr %7, align 4
-  %57 = icmp sle i32 %55, %56
-  br i1 %57, label %58, label %209
+55:                                               ; preds = %203, %53
+  %56 = load i32, ptr %6, align 4, !tbaa !8
+  %57 = load i32, ptr %7, align 4, !tbaa !8
+  %58 = icmp sle i32 %56, %57
+  br i1 %58, label %59, label %210
 
-58:                                               ; preds = %54
-  br label %59
+59:                                               ; preds = %55
+  br label %60
 
-59:                                               ; preds = %176, %58
-  %60 = load i32, ptr %7, align 4
-  %61 = load i32, ptr %11, align 4
-  %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %63, label %180
+60:                                               ; preds = %177, %59
+  %61 = load i32, ptr %7, align 4, !tbaa !8
+  %62 = load i32, ptr %11, align 4, !tbaa !8
+  %63 = icmp sgt i32 %61, %62
+  br i1 %63, label %64, label %181
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.DdManager, ptr %64, i32 0, i32 20
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %6, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.DdSubtable, ptr %66, i64 %68
-  %70 = getelementptr inbounds %struct.DdSubtable, ptr %69, i32 0, i32 6
-  %71 = load i32, ptr %70, align 4
-  store i32 %71, ptr %10, align 4
-  %72 = load i32, ptr %10, align 4
-  %73 = load i32, ptr %6, align 4
-  %74 = icmp eq i32 %72, %73
-  br i1 %74, label %75, label %77
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.DdManager, ptr %65, i32 0, i32 20
+  %67 = load ptr, ptr %66, align 8, !tbaa !10
+  %68 = load i32, ptr %6, align 4, !tbaa !8
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds %struct.DdSubtable, ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw %struct.DdSubtable, ptr %70, i32 0, i32 6
+  %72 = load i32, ptr %71, align 4, !tbaa !27
+  store i32 %72, ptr %10, align 4, !tbaa !8
+  %73 = load i32, ptr %10, align 4, !tbaa !8
+  %74 = load i32, ptr %6, align 4, !tbaa !8
+  %75 = icmp eq i32 %73, %74
+  br i1 %75, label %76, label %78
 
-75:                                               ; preds = %63
-  %76 = load i32, ptr %7, align 4
-  store i32 %76, ptr %10, align 4
-  br label %77
+76:                                               ; preds = %64
+  %77 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %77, ptr %10, align 4, !tbaa !8
+  br label %78
 
-77:                                               ; preds = %75, %63
-  %78 = load i32, ptr %11, align 4
-  store i32 %78, ptr %9, align 4
-  br label %79
+78:                                               ; preds = %76, %64
+  %79 = load i32, ptr %11, align 4, !tbaa !8
+  store i32 %79, ptr %9, align 4, !tbaa !8
+  br label %80
 
-79:                                               ; preds = %108, %77
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.DdManager, ptr %80, i32 0, i32 20
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %9, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.DdSubtable, ptr %82, i64 %84
-  %86 = getelementptr inbounds %struct.DdSubtable, ptr %85, i32 0, i32 6
-  %87 = load i32, ptr %86, align 4
-  %88 = load i32, ptr %6, align 4
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %99
+80:                                               ; preds = %109, %78
+  %81 = load ptr, ptr %5, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.DdManager, ptr %81, i32 0, i32 20
+  %83 = load ptr, ptr %82, align 8, !tbaa !10
+  %84 = load i32, ptr %9, align 4, !tbaa !8
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %struct.DdSubtable, ptr %83, i64 %85
+  %87 = getelementptr inbounds nuw %struct.DdSubtable, ptr %86, i32 0, i32 6
+  %88 = load i32, ptr %87, align 4, !tbaa !27
+  %89 = load i32, ptr %6, align 4, !tbaa !8
+  %90 = icmp eq i32 %88, %89
+  br i1 %90, label %91, label %100
 
-90:                                               ; preds = %79
-  %91 = load i32, ptr %7, align 4
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.DdManager, ptr %92, i32 0, i32 20
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %9, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.DdSubtable, ptr %94, i64 %96
-  %98 = getelementptr inbounds %struct.DdSubtable, ptr %97, i32 0, i32 6
-  store i32 %91, ptr %98, align 4
+91:                                               ; preds = %80
+  %92 = load i32, ptr %7, align 4, !tbaa !8
+  %93 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.DdManager, ptr %93, i32 0, i32 20
+  %95 = load ptr, ptr %94, align 8, !tbaa !10
+  %96 = load i32, ptr %9, align 4, !tbaa !8
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %struct.DdSubtable, ptr %95, i64 %97
+  %99 = getelementptr inbounds nuw %struct.DdSubtable, ptr %98, i32 0, i32 6
+  store i32 %92, ptr %99, align 4, !tbaa !27
+  br label %110
+
+100:                                              ; preds = %80
+  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.DdManager, ptr %101, i32 0, i32 20
+  %103 = load ptr, ptr %102, align 8, !tbaa !10
+  %104 = load i32, ptr %9, align 4, !tbaa !8
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds %struct.DdSubtable, ptr %103, i64 %105
+  %107 = getelementptr inbounds nuw %struct.DdSubtable, ptr %106, i32 0, i32 6
+  %108 = load i32, ptr %107, align 4, !tbaa !27
+  store i32 %108, ptr %9, align 4, !tbaa !8
   br label %109
 
-99:                                               ; preds = %79
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds %struct.DdManager, ptr %100, i32 0, i32 20
-  %102 = load ptr, ptr %101, align 8
-  %103 = load i32, ptr %9, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.DdSubtable, ptr %102, i64 %104
-  %106 = getelementptr inbounds %struct.DdSubtable, ptr %105, i32 0, i32 6
-  %107 = load i32, ptr %106, align 4
-  store i32 %107, ptr %9, align 4
-  br label %108
+109:                                              ; preds = %100
+  br label %80
 
-108:                                              ; preds = %99
-  br label %79
+110:                                              ; preds = %91
+  %111 = load ptr, ptr %5, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.DdManager, ptr %111, i32 0, i32 20
+  %113 = load ptr, ptr %112, align 8, !tbaa !10
+  %114 = load i32, ptr %7, align 4, !tbaa !8
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds %struct.DdSubtable, ptr %113, i64 %115
+  %117 = getelementptr inbounds nuw %struct.DdSubtable, ptr %116, i32 0, i32 6
+  %118 = load i32, ptr %117, align 4, !tbaa !27
+  %119 = load i32, ptr %7, align 4, !tbaa !8
+  %120 = icmp ne i32 %118, %119
+  br i1 %120, label %121, label %137
 
-109:                                              ; preds = %90
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.DdManager, ptr %110, i32 0, i32 20
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr %7, align 4
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %struct.DdSubtable, ptr %112, i64 %114
-  %116 = getelementptr inbounds %struct.DdSubtable, ptr %115, i32 0, i32 6
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %7, align 4
-  %119 = icmp ne i32 %117, %118
-  br i1 %119, label %120, label %136
+121:                                              ; preds = %110
+  %122 = load ptr, ptr %5, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.DdManager, ptr %122, i32 0, i32 20
+  %124 = load ptr, ptr %123, align 8, !tbaa !10
+  %125 = load i32, ptr %7, align 4, !tbaa !8
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds %struct.DdSubtable, ptr %124, i64 %126
+  %128 = getelementptr inbounds nuw %struct.DdSubtable, ptr %127, i32 0, i32 6
+  %129 = load i32, ptr %128, align 4, !tbaa !27
+  %130 = load ptr, ptr %5, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw %struct.DdManager, ptr %130, i32 0, i32 20
+  %132 = load ptr, ptr %131, align 8, !tbaa !10
+  %133 = load i32, ptr %6, align 4, !tbaa !8
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds %struct.DdSubtable, ptr %132, i64 %134
+  %136 = getelementptr inbounds nuw %struct.DdSubtable, ptr %135, i32 0, i32 6
+  store i32 %129, ptr %136, align 4, !tbaa !27
+  br label %146
 
-120:                                              ; preds = %109
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct.DdManager, ptr %121, i32 0, i32 20
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %7, align 4
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.DdSubtable, ptr %123, i64 %125
-  %127 = getelementptr inbounds %struct.DdSubtable, ptr %126, i32 0, i32 6
-  %128 = load i32, ptr %127, align 4
-  %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds %struct.DdManager, ptr %129, i32 0, i32 20
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %6, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds %struct.DdSubtable, ptr %131, i64 %133
-  %135 = getelementptr inbounds %struct.DdSubtable, ptr %134, i32 0, i32 6
-  store i32 %128, ptr %135, align 4
-  br label %145
+137:                                              ; preds = %110
+  %138 = load i32, ptr %6, align 4, !tbaa !8
+  %139 = load ptr, ptr %5, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw %struct.DdManager, ptr %139, i32 0, i32 20
+  %141 = load ptr, ptr %140, align 8, !tbaa !10
+  %142 = load i32, ptr %6, align 4, !tbaa !8
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds %struct.DdSubtable, ptr %141, i64 %143
+  %145 = getelementptr inbounds nuw %struct.DdSubtable, ptr %144, i32 0, i32 6
+  store i32 %138, ptr %145, align 4, !tbaa !27
+  br label %146
 
-136:                                              ; preds = %109
-  %137 = load i32, ptr %6, align 4
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds %struct.DdManager, ptr %138, i32 0, i32 20
-  %140 = load ptr, ptr %139, align 8
-  %141 = load i32, ptr %6, align 4
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.DdSubtable, ptr %140, i64 %142
-  %144 = getelementptr inbounds %struct.DdSubtable, ptr %143, i32 0, i32 6
-  store i32 %137, ptr %144, align 4
-  br label %145
+146:                                              ; preds = %137, %121
+  %147 = load i32, ptr %14, align 4, !tbaa !8
+  %148 = load i32, ptr %7, align 4, !tbaa !8
+  %149 = icmp ne i32 %147, %148
+  br i1 %149, label %150, label %159
 
-145:                                              ; preds = %136, %120
-  %146 = load i32, ptr %14, align 4
-  %147 = load i32, ptr %7, align 4
-  %148 = icmp ne i32 %146, %147
-  br i1 %148, label %149, label %158
+150:                                              ; preds = %146
+  %151 = load i32, ptr %6, align 4, !tbaa !8
+  %152 = load ptr, ptr %5, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.DdManager, ptr %152, i32 0, i32 20
+  %154 = load ptr, ptr %153, align 8, !tbaa !10
+  %155 = load i32, ptr %14, align 4, !tbaa !8
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds %struct.DdSubtable, ptr %154, i64 %156
+  %158 = getelementptr inbounds nuw %struct.DdSubtable, ptr %157, i32 0, i32 6
+  store i32 %151, ptr %158, align 4, !tbaa !27
+  br label %161
 
-149:                                              ; preds = %145
-  %150 = load i32, ptr %6, align 4
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds %struct.DdManager, ptr %151, i32 0, i32 20
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %14, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.DdSubtable, ptr %153, i64 %155
-  %157 = getelementptr inbounds %struct.DdSubtable, ptr %156, i32 0, i32 6
-  store i32 %150, ptr %157, align 4
-  br label %160
+159:                                              ; preds = %146
+  %160 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %160, ptr %14, align 4, !tbaa !8
+  br label %161
 
-158:                                              ; preds = %145
-  %159 = load i32, ptr %6, align 4
-  store i32 %159, ptr %14, align 4
-  br label %160
+161:                                              ; preds = %159, %150
+  %162 = load i32, ptr %10, align 4, !tbaa !8
+  %163 = load ptr, ptr %5, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.DdManager, ptr %163, i32 0, i32 20
+  %165 = load ptr, ptr %164, align 8, !tbaa !10
+  %166 = load i32, ptr %7, align 4, !tbaa !8
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds %struct.DdSubtable, ptr %165, i64 %167
+  %169 = getelementptr inbounds nuw %struct.DdSubtable, ptr %168, i32 0, i32 6
+  store i32 %162, ptr %169, align 4, !tbaa !27
+  %170 = load ptr, ptr %5, align 8, !tbaa !3
+  %171 = load i32, ptr %6, align 4, !tbaa !8
+  %172 = load i32, ptr %7, align 4, !tbaa !8
+  %173 = call i32 @cuddZddSwapInPlace(ptr noundef %170, i32 noundef %171, i32 noundef %172)
+  store i32 %173, ptr %8, align 4, !tbaa !8
+  %174 = load i32, ptr %8, align 4, !tbaa !8
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %177
 
-160:                                              ; preds = %158, %149
-  %161 = load i32, ptr %10, align 4
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.DdManager, ptr %162, i32 0, i32 20
-  %164 = load ptr, ptr %163, align 8
-  %165 = load i32, ptr %7, align 4
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds %struct.DdSubtable, ptr %164, i64 %166
-  %168 = getelementptr inbounds %struct.DdSubtable, ptr %167, i32 0, i32 6
-  store i32 %161, ptr %168, align 4
-  %169 = load ptr, ptr %5, align 8
-  %170 = load i32, ptr %6, align 4
-  %171 = load i32, ptr %7, align 4
-  %172 = call i32 @cuddZddSwapInPlace(ptr noundef %169, i32 noundef %170, i32 noundef %171)
-  store i32 %172, ptr %8, align 4
-  %173 = load i32, ptr %8, align 4
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %175, label %176
-
-175:                                              ; preds = %160
+176:                                              ; preds = %161
   store i32 0, ptr %4, align 4
-  br label %211
+  store i32 1, ptr %15, align 4
+  br label %212
 
-176:                                              ; preds = %160
-  %177 = load i32, ptr %6, align 4
-  store i32 %177, ptr %7, align 4
-  %178 = load i32, ptr %6, align 4
-  %179 = add nsw i32 %178, -1
-  store i32 %179, ptr %6, align 4
-  br label %59, !llvm.loop !74
+177:                                              ; preds = %161
+  %178 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %178, ptr %7, align 4, !tbaa !8
+  %179 = load i32, ptr %6, align 4, !tbaa !8
+  %180 = add nsw i32 %179, -1
+  store i32 %180, ptr %6, align 4, !tbaa !8
+  br label %60, !llvm.loop !127
 
-180:                                              ; preds = %59
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds %struct.DdManager, ptr %181, i32 0, i32 20
-  %183 = load ptr, ptr %182, align 8
-  %184 = load i32, ptr %7, align 4
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds %struct.DdSubtable, ptr %183, i64 %185
-  %187 = getelementptr inbounds %struct.DdSubtable, ptr %186, i32 0, i32 6
-  %188 = load i32, ptr %187, align 4
-  %189 = load i32, ptr %7, align 4
-  %190 = icmp ule i32 %188, %189
-  br i1 %190, label %191, label %193
+181:                                              ; preds = %60
+  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.DdManager, ptr %182, i32 0, i32 20
+  %184 = load ptr, ptr %183, align 8, !tbaa !10
+  %185 = load i32, ptr %7, align 4, !tbaa !8
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds %struct.DdSubtable, ptr %184, i64 %186
+  %188 = getelementptr inbounds nuw %struct.DdSubtable, ptr %187, i32 0, i32 6
+  %189 = load i32, ptr %188, align 4, !tbaa !27
+  %190 = load i32, ptr %7, align 4, !tbaa !8
+  %191 = icmp ule i32 %189, %190
+  br i1 %191, label %192, label %194
 
-191:                                              ; preds = %180
-  %192 = load i32, ptr %7, align 4
-  store i32 %192, ptr %13, align 4
-  br label %202
+192:                                              ; preds = %181
+  %193 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %193, ptr %13, align 4, !tbaa !8
+  br label %203
 
-193:                                              ; preds = %180
-  %194 = load ptr, ptr %5, align 8
-  %195 = getelementptr inbounds %struct.DdManager, ptr %194, i32 0, i32 20
-  %196 = load ptr, ptr %195, align 8
-  %197 = load i32, ptr %7, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds %struct.DdSubtable, ptr %196, i64 %198
-  %200 = getelementptr inbounds %struct.DdSubtable, ptr %199, i32 0, i32 6
-  %201 = load i32, ptr %200, align 4
-  store i32 %201, ptr %7, align 4
-  br label %202
+194:                                              ; preds = %181
+  %195 = load ptr, ptr %5, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.DdManager, ptr %195, i32 0, i32 20
+  %197 = load ptr, ptr %196, align 8, !tbaa !10
+  %198 = load i32, ptr %7, align 4, !tbaa !8
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds %struct.DdSubtable, ptr %197, i64 %199
+  %201 = getelementptr inbounds nuw %struct.DdSubtable, ptr %200, i32 0, i32 6
+  %202 = load i32, ptr %201, align 4, !tbaa !27
+  store i32 %202, ptr %7, align 4, !tbaa !8
+  br label %203
 
-202:                                              ; preds = %193, %191
-  %203 = load i32, ptr %11, align 4
-  store i32 %203, ptr %14, align 4
-  %204 = load i32, ptr %11, align 4
-  %205 = add nsw i32 %204, 1
-  store i32 %205, ptr %11, align 4
-  %206 = load i32, ptr %12, align 4
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %12, align 4
-  %208 = load i32, ptr %12, align 4
-  store i32 %208, ptr %6, align 4
-  br label %54, !llvm.loop !75
+203:                                              ; preds = %194, %192
+  %204 = load i32, ptr %11, align 4, !tbaa !8
+  store i32 %204, ptr %14, align 4, !tbaa !8
+  %205 = load i32, ptr %11, align 4, !tbaa !8
+  %206 = add nsw i32 %205, 1
+  store i32 %206, ptr %11, align 4, !tbaa !8
+  %207 = load i32, ptr %12, align 4, !tbaa !8
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %12, align 4, !tbaa !8
+  %209 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %209, ptr %6, align 4, !tbaa !8
+  br label %55, !llvm.loop !128
 
-209:                                              ; preds = %54
-  %210 = load i32, ptr %8, align 4
-  store i32 %210, ptr %4, align 4
-  br label %211
+210:                                              ; preds = %55
+  %211 = load i32, ptr %8, align 4, !tbaa !8
+  store i32 %211, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %212
 
-211:                                              ; preds = %209, %175
-  %212 = load i32, ptr %4, align 4
-  ret i32 %212
+212:                                              ; preds = %210, %176
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %213 = load i32, ptr %4, align 4
+  ret i32 %213
 }
 
-declare i32 @cuddZddNextLow(ptr noundef, i32 noundef) #3
+declare i32 @cuddZddNextLow(ptr noundef, i32 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
-!75 = distinct !{!75, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9DdManager", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !17, i64 160}
+!11 = !{!"DdManager", !12, i64 0, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !15, i64 80, !15, i64 88, !9, i64 96, !9, i64 100, !16, i64 104, !16, i64 112, !16, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !9, i64 140, !9, i64 144, !9, i64 148, !17, i64 152, !17, i64 160, !18, i64 168, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !9, i64 244, !9, i64 248, !16, i64 256, !9, i64 264, !9, i64 268, !9, i64 272, !19, i64 280, !14, i64 288, !16, i64 296, !9, i64 304, !20, i64 312, !20, i64 320, !20, i64 328, !20, i64 336, !19, i64 344, !20, i64 352, !19, i64 360, !9, i64 368, !21, i64 376, !21, i64 384, !19, i64 392, !13, i64 400, !22, i64 408, !19, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !16, i64 440, !9, i64 448, !9, i64 452, !9, i64 456, !9, i64 460, !16, i64 464, !16, i64 472, !9, i64 480, !9, i64 484, !9, i64 488, !9, i64 492, !9, i64 496, !9, i64 500, !9, i64 504, !9, i64 508, !9, i64 512, !23, i64 520, !23, i64 528, !9, i64 536, !9, i64 540, !9, i64 544, !9, i64 548, !9, i64 552, !9, i64 556, !24, i64 560, !22, i64 568, !25, i64 576, !25, i64 584, !25, i64 592, !25, i64 600, !26, i64 608, !26, i64 616, !9, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !9, i64 656, !14, i64 664, !14, i64 672, !16, i64 680, !16, i64 688, !16, i64 696, !16, i64 704, !16, i64 712, !16, i64 720, !9, i64 728, !13, i64 736, !13, i64 744, !14, i64 752}
+!12 = !{!"DdNode", !9, i64 0, !9, i64 4, !13, i64 8, !6, i64 16, !14, i64 32}
+!13 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!16 = !{!"double", !6, i64 0}
+!17 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!18 = !{!"DdSubtable", !19, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48}
+!19 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!20 = !{!"p1 int", !5, i64 0}
+!21 = !{!"p1 long", !5, i64 0}
+!22 = !{!"p1 omnipotent char", !5, i64 0}
+!23 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!24 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!25 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!27 = !{!18, !9, i64 28}
+!28 = !{!11, !26, i64 608}
+!29 = !{!11, !20, i64 336}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}
+!33 = !{!11, !13, i64 48}
+!34 = !{!13, !13, i64 0}
+!35 = !{!18, !9, i64 12}
+!36 = !{!18, !19, i64 0}
+!37 = !{!6, !6, i64 0}
+!38 = !{!12, !9, i64 0}
+!39 = !{!12, !13, i64 8}
+!40 = distinct !{!40, !31}
+!41 = distinct !{!41, !31}
+!42 = !{!12, !9, i64 4}
+!43 = distinct !{!43, !31}
+!44 = distinct !{!44, !31}
+!45 = !{!11, !9, i64 140}
+!46 = !{!20, !20, i64 0}
+!47 = !{!11, !9, i64 624}
+!48 = !{!11, !20, i64 320}
+!49 = !{!18, !9, i64 16}
+!50 = distinct !{!50, !31}
+!51 = distinct !{!51, !31}
+!52 = !{!11, !9, i64 456}
+!53 = !{!11, !9, i64 460}
+!54 = distinct !{!54, !31}
+!55 = !{!11, !9, i64 232}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS4Move", !5, i64 0}
+!58 = distinct !{!58, !31}
+!59 = distinct !{!59, !31}
+!60 = distinct !{!60, !31}
+!61 = distinct !{!61, !31}
+!62 = !{!63, !9, i64 4}
+!63 = !{!"Move", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !57, i64 16}
+!64 = distinct !{!64, !31}
+!65 = distinct !{!65, !31}
+!66 = distinct !{!66, !31}
+!67 = !{!63, !9, i64 0}
+!68 = distinct !{!68, !31}
+!69 = distinct !{!69, !31}
+!70 = distinct !{!70, !31}
+!71 = distinct !{!71, !31}
+!72 = !{!63, !57, i64 16}
+!73 = !{!11, !13, i64 400}
+!74 = distinct !{!74, !31}
+!75 = distinct !{!75, !31}
+!76 = distinct !{!76, !31}
+!77 = distinct !{!77, !31}
+!78 = distinct !{!78, !31}
+!79 = distinct !{!79, !31}
+!80 = distinct !{!80, !31}
+!81 = distinct !{!81, !31}
+!82 = distinct !{!82, !31}
+!83 = distinct !{!83, !31}
+!84 = distinct !{!84, !31}
+!85 = distinct !{!85, !31}
+!86 = distinct !{!86, !31}
+!87 = distinct !{!87, !31}
+!88 = distinct !{!88, !31}
+!89 = distinct !{!89, !31}
+!90 = distinct !{!90, !31}
+!91 = distinct !{!91, !31}
+!92 = distinct !{!92, !31}
+!93 = distinct !{!93, !31}
+!94 = distinct !{!94, !31}
+!95 = distinct !{!95, !31}
+!96 = distinct !{!96, !31}
+!97 = distinct !{!97, !31}
+!98 = distinct !{!98, !31}
+!99 = distinct !{!99, !31}
+!100 = distinct !{!100, !31}
+!101 = distinct !{!101, !31}
+!102 = distinct !{!102, !31}
+!103 = distinct !{!103, !31}
+!104 = distinct !{!104, !31}
+!105 = distinct !{!105, !31}
+!106 = distinct !{!106, !31}
+!107 = distinct !{!107, !31}
+!108 = distinct !{!108, !31}
+!109 = distinct !{!109, !31}
+!110 = distinct !{!110, !31}
+!111 = !{!63, !9, i64 12}
+!112 = !{!11, !16, i64 464}
+!113 = distinct !{!113, !31}
+!114 = distinct !{!114, !31}
+!115 = distinct !{!115, !31}
+!116 = distinct !{!116, !31}
+!117 = distinct !{!117, !31}
+!118 = distinct !{!118, !31}
+!119 = distinct !{!119, !31}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p2 _ZTS4Move", !5, i64 0}
+!122 = distinct !{!122, !31}
+!123 = distinct !{!123, !31}
+!124 = distinct !{!124, !31}
+!125 = distinct !{!125, !31}
+!126 = distinct !{!126, !31}
+!127 = distinct !{!127, !31}
+!128 = distinct !{!128, !31}

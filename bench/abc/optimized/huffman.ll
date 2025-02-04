@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/huffman.c.ll'
-source_filename = "bench/abc/original/huffman.c.ll"
+; ModuleID = 'bench/abc/original/huffman.ll'
+source_filename = "bench/abc/original/huffman.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -8,6 +8,9 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %5 = alloca [260 x i32], align 16
   %6 = alloca [516 x i32], align 16
   %7 = alloca [516 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 2064, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 2064, ptr nonnull %7) #6
   %8 = icmp sgt i32 %2, 0
   %wide.trip.count = zext i32 %2 to i64
   br i1 %8, label %.lr.ph, label %.preheader137
@@ -26,32 +29,32 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count205 = zext i32 %12 to i64
   %wide.trip.count210 = zext i32 %12 to i64
-  store i32 0, ptr %5, align 16
-  store i32 0, ptr %6, align 16
-  store i32 -2, ptr %7, align 16
+  store i32 0, ptr %5, align 16, !tbaa !3
+  store i32 0, ptr %6, align 16, !tbaa !3
+  store i32 -2, ptr %7, align 16, !tbaa !3
   br i1 %.not141, label %._crit_edge177.thread, label %.lr.ph145.preheader
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 0
   %20 = shl i32 %18, 8
   %spec.select = select i1 %19, i32 256, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next
-  store i32 %spec.select, ptr %21, align 4
+  store i32 %spec.select, ptr %21, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader137, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.preheader137, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph181
-  store i32 0, ptr %5, align 16
-  store i32 0, ptr %6, align 16
-  store i32 -2, ptr %7, align 16
+  store i32 0, ptr %5, align 16, !tbaa !3
+  store i32 0, ptr %6, align 16, !tbaa !3
+  store i32 -2, ptr %7, align 16, !tbaa !3
   br label %.lr.ph145.preheader
 
 .lr.ph145.preheader:                              ; preds = %.preheader137, %.loopexit
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %scevgep, i8 -1, i64 %10, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %scevgep, i8 -1, i64 %10, i1 false), !tbaa !3
   br label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %._crit_edge
@@ -60,17 +63,17 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %22 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next187
   %23 = trunc nuw nsw i64 %indvars.iv188 to i32
-  store i32 %23, ptr %22, align 4
+  store i32 %23, ptr %22, align 4, !tbaa !3
   %24 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv188
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = trunc nuw nsw i64 %indvars.iv.next187 to i32
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = icmp slt i32 %25, %33
   br i1 %34, label %.lr.ph140, label %._crit_edge
 
@@ -80,31 +83,31 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.0116139 = phi i32 [ %36, %.lr.ph140 ], [ %26, %.lr.ph145 ]
   %37 = zext nneg i32 %.0116139 to i64
   %38 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %37
-  store i32 %35, ptr %38, align 4
+  store i32 %35, ptr %38, align 4, !tbaa !3
   %39 = lshr i32 %36, 1
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = icmp slt i32 %25, %45
-  br i1 %46, label %.lr.ph140, label %._crit_edge, !llvm.loop !6
+  br i1 %46, label %.lr.ph140, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph140, %.lr.ph145
   %.0116.lcssa = phi i32 [ %26, %.lr.ph145 ], [ %36, %.lr.ph140 ]
   %47 = zext nneg i32 %.0116.lcssa to i64
   %48 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %47
-  store i32 %23, ptr %48, align 4
+  store i32 %23, ptr %48, align 4, !tbaa !3
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
-  br i1 %exitcond194.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !7
+  br i1 %exitcond194.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !10
 
 ._crit_edge146:                                   ; preds = %._crit_edge
   br i1 %13, label %50, label %49
 
 49:                                               ; preds = %._crit_edge146
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 2001) #5
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 2001) #6
   br label %50
 
 50:                                               ; preds = %49, %._crit_edge146
@@ -113,25 +116,25 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
 .lr.ph171:                                        ; preds = %50, %._crit_edge166
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge166 ], [ %15, %50 ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge166 ], [ %11, %50 ]
-  %51 = load i32, ptr %9, align 4
+  %51 = load i32, ptr %9, align 4, !tbaa !3
   %52 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv198
-  %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr %9, align 4
+  %53 = load i32, ptr %52, align 4, !tbaa !3
+  store i32 %53, ptr %9, align 4, !tbaa !3
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1
   %.not132148 = icmp samesign ugt i64 %indvars.iv198, 2
   br i1 %.not132148, label %.lr.ph151, label %._crit_edge152.thread
 
 ._crit_edge152.thread:                            ; preds = %.lr.ph171
-  store i32 %53, ptr %16, align 4
+  store i32 %53, ptr %16, align 4, !tbaa !3
   %54 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
-  %55 = load i32, ptr %54, align 4
-  store i32 %55, ptr %9, align 4
+  %55 = load i32, ptr %54, align 4, !tbaa !3
+  store i32 %55, ptr %9, align 4, !tbaa !3
   br label %._crit_edge159
 
 .lr.ph151:                                        ; preds = %.lr.ph171
   %56 = sext i32 %53 to i64
   %57 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4
+  %58 = load i32, ptr %57, align 4, !tbaa !3
   br label %59
 
 59:                                               ; preds = %.lr.ph151, %84
@@ -145,15 +148,15 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %64 = or disjoint i32 %60, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %61
-  %72 = load i32, ptr %71, align 8
+  %72 = load i32, ptr %71, align 8, !tbaa !3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4
+  %75 = load i32, ptr %74, align 4, !tbaa !3
   %76 = icmp slt i32 %70, %75
   %spec.select133 = select i1 %76, i32 %64, i32 %60
   %.pre = sext i32 %spec.select133 to i64
@@ -163,17 +166,17 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.pre-phi = phi i64 [ %.pre, %63 ], [ %61, %59 ]
   %.0113 = phi i32 [ %spec.select133, %63 ], [ %60, %59 ]
   %78 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %.pre-phi
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = icmp slt i32 %58, %82
   br i1 %83, label %._crit_edge152, label %84
 
 84:                                               ; preds = %77
   %85 = sext i32 %.0114149 to i64
   %86 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %85
-  store i32 %79, ptr %86, align 4
+  store i32 %79, ptr %86, align 4, !tbaa !3
   %87 = shl i32 %.0113, 1
   %88 = sext i32 %87 to i64
   %.not132 = icmp sgt i64 %indvars.iv198, %88
@@ -183,11 +186,11 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.0114.lcssa.ph = phi i32 [ %.0113, %84 ], [ %.0114149, %77 ]
   %89 = sext i32 %.0114.lcssa.ph to i64
   %90 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %89
-  store i32 %53, ptr %90, align 4
-  %91 = load i32, ptr %9, align 4
+  store i32 %53, ptr %90, align 4, !tbaa !3
+  %91 = load i32, ptr %9, align 4, !tbaa !3
   %92 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
-  %93 = load i32, ptr %92, align 4
-  store i32 %93, ptr %9, align 4
+  %93 = load i32, ptr %92, align 4, !tbaa !3
+  store i32 %93, ptr %9, align 4, !tbaa !3
   %94 = add nsw i64 %indvars.iv198, -2
   %95 = icmp eq i64 %indvars.iv198, 3
   br i1 %95, label %._crit_edge159, label %.lr.ph158
@@ -195,7 +198,7 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
 .lr.ph158:                                        ; preds = %._crit_edge152
   %96 = sext i32 %93 to i64
   %97 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4
+  %98 = load i32, ptr %97, align 4, !tbaa !3
   br label %99
 
 99:                                               ; preds = %.lr.ph158, %124
@@ -209,15 +212,15 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %104 = or disjoint i32 %100, 1
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 4, !tbaa !3
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4
+  %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %101
-  %112 = load i32, ptr %111, align 8
+  %112 = load i32, ptr %111, align 8, !tbaa !3
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %113
-  %115 = load i32, ptr %114, align 4
+  %115 = load i32, ptr %114, align 4, !tbaa !3
   %116 = icmp slt i32 %110, %115
   %spec.select134 = select i1 %116, i32 %104, i32 %100
   %.pre212 = sext i32 %spec.select134 to i64
@@ -227,17 +230,17 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.pre-phi213 = phi i64 [ %.pre212, %103 ], [ %101, %99 ]
   %.0109 = phi i32 [ %spec.select134, %103 ], [ %100, %99 ]
   %118 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %.pre-phi213
-  %119 = load i32, ptr %118, align 4
+  %119 = load i32, ptr %118, align 4, !tbaa !3
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %120
-  %122 = load i32, ptr %121, align 4
+  %122 = load i32, ptr %121, align 4, !tbaa !3
   %123 = icmp slt i32 %98, %122
   br i1 %123, label %._crit_edge159.loopexit, label %124
 
 124:                                              ; preds = %117
   %125 = sext i32 %.0110156 to i64
   %126 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %125
-  store i32 %119, ptr %126, align 4
+  store i32 %119, ptr %126, align 4, !tbaa !3
   %127 = shl i32 %.0109, 1
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %94, %128
@@ -254,20 +257,20 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %133 = phi i32 [ %91, %._crit_edge152 ], [ %91, %._crit_edge159.loopexit ], [ %53, %._crit_edge152.thread ]
   %.0110.lcssa = phi i64 [ 1, %._crit_edge152 ], [ %130, %._crit_edge159.loopexit ], [ 1, %._crit_edge152.thread ]
   %134 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %.0110.lcssa
-  store i32 %131, ptr %134, align 4
+  store i32 %131, ptr %134, align 4, !tbaa !3
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %135
   %137 = trunc nsw i64 %indvars.iv.next197 to i32
-  store i32 %137, ptr %136, align 4
+  store i32 %137, ptr %136, align 4, !tbaa !3
   %138 = sext i32 %51 to i64
   %139 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %138
-  store i32 %137, ptr %139, align 4
+  store i32 %137, ptr %139, align 4, !tbaa !3
   %140 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %138
-  %141 = load i32, ptr %140, align 4
+  %141 = load i32, ptr %140, align 4, !tbaa !3
   %142 = and i32 %141, -256
   %143 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %135
-  %144 = load i32, ptr %143, align 4
+  %144 = load i32, ptr %143, align 4, !tbaa !3
   %145 = and i32 %144, -256
   %146 = add i32 %145, %142
   %147 = and i32 %141, 255
@@ -276,18 +279,18 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %149 = add nuw nsw i32 %., 1
   %150 = or i32 %149, %146
   %151 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next197
-  store i32 %150, ptr %151, align 4
+  store i32 %150, ptr %151, align 4, !tbaa !3
   %152 = getelementptr inbounds nuw [516 x i32], ptr %7, i64 0, i64 %indvars.iv.next197
-  store i32 -1, ptr %152, align 4
-  store i32 %137, ptr %132, align 4
+  store i32 -1, ptr %152, align 4, !tbaa !3
+  store i32 %137, ptr %132, align 4, !tbaa !3
   %153 = trunc nuw nsw i64 %indvars.iv.next199 to i32
   %154 = lshr i32 %153, 1
   %155 = zext nneg i32 %154 to i64
   %156 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %155
-  %157 = load i32, ptr %156, align 4
+  %157 = load i32, ptr %156, align 4, !tbaa !3
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4
+  %160 = load i32, ptr %159, align 4, !tbaa !3
   %161 = icmp slt i32 %150, %160
   br i1 %161, label %.lr.ph165, label %._crit_edge166
 
@@ -297,31 +300,31 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.0107163 = phi i32 [ %163, %.lr.ph165 ], [ %153, %._crit_edge159 ]
   %164 = zext nneg i32 %.0107163 to i64
   %165 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %164
-  store i32 %162, ptr %165, align 4
+  store i32 %162, ptr %165, align 4, !tbaa !3
   %166 = lshr i32 %163, 1
   %167 = zext nneg i32 %166 to i64
   %168 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %167
-  %169 = load i32, ptr %168, align 4
+  %169 = load i32, ptr %168, align 4, !tbaa !3
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %170
-  %172 = load i32, ptr %171, align 4
+  %172 = load i32, ptr %171, align 4, !tbaa !3
   %173 = icmp slt i32 %150, %172
-  br i1 %173, label %.lr.ph165, label %._crit_edge166, !llvm.loop !8
+  br i1 %173, label %.lr.ph165, label %._crit_edge166, !llvm.loop !11
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %._crit_edge159
   %.0107.lcssa = phi i32 [ %153, %._crit_edge159 ], [ %163, %.lr.ph165 ]
   %174 = zext nneg i32 %.0107.lcssa to i64
   %175 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %174
-  store i32 %137, ptr %175, align 4
+  store i32 %137, ptr %175, align 4, !tbaa !3
   %176 = icmp sgt i64 %indvars.iv198, 2
-  br i1 %176, label %.lr.ph171, label %._crit_edge172.loopexit, !llvm.loop !9
+  br i1 %176, label %.lr.ph171, label %._crit_edge172.loopexit, !llvm.loop !12
 
 ._crit_edge172.loopexit:                          ; preds = %._crit_edge166
   %177 = icmp slt i64 %indvars.iv196, 515
   br i1 %177, label %.preheader.preheader, label %178
 
 178:                                              ; preds = %._crit_edge172.loopexit
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 2002) #5
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 2002) #6
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %50, %178, %._crit_edge172.loopexit
@@ -338,20 +341,20 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
   %.0115 = phi i32 [ %185, %180 ], [ 0, %.preheader ]
   %181 = zext nneg i32 %.0119 to i64
   %182 = getelementptr inbounds nuw [516 x i32], ptr %7, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4
+  %183 = load i32, ptr %182, align 4, !tbaa !3
   %184 = icmp sgt i32 %183, -1
   %185 = add nuw nsw i32 %.0115, 1
-  br i1 %184, label %180, label %186, !llvm.loop !10
+  br i1 %184, label %180, label %186, !llvm.loop !13
 
 186:                                              ; preds = %180
   %187 = trunc i32 %.0115 to i8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv203
-  store i8 %187, ptr %gep, align 1
+  store i8 %187, ptr %gep, align 1, !tbaa !14
   %188 = icmp sgt i32 %.0115, %3
   %spec.select135 = select i1 %188, i8 1, i8 %.0117175
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge177, label %.preheader, !llvm.loop !11
+  br i1 %exitcond206.not, label %._crit_edge177, label %.preheader, !llvm.loop !15
 
 ._crit_edge177:                                   ; preds = %186
   %189 = icmp eq i8 %spec.select135, 0
@@ -360,24 +363,33 @@ define void @BZ2_hbMakeCodeLengths(ptr noundef writeonly captures(none) %0, ptr 
 .lr.ph181:                                        ; preds = %._crit_edge177, %.lr.ph181
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph181 ], [ 1, %._crit_edge177 ]
   %190 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv207
-  %191 = load i32, ptr %190, align 4
+  %191 = load i32, ptr %190, align 4, !tbaa !3
   %192 = ashr i32 %191, 8
   %193 = sdiv i32 %192, 2
   %194 = shl nsw i32 %193, 8
   %195 = add nsw i32 %194, 256
-  store i32 %195, ptr %190, align 4
+  store i32 %195, ptr %190, align 4, !tbaa !3
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph181, !llvm.loop !12
+  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph181, !llvm.loop !16
 
 ._crit_edge177.thread:                            ; preds = %._crit_edge177, %.preheader137
+  call void @llvm.lifetime.end.p0(i64 2064, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 2064, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %5) #6
   ret void
 }
 
-declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @BZ2_hbAssignCodes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @BZ2_hbAssignCodes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %.not18 = icmp sle i32 %2, %3
   %6 = icmp sgt i32 %4, 0
   %or.cond = and i1 %.not18, %6
@@ -396,14 +408,14 @@ define void @BZ2_hbAssignCodes(ptr noundef writeonly captures(none) %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
   %.116.us = phi i32 [ %.01420.us, %.preheader.us ], [ %.2.us, %15 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !14
   %10 = zext i8 %9 to i32
   %11 = icmp eq i32 %.01519.us, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  store i32 %.116.us, ptr %13, align 4
+  store i32 %.116.us, ptr %13, align 4, !tbaa !3
   %14 = add nsw i32 %.116.us, 1
   br label %15
 
@@ -411,20 +423,20 @@ define void @BZ2_hbAssignCodes(ptr noundef writeonly captures(none) %0, ptr noun
   %.2.us = phi i32 [ %14, %12 ], [ %.116.us, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %7, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %15
   %16 = shl i32 %.2.us, 1
   %17 = add i32 %.01519.us, 1
   %exitcond24.not = icmp eq i32 %.01519.us, %3
-  br i1 %exitcond24.not, label %._crit_edge21, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond24.not, label %._crit_edge21, label %.preheader.us, !llvm.loop !18
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %5
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not72 = icmp sgt i32 %4, %5
   br i1 %.not72, label %.preheader68, label %.preheader69.lr.ph
 
@@ -433,7 +445,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   br i1 %8, label %.preheader69.us.preheader, label %.preheader68.thread
 
 .preheader68.thread:                              ; preds = %.preheader69.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false), !tbaa !3
   br label %.preheader66
 
 .preheader69.us.preheader:                        ; preds = %.preheader69.lr.ph
@@ -449,7 +461,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.preheader69.us ], [ %indvars.iv.next, %19 ]
   %.15970.us = phi i32 [ %.05873.us, %.preheader69.us ], [ %.260.us, %19 ]
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %.05774.us, %12
   br i1 %13, label %14, label %19
@@ -458,7 +470,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %15 = sext i32 %.15970.us to i64
   %16 = getelementptr inbounds i32, ptr %2, i64 %15
   %17 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %17, ptr %16, align 4
+  store i32 %17, ptr %16, align 4, !tbaa !3
   %18 = add nsw i32 %.15970.us, 1
   br label %19
 
@@ -466,15 +478,15 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %.260.us = phi i32 [ %18, %14 ], [ %.15970.us, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %19
   %20 = add i32 %.05774.us, 1
   %exitcond88.not = icmp eq i32 %.05774.us, %5
-  br i1 %exitcond88.not, label %.preheader68, label %.preheader69.us, !llvm.loop !16
+  br i1 %exitcond88.not, label %.preheader68, label %.preheader69.us, !llvm.loop !20
 
 .preheader68:                                     ; preds = %._crit_edge.us, %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false), !tbaa !3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.preheader, label %.preheader66
@@ -490,29 +502,29 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv92 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next93, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv92
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i64
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %24
-  %25 = load i32, ptr %gep, align 4
+  %25 = load i32, ptr %gep, align 4, !tbaa !3
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %gep, align 4
+  store i32 %26, ptr %gep, align 4, !tbaa !3
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %.preheader66, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond96.not, label %.preheader66, label %.lr.ph, !llvm.loop !21
 
 27:                                               ; preds = %.preheader66, %27
   %store_forwarded = phi i32 [ %load_initial, %.preheader66 ], [ %30, %27 ]
   %indvars.iv97 = phi i64 [ 1, %.preheader66 ], [ %indvars.iv.next98, %27 ]
   %28 = getelementptr i32, ptr %1, i64 %indvars.iv97
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = add nsw i32 %29, %store_forwarded
-  store i32 %30, ptr %28, align 4
+  store i32 %30, ptr %28, align 4, !tbaa !3
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 23
-  br i1 %exitcond100.not, label %.preheader65.preheader, label %27, !llvm.loop !18
+  br i1 %exitcond100.not, label %.preheader65.preheader, label %27, !llvm.loop !22
 
 .preheader65.preheader:                           ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 92, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 92, i1 false), !tbaa !3
   br i1 %.not72, label %.preheader, label %.lr.ph82.preheader
 
 .lr.ph82.preheader:                               ; preds = %.preheader65.preheader
@@ -534,70 +546,75 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %.081 = phi i32 [ 0, %.lr.ph82.preheader ], [ %42, %.lr.ph82 ]
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %34 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next105
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv104
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = sub nsw i32 %35, %37
   %39 = add nsw i32 %38, %.081
   %40 = add nsw i32 %39, -1
   %41 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv104
-  store i32 %40, ptr %41, align 4
+  store i32 %40, ptr %41, align 4, !tbaa !3
   %42 = shl i32 %39, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next105 to i32
   %exitcond107.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond107.not, label %.preheader, label %.lr.ph82, !llvm.loop !19
+  br i1 %exitcond107.not, label %.preheader, label %.lr.ph82, !llvm.loop !23
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv108 = phi i64 [ %33, %.lr.ph85.preheader ], [ %indvars.iv.next109, %.lr.ph85 ]
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
   %43 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv108
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = shl i32 %44, 1
   %46 = add i32 %45, 2
   %47 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next109
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = sub i32 %46, %48
-  store i32 %49, ptr %47, align 4
+  store i32 %49, ptr %47, align 4, !tbaa !3
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !20
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!5, !5, i64 0}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}

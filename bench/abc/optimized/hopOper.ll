@@ -1,12 +1,12 @@
-; ModuleID = 'bench/abc/original/hopOper.c.ll'
-source_filename = "bench/abc/original/hopOper.c.ll"
+; ModuleID = 'bench/abc/original/hopOper.ll'
+source_filename = "bench/abc/original/hopOper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_IthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 80
-  %.val = load i32, ptr %3, align 8
+  %.val = load i32, ptr %3, align 8, !tbaa !3
   %.not8 = icmp sgt i32 %.val, %1
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -15,15 +15,15 @@ define ptr @Hop_IthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = tail call ptr @Hop_ObjCreatePi(ptr noundef %0) #2
   %5 = add i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.val7 = load ptr, ptr %0, align 8
+  %.val7 = load ptr, ptr %0, align 8, !tbaa !9
   %6 = getelementptr i8, ptr %.val7, i64 8
-  %.val7.val = load ptr, ptr %6, align 8
+  %.val7.val = load ptr, ptr %6, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds ptr, ptr %.val7.val, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
   ret ptr %9
 }
 
@@ -49,7 +49,7 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
@@ -60,7 +60,7 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %25, label %30
 
@@ -96,16 +96,16 @@ define ptr @Hop_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %44 = or disjoint i32 %43, 4
   store i32 %44, ptr %41, align 8
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !21
   %49 = icmp slt i32 %46, %48
   %spec.select.i.i = select i1 %49, ptr %1, ptr %2
   %spec.select14.i.i = select i1 %49, ptr %2, ptr %1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i, ptr %50, align 8
+  store ptr %spec.select.i.i, ptr %50, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i, ptr %51, align 8
+  store ptr %spec.select14.i.i, ptr %51, align 8, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %52) #2
   %.not.i = icmp eq ptr %53, null
@@ -138,7 +138,7 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
@@ -149,7 +149,7 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
 
@@ -185,16 +185,16 @@ define ptr @Hop_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %42 = or disjoint i32 %41, 4
   store i32 %42, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 36
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = icmp slt i32 %44, %46
   %spec.select.i = select i1 %47, ptr %1, ptr %2
   %spec.select14.i = select i1 %47, ptr %2, ptr %1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i, ptr %48, align 8
+  store ptr %spec.select.i, ptr %48, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i, ptr %49, align 8
+  store ptr %spec.select14.i, ptr %49, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %50) #2
   %.not = icmp eq ptr %51, null
@@ -223,7 +223,7 @@ define ptr @Hop_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
@@ -234,7 +234,7 @@ define ptr @Hop_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
 
@@ -270,16 +270,16 @@ define ptr @Hop_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %42 = or disjoint i32 %41, 4
   store i32 %42, ptr %39, align 8
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  %44 = load i32, ptr %43, align 4
+  %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 36
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = icmp slt i32 %44, %46
   %spec.select.i.i = select i1 %47, ptr %1, ptr %6
   %spec.select14.i.i = select i1 %47, ptr %6, ptr %1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i, ptr %48, align 8
+  store ptr %spec.select.i.i, ptr %48, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i, ptr %49, align 8
+  store ptr %spec.select14.i.i, ptr %49, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %50) #2
   %.not.i = icmp eq ptr %51, null
@@ -303,7 +303,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !20
   %63 = ptrtoint ptr %62 to i64
   %64 = xor i64 %63, 1
   %65 = inttoptr i64 %64 to ptr
@@ -313,7 +313,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   %67 = and i64 %54, -2
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %70 = load ptr, ptr %69, align 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !20
   %71 = icmp eq ptr %70, %68
   br i1 %71, label %72, label %77
 
@@ -348,16 +348,16 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   %90 = or disjoint i32 %89, 4
   store i32 %90, ptr %87, align 8
   %91 = getelementptr inbounds nuw i8, ptr %68, i64 36
-  %92 = load i32, ptr %91, align 4
+  %92 = load i32, ptr %91, align 4, !tbaa !21
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 36
-  %94 = load i32, ptr %93, align 4
+  %94 = load i32, ptr %93, align 4, !tbaa !21
   %95 = icmp slt i32 %92, %94
   %spec.select.i.i7 = select i1 %95, ptr %56, ptr %2
   %spec.select14.i.i8 = select i1 %95, ptr %2, ptr %56
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i7, ptr %96, align 8
+  store ptr %spec.select.i.i7, ptr %96, align 8, !tbaa !22
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i8, ptr %97, align 8
+  store ptr %spec.select14.i.i8, ptr %97, align 8, !tbaa !23
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %99 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %98) #2
   %.not.i9 = icmp eq ptr %99, null
@@ -384,7 +384,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %113 = load ptr, ptr %112, align 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !20
   %114 = ptrtoint ptr %113 to i64
   %115 = xor i64 %114, 1
   %116 = inttoptr i64 %115 to ptr
@@ -394,7 +394,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
   %118 = and i64 %102, -2
   %119 = inttoptr i64 %118 to ptr
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = load ptr, ptr %120, align 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !20
   %122 = icmp eq ptr %121, %119
   br i1 %122, label %123, label %128
 
@@ -430,16 +430,16 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
   %142 = or disjoint i32 %141, 4
   store i32 %142, ptr %139, align 8
   %143 = getelementptr inbounds nuw i8, ptr %119, i64 36
-  %144 = load i32, ptr %143, align 4
+  %144 = load i32, ptr %143, align 4, !tbaa !21
   %145 = getelementptr inbounds nuw i8, ptr %130, i64 36
-  %146 = load i32, ptr %145, align 4
+  %146 = load i32, ptr %145, align 4, !tbaa !21
   %147 = icmp slt i32 %144, %146
   %spec.select.i.i.i = select i1 %147, ptr %104, ptr %107
   %spec.select14.i.i.i = select i1 %147, ptr %107, ptr %104
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i, ptr %148, align 8
+  store ptr %spec.select.i.i.i, ptr %148, align 8, !tbaa !22
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i, ptr %149, align 8
+  store ptr %spec.select14.i.i.i, ptr %149, align 8, !tbaa !23
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %151 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %150) #2
   %.not.i.i = icmp eq ptr %151, null
@@ -478,7 +478,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %16, 1
   %18 = inttoptr i64 %17 to ptr
@@ -488,7 +488,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   %20 = and i64 %4, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %25, label %30
 
@@ -524,16 +524,16 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   %44 = or disjoint i32 %43, 4
   store i32 %44, ptr %41, align 8
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !21
   %49 = icmp slt i32 %46, %48
   %spec.select.i.i = select i1 %49, ptr %6, ptr %9
   %spec.select14.i.i = select i1 %49, ptr %9, ptr %6
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i, ptr %50, align 8
+  store ptr %spec.select.i.i, ptr %50, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i, ptr %51, align 8
+  store ptr %spec.select14.i.i, ptr %51, align 8, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %52) #2
   %.not.i = icmp eq ptr %53, null
@@ -565,7 +565,7 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -576,7 +576,7 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %29
 
@@ -612,16 +612,16 @@ define ptr @Hop_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %43 = or disjoint i32 %42, 4
   store i32 %43, ptr %40, align 8
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 4, !tbaa !21
   %48 = icmp slt i32 %45, %47
   %spec.select.i.i = select i1 %48, ptr %1, ptr %2
   %spec.select14.i.i = select i1 %48, ptr %2, ptr %1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i, ptr %49, align 8
+  store ptr %spec.select.i.i, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i, ptr %50, align 8
+  store ptr %spec.select14.i.i, ptr %50, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %51) #2
   %.not.i = icmp eq ptr %52, null
@@ -646,7 +646,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load ptr, ptr %63, align 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !20
   %65 = ptrtoint ptr %64 to i64
   %66 = xor i64 %65, 1
   %67 = inttoptr i64 %66 to ptr
@@ -656,7 +656,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %69 = and i64 %55, -2
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = load ptr, ptr %71, align 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !20
   %73 = icmp eq ptr %72, %70
   br i1 %73, label %74, label %79
 
@@ -692,16 +692,16 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %93 = or disjoint i32 %92, 4
   store i32 %93, ptr %90, align 8
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 36
-  %95 = load i32, ptr %94, align 4
+  %95 = load i32, ptr %94, align 4, !tbaa !21
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 36
-  %97 = load i32, ptr %96, align 4
+  %97 = load i32, ptr %96, align 4, !tbaa !21
   %98 = icmp slt i32 %95, %97
   %spec.select.i.i7 = select i1 %98, ptr %57, ptr %3
   %spec.select14.i.i8 = select i1 %98, ptr %3, ptr %57
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i7, ptr %99, align 8
+  store ptr %spec.select.i.i7, ptr %99, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i8, ptr %100, align 8
+  store ptr %spec.select14.i.i8, ptr %100, align 8, !tbaa !23
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %101) #2
   %.not.i9 = icmp eq ptr %102, null
@@ -728,7 +728,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %62, 
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %116 = load ptr, ptr %115, align 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !20
   %117 = ptrtoint ptr %116 to i64
   %118 = xor i64 %117, 1
   %119 = inttoptr i64 %118 to ptr
@@ -738,7 +738,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %62, 
   %121 = and i64 %105, -2
   %122 = inttoptr i64 %121 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %124 = load ptr, ptr %123, align 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !20
   %125 = icmp eq ptr %124, %122
   br i1 %125, label %126, label %131
 
@@ -774,16 +774,16 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %62, 
   %145 = or disjoint i32 %144, 4
   store i32 %145, ptr %142, align 8
   %146 = getelementptr inbounds nuw i8, ptr %122, i64 36
-  %147 = load i32, ptr %146, align 4
+  %147 = load i32, ptr %146, align 4, !tbaa !21
   %148 = getelementptr inbounds nuw i8, ptr %133, i64 36
-  %149 = load i32, ptr %148, align 4
+  %149 = load i32, ptr %148, align 4, !tbaa !21
   %150 = icmp slt i32 %147, %149
   %spec.select.i.i.i = select i1 %150, ptr %107, ptr %110
   %spec.select14.i.i.i = select i1 %150, ptr %110, ptr %107
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i, ptr %151, align 8
+  store ptr %spec.select.i.i.i, ptr %151, align 8, !tbaa !22
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i, ptr %152, align 8
+  store ptr %spec.select14.i.i.i, ptr %152, align 8, !tbaa !23
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %153) #2
   %.not.i.i = icmp eq ptr %154, null
@@ -815,7 +815,7 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -826,7 +826,7 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %29
 
@@ -862,16 +862,16 @@ define ptr @Hop_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %43 = or disjoint i32 %42, 4
   store i32 %43, ptr %40, align 8
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 4, !tbaa !21
   %48 = icmp slt i32 %45, %47
   %spec.select.i.i = select i1 %48, ptr %1, ptr %2
   %spec.select14.i.i = select i1 %48, ptr %2, ptr %1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i, ptr %49, align 8
+  store ptr %spec.select.i.i, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i, ptr %50, align 8
+  store ptr %spec.select14.i.i, ptr %50, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %51) #2
   %.not.i = icmp eq ptr %52, null
@@ -895,7 +895,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !20
   %64 = ptrtoint ptr %63 to i64
   %65 = xor i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
@@ -906,7 +906,7 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = load ptr, ptr %71, align 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !20
   %73 = icmp eq ptr %72, %70
   br i1 %73, label %74, label %79
 
@@ -942,16 +942,16 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %93 = or disjoint i32 %92, 4
   store i32 %93, ptr %90, align 8
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 36
-  %95 = load i32, ptr %94, align 4
+  %95 = load i32, ptr %94, align 4, !tbaa !21
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 36
-  %97 = load i32, ptr %96, align 4
+  %97 = load i32, ptr %96, align 4, !tbaa !21
   %98 = icmp slt i32 %95, %97
   %spec.select.i.i11 = select i1 %98, ptr %1, ptr %3
   %spec.select14.i.i12 = select i1 %98, ptr %3, ptr %1
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i11, ptr %99, align 8
+  store ptr %spec.select.i.i11, ptr %99, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i12, ptr %100, align 8
+  store ptr %spec.select14.i.i12, ptr %100, align 8, !tbaa !23
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %101) #2
   %.not.i13 = icmp eq ptr %102, null
@@ -978,7 +978,7 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %116 = load ptr, ptr %115, align 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !20
   %117 = ptrtoint ptr %116 to i64
   %118 = xor i64 %117, 1
   %119 = inttoptr i64 %118 to ptr
@@ -988,7 +988,7 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
   %121 = and i64 %105, -2
   %122 = inttoptr i64 %121 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %124 = load ptr, ptr %123, align 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !20
   %125 = icmp eq ptr %124, %122
   br i1 %125, label %126, label %131
 
@@ -1024,16 +1024,16 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
   %145 = or disjoint i32 %144, 4
   store i32 %145, ptr %142, align 8
   %146 = getelementptr inbounds nuw i8, ptr %122, i64 36
-  %147 = load i32, ptr %146, align 4
+  %147 = load i32, ptr %146, align 4, !tbaa !21
   %148 = getelementptr inbounds nuw i8, ptr %133, i64 36
-  %149 = load i32, ptr %148, align 4
+  %149 = load i32, ptr %148, align 4, !tbaa !21
   %150 = icmp slt i32 %147, %149
   %spec.select.i.i.i = select i1 %150, ptr %107, ptr %110
   %spec.select14.i.i.i = select i1 %150, ptr %110, ptr %107
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i, ptr %151, align 8
+  store ptr %spec.select.i.i.i, ptr %151, align 8, !tbaa !22
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i, ptr %152, align 8
+  store ptr %spec.select14.i.i.i, ptr %152, align 8, !tbaa !23
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %153) #2
   %.not.i.i = icmp eq ptr %154, null
@@ -1060,7 +1060,7 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
 
 166:                                              ; preds = %161
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %168 = load ptr, ptr %167, align 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !20
   %169 = ptrtoint ptr %168 to i64
   %170 = xor i64 %169, 1
   %171 = inttoptr i64 %170 to ptr
@@ -1071,7 +1071,7 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
   %174 = and i64 %173, -2
   %175 = inttoptr i64 %174 to ptr
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %177 = load ptr, ptr %176, align 8
+  %177 = load ptr, ptr %176, align 8, !tbaa !20
   %178 = icmp eq ptr %177, %175
   br i1 %178, label %179, label %184
 
@@ -1106,16 +1106,16 @@ Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %11
   %197 = or disjoint i32 %196, 4
   store i32 %197, ptr %194, align 8
   %198 = getelementptr inbounds nuw i8, ptr %175, i64 36
-  %199 = load i32, ptr %198, align 4
+  %199 = load i32, ptr %198, align 4, !tbaa !21
   %200 = getelementptr inbounds nuw i8, ptr %186, i64 36
-  %201 = load i32, ptr %200, align 4
+  %201 = load i32, ptr %200, align 4, !tbaa !21
   %202 = icmp slt i32 %199, %201
   %spec.select.i.i16 = select i1 %202, ptr %2, ptr %3
   %spec.select14.i.i17 = select i1 %202, ptr %3, ptr %2
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i16, ptr %203, align 8
+  store ptr %spec.select.i.i16, ptr %203, align 8, !tbaa !22
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i17, ptr %204, align 8
+  store ptr %spec.select14.i.i17, ptr %204, align 8, !tbaa !23
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %206 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %205) #2
   %.not.i18 = icmp eq ptr %206, null
@@ -1139,7 +1139,7 @@ Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %166, 
 
 215:                                              ; preds = %213
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %217 = load ptr, ptr %216, align 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !20
   %218 = ptrtoint ptr %217 to i64
   %219 = xor i64 %218, 1
   %220 = inttoptr i64 %219 to ptr
@@ -1149,7 +1149,7 @@ Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %166, 
   %222 = and i64 %157, -2
   %223 = inttoptr i64 %222 to ptr
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %225 = load ptr, ptr %224, align 8
+  %225 = load ptr, ptr %224, align 8, !tbaa !20
   %226 = icmp eq ptr %225, %223
   br i1 %226, label %227, label %232
 
@@ -1185,16 +1185,16 @@ Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %166, 
   %246 = or disjoint i32 %245, 4
   store i32 %246, ptr %243, align 8
   %247 = getelementptr inbounds nuw i8, ptr %223, i64 36
-  %248 = load i32, ptr %247, align 4
+  %248 = load i32, ptr %247, align 4, !tbaa !21
   %249 = getelementptr inbounds nuw i8, ptr %234, i64 36
-  %250 = load i32, ptr %249, align 4
+  %250 = load i32, ptr %249, align 4, !tbaa !21
   %251 = icmp slt i32 %248, %250
   %spec.select.i.i.i21 = select i1 %251, ptr %.0.i.i, ptr %211
   %spec.select14.i.i.i22 = select i1 %251, ptr %211, ptr %.0.i.i
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i21, ptr %252, align 8
+  store ptr %spec.select.i.i.i21, ptr %252, align 8, !tbaa !22
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i22, ptr %253, align 8
+  store ptr %spec.select14.i.i.i22, ptr %253, align 8, !tbaa !23
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %255 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %254) #2
   %.not.i.i23 = icmp eq ptr %255, null
@@ -1218,7 +1218,7 @@ define ptr @Hop_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br i1 %5, label %common.ret, label %7
 
 common.ret:                                       ; preds = %4
-  %6 = load ptr, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !24
   br label %common.ret17
 
 common.ret17:                                     ; preds = %7, %common.ret
@@ -1245,7 +1245,7 @@ define ptr @Hop_Multi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !25
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1255,32 +1255,32 @@ define ptr @Hop_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = or disjoint i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = tail call ptr @Hop_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %13)
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !17
   %19 = lshr exact i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  store ptr %17, ptr %20, align 8
+  store ptr %17, ptr %20, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %21 = load i32, ptr %3, align 4
+  %21 = load i32, ptr %3, align 4, !tbaa !25
   %22 = trunc nuw i64 %indvars.iv.next to i32
   %23 = icmp sgt i32 %21, %22
-  br i1 %23, label %7, label %._crit_edge, !llvm.loop !6
+  br i1 %23, label %7, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %7, %2
   %.lcssa = phi i32 [ %4, %2 ], [ %21, %7 ]
   %24 = sdiv i32 %.lcssa, 2
-  store i32 %24, ptr %3, align 4
+  store i32 %24, ptr %3, align 4, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = tail call ptr @Hop_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %24, i32 noundef 4)
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, 1
@@ -1291,7 +1291,7 @@ define ptr @Hop_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_CreateAnd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8
+  %.val = load ptr, ptr %3, align 8, !tbaa !20
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1307,7 +1307,7 @@ define ptr @Hop_CreateAnd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 10:                                               ; preds = %.lr.ph, %Hop_And.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Hop_And.exit ]
   %.089 = phi ptr [ %.val, %.lr.ph ], [ %.0.i, %Hop_And.exit ]
-  %.val.i = load i32, ptr %5, align 8
+  %.val.i = load i32, ptr %5, align 8, !tbaa !3
   %11 = sext i32 %.val.i to i64
   %.not8.i = icmp slt i64 %indvars.iv, %11
   br i1 %.not8.i, label %Hop_IthVar.exit, label %.lr.ph.i
@@ -1318,14 +1318,14 @@ define ptr @Hop_CreateAnd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %13 = add i32 %.09.i, 1
   %14 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %14
-  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !7
 
 Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
-  %.val7.i = load ptr, ptr %0, align 8
+  %.val7.i = load ptr, ptr %0, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val7.val.i = load ptr, ptr %15, align 8
+  %.val7.val.i = load ptr, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = icmp eq ptr %.089, %17
   br i1 %18, label %Hop_And.exit, label %19
 
@@ -1337,7 +1337,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !20
   %26 = ptrtoint ptr %25 to i64
   %27 = xor i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -1347,7 +1347,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %30 = ptrtoint ptr %.089 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %3, align 8, !tbaa !20
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %35, label %40
 
@@ -1382,14 +1382,14 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %53 = or disjoint i32 %52, 4
   store i32 %53, ptr %6, align 8
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 4, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 36
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = icmp slt i32 %55, %57
   %spec.select.i.i = select i1 %58, ptr %.089, ptr %17
   %spec.select14.i.i = select i1 %58, ptr %17, ptr %.089
-  store ptr %spec.select.i.i, ptr %7, align 8
-  store ptr %spec.select14.i.i, ptr %8, align 8
+  store ptr %spec.select.i.i, ptr %7, align 8, !tbaa !22
+  store ptr %spec.select14.i.i, ptr %8, align 8, !tbaa !23
   %59 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %9) #2
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %60, label %Hop_And.exit
@@ -1402,7 +1402,7 @@ Hop_And.exit:                                     ; preds = %Hop_IthVar.exit, %2
   %.0.i = phi ptr [ %28, %24 ], [ %61, %60 ], [ %.089, %Hop_IthVar.exit ], [ %39, %37 ], [ %17, %35 ], [ %49, %46 ], [ %.089, %44 ], [ %59, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %Hop_And.exit, %2
   %.08.lcssa = phi ptr [ %.val, %2 ], [ %.0.i, %Hop_And.exit ]
@@ -1412,7 +1412,7 @@ Hop_And.exit:                                     ; preds = %Hop_IthVar.exit, %2
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8
+  %.val = load ptr, ptr %3, align 8, !tbaa !20
   %.08.in.in9 = ptrtoint ptr %.val to i64
   %.08.in10 = xor i64 %.08.in.in9, 1
   %.0811 = inttoptr i64 %.08.in10 to ptr
@@ -1433,7 +1433,7 @@ define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.0815 = phi ptr [ %.0811, %.lr.ph ], [ %.08, %Hop_Or.exit ]
   %.08.in.in14 = phi i64 [ %.08.in.in9, %.lr.ph ], [ %.08.in.in, %Hop_Or.exit ]
   %.08.in.in.in12 = phi ptr [ %.val, %.lr.ph ], [ %.0.i.i, %Hop_Or.exit ]
-  %.val.i = load i32, ptr %5, align 8
+  %.val.i = load i32, ptr %5, align 8, !tbaa !3
   %11 = sext i32 %.val.i to i64
   %.not8.i = icmp slt i64 %indvars.iv, %11
   br i1 %.not8.i, label %Hop_IthVar.exit, label %.lr.ph.i
@@ -1444,14 +1444,14 @@ define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %13 = add i32 %.09.i, 1
   %14 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %14
-  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !7
 
 Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
-  %.val7.i = load ptr, ptr %0, align 8
+  %.val7.i = load ptr, ptr %0, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val7.val.i = load ptr, ptr %15, align 8
+  %.val7.val.i = load ptr, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = ptrtoint ptr %17 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
@@ -1463,7 +1463,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !20
   %26 = ptrtoint ptr %25 to i64
   %27 = xor i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -1472,7 +1472,7 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
 29:                                               ; preds = %22
   %30 = and i64 %.08.in.in14, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !20
   %33 = icmp eq ptr %32, %31
   br i1 %33, label %34, label %39
 
@@ -1507,14 +1507,14 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %52 = or disjoint i32 %51, 4
   store i32 %52, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 4, !tbaa !21
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 36
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 4, !tbaa !21
   %57 = icmp slt i32 %54, %56
   %spec.select.i.i.i = select i1 %57, ptr %.08.in.in.in12, ptr %20
   %spec.select14.i.i.i = select i1 %57, ptr %20, ptr %.08.in.in.in12
-  store ptr %spec.select.i.i.i, ptr %7, align 8
-  store ptr %spec.select14.i.i.i, ptr %8, align 8
+  store ptr %spec.select.i.i.i, ptr %7, align 8, !tbaa !22
+  store ptr %spec.select14.i.i.i, ptr %8, align 8, !tbaa !23
   %58 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %9) #2
   %.not.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i, label %59, label %Hop_Or.exit
@@ -1530,7 +1530,7 @@ Hop_Or.exit:                                      ; preds = %Hop_IthVar.exit, %2
   %.08.in = xor i64 %.08.in.in, 1
   %.08 = inttoptr i64 %.08.in to ptr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %Hop_Or.exit, %2
   %.08.lcssa = phi ptr [ %.0811, %2 ], [ %.08, %Hop_Or.exit ]
@@ -1540,7 +1540,7 @@ Hop_Or.exit:                                      ; preds = %Hop_IthVar.exit, %2
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_CreateExor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8
+  %.val = load ptr, ptr %3, align 8, !tbaa !20
   %4 = ptrtoint ptr %.val to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
@@ -1555,7 +1555,7 @@ define ptr @Hop_CreateExor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 9:                                                ; preds = %.lr.ph, %Hop_IthVar.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Hop_IthVar.exit ]
   %.089 = phi ptr [ %6, %.lr.ph ], [ %17, %Hop_IthVar.exit ]
-  %.val.i = load i32, ptr %8, align 8
+  %.val.i = load i32, ptr %8, align 8, !tbaa !3
   %10 = sext i32 %.val.i to i64
   %.not8.i = icmp slt i64 %indvars.iv, %10
   br i1 %.not8.i, label %Hop_IthVar.exit, label %.lr.ph.i
@@ -1566,37 +1566,57 @@ define ptr @Hop_CreateExor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %12 = add i32 %.09.i, 1
   %13 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %13
-  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Hop_IthVar.exit, label %.lr.ph.i, !llvm.loop !7
 
 Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %9
-  %.val7.i = load ptr, ptr %0, align 8
+  %.val7.i = load ptr, ptr %0, align 8, !tbaa !9
   %14 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val7.val.i = load ptr, ptr %14, align 8
+  %.val7.val.i = load ptr, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = tail call ptr @Hop_Exor(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %Hop_IthVar.exit, %2
   %.08.lcssa = phi ptr [ %6, %2 ], [ %17, %Hop_IthVar.exit ]
   ret ptr %.08.lcssa
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"Hop_Man_t_", !11, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !14, i64 32, !5, i64 72, !4, i64 96, !4, i64 100, !15, i64 104, !4, i64 112, !12, i64 120, !4, i64 128, !4, i64 132, !4, i64 136, !11, i64 144, !11, i64 152, !13, i64 160, !16, i64 168, !16, i64 176}
+!11 = !{!"p1 _ZTS10Vec_Ptr_t_", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!"p1 _ZTS10Hop_Obj_t_", !12, i64 0}
+!14 = !{!"Hop_Obj_t_", !5, i64 0, !5, i64 8, !13, i64 16, !13, i64 24, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 36}
+!15 = !{!"p2 _ZTS10Hop_Obj_t_", !12, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !12, i64 8}
+!18 = !{!"Vec_Ptr_t_", !4, i64 0, !4, i64 4, !12, i64 8}
+!19 = !{!12, !12, i64 0}
+!20 = !{!10, !13, i64 24}
+!21 = !{!14, !4, i64 36}
+!22 = !{!14, !13, i64 16}
+!23 = !{!14, !13, i64 24}
+!24 = !{!13, !13, i64 0}
+!25 = !{!18, !4, i64 4}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}

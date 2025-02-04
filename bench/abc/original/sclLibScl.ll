@@ -100,34 +100,44 @@ define ptr @Abc_SclReadFromGenlib(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  store ptr %6, ptr %4, align 8
-  %7 = call ptr @Abc_SclLibAlloc()
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call i32 @Abc_SclReadLibraryGenlib(ptr noundef %8, ptr noundef %9)
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %17
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %7, ptr %4, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %8 = call ptr @Abc_SclLibAlloc()
+  store ptr %8, ptr %5, align 8, !tbaa !9
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = call i32 @Abc_SclReadLibraryGenlib(ptr noundef %9, ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %5, align 8
-  call void @Abc_SclHashCells(ptr noundef %14)
-  %15 = load ptr, ptr %5, align 8
-  call void @Abc_SclLinkCells(ptr noundef %15)
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %2, align 8
-  br label %17
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %18
 
-17:                                               ; preds = %13, %12
-  %18 = load ptr, ptr %2, align 8
-  ret ptr %18
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @Abc_SclHashCells(ptr noundef %15)
+  %16 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @Abc_SclLinkCells(ptr noundef %16)
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %17, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %19 = load ptr, ptr %2, align 8
+  ret ptr %19
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Abc_SclReadLibraryGenlib(ptr noundef %0, ptr noundef %1) #0 {
@@ -144,289 +154,301 @@ define internal i32 @Abc_SclReadLibraryGenlib(ptr noundef %0, ptr noundef %1) #0
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %16 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %16 = load ptr, ptr %4, align 8, !tbaa !7
   %17 = call ptr @Mio_LibraryReadName(ptr noundef %16)
   %18 = call ptr @Abc_UtilStrsav(ptr noundef %17)
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.SC_Lib_, ptr %19, i32 0, i32 0
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.SC_Lib_, ptr %21, i32 0, i32 2
-  store ptr null, ptr %22, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.SC_Lib_, ptr %23, i32 0, i32 3
-  store ptr null, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.SC_Lib_, ptr %25, i32 0, i32 4
-  store float 0.000000e+00, ptr %26, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.SC_Lib_, ptr %27, i32 0, i32 5
-  store i32 12, ptr %28, align 4
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.SC_Lib_, ptr %29, i32 0, i32 6
-  store float 1.000000e+00, ptr %30, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.SC_Lib_, ptr %31, i32 0, i32 7
-  store i32 15, ptr %32, align 4
-  %33 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8, !tbaa !11
+  %21 = load ptr, ptr %3, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %21, i32 0, i32 2
+  store ptr null, ptr %22, align 8, !tbaa !18
+  %23 = load ptr, ptr %3, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %23, i32 0, i32 3
+  store ptr null, ptr %24, align 8, !tbaa !19
+  %25 = load ptr, ptr %3, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %25, i32 0, i32 4
+  store float 0.000000e+00, ptr %26, align 8, !tbaa !20
+  %27 = load ptr, ptr %3, align 8, !tbaa !9
+  %28 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %27, i32 0, i32 5
+  store i32 12, ptr %28, align 4, !tbaa !21
+  %29 = load ptr, ptr %3, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %29, i32 0, i32 6
+  store float 1.000000e+00, ptr %30, align 8, !tbaa !22
+  %31 = load ptr, ptr %3, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %31, i32 0, i32 7
+  store i32 15, ptr %32, align 4, !tbaa !23
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
   %34 = call ptr @Mio_LibraryReadGates(ptr noundef %33)
-  store ptr %34, ptr %5, align 8
+  store ptr %34, ptr %5, align 8, !tbaa !24
   br label %35
 
 35:                                               ; preds = %227, %2
-  %36 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %5, align 8, !tbaa !24
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %230
 
 38:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
   %39 = call ptr @Abc_SclCellAlloc()
-  store ptr %39, ptr %9, align 8
-  %40 = load ptr, ptr %3, align 8
+  store ptr %39, ptr %9, align 8, !tbaa !26
+  %40 = load ptr, ptr %3, align 8, !tbaa !9
   %41 = call i32 @SC_LibCellNum(ptr noundef %40)
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.SC_Cell_, ptr %42, i32 0, i32 1
-  store i32 %41, ptr %43, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.SC_Lib_, ptr %44, i32 0, i32 11
-  %46 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %9, align 8, !tbaa !26
+  %43 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %42, i32 0, i32 1
+  store i32 %41, ptr %43, align 8, !tbaa !28
+  %44 = load ptr, ptr %3, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %44, i32 0, i32 11
+  %46 = load ptr, ptr %9, align 8, !tbaa !26
   call void @Vec_PtrPush(ptr noundef %45, ptr noundef %46)
-  %47 = load ptr, ptr %5, align 8
+  %47 = load ptr, ptr %5, align 8, !tbaa !24
   %48 = call ptr @Mio_GateReadName(ptr noundef %47)
   %49 = call ptr @Abc_UtilStrsav(ptr noundef %48)
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.SC_Cell_, ptr %50, i32 0, i32 0
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %9, align 8, !tbaa !26
+  %51 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8, !tbaa !30
+  %52 = load ptr, ptr %5, align 8, !tbaa !24
   %53 = call double @Mio_GateReadArea(ptr noundef %52)
   %54 = fptrunc double %53 to float
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.SC_Cell_, ptr %55, i32 0, i32 5
-  store float %54, ptr %56, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.SC_Cell_, ptr %57, i32 0, i32 6
-  store float 0.000000e+00, ptr %58, align 4
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct.SC_Cell_, ptr %59, i32 0, i32 9
-  store i32 0, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %9, align 8, !tbaa !26
+  %56 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %55, i32 0, i32 5
+  store float %54, ptr %56, align 8, !tbaa !31
+  %57 = load ptr, ptr %9, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %57, i32 0, i32 6
+  store float 0.000000e+00, ptr %58, align 4, !tbaa !32
+  %59 = load ptr, ptr %9, align 8, !tbaa !26
+  %60 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %59, i32 0, i32 9
+  store i32 0, ptr %60, align 8, !tbaa !33
+  %61 = load ptr, ptr %5, align 8, !tbaa !24
   %62 = call i32 @Mio_GateReadPinNum(ptr noundef %61)
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.SC_Cell_, ptr %63, i32 0, i32 11
-  store i32 %62, ptr %64, align 8
-  %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct.SC_Cell_, ptr %65, i32 0, i32 12
-  store i32 1, ptr %66, align 4
-  %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds %struct.SC_Cell_, ptr %67, i32 0, i32 5
-  %69 = load float, ptr %68, align 8
+  %63 = load ptr, ptr %9, align 8, !tbaa !26
+  %64 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %63, i32 0, i32 11
+  store i32 %62, ptr %64, align 8, !tbaa !34
+  %65 = load ptr, ptr %9, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %65, i32 0, i32 12
+  store i32 1, ptr %66, align 4, !tbaa !35
+  %67 = load ptr, ptr %9, align 8, !tbaa !26
+  %68 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %67, i32 0, i32 5
+  %69 = load float, ptr %68, align 8, !tbaa !31
   %70 = call i32 @Scl_Flt2Int(float noundef %69)
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.SC_Cell_, ptr %71, i32 0, i32 7
-  store i32 %70, ptr %72, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.SC_Cell_, ptr %73, i32 0, i32 6
-  %75 = load float, ptr %74, align 4
+  %71 = load ptr, ptr %9, align 8, !tbaa !26
+  %72 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %71, i32 0, i32 7
+  store i32 %70, ptr %72, align 8, !tbaa !36
+  %73 = load ptr, ptr %9, align 8, !tbaa !26
+  %74 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %73, i32 0, i32 6
+  %75 = load float, ptr %74, align 4, !tbaa !32
   %76 = call i32 @Scl_Flt2Int(float noundef %75)
-  %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds %struct.SC_Cell_, ptr %77, i32 0, i32 8
-  store i32 %76, ptr %78, align 4
-  %79 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %9, align 8, !tbaa !26
+  %78 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %77, i32 0, i32 8
+  store i32 %76, ptr %78, align 4, !tbaa !37
+  %79 = load ptr, ptr %5, align 8, !tbaa !24
   %80 = call ptr @Mio_GateReadPins(ptr noundef %79)
-  store ptr %80, ptr %6, align 8
+  store ptr %80, ptr %6, align 8, !tbaa !38
   br label %81
 
 81:                                               ; preds = %112, %38
-  %82 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %6, align 8, !tbaa !38
   %83 = icmp ne ptr %82, null
   br i1 %83, label %84, label %115
 
 84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
   %85 = call ptr @Abc_SclPinAlloc()
-  store ptr %85, ptr %10, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.SC_Cell_, ptr %86, i32 0, i32 10
-  %88 = load ptr, ptr %10, align 8
+  store ptr %85, ptr %10, align 8, !tbaa !40
+  %86 = load ptr, ptr %9, align 8, !tbaa !26
+  %87 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %86, i32 0, i32 10
+  %88 = load ptr, ptr %10, align 8, !tbaa !40
   call void @Vec_PtrPush(ptr noundef %87, ptr noundef %88)
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds %struct.SC_Pin_, ptr %89, i32 0, i32 1
-  store i32 1, ptr %90, align 8
-  %91 = load ptr, ptr %6, align 8
+  %89 = load ptr, ptr %10, align 8, !tbaa !40
+  %90 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %89, i32 0, i32 1
+  store i32 1, ptr %90, align 8, !tbaa !42
+  %91 = load ptr, ptr %6, align 8, !tbaa !38
   %92 = call ptr @Mio_PinReadName(ptr noundef %91)
   %93 = call ptr @Abc_UtilStrsav(ptr noundef %92)
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct.SC_Pin_, ptr %94, i32 0, i32 0
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds %struct.SC_Pin_, ptr %96, i32 0, i32 3
-  store float 0.000000e+00, ptr %97, align 8
-  %98 = load ptr, ptr %10, align 8
-  %99 = getelementptr inbounds %struct.SC_Pin_, ptr %98, i32 0, i32 4
-  store float 0.000000e+00, ptr %99, align 4
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds %struct.SC_Pin_, ptr %100, i32 0, i32 3
-  %102 = load float, ptr %101, align 8
+  %94 = load ptr, ptr %10, align 8, !tbaa !40
+  %95 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %94, i32 0, i32 0
+  store ptr %93, ptr %95, align 8, !tbaa !46
+  %96 = load ptr, ptr %10, align 8, !tbaa !40
+  %97 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %96, i32 0, i32 3
+  store float 0.000000e+00, ptr %97, align 8, !tbaa !47
+  %98 = load ptr, ptr %10, align 8, !tbaa !40
+  %99 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %98, i32 0, i32 4
+  store float 0.000000e+00, ptr %99, align 4, !tbaa !48
+  %100 = load ptr, ptr %10, align 8, !tbaa !40
+  %101 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %100, i32 0, i32 3
+  %102 = load float, ptr %101, align 8, !tbaa !47
   %103 = call i32 @Scl_Flt2Int(float noundef %102)
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct.SC_Pin_, ptr %104, i32 0, i32 5
-  store i32 %103, ptr %105, align 8
-  %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds %struct.SC_Pin_, ptr %106, i32 0, i32 4
-  %108 = load float, ptr %107, align 4
+  %104 = load ptr, ptr %10, align 8, !tbaa !40
+  %105 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %104, i32 0, i32 5
+  store i32 %103, ptr %105, align 8, !tbaa !49
+  %106 = load ptr, ptr %10, align 8, !tbaa !40
+  %107 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %106, i32 0, i32 4
+  %108 = load float, ptr %107, align 4, !tbaa !48
   %109 = call i32 @Scl_Flt2Int(float noundef %108)
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.SC_Pin_, ptr %110, i32 0, i32 6
-  store i32 %109, ptr %111, align 4
+  %110 = load ptr, ptr %10, align 8, !tbaa !40
+  %111 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %110, i32 0, i32 6
+  store i32 %109, ptr %111, align 4, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
   br label %112
 
 112:                                              ; preds = %84
-  %113 = load ptr, ptr %6, align 8
+  %113 = load ptr, ptr %6, align 8, !tbaa !38
   %114 = call ptr @Mio_PinReadNext(ptr noundef %113)
-  store ptr %114, ptr %6, align 8
-  br label %81, !llvm.loop !4
+  store ptr %114, ptr %6, align 8, !tbaa !38
+  br label %81, !llvm.loop !51
 
 115:                                              ; preds = %81
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %116
 
 116:                                              ; preds = %223, %115
-  %117 = load i32, ptr %7, align 4
-  %118 = load ptr, ptr %9, align 8
-  %119 = getelementptr inbounds %struct.SC_Cell_, ptr %118, i32 0, i32 12
-  %120 = load i32, ptr %119, align 4
+  %117 = load i32, ptr %7, align 4, !tbaa !53
+  %118 = load ptr, ptr %9, align 8, !tbaa !26
+  %119 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %118, i32 0, i32 12
+  %120 = load i32, ptr %119, align 4, !tbaa !35
   %121 = icmp slt i32 %117, %120
   br i1 %121, label %122, label %226
 
 122:                                              ; preds = %116
-  %123 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %123 = load ptr, ptr %5, align 8, !tbaa !24
   %124 = call ptr @Mio_GateReadTruthP(ptr noundef %123)
-  store ptr %124, ptr %11, align 8
+  store ptr %124, ptr %11, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
   %125 = call ptr @Abc_SclPinAlloc()
-  store ptr %125, ptr %12, align 8
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %struct.SC_Cell_, ptr %126, i32 0, i32 10
-  %128 = load ptr, ptr %12, align 8
+  store ptr %125, ptr %12, align 8, !tbaa !40
+  %126 = load ptr, ptr %9, align 8, !tbaa !26
+  %127 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %126, i32 0, i32 10
+  %128 = load ptr, ptr %12, align 8, !tbaa !40
   call void @Vec_PtrPush(ptr noundef %127, ptr noundef %128)
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds %struct.SC_Pin_, ptr %129, i32 0, i32 1
-  store i32 2, ptr %130, align 8
-  %131 = load ptr, ptr %5, align 8
+  %129 = load ptr, ptr %12, align 8, !tbaa !40
+  %130 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %129, i32 0, i32 1
+  store i32 2, ptr %130, align 8, !tbaa !42
+  %131 = load ptr, ptr %5, align 8, !tbaa !24
   %132 = call ptr @Mio_GateReadOutName(ptr noundef %131)
   %133 = call ptr @Abc_UtilStrsav(ptr noundef %132)
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %struct.SC_Pin_, ptr %134, i32 0, i32 0
-  store ptr %133, ptr %135, align 8
-  %136 = load ptr, ptr %12, align 8
-  %137 = getelementptr inbounds %struct.SC_Pin_, ptr %136, i32 0, i32 7
-  store float 0.000000e+00, ptr %137, align 8
-  %138 = load ptr, ptr %12, align 8
-  %139 = getelementptr inbounds %struct.SC_Pin_, ptr %138, i32 0, i32 8
-  store float 0.000000e+00, ptr %139, align 4
-  %140 = load ptr, ptr %5, align 8
+  %134 = load ptr, ptr %12, align 8, !tbaa !40
+  %135 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %134, i32 0, i32 0
+  store ptr %133, ptr %135, align 8, !tbaa !46
+  %136 = load ptr, ptr %12, align 8, !tbaa !40
+  %137 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %136, i32 0, i32 7
+  store float 0.000000e+00, ptr %137, align 8, !tbaa !55
+  %138 = load ptr, ptr %12, align 8, !tbaa !40
+  %139 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %138, i32 0, i32 8
+  store float 0.000000e+00, ptr %139, align 4, !tbaa !56
+  %140 = load ptr, ptr %5, align 8, !tbaa !24
   %141 = call ptr @Mio_GateReadForm(ptr noundef %140)
   %142 = call ptr @Abc_UtilStrsav(ptr noundef %141)
-  %143 = load ptr, ptr %12, align 8
-  %144 = getelementptr inbounds %struct.SC_Pin_, ptr %143, i32 0, i32 9
-  store ptr %142, ptr %144, align 8
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds %struct.SC_Pin_, ptr %145, i32 0, i32 10
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds %struct.SC_Cell_, ptr %147, i32 0, i32 11
-  %149 = load i32, ptr %148, align 8
+  %143 = load ptr, ptr %12, align 8, !tbaa !40
+  %144 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %143, i32 0, i32 9
+  store ptr %142, ptr %144, align 8, !tbaa !57
+  %145 = load ptr, ptr %12, align 8, !tbaa !40
+  %146 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %145, i32 0, i32 10
+  %147 = load ptr, ptr %9, align 8, !tbaa !26
+  %148 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %147, i32 0, i32 11
+  %149 = load i32, ptr %148, align 8, !tbaa !34
   %150 = call i32 @Abc_Truth6WordNum(i32 noundef %149)
   call void @Vec_WrdGrow(ptr noundef %146, i32 noundef %150)
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !53
   br label %151
 
 151:                                              ; preds = %165, %122
-  %152 = load i32, ptr %8, align 4
-  %153 = load ptr, ptr %12, align 8
-  %154 = getelementptr inbounds %struct.SC_Pin_, ptr %153, i32 0, i32 10
+  %152 = load i32, ptr %8, align 4, !tbaa !53
+  %153 = load ptr, ptr %12, align 8, !tbaa !40
+  %154 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %153, i32 0, i32 10
   %155 = call i32 @Vec_WrdCap(ptr noundef %154)
   %156 = icmp slt i32 %152, %155
   br i1 %156, label %157, label %168
 
 157:                                              ; preds = %151
-  %158 = load ptr, ptr %12, align 8
-  %159 = getelementptr inbounds %struct.SC_Pin_, ptr %158, i32 0, i32 10
-  %160 = load ptr, ptr %11, align 8
-  %161 = load i32, ptr %8, align 4
+  %158 = load ptr, ptr %12, align 8, !tbaa !40
+  %159 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %158, i32 0, i32 10
+  %160 = load ptr, ptr %11, align 8, !tbaa !54
+  %161 = load i32, ptr %8, align 4, !tbaa !53
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i64, ptr %160, i64 %162
-  %164 = load i64, ptr %163, align 8
+  %164 = load i64, ptr %163, align 8, !tbaa !58
   call void @Vec_WrdPush(ptr noundef %159, i64 noundef %164)
   br label %165
 
 165:                                              ; preds = %157
-  %166 = load i32, ptr %8, align 4
+  %166 = load i32, ptr %8, align 4, !tbaa !53
   %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %8, align 4
-  br label %151, !llvm.loop !6
+  store i32 %167, ptr %8, align 4, !tbaa !53
+  br label %151, !llvm.loop !60
 
 168:                                              ; preds = %151
-  %169 = load ptr, ptr %5, align 8
+  %169 = load ptr, ptr %5, align 8, !tbaa !24
   %170 = call ptr @Mio_GateReadPins(ptr noundef %169)
-  store ptr %170, ptr %6, align 8
+  store ptr %170, ptr %6, align 8, !tbaa !38
   br label %171
 
 171:                                              ; preds = %219, %168
-  %172 = load ptr, ptr %6, align 8
+  %172 = load ptr, ptr %6, align 8, !tbaa !38
   %173 = icmp ne ptr %172, null
   br i1 %173, label %174, label %222
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  %175 = load ptr, ptr %6, align 8, !tbaa !38
   %176 = call i32 @Mio_PinReadPhase(ptr noundef %175)
-  store i32 %176, ptr %13, align 4
+  store i32 %176, ptr %13, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
   %177 = call ptr @Abc_SclTimingsAlloc()
-  store ptr %177, ptr %14, align 8
-  %178 = load ptr, ptr %12, align 8
-  %179 = getelementptr inbounds %struct.SC_Pin_, ptr %178, i32 0, i32 11
-  %180 = load ptr, ptr %14, align 8
+  store ptr %177, ptr %14, align 8, !tbaa !61
+  %178 = load ptr, ptr %12, align 8, !tbaa !40
+  %179 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %178, i32 0, i32 11
+  %180 = load ptr, ptr %14, align 8, !tbaa !61
   call void @Vec_PtrPush(ptr noundef %179, ptr noundef %180)
-  %181 = load ptr, ptr %6, align 8
+  %181 = load ptr, ptr %6, align 8, !tbaa !38
   %182 = call ptr @Mio_PinReadName(ptr noundef %181)
   %183 = call ptr @Abc_UtilStrsav(ptr noundef %182)
-  %184 = load ptr, ptr %14, align 8
-  %185 = getelementptr inbounds %struct.SC_Timings_, ptr %184, i32 0, i32 0
-  store ptr %183, ptr %185, align 8
+  %184 = load ptr, ptr %14, align 8, !tbaa !61
+  %185 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %184, i32 0, i32 0
+  store ptr %183, ptr %185, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
   %186 = call ptr @Abc_SclTimingAlloc()
-  store ptr %186, ptr %15, align 8
-  %187 = load ptr, ptr %14, align 8
-  %188 = getelementptr inbounds %struct.SC_Timings_, ptr %187, i32 0, i32 1
-  %189 = load ptr, ptr %15, align 8
+  store ptr %186, ptr %15, align 8, !tbaa !65
+  %187 = load ptr, ptr %14, align 8, !tbaa !61
+  %188 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %187, i32 0, i32 1
+  %189 = load ptr, ptr %15, align 8, !tbaa !65
   call void @Vec_PtrPush(ptr noundef %188, ptr noundef %189)
-  %190 = load i32, ptr %13, align 4
+  %190 = load i32, ptr %13, align 4, !tbaa !53
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %174
-  %193 = load ptr, ptr %15, align 8
-  %194 = getelementptr inbounds %struct.SC_Timing_, ptr %193, i32 0, i32 1
-  store i32 3, ptr %194, align 8
+  %193 = load ptr, ptr %15, align 8, !tbaa !65
+  %194 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %193, i32 0, i32 1
+  store i32 3, ptr %194, align 8, !tbaa !67
   br label %210
 
 195:                                              ; preds = %174
-  %196 = load i32, ptr %13, align 4
+  %196 = load i32, ptr %13, align 4, !tbaa !53
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %201
 
 198:                                              ; preds = %195
-  %199 = load ptr, ptr %15, align 8
-  %200 = getelementptr inbounds %struct.SC_Timing_, ptr %199, i32 0, i32 1
-  store i32 2, ptr %200, align 8
+  %199 = load ptr, ptr %15, align 8, !tbaa !65
+  %200 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %199, i32 0, i32 1
+  store i32 2, ptr %200, align 8, !tbaa !67
   br label %209
 
 201:                                              ; preds = %195
-  %202 = load i32, ptr %13, align 4
+  %202 = load i32, ptr %13, align 4, !tbaa !53
   %203 = icmp eq i32 %202, 2
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %201
-  %205 = load ptr, ptr %15, align 8
-  %206 = getelementptr inbounds %struct.SC_Timing_, ptr %205, i32 0, i32 1
-  store i32 1, ptr %206, align 8
+  %205 = load ptr, ptr %15, align 8, !tbaa !65
+  %206 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %205, i32 0, i32 1
+  store i32 1, ptr %206, align 8, !tbaa !67
   br label %208
 
 207:                                              ; preds = %201
@@ -439,51 +461,64 @@ define internal i32 @Abc_SclReadLibraryGenlib(ptr noundef %0, ptr noundef %1) #0
   br label %210
 
 210:                                              ; preds = %209, %192
-  %211 = load ptr, ptr %15, align 8
-  %212 = getelementptr inbounds %struct.SC_Timing_, ptr %211, i32 0, i32 3
+  %211 = load ptr, ptr %15, align 8, !tbaa !65
+  %212 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %211, i32 0, i32 3
   call void @Abc_SclReadSurfaceGenlib(ptr noundef %212)
-  %213 = load ptr, ptr %15, align 8
-  %214 = getelementptr inbounds %struct.SC_Timing_, ptr %213, i32 0, i32 4
+  %213 = load ptr, ptr %15, align 8, !tbaa !65
+  %214 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %213, i32 0, i32 4
   call void @Abc_SclReadSurfaceGenlib(ptr noundef %214)
-  %215 = load ptr, ptr %15, align 8
-  %216 = getelementptr inbounds %struct.SC_Timing_, ptr %215, i32 0, i32 5
+  %215 = load ptr, ptr %15, align 8, !tbaa !65
+  %216 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %215, i32 0, i32 5
   call void @Abc_SclReadSurfaceGenlib(ptr noundef %216)
-  %217 = load ptr, ptr %15, align 8
-  %218 = getelementptr inbounds %struct.SC_Timing_, ptr %217, i32 0, i32 6
+  %217 = load ptr, ptr %15, align 8, !tbaa !65
+  %218 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %217, i32 0, i32 6
   call void @Abc_SclReadSurfaceGenlib(ptr noundef %218)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
   br label %219
 
 219:                                              ; preds = %210
-  %220 = load ptr, ptr %6, align 8
+  %220 = load ptr, ptr %6, align 8, !tbaa !38
   %221 = call ptr @Mio_PinReadNext(ptr noundef %220)
-  store ptr %221, ptr %6, align 8
-  br label %171, !llvm.loop !7
+  store ptr %221, ptr %6, align 8, !tbaa !38
+  br label %171, !llvm.loop !73
 
 222:                                              ; preds = %171
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   br label %223
 
 223:                                              ; preds = %222
-  %224 = load i32, ptr %7, align 4
+  %224 = load i32, ptr %7, align 4, !tbaa !53
   %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %7, align 4
-  br label %116, !llvm.loop !8
+  store i32 %225, ptr %7, align 4, !tbaa !53
+  br label %116, !llvm.loop !74
 
 226:                                              ; preds = %116
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   br label %227
 
 227:                                              ; preds = %226
-  %228 = load ptr, ptr %5, align 8
+  %228 = load ptr, ptr %5, align 8, !tbaa !24
   %229 = call ptr @Mio_GateReadNext(ptr noundef %228)
-  store ptr %229, ptr %5, align 8
-  br label %35, !llvm.loop !9
+  store ptr %229, ptr %5, align 8, !tbaa !24
+  br label %35, !llvm.loop !75
 
 230:                                              ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret i32 1
 }
 
-declare void @Abc_SclHashCells(ptr noundef) #1
+declare void @Abc_SclHashCells(ptr noundef) #2
 
-declare void @Abc_SclLinkCells(ptr noundef) #1
+declare void @Abc_SclLinkCells(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_SclReadFromStr(ptr noundef %0) #0 {
@@ -491,32 +526,39 @@ define ptr @Abc_SclReadFromStr(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 0, ptr %5, align 4
-  %6 = call ptr @Abc_SclLibAlloc()
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call i32 @Abc_SclReadLibrary(ptr noundef %7, ptr noundef %5, ptr noundef %8)
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %16
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !53
+  %7 = call ptr @Abc_SclLibAlloc()
+  store ptr %7, ptr %4, align 8, !tbaa !9
+  %8 = load ptr, ptr %3, align 8, !tbaa !76
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = call i32 @Abc_SclReadLibrary(ptr noundef %8, ptr noundef %5, ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %4, align 8
-  call void @Abc_SclHashCells(ptr noundef %13)
-  %14 = load ptr, ptr %4, align 8
-  call void @Abc_SclLinkCells(ptr noundef %14)
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %2, align 8
-  br label %16
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %17
 
-16:                                               ; preds = %12, %11
-  %17 = load ptr, ptr %2, align 8
-  ret ptr %17
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Abc_SclHashCells(ptr noundef %14)
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Abc_SclLinkCells(ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %16, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %17
+
+17:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %18 = load ptr, ptr %2, align 8
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -530,7 +572,7 @@ define internal i32 @Abc_SclReadLibrary(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
+  %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
@@ -538,677 +580,712 @@ define internal i32 @Abc_SclReadLibrary(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
-  %21 = alloca i64, align 8
-  %22 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
   %23 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @Vec_StrGetI(ptr noundef %24, ptr noundef %25)
-  store i32 %26, ptr %12, align 4
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ne i32 %27, 8
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %3
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef @.str.8)
-  store i32 0, ptr %4, align 4
-  br label %466
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !76
+  store ptr %1, ptr %6, align 8, !tbaa !78
+  store ptr %2, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %25 = load ptr, ptr %5, align 8, !tbaa !76
+  %26 = load ptr, ptr %6, align 8, !tbaa !78
+  %27 = call i32 @Vec_StrGetI(ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %12, align 4, !tbaa !53
+  %28 = load i32, ptr %12, align 4, !tbaa !53
+  %29 = icmp ne i32 %28, 8
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %3
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = call ptr @Vec_StrGetS(ptr noundef %31, ptr noundef %32)
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.SC_Lib_, ptr %34, i32 0, i32 0
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = call ptr @Vec_StrGetS(ptr noundef %36, ptr noundef %37)
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.SC_Lib_, ptr %39, i32 0, i32 2
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = call ptr @Vec_StrGetS(ptr noundef %41, ptr noundef %42)
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.SC_Lib_, ptr %44, i32 0, i32 3
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = call float @Vec_StrGetF(ptr noundef %46, ptr noundef %47)
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.SC_Lib_, ptr %49, i32 0, i32 4
-  store float %48, ptr %50, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = call i32 @Vec_StrGetI(ptr noundef %51, ptr noundef %52)
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.SC_Lib_, ptr %54, i32 0, i32 5
-  store i32 %53, ptr %55, align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = call float @Vec_StrGetF(ptr noundef %56, ptr noundef %57)
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct.SC_Lib_, ptr %59, i32 0, i32 6
-  store float %58, ptr %60, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = call i32 @Vec_StrGetI(ptr noundef %61, ptr noundef %62)
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct.SC_Lib_, ptr %64, i32 0, i32 7
-  store i32 %63, ptr %65, align 4
-  %66 = load ptr, ptr %5, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = call i32 @Vec_StrGetI(ptr noundef %66, ptr noundef %67)
-  store i32 %68, ptr %8, align 4
-  br label %69
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef @.str.8)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %467
 
-69:                                               ; preds = %113, %30
-  %70 = load i32, ptr %8, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %116
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %5, align 8, !tbaa !76
+  %33 = load ptr, ptr %6, align 8, !tbaa !78
+  %34 = call ptr @Vec_StrGetS(ptr noundef %32, ptr noundef %33)
+  %35 = load ptr, ptr %7, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8, !tbaa !11
+  %37 = load ptr, ptr %5, align 8, !tbaa !76
+  %38 = load ptr, ptr %6, align 8, !tbaa !78
+  %39 = call ptr @Vec_StrGetS(ptr noundef %37, ptr noundef %38)
+  %40 = load ptr, ptr %7, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %40, i32 0, i32 2
+  store ptr %39, ptr %41, align 8, !tbaa !18
+  %42 = load ptr, ptr %5, align 8, !tbaa !76
+  %43 = load ptr, ptr %6, align 8, !tbaa !78
+  %44 = call ptr @Vec_StrGetS(ptr noundef %42, ptr noundef %43)
+  %45 = load ptr, ptr %7, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %45, i32 0, i32 3
+  store ptr %44, ptr %46, align 8, !tbaa !19
+  %47 = load ptr, ptr %5, align 8, !tbaa !76
+  %48 = load ptr, ptr %6, align 8, !tbaa !78
+  %49 = call float @Vec_StrGetF(ptr noundef %47, ptr noundef %48)
+  %50 = load ptr, ptr %7, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %50, i32 0, i32 4
+  store float %49, ptr %51, align 8, !tbaa !20
+  %52 = load ptr, ptr %5, align 8, !tbaa !76
+  %53 = load ptr, ptr %6, align 8, !tbaa !78
+  %54 = call i32 @Vec_StrGetI(ptr noundef %52, ptr noundef %53)
+  %55 = load ptr, ptr %7, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %55, i32 0, i32 5
+  store i32 %54, ptr %56, align 4, !tbaa !21
+  %57 = load ptr, ptr %5, align 8, !tbaa !76
+  %58 = load ptr, ptr %6, align 8, !tbaa !78
+  %59 = call float @Vec_StrGetF(ptr noundef %57, ptr noundef %58)
+  %60 = load ptr, ptr %7, align 8, !tbaa !9
+  %61 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %60, i32 0, i32 6
+  store float %59, ptr %61, align 8, !tbaa !22
+  %62 = load ptr, ptr %5, align 8, !tbaa !76
+  %63 = load ptr, ptr %6, align 8, !tbaa !78
+  %64 = call i32 @Vec_StrGetI(ptr noundef %62, ptr noundef %63)
+  %65 = load ptr, ptr %7, align 8, !tbaa !9
+  %66 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %65, i32 0, i32 7
+  store i32 %64, ptr %66, align 4, !tbaa !23
+  %67 = load ptr, ptr %5, align 8, !tbaa !76
+  %68 = load ptr, ptr %6, align 8, !tbaa !78
+  %69 = call i32 @Vec_StrGetI(ptr noundef %67, ptr noundef %68)
+  store i32 %69, ptr %8, align 4, !tbaa !53
+  br label %70
 
-72:                                               ; preds = %69
-  %73 = call ptr @Abc_SclWireLoadAlloc()
-  store ptr %73, ptr %13, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct.SC_Lib_, ptr %74, i32 0, i32 8
-  %76 = load ptr, ptr %13, align 8
-  call void @Vec_PtrPush(ptr noundef %75, ptr noundef %76)
-  %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = call ptr @Vec_StrGetS(ptr noundef %77, ptr noundef %78)
-  %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct.SC_WireLoad_, ptr %80, i32 0, i32 0
-  store ptr %79, ptr %81, align 8
-  %82 = load ptr, ptr %5, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = call float @Vec_StrGetF(ptr noundef %82, ptr noundef %83)
-  %85 = load ptr, ptr %13, align 8
-  %86 = getelementptr inbounds %struct.SC_WireLoad_, ptr %85, i32 0, i32 1
-  store float %84, ptr %86, align 8
-  %87 = load ptr, ptr %5, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = call float @Vec_StrGetF(ptr noundef %87, ptr noundef %88)
-  %90 = load ptr, ptr %13, align 8
-  %91 = getelementptr inbounds %struct.SC_WireLoad_, ptr %90, i32 0, i32 2
-  store float %89, ptr %91, align 4
-  %92 = load ptr, ptr %5, align 8
-  %93 = load ptr, ptr %6, align 8
-  %94 = call i32 @Vec_StrGetI(ptr noundef %92, ptr noundef %93)
-  store i32 %94, ptr %9, align 4
-  br label %95
+70:                                               ; preds = %114, %31
+  %71 = load i32, ptr %8, align 4, !tbaa !53
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %117
 
-95:                                               ; preds = %109, %72
-  %96 = load i32, ptr %9, align 4
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %112
+73:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %74 = call ptr @Abc_SclWireLoadAlloc()
+  store ptr %74, ptr %14, align 8, !tbaa !79
+  %75 = load ptr, ptr %7, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %75, i32 0, i32 8
+  %77 = load ptr, ptr %14, align 8, !tbaa !79
+  call void @Vec_PtrPush(ptr noundef %76, ptr noundef %77)
+  %78 = load ptr, ptr %5, align 8, !tbaa !76
+  %79 = load ptr, ptr %6, align 8, !tbaa !78
+  %80 = call ptr @Vec_StrGetS(ptr noundef %78, ptr noundef %79)
+  %81 = load ptr, ptr %14, align 8, !tbaa !79
+  %82 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %81, i32 0, i32 0
+  store ptr %80, ptr %82, align 8, !tbaa !81
+  %83 = load ptr, ptr %5, align 8, !tbaa !76
+  %84 = load ptr, ptr %6, align 8, !tbaa !78
+  %85 = call float @Vec_StrGetF(ptr noundef %83, ptr noundef %84)
+  %86 = load ptr, ptr %14, align 8, !tbaa !79
+  %87 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %86, i32 0, i32 1
+  store float %85, ptr %87, align 8, !tbaa !83
+  %88 = load ptr, ptr %5, align 8, !tbaa !76
+  %89 = load ptr, ptr %6, align 8, !tbaa !78
+  %90 = call float @Vec_StrGetF(ptr noundef %88, ptr noundef %89)
+  %91 = load ptr, ptr %14, align 8, !tbaa !79
+  %92 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %91, i32 0, i32 2
+  store float %90, ptr %92, align 4, !tbaa !84
+  %93 = load ptr, ptr %5, align 8, !tbaa !76
+  %94 = load ptr, ptr %6, align 8, !tbaa !78
+  %95 = call i32 @Vec_StrGetI(ptr noundef %93, ptr noundef %94)
+  store i32 %95, ptr %9, align 4, !tbaa !53
+  br label %96
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds %struct.SC_WireLoad_, ptr %99, i32 0, i32 3
-  %101 = load ptr, ptr %5, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = call i32 @Vec_StrGetI(ptr noundef %101, ptr noundef %102)
-  call void @Vec_IntPush(ptr noundef %100, i32 noundef %103)
-  %104 = load ptr, ptr %13, align 8
-  %105 = getelementptr inbounds %struct.SC_WireLoad_, ptr %104, i32 0, i32 4
-  %106 = load ptr, ptr %5, align 8
-  %107 = load ptr, ptr %6, align 8
-  %108 = call float @Vec_StrGetF(ptr noundef %106, ptr noundef %107)
-  call void @Vec_FltPush(ptr noundef %105, float noundef %108)
-  br label %109
+96:                                               ; preds = %110, %73
+  %97 = load i32, ptr %9, align 4, !tbaa !53
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %113
 
-109:                                              ; preds = %98
-  %110 = load i32, ptr %9, align 4
-  %111 = add nsw i32 %110, -1
-  store i32 %111, ptr %9, align 4
-  br label %95, !llvm.loop !10
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %14, align 8, !tbaa !79
+  %101 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %100, i32 0, i32 3
+  %102 = load ptr, ptr %5, align 8, !tbaa !76
+  %103 = load ptr, ptr %6, align 8, !tbaa !78
+  %104 = call i32 @Vec_StrGetI(ptr noundef %102, ptr noundef %103)
+  call void @Vec_IntPush(ptr noundef %101, i32 noundef %104)
+  %105 = load ptr, ptr %14, align 8, !tbaa !79
+  %106 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %105, i32 0, i32 4
+  %107 = load ptr, ptr %5, align 8, !tbaa !76
+  %108 = load ptr, ptr %6, align 8, !tbaa !78
+  %109 = call float @Vec_StrGetF(ptr noundef %107, ptr noundef %108)
+  call void @Vec_FltPush(ptr noundef %106, float noundef %109)
+  br label %110
 
-112:                                              ; preds = %95
-  br label %113
+110:                                              ; preds = %99
+  %111 = load i32, ptr %9, align 4, !tbaa !53
+  %112 = add nsw i32 %111, -1
+  store i32 %112, ptr %9, align 4, !tbaa !53
+  br label %96, !llvm.loop !85
 
-113:                                              ; preds = %112
-  %114 = load i32, ptr %8, align 4
-  %115 = add nsw i32 %114, -1
-  store i32 %115, ptr %8, align 4
-  br label %69, !llvm.loop !11
+113:                                              ; preds = %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  br label %114
 
-116:                                              ; preds = %69
-  %117 = load ptr, ptr %5, align 8
-  %118 = load ptr, ptr %6, align 8
-  %119 = call i32 @Vec_StrGetI(ptr noundef %117, ptr noundef %118)
-  store i32 %119, ptr %8, align 4
-  br label %120
+114:                                              ; preds = %113
+  %115 = load i32, ptr %8, align 4, !tbaa !53
+  %116 = add nsw i32 %115, -1
+  store i32 %116, ptr %8, align 4, !tbaa !53
+  br label %70, !llvm.loop !86
 
-120:                                              ; preds = %159, %116
-  %121 = load i32, ptr %8, align 4
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %162
+117:                                              ; preds = %70
+  %118 = load ptr, ptr %5, align 8, !tbaa !76
+  %119 = load ptr, ptr %6, align 8, !tbaa !78
+  %120 = call i32 @Vec_StrGetI(ptr noundef %118, ptr noundef %119)
+  store i32 %120, ptr %8, align 4, !tbaa !53
+  br label %121
 
-123:                                              ; preds = %120
-  %124 = call ptr @Abc_SclWireLoadSelAlloc()
-  store ptr %124, ptr %14, align 8
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.SC_Lib_, ptr %125, i32 0, i32 9
-  %127 = load ptr, ptr %14, align 8
-  call void @Vec_PtrPush(ptr noundef %126, ptr noundef %127)
-  %128 = load ptr, ptr %5, align 8
-  %129 = load ptr, ptr %6, align 8
-  %130 = call ptr @Vec_StrGetS(ptr noundef %128, ptr noundef %129)
-  %131 = load ptr, ptr %14, align 8
-  %132 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %131, i32 0, i32 0
-  store ptr %130, ptr %132, align 8
-  %133 = load ptr, ptr %5, align 8
-  %134 = load ptr, ptr %6, align 8
-  %135 = call i32 @Vec_StrGetI(ptr noundef %133, ptr noundef %134)
-  store i32 %135, ptr %9, align 4
-  br label %136
+121:                                              ; preds = %160, %117
+  %122 = load i32, ptr %8, align 4, !tbaa !53
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %163
 
-136:                                              ; preds = %155, %123
-  %137 = load i32, ptr %9, align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %158
+124:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %125 = call ptr @Abc_SclWireLoadSelAlloc()
+  store ptr %125, ptr %15, align 8, !tbaa !87
+  %126 = load ptr, ptr %7, align 8, !tbaa !9
+  %127 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %126, i32 0, i32 9
+  %128 = load ptr, ptr %15, align 8, !tbaa !87
+  call void @Vec_PtrPush(ptr noundef %127, ptr noundef %128)
+  %129 = load ptr, ptr %5, align 8, !tbaa !76
+  %130 = load ptr, ptr %6, align 8, !tbaa !78
+  %131 = call ptr @Vec_StrGetS(ptr noundef %129, ptr noundef %130)
+  %132 = load ptr, ptr %15, align 8, !tbaa !87
+  %133 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %132, i32 0, i32 0
+  store ptr %131, ptr %133, align 8, !tbaa !89
+  %134 = load ptr, ptr %5, align 8, !tbaa !76
+  %135 = load ptr, ptr %6, align 8, !tbaa !78
+  %136 = call i32 @Vec_StrGetI(ptr noundef %134, ptr noundef %135)
+  store i32 %136, ptr %9, align 4, !tbaa !53
+  br label %137
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %14, align 8
-  %141 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %140, i32 0, i32 1
-  %142 = load ptr, ptr %5, align 8
-  %143 = load ptr, ptr %6, align 8
-  %144 = call float @Vec_StrGetF(ptr noundef %142, ptr noundef %143)
-  call void @Vec_FltPush(ptr noundef %141, float noundef %144)
-  %145 = load ptr, ptr %14, align 8
-  %146 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %145, i32 0, i32 2
-  %147 = load ptr, ptr %5, align 8
-  %148 = load ptr, ptr %6, align 8
-  %149 = call float @Vec_StrGetF(ptr noundef %147, ptr noundef %148)
-  call void @Vec_FltPush(ptr noundef %146, float noundef %149)
-  %150 = load ptr, ptr %14, align 8
-  %151 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %150, i32 0, i32 3
-  %152 = load ptr, ptr %5, align 8
-  %153 = load ptr, ptr %6, align 8
-  %154 = call ptr @Vec_StrGetS(ptr noundef %152, ptr noundef %153)
-  call void @Vec_PtrPush(ptr noundef %151, ptr noundef %154)
-  br label %155
+137:                                              ; preds = %156, %124
+  %138 = load i32, ptr %9, align 4, !tbaa !53
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %159
 
-155:                                              ; preds = %139
-  %156 = load i32, ptr %9, align 4
-  %157 = add nsw i32 %156, -1
-  store i32 %157, ptr %9, align 4
-  br label %136, !llvm.loop !12
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %15, align 8, !tbaa !87
+  %142 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %5, align 8, !tbaa !76
+  %144 = load ptr, ptr %6, align 8, !tbaa !78
+  %145 = call float @Vec_StrGetF(ptr noundef %143, ptr noundef %144)
+  call void @Vec_FltPush(ptr noundef %142, float noundef %145)
+  %146 = load ptr, ptr %15, align 8, !tbaa !87
+  %147 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %146, i32 0, i32 2
+  %148 = load ptr, ptr %5, align 8, !tbaa !76
+  %149 = load ptr, ptr %6, align 8, !tbaa !78
+  %150 = call float @Vec_StrGetF(ptr noundef %148, ptr noundef %149)
+  call void @Vec_FltPush(ptr noundef %147, float noundef %150)
+  %151 = load ptr, ptr %15, align 8, !tbaa !87
+  %152 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %151, i32 0, i32 3
+  %153 = load ptr, ptr %5, align 8, !tbaa !76
+  %154 = load ptr, ptr %6, align 8, !tbaa !78
+  %155 = call ptr @Vec_StrGetS(ptr noundef %153, ptr noundef %154)
+  call void @Vec_PtrPush(ptr noundef %152, ptr noundef %155)
+  br label %156
 
-158:                                              ; preds = %136
-  br label %159
+156:                                              ; preds = %140
+  %157 = load i32, ptr %9, align 4, !tbaa !53
+  %158 = add nsw i32 %157, -1
+  store i32 %158, ptr %9, align 4, !tbaa !53
+  br label %137, !llvm.loop !91
 
-159:                                              ; preds = %158
-  %160 = load i32, ptr %8, align 4
-  %161 = add nsw i32 %160, -1
-  store i32 %161, ptr %8, align 4
-  br label %120, !llvm.loop !13
+159:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  br label %160
 
-162:                                              ; preds = %120
-  %163 = load ptr, ptr %5, align 8
-  %164 = load ptr, ptr %6, align 8
-  %165 = call i32 @Vec_StrGetI(ptr noundef %163, ptr noundef %164)
-  store i32 %165, ptr %8, align 4
-  br label %166
+160:                                              ; preds = %159
+  %161 = load i32, ptr %8, align 4, !tbaa !53
+  %162 = add nsw i32 %161, -1
+  store i32 %162, ptr %8, align 4, !tbaa !53
+  br label %121, !llvm.loop !92
 
-166:                                              ; preds = %462, %162
-  %167 = load i32, ptr %8, align 4
-  %168 = icmp ne i32 %167, 0
-  br i1 %168, label %169, label %465
+163:                                              ; preds = %121
+  %164 = load ptr, ptr %5, align 8, !tbaa !76
+  %165 = load ptr, ptr %6, align 8, !tbaa !78
+  %166 = call i32 @Vec_StrGetI(ptr noundef %164, ptr noundef %165)
+  store i32 %166, ptr %8, align 4, !tbaa !53
+  br label %167
 
-169:                                              ; preds = %166
-  %170 = call ptr @Abc_SclCellAlloc()
-  store ptr %170, ptr %15, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = call i32 @SC_LibCellNum(ptr noundef %171)
-  %173 = load ptr, ptr %15, align 8
-  %174 = getelementptr inbounds %struct.SC_Cell_, ptr %173, i32 0, i32 1
-  store i32 %172, ptr %174, align 8
-  %175 = load ptr, ptr %7, align 8
-  %176 = getelementptr inbounds %struct.SC_Lib_, ptr %175, i32 0, i32 11
-  %177 = load ptr, ptr %15, align 8
-  call void @Vec_PtrPush(ptr noundef %176, ptr noundef %177)
-  %178 = load ptr, ptr %5, align 8
-  %179 = load ptr, ptr %6, align 8
-  %180 = call ptr @Vec_StrGetS(ptr noundef %178, ptr noundef %179)
-  %181 = load ptr, ptr %15, align 8
-  %182 = getelementptr inbounds %struct.SC_Cell_, ptr %181, i32 0, i32 0
-  store ptr %180, ptr %182, align 8
-  %183 = load ptr, ptr %5, align 8
-  %184 = load ptr, ptr %6, align 8
-  %185 = call float @Vec_StrGetF(ptr noundef %183, ptr noundef %184)
-  %186 = load ptr, ptr %15, align 8
-  %187 = getelementptr inbounds %struct.SC_Cell_, ptr %186, i32 0, i32 5
-  store float %185, ptr %187, align 8
-  %188 = load ptr, ptr %5, align 8
-  %189 = load ptr, ptr %6, align 8
-  %190 = call float @Vec_StrGetF(ptr noundef %188, ptr noundef %189)
-  %191 = load ptr, ptr %15, align 8
-  %192 = getelementptr inbounds %struct.SC_Cell_, ptr %191, i32 0, i32 6
-  store float %190, ptr %192, align 4
-  %193 = load ptr, ptr %5, align 8
-  %194 = load ptr, ptr %6, align 8
-  %195 = call i32 @Vec_StrGetI(ptr noundef %193, ptr noundef %194)
-  %196 = load ptr, ptr %15, align 8
-  %197 = getelementptr inbounds %struct.SC_Cell_, ptr %196, i32 0, i32 9
-  store i32 %195, ptr %197, align 8
-  %198 = load ptr, ptr %5, align 8
-  %199 = load ptr, ptr %6, align 8
-  %200 = call i32 @Vec_StrGetI(ptr noundef %198, ptr noundef %199)
-  %201 = load ptr, ptr %15, align 8
-  %202 = getelementptr inbounds %struct.SC_Cell_, ptr %201, i32 0, i32 11
-  store i32 %200, ptr %202, align 8
-  %203 = load ptr, ptr %5, align 8
-  %204 = load ptr, ptr %6, align 8
-  %205 = call i32 @Vec_StrGetI(ptr noundef %203, ptr noundef %204)
-  %206 = load ptr, ptr %15, align 8
-  %207 = getelementptr inbounds %struct.SC_Cell_, ptr %206, i32 0, i32 12
-  store i32 %205, ptr %207, align 4
-  %208 = load ptr, ptr %15, align 8
-  %209 = getelementptr inbounds %struct.SC_Cell_, ptr %208, i32 0, i32 5
-  %210 = load float, ptr %209, align 8
-  %211 = call i32 @Scl_Flt2Int(float noundef %210)
-  %212 = load ptr, ptr %15, align 8
-  %213 = getelementptr inbounds %struct.SC_Cell_, ptr %212, i32 0, i32 7
-  store i32 %211, ptr %213, align 8
-  %214 = load ptr, ptr %15, align 8
-  %215 = getelementptr inbounds %struct.SC_Cell_, ptr %214, i32 0, i32 6
-  %216 = load float, ptr %215, align 4
-  %217 = call i32 @Scl_Flt2Int(float noundef %216)
-  %218 = load ptr, ptr %15, align 8
-  %219 = getelementptr inbounds %struct.SC_Cell_, ptr %218, i32 0, i32 8
-  store i32 %217, ptr %219, align 4
-  store i32 0, ptr %9, align 4
-  br label %220
+167:                                              ; preds = %463, %163
+  %168 = load i32, ptr %8, align 4, !tbaa !53
+  %169 = icmp ne i32 %168, 0
+  br i1 %169, label %170, label %466
 
-220:                                              ; preds = %260, %169
-  %221 = load i32, ptr %9, align 4
-  %222 = load ptr, ptr %15, align 8
-  %223 = getelementptr inbounds %struct.SC_Cell_, ptr %222, i32 0, i32 11
-  %224 = load i32, ptr %223, align 8
-  %225 = icmp slt i32 %221, %224
-  br i1 %225, label %226, label %263
+170:                                              ; preds = %167
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %171 = call ptr @Abc_SclCellAlloc()
+  store ptr %171, ptr %16, align 8, !tbaa !26
+  %172 = load ptr, ptr %7, align 8, !tbaa !9
+  %173 = call i32 @SC_LibCellNum(ptr noundef %172)
+  %174 = load ptr, ptr %16, align 8, !tbaa !26
+  %175 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %174, i32 0, i32 1
+  store i32 %173, ptr %175, align 8, !tbaa !28
+  %176 = load ptr, ptr %7, align 8, !tbaa !9
+  %177 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %176, i32 0, i32 11
+  %178 = load ptr, ptr %16, align 8, !tbaa !26
+  call void @Vec_PtrPush(ptr noundef %177, ptr noundef %178)
+  %179 = load ptr, ptr %5, align 8, !tbaa !76
+  %180 = load ptr, ptr %6, align 8, !tbaa !78
+  %181 = call ptr @Vec_StrGetS(ptr noundef %179, ptr noundef %180)
+  %182 = load ptr, ptr %16, align 8, !tbaa !26
+  %183 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %182, i32 0, i32 0
+  store ptr %181, ptr %183, align 8, !tbaa !30
+  %184 = load ptr, ptr %5, align 8, !tbaa !76
+  %185 = load ptr, ptr %6, align 8, !tbaa !78
+  %186 = call float @Vec_StrGetF(ptr noundef %184, ptr noundef %185)
+  %187 = load ptr, ptr %16, align 8, !tbaa !26
+  %188 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %187, i32 0, i32 5
+  store float %186, ptr %188, align 8, !tbaa !31
+  %189 = load ptr, ptr %5, align 8, !tbaa !76
+  %190 = load ptr, ptr %6, align 8, !tbaa !78
+  %191 = call float @Vec_StrGetF(ptr noundef %189, ptr noundef %190)
+  %192 = load ptr, ptr %16, align 8, !tbaa !26
+  %193 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %192, i32 0, i32 6
+  store float %191, ptr %193, align 4, !tbaa !32
+  %194 = load ptr, ptr %5, align 8, !tbaa !76
+  %195 = load ptr, ptr %6, align 8, !tbaa !78
+  %196 = call i32 @Vec_StrGetI(ptr noundef %194, ptr noundef %195)
+  %197 = load ptr, ptr %16, align 8, !tbaa !26
+  %198 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %197, i32 0, i32 9
+  store i32 %196, ptr %198, align 8, !tbaa !33
+  %199 = load ptr, ptr %5, align 8, !tbaa !76
+  %200 = load ptr, ptr %6, align 8, !tbaa !78
+  %201 = call i32 @Vec_StrGetI(ptr noundef %199, ptr noundef %200)
+  %202 = load ptr, ptr %16, align 8, !tbaa !26
+  %203 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %202, i32 0, i32 11
+  store i32 %201, ptr %203, align 8, !tbaa !34
+  %204 = load ptr, ptr %5, align 8, !tbaa !76
+  %205 = load ptr, ptr %6, align 8, !tbaa !78
+  %206 = call i32 @Vec_StrGetI(ptr noundef %204, ptr noundef %205)
+  %207 = load ptr, ptr %16, align 8, !tbaa !26
+  %208 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %207, i32 0, i32 12
+  store i32 %206, ptr %208, align 4, !tbaa !35
+  %209 = load ptr, ptr %16, align 8, !tbaa !26
+  %210 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %209, i32 0, i32 5
+  %211 = load float, ptr %210, align 8, !tbaa !31
+  %212 = call i32 @Scl_Flt2Int(float noundef %211)
+  %213 = load ptr, ptr %16, align 8, !tbaa !26
+  %214 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %213, i32 0, i32 7
+  store i32 %212, ptr %214, align 8, !tbaa !36
+  %215 = load ptr, ptr %16, align 8, !tbaa !26
+  %216 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %215, i32 0, i32 6
+  %217 = load float, ptr %216, align 4, !tbaa !32
+  %218 = call i32 @Scl_Flt2Int(float noundef %217)
+  %219 = load ptr, ptr %16, align 8, !tbaa !26
+  %220 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %219, i32 0, i32 8
+  store i32 %218, ptr %220, align 4, !tbaa !37
+  store i32 0, ptr %9, align 4, !tbaa !53
+  br label %221
 
-226:                                              ; preds = %220
-  %227 = call ptr @Abc_SclPinAlloc()
-  store ptr %227, ptr %16, align 8
-  %228 = load ptr, ptr %15, align 8
-  %229 = getelementptr inbounds %struct.SC_Cell_, ptr %228, i32 0, i32 10
-  %230 = load ptr, ptr %16, align 8
-  call void @Vec_PtrPush(ptr noundef %229, ptr noundef %230)
-  %231 = load ptr, ptr %16, align 8
-  %232 = getelementptr inbounds %struct.SC_Pin_, ptr %231, i32 0, i32 1
-  store i32 1, ptr %232, align 8
-  %233 = load ptr, ptr %5, align 8
-  %234 = load ptr, ptr %6, align 8
-  %235 = call ptr @Vec_StrGetS(ptr noundef %233, ptr noundef %234)
-  %236 = load ptr, ptr %16, align 8
-  %237 = getelementptr inbounds %struct.SC_Pin_, ptr %236, i32 0, i32 0
-  store ptr %235, ptr %237, align 8
-  %238 = load ptr, ptr %5, align 8
-  %239 = load ptr, ptr %6, align 8
-  %240 = call float @Vec_StrGetF(ptr noundef %238, ptr noundef %239)
-  %241 = load ptr, ptr %16, align 8
-  %242 = getelementptr inbounds %struct.SC_Pin_, ptr %241, i32 0, i32 3
-  store float %240, ptr %242, align 8
-  %243 = load ptr, ptr %5, align 8
-  %244 = load ptr, ptr %6, align 8
-  %245 = call float @Vec_StrGetF(ptr noundef %243, ptr noundef %244)
-  %246 = load ptr, ptr %16, align 8
-  %247 = getelementptr inbounds %struct.SC_Pin_, ptr %246, i32 0, i32 4
-  store float %245, ptr %247, align 4
-  %248 = load ptr, ptr %16, align 8
-  %249 = getelementptr inbounds %struct.SC_Pin_, ptr %248, i32 0, i32 3
-  %250 = load float, ptr %249, align 8
-  %251 = call i32 @Scl_Flt2Int(float noundef %250)
-  %252 = load ptr, ptr %16, align 8
-  %253 = getelementptr inbounds %struct.SC_Pin_, ptr %252, i32 0, i32 5
-  store i32 %251, ptr %253, align 8
-  %254 = load ptr, ptr %16, align 8
-  %255 = getelementptr inbounds %struct.SC_Pin_, ptr %254, i32 0, i32 4
-  %256 = load float, ptr %255, align 4
-  %257 = call i32 @Scl_Flt2Int(float noundef %256)
-  %258 = load ptr, ptr %16, align 8
-  %259 = getelementptr inbounds %struct.SC_Pin_, ptr %258, i32 0, i32 6
-  store i32 %257, ptr %259, align 4
-  br label %260
+221:                                              ; preds = %261, %170
+  %222 = load i32, ptr %9, align 4, !tbaa !53
+  %223 = load ptr, ptr %16, align 8, !tbaa !26
+  %224 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %223, i32 0, i32 11
+  %225 = load i32, ptr %224, align 8, !tbaa !34
+  %226 = icmp slt i32 %222, %225
+  br i1 %226, label %227, label %264
 
-260:                                              ; preds = %226
-  %261 = load i32, ptr %9, align 4
-  %262 = add nsw i32 %261, 1
-  store i32 %262, ptr %9, align 4
-  br label %220, !llvm.loop !14
+227:                                              ; preds = %221
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  %228 = call ptr @Abc_SclPinAlloc()
+  store ptr %228, ptr %17, align 8, !tbaa !40
+  %229 = load ptr, ptr %16, align 8, !tbaa !26
+  %230 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %229, i32 0, i32 10
+  %231 = load ptr, ptr %17, align 8, !tbaa !40
+  call void @Vec_PtrPush(ptr noundef %230, ptr noundef %231)
+  %232 = load ptr, ptr %17, align 8, !tbaa !40
+  %233 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %232, i32 0, i32 1
+  store i32 1, ptr %233, align 8, !tbaa !42
+  %234 = load ptr, ptr %5, align 8, !tbaa !76
+  %235 = load ptr, ptr %6, align 8, !tbaa !78
+  %236 = call ptr @Vec_StrGetS(ptr noundef %234, ptr noundef %235)
+  %237 = load ptr, ptr %17, align 8, !tbaa !40
+  %238 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %237, i32 0, i32 0
+  store ptr %236, ptr %238, align 8, !tbaa !46
+  %239 = load ptr, ptr %5, align 8, !tbaa !76
+  %240 = load ptr, ptr %6, align 8, !tbaa !78
+  %241 = call float @Vec_StrGetF(ptr noundef %239, ptr noundef %240)
+  %242 = load ptr, ptr %17, align 8, !tbaa !40
+  %243 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %242, i32 0, i32 3
+  store float %241, ptr %243, align 8, !tbaa !47
+  %244 = load ptr, ptr %5, align 8, !tbaa !76
+  %245 = load ptr, ptr %6, align 8, !tbaa !78
+  %246 = call float @Vec_StrGetF(ptr noundef %244, ptr noundef %245)
+  %247 = load ptr, ptr %17, align 8, !tbaa !40
+  %248 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %247, i32 0, i32 4
+  store float %246, ptr %248, align 4, !tbaa !48
+  %249 = load ptr, ptr %17, align 8, !tbaa !40
+  %250 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %249, i32 0, i32 3
+  %251 = load float, ptr %250, align 8, !tbaa !47
+  %252 = call i32 @Scl_Flt2Int(float noundef %251)
+  %253 = load ptr, ptr %17, align 8, !tbaa !40
+  %254 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %253, i32 0, i32 5
+  store i32 %252, ptr %254, align 8, !tbaa !49
+  %255 = load ptr, ptr %17, align 8, !tbaa !40
+  %256 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %255, i32 0, i32 4
+  %257 = load float, ptr %256, align 4, !tbaa !48
+  %258 = call i32 @Scl_Flt2Int(float noundef %257)
+  %259 = load ptr, ptr %17, align 8, !tbaa !40
+  %260 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %259, i32 0, i32 6
+  store i32 %258, ptr %260, align 4, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  br label %261
 
-263:                                              ; preds = %220
-  store i32 0, ptr %9, align 4
-  br label %264
+261:                                              ; preds = %227
+  %262 = load i32, ptr %9, align 4, !tbaa !53
+  %263 = add nsw i32 %262, 1
+  store i32 %263, ptr %9, align 4, !tbaa !53
+  br label %221, !llvm.loop !93
 
-264:                                              ; preds = %458, %263
-  %265 = load i32, ptr %9, align 4
-  %266 = load ptr, ptr %15, align 8
-  %267 = getelementptr inbounds %struct.SC_Cell_, ptr %266, i32 0, i32 12
-  %268 = load i32, ptr %267, align 4
-  %269 = icmp slt i32 %265, %268
-  br i1 %269, label %270, label %461
+264:                                              ; preds = %221
+  store i32 0, ptr %9, align 4, !tbaa !53
+  br label %265
 
-270:                                              ; preds = %264
-  %271 = call ptr @Abc_SclPinAlloc()
-  store ptr %271, ptr %17, align 8
-  %272 = load ptr, ptr %15, align 8
-  %273 = getelementptr inbounds %struct.SC_Cell_, ptr %272, i32 0, i32 10
-  %274 = load ptr, ptr %17, align 8
-  call void @Vec_PtrPush(ptr noundef %273, ptr noundef %274)
-  %275 = load ptr, ptr %17, align 8
-  %276 = getelementptr inbounds %struct.SC_Pin_, ptr %275, i32 0, i32 1
-  store i32 2, ptr %276, align 8
-  %277 = load ptr, ptr %5, align 8
-  %278 = load ptr, ptr %6, align 8
-  %279 = call ptr @Vec_StrGetS(ptr noundef %277, ptr noundef %278)
-  %280 = load ptr, ptr %17, align 8
-  %281 = getelementptr inbounds %struct.SC_Pin_, ptr %280, i32 0, i32 0
-  store ptr %279, ptr %281, align 8
-  %282 = load ptr, ptr %5, align 8
-  %283 = load ptr, ptr %6, align 8
-  %284 = call float @Vec_StrGetF(ptr noundef %282, ptr noundef %283)
-  %285 = load ptr, ptr %17, align 8
-  %286 = getelementptr inbounds %struct.SC_Pin_, ptr %285, i32 0, i32 7
-  store float %284, ptr %286, align 8
-  %287 = load ptr, ptr %5, align 8
-  %288 = load ptr, ptr %6, align 8
-  %289 = call float @Vec_StrGetF(ptr noundef %287, ptr noundef %288)
-  %290 = load ptr, ptr %17, align 8
-  %291 = getelementptr inbounds %struct.SC_Pin_, ptr %290, i32 0, i32 8
-  store float %289, ptr %291, align 4
-  %292 = load ptr, ptr %5, align 8
-  %293 = load ptr, ptr %6, align 8
-  %294 = call i32 @Vec_StrGetI(ptr noundef %292, ptr noundef %293)
-  store i32 %294, ptr %10, align 4
-  %295 = load ptr, ptr %5, align 8
-  %296 = load ptr, ptr %6, align 8
-  %297 = call ptr @Vec_StrGetS(ptr noundef %295, ptr noundef %296)
-  %298 = load ptr, ptr %17, align 8
-  %299 = getelementptr inbounds %struct.SC_Pin_, ptr %298, i32 0, i32 9
-  store ptr %297, ptr %299, align 8
-  %300 = load ptr, ptr %17, align 8
-  %301 = getelementptr inbounds %struct.SC_Pin_, ptr %300, i32 0, i32 9
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 0
-  %304 = load i8, ptr %303, align 1
-  %305 = sext i8 %304 to i32
-  %306 = icmp eq i32 %305, 0
-  br i1 %306, label %307, label %342
+265:                                              ; preds = %459, %264
+  %266 = load i32, ptr %9, align 4, !tbaa !53
+  %267 = load ptr, ptr %16, align 8, !tbaa !26
+  %268 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %267, i32 0, i32 12
+  %269 = load i32, ptr %268, align 4, !tbaa !35
+  %270 = icmp slt i32 %266, %269
+  br i1 %270, label %271, label %462
 
-307:                                              ; preds = %270
-  %308 = load ptr, ptr %17, align 8
-  %309 = getelementptr inbounds %struct.SC_Pin_, ptr %308, i32 0, i32 9
-  %310 = load ptr, ptr %309, align 8
-  %311 = icmp ne ptr %310, null
-  br i1 %311, label %312, label %318
+271:                                              ; preds = %265
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %272 = call ptr @Abc_SclPinAlloc()
+  store ptr %272, ptr %18, align 8, !tbaa !40
+  %273 = load ptr, ptr %16, align 8, !tbaa !26
+  %274 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %273, i32 0, i32 10
+  %275 = load ptr, ptr %18, align 8, !tbaa !40
+  call void @Vec_PtrPush(ptr noundef %274, ptr noundef %275)
+  %276 = load ptr, ptr %18, align 8, !tbaa !40
+  %277 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %276, i32 0, i32 1
+  store i32 2, ptr %277, align 8, !tbaa !42
+  %278 = load ptr, ptr %5, align 8, !tbaa !76
+  %279 = load ptr, ptr %6, align 8, !tbaa !78
+  %280 = call ptr @Vec_StrGetS(ptr noundef %278, ptr noundef %279)
+  %281 = load ptr, ptr %18, align 8, !tbaa !40
+  %282 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %281, i32 0, i32 0
+  store ptr %280, ptr %282, align 8, !tbaa !46
+  %283 = load ptr, ptr %5, align 8, !tbaa !76
+  %284 = load ptr, ptr %6, align 8, !tbaa !78
+  %285 = call float @Vec_StrGetF(ptr noundef %283, ptr noundef %284)
+  %286 = load ptr, ptr %18, align 8, !tbaa !40
+  %287 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %286, i32 0, i32 7
+  store float %285, ptr %287, align 8, !tbaa !55
+  %288 = load ptr, ptr %5, align 8, !tbaa !76
+  %289 = load ptr, ptr %6, align 8, !tbaa !78
+  %290 = call float @Vec_StrGetF(ptr noundef %288, ptr noundef %289)
+  %291 = load ptr, ptr %18, align 8, !tbaa !40
+  %292 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %291, i32 0, i32 8
+  store float %290, ptr %292, align 4, !tbaa !56
+  %293 = load ptr, ptr %5, align 8, !tbaa !76
+  %294 = load ptr, ptr %6, align 8, !tbaa !78
+  %295 = call i32 @Vec_StrGetI(ptr noundef %293, ptr noundef %294)
+  store i32 %295, ptr %10, align 4, !tbaa !53
+  %296 = load ptr, ptr %5, align 8, !tbaa !76
+  %297 = load ptr, ptr %6, align 8, !tbaa !78
+  %298 = call ptr @Vec_StrGetS(ptr noundef %296, ptr noundef %297)
+  %299 = load ptr, ptr %18, align 8, !tbaa !40
+  %300 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %299, i32 0, i32 9
+  store ptr %298, ptr %300, align 8, !tbaa !57
+  %301 = load ptr, ptr %18, align 8, !tbaa !40
+  %302 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %301, i32 0, i32 9
+  %303 = load ptr, ptr %302, align 8, !tbaa !57
+  %304 = getelementptr inbounds i8, ptr %303, i64 0
+  %305 = load i8, ptr %304, align 1, !tbaa !94
+  %306 = sext i8 %305 to i32
+  %307 = icmp eq i32 %306, 0
+  br i1 %307, label %308, label %343
 
-312:                                              ; preds = %307
-  %313 = load ptr, ptr %17, align 8
-  %314 = getelementptr inbounds %struct.SC_Pin_, ptr %313, i32 0, i32 9
-  %315 = load ptr, ptr %314, align 8
-  call void @free(ptr noundef %315) #9
-  %316 = load ptr, ptr %17, align 8
-  %317 = getelementptr inbounds %struct.SC_Pin_, ptr %316, i32 0, i32 9
-  store ptr null, ptr %317, align 8
-  br label %319
+308:                                              ; preds = %271
+  %309 = load ptr, ptr %18, align 8, !tbaa !40
+  %310 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %309, i32 0, i32 9
+  %311 = load ptr, ptr %310, align 8, !tbaa !57
+  %312 = icmp ne ptr %311, null
+  br i1 %312, label %313, label %319
 
-318:                                              ; preds = %307
-  br label %319
+313:                                              ; preds = %308
+  %314 = load ptr, ptr %18, align 8, !tbaa !40
+  %315 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %314, i32 0, i32 9
+  %316 = load ptr, ptr %315, align 8, !tbaa !57
+  call void @free(ptr noundef %316) #11
+  %317 = load ptr, ptr %18, align 8, !tbaa !40
+  %318 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %317, i32 0, i32 9
+  store ptr null, ptr %318, align 8, !tbaa !57
+  br label %320
 
-319:                                              ; preds = %318, %312
-  %320 = load ptr, ptr %17, align 8
-  %321 = getelementptr inbounds %struct.SC_Pin_, ptr %320, i32 0, i32 10
-  %322 = load ptr, ptr %15, align 8
-  %323 = getelementptr inbounds %struct.SC_Cell_, ptr %322, i32 0, i32 11
-  %324 = load i32, ptr %323, align 8
-  %325 = call i32 @Abc_Truth6WordNum(i32 noundef %324)
-  call void @Vec_WrdGrow(ptr noundef %321, i32 noundef %325)
-  store i32 0, ptr %10, align 4
-  br label %326
+319:                                              ; preds = %308
+  br label %320
 
-326:                                              ; preds = %338, %319
-  %327 = load i32, ptr %10, align 4
-  %328 = load ptr, ptr %17, align 8
-  %329 = getelementptr inbounds %struct.SC_Pin_, ptr %328, i32 0, i32 10
-  %330 = call i32 @Vec_WrdCap(ptr noundef %329)
-  %331 = icmp slt i32 %327, %330
-  br i1 %331, label %332, label %341
+320:                                              ; preds = %319, %313
+  %321 = load ptr, ptr %18, align 8, !tbaa !40
+  %322 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %321, i32 0, i32 10
+  %323 = load ptr, ptr %16, align 8, !tbaa !26
+  %324 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %323, i32 0, i32 11
+  %325 = load i32, ptr %324, align 8, !tbaa !34
+  %326 = call i32 @Abc_Truth6WordNum(i32 noundef %325)
+  call void @Vec_WrdGrow(ptr noundef %322, i32 noundef %326)
+  store i32 0, ptr %10, align 4, !tbaa !53
+  br label %327
 
-332:                                              ; preds = %326
-  %333 = load ptr, ptr %17, align 8
-  %334 = getelementptr inbounds %struct.SC_Pin_, ptr %333, i32 0, i32 10
-  %335 = load ptr, ptr %5, align 8
-  %336 = load ptr, ptr %6, align 8
-  %337 = call i64 @Vec_StrGetW(ptr noundef %335, ptr noundef %336)
-  call void @Vec_WrdPush(ptr noundef %334, i64 noundef %337)
-  br label %338
+327:                                              ; preds = %339, %320
+  %328 = load i32, ptr %10, align 4, !tbaa !53
+  %329 = load ptr, ptr %18, align 8, !tbaa !40
+  %330 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %329, i32 0, i32 10
+  %331 = call i32 @Vec_WrdCap(ptr noundef %330)
+  %332 = icmp slt i32 %328, %331
+  br i1 %332, label %333, label %342
 
-338:                                              ; preds = %332
-  %339 = load i32, ptr %10, align 4
-  %340 = add nsw i32 %339, 1
-  store i32 %340, ptr %10, align 4
-  br label %326, !llvm.loop !15
+333:                                              ; preds = %327
+  %334 = load ptr, ptr %18, align 8, !tbaa !40
+  %335 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %334, i32 0, i32 10
+  %336 = load ptr, ptr %5, align 8, !tbaa !76
+  %337 = load ptr, ptr %6, align 8, !tbaa !78
+  %338 = call i64 @Vec_StrGetW(ptr noundef %336, ptr noundef %337)
+  call void @Vec_WrdPush(ptr noundef %335, i64 noundef %338)
+  br label %339
 
-341:                                              ; preds = %326
-  br label %404
+339:                                              ; preds = %333
+  %340 = load i32, ptr %10, align 4, !tbaa !53
+  %341 = add nsw i32 %340, 1
+  store i32 %341, ptr %10, align 4, !tbaa !53
+  br label %327, !llvm.loop !95
 
-342:                                              ; preds = %270
-  %343 = load ptr, ptr %15, align 8
-  %344 = getelementptr inbounds %struct.SC_Cell_, ptr %343, i32 0, i32 11
-  %345 = load i32, ptr %344, align 8
-  %346 = call ptr @Vec_PtrAlloc(i32 noundef %345)
-  store ptr %346, ptr %19, align 8
-  store i32 0, ptr %11, align 4
-  br label %347
-
-347:                                              ; preds = %365, %342
-  %348 = load i32, ptr %11, align 4
-  %349 = load ptr, ptr %15, align 8
-  %350 = getelementptr inbounds %struct.SC_Cell_, ptr %349, i32 0, i32 11
-  %351 = load i32, ptr %350, align 8
-  %352 = icmp slt i32 %348, %351
-  br i1 %352, label %353, label %358
-
-353:                                              ; preds = %347
-  %354 = load ptr, ptr %15, align 8
-  %355 = getelementptr inbounds %struct.SC_Cell_, ptr %354, i32 0, i32 10
-  %356 = load i32, ptr %11, align 4
-  %357 = call ptr @Vec_PtrEntry(ptr noundef %355, i32 noundef %356)
-  store ptr %357, ptr %18, align 8
-  br label %358
-
-358:                                              ; preds = %353, %347
-  %359 = phi i1 [ false, %347 ], [ true, %353 ]
-  br i1 %359, label %360, label %368
-
-360:                                              ; preds = %358
-  %361 = load ptr, ptr %19, align 8
-  %362 = load ptr, ptr %18, align 8
-  %363 = getelementptr inbounds %struct.SC_Pin_, ptr %362, i32 0, i32 0
-  %364 = load ptr, ptr %363, align 8
-  call void @Vec_PtrPush(ptr noundef %361, ptr noundef %364)
-  br label %365
-
-365:                                              ; preds = %360
-  %366 = load i32, ptr %11, align 4
-  %367 = add nsw i32 %366, 1
-  store i32 %367, ptr %11, align 4
-  br label %347, !llvm.loop !16
-
-368:                                              ; preds = %358
-  %369 = load ptr, ptr %17, align 8
-  %370 = getelementptr inbounds %struct.SC_Pin_, ptr %369, i32 0, i32 10
-  call void @Vec_WrdErase(ptr noundef %370)
-  %371 = load ptr, ptr %17, align 8
-  %372 = getelementptr inbounds %struct.SC_Pin_, ptr %371, i32 0, i32 9
-  %373 = load ptr, ptr %372, align 8
-  %374 = load ptr, ptr %19, align 8
-  %375 = call ptr @Vec_PtrArray(ptr noundef %374)
-  %376 = load ptr, ptr %15, align 8
-  %377 = getelementptr inbounds %struct.SC_Cell_, ptr %376, i32 0, i32 11
-  %378 = load i32, ptr %377, align 8
-  %379 = call ptr @Mio_ParseFormulaTruth(ptr noundef %373, ptr noundef %375, i32 noundef %378)
-  store ptr %379, ptr %20, align 8
-  %380 = load ptr, ptr %17, align 8
-  %381 = getelementptr inbounds %struct.SC_Pin_, ptr %380, i32 0, i32 10
-  %382 = load ptr, ptr %20, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %381, ptr align 8 %382, i64 16, i1 false)
-  %383 = load ptr, ptr %20, align 8
-  %384 = icmp ne ptr %383, null
-  br i1 %384, label %385, label %387
-
-385:                                              ; preds = %368
-  %386 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %386) #9
-  store ptr null, ptr %20, align 8
-  br label %388
-
-387:                                              ; preds = %368
-  br label %388
-
-388:                                              ; preds = %387, %385
-  %389 = load ptr, ptr %19, align 8
-  call void @Vec_PtrFree(ptr noundef %389)
-  store i32 0, ptr %10, align 4
-  br label %390
-
-390:                                              ; preds = %400, %388
-  %391 = load i32, ptr %10, align 4
-  %392 = load ptr, ptr %17, align 8
-  %393 = getelementptr inbounds %struct.SC_Pin_, ptr %392, i32 0, i32 10
-  %394 = call i32 @Vec_WrdSize(ptr noundef %393)
-  %395 = icmp slt i32 %391, %394
-  br i1 %395, label %396, label %403
-
-396:                                              ; preds = %390
-  %397 = load ptr, ptr %5, align 8
-  %398 = load ptr, ptr %6, align 8
-  %399 = call i64 @Vec_StrGetW(ptr noundef %397, ptr noundef %398)
-  store i64 %399, ptr %21, align 8
-  br label %400
-
-400:                                              ; preds = %396
-  %401 = load i32, ptr %10, align 4
-  %402 = add nsw i32 %401, 1
-  store i32 %402, ptr %10, align 4
-  br label %390, !llvm.loop !17
-
-403:                                              ; preds = %390
-  br label %404
-
-404:                                              ; preds = %403, %341
-  store i32 0, ptr %10, align 4
+342:                                              ; preds = %327
   br label %405
 
-405:                                              ; preds = %454, %404
-  %406 = load i32, ptr %10, align 4
-  %407 = load ptr, ptr %15, align 8
-  %408 = getelementptr inbounds %struct.SC_Cell_, ptr %407, i32 0, i32 11
-  %409 = load i32, ptr %408, align 8
-  %410 = icmp slt i32 %406, %409
-  br i1 %410, label %411, label %457
+343:                                              ; preds = %271
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
+  %344 = load ptr, ptr %16, align 8, !tbaa !26
+  %345 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %344, i32 0, i32 11
+  %346 = load i32, ptr %345, align 8, !tbaa !34
+  %347 = call ptr @Vec_PtrAlloc(i32 noundef %346)
+  store ptr %347, ptr %20, align 8, !tbaa !96
+  store i32 0, ptr %11, align 4, !tbaa !53
+  br label %348
 
-411:                                              ; preds = %405
-  %412 = call ptr @Abc_SclTimingsAlloc()
-  store ptr %412, ptr %22, align 8
-  %413 = load ptr, ptr %17, align 8
-  %414 = getelementptr inbounds %struct.SC_Pin_, ptr %413, i32 0, i32 11
-  %415 = load ptr, ptr %22, align 8
-  call void @Vec_PtrPush(ptr noundef %414, ptr noundef %415)
-  %416 = load ptr, ptr %5, align 8
-  %417 = load ptr, ptr %6, align 8
-  %418 = call ptr @Vec_StrGetS(ptr noundef %416, ptr noundef %417)
-  %419 = load ptr, ptr %22, align 8
-  %420 = getelementptr inbounds %struct.SC_Timings_, ptr %419, i32 0, i32 0
-  store ptr %418, ptr %420, align 8
-  %421 = load ptr, ptr %5, align 8
-  %422 = load ptr, ptr %6, align 8
-  %423 = call i32 @Vec_StrGetI(ptr noundef %421, ptr noundef %422)
-  store i32 %423, ptr %11, align 4
-  %424 = load i32, ptr %11, align 4
-  %425 = icmp eq i32 %424, 1
-  br i1 %425, label %426, label %452
+348:                                              ; preds = %366, %343
+  %349 = load i32, ptr %11, align 4, !tbaa !53
+  %350 = load ptr, ptr %16, align 8, !tbaa !26
+  %351 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %350, i32 0, i32 11
+  %352 = load i32, ptr %351, align 8, !tbaa !34
+  %353 = icmp slt i32 %349, %352
+  br i1 %353, label %354, label %359
 
-426:                                              ; preds = %411
-  %427 = call ptr @Abc_SclTimingAlloc()
-  store ptr %427, ptr %23, align 8
-  %428 = load ptr, ptr %22, align 8
-  %429 = getelementptr inbounds %struct.SC_Timings_, ptr %428, i32 0, i32 1
-  %430 = load ptr, ptr %23, align 8
-  call void @Vec_PtrPush(ptr noundef %429, ptr noundef %430)
-  %431 = load ptr, ptr %5, align 8
-  %432 = load ptr, ptr %6, align 8
-  %433 = call i32 @Vec_StrGetI(ptr noundef %431, ptr noundef %432)
-  %434 = load ptr, ptr %23, align 8
-  %435 = getelementptr inbounds %struct.SC_Timing_, ptr %434, i32 0, i32 1
-  store i32 %433, ptr %435, align 8
-  %436 = load ptr, ptr %5, align 8
-  %437 = load ptr, ptr %6, align 8
-  %438 = load ptr, ptr %23, align 8
-  %439 = getelementptr inbounds %struct.SC_Timing_, ptr %438, i32 0, i32 3
-  call void @Abc_SclReadSurface(ptr noundef %436, ptr noundef %437, ptr noundef %439)
-  %440 = load ptr, ptr %5, align 8
-  %441 = load ptr, ptr %6, align 8
-  %442 = load ptr, ptr %23, align 8
-  %443 = getelementptr inbounds %struct.SC_Timing_, ptr %442, i32 0, i32 4
-  call void @Abc_SclReadSurface(ptr noundef %440, ptr noundef %441, ptr noundef %443)
-  %444 = load ptr, ptr %5, align 8
-  %445 = load ptr, ptr %6, align 8
-  %446 = load ptr, ptr %23, align 8
-  %447 = getelementptr inbounds %struct.SC_Timing_, ptr %446, i32 0, i32 5
-  call void @Abc_SclReadSurface(ptr noundef %444, ptr noundef %445, ptr noundef %447)
-  %448 = load ptr, ptr %5, align 8
-  %449 = load ptr, ptr %6, align 8
-  %450 = load ptr, ptr %23, align 8
-  %451 = getelementptr inbounds %struct.SC_Timing_, ptr %450, i32 0, i32 6
-  call void @Abc_SclReadSurface(ptr noundef %448, ptr noundef %449, ptr noundef %451)
-  br label %453
+354:                                              ; preds = %348
+  %355 = load ptr, ptr %16, align 8, !tbaa !26
+  %356 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %355, i32 0, i32 10
+  %357 = load i32, ptr %11, align 4, !tbaa !53
+  %358 = call ptr @Vec_PtrEntry(ptr noundef %356, i32 noundef %357)
+  store ptr %358, ptr %19, align 8, !tbaa !40
+  br label %359
 
-452:                                              ; preds = %411
-  br label %453
+359:                                              ; preds = %354, %348
+  %360 = phi i1 [ false, %348 ], [ true, %354 ]
+  br i1 %360, label %361, label %369
 
-453:                                              ; preds = %452, %426
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %20, align 8, !tbaa !96
+  %363 = load ptr, ptr %19, align 8, !tbaa !40
+  %364 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %363, i32 0, i32 0
+  %365 = load ptr, ptr %364, align 8, !tbaa !46
+  call void @Vec_PtrPush(ptr noundef %362, ptr noundef %365)
+  br label %366
+
+366:                                              ; preds = %361
+  %367 = load i32, ptr %11, align 4, !tbaa !53
+  %368 = add nsw i32 %367, 1
+  store i32 %368, ptr %11, align 4, !tbaa !53
+  br label %348, !llvm.loop !98
+
+369:                                              ; preds = %359
+  %370 = load ptr, ptr %18, align 8, !tbaa !40
+  %371 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %370, i32 0, i32 10
+  call void @Vec_WrdErase(ptr noundef %371)
+  %372 = load ptr, ptr %18, align 8, !tbaa !40
+  %373 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %372, i32 0, i32 9
+  %374 = load ptr, ptr %373, align 8, !tbaa !57
+  %375 = load ptr, ptr %20, align 8, !tbaa !96
+  %376 = call ptr @Vec_PtrArray(ptr noundef %375)
+  %377 = load ptr, ptr %16, align 8, !tbaa !26
+  %378 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %377, i32 0, i32 11
+  %379 = load i32, ptr %378, align 8, !tbaa !34
+  %380 = call ptr @Mio_ParseFormulaTruth(ptr noundef %374, ptr noundef %376, i32 noundef %379)
+  store ptr %380, ptr %21, align 8, !tbaa !99
+  %381 = load ptr, ptr %18, align 8, !tbaa !40
+  %382 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %381, i32 0, i32 10
+  %383 = load ptr, ptr %21, align 8, !tbaa !99
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %382, ptr align 8 %383, i64 16, i1 false), !tbaa.struct !101
+  %384 = load ptr, ptr %21, align 8, !tbaa !99
+  %385 = icmp ne ptr %384, null
+  br i1 %385, label %386, label %388
+
+386:                                              ; preds = %369
+  %387 = load ptr, ptr %21, align 8, !tbaa !99
+  call void @free(ptr noundef %387) #11
+  store ptr null, ptr %21, align 8, !tbaa !99
+  br label %389
+
+388:                                              ; preds = %369
+  br label %389
+
+389:                                              ; preds = %388, %386
+  %390 = load ptr, ptr %20, align 8, !tbaa !96
+  call void @Vec_PtrFree(ptr noundef %390)
+  store i32 0, ptr %10, align 4, !tbaa !53
+  br label %391
+
+391:                                              ; preds = %401, %389
+  %392 = load i32, ptr %10, align 4, !tbaa !53
+  %393 = load ptr, ptr %18, align 8, !tbaa !40
+  %394 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %393, i32 0, i32 10
+  %395 = call i32 @Vec_WrdSize(ptr noundef %394)
+  %396 = icmp slt i32 %392, %395
+  br i1 %396, label %397, label %404
+
+397:                                              ; preds = %391
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  %398 = load ptr, ptr %5, align 8, !tbaa !76
+  %399 = load ptr, ptr %6, align 8, !tbaa !78
+  %400 = call i64 @Vec_StrGetW(ptr noundef %398, ptr noundef %399)
+  store i64 %400, ptr %22, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  br label %401
+
+401:                                              ; preds = %397
+  %402 = load i32, ptr %10, align 4, !tbaa !53
+  %403 = add nsw i32 %402, 1
+  store i32 %403, ptr %10, align 4, !tbaa !53
+  br label %391, !llvm.loop !102
+
+404:                                              ; preds = %391
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  br label %405
+
+405:                                              ; preds = %404, %342
+  store i32 0, ptr %10, align 4, !tbaa !53
+  br label %406
+
+406:                                              ; preds = %455, %405
+  %407 = load i32, ptr %10, align 4, !tbaa !53
+  %408 = load ptr, ptr %16, align 8, !tbaa !26
+  %409 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %408, i32 0, i32 11
+  %410 = load i32, ptr %409, align 8, !tbaa !34
+  %411 = icmp slt i32 %407, %410
+  br i1 %411, label %412, label %458
+
+412:                                              ; preds = %406
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  %413 = call ptr @Abc_SclTimingsAlloc()
+  store ptr %413, ptr %23, align 8, !tbaa !61
+  %414 = load ptr, ptr %18, align 8, !tbaa !40
+  %415 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %414, i32 0, i32 11
+  %416 = load ptr, ptr %23, align 8, !tbaa !61
+  call void @Vec_PtrPush(ptr noundef %415, ptr noundef %416)
+  %417 = load ptr, ptr %5, align 8, !tbaa !76
+  %418 = load ptr, ptr %6, align 8, !tbaa !78
+  %419 = call ptr @Vec_StrGetS(ptr noundef %417, ptr noundef %418)
+  %420 = load ptr, ptr %23, align 8, !tbaa !61
+  %421 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %420, i32 0, i32 0
+  store ptr %419, ptr %421, align 8, !tbaa !63
+  %422 = load ptr, ptr %5, align 8, !tbaa !76
+  %423 = load ptr, ptr %6, align 8, !tbaa !78
+  %424 = call i32 @Vec_StrGetI(ptr noundef %422, ptr noundef %423)
+  store i32 %424, ptr %11, align 4, !tbaa !53
+  %425 = load i32, ptr %11, align 4, !tbaa !53
+  %426 = icmp eq i32 %425, 1
+  br i1 %426, label %427, label %453
+
+427:                                              ; preds = %412
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #11
+  %428 = call ptr @Abc_SclTimingAlloc()
+  store ptr %428, ptr %24, align 8, !tbaa !65
+  %429 = load ptr, ptr %23, align 8, !tbaa !61
+  %430 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %429, i32 0, i32 1
+  %431 = load ptr, ptr %24, align 8, !tbaa !65
+  call void @Vec_PtrPush(ptr noundef %430, ptr noundef %431)
+  %432 = load ptr, ptr %5, align 8, !tbaa !76
+  %433 = load ptr, ptr %6, align 8, !tbaa !78
+  %434 = call i32 @Vec_StrGetI(ptr noundef %432, ptr noundef %433)
+  %435 = load ptr, ptr %24, align 8, !tbaa !65
+  %436 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %435, i32 0, i32 1
+  store i32 %434, ptr %436, align 8, !tbaa !67
+  %437 = load ptr, ptr %5, align 8, !tbaa !76
+  %438 = load ptr, ptr %6, align 8, !tbaa !78
+  %439 = load ptr, ptr %24, align 8, !tbaa !65
+  %440 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %439, i32 0, i32 3
+  call void @Abc_SclReadSurface(ptr noundef %437, ptr noundef %438, ptr noundef %440)
+  %441 = load ptr, ptr %5, align 8, !tbaa !76
+  %442 = load ptr, ptr %6, align 8, !tbaa !78
+  %443 = load ptr, ptr %24, align 8, !tbaa !65
+  %444 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %443, i32 0, i32 4
+  call void @Abc_SclReadSurface(ptr noundef %441, ptr noundef %442, ptr noundef %444)
+  %445 = load ptr, ptr %5, align 8, !tbaa !76
+  %446 = load ptr, ptr %6, align 8, !tbaa !78
+  %447 = load ptr, ptr %24, align 8, !tbaa !65
+  %448 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %447, i32 0, i32 5
+  call void @Abc_SclReadSurface(ptr noundef %445, ptr noundef %446, ptr noundef %448)
+  %449 = load ptr, ptr %5, align 8, !tbaa !76
+  %450 = load ptr, ptr %6, align 8, !tbaa !78
+  %451 = load ptr, ptr %24, align 8, !tbaa !65
+  %452 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %451, i32 0, i32 6
+  call void @Abc_SclReadSurface(ptr noundef %449, ptr noundef %450, ptr noundef %452)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #11
   br label %454
 
-454:                                              ; preds = %453
-  %455 = load i32, ptr %10, align 4
-  %456 = add nsw i32 %455, 1
-  store i32 %456, ptr %10, align 4
-  br label %405, !llvm.loop !18
+453:                                              ; preds = %412
+  br label %454
 
-457:                                              ; preds = %405
-  br label %458
+454:                                              ; preds = %453, %427
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  br label %455
 
-458:                                              ; preds = %457
-  %459 = load i32, ptr %9, align 4
-  %460 = add nsw i32 %459, 1
-  store i32 %460, ptr %9, align 4
-  br label %264, !llvm.loop !19
+455:                                              ; preds = %454
+  %456 = load i32, ptr %10, align 4, !tbaa !53
+  %457 = add nsw i32 %456, 1
+  store i32 %457, ptr %10, align 4, !tbaa !53
+  br label %406, !llvm.loop !103
 
-461:                                              ; preds = %264
-  br label %462
+458:                                              ; preds = %406
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  br label %459
 
-462:                                              ; preds = %461
-  %463 = load i32, ptr %8, align 4
-  %464 = add nsw i32 %463, -1
-  store i32 %464, ptr %8, align 4
-  br label %166, !llvm.loop !20
+459:                                              ; preds = %458
+  %460 = load i32, ptr %9, align 4, !tbaa !53
+  %461 = add nsw i32 %460, 1
+  store i32 %461, ptr %9, align 4, !tbaa !53
+  br label %265, !llvm.loop !104
 
-465:                                              ; preds = %166
+462:                                              ; preds = %265
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  br label %463
+
+463:                                              ; preds = %462
+  %464 = load i32, ptr %8, align 4, !tbaa !53
+  %465 = add nsw i32 %464, -1
+  store i32 %465, ptr %8, align 4, !tbaa !53
+  br label %167, !llvm.loop !105
+
+466:                                              ; preds = %167
   store i32 1, ptr %4, align 4
-  br label %466
+  store i32 1, ptr %13, align 4
+  br label %467
 
-466:                                              ; preds = %465, %29
-  %467 = load i32, ptr %4, align 4
-  ret i32 %467
+467:                                              ; preds = %466, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %468 = load i32, ptr %4, align 4
+  ret i32 %468
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1219,137 +1296,149 @@ define ptr @Abc_SclReadFromFile(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = call noalias ptr @fopen(ptr noundef %8, ptr noundef @.str)
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %15
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !106
+  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef @.str)
+  store ptr %10, ptr %5, align 8, !tbaa !107
+  %11 = load ptr, ptr %5, align 8, !tbaa !107
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %13)
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !106
+  %15 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %14)
   store ptr null, ptr %2, align 8
-  br label %56
+  store i32 1, ptr %8, align 4
+  br label %57
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @fseek(ptr noundef %16, i64 noundef 0, i32 noundef 2)
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i64 @ftell(ptr noundef %18)
-  %20 = trunc i64 %19 to i32
-  store i32 %20, ptr %7, align 4
-  %21 = load ptr, ptr %5, align 8
-  call void @rewind(ptr noundef %21)
-  %22 = load i32, ptr %7, align 4
-  %23 = call ptr @Vec_StrAlloc(i32 noundef %22)
-  store ptr %23, ptr %6, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.Vec_Str_t_, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.Vec_Str_t_, ptr %27, i32 0, i32 1
-  store i32 %26, ptr %28, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = call ptr @Vec_StrArray(ptr noundef %29)
-  %31 = load ptr, ptr %6, align 8
-  %32 = call i32 @Vec_StrSize(ptr noundef %31)
-  %33 = sext i32 %32 to i64
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i64 @fread(ptr noundef %30, i64 noundef 1, i64 noundef %33, ptr noundef %34)
-  %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %7, align 4
-  %37 = load ptr, ptr %5, align 8
-  %38 = call i32 @fclose(ptr noundef %37)
-  %39 = load ptr, ptr %6, align 8
-  %40 = call ptr @Abc_SclReadFromStr(ptr noundef %39)
-  store ptr %40, ptr %4, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %48
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %5, align 8, !tbaa !107
+  %18 = call i32 @fseek(ptr noundef %17, i64 noundef 0, i32 noundef 2)
+  %19 = load ptr, ptr %5, align 8, !tbaa !107
+  %20 = call i64 @ftell(ptr noundef %19)
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr %7, align 4, !tbaa !53
+  %22 = load ptr, ptr %5, align 8, !tbaa !107
+  call void @rewind(ptr noundef %22)
+  %23 = load i32, ptr %7, align 4, !tbaa !53
+  %24 = call ptr @Vec_StrAlloc(i32 noundef %23)
+  store ptr %24, ptr %6, align 8, !tbaa !76
+  %25 = load ptr, ptr %6, align 8, !tbaa !76
+  %26 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8, !tbaa !109
+  %28 = load ptr, ptr %6, align 8, !tbaa !76
+  %29 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %28, i32 0, i32 1
+  store i32 %27, ptr %29, align 4, !tbaa !111
+  %30 = load ptr, ptr %6, align 8, !tbaa !76
+  %31 = call ptr @Vec_StrArray(ptr noundef %30)
+  %32 = load ptr, ptr %6, align 8, !tbaa !76
+  %33 = call i32 @Vec_StrSize(ptr noundef %32)
+  %34 = sext i32 %33 to i64
+  %35 = load ptr, ptr %5, align 8, !tbaa !107
+  %36 = call i64 @fread(ptr noundef %31, i64 noundef 1, i64 noundef %34, ptr noundef %35)
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %7, align 4, !tbaa !53
+  %38 = load ptr, ptr %5, align 8, !tbaa !107
+  %39 = call i32 @fclose(ptr noundef %38)
+  %40 = load ptr, ptr %6, align 8, !tbaa !76
+  %41 = call ptr @Abc_SclReadFromStr(ptr noundef %40)
+  store ptr %41, ptr %4, align 8, !tbaa !9
+  %42 = load ptr, ptr %4, align 8, !tbaa !9
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %49
 
-43:                                               ; preds = %15
-  %44 = load ptr, ptr %3, align 8
-  %45 = call ptr @Abc_UtilStrsav(ptr noundef %44)
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.SC_Lib_, ptr %46, i32 0, i32 1
-  store ptr %45, ptr %47, align 8
-  br label %48
+44:                                               ; preds = %16
+  %45 = load ptr, ptr %3, align 8, !tbaa !106
+  %46 = call ptr @Abc_UtilStrsav(ptr noundef %45)
+  %47 = load ptr, ptr %4, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %47, i32 0, i32 1
+  store ptr %46, ptr %48, align 8, !tbaa !112
+  br label %49
 
-48:                                               ; preds = %43, %15
-  %49 = load ptr, ptr %4, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %53
+49:                                               ; preds = %44, %16
+  %50 = load ptr, ptr %4, align 8, !tbaa !9
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %4, align 8
-  call void @Abc_SclLibNormalize(ptr noundef %52)
-  br label %53
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Abc_SclLibNormalize(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %51, %48
-  %54 = load ptr, ptr %6, align 8
-  call void @Vec_StrFree(ptr noundef %54)
-  %55 = load ptr, ptr %4, align 8
-  store ptr %55, ptr %2, align 8
-  br label %56
+54:                                               ; preds = %52, %49
+  %55 = load ptr, ptr %6, align 8, !tbaa !76
+  call void @Vec_StrFree(ptr noundef %55)
+  %56 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %56, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %57
 
-56:                                               ; preds = %53, %12
-  %57 = load ptr, ptr %2, align 8
-  ret ptr %57
+57:                                               ; preds = %54, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %58 = load ptr, ptr %2, align 8
+  ret ptr %58
 }
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #1
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #2
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #2
 
-declare i32 @fseek(ptr noundef, i64 noundef, i32 noundef) #1
+declare i32 @fseek(ptr noundef, i64 noundef, i32 noundef) #2
 
-declare i64 @ftell(ptr noundef) #1
+declare i64 @ftell(ptr noundef) #2
 
-declare void @rewind(ptr noundef) #1
+declare void @rewind(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_StrAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_StrAlloc(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #10
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !76
+  %5 = load i32, ptr %2, align 4, !tbaa !53
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !53
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !53
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Str_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Str_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Str_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !76
+  %13 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !111
+  %14 = load i32, ptr %2, align 4, !tbaa !53
+  %15 = load ptr, ptr %3, align 8, !tbaa !76
+  %16 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !109
+  %17 = load ptr, ptr %3, align 8, !tbaa !76
+  %18 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !109
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Str_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !76
+  %23 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !109
   %25 = sext i32 %24 to i64
   %26 = mul i64 1, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #10
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -1357,53 +1446,54 @@ define internal ptr @Vec_StrAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Str_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !76
+  %32 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !113
+  %33 = load ptr, ptr %3, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_StrArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_StrArray(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Str_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_StrSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_StrSize(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Str_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !111
   ret i32 %5
 }
 
-declare i32 @fclose(ptr noundef) #1
+declare i32 @fclose(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_UtilStrsav(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_UtilStrsav(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8, !tbaa !106
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #11
+  %6 = load ptr, ptr %2, align 8, !tbaa !106
+  %7 = call i64 @strlen(ptr noundef %6) #13
   %8 = add i64 %7, 1
   %9 = mul i64 1, %8
-  %10 = call noalias ptr @malloc(i64 noundef %9) #10
-  %11 = load ptr, ptr %2, align 8
-  %12 = call ptr @strcpy(ptr noundef %10, ptr noundef %11) #9
+  %10 = call noalias ptr @malloc(i64 noundef %9) #12
+  %11 = load ptr, ptr %2, align 8, !tbaa !106
+  %12 = call ptr @strcpy(ptr noundef %10, ptr noundef %11) #11
   br label %14
 
 13:                                               ; preds = %1
@@ -1414,40 +1504,40 @@ define internal ptr @Abc_UtilStrsav(ptr noundef %0) #0 {
   ret ptr %15
 }
 
-declare void @Abc_SclLibNormalize(ptr noundef) #1
+declare void @Abc_SclLibNormalize(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrFree(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Str_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %4 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Str_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Str_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !76
+  %9 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !113
+  call void @free(ptr noundef %10) #11
+  %11 = load ptr, ptr %2, align 8, !tbaa !76
+  %12 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !113
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !76
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %18) #9
-  store ptr null, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !76
+  call void @free(ptr noundef %18) #11
+  store ptr null, ptr %2, align 8, !tbaa !76
   br label %20
 
 19:                                               ; preds = %14
@@ -1463,25 +1553,28 @@ define i32 @Abc_SclCountValidCells(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !53
+  store i32 0, ptr %4, align 4, !tbaa !53
   br label %6
 
 6:                                                ; preds = %33, %1
-  %7 = load i32, ptr %4, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.SC_Lib_, ptr %8, i32 0, i32 11
+  %7 = load i32, ptr %4, align 4, !tbaa !53
+  %8 = load ptr, ptr %2, align 8, !tbaa !9
+  %9 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %8, i32 0, i32 11
   %10 = call i32 @Vec_PtrSize(ptr noundef %9)
   %11 = icmp slt i32 %7, %10
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.SC_Lib_, ptr %13, i32 0, i32 11
-  %15 = load i32, ptr %4, align 4
+  %13 = load ptr, ptr %2, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %13, i32 0, i32 11
+  %15 = load i32, ptr %4, align 4, !tbaa !53
   %16 = call ptr @Vec_PtrEntry(ptr noundef %14, i32 noundef %15)
-  store ptr %16, ptr %3, align 8
+  store ptr %16, ptr %3, align 8, !tbaa !26
   br label %17
 
 17:                                               ; preds = %12, %6
@@ -1489,62 +1582,65 @@ define i32 @Abc_SclCountValidCells(ptr noundef %0) #0 {
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.SC_Cell_, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 8, !tbaa !114
   %23 = icmp ne i32 %22, 0
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.SC_Cell_, ptr %25, i32 0, i32 4
-  %27 = load i32, ptr %26, align 4
+  %25 = load ptr, ptr %3, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 4, !tbaa !115
   %28 = icmp ne i32 %27, 0
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %24
-  %30 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %5, align 4, !tbaa !53
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %5, align 4
+  store i32 %31, ptr %5, align 4, !tbaa !53
   br label %32
 
 32:                                               ; preds = %29, %24, %19
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load i32, ptr %4, align 4
+  %34 = load i32, ptr %4, align 4, !tbaa !53
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %4, align 4
-  br label %6, !llvm.loop !21
+  store i32 %35, ptr %4, align 4, !tbaa !53
+  br label %6, !llvm.loop !116
 
 36:                                               ; preds = %17
-  %37 = load i32, ptr %5, align 4
+  %37 = load i32, ptr %5, align 4, !tbaa !53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_PtrSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_PtrSize(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !117
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !96
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !118
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
   ret ptr %11
 }
 
@@ -1554,331 +1650,349 @@ define void @Abc_SclWriteScl(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   %7 = call ptr @Vec_StrAlloc(i32 noundef 10000)
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  call void @Abc_SclWriteLibrary(ptr noundef %8, ptr noundef %9, i32 noundef 0)
-  %10 = load ptr, ptr %5, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !76
+  %8 = load ptr, ptr %5, align 8, !tbaa !76
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @Abc_SclWriteLibrary(ptr noundef %8, ptr noundef %9, i32 noundef 0, i32 noundef 0)
+  %10 = load ptr, ptr %5, align 8, !tbaa !76
   %11 = call i32 @Vec_StrSize(ptr noundef %10)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %32
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %14 = load ptr, ptr %3, align 8, !tbaa !106
   %15 = call noalias ptr @fopen(ptr noundef %14, ptr noundef @.str.2)
-  store ptr %15, ptr %6, align 8
-  %16 = load ptr, ptr %6, align 8
+  store ptr %15, ptr %6, align 8, !tbaa !107
+  %16 = load ptr, ptr %6, align 8, !tbaa !107
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %3, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !106
   %20 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, ptr noundef %19)
   br label %31
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8, !tbaa !76
   %23 = call ptr @Vec_StrArray(ptr noundef %22)
-  %24 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !76
   %25 = call i32 @Vec_StrSize(ptr noundef %24)
   %26 = sext i32 %25 to i64
-  %27 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8, !tbaa !107
   %28 = call i64 @fwrite(ptr noundef %23, i64 noundef 1, i64 noundef %26, ptr noundef %27)
-  %29 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8, !tbaa !107
   %30 = call i32 @fclose(ptr noundef %29)
   br label %31
 
 31:                                               ; preds = %21, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %32
 
 32:                                               ; preds = %31, %2
-  %33 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %5, align 8, !tbaa !76
   call void @Vec_StrFree(ptr noundef %33)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_SclWriteLibrary(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = alloca ptr, align 8
+define internal void @Abc_SclWriteLibrary(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %12 = load ptr, ptr %4, align 8
-  call void @Vec_StrPutI(ptr noundef %12, i32 noundef 8)
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.SC_Lib_, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  call void @Vec_StrPutS(ptr noundef %13, ptr noundef %16)
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.SC_Lib_, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  call void @Vec_StrPutS(ptr noundef %17, ptr noundef %20)
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.SC_Lib_, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  call void @Vec_StrPutS(ptr noundef %21, ptr noundef %24)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.SC_Lib_, ptr %26, i32 0, i32 4
-  %28 = load float, ptr %27, align 8
-  call void @Vec_StrPutF(ptr noundef %25, float noundef %28)
-  %29 = load ptr, ptr %4, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.SC_Lib_, ptr %30, i32 0, i32 5
-  %32 = load i32, ptr %31, align 4
-  call void @Vec_StrPutI(ptr noundef %29, i32 noundef %32)
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.SC_Lib_, ptr %34, i32 0, i32 6
-  %36 = load float, ptr %35, align 8
-  call void @Vec_StrPutF(ptr noundef %33, float noundef %36)
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.SC_Lib_, ptr %38, i32 0, i32 7
-  %40 = load i32, ptr %39, align 4
-  call void @Vec_StrPutI(ptr noundef %37, i32 noundef %40)
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.SC_Lib_, ptr %42, i32 0, i32 8
-  %44 = call i32 @Vec_PtrSize(ptr noundef %43)
-  call void @Vec_StrPutI(ptr noundef %41, i32 noundef %44)
-  store i32 0, ptr %10, align 4
-  br label %45
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !76
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !53
+  store i32 %3, ptr %8, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  %14 = load ptr, ptr %5, align 8, !tbaa !76
+  call void @Vec_StrPutI(ptr noundef %14, i32 noundef 8)
+  %15 = load ptr, ptr %5, align 8, !tbaa !76
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  call void @Vec_StrPutS(ptr noundef %15, ptr noundef %18)
+  %19 = load ptr, ptr %5, align 8, !tbaa !76
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
+  call void @Vec_StrPutS(ptr noundef %19, ptr noundef %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !76
+  %24 = load ptr, ptr %6, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  call void @Vec_StrPutS(ptr noundef %23, ptr noundef %26)
+  %27 = load ptr, ptr %5, align 8, !tbaa !76
+  %28 = load ptr, ptr %6, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %28, i32 0, i32 4
+  %30 = load float, ptr %29, align 8, !tbaa !20
+  call void @Vec_StrPutF(ptr noundef %27, float noundef %30)
+  %31 = load ptr, ptr %5, align 8, !tbaa !76
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %32, i32 0, i32 5
+  %34 = load i32, ptr %33, align 4, !tbaa !21
+  call void @Vec_StrPutI(ptr noundef %31, i32 noundef %34)
+  %35 = load ptr, ptr %5, align 8, !tbaa !76
+  %36 = load ptr, ptr %6, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %36, i32 0, i32 6
+  %38 = load float, ptr %37, align 8, !tbaa !22
+  call void @Vec_StrPutF(ptr noundef %35, float noundef %38)
+  %39 = load ptr, ptr %5, align 8, !tbaa !76
+  %40 = load ptr, ptr %6, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %40, i32 0, i32 7
+  %42 = load i32, ptr %41, align 4, !tbaa !23
+  call void @Vec_StrPutI(ptr noundef %39, i32 noundef %42)
+  %43 = load ptr, ptr %5, align 8, !tbaa !76
+  %44 = load ptr, ptr %6, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %44, i32 0, i32 8
+  %46 = call i32 @Vec_PtrSize(ptr noundef %45)
+  call void @Vec_StrPutI(ptr noundef %43, i32 noundef %46)
+  store i32 0, ptr %12, align 4, !tbaa !53
+  br label %47
 
-45:                                               ; preds = %96, %3
-  %46 = load i32, ptr %10, align 4
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.SC_Lib_, ptr %47, i32 0, i32 8
-  %49 = call i32 @Vec_PtrSize(ptr noundef %48)
-  %50 = icmp slt i32 %46, %49
-  br i1 %50, label %51, label %56
+47:                                               ; preds = %98, %4
+  %48 = load i32, ptr %12, align 4, !tbaa !53
+  %49 = load ptr, ptr %6, align 8, !tbaa !9
+  %50 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %49, i32 0, i32 8
+  %51 = call i32 @Vec_PtrSize(ptr noundef %50)
+  %52 = icmp slt i32 %48, %51
+  br i1 %52, label %53, label %58
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.SC_Lib_, ptr %52, i32 0, i32 8
-  %54 = load i32, ptr %10, align 4
-  %55 = call ptr @Vec_PtrEntry(ptr noundef %53, i32 noundef %54)
-  store ptr %55, ptr %7, align 8
-  br label %56
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %6, align 8, !tbaa !9
+  %55 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %54, i32 0, i32 8
+  %56 = load i32, ptr %12, align 4, !tbaa !53
+  %57 = call ptr @Vec_PtrEntry(ptr noundef %55, i32 noundef %56)
+  store ptr %57, ptr %9, align 8, !tbaa !79
+  br label %58
 
-56:                                               ; preds = %51, %45
-  %57 = phi i1 [ false, %45 ], [ true, %51 ]
-  br i1 %57, label %58, label %99
+58:                                               ; preds = %53, %47
+  %59 = phi i1 [ false, %47 ], [ true, %53 ]
+  br i1 %59, label %60, label %101
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.SC_WireLoad_, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  call void @Vec_StrPutS(ptr noundef %59, ptr noundef %62)
-  %63 = load ptr, ptr %4, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct.SC_WireLoad_, ptr %64, i32 0, i32 1
-  %66 = load float, ptr %65, align 8
-  call void @Vec_StrPutF(ptr noundef %63, float noundef %66)
-  %67 = load ptr, ptr %4, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.SC_WireLoad_, ptr %68, i32 0, i32 2
-  %70 = load float, ptr %69, align 4
-  call void @Vec_StrPutF(ptr noundef %67, float noundef %70)
-  %71 = load ptr, ptr %4, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.SC_WireLoad_, ptr %72, i32 0, i32 3
-  %74 = call i32 @Vec_IntSize(ptr noundef %73)
-  call void @Vec_StrPutI(ptr noundef %71, i32 noundef %74)
-  store i32 0, ptr %11, align 4
-  br label %75
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %5, align 8, !tbaa !76
+  %62 = load ptr, ptr %9, align 8, !tbaa !79
+  %63 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !81
+  call void @Vec_StrPutS(ptr noundef %61, ptr noundef %64)
+  %65 = load ptr, ptr %5, align 8, !tbaa !76
+  %66 = load ptr, ptr %9, align 8, !tbaa !79
+  %67 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %66, i32 0, i32 1
+  %68 = load float, ptr %67, align 8, !tbaa !83
+  call void @Vec_StrPutF(ptr noundef %65, float noundef %68)
+  %69 = load ptr, ptr %5, align 8, !tbaa !76
+  %70 = load ptr, ptr %9, align 8, !tbaa !79
+  %71 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %70, i32 0, i32 2
+  %72 = load float, ptr %71, align 4, !tbaa !84
+  call void @Vec_StrPutF(ptr noundef %69, float noundef %72)
+  %73 = load ptr, ptr %5, align 8, !tbaa !76
+  %74 = load ptr, ptr %9, align 8, !tbaa !79
+  %75 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %74, i32 0, i32 3
+  %76 = call i32 @Vec_IntSize(ptr noundef %75)
+  call void @Vec_StrPutI(ptr noundef %73, i32 noundef %76)
+  store i32 0, ptr %13, align 4, !tbaa !53
+  br label %77
 
-75:                                               ; preds = %92, %58
-  %76 = load i32, ptr %11, align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.SC_WireLoad_, ptr %77, i32 0, i32 3
-  %79 = call i32 @Vec_IntSize(ptr noundef %78)
-  %80 = icmp slt i32 %76, %79
-  br i1 %80, label %81, label %95
+77:                                               ; preds = %94, %60
+  %78 = load i32, ptr %13, align 4, !tbaa !53
+  %79 = load ptr, ptr %9, align 8, !tbaa !79
+  %80 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %79, i32 0, i32 3
+  %81 = call i32 @Vec_IntSize(ptr noundef %80)
+  %82 = icmp slt i32 %78, %81
+  br i1 %82, label %83, label %97
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %4, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.SC_WireLoad_, ptr %83, i32 0, i32 3
-  %85 = load i32, ptr %11, align 4
-  %86 = call i32 @Vec_IntEntry(ptr noundef %84, i32 noundef %85)
-  call void @Vec_StrPutI(ptr noundef %82, i32 noundef %86)
-  %87 = load ptr, ptr %4, align 8
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.SC_WireLoad_, ptr %88, i32 0, i32 4
-  %90 = load i32, ptr %11, align 4
-  %91 = call float @Vec_FltEntry(ptr noundef %89, i32 noundef %90)
-  call void @Vec_StrPutF(ptr noundef %87, float noundef %91)
-  br label %92
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %5, align 8, !tbaa !76
+  %85 = load ptr, ptr %9, align 8, !tbaa !79
+  %86 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %85, i32 0, i32 3
+  %87 = load i32, ptr %13, align 4, !tbaa !53
+  %88 = call i32 @Vec_IntEntry(ptr noundef %86, i32 noundef %87)
+  call void @Vec_StrPutI(ptr noundef %84, i32 noundef %88)
+  %89 = load ptr, ptr %5, align 8, !tbaa !76
+  %90 = load ptr, ptr %9, align 8, !tbaa !79
+  %91 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %90, i32 0, i32 4
+  %92 = load i32, ptr %13, align 4, !tbaa !53
+  %93 = call float @Vec_FltEntry(ptr noundef %91, i32 noundef %92)
+  call void @Vec_StrPutF(ptr noundef %89, float noundef %93)
+  br label %94
 
-92:                                               ; preds = %81
-  %93 = load i32, ptr %11, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %11, align 4
-  br label %75, !llvm.loop !22
+94:                                               ; preds = %83
+  %95 = load i32, ptr %13, align 4, !tbaa !53
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %13, align 4, !tbaa !53
+  br label %77, !llvm.loop !119
 
-95:                                               ; preds = %75
-  br label %96
+97:                                               ; preds = %77
+  br label %98
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr %10, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %10, align 4
-  br label %45, !llvm.loop !23
+98:                                               ; preds = %97
+  %99 = load i32, ptr %12, align 4, !tbaa !53
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %12, align 4, !tbaa !53
+  br label %47, !llvm.loop !120
 
-99:                                               ; preds = %56
-  %100 = load ptr, ptr %4, align 8
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.SC_Lib_, ptr %101, i32 0, i32 9
-  %103 = call i32 @Vec_PtrSize(ptr noundef %102)
-  call void @Vec_StrPutI(ptr noundef %100, i32 noundef %103)
-  store i32 0, ptr %10, align 4
-  br label %104
+101:                                              ; preds = %58
+  %102 = load ptr, ptr %5, align 8, !tbaa !76
+  %103 = load ptr, ptr %6, align 8, !tbaa !9
+  %104 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %103, i32 0, i32 9
+  %105 = call i32 @Vec_PtrSize(ptr noundef %104)
+  call void @Vec_StrPutI(ptr noundef %102, i32 noundef %105)
+  store i32 0, ptr %12, align 4, !tbaa !53
+  br label %106
 
-104:                                              ; preds = %152, %99
-  %105 = load i32, ptr %10, align 4
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.SC_Lib_, ptr %106, i32 0, i32 9
-  %108 = call i32 @Vec_PtrSize(ptr noundef %107)
-  %109 = icmp slt i32 %105, %108
-  br i1 %109, label %110, label %115
+106:                                              ; preds = %154, %101
+  %107 = load i32, ptr %12, align 4, !tbaa !53
+  %108 = load ptr, ptr %6, align 8, !tbaa !9
+  %109 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %108, i32 0, i32 9
+  %110 = call i32 @Vec_PtrSize(ptr noundef %109)
+  %111 = icmp slt i32 %107, %110
+  br i1 %111, label %112, label %117
 
-110:                                              ; preds = %104
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct.SC_Lib_, ptr %111, i32 0, i32 9
-  %113 = load i32, ptr %10, align 4
-  %114 = call ptr @Vec_PtrEntry(ptr noundef %112, i32 noundef %113)
-  store ptr %114, ptr %8, align 8
-  br label %115
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %6, align 8, !tbaa !9
+  %114 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %113, i32 0, i32 9
+  %115 = load i32, ptr %12, align 4, !tbaa !53
+  %116 = call ptr @Vec_PtrEntry(ptr noundef %114, i32 noundef %115)
+  store ptr %116, ptr %10, align 8, !tbaa !87
+  br label %117
 
-115:                                              ; preds = %110, %104
-  %116 = phi i1 [ false, %104 ], [ true, %110 ]
-  br i1 %116, label %117, label %155
+117:                                              ; preds = %112, %106
+  %118 = phi i1 [ false, %106 ], [ true, %112 ]
+  br i1 %118, label %119, label %157
 
-117:                                              ; preds = %115
-  %118 = load ptr, ptr %4, align 8
-  %119 = load ptr, ptr %8, align 8
-  %120 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %119, i32 0, i32 0
-  %121 = load ptr, ptr %120, align 8
-  call void @Vec_StrPutS(ptr noundef %118, ptr noundef %121)
-  %122 = load ptr, ptr %4, align 8
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %123, i32 0, i32 1
-  %125 = call i32 @Vec_FltSize(ptr noundef %124)
-  call void @Vec_StrPutI(ptr noundef %122, i32 noundef %125)
-  store i32 0, ptr %11, align 4
-  br label %126
+119:                                              ; preds = %117
+  %120 = load ptr, ptr %5, align 8, !tbaa !76
+  %121 = load ptr, ptr %10, align 8, !tbaa !87
+  %122 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8, !tbaa !89
+  call void @Vec_StrPutS(ptr noundef %120, ptr noundef %123)
+  %124 = load ptr, ptr %5, align 8, !tbaa !76
+  %125 = load ptr, ptr %10, align 8, !tbaa !87
+  %126 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %125, i32 0, i32 1
+  %127 = call i32 @Vec_FltSize(ptr noundef %126)
+  call void @Vec_StrPutI(ptr noundef %124, i32 noundef %127)
+  store i32 0, ptr %13, align 4, !tbaa !53
+  br label %128
 
-126:                                              ; preds = %148, %117
-  %127 = load i32, ptr %11, align 4
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %128, i32 0, i32 1
-  %130 = call i32 @Vec_FltSize(ptr noundef %129)
-  %131 = icmp slt i32 %127, %130
-  br i1 %131, label %132, label %151
+128:                                              ; preds = %150, %119
+  %129 = load i32, ptr %13, align 4, !tbaa !53
+  %130 = load ptr, ptr %10, align 8, !tbaa !87
+  %131 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %130, i32 0, i32 1
+  %132 = call i32 @Vec_FltSize(ptr noundef %131)
+  %133 = icmp slt i32 %129, %132
+  br i1 %133, label %134, label %153
 
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %4, align 8
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %134, i32 0, i32 1
-  %136 = load i32, ptr %11, align 4
-  %137 = call float @Vec_FltEntry(ptr noundef %135, i32 noundef %136)
-  call void @Vec_StrPutF(ptr noundef %133, float noundef %137)
-  %138 = load ptr, ptr %4, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %139, i32 0, i32 2
-  %141 = load i32, ptr %11, align 4
-  %142 = call float @Vec_FltEntry(ptr noundef %140, i32 noundef %141)
-  call void @Vec_StrPutF(ptr noundef %138, float noundef %142)
-  %143 = load ptr, ptr %4, align 8
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %144, i32 0, i32 3
-  %146 = load i32, ptr %11, align 4
-  %147 = call ptr @Vec_PtrEntry(ptr noundef %145, i32 noundef %146)
-  call void @Vec_StrPutS(ptr noundef %143, ptr noundef %147)
-  br label %148
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %5, align 8, !tbaa !76
+  %136 = load ptr, ptr %10, align 8, !tbaa !87
+  %137 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %136, i32 0, i32 1
+  %138 = load i32, ptr %13, align 4, !tbaa !53
+  %139 = call float @Vec_FltEntry(ptr noundef %137, i32 noundef %138)
+  call void @Vec_StrPutF(ptr noundef %135, float noundef %139)
+  %140 = load ptr, ptr %5, align 8, !tbaa !76
+  %141 = load ptr, ptr %10, align 8, !tbaa !87
+  %142 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %141, i32 0, i32 2
+  %143 = load i32, ptr %13, align 4, !tbaa !53
+  %144 = call float @Vec_FltEntry(ptr noundef %142, i32 noundef %143)
+  call void @Vec_StrPutF(ptr noundef %140, float noundef %144)
+  %145 = load ptr, ptr %5, align 8, !tbaa !76
+  %146 = load ptr, ptr %10, align 8, !tbaa !87
+  %147 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %146, i32 0, i32 3
+  %148 = load i32, ptr %13, align 4, !tbaa !53
+  %149 = call ptr @Vec_PtrEntry(ptr noundef %147, i32 noundef %148)
+  call void @Vec_StrPutS(ptr noundef %145, ptr noundef %149)
+  br label %150
 
-148:                                              ; preds = %132
-  %149 = load i32, ptr %11, align 4
-  %150 = add nsw i32 %149, 1
-  store i32 %150, ptr %11, align 4
-  br label %126, !llvm.loop !24
+150:                                              ; preds = %134
+  %151 = load i32, ptr %13, align 4, !tbaa !53
+  %152 = add nsw i32 %151, 1
+  store i32 %152, ptr %13, align 4, !tbaa !53
+  br label %128, !llvm.loop !121
 
-151:                                              ; preds = %126
-  br label %152
+153:                                              ; preds = %128
+  br label %154
 
-152:                                              ; preds = %151
-  %153 = load i32, ptr %10, align 4
-  %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %10, align 4
-  br label %104, !llvm.loop !25
+154:                                              ; preds = %153
+  %155 = load i32, ptr %12, align 4, !tbaa !53
+  %156 = add nsw i32 %155, 1
+  store i32 %156, ptr %12, align 4, !tbaa !53
+  br label %106, !llvm.loop !122
 
-155:                                              ; preds = %115
-  %156 = load ptr, ptr %5, align 8
-  %157 = call i32 @Abc_SclCountValidCells(ptr noundef %156)
-  store i32 %157, ptr %9, align 4
-  %158 = load ptr, ptr %4, align 8
-  %159 = load i32, ptr %9, align 4
-  %160 = load i32, ptr %6, align 4
-  %161 = add nsw i32 %159, %160
-  call void @Vec_StrPutI(ptr noundef %158, i32 noundef %161)
-  %162 = load ptr, ptr %4, align 8
-  %163 = load ptr, ptr %5, align 8
-  %164 = load i32, ptr %6, align 4
-  %165 = icmp sgt i32 %164, 0
-  %166 = zext i1 %165 to i32
-  call void @Abc_SclWriteLibraryCellsOnly(ptr noundef %162, ptr noundef %163, i32 noundef %166)
+157:                                              ; preds = %117
+  %158 = load ptr, ptr %6, align 8, !tbaa !9
+  %159 = call i32 @Abc_SclCountValidCells(ptr noundef %158)
+  store i32 %159, ptr %11, align 4, !tbaa !53
+  %160 = load ptr, ptr %5, align 8, !tbaa !76
+  %161 = load i32, ptr %11, align 4, !tbaa !53
+  %162 = load i32, ptr %7, align 4, !tbaa !53
+  %163 = add nsw i32 %161, %162
+  call void @Vec_StrPutI(ptr noundef %160, i32 noundef %163)
+  %164 = load ptr, ptr %5, align 8, !tbaa !76
+  %165 = load ptr, ptr %6, align 8, !tbaa !9
+  %166 = load i32, ptr %8, align 4, !tbaa !53
+  %167 = icmp ne i32 %166, 0
+  %168 = select i1 %167, i32 1, i32 0
+  call void @Abc_SclWriteLibraryCellsOnly(ptr noundef %164, ptr noundef %165, i32 noundef %168)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret void
 }
 
-declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclWriteLiberty(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !106
   %7 = call noalias ptr @fopen(ptr noundef %6, ptr noundef @.str.2)
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !107
+  %8 = load ptr, ptr %5, align 8, !tbaa !107
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !106
   %12 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %11)
   br label %22
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8, !tbaa !107
+  %15 = load ptr, ptr %4, align 8, !tbaa !9
   call void @Abc_SclWriteLibraryText(ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !107
   %17 = call i32 @fclose(ptr noundef %16)
-  %18 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !9
   %19 = call i32 @SC_LibCellNum(ptr noundef %18)
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !106
   %21 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %19, ptr noundef %20)
   br label %22
 
 22:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
@@ -1896,128 +2010,136 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %15 = load ptr, ptr %3, align 8, !tbaa !107
   %16 = call ptr (...) @Extra_TimeStamp()
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.11, ptr noundef %16) #9
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.SC_Lib_, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.12, ptr noundef %21) #9
-  %23 = load ptr, ptr %3, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.SC_Lib_, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.13, ptr noundef %26) #9
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.SC_Lib_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.11, ptr noundef %16) #11
+  %18 = load ptr, ptr %3, align 8, !tbaa !107
+  %19 = load ptr, ptr %4, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !112
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.12, ptr noundef %21) #11
+  %23 = load ptr, ptr %3, align 8, !tbaa !107
+  %24 = load ptr, ptr %4, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.13, ptr noundef %26) #11
+  %28 = load ptr, ptr %4, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %2
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.SC_Lib_, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i64 @strlen(ptr noundef %35) #11
+  %33 = load ptr, ptr %4, align 8, !tbaa !9
+  %34 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  %36 = call i64 @strlen(ptr noundef %35) #13
   %37 = icmp ne i64 %36, 0
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr %3, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.SC_Lib_, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.14, ptr noundef %42) #9
+  %39 = load ptr, ptr %3, align 8, !tbaa !107
+  %40 = load ptr, ptr %4, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !18
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.14, ptr noundef %42) #11
   br label %44
 
 44:                                               ; preds = %38, %32, %2
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.SC_Lib_, ptr %45, i32 0, i32 3
-  %47 = load ptr, ptr %46, align 8
+  %45 = load ptr, ptr %4, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = icmp ne ptr %47, null
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.SC_Lib_, ptr %50, i32 0, i32 3
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i64 @strlen(ptr noundef %52) #11
+  %50 = load ptr, ptr %4, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8, !tbaa !19
+  %53 = call i64 @strlen(ptr noundef %52) #13
   %54 = icmp ne i64 %53, 0
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr %3, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.SC_Lib_, ptr %57, i32 0, i32 3
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.15, ptr noundef %59) #9
+  %56 = load ptr, ptr %3, align 8, !tbaa !107
+  %57 = load ptr, ptr %4, align 8, !tbaa !9
+  %58 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %57, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8, !tbaa !19
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.15, ptr noundef %59) #11
   br label %61
 
 61:                                               ; preds = %55, %49, %44
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.SC_Lib_, ptr %62, i32 0, i32 4
-  %64 = load float, ptr %63, align 8
+  %62 = load ptr, ptr %4, align 8, !tbaa !9
+  %63 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %62, i32 0, i32 4
+  %64 = load float, ptr %63, align 8, !tbaa !20
   %65 = fcmp une float %64, -1.000000e+00
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr %3, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.SC_Lib_, ptr %68, i32 0, i32 4
-  %70 = load float, ptr %69, align 8
+  %67 = load ptr, ptr %3, align 8, !tbaa !107
+  %68 = load ptr, ptr %4, align 8, !tbaa !9
+  %69 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %68, i32 0, i32 4
+  %70 = load float, ptr %69, align 8, !tbaa !20
   %71 = fpext float %70 to double
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.16, double noundef %71) #9
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.16, double noundef %71) #11
   br label %73
 
 73:                                               ; preds = %66, %61
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.SC_Lib_, ptr %74, i32 0, i32 5
-  %76 = load i32, ptr %75, align 4
+  %74 = load ptr, ptr %4, align 8, !tbaa !9
+  %75 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %75, align 4, !tbaa !21
   %77 = icmp eq i32 %76, 9
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %73
-  %79 = load ptr, ptr %3, align 8
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.17) #9
+  %79 = load ptr, ptr %3, align 8, !tbaa !107
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.17) #11
   br label %109
 
 81:                                               ; preds = %73
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.SC_Lib_, ptr %82, i32 0, i32 5
-  %84 = load i32, ptr %83, align 4
+  %82 = load ptr, ptr %4, align 8, !tbaa !9
+  %83 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %82, i32 0, i32 5
+  %84 = load i32, ptr %83, align 4, !tbaa !21
   %85 = icmp eq i32 %84, 10
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %81
-  %87 = load ptr, ptr %3, align 8
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.18) #9
+  %87 = load ptr, ptr %3, align 8, !tbaa !107
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.18) #11
   br label %108
 
 89:                                               ; preds = %81
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.SC_Lib_, ptr %90, i32 0, i32 5
-  %92 = load i32, ptr %91, align 4
+  %90 = load ptr, ptr %4, align 8, !tbaa !9
+  %91 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %90, i32 0, i32 5
+  %92 = load i32, ptr %91, align 4, !tbaa !21
   %93 = icmp eq i32 %92, 11
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr %3, align 8
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.19) #9
+  %95 = load ptr, ptr %3, align 8, !tbaa !107
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.19) #11
   br label %107
 
 97:                                               ; preds = %89
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %struct.SC_Lib_, ptr %98, i32 0, i32 5
-  %100 = load i32, ptr %99, align 4
+  %98 = load ptr, ptr %4, align 8, !tbaa !9
+  %99 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %98, i32 0, i32 5
+  %100 = load i32, ptr %99, align 4, !tbaa !21
   %101 = icmp eq i32 %100, 12
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %97
-  %103 = load ptr, ptr %3, align 8
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.20) #9
+  %103 = load ptr, ptr %3, align 8, !tbaa !107
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.20) #11
   br label %106
 
 105:                                              ; preds = %97
@@ -2033,36 +2155,36 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br label %109
 
 109:                                              ; preds = %108, %78
-  %110 = load ptr, ptr %3, align 8
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds %struct.SC_Lib_, ptr %111, i32 0, i32 6
-  %113 = load float, ptr %112, align 8
+  %110 = load ptr, ptr %3, align 8, !tbaa !107
+  %111 = load ptr, ptr %4, align 8, !tbaa !9
+  %112 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %111, i32 0, i32 6
+  %113 = load float, ptr %112, align 8, !tbaa !22
   %114 = fpext float %113 to double
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.SC_Lib_, ptr %115, i32 0, i32 7
-  %117 = load i32, ptr %116, align 4
+  %115 = load ptr, ptr %4, align 8, !tbaa !9
+  %116 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %115, i32 0, i32 7
+  %117 = load i32, ptr %116, align 4, !tbaa !23
   %118 = icmp eq i32 %117, 12
   %119 = select i1 %118, ptr @.str.22, ptr @.str.23
-  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.21, double noundef %114, ptr noundef %119) #9
-  %121 = load ptr, ptr %3, align 8
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.24) #9
-  store i32 0, ptr %10, align 4
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.21, double noundef %114, ptr noundef %119) #11
+  %121 = load ptr, ptr %3, align 8, !tbaa !107
+  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.24) #11
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %123
 
 123:                                              ; preds = %178, %109
-  %124 = load i32, ptr %10, align 4
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.SC_Lib_, ptr %125, i32 0, i32 8
+  %124 = load i32, ptr %10, align 4, !tbaa !53
+  %125 = load ptr, ptr %4, align 8, !tbaa !9
+  %126 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %125, i32 0, i32 8
   %127 = call i32 @Vec_PtrSize(ptr noundef %126)
   %128 = icmp slt i32 %124, %127
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %123
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.SC_Lib_, ptr %130, i32 0, i32 8
-  %132 = load i32, ptr %10, align 4
+  %130 = load ptr, ptr %4, align 8, !tbaa !9
+  %131 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %130, i32 0, i32 8
+  %132 = load i32, ptr %10, align 4, !tbaa !53
   %133 = call ptr @Vec_PtrEntry(ptr noundef %131, i32 noundef %132)
-  store ptr %133, ptr %5, align 8
+  store ptr %133, ptr %5, align 8, !tbaa !79
   br label %134
 
 134:                                              ; preds = %129, %123
@@ -2070,83 +2192,83 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %135, label %136, label %181
 
 136:                                              ; preds = %134
-  %137 = load ptr, ptr %3, align 8
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds %struct.SC_WireLoad_, ptr %138, i32 0, i32 0
-  %140 = load ptr, ptr %139, align 8
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef @.str.25, ptr noundef %140) #9
-  %142 = load ptr, ptr %3, align 8
-  %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds %struct.SC_WireLoad_, ptr %143, i32 0, i32 1
-  %145 = load float, ptr %144, align 8
+  %137 = load ptr, ptr %3, align 8, !tbaa !107
+  %138 = load ptr, ptr %5, align 8, !tbaa !79
+  %139 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %138, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8, !tbaa !81
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef @.str.25, ptr noundef %140) #11
+  %142 = load ptr, ptr %3, align 8, !tbaa !107
+  %143 = load ptr, ptr %5, align 8, !tbaa !79
+  %144 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %143, i32 0, i32 1
+  %145 = load float, ptr %144, align 8, !tbaa !83
   %146 = fpext float %145 to double
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.26, double noundef %146) #9
-  %148 = load ptr, ptr %3, align 8
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.SC_WireLoad_, ptr %149, i32 0, i32 2
-  %151 = load float, ptr %150, align 4
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.26, double noundef %146) #11
+  %148 = load ptr, ptr %3, align 8, !tbaa !107
+  %149 = load ptr, ptr %5, align 8, !tbaa !79
+  %150 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %149, i32 0, i32 2
+  %151 = load float, ptr %150, align 4, !tbaa !84
   %152 = fpext float %151 to double
-  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef @.str.27, double noundef %152) #9
-  store i32 0, ptr %11, align 4
+  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef @.str.27, double noundef %152) #11
+  store i32 0, ptr %11, align 4, !tbaa !53
   br label %154
 
 154:                                              ; preds = %172, %136
-  %155 = load i32, ptr %11, align 4
-  %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds %struct.SC_WireLoad_, ptr %156, i32 0, i32 3
+  %155 = load i32, ptr %11, align 4, !tbaa !53
+  %156 = load ptr, ptr %5, align 8, !tbaa !79
+  %157 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %156, i32 0, i32 3
   %158 = call i32 @Vec_IntSize(ptr noundef %157)
   %159 = icmp slt i32 %155, %158
   br i1 %159, label %160, label %175
 
 160:                                              ; preds = %154
-  %161 = load ptr, ptr %3, align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.SC_WireLoad_, ptr %162, i32 0, i32 3
-  %164 = load i32, ptr %11, align 4
+  %161 = load ptr, ptr %3, align 8, !tbaa !107
+  %162 = load ptr, ptr %5, align 8, !tbaa !79
+  %163 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %162, i32 0, i32 3
+  %164 = load i32, ptr %11, align 4, !tbaa !53
   %165 = call i32 @Vec_IntEntry(ptr noundef %163, i32 noundef %164)
-  %166 = load ptr, ptr %5, align 8
-  %167 = getelementptr inbounds %struct.SC_WireLoad_, ptr %166, i32 0, i32 4
-  %168 = load i32, ptr %11, align 4
+  %166 = load ptr, ptr %5, align 8, !tbaa !79
+  %167 = getelementptr inbounds nuw %struct.SC_WireLoad_, ptr %166, i32 0, i32 4
+  %168 = load i32, ptr %11, align 4, !tbaa !53
   %169 = call float @Vec_FltEntry(ptr noundef %167, i32 noundef %168)
   %170 = fpext float %169 to double
-  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.28, i32 noundef %165, double noundef %170) #9
+  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.28, i32 noundef %165, double noundef %170) #11
   br label %172
 
 172:                                              ; preds = %160
-  %173 = load i32, ptr %11, align 4
+  %173 = load i32, ptr %11, align 4, !tbaa !53
   %174 = add nsw i32 %173, 1
-  store i32 %174, ptr %11, align 4
-  br label %154, !llvm.loop !26
+  store i32 %174, ptr %11, align 4, !tbaa !53
+  br label %154, !llvm.loop !123
 
 175:                                              ; preds = %154
-  %176 = load ptr, ptr %3, align 8
-  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.29) #9
+  %176 = load ptr, ptr %3, align 8, !tbaa !107
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.29) #11
   br label %178
 
 178:                                              ; preds = %175
-  %179 = load i32, ptr %10, align 4
+  %179 = load i32, ptr %10, align 4, !tbaa !53
   %180 = add nsw i32 %179, 1
-  store i32 %180, ptr %10, align 4
-  br label %123, !llvm.loop !27
+  store i32 %180, ptr %10, align 4, !tbaa !53
+  br label %123, !llvm.loop !124
 
 181:                                              ; preds = %134
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %182
 
 182:                                              ; preds = %230, %181
-  %183 = load i32, ptr %10, align 4
-  %184 = load ptr, ptr %4, align 8
-  %185 = getelementptr inbounds %struct.SC_Lib_, ptr %184, i32 0, i32 9
+  %183 = load i32, ptr %10, align 4, !tbaa !53
+  %184 = load ptr, ptr %4, align 8, !tbaa !9
+  %185 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %184, i32 0, i32 9
   %186 = call i32 @Vec_PtrSize(ptr noundef %185)
   %187 = icmp slt i32 %183, %186
   br i1 %187, label %188, label %193
 
 188:                                              ; preds = %182
-  %189 = load ptr, ptr %4, align 8
-  %190 = getelementptr inbounds %struct.SC_Lib_, ptr %189, i32 0, i32 9
-  %191 = load i32, ptr %10, align 4
+  %189 = load ptr, ptr %4, align 8, !tbaa !9
+  %190 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %189, i32 0, i32 9
+  %191 = load i32, ptr %10, align 4, !tbaa !53
   %192 = call ptr @Vec_PtrEntry(ptr noundef %190, i32 noundef %191)
-  store ptr %192, ptr %6, align 8
+  store ptr %192, ptr %6, align 8, !tbaa !87
   br label %193
 
 193:                                              ; preds = %188, %182
@@ -2154,77 +2276,77 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %194, label %195, label %233
 
 195:                                              ; preds = %193
-  %196 = load ptr, ptr %3, align 8
-  %197 = load ptr, ptr %6, align 8
-  %198 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %197, i32 0, i32 0
-  %199 = load ptr, ptr %198, align 8
-  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef @.str.30, ptr noundef %199) #9
-  store i32 0, ptr %11, align 4
+  %196 = load ptr, ptr %3, align 8, !tbaa !107
+  %197 = load ptr, ptr %6, align 8, !tbaa !87
+  %198 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %197, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8, !tbaa !89
+  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef @.str.30, ptr noundef %199) #11
+  store i32 0, ptr %11, align 4, !tbaa !53
   br label %201
 
 201:                                              ; preds = %224, %195
-  %202 = load i32, ptr %11, align 4
-  %203 = load ptr, ptr %6, align 8
-  %204 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %203, i32 0, i32 1
+  %202 = load i32, ptr %11, align 4, !tbaa !53
+  %203 = load ptr, ptr %6, align 8, !tbaa !87
+  %204 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %203, i32 0, i32 1
   %205 = call i32 @Vec_FltSize(ptr noundef %204)
   %206 = icmp slt i32 %202, %205
   br i1 %206, label %207, label %227
 
 207:                                              ; preds = %201
-  %208 = load ptr, ptr %3, align 8
-  %209 = load ptr, ptr %6, align 8
-  %210 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %209, i32 0, i32 1
-  %211 = load i32, ptr %11, align 4
+  %208 = load ptr, ptr %3, align 8, !tbaa !107
+  %209 = load ptr, ptr %6, align 8, !tbaa !87
+  %210 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %209, i32 0, i32 1
+  %211 = load i32, ptr %11, align 4, !tbaa !53
   %212 = call float @Vec_FltEntry(ptr noundef %210, i32 noundef %211)
   %213 = fpext float %212 to double
-  %214 = load ptr, ptr %6, align 8
-  %215 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %214, i32 0, i32 2
-  %216 = load i32, ptr %11, align 4
+  %214 = load ptr, ptr %6, align 8, !tbaa !87
+  %215 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %214, i32 0, i32 2
+  %216 = load i32, ptr %11, align 4, !tbaa !53
   %217 = call float @Vec_FltEntry(ptr noundef %215, i32 noundef %216)
   %218 = fpext float %217 to double
-  %219 = load ptr, ptr %6, align 8
-  %220 = getelementptr inbounds %struct.SC_WireLoadSel_, ptr %219, i32 0, i32 3
-  %221 = load i32, ptr %11, align 4
+  %219 = load ptr, ptr %6, align 8, !tbaa !87
+  %220 = getelementptr inbounds nuw %struct.SC_WireLoadSel_, ptr %219, i32 0, i32 3
+  %221 = load i32, ptr %11, align 4, !tbaa !53
   %222 = call ptr @Vec_PtrEntry(ptr noundef %220, i32 noundef %221)
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef @.str.31, double noundef %213, double noundef %218, ptr noundef %222) #9
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef @.str.31, double noundef %213, double noundef %218, ptr noundef %222) #11
   br label %224
 
 224:                                              ; preds = %207
-  %225 = load i32, ptr %11, align 4
+  %225 = load i32, ptr %11, align 4, !tbaa !53
   %226 = add nsw i32 %225, 1
-  store i32 %226, ptr %11, align 4
-  br label %201, !llvm.loop !28
+  store i32 %226, ptr %11, align 4, !tbaa !53
+  br label %201, !llvm.loop !125
 
 227:                                              ; preds = %201
-  %228 = load ptr, ptr %3, align 8
-  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef @.str.29) #9
+  %228 = load ptr, ptr %3, align 8, !tbaa !107
+  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef @.str.29) #11
   br label %230
 
 230:                                              ; preds = %227
-  %231 = load i32, ptr %10, align 4
+  %231 = load i32, ptr %10, align 4, !tbaa !53
   %232 = add nsw i32 %231, 1
-  store i32 %232, ptr %10, align 4
-  br label %182, !llvm.loop !29
+  store i32 %232, ptr %10, align 4, !tbaa !53
+  br label %182, !llvm.loop !126
 
 233:                                              ; preds = %193
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %9, align 4, !tbaa !53
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %234
 
 234:                                              ; preds = %261, %233
-  %235 = load i32, ptr %10, align 4
-  %236 = load ptr, ptr %4, align 8
-  %237 = getelementptr inbounds %struct.SC_Lib_, ptr %236, i32 0, i32 11
+  %235 = load i32, ptr %10, align 4, !tbaa !53
+  %236 = load ptr, ptr %4, align 8, !tbaa !9
+  %237 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %236, i32 0, i32 11
   %238 = call i32 @Vec_PtrSize(ptr noundef %237)
   %239 = icmp slt i32 %235, %238
   br i1 %239, label %240, label %245
 
 240:                                              ; preds = %234
-  %241 = load ptr, ptr %4, align 8
-  %242 = getelementptr inbounds %struct.SC_Lib_, ptr %241, i32 0, i32 11
-  %243 = load i32, ptr %10, align 4
+  %241 = load ptr, ptr %4, align 8, !tbaa !9
+  %242 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %241, i32 0, i32 11
+  %243 = load i32, ptr %10, align 4, !tbaa !53
   %244 = call ptr @Vec_PtrEntry(ptr noundef %242, i32 noundef %243)
-  store ptr %244, ptr %7, align 8
+  store ptr %244, ptr %7, align 8, !tbaa !26
   br label %245
 
 245:                                              ; preds = %240, %234
@@ -2232,52 +2354,52 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %246, label %247, label %264
 
 247:                                              ; preds = %245
-  %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds %struct.SC_Cell_, ptr %248, i32 0, i32 3
-  %250 = load i32, ptr %249, align 8
+  %248 = load ptr, ptr %7, align 8, !tbaa !26
+  %249 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %248, i32 0, i32 3
+  %250 = load i32, ptr %249, align 8, !tbaa !114
   %251 = icmp ne i32 %250, 0
   br i1 %251, label %260, label %252
 
 252:                                              ; preds = %247
-  %253 = load ptr, ptr %7, align 8
-  %254 = getelementptr inbounds %struct.SC_Cell_, ptr %253, i32 0, i32 4
-  %255 = load i32, ptr %254, align 4
+  %253 = load ptr, ptr %7, align 8, !tbaa !26
+  %254 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %253, i32 0, i32 4
+  %255 = load i32, ptr %254, align 4, !tbaa !115
   %256 = icmp ne i32 %255, 0
   br i1 %256, label %260, label %257
 
 257:                                              ; preds = %252
-  %258 = load i32, ptr %9, align 4
+  %258 = load i32, ptr %9, align 4, !tbaa !53
   %259 = add nsw i32 %258, 1
-  store i32 %259, ptr %9, align 4
+  store i32 %259, ptr %9, align 4, !tbaa !53
   br label %260
 
 260:                                              ; preds = %257, %252, %247
   br label %261
 
 261:                                              ; preds = %260
-  %262 = load i32, ptr %10, align 4
+  %262 = load i32, ptr %10, align 4, !tbaa !53
   %263 = add nsw i32 %262, 1
-  store i32 %263, ptr %10, align 4
-  br label %234, !llvm.loop !30
+  store i32 %263, ptr %10, align 4, !tbaa !53
+  br label %234, !llvm.loop !127
 
 264:                                              ; preds = %245
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %265
 
 265:                                              ; preds = %521, %264
-  %266 = load i32, ptr %10, align 4
-  %267 = load ptr, ptr %4, align 8
-  %268 = getelementptr inbounds %struct.SC_Lib_, ptr %267, i32 0, i32 11
+  %266 = load i32, ptr %10, align 4, !tbaa !53
+  %267 = load ptr, ptr %4, align 8, !tbaa !9
+  %268 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %267, i32 0, i32 11
   %269 = call i32 @Vec_PtrSize(ptr noundef %268)
   %270 = icmp slt i32 %266, %269
   br i1 %270, label %271, label %276
 
 271:                                              ; preds = %265
-  %272 = load ptr, ptr %4, align 8
-  %273 = getelementptr inbounds %struct.SC_Lib_, ptr %272, i32 0, i32 11
-  %274 = load i32, ptr %10, align 4
+  %272 = load ptr, ptr %4, align 8, !tbaa !9
+  %273 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %272, i32 0, i32 11
+  %274 = load i32, ptr %10, align 4, !tbaa !53
   %275 = call ptr @Vec_PtrEntry(ptr noundef %273, i32 noundef %274)
-  store ptr %275, ptr %7, align 8
+  store ptr %275, ptr %7, align 8, !tbaa !26
   br label %276
 
 276:                                              ; preds = %271, %265
@@ -2285,16 +2407,16 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %277, label %278, label %524
 
 278:                                              ; preds = %276
-  %279 = load ptr, ptr %7, align 8
-  %280 = getelementptr inbounds %struct.SC_Cell_, ptr %279, i32 0, i32 3
-  %281 = load i32, ptr %280, align 8
+  %279 = load ptr, ptr %7, align 8, !tbaa !26
+  %280 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %279, i32 0, i32 3
+  %281 = load i32, ptr %280, align 8, !tbaa !114
   %282 = icmp ne i32 %281, 0
   br i1 %282, label %288, label %283
 
 283:                                              ; preds = %278
-  %284 = load ptr, ptr %7, align 8
-  %285 = getelementptr inbounds %struct.SC_Cell_, ptr %284, i32 0, i32 4
-  %286 = load i32, ptr %285, align 4
+  %284 = load ptr, ptr %7, align 8, !tbaa !26
+  %285 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %284, i32 0, i32 4
+  %286 = load i32, ptr %285, align 4, !tbaa !115
   %287 = icmp ne i32 %286, 0
   br i1 %287, label %288, label %289
 
@@ -2302,55 +2424,55 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br label %521
 
 289:                                              ; preds = %283
-  %290 = load ptr, ptr %3, align 8
-  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef @.str.24) #9
-  %292 = load ptr, ptr %3, align 8
-  %293 = load ptr, ptr %7, align 8
-  %294 = getelementptr inbounds %struct.SC_Cell_, ptr %293, i32 0, i32 0
-  %295 = load ptr, ptr %294, align 8
-  %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef @.str.32, ptr noundef %295) #9
-  %297 = load ptr, ptr %3, align 8
-  %298 = load ptr, ptr %7, align 8
-  %299 = getelementptr inbounds %struct.SC_Cell_, ptr %298, i32 0, i32 11
-  %300 = load i32, ptr %299, align 8
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct.SC_Cell_, ptr %301, i32 0, i32 12
-  %303 = load i32, ptr %302, align 4
-  %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef @.str.33, i32 noundef %300, i32 noundef %303) #9
-  %305 = load ptr, ptr %3, align 8
-  %306 = load ptr, ptr %7, align 8
-  %307 = getelementptr inbounds %struct.SC_Cell_, ptr %306, i32 0, i32 5
-  %308 = load float, ptr %307, align 8
+  %290 = load ptr, ptr %3, align 8, !tbaa !107
+  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef @.str.24) #11
+  %292 = load ptr, ptr %3, align 8, !tbaa !107
+  %293 = load ptr, ptr %7, align 8, !tbaa !26
+  %294 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %293, i32 0, i32 0
+  %295 = load ptr, ptr %294, align 8, !tbaa !30
+  %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef @.str.32, ptr noundef %295) #11
+  %297 = load ptr, ptr %3, align 8, !tbaa !107
+  %298 = load ptr, ptr %7, align 8, !tbaa !26
+  %299 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %298, i32 0, i32 11
+  %300 = load i32, ptr %299, align 8, !tbaa !34
+  %301 = load ptr, ptr %7, align 8, !tbaa !26
+  %302 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %301, i32 0, i32 12
+  %303 = load i32, ptr %302, align 4, !tbaa !35
+  %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef @.str.33, i32 noundef %300, i32 noundef %303) #11
+  %305 = load ptr, ptr %3, align 8, !tbaa !107
+  %306 = load ptr, ptr %7, align 8, !tbaa !26
+  %307 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %306, i32 0, i32 5
+  %308 = load float, ptr %307, align 8, !tbaa !31
   %309 = fpext float %308 to double
-  %310 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef @.str.34, double noundef %309) #9
-  %311 = load ptr, ptr %3, align 8
-  %312 = load ptr, ptr %7, align 8
-  %313 = getelementptr inbounds %struct.SC_Cell_, ptr %312, i32 0, i32 6
-  %314 = load float, ptr %313, align 4
+  %310 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef @.str.34, double noundef %309) #11
+  %311 = load ptr, ptr %3, align 8, !tbaa !107
+  %312 = load ptr, ptr %7, align 8, !tbaa !26
+  %313 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %312, i32 0, i32 6
+  %314 = load float, ptr %313, align 4, !tbaa !32
   %315 = fpext float %314 to double
-  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef @.str.35, double noundef %315) #9
-  %317 = load ptr, ptr %3, align 8
-  %318 = load ptr, ptr %7, align 8
-  %319 = getelementptr inbounds %struct.SC_Cell_, ptr %318, i32 0, i32 9
-  %320 = load i32, ptr %319, align 8
-  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef @.str.36, i32 noundef %320) #9
-  store i32 0, ptr %11, align 4
+  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef @.str.35, double noundef %315) #11
+  %317 = load ptr, ptr %3, align 8, !tbaa !107
+  %318 = load ptr, ptr %7, align 8, !tbaa !26
+  %319 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %318, i32 0, i32 9
+  %320 = load i32, ptr %319, align 8, !tbaa !33
+  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef @.str.36, i32 noundef %320) #11
+  store i32 0, ptr %11, align 4, !tbaa !53
   br label %322
 
 322:                                              ; preds = %357, %289
-  %323 = load i32, ptr %11, align 4
-  %324 = load ptr, ptr %7, align 8
-  %325 = getelementptr inbounds %struct.SC_Cell_, ptr %324, i32 0, i32 11
-  %326 = load i32, ptr %325, align 8
+  %323 = load i32, ptr %11, align 4, !tbaa !53
+  %324 = load ptr, ptr %7, align 8, !tbaa !26
+  %325 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %324, i32 0, i32 11
+  %326 = load i32, ptr %325, align 8, !tbaa !34
   %327 = icmp slt i32 %323, %326
   br i1 %327, label %328, label %333
 
 328:                                              ; preds = %322
-  %329 = load ptr, ptr %7, align 8
-  %330 = getelementptr inbounds %struct.SC_Cell_, ptr %329, i32 0, i32 10
-  %331 = load i32, ptr %11, align 4
+  %329 = load ptr, ptr %7, align 8, !tbaa !26
+  %330 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %329, i32 0, i32 10
+  %331 = load i32, ptr %11, align 4, !tbaa !53
   %332 = call ptr @Vec_PtrEntry(ptr noundef %330, i32 noundef %331)
-  store ptr %332, ptr %8, align 8
+  store ptr %332, ptr %8, align 8, !tbaa !40
   br label %333
 
 333:                                              ; preds = %328, %322
@@ -2358,56 +2480,56 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %334, label %335, label %360
 
 335:                                              ; preds = %333
-  %336 = load ptr, ptr %3, align 8
-  %337 = load ptr, ptr %8, align 8
-  %338 = getelementptr inbounds %struct.SC_Pin_, ptr %337, i32 0, i32 0
-  %339 = load ptr, ptr %338, align 8
-  %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef @.str.37, ptr noundef %339) #9
-  %341 = load ptr, ptr %3, align 8
-  %342 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef @.str.38, ptr noundef @.str.39) #9
-  %343 = load ptr, ptr %3, align 8
-  %344 = load ptr, ptr %8, align 8
-  %345 = getelementptr inbounds %struct.SC_Pin_, ptr %344, i32 0, i32 4
-  %346 = load float, ptr %345, align 4
+  %336 = load ptr, ptr %3, align 8, !tbaa !107
+  %337 = load ptr, ptr %8, align 8, !tbaa !40
+  %338 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %337, i32 0, i32 0
+  %339 = load ptr, ptr %338, align 8, !tbaa !46
+  %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef @.str.37, ptr noundef %339) #11
+  %341 = load ptr, ptr %3, align 8, !tbaa !107
+  %342 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef @.str.38, ptr noundef @.str.39) #11
+  %343 = load ptr, ptr %3, align 8, !tbaa !107
+  %344 = load ptr, ptr %8, align 8, !tbaa !40
+  %345 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %344, i32 0, i32 4
+  %346 = load float, ptr %345, align 4, !tbaa !48
   %347 = fpext float %346 to double
-  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef @.str.40, double noundef %347) #9
-  %349 = load ptr, ptr %3, align 8
-  %350 = load ptr, ptr %8, align 8
-  %351 = getelementptr inbounds %struct.SC_Pin_, ptr %350, i32 0, i32 3
-  %352 = load float, ptr %351, align 8
+  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef @.str.40, double noundef %347) #11
+  %349 = load ptr, ptr %3, align 8, !tbaa !107
+  %350 = load ptr, ptr %8, align 8, !tbaa !40
+  %351 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %350, i32 0, i32 3
+  %352 = load float, ptr %351, align 8, !tbaa !47
   %353 = fpext float %352 to double
-  %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef @.str.41, double noundef %353) #9
-  %355 = load ptr, ptr %3, align 8
-  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef @.str.42) #9
+  %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef @.str.41, double noundef %353) #11
+  %355 = load ptr, ptr %3, align 8, !tbaa !107
+  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef @.str.42) #11
   br label %357
 
 357:                                              ; preds = %335
-  %358 = load i32, ptr %11, align 4
+  %358 = load i32, ptr %11, align 4, !tbaa !53
   %359 = add nsw i32 %358, 1
-  store i32 %359, ptr %11, align 4
-  br label %322, !llvm.loop !31
+  store i32 %359, ptr %11, align 4, !tbaa !53
+  br label %322, !llvm.loop !128
 
 360:                                              ; preds = %333
-  %361 = load ptr, ptr %7, align 8
-  %362 = getelementptr inbounds %struct.SC_Cell_, ptr %361, i32 0, i32 11
-  %363 = load i32, ptr %362, align 8
-  store i32 %363, ptr %11, align 4
+  %361 = load ptr, ptr %7, align 8, !tbaa !26
+  %362 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %361, i32 0, i32 11
+  %363 = load i32, ptr %362, align 8, !tbaa !34
+  store i32 %363, ptr %11, align 4, !tbaa !53
   br label %364
 
 364:                                              ; preds = %515, %360
-  %365 = load i32, ptr %11, align 4
-  %366 = load ptr, ptr %7, align 8
-  %367 = getelementptr inbounds %struct.SC_Cell_, ptr %366, i32 0, i32 10
+  %365 = load i32, ptr %11, align 4, !tbaa !53
+  %366 = load ptr, ptr %7, align 8, !tbaa !26
+  %367 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %366, i32 0, i32 10
   %368 = call i32 @Vec_PtrSize(ptr noundef %367)
   %369 = icmp slt i32 %365, %368
   br i1 %369, label %370, label %375
 
 370:                                              ; preds = %364
-  %371 = load ptr, ptr %7, align 8
-  %372 = getelementptr inbounds %struct.SC_Cell_, ptr %371, i32 0, i32 10
-  %373 = load i32, ptr %11, align 4
+  %371 = load ptr, ptr %7, align 8, !tbaa !26
+  %372 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %371, i32 0, i32 10
+  %373 = load i32, ptr %11, align 4, !tbaa !53
   %374 = call ptr @Vec_PtrEntry(ptr noundef %372, i32 noundef %373)
-  store ptr %374, ptr %8, align 8
+  store ptr %374, ptr %8, align 8, !tbaa !40
   br label %375
 
 375:                                              ; preds = %370, %364
@@ -2415,36 +2537,37 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %376, label %377, label %518
 
 377:                                              ; preds = %375
-  %378 = load ptr, ptr %3, align 8
-  %379 = load ptr, ptr %8, align 8
-  %380 = getelementptr inbounds %struct.SC_Pin_, ptr %379, i32 0, i32 0
-  %381 = load ptr, ptr %380, align 8
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef @.str.37, ptr noundef %381) #9
-  %383 = load ptr, ptr %3, align 8
-  %384 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef @.str.38, ptr noundef @.str.43) #9
-  %385 = load ptr, ptr %3, align 8
-  %386 = load ptr, ptr %8, align 8
-  %387 = getelementptr inbounds %struct.SC_Pin_, ptr %386, i32 0, i32 7
-  %388 = load float, ptr %387, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %378 = load ptr, ptr %3, align 8, !tbaa !107
+  %379 = load ptr, ptr %8, align 8, !tbaa !40
+  %380 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %379, i32 0, i32 0
+  %381 = load ptr, ptr %380, align 8, !tbaa !46
+  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef @.str.37, ptr noundef %381) #11
+  %383 = load ptr, ptr %3, align 8, !tbaa !107
+  %384 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef @.str.38, ptr noundef @.str.43) #11
+  %385 = load ptr, ptr %3, align 8, !tbaa !107
+  %386 = load ptr, ptr %8, align 8, !tbaa !40
+  %387 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %386, i32 0, i32 7
+  %388 = load float, ptr %387, align 8, !tbaa !55
   %389 = fpext float %388 to double
-  %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef @.str.44, double noundef %389) #9
-  %391 = load ptr, ptr %3, align 8
-  %392 = load ptr, ptr %8, align 8
-  %393 = getelementptr inbounds %struct.SC_Pin_, ptr %392, i32 0, i32 8
-  %394 = load float, ptr %393, align 4
+  %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef @.str.44, double noundef %389) #11
+  %391 = load ptr, ptr %3, align 8, !tbaa !107
+  %392 = load ptr, ptr %8, align 8, !tbaa !40
+  %393 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %392, i32 0, i32 8
+  %394 = load float, ptr %393, align 4, !tbaa !56
   %395 = fpext float %394 to double
-  %396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef @.str.45, double noundef %395) #9
-  %397 = load ptr, ptr %3, align 8
-  %398 = load ptr, ptr %8, align 8
-  %399 = getelementptr inbounds %struct.SC_Pin_, ptr %398, i32 0, i32 9
-  %400 = load ptr, ptr %399, align 8
+  %396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef @.str.45, double noundef %395) #11
+  %397 = load ptr, ptr %3, align 8, !tbaa !107
+  %398 = load ptr, ptr %8, align 8, !tbaa !40
+  %399 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %398, i32 0, i32 9
+  %400 = load ptr, ptr %399, align 8, !tbaa !57
   %401 = icmp ne ptr %400, null
   br i1 %401, label %402, label %406
 
 402:                                              ; preds = %377
-  %403 = load ptr, ptr %8, align 8
-  %404 = getelementptr inbounds %struct.SC_Pin_, ptr %403, i32 0, i32 9
-  %405 = load ptr, ptr %404, align 8
+  %403 = load ptr, ptr %8, align 8, !tbaa !40
+  %404 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %403, i32 0, i32 9
+  %405 = load ptr, ptr %404, align 8, !tbaa !57
   br label %407
 
 406:                                              ; preds = %377
@@ -2452,36 +2575,36 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
 
 407:                                              ; preds = %406, %402
   %408 = phi ptr [ %405, %402 ], [ @.str.47, %406 ]
-  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.46, ptr noundef %408) #9
-  %410 = load ptr, ptr %3, align 8
-  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef @.str.48) #9
-  %412 = load ptr, ptr %3, align 8
-  %413 = load ptr, ptr %8, align 8
-  %414 = getelementptr inbounds %struct.SC_Pin_, ptr %413, i32 0, i32 10
+  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.46, ptr noundef %408) #11
+  %410 = load ptr, ptr %3, align 8, !tbaa !107
+  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef @.str.48) #11
+  %412 = load ptr, ptr %3, align 8, !tbaa !107
+  %413 = load ptr, ptr %8, align 8, !tbaa !40
+  %414 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %413, i32 0, i32 10
   %415 = call ptr @Vec_WrdArray(ptr noundef %414)
-  %416 = load ptr, ptr %7, align 8
-  %417 = getelementptr inbounds %struct.SC_Cell_, ptr %416, i32 0, i32 11
-  %418 = load i32, ptr %417, align 8
+  %416 = load ptr, ptr %7, align 8, !tbaa !26
+  %417 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %416, i32 0, i32 11
+  %418 = load i32, ptr %417, align 8, !tbaa !34
   call void @Extra_PrintHex(ptr noundef %412, ptr noundef %415, i32 noundef %418)
-  %419 = load ptr, ptr %3, align 8
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef @.str.49) #9
-  store i32 0, ptr %12, align 4
+  %419 = load ptr, ptr %3, align 8, !tbaa !107
+  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef @.str.49) #11
+  store i32 0, ptr %12, align 4, !tbaa !53
   br label %421
 
 421:                                              ; preds = %509, %407
-  %422 = load i32, ptr %12, align 4
-  %423 = load ptr, ptr %8, align 8
-  %424 = getelementptr inbounds %struct.SC_Pin_, ptr %423, i32 0, i32 11
+  %422 = load i32, ptr %12, align 4, !tbaa !53
+  %423 = load ptr, ptr %8, align 8, !tbaa !40
+  %424 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %423, i32 0, i32 11
   %425 = call i32 @Vec_PtrSize(ptr noundef %424)
   %426 = icmp slt i32 %422, %425
   br i1 %426, label %427, label %432
 
 427:                                              ; preds = %421
-  %428 = load ptr, ptr %8, align 8
-  %429 = getelementptr inbounds %struct.SC_Pin_, ptr %428, i32 0, i32 11
-  %430 = load i32, ptr %12, align 4
+  %428 = load ptr, ptr %8, align 8, !tbaa !40
+  %429 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %428, i32 0, i32 11
+  %430 = load i32, ptr %12, align 4, !tbaa !53
   %431 = call ptr @Vec_PtrEntry(ptr noundef %429, i32 noundef %430)
-  store ptr %431, ptr %13, align 8
+  store ptr %431, ptr %13, align 8, !tbaa !61
   br label %432
 
 432:                                              ; preds = %427, %421
@@ -2489,57 +2612,58 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br i1 %433, label %434, label %512
 
 434:                                              ; preds = %432
-  %435 = load ptr, ptr %13, align 8
-  %436 = getelementptr inbounds %struct.SC_Timings_, ptr %435, i32 0, i32 1
+  %435 = load ptr, ptr %13, align 8, !tbaa !61
+  %436 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %435, i32 0, i32 1
   %437 = call i32 @Vec_PtrSize(ptr noundef %436)
   %438 = icmp eq i32 %437, 1
   br i1 %438, label %439, label %507
 
 439:                                              ; preds = %434
-  %440 = load ptr, ptr %13, align 8
-  %441 = getelementptr inbounds %struct.SC_Timings_, ptr %440, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %440 = load ptr, ptr %13, align 8, !tbaa !61
+  %441 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %440, i32 0, i32 1
   %442 = call ptr @Vec_PtrEntry(ptr noundef %441, i32 noundef 0)
-  store ptr %442, ptr %14, align 8
-  %443 = load ptr, ptr %3, align 8
-  %444 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %443, ptr noundef @.str.50) #9
-  %445 = load ptr, ptr %3, align 8
-  %446 = load ptr, ptr %13, align 8
-  %447 = getelementptr inbounds %struct.SC_Timings_, ptr %446, i32 0, i32 0
-  %448 = load ptr, ptr %447, align 8
-  %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef @.str.51, ptr noundef %448) #9
-  %450 = load ptr, ptr %14, align 8
-  %451 = getelementptr inbounds %struct.SC_Timing_, ptr %450, i32 0, i32 1
-  %452 = load i32, ptr %451, align 8
+  store ptr %442, ptr %14, align 8, !tbaa !65
+  %443 = load ptr, ptr %3, align 8, !tbaa !107
+  %444 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %443, ptr noundef @.str.50) #11
+  %445 = load ptr, ptr %3, align 8, !tbaa !107
+  %446 = load ptr, ptr %13, align 8, !tbaa !61
+  %447 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %446, i32 0, i32 0
+  %448 = load ptr, ptr %447, align 8, !tbaa !63
+  %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef @.str.51, ptr noundef %448) #11
+  %450 = load ptr, ptr %14, align 8, !tbaa !65
+  %451 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %450, i32 0, i32 1
+  %452 = load i32, ptr %451, align 8, !tbaa !67
   %453 = icmp eq i32 %452, 1
   br i1 %453, label %454, label %457
 
 454:                                              ; preds = %439
-  %455 = load ptr, ptr %3, align 8
-  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %455, ptr noundef @.str.52) #9
+  %455 = load ptr, ptr %3, align 8, !tbaa !107
+  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %455, ptr noundef @.str.52) #11
   br label %476
 
 457:                                              ; preds = %439
-  %458 = load ptr, ptr %14, align 8
-  %459 = getelementptr inbounds %struct.SC_Timing_, ptr %458, i32 0, i32 1
-  %460 = load i32, ptr %459, align 8
+  %458 = load ptr, ptr %14, align 8, !tbaa !65
+  %459 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %458, i32 0, i32 1
+  %460 = load i32, ptr %459, align 8, !tbaa !67
   %461 = icmp eq i32 %460, 2
   br i1 %461, label %462, label %465
 
 462:                                              ; preds = %457
-  %463 = load ptr, ptr %3, align 8
-  %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %463, ptr noundef @.str.53) #9
+  %463 = load ptr, ptr %3, align 8, !tbaa !107
+  %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %463, ptr noundef @.str.53) #11
   br label %475
 
 465:                                              ; preds = %457
-  %466 = load ptr, ptr %14, align 8
-  %467 = getelementptr inbounds %struct.SC_Timing_, ptr %466, i32 0, i32 1
-  %468 = load i32, ptr %467, align 8
+  %466 = load ptr, ptr %14, align 8, !tbaa !65
+  %467 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %466, i32 0, i32 1
+  %468 = load i32, ptr %467, align 8, !tbaa !67
   %469 = icmp eq i32 %468, 3
   br i1 %469, label %470, label %473
 
 470:                                              ; preds = %465
-  %471 = load ptr, ptr %3, align 8
-  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef @.str.54) #9
+  %471 = load ptr, ptr %3, align 8, !tbaa !107
+  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef @.str.54) #11
   br label %474
 
 473:                                              ; preds = %465
@@ -2552,40 +2676,41 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br label %476
 
 476:                                              ; preds = %475, %454
-  %477 = load ptr, ptr %3, align 8
-  %478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef @.str.55) #9
-  %479 = load ptr, ptr %3, align 8
-  %480 = load ptr, ptr %14, align 8
-  %481 = getelementptr inbounds %struct.SC_Timing_, ptr %480, i32 0, i32 3
+  %477 = load ptr, ptr %3, align 8, !tbaa !107
+  %478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef @.str.55) #11
+  %479 = load ptr, ptr %3, align 8, !tbaa !107
+  %480 = load ptr, ptr %14, align 8, !tbaa !65
+  %481 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %480, i32 0, i32 3
   call void @Abc_SclWriteSurfaceText(ptr noundef %479, ptr noundef %481)
-  %482 = load ptr, ptr %3, align 8
-  %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %482, ptr noundef @.str.56) #9
-  %484 = load ptr, ptr %3, align 8
-  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %484, ptr noundef @.str.57) #9
-  %486 = load ptr, ptr %3, align 8
-  %487 = load ptr, ptr %14, align 8
-  %488 = getelementptr inbounds %struct.SC_Timing_, ptr %487, i32 0, i32 4
+  %482 = load ptr, ptr %3, align 8, !tbaa !107
+  %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %482, ptr noundef @.str.56) #11
+  %484 = load ptr, ptr %3, align 8, !tbaa !107
+  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %484, ptr noundef @.str.57) #11
+  %486 = load ptr, ptr %3, align 8, !tbaa !107
+  %487 = load ptr, ptr %14, align 8, !tbaa !65
+  %488 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %487, i32 0, i32 4
   call void @Abc_SclWriteSurfaceText(ptr noundef %486, ptr noundef %488)
-  %489 = load ptr, ptr %3, align 8
-  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %489, ptr noundef @.str.56) #9
-  %491 = load ptr, ptr %3, align 8
-  %492 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef @.str.58) #9
-  %493 = load ptr, ptr %3, align 8
-  %494 = load ptr, ptr %14, align 8
-  %495 = getelementptr inbounds %struct.SC_Timing_, ptr %494, i32 0, i32 5
+  %489 = load ptr, ptr %3, align 8, !tbaa !107
+  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %489, ptr noundef @.str.56) #11
+  %491 = load ptr, ptr %3, align 8, !tbaa !107
+  %492 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef @.str.58) #11
+  %493 = load ptr, ptr %3, align 8, !tbaa !107
+  %494 = load ptr, ptr %14, align 8, !tbaa !65
+  %495 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %494, i32 0, i32 5
   call void @Abc_SclWriteSurfaceText(ptr noundef %493, ptr noundef %495)
-  %496 = load ptr, ptr %3, align 8
-  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %496, ptr noundef @.str.56) #9
-  %498 = load ptr, ptr %3, align 8
-  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef @.str.59) #9
-  %500 = load ptr, ptr %3, align 8
-  %501 = load ptr, ptr %14, align 8
-  %502 = getelementptr inbounds %struct.SC_Timing_, ptr %501, i32 0, i32 6
+  %496 = load ptr, ptr %3, align 8, !tbaa !107
+  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %496, ptr noundef @.str.56) #11
+  %498 = load ptr, ptr %3, align 8, !tbaa !107
+  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef @.str.59) #11
+  %500 = load ptr, ptr %3, align 8, !tbaa !107
+  %501 = load ptr, ptr %14, align 8, !tbaa !65
+  %502 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %501, i32 0, i32 6
   call void @Abc_SclWriteSurfaceText(ptr noundef %500, ptr noundef %502)
-  %503 = load ptr, ptr %3, align 8
-  %504 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %503, ptr noundef @.str.56) #9
-  %505 = load ptr, ptr %3, align 8
-  %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %505, ptr noundef @.str.60) #9
+  %503 = load ptr, ptr %3, align 8, !tbaa !107
+  %504 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %503, ptr noundef @.str.56) #11
+  %505 = load ptr, ptr %3, align 8, !tbaa !107
+  %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %505, ptr noundef @.str.60) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
   br label %508
 
 507:                                              ; preds = %434
@@ -2595,117 +2720,138 @@ define internal void @Abc_SclWriteLibraryText(ptr noundef %0, ptr noundef %1) #0
   br label %509
 
 509:                                              ; preds = %508
-  %510 = load i32, ptr %12, align 4
+  %510 = load i32, ptr %12, align 4, !tbaa !53
   %511 = add nsw i32 %510, 1
-  store i32 %511, ptr %12, align 4
-  br label %421, !llvm.loop !32
+  store i32 %511, ptr %12, align 4, !tbaa !53
+  br label %421, !llvm.loop !129
 
 512:                                              ; preds = %432
-  %513 = load ptr, ptr %3, align 8
-  %514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %513, ptr noundef @.str.42) #9
+  %513 = load ptr, ptr %3, align 8, !tbaa !107
+  %514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %513, ptr noundef @.str.42) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
   br label %515
 
 515:                                              ; preds = %512
-  %516 = load i32, ptr %11, align 4
+  %516 = load i32, ptr %11, align 4, !tbaa !53
   %517 = add nsw i32 %516, 1
-  store i32 %517, ptr %11, align 4
-  br label %364, !llvm.loop !33
+  store i32 %517, ptr %11, align 4, !tbaa !53
+  br label %364, !llvm.loop !130
 
 518:                                              ; preds = %375
-  %519 = load ptr, ptr %3, align 8
-  %520 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef @.str.61) #9
+  %519 = load ptr, ptr %3, align 8, !tbaa !107
+  %520 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef @.str.61) #11
   br label %521
 
 521:                                              ; preds = %518, %288
-  %522 = load i32, ptr %10, align 4
+  %522 = load i32, ptr %10, align 4, !tbaa !53
   %523 = add nsw i32 %522, 1
-  store i32 %523, ptr %10, align 4
-  br label %265, !llvm.loop !34
+  store i32 %523, ptr %10, align 4, !tbaa !53
+  br label %265, !llvm.loop !131
 
 524:                                              ; preds = %276
-  %525 = load ptr, ptr %3, align 8
-  %526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %525, ptr noundef @.str.62) #9
+  %525 = load ptr, ptr %3, align 8, !tbaa !107
+  %526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %525, ptr noundef @.str.62) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @SC_LibCellNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @SC_LibCellNum(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.SC_Lib_, ptr %3, i32 0, i32 11
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %3, i32 0, i32 11
   %5 = call i32 @Vec_PtrSize(ptr noundef %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SclMergeLibraries(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
+define ptr @Abc_SclMergeLibraries(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call ptr @Vec_StrAlloc(i32 noundef 10000)
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call i32 @Abc_SclCountValidCells(ptr noundef %9)
-  store i32 %10, ptr %6, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %6, align 4
-  call void @Abc_SclWriteLibrary(ptr noundef %11, ptr noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  call void @Abc_SclWriteLibraryCellsOnly(ptr noundef %14, ptr noundef %15, i32 noundef 2)
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr @Abc_SclReadFromStr(ptr noundef %16)
-  store ptr %17, ptr %7, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.SC_Lib_, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @Abc_UtilStrsav(ptr noundef %20)
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.SC_Lib_, ptr %22, i32 0, i32 1
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.SC_Lib_, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i64 @strlen(ptr noundef %26) #11
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.SC_Lib_, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i64 @strlen(ptr noundef %30) #11
-  %32 = add i64 %27, %31
-  %33 = add i64 %32, 10
-  %34 = mul i64 1, %33
-  %35 = call noalias ptr @malloc(i64 noundef %34) #10
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.SC_Lib_, ptr %36, i32 0, i32 0
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.SC_Lib_, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.SC_Lib_, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.SC_Lib_, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %40, ptr noundef @.str.6, ptr noundef %43, ptr noundef %46) #9
-  %48 = load ptr, ptr %5, align 8
-  call void @Vec_StrFree(ptr noundef %48)
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.SC_Lib_, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.SC_Lib_, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, ptr noundef %51, i32 noundef %52, ptr noundef %55)
-  %57 = load ptr, ptr %7, align 8
-  ret ptr %57
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %10 = call ptr @Vec_StrAlloc(i32 noundef 10000)
+  store ptr %10, ptr %7, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %11 = load ptr, ptr %5, align 8, !tbaa !9
+  %12 = call i32 @Abc_SclCountValidCells(ptr noundef %11)
+  store i32 %12, ptr %8, align 4, !tbaa !53
+  %13 = load ptr, ptr %7, align 8, !tbaa !76
+  %14 = load ptr, ptr %4, align 8, !tbaa !9
+  %15 = load i32, ptr %8, align 4, !tbaa !53
+  %16 = load i32, ptr %6, align 4, !tbaa !53
+  call void @Abc_SclWriteLibrary(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16)
+  %17 = load ptr, ptr %7, align 8, !tbaa !76
+  %18 = load ptr, ptr %5, align 8, !tbaa !9
+  %19 = load i32, ptr %6, align 4, !tbaa !53
+  %20 = icmp ne i32 %19, 0
+  %21 = select i1 %20, i32 2, i32 0
+  call void @Abc_SclWriteLibraryCellsOnly(ptr noundef %17, ptr noundef %18, i32 noundef %21)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %22 = load ptr, ptr %7, align 8, !tbaa !76
+  %23 = call ptr @Abc_SclReadFromStr(ptr noundef %22)
+  store ptr %23, ptr %9, align 8, !tbaa !9
+  %24 = load ptr, ptr %4, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !112
+  %27 = call ptr @Abc_UtilStrsav(ptr noundef %26)
+  %28 = load ptr, ptr %9, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %28, i32 0, i32 1
+  store ptr %27, ptr %29, align 8, !tbaa !112
+  %30 = load ptr, ptr %4, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
+  %33 = call i64 @strlen(ptr noundef %32) #13
+  %34 = load ptr, ptr %5, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !11
+  %37 = call i64 @strlen(ptr noundef %36) #13
+  %38 = add i64 %33, %37
+  %39 = add i64 %38, 10
+  %40 = mul i64 1, %39
+  %41 = call noalias ptr @malloc(i64 noundef %40) #12
+  %42 = load ptr, ptr %9, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %42, i32 0, i32 0
+  store ptr %41, ptr %43, align 8, !tbaa !11
+  %44 = load ptr, ptr %9, align 8, !tbaa !9
+  %45 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !11
+  %47 = load ptr, ptr %4, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !11
+  %50 = load ptr, ptr %5, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !11
+  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.6, ptr noundef %49, ptr noundef %52) #11
+  %54 = load ptr, ptr %7, align 8, !tbaa !76
+  call void @Vec_StrFree(ptr noundef %54)
+  %55 = load ptr, ptr %4, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = load i32, ptr %8, align 4, !tbaa !53
+  %59 = load ptr, ptr %5, align 8, !tbaa !9
+  %60 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !11
+  %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, ptr noundef %57, i32 noundef %58, ptr noundef %61)
+  %63 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret ptr %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2721,26 +2867,31 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %9, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %9, align 4, !tbaa !53
   br label %15
 
 15:                                               ; preds = %227, %3
-  %16 = load i32, ptr %9, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.SC_Lib_, ptr %17, i32 0, i32 11
+  %16 = load i32, ptr %9, align 4, !tbaa !53
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %17, i32 0, i32 11
   %19 = call i32 @Vec_PtrSize(ptr noundef %18)
   %20 = icmp slt i32 %16, %19
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.SC_Lib_, ptr %22, i32 0, i32 11
-  %24 = load i32, ptr %9, align 4
+  %22 = load ptr, ptr %5, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %22, i32 0, i32 11
+  %24 = load i32, ptr %9, align 4, !tbaa !53
   %25 = call ptr @Vec_PtrEntry(ptr noundef %23, i32 noundef %24)
-  store ptr %25, ptr %7, align 8
+  store ptr %25, ptr %7, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %21, %15
@@ -2748,16 +2899,16 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br i1 %27, label %28, label %230
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.SC_Cell_, ptr %29, i32 0, i32 3
-  %31 = load i32, ptr %30, align 8
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !114
   %32 = icmp ne i32 %31, 0
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.SC_Cell_, ptr %34, i32 0, i32 4
-  %36 = load i32, ptr %35, align 4
+  %34 = load ptr, ptr %7, align 8, !tbaa !26
+  %35 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %34, i32 0, i32 4
+  %36 = load i32, ptr %35, align 4, !tbaa !115
   %37 = icmp ne i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -2765,72 +2916,72 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br label %227
 
 39:                                               ; preds = %33
-  %40 = load i32, ptr %6, align 4
+  %40 = load i32, ptr %6, align 4, !tbaa !53
   %41 = icmp ne i32 %40, 0
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %4, align 8, !tbaa !76
   call void @Vec_StrPush(ptr noundef %43, i8 noundef signext 76)
-  %44 = load ptr, ptr %4, align 8
-  %45 = load i32, ptr %6, align 4
+  %44 = load ptr, ptr %4, align 8, !tbaa !76
+  %45 = load i32, ptr %6, align 4, !tbaa !53
   %46 = trunc i32 %45 to i8
   %47 = sext i8 %46 to i32
   %48 = add nsw i32 48, %47
   %49 = trunc i32 %48 to i8
   call void @Vec_StrPush(ptr noundef %44, i8 noundef signext %49)
-  %50 = load ptr, ptr %4, align 8
+  %50 = load ptr, ptr %4, align 8, !tbaa !76
   call void @Vec_StrPush(ptr noundef %50, i8 noundef signext 95)
   br label %51
 
 51:                                               ; preds = %42, %39
-  %52 = load ptr, ptr %4, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.SC_Cell_, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
+  %52 = load ptr, ptr %4, align 8, !tbaa !76
+  %53 = load ptr, ptr %7, align 8, !tbaa !26
+  %54 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !30
   call void @Vec_StrPutS(ptr noundef %52, ptr noundef %55)
-  %56 = load ptr, ptr %4, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds %struct.SC_Cell_, ptr %57, i32 0, i32 5
-  %59 = load float, ptr %58, align 8
+  %56 = load ptr, ptr %4, align 8, !tbaa !76
+  %57 = load ptr, ptr %7, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %57, i32 0, i32 5
+  %59 = load float, ptr %58, align 8, !tbaa !31
   call void @Vec_StrPutF(ptr noundef %56, float noundef %59)
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct.SC_Cell_, ptr %61, i32 0, i32 6
-  %63 = load float, ptr %62, align 4
+  %60 = load ptr, ptr %4, align 8, !tbaa !76
+  %61 = load ptr, ptr %7, align 8, !tbaa !26
+  %62 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %61, i32 0, i32 6
+  %63 = load float, ptr %62, align 4, !tbaa !32
   call void @Vec_StrPutF(ptr noundef %60, float noundef %63)
-  %64 = load ptr, ptr %4, align 8
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds %struct.SC_Cell_, ptr %65, i32 0, i32 9
-  %67 = load i32, ptr %66, align 8
+  %64 = load ptr, ptr %4, align 8, !tbaa !76
+  %65 = load ptr, ptr %7, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %65, i32 0, i32 9
+  %67 = load i32, ptr %66, align 8, !tbaa !33
   call void @Vec_StrPutI(ptr noundef %64, i32 noundef %67)
-  %68 = load ptr, ptr %4, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.SC_Cell_, ptr %69, i32 0, i32 11
-  %71 = load i32, ptr %70, align 8
+  %68 = load ptr, ptr %4, align 8, !tbaa !76
+  %69 = load ptr, ptr %7, align 8, !tbaa !26
+  %70 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %69, i32 0, i32 11
+  %71 = load i32, ptr %70, align 8, !tbaa !34
   call void @Vec_StrPutI(ptr noundef %68, i32 noundef %71)
-  %72 = load ptr, ptr %4, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %struct.SC_Cell_, ptr %73, i32 0, i32 12
-  %75 = load i32, ptr %74, align 4
+  %72 = load ptr, ptr %4, align 8, !tbaa !76
+  %73 = load ptr, ptr %7, align 8, !tbaa !26
+  %74 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %73, i32 0, i32 12
+  %75 = load i32, ptr %74, align 4, !tbaa !35
   call void @Vec_StrPutI(ptr noundef %72, i32 noundef %75)
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %76
 
 76:                                               ; preds = %102, %51
-  %77 = load i32, ptr %10, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.SC_Cell_, ptr %78, i32 0, i32 11
-  %80 = load i32, ptr %79, align 8
+  %77 = load i32, ptr %10, align 4, !tbaa !53
+  %78 = load ptr, ptr %7, align 8, !tbaa !26
+  %79 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %78, i32 0, i32 11
+  %80 = load i32, ptr %79, align 8, !tbaa !34
   %81 = icmp slt i32 %77, %80
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %76
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.SC_Cell_, ptr %83, i32 0, i32 10
-  %85 = load i32, ptr %10, align 4
+  %83 = load ptr, ptr %7, align 8, !tbaa !26
+  %84 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %83, i32 0, i32 10
+  %85 = load i32, ptr %10, align 4, !tbaa !53
   %86 = call ptr @Vec_PtrEntry(ptr noundef %84, i32 noundef %85)
-  store ptr %86, ptr %8, align 8
+  store ptr %86, ptr %8, align 8, !tbaa !40
   br label %87
 
 87:                                               ; preds = %82, %76
@@ -2838,50 +2989,50 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br i1 %88, label %89, label %105
 
 89:                                               ; preds = %87
-  %90 = load ptr, ptr %4, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.SC_Pin_, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
+  %90 = load ptr, ptr %4, align 8, !tbaa !76
+  %91 = load ptr, ptr %8, align 8, !tbaa !40
+  %92 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8, !tbaa !46
   call void @Vec_StrPutS(ptr noundef %90, ptr noundef %93)
-  %94 = load ptr, ptr %4, align 8
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct.SC_Pin_, ptr %95, i32 0, i32 3
-  %97 = load float, ptr %96, align 8
+  %94 = load ptr, ptr %4, align 8, !tbaa !76
+  %95 = load ptr, ptr %8, align 8, !tbaa !40
+  %96 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %95, i32 0, i32 3
+  %97 = load float, ptr %96, align 8, !tbaa !47
   call void @Vec_StrPutF(ptr noundef %94, float noundef %97)
-  %98 = load ptr, ptr %4, align 8
-  %99 = load ptr, ptr %8, align 8
-  %100 = getelementptr inbounds %struct.SC_Pin_, ptr %99, i32 0, i32 4
-  %101 = load float, ptr %100, align 4
+  %98 = load ptr, ptr %4, align 8, !tbaa !76
+  %99 = load ptr, ptr %8, align 8, !tbaa !40
+  %100 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %99, i32 0, i32 4
+  %101 = load float, ptr %100, align 4, !tbaa !48
   call void @Vec_StrPutF(ptr noundef %98, float noundef %101)
   br label %102
 
 102:                                              ; preds = %89
-  %103 = load i32, ptr %10, align 4
+  %103 = load i32, ptr %10, align 4, !tbaa !53
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %10, align 4
-  br label %76, !llvm.loop !35
+  store i32 %104, ptr %10, align 4, !tbaa !53
+  br label %76, !llvm.loop !132
 
 105:                                              ; preds = %87
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct.SC_Cell_, ptr %106, i32 0, i32 11
-  %108 = load i32, ptr %107, align 8
-  store i32 %108, ptr %10, align 4
+  %106 = load ptr, ptr %7, align 8, !tbaa !26
+  %107 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %106, i32 0, i32 11
+  %108 = load i32, ptr %107, align 8, !tbaa !34
+  store i32 %108, ptr %10, align 4, !tbaa !53
   br label %109
 
 109:                                              ; preds = %223, %105
-  %110 = load i32, ptr %10, align 4
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct.SC_Cell_, ptr %111, i32 0, i32 10
+  %110 = load i32, ptr %10, align 4, !tbaa !53
+  %111 = load ptr, ptr %7, align 8, !tbaa !26
+  %112 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %111, i32 0, i32 10
   %113 = call i32 @Vec_PtrSize(ptr noundef %112)
   %114 = icmp slt i32 %110, %113
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %109
-  %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds %struct.SC_Cell_, ptr %116, i32 0, i32 10
-  %118 = load i32, ptr %10, align 4
+  %116 = load ptr, ptr %7, align 8, !tbaa !26
+  %117 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %116, i32 0, i32 10
+  %118 = load i32, ptr %10, align 4, !tbaa !53
   %119 = call ptr @Vec_PtrEntry(ptr noundef %117, i32 noundef %118)
-  store ptr %119, ptr %8, align 8
+  store ptr %119, ptr %8, align 8, !tbaa !40
   br label %120
 
 120:                                              ; preds = %115, %109
@@ -2889,37 +3040,39 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br i1 %121, label %122, label %226
 
 122:                                              ; preds = %120
-  %123 = load ptr, ptr %4, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.SC_Pin_, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %123 = load ptr, ptr %4, align 8, !tbaa !76
+  %124 = load ptr, ptr %8, align 8, !tbaa !40
+  %125 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !46
   call void @Vec_StrPutS(ptr noundef %123, ptr noundef %126)
-  %127 = load ptr, ptr %4, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct.SC_Pin_, ptr %128, i32 0, i32 7
-  %130 = load float, ptr %129, align 8
+  %127 = load ptr, ptr %4, align 8, !tbaa !76
+  %128 = load ptr, ptr %8, align 8, !tbaa !40
+  %129 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %128, i32 0, i32 7
+  %130 = load float, ptr %129, align 8, !tbaa !55
   call void @Vec_StrPutF(ptr noundef %127, float noundef %130)
-  %131 = load ptr, ptr %4, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds %struct.SC_Pin_, ptr %132, i32 0, i32 8
-  %134 = load float, ptr %133, align 4
+  %131 = load ptr, ptr %4, align 8, !tbaa !76
+  %132 = load ptr, ptr %8, align 8, !tbaa !40
+  %133 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %132, i32 0, i32 8
+  %134 = load float, ptr %133, align 4, !tbaa !56
   call void @Vec_StrPutF(ptr noundef %131, float noundef %134)
-  %135 = load ptr, ptr %4, align 8
-  %136 = load ptr, ptr %7, align 8
-  %137 = getelementptr inbounds %struct.SC_Cell_, ptr %136, i32 0, i32 11
-  %138 = load i32, ptr %137, align 8
+  %135 = load ptr, ptr %4, align 8, !tbaa !76
+  %136 = load ptr, ptr %7, align 8, !tbaa !26
+  %137 = getelementptr inbounds nuw %struct.SC_Cell_, ptr %136, i32 0, i32 11
+  %138 = load i32, ptr %137, align 8, !tbaa !34
   call void @Vec_StrPutI(ptr noundef %135, i32 noundef %138)
-  %139 = load ptr, ptr %4, align 8
-  %140 = load ptr, ptr %8, align 8
-  %141 = getelementptr inbounds %struct.SC_Pin_, ptr %140, i32 0, i32 9
-  %142 = load ptr, ptr %141, align 8
+  %139 = load ptr, ptr %4, align 8, !tbaa !76
+  %140 = load ptr, ptr %8, align 8, !tbaa !40
+  %141 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %140, i32 0, i32 9
+  %142 = load ptr, ptr %141, align 8, !tbaa !57
   %143 = icmp ne ptr %142, null
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %122
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct.SC_Pin_, ptr %145, i32 0, i32 9
-  %147 = load ptr, ptr %146, align 8
+  %145 = load ptr, ptr %8, align 8, !tbaa !40
+  %146 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %145, i32 0, i32 9
+  %147 = load ptr, ptr %146, align 8, !tbaa !57
   br label %149
 
 148:                                              ; preds = %122
@@ -2928,23 +3081,23 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
 149:                                              ; preds = %148, %144
   %150 = phi ptr [ %147, %144 ], [ @.str.65, %148 ]
   call void @Vec_StrPutS(ptr noundef %139, ptr noundef %150)
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 4, !tbaa !53
   br label %151
 
 151:                                              ; preds = %167, %149
-  %152 = load i32, ptr %11, align 4
-  %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds %struct.SC_Pin_, ptr %153, i32 0, i32 10
+  %152 = load i32, ptr %11, align 4, !tbaa !53
+  %153 = load ptr, ptr %8, align 8, !tbaa !40
+  %154 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %153, i32 0, i32 10
   %155 = call i32 @Vec_WrdSize(ptr noundef %154)
   %156 = icmp slt i32 %152, %155
   br i1 %156, label %157, label %162
 
 157:                                              ; preds = %151
-  %158 = load ptr, ptr %8, align 8
-  %159 = getelementptr inbounds %struct.SC_Pin_, ptr %158, i32 0, i32 10
-  %160 = load i32, ptr %11, align 4
+  %158 = load ptr, ptr %8, align 8, !tbaa !40
+  %159 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %158, i32 0, i32 10
+  %160 = load i32, ptr %11, align 4, !tbaa !53
   %161 = call i64 @Vec_WrdEntry(ptr noundef %159, i32 noundef %160)
-  store i64 %161, ptr %13, align 8
+  store i64 %161, ptr %13, align 8, !tbaa !58
   br label %162
 
 162:                                              ; preds = %157, %151
@@ -2952,35 +3105,35 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br i1 %163, label %164, label %170
 
 164:                                              ; preds = %162
-  %165 = load ptr, ptr %4, align 8
-  %166 = load i64, ptr %13, align 8
+  %165 = load ptr, ptr %4, align 8, !tbaa !76
+  %166 = load i64, ptr %13, align 8, !tbaa !58
   call void @Vec_StrPutW(ptr noundef %165, i64 noundef %166)
   br label %167
 
 167:                                              ; preds = %164
-  %168 = load i32, ptr %11, align 4
+  %168 = load i32, ptr %11, align 4, !tbaa !53
   %169 = add nsw i32 %168, 1
-  store i32 %169, ptr %11, align 4
-  br label %151, !llvm.loop !36
+  store i32 %169, ptr %11, align 4, !tbaa !53
+  br label %151, !llvm.loop !133
 
 170:                                              ; preds = %162
-  store i32 0, ptr %11, align 4
+  store i32 0, ptr %11, align 4, !tbaa !53
   br label %171
 
 171:                                              ; preds = %219, %170
-  %172 = load i32, ptr %11, align 4
-  %173 = load ptr, ptr %8, align 8
-  %174 = getelementptr inbounds %struct.SC_Pin_, ptr %173, i32 0, i32 11
+  %172 = load i32, ptr %11, align 4, !tbaa !53
+  %173 = load ptr, ptr %8, align 8, !tbaa !40
+  %174 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %173, i32 0, i32 11
   %175 = call i32 @Vec_PtrSize(ptr noundef %174)
   %176 = icmp slt i32 %172, %175
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %171
-  %178 = load ptr, ptr %8, align 8
-  %179 = getelementptr inbounds %struct.SC_Pin_, ptr %178, i32 0, i32 11
-  %180 = load i32, ptr %11, align 4
+  %178 = load ptr, ptr %8, align 8, !tbaa !40
+  %179 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %178, i32 0, i32 11
+  %180 = load i32, ptr %11, align 4, !tbaa !53
   %181 = call ptr @Vec_PtrEntry(ptr noundef %179, i32 noundef %180)
-  store ptr %181, ptr %12, align 8
+  store ptr %181, ptr %12, align 8, !tbaa !61
   br label %182
 
 182:                                              ; preds = %177, %171
@@ -2988,48 +3141,50 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br i1 %183, label %184, label %222
 
 184:                                              ; preds = %182
-  %185 = load ptr, ptr %4, align 8
-  %186 = load ptr, ptr %12, align 8
-  %187 = getelementptr inbounds %struct.SC_Timings_, ptr %186, i32 0, i32 0
-  %188 = load ptr, ptr %187, align 8
+  %185 = load ptr, ptr %4, align 8, !tbaa !76
+  %186 = load ptr, ptr %12, align 8, !tbaa !61
+  %187 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %186, i32 0, i32 0
+  %188 = load ptr, ptr %187, align 8, !tbaa !63
   call void @Vec_StrPutS(ptr noundef %185, ptr noundef %188)
-  %189 = load ptr, ptr %4, align 8
-  %190 = load ptr, ptr %12, align 8
-  %191 = getelementptr inbounds %struct.SC_Timings_, ptr %190, i32 0, i32 1
+  %189 = load ptr, ptr %4, align 8, !tbaa !76
+  %190 = load ptr, ptr %12, align 8, !tbaa !61
+  %191 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %190, i32 0, i32 1
   %192 = call i32 @Vec_PtrSize(ptr noundef %191)
   call void @Vec_StrPutI(ptr noundef %189, i32 noundef %192)
-  %193 = load ptr, ptr %12, align 8
-  %194 = getelementptr inbounds %struct.SC_Timings_, ptr %193, i32 0, i32 1
+  %193 = load ptr, ptr %12, align 8, !tbaa !61
+  %194 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %193, i32 0, i32 1
   %195 = call i32 @Vec_PtrSize(ptr noundef %194)
   %196 = icmp eq i32 %195, 1
   br i1 %196, label %197, label %217
 
 197:                                              ; preds = %184
-  %198 = load ptr, ptr %12, align 8
-  %199 = getelementptr inbounds %struct.SC_Timings_, ptr %198, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %198 = load ptr, ptr %12, align 8, !tbaa !61
+  %199 = getelementptr inbounds nuw %struct.SC_Timings_, ptr %198, i32 0, i32 1
   %200 = call ptr @Vec_PtrEntry(ptr noundef %199, i32 noundef 0)
-  store ptr %200, ptr %14, align 8
-  %201 = load ptr, ptr %4, align 8
-  %202 = load ptr, ptr %14, align 8
-  %203 = getelementptr inbounds %struct.SC_Timing_, ptr %202, i32 0, i32 1
-  %204 = load i32, ptr %203, align 8
+  store ptr %200, ptr %14, align 8, !tbaa !65
+  %201 = load ptr, ptr %4, align 8, !tbaa !76
+  %202 = load ptr, ptr %14, align 8, !tbaa !65
+  %203 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %202, i32 0, i32 1
+  %204 = load i32, ptr %203, align 8, !tbaa !67
   call void @Vec_StrPutI(ptr noundef %201, i32 noundef %204)
-  %205 = load ptr, ptr %4, align 8
-  %206 = load ptr, ptr %14, align 8
-  %207 = getelementptr inbounds %struct.SC_Timing_, ptr %206, i32 0, i32 3
+  %205 = load ptr, ptr %4, align 8, !tbaa !76
+  %206 = load ptr, ptr %14, align 8, !tbaa !65
+  %207 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %206, i32 0, i32 3
   call void @Abc_SclWriteSurface(ptr noundef %205, ptr noundef %207)
-  %208 = load ptr, ptr %4, align 8
-  %209 = load ptr, ptr %14, align 8
-  %210 = getelementptr inbounds %struct.SC_Timing_, ptr %209, i32 0, i32 4
+  %208 = load ptr, ptr %4, align 8, !tbaa !76
+  %209 = load ptr, ptr %14, align 8, !tbaa !65
+  %210 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %209, i32 0, i32 4
   call void @Abc_SclWriteSurface(ptr noundef %208, ptr noundef %210)
-  %211 = load ptr, ptr %4, align 8
-  %212 = load ptr, ptr %14, align 8
-  %213 = getelementptr inbounds %struct.SC_Timing_, ptr %212, i32 0, i32 5
+  %211 = load ptr, ptr %4, align 8, !tbaa !76
+  %212 = load ptr, ptr %14, align 8, !tbaa !65
+  %213 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %212, i32 0, i32 5
   call void @Abc_SclWriteSurface(ptr noundef %211, ptr noundef %213)
-  %214 = load ptr, ptr %4, align 8
-  %215 = load ptr, ptr %14, align 8
-  %216 = getelementptr inbounds %struct.SC_Timing_, ptr %215, i32 0, i32 6
+  %214 = load ptr, ptr %4, align 8, !tbaa !76
+  %215 = load ptr, ptr %14, align 8, !tbaa !65
+  %216 = getelementptr inbounds nuw %struct.SC_Timing_, ptr %215, i32 0, i32 6
   call void @Abc_SclWriteSurface(ptr noundef %214, ptr noundef %216)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
   br label %218
 
 217:                                              ; preds = %184
@@ -3039,102 +3194,111 @@ define internal void @Abc_SclWriteLibraryCellsOnly(ptr noundef %0, ptr noundef %
   br label %219
 
 219:                                              ; preds = %218
-  %220 = load i32, ptr %11, align 4
+  %220 = load i32, ptr %11, align 4, !tbaa !53
   %221 = add nsw i32 %220, 1
-  store i32 %221, ptr %11, align 4
-  br label %171, !llvm.loop !37
+  store i32 %221, ptr %11, align 4, !tbaa !53
+  br label %171, !llvm.loop !134
 
 222:                                              ; preds = %182
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
   br label %223
 
 223:                                              ; preds = %222
-  %224 = load i32, ptr %10, align 4
+  %224 = load i32, ptr %10, align 4, !tbaa !53
   %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %10, align 4
-  br label %109, !llvm.loop !38
+  store i32 %225, ptr %10, align 4, !tbaa !53
+  br label %109, !llvm.loop !135
 
 226:                                              ; preds = %120
   br label %227
 
 227:                                              ; preds = %226, %38
-  %228 = load i32, ptr %9, align 4
+  %228 = load i32, ptr %9, align 4, !tbaa !53
   %229 = add nsw i32 %228, 1
-  store i32 %229, ptr %9, align 4
-  br label %15, !llvm.loop !39
+  store i32 %229, ptr %9, align 4, !tbaa !53
+  br label %15, !llvm.loop !136
 
 230:                                              ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #6
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclLibAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclLibAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 144) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds %struct.SC_Lib_, ptr %3, i32 0, i32 4
-  store float -1.000000e+00, ptr %4, align 8
-  %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds %struct.SC_Lib_, ptr %5, i32 0, i32 5
-  store i32 9, ptr %6, align 4
-  %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds %struct.SC_Lib_, ptr %7, i32 0, i32 6
-  store float 1.000000e+00, ptr %8, align 8
-  %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %struct.SC_Lib_, ptr %9, i32 0, i32 7
-  store i32 12, ptr %10, align 4
-  %11 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 144) #14
+  store ptr %2, ptr %1, align 8, !tbaa !9
+  %3 = load ptr, ptr %1, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %3, i32 0, i32 4
+  store float -1.000000e+00, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %1, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %5, i32 0, i32 5
+  store i32 9, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %1, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %7, i32 0, i32 6
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !22
+  %9 = load ptr, ptr %1, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.SC_Lib_, ptr %9, i32 0, i32 7
+  store i32 12, ptr %10, align 4, !tbaa !23
+  %11 = load ptr, ptr %1, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %11
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #5
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
 
-declare ptr @Mio_LibraryReadName(ptr noundef) #1
+declare ptr @Mio_LibraryReadName(ptr noundef) #2
 
-declare ptr @Mio_LibraryReadGates(ptr noundef) #1
+declare ptr @Mio_LibraryReadGates(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !96
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !117
+  %8 = load ptr, ptr %3, align 8, !tbaa !96
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !137
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !96
+  %14 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !137
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !96
   call void @Vec_PtrGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !96
+  %21 = load ptr, ptr %3, align 8, !tbaa !96
+  %22 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !137
   %24 = mul nsw i32 2, %23
   call void @Vec_PtrGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -3143,59 +3307,59 @@ define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = load ptr, ptr %3, align 8, !tbaa !96
+  %29 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !118
+  %31 = load ptr, ptr %3, align 8, !tbaa !96
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !117
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !117
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %30, i64 %35
-  store ptr %27, ptr %36, align 8
+  store ptr %27, ptr %36, align 8, !tbaa !3
   ret void
 }
 
-declare ptr @Mio_GateReadName(ptr noundef) #1
+declare ptr @Mio_GateReadName(ptr noundef) #2
 
-declare double @Mio_GateReadArea(ptr noundef) #1
+declare double @Mio_GateReadArea(ptr noundef) #2
 
-declare i32 @Mio_GateReadPinNum(ptr noundef) #1
+declare i32 @Mio_GateReadPinNum(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Scl_Flt2Int(float noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Scl_Flt2Int(float noundef %0) #3 {
   %2 = alloca float, align 4
-  store float %0, ptr %2, align 4
-  %3 = load float, ptr %2, align 4
+  store float %0, ptr %2, align 4, !tbaa !138
+  %3 = load float, ptr %2, align 4, !tbaa !138
   %4 = fmul float 1.000000e+03, %3
   %5 = fptosi float %4 to i32
   ret i32 %5
 }
 
-declare ptr @Mio_GateReadPins(ptr noundef) #1
+declare ptr @Mio_GateReadPins(ptr noundef) #2
 
-declare ptr @Mio_PinReadName(ptr noundef) #1
+declare ptr @Mio_PinReadName(ptr noundef) #2
 
-declare ptr @Mio_PinReadNext(ptr noundef) #1
+declare ptr @Mio_PinReadNext(ptr noundef) #2
 
-declare ptr @Mio_GateReadTruthP(ptr noundef) #1
+declare ptr @Mio_GateReadTruthP(ptr noundef) #2
 
-declare ptr @Mio_GateReadOutName(ptr noundef) #1
+declare ptr @Mio_GateReadOutName(ptr noundef) #2
 
-declare ptr @Mio_GateReadForm(ptr noundef) #1
+declare ptr @Mio_GateReadForm(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_WrdGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_WrdGrow(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !99
+  %6 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !139
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -3203,49 +3367,49 @@ define internal void @Vec_WrdGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !99
+  %13 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !140
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !99
+  %18 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !140
+  %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = sext i32 %20 to i64
   %22 = mul i64 8, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !53
   %26 = sext i32 %25 to i64
   %27 = mul i64 8, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !99
+  %32 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !140
+  %33 = load i32, ptr %4, align 4, !tbaa !53
+  %34 = load ptr, ptr %3, align 8, !tbaa !99
+  %35 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !139
   br label %36
 
 36:                                               ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Truth6WordNum(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Truth6WordNum(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !53
+  %3 = load i32, ptr %2, align 4, !tbaa !53
   %4 = icmp sle i32 %3, 6
   br i1 %4, label %5, label %6
 
@@ -3253,7 +3417,7 @@ define internal i32 @Abc_Truth6WordNum(i32 noundef %0) #0 {
   br label %10
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
+  %7 = load i32, ptr %2, align 4, !tbaa !53
   %8 = sub nsw i32 %7, 6
   %9 = shl i32 1, %8
   br label %10
@@ -3263,48 +3427,48 @@ define internal i32 @Abc_Truth6WordNum(i32 noundef %0) #0 {
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_WrdCap(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_WrdCap(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !139
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_WrdPush(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_WrdPush(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store i64 %1, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %3, align 8, !tbaa !99
+  %6 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !141
+  %8 = load ptr, ptr %3, align 8, !tbaa !99
+  %9 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !139
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !99
+  %14 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !139
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !99
   call void @Vec_WrdGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !99
+  %21 = load ptr, ptr %3, align 8, !tbaa !99
+  %22 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !139
   %24 = mul nsw i32 2, %23
   call void @Vec_WrdGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -3313,22 +3477,22 @@ define internal void @Vec_WrdPush(ptr noundef %0, i64 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i64, ptr %4, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i64, ptr %4, align 8, !tbaa !58
+  %28 = load ptr, ptr %3, align 8, !tbaa !99
+  %29 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !140
+  %31 = load ptr, ptr %3, align 8, !tbaa !99
+  %32 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !141
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !141
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i64, ptr %30, i64 %35
-  store i64 %27, ptr %36, align 8
+  store i64 %27, ptr %36, align 8, !tbaa !58
   ret void
 }
 
-declare i32 @Mio_PinReadPhase(ptr noundef) #1
+declare i32 @Mio_PinReadPhase(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_SclReadSurfaceGenlib(ptr noundef %0) #0 {
@@ -3337,110 +3501,120 @@ define internal void @Abc_SclReadSurfaceGenlib(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.SC_Surface_, ptr %7, i32 0, i32 1
+  store ptr %0, ptr %2, align 8, !tbaa !142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  %7 = load ptr, ptr %2, align 8, !tbaa !142
+  %8 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %7, i32 0, i32 1
   call void @Vec_FltPush(ptr noundef %8, float noundef 0.000000e+00)
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.SC_Surface_, ptr %9, i32 0, i32 4
+  %9 = load ptr, ptr %2, align 8, !tbaa !142
+  %10 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %9, i32 0, i32 4
   %11 = call i32 @Scl_Flt2Int(float noundef 0.000000e+00)
   call void @Vec_IntPush(ptr noundef %10, i32 noundef %11)
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.SC_Surface_, ptr %12, i32 0, i32 2
+  %12 = load ptr, ptr %2, align 8, !tbaa !142
+  %13 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %12, i32 0, i32 2
   call void @Vec_FltPush(ptr noundef %13, float noundef 0.000000e+00)
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.SC_Surface_, ptr %14, i32 0, i32 5
+  %14 = load ptr, ptr %2, align 8, !tbaa !142
+  %15 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %14, i32 0, i32 5
   %16 = call i32 @Scl_Flt2Int(float noundef 0.000000e+00)
   call void @Vec_IntPush(ptr noundef %15, i32 noundef %16)
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !53
   br label %17
 
 17:                                               ; preds = %52, %1
-  %18 = load i32, ptr %5, align 4
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.SC_Surface_, ptr %19, i32 0, i32 1
+  %18 = load i32, ptr %5, align 4, !tbaa !53
+  %19 = load ptr, ptr %2, align 8, !tbaa !142
+  %20 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %19, i32 0, i32 1
   %21 = call i32 @Vec_FltSize(ptr noundef %20)
   %22 = icmp slt i32 %18, %21
   br i1 %22, label %23, label %55
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.SC_Surface_, ptr %24, i32 0, i32 2
+  %24 = load ptr, ptr %2, align 8, !tbaa !142
+  %25 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %24, i32 0, i32 2
   %26 = call i32 @Vec_FltSize(ptr noundef %25)
   %27 = call ptr @Vec_FltAlloc(i32 noundef %26)
-  store ptr %27, ptr %3, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.SC_Surface_, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %3, align 8
+  store ptr %27, ptr %3, align 8, !tbaa !144
+  %28 = load ptr, ptr %2, align 8, !tbaa !142
+  %29 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %3, align 8, !tbaa !144
   call void @Vec_PtrPush(ptr noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.SC_Surface_, ptr %31, i32 0, i32 2
+  %31 = load ptr, ptr %2, align 8, !tbaa !142
+  %32 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %31, i32 0, i32 2
   %33 = call i32 @Vec_FltSize(ptr noundef %32)
   %34 = call ptr @Vec_IntAlloc(i32 noundef %33)
-  store ptr %34, ptr %4, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.SC_Surface_, ptr %35, i32 0, i32 6
-  %37 = load ptr, ptr %4, align 8
+  store ptr %34, ptr %4, align 8, !tbaa !146
+  %35 = load ptr, ptr %2, align 8, !tbaa !142
+  %36 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %35, i32 0, i32 6
+  %37 = load ptr, ptr %4, align 8, !tbaa !146
   call void @Vec_PtrPush(ptr noundef %36, ptr noundef %37)
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !53
   br label %38
 
 38:                                               ; preds = %48, %23
-  %39 = load i32, ptr %6, align 4
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.SC_Surface_, ptr %40, i32 0, i32 2
+  %39 = load i32, ptr %6, align 4, !tbaa !53
+  %40 = load ptr, ptr %2, align 8, !tbaa !142
+  %41 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %40, i32 0, i32 2
   %42 = call i32 @Vec_FltSize(ptr noundef %41)
   %43 = icmp slt i32 %39, %42
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %38
-  %45 = load ptr, ptr %3, align 8
+  %45 = load ptr, ptr %3, align 8, !tbaa !144
   call void @Vec_FltPush(ptr noundef %45, float noundef 1.000000e+00)
-  %46 = load ptr, ptr %4, align 8
+  %46 = load ptr, ptr %4, align 8, !tbaa !146
   %47 = call i32 @Scl_Flt2Int(float noundef 1.000000e+00)
   call void @Vec_IntPush(ptr noundef %46, i32 noundef %47)
   br label %48
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr %6, align 4
+  %49 = load i32, ptr %6, align 4, !tbaa !53
   %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %6, align 4
-  br label %38, !llvm.loop !40
+  store i32 %50, ptr %6, align 4, !tbaa !53
+  br label %38, !llvm.loop !148
 
 51:                                               ; preds = %38
   br label %52
 
 52:                                               ; preds = %51
-  %53 = load i32, ptr %5, align 4
+  %53 = load i32, ptr %5, align 4, !tbaa !53
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %5, align 4
-  br label %17, !llvm.loop !41
+  store i32 %54, ptr %5, align 4, !tbaa !53
+  br label %17, !llvm.loop !149
 
 55:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
-declare ptr @Mio_GateReadNext(ptr noundef) #1
+declare ptr @Mio_GateReadNext(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclCellAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclCellAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 112) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 112) #14
+  store ptr %2, ptr %1, align 8, !tbaa !26
+  %3 = load ptr, ptr %1, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !96
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !137
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -3448,38 +3622,38 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !96
+  %13 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !118
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !96
+  %18 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
+  %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = sext i32 %20 to i64
   %22 = mul i64 8, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !53
   %26 = sext i32 %25 to i64
   %27 = mul i64 8, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !96
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !118
+  %33 = load i32, ptr %4, align 4, !tbaa !53
+  %34 = load ptr, ptr %3, align 8, !tbaa !96
+  %35 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !137
   br label %36
 
 36:                                               ; preds = %29, %10
@@ -3487,70 +3661,76 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #6
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclPinAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclPinAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 80) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds %struct.SC_Pin_, ptr %3, i32 0, i32 8
-  store float -1.000000e+00, ptr %4, align 4
-  %5 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 80) #14
+  store ptr %2, ptr %1, align 8, !tbaa !40
+  %3 = load ptr, ptr %1, align 8, !tbaa !40
+  %4 = getelementptr inbounds nuw %struct.SC_Pin_, ptr %3, i32 0, i32 8
+  store float -1.000000e+00, ptr %4, align 4, !tbaa !56
+  %5 = load ptr, ptr %1, align 8, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclTimingsAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclTimingsAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 24) #14
+  store ptr %2, ptr %1, align 8, !tbaa !61
+  %3 = load ptr, ptr %1, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclTimingAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclTimingAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 728) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 728) #14
+  store ptr %2, ptr %1, align 8, !tbaa !65
+  %3 = load ptr, ptr %1, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_FltPush(ptr noundef %0, float noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_FltPush(ptr noundef %0, float noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  store float %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store float %1, ptr %4, align 4, !tbaa !138
+  %5 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !150
+  %8 = load ptr, ptr %3, align 8, !tbaa !144
+  %9 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !151
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !144
+  %14 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !151
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !144
   call void @Vec_FltGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !144
+  %21 = load ptr, ptr %3, align 8, !tbaa !144
+  %22 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !151
   %24 = mul nsw i32 2, %23
   call void @Vec_FltGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -3559,53 +3739,53 @@ define internal void @Vec_FltPush(ptr noundef %0, float noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load float, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load float, ptr %4, align 4, !tbaa !138
+  %28 = load ptr, ptr %3, align 8, !tbaa !144
+  %29 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !152
+  %31 = load ptr, ptr %3, align 8, !tbaa !144
+  %32 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !150
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !150
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds float, ptr %30, i64 %35
-  store float %27, ptr %36, align 4
+  store float %27, ptr %36, align 4, !tbaa !138
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !146
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !146
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !153
+  %8 = load ptr, ptr %3, align 8, !tbaa !146
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !154
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !146
+  %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !154
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !146
   call void @Vec_IntGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !146
+  %21 = load ptr, ptr %3, align 8, !tbaa !146
+  %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !154
   %24 = mul nsw i32 2, %23
   call void @Vec_IntGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -3614,72 +3794,73 @@ define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !53
+  %28 = load ptr, ptr %3, align 8, !tbaa !146
+  %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !155
+  %31 = load ptr, ptr %3, align 8, !tbaa !146
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !153
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !153
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
-  store i32 %27, ptr %36, align 4
+  store i32 %27, ptr %36, align 4, !tbaa !53
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_FltSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_FltSize(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !144
+  %3 = load ptr, ptr %2, align 8, !tbaa !144
+  %4 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !150
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_FltAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_FltAlloc(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #10
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !144
+  %5 = load i32, ptr %2, align 4, !tbaa !53
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !53
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !53
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !144
+  %13 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !150
+  %14 = load i32, ptr %2, align 4, !tbaa !53
+  %15 = load ptr, ptr %3, align 8, !tbaa !144
+  %16 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !151
+  %17 = load ptr, ptr %3, align 8, !tbaa !144
+  %18 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !151
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !144
+  %23 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !151
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #10
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -3687,54 +3868,56 @@ define internal ptr @Vec_FltAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !144
+  %32 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !152
+  %33 = load ptr, ptr %3, align 8, !tbaa !144
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntAlloc(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #10
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !146
+  %5 = load i32, ptr %2, align 4, !tbaa !53
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !53
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !53
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !146
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !153
+  %14 = load i32, ptr %2, align 4, !tbaa !53
+  %15 = load ptr, ptr %3, align 8, !tbaa !146
+  %16 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !154
+  %17 = load ptr, ptr %3, align 8, !tbaa !146
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !154
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !146
+  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !154
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #10
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -3742,23 +3925,24 @@ define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !146
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !155
+  %33 = load ptr, ptr %3, align 8, !tbaa !146
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_FltGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_FltGrow(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !151
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -3766,54 +3950,54 @@ define internal void @Vec_FltGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !144
+  %13 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !152
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !144
+  %18 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !152
+  %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !53
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !144
+  %32 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !152
+  %33 = load i32, ptr %4, align 4, !tbaa !53
+  %34 = load ptr, ptr %3, align 8, !tbaa !144
+  %35 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !151
   br label %36
 
 36:                                               ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !146
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !146
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !154
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -3821,367 +4005,399 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !146
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !155
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !146
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !155
+  %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !53
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !146
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !155
+  %33 = load i32, ptr %4, align 4, !tbaa !53
+  %34 = load ptr, ptr %3, align 8, !tbaa !146
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !154
   br label %36
 
 36:                                               ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_StrGetI(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_StrGetI(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %6, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %8
 
 8:                                                ; preds = %17, %2
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %10, align 4
+  %9 = load ptr, ptr %3, align 8, !tbaa !76
+  %10 = load ptr, ptr %4, align 8, !tbaa !78
+  %11 = load i32, ptr %10, align 4, !tbaa !53
   %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %10, align 4
+  store i32 %12, ptr %10, align 4, !tbaa !53
   %13 = call signext i8 @Vec_StrEntry(ptr noundef %9, i32 noundef %11)
-  store i8 %13, ptr %5, align 1
+  store i8 %13, ptr %5, align 1, !tbaa !94
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 128
   %16 = icmp ne i32 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %8
-  %18 = load i8, ptr %5, align 1
+  %18 = load i8, ptr %5, align 1, !tbaa !94
   %19 = zext i8 %18 to i32
   %20 = and i32 %19, 127
-  %21 = load i32, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4, !tbaa !53
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %6, align 4
+  store i32 %22, ptr %6, align 4, !tbaa !53
   %23 = mul nsw i32 7, %21
   %24 = shl i32 %20, %23
-  %25 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %7, align 4, !tbaa !53
   %26 = or i32 %25, %24
-  store i32 %26, ptr %7, align 4
-  br label %8, !llvm.loop !42
+  store i32 %26, ptr %7, align 4, !tbaa !53
+  br label %8, !llvm.loop !156
 
 27:                                               ; preds = %8
-  %28 = load i32, ptr %7, align 4
-  %29 = load i8, ptr %5, align 1
+  %28 = load i32, ptr %7, align 4, !tbaa !53
+  %29 = load i8, ptr %5, align 1, !tbaa !94
   %30 = zext i8 %29 to i32
-  %31 = load i32, ptr %6, align 4
+  %31 = load i32, ptr %6, align 4, !tbaa !53
   %32 = mul nsw i32 7, %31
   %33 = shl i32 %30, %32
   %34 = or i32 %28, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #3 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !106
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !53
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !53
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !53
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !53
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !107
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.9)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !53
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.9)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !107
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.10)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.10)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
-  %41 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #11
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #9
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #9
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %45 = load ptr, ptr %4, align 8, !tbaa !106
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !106
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !107
+  %49 = load ptr, ptr %7, align 8, !tbaa !106
+  %50 = call i64 @strlen(ptr noundef %49) #13
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !106
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !106
+  call void @free(ptr noundef %54) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !106
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #11
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #11
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_StrGetS(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_StrGetS(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !76
+  %7 = load ptr, ptr %4, align 8, !tbaa !78
+  %8 = load i32, ptr %7, align 4, !tbaa !53
   %9 = call ptr @Vec_StrEntryP(ptr noundef %6, i32 noundef %8)
-  store ptr %9, ptr %5, align 8
+  store ptr %9, ptr %5, align 8, !tbaa !106
   br label %10
 
 10:                                               ; preds = %17, %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %12, align 4
+  %11 = load ptr, ptr %3, align 8, !tbaa !76
+  %12 = load ptr, ptr %4, align 8, !tbaa !78
+  %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 4
+  store i32 %14, ptr %12, align 4, !tbaa !53
   %15 = call signext i8 @Vec_StrEntry(ptr noundef %11, i32 noundef %13)
   %16 = icmp ne i8 %15, 0
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %10
-  br label %10, !llvm.loop !43
+  br label %10, !llvm.loop !157
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %5, align 8, !tbaa !106
   %20 = call ptr @Abc_UtilStrsav(ptr noundef %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret ptr %20
 }
 
-; Function Attrs: nounwind uwtable
-define internal float @Vec_StrGetF(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal float @Vec_StrGetF(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %union.anon, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !76
+  %7 = load ptr, ptr %4, align 8, !tbaa !78
+  %8 = load i32, ptr %7, align 4, !tbaa !53
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !53
   %10 = call signext i8 @Vec_StrEntry(ptr noundef %6, i32 noundef %8)
   %11 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 0
-  store i8 %10, ptr %11, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %13, align 4
+  store i8 %10, ptr %11, align 4, !tbaa !94
+  %12 = load ptr, ptr %3, align 8, !tbaa !76
+  %13 = load ptr, ptr %4, align 8, !tbaa !78
+  %14 = load i32, ptr %13, align 4, !tbaa !53
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 4
+  store i32 %15, ptr %13, align 4, !tbaa !53
   %16 = call signext i8 @Vec_StrEntry(ptr noundef %12, i32 noundef %14)
   %17 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 1
-  store i8 %16, ptr %17, align 1
-  %18 = load ptr, ptr %3, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %19, align 4
+  store i8 %16, ptr %17, align 1, !tbaa !94
+  %18 = load ptr, ptr %3, align 8, !tbaa !76
+  %19 = load ptr, ptr %4, align 8, !tbaa !78
+  %20 = load i32, ptr %19, align 4, !tbaa !53
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 4
+  store i32 %21, ptr %19, align 4, !tbaa !53
   %22 = call signext i8 @Vec_StrEntry(ptr noundef %18, i32 noundef %20)
   %23 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 2
-  store i8 %22, ptr %23, align 2
-  %24 = load ptr, ptr %3, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = load i32, ptr %25, align 4
+  store i8 %22, ptr %23, align 2, !tbaa !94
+  %24 = load ptr, ptr %3, align 8, !tbaa !76
+  %25 = load ptr, ptr %4, align 8, !tbaa !78
+  %26 = load i32, ptr %25, align 4, !tbaa !53
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %25, align 4
+  store i32 %27, ptr %25, align 4, !tbaa !53
   %28 = call signext i8 @Vec_StrEntry(ptr noundef %24, i32 noundef %26)
   %29 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 3
-  store i8 %28, ptr %29, align 1
-  %30 = load float, ptr %5, align 4
+  store i8 %28, ptr %29, align 1, !tbaa !94
+  %30 = load float, ptr %5, align 4, !tbaa !94
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret float %30
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #6
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Vec_StrGetW(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Vec_StrGetW(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i64 0, ptr %6, align 8
-  store i32 0, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store i64 0, ptr %6, align 8, !tbaa !58
+  store i32 0, ptr %5, align 4, !tbaa !53
   br label %7
 
 7:                                                ; preds = %23, %2
-  %8 = load i32, ptr %5, align 4
+  %8 = load i32, ptr %5, align 4, !tbaa !53
   %9 = icmp slt i32 %8, 8
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %12, align 4
+  %11 = load ptr, ptr %3, align 8, !tbaa !76
+  %12 = load ptr, ptr %4, align 8, !tbaa !78
+  %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 4
+  store i32 %14, ptr %12, align 4, !tbaa !53
   %15 = call signext i8 @Vec_StrEntry(ptr noundef %11, i32 noundef %13)
   %16 = zext i8 %15 to i64
-  %17 = load i32, ptr %5, align 4
+  %17 = load i32, ptr %5, align 4, !tbaa !53
   %18 = mul nsw i32 8, %17
   %19 = zext i32 %18 to i64
   %20 = shl i64 %16, %19
-  %21 = load i64, ptr %6, align 8
+  %21 = load i64, ptr %6, align 8, !tbaa !58
   %22 = or i64 %21, %20
-  store i64 %22, ptr %6, align 8
+  store i64 %22, ptr %6, align 8, !tbaa !58
   br label %23
 
 23:                                               ; preds = %10
-  %24 = load i32, ptr %5, align 4
+  %24 = load i32, ptr %5, align 4, !tbaa !53
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %5, align 4
-  br label %7, !llvm.loop !44
+  store i32 %25, ptr %5, align 4, !tbaa !53
+  br label %7, !llvm.loop !158
 
 26:                                               ; preds = %7
-  %27 = load i64, ptr %6, align 8
+  %27 = load i64, ptr %6, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret i64 %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrAlloc(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #10
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !96
+  %5 = load i32, ptr %2, align 4, !tbaa !53
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !53
   %9 = icmp slt i32 %8, 8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 8, ptr %2, align 4
+  store i32 8, ptr %2, align 4, !tbaa !53
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !96
+  %13 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !117
+  %14 = load i32, ptr %2, align 4, !tbaa !53
+  %15 = load ptr, ptr %3, align 8, !tbaa !96
+  %16 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !137
+  %17 = load ptr, ptr %3, align 8, !tbaa !96
+  %18 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !137
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !96
+  %23 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !137
   %25 = sext i32 %24 to i64
   %26 = mul i64 8, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #10
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -4189,93 +4405,94 @@ define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !96
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !118
+  %33 = load ptr, ptr %3, align 8, !tbaa !96
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_WrdErase(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_WrdErase(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !140
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !99
+  %9 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !140
+  call void @free(ptr noundef %10) #11
+  %11 = load ptr, ptr %2, align 8, !tbaa !99
+  %12 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !140
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %15, i32 0, i32 1
-  store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %17, i32 0, i32 0
-  store i32 0, ptr %18, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !99
+  %16 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %15, i32 0, i32 1
+  store i32 0, ptr %16, align 4, !tbaa !141
+  %17 = load ptr, ptr %2, align 8, !tbaa !99
+  %18 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %17, i32 0, i32 0
+  store i32 0, ptr %18, align 8, !tbaa !139
   ret void
 }
 
-declare ptr @Mio_ParseFormulaTruth(ptr noundef, ptr noundef, i32 noundef) #1
+declare ptr @Mio_ParseFormulaTruth(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrArray(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
   ret ptr %5
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrFree(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %10) #9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !96
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !118
+  call void @free(ptr noundef %10) #11
+  %11 = load ptr, ptr %2, align 8, !tbaa !96
+  %12 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !118
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !96
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %18) #9
-  store ptr null, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !96
+  call void @free(ptr noundef %18) #11
+  store ptr null, ptr %2, align 8, !tbaa !96
   br label %20
 
 19:                                               ; preds = %14
@@ -4285,13 +4502,13 @@ define internal void @Vec_PtrFree(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_WrdSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_WrdSize(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !141
   ret i32 %5
 }
 
@@ -4307,468 +4524,501 @@ define internal void @Abc_SclReadSurface(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = alloca float, align 4
   %12 = alloca float, align 4
   %13 = alloca float, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !76
+  store ptr %1, ptr %5, align 8, !tbaa !78
+  store ptr %2, ptr %6, align 8, !tbaa !142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  %14 = load ptr, ptr %4, align 8, !tbaa !76
+  %15 = load ptr, ptr %5, align 8, !tbaa !78
   %16 = call i32 @Vec_StrGetI(ptr noundef %14, ptr noundef %15)
-  store i32 %16, ptr %9, align 4
+  store i32 %16, ptr %9, align 4, !tbaa !53
   br label %17
 
 17:                                               ; preds = %31, %3
-  %18 = load i32, ptr %9, align 4
+  %18 = load i32, ptr %9, align 4, !tbaa !53
   %19 = icmp ne i32 %18, 0
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %21 = load ptr, ptr %4, align 8, !tbaa !76
+  %22 = load ptr, ptr %5, align 8, !tbaa !78
   %23 = call float @Vec_StrGetF(ptr noundef %21, ptr noundef %22)
-  store float %23, ptr %11, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.SC_Surface_, ptr %24, i32 0, i32 1
-  %26 = load float, ptr %11, align 4
+  store float %23, ptr %11, align 4, !tbaa !138
+  %24 = load ptr, ptr %6, align 8, !tbaa !142
+  %25 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %24, i32 0, i32 1
+  %26 = load float, ptr %11, align 4, !tbaa !138
   call void @Vec_FltPush(ptr noundef %25, float noundef %26)
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.SC_Surface_, ptr %27, i32 0, i32 4
-  %29 = load float, ptr %11, align 4
+  %27 = load ptr, ptr %6, align 8, !tbaa !142
+  %28 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %27, i32 0, i32 4
+  %29 = load float, ptr %11, align 4, !tbaa !138
   %30 = call i32 @Scl_Flt2Int(float noundef %29)
   call void @Vec_IntPush(ptr noundef %28, i32 noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
   br label %31
 
 31:                                               ; preds = %20
-  %32 = load i32, ptr %9, align 4
+  %32 = load i32, ptr %9, align 4, !tbaa !53
   %33 = add nsw i32 %32, -1
-  store i32 %33, ptr %9, align 4
-  br label %17, !llvm.loop !45
+  store i32 %33, ptr %9, align 4, !tbaa !53
+  br label %17, !llvm.loop !159
 
 34:                                               ; preds = %17
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %5, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !76
+  %36 = load ptr, ptr %5, align 8, !tbaa !78
   %37 = call i32 @Vec_StrGetI(ptr noundef %35, ptr noundef %36)
-  store i32 %37, ptr %9, align 4
+  store i32 %37, ptr %9, align 4, !tbaa !53
   br label %38
 
 38:                                               ; preds = %52, %34
-  %39 = load i32, ptr %9, align 4
+  %39 = load i32, ptr %9, align 4, !tbaa !53
   %40 = icmp ne i32 %39, 0
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %4, align 8
-  %43 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %42 = load ptr, ptr %4, align 8, !tbaa !76
+  %43 = load ptr, ptr %5, align 8, !tbaa !78
   %44 = call float @Vec_StrGetF(ptr noundef %42, ptr noundef %43)
-  store float %44, ptr %12, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.SC_Surface_, ptr %45, i32 0, i32 2
-  %47 = load float, ptr %12, align 4
+  store float %44, ptr %12, align 4, !tbaa !138
+  %45 = load ptr, ptr %6, align 8, !tbaa !142
+  %46 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %45, i32 0, i32 2
+  %47 = load float, ptr %12, align 4, !tbaa !138
   call void @Vec_FltPush(ptr noundef %46, float noundef %47)
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.SC_Surface_, ptr %48, i32 0, i32 5
-  %50 = load float, ptr %12, align 4
+  %48 = load ptr, ptr %6, align 8, !tbaa !142
+  %49 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %48, i32 0, i32 5
+  %50 = load float, ptr %12, align 4, !tbaa !138
   %51 = call i32 @Scl_Flt2Int(float noundef %50)
   call void @Vec_IntPush(ptr noundef %49, i32 noundef %51)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
   br label %52
 
 52:                                               ; preds = %41
-  %53 = load i32, ptr %9, align 4
+  %53 = load i32, ptr %9, align 4, !tbaa !53
   %54 = add nsw i32 %53, -1
-  store i32 %54, ptr %9, align 4
-  br label %38, !llvm.loop !46
+  store i32 %54, ptr %9, align 4, !tbaa !53
+  br label %38, !llvm.loop !160
 
 55:                                               ; preds = %38
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !53
   br label %56
 
 56:                                               ; preds = %96, %55
-  %57 = load i32, ptr %9, align 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.SC_Surface_, ptr %58, i32 0, i32 1
+  %57 = load i32, ptr %9, align 4, !tbaa !53
+  %58 = load ptr, ptr %6, align 8, !tbaa !142
+  %59 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %58, i32 0, i32 1
   %60 = call i32 @Vec_FltSize(ptr noundef %59)
   %61 = icmp slt i32 %57, %60
   br i1 %61, label %62, label %99
 
 62:                                               ; preds = %56
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.SC_Surface_, ptr %63, i32 0, i32 2
+  %63 = load ptr, ptr %6, align 8, !tbaa !142
+  %64 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %63, i32 0, i32 2
   %65 = call i32 @Vec_FltSize(ptr noundef %64)
   %66 = call ptr @Vec_FltAlloc(i32 noundef %65)
-  store ptr %66, ptr %7, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.SC_Surface_, ptr %67, i32 0, i32 3
-  %69 = load ptr, ptr %7, align 8
+  store ptr %66, ptr %7, align 8, !tbaa !144
+  %67 = load ptr, ptr %6, align 8, !tbaa !142
+  %68 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %7, align 8, !tbaa !144
   call void @Vec_PtrPush(ptr noundef %68, ptr noundef %69)
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.SC_Surface_, ptr %70, i32 0, i32 2
+  %70 = load ptr, ptr %6, align 8, !tbaa !142
+  %71 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %70, i32 0, i32 2
   %72 = call i32 @Vec_FltSize(ptr noundef %71)
   %73 = call ptr @Vec_IntAlloc(i32 noundef %72)
-  store ptr %73, ptr %8, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.SC_Surface_, ptr %74, i32 0, i32 6
-  %76 = load ptr, ptr %8, align 8
+  store ptr %73, ptr %8, align 8, !tbaa !146
+  %74 = load ptr, ptr %6, align 8, !tbaa !142
+  %75 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %74, i32 0, i32 6
+  %76 = load ptr, ptr %8, align 8, !tbaa !146
   call void @Vec_PtrPush(ptr noundef %75, ptr noundef %76)
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !53
   br label %77
 
 77:                                               ; preds = %92, %62
-  %78 = load i32, ptr %10, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.SC_Surface_, ptr %79, i32 0, i32 2
+  %78 = load i32, ptr %10, align 4, !tbaa !53
+  %79 = load ptr, ptr %6, align 8, !tbaa !142
+  %80 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %79, i32 0, i32 2
   %81 = call i32 @Vec_FltSize(ptr noundef %80)
   %82 = icmp slt i32 %78, %81
   br i1 %82, label %83, label %95
 
 83:                                               ; preds = %77
-  %84 = load ptr, ptr %4, align 8
-  %85 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  %84 = load ptr, ptr %4, align 8, !tbaa !76
+  %85 = load ptr, ptr %5, align 8, !tbaa !78
   %86 = call float @Vec_StrGetF(ptr noundef %84, ptr noundef %85)
-  store float %86, ptr %13, align 4
-  %87 = load ptr, ptr %7, align 8
-  %88 = load float, ptr %13, align 4
+  store float %86, ptr %13, align 4, !tbaa !138
+  %87 = load ptr, ptr %7, align 8, !tbaa !144
+  %88 = load float, ptr %13, align 4, !tbaa !138
   call void @Vec_FltPush(ptr noundef %87, float noundef %88)
-  %89 = load ptr, ptr %8, align 8
-  %90 = load float, ptr %13, align 4
+  %89 = load ptr, ptr %8, align 8, !tbaa !146
+  %90 = load float, ptr %13, align 4, !tbaa !138
   %91 = call i32 @Scl_Flt2Int(float noundef %90)
   call void @Vec_IntPush(ptr noundef %89, i32 noundef %91)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
   br label %92
 
 92:                                               ; preds = %83
-  %93 = load i32, ptr %10, align 4
+  %93 = load i32, ptr %10, align 4, !tbaa !53
   %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %10, align 4
-  br label %77, !llvm.loop !47
+  store i32 %94, ptr %10, align 4, !tbaa !53
+  br label %77, !llvm.loop !161
 
 95:                                               ; preds = %77
   br label %96
 
 96:                                               ; preds = %95
-  %97 = load i32, ptr %9, align 4
+  %97 = load i32, ptr %9, align 4, !tbaa !53
   %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %9, align 4
-  br label %56, !llvm.loop !48
+  store i32 %98, ptr %9, align 4, !tbaa !53
+  br label %56, !llvm.loop !162
 
 99:                                               ; preds = %56
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !53
   br label %100
 
 100:                                              ; preds = %113, %99
-  %101 = load i32, ptr %9, align 4
+  %101 = load i32, ptr %9, align 4, !tbaa !53
   %102 = icmp slt i32 %101, 3
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr %4, align 8
-  %105 = load ptr, ptr %5, align 8
+  %104 = load ptr, ptr %4, align 8, !tbaa !76
+  %105 = load ptr, ptr %5, align 8, !tbaa !78
   %106 = call float @Vec_StrGetF(ptr noundef %104, ptr noundef %105)
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.SC_Surface_, ptr %107, i32 0, i32 7
+  %107 = load ptr, ptr %6, align 8, !tbaa !142
+  %108 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %107, i32 0, i32 7
   %109 = getelementptr inbounds [3 x [6 x float]], ptr %108, i64 0, i64 0
-  %110 = load i32, ptr %9, align 4
+  %110 = load i32, ptr %9, align 4, !tbaa !53
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [6 x float], ptr %109, i64 0, i64 %111
-  store float %106, ptr %112, align 4
+  store float %106, ptr %112, align 4, !tbaa !138
   br label %113
 
 113:                                              ; preds = %103
-  %114 = load i32, ptr %9, align 4
+  %114 = load i32, ptr %9, align 4, !tbaa !53
   %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %9, align 4
-  br label %100, !llvm.loop !49
+  store i32 %115, ptr %9, align 4, !tbaa !53
+  br label %100, !llvm.loop !163
 
 116:                                              ; preds = %100
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !53
   br label %117
 
 117:                                              ; preds = %130, %116
-  %118 = load i32, ptr %9, align 4
+  %118 = load i32, ptr %9, align 4, !tbaa !53
   %119 = icmp slt i32 %118, 4
   br i1 %119, label %120, label %133
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr %4, align 8
-  %122 = load ptr, ptr %5, align 8
+  %121 = load ptr, ptr %4, align 8, !tbaa !76
+  %122 = load ptr, ptr %5, align 8, !tbaa !78
   %123 = call float @Vec_StrGetF(ptr noundef %121, ptr noundef %122)
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds %struct.SC_Surface_, ptr %124, i32 0, i32 7
+  %124 = load ptr, ptr %6, align 8, !tbaa !142
+  %125 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %124, i32 0, i32 7
   %126 = getelementptr inbounds [3 x [6 x float]], ptr %125, i64 0, i64 1
-  %127 = load i32, ptr %9, align 4
+  %127 = load i32, ptr %9, align 4, !tbaa !53
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds [6 x float], ptr %126, i64 0, i64 %128
-  store float %123, ptr %129, align 4
+  store float %123, ptr %129, align 4, !tbaa !138
   br label %130
 
 130:                                              ; preds = %120
-  %131 = load i32, ptr %9, align 4
+  %131 = load i32, ptr %9, align 4, !tbaa !53
   %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %9, align 4
-  br label %117, !llvm.loop !50
+  store i32 %132, ptr %9, align 4, !tbaa !53
+  br label %117, !llvm.loop !164
 
 133:                                              ; preds = %117
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !53
   br label %134
 
 134:                                              ; preds = %147, %133
-  %135 = load i32, ptr %9, align 4
+  %135 = load i32, ptr %9, align 4, !tbaa !53
   %136 = icmp slt i32 %135, 6
   br i1 %136, label %137, label %150
 
 137:                                              ; preds = %134
-  %138 = load ptr, ptr %4, align 8
-  %139 = load ptr, ptr %5, align 8
+  %138 = load ptr, ptr %4, align 8, !tbaa !76
+  %139 = load ptr, ptr %5, align 8, !tbaa !78
   %140 = call float @Vec_StrGetF(ptr noundef %138, ptr noundef %139)
-  %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds %struct.SC_Surface_, ptr %141, i32 0, i32 7
+  %141 = load ptr, ptr %6, align 8, !tbaa !142
+  %142 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %141, i32 0, i32 7
   %143 = getelementptr inbounds [3 x [6 x float]], ptr %142, i64 0, i64 2
-  %144 = load i32, ptr %9, align 4
+  %144 = load i32, ptr %9, align 4, !tbaa !53
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds [6 x float], ptr %143, i64 0, i64 %145
-  store float %140, ptr %146, align 4
+  store float %140, ptr %146, align 4, !tbaa !138
   br label %147
 
 147:                                              ; preds = %137
-  %148 = load i32, ptr %9, align 4
+  %148 = load i32, ptr %9, align 4, !tbaa !53
   %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %9, align 4
-  br label %134, !llvm.loop !51
+  store i32 %149, ptr %9, align 4, !tbaa !53
+  br label %134, !llvm.loop !165
 
 150:                                              ; preds = %134
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal signext i8 @Vec_StrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal signext i8 @Vec_StrEntry(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Str_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %6 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !113
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %11 = load i8, ptr %10, align 1, !tbaa !94
   ret i8 %11
 }
 
-declare i32 @Abc_FrameIsBridgeMode(...) #1
+declare i32 @Abc_FrameIsBridgeMode(...) #2
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
+declare void @llvm.va_start.p0(ptr) #10
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
+declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %4, align 8, !tbaa !166
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !107
+  %6 = load ptr, ptr %3, align 8, !tbaa !106
+  %7 = load ptr, ptr %4, align 8, !tbaa !166
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #11
+  ret i32 %8
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #4
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
-
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_StrEntryP(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_StrEntryP(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Str_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %6 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !113
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclWireLoadAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclWireLoadAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 48) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 48) #14
+  store ptr %2, ptr %1, align 8, !tbaa !79
+  %3 = load ptr, ptr %1, align 8, !tbaa !79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_SclWireLoadSelAlloc() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_SclWireLoadSelAlloc() #3 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #12
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  store ptr %2, ptr %1, align 8, !tbaa !87
+  %3 = load ptr, ptr %1, align 8, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret ptr %3
 }
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #4
+declare ptr @strcpy(ptr noundef, ptr noundef) #6
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPutI(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrPutI(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !53
   br label %5
 
 5:                                                ; preds = %13, %2
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !53
   %7 = icmp sge i32 %6, 128
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
+  %9 = load ptr, ptr %3, align 8, !tbaa !76
+  %10 = load i32, ptr %4, align 4, !tbaa !53
   %11 = or i32 %10, 128
   %12 = trunc i32 %11 to i8
   call void @Vec_StrPush(ptr noundef %9, i8 noundef signext %12)
   br label %13
 
 13:                                               ; preds = %8
-  %14 = load i32, ptr %4, align 4
+  %14 = load i32, ptr %4, align 4, !tbaa !53
   %15 = ashr i32 %14, 7
-  store i32 %15, ptr %4, align 4
-  br label %5, !llvm.loop !52
+  store i32 %15, ptr %4, align 4, !tbaa !53
+  br label %5, !llvm.loop !168
 
 16:                                               ; preds = %5
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !76
+  %18 = load i32, ptr %4, align 4, !tbaa !53
   %19 = trunc i32 %18 to i8
   call void @Vec_StrPush(ptr noundef %17, i8 noundef signext %19)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPutS(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrPutS(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !106
   br label %5
 
 5:                                                ; preds = %9, %2
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i8, ptr %6, align 1
+  %6 = load ptr, ptr %4, align 8, !tbaa !106
+  %7 = load i8, ptr %6, align 1, !tbaa !94
   %8 = icmp ne i8 %7, 0
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %12, ptr %4, align 8
-  %13 = load i8, ptr %11, align 1
+  %10 = load ptr, ptr %3, align 8, !tbaa !76
+  %11 = load ptr, ptr %4, align 8, !tbaa !106
+  %12 = getelementptr inbounds nuw i8, ptr %11, i32 1
+  store ptr %12, ptr %4, align 8, !tbaa !106
+  %13 = load i8, ptr %11, align 1, !tbaa !94
   call void @Vec_StrPush(ptr noundef %10, i8 noundef signext %13)
-  br label %5, !llvm.loop !53
+  br label %5, !llvm.loop !169
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !76
   call void @Vec_StrPush(ptr noundef %15, i8 noundef signext 0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPutF(ptr noundef %0, float noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrPutF(ptr noundef %0, float noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
   %5 = alloca %union.anon.0, align 4
-  store ptr %0, ptr %3, align 8
-  store float %1, ptr %4, align 4
-  %6 = load float, ptr %4, align 4
-  store float %6, ptr %5, align 4
-  %7 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store float %1, ptr %4, align 4, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %6 = load float, ptr %4, align 4, !tbaa !138
+  store float %6, ptr %5, align 4, !tbaa !94
+  %7 = load ptr, ptr %3, align 8, !tbaa !76
   %8 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 0
-  %9 = load i8, ptr %8, align 4
+  %9 = load i8, ptr %8, align 4, !tbaa !94
   call void @Vec_StrPush(ptr noundef %7, i8 noundef signext %9)
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !76
   %11 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 1
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 1, !tbaa !94
   call void @Vec_StrPush(ptr noundef %10, i8 noundef signext %12)
-  %13 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !76
   %14 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 2
-  %15 = load i8, ptr %14, align 2
+  %15 = load i8, ptr %14, align 2, !tbaa !94
   call void @Vec_StrPush(ptr noundef %13, i8 noundef signext %15)
-  %16 = load ptr, ptr %3, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !76
   %17 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 3
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !94
   call void @Vec_StrPush(ptr noundef %16, i8 noundef signext %18)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !146
+  %3 = load ptr, ptr %2, align 8, !tbaa !146
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !153
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !146
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !146
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !53
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal float @Vec_FltEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal float @Vec_FltEntry(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Flt_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !144
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !144
+  %6 = getelementptr inbounds nuw %struct.Vec_Flt_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !152
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds float, ptr %7, i64 %9
-  %11 = load float, ptr %10, align 4
+  %11 = load float, ptr %10, align 4, !tbaa !138
   ret float %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPush(ptr noundef %0, i8 noundef signext %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrPush(ptr noundef %0, i8 noundef signext %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store i8 %1, ptr %4, align 1
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Str_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Str_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i8 %1, ptr %4, align 1, !tbaa !94
+  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %6 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !111
+  %8 = load ptr, ptr %3, align 8, !tbaa !76
+  %9 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !109
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Str_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !76
+  %14 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !109
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !76
   call void @Vec_StrGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Str_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !76
+  %21 = load ptr, ptr %3, align 8, !tbaa !76
+  %22 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !109
   %24 = mul nsw i32 2, %23
   call void @Vec_StrGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -4777,31 +5027,31 @@ define internal void @Vec_StrPush(ptr noundef %0, i8 noundef signext %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i8, ptr %4, align 1
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Str_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Str_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i8, ptr %4, align 1, !tbaa !94
+  %28 = load ptr, ptr %3, align 8, !tbaa !76
+  %29 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !113
+  %31 = load ptr, ptr %3, align 8, !tbaa !76
+  %32 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !111
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !111
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  store i8 %27, ptr %36, align 1
+  store i8 %27, ptr %36, align 1, !tbaa !94
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrGrow(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Str_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %6 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !109
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -4809,38 +5059,38 @@ define internal void @Vec_StrGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Str_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !76
+  %13 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !113
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Str_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !76
+  %18 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !113
+  %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = sext i32 %20 to i64
   %22 = mul i64 1, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !53
   %26 = sext i32 %25 to i64
   %27 = mul i64 1, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Str_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Str_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !76
+  %32 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !113
+  %33 = load i32, ptr %4, align 4, !tbaa !53
+  %34 = load ptr, ptr %3, align 8, !tbaa !76
+  %35 = getelementptr inbounds nuw %struct.Vec_Str_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !109
   br label %36
 
 36:                                               ; preds = %29, %10
@@ -4848,19 +5098,19 @@ define internal void @Vec_StrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
-declare ptr @Extra_TimeStamp(...) #1
+declare ptr @Extra_TimeStamp(...) #2
 
-declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_WrdArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_WrdArray(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !140
   ret ptr %5
 }
 
@@ -4872,27 +5122,31 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.63) #9
-  store i32 0, ptr %7, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !107
+  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.63) #11
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %11
 
 11:                                               ; preds = %36, %2
-  %12 = load i32, ptr %7, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.SC_Surface_, ptr %13, i32 0, i32 1
+  %12 = load i32, ptr %7, align 4, !tbaa !53
+  %13 = load ptr, ptr %4, align 8, !tbaa !142
+  %14 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %13, i32 0, i32 1
   %15 = call i32 @Vec_FltSize(ptr noundef %14)
   %16 = icmp slt i32 %12, %15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.SC_Surface_, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %4, align 8, !tbaa !142
+  %19 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %7, align 4, !tbaa !53
   %21 = call float @Vec_FltEntry(ptr noundef %19, i32 noundef %20)
-  store float %21, ptr %6, align 4
+  store float %21, ptr %6, align 4, !tbaa !138
   br label %22
 
 22:                                               ; preds = %17, %11
@@ -4900,47 +5154,47 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %3, align 8
-  %26 = load float, ptr %6, align 4
+  %25 = load ptr, ptr %3, align 8, !tbaa !107
+  %26 = load float, ptr %6, align 4, !tbaa !138
   %27 = fpext float %26 to double
-  %28 = load i32, ptr %7, align 4
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.SC_Surface_, ptr %29, i32 0, i32 1
+  %28 = load i32, ptr %7, align 4, !tbaa !53
+  %29 = load ptr, ptr %4, align 8, !tbaa !142
+  %30 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %29, i32 0, i32 1
   %31 = call i32 @Vec_FltSize(ptr noundef %30)
   %32 = sub nsw i32 %31, 1
   %33 = icmp eq i32 %28, %32
   %34 = select i1 %33, ptr @.str.65, ptr @.str.66
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.64, double noundef %27, ptr noundef %34) #9
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.64, double noundef %27, ptr noundef %34) #11
   br label %36
 
 36:                                               ; preds = %24
-  %37 = load i32, ptr %7, align 4
+  %37 = load i32, ptr %7, align 4, !tbaa !53
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %7, align 4
-  br label %11, !llvm.loop !54
+  store i32 %38, ptr %7, align 4, !tbaa !53
+  br label %11, !llvm.loop !170
 
 39:                                               ; preds = %22
-  %40 = load ptr, ptr %3, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.67) #9
-  %42 = load ptr, ptr %3, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.68) #9
-  store i32 0, ptr %7, align 4
+  %40 = load ptr, ptr %3, align 8, !tbaa !107
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.67) #11
+  %42 = load ptr, ptr %3, align 8, !tbaa !107
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.68) #11
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %44
 
 44:                                               ; preds = %69, %39
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.SC_Surface_, ptr %46, i32 0, i32 2
+  %45 = load i32, ptr %7, align 4, !tbaa !53
+  %46 = load ptr, ptr %4, align 8, !tbaa !142
+  %47 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %46, i32 0, i32 2
   %48 = call i32 @Vec_FltSize(ptr noundef %47)
   %49 = icmp slt i32 %45, %48
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %44
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.SC_Surface_, ptr %51, i32 0, i32 2
-  %53 = load i32, ptr %7, align 4
+  %51 = load ptr, ptr %4, align 8, !tbaa !142
+  %52 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %51, i32 0, i32 2
+  %53 = load i32, ptr %7, align 4, !tbaa !53
   %54 = call float @Vec_FltEntry(ptr noundef %52, i32 noundef %53)
-  store float %54, ptr %6, align 4
+  store float %54, ptr %6, align 4, !tbaa !138
   br label %55
 
 55:                                               ; preds = %50, %44
@@ -4948,47 +5202,47 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
   br i1 %56, label %57, label %72
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr %3, align 8
-  %59 = load float, ptr %6, align 4
+  %58 = load ptr, ptr %3, align 8, !tbaa !107
+  %59 = load float, ptr %6, align 4, !tbaa !138
   %60 = fpext float %59 to double
-  %61 = load i32, ptr %7, align 4
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.SC_Surface_, ptr %62, i32 0, i32 2
+  %61 = load i32, ptr %7, align 4, !tbaa !53
+  %62 = load ptr, ptr %4, align 8, !tbaa !142
+  %63 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %62, i32 0, i32 2
   %64 = call i32 @Vec_FltSize(ptr noundef %63)
   %65 = sub nsw i32 %64, 1
   %66 = icmp eq i32 %61, %65
   %67 = select i1 %66, ptr @.str.65, ptr @.str.66
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.64, double noundef %60, ptr noundef %67) #9
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.64, double noundef %60, ptr noundef %67) #11
   br label %69
 
 69:                                               ; preds = %57
-  %70 = load i32, ptr %7, align 4
+  %70 = load i32, ptr %7, align 4, !tbaa !53
   %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %7, align 4
-  br label %44, !llvm.loop !55
+  store i32 %71, ptr %7, align 4, !tbaa !53
+  br label %44, !llvm.loop !171
 
 72:                                               ; preds = %55
-  %73 = load ptr, ptr %3, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.67) #9
-  %75 = load ptr, ptr %3, align 8
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.69) #9
-  store i32 0, ptr %7, align 4
+  %73 = load ptr, ptr %3, align 8, !tbaa !107
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.67) #11
+  %75 = load ptr, ptr %3, align 8, !tbaa !107
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.69) #11
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %77
 
 77:                                               ; preds = %141, %72
-  %78 = load i32, ptr %7, align 4
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.SC_Surface_, ptr %79, i32 0, i32 3
+  %78 = load i32, ptr %7, align 4, !tbaa !53
+  %79 = load ptr, ptr %4, align 8, !tbaa !142
+  %80 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %79, i32 0, i32 3
   %81 = call i32 @Vec_PtrSize(ptr noundef %80)
   %82 = icmp slt i32 %78, %81
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %77
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.SC_Surface_, ptr %84, i32 0, i32 3
-  %86 = load i32, ptr %7, align 4
+  %84 = load ptr, ptr %4, align 8, !tbaa !142
+  %85 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %84, i32 0, i32 3
+  %86 = load i32, ptr %7, align 4, !tbaa !53
   %87 = call ptr @Vec_PtrEntry(ptr noundef %85, i32 noundef %86)
-  store ptr %87, ptr %5, align 8
+  store ptr %87, ptr %5, align 8, !tbaa !144
   br label %88
 
 88:                                               ; preds = %83, %77
@@ -4996,21 +5250,21 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
   br i1 %89, label %90, label %144
 
 90:                                               ; preds = %88
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !53
   br label %91
 
 91:                                               ; preds = %122, %90
-  %92 = load i32, ptr %8, align 4
-  %93 = load ptr, ptr %5, align 8
+  %92 = load i32, ptr %8, align 4, !tbaa !53
+  %93 = load ptr, ptr %5, align 8, !tbaa !144
   %94 = call i32 @Vec_FltSize(ptr noundef %93)
   %95 = icmp slt i32 %92, %94
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %91
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %8, align 4
+  %97 = load ptr, ptr %5, align 8, !tbaa !144
+  %98 = load i32, ptr %8, align 4, !tbaa !53
   %99 = call float @Vec_FltEntry(ptr noundef %97, i32 noundef %98)
-  store float %99, ptr %6, align 4
+  store float %99, ptr %6, align 4, !tbaa !138
   br label %100
 
 100:                                              ; preds = %96, %91
@@ -5018,20 +5272,20 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
   br i1 %101, label %102, label %125
 
 102:                                              ; preds = %100
-  %103 = load ptr, ptr %3, align 8
-  %104 = load float, ptr %6, align 4
+  %103 = load ptr, ptr %3, align 8, !tbaa !107
+  %104 = load float, ptr %6, align 4, !tbaa !138
   %105 = fpext float %104 to double
-  %106 = load i32, ptr %7, align 4
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.SC_Surface_, ptr %107, i32 0, i32 3
+  %106 = load i32, ptr %7, align 4, !tbaa !53
+  %107 = load ptr, ptr %4, align 8, !tbaa !142
+  %108 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %107, i32 0, i32 3
   %109 = call i32 @Vec_PtrSize(ptr noundef %108)
   %110 = sub nsw i32 %109, 1
   %111 = icmp eq i32 %106, %110
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %102
-  %113 = load i32, ptr %8, align 4
-  %114 = load ptr, ptr %5, align 8
+  %113 = load i32, ptr %8, align 4, !tbaa !53
+  %114 = load ptr, ptr %5, align 8, !tbaa !144
   %115 = call i32 @Vec_FltSize(ptr noundef %114)
   %116 = sub nsw i32 %115, 1
   %117 = icmp eq i32 %113, %116
@@ -5040,84 +5294,89 @@ define internal void @Abc_SclWriteSurfaceText(ptr noundef %0, ptr noundef %1) #0
 118:                                              ; preds = %112, %102
   %119 = phi i1 [ false, %102 ], [ %117, %112 ]
   %120 = select i1 %119, ptr @.str.70, ptr @.str.66
-  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.64, double noundef %105, ptr noundef %120) #9
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.64, double noundef %105, ptr noundef %120) #11
   br label %122
 
 122:                                              ; preds = %118
-  %123 = load i32, ptr %8, align 4
+  %123 = load i32, ptr %8, align 4, !tbaa !53
   %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %8, align 4
-  br label %91, !llvm.loop !56
+  store i32 %124, ptr %8, align 4, !tbaa !53
+  br label %91, !llvm.loop !172
 
 125:                                              ; preds = %100
-  %126 = load i32, ptr %7, align 4
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.SC_Surface_, ptr %127, i32 0, i32 3
+  %126 = load i32, ptr %7, align 4, !tbaa !53
+  %127 = load ptr, ptr %4, align 8, !tbaa !142
+  %128 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %127, i32 0, i32 3
   %129 = call i32 @Vec_PtrSize(ptr noundef %128)
   %130 = sub nsw i32 %129, 1
   %131 = icmp eq i32 %126, %130
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %125
-  %133 = load ptr, ptr %3, align 8
-  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef @.str.24) #9
+  %133 = load ptr, ptr %3, align 8, !tbaa !107
+  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef @.str.24) #11
   br label %140
 
 135:                                              ; preds = %125
-  %136 = load ptr, ptr %3, align 8
-  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef @.str.71) #9
-  %138 = load ptr, ptr %3, align 8
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef @.str.72) #9
+  %136 = load ptr, ptr %3, align 8, !tbaa !107
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef @.str.71) #11
+  %138 = load ptr, ptr %3, align 8, !tbaa !107
+  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef @.str.72) #11
   br label %140
 
 140:                                              ; preds = %135, %132
   br label %141
 
 141:                                              ; preds = %140
-  %142 = load i32, ptr %7, align 4
+  %142 = load i32, ptr %7, align 4, !tbaa !53
   %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %7, align 4
-  br label %77, !llvm.loop !57
+  store i32 %143, ptr %7, align 4, !tbaa !53
+  br label %77, !llvm.loop !173
 
 144:                                              ; preds = %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Vec_WrdEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Vec_WrdEntry(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store i32 %1, ptr %4, align 4, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !99
+  %6 = getelementptr inbounds nuw %struct.Vec_Wrd_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !140
+  %8 = load i32, ptr %4, align 4, !tbaa !53
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i64, ptr %7, i64 %9
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !58
   ret i64 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPutW(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_StrPutW(ptr noundef %0, i64 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  store i32 0, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store i64 %1, ptr %4, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !53
   br label %6
 
 6:                                                ; preds = %17, %2
-  %7 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %5, align 4, !tbaa !53
   %8 = icmp slt i32 %7, 8
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8
-  %11 = load i64, ptr %4, align 8
-  %12 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %3, align 8, !tbaa !76
+  %11 = load i64, ptr %4, align 8, !tbaa !58
+  %12 = load i32, ptr %5, align 4, !tbaa !53
   %13 = mul nsw i32 8, %12
   %14 = zext i32 %13 to i64
   %15 = lshr i64 %11, %14
@@ -5126,12 +5385,13 @@ define internal void @Vec_StrPutW(ptr noundef %0, i64 noundef %1) #0 {
   br label %17
 
 17:                                               ; preds = %9
-  %18 = load i32, ptr %5, align 4
+  %18 = load i32, ptr %5, align 4, !tbaa !53
   %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %5, align 4
-  br label %6, !llvm.loop !58
+  store i32 %19, ptr %5, align 4, !tbaa !53
+  br label %6, !llvm.loop !174
 
 20:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret void
 }
 
@@ -5143,30 +5403,34 @@ define internal void @Abc_SclWriteSurface(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.SC_Surface_, ptr %10, i32 0, i32 1
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !142
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !76
+  %10 = load ptr, ptr %4, align 8, !tbaa !142
+  %11 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %10, i32 0, i32 1
   %12 = call i32 @Vec_FltSize(ptr noundef %11)
   call void @Vec_StrPutI(ptr noundef %9, i32 noundef %12)
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %13
 
 13:                                               ; preds = %29, %2
-  %14 = load i32, ptr %7, align 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.SC_Surface_, ptr %15, i32 0, i32 1
+  %14 = load i32, ptr %7, align 4, !tbaa !53
+  %15 = load ptr, ptr %4, align 8, !tbaa !142
+  %16 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %15, i32 0, i32 1
   %17 = call i32 @Vec_FltSize(ptr noundef %16)
   %18 = icmp slt i32 %14, %17
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.SC_Surface_, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %7, align 4
+  %20 = load ptr, ptr %4, align 8, !tbaa !142
+  %21 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %7, align 4, !tbaa !53
   %23 = call float @Vec_FltEntry(ptr noundef %21, i32 noundef %22)
-  store float %23, ptr %6, align 4
+  store float %23, ptr %6, align 4, !tbaa !138
   br label %24
 
 24:                                               ; preds = %19, %13
@@ -5174,40 +5438,40 @@ define internal void @Abc_SclWriteSurface(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %3, align 8
-  %28 = load float, ptr %6, align 4
+  %27 = load ptr, ptr %3, align 8, !tbaa !76
+  %28 = load float, ptr %6, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %27, float noundef %28)
   br label %29
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %7, align 4
+  %30 = load i32, ptr %7, align 4, !tbaa !53
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %7, align 4
-  br label %13, !llvm.loop !59
+  store i32 %31, ptr %7, align 4, !tbaa !53
+  br label %13, !llvm.loop !175
 
 32:                                               ; preds = %24
-  %33 = load ptr, ptr %3, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.SC_Surface_, ptr %34, i32 0, i32 2
+  %33 = load ptr, ptr %3, align 8, !tbaa !76
+  %34 = load ptr, ptr %4, align 8, !tbaa !142
+  %35 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %34, i32 0, i32 2
   %36 = call i32 @Vec_FltSize(ptr noundef %35)
   call void @Vec_StrPutI(ptr noundef %33, i32 noundef %36)
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %37
 
 37:                                               ; preds = %53, %32
-  %38 = load i32, ptr %7, align 4
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.SC_Surface_, ptr %39, i32 0, i32 2
+  %38 = load i32, ptr %7, align 4, !tbaa !53
+  %39 = load ptr, ptr %4, align 8, !tbaa !142
+  %40 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %39, i32 0, i32 2
   %41 = call i32 @Vec_FltSize(ptr noundef %40)
   %42 = icmp slt i32 %38, %41
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %37
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.SC_Surface_, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %4, align 8, !tbaa !142
+  %45 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %44, i32 0, i32 2
+  %46 = load i32, ptr %7, align 4, !tbaa !53
   %47 = call float @Vec_FltEntry(ptr noundef %45, i32 noundef %46)
-  store float %47, ptr %6, align 4
+  store float %47, ptr %6, align 4, !tbaa !138
   br label %48
 
 48:                                               ; preds = %43, %37
@@ -5215,35 +5479,35 @@ define internal void @Abc_SclWriteSurface(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %3, align 8
-  %52 = load float, ptr %6, align 4
+  %51 = load ptr, ptr %3, align 8, !tbaa !76
+  %52 = load float, ptr %6, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %51, float noundef %52)
   br label %53
 
 53:                                               ; preds = %50
-  %54 = load i32, ptr %7, align 4
+  %54 = load i32, ptr %7, align 4, !tbaa !53
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %7, align 4
-  br label %37, !llvm.loop !60
+  store i32 %55, ptr %7, align 4, !tbaa !53
+  br label %37, !llvm.loop !176
 
 56:                                               ; preds = %48
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %57
 
 57:                                               ; preds = %89, %56
-  %58 = load i32, ptr %7, align 4
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.SC_Surface_, ptr %59, i32 0, i32 3
+  %58 = load i32, ptr %7, align 4, !tbaa !53
+  %59 = load ptr, ptr %4, align 8, !tbaa !142
+  %60 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %59, i32 0, i32 3
   %61 = call i32 @Vec_PtrSize(ptr noundef %60)
   %62 = icmp slt i32 %58, %61
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %57
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.SC_Surface_, ptr %64, i32 0, i32 3
-  %66 = load i32, ptr %7, align 4
+  %64 = load ptr, ptr %4, align 8, !tbaa !142
+  %65 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %64, i32 0, i32 3
+  %66 = load i32, ptr %7, align 4, !tbaa !53
   %67 = call ptr @Vec_PtrEntry(ptr noundef %65, i32 noundef %66)
-  store ptr %67, ptr %5, align 8
+  store ptr %67, ptr %5, align 8, !tbaa !144
   br label %68
 
 68:                                               ; preds = %63, %57
@@ -5251,21 +5515,21 @@ define internal void @Abc_SclWriteSurface(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %69, label %70, label %92
 
 70:                                               ; preds = %68
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !53
   br label %71
 
 71:                                               ; preds = %85, %70
-  %72 = load i32, ptr %8, align 4
-  %73 = load ptr, ptr %5, align 8
+  %72 = load i32, ptr %8, align 4, !tbaa !53
+  %73 = load ptr, ptr %5, align 8, !tbaa !144
   %74 = call i32 @Vec_FltSize(ptr noundef %73)
   %75 = icmp slt i32 %72, %74
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %71
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %8, align 4
+  %77 = load ptr, ptr %5, align 8, !tbaa !144
+  %78 = load i32, ptr %8, align 4, !tbaa !53
   %79 = call float @Vec_FltEntry(ptr noundef %77, i32 noundef %78)
-  store float %79, ptr %6, align 4
+  store float %79, ptr %6, align 4, !tbaa !138
   br label %80
 
 80:                                               ; preds = %76, %71
@@ -5273,191 +5537,313 @@ define internal void @Abc_SclWriteSurface(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %80
-  %83 = load ptr, ptr %3, align 8
-  %84 = load float, ptr %6, align 4
+  %83 = load ptr, ptr %3, align 8, !tbaa !76
+  %84 = load float, ptr %6, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %83, float noundef %84)
   br label %85
 
 85:                                               ; preds = %82
-  %86 = load i32, ptr %8, align 4
+  %86 = load i32, ptr %8, align 4, !tbaa !53
   %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %8, align 4
-  br label %71, !llvm.loop !61
+  store i32 %87, ptr %8, align 4, !tbaa !53
+  br label %71, !llvm.loop !177
 
 88:                                               ; preds = %80
   br label %89
 
 89:                                               ; preds = %88
-  %90 = load i32, ptr %7, align 4
+  %90 = load i32, ptr %7, align 4, !tbaa !53
   %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %7, align 4
-  br label %57, !llvm.loop !62
+  store i32 %91, ptr %7, align 4, !tbaa !53
+  br label %57, !llvm.loop !178
 
 92:                                               ; preds = %68
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %93
 
 93:                                               ; preds = %105, %92
-  %94 = load i32, ptr %7, align 4
+  %94 = load i32, ptr %7, align 4, !tbaa !53
   %95 = icmp slt i32 %94, 3
   br i1 %95, label %96, label %108
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %3, align 8
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %struct.SC_Surface_, ptr %98, i32 0, i32 7
+  %97 = load ptr, ptr %3, align 8, !tbaa !76
+  %98 = load ptr, ptr %4, align 8, !tbaa !142
+  %99 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %98, i32 0, i32 7
   %100 = getelementptr inbounds [3 x [6 x float]], ptr %99, i64 0, i64 0
-  %101 = load i32, ptr %7, align 4
+  %101 = load i32, ptr %7, align 4, !tbaa !53
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds [6 x float], ptr %100, i64 0, i64 %102
-  %104 = load float, ptr %103, align 4
+  %104 = load float, ptr %103, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %97, float noundef %104)
   br label %105
 
 105:                                              ; preds = %96
-  %106 = load i32, ptr %7, align 4
+  %106 = load i32, ptr %7, align 4, !tbaa !53
   %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %7, align 4
-  br label %93, !llvm.loop !63
+  store i32 %107, ptr %7, align 4, !tbaa !53
+  br label %93, !llvm.loop !179
 
 108:                                              ; preds = %93
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %109
 
 109:                                              ; preds = %121, %108
-  %110 = load i32, ptr %7, align 4
+  %110 = load i32, ptr %7, align 4, !tbaa !53
   %111 = icmp slt i32 %110, 4
   br i1 %111, label %112, label %124
 
 112:                                              ; preds = %109
-  %113 = load ptr, ptr %3, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.SC_Surface_, ptr %114, i32 0, i32 7
+  %113 = load ptr, ptr %3, align 8, !tbaa !76
+  %114 = load ptr, ptr %4, align 8, !tbaa !142
+  %115 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %114, i32 0, i32 7
   %116 = getelementptr inbounds [3 x [6 x float]], ptr %115, i64 0, i64 1
-  %117 = load i32, ptr %7, align 4
+  %117 = load i32, ptr %7, align 4, !tbaa !53
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds [6 x float], ptr %116, i64 0, i64 %118
-  %120 = load float, ptr %119, align 4
+  %120 = load float, ptr %119, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %113, float noundef %120)
   br label %121
 
 121:                                              ; preds = %112
-  %122 = load i32, ptr %7, align 4
+  %122 = load i32, ptr %7, align 4, !tbaa !53
   %123 = add nsw i32 %122, 1
-  store i32 %123, ptr %7, align 4
-  br label %109, !llvm.loop !64
+  store i32 %123, ptr %7, align 4, !tbaa !53
+  br label %109, !llvm.loop !180
 
 124:                                              ; preds = %109
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !53
   br label %125
 
 125:                                              ; preds = %137, %124
-  %126 = load i32, ptr %7, align 4
+  %126 = load i32, ptr %7, align 4, !tbaa !53
   %127 = icmp slt i32 %126, 6
   br i1 %127, label %128, label %140
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr %3, align 8
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.SC_Surface_, ptr %130, i32 0, i32 7
+  %129 = load ptr, ptr %3, align 8, !tbaa !76
+  %130 = load ptr, ptr %4, align 8, !tbaa !142
+  %131 = getelementptr inbounds nuw %struct.SC_Surface_, ptr %130, i32 0, i32 7
   %132 = getelementptr inbounds [3 x [6 x float]], ptr %131, i64 0, i64 2
-  %133 = load i32, ptr %7, align 4
+  %133 = load i32, ptr %7, align 4, !tbaa !53
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds [6 x float], ptr %132, i64 0, i64 %134
-  %136 = load float, ptr %135, align 4
+  %136 = load float, ptr %135, align 4, !tbaa !138
   call void @Vec_StrPutF(ptr noundef %129, float noundef %136)
   br label %137
 
 137:                                              ; preds = %128
-  %138 = load i32, ptr %7, align 4
+  %138 = load i32, ptr %7, align 4, !tbaa !53
   %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %7, align 4
-  br label %125, !llvm.loop !65
+  store i32 %139, ptr %7, align 4, !tbaa !53
+  br label %125, !llvm.loop !181
 
 140:                                              ; preds = %125
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0,1) }
-attributes #13 = { nounwind allocsize(1) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS20Mio_LibraryStruct_t_", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS7SC_Lib_", !4, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"SC_Lib_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !14, i64 32, !15, i64 36, !14, i64 40, !15, i64 44, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !16, i64 112, !17, i64 128, !15, i64 136}
+!13 = !{!"p1 omnipotent char", !4, i64 0}
+!14 = !{!"float", !5, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !4, i64 8}
+!17 = !{!"p1 int", !4, i64 0}
+!18 = !{!12, !13, i64 16}
+!19 = !{!12, !13, i64 24}
+!20 = !{!12, !14, i64 32}
+!21 = !{!12, !15, i64 36}
+!22 = !{!12, !14, i64 40}
+!23 = !{!12, !15, i64 44}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS17Mio_GateStruct_t_", !4, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS8SC_Cell_", !4, i64 0}
+!28 = !{!29, !15, i64 8}
+!29 = !{!"SC_Cell_", !13, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !14, i64 24, !14, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !16, i64 48, !15, i64 64, !15, i64 68, !27, i64 72, !27, i64 80, !27, i64 88, !27, i64 96, !15, i64 104, !15, i64 108}
+!30 = !{!29, !13, i64 0}
+!31 = !{!29, !14, i64 24}
+!32 = !{!29, !14, i64 28}
+!33 = !{!29, !15, i64 40}
+!34 = !{!29, !15, i64 64}
+!35 = !{!29, !15, i64 68}
+!36 = !{!29, !15, i64 32}
+!37 = !{!29, !15, i64 36}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS16Mio_PinStruct_t_", !4, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS7SC_Pin_", !4, i64 0}
+!42 = !{!43, !15, i64 8}
+!43 = !{!"SC_Pin_", !13, i64 0, !15, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !15, i64 24, !15, i64 28, !14, i64 32, !14, i64 36, !13, i64 40, !44, i64 48, !16, i64 64}
+!44 = !{!"Vec_Wrd_t_", !15, i64 0, !15, i64 4, !45, i64 8}
+!45 = !{!"p1 long", !4, i64 0}
+!46 = !{!43, !13, i64 0}
+!47 = !{!43, !14, i64 16}
+!48 = !{!43, !14, i64 20}
+!49 = !{!43, !15, i64 24}
+!50 = !{!43, !15, i64 28}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.mustprogress"}
+!53 = !{!15, !15, i64 0}
+!54 = !{!45, !45, i64 0}
+!55 = !{!43, !14, i64 32}
+!56 = !{!43, !14, i64 36}
+!57 = !{!43, !13, i64 40}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"long", !5, i64 0}
+!60 = distinct !{!60, !52}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS11SC_Timings_", !4, i64 0}
+!63 = !{!64, !13, i64 0}
+!64 = !{!"SC_Timings_", !13, i64 0, !16, i64 8}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS10SC_Timing_", !4, i64 0}
+!67 = !{!68, !15, i64 8}
+!68 = !{!"SC_Timing_", !13, i64 0, !15, i64 8, !13, i64 16, !69, i64 24, !69, i64 200, !69, i64 376, !69, i64 552}
+!69 = !{!"SC_Surface_", !13, i64 0, !70, i64 8, !70, i64 24, !16, i64 40, !72, i64 56, !72, i64 72, !16, i64 88, !5, i64 104}
+!70 = !{!"Vec_Flt_t_", !15, i64 0, !15, i64 4, !71, i64 8}
+!71 = !{!"p1 float", !4, i64 0}
+!72 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !17, i64 8}
+!73 = distinct !{!73, !52}
+!74 = distinct !{!74, !52}
+!75 = distinct !{!75, !52}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS10Vec_Str_t_", !4, i64 0}
+!78 = !{!17, !17, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS12SC_WireLoad_", !4, i64 0}
+!81 = !{!82, !13, i64 0}
+!82 = !{!"SC_WireLoad_", !13, i64 0, !14, i64 8, !14, i64 12, !72, i64 16, !70, i64 32}
+!83 = !{!82, !14, i64 8}
+!84 = !{!82, !14, i64 12}
+!85 = distinct !{!85, !52}
+!86 = distinct !{!86, !52}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS15SC_WireLoadSel_", !4, i64 0}
+!89 = !{!90, !13, i64 0}
+!90 = !{!"SC_WireLoadSel_", !13, i64 0, !70, i64 8, !70, i64 24, !16, i64 40}
+!91 = distinct !{!91, !52}
+!92 = distinct !{!92, !52}
+!93 = distinct !{!93, !52}
+!94 = !{!5, !5, i64 0}
+!95 = distinct !{!95, !52}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTS10Vec_Ptr_t_", !4, i64 0}
+!98 = distinct !{!98, !52}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS10Vec_Wrd_t_", !4, i64 0}
+!101 = !{i64 0, i64 4, !53, i64 4, i64 4, !53, i64 8, i64 8, !54}
+!102 = distinct !{!102, !52}
+!103 = distinct !{!103, !52}
+!104 = distinct !{!104, !52}
+!105 = distinct !{!105, !52}
+!106 = !{!13, !13, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
+!109 = !{!110, !15, i64 0}
+!110 = !{!"Vec_Str_t_", !15, i64 0, !15, i64 4, !13, i64 8}
+!111 = !{!110, !15, i64 4}
+!112 = !{!12, !13, i64 8}
+!113 = !{!110, !13, i64 8}
+!114 = !{!29, !15, i64 16}
+!115 = !{!29, !15, i64 20}
+!116 = distinct !{!116, !52}
+!117 = !{!16, !15, i64 4}
+!118 = !{!16, !4, i64 8}
+!119 = distinct !{!119, !52}
+!120 = distinct !{!120, !52}
+!121 = distinct !{!121, !52}
+!122 = distinct !{!122, !52}
+!123 = distinct !{!123, !52}
+!124 = distinct !{!124, !52}
+!125 = distinct !{!125, !52}
+!126 = distinct !{!126, !52}
+!127 = distinct !{!127, !52}
+!128 = distinct !{!128, !52}
+!129 = distinct !{!129, !52}
+!130 = distinct !{!130, !52}
+!131 = distinct !{!131, !52}
+!132 = distinct !{!132, !52}
+!133 = distinct !{!133, !52}
+!134 = distinct !{!134, !52}
+!135 = distinct !{!135, !52}
+!136 = distinct !{!136, !52}
+!137 = !{!16, !15, i64 0}
+!138 = !{!14, !14, i64 0}
+!139 = !{!44, !15, i64 0}
+!140 = !{!44, !45, i64 8}
+!141 = !{!44, !15, i64 4}
+!142 = !{!143, !143, i64 0}
+!143 = !{!"p1 _ZTS11SC_Surface_", !4, i64 0}
+!144 = !{!145, !145, i64 0}
+!145 = !{!"p1 _ZTS10Vec_Flt_t_", !4, i64 0}
+!146 = !{!147, !147, i64 0}
+!147 = !{!"p1 _ZTS10Vec_Int_t_", !4, i64 0}
+!148 = distinct !{!148, !52}
+!149 = distinct !{!149, !52}
+!150 = !{!70, !15, i64 4}
+!151 = !{!70, !15, i64 0}
+!152 = !{!70, !71, i64 8}
+!153 = !{!72, !15, i64 4}
+!154 = !{!72, !15, i64 0}
+!155 = !{!72, !17, i64 8}
+!156 = distinct !{!156, !52}
+!157 = distinct !{!157, !52}
+!158 = distinct !{!158, !52}
+!159 = distinct !{!159, !52}
+!160 = distinct !{!160, !52}
+!161 = distinct !{!161, !52}
+!162 = distinct !{!162, !52}
+!163 = distinct !{!163, !52}
+!164 = distinct !{!164, !52}
+!165 = distinct !{!165, !52}
+!166 = !{!167, !167, i64 0}
+!167 = !{!"p1 _ZTS13__va_list_tag", !4, i64 0}
+!168 = distinct !{!168, !52}
+!169 = distinct !{!169, !52}
+!170 = distinct !{!170, !52}
+!171 = distinct !{!171, !52}
+!172 = distinct !{!172, !52}
+!173 = distinct !{!173, !52}
+!174 = distinct !{!174, !52}
+!175 = distinct !{!175, !52}
+!176 = distinct !{!176, !52}
+!177 = distinct !{!177, !52}
+!178 = distinct !{!178, !52}
+!179 = distinct !{!179, !52}
+!180 = distinct !{!180, !52}
+!181 = distinct !{!181, !52}

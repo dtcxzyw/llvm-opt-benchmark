@@ -43,46 +43,51 @@ define ptr @Cudd_SubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
-  store i32 0, ptr @memOut, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i32 0, ptr @memOut, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %27, %4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.DdManager, ptr %11, i32 0, i32 55
-  store i32 0, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %7, align 4
-  %16 = load i32, ptr %8, align 4
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.DdManager, ptr %11, i32 0, i32 55
+  store i32 0, ptr %12, align 8, !tbaa !12
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = load i32, ptr %7, align 4, !tbaa !10
+  %16 = load i32, ptr %8, align 4, !tbaa !10
   %17 = call ptr @cuddSubsetHeavyBranch(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16)
-  store ptr %17, ptr %9, align 8
+  store ptr %17, ptr %9, align 8, !tbaa !8
   br label %18
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.DdManager, ptr %19, i32 0, i32 55
-  %21 = load i32, ptr %20, align 8
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.DdManager, ptr %19, i32 0, i32 55
+  %21 = load i32, ptr %20, align 8, !tbaa !12
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr @memOut, align 4
+  %24 = load i32, ptr @memOut, align 4, !tbaa !10
   %25 = icmp ne i32 %24, 0
   %26 = xor i1 %25, true
   br label %27
 
 27:                                               ; preds = %23, %18
   %28 = phi i1 [ false, %18 ], [ %26, %23 ]
-  br i1 %28, label %10, label %29, !llvm.loop !4
+  br i1 %28, label %10, label %29, !llvm.loop !28
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret ptr %30
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -102,539 +107,574 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %30
+  %21 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %31
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.DdManager, ptr %24, i32 0, i32 85
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str) #4
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.DdManager, ptr %28, i32 0, i32 86
-  store i32 4, ptr %29, align 8
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.DdManager, ptr %25, i32 0, i32 85
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str) #5
+  %29 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.DdManager, ptr %29, i32 0, i32 86
+  store i32 4, ptr %30, align 8, !tbaa !31
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %6, align 8
-  %32 = call ptr @Cudd_ReadOne(ptr noundef %31)
-  store ptr %32, ptr @one, align 8
-  %33 = load ptr, ptr @one, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = xor i64 %34, 1
-  %36 = inttoptr i64 %35 to ptr
-  store ptr %36, ptr @zero, align 8
-  %37 = load i32, ptr %8, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %40
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = call ptr @Cudd_ReadOne(ptr noundef %32)
+  store ptr %33, ptr @one, align 8, !tbaa !8
+  %34 = load ptr, ptr @one, align 8, !tbaa !8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = xor i64 %35, 1
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr @zero, align 8, !tbaa !8
+  %38 = load i32, ptr %8, align 4, !tbaa !10
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %30
-  store i32 1023, ptr %8, align 4
-  br label %40
+40:                                               ; preds = %31
+  store i32 1023, ptr %8, align 4, !tbaa !10
+  br label %41
 
-40:                                               ; preds = %39, %30
-  %41 = load ptr, ptr %7, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = and i64 %42, -2
-  %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds %struct.DdNode, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, 2147483647
-  br i1 %47, label %48, label %50
+41:                                               ; preds = %40, %31
+  %42 = load ptr, ptr %7, align 8, !tbaa !8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = and i64 %43, -2
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr inbounds nuw %struct.DdNode, ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8, !tbaa !32
+  %48 = icmp eq i32 %47, 2147483647
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %7, align 8
-  store ptr %49, ptr %5, align 8
-  br label %329
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %50, ptr %5, align 8
+  store i32 1, ptr %21, align 4
+  br label %330
 
-50:                                               ; preds = %40
-  %51 = load i32, ptr %8, align 4
-  %52 = sitofp i32 %51 to double
-  %53 = call double @pow(double noundef 2.000000e+00, double noundef %52) #4
-  store double %53, ptr @max, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = load i32, ptr %8, align 4
-  %56 = call ptr @SubsetCountMinterm(ptr noundef %54, i32 noundef %55)
-  store ptr %56, ptr %12, align 8
-  %57 = load ptr, ptr %12, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %62, label %59
+51:                                               ; preds = %41
+  %52 = load i32, ptr %8, align 4, !tbaa !10
+  %53 = sitofp i32 %52 to double
+  %54 = call double @pow(double noundef 2.000000e+00, double noundef %53) #5, !tbaa !10
+  store double %54, ptr @max, align 8, !tbaa !33
+  %55 = load ptr, ptr %7, align 8, !tbaa !8
+  %56 = load i32, ptr %8, align 4, !tbaa !10
+  %57 = call ptr @SubsetCountMinterm(ptr noundef %55, i32 noundef %56)
+  store ptr %57, ptr %12, align 8, !tbaa !34
+  %58 = load ptr, ptr %12, align 8, !tbaa !34
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %63, label %60
 
-59:                                               ; preds = %50
-  %60 = load i32, ptr @memOut, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %69
+60:                                               ; preds = %51
+  %61 = load i32, ptr @memOut, align 4, !tbaa !10
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %70
 
-62:                                               ; preds = %59, %50
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.DdManager, ptr %63, i32 0, i32 85
-  %65 = load ptr, ptr %64, align 8
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.1) #4
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.DdManager, ptr %67, i32 0, i32 86
-  store i32 1, ptr %68, align 8
+63:                                               ; preds = %60, %51
+  %64 = load ptr, ptr %6, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.DdManager, ptr %64, i32 0, i32 85
+  %66 = load ptr, ptr %65, align 8, !tbaa !30
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.1) #5
+  %68 = load ptr, ptr %6, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.DdManager, ptr %68, i32 0, i32 86
+  store i32 1, ptr %69, align 8, !tbaa !31
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-69:                                               ; preds = %59
-  %70 = load ptr, ptr %7, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %8, align 4
-  %73 = call i32 @SubsetCountNodes(ptr noundef %70, ptr noundef %71, i32 noundef %72)
-  store i32 %73, ptr %13, align 4
-  %74 = load i32, ptr @memOut, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %83
+70:                                               ; preds = %60
+  %71 = load ptr, ptr %7, align 8, !tbaa !8
+  %72 = load ptr, ptr %12, align 8, !tbaa !34
+  %73 = load i32, ptr %8, align 4, !tbaa !10
+  %74 = call i32 @SubsetCountNodes(ptr noundef %71, ptr noundef %72, i32 noundef %73)
+  store i32 %74, ptr %13, align 4, !tbaa !10
+  %75 = load i32, ptr @memOut, align 4, !tbaa !10
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %84
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.DdManager, ptr %77, i32 0, i32 85
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.1) #4
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct.DdManager, ptr %81, i32 0, i32 86
-  store i32 1, ptr %82, align 8
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %6, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.DdManager, ptr %78, i32 0, i32 85
+  %80 = load ptr, ptr %79, align 8, !tbaa !30
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.1) #5
+  %82 = load ptr, ptr %6, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.DdManager, ptr %82, i32 0, i32 86
+  store i32 1, ptr %83, align 8, !tbaa !31
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-83:                                               ; preds = %69
-  %84 = load ptr, ptr %12, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = call i32 @st__lookup(ptr noundef %84, ptr noundef %85, ptr noundef %14)
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %95
+84:                                               ; preds = %70
+  %85 = load ptr, ptr %12, align 8, !tbaa !34
+  %86 = load ptr, ptr %7, align 8, !tbaa !8
+  %87 = call i32 @st__lookup(ptr noundef %85, ptr noundef %86, ptr noundef %14)
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %96
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.DdManager, ptr %89, i32 0, i32 85
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef @.str.2) #4
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.DdManager, ptr %93, i32 0, i32 86
-  store i32 5, ptr %94, align 8
-  br label %95
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %6, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.DdManager, ptr %90, i32 0, i32 85
+  %92 = load ptr, ptr %91, align 8, !tbaa !30
+  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef @.str.2) #5
+  %94 = load ptr, ptr %6, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.DdManager, ptr %94, i32 0, i32 86
+  store i32 5, ptr %95, align 8, !tbaa !31
+  br label %96
 
-95:                                               ; preds = %88, %83
-  %96 = call noalias ptr @malloc(i64 noundef 4) #5
-  store ptr %96, ptr %11, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %102
+96:                                               ; preds = %89, %84
+  %97 = call noalias ptr @malloc(i64 noundef 4) #6
+  store ptr %97, ptr %11, align 8, !tbaa !36
+  %98 = load ptr, ptr %11, align 8, !tbaa !36
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %103
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.DdManager, ptr %100, i32 0, i32 86
-  store i32 1, ptr %101, align 8
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %6, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.DdManager, ptr %101, i32 0, i32 86
+  store i32 1, ptr %102, align 8, !tbaa !31
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-102:                                              ; preds = %95
-  %103 = load i32, ptr %13, align 4
-  %104 = load ptr, ptr %11, align 8
-  store i32 %103, ptr %104, align 4
-  %105 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
-  store ptr %105, ptr %16, align 8
-  %106 = load ptr, ptr @one, align 8
-  %107 = ptrtoint ptr %106 to i64
-  %108 = and i64 %107, -2
-  %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %struct.DdNode, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %110, align 4
-  %113 = load ptr, ptr %16, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = call ptr @Cudd_ReadOne(ptr noundef %114)
-  %116 = call i32 @st__insert(ptr noundef %113, ptr noundef %115, ptr noundef null)
-  %117 = icmp eq i32 %116, -10000
-  br i1 %117, label %118, label %123
+103:                                              ; preds = %96
+  %104 = load i32, ptr %13, align 4, !tbaa !10
+  %105 = load ptr, ptr %11, align 8, !tbaa !36
+  store i32 %104, ptr %105, align 4, !tbaa !10
+  %106 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
+  store ptr %106, ptr %16, align 8, !tbaa !34
+  %107 = load ptr, ptr @one, align 8, !tbaa !8
+  %108 = ptrtoint ptr %107 to i64
+  %109 = and i64 %108, -2
+  %110 = inttoptr i64 %109 to ptr
+  %111 = getelementptr inbounds nuw %struct.DdNode, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4, !tbaa !37
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %111, align 4, !tbaa !37
+  %114 = load ptr, ptr %16, align 8, !tbaa !34
+  %115 = load ptr, ptr %6, align 8, !tbaa !3
+  %116 = call ptr @Cudd_ReadOne(ptr noundef %115)
+  %117 = call i32 @st__insert(ptr noundef %114, ptr noundef %116, ptr noundef null)
+  %118 = icmp eq i32 %117, -10000
+  br i1 %118, label %119, label %124
 
-118:                                              ; preds = %102
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct.DdManager, ptr %119, i32 0, i32 84
-  %121 = load ptr, ptr %120, align 8
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef @.str.3) #4
-  br label %123
+119:                                              ; preds = %103
+  %120 = load ptr, ptr %6, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.DdManager, ptr %120, i32 0, i32 84
+  %122 = load ptr, ptr %121, align 8, !tbaa !38
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef @.str.3) #5
+  br label %124
 
-123:                                              ; preds = %118, %102
-  %124 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
-  store ptr %124, ptr %17, align 8
-  %125 = load ptr, ptr %6, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = load ptr, ptr %11, align 8
-  %128 = load ptr, ptr %12, align 8
-  %129 = load i32, ptr %9, align 4
-  %130 = load ptr, ptr %16, align 8
-  %131 = load ptr, ptr %17, align 8
-  %132 = call ptr @BuildSubsetBdd(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, ptr noundef %130, ptr noundef %131)
-  store ptr %132, ptr %15, align 8
-  %133 = load ptr, ptr %15, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %143
+124:                                              ; preds = %119, %103
+  %125 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
+  store ptr %125, ptr %17, align 8, !tbaa !34
+  %126 = load ptr, ptr %6, align 8, !tbaa !3
+  %127 = load ptr, ptr %7, align 8, !tbaa !8
+  %128 = load ptr, ptr %11, align 8, !tbaa !36
+  %129 = load ptr, ptr %12, align 8, !tbaa !34
+  %130 = load i32, ptr %9, align 4, !tbaa !10
+  %131 = load ptr, ptr %16, align 8, !tbaa !34
+  %132 = load ptr, ptr %17, align 8, !tbaa !34
+  %133 = call ptr @BuildSubsetBdd(ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef %130, ptr noundef %131, ptr noundef %132)
+  store ptr %133, ptr %15, align 8, !tbaa !8
+  %134 = load ptr, ptr %15, align 8, !tbaa !8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %144
 
-135:                                              ; preds = %123
-  %136 = load ptr, ptr %15, align 8
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %137, -2
-  %139 = inttoptr i64 %138 to ptr
-  %140 = getelementptr inbounds %struct.DdNode, ptr %139, i32 0, i32 1
-  %141 = load i32, ptr %140, align 4
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %140, align 4
-  br label %143
+136:                                              ; preds = %124
+  %137 = load ptr, ptr %15, align 8, !tbaa !8
+  %138 = ptrtoint ptr %137 to i64
+  %139 = and i64 %138, -2
+  %140 = inttoptr i64 %139 to ptr
+  %141 = getelementptr inbounds nuw %struct.DdNode, ptr %140, i32 0, i32 1
+  %142 = load i32, ptr %141, align 4, !tbaa !37
+  %143 = add i32 %142, 1
+  store i32 %143, ptr %141, align 4, !tbaa !37
+  br label %144
 
-143:                                              ; preds = %135, %123
-  %144 = load ptr, ptr %17, align 8
-  %145 = call ptr @st__init_gen(ptr noundef %144)
-  store ptr %145, ptr %20, align 8
-  %146 = load ptr, ptr %20, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %150
+144:                                              ; preds = %136, %124
+  %145 = load ptr, ptr %17, align 8, !tbaa !34
+  %146 = call ptr @st__init_gen(ptr noundef %145)
+  store ptr %146, ptr %20, align 8, !tbaa !39
+  %147 = load ptr, ptr %20, align 8, !tbaa !39
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %151
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr %17, align 8
-  call void @st__free_table(ptr noundef %149)
+149:                                              ; preds = %144
+  %150 = load ptr, ptr %17, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %150)
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-150:                                              ; preds = %143
-  br label %151
+151:                                              ; preds = %144
+  br label %152
 
-151:                                              ; preds = %155, %150
-  %152 = load ptr, ptr %20, align 8
-  %153 = call i32 @st__gen(ptr noundef %152, ptr noundef %18, ptr noundef %19)
-  %154 = icmp ne i32 %153, 0
-  br i1 %154, label %155, label %158
+152:                                              ; preds = %156, %151
+  %153 = load ptr, ptr %20, align 8, !tbaa !39
+  %154 = call i32 @st__gen(ptr noundef %153, ptr noundef %18, ptr noundef %19)
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %159
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr %6, align 8
-  %157 = load ptr, ptr %19, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %156, ptr noundef %157)
-  br label %151, !llvm.loop !6
+156:                                              ; preds = %152
+  %157 = load ptr, ptr %6, align 8, !tbaa !3
+  %158 = load ptr, ptr %19, align 8, !tbaa !41
+  call void @Cudd_RecursiveDeref(ptr noundef %157, ptr noundef %158)
+  br label %152, !llvm.loop !42
 
-158:                                              ; preds = %151
-  %159 = load ptr, ptr %20, align 8
-  call void @st__free_gen(ptr noundef %159)
-  store ptr null, ptr %20, align 8
-  %160 = load ptr, ptr %17, align 8
-  call void @st__free_table(ptr noundef %160)
-  %161 = load ptr, ptr %16, align 8
-  %162 = call ptr @st__init_gen(ptr noundef %161)
-  store ptr %162, ptr %20, align 8
-  %163 = load ptr, ptr %20, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %167
+159:                                              ; preds = %152
+  %160 = load ptr, ptr %20, align 8, !tbaa !39
+  call void @st__free_gen(ptr noundef %160)
+  store ptr null, ptr %20, align 8, !tbaa !39
+  %161 = load ptr, ptr %17, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %161)
+  %162 = load ptr, ptr %16, align 8, !tbaa !34
+  %163 = call ptr @st__init_gen(ptr noundef %162)
+  store ptr %163, ptr %20, align 8, !tbaa !39
+  %164 = load ptr, ptr %20, align 8, !tbaa !39
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %168
 
-165:                                              ; preds = %158
-  %166 = load ptr, ptr %16, align 8
-  call void @st__free_table(ptr noundef %166)
+166:                                              ; preds = %159
+  %167 = load ptr, ptr %16, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %167)
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-167:                                              ; preds = %158
-  br label %168
+168:                                              ; preds = %159
+  br label %169
 
-168:                                              ; preds = %172, %167
-  %169 = load ptr, ptr %20, align 8
-  %170 = call i32 @st__gen(ptr noundef %169, ptr noundef %18, ptr noundef %19)
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %175
+169:                                              ; preds = %173, %168
+  %170 = load ptr, ptr %20, align 8, !tbaa !39
+  %171 = call i32 @st__gen(ptr noundef %170, ptr noundef %18, ptr noundef %19)
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %176
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %6, align 8
-  %174 = load ptr, ptr %18, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %173, ptr noundef %174)
-  br label %168, !llvm.loop !7
+173:                                              ; preds = %169
+  %174 = load ptr, ptr %6, align 8, !tbaa !3
+  %175 = load ptr, ptr %18, align 8, !tbaa !41
+  call void @Cudd_RecursiveDeref(ptr noundef %174, ptr noundef %175)
+  br label %169, !llvm.loop !43
 
-175:                                              ; preds = %168
-  %176 = load ptr, ptr %20, align 8
-  call void @st__free_gen(ptr noundef %176)
-  store ptr null, ptr %20, align 8
-  %177 = load ptr, ptr %16, align 8
-  call void @st__free_table(ptr noundef %177)
-  store i32 0, ptr %10, align 4
-  br label %178
+176:                                              ; preds = %169
+  %177 = load ptr, ptr %20, align 8, !tbaa !39
+  call void @st__free_gen(ptr noundef %177)
+  store ptr null, ptr %20, align 8, !tbaa !39
+  %178 = load ptr, ptr %16, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %178)
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %179
 
-178:                                              ; preds = %201, %175
-  %179 = load i32, ptr %10, align 4
-  %180 = load i32, ptr @page, align 4
-  %181 = icmp sle i32 %179, %180
-  br i1 %181, label %182, label %204
+179:                                              ; preds = %202, %176
+  %180 = load i32, ptr %10, align 4, !tbaa !10
+  %181 = load i32, ptr @page, align 4, !tbaa !10
+  %182 = icmp sle i32 %180, %181
+  br i1 %182, label %183, label %205
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr @mintermPages, align 8
-  %184 = load i32, ptr %10, align 4
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds ptr, ptr %183, i64 %185
-  %187 = load ptr, ptr %186, align 8
-  %188 = icmp ne ptr %187, null
-  br i1 %188, label %189, label %199
+183:                                              ; preds = %179
+  %184 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %185 = load i32, ptr %10, align 4, !tbaa !10
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds ptr, ptr %184, i64 %186
+  %188 = load ptr, ptr %187, align 8, !tbaa !46
+  %189 = icmp ne ptr %188, null
+  br i1 %189, label %190, label %200
 
-189:                                              ; preds = %182
-  %190 = load ptr, ptr @mintermPages, align 8
-  %191 = load i32, ptr %10, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  call void @free(ptr noundef %194) #4
-  %195 = load ptr, ptr @mintermPages, align 8
-  %196 = load i32, ptr %10, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %195, i64 %197
-  store ptr null, ptr %198, align 8
-  br label %200
-
-199:                                              ; preds = %182
-  br label %200
-
-200:                                              ; preds = %199, %189
+190:                                              ; preds = %183
+  %191 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %192 = load i32, ptr %10, align 4, !tbaa !10
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds ptr, ptr %191, i64 %193
+  %195 = load ptr, ptr %194, align 8, !tbaa !46
+  call void @free(ptr noundef %195) #5
+  %196 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %197 = load i32, ptr %10, align 4, !tbaa !10
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds ptr, ptr %196, i64 %198
+  store ptr null, ptr %199, align 8, !tbaa !46
   br label %201
 
-201:                                              ; preds = %200
-  %202 = load i32, ptr %10, align 4
-  %203 = add nsw i32 %202, 1
-  store i32 %203, ptr %10, align 4
-  br label %178, !llvm.loop !8
+200:                                              ; preds = %183
+  br label %201
 
-204:                                              ; preds = %178
-  %205 = load ptr, ptr @mintermPages, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %209
+201:                                              ; preds = %200, %190
+  br label %202
 
-207:                                              ; preds = %204
-  %208 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %208) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %210
+202:                                              ; preds = %201
+  %203 = load i32, ptr %10, align 4, !tbaa !10
+  %204 = add nsw i32 %203, 1
+  store i32 %204, ptr %10, align 4, !tbaa !10
+  br label %179, !llvm.loop !48
 
-209:                                              ; preds = %204
-  br label %210
+205:                                              ; preds = %179
+  %206 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %210
 
-210:                                              ; preds = %209, %207
-  store i32 0, ptr %10, align 4
+208:                                              ; preds = %205
+  %209 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %209) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %211
 
-211:                                              ; preds = %234, %210
-  %212 = load i32, ptr %10, align 4
-  %213 = load i32, ptr @page, align 4
-  %214 = icmp sle i32 %212, %213
-  br i1 %214, label %215, label %237
+210:                                              ; preds = %205
+  br label %211
 
-215:                                              ; preds = %211
-  %216 = load ptr, ptr @nodePages, align 8
-  %217 = load i32, ptr %10, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds ptr, ptr %216, i64 %218
-  %220 = load ptr, ptr %219, align 8
-  %221 = icmp ne ptr %220, null
-  br i1 %221, label %222, label %232
+211:                                              ; preds = %210, %208
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %212
 
-222:                                              ; preds = %215
-  %223 = load ptr, ptr @nodePages, align 8
-  %224 = load i32, ptr %10, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds ptr, ptr %223, i64 %225
-  %227 = load ptr, ptr %226, align 8
-  call void @free(ptr noundef %227) #4
-  %228 = load ptr, ptr @nodePages, align 8
-  %229 = load i32, ptr %10, align 4
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds ptr, ptr %228, i64 %230
-  store ptr null, ptr %231, align 8
-  br label %233
+212:                                              ; preds = %235, %211
+  %213 = load i32, ptr %10, align 4, !tbaa !10
+  %214 = load i32, ptr @page, align 4, !tbaa !10
+  %215 = icmp sle i32 %213, %214
+  br i1 %215, label %216, label %238
 
-232:                                              ; preds = %215
-  br label %233
+216:                                              ; preds = %212
+  %217 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %218 = load i32, ptr %10, align 4, !tbaa !10
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds ptr, ptr %217, i64 %219
+  %221 = load ptr, ptr %220, align 8, !tbaa !36
+  %222 = icmp ne ptr %221, null
+  br i1 %222, label %223, label %233
 
-233:                                              ; preds = %232, %222
+223:                                              ; preds = %216
+  %224 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %225 = load i32, ptr %10, align 4, !tbaa !10
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds ptr, ptr %224, i64 %226
+  %228 = load ptr, ptr %227, align 8, !tbaa !36
+  call void @free(ptr noundef %228) #5
+  %229 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %230 = load i32, ptr %10, align 4, !tbaa !10
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds ptr, ptr %229, i64 %231
+  store ptr null, ptr %232, align 8, !tbaa !36
   br label %234
 
-234:                                              ; preds = %233
-  %235 = load i32, ptr %10, align 4
-  %236 = add nsw i32 %235, 1
-  store i32 %236, ptr %10, align 4
-  br label %211, !llvm.loop !9
+233:                                              ; preds = %216
+  br label %234
 
-237:                                              ; preds = %211
-  %238 = load ptr, ptr @nodePages, align 8
-  %239 = icmp ne ptr %238, null
-  br i1 %239, label %240, label %242
+234:                                              ; preds = %233, %223
+  br label %235
 
-240:                                              ; preds = %237
-  %241 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %241) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %243
+235:                                              ; preds = %234
+  %236 = load i32, ptr %10, align 4, !tbaa !10
+  %237 = add nsw i32 %236, 1
+  store i32 %237, ptr %10, align 4, !tbaa !10
+  br label %212, !llvm.loop !51
 
-242:                                              ; preds = %237
-  br label %243
+238:                                              ; preds = %212
+  %239 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %240 = icmp ne ptr %239, null
+  br i1 %240, label %241, label %243
 
-243:                                              ; preds = %242, %240
-  store i32 0, ptr %10, align 4
+241:                                              ; preds = %238
+  %242 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %242) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
   br label %244
 
-244:                                              ; preds = %267, %243
-  %245 = load i32, ptr %10, align 4
-  %246 = load i32, ptr @page, align 4
-  %247 = icmp sle i32 %245, %246
-  br i1 %247, label %248, label %270
+243:                                              ; preds = %238
+  br label %244
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr @lightNodePages, align 8
-  %250 = load i32, ptr %10, align 4
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds ptr, ptr %249, i64 %251
-  %253 = load ptr, ptr %252, align 8
-  %254 = icmp ne ptr %253, null
-  br i1 %254, label %255, label %265
+244:                                              ; preds = %243, %241
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %245
 
-255:                                              ; preds = %248
-  %256 = load ptr, ptr @lightNodePages, align 8
-  %257 = load i32, ptr %10, align 4
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds ptr, ptr %256, i64 %258
-  %260 = load ptr, ptr %259, align 8
-  call void @free(ptr noundef %260) #4
-  %261 = load ptr, ptr @lightNodePages, align 8
-  %262 = load i32, ptr %10, align 4
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds ptr, ptr %261, i64 %263
-  store ptr null, ptr %264, align 8
-  br label %266
+245:                                              ; preds = %268, %244
+  %246 = load i32, ptr %10, align 4, !tbaa !10
+  %247 = load i32, ptr @page, align 4, !tbaa !10
+  %248 = icmp sle i32 %246, %247
+  br i1 %248, label %249, label %271
 
-265:                                              ; preds = %248
-  br label %266
+249:                                              ; preds = %245
+  %250 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %251 = load i32, ptr %10, align 4, !tbaa !10
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds ptr, ptr %250, i64 %252
+  %254 = load ptr, ptr %253, align 8, !tbaa !36
+  %255 = icmp ne ptr %254, null
+  br i1 %255, label %256, label %266
 
-266:                                              ; preds = %265, %255
+256:                                              ; preds = %249
+  %257 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %258 = load i32, ptr %10, align 4, !tbaa !10
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds ptr, ptr %257, i64 %259
+  %261 = load ptr, ptr %260, align 8, !tbaa !36
+  call void @free(ptr noundef %261) #5
+  %262 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %263 = load i32, ptr %10, align 4, !tbaa !10
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds ptr, ptr %262, i64 %264
+  store ptr null, ptr %265, align 8, !tbaa !36
   br label %267
 
-267:                                              ; preds = %266
-  %268 = load i32, ptr %10, align 4
-  %269 = add nsw i32 %268, 1
-  store i32 %269, ptr %10, align 4
-  br label %244, !llvm.loop !10
+266:                                              ; preds = %249
+  br label %267
 
-270:                                              ; preds = %244
-  %271 = load ptr, ptr @lightNodePages, align 8
-  %272 = icmp ne ptr %271, null
-  br i1 %272, label %273, label %275
+267:                                              ; preds = %266, %256
+  br label %268
 
-273:                                              ; preds = %270
-  %274 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %274) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %276
+268:                                              ; preds = %267
+  %269 = load i32, ptr %10, align 4, !tbaa !10
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %10, align 4, !tbaa !10
+  br label %245, !llvm.loop !52
 
-275:                                              ; preds = %270
-  br label %276
+271:                                              ; preds = %245
+  %272 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %273 = icmp ne ptr %272, null
+  br i1 %273, label %274, label %276
 
-276:                                              ; preds = %275, %273
-  store i32 0, ptr %10, align 4
+274:                                              ; preds = %271
+  %275 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %275) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
   br label %277
 
-277:                                              ; preds = %300, %276
-  %278 = load i32, ptr %10, align 4
-  %279 = load i32, ptr @nodeDataPage, align 4
-  %280 = icmp sle i32 %278, %279
-  br i1 %280, label %281, label %303
+276:                                              ; preds = %271
+  br label %277
 
-281:                                              ; preds = %277
-  %282 = load ptr, ptr @nodeDataPages, align 8
-  %283 = load i32, ptr %10, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %282, i64 %284
-  %286 = load ptr, ptr %285, align 8
-  %287 = icmp ne ptr %286, null
-  br i1 %287, label %288, label %298
+277:                                              ; preds = %276, %274
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %278
 
-288:                                              ; preds = %281
-  %289 = load ptr, ptr @nodeDataPages, align 8
-  %290 = load i32, ptr %10, align 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds ptr, ptr %289, i64 %291
-  %293 = load ptr, ptr %292, align 8
-  call void @free(ptr noundef %293) #4
-  %294 = load ptr, ptr @nodeDataPages, align 8
-  %295 = load i32, ptr %10, align 4
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %294, i64 %296
-  store ptr null, ptr %297, align 8
-  br label %299
+278:                                              ; preds = %301, %277
+  %279 = load i32, ptr %10, align 4, !tbaa !10
+  %280 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %281 = icmp sle i32 %279, %280
+  br i1 %281, label %282, label %304
 
-298:                                              ; preds = %281
-  br label %299
+282:                                              ; preds = %278
+  %283 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %284 = load i32, ptr %10, align 4, !tbaa !10
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds ptr, ptr %283, i64 %285
+  %287 = load ptr, ptr %286, align 8, !tbaa !55
+  %288 = icmp ne ptr %287, null
+  br i1 %288, label %289, label %299
 
-299:                                              ; preds = %298, %288
+289:                                              ; preds = %282
+  %290 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %291 = load i32, ptr %10, align 4, !tbaa !10
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr inbounds ptr, ptr %290, i64 %292
+  %294 = load ptr, ptr %293, align 8, !tbaa !55
+  call void @free(ptr noundef %294) #5
+  %295 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %296 = load i32, ptr %10, align 4, !tbaa !10
+  %297 = sext i32 %296 to i64
+  %298 = getelementptr inbounds ptr, ptr %295, i64 %297
+  store ptr null, ptr %298, align 8, !tbaa !55
   br label %300
 
-300:                                              ; preds = %299
-  %301 = load i32, ptr %10, align 4
-  %302 = add nsw i32 %301, 1
-  store i32 %302, ptr %10, align 4
-  br label %277, !llvm.loop !11
+299:                                              ; preds = %282
+  br label %300
 
-303:                                              ; preds = %277
-  %304 = load ptr, ptr @nodeDataPages, align 8
-  %305 = icmp ne ptr %304, null
-  br i1 %305, label %306, label %308
+300:                                              ; preds = %299, %289
+  br label %301
 
-306:                                              ; preds = %303
-  %307 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %307) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %309
+301:                                              ; preds = %300
+  %302 = load i32, ptr %10, align 4, !tbaa !10
+  %303 = add nsw i32 %302, 1
+  store i32 %303, ptr %10, align 4, !tbaa !10
+  br label %278, !llvm.loop !57
 
-308:                                              ; preds = %303
-  br label %309
+304:                                              ; preds = %278
+  %305 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %306 = icmp ne ptr %305, null
+  br i1 %306, label %307, label %309
 
-309:                                              ; preds = %308, %306
-  %310 = load ptr, ptr %12, align 8
-  call void @st__free_table(ptr noundef %310)
-  %311 = load ptr, ptr %11, align 8
-  %312 = icmp ne ptr %311, null
-  br i1 %312, label %313, label %315
+307:                                              ; preds = %304
+  %308 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %308) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %310
 
-313:                                              ; preds = %309
-  %314 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %314) #4
-  store ptr null, ptr %11, align 8
-  br label %316
+309:                                              ; preds = %304
+  br label %310
 
-315:                                              ; preds = %309
-  br label %316
+310:                                              ; preds = %309, %307
+  %311 = load ptr, ptr %12, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %311)
+  %312 = load ptr, ptr %11, align 8, !tbaa !36
+  %313 = icmp ne ptr %312, null
+  br i1 %313, label %314, label %316
 
-316:                                              ; preds = %315, %313
-  %317 = load ptr, ptr %15, align 8
-  %318 = icmp ne ptr %317, null
-  br i1 %318, label %319, label %328
+314:                                              ; preds = %310
+  %315 = load ptr, ptr %11, align 8, !tbaa !36
+  call void @free(ptr noundef %315) #5
+  store ptr null, ptr %11, align 8, !tbaa !36
+  br label %317
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr %15, align 8
-  %321 = ptrtoint ptr %320 to i64
-  %322 = and i64 %321, -2
-  %323 = inttoptr i64 %322 to ptr
-  %324 = getelementptr inbounds %struct.DdNode, ptr %323, i32 0, i32 1
-  %325 = load i32, ptr %324, align 4
-  %326 = add i32 %325, -1
-  store i32 %326, ptr %324, align 4
-  %327 = load ptr, ptr %15, align 8
-  store ptr %327, ptr %5, align 8
-  br label %329
+316:                                              ; preds = %310
+  br label %317
 
-328:                                              ; preds = %316
+317:                                              ; preds = %316, %314
+  %318 = load ptr, ptr %15, align 8, !tbaa !8
+  %319 = icmp ne ptr %318, null
+  br i1 %319, label %320, label %329
+
+320:                                              ; preds = %317
+  %321 = load ptr, ptr %15, align 8, !tbaa !8
+  %322 = ptrtoint ptr %321 to i64
+  %323 = and i64 %322, -2
+  %324 = inttoptr i64 %323 to ptr
+  %325 = getelementptr inbounds nuw %struct.DdNode, ptr %324, i32 0, i32 1
+  %326 = load i32, ptr %325, align 4, !tbaa !37
+  %327 = add i32 %326, -1
+  store i32 %327, ptr %325, align 4, !tbaa !37
+  %328 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %328, ptr %5, align 8
+  store i32 1, ptr %21, align 4
+  br label %330
+
+329:                                              ; preds = %317
   store ptr null, ptr %5, align 8
-  br label %329
+  store i32 1, ptr %21, align 4
+  br label %330
 
-329:                                              ; preds = %328, %319, %165, %148, %99, %76, %62, %48, %23
-  %330 = load ptr, ptr %5, align 8
-  ret ptr %330
+330:                                              ; preds = %329, %320, %166, %149, %100, %77, %63, %49, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %331 = load ptr, ptr %5, align 8
+  ret ptr %331
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_SupersetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -644,66 +684,70 @@ define ptr @Cudd_SupersetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  store ptr %14, ptr %10, align 8
-  store i32 0, ptr @memOut, align 4
+  store ptr %14, ptr %10, align 8, !tbaa !8
+  store i32 0, ptr @memOut, align 4, !tbaa !10
   br label %15
 
 15:                                               ; preds = %32, %4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.DdManager, ptr %16, i32 0, i32 55
-  store i32 0, ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load i32, ptr %7, align 4
-  %21 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.DdManager, ptr %16, i32 0, i32 55
+  store i32 0, ptr %17, align 8, !tbaa !12
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %10, align 8, !tbaa !8
+  %20 = load i32, ptr %7, align 4, !tbaa !10
+  %21 = load i32, ptr %8, align 4, !tbaa !10
   %22 = call ptr @cuddSubsetHeavyBranch(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
-  store ptr %22, ptr %9, align 8
+  store ptr %22, ptr %9, align 8, !tbaa !8
   br label %23
 
 23:                                               ; preds = %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.DdManager, ptr %24, i32 0, i32 55
-  %26 = load i32, ptr %25, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.DdManager, ptr %24, i32 0, i32 55
+  %26 = load i32, ptr %25, align 8, !tbaa !12
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %23
-  %29 = load i32, ptr @memOut, align 4
+  %29 = load i32, ptr @memOut, align 4, !tbaa !10
   %30 = icmp ne i32 %29, 0
   %31 = xor i1 %30, true
   br label %32
 
 32:                                               ; preds = %28, %23
   %33 = phi i1 [ false, %23 ], [ %31, %28 ]
-  br i1 %33, label %15, label %34, !llvm.loop !12
+  br i1 %33, label %15, label %34, !llvm.loop !58
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8, !tbaa !8
   %36 = ptrtoint ptr %35 to i64
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !8
   %38 = icmp ne ptr %37, null
   %39 = zext i1 %38 to i32
   %40 = sext i32 %39 to i64
   %41 = xor i64 %36, %40
   %42 = inttoptr i64 %41 to ptr
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret ptr %42
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @Cudd_ReadOne(ptr noundef) #2
+declare ptr @Cudd_ReadOne(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #1
+declare double @pow(double noundef, double noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SubsetCountMinterm(ptr noundef %0, i32 noundef %1) #0 {
@@ -712,270 +756,277 @@ define internal ptr @SubsetCountMinterm(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %8 = load i32, ptr %5, align 4
-  %9 = sitofp i32 %8 to double
-  %10 = call double @pow(double noundef 2.000000e+00, double noundef %9) #4
-  store double %10, ptr @max, align 8
-  %11 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %2
-  br label %149
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %9 = load i32, ptr %5, align 4, !tbaa !10
+  %10 = sitofp i32 %9 to double
+  %11 = call double @pow(double noundef 2.000000e+00, double noundef %10) #5, !tbaa !10
+  store double %11, ptr @max, align 8, !tbaa !33
+  %12 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
+  store ptr %12, ptr %6, align 8, !tbaa !34
+  %13 = load ptr, ptr %6, align 8, !tbaa !34
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %2
-  store i32 128, ptr @maxPages, align 4
-  %16 = load i32, ptr @maxPages, align 4
-  %17 = sext i32 %16 to i64
-  %18 = mul i64 8, %17
-  %19 = call noalias ptr @malloc(i64 noundef %18) #5
-  store ptr %19, ptr @mintermPages, align 8
-  %20 = load ptr, ptr @mintermPages, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %24
+  br label %150
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %23)
-  br label %149
+16:                                               ; preds = %2
+  store i32 128, ptr @maxPages, align 4, !tbaa !10
+  %17 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %18 = sext i32 %17 to i64
+  %19 = mul i64 8, %18
+  %20 = call noalias ptr @malloc(i64 noundef %19) #6
+  store ptr %20, ptr @mintermPages, align 8, !tbaa !44
+  %21 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %15
-  store i32 0, ptr @page, align 4
-  %25 = load i32, ptr @pageSize, align 4
-  %26 = sext i32 %25 to i64
-  %27 = mul i64 8, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #5
-  store ptr %28, ptr @currentMintermPage, align 8
-  %29 = load ptr, ptr @currentMintermPage, align 8
-  %30 = load ptr, ptr @mintermPages, align 8
-  %31 = load i32, ptr @page, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
-  store ptr %29, ptr %33, align 8
-  %34 = load ptr, ptr @currentMintermPage, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %44
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %24)
+  br label %150
 
-36:                                               ; preds = %24
-  %37 = load ptr, ptr @mintermPages, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %41
+25:                                               ; preds = %16
+  store i32 0, ptr @page, align 4, !tbaa !10
+  %26 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %27 = sext i32 %26 to i64
+  %28 = mul i64 8, %27
+  %29 = call noalias ptr @malloc(i64 noundef %28) #6
+  store ptr %29, ptr @currentMintermPage, align 8, !tbaa !46
+  %30 = load ptr, ptr @currentMintermPage, align 8, !tbaa !46
+  %31 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %32 = load i32, ptr @page, align 4, !tbaa !10
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  store ptr %30, ptr %34, align 8, !tbaa !46
+  %35 = load ptr, ptr @currentMintermPage, align 8, !tbaa !46
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %45
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %40) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %42
+37:                                               ; preds = %25
+  %38 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %36
-  br label %42
+40:                                               ; preds = %37
+  %41 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %41) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %43
 
-42:                                               ; preds = %41, %39
-  %43 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %43)
-  br label %149
+42:                                               ; preds = %37
+  br label %43
 
-44:                                               ; preds = %24
-  store i32 0, ptr @pageIndex, align 4
-  store i32 128, ptr @maxNodeDataPages, align 4
-  %45 = load i32, ptr @maxNodeDataPages, align 4
-  %46 = sext i32 %45 to i64
-  %47 = mul i64 8, %46
-  %48 = call noalias ptr @malloc(i64 noundef %47) #5
-  store ptr %48, ptr @nodeDataPages, align 8
-  %49 = load ptr, ptr @nodeDataPages, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %86
+43:                                               ; preds = %42, %40
+  %44 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %44)
+  br label %150
 
-51:                                               ; preds = %44
-  store i32 0, ptr %7, align 4
-  br label %52
+45:                                               ; preds = %25
+  store i32 0, ptr @pageIndex, align 4, !tbaa !10
+  store i32 128, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %46 = load i32, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %47 = sext i32 %46 to i64
+  %48 = mul i64 8, %47
+  %49 = call noalias ptr @malloc(i64 noundef %48) #6
+  store ptr %49, ptr @nodeDataPages, align 8, !tbaa !53
+  %50 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %87
 
-52:                                               ; preds = %75, %51
-  %53 = load i32, ptr %7, align 4
-  %54 = load i32, ptr @page, align 4
-  %55 = icmp sle i32 %53, %54
-  br i1 %55, label %56, label %78
+52:                                               ; preds = %45
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %53
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr @mintermPages, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %73
+53:                                               ; preds = %76, %52
+  %54 = load i32, ptr %7, align 4, !tbaa !10
+  %55 = load i32, ptr @page, align 4, !tbaa !10
+  %56 = icmp sle i32 %54, %55
+  br i1 %56, label %57, label %79
 
-63:                                               ; preds = %56
-  %64 = load ptr, ptr @mintermPages, align 8
-  %65 = load i32, ptr %7, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  call void @free(ptr noundef %68) #4
-  %69 = load ptr, ptr @mintermPages, align 8
-  %70 = load i32, ptr %7, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
-  store ptr null, ptr %72, align 8
-  br label %74
+57:                                               ; preds = %53
+  %58 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %59 = load i32, ptr %7, align 4, !tbaa !10
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !46
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %74
 
-73:                                               ; preds = %56
-  br label %74
-
-74:                                               ; preds = %73, %63
+64:                                               ; preds = %57
+  %65 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %66 = load i32, ptr %7, align 4, !tbaa !10
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds ptr, ptr %65, i64 %67
+  %69 = load ptr, ptr %68, align 8, !tbaa !46
+  call void @free(ptr noundef %69) #5
+  %70 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %71 = load i32, ptr %7, align 4, !tbaa !10
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  store ptr null, ptr %73, align 8, !tbaa !46
   br label %75
 
-75:                                               ; preds = %74
-  %76 = load i32, ptr %7, align 4
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %7, align 4
-  br label %52, !llvm.loop !13
+74:                                               ; preds = %57
+  br label %75
 
-78:                                               ; preds = %52
-  %79 = load ptr, ptr @mintermPages, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %83
+75:                                               ; preds = %74, %64
+  br label %76
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %82) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %84
+76:                                               ; preds = %75
+  %77 = load i32, ptr %7, align 4, !tbaa !10
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %7, align 4, !tbaa !10
+  br label %53, !llvm.loop !59
 
-83:                                               ; preds = %78
-  br label %84
+79:                                               ; preds = %53
+  %80 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %84
 
-84:                                               ; preds = %83, %81
-  %85 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %85)
-  br label %149
+82:                                               ; preds = %79
+  %83 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %83) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %85
 
-86:                                               ; preds = %44
-  store i32 0, ptr @nodeDataPage, align 4
-  %87 = load i32, ptr @nodeDataPageSize, align 4
-  %88 = sext i32 %87 to i64
-  %89 = mul i64 24, %88
-  %90 = call noalias ptr @malloc(i64 noundef %89) #5
-  store ptr %90, ptr @currentNodeDataPage, align 8
-  %91 = load ptr, ptr @currentNodeDataPage, align 8
-  %92 = load ptr, ptr @nodeDataPages, align 8
-  %93 = load i32, ptr @nodeDataPage, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
-  store ptr %91, ptr %95, align 8
-  %96 = load ptr, ptr @currentNodeDataPage, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %139
+84:                                               ; preds = %79
+  br label %85
 
-98:                                               ; preds = %86
-  store i32 0, ptr %7, align 4
-  br label %99
+85:                                               ; preds = %84, %82
+  %86 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %86)
+  br label %150
 
-99:                                               ; preds = %122, %98
-  %100 = load i32, ptr %7, align 4
-  %101 = load i32, ptr @page, align 4
-  %102 = icmp sle i32 %100, %101
-  br i1 %102, label %103, label %125
+87:                                               ; preds = %45
+  store i32 0, ptr @nodeDataPage, align 4, !tbaa !10
+  %88 = load i32, ptr @nodeDataPageSize, align 4, !tbaa !10
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 24, %89
+  %91 = call noalias ptr @malloc(i64 noundef %90) #6
+  store ptr %91, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %92 = load ptr, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %93 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %94 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
+  store ptr %92, ptr %96, align 8, !tbaa !55
+  %97 = load ptr, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %140
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr @mintermPages, align 8
-  %105 = load i32, ptr %7, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %120
+99:                                               ; preds = %87
+  store i32 0, ptr %7, align 4, !tbaa !10
+  br label %100
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr @mintermPages, align 8
-  %112 = load i32, ptr %7, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr %111, i64 %113
-  %115 = load ptr, ptr %114, align 8
-  call void @free(ptr noundef %115) #4
-  %116 = load ptr, ptr @mintermPages, align 8
-  %117 = load i32, ptr %7, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr %116, i64 %118
-  store ptr null, ptr %119, align 8
-  br label %121
+100:                                              ; preds = %123, %99
+  %101 = load i32, ptr %7, align 4, !tbaa !10
+  %102 = load i32, ptr @page, align 4, !tbaa !10
+  %103 = icmp sle i32 %101, %102
+  br i1 %103, label %104, label %126
 
-120:                                              ; preds = %103
-  br label %121
+104:                                              ; preds = %100
+  %105 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %106 = load i32, ptr %7, align 4, !tbaa !10
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds ptr, ptr %105, i64 %107
+  %109 = load ptr, ptr %108, align 8, !tbaa !46
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %121
 
-121:                                              ; preds = %120, %110
+111:                                              ; preds = %104
+  %112 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %113 = load i32, ptr %7, align 4, !tbaa !10
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds ptr, ptr %112, i64 %114
+  %116 = load ptr, ptr %115, align 8, !tbaa !46
+  call void @free(ptr noundef %116) #5
+  %117 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %118 = load i32, ptr %7, align 4, !tbaa !10
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
+  store ptr null, ptr %120, align 8, !tbaa !46
   br label %122
 
-122:                                              ; preds = %121
-  %123 = load i32, ptr %7, align 4
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %7, align 4
-  br label %99, !llvm.loop !14
+121:                                              ; preds = %104
+  br label %122
 
-125:                                              ; preds = %99
-  %126 = load ptr, ptr @mintermPages, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %130
+122:                                              ; preds = %121, %111
+  br label %123
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %129) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %131
+123:                                              ; preds = %122
+  %124 = load i32, ptr %7, align 4, !tbaa !10
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %7, align 4, !tbaa !10
+  br label %100, !llvm.loop !60
 
-130:                                              ; preds = %125
-  br label %131
+126:                                              ; preds = %100
+  %127 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %129, label %131
 
-131:                                              ; preds = %130, %128
-  %132 = load ptr, ptr @nodeDataPages, align 8
-  %133 = icmp ne ptr %132, null
-  br i1 %133, label %134, label %136
+129:                                              ; preds = %126
+  %130 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %130) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %132
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %135) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %137
+131:                                              ; preds = %126
+  br label %132
 
-136:                                              ; preds = %131
-  br label %137
+132:                                              ; preds = %131, %129
+  %133 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %135, label %137
 
-137:                                              ; preds = %136, %134
-  %138 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %138)
-  br label %149
+135:                                              ; preds = %132
+  %136 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %136) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %138
 
-139:                                              ; preds = %86
-  store i32 0, ptr @nodeDataPageIndex, align 4
-  %140 = load ptr, ptr %4, align 8
-  %141 = load double, ptr @max, align 8
-  %142 = load ptr, ptr %6, align 8
-  %143 = call double @SubsetCountMintermAux(ptr noundef %140, double noundef %141, ptr noundef %142)
-  %144 = load i32, ptr @memOut, align 4
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %147
+137:                                              ; preds = %132
+  br label %138
 
-146:                                              ; preds = %139
-  br label %149
-
-147:                                              ; preds = %139
-  %148 = load ptr, ptr %6, align 8
-  store ptr %148, ptr %3, align 8
+138:                                              ; preds = %137, %135
+  %139 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %139)
   br label %150
 
-149:                                              ; preds = %146, %137, %84, %42, %22, %14
-  store i32 1, ptr @memOut, align 4
+140:                                              ; preds = %87
+  store i32 0, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  %141 = load ptr, ptr %4, align 8, !tbaa !8
+  %142 = load double, ptr @max, align 8, !tbaa !33
+  %143 = load ptr, ptr %6, align 8, !tbaa !34
+  %144 = call double @SubsetCountMintermAux(ptr noundef %141, double noundef %142, ptr noundef %143)
+  %145 = load i32, ptr @memOut, align 4, !tbaa !10
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %148
+
+147:                                              ; preds = %140
+  br label %150
+
+148:                                              ; preds = %140
+  %149 = load ptr, ptr %6, align 8, !tbaa !34
+  store ptr %149, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %151
+
+150:                                              ; preds = %147, %138, %85, %43, %23, %15
+  store i32 1, ptr @memOut, align 4, !tbaa !10
   store ptr null, ptr %3, align 8
-  br label %150
+  store i32 1, ptr %8, align 4
+  br label %151
 
-150:                                              ; preds = %149, %147
-  %151 = load ptr, ptr %3, align 8
-  ret ptr %151
+151:                                              ; preds = %150, %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %152 = load ptr, ptr %3, align 8
+  ret ptr %152
 }
 
 ; Function Attrs: nounwind uwtable
@@ -986,555 +1037,562 @@ define internal i32 @SubsetCountNodes(ptr noundef %0, ptr noundef %1, i32 nounde
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load i32, ptr %7, align 4
-  %11 = sitofp i32 %10 to double
-  %12 = call double @pow(double noundef 2.000000e+00, double noundef %11) #4
-  store double %12, ptr @max, align 8
-  store i32 128, ptr @maxPages, align 4
-  %13 = load i32, ptr @maxPages, align 4
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 8, %14
-  %16 = call noalias ptr @malloc(i64 noundef %15) #5
-  store ptr %16, ptr @nodePages, align 8
-  %17 = load ptr, ptr @nodePages, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %3
-  br label %296
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = load i32, ptr %7, align 4, !tbaa !10
+  %12 = sitofp i32 %11 to double
+  %13 = call double @pow(double noundef 2.000000e+00, double noundef %12) #5, !tbaa !10
+  store double %13, ptr @max, align 8, !tbaa !33
+  store i32 128, ptr @maxPages, align 4, !tbaa !10
+  %14 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 8, %15
+  %17 = call noalias ptr @malloc(i64 noundef %16) #6
+  store ptr %17, ptr @nodePages, align 8, !tbaa !49
+  %18 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %3
-  %21 = load i32, ptr @maxPages, align 4
-  %22 = sext i32 %21 to i64
-  %23 = mul i64 8, %22
-  %24 = call noalias ptr @malloc(i64 noundef %23) #5
-  store ptr %24, ptr @lightNodePages, align 8
-  %25 = load ptr, ptr @lightNodePages, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %100
+  br label %297
 
-27:                                               ; preds = %20
-  store i32 0, ptr %9, align 4
-  br label %28
+21:                                               ; preds = %3
+  %22 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %23 = sext i32 %22 to i64
+  %24 = mul i64 8, %23
+  %25 = call noalias ptr @malloc(i64 noundef %24) #6
+  store ptr %25, ptr @lightNodePages, align 8, !tbaa !49
+  %26 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %101
 
-28:                                               ; preds = %51, %27
-  %29 = load i32, ptr %9, align 4
-  %30 = load i32, ptr @page, align 4
-  %31 = icmp sle i32 %29, %30
-  br i1 %31, label %32, label %54
+28:                                               ; preds = %21
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %29
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @mintermPages, align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %49
+29:                                               ; preds = %52, %28
+  %30 = load i32, ptr %9, align 4, !tbaa !10
+  %31 = load i32, ptr @page, align 4, !tbaa !10
+  %32 = icmp sle i32 %30, %31
+  br i1 %32, label %33, label %55
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr @mintermPages, align 8
-  %41 = load i32, ptr %9, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  call void @free(ptr noundef %44) #4
-  %45 = load ptr, ptr @mintermPages, align 8
-  %46 = load i32, ptr %9, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  store ptr null, ptr %48, align 8
-  br label %50
+33:                                               ; preds = %29
+  %34 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %35 = load i32, ptr %9, align 4, !tbaa !10
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !46
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %50
 
-49:                                               ; preds = %32
-  br label %50
-
-50:                                               ; preds = %49, %39
+40:                                               ; preds = %33
+  %41 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %42 = load i32, ptr %9, align 4, !tbaa !10
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !46
+  call void @free(ptr noundef %45) #5
+  %46 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %47 = load i32, ptr %9, align 4, !tbaa !10
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  store ptr null, ptr %49, align 8, !tbaa !46
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load i32, ptr %9, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %9, align 4
-  br label %28, !llvm.loop !15
+50:                                               ; preds = %33
+  br label %51
 
-54:                                               ; preds = %28
-  %55 = load ptr, ptr @mintermPages, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %50, %40
+  br label %52
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %58) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %60
+52:                                               ; preds = %51
+  %53 = load i32, ptr %9, align 4, !tbaa !10
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %9, align 4, !tbaa !10
+  br label %29, !llvm.loop !61
 
-59:                                               ; preds = %54
-  br label %60
+55:                                               ; preds = %29
+  %56 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %60
 
-60:                                               ; preds = %59, %57
-  store i32 0, ptr %9, align 4
+58:                                               ; preds = %55
+  %59 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %59) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %61
 
-61:                                               ; preds = %84, %60
-  %62 = load i32, ptr %9, align 4
-  %63 = load i32, ptr @nodeDataPage, align 4
-  %64 = icmp sle i32 %62, %63
-  br i1 %64, label %65, label %87
+60:                                               ; preds = %55
+  br label %61
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr @nodeDataPages, align 8
-  %67 = load i32, ptr %9, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %82
+61:                                               ; preds = %60, %58
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %62
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr @nodeDataPages, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  call void @free(ptr noundef %77) #4
-  %78 = load ptr, ptr @nodeDataPages, align 8
-  %79 = load i32, ptr %9, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
-  store ptr null, ptr %81, align 8
-  br label %83
+62:                                               ; preds = %85, %61
+  %63 = load i32, ptr %9, align 4, !tbaa !10
+  %64 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %65 = icmp sle i32 %63, %64
+  br i1 %65, label %66, label %88
 
-82:                                               ; preds = %65
-  br label %83
+66:                                               ; preds = %62
+  %67 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %68 = load i32, ptr %9, align 4, !tbaa !10
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !55
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %83
 
-83:                                               ; preds = %82, %72
+73:                                               ; preds = %66
+  %74 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %75 = load i32, ptr %9, align 4, !tbaa !10
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds ptr, ptr %74, i64 %76
+  %78 = load ptr, ptr %77, align 8, !tbaa !55
+  call void @free(ptr noundef %78) #5
+  %79 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %80 = load i32, ptr %9, align 4, !tbaa !10
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds ptr, ptr %79, i64 %81
+  store ptr null, ptr %82, align 8, !tbaa !55
   br label %84
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr %9, align 4
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %9, align 4
-  br label %61, !llvm.loop !16
+83:                                               ; preds = %66
+  br label %84
 
-87:                                               ; preds = %61
-  %88 = load ptr, ptr @nodeDataPages, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %92
+84:                                               ; preds = %83, %73
+  br label %85
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %91) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %93
+85:                                               ; preds = %84
+  %86 = load i32, ptr %9, align 4, !tbaa !10
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %9, align 4, !tbaa !10
+  br label %62, !llvm.loop !62
 
-92:                                               ; preds = %87
-  br label %93
+88:                                               ; preds = %62
+  %89 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %93
 
-93:                                               ; preds = %92, %90
-  %94 = load ptr, ptr @nodePages, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %96, label %98
+91:                                               ; preds = %88
+  %92 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %92) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %94
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %97) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %99
+93:                                               ; preds = %88
+  br label %94
 
-98:                                               ; preds = %93
-  br label %99
+94:                                               ; preds = %93, %91
+  %95 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %99
 
-99:                                               ; preds = %98, %96
-  br label %296
+97:                                               ; preds = %94
+  %98 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %98) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %100
 
-100:                                              ; preds = %20
-  store i32 0, ptr @page, align 4
-  %101 = load i32, ptr @pageSize, align 4
-  %102 = sext i32 %101 to i64
-  %103 = mul i64 4, %102
-  %104 = call noalias ptr @malloc(i64 noundef %103) #5
-  %105 = load ptr, ptr @nodePages, align 8
-  %106 = load i32, ptr @page, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %105, i64 %107
-  store ptr %104, ptr %108, align 8
-  store ptr %104, ptr @currentNodePage, align 8
-  %109 = load ptr, ptr @currentNodePage, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %190
+99:                                               ; preds = %94
+  br label %100
 
-111:                                              ; preds = %100
-  store i32 0, ptr %9, align 4
-  br label %112
+100:                                              ; preds = %99, %97
+  br label %297
 
-112:                                              ; preds = %135, %111
-  %113 = load i32, ptr %9, align 4
-  %114 = load i32, ptr @page, align 4
-  %115 = icmp sle i32 %113, %114
-  br i1 %115, label %116, label %138
+101:                                              ; preds = %21
+  store i32 0, ptr @page, align 4, !tbaa !10
+  %102 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %103 = sext i32 %102 to i64
+  %104 = mul i64 4, %103
+  %105 = call noalias ptr @malloc(i64 noundef %104) #6
+  %106 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %107 = load i32, ptr @page, align 4, !tbaa !10
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
+  store ptr %105, ptr %109, align 8, !tbaa !36
+  store ptr %105, ptr @currentNodePage, align 8, !tbaa !36
+  %110 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %191
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr @mintermPages, align 8
-  %118 = load i32, ptr %9, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %133
+112:                                              ; preds = %101
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %113
 
-123:                                              ; preds = %116
-  %124 = load ptr, ptr @mintermPages, align 8
-  %125 = load i32, ptr %9, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  call void @free(ptr noundef %128) #4
-  %129 = load ptr, ptr @mintermPages, align 8
-  %130 = load i32, ptr %9, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds ptr, ptr %129, i64 %131
-  store ptr null, ptr %132, align 8
-  br label %134
+113:                                              ; preds = %136, %112
+  %114 = load i32, ptr %9, align 4, !tbaa !10
+  %115 = load i32, ptr @page, align 4, !tbaa !10
+  %116 = icmp sle i32 %114, %115
+  br i1 %116, label %117, label %139
 
-133:                                              ; preds = %116
-  br label %134
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %119 = load i32, ptr %9, align 4, !tbaa !10
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds ptr, ptr %118, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !46
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %124, label %134
 
-134:                                              ; preds = %133, %123
+124:                                              ; preds = %117
+  %125 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %126 = load i32, ptr %9, align 4, !tbaa !10
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds ptr, ptr %125, i64 %127
+  %129 = load ptr, ptr %128, align 8, !tbaa !46
+  call void @free(ptr noundef %129) #5
+  %130 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %131 = load i32, ptr %9, align 4, !tbaa !10
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds ptr, ptr %130, i64 %132
+  store ptr null, ptr %133, align 8, !tbaa !46
   br label %135
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %9, align 4
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %9, align 4
-  br label %112, !llvm.loop !17
+134:                                              ; preds = %117
+  br label %135
 
-138:                                              ; preds = %112
-  %139 = load ptr, ptr @mintermPages, align 8
-  %140 = icmp ne ptr %139, null
-  br i1 %140, label %141, label %143
+135:                                              ; preds = %134, %124
+  br label %136
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %142) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %144
+136:                                              ; preds = %135
+  %137 = load i32, ptr %9, align 4, !tbaa !10
+  %138 = add nsw i32 %137, 1
+  store i32 %138, ptr %9, align 4, !tbaa !10
+  br label %113, !llvm.loop !63
 
-143:                                              ; preds = %138
-  br label %144
+139:                                              ; preds = %113
+  %140 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %142, label %144
 
-144:                                              ; preds = %143, %141
-  store i32 0, ptr %9, align 4
+142:                                              ; preds = %139
+  %143 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %143) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %145
 
-145:                                              ; preds = %168, %144
-  %146 = load i32, ptr %9, align 4
-  %147 = load i32, ptr @nodeDataPage, align 4
-  %148 = icmp sle i32 %146, %147
-  br i1 %148, label %149, label %171
+144:                                              ; preds = %139
+  br label %145
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr @nodeDataPages, align 8
-  %151 = load i32, ptr %9, align 4
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %150, i64 %152
-  %154 = load ptr, ptr %153, align 8
-  %155 = icmp ne ptr %154, null
-  br i1 %155, label %156, label %166
+145:                                              ; preds = %144, %142
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %146
 
-156:                                              ; preds = %149
-  %157 = load ptr, ptr @nodeDataPages, align 8
-  %158 = load i32, ptr %9, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %157, i64 %159
-  %161 = load ptr, ptr %160, align 8
-  call void @free(ptr noundef %161) #4
-  %162 = load ptr, ptr @nodeDataPages, align 8
-  %163 = load i32, ptr %9, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %162, i64 %164
-  store ptr null, ptr %165, align 8
-  br label %167
+146:                                              ; preds = %169, %145
+  %147 = load i32, ptr %9, align 4, !tbaa !10
+  %148 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %149 = icmp sle i32 %147, %148
+  br i1 %149, label %150, label %172
 
-166:                                              ; preds = %149
-  br label %167
+150:                                              ; preds = %146
+  %151 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %152 = load i32, ptr %9, align 4, !tbaa !10
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds ptr, ptr %151, i64 %153
+  %155 = load ptr, ptr %154, align 8, !tbaa !55
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %157, label %167
 
-167:                                              ; preds = %166, %156
+157:                                              ; preds = %150
+  %158 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %159 = load i32, ptr %9, align 4, !tbaa !10
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds ptr, ptr %158, i64 %160
+  %162 = load ptr, ptr %161, align 8, !tbaa !55
+  call void @free(ptr noundef %162) #5
+  %163 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %164 = load i32, ptr %9, align 4, !tbaa !10
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds ptr, ptr %163, i64 %165
+  store ptr null, ptr %166, align 8, !tbaa !55
   br label %168
 
-168:                                              ; preds = %167
-  %169 = load i32, ptr %9, align 4
-  %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %9, align 4
-  br label %145, !llvm.loop !18
+167:                                              ; preds = %150
+  br label %168
 
-171:                                              ; preds = %145
-  %172 = load ptr, ptr @nodeDataPages, align 8
-  %173 = icmp ne ptr %172, null
-  br i1 %173, label %174, label %176
+168:                                              ; preds = %167, %157
+  br label %169
 
-174:                                              ; preds = %171
-  %175 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %175) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %177
+169:                                              ; preds = %168
+  %170 = load i32, ptr %9, align 4, !tbaa !10
+  %171 = add nsw i32 %170, 1
+  store i32 %171, ptr %9, align 4, !tbaa !10
+  br label %146, !llvm.loop !64
 
-176:                                              ; preds = %171
-  br label %177
+172:                                              ; preds = %146
+  %173 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %174 = icmp ne ptr %173, null
+  br i1 %174, label %175, label %177
 
-177:                                              ; preds = %176, %174
-  %178 = load ptr, ptr @lightNodePages, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %182
+175:                                              ; preds = %172
+  %176 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %176) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %178
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %181) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %183
+177:                                              ; preds = %172
+  br label %178
 
-182:                                              ; preds = %177
-  br label %183
+178:                                              ; preds = %177, %175
+  %179 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %183
 
-183:                                              ; preds = %182, %180
-  %184 = load ptr, ptr @nodePages, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %188
+181:                                              ; preds = %178
+  %182 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %182) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %184
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %187) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %189
+183:                                              ; preds = %178
+  br label %184
 
-188:                                              ; preds = %183
-  br label %189
+184:                                              ; preds = %183, %181
+  %185 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %186 = icmp ne ptr %185, null
+  br i1 %186, label %187, label %189
 
-189:                                              ; preds = %188, %186
-  br label %296
+187:                                              ; preds = %184
+  %188 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %188) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %190
 
-190:                                              ; preds = %100
-  %191 = load i32, ptr @pageSize, align 4
-  %192 = sext i32 %191 to i64
-  %193 = mul i64 4, %192
-  %194 = call noalias ptr @malloc(i64 noundef %193) #5
-  %195 = load ptr, ptr @lightNodePages, align 8
-  %196 = load i32, ptr @page, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %195, i64 %197
-  store ptr %194, ptr %198, align 8
-  store ptr %194, ptr @currentLightNodePage, align 8
-  %199 = load ptr, ptr @currentLightNodePage, align 8
-  %200 = icmp eq ptr %199, null
-  br i1 %200, label %201, label %286
+189:                                              ; preds = %184
+  br label %190
 
-201:                                              ; preds = %190
-  store i32 0, ptr %9, align 4
-  br label %202
+190:                                              ; preds = %189, %187
+  br label %297
 
-202:                                              ; preds = %225, %201
-  %203 = load i32, ptr %9, align 4
-  %204 = load i32, ptr @page, align 4
-  %205 = icmp sle i32 %203, %204
-  br i1 %205, label %206, label %228
+191:                                              ; preds = %101
+  %192 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %193 = sext i32 %192 to i64
+  %194 = mul i64 4, %193
+  %195 = call noalias ptr @malloc(i64 noundef %194) #6
+  %196 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %197 = load i32, ptr @page, align 4, !tbaa !10
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds ptr, ptr %196, i64 %198
+  store ptr %195, ptr %199, align 8, !tbaa !36
+  store ptr %195, ptr @currentLightNodePage, align 8, !tbaa !36
+  %200 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !36
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %287
 
-206:                                              ; preds = %202
-  %207 = load ptr, ptr @mintermPages, align 8
-  %208 = load i32, ptr %9, align 4
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds ptr, ptr %207, i64 %209
-  %211 = load ptr, ptr %210, align 8
-  %212 = icmp ne ptr %211, null
-  br i1 %212, label %213, label %223
+202:                                              ; preds = %191
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %203
 
-213:                                              ; preds = %206
-  %214 = load ptr, ptr @mintermPages, align 8
-  %215 = load i32, ptr %9, align 4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %214, i64 %216
-  %218 = load ptr, ptr %217, align 8
-  call void @free(ptr noundef %218) #4
-  %219 = load ptr, ptr @mintermPages, align 8
-  %220 = load i32, ptr %9, align 4
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %219, i64 %221
-  store ptr null, ptr %222, align 8
-  br label %224
+203:                                              ; preds = %226, %202
+  %204 = load i32, ptr %9, align 4, !tbaa !10
+  %205 = load i32, ptr @page, align 4, !tbaa !10
+  %206 = icmp sle i32 %204, %205
+  br i1 %206, label %207, label %229
 
-223:                                              ; preds = %206
-  br label %224
+207:                                              ; preds = %203
+  %208 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %209 = load i32, ptr %9, align 4, !tbaa !10
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds ptr, ptr %208, i64 %210
+  %212 = load ptr, ptr %211, align 8, !tbaa !46
+  %213 = icmp ne ptr %212, null
+  br i1 %213, label %214, label %224
 
-224:                                              ; preds = %223, %213
+214:                                              ; preds = %207
+  %215 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %216 = load i32, ptr %9, align 4, !tbaa !10
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds ptr, ptr %215, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !46
+  call void @free(ptr noundef %219) #5
+  %220 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %221 = load i32, ptr %9, align 4, !tbaa !10
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds ptr, ptr %220, i64 %222
+  store ptr null, ptr %223, align 8, !tbaa !46
   br label %225
 
-225:                                              ; preds = %224
-  %226 = load i32, ptr %9, align 4
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %9, align 4
-  br label %202, !llvm.loop !19
+224:                                              ; preds = %207
+  br label %225
 
-228:                                              ; preds = %202
-  %229 = load ptr, ptr @mintermPages, align 8
-  %230 = icmp ne ptr %229, null
-  br i1 %230, label %231, label %233
+225:                                              ; preds = %224, %214
+  br label %226
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %232) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %234
+226:                                              ; preds = %225
+  %227 = load i32, ptr %9, align 4, !tbaa !10
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %9, align 4, !tbaa !10
+  br label %203, !llvm.loop !65
 
-233:                                              ; preds = %228
-  br label %234
+229:                                              ; preds = %203
+  %230 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %232, label %234
 
-234:                                              ; preds = %233, %231
-  store i32 0, ptr %9, align 4
+232:                                              ; preds = %229
+  %233 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %233) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %235
 
-235:                                              ; preds = %258, %234
-  %236 = load i32, ptr %9, align 4
-  %237 = load i32, ptr @nodeDataPage, align 4
-  %238 = icmp sle i32 %236, %237
-  br i1 %238, label %239, label %261
+234:                                              ; preds = %229
+  br label %235
 
-239:                                              ; preds = %235
-  %240 = load ptr, ptr @nodeDataPages, align 8
-  %241 = load i32, ptr %9, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds ptr, ptr %240, i64 %242
-  %244 = load ptr, ptr %243, align 8
-  %245 = icmp ne ptr %244, null
-  br i1 %245, label %246, label %256
+235:                                              ; preds = %234, %232
+  store i32 0, ptr %9, align 4, !tbaa !10
+  br label %236
 
-246:                                              ; preds = %239
-  %247 = load ptr, ptr @nodeDataPages, align 8
-  %248 = load i32, ptr %9, align 4
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds ptr, ptr %247, i64 %249
-  %251 = load ptr, ptr %250, align 8
-  call void @free(ptr noundef %251) #4
-  %252 = load ptr, ptr @nodeDataPages, align 8
-  %253 = load i32, ptr %9, align 4
-  %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds ptr, ptr %252, i64 %254
-  store ptr null, ptr %255, align 8
-  br label %257
+236:                                              ; preds = %259, %235
+  %237 = load i32, ptr %9, align 4, !tbaa !10
+  %238 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %239 = icmp sle i32 %237, %238
+  br i1 %239, label %240, label %262
 
-256:                                              ; preds = %239
-  br label %257
+240:                                              ; preds = %236
+  %241 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %242 = load i32, ptr %9, align 4, !tbaa !10
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds ptr, ptr %241, i64 %243
+  %245 = load ptr, ptr %244, align 8, !tbaa !55
+  %246 = icmp ne ptr %245, null
+  br i1 %246, label %247, label %257
 
-257:                                              ; preds = %256, %246
+247:                                              ; preds = %240
+  %248 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %249 = load i32, ptr %9, align 4, !tbaa !10
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr inbounds ptr, ptr %248, i64 %250
+  %252 = load ptr, ptr %251, align 8, !tbaa !55
+  call void @free(ptr noundef %252) #5
+  %253 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %254 = load i32, ptr %9, align 4, !tbaa !10
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds ptr, ptr %253, i64 %255
+  store ptr null, ptr %256, align 8, !tbaa !55
   br label %258
 
-258:                                              ; preds = %257
-  %259 = load i32, ptr %9, align 4
-  %260 = add nsw i32 %259, 1
-  store i32 %260, ptr %9, align 4
-  br label %235, !llvm.loop !20
+257:                                              ; preds = %240
+  br label %258
 
-261:                                              ; preds = %235
-  %262 = load ptr, ptr @nodeDataPages, align 8
-  %263 = icmp ne ptr %262, null
-  br i1 %263, label %264, label %266
+258:                                              ; preds = %257, %247
+  br label %259
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %265) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %267
+259:                                              ; preds = %258
+  %260 = load i32, ptr %9, align 4, !tbaa !10
+  %261 = add nsw i32 %260, 1
+  store i32 %261, ptr %9, align 4, !tbaa !10
+  br label %236, !llvm.loop !66
 
-266:                                              ; preds = %261
-  br label %267
+262:                                              ; preds = %236
+  %263 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %264 = icmp ne ptr %263, null
+  br i1 %264, label %265, label %267
 
-267:                                              ; preds = %266, %264
-  %268 = load ptr, ptr @currentNodePage, align 8
-  %269 = icmp ne ptr %268, null
-  br i1 %269, label %270, label %272
+265:                                              ; preds = %262
+  %266 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %266) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %268
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr @currentNodePage, align 8
-  call void @free(ptr noundef %271) #4
-  store ptr null, ptr @currentNodePage, align 8
-  br label %273
+267:                                              ; preds = %262
+  br label %268
 
-272:                                              ; preds = %267
-  br label %273
+268:                                              ; preds = %267, %265
+  %269 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  %270 = icmp ne ptr %269, null
+  br i1 %270, label %271, label %273
 
-273:                                              ; preds = %272, %270
-  %274 = load ptr, ptr @lightNodePages, align 8
-  %275 = icmp ne ptr %274, null
-  br i1 %275, label %276, label %278
+271:                                              ; preds = %268
+  %272 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  call void @free(ptr noundef %272) #5
+  store ptr null, ptr @currentNodePage, align 8, !tbaa !36
+  br label %274
 
-276:                                              ; preds = %273
-  %277 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %277) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %279
+273:                                              ; preds = %268
+  br label %274
 
-278:                                              ; preds = %273
-  br label %279
+274:                                              ; preds = %273, %271
+  %275 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %276 = icmp ne ptr %275, null
+  br i1 %276, label %277, label %279
 
-279:                                              ; preds = %278, %276
-  %280 = load ptr, ptr @nodePages, align 8
-  %281 = icmp ne ptr %280, null
-  br i1 %281, label %282, label %284
+277:                                              ; preds = %274
+  %278 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %278) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %280
 
-282:                                              ; preds = %279
-  %283 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %283) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %285
+279:                                              ; preds = %274
+  br label %280
 
-284:                                              ; preds = %279
-  br label %285
+280:                                              ; preds = %279, %277
+  %281 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %282 = icmp ne ptr %281, null
+  br i1 %282, label %283, label %285
 
-285:                                              ; preds = %284, %282
-  br label %296
+283:                                              ; preds = %280
+  %284 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %284) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %286
 
-286:                                              ; preds = %190
-  store i32 0, ptr @pageIndex, align 4
-  %287 = load ptr, ptr %5, align 8
-  %288 = load ptr, ptr %6, align 8
-  %289 = load double, ptr @max, align 8
-  %290 = call i32 @SubsetCountNodesAux(ptr noundef %287, ptr noundef %288, double noundef %289)
-  store i32 %290, ptr %8, align 4
-  %291 = load i32, ptr @memOut, align 4
-  %292 = icmp ne i32 %291, 0
-  br i1 %292, label %293, label %294
+285:                                              ; preds = %280
+  br label %286
 
-293:                                              ; preds = %286
-  br label %296
-
-294:                                              ; preds = %286
-  %295 = load i32, ptr %8, align 4
-  store i32 %295, ptr %4, align 4
+286:                                              ; preds = %285, %283
   br label %297
 
-296:                                              ; preds = %293, %285, %189, %99, %19
-  store i32 1, ptr @memOut, align 4
+287:                                              ; preds = %191
+  store i32 0, ptr @pageIndex, align 4, !tbaa !10
+  %288 = load ptr, ptr %5, align 8, !tbaa !8
+  %289 = load ptr, ptr %6, align 8, !tbaa !34
+  %290 = load double, ptr @max, align 8, !tbaa !33
+  %291 = call i32 @SubsetCountNodesAux(ptr noundef %288, ptr noundef %289, double noundef %290)
+  store i32 %291, ptr %8, align 4, !tbaa !10
+  %292 = load i32, ptr @memOut, align 4, !tbaa !10
+  %293 = icmp ne i32 %292, 0
+  br i1 %293, label %294, label %295
+
+294:                                              ; preds = %287
+  br label %297
+
+295:                                              ; preds = %287
+  %296 = load i32, ptr %8, align 4, !tbaa !10
+  store i32 %296, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %298
+
+297:                                              ; preds = %294, %286, %190, %100, %20
+  store i32 1, ptr @memOut, align 4, !tbaa !10
   store i32 0, ptr %4, align 4
-  br label %297
+  store i32 1, ptr %10, align 4
+  br label %298
 
-297:                                              ; preds = %296, %294
-  %298 = load i32, ptr %4, align 4
-  ret i32 %298
+298:                                              ; preds = %297, %295
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %299 = load i32, ptr %4, align 4
+  ret i32 %299
 }
 
-declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #4
 
-declare ptr @st__init_table(ptr noundef, ptr noundef) #2
+declare ptr @st__init_table(ptr noundef, ptr noundef) #3
 
-declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #2
+declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #3
 
-declare i32 @st__ptrhash(ptr noundef, i32 noundef) #2
+declare i32 @st__ptrhash(ptr noundef, i32 noundef) #3
 
-declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -1560,572 +1618,611 @@ define internal ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = alloca ptr, align 8
   %28 = alloca i32, align 4
   %29 = alloca ptr, align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store i32 %4, ptr %13, align 4
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i32, ptr %30, align 4
-  %32 = load i32, ptr %13, align 4
-  %33 = icmp sle i32 %31, %32
-  br i1 %33, label %34, label %39
+  %30 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store ptr %1, ptr %10, align 8, !tbaa !8
+  store ptr %2, ptr %11, align 8, !tbaa !36
+  store ptr %3, ptr %12, align 8, !tbaa !34
+  store i32 %4, ptr %13, align 4, !tbaa !10
+  store ptr %5, ptr %14, align 8, !tbaa !34
+  store ptr %6, ptr %15, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #5
+  %31 = load ptr, ptr %11, align 8, !tbaa !36
+  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %33 = load i32, ptr %13, align 4, !tbaa !10
+  %34 = icmp sle i32 %32, %33
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %7
-  %35 = load ptr, ptr %14, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %10, align 8
-  call void @StoreNodes(ptr noundef %35, ptr noundef %36, ptr noundef %37)
-  %38 = load ptr, ptr %10, align 8
-  store ptr %38, ptr %8, align 8
-  br label %402
+35:                                               ; preds = %7
+  %36 = load ptr, ptr %14, align 8, !tbaa !34
+  %37 = load ptr, ptr %9, align 8, !tbaa !3
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @StoreNodes(ptr noundef %36, ptr noundef %37, ptr noundef %38)
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %39, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %403
 
-39:                                               ; preds = %7
-  %40 = load ptr, ptr %10, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, -2
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds %struct.DdNode, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, 2147483647
-  br i1 %46, label %47, label %49
+40:                                               ; preds = %7
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = and i64 %42, -2
+  %44 = inttoptr i64 %43 to ptr
+  %45 = getelementptr inbounds nuw %struct.DdNode, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !32
+  %47 = icmp eq i32 %46, 2147483647
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %39
-  %48 = load ptr, ptr %10, align 8
-  store ptr %48, ptr %8, align 8
-  br label %402
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %49, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %403
 
-49:                                               ; preds = %39
-  %50 = load ptr, ptr %12, align 8
-  %51 = load ptr, ptr %10, align 8
-  %52 = call i32 @st__lookup(ptr noundef %50, ptr noundef %51, ptr noundef %23)
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %59, label %54
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %12, align 8, !tbaa !34
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = call i32 @st__lookup(ptr noundef %51, ptr noundef %52, ptr noundef %23)
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %60, label %55
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.DdManager, ptr %55, i32 0, i32 85
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.4) #4
-  br label %59
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %9, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.DdManager, ptr %56, i32 0, i32 85
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.4) #5
+  br label %60
 
-59:                                               ; preds = %54, %49
-  %60 = load ptr, ptr %10, align 8
-  %61 = ptrtoint ptr %60 to i64
-  %62 = and i64 %61, -2
-  %63 = inttoptr i64 %62 to ptr
-  store ptr %63, ptr %18, align 8
-  %64 = load ptr, ptr %18, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, -2
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds %struct.DdNode, ptr %67, i32 0, i32 3
-  %69 = getelementptr inbounds %struct.DdChildren, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %16, align 8
-  %71 = load ptr, ptr %18, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = and i64 %72, -2
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds %struct.DdNode, ptr %74, i32 0, i32 3
-  %76 = getelementptr inbounds %struct.DdChildren, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %17, align 8
-  %78 = load ptr, ptr %16, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = load ptr, ptr %10, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = and i64 %81, 1
-  %83 = trunc i64 %82 to i32
-  %84 = sext i32 %83 to i64
-  %85 = xor i64 %79, %84
-  %86 = inttoptr i64 %85 to ptr
-  store ptr %86, ptr %16, align 8
-  %87 = load ptr, ptr %17, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %89 = load ptr, ptr %10, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %91 = and i64 %90, 1
-  %92 = trunc i64 %91 to i32
-  %93 = sext i32 %92 to i64
-  %94 = xor i64 %88, %93
-  %95 = inttoptr i64 %94 to ptr
-  store ptr %95, ptr %17, align 8
-  %96 = load ptr, ptr %16, align 8
-  %97 = ptrtoint ptr %96 to i64
-  %98 = and i64 %97, -2
-  %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds %struct.DdNode, ptr %99, i32 0, i32 0
-  %101 = load i32, ptr %100, align 8
-  %102 = icmp eq i32 %101, 2147483647
-  br i1 %102, label %121, label %103
+60:                                               ; preds = %55, %50
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = and i64 %62, -2
+  %64 = inttoptr i64 %63 to ptr
+  store ptr %64, ptr %18, align 8, !tbaa !8
+  %65 = load ptr, ptr %18, align 8, !tbaa !8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = and i64 %66, -2
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds nuw %struct.DdNode, ptr %68, i32 0, i32 3
+  %70 = getelementptr inbounds nuw %struct.DdChildren, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !67
+  store ptr %71, ptr %16, align 8, !tbaa !8
+  %72 = load ptr, ptr %18, align 8, !tbaa !8
+  %73 = ptrtoint ptr %72 to i64
+  %74 = and i64 %73, -2
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds nuw %struct.DdNode, ptr %75, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.DdChildren, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !67
+  store ptr %78, ptr %17, align 8, !tbaa !8
+  %79 = load ptr, ptr %16, align 8, !tbaa !8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = load ptr, ptr %10, align 8, !tbaa !8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = and i64 %82, 1
+  %84 = trunc i64 %83 to i32
+  %85 = sext i32 %84 to i64
+  %86 = xor i64 %80, %85
+  %87 = inttoptr i64 %86 to ptr
+  store ptr %87, ptr %16, align 8, !tbaa !8
+  %88 = load ptr, ptr %17, align 8, !tbaa !8
+  %89 = ptrtoint ptr %88 to i64
+  %90 = load ptr, ptr %10, align 8, !tbaa !8
+  %91 = ptrtoint ptr %90 to i64
+  %92 = and i64 %91, 1
+  %93 = trunc i64 %92 to i32
+  %94 = sext i32 %93 to i64
+  %95 = xor i64 %89, %94
+  %96 = inttoptr i64 %95 to ptr
+  store ptr %96, ptr %17, align 8, !tbaa !8
+  %97 = load ptr, ptr %16, align 8, !tbaa !8
+  %98 = ptrtoint ptr %97 to i64
+  %99 = and i64 %98, -2
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr inbounds nuw %struct.DdNode, ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 8, !tbaa !32
+  %103 = icmp eq i32 %102, 2147483647
+  br i1 %103, label %122, label %104
 
-103:                                              ; preds = %59
-  %104 = load ptr, ptr %12, align 8
-  %105 = load ptr, ptr %16, align 8
-  %106 = call i32 @st__lookup(ptr noundef %104, ptr noundef %105, ptr noundef %24)
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %115, label %108
+104:                                              ; preds = %60
+  %105 = load ptr, ptr %12, align 8, !tbaa !34
+  %106 = load ptr, ptr %16, align 8, !tbaa !8
+  %107 = call i32 @st__lookup(ptr noundef %105, ptr noundef %106, ptr noundef %24)
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %116, label %109
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr inbounds %struct.DdManager, ptr %109, i32 0, i32 84
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef @.str.5) #4
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.DdManager, ptr %113, i32 0, i32 86
-  store i32 5, ptr %114, align 8
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %9, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.DdManager, ptr %110, i32 0, i32 84
+  %112 = load ptr, ptr %111, align 8, !tbaa !38
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef @.str.5) #5
+  %114 = load ptr, ptr %9, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.DdManager, ptr %114, i32 0, i32 86
+  store i32 5, ptr %115, align 8, !tbaa !31
   store ptr null, ptr %8, align 8
-  br label %402
+  store i32 1, ptr %30, align 4
+  br label %403
 
-115:                                              ; preds = %103
-  %116 = load ptr, ptr %24, align 8
-  %117 = getelementptr inbounds %struct.NodeData, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = load double, ptr %118, align 8
-  store double %119, ptr %21, align 8
-  br label %120
+116:                                              ; preds = %104
+  %117 = load ptr, ptr %24, align 8, !tbaa !55
+  %118 = getelementptr inbounds nuw %struct.NodeData, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8, !tbaa !68
+  %120 = load double, ptr %119, align 8, !tbaa !33
+  store double %120, ptr %21, align 8, !tbaa !33
+  br label %121
 
-120:                                              ; preds = %115
+121:                                              ; preds = %116
+  br label %130
+
+122:                                              ; preds = %60
+  %123 = load ptr, ptr %16, align 8, !tbaa !8
+  %124 = load ptr, ptr @zero, align 8, !tbaa !8
+  %125 = icmp eq ptr %123, %124
+  br i1 %125, label %126, label %127
+
+126:                                              ; preds = %122
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !33
   br label %129
 
-121:                                              ; preds = %59
-  %122 = load ptr, ptr %16, align 8
-  %123 = load ptr, ptr @zero, align 8
-  %124 = icmp eq ptr %122, %123
-  br i1 %124, label %125, label %126
-
-125:                                              ; preds = %121
-  store double 0.000000e+00, ptr %21, align 8
-  br label %128
-
-126:                                              ; preds = %121
-  %127 = load double, ptr @max, align 8
-  store double %127, ptr %21, align 8
-  br label %128
-
-128:                                              ; preds = %126, %125
+127:                                              ; preds = %122
+  %128 = load double, ptr @max, align 8, !tbaa !33
+  store double %128, ptr %21, align 8, !tbaa !33
   br label %129
 
-129:                                              ; preds = %128, %120
-  %130 = load ptr, ptr %17, align 8
-  %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %131, -2
-  %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds %struct.DdNode, ptr %133, i32 0, i32 0
-  %135 = load i32, ptr %134, align 8
-  %136 = icmp eq i32 %135, 2147483647
-  br i1 %136, label %155, label %137
+129:                                              ; preds = %127, %126
+  br label %130
 
-137:                                              ; preds = %129
-  %138 = load ptr, ptr %12, align 8
-  %139 = load ptr, ptr %17, align 8
-  %140 = call i32 @st__lookup(ptr noundef %138, ptr noundef %139, ptr noundef %25)
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %149, label %142
+130:                                              ; preds = %129, %121
+  %131 = load ptr, ptr %17, align 8, !tbaa !8
+  %132 = ptrtoint ptr %131 to i64
+  %133 = and i64 %132, -2
+  %134 = inttoptr i64 %133 to ptr
+  %135 = getelementptr inbounds nuw %struct.DdNode, ptr %134, i32 0, i32 0
+  %136 = load i32, ptr %135, align 8, !tbaa !32
+  %137 = icmp eq i32 %136, 2147483647
+  br i1 %137, label %156, label %138
 
-142:                                              ; preds = %137
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct.DdManager, ptr %143, i32 0, i32 84
-  %145 = load ptr, ptr %144, align 8
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.5) #4
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds %struct.DdManager, ptr %147, i32 0, i32 86
-  store i32 5, ptr %148, align 8
+138:                                              ; preds = %130
+  %139 = load ptr, ptr %12, align 8, !tbaa !34
+  %140 = load ptr, ptr %17, align 8, !tbaa !8
+  %141 = call i32 @st__lookup(ptr noundef %139, ptr noundef %140, ptr noundef %25)
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %150, label %143
+
+143:                                              ; preds = %138
+  %144 = load ptr, ptr %9, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw %struct.DdManager, ptr %144, i32 0, i32 84
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef @.str.5) #5
+  %148 = load ptr, ptr %9, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.DdManager, ptr %148, i32 0, i32 86
+  store i32 5, ptr %149, align 8, !tbaa !31
   store ptr null, ptr %8, align 8
-  br label %402
+  store i32 1, ptr %30, align 4
+  br label %403
 
-149:                                              ; preds = %137
-  %150 = load ptr, ptr %25, align 8
-  %151 = getelementptr inbounds %struct.NodeData, ptr %150, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  %153 = load double, ptr %152, align 8
-  store double %153, ptr %22, align 8
-  br label %154
+150:                                              ; preds = %138
+  %151 = load ptr, ptr %25, align 8, !tbaa !55
+  %152 = getelementptr inbounds nuw %struct.NodeData, ptr %151, i32 0, i32 0
+  %153 = load ptr, ptr %152, align 8, !tbaa !68
+  %154 = load double, ptr %153, align 8, !tbaa !33
+  store double %154, ptr %22, align 8, !tbaa !33
+  br label %155
 
-154:                                              ; preds = %149
+155:                                              ; preds = %150
+  br label %164
+
+156:                                              ; preds = %130
+  %157 = load ptr, ptr %17, align 8, !tbaa !8
+  %158 = load ptr, ptr @zero, align 8, !tbaa !8
+  %159 = icmp eq ptr %157, %158
+  br i1 %159, label %160, label %161
+
+160:                                              ; preds = %156
+  store double 0.000000e+00, ptr %22, align 8, !tbaa !33
   br label %163
 
-155:                                              ; preds = %129
-  %156 = load ptr, ptr %17, align 8
-  %157 = load ptr, ptr @zero, align 8
-  %158 = icmp eq ptr %156, %157
-  br i1 %158, label %159, label %160
-
-159:                                              ; preds = %155
-  store double 0.000000e+00, ptr %22, align 8
-  br label %162
-
-160:                                              ; preds = %155
-  %161 = load double, ptr @max, align 8
-  store double %161, ptr %22, align 8
-  br label %162
-
-162:                                              ; preds = %160, %159
+161:                                              ; preds = %156
+  %162 = load double, ptr @max, align 8, !tbaa !33
+  store double %162, ptr %22, align 8, !tbaa !33
   br label %163
 
-163:                                              ; preds = %162, %154
-  %164 = load ptr, ptr %11, align 8
-  %165 = load i32, ptr %164, align 4
-  %166 = load ptr, ptr %23, align 8
-  %167 = getelementptr inbounds %struct.NodeData, ptr %166, i32 0, i32 2
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i32, ptr %168, align 4
-  %170 = sub nsw i32 %165, %169
-  %171 = load ptr, ptr %11, align 8
-  store i32 %170, ptr %171, align 4
-  %172 = load double, ptr %21, align 8
-  %173 = load double, ptr %22, align 8
-  %174 = fcmp oge double %172, %173
-  br i1 %174, label %175, label %236
+163:                                              ; preds = %161, %160
+  br label %164
 
-175:                                              ; preds = %163
-  %176 = load ptr, ptr %9, align 8
-  %177 = load ptr, ptr %16, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = load ptr, ptr %12, align 8
-  %180 = load i32, ptr %13, align 4
-  %181 = load ptr, ptr %14, align 8
-  %182 = load ptr, ptr %15, align 8
-  %183 = call ptr @BuildSubsetBdd(ptr noundef %176, ptr noundef %177, ptr noundef %178, ptr noundef %179, i32 noundef %180, ptr noundef %181, ptr noundef %182)
-  store ptr %183, ptr %26, align 8
-  %184 = load ptr, ptr %26, align 8
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %186, label %187
+164:                                              ; preds = %163, %155
+  %165 = load ptr, ptr %11, align 8, !tbaa !36
+  %166 = load i32, ptr %165, align 4, !tbaa !10
+  %167 = load ptr, ptr %23, align 8, !tbaa !55
+  %168 = getelementptr inbounds nuw %struct.NodeData, ptr %167, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8, !tbaa !70
+  %170 = load i32, ptr %169, align 4, !tbaa !10
+  %171 = sub nsw i32 %166, %170
+  %172 = load ptr, ptr %11, align 8, !tbaa !36
+  store i32 %171, ptr %172, align 4, !tbaa !10
+  %173 = load double, ptr %21, align 8, !tbaa !33
+  %174 = load double, ptr %22, align 8, !tbaa !33
+  %175 = fcmp oge double %173, %174
+  br i1 %175, label %176, label %237
 
-186:                                              ; preds = %175
+176:                                              ; preds = %164
+  %177 = load ptr, ptr %9, align 8, !tbaa !3
+  %178 = load ptr, ptr %16, align 8, !tbaa !8
+  %179 = load ptr, ptr %11, align 8, !tbaa !36
+  %180 = load ptr, ptr %12, align 8, !tbaa !34
+  %181 = load i32, ptr %13, align 4, !tbaa !10
+  %182 = load ptr, ptr %14, align 8, !tbaa !34
+  %183 = load ptr, ptr %15, align 8, !tbaa !34
+  %184 = call ptr @BuildSubsetBdd(ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %181, ptr noundef %182, ptr noundef %183)
+  store ptr %184, ptr %26, align 8, !tbaa !8
+  %185 = load ptr, ptr %26, align 8, !tbaa !8
+  %186 = icmp eq ptr %185, null
+  br i1 %186, label %187, label %188
+
+187:                                              ; preds = %176
   store ptr null, ptr %8, align 8
-  br label %402
+  store i32 1, ptr %30, align 4
+  br label %403
 
-187:                                              ; preds = %175
-  %188 = load ptr, ptr %26, align 8
-  %189 = ptrtoint ptr %188 to i64
-  %190 = and i64 %189, -2
-  %191 = inttoptr i64 %190 to ptr
-  %192 = getelementptr inbounds %struct.DdNode, ptr %191, i32 0, i32 1
-  %193 = load i32, ptr %192, align 4
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %192, align 4
-  %195 = load ptr, ptr %14, align 8
-  %196 = load ptr, ptr %17, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %198 = and i64 %197, -2
-  %199 = inttoptr i64 %198 to ptr
-  %200 = call i32 @st__lookup(ptr noundef %195, ptr noundef %199, ptr noundef %29)
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %211
+188:                                              ; preds = %176
+  %189 = load ptr, ptr %26, align 8, !tbaa !8
+  %190 = ptrtoint ptr %189 to i64
+  %191 = and i64 %190, -2
+  %192 = inttoptr i64 %191 to ptr
+  %193 = getelementptr inbounds nuw %struct.DdNode, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 4, !tbaa !37
+  %195 = add i32 %194, 1
+  store i32 %195, ptr %193, align 4, !tbaa !37
+  %196 = load ptr, ptr %14, align 8, !tbaa !34
+  %197 = load ptr, ptr %17, align 8, !tbaa !8
+  %198 = ptrtoint ptr %197 to i64
+  %199 = and i64 %198, -2
+  %200 = inttoptr i64 %199 to ptr
+  %201 = call i32 @st__lookup(ptr noundef %196, ptr noundef %200, ptr noundef %29)
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %203, label %212
 
-202:                                              ; preds = %187
-  %203 = load ptr, ptr %17, align 8
-  store ptr %203, ptr %27, align 8
-  %204 = load ptr, ptr %27, align 8
-  %205 = ptrtoint ptr %204 to i64
-  %206 = and i64 %205, -2
-  %207 = inttoptr i64 %206 to ptr
-  %208 = getelementptr inbounds %struct.DdNode, ptr %207, i32 0, i32 1
-  %209 = load i32, ptr %208, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %208, align 4
+203:                                              ; preds = %188
+  %204 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %204, ptr %27, align 8, !tbaa !8
+  %205 = load ptr, ptr %27, align 8, !tbaa !8
+  %206 = ptrtoint ptr %205 to i64
+  %207 = and i64 %206, -2
+  %208 = inttoptr i64 %207 to ptr
+  %209 = getelementptr inbounds nuw %struct.DdNode, ptr %208, i32 0, i32 1
+  %210 = load i32, ptr %209, align 4, !tbaa !37
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %209, align 4, !tbaa !37
+  br label %236
+
+212:                                              ; preds = %188
+  %213 = load ptr, ptr %15, align 8, !tbaa !34
+  %214 = load ptr, ptr %17, align 8, !tbaa !8
+  %215 = call i32 @st__lookup(ptr noundef %213, ptr noundef %214, ptr noundef %29)
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %217, label %226
+
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %29, align 8, !tbaa !41
+  store ptr %218, ptr %27, align 8, !tbaa !8
+  %219 = load ptr, ptr %27, align 8, !tbaa !8
+  %220 = ptrtoint ptr %219 to i64
+  %221 = and i64 %220, -2
+  %222 = inttoptr i64 %221 to ptr
+  %223 = getelementptr inbounds nuw %struct.DdNode, ptr %222, i32 0, i32 1
+  %224 = load i32, ptr %223, align 4, !tbaa !37
+  %225 = add i32 %224, 1
+  store i32 %225, ptr %223, align 4, !tbaa !37
   br label %235
 
-211:                                              ; preds = %187
-  %212 = load ptr, ptr %15, align 8
-  %213 = load ptr, ptr %17, align 8
-  %214 = call i32 @st__lookup(ptr noundef %212, ptr noundef %213, ptr noundef %29)
-  %215 = icmp ne i32 %214, 0
-  br i1 %215, label %216, label %225
-
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %29, align 8
-  store ptr %217, ptr %27, align 8
-  %218 = load ptr, ptr %27, align 8
-  %219 = ptrtoint ptr %218 to i64
-  %220 = and i64 %219, -2
-  %221 = inttoptr i64 %220 to ptr
-  %222 = getelementptr inbounds %struct.DdNode, ptr %221, i32 0, i32 1
-  %223 = load i32, ptr %222, align 4
-  %224 = add i32 %223, 1
-  store i32 %224, ptr %222, align 4
-  br label %234
-
-225:                                              ; preds = %211
-  %226 = load ptr, ptr @zero, align 8
-  store ptr %226, ptr %27, align 8
-  %227 = load ptr, ptr %27, align 8
-  %228 = ptrtoint ptr %227 to i64
-  %229 = and i64 %228, -2
-  %230 = inttoptr i64 %229 to ptr
-  %231 = getelementptr inbounds %struct.DdNode, ptr %230, i32 0, i32 1
-  %232 = load i32, ptr %231, align 4
-  %233 = add i32 %232, 1
-  store i32 %233, ptr %231, align 4
-  br label %234
-
-234:                                              ; preds = %225, %216
+226:                                              ; preds = %212
+  %227 = load ptr, ptr @zero, align 8, !tbaa !8
+  store ptr %227, ptr %27, align 8, !tbaa !8
+  %228 = load ptr, ptr %27, align 8, !tbaa !8
+  %229 = ptrtoint ptr %228 to i64
+  %230 = and i64 %229, -2
+  %231 = inttoptr i64 %230 to ptr
+  %232 = getelementptr inbounds nuw %struct.DdNode, ptr %231, i32 0, i32 1
+  %233 = load i32, ptr %232, align 4, !tbaa !37
+  %234 = add i32 %233, 1
+  store i32 %234, ptr %232, align 4, !tbaa !37
   br label %235
 
-235:                                              ; preds = %234, %202
+235:                                              ; preds = %226, %217
+  br label %236
+
+236:                                              ; preds = %235, %203
+  br label %298
+
+237:                                              ; preds = %164
+  %238 = load ptr, ptr %9, align 8, !tbaa !3
+  %239 = load ptr, ptr %17, align 8, !tbaa !8
+  %240 = load ptr, ptr %11, align 8, !tbaa !36
+  %241 = load ptr, ptr %12, align 8, !tbaa !34
+  %242 = load i32, ptr %13, align 4, !tbaa !10
+  %243 = load ptr, ptr %14, align 8, !tbaa !34
+  %244 = load ptr, ptr %15, align 8, !tbaa !34
+  %245 = call ptr @BuildSubsetBdd(ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %241, i32 noundef %242, ptr noundef %243, ptr noundef %244)
+  store ptr %245, ptr %27, align 8, !tbaa !8
+  %246 = load ptr, ptr %27, align 8, !tbaa !8
+  %247 = icmp eq ptr %246, null
+  br i1 %247, label %248, label %249
+
+248:                                              ; preds = %237
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %403
+
+249:                                              ; preds = %237
+  %250 = load ptr, ptr %27, align 8, !tbaa !8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = and i64 %251, -2
+  %253 = inttoptr i64 %252 to ptr
+  %254 = getelementptr inbounds nuw %struct.DdNode, ptr %253, i32 0, i32 1
+  %255 = load i32, ptr %254, align 4, !tbaa !37
+  %256 = add i32 %255, 1
+  store i32 %256, ptr %254, align 4, !tbaa !37
+  %257 = load ptr, ptr %14, align 8, !tbaa !34
+  %258 = load ptr, ptr %16, align 8, !tbaa !8
+  %259 = ptrtoint ptr %258 to i64
+  %260 = and i64 %259, -2
+  %261 = inttoptr i64 %260 to ptr
+  %262 = call i32 @st__lookup(ptr noundef %257, ptr noundef %261, ptr noundef %29)
+  %263 = icmp ne i32 %262, 0
+  br i1 %263, label %264, label %273
+
+264:                                              ; preds = %249
+  %265 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %265, ptr %26, align 8, !tbaa !8
+  %266 = load ptr, ptr %26, align 8, !tbaa !8
+  %267 = ptrtoint ptr %266 to i64
+  %268 = and i64 %267, -2
+  %269 = inttoptr i64 %268 to ptr
+  %270 = getelementptr inbounds nuw %struct.DdNode, ptr %269, i32 0, i32 1
+  %271 = load i32, ptr %270, align 4, !tbaa !37
+  %272 = add i32 %271, 1
+  store i32 %272, ptr %270, align 4, !tbaa !37
   br label %297
 
-236:                                              ; preds = %163
-  %237 = load ptr, ptr %9, align 8
-  %238 = load ptr, ptr %17, align 8
-  %239 = load ptr, ptr %11, align 8
-  %240 = load ptr, ptr %12, align 8
-  %241 = load i32, ptr %13, align 4
-  %242 = load ptr, ptr %14, align 8
-  %243 = load ptr, ptr %15, align 8
-  %244 = call ptr @BuildSubsetBdd(ptr noundef %237, ptr noundef %238, ptr noundef %239, ptr noundef %240, i32 noundef %241, ptr noundef %242, ptr noundef %243)
-  store ptr %244, ptr %27, align 8
-  %245 = load ptr, ptr %27, align 8
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %247, label %248
+273:                                              ; preds = %249
+  %274 = load ptr, ptr %15, align 8, !tbaa !34
+  %275 = load ptr, ptr %16, align 8, !tbaa !8
+  %276 = call i32 @st__lookup(ptr noundef %274, ptr noundef %275, ptr noundef %29)
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %287
 
-247:                                              ; preds = %236
-  store ptr null, ptr %8, align 8
-  br label %402
-
-248:                                              ; preds = %236
-  %249 = load ptr, ptr %27, align 8
-  %250 = ptrtoint ptr %249 to i64
-  %251 = and i64 %250, -2
-  %252 = inttoptr i64 %251 to ptr
-  %253 = getelementptr inbounds %struct.DdNode, ptr %252, i32 0, i32 1
-  %254 = load i32, ptr %253, align 4
-  %255 = add i32 %254, 1
-  store i32 %255, ptr %253, align 4
-  %256 = load ptr, ptr %14, align 8
-  %257 = load ptr, ptr %16, align 8
-  %258 = ptrtoint ptr %257 to i64
-  %259 = and i64 %258, -2
-  %260 = inttoptr i64 %259 to ptr
-  %261 = call i32 @st__lookup(ptr noundef %256, ptr noundef %260, ptr noundef %29)
-  %262 = icmp ne i32 %261, 0
-  br i1 %262, label %263, label %272
-
-263:                                              ; preds = %248
-  %264 = load ptr, ptr %16, align 8
-  store ptr %264, ptr %26, align 8
-  %265 = load ptr, ptr %26, align 8
-  %266 = ptrtoint ptr %265 to i64
-  %267 = and i64 %266, -2
-  %268 = inttoptr i64 %267 to ptr
-  %269 = getelementptr inbounds %struct.DdNode, ptr %268, i32 0, i32 1
-  %270 = load i32, ptr %269, align 4
-  %271 = add i32 %270, 1
-  store i32 %271, ptr %269, align 4
+278:                                              ; preds = %273
+  %279 = load ptr, ptr %29, align 8, !tbaa !41
+  store ptr %279, ptr %26, align 8, !tbaa !8
+  %280 = load ptr, ptr %26, align 8, !tbaa !8
+  %281 = ptrtoint ptr %280 to i64
+  %282 = and i64 %281, -2
+  %283 = inttoptr i64 %282 to ptr
+  %284 = getelementptr inbounds nuw %struct.DdNode, ptr %283, i32 0, i32 1
+  %285 = load i32, ptr %284, align 4, !tbaa !37
+  %286 = add i32 %285, 1
+  store i32 %286, ptr %284, align 4, !tbaa !37
   br label %296
 
-272:                                              ; preds = %248
-  %273 = load ptr, ptr %15, align 8
-  %274 = load ptr, ptr %16, align 8
-  %275 = call i32 @st__lookup(ptr noundef %273, ptr noundef %274, ptr noundef %29)
-  %276 = icmp ne i32 %275, 0
-  br i1 %276, label %277, label %286
-
-277:                                              ; preds = %272
-  %278 = load ptr, ptr %29, align 8
-  store ptr %278, ptr %26, align 8
-  %279 = load ptr, ptr %26, align 8
-  %280 = ptrtoint ptr %279 to i64
-  %281 = and i64 %280, -2
-  %282 = inttoptr i64 %281 to ptr
-  %283 = getelementptr inbounds %struct.DdNode, ptr %282, i32 0, i32 1
-  %284 = load i32, ptr %283, align 4
-  %285 = add i32 %284, 1
-  store i32 %285, ptr %283, align 4
-  br label %295
-
-286:                                              ; preds = %272
-  %287 = load ptr, ptr @zero, align 8
-  store ptr %287, ptr %26, align 8
-  %288 = load ptr, ptr %26, align 8
-  %289 = ptrtoint ptr %288 to i64
-  %290 = and i64 %289, -2
-  %291 = inttoptr i64 %290 to ptr
-  %292 = getelementptr inbounds %struct.DdNode, ptr %291, i32 0, i32 1
-  %293 = load i32, ptr %292, align 4
-  %294 = add i32 %293, 1
-  store i32 %294, ptr %292, align 4
-  br label %295
-
-295:                                              ; preds = %286, %277
+287:                                              ; preds = %273
+  %288 = load ptr, ptr @zero, align 8, !tbaa !8
+  store ptr %288, ptr %26, align 8, !tbaa !8
+  %289 = load ptr, ptr %26, align 8, !tbaa !8
+  %290 = ptrtoint ptr %289 to i64
+  %291 = and i64 %290, -2
+  %292 = inttoptr i64 %291 to ptr
+  %293 = getelementptr inbounds nuw %struct.DdNode, ptr %292, i32 0, i32 1
+  %294 = load i32, ptr %293, align 4, !tbaa !37
+  %295 = add i32 %294, 1
+  store i32 %295, ptr %293, align 4, !tbaa !37
   br label %296
 
-296:                                              ; preds = %295, %263
+296:                                              ; preds = %287, %278
   br label %297
 
-297:                                              ; preds = %296, %235
-  %298 = load ptr, ptr %18, align 8
-  %299 = call i32 @Cudd_NodeReadIndex(ptr noundef %298)
-  store i32 %299, ptr %28, align 4
-  %300 = load ptr, ptr %9, align 8
-  %301 = load i32, ptr %28, align 4
-  %302 = call ptr @Cudd_ReadVars(ptr noundef %300, i32 noundef %301)
-  store ptr %302, ptr %19, align 8
-  %303 = load ptr, ptr %19, align 8
-  %304 = ptrtoint ptr %303 to i64
-  %305 = and i64 %304, -2
-  %306 = inttoptr i64 %305 to ptr
-  %307 = getelementptr inbounds %struct.DdNode, ptr %306, i32 0, i32 1
-  %308 = load i32, ptr %307, align 4
-  %309 = add i32 %308, 1
-  store i32 %309, ptr %307, align 4
-  %310 = load ptr, ptr %9, align 8
-  %311 = load ptr, ptr %19, align 8
-  %312 = load ptr, ptr %26, align 8
-  %313 = load ptr, ptr %27, align 8
-  %314 = call ptr @cuddBddIteRecur(ptr noundef %310, ptr noundef %311, ptr noundef %312, ptr noundef %313)
-  store ptr %314, ptr %20, align 8
-  %315 = load ptr, ptr %20, align 8
-  %316 = icmp ne ptr %315, null
-  br i1 %316, label %317, label %325
+297:                                              ; preds = %296, %264
+  br label %298
 
-317:                                              ; preds = %297
-  %318 = load ptr, ptr %20, align 8
-  %319 = ptrtoint ptr %318 to i64
-  %320 = and i64 %319, -2
-  %321 = inttoptr i64 %320 to ptr
-  %322 = getelementptr inbounds %struct.DdNode, ptr %321, i32 0, i32 1
-  %323 = load i32, ptr %322, align 4
-  %324 = add i32 %323, 1
-  store i32 %324, ptr %322, align 4
-  br label %325
+298:                                              ; preds = %297, %236
+  %299 = load ptr, ptr %18, align 8, !tbaa !8
+  %300 = call i32 @Cudd_NodeReadIndex(ptr noundef %299)
+  store i32 %300, ptr %28, align 4, !tbaa !10
+  %301 = load ptr, ptr %9, align 8, !tbaa !3
+  %302 = load i32, ptr %28, align 4, !tbaa !10
+  %303 = call ptr @Cudd_ReadVars(ptr noundef %301, i32 noundef %302)
+  store ptr %303, ptr %19, align 8, !tbaa !8
+  %304 = load ptr, ptr %19, align 8, !tbaa !8
+  %305 = ptrtoint ptr %304 to i64
+  %306 = and i64 %305, -2
+  %307 = inttoptr i64 %306 to ptr
+  %308 = getelementptr inbounds nuw %struct.DdNode, ptr %307, i32 0, i32 1
+  %309 = load i32, ptr %308, align 4, !tbaa !37
+  %310 = add i32 %309, 1
+  store i32 %310, ptr %308, align 4, !tbaa !37
+  %311 = load ptr, ptr %9, align 8, !tbaa !3
+  %312 = load ptr, ptr %19, align 8, !tbaa !8
+  %313 = load ptr, ptr %26, align 8, !tbaa !8
+  %314 = load ptr, ptr %27, align 8, !tbaa !8
+  %315 = call ptr @cuddBddIteRecur(ptr noundef %311, ptr noundef %312, ptr noundef %313, ptr noundef %314)
+  store ptr %315, ptr %20, align 8, !tbaa !8
+  %316 = load ptr, ptr %20, align 8, !tbaa !8
+  %317 = icmp ne ptr %316, null
+  br i1 %317, label %318, label %326
 
-325:                                              ; preds = %317, %297
-  %326 = load ptr, ptr %9, align 8
-  %327 = load ptr, ptr %19, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %326, ptr noundef %327)
-  %328 = load ptr, ptr %9, align 8
-  %329 = load ptr, ptr %26, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %328, ptr noundef %329)
-  %330 = load ptr, ptr %9, align 8
-  %331 = load ptr, ptr %27, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %330, ptr noundef %331)
-  %332 = load ptr, ptr %20, align 8
-  %333 = icmp eq ptr %332, null
-  br i1 %333, label %334, label %335
+318:                                              ; preds = %298
+  %319 = load ptr, ptr %20, align 8, !tbaa !8
+  %320 = ptrtoint ptr %319 to i64
+  %321 = and i64 %320, -2
+  %322 = inttoptr i64 %321 to ptr
+  %323 = getelementptr inbounds nuw %struct.DdNode, ptr %322, i32 0, i32 1
+  %324 = load i32, ptr %323, align 4, !tbaa !37
+  %325 = add i32 %324, 1
+  store i32 %325, ptr %323, align 4, !tbaa !37
+  br label %326
 
-334:                                              ; preds = %325
+326:                                              ; preds = %318, %298
+  %327 = load ptr, ptr %9, align 8, !tbaa !3
+  %328 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %327, ptr noundef %328)
+  %329 = load ptr, ptr %9, align 8, !tbaa !3
+  %330 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %329, ptr noundef %330)
+  %331 = load ptr, ptr %9, align 8, !tbaa !3
+  %332 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %331, ptr noundef %332)
+  %333 = load ptr, ptr %20, align 8, !tbaa !8
+  %334 = icmp eq ptr %333, null
+  br i1 %334, label %335, label %336
+
+335:                                              ; preds = %326
   store ptr null, ptr %8, align 8
-  br label %402
+  store i32 1, ptr %30, align 4
+  br label %403
 
-335:                                              ; preds = %325
-  %336 = load ptr, ptr %14, align 8
-  %337 = load ptr, ptr %20, align 8
-  %338 = ptrtoint ptr %337 to i64
-  %339 = and i64 %338, -2
-  %340 = inttoptr i64 %339 to ptr
-  %341 = call i32 @st__lookup(ptr noundef %336, ptr noundef %340, ptr noundef %29)
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %360, label %343
+336:                                              ; preds = %326
+  %337 = load ptr, ptr %14, align 8, !tbaa !34
+  %338 = load ptr, ptr %20, align 8, !tbaa !8
+  %339 = ptrtoint ptr %338 to i64
+  %340 = and i64 %339, -2
+  %341 = inttoptr i64 %340 to ptr
+  %342 = call i32 @st__lookup(ptr noundef %337, ptr noundef %341, ptr noundef %29)
+  %343 = icmp ne i32 %342, 0
+  br i1 %343, label %361, label %344
 
-343:                                              ; preds = %335
-  %344 = load ptr, ptr %20, align 8
-  %345 = ptrtoint ptr %344 to i64
-  %346 = and i64 %345, -2
-  %347 = inttoptr i64 %346 to ptr
-  %348 = getelementptr inbounds %struct.DdNode, ptr %347, i32 0, i32 1
-  %349 = load i32, ptr %348, align 4
-  %350 = add i32 %349, 1
-  store i32 %350, ptr %348, align 4
-  %351 = load ptr, ptr %14, align 8
-  %352 = load ptr, ptr %20, align 8
-  %353 = ptrtoint ptr %352 to i64
-  %354 = and i64 %353, -2
-  %355 = inttoptr i64 %354 to ptr
-  %356 = call i32 @st__insert(ptr noundef %351, ptr noundef %355, ptr noundef null)
-  %357 = icmp ne i32 %356, 0
-  br i1 %357, label %359, label %358
+344:                                              ; preds = %336
+  %345 = load ptr, ptr %20, align 8, !tbaa !8
+  %346 = ptrtoint ptr %345 to i64
+  %347 = and i64 %346, -2
+  %348 = inttoptr i64 %347 to ptr
+  %349 = getelementptr inbounds nuw %struct.DdNode, ptr %348, i32 0, i32 1
+  %350 = load i32, ptr %349, align 4, !tbaa !37
+  %351 = add i32 %350, 1
+  store i32 %351, ptr %349, align 4, !tbaa !37
+  %352 = load ptr, ptr %14, align 8, !tbaa !34
+  %353 = load ptr, ptr %20, align 8, !tbaa !8
+  %354 = ptrtoint ptr %353 to i64
+  %355 = and i64 %354, -2
+  %356 = inttoptr i64 %355 to ptr
+  %357 = call i32 @st__insert(ptr noundef %352, ptr noundef %356, ptr noundef null)
+  %358 = icmp ne i32 %357, 0
+  br i1 %358, label %360, label %359
 
-358:                                              ; preds = %343
+359:                                              ; preds = %344
   store ptr null, ptr %8, align 8
-  br label %402
+  store i32 1, ptr %30, align 4
+  br label %403
 
-359:                                              ; preds = %343
-  br label %360
+360:                                              ; preds = %344
+  br label %361
 
-360:                                              ; preds = %359, %335
-  %361 = load ptr, ptr %18, align 8
-  %362 = load ptr, ptr %20, align 8
-  %363 = ptrtoint ptr %362 to i64
-  %364 = and i64 %363, -2
-  %365 = inttoptr i64 %364 to ptr
-  %366 = icmp ne ptr %361, %365
-  br i1 %366, label %367, label %393
+361:                                              ; preds = %360, %336
+  %362 = load ptr, ptr %18, align 8, !tbaa !8
+  %363 = load ptr, ptr %20, align 8, !tbaa !8
+  %364 = ptrtoint ptr %363 to i64
+  %365 = and i64 %364, -2
+  %366 = inttoptr i64 %365 to ptr
+  %367 = icmp ne ptr %362, %366
+  br i1 %367, label %368, label %394
 
-367:                                              ; preds = %360
-  %368 = load ptr, ptr %15, align 8
-  %369 = load ptr, ptr %10, align 8
-  %370 = call i32 @st__lookup(ptr noundef %368, ptr noundef %369, ptr noundef %29)
-  %371 = icmp ne i32 %370, 0
-  br i1 %371, label %372, label %377
+368:                                              ; preds = %361
+  %369 = load ptr, ptr %15, align 8, !tbaa !34
+  %370 = load ptr, ptr %10, align 8, !tbaa !8
+  %371 = call i32 @st__lookup(ptr noundef %369, ptr noundef %370, ptr noundef %29)
+  %372 = icmp ne i32 %371, 0
+  br i1 %372, label %373, label %378
 
-372:                                              ; preds = %367
-  %373 = load ptr, ptr %9, align 8
-  %374 = getelementptr inbounds %struct.DdManager, ptr %373, i32 0, i32 85
-  %375 = load ptr, ptr %374, align 8
-  %376 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %375, ptr noundef @.str.6) #4
-  br label %392
-
-377:                                              ; preds = %367
-  %378 = load ptr, ptr %20, align 8
-  %379 = ptrtoint ptr %378 to i64
-  %380 = and i64 %379, -2
-  %381 = inttoptr i64 %380 to ptr
-  %382 = getelementptr inbounds %struct.DdNode, ptr %381, i32 0, i32 1
-  %383 = load i32, ptr %382, align 4
-  %384 = add i32 %383, 1
-  store i32 %384, ptr %382, align 4
-  %385 = load ptr, ptr %15, align 8
-  %386 = load ptr, ptr %10, align 8
-  %387 = load ptr, ptr %20, align 8
-  %388 = call i32 @st__insert(ptr noundef %385, ptr noundef %386, ptr noundef %387)
-  %389 = icmp ne i32 %388, 0
-  br i1 %389, label %391, label %390
-
-390:                                              ; preds = %377
-  store ptr null, ptr %8, align 8
-  br label %402
-
-391:                                              ; preds = %377
-  br label %392
-
-392:                                              ; preds = %391, %372
+373:                                              ; preds = %368
+  %374 = load ptr, ptr %9, align 8, !tbaa !3
+  %375 = getelementptr inbounds nuw %struct.DdManager, ptr %374, i32 0, i32 85
+  %376 = load ptr, ptr %375, align 8, !tbaa !30
+  %377 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef @.str.6) #5
   br label %393
 
-393:                                              ; preds = %392, %360
-  %394 = load ptr, ptr %20, align 8
-  %395 = ptrtoint ptr %394 to i64
-  %396 = and i64 %395, -2
-  %397 = inttoptr i64 %396 to ptr
-  %398 = getelementptr inbounds %struct.DdNode, ptr %397, i32 0, i32 1
-  %399 = load i32, ptr %398, align 4
-  %400 = add i32 %399, -1
-  store i32 %400, ptr %398, align 4
-  %401 = load ptr, ptr %20, align 8
-  store ptr %401, ptr %8, align 8
-  br label %402
+378:                                              ; preds = %368
+  %379 = load ptr, ptr %20, align 8, !tbaa !8
+  %380 = ptrtoint ptr %379 to i64
+  %381 = and i64 %380, -2
+  %382 = inttoptr i64 %381 to ptr
+  %383 = getelementptr inbounds nuw %struct.DdNode, ptr %382, i32 0, i32 1
+  %384 = load i32, ptr %383, align 4, !tbaa !37
+  %385 = add i32 %384, 1
+  store i32 %385, ptr %383, align 4, !tbaa !37
+  %386 = load ptr, ptr %15, align 8, !tbaa !34
+  %387 = load ptr, ptr %10, align 8, !tbaa !8
+  %388 = load ptr, ptr %20, align 8, !tbaa !8
+  %389 = call i32 @st__insert(ptr noundef %386, ptr noundef %387, ptr noundef %388)
+  %390 = icmp ne i32 %389, 0
+  br i1 %390, label %392, label %391
 
-402:                                              ; preds = %393, %390, %358, %334, %247, %186, %142, %108, %47, %34
-  %403 = load ptr, ptr %8, align 8
-  ret ptr %403
+391:                                              ; preds = %378
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %403
+
+392:                                              ; preds = %378
+  br label %393
+
+393:                                              ; preds = %392, %373
+  br label %394
+
+394:                                              ; preds = %393, %361
+  %395 = load ptr, ptr %20, align 8, !tbaa !8
+  %396 = ptrtoint ptr %395 to i64
+  %397 = and i64 %396, -2
+  %398 = inttoptr i64 %397 to ptr
+  %399 = getelementptr inbounds nuw %struct.DdNode, ptr %398, i32 0, i32 1
+  %400 = load i32, ptr %399, align 4, !tbaa !37
+  %401 = add i32 %400, -1
+  store i32 %401, ptr %399, align 4, !tbaa !37
+  %402 = load ptr, ptr %20, align 8, !tbaa !8
+  store ptr %402, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %403
+
+403:                                              ; preds = %394, %391, %359, %335, %248, %187, %143, %109, %48, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %404 = load ptr, ptr %8, align 8
+  ret ptr %404
 }
 
-declare ptr @st__init_gen(ptr noundef) #2
+declare ptr @st__init_gen(ptr noundef) #3
 
-declare void @st__free_table(ptr noundef) #2
+declare void @st__free_table(ptr noundef) #3
 
-declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #3
 
-declare void @st__free_gen(ptr noundef) #2
+declare void @st__free_gen(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal double @SubsetCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef %2) #0 {
@@ -2143,677 +2240,715 @@ define internal double @SubsetCountMintermAux(ptr noundef %0, double noundef %1,
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds %struct.DdNode, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, 2147483647
-  br i1 %24, label %25, label %32
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store double %1, ptr %6, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, -2
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw %struct.DdNode, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %25 = icmp eq i32 %24, 2147483647
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr @zero, align 8
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = load ptr, ptr @zero, align 8, !tbaa !8
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-30:                                               ; preds = %25
-  %31 = load double, ptr %6, align 8
-  store double %31, ptr %4, align 8
-  br label %281
+31:                                               ; preds = %26
+  %32 = load double, ptr %6, align 8, !tbaa !33
+  store double %32, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %282
 
-32:                                               ; preds = %3
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 @st__lookup(ptr noundef %33, ptr noundef %34, ptr noundef %15)
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %43
+33:                                               ; preds = %3
+  %34 = load ptr, ptr %7, align 8, !tbaa !34
+  %35 = load ptr, ptr %5, align 8, !tbaa !8
+  %36 = call i32 @st__lookup(ptr noundef %34, ptr noundef %35, ptr noundef %15)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %15, align 8
-  %39 = getelementptr inbounds %struct.NodeData, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = load double, ptr %40, align 8
-  store double %41, ptr %11, align 8
-  %42 = load double, ptr %11, align 8
-  store double %42, ptr %4, align 8
-  br label %281
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %15, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw %struct.NodeData, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !68
+  %42 = load double, ptr %41, align 8, !tbaa !33
+  store double %42, ptr %11, align 8, !tbaa !33
+  %43 = load double, ptr %11, align 8, !tbaa !33
+  store double %43, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %282
 
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %5, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = and i64 %45, -2
-  %47 = inttoptr i64 %46 to ptr
-  store ptr %47, ptr %8, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %49, -2
-  %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds %struct.DdNode, ptr %51, i32 0, i32 3
-  %53 = getelementptr inbounds %struct.DdChildren, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %9, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %57 = and i64 %56, -2
-  %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds %struct.DdNode, ptr %58, i32 0, i32 3
-  %60 = getelementptr inbounds %struct.DdChildren, ptr %59, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %10, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = ptrtoint ptr %62 to i64
-  %64 = load ptr, ptr %5, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, 1
-  %67 = trunc i64 %66 to i32
-  %68 = sext i32 %67 to i64
-  %69 = xor i64 %63, %68
-  %70 = inttoptr i64 %69 to ptr
-  store ptr %70, ptr %9, align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = load ptr, ptr %5, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, 1
-  %76 = trunc i64 %75 to i32
-  %77 = sext i32 %76 to i64
-  %78 = xor i64 %72, %77
-  %79 = inttoptr i64 %78 to ptr
-  store ptr %79, ptr %10, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = load double, ptr %6, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = call double @SubsetCountMintermAux(ptr noundef %80, double noundef %81, ptr noundef %82)
-  %84 = fdiv double %83, 2.000000e+00
-  store double %84, ptr %13, align 8
-  %85 = load i32, ptr @memOut, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %88
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %5, align 8, !tbaa !8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = and i64 %46, -2
+  %48 = inttoptr i64 %47 to ptr
+  store ptr %48, ptr %8, align 8, !tbaa !8
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = and i64 %50, -2
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw %struct.DdNode, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds nuw %struct.DdChildren, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
+  store ptr %55, ptr %9, align 8, !tbaa !8
+  %56 = load ptr, ptr %8, align 8, !tbaa !8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = and i64 %57, -2
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds nuw %struct.DdNode, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds nuw %struct.DdChildren, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !67
+  store ptr %62, ptr %10, align 8, !tbaa !8
+  %63 = load ptr, ptr %9, align 8, !tbaa !8
+  %64 = ptrtoint ptr %63 to i64
+  %65 = load ptr, ptr %5, align 8, !tbaa !8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = and i64 %66, 1
+  %68 = trunc i64 %67 to i32
+  %69 = sext i32 %68 to i64
+  %70 = xor i64 %64, %69
+  %71 = inttoptr i64 %70 to ptr
+  store ptr %71, ptr %9, align 8, !tbaa !8
+  %72 = load ptr, ptr %10, align 8, !tbaa !8
+  %73 = ptrtoint ptr %72 to i64
+  %74 = load ptr, ptr %5, align 8, !tbaa !8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = and i64 %75, 1
+  %77 = trunc i64 %76 to i32
+  %78 = sext i32 %77 to i64
+  %79 = xor i64 %73, %78
+  %80 = inttoptr i64 %79 to ptr
+  store ptr %80, ptr %10, align 8, !tbaa !8
+  %81 = load ptr, ptr %9, align 8, !tbaa !8
+  %82 = load double, ptr %6, align 8, !tbaa !33
+  %83 = load ptr, ptr %7, align 8, !tbaa !34
+  %84 = call double @SubsetCountMintermAux(ptr noundef %81, double noundef %82, ptr noundef %83)
+  %85 = fdiv double %84, 2.000000e+00
+  store double %85, ptr %13, align 8, !tbaa !33
+  %86 = load i32, ptr @memOut, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %43
+88:                                               ; preds = %44
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-88:                                               ; preds = %43
-  %89 = load ptr, ptr %10, align 8
-  %90 = load double, ptr %6, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = call double @SubsetCountMintermAux(ptr noundef %89, double noundef %90, ptr noundef %91)
-  %93 = fdiv double %92, 2.000000e+00
-  store double %93, ptr %14, align 8
-  %94 = load i32, ptr @memOut, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
+89:                                               ; preds = %44
+  %90 = load ptr, ptr %10, align 8, !tbaa !8
+  %91 = load double, ptr %6, align 8, !tbaa !33
+  %92 = load ptr, ptr %7, align 8, !tbaa !34
+  %93 = call double @SubsetCountMintermAux(ptr noundef %90, double noundef %91, ptr noundef %92)
+  %94 = fdiv double %93, 2.000000e+00
+  store double %94, ptr %14, align 8, !tbaa !33
+  %95 = load i32, ptr @memOut, align 4, !tbaa !10
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %88
+97:                                               ; preds = %89
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-97:                                               ; preds = %88
-  %98 = load double, ptr %13, align 8
-  %99 = load double, ptr %14, align 8
-  %100 = fadd double %98, %99
-  store double %100, ptr %11, align 8
-  %101 = load i32, ptr @pageIndex, align 4
-  %102 = load i32, ptr @pageSize, align 4
-  %103 = icmp eq i32 %101, %102
-  br i1 %103, label %104, label %105
+98:                                               ; preds = %89
+  %99 = load double, ptr %13, align 8, !tbaa !33
+  %100 = load double, ptr %14, align 8, !tbaa !33
+  %101 = fadd double %99, %100
+  store double %101, ptr %11, align 8, !tbaa !33
+  %102 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %103 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %104 = icmp eq i32 %102, %103
+  br i1 %104, label %105, label %106
 
-104:                                              ; preds = %97
+105:                                              ; preds = %98
   call void @ResizeCountMintermPages()
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %97
-  %106 = load i32, ptr @memOut, align 4
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %143
+106:                                              ; preds = %105, %98
+  %107 = load i32, ptr @memOut, align 4, !tbaa !10
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %144
 
-108:                                              ; preds = %105
-  store i32 0, ptr %17, align 4
-  br label %109
+109:                                              ; preds = %106
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %110
 
-109:                                              ; preds = %132, %108
-  %110 = load i32, ptr %17, align 4
-  %111 = load i32, ptr @nodeDataPage, align 4
-  %112 = icmp sle i32 %110, %111
-  br i1 %112, label %113, label %135
+110:                                              ; preds = %133, %109
+  %111 = load i32, ptr %17, align 4, !tbaa !10
+  %112 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %113 = icmp sle i32 %111, %112
+  br i1 %113, label %114, label %136
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr @nodeDataPages, align 8
-  %115 = load i32, ptr %17, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %114, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %130
+114:                                              ; preds = %110
+  %115 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %116 = load i32, ptr %17, align 4, !tbaa !10
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
+  %119 = load ptr, ptr %118, align 8, !tbaa !55
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %131
 
-120:                                              ; preds = %113
-  %121 = load ptr, ptr @nodeDataPages, align 8
-  %122 = load i32, ptr %17, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr %121, i64 %123
-  %125 = load ptr, ptr %124, align 8
-  call void @free(ptr noundef %125) #4
-  %126 = load ptr, ptr @nodeDataPages, align 8
-  %127 = load i32, ptr %17, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %126, i64 %128
-  store ptr null, ptr %129, align 8
-  br label %131
-
-130:                                              ; preds = %113
-  br label %131
-
-131:                                              ; preds = %130, %120
+121:                                              ; preds = %114
+  %122 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %123 = load i32, ptr %17, align 4, !tbaa !10
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %126 = load ptr, ptr %125, align 8, !tbaa !55
+  call void @free(ptr noundef %126) #5
+  %127 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %128 = load i32, ptr %17, align 4, !tbaa !10
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds ptr, ptr %127, i64 %129
+  store ptr null, ptr %130, align 8, !tbaa !55
   br label %132
 
-132:                                              ; preds = %131
-  %133 = load i32, ptr %17, align 4
-  %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %17, align 4
-  br label %109, !llvm.loop !21
+131:                                              ; preds = %114
+  br label %132
 
-135:                                              ; preds = %109
-  %136 = load ptr, ptr @nodeDataPages, align 8
-  %137 = icmp ne ptr %136, null
-  br i1 %137, label %138, label %140
+132:                                              ; preds = %131, %121
+  br label %133
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %139) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %141
+133:                                              ; preds = %132
+  %134 = load i32, ptr %17, align 4, !tbaa !10
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %17, align 4, !tbaa !10
+  br label %110, !llvm.loop !71
 
-140:                                              ; preds = %135
-  br label %141
+136:                                              ; preds = %110
+  %137 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %138 = icmp ne ptr %137, null
+  br i1 %138, label %139, label %141
 
-141:                                              ; preds = %140, %138
-  %142 = load ptr, ptr %7, align 8
-  call void @st__free_table(ptr noundef %142)
+139:                                              ; preds = %136
+  %140 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %140) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %142
+
+141:                                              ; preds = %136
+  br label %142
+
+142:                                              ; preds = %141, %139
+  %143 = load ptr, ptr %7, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %143)
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-143:                                              ; preds = %105
-  %144 = load ptr, ptr @currentMintermPage, align 8
-  %145 = load i32, ptr @pageIndex, align 4
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds double, ptr %144, i64 %146
-  store ptr %147, ptr %12, align 8
-  %148 = load i32, ptr @pageIndex, align 4
-  %149 = add nsw i32 %148, 1
-  store i32 %149, ptr @pageIndex, align 4
-  %150 = load double, ptr %11, align 8
-  %151 = load ptr, ptr %12, align 8
-  store double %150, ptr %151, align 8
-  %152 = load i32, ptr @nodeDataPageIndex, align 4
-  %153 = load i32, ptr @nodeDataPageSize, align 4
-  %154 = icmp eq i32 %152, %153
-  br i1 %154, label %155, label %156
+144:                                              ; preds = %106
+  %145 = load ptr, ptr @currentMintermPage, align 8, !tbaa !46
+  %146 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds double, ptr %145, i64 %147
+  store ptr %148, ptr %12, align 8, !tbaa !46
+  %149 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr @pageIndex, align 4, !tbaa !10
+  %151 = load double, ptr %11, align 8, !tbaa !33
+  %152 = load ptr, ptr %12, align 8, !tbaa !46
+  store double %151, ptr %152, align 8, !tbaa !33
+  %153 = load i32, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  %154 = load i32, ptr @nodeDataPageSize, align 4, !tbaa !10
+  %155 = icmp eq i32 %153, %154
+  br i1 %155, label %156, label %157
 
-155:                                              ; preds = %143
+156:                                              ; preds = %144
   call void @ResizeNodeDataPages()
-  br label %156
+  br label %157
 
-156:                                              ; preds = %155, %143
-  %157 = load i32, ptr @memOut, align 4
-  %158 = icmp ne i32 %157, 0
-  br i1 %158, label %159, label %194
+157:                                              ; preds = %156, %144
+  %158 = load i32, ptr @memOut, align 4, !tbaa !10
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %195
 
-159:                                              ; preds = %156
-  store i32 0, ptr %17, align 4
-  br label %160
+160:                                              ; preds = %157
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %161
 
-160:                                              ; preds = %183, %159
-  %161 = load i32, ptr %17, align 4
-  %162 = load i32, ptr @page, align 4
-  %163 = icmp sle i32 %161, %162
-  br i1 %163, label %164, label %186
+161:                                              ; preds = %184, %160
+  %162 = load i32, ptr %17, align 4, !tbaa !10
+  %163 = load i32, ptr @page, align 4, !tbaa !10
+  %164 = icmp sle i32 %162, %163
+  br i1 %164, label %165, label %187
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr @mintermPages, align 8
-  %166 = load i32, ptr %17, align 4
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds ptr, ptr %165, i64 %167
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %181
+165:                                              ; preds = %161
+  %166 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %167 = load i32, ptr %17, align 4, !tbaa !10
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds ptr, ptr %166, i64 %168
+  %170 = load ptr, ptr %169, align 8, !tbaa !46
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %182
 
-171:                                              ; preds = %164
-  %172 = load ptr, ptr @mintermPages, align 8
-  %173 = load i32, ptr %17, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds ptr, ptr %172, i64 %174
-  %176 = load ptr, ptr %175, align 8
-  call void @free(ptr noundef %176) #4
-  %177 = load ptr, ptr @mintermPages, align 8
-  %178 = load i32, ptr %17, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %177, i64 %179
-  store ptr null, ptr %180, align 8
-  br label %182
-
-181:                                              ; preds = %164
-  br label %182
-
-182:                                              ; preds = %181, %171
+172:                                              ; preds = %165
+  %173 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %174 = load i32, ptr %17, align 4, !tbaa !10
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds ptr, ptr %173, i64 %175
+  %177 = load ptr, ptr %176, align 8, !tbaa !46
+  call void @free(ptr noundef %177) #5
+  %178 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %179 = load i32, ptr %17, align 4, !tbaa !10
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds ptr, ptr %178, i64 %180
+  store ptr null, ptr %181, align 8, !tbaa !46
   br label %183
 
-183:                                              ; preds = %182
-  %184 = load i32, ptr %17, align 4
-  %185 = add nsw i32 %184, 1
-  store i32 %185, ptr %17, align 4
-  br label %160, !llvm.loop !22
+182:                                              ; preds = %165
+  br label %183
 
-186:                                              ; preds = %160
-  %187 = load ptr, ptr @mintermPages, align 8
-  %188 = icmp ne ptr %187, null
-  br i1 %188, label %189, label %191
+183:                                              ; preds = %182, %172
+  br label %184
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %190) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %192
+184:                                              ; preds = %183
+  %185 = load i32, ptr %17, align 4, !tbaa !10
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %17, align 4, !tbaa !10
+  br label %161, !llvm.loop !72
 
-191:                                              ; preds = %186
-  br label %192
+187:                                              ; preds = %161
+  %188 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %189 = icmp ne ptr %188, null
+  br i1 %189, label %190, label %192
 
-192:                                              ; preds = %191, %189
-  %193 = load ptr, ptr %7, align 8
-  call void @st__free_table(ptr noundef %193)
+190:                                              ; preds = %187
+  %191 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %191) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %193
+
+192:                                              ; preds = %187
+  br label %193
+
+193:                                              ; preds = %192, %190
+  %194 = load ptr, ptr %7, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %194)
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-194:                                              ; preds = %156
-  %195 = load ptr, ptr @currentNodeDataPage, align 8
-  %196 = load i32, ptr @nodeDataPageIndex, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.NodeData, ptr %195, i64 %197
-  store ptr %198, ptr %16, align 8
-  %199 = load i32, ptr @nodeDataPageIndex, align 4
-  %200 = add nsw i32 %199, 1
-  store i32 %200, ptr @nodeDataPageIndex, align 4
-  %201 = load ptr, ptr %12, align 8
-  %202 = load ptr, ptr %16, align 8
-  %203 = getelementptr inbounds %struct.NodeData, ptr %202, i32 0, i32 0
-  store ptr %201, ptr %203, align 8
-  %204 = load ptr, ptr %16, align 8
-  %205 = getelementptr inbounds %struct.NodeData, ptr %204, i32 0, i32 1
-  store ptr null, ptr %205, align 8
-  %206 = load ptr, ptr %7, align 8
-  %207 = load ptr, ptr %5, align 8
-  %208 = load ptr, ptr %16, align 8
-  %209 = call i32 @st__insert(ptr noundef %206, ptr noundef %207, ptr noundef %208)
-  %210 = icmp eq i32 %209, -10000
-  br i1 %210, label %211, label %279
+195:                                              ; preds = %157
+  %196 = load ptr, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %197 = load i32, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds %struct.NodeData, ptr %196, i64 %198
+  store ptr %199, ptr %16, align 8, !tbaa !55
+  %200 = load i32, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  %201 = add nsw i32 %200, 1
+  store i32 %201, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  %202 = load ptr, ptr %12, align 8, !tbaa !46
+  %203 = load ptr, ptr %16, align 8, !tbaa !55
+  %204 = getelementptr inbounds nuw %struct.NodeData, ptr %203, i32 0, i32 0
+  store ptr %202, ptr %204, align 8, !tbaa !68
+  %205 = load ptr, ptr %16, align 8, !tbaa !55
+  %206 = getelementptr inbounds nuw %struct.NodeData, ptr %205, i32 0, i32 1
+  store ptr null, ptr %206, align 8, !tbaa !73
+  %207 = load ptr, ptr %7, align 8, !tbaa !34
+  %208 = load ptr, ptr %5, align 8, !tbaa !8
+  %209 = load ptr, ptr %16, align 8, !tbaa !55
+  %210 = call i32 @st__insert(ptr noundef %207, ptr noundef %208, ptr noundef %209)
+  %211 = icmp eq i32 %210, -10000
+  br i1 %211, label %212, label %280
 
-211:                                              ; preds = %194
-  store i32 1, ptr @memOut, align 4
-  store i32 0, ptr %17, align 4
-  br label %212
+212:                                              ; preds = %195
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %213
 
-212:                                              ; preds = %235, %211
-  %213 = load i32, ptr %17, align 4
-  %214 = load i32, ptr @page, align 4
-  %215 = icmp sle i32 %213, %214
-  br i1 %215, label %216, label %238
+213:                                              ; preds = %236, %212
+  %214 = load i32, ptr %17, align 4, !tbaa !10
+  %215 = load i32, ptr @page, align 4, !tbaa !10
+  %216 = icmp sle i32 %214, %215
+  br i1 %216, label %217, label %239
 
-216:                                              ; preds = %212
-  %217 = load ptr, ptr @mintermPages, align 8
-  %218 = load i32, ptr %17, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %217, i64 %219
-  %221 = load ptr, ptr %220, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %233
+217:                                              ; preds = %213
+  %218 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %219 = load i32, ptr %17, align 4, !tbaa !10
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
+  %222 = load ptr, ptr %221, align 8, !tbaa !46
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %234
 
-223:                                              ; preds = %216
-  %224 = load ptr, ptr @mintermPages, align 8
-  %225 = load i32, ptr %17, align 4
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %224, i64 %226
-  %228 = load ptr, ptr %227, align 8
-  call void @free(ptr noundef %228) #4
-  %229 = load ptr, ptr @mintermPages, align 8
-  %230 = load i32, ptr %17, align 4
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds ptr, ptr %229, i64 %231
-  store ptr null, ptr %232, align 8
-  br label %234
-
-233:                                              ; preds = %216
-  br label %234
-
-234:                                              ; preds = %233, %223
+224:                                              ; preds = %217
+  %225 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %226 = load i32, ptr %17, align 4, !tbaa !10
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds ptr, ptr %225, i64 %227
+  %229 = load ptr, ptr %228, align 8, !tbaa !46
+  call void @free(ptr noundef %229) #5
+  %230 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %231 = load i32, ptr %17, align 4, !tbaa !10
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds ptr, ptr %230, i64 %232
+  store ptr null, ptr %233, align 8, !tbaa !46
   br label %235
 
-235:                                              ; preds = %234
-  %236 = load i32, ptr %17, align 4
-  %237 = add nsw i32 %236, 1
-  store i32 %237, ptr %17, align 4
-  br label %212, !llvm.loop !23
+234:                                              ; preds = %217
+  br label %235
 
-238:                                              ; preds = %212
-  %239 = load ptr, ptr @mintermPages, align 8
-  %240 = icmp ne ptr %239, null
-  br i1 %240, label %241, label %243
+235:                                              ; preds = %234, %224
+  br label %236
 
-241:                                              ; preds = %238
-  %242 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %242) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %244
+236:                                              ; preds = %235
+  %237 = load i32, ptr %17, align 4, !tbaa !10
+  %238 = add nsw i32 %237, 1
+  store i32 %238, ptr %17, align 4, !tbaa !10
+  br label %213, !llvm.loop !74
 
-243:                                              ; preds = %238
-  br label %244
+239:                                              ; preds = %213
+  %240 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %241 = icmp ne ptr %240, null
+  br i1 %241, label %242, label %244
 
-244:                                              ; preds = %243, %241
-  store i32 0, ptr %17, align 4
+242:                                              ; preds = %239
+  %243 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %243) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %245
 
-245:                                              ; preds = %268, %244
-  %246 = load i32, ptr %17, align 4
-  %247 = load i32, ptr @nodeDataPage, align 4
-  %248 = icmp sle i32 %246, %247
-  br i1 %248, label %249, label %271
+244:                                              ; preds = %239
+  br label %245
 
-249:                                              ; preds = %245
-  %250 = load ptr, ptr @nodeDataPages, align 8
-  %251 = load i32, ptr %17, align 4
-  %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr %250, i64 %252
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp ne ptr %254, null
-  br i1 %255, label %256, label %266
+245:                                              ; preds = %244, %242
+  store i32 0, ptr %17, align 4, !tbaa !10
+  br label %246
 
-256:                                              ; preds = %249
-  %257 = load ptr, ptr @nodeDataPages, align 8
-  %258 = load i32, ptr %17, align 4
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds ptr, ptr %257, i64 %259
-  %261 = load ptr, ptr %260, align 8
-  call void @free(ptr noundef %261) #4
-  %262 = load ptr, ptr @nodeDataPages, align 8
-  %263 = load i32, ptr %17, align 4
-  %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %262, i64 %264
-  store ptr null, ptr %265, align 8
-  br label %267
+246:                                              ; preds = %269, %245
+  %247 = load i32, ptr %17, align 4, !tbaa !10
+  %248 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %249 = icmp sle i32 %247, %248
+  br i1 %249, label %250, label %272
 
-266:                                              ; preds = %249
-  br label %267
+250:                                              ; preds = %246
+  %251 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %252 = load i32, ptr %17, align 4, !tbaa !10
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds ptr, ptr %251, i64 %253
+  %255 = load ptr, ptr %254, align 8, !tbaa !55
+  %256 = icmp ne ptr %255, null
+  br i1 %256, label %257, label %267
 
-267:                                              ; preds = %266, %256
+257:                                              ; preds = %250
+  %258 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %259 = load i32, ptr %17, align 4, !tbaa !10
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds ptr, ptr %258, i64 %260
+  %262 = load ptr, ptr %261, align 8, !tbaa !55
+  call void @free(ptr noundef %262) #5
+  %263 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %264 = load i32, ptr %17, align 4, !tbaa !10
+  %265 = sext i32 %264 to i64
+  %266 = getelementptr inbounds ptr, ptr %263, i64 %265
+  store ptr null, ptr %266, align 8, !tbaa !55
   br label %268
 
-268:                                              ; preds = %267
-  %269 = load i32, ptr %17, align 4
-  %270 = add nsw i32 %269, 1
-  store i32 %270, ptr %17, align 4
-  br label %245, !llvm.loop !24
+267:                                              ; preds = %250
+  br label %268
 
-271:                                              ; preds = %245
-  %272 = load ptr, ptr @nodeDataPages, align 8
-  %273 = icmp ne ptr %272, null
-  br i1 %273, label %274, label %276
+268:                                              ; preds = %267, %257
+  br label %269
 
-274:                                              ; preds = %271
-  %275 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %275) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %277
+269:                                              ; preds = %268
+  %270 = load i32, ptr %17, align 4, !tbaa !10
+  %271 = add nsw i32 %270, 1
+  store i32 %271, ptr %17, align 4, !tbaa !10
+  br label %246, !llvm.loop !75
 
-276:                                              ; preds = %271
-  br label %277
+272:                                              ; preds = %246
+  %273 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %274 = icmp ne ptr %273, null
+  br i1 %274, label %275, label %277
 
-277:                                              ; preds = %276, %274
-  %278 = load ptr, ptr %7, align 8
-  call void @st__free_table(ptr noundef %278)
+275:                                              ; preds = %272
+  %276 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %276) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %278
+
+277:                                              ; preds = %272
+  br label %278
+
+278:                                              ; preds = %277, %275
+  %279 = load ptr, ptr %7, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %279)
   store double 0.000000e+00, ptr %4, align 8
-  br label %281
+  store i32 1, ptr %18, align 4
+  br label %282
 
-279:                                              ; preds = %194
-  %280 = load double, ptr %11, align 8
-  store double %280, ptr %4, align 8
-  br label %281
+280:                                              ; preds = %195
+  %281 = load double, ptr %11, align 8, !tbaa !33
+  store double %281, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %282
 
-281:                                              ; preds = %279, %277, %192, %141, %96, %87, %37, %30, %29
-  %282 = load double, ptr %4, align 8
-  ret double %282
+282:                                              ; preds = %280, %278, %193, %142, %97, %88, %38, %31, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %283 = load double, ptr %4, align 8
+  ret double %283
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ResizeCountMintermPages() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  %3 = load i32, ptr @page, align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr @page, align 4
-  %5 = load i32, ptr @page, align 4
-  %6 = load i32, ptr @maxPages, align 4
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %79
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #5
+  %4 = load i32, ptr @page, align 4, !tbaa !10
+  %5 = add nsw i32 %4, 1
+  store i32 %5, ptr @page, align 4, !tbaa !10
+  %6 = load i32, ptr @page, align 4, !tbaa !10
+  %7 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %8 = icmp eq i32 %6, %7
+  br i1 %8, label %9, label %80
 
-8:                                                ; preds = %0
-  %9 = load i32, ptr @maxPages, align 4
-  %10 = add nsw i32 %9, 128
-  %11 = sext i32 %10 to i64
-  %12 = mul i64 8, %11
-  %13 = call noalias ptr @malloc(i64 noundef %12) #5
-  store ptr %13, ptr %2, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %50
+9:                                                ; preds = %0
+  %10 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %11 = add nsw i32 %10, 128
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 8, %12
+  %14 = call noalias ptr @malloc(i64 noundef %13) #6
+  store ptr %14, ptr %2, align 8, !tbaa !44
+  %15 = load ptr, ptr %2, align 8, !tbaa !44
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %51
 
-16:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %17
+17:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %18
 
-17:                                               ; preds = %40, %16
-  %18 = load i32, ptr %1, align 4
-  %19 = load i32, ptr @page, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %43
+18:                                               ; preds = %41, %17
+  %19 = load i32, ptr %1, align 4, !tbaa !10
+  %20 = load i32, ptr @page, align 4, !tbaa !10
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %44
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr @mintermPages, align 8
-  %23 = load i32, ptr %1, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %38
+22:                                               ; preds = %18
+  %23 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %24 = load i32, ptr %1, align 4, !tbaa !10
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr @mintermPages, align 8
-  %30 = load i32, ptr %1, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %33) #4
-  %34 = load ptr, ptr @mintermPages, align 8
-  %35 = load i32, ptr %1, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
-  store ptr null, ptr %37, align 8
-  br label %39
-
-38:                                               ; preds = %21
-  br label %39
-
-39:                                               ; preds = %38, %28
+29:                                               ; preds = %22
+  %30 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %31 = load i32, ptr %1, align 4, !tbaa !10
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
+  call void @free(ptr noundef %34) #5
+  %35 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %36 = load i32, ptr %1, align 4, !tbaa !10
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  store ptr null, ptr %38, align 8, !tbaa !46
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr %1, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %1, align 4
-  br label %17, !llvm.loop !25
+39:                                               ; preds = %22
+  br label %40
 
-43:                                               ; preds = %17
-  %44 = load ptr, ptr @mintermPages, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %48
+40:                                               ; preds = %39, %29
+  br label %41
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %47) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %49
+41:                                               ; preds = %40
+  %42 = load i32, ptr %1, align 4, !tbaa !10
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %1, align 4, !tbaa !10
+  br label %18, !llvm.loop !76
 
-48:                                               ; preds = %43
-  br label %49
+44:                                               ; preds = %18
+  %45 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %49
 
-49:                                               ; preds = %48, %46
-  store i32 1, ptr @memOut, align 4
-  br label %125
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %48) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %50
 
-50:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %51
+49:                                               ; preds = %44
+  br label %50
 
-51:                                               ; preds = %65, %50
-  %52 = load i32, ptr %1, align 4
-  %53 = load i32, ptr @maxPages, align 4
-  %54 = icmp slt i32 %52, %53
-  br i1 %54, label %55, label %68
+50:                                               ; preds = %49, %47
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr @mintermPages, align 8
-  %57 = load i32, ptr %1, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %2, align 8
-  %62 = load i32, ptr %1, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
-  store ptr %60, ptr %64, align 8
-  br label %65
+51:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %52
 
-65:                                               ; preds = %55
-  %66 = load i32, ptr %1, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %1, align 4
-  br label %51, !llvm.loop !26
+52:                                               ; preds = %66, %51
+  %53 = load i32, ptr %1, align 4, !tbaa !10
+  %54 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %56, label %69
 
-68:                                               ; preds = %51
-  %69 = load i32, ptr @maxPages, align 4
-  %70 = add nsw i32 %69, 128
-  store i32 %70, ptr @maxPages, align 4
-  %71 = load ptr, ptr @mintermPages, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %75
+56:                                               ; preds = %52
+  %57 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %58 = load i32, ptr %1, align 4, !tbaa !10
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !46
+  %62 = load ptr, ptr %2, align 8, !tbaa !44
+  %63 = load i32, ptr %1, align 4, !tbaa !10
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  store ptr %61, ptr %65, align 8, !tbaa !46
+  br label %66
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %74) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %76
+66:                                               ; preds = %56
+  %67 = load i32, ptr %1, align 4, !tbaa !10
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %1, align 4, !tbaa !10
+  br label %52, !llvm.loop !77
 
-75:                                               ; preds = %68
-  br label %76
+69:                                               ; preds = %52
+  %70 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %71 = add nsw i32 %70, 128
+  store i32 %71, ptr @maxPages, align 4, !tbaa !10
+  %72 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %76
 
-76:                                               ; preds = %75, %73
-  %77 = load ptr, ptr %2, align 8
-  store ptr %77, ptr @mintermPages, align 8
-  br label %78
+74:                                               ; preds = %69
+  %75 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %75) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %77
 
-78:                                               ; preds = %76
+76:                                               ; preds = %69
+  br label %77
+
+77:                                               ; preds = %76, %74
+  %78 = load ptr, ptr %2, align 8, !tbaa !44
+  store ptr %78, ptr @mintermPages, align 8, !tbaa !44
   br label %79
 
-79:                                               ; preds = %78, %0
-  %80 = load i32, ptr @pageSize, align 4
-  %81 = sext i32 %80 to i64
-  %82 = mul i64 8, %81
-  %83 = call noalias ptr @malloc(i64 noundef %82) #5
-  %84 = load ptr, ptr @mintermPages, align 8
-  %85 = load i32, ptr @page, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  store ptr %83, ptr %87, align 8
-  store ptr %83, ptr @currentMintermPage, align 8
-  %88 = load ptr, ptr @currentMintermPage, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %124
+79:                                               ; preds = %77
+  br label %80
 
-90:                                               ; preds = %79
-  store i32 0, ptr %1, align 4
-  br label %91
+80:                                               ; preds = %79, %0
+  %81 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %82 = sext i32 %81 to i64
+  %83 = mul i64 8, %82
+  %84 = call noalias ptr @malloc(i64 noundef %83) #6
+  %85 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %86 = load i32, ptr @page, align 4, !tbaa !10
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  store ptr %84, ptr %88, align 8, !tbaa !46
+  store ptr %84, ptr @currentMintermPage, align 8, !tbaa !46
+  %89 = load ptr, ptr @currentMintermPage, align 8, !tbaa !46
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %125
 
-91:                                               ; preds = %114, %90
-  %92 = load i32, ptr %1, align 4
-  %93 = load i32, ptr @page, align 4
-  %94 = icmp slt i32 %92, %93
-  br i1 %94, label %95, label %117
+91:                                               ; preds = %80
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %92
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @mintermPages, align 8
-  %97 = load i32, ptr %1, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %112
+92:                                               ; preds = %115, %91
+  %93 = load i32, ptr %1, align 4, !tbaa !10
+  %94 = load i32, ptr @page, align 4, !tbaa !10
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %96, label %118
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr @mintermPages, align 8
-  %104 = load i32, ptr %1, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  call void @free(ptr noundef %107) #4
-  %108 = load ptr, ptr @mintermPages, align 8
-  %109 = load i32, ptr %1, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %108, i64 %110
-  store ptr null, ptr %111, align 8
-  br label %113
+96:                                               ; preds = %92
+  %97 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %98 = load i32, ptr %1, align 4, !tbaa !10
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !46
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %113
 
-112:                                              ; preds = %95
-  br label %113
-
-113:                                              ; preds = %112, %102
+103:                                              ; preds = %96
+  %104 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %105 = load i32, ptr %1, align 4, !tbaa !10
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
+  %108 = load ptr, ptr %107, align 8, !tbaa !46
+  call void @free(ptr noundef %108) #5
+  %109 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %110 = load i32, ptr %1, align 4, !tbaa !10
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds ptr, ptr %109, i64 %111
+  store ptr null, ptr %112, align 8, !tbaa !46
   br label %114
 
-114:                                              ; preds = %113
-  %115 = load i32, ptr %1, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %1, align 4
-  br label %91, !llvm.loop !27
+113:                                              ; preds = %96
+  br label %114
 
-117:                                              ; preds = %91
-  %118 = load ptr, ptr @mintermPages, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %122
+114:                                              ; preds = %113, %103
+  br label %115
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %121) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %123
+115:                                              ; preds = %114
+  %116 = load i32, ptr %1, align 4, !tbaa !10
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %1, align 4, !tbaa !10
+  br label %92, !llvm.loop !78
 
-122:                                              ; preds = %117
-  br label %123
+118:                                              ; preds = %92
+  %119 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %123
 
-123:                                              ; preds = %122, %120
-  store i32 1, ptr @memOut, align 4
-  br label %125
+121:                                              ; preds = %118
+  %122 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %122) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %124
 
-124:                                              ; preds = %79
-  store i32 0, ptr @pageIndex, align 4
-  br label %125
+123:                                              ; preds = %118
+  br label %124
 
-125:                                              ; preds = %124, %123, %49
+124:                                              ; preds = %123, %121
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
+
+125:                                              ; preds = %80
+  store i32 0, ptr @pageIndex, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
+
+126:                                              ; preds = %125, %124, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
@@ -2821,225 +2956,233 @@ define internal void @ResizeCountMintermPages() #0 {
 define internal void @ResizeNodeDataPages() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  %3 = load i32, ptr @nodeDataPage, align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr @nodeDataPage, align 4
-  %5 = load i32, ptr @nodeDataPage, align 4
-  %6 = load i32, ptr @maxNodeDataPages, align 4
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %79
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #5
+  %4 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %5 = add nsw i32 %4, 1
+  store i32 %5, ptr @nodeDataPage, align 4, !tbaa !10
+  %6 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %7 = load i32, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %8 = icmp eq i32 %6, %7
+  br i1 %8, label %9, label %80
 
-8:                                                ; preds = %0
-  %9 = load i32, ptr @maxNodeDataPages, align 4
-  %10 = add nsw i32 %9, 128
-  %11 = sext i32 %10 to i64
-  %12 = mul i64 8, %11
-  %13 = call noalias ptr @malloc(i64 noundef %12) #5
-  store ptr %13, ptr %2, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %50
+9:                                                ; preds = %0
+  %10 = load i32, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %11 = add nsw i32 %10, 128
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 8, %12
+  %14 = call noalias ptr @malloc(i64 noundef %13) #6
+  store ptr %14, ptr %2, align 8, !tbaa !53
+  %15 = load ptr, ptr %2, align 8, !tbaa !53
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %51
 
-16:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %17
+17:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %18
 
-17:                                               ; preds = %40, %16
-  %18 = load i32, ptr %1, align 4
-  %19 = load i32, ptr @nodeDataPage, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %43
+18:                                               ; preds = %41, %17
+  %19 = load i32, ptr %1, align 4, !tbaa !10
+  %20 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %44
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr @nodeDataPages, align 8
-  %23 = load i32, ptr %1, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %38
+22:                                               ; preds = %18
+  %23 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %24 = load i32, ptr %1, align 4, !tbaa !10
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr @nodeDataPages, align 8
-  %30 = load i32, ptr %1, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %33) #4
-  %34 = load ptr, ptr @nodeDataPages, align 8
-  %35 = load i32, ptr %1, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
-  store ptr null, ptr %37, align 8
-  br label %39
-
-38:                                               ; preds = %21
-  br label %39
-
-39:                                               ; preds = %38, %28
+29:                                               ; preds = %22
+  %30 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %31 = load i32, ptr %1, align 4, !tbaa !10
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  call void @free(ptr noundef %34) #5
+  %35 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %36 = load i32, ptr %1, align 4, !tbaa !10
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  store ptr null, ptr %38, align 8, !tbaa !55
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr %1, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %1, align 4
-  br label %17, !llvm.loop !28
+39:                                               ; preds = %22
+  br label %40
 
-43:                                               ; preds = %17
-  %44 = load ptr, ptr @nodeDataPages, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %48
+40:                                               ; preds = %39, %29
+  br label %41
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %47) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %49
+41:                                               ; preds = %40
+  %42 = load i32, ptr %1, align 4, !tbaa !10
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %1, align 4, !tbaa !10
+  br label %18, !llvm.loop !79
 
-48:                                               ; preds = %43
-  br label %49
+44:                                               ; preds = %18
+  %45 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %49
 
-49:                                               ; preds = %48, %46
-  store i32 1, ptr @memOut, align 4
-  br label %125
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %48) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %50
 
-50:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %51
+49:                                               ; preds = %44
+  br label %50
 
-51:                                               ; preds = %65, %50
-  %52 = load i32, ptr %1, align 4
-  %53 = load i32, ptr @maxNodeDataPages, align 4
-  %54 = icmp slt i32 %52, %53
-  br i1 %54, label %55, label %68
+50:                                               ; preds = %49, %47
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr @nodeDataPages, align 8
-  %57 = load i32, ptr %1, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %2, align 8
-  %62 = load i32, ptr %1, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
-  store ptr %60, ptr %64, align 8
-  br label %65
+51:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %52
 
-65:                                               ; preds = %55
-  %66 = load i32, ptr %1, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %1, align 4
-  br label %51, !llvm.loop !29
+52:                                               ; preds = %66, %51
+  %53 = load i32, ptr %1, align 4, !tbaa !10
+  %54 = load i32, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %56, label %69
 
-68:                                               ; preds = %51
-  %69 = load i32, ptr @maxNodeDataPages, align 4
-  %70 = add nsw i32 %69, 128
-  store i32 %70, ptr @maxNodeDataPages, align 4
-  %71 = load ptr, ptr @nodeDataPages, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %75
+56:                                               ; preds = %52
+  %57 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %58 = load i32, ptr %1, align 4, !tbaa !10
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !55
+  %62 = load ptr, ptr %2, align 8, !tbaa !53
+  %63 = load i32, ptr %1, align 4, !tbaa !10
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  store ptr %61, ptr %65, align 8, !tbaa !55
+  br label %66
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %74) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %76
+66:                                               ; preds = %56
+  %67 = load i32, ptr %1, align 4, !tbaa !10
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %1, align 4, !tbaa !10
+  br label %52, !llvm.loop !80
 
-75:                                               ; preds = %68
-  br label %76
+69:                                               ; preds = %52
+  %70 = load i32, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %71 = add nsw i32 %70, 128
+  store i32 %71, ptr @maxNodeDataPages, align 4, !tbaa !10
+  %72 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %76
 
-76:                                               ; preds = %75, %73
-  %77 = load ptr, ptr %2, align 8
-  store ptr %77, ptr @nodeDataPages, align 8
-  br label %78
+74:                                               ; preds = %69
+  %75 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %75) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %77
 
-78:                                               ; preds = %76
+76:                                               ; preds = %69
+  br label %77
+
+77:                                               ; preds = %76, %74
+  %78 = load ptr, ptr %2, align 8, !tbaa !53
+  store ptr %78, ptr @nodeDataPages, align 8, !tbaa !53
   br label %79
 
-79:                                               ; preds = %78, %0
-  %80 = load i32, ptr @nodeDataPageSize, align 4
-  %81 = sext i32 %80 to i64
-  %82 = mul i64 24, %81
-  %83 = call noalias ptr @malloc(i64 noundef %82) #5
-  %84 = load ptr, ptr @nodeDataPages, align 8
-  %85 = load i32, ptr @nodeDataPage, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  store ptr %83, ptr %87, align 8
-  store ptr %83, ptr @currentNodeDataPage, align 8
-  %88 = load ptr, ptr @currentNodeDataPage, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %124
+79:                                               ; preds = %77
+  br label %80
 
-90:                                               ; preds = %79
-  store i32 0, ptr %1, align 4
-  br label %91
+80:                                               ; preds = %79, %0
+  %81 = load i32, ptr @nodeDataPageSize, align 4, !tbaa !10
+  %82 = sext i32 %81 to i64
+  %83 = mul i64 24, %82
+  %84 = call noalias ptr @malloc(i64 noundef %83) #6
+  %85 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %86 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  store ptr %84, ptr %88, align 8, !tbaa !55
+  store ptr %84, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %89 = load ptr, ptr @currentNodeDataPage, align 8, !tbaa !55
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %125
 
-91:                                               ; preds = %114, %90
-  %92 = load i32, ptr %1, align 4
-  %93 = load i32, ptr @nodeDataPage, align 4
-  %94 = icmp slt i32 %92, %93
-  br i1 %94, label %95, label %117
+91:                                               ; preds = %80
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %92
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @nodeDataPages, align 8
-  %97 = load i32, ptr %1, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %112
+92:                                               ; preds = %115, %91
+  %93 = load i32, ptr %1, align 4, !tbaa !10
+  %94 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %96, label %118
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr @nodeDataPages, align 8
-  %104 = load i32, ptr %1, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  call void @free(ptr noundef %107) #4
-  %108 = load ptr, ptr @nodeDataPages, align 8
-  %109 = load i32, ptr %1, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %108, i64 %110
-  store ptr null, ptr %111, align 8
-  br label %113
+96:                                               ; preds = %92
+  %97 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %98 = load i32, ptr %1, align 4, !tbaa !10
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !55
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %113
 
-112:                                              ; preds = %95
-  br label %113
-
-113:                                              ; preds = %112, %102
+103:                                              ; preds = %96
+  %104 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %105 = load i32, ptr %1, align 4, !tbaa !10
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
+  %108 = load ptr, ptr %107, align 8, !tbaa !55
+  call void @free(ptr noundef %108) #5
+  %109 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %110 = load i32, ptr %1, align 4, !tbaa !10
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds ptr, ptr %109, i64 %111
+  store ptr null, ptr %112, align 8, !tbaa !55
   br label %114
 
-114:                                              ; preds = %113
-  %115 = load i32, ptr %1, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %1, align 4
-  br label %91, !llvm.loop !30
+113:                                              ; preds = %96
+  br label %114
 
-117:                                              ; preds = %91
-  %118 = load ptr, ptr @nodeDataPages, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %122
+114:                                              ; preds = %113, %103
+  br label %115
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %121) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %123
+115:                                              ; preds = %114
+  %116 = load i32, ptr %1, align 4, !tbaa !10
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %1, align 4, !tbaa !10
+  br label %92, !llvm.loop !81
 
-122:                                              ; preds = %117
-  br label %123
+118:                                              ; preds = %92
+  %119 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %123
 
-123:                                              ; preds = %122, %120
-  store i32 1, ptr @memOut, align 4
-  br label %125
+121:                                              ; preds = %118
+  %122 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %122) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %124
 
-124:                                              ; preds = %79
-  store i32 0, ptr @nodeDataPageIndex, align 4
-  br label %125
+123:                                              ; preds = %118
+  br label %124
 
-125:                                              ; preds = %124, %123, %49
+124:                                              ; preds = %123, %121
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
+
+125:                                              ; preds = %80
+  store i32 0, ptr @nodeDataPageIndex, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %126
+
+126:                                              ; preds = %125, %124, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
@@ -3064,516 +3207,1524 @@ define internal i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, double 
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %33, label %25
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store double %2, ptr %7, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %24 = load ptr, ptr %5, align 8, !tbaa !8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %34, label %26
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds %struct.DdNode, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, 2147483647
-  br i1 %32, label %33, label %34
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = and i64 %28, -2
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw %struct.DdNode, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !32
+  %33 = icmp eq i32 %32, 2147483647
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %25, %3
+34:                                               ; preds = %26, %3
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = call i32 @st__lookup(ptr noundef %35, ptr noundef %36, ptr noundef %16)
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %47
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %6, align 8, !tbaa !34
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  %38 = call i32 @st__lookup(ptr noundef %36, ptr noundef %37, ptr noundef %16)
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %48
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %16, align 8
-  %41 = getelementptr inbounds %struct.NodeData, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %22, align 8
-  %43 = load ptr, ptr %22, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %46
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %16, align 8, !tbaa !55
+  %42 = getelementptr inbounds nuw %struct.NodeData, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !73
+  store ptr %43, ptr %22, align 8, !tbaa !36
+  %44 = load ptr, ptr %22, align 8, !tbaa !36
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %39
+46:                                               ; preds = %40
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-46:                                               ; preds = %39
-  br label %48
+47:                                               ; preds = %40
+  br label %49
 
-47:                                               ; preds = %34
+48:                                               ; preds = %35
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %5, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = and i64 %50, -2
-  %52 = inttoptr i64 %51 to ptr
-  store ptr %52, ptr %11, align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, -2
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds %struct.DdNode, ptr %56, i32 0, i32 3
-  %58 = getelementptr inbounds %struct.DdChildren, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %12, align 8
-  %60 = load ptr, ptr %11, align 8
-  %61 = ptrtoint ptr %60 to i64
-  %62 = and i64 %61, -2
-  %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds %struct.DdNode, ptr %63, i32 0, i32 3
-  %65 = getelementptr inbounds %struct.DdChildren, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %13, align 8
-  %67 = load ptr, ptr %12, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = load ptr, ptr %5, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = and i64 %70, 1
-  %72 = trunc i64 %71 to i32
-  %73 = sext i32 %72 to i64
-  %74 = xor i64 %68, %73
-  %75 = inttoptr i64 %74 to ptr
-  store ptr %75, ptr %12, align 8
-  %76 = load ptr, ptr %13, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = load ptr, ptr %5, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = and i64 %79, 1
-  %81 = trunc i64 %80 to i32
-  %82 = sext i32 %81 to i64
-  %83 = xor i64 %77, %82
-  %84 = inttoptr i64 %83 to ptr
-  store ptr %84, ptr %13, align 8
-  %85 = load ptr, ptr %12, align 8
-  %86 = ptrtoint ptr %85 to i64
-  %87 = and i64 %86, -2
-  %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds %struct.DdNode, ptr %88, i32 0, i32 0
-  %90 = load i32, ptr %89, align 8
-  %91 = icmp eq i32 %90, 2147483647
-  br i1 %91, label %92, label %100
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %5, align 8, !tbaa !8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, -2
+  %53 = inttoptr i64 %52 to ptr
+  store ptr %53, ptr %11, align 8, !tbaa !8
+  %54 = load ptr, ptr %11, align 8, !tbaa !8
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, -2
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds nuw %struct.DdNode, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.DdChildren, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
+  store ptr %60, ptr %12, align 8, !tbaa !8
+  %61 = load ptr, ptr %11, align 8, !tbaa !8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = and i64 %62, -2
+  %64 = inttoptr i64 %63 to ptr
+  %65 = getelementptr inbounds nuw %struct.DdNode, ptr %64, i32 0, i32 3
+  %66 = getelementptr inbounds nuw %struct.DdChildren, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !67
+  store ptr %67, ptr %13, align 8, !tbaa !8
+  %68 = load ptr, ptr %12, align 8, !tbaa !8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = load ptr, ptr %5, align 8, !tbaa !8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = and i64 %71, 1
+  %73 = trunc i64 %72 to i32
+  %74 = sext i32 %73 to i64
+  %75 = xor i64 %69, %74
+  %76 = inttoptr i64 %75 to ptr
+  store ptr %76, ptr %12, align 8, !tbaa !8
+  %77 = load ptr, ptr %13, align 8, !tbaa !8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = load ptr, ptr %5, align 8, !tbaa !8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = and i64 %80, 1
+  %82 = trunc i64 %81 to i32
+  %83 = sext i32 %82 to i64
+  %84 = xor i64 %78, %83
+  %85 = inttoptr i64 %84 to ptr
+  store ptr %85, ptr %13, align 8, !tbaa !8
+  %86 = load ptr, ptr %12, align 8, !tbaa !8
+  %87 = ptrtoint ptr %86 to i64
+  %88 = and i64 %87, -2
+  %89 = inttoptr i64 %88 to ptr
+  %90 = getelementptr inbounds nuw %struct.DdNode, ptr %89, i32 0, i32 0
+  %91 = load i32, ptr %90, align 8, !tbaa !32
+  %92 = icmp eq i32 %91, 2147483647
+  br i1 %92, label %93, label %101
 
-92:                                               ; preds = %48
-  %93 = load ptr, ptr %12, align 8
-  %94 = load ptr, ptr @zero, align 8
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %96, label %97
+93:                                               ; preds = %49
+  %94 = load ptr, ptr %12, align 8, !tbaa !8
+  %95 = load ptr, ptr @zero, align 8, !tbaa !8
+  %96 = icmp eq ptr %94, %95
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %92
-  store double 0.000000e+00, ptr %14, align 8
-  br label %99
+97:                                               ; preds = %93
+  store double 0.000000e+00, ptr %14, align 8, !tbaa !33
+  br label %100
 
-97:                                               ; preds = %92
-  %98 = load double, ptr %7, align 8
-  store double %98, ptr %14, align 8
-  br label %99
+98:                                               ; preds = %93
+  %99 = load double, ptr %7, align 8, !tbaa !33
+  store double %99, ptr %14, align 8, !tbaa !33
+  br label %100
 
-99:                                               ; preds = %97, %96
+100:                                              ; preds = %98, %97
+  br label %113
+
+101:                                              ; preds = %49
+  %102 = load ptr, ptr %6, align 8, !tbaa !34
+  %103 = load ptr, ptr %12, align 8, !tbaa !8
+  %104 = call i32 @st__lookup(ptr noundef %102, ptr noundef %103, ptr noundef %17)
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %111
+
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %17, align 8, !tbaa !55
+  %108 = getelementptr inbounds nuw %struct.NodeData, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8, !tbaa !68
+  %110 = load double, ptr %109, align 8, !tbaa !33
+  store double %110, ptr %14, align 8, !tbaa !33
   br label %112
 
-100:                                              ; preds = %48
-  %101 = load ptr, ptr %6, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = call i32 @st__lookup(ptr noundef %101, ptr noundef %102, ptr noundef %17)
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %110
-
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %17, align 8
-  %107 = getelementptr inbounds %struct.NodeData, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  %109 = load double, ptr %108, align 8
-  store double %109, ptr %14, align 8
-  br label %111
-
-110:                                              ; preds = %100
+111:                                              ; preds = %101
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-111:                                              ; preds = %105
-  br label %112
+112:                                              ; preds = %106
+  br label %113
 
-112:                                              ; preds = %111, %99
-  %113 = load ptr, ptr %13, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %115 = and i64 %114, -2
-  %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds %struct.DdNode, ptr %116, i32 0, i32 0
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp eq i32 %118, 2147483647
-  br i1 %119, label %120, label %128
+113:                                              ; preds = %112, %100
+  %114 = load ptr, ptr %13, align 8, !tbaa !8
+  %115 = ptrtoint ptr %114 to i64
+  %116 = and i64 %115, -2
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds nuw %struct.DdNode, ptr %117, i32 0, i32 0
+  %119 = load i32, ptr %118, align 8, !tbaa !32
+  %120 = icmp eq i32 %119, 2147483647
+  br i1 %120, label %121, label %129
 
-120:                                              ; preds = %112
-  %121 = load ptr, ptr %13, align 8
-  %122 = load ptr, ptr @zero, align 8
-  %123 = icmp eq ptr %121, %122
-  br i1 %123, label %124, label %125
+121:                                              ; preds = %113
+  %122 = load ptr, ptr %13, align 8, !tbaa !8
+  %123 = load ptr, ptr @zero, align 8, !tbaa !8
+  %124 = icmp eq ptr %122, %123
+  br i1 %124, label %125, label %126
 
-124:                                              ; preds = %120
-  store double 0.000000e+00, ptr %15, align 8
-  br label %127
+125:                                              ; preds = %121
+  store double 0.000000e+00, ptr %15, align 8, !tbaa !33
+  br label %128
 
-125:                                              ; preds = %120
-  %126 = load double, ptr %7, align 8
-  store double %126, ptr %15, align 8
-  br label %127
+126:                                              ; preds = %121
+  %127 = load double, ptr %7, align 8, !tbaa !33
+  store double %127, ptr %15, align 8, !tbaa !33
+  br label %128
 
-127:                                              ; preds = %125, %124
+128:                                              ; preds = %126, %125
+  br label %141
+
+129:                                              ; preds = %113
+  %130 = load ptr, ptr %6, align 8, !tbaa !34
+  %131 = load ptr, ptr %13, align 8, !tbaa !8
+  %132 = call i32 @st__lookup(ptr noundef %130, ptr noundef %131, ptr noundef %18)
+  %133 = icmp eq i32 %132, 1
+  br i1 %133, label %134, label %139
+
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %18, align 8, !tbaa !55
+  %136 = getelementptr inbounds nuw %struct.NodeData, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8, !tbaa !68
+  %138 = load double, ptr %137, align 8, !tbaa !33
+  store double %138, ptr %15, align 8, !tbaa !33
   br label %140
 
-128:                                              ; preds = %112
-  %129 = load ptr, ptr %6, align 8
-  %130 = load ptr, ptr %13, align 8
-  %131 = call i32 @st__lookup(ptr noundef %129, ptr noundef %130, ptr noundef %18)
-  %132 = icmp eq i32 %131, 1
-  br i1 %132, label %133, label %138
-
-133:                                              ; preds = %128
-  %134 = load ptr, ptr %18, align 8
-  %135 = getelementptr inbounds %struct.NodeData, ptr %134, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  %137 = load double, ptr %136, align 8
-  store double %137, ptr %15, align 8
-  br label %139
-
-138:                                              ; preds = %128
+139:                                              ; preds = %129
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-139:                                              ; preds = %133
-  br label %140
+140:                                              ; preds = %134
+  br label %141
 
-140:                                              ; preds = %139, %127
-  %141 = load double, ptr %14, align 8
-  %142 = load double, ptr %15, align 8
-  %143 = fcmp oge double %141, %142
-  br i1 %143, label %144, label %246
+141:                                              ; preds = %140, %128
+  %142 = load double, ptr %14, align 8, !tbaa !33
+  %143 = load double, ptr %15, align 8, !tbaa !33
+  %144 = fcmp oge double %142, %143
+  br i1 %144, label %145, label %247
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr %12, align 8
-  %146 = load ptr, ptr %6, align 8
-  %147 = load double, ptr %7, align 8
-  %148 = call i32 @SubsetCountNodesAux(ptr noundef %145, ptr noundef %146, double noundef %147)
-  store i32 %148, ptr %8, align 4
-  %149 = load i32, ptr @memOut, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %152
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %12, align 8, !tbaa !8
+  %147 = load ptr, ptr %6, align 8, !tbaa !34
+  %148 = load double, ptr %7, align 8, !tbaa !33
+  %149 = call i32 @SubsetCountNodesAux(ptr noundef %146, ptr noundef %147, double noundef %148)
+  store i32 %149, ptr %8, align 4, !tbaa !10
+  %150 = load i32, ptr @memOut, align 4, !tbaa !10
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %153
 
-151:                                              ; preds = %144
+152:                                              ; preds = %145
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-152:                                              ; preds = %144
-  %153 = load ptr, ptr %13, align 8
-  %154 = load ptr, ptr %6, align 8
-  %155 = load double, ptr %7, align 8
-  %156 = call i32 @SubsetCountNodesAux(ptr noundef %153, ptr noundef %154, double noundef %155)
-  store i32 %156, ptr %9, align 4
-  %157 = load i32, ptr @memOut, align 4
-  %158 = icmp ne i32 %157, 0
-  br i1 %158, label %159, label %160
+153:                                              ; preds = %145
+  %154 = load ptr, ptr %13, align 8, !tbaa !8
+  %155 = load ptr, ptr %6, align 8, !tbaa !34
+  %156 = load double, ptr %7, align 8, !tbaa !33
+  %157 = call i32 @SubsetCountNodesAux(ptr noundef %154, ptr noundef %155, double noundef %156)
+  store i32 %157, ptr %9, align 4, !tbaa !10
+  %158 = load i32, ptr @memOut, align 4, !tbaa !10
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %161
 
-159:                                              ; preds = %152
+160:                                              ; preds = %153
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-160:                                              ; preds = %152
-  %161 = load i32, ptr @pageIndex, align 4
-  %162 = load i32, ptr @pageSize, align 4
-  %163 = icmp eq i32 %161, %162
-  br i1 %163, label %164, label %165
+161:                                              ; preds = %153
+  %162 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %163 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %164 = icmp eq i32 %162, %163
+  br i1 %164, label %165, label %166
 
-164:                                              ; preds = %160
+165:                                              ; preds = %161
   call void @ResizeCountNodePages()
-  br label %165
+  br label %166
 
-165:                                              ; preds = %164, %160
-  %166 = load i32, ptr @memOut, align 4
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %236
+166:                                              ; preds = %165, %161
+  %167 = load i32, ptr @memOut, align 4, !tbaa !10
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %169, label %237
 
-168:                                              ; preds = %165
-  store i32 0, ptr %10, align 4
-  br label %169
+169:                                              ; preds = %166
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %170
 
-169:                                              ; preds = %192, %168
-  %170 = load i32, ptr %10, align 4
-  %171 = load i32, ptr @page, align 4
-  %172 = icmp sle i32 %170, %171
-  br i1 %172, label %173, label %195
+170:                                              ; preds = %193, %169
+  %171 = load i32, ptr %10, align 4, !tbaa !10
+  %172 = load i32, ptr @page, align 4, !tbaa !10
+  %173 = icmp sle i32 %171, %172
+  br i1 %173, label %174, label %196
 
-173:                                              ; preds = %169
-  %174 = load ptr, ptr @mintermPages, align 8
-  %175 = load i32, ptr %10, align 4
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %174, i64 %176
-  %178 = load ptr, ptr %177, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %190
+174:                                              ; preds = %170
+  %175 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %176 = load i32, ptr %10, align 4, !tbaa !10
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds ptr, ptr %175, i64 %177
+  %179 = load ptr, ptr %178, align 8, !tbaa !46
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %191
 
-180:                                              ; preds = %173
-  %181 = load ptr, ptr @mintermPages, align 8
-  %182 = load i32, ptr %10, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds ptr, ptr %181, i64 %183
-  %185 = load ptr, ptr %184, align 8
-  call void @free(ptr noundef %185) #4
-  %186 = load ptr, ptr @mintermPages, align 8
-  %187 = load i32, ptr %10, align 4
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
-  store ptr null, ptr %189, align 8
-  br label %191
-
-190:                                              ; preds = %173
-  br label %191
-
-191:                                              ; preds = %190, %180
+181:                                              ; preds = %174
+  %182 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %183 = load i32, ptr %10, align 4, !tbaa !10
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds ptr, ptr %182, i64 %184
+  %186 = load ptr, ptr %185, align 8, !tbaa !46
+  call void @free(ptr noundef %186) #5
+  %187 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %188 = load i32, ptr %10, align 4, !tbaa !10
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds ptr, ptr %187, i64 %189
+  store ptr null, ptr %190, align 8, !tbaa !46
   br label %192
 
-192:                                              ; preds = %191
-  %193 = load i32, ptr %10, align 4
-  %194 = add nsw i32 %193, 1
-  store i32 %194, ptr %10, align 4
-  br label %169, !llvm.loop !31
+191:                                              ; preds = %174
+  br label %192
 
-195:                                              ; preds = %169
-  %196 = load ptr, ptr @mintermPages, align 8
-  %197 = icmp ne ptr %196, null
-  br i1 %197, label %198, label %200
+192:                                              ; preds = %191, %181
+  br label %193
 
-198:                                              ; preds = %195
-  %199 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %199) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %201
+193:                                              ; preds = %192
+  %194 = load i32, ptr %10, align 4, !tbaa !10
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %10, align 4, !tbaa !10
+  br label %170, !llvm.loop !82
 
-200:                                              ; preds = %195
-  br label %201
+196:                                              ; preds = %170
+  %197 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %198 = icmp ne ptr %197, null
+  br i1 %198, label %199, label %201
 
-201:                                              ; preds = %200, %198
-  store i32 0, ptr %10, align 4
+199:                                              ; preds = %196
+  %200 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %200) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
   br label %202
 
-202:                                              ; preds = %225, %201
-  %203 = load i32, ptr %10, align 4
-  %204 = load i32, ptr @nodeDataPage, align 4
-  %205 = icmp sle i32 %203, %204
-  br i1 %205, label %206, label %228
+201:                                              ; preds = %196
+  br label %202
 
-206:                                              ; preds = %202
-  %207 = load ptr, ptr @nodeDataPages, align 8
-  %208 = load i32, ptr %10, align 4
-  %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds ptr, ptr %207, i64 %209
-  %211 = load ptr, ptr %210, align 8
-  %212 = icmp ne ptr %211, null
-  br i1 %212, label %213, label %223
+202:                                              ; preds = %201, %199
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %203
 
-213:                                              ; preds = %206
-  %214 = load ptr, ptr @nodeDataPages, align 8
-  %215 = load i32, ptr %10, align 4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %214, i64 %216
-  %218 = load ptr, ptr %217, align 8
-  call void @free(ptr noundef %218) #4
-  %219 = load ptr, ptr @nodeDataPages, align 8
-  %220 = load i32, ptr %10, align 4
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %219, i64 %221
-  store ptr null, ptr %222, align 8
-  br label %224
+203:                                              ; preds = %226, %202
+  %204 = load i32, ptr %10, align 4, !tbaa !10
+  %205 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %206 = icmp sle i32 %204, %205
+  br i1 %206, label %207, label %229
 
-223:                                              ; preds = %206
-  br label %224
+207:                                              ; preds = %203
+  %208 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %209 = load i32, ptr %10, align 4, !tbaa !10
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds ptr, ptr %208, i64 %210
+  %212 = load ptr, ptr %211, align 8, !tbaa !55
+  %213 = icmp ne ptr %212, null
+  br i1 %213, label %214, label %224
 
-224:                                              ; preds = %223, %213
+214:                                              ; preds = %207
+  %215 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %216 = load i32, ptr %10, align 4, !tbaa !10
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds ptr, ptr %215, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !55
+  call void @free(ptr noundef %219) #5
+  %220 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %221 = load i32, ptr %10, align 4, !tbaa !10
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds ptr, ptr %220, i64 %222
+  store ptr null, ptr %223, align 8, !tbaa !55
   br label %225
 
-225:                                              ; preds = %224
-  %226 = load i32, ptr %10, align 4
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %10, align 4
-  br label %202, !llvm.loop !32
+224:                                              ; preds = %207
+  br label %225
 
-228:                                              ; preds = %202
-  %229 = load ptr, ptr @nodeDataPages, align 8
-  %230 = icmp ne ptr %229, null
-  br i1 %230, label %231, label %233
+225:                                              ; preds = %224, %214
+  br label %226
 
-231:                                              ; preds = %228
-  %232 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %232) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %234
+226:                                              ; preds = %225
+  %227 = load i32, ptr %10, align 4, !tbaa !10
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %10, align 4, !tbaa !10
+  br label %203, !llvm.loop !83
 
-233:                                              ; preds = %228
-  br label %234
+229:                                              ; preds = %203
+  %230 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %232, label %234
 
-234:                                              ; preds = %233, %231
-  %235 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %235)
+232:                                              ; preds = %229
+  %233 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %233) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %235
+
+234:                                              ; preds = %229
+  br label %235
+
+235:                                              ; preds = %234, %232
+  %236 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %236)
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-236:                                              ; preds = %165
-  %237 = load ptr, ptr @currentLightNodePage, align 8
-  %238 = load i32, ptr @pageIndex, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %237, i64 %239
-  store ptr %240, ptr %20, align 8
-  %241 = load i32, ptr %9, align 4
-  %242 = load ptr, ptr %20, align 8
-  store i32 %241, ptr %242, align 4
-  %243 = load ptr, ptr %20, align 8
-  %244 = load ptr, ptr %16, align 8
-  %245 = getelementptr inbounds %struct.NodeData, ptr %244, i32 0, i32 2
-  store ptr %243, ptr %245, align 8
-  br label %348
+237:                                              ; preds = %166
+  %238 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !36
+  %239 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i32, ptr %238, i64 %240
+  store ptr %241, ptr %20, align 8, !tbaa !36
+  %242 = load i32, ptr %9, align 4, !tbaa !10
+  %243 = load ptr, ptr %20, align 8, !tbaa !36
+  store i32 %242, ptr %243, align 4, !tbaa !10
+  %244 = load ptr, ptr %20, align 8, !tbaa !36
+  %245 = load ptr, ptr %16, align 8, !tbaa !55
+  %246 = getelementptr inbounds nuw %struct.NodeData, ptr %245, i32 0, i32 2
+  store ptr %244, ptr %246, align 8, !tbaa !70
+  br label %349
 
-246:                                              ; preds = %140
-  %247 = load ptr, ptr %13, align 8
-  %248 = load ptr, ptr %6, align 8
-  %249 = load double, ptr %7, align 8
-  %250 = call i32 @SubsetCountNodesAux(ptr noundef %247, ptr noundef %248, double noundef %249)
-  store i32 %250, ptr %9, align 4
-  %251 = load i32, ptr @memOut, align 4
-  %252 = icmp ne i32 %251, 0
-  br i1 %252, label %253, label %254
+247:                                              ; preds = %141
+  %248 = load ptr, ptr %13, align 8, !tbaa !8
+  %249 = load ptr, ptr %6, align 8, !tbaa !34
+  %250 = load double, ptr %7, align 8, !tbaa !33
+  %251 = call i32 @SubsetCountNodesAux(ptr noundef %248, ptr noundef %249, double noundef %250)
+  store i32 %251, ptr %9, align 4, !tbaa !10
+  %252 = load i32, ptr @memOut, align 4, !tbaa !10
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %254, label %255
 
-253:                                              ; preds = %246
+254:                                              ; preds = %247
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-254:                                              ; preds = %246
-  %255 = load ptr, ptr %12, align 8
-  %256 = load ptr, ptr %6, align 8
-  %257 = load double, ptr %7, align 8
-  %258 = call i32 @SubsetCountNodesAux(ptr noundef %255, ptr noundef %256, double noundef %257)
-  store i32 %258, ptr %8, align 4
-  %259 = load i32, ptr @memOut, align 4
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %262
+255:                                              ; preds = %247
+  %256 = load ptr, ptr %12, align 8, !tbaa !8
+  %257 = load ptr, ptr %6, align 8, !tbaa !34
+  %258 = load double, ptr %7, align 8, !tbaa !33
+  %259 = call i32 @SubsetCountNodesAux(ptr noundef %256, ptr noundef %257, double noundef %258)
+  store i32 %259, ptr %8, align 4, !tbaa !10
+  %260 = load i32, ptr @memOut, align 4, !tbaa !10
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %263
 
-261:                                              ; preds = %254
+262:                                              ; preds = %255
   store i32 0, ptr %4, align 4
-  br label %544
+  store i32 1, ptr %23, align 4
+  br label %545
 
-262:                                              ; preds = %254
-  %263 = load i32, ptr @pageIndex, align 4
-  %264 = load i32, ptr @pageSize, align 4
-  %265 = icmp eq i32 %263, %264
-  br i1 %265, label %266, label %267
+263:                                              ; preds = %255
+  %264 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %265 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %266 = icmp eq i32 %264, %265
+  br i1 %266, label %267, label %268
 
-266:                                              ; preds = %262
+267:                                              ; preds = %263
   call void @ResizeCountNodePages()
-  br label %267
+  br label %268
 
-267:                                              ; preds = %266, %262
-  %268 = load i32, ptr @memOut, align 4
-  %269 = icmp ne i32 %268, 0
-  br i1 %269, label %270, label %338
+268:                                              ; preds = %267, %263
+  %269 = load i32, ptr @memOut, align 4, !tbaa !10
+  %270 = icmp ne i32 %269, 0
+  br i1 %270, label %271, label %339
 
-270:                                              ; preds = %267
-  store i32 0, ptr %10, align 4
-  br label %271
+271:                                              ; preds = %268
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %272
 
-271:                                              ; preds = %294, %270
-  %272 = load i32, ptr %10, align 4
-  %273 = load i32, ptr @page, align 4
-  %274 = icmp sle i32 %272, %273
-  br i1 %274, label %275, label %297
+272:                                              ; preds = %295, %271
+  %273 = load i32, ptr %10, align 4, !tbaa !10
+  %274 = load i32, ptr @page, align 4, !tbaa !10
+  %275 = icmp sle i32 %273, %274
+  br i1 %275, label %276, label %298
 
-275:                                              ; preds = %271
-  %276 = load ptr, ptr @mintermPages, align 8
-  %277 = load i32, ptr %10, align 4
-  %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds ptr, ptr %276, i64 %278
-  %280 = load ptr, ptr %279, align 8
-  %281 = icmp ne ptr %280, null
-  br i1 %281, label %282, label %292
+276:                                              ; preds = %272
+  %277 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %278 = load i32, ptr %10, align 4, !tbaa !10
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds ptr, ptr %277, i64 %279
+  %281 = load ptr, ptr %280, align 8, !tbaa !46
+  %282 = icmp ne ptr %281, null
+  br i1 %282, label %283, label %293
 
-282:                                              ; preds = %275
-  %283 = load ptr, ptr @mintermPages, align 8
-  %284 = load i32, ptr %10, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds ptr, ptr %283, i64 %285
-  %287 = load ptr, ptr %286, align 8
-  call void @free(ptr noundef %287) #4
-  %288 = load ptr, ptr @mintermPages, align 8
-  %289 = load i32, ptr %10, align 4
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds ptr, ptr %288, i64 %290
-  store ptr null, ptr %291, align 8
-  br label %293
-
-292:                                              ; preds = %275
-  br label %293
-
-293:                                              ; preds = %292, %282
+283:                                              ; preds = %276
+  %284 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %285 = load i32, ptr %10, align 4, !tbaa !10
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds ptr, ptr %284, i64 %286
+  %288 = load ptr, ptr %287, align 8, !tbaa !46
+  call void @free(ptr noundef %288) #5
+  %289 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %290 = load i32, ptr %10, align 4, !tbaa !10
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds ptr, ptr %289, i64 %291
+  store ptr null, ptr %292, align 8, !tbaa !46
   br label %294
 
-294:                                              ; preds = %293
-  %295 = load i32, ptr %10, align 4
-  %296 = add nsw i32 %295, 1
-  store i32 %296, ptr %10, align 4
-  br label %271, !llvm.loop !33
+293:                                              ; preds = %276
+  br label %294
 
-297:                                              ; preds = %271
-  %298 = load ptr, ptr @mintermPages, align 8
-  %299 = icmp ne ptr %298, null
-  br i1 %299, label %300, label %302
+294:                                              ; preds = %293, %283
+  br label %295
 
-300:                                              ; preds = %297
-  %301 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %301) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %303
+295:                                              ; preds = %294
+  %296 = load i32, ptr %10, align 4, !tbaa !10
+  %297 = add nsw i32 %296, 1
+  store i32 %297, ptr %10, align 4, !tbaa !10
+  br label %272, !llvm.loop !84
 
-302:                                              ; preds = %297
-  br label %303
+298:                                              ; preds = %272
+  %299 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %300 = icmp ne ptr %299, null
+  br i1 %300, label %301, label %303
 
-303:                                              ; preds = %302, %300
-  store i32 0, ptr %10, align 4
+301:                                              ; preds = %298
+  %302 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %302) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %304
+
+303:                                              ; preds = %298
+  br label %304
+
+304:                                              ; preds = %303, %301
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %305
+
+305:                                              ; preds = %328, %304
+  %306 = load i32, ptr %10, align 4, !tbaa !10
+  %307 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %308 = icmp sle i32 %306, %307
+  br i1 %308, label %309, label %331
+
+309:                                              ; preds = %305
+  %310 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %311 = load i32, ptr %10, align 4, !tbaa !10
+  %312 = sext i32 %311 to i64
+  %313 = getelementptr inbounds ptr, ptr %310, i64 %312
+  %314 = load ptr, ptr %313, align 8, !tbaa !55
+  %315 = icmp ne ptr %314, null
+  br i1 %315, label %316, label %326
+
+316:                                              ; preds = %309
+  %317 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %318 = load i32, ptr %10, align 4, !tbaa !10
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
+  %321 = load ptr, ptr %320, align 8, !tbaa !55
+  call void @free(ptr noundef %321) #5
+  %322 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %323 = load i32, ptr %10, align 4, !tbaa !10
+  %324 = sext i32 %323 to i64
+  %325 = getelementptr inbounds ptr, ptr %322, i64 %324
+  store ptr null, ptr %325, align 8, !tbaa !55
+  br label %327
+
+326:                                              ; preds = %309
+  br label %327
+
+327:                                              ; preds = %326, %316
+  br label %328
+
+328:                                              ; preds = %327
+  %329 = load i32, ptr %10, align 4, !tbaa !10
+  %330 = add nsw i32 %329, 1
+  store i32 %330, ptr %10, align 4, !tbaa !10
+  br label %305, !llvm.loop !85
+
+331:                                              ; preds = %305
+  %332 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %333 = icmp ne ptr %332, null
+  br i1 %333, label %334, label %336
+
+334:                                              ; preds = %331
+  %335 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %335) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %337
+
+336:                                              ; preds = %331
+  br label %337
+
+337:                                              ; preds = %336, %334
+  %338 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %338)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %23, align 4
+  br label %545
+
+339:                                              ; preds = %268
+  %340 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !36
+  %341 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %342 = sext i32 %341 to i64
+  %343 = getelementptr inbounds i32, ptr %340, i64 %342
+  store ptr %343, ptr %20, align 8, !tbaa !36
+  %344 = load i32, ptr %8, align 4, !tbaa !10
+  %345 = load ptr, ptr %20, align 8, !tbaa !36
+  store i32 %344, ptr %345, align 4, !tbaa !10
+  %346 = load ptr, ptr %20, align 8, !tbaa !36
+  %347 = load ptr, ptr %16, align 8, !tbaa !55
+  %348 = getelementptr inbounds nuw %struct.NodeData, ptr %347, i32 0, i32 2
+  store ptr %346, ptr %348, align 8, !tbaa !70
+  br label %349
+
+349:                                              ; preds = %339, %237
+  %350 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  %351 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %352 = sext i32 %351 to i64
+  %353 = getelementptr inbounds i32, ptr %350, i64 %352
+  store ptr %353, ptr %20, align 8, !tbaa !36
+  %354 = load i32, ptr %8, align 4, !tbaa !10
+  %355 = load i32, ptr %9, align 4, !tbaa !10
+  %356 = add nsw i32 %354, %355
+  %357 = add nsw i32 %356, 1
+  %358 = load ptr, ptr %20, align 8, !tbaa !36
+  store i32 %357, ptr %358, align 4, !tbaa !10
+  %359 = load ptr, ptr %20, align 8, !tbaa !36
+  %360 = load ptr, ptr %16, align 8, !tbaa !55
+  %361 = getelementptr inbounds nuw %struct.NodeData, ptr %360, i32 0, i32 1
+  store ptr %359, ptr %361, align 8, !tbaa !73
+  %362 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %363 = add nsw i32 %362, 1
+  store i32 %363, ptr @pageIndex, align 4, !tbaa !10
+  %364 = load ptr, ptr %6, align 8, !tbaa !34
+  %365 = load ptr, ptr %5, align 8, !tbaa !8
+  %366 = ptrtoint ptr %365 to i64
+  %367 = xor i64 %366, 1
+  %368 = inttoptr i64 %367 to ptr
+  %369 = call i32 @st__lookup(ptr noundef %364, ptr noundef %368, ptr noundef %19)
+  %370 = icmp eq i32 %369, 1
+  br i1 %370, label %371, label %542
+
+371:                                              ; preds = %349
+  %372 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %373 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %374 = icmp eq i32 %372, %373
+  br i1 %374, label %375, label %376
+
+375:                                              ; preds = %371
+  call void @ResizeCountNodePages()
+  br label %376
+
+376:                                              ; preds = %375, %371
+  %377 = load i32, ptr @memOut, align 4, !tbaa !10
+  %378 = icmp ne i32 %377, 0
+  br i1 %378, label %379, label %447
+
+379:                                              ; preds = %376
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %380
+
+380:                                              ; preds = %403, %379
+  %381 = load i32, ptr %10, align 4, !tbaa !10
+  %382 = load i32, ptr @page, align 4, !tbaa !10
+  %383 = icmp slt i32 %381, %382
+  br i1 %383, label %384, label %406
+
+384:                                              ; preds = %380
+  %385 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %386 = load i32, ptr %10, align 4, !tbaa !10
+  %387 = sext i32 %386 to i64
+  %388 = getelementptr inbounds ptr, ptr %385, i64 %387
+  %389 = load ptr, ptr %388, align 8, !tbaa !46
+  %390 = icmp ne ptr %389, null
+  br i1 %390, label %391, label %401
+
+391:                                              ; preds = %384
+  %392 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %393 = load i32, ptr %10, align 4, !tbaa !10
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr inbounds ptr, ptr %392, i64 %394
+  %396 = load ptr, ptr %395, align 8, !tbaa !46
+  call void @free(ptr noundef %396) #5
+  %397 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %398 = load i32, ptr %10, align 4, !tbaa !10
+  %399 = sext i32 %398 to i64
+  %400 = getelementptr inbounds ptr, ptr %397, i64 %399
+  store ptr null, ptr %400, align 8, !tbaa !46
+  br label %402
+
+401:                                              ; preds = %384
+  br label %402
+
+402:                                              ; preds = %401, %391
+  br label %403
+
+403:                                              ; preds = %402
+  %404 = load i32, ptr %10, align 4, !tbaa !10
+  %405 = add nsw i32 %404, 1
+  store i32 %405, ptr %10, align 4, !tbaa !10
+  br label %380, !llvm.loop !86
+
+406:                                              ; preds = %380
+  %407 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %408 = icmp ne ptr %407, null
+  br i1 %408, label %409, label %411
+
+409:                                              ; preds = %406
+  %410 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %410) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %412
+
+411:                                              ; preds = %406
+  br label %412
+
+412:                                              ; preds = %411, %409
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %413
+
+413:                                              ; preds = %436, %412
+  %414 = load i32, ptr %10, align 4, !tbaa !10
+  %415 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %416 = icmp slt i32 %414, %415
+  br i1 %416, label %417, label %439
+
+417:                                              ; preds = %413
+  %418 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %419 = load i32, ptr %10, align 4, !tbaa !10
+  %420 = sext i32 %419 to i64
+  %421 = getelementptr inbounds ptr, ptr %418, i64 %420
+  %422 = load ptr, ptr %421, align 8, !tbaa !55
+  %423 = icmp ne ptr %422, null
+  br i1 %423, label %424, label %434
+
+424:                                              ; preds = %417
+  %425 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %426 = load i32, ptr %10, align 4, !tbaa !10
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr inbounds ptr, ptr %425, i64 %427
+  %429 = load ptr, ptr %428, align 8, !tbaa !55
+  call void @free(ptr noundef %429) #5
+  %430 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %431 = load i32, ptr %10, align 4, !tbaa !10
+  %432 = sext i32 %431 to i64
+  %433 = getelementptr inbounds ptr, ptr %430, i64 %432
+  store ptr null, ptr %433, align 8, !tbaa !55
+  br label %435
+
+434:                                              ; preds = %417
+  br label %435
+
+435:                                              ; preds = %434, %424
+  br label %436
+
+436:                                              ; preds = %435
+  %437 = load i32, ptr %10, align 4, !tbaa !10
+  %438 = add nsw i32 %437, 1
+  store i32 %438, ptr %10, align 4, !tbaa !10
+  br label %413, !llvm.loop !87
+
+439:                                              ; preds = %413
+  %440 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %441 = icmp ne ptr %440, null
+  br i1 %441, label %442, label %444
+
+442:                                              ; preds = %439
+  %443 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %443) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %445
+
+444:                                              ; preds = %439
+  br label %445
+
+445:                                              ; preds = %444, %442
+  %446 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %446)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %23, align 4
+  br label %545
+
+447:                                              ; preds = %376
+  %448 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !36
+  %449 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %450 = sext i32 %449 to i64
+  %451 = getelementptr inbounds i32, ptr %448, i64 %450
+  store ptr %451, ptr %21, align 8, !tbaa !36
+  %452 = load ptr, ptr %21, align 8, !tbaa !36
+  store i32 0, ptr %452, align 4, !tbaa !10
+  %453 = load ptr, ptr %21, align 8, !tbaa !36
+  %454 = load ptr, ptr %19, align 8, !tbaa !55
+  %455 = getelementptr inbounds nuw %struct.NodeData, ptr %454, i32 0, i32 2
+  store ptr %453, ptr %455, align 8, !tbaa !70
+  %456 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %457 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %458 = icmp eq i32 %456, %457
+  br i1 %458, label %459, label %460
+
+459:                                              ; preds = %447
+  call void @ResizeCountNodePages()
+  br label %460
+
+460:                                              ; preds = %459, %447
+  %461 = load i32, ptr @memOut, align 4, !tbaa !10
+  %462 = icmp ne i32 %461, 0
+  br i1 %462, label %463, label %531
+
+463:                                              ; preds = %460
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %464
+
+464:                                              ; preds = %487, %463
+  %465 = load i32, ptr %10, align 4, !tbaa !10
+  %466 = load i32, ptr @page, align 4, !tbaa !10
+  %467 = icmp slt i32 %465, %466
+  br i1 %467, label %468, label %490
+
+468:                                              ; preds = %464
+  %469 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %470 = load i32, ptr %10, align 4, !tbaa !10
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds ptr, ptr %469, i64 %471
+  %473 = load ptr, ptr %472, align 8, !tbaa !46
+  %474 = icmp ne ptr %473, null
+  br i1 %474, label %475, label %485
+
+475:                                              ; preds = %468
+  %476 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %477 = load i32, ptr %10, align 4, !tbaa !10
+  %478 = sext i32 %477 to i64
+  %479 = getelementptr inbounds ptr, ptr %476, i64 %478
+  %480 = load ptr, ptr %479, align 8, !tbaa !46
+  call void @free(ptr noundef %480) #5
+  %481 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %482 = load i32, ptr %10, align 4, !tbaa !10
+  %483 = sext i32 %482 to i64
+  %484 = getelementptr inbounds ptr, ptr %481, i64 %483
+  store ptr null, ptr %484, align 8, !tbaa !46
+  br label %486
+
+485:                                              ; preds = %468
+  br label %486
+
+486:                                              ; preds = %485, %475
+  br label %487
+
+487:                                              ; preds = %486
+  %488 = load i32, ptr %10, align 4, !tbaa !10
+  %489 = add nsw i32 %488, 1
+  store i32 %489, ptr %10, align 4, !tbaa !10
+  br label %464, !llvm.loop !88
+
+490:                                              ; preds = %464
+  %491 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  %492 = icmp ne ptr %491, null
+  br i1 %492, label %493, label %495
+
+493:                                              ; preds = %490
+  %494 = load ptr, ptr @mintermPages, align 8, !tbaa !44
+  call void @free(ptr noundef %494) #5
+  store ptr null, ptr @mintermPages, align 8, !tbaa !44
+  br label %496
+
+495:                                              ; preds = %490
+  br label %496
+
+496:                                              ; preds = %495, %493
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %497
+
+497:                                              ; preds = %520, %496
+  %498 = load i32, ptr %10, align 4, !tbaa !10
+  %499 = load i32, ptr @nodeDataPage, align 4, !tbaa !10
+  %500 = icmp slt i32 %498, %499
+  br i1 %500, label %501, label %523
+
+501:                                              ; preds = %497
+  %502 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %503 = load i32, ptr %10, align 4, !tbaa !10
+  %504 = sext i32 %503 to i64
+  %505 = getelementptr inbounds ptr, ptr %502, i64 %504
+  %506 = load ptr, ptr %505, align 8, !tbaa !55
+  %507 = icmp ne ptr %506, null
+  br i1 %507, label %508, label %518
+
+508:                                              ; preds = %501
+  %509 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %510 = load i32, ptr %10, align 4, !tbaa !10
+  %511 = sext i32 %510 to i64
+  %512 = getelementptr inbounds ptr, ptr %509, i64 %511
+  %513 = load ptr, ptr %512, align 8, !tbaa !55
+  call void @free(ptr noundef %513) #5
+  %514 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %515 = load i32, ptr %10, align 4, !tbaa !10
+  %516 = sext i32 %515 to i64
+  %517 = getelementptr inbounds ptr, ptr %514, i64 %516
+  store ptr null, ptr %517, align 8, !tbaa !55
+  br label %519
+
+518:                                              ; preds = %501
+  br label %519
+
+519:                                              ; preds = %518, %508
+  br label %520
+
+520:                                              ; preds = %519
+  %521 = load i32, ptr %10, align 4, !tbaa !10
+  %522 = add nsw i32 %521, 1
+  store i32 %522, ptr %10, align 4, !tbaa !10
+  br label %497, !llvm.loop !89
+
+523:                                              ; preds = %497
+  %524 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  %525 = icmp ne ptr %524, null
+  br i1 %525, label %526, label %528
+
+526:                                              ; preds = %523
+  %527 = load ptr, ptr @nodeDataPages, align 8, !tbaa !53
+  call void @free(ptr noundef %527) #5
+  store ptr null, ptr @nodeDataPages, align 8, !tbaa !53
+  br label %529
+
+528:                                              ; preds = %523
+  br label %529
+
+529:                                              ; preds = %528, %526
+  %530 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @st__free_table(ptr noundef %530)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %23, align 4
+  br label %545
+
+531:                                              ; preds = %460
+  %532 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  %533 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %534 = sext i32 %533 to i64
+  %535 = getelementptr inbounds i32, ptr %532, i64 %534
+  store ptr %535, ptr %21, align 8, !tbaa !36
+  %536 = load ptr, ptr %21, align 8, !tbaa !36
+  store i32 0, ptr %536, align 4, !tbaa !10
+  %537 = load ptr, ptr %21, align 8, !tbaa !36
+  %538 = load ptr, ptr %19, align 8, !tbaa !55
+  %539 = getelementptr inbounds nuw %struct.NodeData, ptr %538, i32 0, i32 1
+  store ptr %537, ptr %539, align 8, !tbaa !73
+  %540 = load i32, ptr @pageIndex, align 4, !tbaa !10
+  %541 = add nsw i32 %540, 1
+  store i32 %541, ptr @pageIndex, align 4, !tbaa !10
+  br label %542
+
+542:                                              ; preds = %531, %349
+  %543 = load ptr, ptr %20, align 8, !tbaa !36
+  %544 = load i32, ptr %543, align 4, !tbaa !10
+  store i32 %544, ptr %4, align 4
+  store i32 1, ptr %23, align 4
+  br label %545
+
+545:                                              ; preds = %542, %529, %445, %337, %262, %254, %235, %160, %152, %139, %111, %48, %46, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %546 = load i32, ptr %4, align 4
+  ret i32 %546
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @ResizeCountNodePages() #0 {
+  %1 = alloca i32, align 4
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #5
+  %4 = load i32, ptr @page, align 4, !tbaa !10
+  %5 = add nsw i32 %4, 1
+  store i32 %5, ptr @page, align 4, !tbaa !10
+  %6 = load i32, ptr @page, align 4, !tbaa !10
+  %7 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %8 = icmp eq i32 %6, %7
+  br i1 %8, label %9, label %214
+
+9:                                                ; preds = %0
+  %10 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %11 = add nsw i32 %10, 128
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 8, %12
+  %14 = call noalias ptr @malloc(i64 noundef %13) #6
+  store ptr %14, ptr %2, align 8, !tbaa !49
+  %15 = load ptr, ptr %2, align 8, !tbaa !49
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %84
+
+17:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %18
+
+18:                                               ; preds = %41, %17
+  %19 = load i32, ptr %1, align 4, !tbaa !10
+  %20 = load i32, ptr @page, align 4, !tbaa !10
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %24 = load i32, ptr %1, align 4, !tbaa !10
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %39
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %31 = load i32, ptr %1, align 4, !tbaa !10
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
+  call void @free(ptr noundef %34) #5
+  %35 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %36 = load i32, ptr %1, align 4, !tbaa !10
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  store ptr null, ptr %38, align 8, !tbaa !36
+  br label %40
+
+39:                                               ; preds = %22
+  br label %40
+
+40:                                               ; preds = %39, %29
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i32, ptr %1, align 4, !tbaa !10
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %1, align 4, !tbaa !10
+  br label %18, !llvm.loop !90
+
+44:                                               ; preds = %18
+  %45 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %48) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %50
+
+49:                                               ; preds = %44
+  br label %50
+
+50:                                               ; preds = %49, %47
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %51
+
+51:                                               ; preds = %74, %50
+  %52 = load i32, ptr %1, align 4, !tbaa !10
+  %53 = load i32, ptr @page, align 4, !tbaa !10
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %77
+
+55:                                               ; preds = %51
+  %56 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %57 = load i32, ptr %1, align 4, !tbaa !10
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %72
+
+62:                                               ; preds = %55
+  %63 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %64 = load i32, ptr %1, align 4, !tbaa !10
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !36
+  call void @free(ptr noundef %67) #5
+  %68 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %69 = load i32, ptr %1, align 4, !tbaa !10
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  store ptr null, ptr %71, align 8, !tbaa !36
+  br label %73
+
+72:                                               ; preds = %55
+  br label %73
+
+73:                                               ; preds = %72, %62
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load i32, ptr %1, align 4, !tbaa !10
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %1, align 4, !tbaa !10
+  br label %51, !llvm.loop !91
+
+77:                                               ; preds = %51
+  %78 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %77
+  %81 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %81) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %83
+
+82:                                               ; preds = %77
+  br label %83
+
+83:                                               ; preds = %82, %80
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %371
+
+84:                                               ; preds = %9
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %85
+
+85:                                               ; preds = %99, %84
+  %86 = load i32, ptr %1, align 4, !tbaa !10
+  %87 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %88 = icmp slt i32 %86, %87
+  br i1 %88, label %89, label %102
+
+89:                                               ; preds = %85
+  %90 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %91 = load i32, ptr %1, align 4, !tbaa !10
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds ptr, ptr %90, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !36
+  %95 = load ptr, ptr %2, align 8, !tbaa !49
+  %96 = load i32, ptr %1, align 4, !tbaa !10
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds ptr, ptr %95, i64 %97
+  store ptr %94, ptr %98, align 8, !tbaa !36
+  br label %99
+
+99:                                               ; preds = %89
+  %100 = load i32, ptr %1, align 4, !tbaa !10
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr %1, align 4, !tbaa !10
+  br label %85, !llvm.loop !92
+
+102:                                              ; preds = %85
+  %103 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %107
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %106) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %108
+
+107:                                              ; preds = %102
+  br label %108
+
+108:                                              ; preds = %107, %105
+  %109 = load ptr, ptr %2, align 8, !tbaa !49
+  store ptr %109, ptr @nodePages, align 8, !tbaa !49
+  br label %110
+
+110:                                              ; preds = %108
+  %111 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %112 = add nsw i32 %111, 128
+  %113 = sext i32 %112 to i64
+  %114 = mul i64 8, %113
+  %115 = call noalias ptr @malloc(i64 noundef %114) #6
+  store ptr %115, ptr %2, align 8, !tbaa !49
+  %116 = load ptr, ptr %2, align 8, !tbaa !49
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %118, label %185
+
+118:                                              ; preds = %110
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %119
+
+119:                                              ; preds = %142, %118
+  %120 = load i32, ptr %1, align 4, !tbaa !10
+  %121 = load i32, ptr @page, align 4, !tbaa !10
+  %122 = icmp slt i32 %120, %121
+  br i1 %122, label %123, label %145
+
+123:                                              ; preds = %119
+  %124 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %125 = load i32, ptr %1, align 4, !tbaa !10
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
+  %128 = load ptr, ptr %127, align 8, !tbaa !36
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %140
+
+130:                                              ; preds = %123
+  %131 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %132 = load i32, ptr %1, align 4, !tbaa !10
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds ptr, ptr %131, i64 %133
+  %135 = load ptr, ptr %134, align 8, !tbaa !36
+  call void @free(ptr noundef %135) #5
+  %136 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %137 = load i32, ptr %1, align 4, !tbaa !10
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds ptr, ptr %136, i64 %138
+  store ptr null, ptr %139, align 8, !tbaa !36
+  br label %141
+
+140:                                              ; preds = %123
+  br label %141
+
+141:                                              ; preds = %140, %130
+  br label %142
+
+142:                                              ; preds = %141
+  %143 = load i32, ptr %1, align 4, !tbaa !10
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %1, align 4, !tbaa !10
+  br label %119, !llvm.loop !93
+
+145:                                              ; preds = %119
+  %146 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %150
+
+148:                                              ; preds = %145
+  %149 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %149) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %151
+
+150:                                              ; preds = %145
+  br label %151
+
+151:                                              ; preds = %150, %148
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %152
+
+152:                                              ; preds = %175, %151
+  %153 = load i32, ptr %1, align 4, !tbaa !10
+  %154 = load i32, ptr @page, align 4, !tbaa !10
+  %155 = icmp slt i32 %153, %154
+  br i1 %155, label %156, label %178
+
+156:                                              ; preds = %152
+  %157 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %158 = load i32, ptr %1, align 4, !tbaa !10
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds ptr, ptr %157, i64 %159
+  %161 = load ptr, ptr %160, align 8, !tbaa !36
+  %162 = icmp ne ptr %161, null
+  br i1 %162, label %163, label %173
+
+163:                                              ; preds = %156
+  %164 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %165 = load i32, ptr %1, align 4, !tbaa !10
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds ptr, ptr %164, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !36
+  call void @free(ptr noundef %168) #5
+  %169 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %170 = load i32, ptr %1, align 4, !tbaa !10
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds ptr, ptr %169, i64 %171
+  store ptr null, ptr %172, align 8, !tbaa !36
+  br label %174
+
+173:                                              ; preds = %156
+  br label %174
+
+174:                                              ; preds = %173, %163
+  br label %175
+
+175:                                              ; preds = %174
+  %176 = load i32, ptr %1, align 4, !tbaa !10
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %1, align 4, !tbaa !10
+  br label %152, !llvm.loop !94
+
+178:                                              ; preds = %152
+  %179 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %183
+
+181:                                              ; preds = %178
+  %182 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %182) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %184
+
+183:                                              ; preds = %178
+  br label %184
+
+184:                                              ; preds = %183, %181
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %371
+
+185:                                              ; preds = %110
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %186
+
+186:                                              ; preds = %200, %185
+  %187 = load i32, ptr %1, align 4, !tbaa !10
+  %188 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %189 = icmp slt i32 %187, %188
+  br i1 %189, label %190, label %203
+
+190:                                              ; preds = %186
+  %191 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %192 = load i32, ptr %1, align 4, !tbaa !10
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds ptr, ptr %191, i64 %193
+  %195 = load ptr, ptr %194, align 8, !tbaa !36
+  %196 = load ptr, ptr %2, align 8, !tbaa !49
+  %197 = load i32, ptr %1, align 4, !tbaa !10
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds ptr, ptr %196, i64 %198
+  store ptr %195, ptr %199, align 8, !tbaa !36
+  br label %200
+
+200:                                              ; preds = %190
+  %201 = load i32, ptr %1, align 4, !tbaa !10
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %1, align 4, !tbaa !10
+  br label %186, !llvm.loop !95
+
+203:                                              ; preds = %186
+  %204 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %208
+
+206:                                              ; preds = %203
+  %207 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %207) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %209
+
+208:                                              ; preds = %203
+  br label %209
+
+209:                                              ; preds = %208, %206
+  %210 = load ptr, ptr %2, align 8, !tbaa !49
+  store ptr %210, ptr @lightNodePages, align 8, !tbaa !49
+  br label %211
+
+211:                                              ; preds = %209
+  %212 = load i32, ptr @maxPages, align 4, !tbaa !10
+  %213 = add nsw i32 %212, 128
+  store i32 %213, ptr @maxPages, align 4, !tbaa !10
+  br label %214
+
+214:                                              ; preds = %211, %0
+  %215 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %216 = sext i32 %215 to i64
+  %217 = mul i64 4, %216
+  %218 = call noalias ptr @malloc(i64 noundef %217) #6
+  %219 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %220 = load i32, ptr @page, align 4, !tbaa !10
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds ptr, ptr %219, i64 %221
+  store ptr %218, ptr %222, align 8, !tbaa !36
+  store ptr %218, ptr @currentNodePage, align 8, !tbaa !36
+  %223 = load ptr, ptr @currentNodePage, align 8, !tbaa !36
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %225, label %292
+
+225:                                              ; preds = %214
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %226
+
+226:                                              ; preds = %249, %225
+  %227 = load i32, ptr %1, align 4, !tbaa !10
+  %228 = load i32, ptr @page, align 4, !tbaa !10
+  %229 = icmp slt i32 %227, %228
+  br i1 %229, label %230, label %252
+
+230:                                              ; preds = %226
+  %231 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %232 = load i32, ptr %1, align 4, !tbaa !10
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds ptr, ptr %231, i64 %233
+  %235 = load ptr, ptr %234, align 8, !tbaa !36
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %237, label %247
+
+237:                                              ; preds = %230
+  %238 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %239 = load i32, ptr %1, align 4, !tbaa !10
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds ptr, ptr %238, i64 %240
+  %242 = load ptr, ptr %241, align 8, !tbaa !36
+  call void @free(ptr noundef %242) #5
+  %243 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %244 = load i32, ptr %1, align 4, !tbaa !10
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds ptr, ptr %243, i64 %245
+  store ptr null, ptr %246, align 8, !tbaa !36
+  br label %248
+
+247:                                              ; preds = %230
+  br label %248
+
+248:                                              ; preds = %247, %237
+  br label %249
+
+249:                                              ; preds = %248
+  %250 = load i32, ptr %1, align 4, !tbaa !10
+  %251 = add nsw i32 %250, 1
+  store i32 %251, ptr %1, align 4, !tbaa !10
+  br label %226, !llvm.loop !96
+
+252:                                              ; preds = %226
+  %253 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %255, label %257
+
+255:                                              ; preds = %252
+  %256 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %256) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
+  br label %258
+
+257:                                              ; preds = %252
+  br label %258
+
+258:                                              ; preds = %257, %255
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %259
+
+259:                                              ; preds = %282, %258
+  %260 = load i32, ptr %1, align 4, !tbaa !10
+  %261 = load i32, ptr @page, align 4, !tbaa !10
+  %262 = icmp slt i32 %260, %261
+  br i1 %262, label %263, label %285
+
+263:                                              ; preds = %259
+  %264 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %265 = load i32, ptr %1, align 4, !tbaa !10
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds ptr, ptr %264, i64 %266
+  %268 = load ptr, ptr %267, align 8, !tbaa !36
+  %269 = icmp ne ptr %268, null
+  br i1 %269, label %270, label %280
+
+270:                                              ; preds = %263
+  %271 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %272 = load i32, ptr %1, align 4, !tbaa !10
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds ptr, ptr %271, i64 %273
+  %275 = load ptr, ptr %274, align 8, !tbaa !36
+  call void @free(ptr noundef %275) #5
+  %276 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %277 = load i32, ptr %1, align 4, !tbaa !10
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds ptr, ptr %276, i64 %278
+  store ptr null, ptr %279, align 8, !tbaa !36
+  br label %281
+
+280:                                              ; preds = %263
+  br label %281
+
+281:                                              ; preds = %280, %270
+  br label %282
+
+282:                                              ; preds = %281
+  %283 = load i32, ptr %1, align 4, !tbaa !10
+  %284 = add nsw i32 %283, 1
+  store i32 %284, ptr %1, align 4, !tbaa !10
+  br label %259, !llvm.loop !97
+
+285:                                              ; preds = %259
+  %286 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %290
+
+288:                                              ; preds = %285
+  %289 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %289) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %291
+
+290:                                              ; preds = %285
+  br label %291
+
+291:                                              ; preds = %290, %288
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %371
+
+292:                                              ; preds = %214
+  %293 = load i32, ptr @pageSize, align 4, !tbaa !10
+  %294 = sext i32 %293 to i64
+  %295 = mul i64 4, %294
+  %296 = call noalias ptr @malloc(i64 noundef %295) #6
+  %297 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %298 = load i32, ptr @page, align 4, !tbaa !10
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds ptr, ptr %297, i64 %299
+  store ptr %296, ptr %300, align 8, !tbaa !36
+  store ptr %296, ptr @currentLightNodePage, align 8, !tbaa !36
+  %301 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !36
+  %302 = icmp eq ptr %301, null
+  br i1 %302, label %303, label %370
+
+303:                                              ; preds = %292
+  store i32 0, ptr %1, align 4, !tbaa !10
   br label %304
 
 304:                                              ; preds = %327, %303
-  %305 = load i32, ptr %10, align 4
-  %306 = load i32, ptr @nodeDataPage, align 4
+  %305 = load i32, ptr %1, align 4, !tbaa !10
+  %306 = load i32, ptr @page, align 4, !tbaa !10
   %307 = icmp sle i32 %305, %306
   br i1 %307, label %308, label %330
 
 308:                                              ; preds = %304
-  %309 = load ptr, ptr @nodeDataPages, align 8
-  %310 = load i32, ptr %10, align 4
+  %309 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %310 = load i32, ptr %1, align 4, !tbaa !10
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds ptr, ptr %309, i64 %311
-  %313 = load ptr, ptr %312, align 8
+  %313 = load ptr, ptr %312, align 8, !tbaa !36
   %314 = icmp ne ptr %313, null
   br i1 %314, label %315, label %325
 
 315:                                              ; preds = %308
-  %316 = load ptr, ptr @nodeDataPages, align 8
-  %317 = load i32, ptr %10, align 4
+  %316 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %317 = load i32, ptr %1, align 4, !tbaa !10
   %318 = sext i32 %317 to i64
   %319 = getelementptr inbounds ptr, ptr %316, i64 %318
-  %320 = load ptr, ptr %319, align 8
-  call void @free(ptr noundef %320) #4
-  %321 = load ptr, ptr @nodeDataPages, align 8
-  %322 = load i32, ptr %10, align 4
+  %320 = load ptr, ptr %319, align 8, !tbaa !36
+  call void @free(ptr noundef %320) #5
+  %321 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  %322 = load i32, ptr %1, align 4, !tbaa !10
   %323 = sext i32 %322 to i64
   %324 = getelementptr inbounds ptr, ptr %321, i64 %323
-  store ptr null, ptr %324, align 8
+  store ptr null, ptr %324, align 8, !tbaa !36
   br label %326
 
 325:                                              ; preds = %308
@@ -3583,1050 +4734,97 @@ define internal i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, double 
   br label %327
 
 327:                                              ; preds = %326
-  %328 = load i32, ptr %10, align 4
+  %328 = load i32, ptr %1, align 4, !tbaa !10
   %329 = add nsw i32 %328, 1
-  store i32 %329, ptr %10, align 4
-  br label %304, !llvm.loop !34
+  store i32 %329, ptr %1, align 4, !tbaa !10
+  br label %304, !llvm.loop !98
 
 330:                                              ; preds = %304
-  %331 = load ptr, ptr @nodeDataPages, align 8
+  %331 = load ptr, ptr @nodePages, align 8, !tbaa !49
   %332 = icmp ne ptr %331, null
   br i1 %332, label %333, label %335
 
 333:                                              ; preds = %330
-  %334 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %334) #4
-  store ptr null, ptr @nodeDataPages, align 8
+  %334 = load ptr, ptr @nodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %334) #5
+  store ptr null, ptr @nodePages, align 8, !tbaa !49
   br label %336
 
 335:                                              ; preds = %330
   br label %336
 
 336:                                              ; preds = %335, %333
-  %337 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %337)
-  store i32 0, ptr %4, align 4
-  br label %544
+  store i32 0, ptr %1, align 4, !tbaa !10
+  br label %337
 
-338:                                              ; preds = %267
-  %339 = load ptr, ptr @currentLightNodePage, align 8
-  %340 = load i32, ptr @pageIndex, align 4
-  %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds i32, ptr %339, i64 %341
-  store ptr %342, ptr %20, align 8
-  %343 = load i32, ptr %8, align 4
-  %344 = load ptr, ptr %20, align 8
-  store i32 %343, ptr %344, align 4
-  %345 = load ptr, ptr %20, align 8
-  %346 = load ptr, ptr %16, align 8
-  %347 = getelementptr inbounds %struct.NodeData, ptr %346, i32 0, i32 2
-  store ptr %345, ptr %347, align 8
-  br label %348
+337:                                              ; preds = %360, %336
+  %338 = load i32, ptr %1, align 4, !tbaa !10
+  %339 = load i32, ptr @page, align 4, !tbaa !10
+  %340 = icmp slt i32 %338, %339
+  br i1 %340, label %341, label %363
 
-348:                                              ; preds = %338, %236
-  %349 = load ptr, ptr @currentNodePage, align 8
-  %350 = load i32, ptr @pageIndex, align 4
+341:                                              ; preds = %337
+  %342 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %343 = load i32, ptr %1, align 4, !tbaa !10
+  %344 = sext i32 %343 to i64
+  %345 = getelementptr inbounds ptr, ptr %342, i64 %344
+  %346 = load ptr, ptr %345, align 8, !tbaa !36
+  %347 = icmp ne ptr %346, null
+  br i1 %347, label %348, label %358
+
+348:                                              ; preds = %341
+  %349 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %350 = load i32, ptr %1, align 4, !tbaa !10
   %351 = sext i32 %350 to i64
-  %352 = getelementptr inbounds i32, ptr %349, i64 %351
-  store ptr %352, ptr %20, align 8
-  %353 = load i32, ptr %8, align 4
-  %354 = load i32, ptr %9, align 4
-  %355 = add nsw i32 %353, %354
-  %356 = add nsw i32 %355, 1
-  %357 = load ptr, ptr %20, align 8
-  store i32 %356, ptr %357, align 4
-  %358 = load ptr, ptr %20, align 8
-  %359 = load ptr, ptr %16, align 8
-  %360 = getelementptr inbounds %struct.NodeData, ptr %359, i32 0, i32 1
-  store ptr %358, ptr %360, align 8
-  %361 = load i32, ptr @pageIndex, align 4
-  %362 = add nsw i32 %361, 1
-  store i32 %362, ptr @pageIndex, align 4
-  %363 = load ptr, ptr %6, align 8
-  %364 = load ptr, ptr %5, align 8
-  %365 = ptrtoint ptr %364 to i64
-  %366 = xor i64 %365, 1
-  %367 = inttoptr i64 %366 to ptr
-  %368 = call i32 @st__lookup(ptr noundef %363, ptr noundef %367, ptr noundef %19)
-  %369 = icmp eq i32 %368, 1
-  br i1 %369, label %370, label %541
-
-370:                                              ; preds = %348
-  %371 = load i32, ptr @pageIndex, align 4
-  %372 = load i32, ptr @pageSize, align 4
-  %373 = icmp eq i32 %371, %372
-  br i1 %373, label %374, label %375
-
-374:                                              ; preds = %370
-  call void @ResizeCountNodePages()
-  br label %375
-
-375:                                              ; preds = %374, %370
-  %376 = load i32, ptr @memOut, align 4
-  %377 = icmp ne i32 %376, 0
-  br i1 %377, label %378, label %446
-
-378:                                              ; preds = %375
-  store i32 0, ptr %10, align 4
-  br label %379
-
-379:                                              ; preds = %402, %378
-  %380 = load i32, ptr %10, align 4
-  %381 = load i32, ptr @page, align 4
-  %382 = icmp slt i32 %380, %381
-  br i1 %382, label %383, label %405
-
-383:                                              ; preds = %379
-  %384 = load ptr, ptr @mintermPages, align 8
-  %385 = load i32, ptr %10, align 4
-  %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds ptr, ptr %384, i64 %386
-  %388 = load ptr, ptr %387, align 8
-  %389 = icmp ne ptr %388, null
-  br i1 %389, label %390, label %400
-
-390:                                              ; preds = %383
-  %391 = load ptr, ptr @mintermPages, align 8
-  %392 = load i32, ptr %10, align 4
-  %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds ptr, ptr %391, i64 %393
-  %395 = load ptr, ptr %394, align 8
-  call void @free(ptr noundef %395) #4
-  %396 = load ptr, ptr @mintermPages, align 8
-  %397 = load i32, ptr %10, align 4
-  %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds ptr, ptr %396, i64 %398
-  store ptr null, ptr %399, align 8
-  br label %401
-
-400:                                              ; preds = %383
-  br label %401
-
-401:                                              ; preds = %400, %390
-  br label %402
-
-402:                                              ; preds = %401
-  %403 = load i32, ptr %10, align 4
-  %404 = add nsw i32 %403, 1
-  store i32 %404, ptr %10, align 4
-  br label %379, !llvm.loop !35
-
-405:                                              ; preds = %379
-  %406 = load ptr, ptr @mintermPages, align 8
-  %407 = icmp ne ptr %406, null
-  br i1 %407, label %408, label %410
-
-408:                                              ; preds = %405
-  %409 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %409) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %411
-
-410:                                              ; preds = %405
-  br label %411
-
-411:                                              ; preds = %410, %408
-  store i32 0, ptr %10, align 4
-  br label %412
-
-412:                                              ; preds = %435, %411
-  %413 = load i32, ptr %10, align 4
-  %414 = load i32, ptr @nodeDataPage, align 4
-  %415 = icmp slt i32 %413, %414
-  br i1 %415, label %416, label %438
-
-416:                                              ; preds = %412
-  %417 = load ptr, ptr @nodeDataPages, align 8
-  %418 = load i32, ptr %10, align 4
-  %419 = sext i32 %418 to i64
-  %420 = getelementptr inbounds ptr, ptr %417, i64 %419
-  %421 = load ptr, ptr %420, align 8
-  %422 = icmp ne ptr %421, null
-  br i1 %422, label %423, label %433
-
-423:                                              ; preds = %416
-  %424 = load ptr, ptr @nodeDataPages, align 8
-  %425 = load i32, ptr %10, align 4
-  %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds ptr, ptr %424, i64 %426
-  %428 = load ptr, ptr %427, align 8
-  call void @free(ptr noundef %428) #4
-  %429 = load ptr, ptr @nodeDataPages, align 8
-  %430 = load i32, ptr %10, align 4
-  %431 = sext i32 %430 to i64
-  %432 = getelementptr inbounds ptr, ptr %429, i64 %431
-  store ptr null, ptr %432, align 8
-  br label %434
-
-433:                                              ; preds = %416
-  br label %434
-
-434:                                              ; preds = %433, %423
-  br label %435
-
-435:                                              ; preds = %434
-  %436 = load i32, ptr %10, align 4
-  %437 = add nsw i32 %436, 1
-  store i32 %437, ptr %10, align 4
-  br label %412, !llvm.loop !36
-
-438:                                              ; preds = %412
-  %439 = load ptr, ptr @nodeDataPages, align 8
-  %440 = icmp ne ptr %439, null
-  br i1 %440, label %441, label %443
-
-441:                                              ; preds = %438
-  %442 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %442) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %444
-
-443:                                              ; preds = %438
-  br label %444
-
-444:                                              ; preds = %443, %441
-  %445 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %445)
-  store i32 0, ptr %4, align 4
-  br label %544
-
-446:                                              ; preds = %375
-  %447 = load ptr, ptr @currentLightNodePage, align 8
-  %448 = load i32, ptr @pageIndex, align 4
-  %449 = sext i32 %448 to i64
-  %450 = getelementptr inbounds i32, ptr %447, i64 %449
-  store ptr %450, ptr %21, align 8
-  %451 = load ptr, ptr %21, align 8
-  store i32 0, ptr %451, align 4
-  %452 = load ptr, ptr %21, align 8
-  %453 = load ptr, ptr %19, align 8
-  %454 = getelementptr inbounds %struct.NodeData, ptr %453, i32 0, i32 2
-  store ptr %452, ptr %454, align 8
-  %455 = load i32, ptr @pageIndex, align 4
-  %456 = load i32, ptr @pageSize, align 4
-  %457 = icmp eq i32 %455, %456
-  br i1 %457, label %458, label %459
-
-458:                                              ; preds = %446
-  call void @ResizeCountNodePages()
-  br label %459
-
-459:                                              ; preds = %458, %446
-  %460 = load i32, ptr @memOut, align 4
-  %461 = icmp ne i32 %460, 0
-  br i1 %461, label %462, label %530
-
-462:                                              ; preds = %459
-  store i32 0, ptr %10, align 4
-  br label %463
-
-463:                                              ; preds = %486, %462
-  %464 = load i32, ptr %10, align 4
-  %465 = load i32, ptr @page, align 4
-  %466 = icmp slt i32 %464, %465
-  br i1 %466, label %467, label %489
-
-467:                                              ; preds = %463
-  %468 = load ptr, ptr @mintermPages, align 8
-  %469 = load i32, ptr %10, align 4
-  %470 = sext i32 %469 to i64
-  %471 = getelementptr inbounds ptr, ptr %468, i64 %470
-  %472 = load ptr, ptr %471, align 8
-  %473 = icmp ne ptr %472, null
-  br i1 %473, label %474, label %484
-
-474:                                              ; preds = %467
-  %475 = load ptr, ptr @mintermPages, align 8
-  %476 = load i32, ptr %10, align 4
-  %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds ptr, ptr %475, i64 %477
-  %479 = load ptr, ptr %478, align 8
-  call void @free(ptr noundef %479) #4
-  %480 = load ptr, ptr @mintermPages, align 8
-  %481 = load i32, ptr %10, align 4
-  %482 = sext i32 %481 to i64
-  %483 = getelementptr inbounds ptr, ptr %480, i64 %482
-  store ptr null, ptr %483, align 8
-  br label %485
-
-484:                                              ; preds = %467
-  br label %485
-
-485:                                              ; preds = %484, %474
-  br label %486
-
-486:                                              ; preds = %485
-  %487 = load i32, ptr %10, align 4
-  %488 = add nsw i32 %487, 1
-  store i32 %488, ptr %10, align 4
-  br label %463, !llvm.loop !37
-
-489:                                              ; preds = %463
-  %490 = load ptr, ptr @mintermPages, align 8
-  %491 = icmp ne ptr %490, null
-  br i1 %491, label %492, label %494
-
-492:                                              ; preds = %489
-  %493 = load ptr, ptr @mintermPages, align 8
-  call void @free(ptr noundef %493) #4
-  store ptr null, ptr @mintermPages, align 8
-  br label %495
-
-494:                                              ; preds = %489
-  br label %495
-
-495:                                              ; preds = %494, %492
-  store i32 0, ptr %10, align 4
-  br label %496
-
-496:                                              ; preds = %519, %495
-  %497 = load i32, ptr %10, align 4
-  %498 = load i32, ptr @nodeDataPage, align 4
-  %499 = icmp slt i32 %497, %498
-  br i1 %499, label %500, label %522
-
-500:                                              ; preds = %496
-  %501 = load ptr, ptr @nodeDataPages, align 8
-  %502 = load i32, ptr %10, align 4
-  %503 = sext i32 %502 to i64
-  %504 = getelementptr inbounds ptr, ptr %501, i64 %503
-  %505 = load ptr, ptr %504, align 8
-  %506 = icmp ne ptr %505, null
-  br i1 %506, label %507, label %517
-
-507:                                              ; preds = %500
-  %508 = load ptr, ptr @nodeDataPages, align 8
-  %509 = load i32, ptr %10, align 4
-  %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds ptr, ptr %508, i64 %510
-  %512 = load ptr, ptr %511, align 8
-  call void @free(ptr noundef %512) #4
-  %513 = load ptr, ptr @nodeDataPages, align 8
-  %514 = load i32, ptr %10, align 4
-  %515 = sext i32 %514 to i64
-  %516 = getelementptr inbounds ptr, ptr %513, i64 %515
-  store ptr null, ptr %516, align 8
-  br label %518
-
-517:                                              ; preds = %500
-  br label %518
-
-518:                                              ; preds = %517, %507
-  br label %519
-
-519:                                              ; preds = %518
-  %520 = load i32, ptr %10, align 4
-  %521 = add nsw i32 %520, 1
-  store i32 %521, ptr %10, align 4
-  br label %496, !llvm.loop !38
-
-522:                                              ; preds = %496
-  %523 = load ptr, ptr @nodeDataPages, align 8
-  %524 = icmp ne ptr %523, null
-  br i1 %524, label %525, label %527
-
-525:                                              ; preds = %522
-  %526 = load ptr, ptr @nodeDataPages, align 8
-  call void @free(ptr noundef %526) #4
-  store ptr null, ptr @nodeDataPages, align 8
-  br label %528
-
-527:                                              ; preds = %522
-  br label %528
-
-528:                                              ; preds = %527, %525
-  %529 = load ptr, ptr %6, align 8
-  call void @st__free_table(ptr noundef %529)
-  store i32 0, ptr %4, align 4
-  br label %544
-
-530:                                              ; preds = %459
-  %531 = load ptr, ptr @currentNodePage, align 8
-  %532 = load i32, ptr @pageIndex, align 4
-  %533 = sext i32 %532 to i64
-  %534 = getelementptr inbounds i32, ptr %531, i64 %533
-  store ptr %534, ptr %21, align 8
-  %535 = load ptr, ptr %21, align 8
-  store i32 0, ptr %535, align 4
-  %536 = load ptr, ptr %21, align 8
-  %537 = load ptr, ptr %19, align 8
-  %538 = getelementptr inbounds %struct.NodeData, ptr %537, i32 0, i32 1
-  store ptr %536, ptr %538, align 8
-  %539 = load i32, ptr @pageIndex, align 4
-  %540 = add nsw i32 %539, 1
-  store i32 %540, ptr @pageIndex, align 4
-  br label %541
-
-541:                                              ; preds = %530, %348
-  %542 = load ptr, ptr %20, align 8
-  %543 = load i32, ptr %542, align 4
-  store i32 %543, ptr %4, align 4
-  br label %544
-
-544:                                              ; preds = %541, %528, %444, %336, %261, %253, %234, %159, %151, %138, %110, %47, %45, %33
-  %545 = load i32, ptr %4, align 4
-  ret i32 %545
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ResizeCountNodePages() #0 {
-  %1 = alloca i32, align 4
-  %2 = alloca ptr, align 8
-  %3 = load i32, ptr @page, align 4
-  %4 = add nsw i32 %3, 1
-  store i32 %4, ptr @page, align 4
-  %5 = load i32, ptr @page, align 4
-  %6 = load i32, ptr @maxPages, align 4
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %213
-
-8:                                                ; preds = %0
-  %9 = load i32, ptr @maxPages, align 4
-  %10 = add nsw i32 %9, 128
-  %11 = sext i32 %10 to i64
-  %12 = mul i64 8, %11
-  %13 = call noalias ptr @malloc(i64 noundef %12) #5
-  store ptr %13, ptr %2, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %83
-
-16:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %17
-
-17:                                               ; preds = %40, %16
-  %18 = load i32, ptr %1, align 4
-  %19 = load i32, ptr @page, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %43
-
-21:                                               ; preds = %17
-  %22 = load ptr, ptr @nodePages, align 8
-  %23 = load i32, ptr %1, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %38
-
-28:                                               ; preds = %21
-  %29 = load ptr, ptr @nodePages, align 8
-  %30 = load i32, ptr %1, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %33) #4
-  %34 = load ptr, ptr @nodePages, align 8
-  %35 = load i32, ptr %1, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
-  store ptr null, ptr %37, align 8
-  br label %39
-
-38:                                               ; preds = %21
-  br label %39
-
-39:                                               ; preds = %38, %28
-  br label %40
-
-40:                                               ; preds = %39
-  %41 = load i32, ptr %1, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %1, align 4
-  br label %17, !llvm.loop !39
-
-43:                                               ; preds = %17
-  %44 = load ptr, ptr @nodePages, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %48
-
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %47) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %49
-
-48:                                               ; preds = %43
-  br label %49
-
-49:                                               ; preds = %48, %46
-  store i32 0, ptr %1, align 4
-  br label %50
-
-50:                                               ; preds = %73, %49
-  %51 = load i32, ptr %1, align 4
-  %52 = load i32, ptr @page, align 4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %76
-
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @lightNodePages, align 8
-  %56 = load i32, ptr %1, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %71
-
-61:                                               ; preds = %54
-  %62 = load ptr, ptr @lightNodePages, align 8
-  %63 = load i32, ptr %1, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  call void @free(ptr noundef %66) #4
-  %67 = load ptr, ptr @lightNodePages, align 8
-  %68 = load i32, ptr %1, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
-  store ptr null, ptr %70, align 8
-  br label %72
-
-71:                                               ; preds = %54
-  br label %72
-
-72:                                               ; preds = %71, %61
-  br label %73
-
-73:                                               ; preds = %72
-  %74 = load i32, ptr %1, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %1, align 4
-  br label %50, !llvm.loop !40
-
-76:                                               ; preds = %50
-  %77 = load ptr, ptr @lightNodePages, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %76
-  %80 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %80) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %82
-
-81:                                               ; preds = %76
-  br label %82
-
-82:                                               ; preds = %81, %79
-  store i32 1, ptr @memOut, align 4
-  br label %370
-
-83:                                               ; preds = %8
-  store i32 0, ptr %1, align 4
-  br label %84
-
-84:                                               ; preds = %98, %83
-  %85 = load i32, ptr %1, align 4
-  %86 = load i32, ptr @maxPages, align 4
-  %87 = icmp slt i32 %85, %86
-  br i1 %87, label %88, label %101
-
-88:                                               ; preds = %84
-  %89 = load ptr, ptr @nodePages, align 8
-  %90 = load i32, ptr %1, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %2, align 8
-  %95 = load i32, ptr %1, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %94, i64 %96
-  store ptr %93, ptr %97, align 8
-  br label %98
-
-98:                                               ; preds = %88
-  %99 = load i32, ptr %1, align 4
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %1, align 4
-  br label %84, !llvm.loop !41
-
-101:                                              ; preds = %84
-  %102 = load ptr, ptr @nodePages, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %106
-
-104:                                              ; preds = %101
-  %105 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %105) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %107
-
-106:                                              ; preds = %101
-  br label %107
-
-107:                                              ; preds = %106, %104
-  %108 = load ptr, ptr %2, align 8
-  store ptr %108, ptr @nodePages, align 8
-  br label %109
-
-109:                                              ; preds = %107
-  %110 = load i32, ptr @maxPages, align 4
-  %111 = add nsw i32 %110, 128
-  %112 = sext i32 %111 to i64
-  %113 = mul i64 8, %112
-  %114 = call noalias ptr @malloc(i64 noundef %113) #5
-  store ptr %114, ptr %2, align 8
-  %115 = load ptr, ptr %2, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %184
-
-117:                                              ; preds = %109
-  store i32 0, ptr %1, align 4
-  br label %118
-
-118:                                              ; preds = %141, %117
-  %119 = load i32, ptr %1, align 4
-  %120 = load i32, ptr @page, align 4
-  %121 = icmp slt i32 %119, %120
-  br i1 %121, label %122, label %144
-
-122:                                              ; preds = %118
-  %123 = load ptr, ptr @nodePages, align 8
-  %124 = load i32, ptr %1, align 4
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp ne ptr %127, null
-  br i1 %128, label %129, label %139
-
-129:                                              ; preds = %122
-  %130 = load ptr, ptr @nodePages, align 8
-  %131 = load i32, ptr %1, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr %130, i64 %132
-  %134 = load ptr, ptr %133, align 8
-  call void @free(ptr noundef %134) #4
-  %135 = load ptr, ptr @nodePages, align 8
-  %136 = load i32, ptr %1, align 4
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds ptr, ptr %135, i64 %137
-  store ptr null, ptr %138, align 8
-  br label %140
-
-139:                                              ; preds = %122
-  br label %140
-
-140:                                              ; preds = %139, %129
-  br label %141
-
-141:                                              ; preds = %140
-  %142 = load i32, ptr %1, align 4
-  %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %1, align 4
-  br label %118, !llvm.loop !42
-
-144:                                              ; preds = %118
-  %145 = load ptr, ptr @nodePages, align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %147, label %149
-
-147:                                              ; preds = %144
-  %148 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %148) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %150
-
-149:                                              ; preds = %144
-  br label %150
-
-150:                                              ; preds = %149, %147
-  store i32 0, ptr %1, align 4
-  br label %151
-
-151:                                              ; preds = %174, %150
-  %152 = load i32, ptr %1, align 4
-  %153 = load i32, ptr @page, align 4
-  %154 = icmp slt i32 %152, %153
-  br i1 %154, label %155, label %177
-
-155:                                              ; preds = %151
-  %156 = load ptr, ptr @lightNodePages, align 8
-  %157 = load i32, ptr %1, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr %156, i64 %158
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp ne ptr %160, null
-  br i1 %161, label %162, label %172
-
-162:                                              ; preds = %155
-  %163 = load ptr, ptr @lightNodePages, align 8
-  %164 = load i32, ptr %1, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr %163, i64 %165
-  %167 = load ptr, ptr %166, align 8
-  call void @free(ptr noundef %167) #4
-  %168 = load ptr, ptr @lightNodePages, align 8
-  %169 = load i32, ptr %1, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr %168, i64 %170
-  store ptr null, ptr %171, align 8
-  br label %173
-
-172:                                              ; preds = %155
-  br label %173
-
-173:                                              ; preds = %172, %162
-  br label %174
-
-174:                                              ; preds = %173
-  %175 = load i32, ptr %1, align 4
-  %176 = add nsw i32 %175, 1
-  store i32 %176, ptr %1, align 4
-  br label %151, !llvm.loop !43
-
-177:                                              ; preds = %151
-  %178 = load ptr, ptr @lightNodePages, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %182
-
-180:                                              ; preds = %177
-  %181 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %181) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %183
-
-182:                                              ; preds = %177
-  br label %183
-
-183:                                              ; preds = %182, %180
-  store i32 1, ptr @memOut, align 4
-  br label %370
-
-184:                                              ; preds = %109
-  store i32 0, ptr %1, align 4
-  br label %185
-
-185:                                              ; preds = %199, %184
-  %186 = load i32, ptr %1, align 4
-  %187 = load i32, ptr @maxPages, align 4
-  %188 = icmp slt i32 %186, %187
-  br i1 %188, label %189, label %202
-
-189:                                              ; preds = %185
-  %190 = load ptr, ptr @lightNodePages, align 8
-  %191 = load i32, ptr %1, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %2, align 8
-  %196 = load i32, ptr %1, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %195, i64 %197
-  store ptr %194, ptr %198, align 8
-  br label %199
-
-199:                                              ; preds = %189
-  %200 = load i32, ptr %1, align 4
-  %201 = add nsw i32 %200, 1
-  store i32 %201, ptr %1, align 4
-  br label %185, !llvm.loop !44
-
-202:                                              ; preds = %185
-  %203 = load ptr, ptr @lightNodePages, align 8
-  %204 = icmp ne ptr %203, null
-  br i1 %204, label %205, label %207
-
-205:                                              ; preds = %202
-  %206 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %206) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %208
-
-207:                                              ; preds = %202
-  br label %208
-
-208:                                              ; preds = %207, %205
-  %209 = load ptr, ptr %2, align 8
-  store ptr %209, ptr @lightNodePages, align 8
-  br label %210
-
-210:                                              ; preds = %208
-  %211 = load i32, ptr @maxPages, align 4
-  %212 = add nsw i32 %211, 128
-  store i32 %212, ptr @maxPages, align 4
-  br label %213
-
-213:                                              ; preds = %210, %0
-  %214 = load i32, ptr @pageSize, align 4
-  %215 = sext i32 %214 to i64
-  %216 = mul i64 4, %215
-  %217 = call noalias ptr @malloc(i64 noundef %216) #5
-  %218 = load ptr, ptr @nodePages, align 8
-  %219 = load i32, ptr @page, align 4
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
-  store ptr %217, ptr %221, align 8
-  store ptr %217, ptr @currentNodePage, align 8
-  %222 = load ptr, ptr @currentNodePage, align 8
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %224, label %291
-
-224:                                              ; preds = %213
-  store i32 0, ptr %1, align 4
-  br label %225
-
-225:                                              ; preds = %248, %224
-  %226 = load i32, ptr %1, align 4
-  %227 = load i32, ptr @page, align 4
-  %228 = icmp slt i32 %226, %227
-  br i1 %228, label %229, label %251
-
-229:                                              ; preds = %225
-  %230 = load ptr, ptr @nodePages, align 8
-  %231 = load i32, ptr %1, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds ptr, ptr %230, i64 %232
-  %234 = load ptr, ptr %233, align 8
-  %235 = icmp ne ptr %234, null
-  br i1 %235, label %236, label %246
-
-236:                                              ; preds = %229
-  %237 = load ptr, ptr @nodePages, align 8
-  %238 = load i32, ptr %1, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds ptr, ptr %237, i64 %239
-  %241 = load ptr, ptr %240, align 8
-  call void @free(ptr noundef %241) #4
-  %242 = load ptr, ptr @nodePages, align 8
-  %243 = load i32, ptr %1, align 4
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds ptr, ptr %242, i64 %244
-  store ptr null, ptr %245, align 8
-  br label %247
-
-246:                                              ; preds = %229
-  br label %247
-
-247:                                              ; preds = %246, %236
-  br label %248
-
-248:                                              ; preds = %247
-  %249 = load i32, ptr %1, align 4
-  %250 = add nsw i32 %249, 1
-  store i32 %250, ptr %1, align 4
-  br label %225, !llvm.loop !45
-
-251:                                              ; preds = %225
-  %252 = load ptr, ptr @nodePages, align 8
-  %253 = icmp ne ptr %252, null
-  br i1 %253, label %254, label %256
-
-254:                                              ; preds = %251
-  %255 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %255) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %257
-
-256:                                              ; preds = %251
-  br label %257
-
-257:                                              ; preds = %256, %254
-  store i32 0, ptr %1, align 4
-  br label %258
-
-258:                                              ; preds = %281, %257
-  %259 = load i32, ptr %1, align 4
-  %260 = load i32, ptr @page, align 4
-  %261 = icmp slt i32 %259, %260
-  br i1 %261, label %262, label %284
-
-262:                                              ; preds = %258
-  %263 = load ptr, ptr @lightNodePages, align 8
-  %264 = load i32, ptr %1, align 4
-  %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds ptr, ptr %263, i64 %265
-  %267 = load ptr, ptr %266, align 8
-  %268 = icmp ne ptr %267, null
-  br i1 %268, label %269, label %279
-
-269:                                              ; preds = %262
-  %270 = load ptr, ptr @lightNodePages, align 8
-  %271 = load i32, ptr %1, align 4
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %270, i64 %272
-  %274 = load ptr, ptr %273, align 8
-  call void @free(ptr noundef %274) #4
-  %275 = load ptr, ptr @lightNodePages, align 8
-  %276 = load i32, ptr %1, align 4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds ptr, ptr %275, i64 %277
-  store ptr null, ptr %278, align 8
-  br label %280
-
-279:                                              ; preds = %262
-  br label %280
-
-280:                                              ; preds = %279, %269
-  br label %281
-
-281:                                              ; preds = %280
-  %282 = load i32, ptr %1, align 4
-  %283 = add nsw i32 %282, 1
-  store i32 %283, ptr %1, align 4
-  br label %258, !llvm.loop !46
-
-284:                                              ; preds = %258
-  %285 = load ptr, ptr @lightNodePages, align 8
-  %286 = icmp ne ptr %285, null
-  br i1 %286, label %287, label %289
-
-287:                                              ; preds = %284
-  %288 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %288) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %290
-
-289:                                              ; preds = %284
-  br label %290
-
-290:                                              ; preds = %289, %287
-  store i32 1, ptr @memOut, align 4
-  br label %370
-
-291:                                              ; preds = %213
-  %292 = load i32, ptr @pageSize, align 4
-  %293 = sext i32 %292 to i64
-  %294 = mul i64 4, %293
-  %295 = call noalias ptr @malloc(i64 noundef %294) #5
-  %296 = load ptr, ptr @lightNodePages, align 8
-  %297 = load i32, ptr @page, align 4
-  %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %296, i64 %298
-  store ptr %295, ptr %299, align 8
-  store ptr %295, ptr @currentLightNodePage, align 8
-  %300 = load ptr, ptr @currentLightNodePage, align 8
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %302, label %369
-
-302:                                              ; preds = %291
-  store i32 0, ptr %1, align 4
-  br label %303
-
-303:                                              ; preds = %326, %302
-  %304 = load i32, ptr %1, align 4
-  %305 = load i32, ptr @page, align 4
-  %306 = icmp sle i32 %304, %305
-  br i1 %306, label %307, label %329
-
-307:                                              ; preds = %303
-  %308 = load ptr, ptr @nodePages, align 8
-  %309 = load i32, ptr %1, align 4
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds ptr, ptr %308, i64 %310
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp ne ptr %312, null
-  br i1 %313, label %314, label %324
-
-314:                                              ; preds = %307
-  %315 = load ptr, ptr @nodePages, align 8
-  %316 = load i32, ptr %1, align 4
-  %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds ptr, ptr %315, i64 %317
-  %319 = load ptr, ptr %318, align 8
-  call void @free(ptr noundef %319) #4
-  %320 = load ptr, ptr @nodePages, align 8
-  %321 = load i32, ptr %1, align 4
-  %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds ptr, ptr %320, i64 %322
-  store ptr null, ptr %323, align 8
-  br label %325
-
-324:                                              ; preds = %307
-  br label %325
-
-325:                                              ; preds = %324, %314
-  br label %326
-
-326:                                              ; preds = %325
-  %327 = load i32, ptr %1, align 4
-  %328 = add nsw i32 %327, 1
-  store i32 %328, ptr %1, align 4
-  br label %303, !llvm.loop !47
-
-329:                                              ; preds = %303
-  %330 = load ptr, ptr @nodePages, align 8
-  %331 = icmp ne ptr %330, null
-  br i1 %331, label %332, label %334
-
-332:                                              ; preds = %329
-  %333 = load ptr, ptr @nodePages, align 8
-  call void @free(ptr noundef %333) #4
-  store ptr null, ptr @nodePages, align 8
-  br label %335
-
-334:                                              ; preds = %329
-  br label %335
-
-335:                                              ; preds = %334, %332
-  store i32 0, ptr %1, align 4
-  br label %336
-
-336:                                              ; preds = %359, %335
-  %337 = load i32, ptr %1, align 4
-  %338 = load i32, ptr @page, align 4
-  %339 = icmp slt i32 %337, %338
-  br i1 %339, label %340, label %362
-
-340:                                              ; preds = %336
-  %341 = load ptr, ptr @lightNodePages, align 8
-  %342 = load i32, ptr %1, align 4
-  %343 = sext i32 %342 to i64
-  %344 = getelementptr inbounds ptr, ptr %341, i64 %343
-  %345 = load ptr, ptr %344, align 8
-  %346 = icmp ne ptr %345, null
-  br i1 %346, label %347, label %357
-
-347:                                              ; preds = %340
-  %348 = load ptr, ptr @lightNodePages, align 8
-  %349 = load i32, ptr %1, align 4
-  %350 = sext i32 %349 to i64
-  %351 = getelementptr inbounds ptr, ptr %348, i64 %350
-  %352 = load ptr, ptr %351, align 8
-  call void @free(ptr noundef %352) #4
-  %353 = load ptr, ptr @lightNodePages, align 8
-  %354 = load i32, ptr %1, align 4
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds ptr, ptr %353, i64 %355
-  store ptr null, ptr %356, align 8
-  br label %358
-
-357:                                              ; preds = %340
-  br label %358
-
-358:                                              ; preds = %357, %347
+  %352 = getelementptr inbounds ptr, ptr %349, i64 %351
+  %353 = load ptr, ptr %352, align 8, !tbaa !36
+  call void @free(ptr noundef %353) #5
+  %354 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %355 = load i32, ptr %1, align 4, !tbaa !10
+  %356 = sext i32 %355 to i64
+  %357 = getelementptr inbounds ptr, ptr %354, i64 %356
+  store ptr null, ptr %357, align 8, !tbaa !36
   br label %359
 
-359:                                              ; preds = %358
-  %360 = load i32, ptr %1, align 4
-  %361 = add nsw i32 %360, 1
-  store i32 %361, ptr %1, align 4
-  br label %336, !llvm.loop !48
+358:                                              ; preds = %341
+  br label %359
 
-362:                                              ; preds = %336
-  %363 = load ptr, ptr @lightNodePages, align 8
-  %364 = icmp ne ptr %363, null
-  br i1 %364, label %365, label %367
+359:                                              ; preds = %358, %348
+  br label %360
 
-365:                                              ; preds = %362
-  %366 = load ptr, ptr @lightNodePages, align 8
-  call void @free(ptr noundef %366) #4
-  store ptr null, ptr @lightNodePages, align 8
-  br label %368
+360:                                              ; preds = %359
+  %361 = load i32, ptr %1, align 4, !tbaa !10
+  %362 = add nsw i32 %361, 1
+  store i32 %362, ptr %1, align 4, !tbaa !10
+  br label %337, !llvm.loop !99
 
-367:                                              ; preds = %362
-  br label %368
+363:                                              ; preds = %337
+  %364 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  %365 = icmp ne ptr %364, null
+  br i1 %365, label %366, label %368
 
-368:                                              ; preds = %367, %365
-  store i32 1, ptr @memOut, align 4
-  br label %370
+366:                                              ; preds = %363
+  %367 = load ptr, ptr @lightNodePages, align 8, !tbaa !49
+  call void @free(ptr noundef %367) #5
+  store ptr null, ptr @lightNodePages, align 8, !tbaa !49
+  br label %369
 
-369:                                              ; preds = %291
-  store i32 0, ptr @pageIndex, align 4
-  br label %370
+368:                                              ; preds = %363
+  br label %369
 
-370:                                              ; preds = %369, %368, %290, %183, %82
+369:                                              ; preds = %368, %366
+  store i32 1, ptr @memOut, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %371
+
+370:                                              ; preds = %292
+  store i32 0, ptr @pageIndex, align 4, !tbaa !10
+  store i32 1, ptr %3, align 4
+  br label %371
+
+371:                                              ; preds = %370, %369, %291, %184, %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
@@ -4638,150 +4836,212 @@ define internal void @StoreNodes(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, -2
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds %struct.DdNode, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 2147483647
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %3
-  br label %66
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, -2
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw %struct.DdNode, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8, !tbaa !32
+  %17 = icmp eq i32 %16, 2147483647
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %6, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  store ptr %22, ptr %7, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @st__lookup(ptr noundef %23, ptr noundef %24, ptr noundef null)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %28
+  store i32 1, ptr %10, align 4
+  br label %67
 
-27:                                               ; preds = %18
-  br label %66
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %7, align 8, !tbaa !8
+  %24 = load ptr, ptr %4, align 8, !tbaa !34
+  %25 = load ptr, ptr %7, align 8, !tbaa !8
+  %26 = call i32 @st__lookup(ptr noundef %24, ptr noundef %25, ptr noundef null)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %7, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -2
-  %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds %struct.DdNode, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %33, align 4
-  %36 = load ptr, ptr %4, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = call i32 @st__insert(ptr noundef %36, ptr noundef %37, ptr noundef null)
-  %39 = icmp eq i32 %38, -10000
-  br i1 %39, label %40, label %45
+28:                                               ; preds = %19
+  store i32 1, ptr %10, align 4
+  br label %67
 
-40:                                               ; preds = %28
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.DdManager, ptr %41, i32 0, i32 85
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.3) #4
-  br label %45
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %7, align 8, !tbaa !8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = and i64 %31, -2
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds nuw %struct.DdNode, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !37
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4, !tbaa !37
+  %37 = load ptr, ptr %4, align 8, !tbaa !34
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = call i32 @st__insert(ptr noundef %37, ptr noundef %38, ptr noundef null)
+  %40 = icmp eq i32 %39, -10000
+  br i1 %40, label %41, label %46
 
-45:                                               ; preds = %40, %28
-  %46 = load ptr, ptr %7, align 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = and i64 %47, -2
-  %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds %struct.DdNode, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds %struct.DdChildren, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %8, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, -2
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds %struct.DdNode, ptr %56, i32 0, i32 3
-  %58 = getelementptr inbounds %struct.DdChildren, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %9, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %8, align 8
-  call void @StoreNodes(ptr noundef %60, ptr noundef %61, ptr noundef %62)
-  %63 = load ptr, ptr %4, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %9, align 8
-  call void @StoreNodes(ptr noundef %63, ptr noundef %64, ptr noundef %65)
-  br label %66
+41:                                               ; preds = %29
+  %42 = load ptr, ptr %5, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.DdManager, ptr %42, i32 0, i32 85
+  %44 = load ptr, ptr %43, align 8, !tbaa !30
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.3) #5
+  br label %46
 
-66:                                               ; preds = %45, %27, %17
+46:                                               ; preds = %41, %29
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = and i64 %48, -2
+  %50 = inttoptr i64 %49 to ptr
+  %51 = getelementptr inbounds nuw %struct.DdNode, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds nuw %struct.DdChildren, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !67
+  store ptr %53, ptr %8, align 8, !tbaa !8
+  %54 = load ptr, ptr %7, align 8, !tbaa !8
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, -2
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds nuw %struct.DdNode, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.DdChildren, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
+  store ptr %60, ptr %9, align 8, !tbaa !8
+  %61 = load ptr, ptr %4, align 8, !tbaa !34
+  %62 = load ptr, ptr %5, align 8, !tbaa !3
+  %63 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @StoreNodes(ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  %64 = load ptr, ptr %4, align 8, !tbaa !34
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @StoreNodes(ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store i32 1, ptr %10, align 4
+  br label %67
+
+67:                                               ; preds = %46, %28, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret void
 }
 
-declare i32 @Cudd_NodeReadIndex(ptr noundef) #2
+declare i32 @Cudd_NodeReadIndex(ptr noundef) #3
 
-declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) #2
+declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) #3
 
-declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9DdManager", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !11, i64 448}
+!13 = !{!"DdManager", !14, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !16, i64 80, !16, i64 88, !11, i64 96, !11, i64 100, !17, i64 104, !17, i64 112, !17, i64 120, !11, i64 128, !11, i64 132, !11, i64 136, !11, i64 140, !11, i64 144, !11, i64 148, !18, i64 152, !18, i64 160, !19, i64 168, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !11, i64 244, !11, i64 248, !17, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !20, i64 280, !15, i64 288, !17, i64 296, !11, i64 304, !21, i64 312, !21, i64 320, !21, i64 328, !21, i64 336, !20, i64 344, !21, i64 352, !20, i64 360, !11, i64 368, !22, i64 376, !22, i64 384, !20, i64 392, !9, i64 400, !23, i64 408, !20, i64 416, !11, i64 424, !11, i64 428, !11, i64 432, !17, i64 440, !11, i64 448, !11, i64 452, !11, i64 456, !11, i64 460, !17, i64 464, !17, i64 472, !11, i64 480, !11, i64 484, !11, i64 488, !11, i64 492, !11, i64 496, !11, i64 500, !11, i64 504, !11, i64 508, !11, i64 512, !24, i64 520, !24, i64 528, !11, i64 536, !11, i64 540, !11, i64 544, !11, i64 548, !11, i64 552, !11, i64 556, !25, i64 560, !23, i64 568, !26, i64 576, !26, i64 584, !26, i64 592, !26, i64 600, !27, i64 608, !27, i64 616, !11, i64 624, !15, i64 632, !15, i64 640, !15, i64 648, !11, i64 656, !15, i64 664, !15, i64 672, !17, i64 680, !17, i64 688, !17, i64 696, !17, i64 704, !17, i64 712, !17, i64 720, !11, i64 728, !9, i64 736, !9, i64 744, !15, i64 752}
+!14 = !{!"DdNode", !11, i64 0, !11, i64 4, !9, i64 8, !6, i64 16, !15, i64 32}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!17 = !{!"double", !6, i64 0}
+!18 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!19 = !{!"DdSubtable", !20, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48}
+!20 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!21 = !{!"p1 int", !5, i64 0}
+!22 = !{!"p1 long", !5, i64 0}
+!23 = !{!"p1 omnipotent char", !5, i64 0}
+!24 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!25 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!26 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!27 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!13, !27, i64 616}
+!31 = !{!13, !11, i64 624}
+!32 = !{!14, !11, i64 0}
+!33 = !{!17, !17, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS9st__table", !5, i64 0}
+!36 = !{!21, !21, i64 0}
+!37 = !{!14, !11, i64 4}
+!38 = !{!13, !27, i64 608}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS13st__generator", !5, i64 0}
+!41 = !{!23, !23, i64 0}
+!42 = distinct !{!42, !29}
+!43 = distinct !{!43, !29}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p2 double", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 double", !5, i64 0}
+!48 = distinct !{!48, !29}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p2 int", !5, i64 0}
+!51 = distinct !{!51, !29}
+!52 = distinct !{!52, !29}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p2 _ZTS8NodeData", !5, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS8NodeData", !5, i64 0}
+!57 = distinct !{!57, !29}
+!58 = distinct !{!58, !29}
+!59 = distinct !{!59, !29}
+!60 = distinct !{!60, !29}
+!61 = distinct !{!61, !29}
+!62 = distinct !{!62, !29}
+!63 = distinct !{!63, !29}
+!64 = distinct !{!64, !29}
+!65 = distinct !{!65, !29}
+!66 = distinct !{!66, !29}
+!67 = !{!6, !6, i64 0}
+!68 = !{!69, !47, i64 0}
+!69 = !{!"NodeData", !47, i64 0, !21, i64 8, !21, i64 16}
+!70 = !{!69, !21, i64 16}
+!71 = distinct !{!71, !29}
+!72 = distinct !{!72, !29}
+!73 = !{!69, !21, i64 8}
+!74 = distinct !{!74, !29}
+!75 = distinct !{!75, !29}
+!76 = distinct !{!76, !29}
+!77 = distinct !{!77, !29}
+!78 = distinct !{!78, !29}
+!79 = distinct !{!79, !29}
+!80 = distinct !{!80, !29}
+!81 = distinct !{!81, !29}
+!82 = distinct !{!82, !29}
+!83 = distinct !{!83, !29}
+!84 = distinct !{!84, !29}
+!85 = distinct !{!85, !29}
+!86 = distinct !{!86, !29}
+!87 = distinct !{!87, !29}
+!88 = distinct !{!88, !29}
+!89 = distinct !{!89, !29}
+!90 = distinct !{!90, !29}
+!91 = distinct !{!91, !29}
+!92 = distinct !{!92, !29}
+!93 = distinct !{!93, !29}
+!94 = distinct !{!94, !29}
+!95 = distinct !{!95, !29}
+!96 = distinct !{!96, !29}
+!97 = distinct !{!97, !29}
+!98 = distinct !{!98, !29}
+!99 = distinct !{!99, !29}

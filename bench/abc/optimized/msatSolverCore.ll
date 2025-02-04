@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/msatSolverCore.c.ll'
-source_filename = "bench/abc/original/msatSolverCore.c.ll"
+; ModuleID = 'bench/abc/original/msatSolverCore.ll'
+source_filename = "bench/abc/original/msatSolverCore.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -18,28 +18,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Msat_SolverAddVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !22
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = shl nsw i32 %4, 1
   tail call void @Msat_SolverResize(ptr noundef nonnull %0, i32 noundef %9) #8
-  %.pre = load i32, ptr %3, align 8
+  %.pre = load i32, ptr %3, align 8, !tbaa !3
   br label %10
 
 10:                                               ; preds = %8, %2
   %11 = phi i32 [ %.pre, %8 ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds i32, ptr %13, i64 %14
-  store i32 %1, ptr %15, align 4
-  %16 = load i32, ptr %3, align 8
+  store i32 %1, ptr %15, align 4, !tbaa !24
+  %16 = load i32, ptr %3, align 8, !tbaa !3
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %3, align 8
+  store i32 %17, ptr %3, align 8, !tbaa !3
   ret i32 1
 }
 
@@ -48,29 +48,37 @@ declare void @Msat_SolverResize(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @Msat_SolverAddClause(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = call i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3) #8
-  %5 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8, !tbaa !25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   call void @Msat_ClauseVecPush(ptr noundef %8, ptr noundef nonnull %5) #8
   br label %9
 
 9:                                                ; preds = %6, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret i32 %4
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @Msat_ClauseCreate(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Msat_ClauseVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = sitofp i32 %3 to double
   %5 = fdiv double 1.000000e+00, %4
   %6 = icmp sgt i32 %3, 0
@@ -78,36 +86,36 @@ define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  br label %9
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %21
-  %10 = phi i32 [ %3, %.lr.ph ], [ %22, %21 ]
+10:                                               ; preds = %.lr.ph, %21
+  %11 = phi i32 [ %3, %.lr.ph ], [ %22, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %21 ]
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
+  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4, !tbaa !24
   %.not = icmp eq i32 %13, -1
   br i1 %.not, label %21, label %14
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %8, align 8
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %9, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !24
   %18 = sitofp i32 %17 to double
-  %19 = tail call double @pow(double noundef %5, double noundef %18) #8
+  %19 = tail call double @pow(double noundef %5, double noundef %18) #8, !tbaa !24
   %20 = fadd double %.01113, %19
-  %.pre = load i32, ptr %2, align 8
+  %.pre = load i32, ptr %2, align 8, !tbaa !3
   br label %21
 
-21:                                               ; preds = %9, %14
-  %22 = phi i32 [ %.pre, %14 ], [ %10, %9 ]
-  %.1 = phi double [ %20, %14 ], [ %.01113, %9 ]
+21:                                               ; preds = %10, %14
+  %22 = phi i32 [ %.pre, %14 ], [ %11, %10 ]
+  %.1 = phi double [ %20, %14 ], [ %.01113, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %9, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %24, label %10, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %21
   %.pre18 = sitofp i32 %22 to double
@@ -121,44 +129,44 @@ define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #3
+declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_SolverPrintStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %8) #8
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %6, i32 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !32
   %13 = trunc i64 %12 to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %16 = load i64, ptr %15, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !33
   %17 = trunc i64 %16 to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %20 = load i64, ptr %19, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !34
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %21)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %24 = load i64, ptr %23, align 8
+  %24 = load i64, ptr %23, align 8, !tbaa !35
   %25 = trunc i64 %24 to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %25)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %28 = load i64, ptr %27, align 8
+  %28 = load i64, ptr %27, align 8, !tbaa !36
   %29 = trunc i64 %28 to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %29)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #1
 
@@ -167,211 +175,213 @@ define i32 @Msat_SolverSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.Msat_SearchParams_t_, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) @__const.Msat_SolverSolve.Params, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = load i64, ptr %6, align 8
-  %.neg55 = mul i64 %11, -1000000
+  %11 = load i64, ptr %6, align 8, !tbaa !37
+  %.neg59 = mul i64 %11, -1000000
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   %.neg = sdiv i64 %13, -1000
-  %.neg56 = add i64 %.neg, %.neg55
+  %.neg60 = add i64 %.neg, %.neg59
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %4, %10
-  %.0.i.neg = phi i64 [ %.neg56, %10 ], [ 1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  %.0.i.neg = phi i64 [ %.neg60, %10 ], [ 1, %4 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.loopexit, label %14
+  br i1 %.not, label %.critedge, label %14
 
 14:                                               ; preds = %Abc_Clock.exit
   %15 = call i32 @Msat_IntVecReadSize(ptr noundef nonnull %1) #8
   %16 = call ptr @Msat_IntVecReadArray(ptr noundef nonnull %1) #8
-  %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %.lr.ph.preheader, label %.loopexit
+  %.not5461 = icmp sgt i32 %15, 0
+  br i1 %.not5461, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %14
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
-18:                                               ; preds = %22
+17:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !40
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4
-  %21 = call i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %20) #8
-  %.not51 = icmp eq i32 %21, 0
-  br i1 %.not51, label %24, label %22
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !24
+  %20 = call i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %19) #8
+  %.not52 = icmp eq i32 %20, 0
+  br i1 %.not52, label %23, label %21
 
-22:                                               ; preds = %.lr.ph
-  %23 = call ptr @Msat_SolverPropagate(ptr noundef %0) #8
-  %.not52 = icmp eq ptr %23, null
-  br i1 %.not52, label %18, label %24
+21:                                               ; preds = %.lr.ph
+  %22 = call ptr @Msat_SolverPropagate(ptr noundef %0) #8
+  %.not53 = icmp eq ptr %22, null
+  br i1 %.not53, label %17, label %23
 
-24:                                               ; preds = %22, %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8
-  call void @Msat_QueueClear(ptr noundef %26) #8
+23:                                               ; preds = %21, %.lr.ph
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  call void @Msat_QueueClear(ptr noundef %25) #8
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
-  br label %100
+  br label %99
 
-.loopexit:                                        ; preds = %18, %14, %Abc_Clock.exit
-  %27 = call i32 @Msat_SolverReadDecisionLevel(ptr noundef %0) #8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @Msat_ClauseVecReadSize(ptr noundef %30) #8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %31, ptr %32, align 8
-  %33 = load ptr, ptr %29, align 8
-  %34 = call i32 @Msat_ClauseVecReadSize(ptr noundef %33) #8
-  %35 = sdiv i32 %34, 3
-  %36 = sitofp i32 %35 to double
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load i64, ptr %37, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %43 = icmp sgt i32 %2, 0
-  %44 = icmp sgt i32 %3, 0
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %46 = zext nneg i32 %3 to i64
-  %47 = mul nuw nsw i64 %46, 1000000
-  br i1 %44, label %.split.us, label %.split
+.critedge:                                        ; preds = %17, %14, %Abc_Clock.exit
+  %26 = call i32 @Msat_SolverReadDecisionLevel(ptr noundef %0) #8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 %26, ptr %27, align 8, !tbaa !42
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %30 = call i32 @Msat_ClauseVecReadSize(ptr noundef %29) #8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %30, ptr %31, align 8, !tbaa !43
+  %32 = load ptr, ptr %28, align 8, !tbaa !27
+  %33 = call i32 @Msat_ClauseVecReadSize(ptr noundef %32) #8
+  %34 = sdiv i32 %33, 3
+  %35 = sitofp i32 %34 to double
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %37 = load i64, ptr %36, align 8, !tbaa !33
+  %38 = trunc i64 %37 to i32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  store i32 %38, ptr %39, align 4, !tbaa !44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %42 = icmp sgt i32 %2, 0
+  %43 = icmp sgt i32 %3, 0
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %45 = zext nneg i32 %3 to i64
+  %46 = mul nuw nsw i64 %45, 1000000
+  br i1 %43, label %.critedge.split.us, label %.critedge.split
 
-.split.us:                                        ; preds = %.loopexit, %Abc_Clock.exit54.us
-  %.04359.us = phi double [ %54, %Abc_Clock.exit54.us ], [ 1.000000e+02, %.loopexit ]
-  %.04458.us = phi double [ %55, %Abc_Clock.exit54.us ], [ %36, %.loopexit ]
-  %48 = load i32, ptr %41, align 8
-  %.not49.us = icmp eq i32 %48, 0
-  %.pre = fptosi double %.04359.us to i32
-  %.pre72 = fptosi double %.04458.us to i32
-  br i1 %.not49.us, label %.split.us._crit_edge, label %49
+.critedge.split.us:                               ; preds = %.critedge, %Abc_Clock.exit58.us
+  %.04564.us = phi double [ %53, %Abc_Clock.exit58.us ], [ 1.000000e+02, %.critedge ]
+  %.04663.us = phi double [ %54, %Abc_Clock.exit58.us ], [ %35, %.critedge ]
+  %47 = load i32, ptr %40, align 8, !tbaa !45
+  %.not55.us = icmp eq i32 %47, 0
+  %.pre = fptosi double %.04564.us to i32
+  %.pre75 = fptosi double %.04663.us to i32
+  br i1 %.not55.us, label %.critedge.split.us._crit_edge, label %48
 
-49:                                               ; preds = %.split.us
-  %50 = load double, ptr %42, align 8
-  %51 = fmul double %50, 1.000000e+02
-  %52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre, i32 noundef %.pre72, double noundef %51)
-  br label %.split.us._crit_edge
+48:                                               ; preds = %.critedge.split.us
+  %49 = load double, ptr %41, align 8, !tbaa !46
+  %50 = fmul double %49, 1.000000e+02
+  %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre, i32 noundef %.pre75, double noundef %50)
+  br label %.critedge.split.us._crit_edge
 
-.split.us._crit_edge:                             ; preds = %.split.us, %49
-  %53 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef %.pre72, i32 noundef %2, ptr noundef nonnull %7) #8
-  %54 = fmul double %.04359.us, 1.500000e+00
-  %55 = fmul double %.04458.us, 1.100000e+00
-  br i1 %43, label %56, label %62
+.critedge.split.us._crit_edge:                    ; preds = %.critedge.split.us, %48
+  %52 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef %.pre75, i32 noundef %2, ptr noundef nonnull %7) #8
+  %53 = fmul double %.04564.us, 1.500000e+00
+  %54 = fmul double %.04663.us, 1.100000e+00
+  br i1 %42, label %55, label %61
 
-56:                                               ; preds = %.split.us._crit_edge
-  %57 = load i64, ptr %37, align 8
-  %58 = trunc i64 %57 to i32
-  %59 = load i32, ptr %40, align 4
-  %60 = sub nsw i32 %58, %59
-  %61 = icmp sgt i32 %60, %2
-  br i1 %61, label %.split61.us, label %62
+55:                                               ; preds = %.critedge.split.us._crit_edge
+  %56 = load i64, ptr %36, align 8, !tbaa !33
+  %57 = trunc i64 %56 to i32
+  %58 = load i32, ptr %39, align 4, !tbaa !44
+  %59 = sub nsw i32 %57, %58
+  %60 = icmp sgt i32 %59, %2
+  br i1 %60, label %.split.us, label %61
 
-62:                                               ; preds = %56, %.split.us._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %63 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #8
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %Abc_Clock.exit54.us, label %65
+61:                                               ; preds = %55, %.critedge.split.us._crit_edge
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  %62 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #8
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %Abc_Clock.exit58.us, label %64
 
-65:                                               ; preds = %62
-  %66 = load i64, ptr %5, align 8
-  %67 = mul nsw i64 %66, 1000000
-  %68 = load i64, ptr %45, align 8
-  %69 = sdiv i64 %68, 1000
-  %70 = add nsw i64 %69, %67
-  br label %Abc_Clock.exit54.us
+64:                                               ; preds = %61
+  %65 = load i64, ptr %5, align 8, !tbaa !37
+  %66 = mul nsw i64 %65, 1000000
+  %67 = load i64, ptr %44, align 8, !tbaa !39
+  %68 = sdiv i64 %67, 1000
+  %69 = add nsw i64 %68, %66
+  br label %Abc_Clock.exit58.us
 
-Abc_Clock.exit54.us:                              ; preds = %65, %62
-  %.0.i53.us = phi i64 [ %70, %65 ], [ -1, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %71 = add i64 %.0.i53.us, %.0.i.neg
-  %.not50.us = icmp slt i64 %71, %47
-  %72 = icmp eq i32 %53, 0
-  %or.cond = select i1 %.not50.us, i1 %72, i1 false
-  br i1 %or.cond, label %.split.us, label %.split61.us, !llvm.loop !7
+Abc_Clock.exit58.us:                              ; preds = %64, %61
+  %.0.i57.us = phi i64 [ %69, %64 ], [ -1, %61 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  %70 = add i64 %.0.i57.us, %.0.i.neg
+  %.not56.us = icmp slt i64 %70, %46
+  %71 = icmp eq i32 %52, 0
+  %or.cond = select i1 %.not56.us, i1 %71, i1 false
+  br i1 %or.cond, label %.critedge.split.us, label %.split.us, !llvm.loop !47
 
-.split:                                           ; preds = %.loopexit
-  br i1 %43, label %.split.split.us, label %.split.split
+.critedge.split:                                  ; preds = %.critedge
+  br i1 %42, label %.critedge.split.split.us, label %.critedge.split.split
 
-.split.split.us:                                  ; preds = %.split, %.split.split.us._crit_edge
-  %.04359.us62 = phi double [ %79, %.split.split.us._crit_edge ], [ 1.000000e+02, %.split ]
-  %.04458.us63 = phi double [ %80, %.split.split.us._crit_edge ], [ %36, %.split ]
-  %73 = load i32, ptr %41, align 8
-  %.not49.us64 = icmp eq i32 %73, 0
-  %.pre74 = fptosi double %.04359.us62 to i32
-  %.pre76 = fptosi double %.04458.us63 to i32
-  br i1 %.not49.us64, label %.split.split.us._crit_edge, label %74
+.critedge.split.split.us:                         ; preds = %.critedge.split, %.critedge.split.split.us._crit_edge
+  %.04564.us65 = phi double [ %78, %.critedge.split.split.us._crit_edge ], [ 1.000000e+02, %.critedge.split ]
+  %.04663.us66 = phi double [ %79, %.critedge.split.split.us._crit_edge ], [ %35, %.critedge.split ]
+  %72 = load i32, ptr %40, align 8, !tbaa !45
+  %.not55.us67 = icmp eq i32 %72, 0
+  %.pre77 = fptosi double %.04564.us65 to i32
+  %.pre79 = fptosi double %.04663.us66 to i32
+  br i1 %.not55.us67, label %.critedge.split.split.us._crit_edge, label %73
 
-74:                                               ; preds = %.split.split.us
-  %75 = load double, ptr %42, align 8
-  %76 = fmul double %75, 1.000000e+02
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre74, i32 noundef %.pre76, double noundef %76)
-  br label %.split.split.us._crit_edge
+73:                                               ; preds = %.critedge.split.split.us
+  %74 = load double, ptr %41, align 8, !tbaa !46
+  %75 = fmul double %74, 1.000000e+02
+  %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre77, i32 noundef %.pre79, double noundef %75)
+  br label %.critedge.split.split.us._crit_edge
 
-.split.split.us._crit_edge:                       ; preds = %.split.split.us, %74
-  %78 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre74, i32 noundef %.pre76, i32 noundef %2, ptr noundef nonnull %7) #8
-  %79 = fmul double %.04359.us62, 1.500000e+00
-  %80 = fmul double %.04458.us63, 1.100000e+00
-  %81 = load i64, ptr %37, align 8
-  %82 = trunc i64 %81 to i32
-  %83 = load i32, ptr %40, align 4
-  %84 = sub nsw i32 %82, %83
-  %85 = icmp sle i32 %84, %2
-  %86 = icmp eq i32 %78, 0
-  %or.cond66 = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond66, label %.split.split.us, label %.split61.us, !llvm.loop !7
+.critedge.split.split.us._crit_edge:              ; preds = %.critedge.split.split.us, %73
+  %77 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre77, i32 noundef %.pre79, i32 noundef %2, ptr noundef nonnull %7) #8
+  %78 = fmul double %.04564.us65, 1.500000e+00
+  %79 = fmul double %.04663.us66, 1.100000e+00
+  %80 = load i64, ptr %36, align 8, !tbaa !33
+  %81 = trunc i64 %80 to i32
+  %82 = load i32, ptr %39, align 4, !tbaa !44
+  %83 = sub nsw i32 %81, %82
+  %84 = icmp sle i32 %83, %2
+  %85 = icmp eq i32 %77, 0
+  %or.cond69 = select i1 %84, i1 %85, i1 false
+  br i1 %or.cond69, label %.critedge.split.split.us, label %.split.us, !llvm.loop !47
 
-.split.split:                                     ; preds = %.split, %.split.split._crit_edge
-  %.04359 = phi double [ %93, %.split.split._crit_edge ], [ 1.000000e+02, %.split ]
-  %.04458 = phi double [ %94, %.split.split._crit_edge ], [ %36, %.split ]
-  %87 = load i32, ptr %41, align 8
-  %.not49 = icmp eq i32 %87, 0
-  %.pre78 = fptosi double %.04359 to i32
-  %.pre80 = fptosi double %.04458 to i32
-  br i1 %.not49, label %.split.split._crit_edge, label %88
+.critedge.split.split:                            ; preds = %.critedge.split, %.critedge.split.split._crit_edge
+  %.04564 = phi double [ %92, %.critedge.split.split._crit_edge ], [ 1.000000e+02, %.critedge.split ]
+  %.04663 = phi double [ %93, %.critedge.split.split._crit_edge ], [ %35, %.critedge.split ]
+  %86 = load i32, ptr %40, align 8, !tbaa !45
+  %.not55 = icmp eq i32 %86, 0
+  %.pre81 = fptosi double %.04564 to i32
+  %.pre83 = fptosi double %.04663 to i32
+  br i1 %.not55, label %.critedge.split.split._crit_edge, label %87
 
-88:                                               ; preds = %.split.split
-  %89 = load double, ptr %42, align 8
-  %90 = fmul double %89, 1.000000e+02
-  %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre78, i32 noundef %.pre80, double noundef %90)
-  br label %.split.split._crit_edge
+87:                                               ; preds = %.critedge.split.split
+  %88 = load double, ptr %41, align 8, !tbaa !46
+  %89 = fmul double %88, 1.000000e+02
+  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre81, i32 noundef %.pre83, double noundef %89)
+  br label %.critedge.split.split._crit_edge
 
-.split.split._crit_edge:                          ; preds = %.split.split, %88
-  %92 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre78, i32 noundef %.pre80, i32 noundef %2, ptr noundef nonnull %7) #8
-  %93 = fmul double %.04359, 1.500000e+00
-  %94 = fmul double %.04458, 1.100000e+00
-  %95 = icmp eq i32 %92, 0
-  br i1 %95, label %.split.split, label %.split61.us, !llvm.loop !7
+.critedge.split.split._crit_edge:                 ; preds = %.critedge.split.split, %87
+  %91 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre81, i32 noundef %.pre83, i32 noundef %2, ptr noundef nonnull %7) #8
+  %92 = fmul double %.04564, 1.500000e+00
+  %93 = fmul double %.04663, 1.100000e+00
+  %94 = icmp eq i32 %91, 0
+  br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !47
 
-.split61.us:                                      ; preds = %.split.split._crit_edge, %.split.split.us._crit_edge, %56, %Abc_Clock.exit54.us
-  %.us-phi = phi i32 [ %53, %Abc_Clock.exit54.us ], [ %53, %56 ], [ %78, %.split.split.us._crit_edge ], [ %92, %.split.split._crit_edge ]
+.split.us:                                        ; preds = %.critedge.split.split._crit_edge, %.critedge.split.split.us._crit_edge, %55, %Abc_Clock.exit58.us
+  %.us-phi = phi i32 [ %52, %Abc_Clock.exit58.us ], [ %52, %55 ], [ %77, %.critedge.split.split.us._crit_edge ], [ %91, %.critedge.split.split._crit_edge ]
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
-  %96 = load i64, ptr %37, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = load i32, ptr %40, align 4
-  %99 = sub nsw i32 %97, %98
-  store i32 %99, ptr %40, align 4
-  br label %100
+  %95 = load i64, ptr %36, align 8, !tbaa !33
+  %96 = trunc i64 %95 to i32
+  %97 = load i32, ptr %39, align 4, !tbaa !44
+  %98 = sub nsw i32 %96, %97
+  store i32 %98, ptr %39, align 4, !tbaa !44
+  br label %99
 
-100:                                              ; preds = %.split61.us, %24
-  %.042 = phi i32 [ -1, %24 ], [ %.us-phi, %.split61.us ]
-  ret i32 %.042
+99:                                               ; preds = %23, %.split.us
+  %.1 = phi i32 [ %.us-phi, %.split.us ], [ -1, %23 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @Msat_IntVecReadSize(ptr noundef) local_unnamed_addr #1
 
@@ -390,31 +400,65 @@ declare i32 @Msat_SolverReadDecisionLevel(ptr noundef) local_unnamed_addr #1
 declare i32 @Msat_SolverSearch(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !5, i64 96}
+!4 = !{!"Msat_Solver_t_", !5, i64 0, !5, i64 4, !8, i64 8, !8, i64 16, !10, i64 24, !10, i64 32, !11, i64 40, !12, i64 48, !10, i64 56, !10, i64 64, !13, i64 72, !14, i64 80, !15, i64 88, !5, i64 96, !5, i64 100, !16, i64 104, !16, i64 112, !17, i64 120, !17, i64 128, !18, i64 136, !16, i64 144, !5, i64 152, !10, i64 160, !5, i64 168, !10, i64 176, !17, i64 184, !17, i64 192, !8, i64 200, !16, i64 208, !5, i64 216, !17, i64 224, !17, i64 232, !16, i64 240, !19, i64 248, !20, i64 256, !5, i64 304, !5, i64 308, !5, i64 312, !5, i64 316, !5, i64 320, !5, i64 324}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS17Msat_ClauseVec_t_", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"double", !6, i64 0}
+!11 = !{!"p1 double", !9, i64 0}
+!12 = !{!"p1 float", !9, i64 0}
+!13 = !{!"p1 _ZTS13Msat_Order_t_", !9, i64 0}
+!14 = !{!"p2 _ZTS17Msat_ClauseVec_t_", !9, i64 0}
+!15 = !{!"p1 _ZTS13Msat_Queue_t_", !9, i64 0}
+!16 = !{!"p1 int", !9, i64 0}
+!17 = !{!"p1 _ZTS14Msat_IntVec_t_", !9, i64 0}
+!18 = !{!"p2 _ZTS14Msat_Clause_t_", !9, i64 0}
+!19 = !{!"p1 _ZTS14Msat_MmStep_t_", !9, i64 0}
+!20 = !{!"Msat_SolverStats_t_", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!4, !5, i64 100}
+!23 = !{!4, !16, i64 144}
+!24 = !{!5, !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
+!27 = !{!4, !8, i64 8}
+!28 = !{!4, !16, i64 104}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!4, !8, i64 16}
+!32 = !{!4, !21, i64 256}
+!33 = !{!4, !21, i64 288}
+!34 = !{!4, !21, i64 264}
+!35 = !{!4, !21, i64 272}
+!36 = !{!4, !21, i64 280}
+!37 = !{!38, !21, i64 0}
+!38 = !{!"timespec", !21, i64 0, !21, i64 8}
+!39 = !{!38, !21, i64 8}
+!40 = distinct !{!40, !30}
+!41 = !{!4, !15, i64 88}
+!42 = !{!4, !5, i64 152}
+!43 = !{!4, !5, i64 312}
+!44 = !{!4, !5, i64 324}
+!45 = !{!4, !5, i64 168}
+!46 = !{!4, !10, i64 176}
+!47 = distinct !{!47, !30}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/darCore.c.ll'
-source_filename = "bench/abc/original/darCore.c.ll"
+; ModuleID = 'bench/abc/original/darCore.ll'
+source_filename = "bench/abc/original/darCore.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -18,25 +18,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Dar_ManDefaultRwrParams(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #0 {
-  store i32 8, ptr %0, align 4
+  store i32 8, ptr %0, align 4, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 5, ptr %2, align 4
+  store i32 5, ptr %2, align 4, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %3, align 4
+  store i32 1, ptr %3, align 4, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %4, align 4
+  store i32 1, ptr %4, align 4, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 1, ptr %8, align 4
+  store i32 1, ptr %8, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !16
   ret void
 }
 
@@ -48,85 +48,86 @@ define range(i32 0, 2) i32 @Dar_ManRewrite(ptr noundef %0, ptr noundef %1) local
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !9
   br label %13
 
 13:                                               ; preds = %11, %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4
-  tail call void @Dar_LibPrepare(i32 noundef %15) #11
-  %16 = tail call ptr @Dar_ManStart(ptr noundef %0, ptr noundef nonnull %1) #11
+  %15 = load i32, ptr %14, align 4, !tbaa !8
+  tail call void @Dar_LibPrepare(i32 noundef %15) #12
+  %16 = tail call ptr @Dar_ManStart(ptr noundef %0, ptr noundef nonnull %1) #12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !13
   %.not131 = icmp eq i32 %18, 0
   br i1 %.not131, label %22, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call ptr @Saig_ManComputeSwitchProbs(ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 1) #11
+  %20 = tail call ptr @Saig_ManComputeSwitchProbs(ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 1) #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store ptr %20, ptr %21, align 8
+  store ptr %20, ptr %21, align 8, !tbaa !17
   br label %22
 
 22:                                               ; preds = %19, %13
-  %23 = tail call i32 @Aig_ManCleanup(ptr noundef %0) #11
-  %24 = load ptr, ptr %16, align 8
+  %23 = tail call i32 @Aig_ManCleanup(ptr noundef %0) #12
+  %24 = load ptr, ptr %16, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !10
   %.not132 = icmp eq i32 %26, 0
   br i1 %.not132, label %28, label %27
 
 27:                                               ; preds = %22
-  tail call void @Aig_ManFanoutStart(ptr noundef %0) #11
-  %.pre = load ptr, ptr %16, align 8
+  tail call void @Aig_ManFanoutStart(ptr noundef %0) #12
+  %.pre = load ptr, ptr %16, align 8, !tbaa !32
   br label %28
 
 28:                                               ; preds = %27, %22
   %29 = phi ptr [ %.pre, %27 ], [ %24, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %.not133 = icmp eq i32 %31, 0
   br i1 %.not133, label %33, label %32
 
 32:                                               ; preds = %28
-  tail call void @Aig_ManStartReverseLevels(ptr noundef %0, i32 noundef 0) #11
+  tail call void @Aig_ManStartReverseLevels(ptr noundef %0, i32 noundef 0) #12
   br label %33
 
 33:                                               ; preds = %32, %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #12
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %Abc_Clock.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = load i64, ptr %7, align 8
+  %37 = load i64, ptr %7, align 8, !tbaa !35
   %.neg178 = mul i64 %37, -1000000
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !tbaa !37
   %.neg177 = sdiv i64 %39, -1000
   %.neg179 = add i64 %.neg177, %.neg178
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %33, %36
   %.0.i.neg = phi i64 [ %.neg179, %36 ], [ 1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   %40 = getelementptr i8, ptr %0, i64 148
-  %.val = load i32, ptr %40, align 4
+  %.val = load i32, ptr %40, align 4, !tbaa !38
   %41 = getelementptr i8, ptr %0, i64 152
-  %.val146 = load i32, ptr %41, align 8
+  %.val146 = load i32, ptr %41, align 8, !tbaa !38
   %42 = add nsw i32 %.val146, %.val
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 2740
-  store i32 %42, ptr %43, align 4
+  store i32 %42, ptr %43, align 4, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !40
   %46 = getelementptr i8, ptr %45, i64 4
-  %.val151 = load i32, ptr %46, align 4
+  %.val151 = load i32, ptr %46, align 4, !tbaa !41
   %47 = icmp sgt i32 %.val151, 0
   br i1 %47, label %.lr.ph195, label %.critedge
 
@@ -152,14 +153,14 @@ Abc_Clock.exit:                                   ; preds = %33, %36
   %63 = phi ptr [ %45, %.lr.ph195 ], [ %240, %239 ]
   %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.1, %239 ]
   %64 = getelementptr i8, ptr %63, i64 8
-  %.val154 = load ptr, ptr %64, align 8
+  %.val154 = load ptr, ptr %64, align 8, !tbaa !43
   %65 = getelementptr inbounds nuw ptr, ptr %.val154, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %239, label %68
 
 68:                                               ; preds = %62
-  %69 = load i64, ptr %48, align 8
+  %69 = load i64, ptr %48, align 8, !tbaa !45
   %.not134 = icmp ne i64 %69, 0
   %70 = and i64 %indvars.iv, 256
   %.not135 = icmp eq i64 %70, 0
@@ -167,23 +168,23 @@ Abc_Clock.exit:                                   ; preds = %33, %36
   br i1 %or.cond, label %71, label %82
 
 71:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %72 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  %72 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %Abc_Clock.exit162, label %74
 
 74:                                               ; preds = %71
-  %75 = load i64, ptr %6, align 8
+  %75 = load i64, ptr %6, align 8, !tbaa !35
   %76 = mul nsw i64 %75, 1000000
-  %77 = load i64, ptr %49, align 8
+  %77 = load i64, ptr %49, align 8, !tbaa !37
   %78 = sdiv i64 %77, 1000
   %79 = add nsw i64 %78, %76
   br label %Abc_Clock.exit162
 
 Abc_Clock.exit162:                                ; preds = %71, %74
   %.0.i161 = phi i64 [ %79, %74 ], [ -1, %71 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %80 = load i64, ptr %48, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  %80 = load i64, ptr %48, align 8, !tbaa !45
   %81 = icmp sgt i64 %.0.i161, %80
   br i1 %81, label %.critedge, label %82
 
@@ -201,7 +202,7 @@ Abc_Clock.exit162:                                ; preds = %71, %74
   br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %87
-  %90 = load i32, ptr %50, align 4
+  %90 = load i32, ptr %50, align 4, !tbaa !14
   %.not137 = icmp eq i32 %90, 0
   br i1 %.not137, label %102, label %91
 
@@ -212,62 +213,62 @@ Abc_Clock.exit162:                                ; preds = %71, %74
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %91
-  %96 = call i32 @Aig_DagSize(ptr noundef nonnull %66) #11
-  %97 = load ptr, ptr %51, align 8
+  %96 = call i32 @Aig_DagSize(ptr noundef nonnull %66) #12
+  %97 = load ptr, ptr %51, align 8, !tbaa !46
   %98 = getelementptr i8, ptr %97, i64 4
-  %.val153 = load i32, ptr %98, align 4
+  %.val153 = load i32, ptr %98, align 4, !tbaa !41
   %99 = sdiv i32 %.val153, 100
   %100 = icmp slt i32 %96, %99
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %95
-  call void @Dar_ManCutsRestart(ptr noundef nonnull %16, ptr noundef nonnull %66) #11
+  call void @Dar_ManCutsRestart(ptr noundef nonnull %16, ptr noundef nonnull %66) #12
   br label %102
 
 102:                                              ; preds = %101, %95, %91, %89
   %.2 = phi i32 [ %92, %101 ], [ %92, %95 ], [ %92, %91 ], [ %.0119194, %89 ]
-  %103 = load i32, ptr %52, align 8
+  %103 = load i32, ptr %52, align 8, !tbaa !47
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
+  store i32 %104, ptr %52, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #12
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %Abc_Clock.exit164, label %107
 
 107:                                              ; preds = %102
-  %108 = load i64, ptr %5, align 8
+  %108 = load i64, ptr %5, align 8, !tbaa !35
   %.neg175 = mul i64 %108, -1000000
-  %109 = load i64, ptr %53, align 8
+  %109 = load i64, ptr %53, align 8, !tbaa !37
   %.neg = sdiv i64 %109, -1000
   %.neg176 = add i64 %.neg, %.neg175
   br label %Abc_Clock.exit164
 
 Abc_Clock.exit164:                                ; preds = %102, %107
   %.0.i163.neg = phi i64 [ %.neg176, %107 ], [ 1, %102 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   %110 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr null, ptr %110, align 8
-  %111 = call ptr @Dar_ObjComputeCuts_rec(ptr noundef nonnull %16, ptr noundef nonnull %66) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %112 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #11
+  store ptr null, ptr %110, align 8, !tbaa !48
+  %111 = call ptr @Dar_ObjComputeCuts_rec(ptr noundef nonnull %16, ptr noundef nonnull %66) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  %112 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #12
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %Abc_Clock.exit166, label %114
 
 114:                                              ; preds = %Abc_Clock.exit164
-  %115 = load i64, ptr %4, align 8
+  %115 = load i64, ptr %4, align 8, !tbaa !35
   %116 = mul nsw i64 %115, 1000000
-  %117 = load i64, ptr %54, align 8
+  %117 = load i64, ptr %54, align 8, !tbaa !37
   %118 = sdiv i64 %117, 1000
   %119 = add nsw i64 %118, %116
   br label %Abc_Clock.exit166
 
 Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, %114
   %.0.i165 = phi i64 [ %119, %114 ], [ -1, %Abc_Clock.exit164 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   %120 = add i64 %.0.i165, %.0.i163.neg
-  %121 = load i64, ptr %55, align 8
+  %121 = load i64, ptr %55, align 8, !tbaa !49
   %122 = add nsw i64 %120, %121
-  store i64 %122, ptr %55, align 8
+  store i64 %122, ptr %55, align 8, !tbaa !49
   %123 = load i64, ptr %83, align 8
   %124 = lshr i64 %123, 56
   %125 = trunc nuw nsw i64 %124 to i32
@@ -275,7 +276,7 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
   br i1 %.not197, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit166
-  %.val156 = load ptr, ptr %110, align 8
+  %.val156 = load ptr, ptr %110, align 8, !tbaa !48
   %126 = getelementptr inbounds nuw i8, ptr %66, i64 36
   br label %127
 
@@ -299,24 +300,24 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %.0120186, i64 8
-  %138 = load i32, ptr %137, align 4
-  %139 = load i32, ptr %126, align 4
+  %138 = load i32, ptr %137, align 4, !tbaa !38
+  %139 = load i32, ptr %126, align 4, !tbaa !50
   %.not138 = icmp eq i32 %138, %139
   br i1 %.not138, label %Aig_ManObj.exit.thread, label %140
 
 140:                                              ; preds = %136
-  %141 = load ptr, ptr %56, align 8
+  %141 = load ptr, ptr %56, align 8, !tbaa !51
   %142 = getelementptr i8, ptr %141, i64 32
-  %.val158 = load ptr, ptr %142, align 8
+  %.val158 = load ptr, ptr %142, align 8, !tbaa !40
   %.not.i = icmp eq ptr %.val158, null
   br i1 %.not.i, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %140
   %143 = getelementptr i8, ptr %.val158, i64 8
-  %.val.i = load ptr, ptr %143, align 8
+  %.val.i = load ptr, ptr %143, align 8, !tbaa !43
   %144 = sext i32 %138 to i64
   %145 = getelementptr inbounds ptr, ptr %.val.i, i64 %144
-  %146 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !44
   %.not139 = icmp eq ptr %146, null
   br i1 %.not139, label %Aig_ManObj.exit.thread, label %155
 
@@ -324,32 +325,32 @@ Aig_ManObj.exit.thread:                           ; preds = %140, %127, %Aig_Man
   %147 = add nuw nsw i32 %.0124185, 1
   %148 = getelementptr inbounds nuw i8, ptr %.0120186, i64 24
   %exitcond.not = icmp eq i32 %147, %125
-  br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !52
 
 149:                                              ; preds = %132
-  %150 = load ptr, ptr %56, align 8
+  %150 = load ptr, ptr %56, align 8, !tbaa !51
   %151 = getelementptr i8, ptr %150, i64 48
-  %.val160 = load ptr, ptr %151, align 8
+  %.val160 = load ptr, ptr %151, align 8, !tbaa !54
   %152 = and i32 %129, 65535
   %153 = icmp eq i32 %152, 0
   %154 = ptrtoint ptr %.val160 to i64
   br label %169
 
 155:                                              ; preds = %Aig_ManObj.exit
-  %156 = load ptr, ptr %56, align 8
+  %156 = load ptr, ptr %56, align 8, !tbaa !51
   %157 = getelementptr i8, ptr %156, i64 32
-  %.val159 = load ptr, ptr %157, align 8
+  %.val159 = load ptr, ptr %157, align 8, !tbaa !40
   %.not.i167 = icmp eq ptr %.val159, null
   br i1 %.not.i167, label %Aig_ManObj.exit169, label %158
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %.0120186, i64 8
-  %160 = load i32, ptr %159, align 4
+  %160 = load i32, ptr %159, align 4, !tbaa !38
   %161 = getelementptr i8, ptr %.val159, i64 8
-  %.val.i168 = load ptr, ptr %161, align 8
+  %.val.i168 = load ptr, ptr %161, align 8, !tbaa !43
   %162 = sext i32 %160 to i64
   %163 = getelementptr inbounds ptr, ptr %.val.i168, i64 %162
-  %164 = load ptr, ptr %163, align 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !44
   %165 = ptrtoint ptr %164 to i64
   br label %Aig_ManObj.exit169
 
@@ -365,22 +366,22 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %170 = zext i1 %.sink209 to i64
   %171 = xor i64 %.sink, %170
   %.0122 = inttoptr i64 %171 to ptr
-  store ptr null, ptr %110, align 8
-  %172 = load ptr, ptr %16, align 8
+  store ptr null, ptr %110, align 8, !tbaa !48
+  %172 = load ptr, ptr %16, align 8, !tbaa !32
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load i32, ptr %173, align 4
-  call void @Aig_ObjReplace(ptr noundef %0, ptr noundef nonnull %66, ptr noundef %.0122, i32 noundef %174) #11
+  %174 = load i32, ptr %173, align 4, !tbaa !11
+  call void @Aig_ObjReplace(ptr noundef %0, ptr noundef nonnull %66, ptr noundef %.0122, i32 noundef %174) #12
   br label %239
 
 ._crit_edge:                                      ; preds = %Aig_ManObj.exit.thread, %Abc_Clock.exit166
-  store i32 -1, ptr %57, align 8
-  store i32 -1, ptr %8, align 4
-  %175 = load ptr, ptr %58, align 8
+  store i32 -1, ptr %57, align 8, !tbaa !55
+  store i32 -1, ptr %8, align 4, !tbaa !38
+  %175 = load ptr, ptr %58, align 8, !tbaa !56
   %.not140 = icmp eq ptr %175, null
   br i1 %.not140, label %178, label %176
 
 176:                                              ; preds = %._crit_edge
-  %177 = call i32 @Aig_ObjRequiredLevel(ptr noundef nonnull %0, ptr noundef nonnull %66) #11
+  %177 = call i32 @Aig_ObjRequiredLevel(ptr noundef nonnull %0, ptr noundef nonnull %66) #12
   br label %178
 
 178:                                              ; preds = %._crit_edge, %176
@@ -390,7 +391,7 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   br i1 %.not198, label %._crit_edge191, label %.lr.ph190.preheader
 
 .lr.ph190.preheader:                              ; preds = %178
-  %.val157 = load ptr, ptr %110, align 8
+  %.val157 = load ptr, ptr %110, align 8, !tbaa !48
   br label %.lr.ph190
 
 .lr.ph190:                                        ; preds = %.lr.ph190.preheader, %196
@@ -413,11 +414,11 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %190 = or disjoint i32 %189, -2147483648
   store i32 %190, ptr %182, align 4
   %191 = getelementptr inbounds nuw i8, ptr %.1121188, i64 20
-  store i32 0, ptr %191, align 4
+  store i32 0, ptr %191, align 4, !tbaa !38
   br label %192
 
 192:                                              ; preds = %188, %186
-  call void @Dar_LibEval(ptr noundef nonnull %16, ptr noundef nonnull %66, ptr noundef nonnull %.1121188, i32 noundef %179, ptr noundef nonnull %8) #11
+  call void @Dar_LibEval(ptr noundef nonnull %16, ptr noundef nonnull %66, ptr noundef nonnull %.1121188, i32 noundef %179, ptr noundef nonnull %8) #12
   %193 = load i32, ptr %182, align 4
   %194 = and i32 %193, 536870911
   %195 = or disjoint i32 %194, %.mask141
@@ -432,21 +433,21 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %200 = lshr i64 %197, 56
   %201 = trunc nuw nsw i64 %200 to i32
   %202 = icmp samesign ult i32 %198, %201
-  br i1 %202, label %.lr.ph190, label %._crit_edge191, !llvm.loop !6
+  br i1 %202, label %.lr.ph190, label %._crit_edge191, !llvm.loop !57
 
 ._crit_edge191:                                   ; preds = %196, %178
-  %203 = load i32, ptr %57, align 8
-  %204 = load ptr, ptr %16, align 8
+  %203 = load i32, ptr %57, align 8, !tbaa !55
+  %204 = load ptr, ptr %16, align 8, !tbaa !32
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %206 = load i32, ptr %205, align 4
+  %206 = load i32, ptr %205, align 4, !tbaa !9
   %207 = icmp slt i32 %203, %206
   br i1 %207, label %239, label %208
 
 208:                                              ; preds = %._crit_edge191
-  store ptr null, ptr %110, align 8
-  %.val147 = load i32, ptr %40, align 4
-  %.val148 = load i32, ptr %41, align 8
-  %209 = call ptr @Dar_LibBuildBest(ptr noundef nonnull %16) #11
+  store ptr null, ptr %110, align 8, !tbaa !48
+  %.val147 = load i32, ptr %40, align 4, !tbaa !38
+  %.val148 = load i32, ptr %41, align 8, !tbaa !38
+  %209 = call ptr @Dar_LibBuildBest(ptr noundef nonnull %16) #12
   %.not.i170 = icmp eq ptr %209, null
   %.pre203 = ptrtoint ptr %209 to i64
   br i1 %.not.i170, label %Aig_ObjPhaseReal.exit, label %210
@@ -473,110 +474,110 @@ Aig_ObjPhaseReal.exit:                            ; preds = %208, %210
   %226 = zext nneg i32 %225 to i64
   %227 = xor i64 %.pre203, %226
   %228 = inttoptr i64 %227 to ptr
-  %229 = load ptr, ptr %16, align 8
+  %229 = load ptr, ptr %16, align 8, !tbaa !32
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %231 = load i32, ptr %230, align 4
-  call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef %228, i32 noundef %231) #11
-  %.val149 = load i32, ptr %40, align 4
-  %.val150 = load i32, ptr %41, align 8
-  %232 = load i32, ptr %60, align 8
+  %231 = load i32, ptr %230, align 4, !tbaa !11
+  call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef %228, i32 noundef %231) #12
+  %.val149 = load i32, ptr %40, align 4, !tbaa !38
+  %.val150 = load i32, ptr %41, align 8, !tbaa !38
+  %232 = load i32, ptr %60, align 8, !tbaa !58
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds [222 x i32], ptr %59, i64 0, i64 %233
-  %235 = load i32, ptr %234, align 4
+  %235 = load i32, ptr %234, align 4, !tbaa !38
   %.neg180 = add i32 %.val148, %.val147
   %236 = add i32 %.val149, %.val150
   %237 = sub i32 %.neg180, %236
   %238 = add nsw i32 %237, %235
-  store i32 %238, ptr %234, align 4
+  store i32 %238, ptr %234, align 4, !tbaa !38
   br label %239
 
 239:                                              ; preds = %Aig_ObjPhaseReal.exit, %62, %._crit_edge191, %82, %169
   %.1 = phi i32 [ %.0119194, %62 ], [ %.2, %169 ], [ %.2, %._crit_edge191 ], [ %.2, %Aig_ObjPhaseReal.exit ], [ %.0119194, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %240 = load ptr, ptr %44, align 8
+  %240 = load ptr, ptr %44, align 8, !tbaa !40
   %241 = getelementptr i8, ptr %240, i64 4
-  %.val152 = load i32, ptr %241, align 4
+  %.val152 = load i32, ptr %241, align 4, !tbaa !41
   %242 = sext i32 %.val152 to i64
   %243 = icmp slt i64 %indvars.iv.next, %242
-  br i1 %243, label %62, label %.critedge, !llvm.loop !7
+  br i1 %243, label %62, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %Abc_Clock.exit162, %87, %239, %Abc_Clock.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %244 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  %244 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
   %245 = icmp slt i32 %244, 0
   br i1 %245, label %Abc_Clock.exit172, label %246
 
 246:                                              ; preds = %.critedge
-  %247 = load i64, ptr %3, align 8
+  %247 = load i64, ptr %3, align 8, !tbaa !35
   %248 = mul nsw i64 %247, 1000000
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %250 = load i64, ptr %249, align 8
+  %250 = load i64, ptr %249, align 8, !tbaa !37
   %251 = sdiv i64 %250, 1000
   %252 = add nsw i64 %251, %248
   br label %Abc_Clock.exit172
 
 Abc_Clock.exit172:                                ; preds = %.critedge, %246
   %.0.i171 = phi i64 [ %252, %246 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   %253 = add i64 %.0.i171, %.0.i.neg
   %254 = getelementptr inbounds nuw i8, ptr %16, i64 2800
-  store i64 %253, ptr %254, align 8
+  store i64 %253, ptr %254, align 8, !tbaa !60
   %255 = getelementptr inbounds nuw i8, ptr %16, i64 2776
-  %256 = load i64, ptr %255, align 8
+  %256 = load i64, ptr %255, align 8, !tbaa !49
   %257 = getelementptr inbounds nuw i8, ptr %16, i64 2784
-  %258 = load i64, ptr %257, align 8
+  %258 = load i64, ptr %257, align 8, !tbaa !61
   %259 = add i64 %256, %258
   %260 = sub i64 %253, %259
   %261 = getelementptr inbounds nuw i8, ptr %16, i64 2792
-  store i64 %260, ptr %261, align 8
-  call void @Dar_ManCutsFree(ptr noundef nonnull %16) #11
-  %262 = load ptr, ptr %16, align 8
+  store i64 %260, ptr %261, align 8, !tbaa !62
+  call void @Dar_ManCutsFree(ptr noundef nonnull %16) #12
+  %262 = load ptr, ptr %16, align 8, !tbaa !32
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 12
-  %264 = load i32, ptr %263, align 4
+  %264 = load i32, ptr %263, align 4, !tbaa !10
   %.not142 = icmp eq i32 %264, 0
   br i1 %.not142, label %266, label %265
 
 265:                                              ; preds = %Abc_Clock.exit172
-  call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #11
-  %.pre202 = load ptr, ptr %16, align 8
+  call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #12
+  %.pre202 = load ptr, ptr %16, align 8, !tbaa !32
   br label %266
 
 266:                                              ; preds = %265, %Abc_Clock.exit172
   %267 = phi ptr [ %.pre202, %265 ], [ %262, %Abc_Clock.exit172 ]
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  %269 = load i32, ptr %268, align 4
+  %269 = load i32, ptr %268, align 4, !tbaa !11
   %.not143 = icmp eq i32 %269, 0
   br i1 %.not143, label %271, label %270
 
 270:                                              ; preds = %266
-  call void @Aig_ManStopReverseLevels(ptr noundef nonnull %0) #11
+  call void @Aig_ManStopReverseLevels(ptr noundef nonnull %0) #12
   br label %271
 
 271:                                              ; preds = %270, %266
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %273 = load ptr, ptr %272, align 8
+  %273 = load ptr, ptr %272, align 8, !tbaa !17
   %.not144 = icmp eq ptr %273, null
   br i1 %.not144, label %278, label %274
 
 274:                                              ; preds = %271
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %276 = load ptr, ptr %275, align 8
+  %276 = load ptr, ptr %275, align 8, !tbaa !63
   %.not.i173 = icmp eq ptr %276, null
   br i1 %.not.i173, label %Vec_IntFree.exit, label %277
 
 277:                                              ; preds = %274
-  call void @free(ptr noundef nonnull %276) #11
+  call void @free(ptr noundef nonnull %276) #12
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %274, %277
-  call void @free(ptr noundef nonnull %273) #11
-  store ptr null, ptr %272, align 8
+  call void @free(ptr noundef nonnull %273) #12
+  store ptr null, ptr %272, align 8, !tbaa !17
   br label %278
 
 278:                                              ; preds = %Vec_IntFree.exit, %271
-  call void @Dar_ManStop(ptr noundef nonnull %16) #11
-  call void @Aig_ManCheckPhase(ptr noundef nonnull %0) #11
-  %279 = call i32 @Aig_ManCheck(ptr noundef nonnull %0) #11
+  call void @Dar_ManStop(ptr noundef nonnull %16) #12
+  call void @Aig_ManCheckPhase(ptr noundef nonnull %0) #12
+  %279 = call i32 @Aig_ManCheck(ptr noundef nonnull %0) #12
   %.not145 = icmp eq i32 %279, 0
   br i1 %.not145, label %280, label %281
 
@@ -586,62 +587,69 @@ Vec_IntFree.exit:                                 ; preds = %274, %277
 
 281:                                              ; preds = %278, %280
   %.0 = phi i32 [ 0, %280 ], [ 1, %278 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   ret i32 %.0
 }
 
-declare void @Dar_LibPrepare(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare ptr @Dar_ManStart(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Dar_LibPrepare(i32 noundef) local_unnamed_addr #3
 
-declare ptr @Saig_ManComputeSwitchProbs(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dar_ManStart(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #2
+declare ptr @Saig_ManComputeSwitchProbs(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @Aig_ManFanoutStart(ptr noundef) local_unnamed_addr #2
+declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
 
-declare void @Aig_ManStartReverseLevels(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Aig_ManFanoutStart(ptr noundef) local_unnamed_addr #3
 
-declare i32 @Aig_DagSize(ptr noundef) local_unnamed_addr #2
+declare void @Aig_ManStartReverseLevels(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @Dar_ManCutsRestart(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Aig_DagSize(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Dar_ObjComputeCuts_rec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Dar_ManCutsRestart(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Aig_ObjReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dar_ObjComputeCuts_rec(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Aig_ObjRequiredLevel(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Aig_ObjReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @Dar_LibEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Aig_ObjRequiredLevel(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Dar_LibBuildBest(ptr noundef) local_unnamed_addr #2
+declare void @Dar_LibEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Dar_ManCutsFree(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @Aig_ManFanoutStop(ptr noundef) local_unnamed_addr #2
+declare ptr @Dar_LibBuildBest(ptr noundef) local_unnamed_addr #3
 
-declare void @Aig_ManStopReverseLevels(ptr noundef) local_unnamed_addr #2
+declare void @Dar_ManCutsFree(ptr noundef) local_unnamed_addr #3
 
-declare void @Dar_ManStop(ptr noundef) local_unnamed_addr #2
+declare void @Aig_ManFanoutStop(ptr noundef) local_unnamed_addr #3
 
-declare void @Aig_ManCheckPhase(ptr noundef) local_unnamed_addr #2
+declare void @Aig_ManStopReverseLevels(ptr noundef) local_unnamed_addr #3
 
-declare i32 @Aig_ManCheck(ptr noundef) local_unnamed_addr #2
+declare void @Dar_ManStop(ptr noundef) local_unnamed_addr #3
+
+declare void @Aig_ManCheckPhase(ptr noundef) local_unnamed_addr #3
+
+declare i32 @Aig_ManCheck(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = getelementptr i8, ptr %4, i64 4
-  %.val = load i32, ptr %5, align 4
+  %.val = load i32, ptr %5, align 4, !tbaa !41
   %6 = icmp sgt i32 %.val, 0
   br i1 %6, label %.lr.ph40, label %.critedge
 
 .lr.ph40:                                         ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 8
-  %.val29 = load ptr, ptr %7, align 8
+  %.val29 = load ptr, ptr %7, align 8, !tbaa !43
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %8
 
@@ -650,7 +658,7 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
   %.039 = phi i32 [ 0, %.lr.ph40 ], [ %.3, %.loopexit ]
   %.01938 = phi i32 [ 0, %.lr.ph40 ], [ %.322, %.loopexit ]
   %9 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !44
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -671,7 +679,7 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
 
 .lr.ph.preheader:                                 ; preds = %17
   %20 = getelementptr i8, ptr %10, i64 40
-  %.val31 = load ptr, ptr %20, align 8
+  %.val31 = load ptr, ptr %20, align 8, !tbaa !48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -691,14 +699,14 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
   %26 = add nuw nsw i32 %.02333, 1
   %27 = getelementptr inbounds nuw i8, ptr %.02532, i64 24
   %exitcond.not = icmp eq i32 %26, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %12, %8
   %.322 = phi i32 [ %.01938, %8 ], [ %.01938, %12 ], [ %.01938, %17 ], [ %.221, %.lr.ph ]
   %.3 = phi i32 [ %.039, %8 ], [ %.039, %12 ], [ %.039, %17 ], [ %.2, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond45.not, label %.critedge, label %8, !llvm.loop !9
+  br i1 %exitcond45.not, label %.critedge, label %8, !llvm.loop !66
 
 .critedge:                                        ; preds = %.loopexit, %2
   %.019.lcssa = phi i32 [ 0, %2 ], [ %.322, %.loopexit ]
@@ -707,7 +715,7 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %.critedge
-  store i32 %.0.lcssa, ptr %1, align 4
+  store i32 %.0.lcssa, ptr %1, align 4, !tbaa !38
   br label %29
 
 29:                                               ; preds = %28, %.critedge
@@ -719,64 +727,65 @@ define ptr @Dar_ManComputeCuts(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.Dar_RwrPar_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = load i64, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !35
   %.neg49 = mul i64 %11, -1000000
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !37
   %.neg = sdiv i64 %13, -1000
   %.neg50 = add i64 %.neg, %.neg49
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %4, %10
   %.0.i.neg = phi i64 [ %.neg50, %10 ], [ 1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %14 = call i32 @Aig_ManCleanup(ptr noundef %0) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  %14 = call i32 @Aig_ManCleanup(ptr noundef %0) #12
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 5, ptr %15, align 4
+  store i32 5, ptr %15, align 4, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %16, align 4
+  store i32 1, ptr %16, align 4, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %17, align 4
+  store i32 1, ptr %17, align 4, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %18, align 4
+  store i32 0, ptr %18, align 4, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 0, ptr %19, align 4
+  store i32 0, ptr %19, align 4, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %20, align 4
+  store i32 0, ptr %20, align 4, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 1, ptr %21, align 4
+  store i32 1, ptr %21, align 4, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 0, ptr %22, align 4
+  store i32 0, ptr %22, align 4, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %23, align 4
-  store i32 %1, ptr %7, align 4
-  %24 = call ptr @Dar_ManStart(ptr noundef %0, ptr noundef nonnull %7) #11
+  store i32 0, ptr %23, align 4, !tbaa !16
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  %24 = call ptr @Dar_ManStart(ptr noundef %0, ptr noundef nonnull %7) #12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  call void @Aig_MmFixedRestart(ptr noundef %26) #11
+  %26 = load ptr, ptr %25, align 8, !tbaa !67
+  call void @Aig_MmFixedRestart(ptr noundef %26) #12
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr i8, ptr %28, i64 48
-  %.val43 = load ptr, ptr %29, align 8
-  %30 = call ptr @Dar_ObjPrepareCuts(ptr noundef %24, ptr noundef %.val43) #11
+  %.val43 = load ptr, ptr %29, align 8, !tbaa !54
+  %30 = call ptr @Dar_ObjPrepareCuts(ptr noundef %24, ptr noundef %.val43) #12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !68
   %33 = getelementptr i8, ptr %32, i64 4
-  %.val3951 = load i32, ptr %33, align 4
+  %.val3951 = load i32, ptr %33, align 4, !tbaa !41
   %34 = icmp sgt i32 %.val3951, 0
   br i1 %34, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.lr.ph, %Abc_Clock.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
   %37 = getelementptr i8, ptr %36, i64 4
-  %.val53 = load i32, ptr %37, align 4
+  %.val53 = load i32, ptr %37, align 4, !tbaa !41
   %38 = icmp sgt i32 %.val53, 0
   br i1 %38, label %.lr.ph55, label %.critedge2
 
@@ -784,25 +793,25 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Abc_Clock.exit ]
   %39 = phi ptr [ %44, %.lr.ph ], [ %32, %Abc_Clock.exit ]
   %40 = getelementptr i8, ptr %39, i64 8
-  %.val41 = load ptr, ptr %40, align 8
+  %.val41 = load ptr, ptr %40, align 8, !tbaa !43
   %41 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @Dar_ObjPrepareCuts(ptr noundef %24, ptr noundef %42) #11
+  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %43 = call ptr @Dar_ObjPrepareCuts(ptr noundef %24, ptr noundef %42) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load ptr, ptr %31, align 8
+  %44 = load ptr, ptr %31, align 8, !tbaa !68
   %45 = getelementptr i8, ptr %44, i64 4
-  %.val39 = load i32, ptr %45, align 4
+  %.val39 = load i32, ptr %45, align 4, !tbaa !41
   %46 = sext i32 %.val39 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.critedge.preheader, !llvm.loop !10
+  br i1 %47, label %.lr.ph, label %.critedge.preheader, !llvm.loop !69
 
 .lr.ph55:                                         ; preds = %.critedge.preheader, %.critedge
   %48 = phi ptr [ %60, %.critedge ], [ %36, %.critedge.preheader ]
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.critedge ], [ 0, %.critedge.preheader ]
   %49 = getelementptr i8, ptr %48, i64 8
-  %.val40 = load ptr, ptr %49, align 8
+  %.val40 = load ptr, ptr %49, align 8, !tbaa !43
   %50 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv60
-  %51 = load ptr, ptr %50, align 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !44
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge, label %53
 
@@ -816,18 +825,18 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %narrow.i, label %.critedge, label %58
 
 58:                                               ; preds = %53
-  %59 = call ptr @Dar_ObjComputeCuts(ptr noundef %24, ptr noundef nonnull %51, i32 noundef %2) #11
-  %.pre = load ptr, ptr %35, align 8
+  %59 = call ptr @Dar_ObjComputeCuts(ptr noundef %24, ptr noundef nonnull %51, i32 noundef %2) #12
+  %.pre = load ptr, ptr %35, align 8, !tbaa !40
   br label %.critedge
 
 .critedge:                                        ; preds = %58, %53, %.lr.ph55
   %60 = phi ptr [ %.pre, %58 ], [ %48, %53 ], [ %48, %.lr.ph55 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %61 = getelementptr i8, ptr %60, i64 4
-  %.val = load i32, ptr %61, align 4
+  %.val = load i32, ptr %61, align 4, !tbaa !41
   %62 = sext i32 %.val to i64
   %63 = icmp slt i64 %indvars.iv.next61, %62
-  br i1 %63, label %.lr.ph55, label %.critedge2, !llvm.loop !11
+  br i1 %63, label %.lr.ph55, label %.critedge2, !llvm.loop !70
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.lcssa = phi ptr [ %36, %.critedge.preheader ], [ %60, %.critedge ]
@@ -841,7 +850,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph40.i:                                       ; preds = %64
   %66 = getelementptr i8, ptr %.lcssa, i64 8
-  %.val29.i = load ptr, ptr %66, align 8
+  %.val29.i = load ptr, ptr %66, align 8, !tbaa !43
   %wide.trip.count.i = zext nneg i32 %.val.lcssa to i64
   br label %67
 
@@ -850,7 +859,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %.039.i = phi i32 [ 0, %.lr.ph40.i ], [ %.3.i, %.loopexit.i ]
   %.01938.i = phi i32 [ 0, %.lr.ph40.i ], [ %.322.i, %.loopexit.i ]
   %68 = getelementptr inbounds nuw ptr, ptr %.val29.i, i64 %indvars.iv.i
-  %69 = load ptr, ptr %68, align 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !44
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit.i, label %71
 
@@ -871,7 +880,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph.preheader.i:                               ; preds = %76
   %79 = getelementptr i8, ptr %69, i64 40
-  %.val31.i = load ptr, ptr %79, align 8
+  %.val31.i = load ptr, ptr %79, align 8, !tbaa !48
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -891,45 +900,45 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %85 = add nuw nsw i32 %.02333.i, 1
   %86 = getelementptr inbounds nuw i8, ptr %.02532.i, i64 24
   %exitcond.not.i = icmp eq i32 %85, %78
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !65
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %76, %71, %67
   %.322.i = phi i32 [ %.01938.i, %67 ], [ %.01938.i, %71 ], [ %.01938.i, %76 ], [ %.221.i, %.lr.ph.i ]
   %.3.i = phi i32 [ %.039.i, %67 ], [ %.039.i, %71 ], [ %.039.i, %76 ], [ %.2.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond45.not.i, label %Dar_ManCutCount.exit, label %67, !llvm.loop !9
+  br i1 %exitcond45.not.i, label %Dar_ManCutCount.exit, label %67, !llvm.loop !66
 
 Dar_ManCutCount.exit:                             ; preds = %.loopexit.i, %64
   %.019.lcssa.i = phi i32 [ 0, %64 ], [ %.322.i, %.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %64 ], [ %.3.i, %.loopexit.i ]
   %87 = getelementptr i8, ptr %0, i64 156
-  %.val45 = load i32, ptr %87, align 4
+  %.val45 = load i32, ptr %87, align 4, !tbaa !71
   %88 = sub nsw i32 %.val.lcssa, %.val45
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %88, i32 noundef %.019.lcssa.i, i32 noundef %.0.lcssa.i)
-  %90 = load ptr, ptr %25, align 8
-  %91 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %90) #11
+  %90 = load ptr, ptr %25, align 8, !tbaa !67
+  %91 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %90) #12
   %92 = sitofp i32 %91 to double
   %93 = fmul double %92, 0x3EB0000000000000
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 24, i32 noundef 4, double noundef %93)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #12
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %Abc_Clock.exit48, label %97
 
 97:                                               ; preds = %Dar_ManCutCount.exit
-  %98 = load i64, ptr %5, align 8
+  %98 = load i64, ptr %5, align 8, !tbaa !35
   %99 = mul nsw i64 %98, 1000000
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %101 = load i64, ptr %100, align 8
+  %101 = load i64, ptr %100, align 8, !tbaa !37
   %102 = sdiv i64 %101, 1000
   %103 = add nsw i64 %102, %99
   br label %Abc_Clock.exit48
 
 Abc_Clock.exit48:                                 ; preds = %Dar_ManCutCount.exit, %97
   %.0.i47 = phi i64 [ %103, %97 ], [ -1, %Dar_ManCutCount.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   %104 = add i64 %.0.i47, %.0.i.neg
   %105 = sitofp i64 %104 to double
   %106 = fdiv double %105, 1.000000e+06
@@ -937,113 +946,177 @@ Abc_Clock.exit48:                                 ; preds = %Dar_ManCutCount.exi
   br label %107
 
 107:                                              ; preds = %Abc_Clock.exit48, %.critedge2
-  %108 = load ptr, ptr %25, align 8
-  store ptr null, ptr %25, align 8
-  call void @Dar_ManStop(ptr noundef %24) #11
+  %108 = load ptr, ptr %25, align 8, !tbaa !67
+  store ptr null, ptr %25, align 8, !tbaa !67
+  call void @Dar_ManStop(ptr noundef %24) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
   ret ptr %108
 }
 
-declare void @Aig_MmFixedRestart(ptr noundef) local_unnamed_addr #2
+declare void @Aig_MmFixedRestart(ptr noundef) local_unnamed_addr #3
 
-declare ptr @Dar_ObjPrepareCuts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Dar_ObjPrepareCuts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @Dar_ObjComputeCuts(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dar_ObjComputeCuts(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @Aig_MmFixedReadMemUsage(ptr noundef) local_unnamed_addr #2
+declare i32 @Aig_MmFixedReadMemUsage(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = load i32, ptr @enable_dbg_outs, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !38
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %17, label %5
+  br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #11
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #12
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #11
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #12
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !72
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
-  call void @free(ptr noundef %9) #11
-  br label %16
-
-14:                                               ; preds = %5
-  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  br label %16
-
-16:                                               ; preds = %14, %8
-  call void @llvm.va_end.p0(ptr nonnull %3)
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #12
+  call void @free(ptr noundef %9) #12
   br label %17
 
-17:                                               ; preds = %2, %16
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !72, !noalias !74
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #12
+  br label %17
+
+17:                                               ; preds = %14, %8
+  call void @llvm.va_end.p0(ptr nonnull %3)
+  br label %18
+
+18:                                               ; preds = %2, %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"Dar_RwrPar_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 4}
+!9 = !{!4, !5, i64 8}
+!10 = !{!4, !5, i64 12}
+!11 = !{!4, !5, i64 16}
+!12 = !{!4, !5, i64 20}
+!13 = !{!4, !5, i64 24}
+!14 = !{!4, !5, i64 28}
+!15 = !{!4, !5, i64 32}
+!16 = !{!4, !5, i64 36}
+!17 = !{!18, !28, i64 464}
+!18 = !{!"Aig_Man_t_", !19, i64 0, !19, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !22, i64 48, !23, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !24, i64 160, !5, i64 168, !25, i64 176, !5, i64 184, !26, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !25, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !24, i64 248, !24, i64 256, !5, i64 264, !27, i64 272, !28, i64 280, !5, i64 288, !20, i64 296, !20, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !24, i64 328, !20, i64 336, !20, i64 344, !20, i64 352, !20, i64 360, !25, i64 368, !25, i64 376, !21, i64 384, !28, i64 392, !28, i64 400, !29, i64 408, !21, i64 416, !30, i64 424, !21, i64 432, !5, i64 440, !28, i64 448, !26, i64 456, !28, i64 464, !28, i64 472, !5, i64 480, !31, i64 488, !31, i64 496, !31, i64 504, !21, i64 512, !21, i64 520}
+!19 = !{!"p1 omnipotent char", !20, i64 0}
+!20 = !{!"any pointer", !6, i64 0}
+!21 = !{!"p1 _ZTS10Vec_Ptr_t_", !20, i64 0}
+!22 = !{!"p1 _ZTS10Aig_Obj_t_", !20, i64 0}
+!23 = !{!"Aig_Obj_t_", !6, i64 0, !22, i64 8, !22, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
+!24 = !{!"p2 _ZTS10Aig_Obj_t_", !20, i64 0}
+!25 = !{!"p1 int", !20, i64 0}
+!26 = !{!"p1 _ZTS10Vec_Vec_t_", !20, i64 0}
+!27 = !{!"p1 _ZTS14Aig_MmFixed_t_", !20, i64 0}
+!28 = !{!"p1 _ZTS10Vec_Int_t_", !20, i64 0}
+!29 = !{!"p1 _ZTS10Abc_Cex_t_", !20, i64 0}
+!30 = !{!"p1 _ZTS10Aig_Man_t_", !20, i64 0}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"Dar_Man_t_", !34, i64 0, !30, i64 8, !27, i64 16, !20, i64 24, !21, i64 32, !21, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !6, i64 72, !6, i64 960, !6, i64 1848, !5, i64 2736, !5, i64 2740, !5, i64 2744, !5, i64 2748, !5, i64 2752, !5, i64 2756, !5, i64 2760, !5, i64 2764, !5, i64 2768, !31, i64 2776, !31, i64 2784, !31, i64 2792, !31, i64 2800, !31, i64 2808, !31, i64 2816}
+!34 = !{!"p1 _ZTS13Dar_RwrPar_t_", !20, i64 0}
+!35 = !{!36, !31, i64 0}
+!36 = !{!"timespec", !31, i64 0, !31, i64 8}
+!37 = !{!36, !31, i64 8}
+!38 = !{!5, !5, i64 0}
+!39 = !{!33, !5, i64 2740}
+!40 = !{!18, !21, i64 32}
+!41 = !{!42, !5, i64 4}
+!42 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !20, i64 8}
+!43 = !{!42, !20, i64 8}
+!44 = !{!20, !20, i64 0}
+!45 = !{!18, !31, i64 488}
+!46 = !{!33, !21, i64 32}
+!47 = !{!33, !5, i64 2744}
+!48 = !{!6, !6, i64 0}
+!49 = !{!33, !31, i64 2776}
+!50 = !{!23, !5, i64 36}
+!51 = !{!33, !30, i64 8}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.mustprogress"}
+!54 = !{!18, !22, i64 48}
+!55 = !{!33, !5, i64 56}
+!56 = !{!18, !28, i64 280}
+!57 = distinct !{!57, !53}
+!58 = !{!33, !5, i64 64}
+!59 = distinct !{!59, !53}
+!60 = !{!33, !31, i64 2800}
+!61 = !{!33, !31, i64 2784}
+!62 = !{!33, !31, i64 2792}
+!63 = !{!64, !25, i64 8}
+!64 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !25, i64 8}
+!65 = distinct !{!65, !53}
+!66 = distinct !{!66, !53}
+!67 = !{!33, !27, i64 16}
+!68 = !{!18, !21, i64 16}
+!69 = distinct !{!69, !53}
+!70 = distinct !{!70, !53}
+!71 = !{!18, !5, i64 156}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"vprintf: argument 0"}
+!76 = distinct !{!76, !"vprintf"}

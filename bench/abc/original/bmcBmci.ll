@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Gia_Obj_t_ = type <{ i64, i32 }>
-%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr }
+%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.Cnf_Dat_t_ = type { ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.sat_solver_t = type { i32, i32, i32, i32, %struct.Sat_Mem_t_, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, i64, i64, i64, ptr, ptr, i32, i32, %struct.veci_t, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.veci_t, %struct.veci_t, %struct.veci_t, %struct.veci_t, ptr, %struct.veci_t, i32, i32, i32, double, double, i32, i32, i32, %struct.stats_t, i32, i32, i32, i32, i32, i64, i64, i64, %struct.veci_t, ptr, i32, i32, i32, %struct.veci_t, %struct.veci_t, i32, i32, i32, ptr, ptr, i32, ptr, i32, i32, %struct.veci_t, %struct.veci_t, %struct.veci_t, ptr, ptr, i32, ptr }
@@ -43,32 +43,34 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
   %12 = call ptr @Gia_ManConst0(ptr noundef %11)
-  %13 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %10, align 4
+  %13 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !12
+  store i32 0, ptr %10, align 4, !tbaa !10
   br label %14
 
 14:                                               ; preds = %35, %4
-  %15 = load i32, ptr %10, align 4
-  %16 = load ptr, ptr %6, align 8
+  %15 = load i32, ptr %10, align 4, !tbaa !10
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
   %17 = call i32 @Gia_ManRegNum(ptr noundef %16)
   %18 = icmp slt i32 %15, %17
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
   %22 = call i32 @Gia_ManPiNum(ptr noundef %21)
-  %23 = load i32, ptr %10, align 4
+  %23 = load i32, ptr %10, align 4, !tbaa !10
   %24 = add nsw i32 %22, %23
   %25 = call ptr @Gia_ManCi(ptr noundef %20, i32 noundef %24)
-  store ptr %25, ptr %9, align 8
+  store ptr %25, ptr %9, align 8, !tbaa !14
   %26 = icmp ne ptr %25, null
   br label %27
 
@@ -77,36 +79,36 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %10, align 4
+  %30 = load ptr, ptr %7, align 8, !tbaa !8
+  %31 = load i32, ptr %10, align 4, !tbaa !10
   %32 = call i32 @Vec_IntEntry(ptr noundef %30, i32 noundef %31)
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %33, i32 0, i32 1
-  store i32 %32, ptr %34, align 4
+  %33 = load ptr, ptr %9, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %33, i32 0, i32 1
+  store i32 %32, ptr %34, align 4, !tbaa !12
   br label %35
 
 35:                                               ; preds = %29
-  %36 = load i32, ptr %10, align 4
+  %36 = load i32, ptr %10, align 4, !tbaa !10
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %10, align 4
-  br label %14, !llvm.loop !4
+  store i32 %37, ptr %10, align 4, !tbaa !10
+  br label %14, !llvm.loop !16
 
 38:                                               ; preds = %27
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !10
   br label %39
 
 39:                                               ; preds = %73, %38
-  %40 = load i32, ptr %10, align 4
-  %41 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %10, align 4, !tbaa !10
+  %41 = load ptr, ptr %6, align 8, !tbaa !3
   %42 = call i32 @Gia_ManPiNum(ptr noundef %41)
   %43 = icmp slt i32 %40, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i32, ptr %10, align 4
+  %45 = load ptr, ptr %6, align 8, !tbaa !3
+  %46 = load i32, ptr %10, align 4, !tbaa !10
   %47 = call ptr @Gia_ManCi(ptr noundef %45, i32 noundef %46)
-  store ptr %47, ptr %9, align 8
+  store ptr %47, ptr %9, align 8, !tbaa !14
   %48 = icmp ne ptr %47, null
   br label %49
 
@@ -115,59 +117,59 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %50, label %51, label %76
 
 51:                                               ; preds = %49
-  %52 = load i32, ptr %8, align 4
+  %52 = load i32, ptr %8, align 4, !tbaa !10
   %53 = icmp ne i32 %52, 0
   br i1 %53, label %54, label %66
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %5, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
   %58 = call i32 @Gia_ManPiNum(ptr noundef %57)
-  %59 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %6, align 8, !tbaa !3
   %60 = call i32 @Gia_ManPiNum(ptr noundef %59)
   %61 = sub nsw i32 %58, %60
-  %62 = load i32, ptr %10, align 4
+  %62 = load i32, ptr %10, align 4, !tbaa !10
   %63 = add nsw i32 %61, %62
   %64 = call ptr @Gia_ManPi(ptr noundef %56, i32 noundef %63)
   %65 = call i32 @Gia_ObjToLit(ptr noundef %55, ptr noundef %64)
   br label %69
 
 66:                                               ; preds = %51
-  %67 = load ptr, ptr %5, align 8
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
   %68 = call i32 @Gia_ManAppendCi(ptr noundef %67)
   br label %69
 
 69:                                               ; preds = %66, %54
   %70 = phi i32 [ %65, %54 ], [ %68, %66 ]
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %71, i32 0, i32 1
-  store i32 %70, ptr %72, align 4
+  %71 = load ptr, ptr %9, align 8, !tbaa !14
+  %72 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %71, i32 0, i32 1
+  store i32 %70, ptr %72, align 4, !tbaa !12
   br label %73
 
 73:                                               ; preds = %69
-  %74 = load i32, ptr %10, align 4
+  %74 = load i32, ptr %10, align 4, !tbaa !10
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %10, align 4
-  br label %39, !llvm.loop !6
+  store i32 %75, ptr %10, align 4, !tbaa !10
+  br label %39, !llvm.loop !18
 
 76:                                               ; preds = %49
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !10
   br label %77
 
 77:                                               ; preds = %105, %76
-  %78 = load i32, ptr %10, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.Gia_Man_t_, ptr %79, i32 0, i32 4
-  %81 = load i32, ptr %80, align 8
+  %78 = load i32, ptr %10, align 4, !tbaa !10
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 8, !tbaa !19
   %82 = icmp slt i32 %78, %81
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %77
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %10, align 4
+  %84 = load ptr, ptr %6, align 8, !tbaa !3
+  %85 = load i32, ptr %10, align 4, !tbaa !10
   %86 = call ptr @Gia_ManObj(ptr noundef %84, i32 noundef %85)
-  store ptr %86, ptr %9, align 8
+  store ptr %86, ptr %9, align 8, !tbaa !14
   %87 = icmp ne ptr %86, null
   br label %88
 
@@ -176,7 +178,7 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %89, label %90, label %108
 
 90:                                               ; preds = %88
-  %91 = load ptr, ptr %9, align 8
+  %91 = load ptr, ptr %9, align 8, !tbaa !14
   %92 = call i32 @Gia_ObjIsAnd(ptr noundef %91)
   %93 = icmp ne i32 %92, 0
   br i1 %93, label %95, label %94
@@ -185,45 +187,45 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %104
 
 95:                                               ; preds = %90
-  %96 = load ptr, ptr %5, align 8
-  %97 = load ptr, ptr %9, align 8
+  %96 = load ptr, ptr %5, align 8, !tbaa !3
+  %97 = load ptr, ptr %9, align 8, !tbaa !14
   %98 = call i32 @Gia_ObjFanin0Copy(ptr noundef %97)
-  %99 = load ptr, ptr %9, align 8
+  %99 = load ptr, ptr %9, align 8, !tbaa !14
   %100 = call i32 @Gia_ObjFanin1Copy(ptr noundef %99)
   %101 = call i32 @Gia_ManHashAnd(ptr noundef %96, i32 noundef %98, i32 noundef %100)
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %102, i32 0, i32 1
-  store i32 %101, ptr %103, align 4
+  %102 = load ptr, ptr %9, align 8, !tbaa !14
+  %103 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %102, i32 0, i32 1
+  store i32 %101, ptr %103, align 4, !tbaa !12
   br label %104
 
 104:                                              ; preds = %95, %94
   br label %105
 
 105:                                              ; preds = %104
-  %106 = load i32, ptr %10, align 4
+  %106 = load i32, ptr %10, align 4, !tbaa !10
   %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %10, align 4
-  br label %77, !llvm.loop !7
+  store i32 %107, ptr %10, align 4, !tbaa !10
+  br label %77, !llvm.loop !37
 
 108:                                              ; preds = %88
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !10
   br label %109
 
 109:                                              ; preds = %129, %108
-  %110 = load i32, ptr %10, align 4
-  %111 = load ptr, ptr %6, align 8
+  %110 = load i32, ptr %10, align 4, !tbaa !10
+  %111 = load ptr, ptr %6, align 8, !tbaa !3
   %112 = call i32 @Gia_ManRegNum(ptr noundef %111)
   %113 = icmp slt i32 %110, %112
   br i1 %113, label %114, label %122
 
 114:                                              ; preds = %109
-  %115 = load ptr, ptr %6, align 8
-  %116 = load ptr, ptr %6, align 8
+  %115 = load ptr, ptr %6, align 8, !tbaa !3
+  %116 = load ptr, ptr %6, align 8, !tbaa !3
   %117 = call i32 @Gia_ManPoNum(ptr noundef %116)
-  %118 = load i32, ptr %10, align 4
+  %118 = load i32, ptr %10, align 4, !tbaa !10
   %119 = add nsw i32 %117, %118
   %120 = call ptr @Gia_ManCo(ptr noundef %115, i32 noundef %119)
-  store ptr %120, ptr %9, align 8
+  store ptr %120, ptr %9, align 8, !tbaa !14
   %121 = icmp ne ptr %120, null
   br label %122
 
@@ -232,141 +234,147 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %123, label %124, label %132
 
 124:                                              ; preds = %122
-  %125 = load ptr, ptr %7, align 8
-  %126 = load i32, ptr %10, align 4
-  %127 = load ptr, ptr %9, align 8
+  %125 = load ptr, ptr %7, align 8, !tbaa !8
+  %126 = load i32, ptr %10, align 4, !tbaa !10
+  %127 = load ptr, ptr %9, align 8, !tbaa !14
   %128 = call i32 @Gia_ObjFanin0Copy(ptr noundef %127)
   call void @Vec_IntWriteEntry(ptr noundef %125, i32 noundef %126, i32 noundef %128)
   br label %129
 
 129:                                              ; preds = %124
-  %130 = load i32, ptr %10, align 4
+  %130 = load i32, ptr %10, align 4, !tbaa !10
   %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %10, align 4
-  br label %109, !llvm.loop !8
+  store i32 %131, ptr %10, align 4, !tbaa !10
+  br label %109, !llvm.loop !38
 
 132:                                              ; preds = %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManConst0(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManConst0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManRegNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManRegNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !40
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManCi(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManCi(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = load i32, ptr %4, align 4, !tbaa !10
   %10 = call i32 @Vec_IntEntry(ptr noundef %8, i32 noundef %9)
   %11 = call ptr @Gia_ManObj(ptr noundef %5, i32 noundef %10)
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManPiNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManPiNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 11
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 11
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = call i32 @Vec_IntSize(ptr noundef %5)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Gia_Man_t_, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = sub nsw i32 %6, %9
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !10
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjToLit(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjToLit(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
   %7 = call ptr @Gia_Regular(ptr noundef %6)
   %8 = call i32 @Gia_ObjId(ptr noundef %5, ptr noundef %7)
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !14
   %10 = call i32 @Gia_IsComplement(ptr noundef %9)
   %11 = call i32 @Abc_Var2Lit(i32 noundef %8, i32 noundef %10)
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManPi(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManPi(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = call ptr @Gia_ManCi(ptr noundef %5, i32 noundef %6)
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManAppendCi(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManAppendCi(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
   %5 = call ptr @Gia_ManAppendObj(ptr noundef %4)
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %5, ptr %3, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, -2147483649
   %9 = or i64 %8, 2147483648
   store i64 %9, ptr %6, align 4
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !14
   %11 = load i64, ptr %10, align 4
   %12 = and i64 %11, -536870912
   %13 = or i64 %12, 536870911
   store i64 %13, ptr %10, align 4
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.Gia_Man_t_, ptr %14, i32 0, i32 11
-  %16 = load ptr, ptr %15, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %14, i32 0, i32 11
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = call i32 @Vec_IntSize(ptr noundef %16)
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !14
   %19 = zext i32 %17 to i64
   %20 = load i64, ptr %18, align 4
   %21 = and i64 %19, 536870911
@@ -374,40 +382,41 @@ define internal i32 @Gia_ManAppendCi(ptr noundef %0) #0 {
   %23 = and i64 %20, -2305843004918726657
   %24 = or i64 %23, %22
   store i64 %24, ptr %18, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Gia_Man_t_, ptr %25, i32 0, i32 11
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %25, i32 0, i32 11
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %28 = load ptr, ptr %2, align 8, !tbaa !3
+  %29 = load ptr, ptr %3, align 8, !tbaa !14
   %30 = call i32 @Gia_ObjId(ptr noundef %28, ptr noundef %29)
   call void @Vec_IntPush(ptr noundef %27, i32 noundef %30)
-  %31 = load ptr, ptr %2, align 8
-  %32 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %2, align 8, !tbaa !3
+  %32 = load ptr, ptr %3, align 8, !tbaa !14
   %33 = call i32 @Gia_ObjId(ptr noundef %31, ptr noundef %32)
   %34 = shl i32 %33, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManObj(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManObj(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Gia_Man_t_, ptr %5, i32 0, i32 6
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %5, i32 0, i32 6
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %7, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjIsAnd(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjIsAnd(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 31
   %6 = and i64 %5, 1
@@ -416,7 +425,7 @@ define internal i32 @Gia_ObjIsAnd(ptr noundef %0) #0 {
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
+  %10 = load ptr, ptr %2, align 8, !tbaa !14
   %11 = load i64, ptr %10, align 4
   %12 = and i64 %11, 536870911
   %13 = trunc i64 %12 to i32
@@ -429,85 +438,88 @@ define internal i32 @Gia_ObjIsAnd(ptr noundef %0) #0 {
   ret i32 %17
 }
 
-declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFanin0Copy(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFanin0Copy(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = call ptr @Gia_ObjFanin0(ptr noundef %3)
-  %5 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i32 0, i32 1
-  %6 = load i32, ptr %5, align 4
-  %7 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %4, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = call i32 @Gia_ObjFaninC0(ptr noundef %7)
   %9 = call i32 @Abc_LitNotCond(i32 noundef %6, i32 noundef %8)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFanin1Copy(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFanin1Copy(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = call ptr @Gia_ObjFanin1(ptr noundef %3)
-  %5 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i32 0, i32 1
-  %6 = load i32, ptr %5, align 4
-  %7 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %4, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = call i32 @Gia_ObjFaninC1(ptr noundef %7)
   %9 = call i32 @Abc_LitNotCond(i32 noundef %6, i32 noundef %8)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManCo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManCo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Gia_Man_t_, ptr %6, i32 0, i32 12
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %6, i32 0, i32 12
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %9 = load i32, ptr %4, align 4, !tbaa !10
   %10 = call i32 @Vec_IntEntry(ptr noundef %8, i32 noundef %9)
   %11 = call ptr @Gia_ManObj(ptr noundef %5, i32 noundef %10)
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManPoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManPoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 12
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 12
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = call i32 @Vec_IntSize(ptr noundef %5)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Gia_Man_t_, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = sub nsw i32 %6, %9
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %11 = load i32, ptr %5, align 4, !tbaa !10
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %10, i64 %12
-  store i32 %7, ptr %13, align 4
+  store i32 %7, ptr %13, align 4, !tbaa !10
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Bmc_BmciPart_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -522,114 +534,126 @@ define i32 @Bmc_BmciPart_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = call ptr @Gia_ManObj(ptr noundef %18, i32 noundef %19)
-  store ptr %20, ptr %14, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = load i32, ptr %10, align 4
-  %23 = call i32 @Vec_IntEntry(ptr noundef %21, i32 noundef %22)
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %29
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store i32 %2, ptr %10, align 4, !tbaa !10
+  store ptr %3, ptr %11, align 8, !tbaa !3
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = load i32, ptr %10, align 4, !tbaa !10
+  %21 = call ptr @Gia_ManObj(ptr noundef %19, i32 noundef %20)
+  store ptr %21, ptr %14, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %22 = load ptr, ptr %13, align 8, !tbaa !8
+  %23 = load i32, ptr %10, align 4, !tbaa !10
+  %24 = call i32 @Vec_IntEntry(ptr noundef %22, i32 noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %6
-  %26 = load ptr, ptr %13, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = call i32 @Vec_IntEntry(ptr noundef %26, i32 noundef %27)
-  store i32 %28, ptr %7, align 4
-  br label %84
+26:                                               ; preds = %6
+  %27 = load ptr, ptr %13, align 8, !tbaa !8
+  %28 = load i32, ptr %10, align 4, !tbaa !10
+  %29 = call i32 @Vec_IntEntry(ptr noundef %27, i32 noundef %28)
+  store i32 %29, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %85
 
-29:                                               ; preds = %6
-  %30 = load ptr, ptr %9, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = call i32 @Vec_IntEntry(ptr noundef %30, i32 noundef %31)
-  %33 = icmp sge i32 %32, 0
-  br i1 %33, label %38, label %34
+30:                                               ; preds = %6
+  %31 = load ptr, ptr %9, align 8, !tbaa !8
+  %32 = load i32, ptr %10, align 4, !tbaa !10
+  %33 = call i32 @Vec_IntEntry(ptr noundef %31, i32 noundef %32)
+  %34 = icmp sge i32 %33, 0
+  br i1 %34, label %39, label %35
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %14, align 8
-  %36 = call i32 @Gia_ObjIsCi(ptr noundef %35)
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %47
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %14, align 8, !tbaa !14
+  %37 = call i32 @Gia_ObjIsCi(ptr noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %48
 
-38:                                               ; preds = %34, %29
-  %39 = load ptr, ptr %12, align 8
-  %40 = load i32, ptr %10, align 4
-  call void @Vec_IntPush(ptr noundef %39, i32 noundef %40)
-  %41 = load ptr, ptr %11, align 8
-  %42 = call i32 @Gia_ManAppendCi(ptr noundef %41)
-  store i32 %42, ptr %17, align 4
-  %43 = load ptr, ptr %13, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = load i32, ptr %17, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %43, i32 noundef %44, i32 noundef %45)
-  %46 = load i32, ptr %17, align 4
-  store i32 %46, ptr %7, align 4
-  br label %84
+39:                                               ; preds = %35, %30
+  %40 = load ptr, ptr %12, align 8, !tbaa !8
+  %41 = load i32, ptr %10, align 4, !tbaa !10
+  call void @Vec_IntPush(ptr noundef %40, i32 noundef %41)
+  %42 = load ptr, ptr %11, align 8, !tbaa !3
+  %43 = call i32 @Gia_ManAppendCi(ptr noundef %42)
+  store i32 %43, ptr %17, align 4, !tbaa !10
+  %44 = load ptr, ptr %13, align 8, !tbaa !8
+  %45 = load i32, ptr %10, align 4, !tbaa !10
+  %46 = load i32, ptr %17, align 4, !tbaa !10
+  call void @Vec_IntWriteEntry(ptr noundef %44, i32 noundef %45, i32 noundef %46)
+  %47 = load i32, ptr %17, align 4, !tbaa !10
+  store i32 %47, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %85
 
-47:                                               ; preds = %34
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = load ptr, ptr %14, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = call i32 @Gia_ObjFaninId0(ptr noundef %50, i32 noundef %51)
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %12, align 8
-  %55 = load ptr, ptr %13, align 8
-  %56 = call i32 @Bmc_BmciPart_rec(ptr noundef %48, ptr noundef %49, i32 noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55)
-  store i32 %56, ptr %15, align 4
-  %57 = load ptr, ptr %8, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = load i32, ptr %10, align 4
-  %61 = call i32 @Gia_ObjFaninId1(ptr noundef %59, i32 noundef %60)
-  %62 = load ptr, ptr %11, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = call i32 @Bmc_BmciPart_rec(ptr noundef %57, ptr noundef %58, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64)
-  store i32 %65, ptr %16, align 4
-  %66 = load i32, ptr %15, align 4
-  %67 = load ptr, ptr %14, align 8
-  %68 = call i32 @Gia_ObjFaninC0(ptr noundef %67)
-  %69 = call i32 @Abc_LitNotCond(i32 noundef %66, i32 noundef %68)
-  store i32 %69, ptr %15, align 4
-  %70 = load i32, ptr %16, align 4
-  %71 = load ptr, ptr %14, align 8
-  %72 = call i32 @Gia_ObjFaninC1(ptr noundef %71)
-  %73 = call i32 @Abc_LitNotCond(i32 noundef %70, i32 noundef %72)
-  store i32 %73, ptr %16, align 4
-  %74 = load ptr, ptr %12, align 8
-  %75 = load i32, ptr %10, align 4
-  call void @Vec_IntPush(ptr noundef %74, i32 noundef %75)
-  %76 = load ptr, ptr %11, align 8
-  %77 = load i32, ptr %15, align 4
-  %78 = load i32, ptr %16, align 4
-  %79 = call i32 @Gia_ManAppendAnd(ptr noundef %76, i32 noundef %77, i32 noundef %78)
-  store i32 %79, ptr %17, align 4
-  %80 = load ptr, ptr %13, align 8
-  %81 = load i32, ptr %10, align 4
-  %82 = load i32, ptr %17, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %80, i32 noundef %81, i32 noundef %82)
-  %83 = load i32, ptr %17, align 4
-  store i32 %83, ptr %7, align 4
-  br label %84
+48:                                               ; preds = %35
+  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %50 = load ptr, ptr %9, align 8, !tbaa !8
+  %51 = load ptr, ptr %14, align 8, !tbaa !14
+  %52 = load i32, ptr %10, align 4, !tbaa !10
+  %53 = call i32 @Gia_ObjFaninId0(ptr noundef %51, i32 noundef %52)
+  %54 = load ptr, ptr %11, align 8, !tbaa !3
+  %55 = load ptr, ptr %12, align 8, !tbaa !8
+  %56 = load ptr, ptr %13, align 8, !tbaa !8
+  %57 = call i32 @Bmc_BmciPart_rec(ptr noundef %49, ptr noundef %50, i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56)
+  store i32 %57, ptr %15, align 4, !tbaa !10
+  %58 = load ptr, ptr %8, align 8, !tbaa !3
+  %59 = load ptr, ptr %9, align 8, !tbaa !8
+  %60 = load ptr, ptr %14, align 8, !tbaa !14
+  %61 = load i32, ptr %10, align 4, !tbaa !10
+  %62 = call i32 @Gia_ObjFaninId1(ptr noundef %60, i32 noundef %61)
+  %63 = load ptr, ptr %11, align 8, !tbaa !3
+  %64 = load ptr, ptr %12, align 8, !tbaa !8
+  %65 = load ptr, ptr %13, align 8, !tbaa !8
+  %66 = call i32 @Bmc_BmciPart_rec(ptr noundef %58, ptr noundef %59, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
+  store i32 %66, ptr %16, align 4, !tbaa !10
+  %67 = load i32, ptr %15, align 4, !tbaa !10
+  %68 = load ptr, ptr %14, align 8, !tbaa !14
+  %69 = call i32 @Gia_ObjFaninC0(ptr noundef %68)
+  %70 = call i32 @Abc_LitNotCond(i32 noundef %67, i32 noundef %69)
+  store i32 %70, ptr %15, align 4, !tbaa !10
+  %71 = load i32, ptr %16, align 4, !tbaa !10
+  %72 = load ptr, ptr %14, align 8, !tbaa !14
+  %73 = call i32 @Gia_ObjFaninC1(ptr noundef %72)
+  %74 = call i32 @Abc_LitNotCond(i32 noundef %71, i32 noundef %73)
+  store i32 %74, ptr %16, align 4, !tbaa !10
+  %75 = load ptr, ptr %12, align 8, !tbaa !8
+  %76 = load i32, ptr %10, align 4, !tbaa !10
+  call void @Vec_IntPush(ptr noundef %75, i32 noundef %76)
+  %77 = load ptr, ptr %11, align 8, !tbaa !3
+  %78 = load i32, ptr %15, align 4, !tbaa !10
+  %79 = load i32, ptr %16, align 4, !tbaa !10
+  %80 = call i32 @Gia_ManAppendAnd(ptr noundef %77, i32 noundef %78, i32 noundef %79)
+  store i32 %80, ptr %17, align 4, !tbaa !10
+  %81 = load ptr, ptr %13, align 8, !tbaa !8
+  %82 = load i32, ptr %10, align 4, !tbaa !10
+  %83 = load i32, ptr %17, align 4, !tbaa !10
+  call void @Vec_IntWriteEntry(ptr noundef %81, i32 noundef %82, i32 noundef %83)
+  %84 = load i32, ptr %17, align 4, !tbaa !10
+  store i32 %84, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %85
 
-84:                                               ; preds = %47, %38, %25
-  %85 = load i32, ptr %7, align 4
-  ret i32 %85
+85:                                               ; preds = %48, %39, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  %86 = load i32, ptr %7, align 4
+  ret i32 %86
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjIsCi(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjIsCi(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 31
   %6 = and i64 %5, 1
@@ -638,7 +662,7 @@ define internal i32 @Gia_ObjIsCi(ptr noundef %0) #0 {
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
+  %10 = load ptr, ptr %2, align 8, !tbaa !14
   %11 = load i64, ptr %10, align 4
   %12 = and i64 %11, 536870911
   %13 = trunc i64 %12 to i32
@@ -651,38 +675,38 @@ define internal i32 @Gia_ObjIsCi(ptr noundef %0) #0 {
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !44
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !45
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !45
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
   call void @Vec_IntGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !8
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !45
   %24 = mul nsw i32 2, %23
   call void @Vec_IntGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -691,29 +715,29 @@ define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !10
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !42
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !44
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !44
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
-  store i32 %27, ptr %36, align 4
+  store i32 %27, ptr %36, align 4, !tbaa !10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFaninId0(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFaninId0(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, 536870911
   %9 = trunc i64 %8 to i32
@@ -721,14 +745,14 @@ define internal i32 @Gia_ObjFaninId0(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFaninId1(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFaninId1(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
   %7 = load i64, ptr %6, align 4
   %8 = lshr i64 %7, 32
   %9 = and i64 %8, 536870911
@@ -737,25 +761,25 @@ define internal i32 @Gia_ObjFaninId1(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_LitNotCond(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_LitNotCond(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = icmp sgt i32 %6, 0
   %8 = zext i1 %7 to i32
   %9 = xor i32 %5, %8
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFaninC0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFaninC0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 29
   %6 = and i64 %5, 1
@@ -763,11 +787,11 @@ define internal i32 @Gia_ObjFaninC0(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjFaninC1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjFaninC1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 61
   %6 = and i64 %5, 1
@@ -775,8 +799,8 @@ define internal i32 @Gia_ObjFaninC1(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -785,34 +809,35 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %12 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
   %13 = call ptr @Gia_ManAppendObj(ptr noundef %12)
-  store ptr %13, ptr %7, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = load i32, ptr %6, align 4
+  store ptr %13, ptr %7, align 8, !tbaa !14
+  %14 = load i32, ptr %5, align 4, !tbaa !10
+  %15 = load i32, ptr %6, align 4, !tbaa !10
   %16 = icmp slt i32 %14, %15
   br i1 %16, label %17, label %61
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %4, align 8
-  %19 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %7, align 8, !tbaa !14
   %20 = call i32 @Gia_ObjId(ptr noundef %18, ptr noundef %19)
-  %21 = load i32, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4, !tbaa !10
   %22 = call i32 @Abc_Lit2Var(i32 noundef %21)
   %23 = sub nsw i32 %20, %22
-  %24 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %7, align 8, !tbaa !14
   %25 = zext i32 %23 to i64
   %26 = load i64, ptr %24, align 4
   %27 = and i64 %25, 536870911
   %28 = and i64 %26, -536870912
   %29 = or i64 %28, %27
   store i64 %29, ptr %24, align 4
-  %30 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %5, align 4, !tbaa !10
   %31 = call i32 @Abc_LitIsCompl(i32 noundef %30)
-  %32 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %7, align 8, !tbaa !14
   %33 = zext i32 %31 to i64
   %34 = load i64, ptr %32, align 4
   %35 = and i64 %33, 1
@@ -820,13 +845,13 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %37 = and i64 %34, -536870913
   %38 = or i64 %37, %36
   store i64 %38, ptr %32, align 4
-  %39 = load ptr, ptr %4, align 8
-  %40 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = load ptr, ptr %7, align 8, !tbaa !14
   %41 = call i32 @Gia_ObjId(ptr noundef %39, ptr noundef %40)
-  %42 = load i32, ptr %6, align 4
+  %42 = load i32, ptr %6, align 4, !tbaa !10
   %43 = call i32 @Abc_Lit2Var(i32 noundef %42)
   %44 = sub nsw i32 %41, %43
-  %45 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %7, align 8, !tbaa !14
   %46 = zext i32 %44 to i64
   %47 = load i64, ptr %45, align 4
   %48 = and i64 %46, 536870911
@@ -834,9 +859,9 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %50 = and i64 %47, -2305843004918726657
   %51 = or i64 %50, %49
   store i64 %51, ptr %45, align 4
-  %52 = load i32, ptr %6, align 4
+  %52 = load i32, ptr %6, align 4, !tbaa !10
   %53 = call i32 @Abc_LitIsCompl(i32 noundef %52)
-  %54 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %7, align 8, !tbaa !14
   %55 = zext i32 %53 to i64
   %56 = load i64, ptr %54, align 4
   %57 = and i64 %55, 1
@@ -847,13 +872,13 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %105
 
 61:                                               ; preds = %3
-  %62 = load ptr, ptr %4, align 8
-  %63 = load ptr, ptr %7, align 8
+  %62 = load ptr, ptr %4, align 8, !tbaa !3
+  %63 = load ptr, ptr %7, align 8, !tbaa !14
   %64 = call i32 @Gia_ObjId(ptr noundef %62, ptr noundef %63)
-  %65 = load i32, ptr %5, align 4
+  %65 = load i32, ptr %5, align 4, !tbaa !10
   %66 = call i32 @Abc_Lit2Var(i32 noundef %65)
   %67 = sub nsw i32 %64, %66
-  %68 = load ptr, ptr %7, align 8
+  %68 = load ptr, ptr %7, align 8, !tbaa !14
   %69 = zext i32 %67 to i64
   %70 = load i64, ptr %68, align 4
   %71 = and i64 %69, 536870911
@@ -861,9 +886,9 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %73 = and i64 %70, -2305843004918726657
   %74 = or i64 %73, %72
   store i64 %74, ptr %68, align 4
-  %75 = load i32, ptr %5, align 4
+  %75 = load i32, ptr %5, align 4, !tbaa !10
   %76 = call i32 @Abc_LitIsCompl(i32 noundef %75)
-  %77 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %7, align 8, !tbaa !14
   %78 = zext i32 %76 to i64
   %79 = load i64, ptr %77, align 4
   %80 = and i64 %78, 1
@@ -871,22 +896,22 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %82 = and i64 %79, -2305843009213693953
   %83 = or i64 %82, %81
   store i64 %83, ptr %77, align 4
-  %84 = load ptr, ptr %4, align 8
-  %85 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %4, align 8, !tbaa !3
+  %85 = load ptr, ptr %7, align 8, !tbaa !14
   %86 = call i32 @Gia_ObjId(ptr noundef %84, ptr noundef %85)
-  %87 = load i32, ptr %6, align 4
+  %87 = load i32, ptr %6, align 4, !tbaa !10
   %88 = call i32 @Abc_Lit2Var(i32 noundef %87)
   %89 = sub nsw i32 %86, %88
-  %90 = load ptr, ptr %7, align 8
+  %90 = load ptr, ptr %7, align 8, !tbaa !14
   %91 = zext i32 %89 to i64
   %92 = load i64, ptr %90, align 4
   %93 = and i64 %91, 536870911
   %94 = and i64 %92, -536870912
   %95 = or i64 %94, %93
   store i64 %95, ptr %90, align 4
-  %96 = load i32, ptr %6, align 4
+  %96 = load i32, ptr %6, align 4, !tbaa !10
   %97 = call i32 @Abc_LitIsCompl(i32 noundef %96)
-  %98 = load ptr, ptr %7, align 8
+  %98 = load ptr, ptr %7, align 8, !tbaa !14
   %99 = zext i32 %97 to i64
   %100 = load i64, ptr %98, align 4
   %101 = and i64 %99, 1
@@ -897,40 +922,42 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %105
 
 105:                                              ; preds = %61, %17
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.Gia_Man_t_, ptr %106, i32 0, i32 33
-  %108 = load ptr, ptr %107, align 8
+  %106 = load ptr, ptr %4, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %106, i32 0, i32 33
+  %108 = load ptr, ptr %107, align 8, !tbaa !46
   %109 = icmp ne ptr %108, null
   br i1 %109, label %110, label %119
 
 110:                                              ; preds = %105
-  %111 = load ptr, ptr %4, align 8
-  %112 = load ptr, ptr %7, align 8
+  %111 = load ptr, ptr %4, align 8, !tbaa !3
+  %112 = load ptr, ptr %7, align 8, !tbaa !14
   %113 = call ptr @Gia_ObjFanin0(ptr noundef %112)
-  %114 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %7, align 8, !tbaa !14
   call void @Gia_ObjAddFanout(ptr noundef %111, ptr noundef %113, ptr noundef %114)
-  %115 = load ptr, ptr %4, align 8
-  %116 = load ptr, ptr %7, align 8
+  %115 = load ptr, ptr %4, align 8, !tbaa !3
+  %116 = load ptr, ptr %7, align 8, !tbaa !14
   %117 = call ptr @Gia_ObjFanin1(ptr noundef %116)
-  %118 = load ptr, ptr %7, align 8
+  %118 = load ptr, ptr %7, align 8, !tbaa !14
   call void @Gia_ObjAddFanout(ptr noundef %115, ptr noundef %117, ptr noundef %118)
   br label %119
 
 119:                                              ; preds = %110, %105
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct.Gia_Man_t_, ptr %120, i32 0, i32 16
-  %122 = load i32, ptr %121, align 4
+  %120 = load ptr, ptr %4, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %120, i32 0, i32 16
+  %122 = load i32, ptr %121, align 4, !tbaa !47
   %123 = icmp ne i32 %122, 0
   br i1 %123, label %124, label %181
 
 124:                                              ; preds = %119
-  %125 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %125 = load ptr, ptr %7, align 8, !tbaa !14
   %126 = call ptr @Gia_ObjFanin0(ptr noundef %125)
-  store ptr %126, ptr %8, align 8
-  %127 = load ptr, ptr %7, align 8
+  store ptr %126, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %127 = load ptr, ptr %7, align 8, !tbaa !14
   %128 = call ptr @Gia_ObjFanin1(ptr noundef %127)
-  store ptr %128, ptr %9, align 8
-  %129 = load ptr, ptr %8, align 8
+  store ptr %128, ptr %9, align 8, !tbaa !14
+  %129 = load ptr, ptr %8, align 8, !tbaa !14
   %130 = load i64, ptr %129, align 4
   %131 = lshr i64 %130, 30
   %132 = and i64 %131, 1
@@ -939,7 +966,7 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %134, label %135, label %140
 
 135:                                              ; preds = %124
-  %136 = load ptr, ptr %8, align 8
+  %136 = load ptr, ptr %8, align 8, !tbaa !14
   %137 = load i64, ptr %136, align 4
   %138 = and i64 %137, -4611686018427387905
   %139 = or i64 %138, 4611686018427387904
@@ -947,7 +974,7 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %145
 
 140:                                              ; preds = %124
-  %141 = load ptr, ptr %8, align 8
+  %141 = load ptr, ptr %8, align 8, !tbaa !14
   %142 = load i64, ptr %141, align 4
   %143 = and i64 %142, -1073741825
   %144 = or i64 %143, 1073741824
@@ -955,7 +982,7 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %145
 
 145:                                              ; preds = %140, %135
-  %146 = load ptr, ptr %9, align 8
+  %146 = load ptr, ptr %9, align 8, !tbaa !14
   %147 = load i64, ptr %146, align 4
   %148 = lshr i64 %147, 30
   %149 = and i64 %148, 1
@@ -964,7 +991,7 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %151, label %152, label %157
 
 152:                                              ; preds = %145
-  %153 = load ptr, ptr %9, align 8
+  %153 = load ptr, ptr %9, align 8, !tbaa !14
   %154 = load i64, ptr %153, align 4
   %155 = and i64 %154, -4611686018427387905
   %156 = or i64 %155, 4611686018427387904
@@ -972,7 +999,7 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %162
 
 157:                                              ; preds = %145
-  %158 = load ptr, ptr %9, align 8
+  %158 = load ptr, ptr %9, align 8, !tbaa !14
   %159 = load i64, ptr %158, align 4
   %160 = and i64 %159, -1073741825
   %161 = or i64 %160, 1073741824
@@ -980,18 +1007,18 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %162
 
 162:                                              ; preds = %157, %152
-  %163 = load ptr, ptr %8, align 8
+  %163 = load ptr, ptr %8, align 8, !tbaa !14
   %164 = call i32 @Gia_ObjPhase(ptr noundef %163)
-  %165 = load ptr, ptr %7, align 8
+  %165 = load ptr, ptr %7, align 8, !tbaa !14
   %166 = call i32 @Gia_ObjFaninC0(ptr noundef %165)
   %167 = xor i32 %164, %166
-  %168 = load ptr, ptr %9, align 8
+  %168 = load ptr, ptr %9, align 8, !tbaa !14
   %169 = call i32 @Gia_ObjPhase(ptr noundef %168)
-  %170 = load ptr, ptr %7, align 8
+  %170 = load ptr, ptr %7, align 8, !tbaa !14
   %171 = call i32 @Gia_ObjFaninC1(ptr noundef %170)
   %172 = xor i32 %169, %171
   %173 = and i32 %167, %172
-  %174 = load ptr, ptr %7, align 8
+  %174 = load ptr, ptr %7, align 8, !tbaa !14
   %175 = zext i32 %173 to i64
   %176 = load i64, ptr %174, align 4
   %177 = and i64 %175, 1
@@ -999,34 +1026,38 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %179 = and i64 %176, 9223372036854775807
   %180 = or i64 %179, %178
   store i64 %180, ptr %174, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
   br label %181
 
 181:                                              ; preds = %162, %119
-  %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds %struct.Gia_Man_t_, ptr %182, i32 0, i32 107
-  %184 = load i32, ptr %183, align 8
+  %182 = load ptr, ptr %4, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %182, i32 0, i32 107
+  %184 = load i32, ptr %183, align 8, !tbaa !48
   %185 = icmp ne i32 %184, 0
   br i1 %185, label %186, label %213
 
 186:                                              ; preds = %181
-  %187 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %187 = load ptr, ptr %7, align 8, !tbaa !14
   %188 = call ptr @Gia_ObjFanin0(ptr noundef %187)
-  store ptr %188, ptr %10, align 8
-  %189 = load ptr, ptr %7, align 8
+  store ptr %188, ptr %10, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %189 = load ptr, ptr %7, align 8, !tbaa !14
   %190 = call ptr @Gia_ObjFanin1(ptr noundef %189)
-  store ptr %190, ptr %11, align 8
-  %191 = load ptr, ptr %10, align 8
+  store ptr %190, ptr %11, align 8, !tbaa !14
+  %191 = load ptr, ptr %10, align 8, !tbaa !14
   %192 = call i32 @Gia_ObjPhase(ptr noundef %191)
-  %193 = load ptr, ptr %7, align 8
+  %193 = load ptr, ptr %7, align 8, !tbaa !14
   %194 = call i32 @Gia_ObjFaninC0(ptr noundef %193)
   %195 = xor i32 %192, %194
-  %196 = load ptr, ptr %11, align 8
+  %196 = load ptr, ptr %11, align 8, !tbaa !14
   %197 = call i32 @Gia_ObjPhase(ptr noundef %196)
-  %198 = load ptr, ptr %7, align 8
+  %198 = load ptr, ptr %7, align 8, !tbaa !14
   %199 = call i32 @Gia_ObjFaninC1(ptr noundef %198)
   %200 = xor i32 %197, %199
   %201 = and i32 %195, %200
-  %202 = load ptr, ptr %7, align 8
+  %202 = load ptr, ptr %7, align 8, !tbaa !14
   %203 = zext i32 %201 to i64
   %204 = load i64, ptr %202, align 4
   %205 = and i64 %203, 1
@@ -1034,31 +1065,34 @@ define internal i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 nounde
   %207 = and i64 %204, 9223372036854775807
   %208 = or i64 %207, %206
   store i64 %208, ptr %202, align 4
-  %209 = load ptr, ptr %4, align 8
-  %210 = load ptr, ptr %4, align 8
-  %211 = load ptr, ptr %7, align 8
+  %209 = load ptr, ptr %4, align 8, !tbaa !3
+  %210 = load ptr, ptr %4, align 8, !tbaa !3
+  %211 = load ptr, ptr %7, align 8, !tbaa !14
   %212 = call i32 @Gia_ObjId(ptr noundef %210, ptr noundef %211)
   call void @Gia_ManBuiltInSimPerform(ptr noundef %209, i32 noundef %212)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
   br label %213
 
 213:                                              ; preds = %186, %181
-  %214 = load ptr, ptr %4, align 8
-  %215 = getelementptr inbounds %struct.Gia_Man_t_, ptr %214, i32 0, i32 135
-  %216 = load ptr, ptr %215, align 8
+  %214 = load ptr, ptr %4, align 8, !tbaa !3
+  %215 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %214, i32 0, i32 135
+  %216 = load ptr, ptr %215, align 8, !tbaa !49
   %217 = icmp ne ptr %216, null
   br i1 %217, label %218, label %221
 
 218:                                              ; preds = %213
-  %219 = load ptr, ptr %4, align 8
-  %220 = load ptr, ptr %7, align 8
+  %219 = load ptr, ptr %4, align 8, !tbaa !3
+  %220 = load ptr, ptr %7, align 8, !tbaa !14
   call void @Gia_ManQuantSetSuppAnd(ptr noundef %219, ptr noundef %220)
   br label %221
 
 221:                                              ; preds = %218, %213
-  %222 = load ptr, ptr %4, align 8
-  %223 = load ptr, ptr %7, align 8
+  %222 = load ptr, ptr %4, align 8, !tbaa !3
+  %223 = load ptr, ptr %7, align 8, !tbaa !14
   %224 = call i32 @Gia_ObjId(ptr noundef %222, ptr noundef %223)
   %225 = shl i32 %224, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret i32 %225
 }
 
@@ -1073,47 +1107,51 @@ define ptr @Bmc_BmciPart(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  store ptr %4, ptr %10, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %15 = load ptr, ptr %10, align 8, !tbaa !8
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
   %17 = call i32 @Gia_ManObjNum(ptr noundef %16)
   call void @Vec_IntFill(ptr noundef %15, i32 noundef %17, i32 noundef 0)
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
   %20 = call i32 @Gia_ManObjNum(ptr noundef %19)
   call void @Vec_IntFillExtra(ptr noundef %18, i32 noundef %20, i32 noundef -1)
   %21 = call ptr @Gia_ManStart(i32 noundef 1000)
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.Gia_Man_t_, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
+  store ptr %21, ptr %11, align 8, !tbaa !3
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = call ptr @Abc_UtilStrsav(ptr noundef %24)
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.Gia_Man_t_, ptr %26, i32 0, i32 0
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %11, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %26, i32 0, i32 0
+  store ptr %25, ptr %27, align 8, !tbaa !50
+  %28 = load ptr, ptr %9, align 8, !tbaa !8
   call void @Vec_IntClear(ptr noundef %28)
-  %29 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %9, align 8, !tbaa !8
   call void @Vec_IntPush(ptr noundef %29, i32 noundef 0)
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !10
   br label %30
 
 30:                                               ; preds = %61, %5
-  %31 = load i32, ptr %12, align 4
-  %32 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %12, align 4, !tbaa !10
+  %32 = load ptr, ptr %8, align 8, !tbaa !8
   %33 = call i32 @Vec_IntSize(ptr noundef %32)
   %34 = icmp slt i32 %31, %33
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr %8, align 8
-  %37 = load i32, ptr %12, align 4
+  %36 = load ptr, ptr %8, align 8, !tbaa !8
+  %37 = load i32, ptr %12, align 4, !tbaa !10
   %38 = call i32 @Vec_IntEntry(ptr noundef %36, i32 noundef %37)
-  store i32 %38, ptr %13, align 4
+  store i32 %38, ptr %13, align 4, !tbaa !10
   br label %39
 
 39:                                               ; preds = %35, %30
@@ -1121,7 +1159,7 @@ define ptr @Bmc_BmciPart(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %39
-  %42 = load i32, ptr %13, align 4
+  %42 = load i32, ptr %13, align 4, !tbaa !10
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %44, label %45
 
@@ -1129,204 +1167,225 @@ define ptr @Bmc_BmciPart(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %61
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %6, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = load i32, ptr %13, align 4
+  %46 = load ptr, ptr %6, align 8, !tbaa !3
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = load i32, ptr %13, align 4, !tbaa !10
   %49 = call i32 @Abc_Lit2Var(i32 noundef %48)
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8, !tbaa !3
+  %51 = load ptr, ptr %9, align 8, !tbaa !8
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
   %53 = call i32 @Bmc_BmciPart_rec(ptr noundef %46, ptr noundef %47, i32 noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52)
-  store i32 %53, ptr %14, align 4
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr %14, align 4
-  %56 = load i32, ptr %13, align 4
+  store i32 %53, ptr %14, align 4, !tbaa !10
+  %54 = load ptr, ptr %11, align 8, !tbaa !3
+  %55 = load i32, ptr %14, align 4, !tbaa !10
+  %56 = load i32, ptr %13, align 4, !tbaa !10
   %57 = call i32 @Abc_LitIsCompl(i32 noundef %56)
   %58 = call i32 @Abc_LitNotCond(i32 noundef %55, i32 noundef %57)
   %59 = call i32 @Gia_ManAppendCo(ptr noundef %54, i32 noundef %58)
-  %60 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %9, align 8, !tbaa !8
   call void @Vec_IntPush(ptr noundef %60, i32 noundef -1)
   br label %61
 
 61:                                               ; preds = %45, %44
-  %62 = load i32, ptr %12, align 4
+  %62 = load i32, ptr %12, align 4, !tbaa !10
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %12, align 4
-  br label %30, !llvm.loop !9
+  store i32 %63, ptr %12, align 4, !tbaa !10
+  br label %30, !llvm.loop !51
 
 64:                                               ; preds = %39
-  %65 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret ptr %65
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntFill(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntFill(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = load i32, ptr %5, align 4, !tbaa !10
   call void @Vec_IntGrow(ptr noundef %8, i32 noundef %9)
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %22, %3
-  %11 = load i32, ptr %7, align 4
-  %12 = load i32, ptr %5, align 4
+  %11 = load i32, ptr %7, align 4, !tbaa !10
+  %12 = load i32, ptr %5, align 4, !tbaa !10
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %6, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %7, align 4
+  %15 = load i32, ptr %6, align 4, !tbaa !10
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %19 = load i32, ptr %7, align 4, !tbaa !10
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %18, i64 %20
-  store i32 %15, ptr %21, align 4
+  store i32 %15, ptr %21, align 4, !tbaa !10
   br label %22
 
 22:                                               ; preds = %14
-  %23 = load i32, ptr %7, align 4
+  %23 = load i32, ptr %7, align 4, !tbaa !10
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %7, align 4
-  br label %10, !llvm.loop !10
+  store i32 %24, ptr %7, align 4, !tbaa !10
+  br label %10, !llvm.loop !52
 
 25:                                               ; preds = %10
-  %26 = load i32, ptr %5, align 4
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.Vec_Int_t_, ptr %27, i32 0, i32 1
-  store i32 %26, ptr %28, align 4
+  %26 = load i32, ptr %5, align 4, !tbaa !10
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %27, i32 0, i32 1
+  store i32 %26, ptr %28, align 4, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManObjNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManObjNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntFillExtra(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntFillExtra(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = load i32, ptr %5, align 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.Vec_Int_t_, ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sle i32 %8, %11
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  br label %60
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %9 = load i32, ptr %5, align 4, !tbaa !10
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !44
+  %13 = icmp sle i32 %9, %12
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Vec_Int_t_, ptr %16, i32 0, i32 0
-  %18 = load i32, ptr %17, align 8
-  %19 = mul nsw i32 2, %18
-  %20 = icmp sgt i32 %15, %19
-  br i1 %20, label %21, label %24
+  store i32 1, ptr %8, align 4
+  br label %61
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i32, ptr %5, align 4
-  call void @Vec_IntGrow(ptr noundef %22, i32 noundef %23)
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4, !tbaa !10
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !45
+  %20 = mul nsw i32 2, %19
+  %21 = icmp sgt i32 %16, %20
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  call void @Vec_IntGrow(ptr noundef %23, i32 noundef %24)
+  br label %38
+
+25:                                               ; preds = %15
+  %26 = load i32, ptr %5, align 4, !tbaa !10
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !45
+  %30 = icmp sgt i32 %26, %29
+  br i1 %30, label %31, label %37
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8, !tbaa !45
+  %36 = mul nsw i32 2, %35
+  call void @Vec_IntGrow(ptr noundef %32, i32 noundef %36)
   br label %37
 
-24:                                               ; preds = %14
-  %25 = load i32, ptr %5, align 4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.Vec_Int_t_, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp sgt i32 %25, %28
-  br i1 %29, label %30, label %36
+37:                                               ; preds = %31, %25
+  br label %38
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %4, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.Vec_Int_t_, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %33, align 8
-  %35 = mul nsw i32 2, %34
-  call void @Vec_IntGrow(ptr noundef %31, i32 noundef %35)
-  br label %36
+38:                                               ; preds = %37, %22
+  %39 = load ptr, ptr %4, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4, !tbaa !44
+  store i32 %41, ptr %7, align 4, !tbaa !10
+  br label %42
 
-36:                                               ; preds = %30, %24
-  br label %37
+42:                                               ; preds = %54, %38
+  %43 = load i32, ptr %7, align 4, !tbaa !10
+  %44 = load i32, ptr %5, align 4, !tbaa !10
+  %45 = icmp slt i32 %43, %44
+  br i1 %45, label %46, label %57
 
-37:                                               ; preds = %36, %21
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.Vec_Int_t_, ptr %38, i32 0, i32 1
-  %40 = load i32, ptr %39, align 4
-  store i32 %40, ptr %7, align 4
-  br label %41
+46:                                               ; preds = %42
+  %47 = load i32, ptr %6, align 4, !tbaa !10
+  %48 = load ptr, ptr %4, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
+  %51 = load i32, ptr %7, align 4, !tbaa !10
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %50, i64 %52
+  store i32 %47, ptr %53, align 4, !tbaa !10
+  br label %54
 
-41:                                               ; preds = %53, %37
-  %42 = load i32, ptr %7, align 4
-  %43 = load i32, ptr %5, align 4
-  %44 = icmp slt i32 %42, %43
-  br i1 %44, label %45, label %56
+54:                                               ; preds = %46
+  %55 = load i32, ptr %7, align 4, !tbaa !10
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %7, align 4, !tbaa !10
+  br label %42, !llvm.loop !53
 
-45:                                               ; preds = %41
-  %46 = load i32, ptr %6, align 4
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.Vec_Int_t_, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr %7, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %49, i64 %51
-  store i32 %46, ptr %52, align 4
-  br label %53
+57:                                               ; preds = %42
+  %58 = load i32, ptr %5, align 4, !tbaa !10
+  %59 = load ptr, ptr %4, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %59, i32 0, i32 1
+  store i32 %58, ptr %60, align 4, !tbaa !44
+  store i32 0, ptr %8, align 4
+  br label %61
 
-53:                                               ; preds = %45
-  %54 = load i32, ptr %7, align 4
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %7, align 4
-  br label %41, !llvm.loop !11
+61:                                               ; preds = %57, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  %62 = load i32, ptr %8, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
 
-56:                                               ; preds = %41
-  %57 = load i32, ptr %5, align 4
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.Vec_Int_t_, ptr %58, i32 0, i32 1
-  store i32 %57, ptr %59, align 4
-  br label %60
-
-60:                                               ; preds = %56, %13
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-declare ptr @Gia_ManStart(i32 noundef) #1
+declare ptr @Gia_ManStart(i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Abc_UtilStrsav(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Abc_UtilStrsav(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #9
+  %6 = load ptr, ptr %2, align 8, !tbaa !54
+  %7 = call i64 @strlen(ptr noundef %6) #12
   %8 = add i64 %7, 1
   %9 = mul i64 1, %8
-  %10 = call noalias ptr @malloc(i64 noundef %9) #10
-  %11 = load ptr, ptr %2, align 8
+  %10 = call noalias ptr @malloc(i64 noundef %9) #13
+  %11 = load ptr, ptr %2, align 8, !tbaa !54
   %12 = call ptr @strcpy(ptr noundef %10, ptr noundef %11) #11
   br label %14
 
@@ -1338,66 +1397,67 @@ define internal ptr @Abc_UtilStrsav(ptr noundef %0) #0 {
   ret ptr %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntClear(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntClear(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !44
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !44
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Lit2Var(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Lit2Var(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  %3 = load i32, ptr %2, align 4, !tbaa !10
   %4 = ashr i32 %3, 1
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = call ptr @Gia_ManAppendObj(ptr noundef %6)
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !14
+  %8 = load ptr, ptr %5, align 8, !tbaa !14
   %9 = load i64, ptr %8, align 4
   %10 = and i64 %9, -2147483649
   %11 = or i64 %10, 2147483648
   store i64 %11, ptr %8, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !14
   %14 = call i32 @Gia_ObjId(ptr noundef %12, ptr noundef %13)
-  %15 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %4, align 4, !tbaa !10
   %16 = call i32 @Abc_Lit2Var(i32 noundef %15)
   %17 = sub nsw i32 %14, %16
-  %18 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8, !tbaa !14
   %19 = zext i32 %17 to i64
   %20 = load i64, ptr %18, align 4
   %21 = and i64 %19, 536870911
   %22 = and i64 %20, -536870912
   %23 = or i64 %22, %21
   store i64 %23, ptr %18, align 4
-  %24 = load i32, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4, !tbaa !10
   %25 = call i32 @Abc_LitIsCompl(i32 noundef %24)
-  %26 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %5, align 8, !tbaa !14
   %27 = zext i32 %25 to i64
   %28 = load i64, ptr %26, align 4
   %29 = and i64 %27, 1
@@ -1405,11 +1465,11 @@ define internal i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) #0 {
   %31 = and i64 %28, -536870913
   %32 = or i64 %31, %30
   store i64 %32, ptr %26, align 4
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.Gia_Man_t_, ptr %33, i32 0, i32 12
-  %35 = load ptr, ptr %34, align 8
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %33, i32 0, i32 12
+  %35 = load ptr, ptr %34, align 8, !tbaa !43
   %36 = call i32 @Vec_IntSize(ptr noundef %35)
-  %37 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8, !tbaa !14
   %38 = zext i32 %36 to i64
   %39 = load i64, ptr %37, align 4
   %40 = and i64 %38, 536870911
@@ -1417,55 +1477,56 @@ define internal i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) #0 {
   %42 = and i64 %39, -2305843004918726657
   %43 = or i64 %42, %41
   store i64 %43, ptr %37, align 4
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.Gia_Man_t_, ptr %44, i32 0, i32 12
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %44, i32 0, i32 12
+  %46 = load ptr, ptr %45, align 8, !tbaa !43
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %48 = load ptr, ptr %5, align 8, !tbaa !14
   %49 = call i32 @Gia_ObjId(ptr noundef %47, ptr noundef %48)
   call void @Vec_IntPush(ptr noundef %46, i32 noundef %49)
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.Gia_Man_t_, ptr %50, i32 0, i32 33
-  %52 = load ptr, ptr %51, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %50, i32 0, i32 33
+  %52 = load ptr, ptr %51, align 8, !tbaa !46
   %53 = icmp ne ptr %52, null
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %2
-  %55 = load ptr, ptr %3, align 8
-  %56 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %3, align 8, !tbaa !3
+  %56 = load ptr, ptr %5, align 8, !tbaa !14
   %57 = call ptr @Gia_ObjFanin0(ptr noundef %56)
-  %58 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %5, align 8, !tbaa !14
   call void @Gia_ObjAddFanout(ptr noundef %55, ptr noundef %57, ptr noundef %58)
   br label %59
 
 59:                                               ; preds = %54, %2
-  %60 = load ptr, ptr %3, align 8
-  %61 = load ptr, ptr %5, align 8
+  %60 = load ptr, ptr %3, align 8, !tbaa !3
+  %61 = load ptr, ptr %5, align 8, !tbaa !14
   %62 = call i32 @Gia_ObjId(ptr noundef %60, ptr noundef %61)
   %63 = shl i32 %62, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret i32 %63
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_LitIsCompl(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_LitIsCompl(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  %3 = load i32, ptr %2, align 4, !tbaa !10
   %4 = and i32 %3, 1
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @Bmc_BmciPerform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
+  %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
+  %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
@@ -1476,7 +1537,7 @@ define i32 @Bmc_BmciPerform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
-  %27 = alloca i32, align 4
+  %27 = alloca ptr, align 8
   %28 = alloca i32, align 4
   %29 = alloca i32, align 4
   %30 = alloca i32, align 4
@@ -1487,728 +1548,802 @@ define i32 @Bmc_BmciPerform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
   %37 = alloca i32, align 4
-  %38 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store i32 %5, ptr %13, align 4
-  store i32 %6, ptr %14, align 4
-  store i32 1, ptr %15, align 4
-  store i32 1, ptr %37, align 4
-  %39 = call ptr @sat_solver_new()
-  store ptr %39, ptr %26, align 8
-  %40 = load ptr, ptr %26, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %49
+  %38 = alloca i32, align 4
+  %39 = alloca i64, align 8
+  %40 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store ptr %1, ptr %10, align 8, !tbaa !8
+  store ptr %2, ptr %11, align 8, !tbaa !8
+  store i32 %3, ptr %12, align 4, !tbaa !10
+  store i32 %4, ptr %13, align 4, !tbaa !10
+  store i32 %5, ptr %14, align 4, !tbaa !10
+  store i32 %6, ptr %15, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #11
+  store i32 1, ptr %16, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #11
+  store i32 1, ptr %38, align 4, !tbaa !10
+  %41 = call ptr @sat_solver_new()
+  store ptr %41, ptr %27, align 8, !tbaa !55
+  %42 = load ptr, ptr %27, align 8, !tbaa !55
+  %43 = load i32, ptr %14, align 4, !tbaa !10
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %51
 
-43:                                               ; preds = %7
-  %44 = load i32, ptr %13, align 4
-  %45 = sext i32 %44 to i64
-  %46 = mul nsw i64 %45, 1000000
-  %47 = call i64 @Abc_Clock()
-  %48 = add nsw i64 %46, %47
-  br label %50
+45:                                               ; preds = %7
+  %46 = load i32, ptr %14, align 4, !tbaa !10
+  %47 = sext i32 %46 to i64
+  %48 = mul nsw i64 %47, 1000000
+  %49 = call i64 @Abc_Clock()
+  %50 = add nsw i64 %48, %49
+  br label %52
 
-49:                                               ; preds = %7
-  br label %50
+51:                                               ; preds = %7
+  br label %52
 
-50:                                               ; preds = %49, %43
-  %51 = phi i64 [ %48, %43 ], [ 0, %49 ]
-  %52 = call i64 @sat_solver_set_runtime_limit(ptr noundef %40, i64 noundef %51)
-  %53 = call ptr @Gia_ManStart(i32 noundef 10000)
-  store ptr %53, ptr %22, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.Gia_Man_t_, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = call ptr @Abc_UtilStrsav(ptr noundef %56)
-  %58 = load ptr, ptr %22, align 8
-  %59 = getelementptr inbounds %struct.Gia_Man_t_, ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %22, align 8
-  call void @Gia_ManHashAlloc(ptr noundef %60)
-  %61 = load ptr, ptr %8, align 8
-  %62 = call ptr @Gia_ManConst0(ptr noundef %61)
-  %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %62, i32 0, i32 1
-  store i32 0, ptr %63, align 4
-  %64 = load ptr, ptr %8, align 8
-  %65 = call i32 @Gia_ManRegNum(ptr noundef %64)
-  %66 = call ptr @Vec_IntAlloc(i32 noundef %65)
-  store ptr %66, ptr %16, align 8
-  store i32 0, ptr %32, align 4
-  br label %67
+52:                                               ; preds = %51, %45
+  %53 = phi i64 [ %50, %45 ], [ 0, %51 ]
+  %54 = call i64 @sat_solver_set_runtime_limit(ptr noundef %42, i64 noundef %53)
+  %55 = call ptr @Gia_ManStart(i32 noundef 10000)
+  store ptr %55, ptr %23, align 8, !tbaa !3
+  %56 = load ptr, ptr %9, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !50
+  %59 = call ptr @Abc_UtilStrsav(ptr noundef %58)
+  %60 = load ptr, ptr %23, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %60, i32 0, i32 0
+  store ptr %59, ptr %61, align 8, !tbaa !50
+  %62 = load ptr, ptr %23, align 8, !tbaa !3
+  call void @Gia_ManHashAlloc(ptr noundef %62)
+  %63 = load ptr, ptr %9, align 8, !tbaa !3
+  %64 = call ptr @Gia_ManConst0(ptr noundef %63)
+  %65 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %64, i32 0, i32 1
+  store i32 0, ptr %65, align 4, !tbaa !12
+  %66 = load ptr, ptr %9, align 8, !tbaa !3
+  %67 = call i32 @Gia_ManRegNum(ptr noundef %66)
+  %68 = call ptr @Vec_IntAlloc(i32 noundef %67)
+  store ptr %68, ptr %17, align 8, !tbaa !8
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %69
 
-67:                                               ; preds = %89, %50
-  %68 = load i32, ptr %32, align 4
-  %69 = load ptr, ptr %9, align 8
-  %70 = call i32 @Vec_IntSize(ptr noundef %69)
-  %71 = icmp slt i32 %68, %70
-  br i1 %71, label %72, label %76
+69:                                               ; preds = %91, %52
+  %70 = load i32, ptr %33, align 4, !tbaa !10
+  %71 = load ptr, ptr %10, align 8, !tbaa !8
+  %72 = call i32 @Vec_IntSize(ptr noundef %71)
+  %73 = icmp slt i32 %70, %72
+  br i1 %73, label %74, label %78
 
-72:                                               ; preds = %67
-  %73 = load ptr, ptr %9, align 8
-  %74 = load i32, ptr %32, align 4
-  %75 = call i32 @Vec_IntEntry(ptr noundef %73, i32 noundef %74)
-  store i32 %75, ptr %29, align 4
-  br label %76
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %10, align 8, !tbaa !8
+  %76 = load i32, ptr %33, align 4, !tbaa !10
+  %77 = call i32 @Vec_IntEntry(ptr noundef %75, i32 noundef %76)
+  store i32 %77, ptr %30, align 4, !tbaa !10
+  br label %78
 
-76:                                               ; preds = %72, %67
-  %77 = phi i1 [ false, %67 ], [ true, %72 ]
-  br i1 %77, label %78, label %92
+78:                                               ; preds = %74, %69
+  %79 = phi i1 [ false, %69 ], [ true, %74 ]
+  br i1 %79, label %80, label %94
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %16, align 8
-  %80 = load i32, ptr %29, align 4
-  %81 = icmp slt i32 %80, 2
-  br i1 %81, label %82, label %84
+80:                                               ; preds = %78
+  %81 = load ptr, ptr %17, align 8, !tbaa !8
+  %82 = load i32, ptr %30, align 4, !tbaa !10
+  %83 = icmp slt i32 %82, 2
+  br i1 %83, label %84, label %86
 
-82:                                               ; preds = %78
-  %83 = load i32, ptr %29, align 4
-  br label %87
-
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %22, align 8
-  %86 = call i32 @Gia_ManAppendCi(ptr noundef %85)
-  br label %87
-
-87:                                               ; preds = %84, %82
-  %88 = phi i32 [ %83, %82 ], [ %86, %84 ]
-  call void @Vec_IntPush(ptr noundef %79, i32 noundef %88)
+84:                                               ; preds = %80
+  %85 = load i32, ptr %30, align 4, !tbaa !10
   br label %89
 
-89:                                               ; preds = %87
-  %90 = load i32, ptr %32, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %32, align 4
-  br label %67, !llvm.loop !12
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %23, align 8, !tbaa !3
+  %88 = call i32 @Gia_ManAppendCi(ptr noundef %87)
+  br label %89
 
-92:                                               ; preds = %76
-  %93 = load ptr, ptr %8, align 8
-  %94 = call i32 @Gia_ManRegNum(ptr noundef %93)
-  %95 = call ptr @Vec_IntAlloc(i32 noundef %94)
-  store ptr %95, ptr %17, align 8
-  store i32 0, ptr %32, align 4
-  br label %96
+89:                                               ; preds = %86, %84
+  %90 = phi i32 [ %85, %84 ], [ %88, %86 ]
+  call void @Vec_IntPush(ptr noundef %81, i32 noundef %90)
+  br label %91
 
-96:                                               ; preds = %118, %92
-  %97 = load i32, ptr %32, align 4
-  %98 = load ptr, ptr %10, align 8
-  %99 = call i32 @Vec_IntSize(ptr noundef %98)
-  %100 = icmp slt i32 %97, %99
-  br i1 %100, label %101, label %105
+91:                                               ; preds = %89
+  %92 = load i32, ptr %33, align 4, !tbaa !10
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %33, align 4, !tbaa !10
+  br label %69, !llvm.loop !57
 
-101:                                              ; preds = %96
-  %102 = load ptr, ptr %10, align 8
-  %103 = load i32, ptr %32, align 4
-  %104 = call i32 @Vec_IntEntry(ptr noundef %102, i32 noundef %103)
-  store i32 %104, ptr %29, align 4
-  br label %105
+94:                                               ; preds = %78
+  %95 = load ptr, ptr %9, align 8, !tbaa !3
+  %96 = call i32 @Gia_ManRegNum(ptr noundef %95)
+  %97 = call ptr @Vec_IntAlloc(i32 noundef %96)
+  store ptr %97, ptr %18, align 8, !tbaa !8
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %98
 
-105:                                              ; preds = %101, %96
-  %106 = phi i1 [ false, %96 ], [ true, %101 ]
-  br i1 %106, label %107, label %121
+98:                                               ; preds = %120, %94
+  %99 = load i32, ptr %33, align 4, !tbaa !10
+  %100 = load ptr, ptr %11, align 8, !tbaa !8
+  %101 = call i32 @Vec_IntSize(ptr noundef %100)
+  %102 = icmp slt i32 %99, %101
+  br i1 %102, label %103, label %107
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr %17, align 8
-  %109 = load i32, ptr %29, align 4
-  %110 = icmp slt i32 %109, 2
-  br i1 %110, label %111, label %113
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %11, align 8, !tbaa !8
+  %105 = load i32, ptr %33, align 4, !tbaa !10
+  %106 = call i32 @Vec_IntEntry(ptr noundef %104, i32 noundef %105)
+  store i32 %106, ptr %30, align 4, !tbaa !10
+  br label %107
 
-111:                                              ; preds = %107
-  %112 = load i32, ptr %29, align 4
-  br label %116
+107:                                              ; preds = %103, %98
+  %108 = phi i1 [ false, %98 ], [ true, %103 ]
+  br i1 %108, label %109, label %123
 
-113:                                              ; preds = %107
-  %114 = load ptr, ptr %22, align 8
-  %115 = call i32 @Gia_ManAppendCi(ptr noundef %114)
-  br label %116
+109:                                              ; preds = %107
+  %110 = load ptr, ptr %18, align 8, !tbaa !8
+  %111 = load i32, ptr %30, align 4, !tbaa !10
+  %112 = icmp slt i32 %111, 2
+  br i1 %112, label %113, label %115
 
-116:                                              ; preds = %113, %111
-  %117 = phi i32 [ %112, %111 ], [ %115, %113 ]
-  call void @Vec_IntPush(ptr noundef %108, i32 noundef %117)
+113:                                              ; preds = %109
+  %114 = load i32, ptr %30, align 4, !tbaa !10
   br label %118
 
-118:                                              ; preds = %116
-  %119 = load i32, ptr %32, align 4
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %32, align 4
-  br label %96, !llvm.loop !13
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %23, align 8, !tbaa !3
+  %117 = call i32 @Gia_ManAppendCi(ptr noundef %116)
+  br label %118
 
-121:                                              ; preds = %105
-  %122 = call ptr @Vec_IntAlloc(i32 noundef 1000)
-  store ptr %122, ptr %18, align 8
-  %123 = call ptr @Vec_IntAlloc(i32 noundef 1000)
-  store ptr %123, ptr %19, align 8
+118:                                              ; preds = %115, %113
+  %119 = phi i32 [ %114, %113 ], [ %117, %115 ]
+  call void @Vec_IntPush(ptr noundef %110, i32 noundef %119)
+  br label %120
+
+120:                                              ; preds = %118
+  %121 = load i32, ptr %33, align 4, !tbaa !10
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %33, align 4, !tbaa !10
+  br label %98, !llvm.loop !58
+
+123:                                              ; preds = %107
   %124 = call ptr @Vec_IntAlloc(i32 noundef 1000)
-  store ptr %124, ptr %20, align 8
+  store ptr %124, ptr %19, align 8, !tbaa !8
   %125 = call ptr @Vec_IntAlloc(i32 noundef 1000)
-  store ptr %125, ptr %21, align 8
-  store i32 0, ptr %33, align 4
-  br label %126
+  store ptr %125, ptr %20, align 8, !tbaa !8
+  %126 = call ptr @Vec_IntAlloc(i32 noundef 1000)
+  store ptr %126, ptr %21, align 8, !tbaa !8
+  %127 = call ptr @Vec_IntAlloc(i32 noundef 1000)
+  store ptr %127, ptr %22, align 8, !tbaa !8
+  store i32 0, ptr %34, align 4, !tbaa !10
+  br label %128
 
-126:                                              ; preds = %425, %121
-  %127 = load i32, ptr %33, align 4
-  %128 = load i32, ptr %11, align 4
-  %129 = icmp slt i32 %127, %128
-  br i1 %129, label %130, label %428
+128:                                              ; preds = %430, %123
+  %129 = load i32, ptr %34, align 4, !tbaa !10
+  %130 = load i32, ptr %12, align 4, !tbaa !10
+  %131 = icmp slt i32 %129, %130
+  br i1 %131, label %132, label %433
 
-130:                                              ; preds = %126
-  %131 = call i64 @Abc_Clock()
-  store i64 %131, ptr %38, align 8
-  %132 = load ptr, ptr %22, align 8
-  %133 = load ptr, ptr %8, align 8
-  %134 = load ptr, ptr %16, align 8
-  call void @Bmc_BmciUnfold(ptr noundef %132, ptr noundef %133, ptr noundef %134, i32 noundef 0)
-  %135 = load ptr, ptr %22, align 8
-  %136 = load ptr, ptr %8, align 8
-  %137 = load ptr, ptr %17, align 8
-  call void @Bmc_BmciUnfold(ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef 1)
-  store i32 0, ptr %36, align 4
-  %138 = load ptr, ptr %18, align 8
-  call void @Vec_IntClear(ptr noundef %138)
-  store i32 0, ptr %32, align 4
-  br label %139
+132:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #11
+  %133 = call i64 @Abc_Clock()
+  store i64 %133, ptr %39, align 8, !tbaa !59
+  %134 = load ptr, ptr %23, align 8, !tbaa !3
+  %135 = load ptr, ptr %9, align 8, !tbaa !3
+  %136 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @Bmc_BmciUnfold(ptr noundef %134, ptr noundef %135, ptr noundef %136, i32 noundef 0)
+  %137 = load ptr, ptr %23, align 8, !tbaa !3
+  %138 = load ptr, ptr %9, align 8, !tbaa !3
+  %139 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @Bmc_BmciUnfold(ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef 1)
+  store i32 0, ptr %37, align 4, !tbaa !10
+  %140 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @Vec_IntClear(ptr noundef %140)
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %141
 
-139:                                              ; preds = %175, %130
-  %140 = load i32, ptr %32, align 4
-  %141 = load ptr, ptr %16, align 8
-  %142 = call i32 @Vec_IntSize(ptr noundef %141)
-  %143 = icmp slt i32 %140, %142
-  br i1 %143, label %144, label %152
+141:                                              ; preds = %177, %132
+  %142 = load i32, ptr %33, align 4, !tbaa !10
+  %143 = load ptr, ptr %17, align 8, !tbaa !8
+  %144 = call i32 @Vec_IntSize(ptr noundef %143)
+  %145 = icmp slt i32 %142, %144
+  br i1 %145, label %146, label %154
 
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %16, align 8
-  %146 = load i32, ptr %32, align 4
-  %147 = call i32 @Vec_IntEntry(ptr noundef %145, i32 noundef %146)
-  store i32 %147, ptr %30, align 4
-  br i1 true, label %148, label %152
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %17, align 8, !tbaa !8
+  %148 = load i32, ptr %33, align 4, !tbaa !10
+  %149 = call i32 @Vec_IntEntry(ptr noundef %147, i32 noundef %148)
+  store i32 %149, ptr %31, align 4, !tbaa !10
+  br i1 true, label %150, label %154
 
-148:                                              ; preds = %144
-  %149 = load ptr, ptr %17, align 8
-  %150 = load i32, ptr %32, align 4
-  %151 = call i32 @Vec_IntEntry(ptr noundef %149, i32 noundef %150)
-  store i32 %151, ptr %31, align 4
-  br label %152
+150:                                              ; preds = %146
+  %151 = load ptr, ptr %18, align 8, !tbaa !8
+  %152 = load i32, ptr %33, align 4, !tbaa !10
+  %153 = call i32 @Vec_IntEntry(ptr noundef %151, i32 noundef %152)
+  store i32 %153, ptr %32, align 4, !tbaa !10
+  br label %154
 
-152:                                              ; preds = %148, %144, %139
-  %153 = phi i1 [ false, %144 ], [ false, %139 ], [ true, %148 ]
-  br i1 %153, label %154, label %178
+154:                                              ; preds = %150, %146, %141
+  %155 = phi i1 [ false, %146 ], [ false, %141 ], [ true, %150 ]
+  br i1 %155, label %156, label %180
 
-154:                                              ; preds = %152
-  %155 = load i32, ptr %30, align 4
-  %156 = icmp sge i32 %155, 2
-  br i1 %156, label %160, label %157
+156:                                              ; preds = %154
+  %157 = load i32, ptr %31, align 4, !tbaa !10
+  %158 = icmp sge i32 %157, 2
+  br i1 %158, label %162, label %159
 
-157:                                              ; preds = %154
-  %158 = load i32, ptr %31, align 4
-  %159 = icmp sge i32 %158, 2
-  br i1 %159, label %160, label %172
+159:                                              ; preds = %156
+  %160 = load i32, ptr %32, align 4, !tbaa !10
+  %161 = icmp sge i32 %160, 2
+  br i1 %161, label %162, label %174
 
-160:                                              ; preds = %157, %154
-  %161 = load i32, ptr %30, align 4
-  %162 = load i32, ptr %31, align 4
-  %163 = icmp ne i32 %161, %162
-  br i1 %163, label %164, label %172
+162:                                              ; preds = %159, %156
+  %163 = load i32, ptr %31, align 4, !tbaa !10
+  %164 = load i32, ptr %32, align 4, !tbaa !10
+  %165 = icmp ne i32 %163, %164
+  br i1 %165, label %166, label %174
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr %18, align 8
-  %166 = load ptr, ptr %22, align 8
-  %167 = load i32, ptr %30, align 4
-  %168 = load i32, ptr %31, align 4
-  %169 = call i32 @Gia_ManHashXor(ptr noundef %166, i32 noundef %167, i32 noundef %168)
-  call void @Vec_IntPush(ptr noundef %165, i32 noundef %169)
-  %170 = load i32, ptr %36, align 4
-  %171 = add nsw i32 %170, 1
-  store i32 %171, ptr %36, align 4
-  br label %174
+166:                                              ; preds = %162
+  %167 = load ptr, ptr %19, align 8, !tbaa !8
+  %168 = load ptr, ptr %23, align 8, !tbaa !3
+  %169 = load i32, ptr %31, align 4, !tbaa !10
+  %170 = load i32, ptr %32, align 4, !tbaa !10
+  %171 = call i32 @Gia_ManHashXor(ptr noundef %168, i32 noundef %169, i32 noundef %170)
+  call void @Vec_IntPush(ptr noundef %167, i32 noundef %171)
+  %172 = load i32, ptr %37, align 4, !tbaa !10
+  %173 = add nsw i32 %172, 1
+  store i32 %173, ptr %37, align 4, !tbaa !10
+  br label %176
 
-172:                                              ; preds = %160, %157
-  %173 = load ptr, ptr %18, align 8
-  call void @Vec_IntPush(ptr noundef %173, i32 noundef -1)
-  br label %174
+174:                                              ; preds = %162, %159
+  %175 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @Vec_IntPush(ptr noundef %175, i32 noundef -1)
+  br label %176
 
-174:                                              ; preds = %172, %164
-  br label %175
+176:                                              ; preds = %174, %166
+  br label %177
 
-175:                                              ; preds = %174
-  %176 = load i32, ptr %32, align 4
-  %177 = add nsw i32 %176, 1
-  store i32 %177, ptr %32, align 4
-  br label %139, !llvm.loop !14
+177:                                              ; preds = %176
+  %178 = load i32, ptr %33, align 4, !tbaa !10
+  %179 = add nsw i32 %178, 1
+  store i32 %179, ptr %33, align 4, !tbaa !10
+  br label %141, !llvm.loop !60
 
-178:                                              ; preds = %152
-  %179 = load ptr, ptr %18, align 8
-  %180 = call i32 @Vec_IntSum(ptr noundef %179)
-  %181 = load ptr, ptr %17, align 8
-  %182 = call i32 @Vec_IntSize(ptr noundef %181)
-  %183 = add nsw i32 %180, %182
-  %184 = icmp eq i32 %183, 0
-  br i1 %184, label %185, label %193
+180:                                              ; preds = %154
+  %181 = load ptr, ptr %19, align 8, !tbaa !8
+  %182 = call i32 @Vec_IntSum(ptr noundef %181)
+  %183 = load ptr, ptr %18, align 8, !tbaa !8
+  %184 = call i32 @Vec_IntSize(ptr noundef %183)
+  %185 = add nsw i32 %182, %184
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %195
 
-185:                                              ; preds = %178
-  %186 = load i32, ptr %14, align 4
-  %187 = icmp ne i32 %186, 0
-  br i1 %187, label %188, label %192
+187:                                              ; preds = %180
+  %188 = load i32, ptr %15, align 4, !tbaa !10
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %194
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr %33, align 4
-  %190 = add nsw i32 %189, 1
-  %191 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %190)
-  br label %192
+190:                                              ; preds = %187
+  %191 = load i32, ptr %34, align 4, !tbaa !10
+  %192 = add nsw i32 %191, 1
+  %193 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %192)
+  br label %194
 
-192:                                              ; preds = %188, %185
-  br label %428
+194:                                              ; preds = %190, %187
+  store i32 8, ptr %40, align 4
+  br label %427
 
-193:                                              ; preds = %178
-  %194 = load ptr, ptr %22, align 8
-  %195 = load ptr, ptr %19, align 8
-  %196 = load ptr, ptr %18, align 8
-  %197 = load ptr, ptr %20, align 8
-  %198 = load ptr, ptr %21, align 8
-  %199 = call ptr @Bmc_BmciPart(ptr noundef %194, ptr noundef %195, ptr noundef %196, ptr noundef %197, ptr noundef %198)
-  store ptr %199, ptr %23, align 8
-  %200 = load ptr, ptr %23, align 8
-  %201 = call ptr @Cnf_DeriveGiaRemapped(ptr noundef %200)
-  store ptr %201, ptr %25, align 8
-  %202 = load ptr, ptr %25, align 8
-  %203 = load ptr, ptr %23, align 8
-  %204 = load i32, ptr %15, align 4
-  call void @Cnf_DataLiftGia(ptr noundef %202, ptr noundef %203, i32 noundef %204)
-  %205 = load ptr, ptr %25, align 8
-  %206 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %205, i32 0, i32 1
-  %207 = load i32, ptr %206, align 8
-  %208 = load i32, ptr %15, align 4
-  %209 = add nsw i32 %208, %207
-  store i32 %209, ptr %15, align 4
-  %210 = load ptr, ptr %26, align 8
-  %211 = load i32, ptr %15, align 4
-  call void @sat_solver_setnvars(ptr noundef %210, i32 noundef %211)
-  store i32 0, ptr %32, align 4
-  br label %212
+195:                                              ; preds = %180
+  %196 = load ptr, ptr %23, align 8, !tbaa !3
+  %197 = load ptr, ptr %20, align 8, !tbaa !8
+  %198 = load ptr, ptr %19, align 8, !tbaa !8
+  %199 = load ptr, ptr %21, align 8, !tbaa !8
+  %200 = load ptr, ptr %22, align 8, !tbaa !8
+  %201 = call ptr @Bmc_BmciPart(ptr noundef %196, ptr noundef %197, ptr noundef %198, ptr noundef %199, ptr noundef %200)
+  store ptr %201, ptr %24, align 8, !tbaa !3
+  %202 = load ptr, ptr %24, align 8, !tbaa !3
+  %203 = call ptr @Cnf_DeriveGiaRemapped(ptr noundef %202)
+  store ptr %203, ptr %26, align 8, !tbaa !61
+  %204 = load ptr, ptr %26, align 8, !tbaa !61
+  %205 = load ptr, ptr %24, align 8, !tbaa !3
+  %206 = load i32, ptr %16, align 4, !tbaa !10
+  call void @Cnf_DataLiftGia(ptr noundef %204, ptr noundef %205, i32 noundef %206)
+  %207 = load ptr, ptr %26, align 8, !tbaa !61
+  %208 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %207, i32 0, i32 1
+  %209 = load i32, ptr %208, align 8, !tbaa !63
+  %210 = load i32, ptr %16, align 4, !tbaa !10
+  %211 = add nsw i32 %210, %209
+  store i32 %211, ptr %16, align 4, !tbaa !10
+  %212 = load ptr, ptr %27, align 8, !tbaa !55
+  %213 = load i32, ptr %16, align 4, !tbaa !10
+  call void @sat_solver_setnvars(ptr noundef %212, i32 noundef %213)
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %214
 
-212:                                              ; preds = %239, %193
-  %213 = load i32, ptr %32, align 4
-  %214 = load ptr, ptr %25, align 8
-  %215 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %214, i32 0, i32 3
-  %216 = load i32, ptr %215, align 8
-  %217 = icmp slt i32 %213, %216
-  br i1 %217, label %218, label %242
+214:                                              ; preds = %241, %195
+  %215 = load i32, ptr %33, align 4, !tbaa !10
+  %216 = load ptr, ptr %26, align 8, !tbaa !61
+  %217 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %216, i32 0, i32 3
+  %218 = load i32, ptr %217, align 8, !tbaa !67
+  %219 = icmp slt i32 %215, %218
+  br i1 %219, label %220, label %244
 
-218:                                              ; preds = %212
-  %219 = load ptr, ptr %26, align 8
-  %220 = load ptr, ptr %25, align 8
-  %221 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %220, i32 0, i32 4
-  %222 = load ptr, ptr %221, align 8
-  %223 = load i32, ptr %32, align 4
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %222, i64 %224
-  %226 = load ptr, ptr %225, align 8
-  %227 = load ptr, ptr %25, align 8
-  %228 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %227, i32 0, i32 4
-  %229 = load ptr, ptr %228, align 8
-  %230 = load i32, ptr %32, align 4
-  %231 = add nsw i32 %230, 1
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds ptr, ptr %229, i64 %232
-  %234 = load ptr, ptr %233, align 8
-  %235 = call i32 @sat_solver_addclause(ptr noundef %219, ptr noundef %226, ptr noundef %234)
-  %236 = icmp ne i32 %235, 0
-  br i1 %236, label %238, label %237
+220:                                              ; preds = %214
+  %221 = load ptr, ptr %27, align 8, !tbaa !55
+  %222 = load ptr, ptr %26, align 8, !tbaa !61
+  %223 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %222, i32 0, i32 4
+  %224 = load ptr, ptr %223, align 8, !tbaa !68
+  %225 = load i32, ptr %33, align 4, !tbaa !10
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds ptr, ptr %224, i64 %226
+  %228 = load ptr, ptr %227, align 8, !tbaa !69
+  %229 = load ptr, ptr %26, align 8, !tbaa !61
+  %230 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %229, i32 0, i32 4
+  %231 = load ptr, ptr %230, align 8, !tbaa !68
+  %232 = load i32, ptr %33, align 4, !tbaa !10
+  %233 = add nsw i32 %232, 1
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds ptr, ptr %231, i64 %234
+  %236 = load ptr, ptr %235, align 8, !tbaa !69
+  %237 = call i32 @sat_solver_addclause(ptr noundef %221, ptr noundef %228, ptr noundef %236)
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %240, label %239
 
-237:                                              ; preds = %218
-  br label %238
+239:                                              ; preds = %220
+  br label %240
 
-238:                                              ; preds = %237, %218
-  br label %239
+240:                                              ; preds = %239, %220
+  br label %241
 
-239:                                              ; preds = %238
-  %240 = load i32, ptr %32, align 4
-  %241 = add nsw i32 %240, 1
-  store i32 %241, ptr %32, align 4
-  br label %212, !llvm.loop !15
+241:                                              ; preds = %240
+  %242 = load i32, ptr %33, align 4, !tbaa !10
+  %243 = add nsw i32 %242, 1
+  store i32 %243, ptr %33, align 4, !tbaa !10
+  br label %214, !llvm.loop !70
 
-242:                                              ; preds = %212
-  store i32 0, ptr %32, align 4
-  br label %243
+244:                                              ; preds = %214
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %245
 
-243:                                              ; preds = %280, %242
-  %244 = load i32, ptr %32, align 4
-  %245 = load ptr, ptr %23, align 8
-  %246 = call i32 @Gia_ManPiNum(ptr noundef %245)
-  %247 = icmp slt i32 %244, %246
-  br i1 %247, label %248, label %253
+245:                                              ; preds = %282, %244
+  %246 = load i32, ptr %33, align 4, !tbaa !10
+  %247 = load ptr, ptr %24, align 8, !tbaa !3
+  %248 = call i32 @Gia_ManPiNum(ptr noundef %247)
+  %249 = icmp slt i32 %246, %248
+  br i1 %249, label %250, label %255
 
-248:                                              ; preds = %243
-  %249 = load ptr, ptr %23, align 8
-  %250 = load i32, ptr %32, align 4
-  %251 = call ptr @Gia_ManCi(ptr noundef %249, i32 noundef %250)
-  store ptr %251, ptr %24, align 8
-  %252 = icmp ne ptr %251, null
-  br label %253
+250:                                              ; preds = %245
+  %251 = load ptr, ptr %24, align 8, !tbaa !3
+  %252 = load i32, ptr %33, align 4, !tbaa !10
+  %253 = call ptr @Gia_ManCi(ptr noundef %251, i32 noundef %252)
+  store ptr %253, ptr %25, align 8, !tbaa !14
+  %254 = icmp ne ptr %253, null
+  br label %255
 
-253:                                              ; preds = %248, %243
-  %254 = phi i1 [ false, %243 ], [ %252, %248 ]
-  br i1 %254, label %255, label %283
+255:                                              ; preds = %250, %245
+  %256 = phi i1 [ false, %245 ], [ %254, %250 ]
+  br i1 %256, label %257, label %285
 
-255:                                              ; preds = %253
-  %256 = load ptr, ptr %25, align 8
-  %257 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %256, i32 0, i32 5
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %23, align 8
-  %260 = load ptr, ptr %24, align 8
-  %261 = call i32 @Gia_ObjId(ptr noundef %259, ptr noundef %260)
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i32, ptr %258, i64 %262
-  %264 = load i32, ptr %263, align 4
-  store i32 %264, ptr %27, align 4
-  %265 = load ptr, ptr %19, align 8
-  %266 = load ptr, ptr %20, align 8
-  %267 = load ptr, ptr %23, align 8
-  %268 = load ptr, ptr %24, align 8
-  %269 = call i32 @Gia_ObjId(ptr noundef %267, ptr noundef %268)
-  %270 = call i32 @Vec_IntEntry(ptr noundef %266, i32 noundef %269)
-  %271 = call i32 @Vec_IntEntry(ptr noundef %265, i32 noundef %270)
-  store i32 %271, ptr %28, align 4
-  %272 = load i32, ptr %28, align 4
-  %273 = icmp eq i32 %272, -1
-  br i1 %273, label %274, label %275
+257:                                              ; preds = %255
+  %258 = load ptr, ptr %26, align 8, !tbaa !61
+  %259 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %258, i32 0, i32 5
+  %260 = load ptr, ptr %259, align 8, !tbaa !71
+  %261 = load ptr, ptr %24, align 8, !tbaa !3
+  %262 = load ptr, ptr %25, align 8, !tbaa !14
+  %263 = call i32 @Gia_ObjId(ptr noundef %261, ptr noundef %262)
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds i32, ptr %260, i64 %264
+  %266 = load i32, ptr %265, align 4, !tbaa !10
+  store i32 %266, ptr %28, align 4, !tbaa !10
+  %267 = load ptr, ptr %20, align 8, !tbaa !8
+  %268 = load ptr, ptr %21, align 8, !tbaa !8
+  %269 = load ptr, ptr %24, align 8, !tbaa !3
+  %270 = load ptr, ptr %25, align 8, !tbaa !14
+  %271 = call i32 @Gia_ObjId(ptr noundef %269, ptr noundef %270)
+  %272 = call i32 @Vec_IntEntry(ptr noundef %268, i32 noundef %271)
+  %273 = call i32 @Vec_IntEntry(ptr noundef %267, i32 noundef %272)
+  store i32 %273, ptr %29, align 4, !tbaa !10
+  %274 = load i32, ptr %29, align 4, !tbaa !10
+  %275 = icmp eq i32 %274, -1
+  br i1 %275, label %276, label %277
 
-274:                                              ; preds = %255
-  br label %280
+276:                                              ; preds = %257
+  br label %282
 
-275:                                              ; preds = %255
-  %276 = load ptr, ptr %26, align 8
-  %277 = load i32, ptr %27, align 4
-  %278 = load i32, ptr %28, align 4
-  %279 = call i32 @sat_solver_add_buffer(ptr noundef %276, i32 noundef %277, i32 noundef %278, i32 noundef 0)
-  br label %280
+277:                                              ; preds = %257
+  %278 = load ptr, ptr %27, align 8, !tbaa !55
+  %279 = load i32, ptr %28, align 4, !tbaa !10
+  %280 = load i32, ptr %29, align 4, !tbaa !10
+  %281 = call i32 @sat_solver_add_buffer(ptr noundef %278, i32 noundef %279, i32 noundef %280, i32 noundef 0)
+  br label %282
 
-280:                                              ; preds = %275, %274
-  %281 = load i32, ptr %32, align 4
-  %282 = add nsw i32 %281, 1
-  store i32 %282, ptr %32, align 4
-  br label %243, !llvm.loop !16
+282:                                              ; preds = %277, %276
+  %283 = load i32, ptr %33, align 4, !tbaa !10
+  %284 = add nsw i32 %283, 1
+  store i32 %284, ptr %33, align 4, !tbaa !10
+  br label %245, !llvm.loop !72
 
-283:                                              ; preds = %253
-  store i32 0, ptr %32, align 4
-  br label %284
+285:                                              ; preds = %255
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %286
 
-284:                                              ; preds = %325, %283
-  %285 = load i32, ptr %32, align 4
-  %286 = load ptr, ptr %23, align 8
-  %287 = getelementptr inbounds %struct.Gia_Man_t_, ptr %286, i32 0, i32 4
-  %288 = load i32, ptr %287, align 8
-  %289 = icmp slt i32 %285, %288
-  br i1 %289, label %290, label %295
+286:                                              ; preds = %327, %285
+  %287 = load i32, ptr %33, align 4, !tbaa !10
+  %288 = load ptr, ptr %24, align 8, !tbaa !3
+  %289 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %288, i32 0, i32 4
+  %290 = load i32, ptr %289, align 8, !tbaa !19
+  %291 = icmp slt i32 %287, %290
+  br i1 %291, label %292, label %297
 
-290:                                              ; preds = %284
-  %291 = load ptr, ptr %23, align 8
-  %292 = load i32, ptr %32, align 4
-  %293 = call ptr @Gia_ManObj(ptr noundef %291, i32 noundef %292)
-  store ptr %293, ptr %24, align 8
-  %294 = icmp ne ptr %293, null
-  br label %295
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %24, align 8, !tbaa !3
+  %294 = load i32, ptr %33, align 4, !tbaa !10
+  %295 = call ptr @Gia_ManObj(ptr noundef %293, i32 noundef %294)
+  store ptr %295, ptr %25, align 8, !tbaa !14
+  %296 = icmp ne ptr %295, null
+  br label %297
 
-295:                                              ; preds = %290, %284
-  %296 = phi i1 [ false, %284 ], [ %294, %290 ]
-  br i1 %296, label %297, label %328
+297:                                              ; preds = %292, %286
+  %298 = phi i1 [ false, %286 ], [ %296, %292 ]
+  br i1 %298, label %299, label %330
 
-297:                                              ; preds = %295
-  %298 = load ptr, ptr %24, align 8
-  %299 = call i32 @Gia_ObjIsCand(ptr noundef %298)
-  %300 = icmp ne i32 %299, 0
-  br i1 %300, label %302, label %301
+299:                                              ; preds = %297
+  %300 = load ptr, ptr %25, align 8, !tbaa !14
+  %301 = call i32 @Gia_ObjIsCand(ptr noundef %300)
+  %302 = icmp ne i32 %301, 0
+  br i1 %302, label %304, label %303
 
-301:                                              ; preds = %297
-  br label %324
+303:                                              ; preds = %299
+  br label %326
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %25, align 8
-  %304 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %303, i32 0, i32 5
-  %305 = load ptr, ptr %304, align 8
-  %306 = load i32, ptr %32, align 4
-  %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds i32, ptr %305, i64 %307
-  %309 = load i32, ptr %308, align 4
-  %310 = icmp sge i32 %309, 0
-  br i1 %310, label %311, label %323
+304:                                              ; preds = %299
+  %305 = load ptr, ptr %26, align 8, !tbaa !61
+  %306 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %305, i32 0, i32 5
+  %307 = load ptr, ptr %306, align 8, !tbaa !71
+  %308 = load i32, ptr %33, align 4, !tbaa !10
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr inbounds i32, ptr %307, i64 %309
+  %311 = load i32, ptr %310, align 4, !tbaa !10
+  %312 = icmp sge i32 %311, 0
+  br i1 %312, label %313, label %325
 
-311:                                              ; preds = %302
-  %312 = load ptr, ptr %19, align 8
-  %313 = load ptr, ptr %20, align 8
-  %314 = load i32, ptr %32, align 4
-  %315 = call i32 @Vec_IntEntry(ptr noundef %313, i32 noundef %314)
-  %316 = load ptr, ptr %25, align 8
-  %317 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %316, i32 0, i32 5
-  %318 = load ptr, ptr %317, align 8
-  %319 = load i32, ptr %32, align 4
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i32, ptr %318, i64 %320
-  %322 = load i32, ptr %321, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %312, i32 noundef %315, i32 noundef %322)
-  br label %323
-
-323:                                              ; preds = %311, %302
-  br label %324
-
-324:                                              ; preds = %323, %301
+313:                                              ; preds = %304
+  %314 = load ptr, ptr %20, align 8, !tbaa !8
+  %315 = load ptr, ptr %21, align 8, !tbaa !8
+  %316 = load i32, ptr %33, align 4, !tbaa !10
+  %317 = call i32 @Vec_IntEntry(ptr noundef %315, i32 noundef %316)
+  %318 = load ptr, ptr %26, align 8, !tbaa !61
+  %319 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %318, i32 0, i32 5
+  %320 = load ptr, ptr %319, align 8, !tbaa !71
+  %321 = load i32, ptr %33, align 4, !tbaa !10
+  %322 = sext i32 %321 to i64
+  %323 = getelementptr inbounds i32, ptr %320, i64 %322
+  %324 = load i32, ptr %323, align 4, !tbaa !10
+  call void @Vec_IntWriteEntry(ptr noundef %314, i32 noundef %317, i32 noundef %324)
   br label %325
 
-325:                                              ; preds = %324
-  %326 = load i32, ptr %32, align 4
-  %327 = add nsw i32 %326, 1
-  store i32 %327, ptr %32, align 4
-  br label %284, !llvm.loop !17
+325:                                              ; preds = %313, %304
+  br label %326
 
-328:                                              ; preds = %295
-  %329 = load ptr, ptr %25, align 8
-  call void @Cnf_DataFree(ptr noundef %329)
-  %330 = load ptr, ptr %23, align 8
-  call void @Gia_ManStop(ptr noundef %330)
-  store i32 0, ptr %35, align 4
-  store i32 0, ptr %32, align 4
-  br label %331
+326:                                              ; preds = %325, %303
+  br label %327
 
-331:                                              ; preds = %389, %328
-  %332 = load i32, ptr %32, align 4
-  %333 = load ptr, ptr %18, align 8
-  %334 = call i32 @Vec_IntSize(ptr noundef %333)
-  %335 = icmp slt i32 %332, %334
-  br i1 %335, label %336, label %340
+327:                                              ; preds = %326
+  %328 = load i32, ptr %33, align 4, !tbaa !10
+  %329 = add nsw i32 %328, 1
+  store i32 %329, ptr %33, align 4, !tbaa !10
+  br label %286, !llvm.loop !73
 
-336:                                              ; preds = %331
-  %337 = load ptr, ptr %18, align 8
-  %338 = load i32, ptr %32, align 4
-  %339 = call i32 @Vec_IntEntry(ptr noundef %337, i32 noundef %338)
-  store i32 %339, ptr %29, align 4
-  br label %340
+330:                                              ; preds = %297
+  %331 = load ptr, ptr %26, align 8, !tbaa !61
+  call void @Cnf_DataFree(ptr noundef %331)
+  %332 = load ptr, ptr %24, align 8, !tbaa !3
+  call void @Gia_ManStop(ptr noundef %332)
+  store i32 0, ptr %36, align 4, !tbaa !10
+  store i32 0, ptr %33, align 4, !tbaa !10
+  br label %333
 
-340:                                              ; preds = %336, %331
-  %341 = phi i1 [ false, %331 ], [ true, %336 ]
-  br i1 %341, label %342, label %392
+333:                                              ; preds = %391, %330
+  %334 = load i32, ptr %33, align 4, !tbaa !10
+  %335 = load ptr, ptr %19, align 8, !tbaa !8
+  %336 = call i32 @Vec_IntSize(ptr noundef %335)
+  %337 = icmp slt i32 %334, %336
+  br i1 %337, label %338, label %342
 
-342:                                              ; preds = %340
-  %343 = load i32, ptr %29, align 4
-  %344 = icmp eq i32 %343, -1
-  br i1 %344, label %345, label %346
+338:                                              ; preds = %333
+  %339 = load ptr, ptr %19, align 8, !tbaa !8
+  %340 = load i32, ptr %33, align 4, !tbaa !10
+  %341 = call i32 @Vec_IntEntry(ptr noundef %339, i32 noundef %340)
+  store i32 %341, ptr %30, align 4, !tbaa !10
+  br label %342
 
-345:                                              ; preds = %342
-  br label %389
+342:                                              ; preds = %338, %333
+  %343 = phi i1 [ false, %333 ], [ true, %338 ]
+  br i1 %343, label %344, label %394
 
-346:                                              ; preds = %342
-  %347 = load ptr, ptr %19, align 8
-  %348 = call ptr @Vec_IntArray(ptr noundef %347)
-  %349 = load i32, ptr %29, align 4
-  %350 = call i32 @Abc_Lit2LitV(ptr noundef %348, i32 noundef %349)
-  store i32 %350, ptr %29, align 4
-  %351 = load ptr, ptr %26, align 8
-  %352 = getelementptr inbounds i32, ptr %29, i64 1
-  %353 = call i32 @sat_solver_solve(ptr noundef %351, ptr noundef %29, ptr noundef %352, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0)
-  store i32 %353, ptr %34, align 4
-  %354 = load i32, ptr %34, align 4
-  %355 = icmp eq i32 %354, 1
-  br i1 %355, label %356, label %359
+344:                                              ; preds = %342
+  %345 = load i32, ptr %30, align 4, !tbaa !10
+  %346 = icmp eq i32 %345, -1
+  br i1 %346, label %347, label %348
 
-356:                                              ; preds = %346
-  %357 = load i32, ptr %35, align 4
-  %358 = add nsw i32 %357, 1
-  store i32 %358, ptr %35, align 4
-  br label %389
+347:                                              ; preds = %344
+  br label %391
 
-359:                                              ; preds = %346
-  %360 = load i32, ptr %34, align 4
-  %361 = icmp eq i32 %360, 0
-  br i1 %361, label %362, label %365
+348:                                              ; preds = %344
+  %349 = load ptr, ptr %20, align 8, !tbaa !8
+  %350 = call ptr @Vec_IntArray(ptr noundef %349)
+  %351 = load i32, ptr %30, align 4, !tbaa !10
+  %352 = call i32 @Abc_Lit2LitV(ptr noundef %350, i32 noundef %351)
+  store i32 %352, ptr %30, align 4, !tbaa !10
+  %353 = load ptr, ptr %27, align 8, !tbaa !55
+  %354 = getelementptr inbounds i32, ptr %30, i64 1
+  %355 = call i32 @sat_solver_solve(ptr noundef %353, ptr noundef %30, ptr noundef %354, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0)
+  store i32 %355, ptr %35, align 4, !tbaa !10
+  %356 = load i32, ptr %35, align 4, !tbaa !10
+  %357 = icmp eq i32 %356, 1
+  br i1 %357, label %358, label %361
 
-362:                                              ; preds = %359
-  %363 = load i32, ptr %13, align 4
-  %364 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %363)
-  store i32 0, ptr %37, align 4
-  br label %429
+358:                                              ; preds = %348
+  %359 = load i32, ptr %36, align 4, !tbaa !10
+  %360 = add nsw i32 %359, 1
+  store i32 %360, ptr %36, align 4, !tbaa !10
+  br label %391
 
-365:                                              ; preds = %359
-  %366 = load ptr, ptr %16, align 8
-  %367 = load i32, ptr %32, align 4
-  %368 = call i32 @Vec_IntEntry(ptr noundef %366, i32 noundef %367)
-  store i32 %368, ptr %30, align 4
-  %369 = load ptr, ptr %17, align 8
-  %370 = load i32, ptr %32, align 4
-  %371 = call i32 @Vec_IntEntry(ptr noundef %369, i32 noundef %370)
-  store i32 %371, ptr %31, align 4
-  %372 = load i32, ptr %31, align 4
-  %373 = icmp sge i32 %372, 2
-  br i1 %373, label %374, label %378
+361:                                              ; preds = %348
+  %362 = load i32, ptr %35, align 4, !tbaa !10
+  %363 = icmp eq i32 %362, 0
+  br i1 %363, label %364, label %367
 
-374:                                              ; preds = %365
-  %375 = load ptr, ptr %17, align 8
-  %376 = load i32, ptr %32, align 4
-  %377 = load i32, ptr %30, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %375, i32 noundef %376, i32 noundef %377)
-  br label %382
+364:                                              ; preds = %361
+  %365 = load i32, ptr %14, align 4, !tbaa !10
+  %366 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %365)
+  store i32 0, ptr %38, align 4, !tbaa !10
+  store i32 26, ptr %40, align 4
+  br label %427
 
-378:                                              ; preds = %365
-  %379 = load ptr, ptr %16, align 8
-  %380 = load i32, ptr %32, align 4
-  %381 = load i32, ptr %31, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %379, i32 noundef %380, i32 noundef %381)
-  br label %382
+367:                                              ; preds = %361
+  %368 = load ptr, ptr %17, align 8, !tbaa !8
+  %369 = load i32, ptr %33, align 4, !tbaa !10
+  %370 = call i32 @Vec_IntEntry(ptr noundef %368, i32 noundef %369)
+  store i32 %370, ptr %31, align 4, !tbaa !10
+  %371 = load ptr, ptr %18, align 8, !tbaa !8
+  %372 = load i32, ptr %33, align 4, !tbaa !10
+  %373 = call i32 @Vec_IntEntry(ptr noundef %371, i32 noundef %372)
+  store i32 %373, ptr %32, align 4, !tbaa !10
+  %374 = load i32, ptr %32, align 4, !tbaa !10
+  %375 = icmp sge i32 %374, 2
+  br i1 %375, label %376, label %380
 
-382:                                              ; preds = %378, %374
-  %383 = load ptr, ptr %16, align 8
-  %384 = load i32, ptr %32, align 4
-  %385 = call i32 @Vec_IntEntry(ptr noundef %383, i32 noundef %384)
-  store i32 %385, ptr %30, align 4
-  %386 = load ptr, ptr %17, align 8
-  %387 = load i32, ptr %32, align 4
-  %388 = call i32 @Vec_IntEntry(ptr noundef %386, i32 noundef %387)
-  store i32 %388, ptr %31, align 4
-  br label %389
+376:                                              ; preds = %367
+  %377 = load ptr, ptr %18, align 8, !tbaa !8
+  %378 = load i32, ptr %33, align 4, !tbaa !10
+  %379 = load i32, ptr %31, align 4, !tbaa !10
+  call void @Vec_IntWriteEntry(ptr noundef %377, i32 noundef %378, i32 noundef %379)
+  br label %384
 
-389:                                              ; preds = %382, %356, %345
-  %390 = load i32, ptr %32, align 4
-  %391 = add nsw i32 %390, 1
-  store i32 %391, ptr %32, align 4
-  br label %331, !llvm.loop !18
+380:                                              ; preds = %367
+  %381 = load ptr, ptr %17, align 8, !tbaa !8
+  %382 = load i32, ptr %33, align 4, !tbaa !10
+  %383 = load i32, ptr %32, align 4, !tbaa !10
+  call void @Vec_IntWriteEntry(ptr noundef %381, i32 noundef %382, i32 noundef %383)
+  br label %384
 
-392:                                              ; preds = %340
-  %393 = load i32, ptr %14, align 4
-  %394 = icmp ne i32 %393, 0
-  br i1 %394, label %395, label %417
+384:                                              ; preds = %380, %376
+  %385 = load ptr, ptr %17, align 8, !tbaa !8
+  %386 = load i32, ptr %33, align 4, !tbaa !10
+  %387 = call i32 @Vec_IntEntry(ptr noundef %385, i32 noundef %386)
+  store i32 %387, ptr %31, align 4, !tbaa !10
+  %388 = load ptr, ptr %18, align 8, !tbaa !8
+  %389 = load i32, ptr %33, align 4, !tbaa !10
+  %390 = call i32 @Vec_IntEntry(ptr noundef %388, i32 noundef %389)
+  store i32 %390, ptr %32, align 4, !tbaa !10
+  br label %391
 
-395:                                              ; preds = %392
-  %396 = load i32, ptr %33, align 4
-  %397 = add nsw i32 %396, 1
-  %398 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %397)
-  %399 = load i32, ptr %15, align 4
-  %400 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %399)
-  %401 = load ptr, ptr %26, align 8
-  %402 = call i32 @sat_solver_nclauses(ptr noundef %401)
-  %403 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, i32 noundef %402)
-  %404 = load ptr, ptr %26, align 8
-  %405 = call i32 @sat_solver_nconflicts(ptr noundef %404)
-  %406 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %405)
-  %407 = load ptr, ptr %22, align 8
-  %408 = call i32 @Gia_ManAndNum(ptr noundef %407)
-  %409 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, i32 noundef %408)
-  %410 = load i32, ptr %36, align 4
-  %411 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %410)
-  %412 = load i32, ptr %35, align 4
-  %413 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %412)
-  %414 = call i64 @Abc_Clock()
-  %415 = load i64, ptr %38, align 8
-  %416 = sub nsw i64 %414, %415
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.9, i64 noundef %416)
-  br label %417
+391:                                              ; preds = %384, %358, %347
+  %392 = load i32, ptr %33, align 4, !tbaa !10
+  %393 = add nsw i32 %392, 1
+  store i32 %393, ptr %33, align 4, !tbaa !10
+  br label %333, !llvm.loop !74
 
-417:                                              ; preds = %395, %392
-  %418 = load i32, ptr %35, align 4
-  %419 = icmp eq i32 %418, 0
-  br i1 %419, label %420, label %424
+394:                                              ; preds = %342
+  %395 = load i32, ptr %15, align 4, !tbaa !10
+  %396 = icmp ne i32 %395, 0
+  br i1 %396, label %397, label %419
 
-420:                                              ; preds = %417
-  %421 = load i32, ptr %33, align 4
-  %422 = add nsw i32 %421, 1
-  %423 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %422)
-  br label %428
+397:                                              ; preds = %394
+  %398 = load i32, ptr %34, align 4, !tbaa !10
+  %399 = add nsw i32 %398, 1
+  %400 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %399)
+  %401 = load i32, ptr %16, align 4, !tbaa !10
+  %402 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %401)
+  %403 = load ptr, ptr %27, align 8, !tbaa !55
+  %404 = call i32 @sat_solver_nclauses(ptr noundef %403)
+  %405 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, i32 noundef %404)
+  %406 = load ptr, ptr %27, align 8, !tbaa !55
+  %407 = call i32 @sat_solver_nconflicts(ptr noundef %406)
+  %408 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %407)
+  %409 = load ptr, ptr %23, align 8, !tbaa !3
+  %410 = call i32 @Gia_ManAndNum(ptr noundef %409)
+  %411 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, i32 noundef %410)
+  %412 = load i32, ptr %37, align 4, !tbaa !10
+  %413 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %412)
+  %414 = load i32, ptr %36, align 4, !tbaa !10
+  %415 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %414)
+  %416 = call i64 @Abc_Clock()
+  %417 = load i64, ptr %39, align 8, !tbaa !59
+  %418 = sub nsw i64 %416, %417
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.9, i64 noundef %418)
+  br label %419
 
-424:                                              ; preds = %417
-  br label %425
+419:                                              ; preds = %397, %394
+  %420 = load i32, ptr %36, align 4, !tbaa !10
+  %421 = icmp eq i32 %420, 0
+  br i1 %421, label %422, label %426
 
-425:                                              ; preds = %424
-  %426 = load i32, ptr %33, align 4
-  %427 = add nsw i32 %426, 1
-  store i32 %427, ptr %33, align 4
-  br label %126, !llvm.loop !19
+422:                                              ; preds = %419
+  %423 = load i32, ptr %34, align 4, !tbaa !10
+  %424 = add nsw i32 %423, 1
+  %425 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %424)
+  store i32 8, ptr %40, align 4
+  br label %427
 
-428:                                              ; preds = %420, %192, %126
-  br label %429
+426:                                              ; preds = %419
+  store i32 0, ptr %40, align 4
+  br label %427
 
-429:                                              ; preds = %428, %362
-  %430 = load ptr, ptr %26, align 8
-  call void @sat_solver_delete(ptr noundef %430)
-  call void @Gia_ManStopP(ptr noundef %22)
-  %431 = load ptr, ptr %16, align 8
-  call void @Vec_IntFree(ptr noundef %431)
-  %432 = load ptr, ptr %17, align 8
-  call void @Vec_IntFree(ptr noundef %432)
-  %433 = load ptr, ptr %18, align 8
-  call void @Vec_IntFree(ptr noundef %433)
-  %434 = load ptr, ptr %19, align 8
-  call void @Vec_IntFree(ptr noundef %434)
-  %435 = load ptr, ptr %20, align 8
-  call void @Vec_IntFree(ptr noundef %435)
-  %436 = load ptr, ptr %21, align 8
+427:                                              ; preds = %364, %426, %422, %194
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #11
+  %428 = load i32, ptr %40, align 4
+  switch i32 %428, label %443 [
+    i32 0, label %429
+    i32 8, label %433
+    i32 26, label %434
+  ]
+
+429:                                              ; preds = %427
+  br label %430
+
+430:                                              ; preds = %429
+  %431 = load i32, ptr %34, align 4, !tbaa !10
+  %432 = add nsw i32 %431, 1
+  store i32 %432, ptr %34, align 4, !tbaa !10
+  br label %128, !llvm.loop !75
+
+433:                                              ; preds = %427, %128
+  br label %434
+
+434:                                              ; preds = %433, %427
+  %435 = load ptr, ptr %27, align 8, !tbaa !55
+  call void @sat_solver_delete(ptr noundef %435)
+  call void @Gia_ManStopP(ptr noundef %23)
+  %436 = load ptr, ptr %17, align 8, !tbaa !8
   call void @Vec_IntFree(ptr noundef %436)
-  %437 = load i32, ptr %37, align 4
-  ret i32 %437
+  %437 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @Vec_IntFree(ptr noundef %437)
+  %438 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @Vec_IntFree(ptr noundef %438)
+  %439 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @Vec_IntFree(ptr noundef %439)
+  %440 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Vec_IntFree(ptr noundef %440)
+  %441 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @Vec_IntFree(ptr noundef %441)
+  %442 = load i32, ptr %38, align 4, !tbaa !10
+  store i32 %442, ptr %8, align 4
+  store i32 1, ptr %40, align 4
+  br label %443
+
+443:                                              ; preds = %434, %427
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #11
+  %444 = load i32, ptr %8, align 4
+  ret i32 %444
 }
 
-declare ptr @sat_solver_new() #1
+declare ptr @sat_solver_new() #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @sat_solver_set_runtime_limit(ptr noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @sat_solver_set_runtime_limit(ptr noundef %0, i64 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.sat_solver_t, ptr %6, i32 0, i32 54
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %5, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.sat_solver_t, ptr %10, i32 0, i32 54
-  store i64 %9, ptr %11, align 8
-  %12 = load i64, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store i64 %1, ptr %4, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !55
+  %7 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %6, i32 0, i32 54
+  %8 = load i64, ptr %7, align 8, !tbaa !76
+  store i64 %8, ptr %5, align 8, !tbaa !59
+  %9 = load i64, ptr %4, align 8, !tbaa !59
+  %10 = load ptr, ptr %3, align 8, !tbaa !55
+  %11 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %10, i32 0, i32 54
+  store i64 %9, ptr %11, align 8, !tbaa !76
+  %12 = load i64, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret i64 %12
 }
 
-declare void @Gia_ManHashAlloc(ptr noundef) #1
+declare void @Gia_ManHashAlloc(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #10
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #13
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %5 = load i32, ptr %2, align 4, !tbaa !10
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !10
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !10
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %2, align 4, !tbaa !10
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !45
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !45
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #10
+  %27 = call noalias ptr @malloc(i64 noundef %26) #13
   br label %29
 
 28:                                               ; preds = %11
@@ -2216,108 +2351,119 @@ define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !42
+  %33 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !tbaa !10
+  store i32 0, ptr %3, align 4, !tbaa !10
   br label %5
 
 5:                                                ; preds = %21, %1
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %8, align 4
+  %6 = load i32, ptr %3, align 4, !tbaa !10
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4, !tbaa !44
   %10 = icmp slt i32 %6, %9
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %3, align 4
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  %15 = load i32, ptr %3, align 4, !tbaa !10
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %14, i64 %16
-  %18 = load i32, ptr %17, align 4
-  %19 = load i32, ptr %4, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %19 = load i32, ptr %4, align 4, !tbaa !10
   %20 = add nsw i32 %19, %18
-  store i32 %20, ptr %4, align 4
+  store i32 %20, ptr %4, align 4, !tbaa !10
   br label %21
 
 21:                                               ; preds = %11
-  %22 = load i32, ptr %3, align 4
+  %22 = load i32, ptr %3, align 4, !tbaa !10
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %3, align 4
-  br label %5, !llvm.loop !20
+  store i32 %23, ptr %3, align 4, !tbaa !10
+  br label %5, !llvm.loop !87
 
 24:                                               ; preds = %5
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret i32 %25
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Cnf_DeriveGiaRemapped(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Cnf_DeriveGiaRemapped(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = call ptr @Gia_ManToAigSimple(ptr noundef %5)
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.Aig_Man_t_, ptr %7, i32 0, i32 8
-  store i32 0, ptr %8, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %4, align 8
+  store ptr %6, ptr %4, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !88
+  %8 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %7, i32 0, i32 8
+  store i32 0, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %4, align 8, !tbaa !88
+  %10 = load ptr, ptr %4, align 8, !tbaa !88
   %11 = call i32 @Aig_ManCoNum(ptr noundef %10)
   %12 = call ptr @Cnf_Derive(ptr noundef %9, i32 noundef %11)
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %3, align 8, !tbaa !61
+  %13 = load ptr, ptr %4, align 8, !tbaa !88
   call void @Aig_ManStop(ptr noundef %13)
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Cnf_DataLiftGia(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Cnf_DataLiftGia(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !10
   br label %9
 
 9:                                                ; preds = %46, %3
-  %10 = load i32, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.Gia_Man_t_, ptr %11, i32 0, i32 4
-  %13 = load i32, ptr %12, align 8
+  %10 = load i32, ptr %8, align 4, !tbaa !10
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %11, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = icmp slt i32 %10, %13
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = load i32, ptr %8, align 4, !tbaa !10
   %18 = call ptr @Gia_ManObj(ptr noundef %16, i32 noundef %17)
-  store ptr %18, ptr %7, align 8
+  store ptr %18, ptr %7, align 8, !tbaa !14
   %19 = icmp ne ptr %18, null
   br label %20
 
@@ -2326,94 +2472,96 @@ define internal void @Cnf_DataLiftGia(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %21, label %22, label %49
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %23, i32 0, i32 5
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %4, align 8, !tbaa !61
+  %24 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %23, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8, !tbaa !71
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = load ptr, ptr %7, align 8, !tbaa !14
   %28 = call i32 @Gia_ObjId(ptr noundef %26, ptr noundef %27)
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %25, i64 %29
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !10
   %32 = icmp sge i32 %31, 0
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %22
-  %34 = load i32, ptr %6, align 4
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %35, i32 0, i32 5
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %6, align 4, !tbaa !10
+  %35 = load ptr, ptr %4, align 8, !tbaa !61
+  %36 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %36, align 8, !tbaa !71
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = load ptr, ptr %7, align 8, !tbaa !14
   %40 = call i32 @Gia_ObjId(ptr noundef %38, ptr noundef %39)
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %37, i64 %41
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 4, !tbaa !10
   %44 = add nsw i32 %43, %34
-  store i32 %44, ptr %42, align 4
+  store i32 %44, ptr %42, align 4, !tbaa !10
   br label %45
 
 45:                                               ; preds = %33, %22
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load i32, ptr %8, align 4
+  %47 = load i32, ptr %8, align 4, !tbaa !10
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %8, align 4
-  br label %9, !llvm.loop !21
+  store i32 %48, ptr %8, align 4, !tbaa !10
+  br label %9, !llvm.loop !95
 
 49:                                               ; preds = %20
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !10
   br label %50
 
 50:                                               ; preds = %69, %49
-  %51 = load i32, ptr %8, align 4
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %52, i32 0, i32 2
-  %54 = load i32, ptr %53, align 4
+  %51 = load i32, ptr %8, align 4, !tbaa !10
+  %52 = load ptr, ptr %4, align 8, !tbaa !61
+  %53 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 4, !tbaa !96
   %55 = icmp slt i32 %51, %54
   br i1 %55, label %56, label %72
 
 56:                                               ; preds = %50
-  %57 = load i32, ptr %6, align 4
+  %57 = load i32, ptr %6, align 4, !tbaa !10
   %58 = mul nsw i32 2, %57
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.Cnf_Dat_t_, ptr %59, i32 0, i32 4
-  %61 = load ptr, ptr %60, align 8
+  %59 = load ptr, ptr %4, align 8, !tbaa !61
+  %60 = getelementptr inbounds nuw %struct.Cnf_Dat_t_, ptr %59, i32 0, i32 4
+  %61 = load ptr, ptr %60, align 8, !tbaa !68
   %62 = getelementptr inbounds ptr, ptr %61, i64 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %62, align 8, !tbaa !69
+  %64 = load i32, ptr %8, align 4, !tbaa !10
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %63, i64 %65
-  %67 = load i32, ptr %66, align 4
+  %67 = load i32, ptr %66, align 4, !tbaa !10
   %68 = add nsw i32 %67, %58
-  store i32 %68, ptr %66, align 4
+  store i32 %68, ptr %66, align 4, !tbaa !10
   br label %69
 
 69:                                               ; preds = %56
-  %70 = load i32, ptr %8, align 4
+  %70 = load i32, ptr %8, align 4, !tbaa !10
   %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %8, align 4
-  br label %50, !llvm.loop !22
+  store i32 %71, ptr %8, align 4, !tbaa !10
+  br label %50, !llvm.loop !97
 
 72:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-declare void @sat_solver_setnvars(ptr noundef, i32 noundef) #1
+declare void @sat_solver_setnvars(ptr noundef, i32 noundef) #3
 
-declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjId(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjId(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Gia_Man_t_, ptr %6, i32 0, i32 6
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -2422,8 +2570,8 @@ define internal i32 @Gia_ObjId(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @sat_solver_add_buffer(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @sat_solver_add_buffer(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2431,80 +2579,88 @@ define internal i32 @sat_solver_add_buffer(ptr noundef %0, i32 noundef %1, i32 n
   %9 = alloca i32, align 4
   %10 = alloca [2 x i32], align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = call i32 @toLitCond(i32 noundef %12, i32 noundef 0)
-  %14 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  store i32 %13, ptr %14, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = load i32, ptr %9, align 4
-  %17 = icmp ne i32 %16, 0
-  %18 = xor i1 %17, true
-  %19 = zext i1 %18 to i32
-  %20 = call i32 @toLitCond(i32 noundef %15, i32 noundef %19)
-  %21 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 1
-  store i32 %20, ptr %21, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !55
+  store i32 %1, ptr %7, align 4, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %13 = load i32, ptr %7, align 4, !tbaa !10
+  %14 = call i32 @toLitCond(i32 noundef %13, i32 noundef 0)
+  %15 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  store i32 %14, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %8, align 4, !tbaa !10
+  %17 = load i32, ptr %9, align 4, !tbaa !10
+  %18 = icmp ne i32 %17, 0
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = call i32 @toLitCond(i32 noundef %16, i32 noundef %20)
+  %22 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 1
+  store i32 %21, ptr %22, align 4, !tbaa !10
+  %23 = load ptr, ptr %6, align 8, !tbaa !55
   %24 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  %25 = getelementptr inbounds i32, ptr %24, i64 2
-  %26 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef %23, ptr noundef %25)
-  store i32 %26, ptr %11, align 4
-  %27 = load i32, ptr %11, align 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %47
+  %25 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  %26 = getelementptr inbounds i32, ptr %25, i64 2
+  %27 = call i32 @sat_solver_addclause(ptr noundef %23, ptr noundef %24, ptr noundef %26)
+  store i32 %27, ptr %11, align 4, !tbaa !10
+  %28 = load i32, ptr %11, align 4, !tbaa !10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %4
-  %31 = load i32, ptr %7, align 4
-  %32 = call i32 @toLitCond(i32 noundef %31, i32 noundef 1)
-  %33 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  store i32 %32, ptr %33, align 4
-  %34 = load i32, ptr %8, align 4
-  %35 = load i32, ptr %9, align 4
-  %36 = call i32 @toLitCond(i32 noundef %34, i32 noundef %35)
-  %37 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 1
-  store i32 %36, ptr %37, align 4
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  %40 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  %41 = getelementptr inbounds i32, ptr %40, i64 2
-  %42 = call i32 @sat_solver_addclause(ptr noundef %38, ptr noundef %39, ptr noundef %41)
-  store i32 %42, ptr %11, align 4
-  %43 = load i32, ptr %11, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %30
   store i32 0, ptr %5, align 4
-  br label %47
+  store i32 1, ptr %12, align 4
+  br label %48
 
-46:                                               ; preds = %30
+31:                                               ; preds = %4
+  %32 = load i32, ptr %7, align 4, !tbaa !10
+  %33 = call i32 @toLitCond(i32 noundef %32, i32 noundef 1)
+  %34 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  store i32 %33, ptr %34, align 4, !tbaa !10
+  %35 = load i32, ptr %8, align 4, !tbaa !10
+  %36 = load i32, ptr %9, align 4, !tbaa !10
+  %37 = call i32 @toLitCond(i32 noundef %35, i32 noundef %36)
+  %38 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 1
+  store i32 %37, ptr %38, align 4, !tbaa !10
+  %39 = load ptr, ptr %6, align 8, !tbaa !55
+  %40 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  %41 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  %42 = getelementptr inbounds i32, ptr %41, i64 2
+  %43 = call i32 @sat_solver_addclause(ptr noundef %39, ptr noundef %40, ptr noundef %42)
+  store i32 %43, ptr %11, align 4, !tbaa !10
+  %44 = load i32, ptr %11, align 4, !tbaa !10
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %31
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %48
+
+47:                                               ; preds = %31
   store i32 2, ptr %5, align 4
-  br label %47
+  store i32 1, ptr %12, align 4
+  br label %48
 
-47:                                               ; preds = %46, %45, %29
-  %48 = load i32, ptr %5, align 4
-  ret i32 %48
+48:                                               ; preds = %47, %46, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %49 = load i32, ptr %5, align 4
+  ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjIsCand(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjIsCand(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = call i32 @Gia_ObjIsAnd(ptr noundef %3)
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = call i32 @Gia_ObjIsCi(ptr noundef %7)
   %9 = icmp ne i32 %8, 0
   br label %10
@@ -2515,76 +2671,76 @@ define internal i32 @Gia_ObjIsCand(ptr noundef %0) #0 {
   ret i32 %12
 }
 
-declare void @Cnf_DataFree(ptr noundef) #1
+declare void @Cnf_DataFree(ptr noundef) #3
 
-declare void @Gia_ManStop(ptr noundef) #1
+declare void @Gia_ManStop(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Lit2LitV(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Lit2LitV(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !69
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = call i32 @Abc_Lit2Var(i32 noundef %6)
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = load i32, ptr %4, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !10
+  %11 = load i32, ptr %4, align 4, !tbaa !10
   %12 = call i32 @Abc_LitIsCompl(i32 noundef %11)
   %13 = call i32 @Abc_Var2Lit(i32 noundef %10, i32 noundef %12)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntArray(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   ret ptr %5
 }
 
-declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-declare i32 @sat_solver_nclauses(ptr noundef) #1
+declare i32 @sat_solver_nclauses(ptr noundef) #3
 
-declare i32 @sat_solver_nconflicts(ptr noundef) #1
+declare i32 @sat_solver_nconflicts(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManAndNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManAndNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = call i32 @Vec_IntSize(ptr noundef %8)
   %10 = sub nsw i32 %5, %9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Gia_Man_t_, ptr %11, i32 0, i32 12
-  %13 = load ptr, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %11, i32 0, i32 12
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
   %14 = call i32 @Vec_IntSize(ptr noundef %13)
   %15 = sub nsw i32 %10, %14
   %16 = sub nsw i32 %15, 1
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store i64 %2, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %5, align 8, !tbaa !54
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, ptr noundef %7)
-  %8 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8, !tbaa !59
   %9 = sitofp i64 %8 to double
   %10 = fmul double 1.000000e+00, %9
   %11 = fdiv double %10, 1.000000e+06
@@ -2592,42 +2748,42 @@ define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef 
   ret void
 }
 
-declare void @sat_solver_delete(ptr noundef) #1
+declare void @sat_solver_delete(ptr noundef) #3
 
-declare void @Gia_ManStopP(ptr noundef) #1
+declare void @Gia_ManStopP(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
   call void @free(ptr noundef %10) #11
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !42
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !8
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !8
   call void @free(ptr noundef %18) #11
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !8
   br label %20
 
 19:                                               ; preds = %14
@@ -2647,238 +2803,243 @@ define i32 @Gia_ManBmciTest(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store i32 %5, ptr %13, align 4
-  store i32 %6, ptr %14, align 4
-  %16 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store i32 %2, ptr %10, align 4, !tbaa !10
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store i32 %4, ptr %12, align 4, !tbaa !10
+  store i32 %5, ptr %13, align 4, !tbaa !10
+  store i32 %6, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %16 = load ptr, ptr %8, align 8, !tbaa !3
   %17 = call i32 @Gia_ManRegNum(ptr noundef %16)
   %18 = call ptr @Vec_IntStart(i32 noundef %17)
-  store ptr %18, ptr %15, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = load ptr, ptr %15, align 8
-  %22 = load i32, ptr %10, align 4
-  %23 = load i32, ptr %11, align 4
-  %24 = load i32, ptr %12, align 4
-  %25 = load i32, ptr %14, align 4
+  store ptr %18, ptr %15, align 8, !tbaa !8
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = load ptr, ptr %9, align 8, !tbaa !8
+  %21 = load ptr, ptr %15, align 8, !tbaa !8
+  %22 = load i32, ptr %10, align 4, !tbaa !10
+  %23 = load i32, ptr %11, align 4, !tbaa !10
+  %24 = load i32, ptr %12, align 4, !tbaa !10
+  %25 = load i32, ptr %14, align 4, !tbaa !10
   %26 = call i32 @Bmc_BmciPerform(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %27 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %15, align 8, !tbaa !8
   call void @Vec_IntFree(ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntStart(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntStart(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load i32, ptr %2, align 4, !tbaa !10
   %5 = call ptr @Vec_IntAlloc(i32 noundef %4)
-  store ptr %5, ptr %3, align 8
-  %6 = load i32, ptr %2, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
-  store i32 %6, ptr %8, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load i32, ptr %2, align 4, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
+  store i32 %6, ptr %8, align 4, !tbaa !44
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %2, align 4
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %17 = load i32, ptr %2, align 4, !tbaa !10
   %18 = sext i32 %17 to i64
   %19 = mul i64 4, %18
   call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %13, %1
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Var2Lit(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Var2Lit(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %3, align 4, !tbaa !10
   %7 = add nsw i32 %5, %6
-  %8 = load i32, ptr %4, align 4
+  %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = add nsw i32 %7, %8
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_Regular(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_Regular(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_IsComplement(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_IsComplement(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 1
   %6 = trunc i64 %5 to i32
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ManAppendObj(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ManAppendObj(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.Gia_Man_t_, ptr %4, i32 0, i32 4
-  %6 = load i32, ptr %5, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Gia_Man_t_, ptr %7, i32 0, i32 5
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %4, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8, !tbaa !19
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %7, i32 0, i32 5
+  %9 = load i32, ptr %8, align 4, !tbaa !98
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %116
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.Gia_Man_t_, ptr %12, i32 0, i32 5
-  %14 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %12, i32 0, i32 5
+  %14 = load i32, ptr %13, align 4, !tbaa !98
   %15 = mul nsw i32 2, %14
   %16 = call i32 @Abc_MinInt(i32 noundef %15, i32 noundef 536870912)
-  store i32 %16, ptr %3, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.Gia_Man_t_, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 8
+  store i32 %16, ptr %3, align 4, !tbaa !10
+  %17 = load ptr, ptr %2, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8, !tbaa !19
   %20 = icmp eq i32 %19, 536870912
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %11
   %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  call void @exit(i32 noundef 1) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 23:                                               ; preds = %11
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.Gia_Man_t_, ptr %24, i32 0, i32 104
-  %26 = load i32, ptr %25, align 4
+  %24 = load ptr, ptr %2, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %24, i32 0, i32 104
+  %26 = load i32, ptr %25, align 4, !tbaa !99
   %27 = icmp ne i32 %26, 0
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.Gia_Man_t_, ptr %29, i32 0, i32 5
-  %31 = load i32, ptr %30, align 4
-  %32 = load i32, ptr %3, align 4
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %29, i32 0, i32 5
+  %31 = load i32, ptr %30, align 4, !tbaa !98
+  %32 = load i32, ptr %3, align 4, !tbaa !10
   %33 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, i32 noundef %31, i32 noundef %32)
   br label %34
 
 34:                                               ; preds = %28, %23
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.Gia_Man_t_, ptr %35, i32 0, i32 6
-  %37 = load ptr, ptr %36, align 8
+  %35 = load ptr, ptr %2, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %35, i32 0, i32 6
+  %37 = load ptr, ptr %36, align 8, !tbaa !39
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.Gia_Man_t_, ptr %40, i32 0, i32 6
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %3, align 4
+  %40 = load ptr, ptr %2, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %40, i32 0, i32 6
+  %42 = load ptr, ptr %41, align 8, !tbaa !39
+  %43 = load i32, ptr %3, align 4, !tbaa !10
   %44 = sext i32 %43 to i64
   %45 = mul i64 12, %44
-  %46 = call ptr @realloc(ptr noundef %42, i64 noundef %45) #13
+  %46 = call ptr @realloc(ptr noundef %42, i64 noundef %45) #15
   br label %52
 
 47:                                               ; preds = %34
-  %48 = load i32, ptr %3, align 4
+  %48 = load i32, ptr %3, align 4, !tbaa !10
   %49 = sext i32 %48 to i64
   %50 = mul i64 12, %49
-  %51 = call noalias ptr @malloc(i64 noundef %50) #10
+  %51 = call noalias ptr @malloc(i64 noundef %50) #13
   br label %52
 
 52:                                               ; preds = %47, %39
   %53 = phi ptr [ %46, %39 ], [ %51, %47 ]
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.Gia_Man_t_, ptr %54, i32 0, i32 6
-  store ptr %53, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds %struct.Gia_Man_t_, ptr %56, i32 0, i32 6
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.Gia_Man_t_, ptr %59, i32 0, i32 5
-  %61 = load i32, ptr %60, align 4
+  %54 = load ptr, ptr %2, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %54, i32 0, i32 6
+  store ptr %53, ptr %55, align 8, !tbaa !39
+  %56 = load ptr, ptr %2, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %56, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8, !tbaa !39
+  %59 = load ptr, ptr %2, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %59, i32 0, i32 5
+  %61 = load i32, ptr %60, align 4, !tbaa !98
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %58, i64 %62
-  %64 = load i32, ptr %3, align 4
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds %struct.Gia_Man_t_, ptr %65, i32 0, i32 5
-  %67 = load i32, ptr %66, align 4
+  %64 = load i32, ptr %3, align 4, !tbaa !10
+  %65 = load ptr, ptr %2, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %65, i32 0, i32 5
+  %67 = load i32, ptr %66, align 4, !tbaa !98
   %68 = sub nsw i32 %64, %67
   %69 = sext i32 %68 to i64
   %70 = mul i64 12, %69
   call void @llvm.memset.p0.i64(ptr align 4 %63, i8 0, i64 %70, i1 false)
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct.Gia_Man_t_, ptr %71, i32 0, i32 7
-  %73 = load ptr, ptr %72, align 8
+  %71 = load ptr, ptr %2, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %71, i32 0, i32 7
+  %73 = load ptr, ptr %72, align 8, !tbaa !100
   %74 = icmp ne ptr %73, null
   br i1 %74, label %75, label %112
 
 75:                                               ; preds = %52
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds %struct.Gia_Man_t_, ptr %76, i32 0, i32 7
-  %78 = load ptr, ptr %77, align 8
+  %76 = load ptr, ptr %2, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %76, i32 0, i32 7
+  %78 = load ptr, ptr %77, align 8, !tbaa !100
   %79 = icmp ne ptr %78, null
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %75
-  %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds %struct.Gia_Man_t_, ptr %81, i32 0, i32 7
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %3, align 4
+  %81 = load ptr, ptr %2, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %81, i32 0, i32 7
+  %83 = load ptr, ptr %82, align 8, !tbaa !100
+  %84 = load i32, ptr %3, align 4, !tbaa !10
   %85 = sext i32 %84 to i64
   %86 = mul i64 4, %85
-  %87 = call ptr @realloc(ptr noundef %83, i64 noundef %86) #13
+  %87 = call ptr @realloc(ptr noundef %83, i64 noundef %86) #15
   br label %93
 
 88:                                               ; preds = %75
-  %89 = load i32, ptr %3, align 4
+  %89 = load i32, ptr %3, align 4, !tbaa !10
   %90 = sext i32 %89 to i64
   %91 = mul i64 4, %90
-  %92 = call noalias ptr @malloc(i64 noundef %91) #10
+  %92 = call noalias ptr @malloc(i64 noundef %91) #13
   br label %93
 
 93:                                               ; preds = %88, %80
   %94 = phi ptr [ %87, %80 ], [ %92, %88 ]
-  %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds %struct.Gia_Man_t_, ptr %95, i32 0, i32 7
-  store ptr %94, ptr %96, align 8
-  %97 = load ptr, ptr %2, align 8
-  %98 = getelementptr inbounds %struct.Gia_Man_t_, ptr %97, i32 0, i32 7
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.Gia_Man_t_, ptr %100, i32 0, i32 5
-  %102 = load i32, ptr %101, align 4
+  %95 = load ptr, ptr %2, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %95, i32 0, i32 7
+  store ptr %94, ptr %96, align 8, !tbaa !100
+  %97 = load ptr, ptr %2, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %97, i32 0, i32 7
+  %99 = load ptr, ptr %98, align 8, !tbaa !100
+  %100 = load ptr, ptr %2, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %100, i32 0, i32 5
+  %102 = load i32, ptr %101, align 4, !tbaa !98
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i32, ptr %99, i64 %103
-  %105 = load i32, ptr %3, align 4
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.Gia_Man_t_, ptr %106, i32 0, i32 5
-  %108 = load i32, ptr %107, align 4
+  %105 = load i32, ptr %3, align 4, !tbaa !10
+  %106 = load ptr, ptr %2, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %106, i32 0, i32 5
+  %108 = load i32, ptr %107, align 4, !tbaa !98
   %109 = sub nsw i32 %105, %108
   %110 = sext i32 %109 to i64
   %111 = mul i64 4, %110
@@ -2886,53 +3047,54 @@ define internal ptr @Gia_ManAppendObj(ptr noundef %0) #0 {
   br label %112
 
 112:                                              ; preds = %93, %52
-  %113 = load i32, ptr %3, align 4
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.Gia_Man_t_, ptr %114, i32 0, i32 5
-  store i32 %113, ptr %115, align 4
+  %113 = load i32, ptr %3, align 4, !tbaa !10
+  %114 = load ptr, ptr %2, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %114, i32 0, i32 5
+  store i32 %113, ptr %115, align 4, !tbaa !98
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   br label %116
 
 116:                                              ; preds = %112, %1
-  %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct.Gia_Man_t_, ptr %117, i32 0, i32 14
+  %117 = load ptr, ptr %2, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %117, i32 0, i32 14
   %119 = call i32 @Vec_IntSize(ptr noundef %118)
   %120 = icmp ne i32 %119, 0
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %116
-  %122 = load ptr, ptr %2, align 8
-  %123 = getelementptr inbounds %struct.Gia_Man_t_, ptr %122, i32 0, i32 13
+  %122 = load ptr, ptr %2, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %122, i32 0, i32 13
   call void @Vec_IntPush(ptr noundef %123, i32 noundef 0)
   br label %124
 
 124:                                              ; preds = %121, %116
-  %125 = load ptr, ptr %2, align 8
-  %126 = load ptr, ptr %2, align 8
-  %127 = getelementptr inbounds %struct.Gia_Man_t_, ptr %126, i32 0, i32 4
-  %128 = load i32, ptr %127, align 8
+  %125 = load ptr, ptr %2, align 8, !tbaa !3
+  %126 = load ptr, ptr %2, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %126, i32 0, i32 4
+  %128 = load i32, ptr %127, align 8, !tbaa !19
   %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %127, align 8
+  store i32 %129, ptr %127, align 8, !tbaa !19
   %130 = call ptr @Gia_ManObj(ptr noundef %125, i32 noundef %128)
   ret ptr %130
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_MinInt(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_MinInt(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
   %7 = icmp slt i32 %5, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !10
   br label %12
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
+  %11 = load i32, ptr %4, align 4, !tbaa !10
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -2941,23 +3103,23 @@ define internal i32 @Abc_MinInt(i32 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #2
+declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #3
+declare ptr @realloc(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ObjFanin0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ObjFanin0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %4 = load ptr, ptr %2, align 8, !tbaa !14
   %5 = load i64, ptr %4, align 4
   %6 = and i64 %5, 536870911
   %7 = trunc i64 %6 to i32
@@ -2967,12 +3129,12 @@ define internal ptr @Gia_ObjFanin0(ptr noundef %0) #0 {
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Gia_ObjFanin1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Gia_ObjFanin1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %4 = load ptr, ptr %2, align 8, !tbaa !14
   %5 = load i64, ptr %4, align 4
   %6 = lshr i64 %5, 32
   %7 = and i64 %6, 536870911
@@ -2983,16 +3145,16 @@ define internal ptr @Gia_ObjFanin1(ptr noundef %0) #0 {
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !45
+  %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -3000,299 +3162,422 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !42
+  %20 = load i32, ptr %4, align 4, !tbaa !10
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #13
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #15
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !10
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #10
+  %28 = call noalias ptr @malloc(i64 noundef %27) #13
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !42
+  %33 = load i32, ptr %4, align 4, !tbaa !10
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !45
   br label %36
 
 36:                                               ; preds = %29, %10
   ret void
 }
 
-declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ObjPhase(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ObjPhase(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 63
   %6 = trunc i64 %5 to i32
   ret i32 %6
 }
 
-declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) #1
+declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) #3
 
-declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) #1
+declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #6
+declare ptr @strcpy(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #7
+declare i64 @strlen(ptr noundef) #9
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Clock() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Abc_Clock() #2 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.timespec, align 8
-  %3 = alloca i64, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #11
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i64 -1, ptr %1, align 8
-  br label %18
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #11
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #11
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = mul nsw i64 %9, 1000000
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = sdiv i64 %13, 1000000000
-  %15 = load i64, ptr %3, align 8
-  %16 = add nsw i64 %15, %14
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  store i64 %17, ptr %1, align 8
-  br label %18
+  store i64 -1, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %19
 
-18:                                               ; preds = %7, %6
-  %19 = load i64, ptr %1, align 8
-  ret i64 %19
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %9 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !101
+  %11 = mul nsw i64 %10, 1000000
+  store i64 %11, ptr %4, align 8, !tbaa !59
+  %12 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !103
+  %14 = mul nsw i64 %13, 1000000
+  %15 = sdiv i64 %14, 1000000000
+  %16 = load i64, ptr %4, align 8, !tbaa !59
+  %17 = add nsw i64 %16, %15
+  store i64 %17, ptr %4, align 8, !tbaa !59
+  %18 = load i64, ptr %4, align 8, !tbaa !59
+  store i64 %18, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  br label %19
+
+19:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #11
+  %20 = load i64, ptr %1, align 8
+  ret i64 %20
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #6
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #8
 
-declare ptr @Gia_ManToAigSimple(ptr noundef) #1
+declare ptr @Gia_ManToAigSimple(ptr noundef) #3
 
-declare ptr @Cnf_Derive(ptr noundef, i32 noundef) #1
+declare ptr @Cnf_Derive(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Aig_ManCoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Aig_ManCoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 14
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 14
   %5 = getelementptr inbounds [7 x i32], ptr %4, i64 0, i64 3
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !10
   ret i32 %6
 }
 
-declare void @Aig_ManStop(ptr noundef) #1
+declare void @Aig_ManStop(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @toLitCond(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @toLitCond(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %3, align 4, !tbaa !10
   %7 = add nsw i32 %5, %6
-  %8 = load i32, ptr %4, align 4
+  %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
   %11 = add nsw i32 %7, %10
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !10
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !10
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !10
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !10
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !104
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.14)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !10
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.14)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !104
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.15)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.15)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
-  %41 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #9
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #11
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #11
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %45 = load ptr, ptr %4, align 8, !tbaa !54
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !54
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !104
+  %49 = load ptr, ptr %7, align 8, !tbaa !54
+  %50 = call i64 @strlen(ptr noundef %49) #12
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !54
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !54
+  call void @free(ptr noundef %54) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !54
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #11
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #11
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-declare i32 @Abc_FrameIsBridgeMode(...) #1
+declare i32 @Abc_FrameIsBridgeMode(...) #3
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
-declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare void @free(ptr noundef) #6
-
-; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #6
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind allocsize(0) }
+declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !104
+  %6 = load ptr, ptr %3, align 8, !tbaa !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !105
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #11
+  ret i32 %8
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: nounwind
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #8
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(1) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10Gia_Man_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !11, i64 8}
+!13 = !{!"Gia_Obj_t_", !11, i64 0, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 4, !11, i64 7, !11, i64 7, !11, i64 7, !11, i64 8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS10Gia_Obj_t_", !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !11, i64 24}
+!20 = !{!"Gia_Man_t_", !21, i64 0, !21, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !15, i64 32, !22, i64 40, !11, i64 48, !11, i64 52, !11, i64 56, !9, i64 64, !9, i64 72, !23, i64 80, !23, i64 96, !11, i64 112, !11, i64 116, !11, i64 120, !23, i64 128, !22, i64 144, !22, i64 152, !9, i64 160, !11, i64 168, !11, i64 172, !11, i64 176, !11, i64 180, !22, i64 184, !24, i64 192, !22, i64 200, !22, i64 208, !22, i64 216, !11, i64 224, !11, i64 228, !22, i64 232, !11, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !25, i64 272, !25, i64 280, !9, i64 288, !5, i64 296, !9, i64 304, !9, i64 312, !21, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !26, i64 368, !26, i64 376, !27, i64 384, !23, i64 392, !23, i64 408, !9, i64 424, !9, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !21, i64 512, !28, i64 520, !4, i64 528, !29, i64 536, !29, i64 544, !9, i64 552, !9, i64 560, !9, i64 568, !9, i64 576, !9, i64 584, !11, i64 592, !30, i64 596, !30, i64 600, !9, i64 608, !22, i64 616, !11, i64 624, !27, i64 632, !27, i64 640, !27, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !9, i64 696, !9, i64 704, !9, i64 712, !31, i64 720, !29, i64 728, !5, i64 736, !5, i64 744, !32, i64 752, !32, i64 760, !5, i64 768, !22, i64 776, !11, i64 784, !11, i64 788, !11, i64 792, !11, i64 796, !11, i64 800, !11, i64 804, !11, i64 808, !11, i64 812, !11, i64 816, !11, i64 820, !11, i64 824, !11, i64 828, !33, i64 832, !33, i64 840, !33, i64 848, !33, i64 856, !9, i64 864, !9, i64 872, !9, i64 880, !34, i64 888, !11, i64 896, !11, i64 900, !11, i64 904, !9, i64 912, !11, i64 920, !11, i64 924, !9, i64 928, !9, i64 936, !27, i64 944, !33, i64 952, !9, i64 960, !9, i64 968, !11, i64 976, !11, i64 980, !33, i64 984, !23, i64 992, !23, i64 1008, !23, i64 1024, !35, i64 1040, !36, i64 1048, !36, i64 1056, !11, i64 1064, !11, i64 1068, !11, i64 1072, !11, i64 1076, !36, i64 1080, !9, i64 1088, !9, i64 1096, !9, i64 1104, !27, i64 1112}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!"p1 int", !5, i64 0}
+!23 = !{!"Vec_Int_t_", !11, i64 0, !11, i64 4, !22, i64 8}
+!24 = !{!"p1 _ZTS10Gia_Rpr_t_", !5, i64 0}
+!25 = !{!"p1 _ZTS10Vec_Wec_t_", !5, i64 0}
+!26 = !{!"p1 _ZTS10Abc_Cex_t_", !5, i64 0}
+!27 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!28 = !{!"p1 _ZTS10Gia_Plc_t_", !5, i64 0}
+!29 = !{!"p1 _ZTS10Vec_Flt_t_", !5, i64 0}
+!30 = !{!"float", !6, i64 0}
+!31 = !{!"p1 _ZTS10Vec_Vec_t_", !5, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!"p1 _ZTS10Vec_Wrd_t_", !5, i64 0}
+!34 = !{!"p1 _ZTS10Vec_Bit_t_", !5, i64 0}
+!35 = !{!"p1 _ZTS10Gia_Dat_t_", !5, i64 0}
+!36 = !{!"p1 _ZTS10Vec_Str_t_", !5, i64 0}
+!37 = distinct !{!37, !17}
+!38 = distinct !{!38, !17}
+!39 = !{!20, !15, i64 32}
+!40 = !{!20, !11, i64 16}
+!41 = !{!20, !9, i64 64}
+!42 = !{!23, !22, i64 8}
+!43 = !{!20, !9, i64 72}
+!44 = !{!23, !11, i64 4}
+!45 = !{!23, !11, i64 0}
+!46 = !{!20, !22, i64 232}
+!47 = !{!20, !11, i64 116}
+!48 = !{!20, !11, i64 808}
+!49 = !{!20, !33, i64 984}
+!50 = !{!20, !21, i64 0}
+!51 = distinct !{!51, !17}
+!52 = distinct !{!52, !17}
+!53 = distinct !{!53, !17}
+!54 = !{!21, !21, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS12sat_solver_t", !5, i64 0}
+!57 = distinct !{!57, !17}
+!58 = distinct !{!58, !17}
+!59 = !{!32, !32, i64 0}
+!60 = distinct !{!60, !17}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS10Cnf_Dat_t_", !5, i64 0}
+!63 = !{!64, !11, i64 8}
+!64 = !{!"Cnf_Dat_t_", !65, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !66, i64 24, !22, i64 32, !22, i64 40, !22, i64 48, !21, i64 56, !9, i64 64}
+!65 = !{!"p1 _ZTS10Aig_Man_t_", !5, i64 0}
+!66 = !{!"p2 int", !5, i64 0}
+!67 = !{!64, !11, i64 16}
+!68 = !{!64, !66, i64 24}
+!69 = !{!22, !22, i64 0}
+!70 = distinct !{!70, !17}
+!71 = !{!64, !22, i64 32}
+!72 = distinct !{!72, !17}
+!73 = distinct !{!73, !17}
+!74 = distinct !{!74, !17}
+!75 = distinct !{!75, !17}
+!76 = !{!77, !32, i64 512}
+!77 = !{!"sat_solver_t", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !78, i64 16, !11, i64 72, !11, i64 76, !79, i64 80, !80, i64 88, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !11, i64 112, !32, i64 120, !32, i64 128, !32, i64 136, !81, i64 144, !81, i64 152, !11, i64 160, !11, i64 164, !82, i64 168, !21, i64 184, !11, i64 192, !22, i64 200, !21, i64 208, !21, i64 216, !21, i64 224, !21, i64 232, !22, i64 240, !22, i64 248, !22, i64 256, !82, i64 264, !82, i64 280, !82, i64 296, !82, i64 312, !22, i64 328, !82, i64 336, !11, i64 352, !11, i64 356, !11, i64 360, !83, i64 368, !83, i64 376, !11, i64 384, !11, i64 388, !11, i64 392, !84, i64 400, !11, i64 472, !11, i64 476, !11, i64 480, !11, i64 484, !11, i64 488, !32, i64 496, !32, i64 504, !32, i64 512, !82, i64 520, !85, i64 536, !11, i64 544, !11, i64 548, !11, i64 552, !82, i64 560, !82, i64 576, !11, i64 592, !11, i64 596, !11, i64 600, !22, i64 608, !5, i64 616, !11, i64 624, !86, i64 632, !11, i64 640, !11, i64 644, !82, i64 648, !82, i64 664, !82, i64 680, !5, i64 696, !5, i64 704, !11, i64 712, !5, i64 720}
+!78 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !66, i64 48}
+!79 = !{!"p1 _ZTS8clause_t", !5, i64 0}
+!80 = !{!"p1 _ZTS6veci_t", !5, i64 0}
+!81 = !{!"p1 long", !5, i64 0}
+!82 = !{!"veci_t", !11, i64 0, !11, i64 4, !22, i64 8}
+!83 = !{!"double", !6, i64 0}
+!84 = !{!"stats_t", !11, i64 0, !11, i64 4, !11, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !32, i64 40, !32, i64 48, !32, i64 56, !32, i64 64}
+!85 = !{!"p1 double", !5, i64 0}
+!86 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!87 = distinct !{!87, !17}
+!88 = !{!65, !65, i64 0}
+!89 = !{!90, !11, i64 104}
+!90 = !{!"Aig_Man_t_", !21, i64 0, !21, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !91, i64 48, !92, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !11, i64 124, !6, i64 128, !11, i64 156, !93, i64 160, !11, i64 168, !22, i64 176, !11, i64 184, !31, i64 192, !11, i64 200, !11, i64 204, !11, i64 208, !22, i64 216, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !93, i64 248, !93, i64 256, !11, i64 264, !94, i64 272, !9, i64 280, !11, i64 288, !5, i64 296, !5, i64 304, !11, i64 312, !11, i64 316, !11, i64 320, !93, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !22, i64 368, !22, i64 376, !27, i64 384, !9, i64 392, !9, i64 400, !26, i64 408, !27, i64 416, !65, i64 424, !27, i64 432, !11, i64 440, !9, i64 448, !31, i64 456, !9, i64 464, !9, i64 472, !11, i64 480, !32, i64 488, !32, i64 496, !32, i64 504, !27, i64 512, !27, i64 520}
+!91 = !{!"p1 _ZTS10Aig_Obj_t_", !5, i64 0}
+!92 = !{!"Aig_Obj_t_", !6, i64 0, !91, i64 8, !91, i64 16, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 28, !11, i64 31, !11, i64 32, !11, i64 36, !6, i64 40}
+!93 = !{!"p2 _ZTS10Aig_Obj_t_", !5, i64 0}
+!94 = !{!"p1 _ZTS14Aig_MmFixed_t_", !5, i64 0}
+!95 = distinct !{!95, !17}
+!96 = !{!64, !11, i64 12}
+!97 = distinct !{!97, !17}
+!98 = !{!20, !11, i64 28}
+!99 = !{!20, !11, i64 796}
+!100 = !{!20, !22, i64 40}
+!101 = !{!102, !32, i64 0}
+!102 = !{!"timespec", !32, i64 0, !32, i64 8}
+!103 = !{!102, !32, i64 8}
+!104 = !{!86, !86, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS13__va_list_tag", !5, i64 0}

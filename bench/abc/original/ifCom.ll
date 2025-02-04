@@ -1,7 +1,6 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.If_Man_t_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [5 x i32], i32, float, float, float, float, i32, float, i32, i32, [4 x ptr], ptr, i32, i32, i32, ptr, [3 x [32 x i32]], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [16 x i32], i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i32], [32 x i32], i32, i32, i32, i32, ptr, [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], ptr, ptr, ptr, ptr, [32 x i8], i32, i32, i32, [6 x i64], [2 x i32], [2 x i32], ptr, [15 x i32], ptr, ptr, ptr, [16 x i32], ptr, ptr, ptr, ptr, [2 x i32], [2 x i32], [2 x ptr], ptr }
 %struct.If_LibLut_t_ = type { ptr, i32, i32, [33 x float], [33 x [33 x float]] }
 
 @.str = private unnamed_addr constant [7 x i8] c"lutlib\00", align 1
@@ -51,50 +50,37 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [42 x i8] c"\09          print the current box library\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @If_CutCopy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.If_Man_t_, ptr %9, i32 0, i32 41
-  %11 = load i32, ptr %10, align 4
-  %12 = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 %12, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define void @If_Init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.If_LibLut_t_, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4504, ptr %3) #5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @__const.If_Init.s_LutLib, i64 4504, i1 false)
   %4 = call ptr @If_LibLutDup(ptr noundef %3)
   call void @Abc_FrameSetLibLut(ptr noundef %4)
-  %5 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
   call void @Cmd_CommandAdd(ptr noundef %5, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef @If_CommandReadLut, i32 noundef 0)
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
   call void @Cmd_CommandAdd(ptr noundef %6, ptr noundef @.str.1, ptr noundef @.str.3, ptr noundef @If_CommandPrintLut, i32 noundef 0)
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
   call void @Cmd_CommandAdd(ptr noundef %7, ptr noundef @.str.1, ptr noundef @.str.4, ptr noundef @If_CommandReadBox, i32 noundef 0)
-  %8 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
   call void @Cmd_CommandAdd(ptr noundef %8, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @If_CommandPrintBox, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4504, ptr %3) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @Abc_FrameSetLibLut(ptr noundef) #2
+declare void @Abc_FrameSetLibLut(ptr noundef) #3
 
-declare ptr @If_LibLutDup(ptr noundef) #2
+declare ptr @If_LibLutDup(ptr noundef) #3
 
-declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -110,162 +96,182 @@ define internal i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr nound
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = call ptr @Abc_FrameReadNtk(ptr noundef %16)
-  store ptr %17, ptr %12, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @Abc_FrameReadOut(ptr noundef %18)
-  store ptr %19, ptr %9, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = call ptr @Abc_FrameReadErr(ptr noundef %20)
-  store ptr %21, ptr %10, align 8
-  store i32 1, ptr %14, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = call ptr @Abc_FrameReadNtk(ptr noundef %17)
+  store ptr %18, ptr %12, align 8, !tbaa !12
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = call ptr @Abc_FrameReadOut(ptr noundef %19)
+  store ptr %20, ptr %9, align 8, !tbaa !14
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = call ptr @Abc_FrameReadErr(ptr noundef %21)
+  store ptr %22, ptr %10, align 8, !tbaa !14
+  store i32 1, ptr %14, align 4, !tbaa !8
   call void (...) @Extra_UtilGetoptReset()
-  br label %22
+  br label %23
 
-22:                                               ; preds = %34, %3
-  %23 = load i32, ptr %6, align 4
-  %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @Extra_UtilGetopt(i32 noundef %23, ptr noundef %24, ptr noundef @.str.6)
-  store i32 %25, ptr %15, align 4
-  %26 = icmp ne i32 %25, -1
-  br i1 %26, label %27, label %35
+23:                                               ; preds = %35, %3
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = load ptr, ptr %7, align 8, !tbaa !10
+  %26 = call i32 @Extra_UtilGetopt(i32 noundef %24, ptr noundef %25, ptr noundef @.str.6)
+  store i32 %26, ptr %15, align 4, !tbaa !8
+  %27 = icmp ne i32 %26, -1
+  br i1 %27, label %28, label %36
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %15, align 4
-  switch i32 %28, label %33 [
-    i32 118, label %29
-    i32 104, label %32
+28:                                               ; preds = %23
+  %29 = load i32, ptr %15, align 4, !tbaa !8
+  switch i32 %29, label %34 [
+    i32 118, label %30
+    i32 104, label %33
   ]
 
-29:                                               ; preds = %27
-  %30 = load i32, ptr %14, align 4
-  %31 = xor i32 %30, 1
-  store i32 %31, ptr %14, align 4
-  br label %34
+30:                                               ; preds = %28
+  %31 = load i32, ptr %14, align 4, !tbaa !8
+  %32 = xor i32 %31, 1
+  store i32 %32, ptr %14, align 4, !tbaa !8
+  br label %35
 
-32:                                               ; preds = %27
-  br label %77
+33:                                               ; preds = %28
+  br label %78
 
-33:                                               ; preds = %27
-  br label %77
+34:                                               ; preds = %28
+  br label %78
 
-34:                                               ; preds = %29
-  br label %22, !llvm.loop !4
+35:                                               ; preds = %30
+  br label %23, !llvm.loop !16
 
-35:                                               ; preds = %22
-  %36 = load i32, ptr %6, align 4
-  %37 = load i32, ptr @globalUtilOptind, align 4
-  %38 = add nsw i32 %37, 1
-  %39 = icmp ne i32 %36, %38
-  br i1 %39, label %40, label %41
+36:                                               ; preds = %23
+  %37 = load i32, ptr %6, align 4, !tbaa !8
+  %38 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %39 = add nsw i32 %38, 1
+  %40 = icmp ne i32 %37, %39
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %35
-  br label %77
+41:                                               ; preds = %36
+  br label %78
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr @globalUtilOptind, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %13, align 8
-  %47 = load ptr, ptr %13, align 8
-  %48 = call noalias ptr @fopen(ptr noundef %47, ptr noundef @.str.7)
-  store ptr %48, ptr %8, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %64
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %7, align 8, !tbaa !10
+  %44 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !18
+  store ptr %47, ptr %13, align 8, !tbaa !18
+  %48 = load ptr, ptr %13, align 8, !tbaa !18
+  %49 = call noalias ptr @fopen(ptr noundef %48, ptr noundef @.str.7)
+  store ptr %49, ptr %8, align 8, !tbaa !14
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %65
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %13, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.8, ptr noundef %52) #4
-  %54 = load ptr, ptr %13, align 8
-  %55 = call ptr @Extra_FileGetSimilarName(ptr noundef %54, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef null)
-  store ptr %55, ptr %13, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %61
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %10, align 8, !tbaa !14
+  %53 = load ptr, ptr %13, align 8, !tbaa !18
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str.8, ptr noundef %53) #5
+  %55 = load ptr, ptr %13, align 8, !tbaa !18
+  %56 = call ptr @Extra_FileGetSimilarName(ptr noundef %55, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef null)
+  store ptr %56, ptr %13, align 8, !tbaa !18
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %10, align 8
-  %59 = load ptr, ptr %13, align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.13, ptr noundef %59) #4
-  br label %61
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %10, align 8, !tbaa !14
+  %60 = load ptr, ptr %13, align 8, !tbaa !18
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.13, ptr noundef %60) #5
+  br label %62
 
-61:                                               ; preds = %57, %50
-  %62 = load ptr, ptr %10, align 8
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.14) #4
+62:                                               ; preds = %58, %51
+  %63 = load ptr, ptr %10, align 8, !tbaa !14
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef @.str.14) #5
   store i32 1, ptr %4, align 4
-  br label %113
+  store i32 1, ptr %16, align 4
+  br label %114
 
-64:                                               ; preds = %41
-  %65 = load ptr, ptr %8, align 8
-  %66 = call i32 @fclose(ptr noundef %65)
-  %67 = load ptr, ptr %13, align 8
-  %68 = call ptr @If_LibLutRead(ptr noundef %67)
-  store ptr %68, ptr %11, align 8
-  %69 = load ptr, ptr %11, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %74
+65:                                               ; preds = %42
+  %66 = load ptr, ptr %8, align 8, !tbaa !14
+  %67 = call i32 @fclose(ptr noundef %66)
+  %68 = load ptr, ptr %13, align 8, !tbaa !18
+  %69 = call ptr @If_LibLutRead(ptr noundef %68)
+  store ptr %69, ptr %11, align 8, !tbaa !20
+  %70 = load ptr, ptr %11, align 8, !tbaa !20
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %10, align 8
-  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef @.str.15) #4
-  br label %77
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %10, align 8, !tbaa !14
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.15) #5
+  br label %78
 
-74:                                               ; preds = %64
-  %75 = call ptr (...) @Abc_FrameReadLibLut()
-  call void @If_LibLutFree(ptr noundef %75)
-  %76 = load ptr, ptr %11, align 8
-  call void @Abc_FrameSetLibLut(ptr noundef %76)
+75:                                               ; preds = %65
+  %76 = call ptr (...) @Abc_FrameReadLibLut()
+  call void @If_LibLutFree(ptr noundef %76)
+  %77 = load ptr, ptr %11, align 8, !tbaa !20
+  call void @Abc_FrameSetLibLut(ptr noundef %77)
   store i32 0, ptr %4, align 4
-  br label %113
+  store i32 1, ptr %16, align 4
+  br label %114
 
-77:                                               ; preds = %71, %40, %33, %32
-  %78 = load ptr, ptr %10, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.16) #4
-  %80 = load ptr, ptr %10, align 8
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.17) #4
-  %82 = load ptr, ptr %10, align 8
-  %83 = load i32, ptr %14, align 4
-  %84 = icmp ne i32 %83, 0
-  %85 = select i1 %84, ptr @.str.19, ptr @.str.20
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef @.str.18, ptr noundef %85) #4
-  %87 = load ptr, ptr %10, align 8
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.21) #4
-  %89 = load ptr, ptr %10, align 8
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef @.str.22) #4
-  %91 = load ptr, ptr %10, align 8
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef @.str.23) #4
-  %93 = load ptr, ptr %10, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.24) #4
-  %95 = load ptr, ptr %10, align 8
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.22) #4
-  %97 = load ptr, ptr %10, align 8
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef @.str.25) #4
-  %99 = load ptr, ptr %10, align 8
-  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef @.str.26) #4
-  %101 = load ptr, ptr %10, align 8
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.27) #4
-  %103 = load ptr, ptr %10, align 8
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.28) #4
-  %105 = load ptr, ptr %10, align 8
-  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef @.str.29) #4
-  %107 = load ptr, ptr %10, align 8
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef @.str.30) #4
-  %109 = load ptr, ptr %10, align 8
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.31) #4
-  %111 = load ptr, ptr %10, align 8
-  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef @.str.32) #4
+78:                                               ; preds = %72, %41, %34, %33
+  %79 = load ptr, ptr %10, align 8, !tbaa !14
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.16) #5
+  %81 = load ptr, ptr %10, align 8, !tbaa !14
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.17) #5
+  %83 = load ptr, ptr %10, align 8, !tbaa !14
+  %84 = load i32, ptr %14, align 4, !tbaa !8
+  %85 = icmp ne i32 %84, 0
+  %86 = select i1 %85, ptr @.str.19, ptr @.str.20
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef @.str.18, ptr noundef %86) #5
+  %88 = load ptr, ptr %10, align 8, !tbaa !14
+  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.21) #5
+  %90 = load ptr, ptr %10, align 8, !tbaa !14
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.22) #5
+  %92 = load ptr, ptr %10, align 8, !tbaa !14
+  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef @.str.23) #5
+  %94 = load ptr, ptr %10, align 8, !tbaa !14
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.24) #5
+  %96 = load ptr, ptr %10, align 8, !tbaa !14
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.22) #5
+  %98 = load ptr, ptr %10, align 8, !tbaa !14
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef @.str.25) #5
+  %100 = load ptr, ptr %10, align 8, !tbaa !14
+  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef @.str.26) #5
+  %102 = load ptr, ptr %10, align 8, !tbaa !14
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.27) #5
+  %104 = load ptr, ptr %10, align 8, !tbaa !14
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef @.str.28) #5
+  %106 = load ptr, ptr %10, align 8, !tbaa !14
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef @.str.29) #5
+  %108 = load ptr, ptr %10, align 8, !tbaa !14
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.30) #5
+  %110 = load ptr, ptr %10, align 8, !tbaa !14
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.31) #5
+  %112 = load ptr, ptr %10, align 8, !tbaa !14
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef @.str.32) #5
   store i32 1, ptr %4, align 4
-  br label %113
+  store i32 1, ptr %16, align 4
+  br label %114
 
-113:                                              ; preds = %77, %74, %61
-  %114 = load i32, ptr %4, align 4
-  ret i32 %114
+114:                                              ; preds = %78, %75, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %115 = load i32, ptr %4, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -279,85 +285,98 @@ define internal i32 @If_CommandPrintLut(ptr noundef %0, i32 noundef %1, ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = call ptr @Abc_FrameReadNtk(ptr noundef %13)
-  store ptr %14, ptr %10, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = call ptr @Abc_FrameReadOut(ptr noundef %15)
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @Abc_FrameReadErr(ptr noundef %17)
-  store ptr %18, ptr %9, align 8
-  store i32 1, ptr %11, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = call ptr @Abc_FrameReadNtk(ptr noundef %14)
+  store ptr %15, ptr %10, align 8, !tbaa !12
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = call ptr @Abc_FrameReadOut(ptr noundef %16)
+  store ptr %17, ptr %8, align 8, !tbaa !14
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = call ptr @Abc_FrameReadErr(ptr noundef %18)
+  store ptr %19, ptr %9, align 8, !tbaa !14
+  store i32 1, ptr %11, align 4, !tbaa !8
   call void (...) @Extra_UtilGetoptReset()
-  br label %19
+  br label %20
 
-19:                                               ; preds = %31, %3
-  %20 = load i32, ptr %6, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @Extra_UtilGetopt(i32 noundef %20, ptr noundef %21, ptr noundef @.str.6)
-  store i32 %22, ptr %12, align 4
-  %23 = icmp ne i32 %22, -1
-  br i1 %23, label %24, label %32
+20:                                               ; preds = %32, %3
+  %21 = load i32, ptr %6, align 4, !tbaa !8
+  %22 = load ptr, ptr %7, align 8, !tbaa !10
+  %23 = call i32 @Extra_UtilGetopt(i32 noundef %21, ptr noundef %22, ptr noundef @.str.6)
+  store i32 %23, ptr %12, align 4, !tbaa !8
+  %24 = icmp ne i32 %23, -1
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr %12, align 4
-  switch i32 %25, label %30 [
-    i32 118, label %26
-    i32 104, label %29
+25:                                               ; preds = %20
+  %26 = load i32, ptr %12, align 4, !tbaa !8
+  switch i32 %26, label %31 [
+    i32 118, label %27
+    i32 104, label %30
   ]
 
-26:                                               ; preds = %24
-  %27 = load i32, ptr %11, align 4
-  %28 = xor i32 %27, 1
-  store i32 %28, ptr %11, align 4
-  br label %31
+27:                                               ; preds = %25
+  %28 = load i32, ptr %11, align 4, !tbaa !8
+  %29 = xor i32 %28, 1
+  store i32 %29, ptr %11, align 4, !tbaa !8
+  br label %32
 
-29:                                               ; preds = %24
-  br label %39
+30:                                               ; preds = %25
+  br label %40
 
-30:                                               ; preds = %24
-  br label %39
+31:                                               ; preds = %25
+  br label %40
 
-31:                                               ; preds = %26
-  br label %19, !llvm.loop !6
+32:                                               ; preds = %27
+  br label %20, !llvm.loop !22
 
-32:                                               ; preds = %19
-  %33 = load i32, ptr %6, align 4
-  %34 = load i32, ptr @globalUtilOptind, align 4
-  %35 = icmp ne i32 %33, %34
-  br i1 %35, label %36, label %37
+33:                                               ; preds = %20
+  %34 = load i32, ptr %6, align 4, !tbaa !8
+  %35 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %36 = icmp ne i32 %34, %35
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %32
-  br label %39
+37:                                               ; preds = %33
+  br label %40
 
-37:                                               ; preds = %32
-  %38 = call ptr (...) @Abc_FrameReadLibLut()
-  call void @If_LibLutPrint(ptr noundef %38)
+38:                                               ; preds = %33
+  %39 = call ptr (...) @Abc_FrameReadLibLut()
+  call void @If_LibLutPrint(ptr noundef %39)
   store i32 0, ptr %4, align 4
-  br label %51
+  store i32 1, ptr %13, align 4
+  br label %52
 
-39:                                               ; preds = %36, %30, %29
-  %40 = load ptr, ptr %9, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.33) #4
-  %42 = load ptr, ptr %9, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.34) #4
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %11, align 4
-  %46 = icmp ne i32 %45, 0
-  %47 = select i1 %46, ptr @.str.19, ptr @.str.20
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.18, ptr noundef %47) #4
-  %49 = load ptr, ptr %9, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.21) #4
+40:                                               ; preds = %37, %31, %30
+  %41 = load ptr, ptr %9, align 8, !tbaa !14
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.33) #5
+  %43 = load ptr, ptr %9, align 8, !tbaa !14
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.34) #5
+  %45 = load ptr, ptr %9, align 8, !tbaa !14
+  %46 = load i32, ptr %11, align 4, !tbaa !8
+  %47 = icmp ne i32 %46, 0
+  %48 = select i1 %47, ptr @.str.19, ptr @.str.20
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.18, ptr noundef %48) #5
+  %50 = load ptr, ptr %9, align 8, !tbaa !14
+  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.21) #5
   store i32 1, ptr %4, align 4
-  br label %51
+  store i32 1, ptr %13, align 4
+  br label %52
 
-51:                                               ; preds = %39, %37
-  %52 = load i32, ptr %4, align 4
-  ret i32 %52
+52:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %53 = load i32, ptr %4, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -375,165 +394,187 @@ define internal i32 @If_CommandReadBox(ptr noundef %0, i32 noundef %1, ptr nound
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @Abc_FrameReadNtk(ptr noundef %17)
-  store ptr %18, ptr %12, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = call ptr @Abc_FrameReadOut(ptr noundef %19)
-  store ptr %20, ptr %9, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = call ptr @Abc_FrameReadErr(ptr noundef %21)
-  store ptr %22, ptr %10, align 8
-  store i32 0, ptr %14, align 4
-  store i32 1, ptr %15, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = call ptr @Abc_FrameReadNtk(ptr noundef %18)
+  store ptr %19, ptr %12, align 8, !tbaa !12
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = call ptr @Abc_FrameReadOut(ptr noundef %20)
+  store ptr %21, ptr %9, align 8, !tbaa !14
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = call ptr @Abc_FrameReadErr(ptr noundef %22)
+  store ptr %23, ptr %10, align 8, !tbaa !14
+  store i32 0, ptr %14, align 4, !tbaa !8
+  store i32 1, ptr %15, align 4, !tbaa !8
   call void (...) @Extra_UtilGetoptReset()
-  br label %23
+  br label %24
 
-23:                                               ; preds = %38, %3
-  %24 = load i32, ptr %6, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = call i32 @Extra_UtilGetopt(i32 noundef %24, ptr noundef %25, ptr noundef @.str.35)
-  store i32 %26, ptr %16, align 4
-  %27 = icmp ne i32 %26, -1
-  br i1 %27, label %28, label %39
+24:                                               ; preds = %39, %3
+  %25 = load i32, ptr %6, align 4, !tbaa !8
+  %26 = load ptr, ptr %7, align 8, !tbaa !10
+  %27 = call i32 @Extra_UtilGetopt(i32 noundef %25, ptr noundef %26, ptr noundef @.str.35)
+  store i32 %27, ptr %16, align 4, !tbaa !8
+  %28 = icmp ne i32 %27, -1
+  br i1 %28, label %29, label %40
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %16, align 4
-  switch i32 %29, label %37 [
-    i32 101, label %30
-    i32 118, label %33
-    i32 104, label %36
+29:                                               ; preds = %24
+  %30 = load i32, ptr %16, align 4, !tbaa !8
+  switch i32 %30, label %38 [
+    i32 101, label %31
+    i32 118, label %34
+    i32 104, label %37
   ]
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr %14, align 4
-  %32 = xor i32 %31, 1
-  store i32 %32, ptr %14, align 4
-  br label %38
+31:                                               ; preds = %29
+  %32 = load i32, ptr %14, align 4, !tbaa !8
+  %33 = xor i32 %32, 1
+  store i32 %33, ptr %14, align 4, !tbaa !8
+  br label %39
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr %15, align 4
-  %35 = xor i32 %34, 1
-  store i32 %35, ptr %15, align 4
-  br label %38
+34:                                               ; preds = %29
+  %35 = load i32, ptr %15, align 4, !tbaa !8
+  %36 = xor i32 %35, 1
+  store i32 %36, ptr %15, align 4, !tbaa !8
+  br label %39
 
-36:                                               ; preds = %28
-  br label %89
+37:                                               ; preds = %29
+  br label %90
 
-37:                                               ; preds = %28
-  br label %89
+38:                                               ; preds = %29
+  br label %90
 
-38:                                               ; preds = %33, %30
-  br label %23, !llvm.loop !7
+39:                                               ; preds = %34, %31
+  br label %24, !llvm.loop !23
 
-39:                                               ; preds = %23
-  %40 = load i32, ptr %6, align 4
-  %41 = load i32, ptr @globalUtilOptind, align 4
-  %42 = add nsw i32 %41, 1
-  %43 = icmp ne i32 %40, %42
-  br i1 %43, label %44, label %45
+40:                                               ; preds = %24
+  %41 = load i32, ptr %6, align 4, !tbaa !8
+  %42 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %43 = add nsw i32 %42, 1
+  %44 = icmp ne i32 %41, %43
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %39
-  br label %89
+45:                                               ; preds = %40
+  br label %90
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr @globalUtilOptind, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %13, align 8
-  %51 = load ptr, ptr %13, align 8
-  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef @.str.7)
-  store ptr %52, ptr %8, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %68
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %7, align 8, !tbaa !10
+  %48 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !18
+  store ptr %51, ptr %13, align 8, !tbaa !18
+  %52 = load ptr, ptr %13, align 8, !tbaa !18
+  %53 = call noalias ptr @fopen(ptr noundef %52, ptr noundef @.str.7)
+  store ptr %53, ptr %8, align 8, !tbaa !14
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %69
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %10, align 8
-  %56 = load ptr, ptr %13, align 8
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.8, ptr noundef %56) #4
-  %58 = load ptr, ptr %13, align 8
-  %59 = call ptr @Extra_FileGetSimilarName(ptr noundef %58, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef null)
-  store ptr %59, ptr %13, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %65
+55:                                               ; preds = %46
+  %56 = load ptr, ptr %10, align 8, !tbaa !14
+  %57 = load ptr, ptr %13, align 8, !tbaa !18
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.8, ptr noundef %57) #5
+  %59 = load ptr, ptr %13, align 8, !tbaa !18
+  %60 = call ptr @Extra_FileGetSimilarName(ptr noundef %59, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.12, ptr noundef null)
+  store ptr %60, ptr %13, align 8, !tbaa !18
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %13, align 8
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef @.str.13, ptr noundef %63) #4
-  br label %65
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %10, align 8, !tbaa !14
+  %64 = load ptr, ptr %13, align 8, !tbaa !18
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef @.str.13, ptr noundef %64) #5
+  br label %66
 
-65:                                               ; preds = %61, %54
-  %66 = load ptr, ptr %10, align 8
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.14) #4
+66:                                               ; preds = %62, %55
+  %67 = load ptr, ptr %10, align 8, !tbaa !14
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.14) #5
   store i32 1, ptr %4, align 4
-  br label %106
+  store i32 1, ptr %17, align 4
+  br label %107
 
-68:                                               ; preds = %45
-  %69 = load ptr, ptr %8, align 8
-  %70 = call i32 @fclose(ptr noundef %69)
-  %71 = load i32, ptr %14, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %76
+69:                                               ; preds = %46
+  %70 = load ptr, ptr %8, align 8, !tbaa !14
+  %71 = call i32 @fclose(ptr noundef %70)
+  %72 = load i32, ptr %14, align 4, !tbaa !8
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %13, align 8
-  %75 = call ptr @If_LibBoxRead2(ptr noundef %74)
-  br label %79
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %13, align 8, !tbaa !18
+  %76 = call ptr @If_LibBoxRead2(ptr noundef %75)
+  br label %80
 
-76:                                               ; preds = %68
-  %77 = load ptr, ptr %13, align 8
-  %78 = call ptr @If_LibBoxRead(ptr noundef %77)
-  br label %79
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %13, align 8, !tbaa !18
+  %79 = call ptr @If_LibBoxRead(ptr noundef %78)
+  br label %80
 
-79:                                               ; preds = %76, %73
-  %80 = phi ptr [ %75, %73 ], [ %78, %76 ]
-  store ptr %80, ptr %11, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %77, %74
+  %81 = phi ptr [ %76, %74 ], [ %79, %77 ]
+  store ptr %81, ptr %11, align 8, !tbaa !24
+  %82 = load ptr, ptr %11, align 8, !tbaa !24
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %87
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %10, align 8
-  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.36) #4
-  br label %89
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %10, align 8, !tbaa !14
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef @.str.36) #5
+  br label %90
 
-86:                                               ; preds = %79
-  %87 = call ptr (...) @Abc_FrameReadLibBox()
-  call void @If_LibBoxFree(ptr noundef %87)
-  %88 = load ptr, ptr %11, align 8
-  call void @Abc_FrameSetLibBox(ptr noundef %88)
+87:                                               ; preds = %80
+  %88 = call ptr (...) @Abc_FrameReadLibBox()
+  call void @If_LibBoxFree(ptr noundef %88)
+  %89 = load ptr, ptr %11, align 8, !tbaa !24
+  call void @Abc_FrameSetLibBox(ptr noundef %89)
   store i32 0, ptr %4, align 4
-  br label %106
+  store i32 1, ptr %17, align 4
+  br label %107
 
-89:                                               ; preds = %83, %44, %37, %36
-  %90 = load ptr, ptr %10, align 8
-  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.37) #4
-  %92 = load ptr, ptr %10, align 8
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef @.str.38) #4
-  %94 = load ptr, ptr %10, align 8
-  %95 = load i32, ptr %14, align 4
-  %96 = icmp ne i32 %95, 0
-  %97 = select i1 %96, ptr @.str.19, ptr @.str.20
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.39, ptr noundef %97) #4
-  %99 = load ptr, ptr %10, align 8
-  %100 = load i32, ptr %15, align 4
-  %101 = icmp ne i32 %100, 0
-  %102 = select i1 %101, ptr @.str.19, ptr @.str.20
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef @.str.18, ptr noundef %102) #4
-  %104 = load ptr, ptr %10, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef @.str.21) #4
+90:                                               ; preds = %84, %45, %38, %37
+  %91 = load ptr, ptr %10, align 8, !tbaa !14
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef @.str.37) #5
+  %93 = load ptr, ptr %10, align 8, !tbaa !14
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.38) #5
+  %95 = load ptr, ptr %10, align 8, !tbaa !14
+  %96 = load i32, ptr %14, align 4, !tbaa !8
+  %97 = icmp ne i32 %96, 0
+  %98 = select i1 %97, ptr @.str.19, ptr @.str.20
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.39, ptr noundef %98) #5
+  %100 = load ptr, ptr %10, align 8, !tbaa !14
+  %101 = load i32, ptr %15, align 4, !tbaa !8
+  %102 = icmp ne i32 %101, 0
+  %103 = select i1 %102, ptr @.str.19, ptr @.str.20
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef @.str.18, ptr noundef %103) #5
+  %105 = load ptr, ptr %10, align 8, !tbaa !14
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef @.str.21) #5
   store i32 1, ptr %4, align 4
-  br label %106
+  store i32 1, ptr %17, align 4
+  br label %107
 
-106:                                              ; preds = %89, %86, %65
-  %107 = load i32, ptr %4, align 4
-  ret i32 %107
+107:                                              ; preds = %90, %87, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %108 = load i32, ptr %4, align 4
+  ret i32 %108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -547,92 +588,108 @@ define internal i32 @If_CommandPrintBox(ptr noundef %0, i32 noundef %1, ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = call ptr @Abc_FrameReadNtk(ptr noundef %13)
-  store ptr %14, ptr %10, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = call ptr @Abc_FrameReadOut(ptr noundef %15)
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = call ptr @Abc_FrameReadErr(ptr noundef %17)
-  store ptr %18, ptr %9, align 8
-  store i32 1, ptr %11, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = call ptr @Abc_FrameReadNtk(ptr noundef %14)
+  store ptr %15, ptr %10, align 8, !tbaa !12
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = call ptr @Abc_FrameReadOut(ptr noundef %16)
+  store ptr %17, ptr %8, align 8, !tbaa !14
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = call ptr @Abc_FrameReadErr(ptr noundef %18)
+  store ptr %19, ptr %9, align 8, !tbaa !14
+  store i32 1, ptr %11, align 4, !tbaa !8
   call void (...) @Extra_UtilGetoptReset()
-  br label %19
+  br label %20
 
-19:                                               ; preds = %31, %3
-  %20 = load i32, ptr %6, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @Extra_UtilGetopt(i32 noundef %20, ptr noundef %21, ptr noundef @.str.6)
-  store i32 %22, ptr %12, align 4
-  %23 = icmp ne i32 %22, -1
-  br i1 %23, label %24, label %32
+20:                                               ; preds = %32, %3
+  %21 = load i32, ptr %6, align 4, !tbaa !8
+  %22 = load ptr, ptr %7, align 8, !tbaa !10
+  %23 = call i32 @Extra_UtilGetopt(i32 noundef %21, ptr noundef %22, ptr noundef @.str.6)
+  store i32 %23, ptr %12, align 4, !tbaa !8
+  %24 = icmp ne i32 %23, -1
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr %12, align 4
-  switch i32 %25, label %30 [
-    i32 118, label %26
-    i32 104, label %29
+25:                                               ; preds = %20
+  %26 = load i32, ptr %12, align 4, !tbaa !8
+  switch i32 %26, label %31 [
+    i32 118, label %27
+    i32 104, label %30
   ]
 
-26:                                               ; preds = %24
-  %27 = load i32, ptr %11, align 4
-  %28 = xor i32 %27, 1
-  store i32 %28, ptr %11, align 4
-  br label %31
+27:                                               ; preds = %25
+  %28 = load i32, ptr %11, align 4, !tbaa !8
+  %29 = xor i32 %28, 1
+  store i32 %29, ptr %11, align 4, !tbaa !8
+  br label %32
 
-29:                                               ; preds = %24
-  br label %40
+30:                                               ; preds = %25
+  br label %41
 
-30:                                               ; preds = %24
-  br label %40
+31:                                               ; preds = %25
+  br label %41
 
-31:                                               ; preds = %26
-  br label %19, !llvm.loop !8
+32:                                               ; preds = %27
+  br label %20, !llvm.loop !26
 
-32:                                               ; preds = %19
-  %33 = load i32, ptr %6, align 4
-  %34 = load i32, ptr @globalUtilOptind, align 4
-  %35 = icmp ne i32 %33, %34
-  br i1 %35, label %36, label %37
+33:                                               ; preds = %20
+  %34 = load i32, ptr %6, align 4, !tbaa !8
+  %35 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %36 = icmp ne i32 %34, %35
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %32
-  br label %40
+37:                                               ; preds = %33
+  br label %41
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr @stdout, align 8
-  %39 = call ptr (...) @Abc_FrameReadLibBox()
-  call void @If_LibBoxPrint(ptr noundef %38, ptr noundef %39)
+38:                                               ; preds = %33
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %40 = call ptr (...) @Abc_FrameReadLibBox()
+  call void @If_LibBoxPrint(ptr noundef %39, ptr noundef %40)
   store i32 0, ptr %4, align 4
-  br label %52
+  store i32 1, ptr %13, align 4
+  br label %53
 
-40:                                               ; preds = %36, %30, %29
-  %41 = load ptr, ptr %9, align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.40) #4
-  %43 = load ptr, ptr %9, align 8
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.41) #4
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = icmp ne i32 %46, 0
-  %48 = select i1 %47, ptr @.str.19, ptr @.str.20
-  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.18, ptr noundef %48) #4
-  %50 = load ptr, ptr %9, align 8
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.21) #4
+41:                                               ; preds = %37, %31, %30
+  %42 = load ptr, ptr %9, align 8, !tbaa !14
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.40) #5
+  %44 = load ptr, ptr %9, align 8, !tbaa !14
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.41) #5
+  %46 = load ptr, ptr %9, align 8, !tbaa !14
+  %47 = load i32, ptr %11, align 4, !tbaa !8
+  %48 = icmp ne i32 %47, 0
+  %49 = select i1 %48, ptr @.str.19, ptr @.str.20
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef @.str.18, ptr noundef %49) #5
+  %51 = load ptr, ptr %9, align 8, !tbaa !14
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.21) #5
   store i32 1, ptr %4, align 4
-  br label %52
+  store i32 1, ptr %13, align 4
+  br label %53
 
-52:                                               ; preds = %40, %37
-  %53 = load i32, ptr %4, align 4
-  ret i32 %53
+53:                                               ; preds = %41, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %54 = load i32, ptr %4, align 4
+  ret i32 %54
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @If_End(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = call ptr (...) @Abc_FrameReadLibLut()
   call void @If_LibLutFree(ptr noundef %3)
   %4 = call ptr (...) @Abc_FrameReadLibBox()
@@ -640,59 +697,78 @@ define void @If_End(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @If_LibLutFree(ptr noundef) #2
+declare void @If_LibLutFree(ptr noundef) #3
 
-declare ptr @Abc_FrameReadLibLut(...) #2
+declare ptr @Abc_FrameReadLibLut(...) #3
 
-declare void @If_LibBoxFree(ptr noundef) #2
+declare void @If_LibBoxFree(ptr noundef) #3
 
-declare ptr @Abc_FrameReadLibBox(...) #2
+declare ptr @Abc_FrameReadLibBox(...) #3
 
-declare ptr @Abc_FrameReadNtk(ptr noundef) #2
+declare ptr @Abc_FrameReadNtk(ptr noundef) #3
 
-declare ptr @Abc_FrameReadOut(ptr noundef) #2
+declare ptr @Abc_FrameReadOut(ptr noundef) #3
 
-declare ptr @Abc_FrameReadErr(ptr noundef) #2
+declare ptr @Abc_FrameReadErr(ptr noundef) #3
 
-declare void @Extra_UtilGetoptReset(...) #2
+declare void @Extra_UtilGetoptReset(...) #3
 
-declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) #3
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #2
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
-declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @fclose(ptr noundef) #2
+declare i32 @fclose(ptr noundef) #3
 
-declare ptr @If_LibLutRead(ptr noundef) #2
+declare ptr @If_LibLutRead(ptr noundef) #3
 
-declare void @If_LibLutPrint(ptr noundef) #2
+declare void @If_LibLutPrint(ptr noundef) #3
 
-declare ptr @If_LibBoxRead2(ptr noundef) #2
+declare ptr @If_LibBoxRead2(ptr noundef) #3
 
-declare ptr @If_LibBoxRead(ptr noundef) #2
+declare ptr @If_LibBoxRead(ptr noundef) #3
 
-declare void @Abc_FrameSetLibBox(ptr noundef) #2
+declare void @Abc_FrameSetLibBox(ptr noundef) #3
 
-declare void @If_LibBoxPrint(ptr noundef, ptr noundef) #2
+declare void @If_LibBoxPrint(ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS12Abc_Frame_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS10Abc_Ntk_t_", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS12If_LibLut_t_", !5, i64 0}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS12If_LibBox_t_", !5, i64 0}
+!26 = distinct !{!26, !17}

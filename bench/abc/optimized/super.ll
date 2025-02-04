@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/super.c.ll'
-source_filename = "bench/abc/original/super.c.ll"
+; ModuleID = 'bench/abc/original/super.ll'
+source_filename = "bench/abc/original/super.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -81,252 +81,256 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   br label %6
 
 6:                                                ; preds = %.backedge, %3
-  %.0124 = phi ptr [ null, %3 ], [ %.0124.be, %.backedge ]
-  %.0121 = phi float [ 0.000000e+00, %3 ], [ %.0121.be, %.backedge ]
-  %.0118 = phi float [ 0.000000e+00, %3 ], [ %.0118.be, %.backedge ]
-  %.0116 = phi i32 [ 1, %3 ], [ %.0116.be, %.backedge ]
-  %.0114 = phi i32 [ 0, %3 ], [ %.0114.be, %.backedge ]
-  %.0111 = phi i32 [ 5, %3 ], [ %.0111.be, %.backedge ]
-  %.0108 = phi i32 [ 2, %3 ], [ %.0108.be, %.backedge ]
-  %.0105 = phi i32 [ 0, %3 ], [ %.0105.be, %.backedge ]
+  %.0125 = phi ptr [ null, %3 ], [ %.0125.be, %.backedge ]
+  %.0122 = phi float [ 0.000000e+00, %3 ], [ %.0122.be, %.backedge ]
+  %.0119 = phi float [ 0.000000e+00, %3 ], [ %.0119.be, %.backedge ]
+  %.0117 = phi i32 [ 1, %3 ], [ %.0117.be, %.backedge ]
+  %.0115 = phi i32 [ 0, %3 ], [ %.0115.be, %.backedge ]
+  %.0112 = phi i32 [ 5, %3 ], [ %.0112.be, %.backedge ]
+  %.0109 = phi i32 [ 2, %3 ], [ %.0109.be, %.backedge ]
+  %.0106 = phi i32 [ 0, %3 ], [ %.0106.be, %.backedge ]
+  %.0104 = phi i32 [ 0, %3 ], [ %.0104.be, %.backedge ]
   %.0103 = phi i32 [ 0, %3 ], [ %.0103.be, %.backedge ]
-  %.0102 = phi i32 [ 0, %3 ], [ %.0102.be, %.backedge ]
   %7 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.10) #6
   switch i32 %7, label %.loopexit [
-    i32 -1, label %72
+    i32 -1, label %76
     i32 73, label %8
-    i32 76, label %16
-    i32 78, label %24
-    i32 84, label %32
-    i32 68, label %40
-    i32 65, label %49
-    i32 69, label %58
-    i32 115, label %66
-    i32 111, label %68
-    i32 118, label %70
+    i32 76, label %17
+    i32 78, label %26
+    i32 84, label %35
+    i32 68, label %44
+    i32 65, label %53
+    i32 69, label %62
+    i32 115, label %70
+    i32 111, label %72
+    i32 118, label %74
   ]
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr @globalUtilOptind, align 4
+  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr noundef %12) #7
-  %14 = add nsw i32 %9, 1
-  store i32 %14, ptr @globalUtilOptind, align 4
-  %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.backedge
+  %12 = load ptr, ptr %11, align 8, !tbaa !7
+  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #6
+  %14 = trunc i64 %13 to i32
+  %15 = add nsw i32 %9, 1
+  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !3
+  %16 = icmp slt i32 %14, 0
+  br i1 %16, label %.loopexit, label %.backedge
 
-16:                                               ; preds = %6
-  %17 = load i32, ptr @globalUtilOptind, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr noundef %20) #7
-  %22 = add nsw i32 %17, 1
-  store i32 %22, ptr @globalUtilOptind, align 4
-  %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.backedge
+17:                                               ; preds = %6
+  %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !7
+  %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #6
+  %23 = trunc i64 %22 to i32
+  %24 = add nsw i32 %18, 1
+  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !3
+  %25 = icmp slt i32 %23, 0
+  br i1 %25, label %.loopexit, label %.backedge
 
-24:                                               ; preds = %6
-  %25 = load i32, ptr @globalUtilOptind, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @atoi(ptr noundef %28) #7
-  %30 = add nsw i32 %25, 1
-  store i32 %30, ptr @globalUtilOptind, align 4
-  %31 = icmp slt i32 %29, 0
-  br i1 %31, label %.loopexit, label %.backedge
+26:                                               ; preds = %6
+  %27 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %2, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !7
+  %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %30, ptr noundef null, i32 noundef 10) #6
+  %32 = trunc i64 %31 to i32
+  %33 = add nsw i32 %27, 1
+  store i32 %33, ptr @globalUtilOptind, align 4, !tbaa !3
+  %34 = icmp slt i32 %32, 0
+  br i1 %34, label %.loopexit, label %.backedge
 
-32:                                               ; preds = %6
-  %33 = load i32, ptr @globalUtilOptind, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %2, i64 %34
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @atoi(ptr noundef %36) #7
-  %38 = add nsw i32 %33, 1
-  store i32 %38, ptr @globalUtilOptind, align 4
-  %39 = icmp slt i32 %37, 0
-  br i1 %39, label %.loopexit, label %.backedge
+35:                                               ; preds = %6
+  %36 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !7
+  %40 = tail call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #6
+  %41 = trunc i64 %40 to i32
+  %42 = add nsw i32 %36, 1
+  store i32 %42, ptr @globalUtilOptind, align 4, !tbaa !3
+  %43 = icmp slt i32 %41, 0
+  br i1 %43, label %.loopexit, label %.backedge
 
-40:                                               ; preds = %6
-  %41 = load i32, ptr @globalUtilOptind, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call double @atof(ptr noundef %44) #7
-  %46 = fptrunc double %45 to float
-  %47 = add nsw i32 %41, 1
-  store i32 %47, ptr @globalUtilOptind, align 4
-  %48 = fcmp ugt float %46, 0.000000e+00
-  br i1 %48, label %.backedge, label %.loopexit
+44:                                               ; preds = %6
+  %45 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds ptr, ptr %2, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !7
+  %49 = tail call double @strtod(ptr noundef nonnull captures(none) %48, ptr noundef null) #6
+  %50 = fptrunc double %49 to float
+  %51 = add nsw i32 %45, 1
+  store i32 %51, ptr @globalUtilOptind, align 4, !tbaa !3
+  %52 = fcmp ugt float %50, 0.000000e+00
+  br i1 %52, label %.backedge, label %.loopexit
 
-49:                                               ; preds = %6
-  %50 = load i32, ptr @globalUtilOptind, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %2, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call double @atof(ptr noundef %53) #7
-  %55 = fptrunc double %54 to float
-  %56 = add nsw i32 %50, 1
-  store i32 %56, ptr @globalUtilOptind, align 4
-  %57 = fcmp ugt float %55, 0.000000e+00
-  br i1 %57, label %.backedge, label %.loopexit
+53:                                               ; preds = %6
+  %54 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds ptr, ptr %2, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !7
+  %58 = tail call double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #6
+  %59 = fptrunc double %58 to float
+  %60 = add nsw i32 %54, 1
+  store i32 %60, ptr @globalUtilOptind, align 4, !tbaa !3
+  %61 = fcmp ugt float %59, 0.000000e+00
+  br i1 %61, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %49, %40, %32, %24, %16, %8, %70, %68, %66, %64
-  %.0124.be = phi ptr [ %.0124, %70 ], [ %.0124, %68 ], [ %.0124, %66 ], [ %62, %64 ], [ %.0124, %49 ], [ %.0124, %40 ], [ %.0124, %32 ], [ %.0124, %24 ], [ %.0124, %16 ], [ %.0124, %8 ]
-  %.0121.be = phi float [ %.0121, %70 ], [ %.0121, %68 ], [ %.0121, %66 ], [ %.0121, %64 ], [ %.0121, %49 ], [ %46, %40 ], [ %.0121, %32 ], [ %.0121, %24 ], [ %.0121, %16 ], [ %.0121, %8 ]
-  %.0118.be = phi float [ %.0118, %70 ], [ %.0118, %68 ], [ %.0118, %66 ], [ %.0118, %64 ], [ %55, %49 ], [ %.0118, %40 ], [ %.0118, %32 ], [ %.0118, %24 ], [ %.0118, %16 ], [ %.0118, %8 ]
-  %.0116.be = phi i32 [ %.0116, %70 ], [ %.0116, %68 ], [ %67, %66 ], [ %.0116, %64 ], [ %.0116, %49 ], [ %.0116, %40 ], [ %.0116, %32 ], [ %.0116, %24 ], [ %.0116, %16 ], [ %.0116, %8 ]
-  %.0114.be = phi i32 [ %.0114, %70 ], [ %69, %68 ], [ %.0114, %66 ], [ %.0114, %64 ], [ %.0114, %49 ], [ %.0114, %40 ], [ %.0114, %32 ], [ %.0114, %24 ], [ %.0114, %16 ], [ %.0114, %8 ]
-  %.0111.be = phi i32 [ %.0111, %70 ], [ %.0111, %68 ], [ %.0111, %66 ], [ %.0111, %64 ], [ %.0111, %49 ], [ %.0111, %40 ], [ %.0111, %32 ], [ %.0111, %24 ], [ %.0111, %16 ], [ %13, %8 ]
-  %.0108.be = phi i32 [ %.0108, %70 ], [ %.0108, %68 ], [ %.0108, %66 ], [ %.0108, %64 ], [ %.0108, %49 ], [ %.0108, %40 ], [ %.0108, %32 ], [ %.0108, %24 ], [ %21, %16 ], [ %.0108, %8 ]
-  %.0105.be = phi i32 [ %.0105, %70 ], [ %.0105, %68 ], [ %.0105, %66 ], [ %.0105, %64 ], [ %.0105, %49 ], [ %.0105, %40 ], [ %.0105, %32 ], [ %29, %24 ], [ %.0105, %16 ], [ %.0105, %8 ]
-  %.0103.be = phi i32 [ %.0103, %70 ], [ %.0103, %68 ], [ %.0103, %66 ], [ %.0103, %64 ], [ %.0103, %49 ], [ %.0103, %40 ], [ %37, %32 ], [ %.0103, %24 ], [ %.0103, %16 ], [ %.0103, %8 ]
-  %.0102.be = phi i32 [ %71, %70 ], [ %.0102, %68 ], [ %.0102, %66 ], [ %.0102, %64 ], [ %.0102, %49 ], [ %.0102, %40 ], [ %.0102, %32 ], [ %.0102, %24 ], [ %.0102, %16 ], [ %.0102, %8 ]
-  br label %6, !llvm.loop !4
+.backedge:                                        ; preds = %53, %44, %35, %26, %17, %8, %74, %72, %70, %68
+  %.0125.be = phi ptr [ %.0125, %74 ], [ %.0125, %72 ], [ %.0125, %70 ], [ %66, %68 ], [ %.0125, %53 ], [ %.0125, %44 ], [ %.0125, %35 ], [ %.0125, %26 ], [ %.0125, %17 ], [ %.0125, %8 ]
+  %.0122.be = phi float [ %.0122, %74 ], [ %.0122, %72 ], [ %.0122, %70 ], [ %.0122, %68 ], [ %.0122, %53 ], [ %50, %44 ], [ %.0122, %35 ], [ %.0122, %26 ], [ %.0122, %17 ], [ %.0122, %8 ]
+  %.0119.be = phi float [ %.0119, %74 ], [ %.0119, %72 ], [ %.0119, %70 ], [ %.0119, %68 ], [ %59, %53 ], [ %.0119, %44 ], [ %.0119, %35 ], [ %.0119, %26 ], [ %.0119, %17 ], [ %.0119, %8 ]
+  %.0117.be = phi i32 [ %.0117, %74 ], [ %.0117, %72 ], [ %71, %70 ], [ %.0117, %68 ], [ %.0117, %53 ], [ %.0117, %44 ], [ %.0117, %35 ], [ %.0117, %26 ], [ %.0117, %17 ], [ %.0117, %8 ]
+  %.0115.be = phi i32 [ %.0115, %74 ], [ %73, %72 ], [ %.0115, %70 ], [ %.0115, %68 ], [ %.0115, %53 ], [ %.0115, %44 ], [ %.0115, %35 ], [ %.0115, %26 ], [ %.0115, %17 ], [ %.0115, %8 ]
+  %.0112.be = phi i32 [ %.0112, %74 ], [ %.0112, %72 ], [ %.0112, %70 ], [ %.0112, %68 ], [ %.0112, %53 ], [ %.0112, %44 ], [ %.0112, %35 ], [ %.0112, %26 ], [ %.0112, %17 ], [ %14, %8 ]
+  %.0109.be = phi i32 [ %.0109, %74 ], [ %.0109, %72 ], [ %.0109, %70 ], [ %.0109, %68 ], [ %.0109, %53 ], [ %.0109, %44 ], [ %.0109, %35 ], [ %.0109, %26 ], [ %23, %17 ], [ %.0109, %8 ]
+  %.0106.be = phi i32 [ %.0106, %74 ], [ %.0106, %72 ], [ %.0106, %70 ], [ %.0106, %68 ], [ %.0106, %53 ], [ %.0106, %44 ], [ %.0106, %35 ], [ %32, %26 ], [ %.0106, %17 ], [ %.0106, %8 ]
+  %.0104.be = phi i32 [ %.0104, %74 ], [ %.0104, %72 ], [ %.0104, %70 ], [ %.0104, %68 ], [ %.0104, %53 ], [ %.0104, %44 ], [ %41, %35 ], [ %.0104, %26 ], [ %.0104, %17 ], [ %.0104, %8 ]
+  %.0103.be = phi i32 [ %75, %74 ], [ %.0103, %72 ], [ %.0103, %70 ], [ %.0103, %68 ], [ %.0103, %53 ], [ %.0103, %44 ], [ %.0103, %35 ], [ %.0103, %26 ], [ %.0103, %17 ], [ %.0103, %8 ]
+  br label %6, !llvm.loop !10
 
-58:                                               ; preds = %6
-  %59 = load i32, ptr @globalUtilOptind, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %2, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %64
+62:                                               ; preds = %6
+  %63 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %2, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !7
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.loopexit, label %68
 
-64:                                               ; preds = %58
-  %65 = add nsw i32 %59, 1
-  store i32 %65, ptr @globalUtilOptind, align 4
-  br label %.backedge
-
-66:                                               ; preds = %6
-  %67 = xor i32 %.0116, 1
-  br label %.backedge
-
-68:                                               ; preds = %6
-  %69 = xor i32 %.0114, 1
+68:                                               ; preds = %62
+  %69 = add nsw i32 %63, 1
+  store i32 %69, ptr @globalUtilOptind, align 4, !tbaa !3
   br label %.backedge
 
 70:                                               ; preds = %6
-  %71 = xor i32 %.0102, 1
+  %71 = xor i32 %.0117, 1
   br label %.backedge
 
 72:                                               ; preds = %6
-  %73 = load i32, ptr @globalUtilOptind, align 4
-  %74 = add nsw i32 %73, 1
-  %.not139 = icmp eq i32 %1, %74
-  br i1 %.not139, label %77, label %75
+  %73 = xor i32 %.0115, 1
+  br label %.backedge
 
-75:                                               ; preds = %72
-  %76 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 61, i64 1, ptr %5)
+74:                                               ; preds = %6
+  %75 = xor i32 %.0103, 1
+  br label %.backedge
+
+76:                                               ; preds = %6
+  %77 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %78 = add nsw i32 %77, 1
+  %.not140 = icmp eq i32 %1, %78
+  br i1 %.not140, label %81, label %79
+
+79:                                               ; preds = %76
+  %80 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 61, i64 1, ptr %5)
   br label %.loopexit
 
-77:                                               ; preds = %72
-  %78 = add nsw i32 %.0111, -7
-  %or.cond = icmp ult i32 %78, -5
-  br i1 %or.cond, label %79, label %81
+81:                                               ; preds = %76
+  %82 = add nsw i32 %.0112, -7
+  %or.cond = icmp ult i32 %82, -5
+  br i1 %or.cond, label %83, label %85
 
-79:                                               ; preds = %77
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %.0111) #6
+83:                                               ; preds = %81
+  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %.0112) #6
   br label %.loopexit
 
-81:                                               ; preds = %77
-  %82 = sext i32 %73 to i64
-  %83 = getelementptr inbounds ptr, ptr %2, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call ptr @Io_FileOpen(ptr noundef %84, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0) #6
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %93
+85:                                               ; preds = %81
+  %86 = sext i32 %77 to i64
+  %87 = getelementptr inbounds ptr, ptr %2, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !7
+  %89 = tail call ptr @Io_FileOpen(ptr noundef %88, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0) #6
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %97
 
-87:                                               ; preds = %81
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef %84) #6
-  %89 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %84, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef null) #6
-  %.not140 = icmp eq ptr %89, null
-  br i1 %.not140, label %92, label %90
+91:                                               ; preds = %85
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef %88) #6
+  %93 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %88, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef null) #6
+  %.not141 = icmp eq ptr %93, null
+  br i1 %.not141, label %96, label %94
 
-90:                                               ; preds = %87
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20, ptr noundef nonnull %89) #6
-  br label %92
+94:                                               ; preds = %91
+  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20, ptr noundef nonnull %93) #6
+  br label %96
 
-92:                                               ; preds = %90, %87
+96:                                               ; preds = %94, %91
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
-  br label %144
+  br label %148
 
-93:                                               ; preds = %81
-  %94 = tail call i32 @fclose(ptr noundef nonnull %85)
-  %95 = tail call ptr @Mio_LibraryRead(ptr noundef %84, ptr noundef null, ptr noundef %.0124, i32 noundef %.0102) #6
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %99
+97:                                               ; preds = %85
+  %98 = tail call i32 @fclose(ptr noundef nonnull %89)
+  %99 = tail call ptr @Mio_LibraryRead(ptr noundef %88, ptr noundef null, ptr noundef %.0125, i32 noundef %.0112, i32 noundef %.0103) #6
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %103
 
-97:                                               ; preds = %93
-  %98 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %5)
+101:                                              ; preds = %97
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 28, i64 1, ptr %5)
   br label %.loopexit
 
-99:                                               ; preds = %93
-  %100 = tail call ptr @Mio_LibraryReadName(ptr noundef nonnull %95) #6
-  %101 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %100, ptr noundef nonnull @.str.23) #6
-  tail call void @Super_Precompute(ptr noundef nonnull %95, i32 noundef %.0111, i32 noundef %.0108, i32 noundef %.0105, float noundef %.0121, float noundef %.0118, i32 noundef %.0103, i32 noundef %.0116, i32 noundef %.0102, ptr noundef %101) #6
-  tail call void @Mio_LibraryDelete(ptr noundef nonnull %95) #6
-  br label %144
+103:                                              ; preds = %97
+  %104 = tail call ptr @Mio_LibraryReadName(ptr noundef nonnull %99) #6
+  %105 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %104, ptr noundef nonnull @.str.23) #6
+  tail call void @Super_Precompute(ptr noundef nonnull %99, i32 noundef %.0112, i32 noundef %.0109, i32 noundef %.0106, float noundef %.0122, float noundef %.0119, i32 noundef %.0104, i32 noundef %.0117, i32 noundef %.0103, ptr noundef %105) #6
+  tail call void @Mio_LibraryDelete(ptr noundef nonnull %99) #6
+  br label %148
 
-.loopexit:                                        ; preds = %6, %58, %49, %40, %32, %24, %16, %8, %97, %79, %75
-  %.1122 = phi float [ %.0121, %75 ], [ %.0121, %79 ], [ %.0121, %97 ], [ %.0121, %6 ], [ %.0121, %8 ], [ %.0121, %16 ], [ %.0121, %24 ], [ %.0121, %32 ], [ %46, %40 ], [ %.0121, %49 ], [ %.0121, %58 ]
-  %.1119 = phi float [ %.0118, %75 ], [ %.0118, %79 ], [ %.0118, %97 ], [ %.0118, %6 ], [ %.0118, %8 ], [ %.0118, %16 ], [ %.0118, %24 ], [ %.0118, %32 ], [ %.0118, %40 ], [ %55, %49 ], [ %.0118, %58 ]
-  %.1112 = phi i32 [ %.0111, %75 ], [ %.0111, %79 ], [ %.0111, %97 ], [ %.0111, %6 ], [ %13, %8 ], [ %.0111, %16 ], [ %.0111, %24 ], [ %.0111, %32 ], [ %.0111, %40 ], [ %.0111, %49 ], [ %.0111, %58 ]
-  %.1109 = phi i32 [ %.0108, %75 ], [ %.0108, %79 ], [ %.0108, %97 ], [ %.0108, %6 ], [ %.0108, %8 ], [ %21, %16 ], [ %.0108, %24 ], [ %.0108, %32 ], [ %.0108, %40 ], [ %.0108, %49 ], [ %.0108, %58 ]
-  %.1106 = phi i32 [ %.0105, %75 ], [ %.0105, %79 ], [ %.0105, %97 ], [ %.0105, %6 ], [ %.0105, %8 ], [ %.0105, %16 ], [ %29, %24 ], [ %.0105, %32 ], [ %.0105, %40 ], [ %.0105, %49 ], [ %.0105, %58 ]
-  %.1104 = phi i32 [ %.0103, %75 ], [ %.0103, %79 ], [ %.0103, %97 ], [ %.0103, %6 ], [ %.0103, %8 ], [ %.0103, %16 ], [ %.0103, %24 ], [ %37, %32 ], [ %.0103, %40 ], [ %.0103, %49 ], [ %.0103, %58 ]
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 69, i64 1, ptr %5)
-  %103 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 66, i64 1, ptr %5)
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, i32 noundef %.1112) #6
-  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27, i32 noundef %.1109) #6
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.1106) #6
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.29, i32 noundef %.1104) #6
-  %108 = fpext float %.1122 to double
-  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %108) #6
-  %110 = fpext float %.1119 to double
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31, double noundef %110) #6
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 58, i64 1, ptr %5)
-  %.not141 = icmp eq i32 %.0116, 0
-  %113 = select i1 %.not141, ptr @.str.35, ptr @.str.34
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.33, ptr noundef nonnull %113) #6
-  %.not142 = icmp eq i32 %.0114, 0
-  %115 = select i1 %.not142, ptr @.str.34, ptr @.str.35
-  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef nonnull %115) #6
-  %.not143 = icmp eq i32 %.0102, 0
-  %117 = select i1 %.not143, ptr @.str.34, ptr @.str.35
-  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef nonnull %117) #6
-  %119 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 35, i64 1, ptr %5)
-  %fputc144 = tail call i32 @fputc(i32 10, ptr %5)
-  %120 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 64, i64 1, ptr %5)
-  %121 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
-  %122 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 67, i64 1, ptr %5)
-  %123 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 71, i64 1, ptr %5)
-  %124 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 73, i64 1, ptr %5)
-  %125 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 70, i64 1, ptr %5)
-  %126 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 68, i64 1, ptr %5)
-  %127 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 66, i64 1, ptr %5)
-  %128 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 67, i64 1, ptr %5)
-  %129 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 70, i64 1, ptr %5)
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 74, i64 1, ptr %5)
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 48, i64 1, ptr %5)
-  %132 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
-  %133 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 70, i64 1, ptr %5)
-  %134 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 74, i64 1, ptr %5)
-  %135 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 71, i64 1, ptr %5)
-  %136 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 73, i64 1, ptr %5)
-  %137 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 67, i64 1, ptr %5)
-  %138 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 71, i64 1, ptr %5)
-  %139 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 40, i64 1, ptr %5)
-  %140 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
-  %141 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 71, i64 1, ptr %5)
-  %142 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 74, i64 1, ptr %5)
-  %143 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
-  br label %144
+.loopexit:                                        ; preds = %6, %62, %53, %44, %35, %26, %17, %8, %101, %83, %79
+  %.1123 = phi float [ %.0122, %79 ], [ %.0122, %83 ], [ %.0122, %101 ], [ %.0122, %6 ], [ %.0122, %8 ], [ %.0122, %17 ], [ %.0122, %26 ], [ %.0122, %35 ], [ %50, %44 ], [ %.0122, %53 ], [ %.0122, %62 ]
+  %.1120 = phi float [ %.0119, %79 ], [ %.0119, %83 ], [ %.0119, %101 ], [ %.0119, %6 ], [ %.0119, %8 ], [ %.0119, %17 ], [ %.0119, %26 ], [ %.0119, %35 ], [ %.0119, %44 ], [ %59, %53 ], [ %.0119, %62 ]
+  %.1113 = phi i32 [ %.0112, %79 ], [ %.0112, %83 ], [ %.0112, %101 ], [ %.0112, %6 ], [ %14, %8 ], [ %.0112, %17 ], [ %.0112, %26 ], [ %.0112, %35 ], [ %.0112, %44 ], [ %.0112, %53 ], [ %.0112, %62 ]
+  %.1110 = phi i32 [ %.0109, %79 ], [ %.0109, %83 ], [ %.0109, %101 ], [ %.0109, %6 ], [ %.0109, %8 ], [ %23, %17 ], [ %.0109, %26 ], [ %.0109, %35 ], [ %.0109, %44 ], [ %.0109, %53 ], [ %.0109, %62 ]
+  %.1107 = phi i32 [ %.0106, %79 ], [ %.0106, %83 ], [ %.0106, %101 ], [ %.0106, %6 ], [ %.0106, %8 ], [ %.0106, %17 ], [ %32, %26 ], [ %.0106, %35 ], [ %.0106, %44 ], [ %.0106, %53 ], [ %.0106, %62 ]
+  %.1105 = phi i32 [ %.0104, %79 ], [ %.0104, %83 ], [ %.0104, %101 ], [ %.0104, %6 ], [ %.0104, %8 ], [ %.0104, %17 ], [ %.0104, %26 ], [ %41, %35 ], [ %.0104, %44 ], [ %.0104, %53 ], [ %.0104, %62 ]
+  %106 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 69, i64 1, ptr %5)
+  %107 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 66, i64 1, ptr %5)
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, i32 noundef %.1113) #6
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27, i32 noundef %.1110) #6
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, i32 noundef %.1107) #6
+  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.29, i32 noundef %.1105) #6
+  %112 = fpext float %.1123 to double
+  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %112) #6
+  %114 = fpext float %.1120 to double
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.31, double noundef %114) #6
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 58, i64 1, ptr %5)
+  %.not142 = icmp eq i32 %.0117, 0
+  %117 = select i1 %.not142, ptr @.str.35, ptr @.str.34
+  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.33, ptr noundef nonnull %117) #6
+  %.not143 = icmp eq i32 %.0115, 0
+  %119 = select i1 %.not143, ptr @.str.34, ptr @.str.35
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef nonnull %119) #6
+  %.not144 = icmp eq i32 %.0103, 0
+  %121 = select i1 %.not144, ptr @.str.34, ptr @.str.35
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef nonnull %121) #6
+  %123 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 35, i64 1, ptr %5)
+  %fputc145 = tail call i32 @fputc(i32 10, ptr %5)
+  %124 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 64, i64 1, ptr %5)
+  %125 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
+  %126 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 67, i64 1, ptr %5)
+  %127 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 71, i64 1, ptr %5)
+  %128 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 73, i64 1, ptr %5)
+  %129 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 70, i64 1, ptr %5)
+  %130 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 68, i64 1, ptr %5)
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 66, i64 1, ptr %5)
+  %132 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 67, i64 1, ptr %5)
+  %133 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 70, i64 1, ptr %5)
+  %134 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 74, i64 1, ptr %5)
+  %135 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 48, i64 1, ptr %5)
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
+  %137 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 70, i64 1, ptr %5)
+  %138 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 74, i64 1, ptr %5)
+  %139 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 71, i64 1, ptr %5)
+  %140 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 73, i64 1, ptr %5)
+  %141 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 67, i64 1, ptr %5)
+  %142 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 71, i64 1, ptr %5)
+  %143 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 40, i64 1, ptr %5)
+  %144 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
+  %145 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 71, i64 1, ptr %5)
+  %146 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 74, i64 1, ptr %5)
+  %147 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 2, i64 1, ptr %5)
+  br label %148
 
-144:                                              ; preds = %.loopexit, %99, %92
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %92 ], [ 0, %99 ]
+148:                                              ; preds = %.loopexit, %103, %96
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %96 ], [ 0, %103 ]
   ret i32 %.0
 }
 
@@ -338,69 +342,71 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   br label %.outer
 
 .outer:                                           ; preds = %8, %3
-  %.024.ph = phi i32 [ %13, %8 ], [ 4, %3 ]
+  %.024.ph = phi i32 [ %14, %8 ], [ 4, %3 ]
   %.022.ph = phi i32 [ %.022.ph45, %8 ], [ 3, %3 ]
   %.021.ph = phi i32 [ %.021, %8 ], [ 0, %3 ]
   br label %.outer44
 
-.outer44:                                         ; preds = %.outer, %16
-  %.022.ph45 = phi i32 [ %.022.ph, %.outer ], [ %21, %16 ]
-  %.021.ph46 = phi i32 [ %.021.ph, %.outer ], [ %.021, %16 ]
+.outer44:                                         ; preds = %.outer, %17
+  %.022.ph45 = phi i32 [ %.022.ph, %.outer ], [ %23, %17 ]
+  %.021.ph46 = phi i32 [ %.021.ph, %.outer ], [ %.021, %17 ]
   br label %6
 
-6:                                                ; preds = %.outer44, %24
-  %.021 = phi i32 [ %25, %24 ], [ %.021.ph46, %.outer44 ]
+6:                                                ; preds = %.outer44, %26
+  %.021 = phi i32 [ %27, %26 ], [ %.021.ph46, %.outer44 ]
   %7 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.3) #6
   switch i32 %7, label %.loopexit [
-    i32 -1, label %26
+    i32 -1, label %28
     i32 73, label %8
-    i32 76, label %16
-    i32 118, label %24
+    i32 76, label %17
+    i32 118, label %26
   ]
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr @globalUtilOptind, align 4
+  %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @atoi(ptr noundef %12) #7
-  %14 = add nsw i32 %9, 1
-  store i32 %14, ptr @globalUtilOptind, align 4
-  %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !6
+  %12 = load ptr, ptr %11, align 8, !tbaa !7
+  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #6
+  %14 = trunc i64 %13 to i32
+  %15 = add nsw i32 %9, 1
+  store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !3
+  %16 = icmp slt i32 %14, 0
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !12
 
-16:                                               ; preds = %6
-  %17 = load i32, ptr @globalUtilOptind, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @atoi(ptr noundef %20) #7
-  %22 = add nsw i32 %17, 1
-  store i32 %22, ptr @globalUtilOptind, align 4
-  %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer44, !llvm.loop !6
-
-24:                                               ; preds = %6
-  %25 = xor i32 %.021, 1
-  br label %6, !llvm.loop !6
+17:                                               ; preds = %6
+  %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !7
+  %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #6
+  %23 = trunc i64 %22 to i32
+  %24 = add nsw i32 %18, 1
+  store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !3
+  %25 = icmp slt i32 %23, 0
+  br i1 %25, label %.loopexit, label %.outer44, !llvm.loop !12
 
 26:                                               ; preds = %6
+  %27 = xor i32 %.021, 1
+  br label %6, !llvm.loop !12
+
+28:                                               ; preds = %6
   tail call void @Super2_Precompute(i32 noundef %.024.ph, i32 noundef %.022.ph45, i32 noundef %.021) #6
-  br label %33
+  br label %35
 
-.loopexit:                                        ; preds = %8, %6, %16
-  %.125 = phi i32 [ %.024.ph, %16 ], [ %.024.ph, %6 ], [ %13, %8 ]
-  %.123 = phi i32 [ %.022.ph45, %6 ], [ %21, %16 ], [ %.022.ph45, %8 ]
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %5)
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 64, i64 1, ptr %5)
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %.125) #6
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef %.123) #6
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %5)
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr %5)
-  br label %33
+.loopexit:                                        ; preds = %8, %6, %17
+  %.125 = phi i32 [ %.024.ph, %17 ], [ %.024.ph, %6 ], [ %14, %8 ]
+  %.123 = phi i32 [ %.022.ph45, %6 ], [ %23, %17 ], [ %.022.ph45, %8 ]
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %5)
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 64, i64 1, ptr %5)
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %.125) #6
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef %.123) #6
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %5)
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr %5)
+  br label %35
 
-33:                                               ; preds = %.loopexit, %26
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %26 ]
+35:                                               ; preds = %.loopexit, %28
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -417,25 +423,22 @@ declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #1
 
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
-
 declare void @Super2_Precompute(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr noundef captures(none)) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @Io_FileOpen(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @Mio_LibraryRead(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @Mio_LibraryRead(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -445,27 +448,35 @@ declare void @Super_Precompute(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 
 declare void @Mio_LibraryDelete(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}

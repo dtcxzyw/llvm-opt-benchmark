@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stats_t = type { i32, i32, i32, i64, i64, i64, i64, i64, i64, i64 }
 %struct.veci_t = type { i32, i32, ptr }
 %struct.Vec_Bit_t_ = type { i32, i32, ptr }
-%struct.Abc_Ntk_t_ = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [11 x i32], i32, i32, i32, i32, ptr, i32, ptr, ptr, i32, i32, i32, double, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, float, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.Abc_Ntk_t_ = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [11 x i32], i32, i32, i32, i32, ptr, i32, ptr, ptr, i32, i32, i32, double, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, float, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [23 x i8] c"Frame[%4d]Cube[%4d] = \00", align 1
@@ -77,33 +77,42 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %15, i32 0, i32 14
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  %18 = load i32, ptr %4, align 4, !tbaa !8
   %19 = call ptr @Vec_VecEntry(ptr noundef %17, i32 noundef %18)
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %8, align 8, !tbaa !27
+  %20 = load ptr, ptr %8, align 8, !tbaa !27
   call void @Vec_PtrSort(ptr noundef %20, ptr noundef @Pdr_SetCompare)
   %21 = call ptr @Vec_PtrAlloc(i32 noundef 100)
-  store ptr %21, ptr %9, align 8
-  store i32 0, ptr %11, align 4
+  store ptr %21, ptr %9, align 8, !tbaa !27
+  store i32 0, ptr %11, align 4, !tbaa !8
   br label %22
 
 22:                                               ; preds = %126, %2
-  %23 = load i32, ptr %11, align 4
-  %24 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %11, align 4, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !27
   %25 = call i32 @Vec_PtrSize(ptr noundef %24)
   %26 = icmp slt i32 %23, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr %11, align 4
+  %28 = load ptr, ptr %8, align 8, !tbaa !27
+  %29 = load i32, ptr %11, align 4, !tbaa !8
   %30 = call ptr @Vec_PtrEntry(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %6, align 8
+  store ptr %30, ptr %6, align 8, !tbaa !28
   br label %31
 
 31:                                               ; preds = %27, %22
@@ -111,23 +120,23 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %32, label %33, label %129
 
 33:                                               ; preds = %31
-  %34 = load i32, ptr %11, align 4
+  %34 = load i32, ptr %11, align 4, !tbaa !8
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %12, align 4
+  store i32 %35, ptr %12, align 4, !tbaa !8
   br label %36
 
 36:                                               ; preds = %63, %33
-  %37 = load i32, ptr %12, align 4
-  %38 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %12, align 4, !tbaa !8
+  %38 = load ptr, ptr %8, align 8, !tbaa !27
   %39 = call i32 @Vec_PtrSize(ptr noundef %38)
   %40 = icmp slt i32 %37, %39
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i32, ptr %12, align 4
+  %42 = load ptr, ptr %8, align 8, !tbaa !27
+  %43 = load i32, ptr %12, align 4, !tbaa !8
   %44 = call ptr @Vec_PtrEntry(ptr noundef %42, i32 noundef %43)
-  store ptr %44, ptr %5, align 8
+  store ptr %44, ptr %5, align 8, !tbaa !28
   br label %45
 
 45:                                               ; preds = %41, %36
@@ -135,8 +144,8 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %46, label %47, label %66
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %6, align 8
+  %48 = load ptr, ptr %5, align 8, !tbaa !28
+  %49 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = call i32 @Pdr_SetContains(ptr noundef %48, ptr noundef %49)
   %51 = icmp ne i32 %50, 0
   br i1 %51, label %53, label %52
@@ -145,33 +154,33 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br label %63
 
 53:                                               ; preds = %47
-  %54 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr %5, align 8, !tbaa !28
   call void @Pdr_SetDeref(ptr noundef %54)
-  %55 = load ptr, ptr %8, align 8
-  %56 = load i32, ptr %12, align 4
-  %57 = load ptr, ptr %8, align 8
+  %55 = load ptr, ptr %8, align 8, !tbaa !27
+  %56 = load i32, ptr %12, align 4, !tbaa !8
+  %57 = load ptr, ptr %8, align 8, !tbaa !27
   %58 = call ptr @Vec_PtrEntryLast(ptr noundef %57)
   call void @Vec_PtrWriteEntry(ptr noundef %55, i32 noundef %56, ptr noundef %58)
-  %59 = load ptr, ptr %8, align 8
+  %59 = load ptr, ptr %8, align 8, !tbaa !27
   %60 = call ptr @Vec_PtrPop(ptr noundef %59)
-  %61 = load i32, ptr %12, align 4
+  %61 = load i32, ptr %12, align 4, !tbaa !8
   %62 = add nsw i32 %61, -1
-  store i32 %62, ptr %12, align 4
+  store i32 %62, ptr %12, align 4, !tbaa !8
   br label %63
 
 63:                                               ; preds = %53, %52
-  %64 = load i32, ptr %12, align 4
+  %64 = load i32, ptr %12, align 4, !tbaa !8
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %12, align 4
-  br label %36, !llvm.loop !4
+  store i32 %65, ptr %12, align 4, !tbaa !8
+  br label %36, !llvm.loop !30
 
 66:                                               ; preds = %45
-  %67 = load ptr, ptr %3, align 8
-  %68 = load i32, ptr %4, align 4
-  %69 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %3, align 8, !tbaa !3
+  %68 = load i32, ptr %4, align 4, !tbaa !8
+  %69 = load ptr, ptr %6, align 8, !tbaa !28
   %70 = call i32 @Pdr_ManCheckCube(ptr noundef %67, i32 noundef %68, ptr noundef %69, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store i32 %70, ptr %13, align 4
-  %71 = load i32, ptr %13, align 4
+  store i32 %70, ptr %13, align 4, !tbaa !8
+  %71 = load i32, ptr %13, align 4, !tbaa !8
   %72 = icmp ne i32 %71, 0
   br i1 %72, label %74, label %73
 
@@ -179,38 +188,40 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br label %126
 
 74:                                               ; preds = %66
-  %75 = load ptr, ptr %3, align 8
-  %76 = load i32, ptr %4, align 4
-  %77 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = load i32, ptr %4, align 4, !tbaa !8
+  %77 = load ptr, ptr %6, align 8, !tbaa !28
   %78 = call ptr @Pdr_ManReduceClause(ptr noundef %75, i32 noundef %76, ptr noundef %77)
-  store ptr %78, ptr %14, align 8
-  %79 = load ptr, ptr %14, align 8
+  store ptr %78, ptr %14, align 8, !tbaa !28
+  %79 = load ptr, ptr %14, align 8, !tbaa !28
   %80 = icmp ne ptr %79, null
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %74
-  %82 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %6, align 8, !tbaa !28
   call void @Pdr_SetDeref(ptr noundef %82)
-  %83 = load ptr, ptr %14, align 8
-  store ptr %83, ptr %6, align 8
+  %83 = load ptr, ptr %14, align 8, !tbaa !28
+  store ptr %83, ptr %6, align 8, !tbaa !28
   br label %84
 
 84:                                               ; preds = %81, %74
-  store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  store i32 0, ptr %10, align 4, !tbaa !8
   br label %85
 
 85:                                               ; preds = %112, %84
-  %86 = load i32, ptr %10, align 4
-  %87 = load ptr, ptr %9, align 8
+  %86 = load i32, ptr %10, align 4, !tbaa !8
+  %87 = load ptr, ptr %9, align 8, !tbaa !27
   %88 = call i32 @Vec_PtrSize(ptr noundef %87)
   %89 = icmp slt i32 %86, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr %9, align 8
-  %92 = load i32, ptr %10, align 4
+  %91 = load ptr, ptr %9, align 8, !tbaa !27
+  %92 = load i32, ptr %10, align 4, !tbaa !8
   %93 = call ptr @Vec_PtrEntry(ptr noundef %91, i32 noundef %92)
-  store ptr %93, ptr %7, align 8
+  store ptr %93, ptr %7, align 8, !tbaa !28
   br label %94
 
 94:                                               ; preds = %90, %85
@@ -218,8 +229,8 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %95, label %96, label %115
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr %7, align 8
-  %98 = load ptr, ptr %6, align 8
+  %97 = load ptr, ptr %7, align 8, !tbaa !28
+  %98 = load ptr, ptr %6, align 8, !tbaa !28
   %99 = call i32 @Pdr_SetContains(ptr noundef %97, ptr noundef %98)
   %100 = icmp ne i32 %99, 0
   br i1 %100, label %102, label %101
@@ -228,66 +239,78 @@ define ptr @IPdr_ManPushClausesK(ptr noundef %0, i32 noundef %1) #0 {
   br label %112
 
 102:                                              ; preds = %96
-  %103 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %7, align 8, !tbaa !28
   call void @Pdr_SetDeref(ptr noundef %103)
-  %104 = load ptr, ptr %9, align 8
-  %105 = load i32, ptr %10, align 4
-  %106 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %9, align 8, !tbaa !27
+  %105 = load i32, ptr %10, align 4, !tbaa !8
+  %106 = load ptr, ptr %9, align 8, !tbaa !27
   %107 = call ptr @Vec_PtrEntryLast(ptr noundef %106)
   call void @Vec_PtrWriteEntry(ptr noundef %104, i32 noundef %105, ptr noundef %107)
-  %108 = load ptr, ptr %9, align 8
+  %108 = load ptr, ptr %9, align 8, !tbaa !27
   %109 = call ptr @Vec_PtrPop(ptr noundef %108)
-  %110 = load i32, ptr %10, align 4
+  %110 = load i32, ptr %10, align 4, !tbaa !8
   %111 = add nsw i32 %110, -1
-  store i32 %111, ptr %10, align 4
+  store i32 %111, ptr %10, align 4, !tbaa !8
   br label %112
 
 112:                                              ; preds = %102, %101
-  %113 = load i32, ptr %10, align 4
+  %113 = load i32, ptr %10, align 4, !tbaa !8
   %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %10, align 4
-  br label %85, !llvm.loop !6
+  store i32 %114, ptr %10, align 4, !tbaa !8
+  br label %85, !llvm.loop !32
 
 115:                                              ; preds = %94
-  %116 = load ptr, ptr %9, align 8
-  %117 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %9, align 8, !tbaa !27
+  %117 = load ptr, ptr %6, align 8, !tbaa !28
   call void @Vec_PtrPush(ptr noundef %116, ptr noundef %117)
-  %118 = load ptr, ptr %8, align 8
-  %119 = load i32, ptr %11, align 4
-  %120 = load ptr, ptr %8, align 8
+  %118 = load ptr, ptr %8, align 8, !tbaa !27
+  %119 = load i32, ptr %11, align 4, !tbaa !8
+  %120 = load ptr, ptr %8, align 8, !tbaa !27
   %121 = call ptr @Vec_PtrEntryLast(ptr noundef %120)
   call void @Vec_PtrWriteEntry(ptr noundef %118, i32 noundef %119, ptr noundef %121)
-  %122 = load ptr, ptr %8, align 8
+  %122 = load ptr, ptr %8, align 8, !tbaa !27
   %123 = call ptr @Vec_PtrPop(ptr noundef %122)
-  %124 = load i32, ptr %11, align 4
+  %124 = load i32, ptr %11, align 4, !tbaa !8
   %125 = add nsw i32 %124, -1
-  store i32 %125, ptr %11, align 4
+  store i32 %125, ptr %11, align 4, !tbaa !8
   br label %126
 
 126:                                              ; preds = %115, %73
-  %127 = load i32, ptr %11, align 4
+  %127 = load i32, ptr %11, align 4, !tbaa !8
   %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %11, align 4
-  br label %22, !llvm.loop !7
+  store i32 %128, ptr %11, align 4, !tbaa !8
+  br label %22, !llvm.loop !33
 
 129:                                              ; preds = %31
-  %130 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %9, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret ptr %130
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_VecEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_VecEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %6 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   ret ptr %11
 }
 
@@ -295,11 +318,11 @@ define internal ptr @Vec_VecEntry(ptr noundef %0, i32 noundef %1) #0 {
 define internal void @Vec_PtrSort(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = icmp slt i32 %7, 2
   br i1 %8, label %9, label %10
 
@@ -307,80 +330,81 @@ define internal void @Vec_PtrSort(ptr noundef %0, ptr noundef %1) #0 {
   br label %30
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !37
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
+  %14 = load ptr, ptr %3, align 8, !tbaa !27
+  %15 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = sext i32 %19 to i64
   call void @qsort(ptr noundef %16, i64 noundef %20, i64 noundef 8, ptr noundef @Vec_PtrSortComparePtr)
   br label %30
 
 21:                                               ; preds = %10
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
+  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !39
+  %25 = load ptr, ptr %3, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !38
   %28 = sext i32 %27 to i64
-  %29 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %4, align 8, !tbaa !37
   call void @qsort(ptr noundef %24, i64 noundef %28, i64 noundef 8, ptr noundef %29)
   br label %30
 
-30:                                               ; preds = %21, %13, %9
+30:                                               ; preds = %9, %21, %13
   ret void
 }
 
-declare i32 @Pdr_SetCompare(ptr noundef, ptr noundef) #1
+declare i32 @Pdr_SetCompare(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #9
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !27
+  %5 = load i32, ptr %2, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !8
   %9 = icmp slt i32 %8, 8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 8, ptr %2, align 4
+  store i32 8, ptr %2, align 4, !tbaa !8
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !38
+  %14 = load i32, ptr %2, align 4, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !27
+  %16 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !40
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = sext i32 %24 to i64
   %26 = mul i64 8, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #9
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -388,133 +412,137 @@ define internal ptr @Vec_PtrAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !39
+  %33 = load ptr, ptr %3, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_PtrSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_PtrSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !38
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   ret ptr %11
 }
 
-declare i32 @Pdr_SetContains(ptr noundef, ptr noundef) #1
+declare i32 @Pdr_SetContains(ptr noundef, ptr noundef) #3
 
-declare void @Pdr_SetDeref(ptr noundef) #1
+declare void @Pdr_SetDeref(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrWriteEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrWriteEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %8 = load ptr, ptr %4, align 8, !tbaa !27
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = load i32, ptr %5, align 4, !tbaa !8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %10, i64 %12
-  store ptr %7, ptr %13, align 8
+  store ptr %7, ptr %13, align 8, !tbaa !37
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntryLast(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntryLast(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = sub nsw i32 %8, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %5, i64 %10
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   ret ptr %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrPop(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrPop(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !38
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %5, i64 %10
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   ret ptr %12
 }
 
-declare i32 @Pdr_ManCheckCube(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @Pdr_ManCheckCube(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @Pdr_ManReduceClause(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @Pdr_ManReduceClause(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !40
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !40
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !27
   call void @Vec_PtrGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !27
+  %21 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !40
   %24 = mul nsw i32 2, %23
   call void @Vec_PtrGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -523,18 +551,18 @@ define internal void @Vec_PtrPush(ptr noundef %0, ptr noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load ptr, ptr %4, align 8, !tbaa !37
+  %28 = load ptr, ptr %3, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !39
+  %31 = load ptr, ptr %3, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !38
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !38
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %30, i64 %35
-  store ptr %27, ptr %36, align 8
+  store ptr %27, ptr %36, align 8, !tbaa !37
   ret void
 }
 
@@ -548,26 +576,31 @@ define void @IPdr_ManPrintClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %11, align 4
-  %12 = load i32, ptr %5, align 4
-  store i32 %12, ptr %10, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !8
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %12, ptr %10, align 4, !tbaa !8
   br label %13
 
 13:                                               ; preds = %46, %3
-  %14 = load i32, ptr %10, align 4
-  %15 = load ptr, ptr %4, align 8
+  %14 = load i32, ptr %10, align 4, !tbaa !8
+  %15 = load ptr, ptr %4, align 8, !tbaa !34
   %16 = call i32 @Vec_VecSize(ptr noundef %15)
   %17 = icmp slt i32 %14, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %10, align 4
+  %19 = load ptr, ptr %4, align 8, !tbaa !34
+  %20 = load i32, ptr %10, align 4, !tbaa !8
   %21 = call ptr @Vec_VecEntry(ptr noundef %19, i32 noundef %20)
-  store ptr %21, ptr %7, align 8
+  store ptr %21, ptr %7, align 8, !tbaa !27
   br label %22
 
 22:                                               ; preds = %18, %13
@@ -575,23 +608,23 @@ define void @IPdr_ManPrintClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %23, label %24, label %49
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !27
   call void @Vec_PtrSort(ptr noundef %25, ptr noundef @Pdr_SetCompare)
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !8
   br label %26
 
 26:                                               ; preds = %42, %24
-  %27 = load i32, ptr %9, align 4
-  %28 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %9, align 4, !tbaa !8
+  %28 = load ptr, ptr %7, align 8, !tbaa !27
   %29 = call i32 @Vec_PtrSize(ptr noundef %28)
   %30 = icmp slt i32 %27, %29
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %9, align 4
+  %32 = load ptr, ptr %7, align 8, !tbaa !27
+  %33 = load i32, ptr %9, align 4, !tbaa !8
   %34 = call ptr @Vec_PtrEntry(ptr noundef %32, i32 noundef %33)
-  store ptr %34, ptr %8, align 8
+  store ptr %34, ptr %8, align 8, !tbaa !28
   br label %35
 
 35:                                               ; preds = %31, %26
@@ -599,153 +632,175 @@ define void @IPdr_ManPrintClauses(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %35
-  %38 = load i32, ptr %10, align 4
-  %39 = load i32, ptr %11, align 4
+  %38 = load i32, ptr %10, align 4, !tbaa !8
+  %39 = load i32, ptr %11, align 4, !tbaa !8
   %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %11, align 4
+  store i32 %40, ptr %11, align 4, !tbaa !8
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str, i32 noundef %38, i32 noundef %39)
-  %41 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %8, align 8, !tbaa !28
   call void @ZPdr_SetPrint(ptr noundef %41)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.1)
   br label %42
 
 42:                                               ; preds = %37
-  %43 = load i32, ptr %9, align 4
+  %43 = load i32, ptr %9, align 4, !tbaa !8
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %9, align 4
-  br label %26, !llvm.loop !8
+  store i32 %44, ptr %9, align 4, !tbaa !8
+  br label %26, !llvm.loop !41
 
 45:                                               ; preds = %35
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load i32, ptr %10, align 4
+  %47 = load i32, ptr %10, align 4, !tbaa !8
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %10, align 4
-  br label %13, !llvm.loop !9
+  store i32 %48, ptr %10, align 4, !tbaa !8
+  br label %13, !llvm.loop !42
 
 49:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_VecSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_VecSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !43
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !8
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.37)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.37)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.38)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.38)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !8
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.37)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !8
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.37)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.38)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.38)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start.p0(ptr %40)
-  %41 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #10
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #11
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #11
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %45 = load ptr, ptr %4, align 8, !tbaa !44
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !44
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %49 = load ptr, ptr %7, align 8, !tbaa !44
+  %50 = call i64 @strlen(ptr noundef %49) #13
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !44
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !44
+  call void @free(ptr noundef %54) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end.p0(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !44
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #11
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #11
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-declare void @ZPdr_SetPrint(ptr noundef) #1
+declare void @ZPdr_SetPrint(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @IPdr_ManCheckClauses(ptr noundef %0) #0 {
@@ -759,116 +814,135 @@ define i32 @IPdr_ManCheckClauses(ptr noundef %0) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %12, i32 0, i32 13
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @Vec_PtrSize(ptr noundef %14)
-  store i32 %15, ptr %9, align 4
-  store i32 1, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %16 = load i32, ptr %10, align 4
-  store i32 %16, ptr %7, align 4
-  br label %17
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %13, i32 0, i32 13
+  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %16 = call i32 @Vec_PtrSize(ptr noundef %15)
+  store i32 %16, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 1, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !8
+  %17 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %17, ptr %7, align 4, !tbaa !8
+  br label %18
 
-17:                                               ; preds = %64, %1
-  %18 = load i32, ptr %7, align 4
-  %19 = load i32, ptr %9, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %27
+18:                                               ; preds = %65, %1
+  %19 = load i32, ptr %7, align 4, !tbaa !8
+  %20 = load i32, ptr %9, align 4, !tbaa !8
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %28
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %22, i32 0, i32 14
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = call ptr @Vec_VecEntry(ptr noundef %24, i32 noundef %25)
-  store ptr %26, ptr %5, align 8
-  br label %27
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %23, i32 0, i32 14
+  %25 = load ptr, ptr %24, align 8, !tbaa !10
+  %26 = load i32, ptr %7, align 4, !tbaa !8
+  %27 = call ptr @Vec_VecEntry(ptr noundef %25, i32 noundef %26)
+  store ptr %27, ptr %5, align 8, !tbaa !27
+  br label %28
 
-27:                                               ; preds = %21, %17
-  %28 = phi i1 [ false, %17 ], [ true, %21 ]
-  br i1 %28, label %29, label %67
+28:                                               ; preds = %22, %18
+  %29 = phi i1 [ false, %18 ], [ true, %22 ]
+  br i1 %29, label %30, label %68
 
-29:                                               ; preds = %27
-  store i32 0, ptr %6, align 4
-  br label %30
+30:                                               ; preds = %28
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %31
 
-30:                                               ; preds = %60, %29
-  %31 = load i32, ptr %6, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i32 @Vec_PtrSize(ptr noundef %32)
-  %34 = icmp slt i32 %31, %33
-  br i1 %34, label %35, label %39
+31:                                               ; preds = %61, %30
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  %33 = load ptr, ptr %5, align 8, !tbaa !27
+  %34 = call i32 @Vec_PtrSize(ptr noundef %33)
+  %35 = icmp slt i32 %32, %34
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i32, ptr %6, align 4
-  %38 = call ptr @Vec_PtrEntry(ptr noundef %36, i32 noundef %37)
-  store ptr %38, ptr %4, align 8
-  br label %39
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %5, align 8, !tbaa !27
+  %38 = load i32, ptr %6, align 4, !tbaa !8
+  %39 = call ptr @Vec_PtrEntry(ptr noundef %37, i32 noundef %38)
+  store ptr %39, ptr %4, align 8, !tbaa !28
+  br label %40
 
-39:                                               ; preds = %35, %30
-  %40 = phi i1 [ false, %30 ], [ true, %35 ]
-  br i1 %40, label %41, label %63
+40:                                               ; preds = %36, %31
+  %41 = phi i1 [ false, %31 ], [ true, %36 ]
+  br i1 %41, label %42, label %64
 
-41:                                               ; preds = %39
-  %42 = load i32, ptr %11, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %11, align 4
-  %44 = load ptr, ptr %3, align 8
-  %45 = load i32, ptr %7, align 4
-  %46 = sub nsw i32 %45, 1
-  %47 = load ptr, ptr %4, align 8
-  %48 = call i32 @Pdr_ManCheckCube(ptr noundef %44, i32 noundef %46, ptr noundef %47, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store i32 %48, ptr %8, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %55, label %51
+42:                                               ; preds = %40
+  %43 = load i32, ptr %11, align 4, !tbaa !8
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %11, align 4, !tbaa !8
+  %45 = load ptr, ptr %3, align 8, !tbaa !3
+  %46 = load i32, ptr %7, align 4, !tbaa !8
+  %47 = sub nsw i32 %46, 1
+  %48 = load ptr, ptr %4, align 8, !tbaa !28
+  %49 = call i32 @Pdr_ManCheckCube(ptr noundef %45, i32 noundef %47, ptr noundef %48, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  store i32 %49, ptr %8, align 4, !tbaa !8
+  %50 = load i32, ptr %8, align 4, !tbaa !8
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %56, label %52
 
-51:                                               ; preds = %41
-  %52 = load i32, ptr %7, align 4
-  %53 = load i32, ptr %6, align 4
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %52, i32 noundef %53)
-  br label %55
+52:                                               ; preds = %42
+  %53 = load i32, ptr %7, align 4, !tbaa !8
+  %54 = load i32, ptr %6, align 4, !tbaa !8
+  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %53, i32 noundef %54)
+  br label %56
 
-55:                                               ; preds = %51, %41
-  %56 = load i32, ptr %8, align 4
-  %57 = icmp eq i32 %56, -1
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %52, %42
+  %57 = load i32, ptr %8, align 4, !tbaa !8
+  %58 = icmp eq i32 %57, -1
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   store i32 -1, ptr %2, align 4
-  br label %68
+  store i32 1, ptr %12, align 4
+  br label %69
 
-59:                                               ; preds = %55
-  br label %60
+60:                                               ; preds = %56
+  br label %61
 
-60:                                               ; preds = %59
-  %61 = load i32, ptr %6, align 4
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %6, align 4
-  br label %30, !llvm.loop !10
+61:                                               ; preds = %60
+  %62 = load i32, ptr %6, align 4, !tbaa !8
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %6, align 4, !tbaa !8
+  br label %31, !llvm.loop !49
 
-63:                                               ; preds = %39
-  br label %64
+64:                                               ; preds = %40
+  br label %65
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr %7, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %7, align 4
-  br label %17, !llvm.loop !11
+65:                                               ; preds = %64
+  %66 = load i32, ptr %7, align 4, !tbaa !8
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %7, align 4, !tbaa !8
+  br label %18, !llvm.loop !50
 
-67:                                               ; preds = %27
+68:                                               ; preds = %28
   store i32 1, ptr %2, align 4
-  br label %68
+  store i32 1, ptr %12, align 4
+  br label %69
 
-68:                                               ; preds = %67, %58
-  %69 = load i32, ptr %2, align 4
-  ret i32 %69
+69:                                               ; preds = %68, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %70 = load i32, ptr %2, align 4
+  ret i32 %70
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @IPdr_ManSaveClauses(ptr noundef %0, i32 noundef %1) #0 {
@@ -879,248 +953,266 @@ define ptr @IPdr_ManSaveClauses(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %10, i32 0, i32 14
-  %12 = load ptr, ptr %11, align 8
-  %13 = call i32 @Vec_VecSize(ptr noundef %12)
-  %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %82
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %11, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = call i32 @Vec_VecSize(ptr noundef %13)
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %17, i32 0, i32 14
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 @Vec_VecSize(ptr noundef %19)
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %22, label %26
-
-22:                                               ; preds = %16
-  %23 = load i32, ptr %5, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %22
   store ptr null, ptr %3, align 8
-  br label %82
+  store i32 1, ptr %10, align 4
+  br label %83
 
-26:                                               ; preds = %22, %16
-  %27 = load i32, ptr %5, align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %36
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  %21 = call i32 @Vec_VecSize(ptr noundef %20)
+  %22 = icmp eq i32 %21, 2
+  br i1 %22, label %23, label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %30, i32 0, i32 14
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @Vec_VecSize(ptr noundef %32)
-  %34 = sub nsw i32 %33, 1
-  %35 = call ptr @Vec_VecStart(i32 noundef %34)
-  store ptr %35, ptr %8, align 8
-  br label %42
+23:                                               ; preds = %17
+  %24 = load i32, ptr %5, align 4, !tbaa !8
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %27
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %37, i32 0, i32 14
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @Vec_VecSize(ptr noundef %39)
-  %41 = call ptr @Vec_VecStart(i32 noundef %40)
-  store ptr %41, ptr %8, align 8
-  br label %42
+26:                                               ; preds = %23
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %83
 
-42:                                               ; preds = %36, %29
-  store i32 0, ptr %6, align 4
+27:                                               ; preds = %23, %17
+  %28 = load i32, ptr %5, align 4, !tbaa !8
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %37
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %31, i32 0, i32 14
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
+  %34 = call i32 @Vec_VecSize(ptr noundef %33)
+  %35 = sub nsw i32 %34, 1
+  %36 = call ptr @Vec_VecStart(i32 noundef %35)
+  store ptr %36, ptr %8, align 8, !tbaa !34
   br label %43
 
-43:                                               ; preds = %77, %42
-  %44 = load i32, ptr %6, align 4
-  %45 = load ptr, ptr %8, align 8
-  %46 = call i32 @Vec_VecSize(ptr noundef %45)
-  %47 = icmp slt i32 %44, %46
-  br i1 %47, label %48, label %80
+37:                                               ; preds = %27
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8, !tbaa !10
+  %41 = call i32 @Vec_VecSize(ptr noundef %40)
+  %42 = call ptr @Vec_VecStart(i32 noundef %41)
+  store ptr %42, ptr %8, align 8, !tbaa !34
+  br label %43
 
-48:                                               ; preds = %43
-  store i32 0, ptr %7, align 4
-  br label %49
+43:                                               ; preds = %37, %30
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %44
 
-49:                                               ; preds = %73, %48
-  %50 = load i32, ptr %7, align 4
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %51, i32 0, i32 14
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %6, align 4
-  %55 = call ptr @Vec_VecEntry(ptr noundef %53, i32 noundef %54)
-  %56 = call i32 @Vec_PtrSize(ptr noundef %55)
-  %57 = icmp slt i32 %50, %56
-  br i1 %57, label %58, label %66
+44:                                               ; preds = %78, %43
+  %45 = load i32, ptr %6, align 4, !tbaa !8
+  %46 = load ptr, ptr %8, align 8, !tbaa !34
+  %47 = call i32 @Vec_VecSize(ptr noundef %46)
+  %48 = icmp slt i32 %45, %47
+  br i1 %48, label %49, label %81
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %59, i32 0, i32 14
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = call ptr @Vec_VecEntry(ptr noundef %61, i32 noundef %62)
-  %64 = load i32, ptr %7, align 4
-  %65 = call ptr @Vec_PtrEntry(ptr noundef %63, i32 noundef %64)
-  store ptr %65, ptr %9, align 8
-  br label %66
+49:                                               ; preds = %44
+  store i32 0, ptr %7, align 4, !tbaa !8
+  br label %50
 
-66:                                               ; preds = %58, %49
-  %67 = phi i1 [ false, %49 ], [ true, %58 ]
-  br i1 %67, label %68, label %76
+50:                                               ; preds = %74, %49
+  %51 = load i32, ptr %7, align 4, !tbaa !8
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %52, i32 0, i32 14
+  %54 = load ptr, ptr %53, align 8, !tbaa !10
+  %55 = load i32, ptr %6, align 4, !tbaa !8
+  %56 = call ptr @Vec_VecEntry(ptr noundef %54, i32 noundef %55)
+  %57 = call i32 @Vec_PtrSize(ptr noundef %56)
+  %58 = icmp slt i32 %51, %57
+  br i1 %58, label %59, label %67
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %8, align 8
-  %70 = load i32, ptr %6, align 4
-  %71 = load ptr, ptr %9, align 8
-  %72 = call ptr @Pdr_SetDup(ptr noundef %71)
-  call void @Vec_VecPush(ptr noundef %69, i32 noundef %70, ptr noundef %72)
-  br label %73
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8, !tbaa !10
+  %63 = load i32, ptr %6, align 4, !tbaa !8
+  %64 = call ptr @Vec_VecEntry(ptr noundef %62, i32 noundef %63)
+  %65 = load i32, ptr %7, align 4, !tbaa !8
+  %66 = call ptr @Vec_PtrEntry(ptr noundef %64, i32 noundef %65)
+  store ptr %66, ptr %9, align 8, !tbaa !28
+  br label %67
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr %7, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %7, align 4
-  br label %49, !llvm.loop !12
+67:                                               ; preds = %59, %50
+  %68 = phi i1 [ false, %50 ], [ true, %59 ]
+  br i1 %68, label %69, label %77
 
-76:                                               ; preds = %66
-  br label %77
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %8, align 8, !tbaa !34
+  %71 = load i32, ptr %6, align 4, !tbaa !8
+  %72 = load ptr, ptr %9, align 8, !tbaa !28
+  %73 = call ptr @Pdr_SetDup(ptr noundef %72)
+  call void @Vec_VecPush(ptr noundef %70, i32 noundef %71, ptr noundef %73)
+  br label %74
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %6, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %6, align 4
-  br label %43, !llvm.loop !13
+74:                                               ; preds = %69
+  %75 = load i32, ptr %7, align 4, !tbaa !8
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %7, align 4, !tbaa !8
+  br label %50, !llvm.loop !51
 
-80:                                               ; preds = %43
-  %81 = load ptr, ptr %8, align 8
-  store ptr %81, ptr %3, align 8
-  br label %82
+77:                                               ; preds = %67
+  br label %78
 
-82:                                               ; preds = %80, %25, %15
-  %83 = load ptr, ptr %3, align 8
-  ret ptr %83
+78:                                               ; preds = %77
+  %79 = load i32, ptr %6, align 4, !tbaa !8
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %6, align 4, !tbaa !8
+  br label %44, !llvm.loop !52
+
+81:                                               ; preds = %44
+  %82 = load ptr, ptr %8, align 8, !tbaa !34
+  store ptr %82, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %83
+
+83:                                               ; preds = %81, %26, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %84 = load ptr, ptr %3, align 8
+  ret ptr %84
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_VecStart(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_VecStart(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %5 = load i32, ptr %2, align 4, !tbaa !8
   %6 = call ptr @Vec_VecAlloc(i32 noundef %5)
-  store ptr %6, ptr %3, align 8
-  store i32 0, ptr %4, align 4
+  store ptr %6, ptr %3, align 8, !tbaa !34
+  store i32 0, ptr %4, align 4, !tbaa !8
   br label %7
 
 7:                                                ; preds = %19, %1
-  %8 = load i32, ptr %4, align 4
-  %9 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = load i32, ptr %2, align 4, !tbaa !8
   %10 = icmp slt i32 %8, %9
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %7
   %12 = call ptr @Vec_PtrAlloc(i32 noundef 0)
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %4, align 4
+  %13 = load ptr, ptr %3, align 8, !tbaa !34
+  %14 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %16 = load i32, ptr %4, align 4, !tbaa !8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %15, i64 %17
-  store ptr %12, ptr %18, align 8
+  store ptr %12, ptr %18, align 8, !tbaa !37
   br label %19
 
 19:                                               ; preds = %11
-  %20 = load i32, ptr %4, align 4
+  %20 = load i32, ptr %4, align 4, !tbaa !8
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %4, align 4
-  br label %7, !llvm.loop !14
+  store i32 %21, ptr %4, align 4, !tbaa !8
+  br label %7, !llvm.loop !53
 
 22:                                               ; preds = %7
-  %23 = load i32, ptr %2, align 4
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %24, i32 0, i32 1
-  store i32 %23, ptr %25, align 4
-  %26 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %2, align 4, !tbaa !8
+  %24 = load ptr, ptr %3, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %24, i32 0, i32 1
+  store i32 %23, ptr %25, align 4, !tbaa !43
+  %26 = load ptr, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %26
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_VecPush(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_VecPush(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !37
+  %8 = load ptr, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4, !tbaa !43
+  %11 = load i32, ptr %5, align 4, !tbaa !8
   %12 = add nsw i32 %11, 1
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %14, label %42
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %15 = load ptr, ptr %4, align 8, !tbaa !34
+  %16 = load i32, ptr %5, align 4, !tbaa !8
   %17 = add nsw i32 %16, 1
   call void @Vec_PtrGrow(ptr noundef %15, i32 noundef %17)
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %7, align 4
+  %18 = load ptr, ptr %4, align 8, !tbaa !34
+  %19 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !43
+  store i32 %20, ptr %7, align 4, !tbaa !8
   br label %21
 
 21:                                               ; preds = %34, %14
-  %22 = load i32, ptr %7, align 4
-  %23 = load i32, ptr %5, align 4
+  %22 = load i32, ptr %7, align 4, !tbaa !8
+  %23 = load i32, ptr %5, align 4, !tbaa !8
   %24 = add nsw i32 %23, 1
   %25 = icmp slt i32 %22, %24
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %21
   %27 = call ptr @Vec_PtrAlloc(i32 noundef 0)
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %7, align 4
+  %28 = load ptr, ptr %4, align 8, !tbaa !34
+  %29 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  %31 = load i32, ptr %7, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %30, i64 %32
-  store ptr %27, ptr %33, align 8
+  store ptr %27, ptr %33, align 8, !tbaa !37
   br label %34
 
 34:                                               ; preds = %26
-  %35 = load i32, ptr %7, align 4
+  %35 = load i32, ptr %7, align 4, !tbaa !8
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %7, align 4
-  br label %21, !llvm.loop !15
+  store i32 %36, ptr %7, align 4, !tbaa !8
+  br label %21, !llvm.loop !54
 
 37:                                               ; preds = %21
-  %38 = load i32, ptr %5, align 4
+  %38 = load i32, ptr %5, align 4, !tbaa !8
   %39 = add nsw i32 %38, 1
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %40, i32 0, i32 1
-  store i32 %39, ptr %41, align 4
+  %40 = load ptr, ptr %4, align 8, !tbaa !34
+  %41 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %40, i32 0, i32 1
+  store i32 %39, ptr %41, align 4, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   br label %42
 
 42:                                               ; preds = %37, %3
-  %43 = load ptr, ptr %4, align 8
-  %44 = load i32, ptr %5, align 4
+  %43 = load ptr, ptr %4, align 8, !tbaa !34
+  %44 = load i32, ptr %5, align 4, !tbaa !8
   %45 = call ptr @Vec_VecEntry(ptr noundef %43, i32 noundef %44)
-  %46 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %6, align 8, !tbaa !37
   call void @Vec_PtrPush(ptr noundef %45, ptr noundef %46)
   ret void
 }
 
-declare ptr @Pdr_SetDup(ptr noundef) #1
+declare ptr @Pdr_SetDup(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @IPdr_ManSetSolver(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -1133,171 +1225,184 @@ define ptr @IPdr_ManSetSolver(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %15, i32 0, i32 8
-  %17 = load i32, ptr %16, align 8
-  %18 = sitofp i32 %17 to double
-  %19 = call ptr @zsat_solver_new_seed(double noundef %18)
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = load i32, ptr %6, align 4
-  %24 = icmp eq i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = call ptr @Pdr_ManNewSolver(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %25)
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %27, i32 0, i32 13
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %8, align 8
-  call void @Vec_PtrPush(ptr noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %31, i32 0, i32 17
-  %33 = load ptr, ptr %32, align 8
-  call void @Vec_IntPush(ptr noundef %33, i32 noundef 0)
-  %34 = load i32, ptr %7, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %39
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !55
+  %17 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %16, i32 0, i32 8
+  %18 = load i32, ptr %17, align 8, !tbaa !56
+  %19 = sitofp i32 %18 to double
+  %20 = call ptr @zsat_solver_new_seed(double noundef %19)
+  store ptr %20, ptr %8, align 8, !tbaa !58
+  %21 = load ptr, ptr %8, align 8, !tbaa !58
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = load i32, ptr %6, align 4, !tbaa !8
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = icmp eq i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = call ptr @Pdr_ManNewSolver(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %26)
+  store ptr %27, ptr %8, align 8, !tbaa !58
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %28, i32 0, i32 13
+  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %31 = load ptr, ptr %8, align 8, !tbaa !58
+  call void @Vec_PtrPush(ptr noundef %30, ptr noundef %31)
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %32, i32 0, i32 17
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
+  call void @Vec_IntPush(ptr noundef %34, i32 noundef 0)
+  %35 = load i32, ptr %7, align 4, !tbaa !8
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %3
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  call void @Pdr_ManSetPropertyOutput(ptr noundef %37, i32 noundef %38)
-  br label %39
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = load i32, ptr %6, align 4, !tbaa !8
+  call void @Pdr_ManSetPropertyOutput(ptr noundef %38, i32 noundef %39)
+  br label %40
 
-39:                                               ; preds = %36, %3
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %44
+40:                                               ; preds = %37, %3
+  %41 = load i32, ptr %6, align 4, !tbaa !8
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %8, align 8
-  store ptr %43, ptr %4, align 8
-  br label %86
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %8, align 8, !tbaa !58
+  store ptr %44, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %87
 
-44:                                               ; preds = %39
-  %45 = load i32, ptr %6, align 4
-  store i32 %45, ptr %11, align 4
-  br label %46
+45:                                               ; preds = %40
+  %46 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %46, ptr %11, align 4, !tbaa !8
+  br label %47
 
-46:                                               ; preds = %81, %44
-  %47 = load i32, ptr %11, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %48, i32 0, i32 14
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @Vec_VecSize(ptr noundef %50)
-  %52 = icmp slt i32 %47, %51
-  br i1 %52, label %53, label %59
+47:                                               ; preds = %82, %45
+  %48 = load i32, ptr %11, align 4, !tbaa !8
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %49, i32 0, i32 14
+  %51 = load ptr, ptr %50, align 8, !tbaa !10
+  %52 = call i32 @Vec_VecSize(ptr noundef %51)
+  %53 = icmp slt i32 %48, %52
+  br i1 %53, label %54, label %60
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %54, i32 0, i32 14
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %11, align 4
-  %58 = call ptr @Vec_VecEntry(ptr noundef %56, i32 noundef %57)
-  store ptr %58, ptr %9, align 8
-  br label %59
+54:                                               ; preds = %47
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %55, i32 0, i32 14
+  %57 = load ptr, ptr %56, align 8, !tbaa !10
+  %58 = load i32, ptr %11, align 4, !tbaa !8
+  %59 = call ptr @Vec_VecEntry(ptr noundef %57, i32 noundef %58)
+  store ptr %59, ptr %9, align 8, !tbaa !27
+  br label %60
 
-59:                                               ; preds = %53, %46
-  %60 = phi i1 [ false, %46 ], [ true, %53 ]
-  br i1 %60, label %61, label %84
+60:                                               ; preds = %54, %47
+  %61 = phi i1 [ false, %47 ], [ true, %54 ]
+  br i1 %61, label %62, label %85
 
-61:                                               ; preds = %59
-  store i32 0, ptr %12, align 4
-  br label %62
+62:                                               ; preds = %60
+  store i32 0, ptr %12, align 4, !tbaa !8
+  br label %63
 
-62:                                               ; preds = %77, %61
-  %63 = load i32, ptr %12, align 4
-  %64 = load ptr, ptr %9, align 8
-  %65 = call i32 @Vec_PtrSize(ptr noundef %64)
-  %66 = icmp slt i32 %63, %65
-  br i1 %66, label %67, label %71
+63:                                               ; preds = %78, %62
+  %64 = load i32, ptr %12, align 4, !tbaa !8
+  %65 = load ptr, ptr %9, align 8, !tbaa !27
+  %66 = call i32 @Vec_PtrSize(ptr noundef %65)
+  %67 = icmp slt i32 %64, %66
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr %12, align 4
-  %70 = call ptr @Vec_PtrEntry(ptr noundef %68, i32 noundef %69)
-  store ptr %70, ptr %10, align 8
-  br label %71
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %9, align 8, !tbaa !27
+  %70 = load i32, ptr %12, align 4, !tbaa !8
+  %71 = call ptr @Vec_PtrEntry(ptr noundef %69, i32 noundef %70)
+  store ptr %71, ptr %10, align 8, !tbaa !28
+  br label %72
 
-71:                                               ; preds = %67, %62
-  %72 = phi i1 [ false, %62 ], [ true, %67 ]
-  br i1 %72, label %73, label %80
+72:                                               ; preds = %68, %63
+  %73 = phi i1 [ false, %63 ], [ true, %68 ]
+  br i1 %73, label %74, label %81
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr %6, align 4
-  %76 = load ptr, ptr %10, align 8
-  call void @Pdr_ManSolverAddClause(ptr noundef %74, i32 noundef %75, ptr noundef %76)
-  br label %77
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %5, align 8, !tbaa !3
+  %76 = load i32, ptr %6, align 4, !tbaa !8
+  %77 = load ptr, ptr %10, align 8, !tbaa !28
+  call void @Pdr_ManSolverAddClause(ptr noundef %75, i32 noundef %76, ptr noundef %77)
+  br label %78
 
-77:                                               ; preds = %73
-  %78 = load i32, ptr %12, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %12, align 4
-  br label %62, !llvm.loop !16
+78:                                               ; preds = %74
+  %79 = load i32, ptr %12, align 4, !tbaa !8
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %12, align 4, !tbaa !8
+  br label %63, !llvm.loop !61
 
-80:                                               ; preds = %71
-  br label %81
+81:                                               ; preds = %72
+  br label %82
 
-81:                                               ; preds = %80
-  %82 = load i32, ptr %11, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %11, align 4
-  br label %46, !llvm.loop !17
+82:                                               ; preds = %81
+  %83 = load i32, ptr %11, align 4, !tbaa !8
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %11, align 4, !tbaa !8
+  br label %47, !llvm.loop !62
 
-84:                                               ; preds = %59
-  %85 = load ptr, ptr %8, align 8
-  store ptr %85, ptr %4, align 8
-  br label %86
+85:                                               ; preds = %60
+  %86 = load ptr, ptr %8, align 8, !tbaa !58
+  store ptr %86, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %87
 
-86:                                               ; preds = %84, %42
-  %87 = load ptr, ptr %4, align 8
-  ret ptr %87
+87:                                               ; preds = %85, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %88 = load ptr, ptr %4, align 8
+  ret ptr %88
 }
 
-declare ptr @zsat_solver_new_seed(double noundef) #1
+declare ptr @zsat_solver_new_seed(double noundef) #3
 
-declare ptr @Pdr_ManNewSolver(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @Pdr_ManNewSolver(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !64
+  %8 = load ptr, ptr %3, align 8, !tbaa !63
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !66
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !63
+  %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !66
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !63
   call void @Vec_IntGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !63
+  %21 = load ptr, ptr %3, align 8, !tbaa !63
+  %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !66
   %24 = mul nsw i32 2, %23
   call void @Vec_IntGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -1306,24 +1411,24 @@ define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !8
+  %28 = load ptr, ptr %3, align 8, !tbaa !63
+  %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
+  %31 = load ptr, ptr %3, align 8, !tbaa !63
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !64
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !64
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
-  store i32 %27, ptr %36, align 4
+  store i32 %27, ptr %36, align 4, !tbaa !8
   ret void
 }
 
-declare void @Pdr_ManSetPropertyOutput(ptr noundef, i32 noundef) #1
+declare void @Pdr_ManSetPropertyOutput(ptr noundef, i32 noundef) #3
 
-declare void @Pdr_ManSolverAddClause(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @Pdr_ManSolverAddClause(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @IPdr_ManRebuildClauses(ptr noundef %0, ptr noundef %1) #0 {
@@ -1336,240 +1441,272 @@ define i32 @IPdr_ManRebuildClauses(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 -1, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %16
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 -1, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !34
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %10, align 4
-  store i32 %15, ptr %3, align 4
-  br label %82
+15:                                               ; preds = %2
+  %16 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %16, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %83
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %17, i32 0, i32 14
-  %19 = load ptr, ptr %18, align 8
-  call void @Vec_VecExpand(ptr noundef %19, i32 noundef 1)
-  %20 = load ptr, ptr %4, align 8
-  %21 = call ptr @IPdr_ManSetSolver(ptr noundef %20, i32 noundef 0, i32 noundef 1)
-  store i32 1, ptr %8, align 4
-  br label %22
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  call void @Vec_VecExpand(ptr noundef %20, i32 noundef 1)
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = call ptr @IPdr_ManSetSolver(ptr noundef %21, i32 noundef 0, i32 noundef 1)
+  store i32 1, ptr %8, align 4, !tbaa !8
+  br label %23
 
-22:                                               ; preds = %69, %16
-  %23 = load i32, ptr %8, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = call i32 @Vec_VecSize(ptr noundef %24)
-  %26 = icmp slt i32 %23, %25
-  br i1 %26, label %27, label %31
+23:                                               ; preds = %70, %17
+  %24 = load i32, ptr %8, align 4, !tbaa !8
+  %25 = load ptr, ptr %5, align 8, !tbaa !34
+  %26 = call i32 @Vec_VecSize(ptr noundef %25)
+  %27 = icmp slt i32 %24, %26
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = call ptr @Vec_VecEntry(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %6, align 8
-  br label %31
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %5, align 8, !tbaa !34
+  %30 = load i32, ptr %8, align 4, !tbaa !8
+  %31 = call ptr @Vec_VecEntry(ptr noundef %29, i32 noundef %30)
+  store ptr %31, ptr %6, align 8, !tbaa !27
+  br label %32
 
-31:                                               ; preds = %27, %22
-  %32 = phi i1 [ false, %22 ], [ true, %27 ]
-  br i1 %32, label %33, label %72
+32:                                               ; preds = %28, %23
+  %33 = phi i1 [ false, %23 ], [ true, %28 ]
+  br i1 %33, label %34, label %73
 
-33:                                               ; preds = %31
-  store i32 0, ptr %9, align 4
-  br label %34
+34:                                               ; preds = %32
+  store i32 0, ptr %9, align 4, !tbaa !8
+  br label %35
 
-34:                                               ; preds = %65, %33
-  %35 = load i32, ptr %9, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = call i32 @Vec_PtrSize(ptr noundef %36)
-  %38 = icmp slt i32 %35, %37
-  br i1 %38, label %39, label %43
+35:                                               ; preds = %66, %34
+  %36 = load i32, ptr %9, align 4, !tbaa !8
+  %37 = load ptr, ptr %6, align 8, !tbaa !27
+  %38 = call i32 @Vec_PtrSize(ptr noundef %37)
+  %39 = icmp slt i32 %36, %38
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i32, ptr %9, align 4
-  %42 = call ptr @Vec_PtrEntry(ptr noundef %40, i32 noundef %41)
-  store ptr %42, ptr %7, align 8
-  br label %43
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %6, align 8, !tbaa !27
+  %42 = load i32, ptr %9, align 4, !tbaa !8
+  %43 = call ptr @Vec_PtrEntry(ptr noundef %41, i32 noundef %42)
+  store ptr %43, ptr %7, align 8, !tbaa !28
+  br label %44
 
-43:                                               ; preds = %39, %34
-  %44 = phi i1 [ false, %34 ], [ true, %39 ]
-  br i1 %44, label %45, label %68
+44:                                               ; preds = %40, %35
+  %45 = phi i1 [ false, %35 ], [ true, %40 ]
+  br i1 %45, label %46, label %69
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %11, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %11, align 4
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = call i32 @Pdr_ManCheckCube(ptr noundef %48, i32 noundef 0, ptr noundef %49, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store i32 %50, ptr %10, align 4
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %51, i32 0, i32 17
-  %53 = load ptr, ptr %52, align 8
-  call void @Vec_IntWriteEntry(ptr noundef %53, i32 noundef 0, i32 noundef 0)
-  %54 = load i32, ptr %10, align 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %60
+46:                                               ; preds = %44
+  %47 = load i32, ptr %11, align 4, !tbaa !8
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %11, align 4, !tbaa !8
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = load ptr, ptr %7, align 8, !tbaa !28
+  %51 = call i32 @Pdr_ManCheckCube(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  store i32 %51, ptr %10, align 4, !tbaa !8
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %52, i32 0, i32 17
+  %54 = load ptr, ptr %53, align 8, !tbaa !60
+  call void @Vec_IntWriteEntry(ptr noundef %54, i32 noundef 0, i32 noundef 0)
+  %55 = load i32, ptr %10, align 4, !tbaa !8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %61
 
-56:                                               ; preds = %45
-  %57 = load i32, ptr %8, align 4
-  %58 = load i32, ptr %9, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.3, i32 noundef %57, i32 noundef %58)
-  %59 = load ptr, ptr %7, align 8
-  call void @Pdr_SetDeref(ptr noundef %59)
-  br label %65
+57:                                               ; preds = %46
+  %58 = load i32, ptr %8, align 4, !tbaa !8
+  %59 = load i32, ptr %9, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.3, i32 noundef %58, i32 noundef %59)
+  %60 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @Pdr_SetDeref(ptr noundef %60)
+  br label %66
 
-60:                                               ; preds = %45
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %61, i32 0, i32 14
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %7, align 8
-  call void @Vec_VecPush(ptr noundef %63, i32 noundef 1, ptr noundef %64)
-  br label %65
+61:                                               ; preds = %46
+  %62 = load ptr, ptr %4, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %62, i32 0, i32 14
+  %64 = load ptr, ptr %63, align 8, !tbaa !10
+  %65 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @Vec_VecPush(ptr noundef %64, i32 noundef 1, ptr noundef %65)
+  br label %66
 
-65:                                               ; preds = %60, %56
-  %66 = load i32, ptr %9, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %9, align 4
-  br label %34, !llvm.loop !18
+66:                                               ; preds = %61, %57
+  %67 = load i32, ptr %9, align 4, !tbaa !8
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %9, align 4, !tbaa !8
+  br label %35, !llvm.loop !68
 
-68:                                               ; preds = %43
-  br label %69
+69:                                               ; preds = %44
+  br label %70
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %8, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %8, align 4
-  br label %22, !llvm.loop !19
+70:                                               ; preds = %69
+  %71 = load i32, ptr %8, align 4, !tbaa !8
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %8, align 4, !tbaa !8
+  br label %23, !llvm.loop !69
 
-72:                                               ; preds = %31
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %73, i32 0, i32 14
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @Vec_VecEntry(ptr noundef %75, i32 noundef 1)
-  %77 = call i32 @Vec_PtrSize(ptr noundef %76)
-  %78 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.4, i32 noundef %77, i32 noundef %78)
-  %79 = load ptr, ptr %4, align 8
-  %80 = call ptr @IPdr_ManSetSolver(ptr noundef %79, i32 noundef 1, i32 noundef 0)
-  %81 = load ptr, ptr %5, align 8
-  call void @Vec_VecFree(ptr noundef %81)
+73:                                               ; preds = %32
+  %74 = load ptr, ptr %4, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %74, i32 0, i32 14
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = call ptr @Vec_VecEntry(ptr noundef %76, i32 noundef 1)
+  %78 = call i32 @Vec_PtrSize(ptr noundef %77)
+  %79 = load i32, ptr %11, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.4, i32 noundef %78, i32 noundef %79)
+  %80 = load ptr, ptr %4, align 8, !tbaa !3
+  %81 = call ptr @IPdr_ManSetSolver(ptr noundef %80, i32 noundef 1, i32 noundef 0)
+  %82 = load ptr, ptr %5, align 8, !tbaa !34
+  call void @Vec_VecFree(ptr noundef %82)
   store i32 0, ptr %3, align 4
-  br label %82
+  store i32 1, ptr %12, align 4
+  br label %83
 
-82:                                               ; preds = %72, %14
-  %83 = load i32, ptr %3, align 4
-  ret i32 %83
+83:                                               ; preds = %73, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %84 = load i32, ptr %3, align 4
+  ret i32 %84
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_VecExpand(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_VecExpand(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 4
-  %9 = load i32, ptr %4, align 4
-  %10 = add nsw i32 %9, 1
-  %11 = icmp sge i32 %8, %10
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  br label %40
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %7 = load ptr, ptr %3, align 8, !tbaa !34
+  %8 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4, !tbaa !43
+  %10 = load i32, ptr %4, align 4, !tbaa !8
+  %11 = add nsw i32 %10, 1
+  %12 = icmp sge i32 %9, %11
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = add nsw i32 %15, 1
-  call void @Vec_PtrGrow(ptr noundef %14, i32 noundef %16)
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %5, align 4
-  br label %20
+  store i32 1, ptr %6, align 4
+  br label %41
 
-20:                                               ; preds = %32, %13
-  %21 = load i32, ptr %5, align 4
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp sle i32 %21, %22
-  br i1 %23, label %24, label %35
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !34
+  %16 = load i32, ptr %4, align 4, !tbaa !8
+  %17 = add nsw i32 %16, 1
+  call void @Vec_PtrGrow(ptr noundef %15, i32 noundef %17)
+  %18 = load ptr, ptr %3, align 8, !tbaa !34
+  %19 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !43
+  store i32 %20, ptr %5, align 4, !tbaa !8
+  br label %21
 
-24:                                               ; preds = %20
-  %25 = call ptr @Vec_PtrAlloc(i32 noundef 0)
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %5, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  store ptr %25, ptr %31, align 8
-  br label %32
+21:                                               ; preds = %33, %14
+  %22 = load i32, ptr %5, align 4, !tbaa !8
+  %23 = load i32, ptr %4, align 4, !tbaa !8
+  %24 = icmp sle i32 %22, %23
+  br i1 %24, label %25, label %36
 
-32:                                               ; preds = %24
-  %33 = load i32, ptr %5, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %5, align 4
-  br label %20, !llvm.loop !20
+25:                                               ; preds = %21
+  %26 = call ptr @Vec_PtrAlloc(i32 noundef 0)
+  %27 = load ptr, ptr %3, align 8, !tbaa !34
+  %28 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !35
+  %30 = load i32, ptr %5, align 4, !tbaa !8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  store ptr %26, ptr %32, align 8, !tbaa !37
+  br label %33
 
-35:                                               ; preds = %20
-  %36 = load i32, ptr %4, align 4
-  %37 = add nsw i32 %36, 1
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %38, i32 0, i32 1
-  store i32 %37, ptr %39, align 4
-  br label %40
+33:                                               ; preds = %25
+  %34 = load i32, ptr %5, align 4, !tbaa !8
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %5, align 4, !tbaa !8
+  br label %21, !llvm.loop !70
 
-40:                                               ; preds = %35, %12
+36:                                               ; preds = %21
+  %37 = load i32, ptr %4, align 4, !tbaa !8
+  %38 = add nsw i32 %37, 1
+  %39 = load ptr, ptr %3, align 8, !tbaa !34
+  %40 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %39, i32 0, i32 1
+  store i32 %38, ptr %40, align 4, !tbaa !43
+  store i32 0, ptr %6, align 4
+  br label %41
+
+41:                                               ; preds = %36, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  %42 = load i32, ptr %6, align 4
+  switch i32 %42, label %44 [
+    i32 0, label %43
+    i32 1, label %43
+  ]
+
+43:                                               ; preds = %41, %41
   ret void
+
+44:                                               ; preds = %41
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !63
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %11 = load i32, ptr %5, align 4, !tbaa !8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %10, i64 %12
-  store i32 %7, ptr %13, align 4
+  store i32 %7, ptr %13, align 4, !tbaa !8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_VecFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_VecFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !tbaa !8
   br label %5
 
 5:                                                ; preds = %22, %1
-  %6 = load i32, ptr %4, align 4
-  %7 = load ptr, ptr %2, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !34
   %8 = call i32 @Vec_VecSize(ptr noundef %7)
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = load i32, ptr %4, align 4
+  %11 = load ptr, ptr %2, align 8, !tbaa !34
+  %12 = load i32, ptr %4, align 4, !tbaa !8
   %13 = call ptr @Vec_VecEntry(ptr noundef %11, i32 noundef %12)
-  store ptr %13, ptr %3, align 8
+  store ptr %13, ptr %3, align 8, !tbaa !27
   br label %14
 
 14:                                               ; preds = %10, %5
@@ -1577,12 +1714,12 @@ define internal void @Vec_VecFree(ptr noundef %0) #0 {
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !27
   call void @Vec_PtrFree(ptr noundef %20)
   br label %21
 
@@ -1590,14 +1727,16 @@ define internal void @Vec_VecFree(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %21
-  %23 = load i32, ptr %4, align 4
+  %23 = load i32, ptr %4, align 4, !tbaa !8
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %4, align 4
-  br label %5, !llvm.loop !21
+  store i32 %24, ptr %4, align 4, !tbaa !8
+  br label %5, !llvm.loop !71
 
 25:                                               ; preds = %14
-  %26 = load ptr, ptr %2, align 8
+  %26 = load ptr, ptr %2, align 8, !tbaa !34
   call void @Vec_PtrFree(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
@@ -1608,43 +1747,47 @@ define i32 @IPdr_ManRestoreAbsFlops(ptr noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %4, align 4, !tbaa !8
   br label %7
 
 7:                                                ; preds = %60, %1
-  %8 = load i32, ptr %4, align 4
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %9, i32 0, i32 14
-  %11 = load ptr, ptr %10, align 8
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %9, i32 0, i32 14
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = call i32 @Vec_VecSize(ptr noundef %11)
   %13 = icmp slt i32 %8, %12
   br i1 %13, label %14, label %63
 
 14:                                               ; preds = %7
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !8
   br label %15
 
 15:                                               ; preds = %56, %14
-  %16 = load i32, ptr %5, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %17, i32 0, i32 14
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  %17 = load ptr, ptr %2, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = load i32, ptr %4, align 4, !tbaa !8
   %21 = call ptr @Vec_VecEntry(ptr noundef %19, i32 noundef %20)
   %22 = call i32 @Vec_PtrSize(ptr noundef %21)
   %23 = icmp slt i32 %16, %22
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %15
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %25, i32 0, i32 14
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %4, align 4
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = load i32, ptr %4, align 4, !tbaa !8
   %29 = call ptr @Vec_VecEntry(ptr noundef %27, i32 noundef %28)
-  %30 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %5, align 4, !tbaa !8
   %31 = call ptr @Vec_PtrEntry(ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr %3, align 8
+  store ptr %31, ptr %3, align 8, !tbaa !28
   br label %32
 
 32:                                               ; preds = %24, %15
@@ -1652,64 +1795,68 @@ define i32 @IPdr_ManRestoreAbsFlops(ptr noundef %0) #0 {
   br i1 %33, label %34, label %59
 
 34:                                               ; preds = %32
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !8
   br label %35
 
 35:                                               ; preds = %52, %34
-  %36 = load i32, ptr %6, align 4
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %37, i32 0, i32 3
-  %39 = load i32, ptr %38, align 8
+  %36 = load i32, ptr %6, align 4, !tbaa !8
+  %37 = load ptr, ptr %3, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %37, i32 0, i32 3
+  %39 = load i32, ptr %38, align 8, !tbaa !72
   %40 = icmp slt i32 %36, %39
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %35
-  %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %42, i32 0, i32 20
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %45, i32 0, i32 4
-  %47 = load i32, ptr %6, align 4
+  %42 = load ptr, ptr %2, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %42, i32 0, i32 20
+  %44 = load ptr, ptr %43, align 8, !tbaa !74
+  %45 = load ptr, ptr %3, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %6, align 4, !tbaa !8
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 4, !tbaa !8
   %51 = call i32 @Abc_Lit2Var(i32 noundef %50)
   call void @Vec_IntWriteEntry(ptr noundef %44, i32 noundef %51, i32 noundef 1)
   br label %52
 
 52:                                               ; preds = %41
-  %53 = load i32, ptr %6, align 4
+  %53 = load i32, ptr %6, align 4, !tbaa !8
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %6, align 4
-  br label %35, !llvm.loop !22
+  store i32 %54, ptr %6, align 4, !tbaa !8
+  br label %35, !llvm.loop !75
 
 55:                                               ; preds = %35
   br label %56
 
 56:                                               ; preds = %55
-  %57 = load i32, ptr %5, align 4
+  %57 = load i32, ptr %5, align 4, !tbaa !8
   %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %5, align 4
-  br label %15, !llvm.loop !23
+  store i32 %58, ptr %5, align 4, !tbaa !8
+  br label %15, !llvm.loop !76
 
 59:                                               ; preds = %32
   br label %60
 
 60:                                               ; preds = %59
-  %61 = load i32, ptr %4, align 4
+  %61 = load i32, ptr %4, align 4, !tbaa !8
   %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %4, align 4
-  br label %7, !llvm.loop !24
+  store i32 %62, ptr %4, align 4, !tbaa !8
+  br label %7, !llvm.loop !77
 
 63:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Lit2Var(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Lit2Var(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = ashr i32 %3, 1
   ret i32 %4
 }
@@ -1723,52 +1870,56 @@ define i32 @IPdr_ManRestoreClauses(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %11, i32 0, i32 14
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %11, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
   call void @Vec_VecFree(ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %15, i32 0, i32 14
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %5, align 8, !tbaa !34
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %15, i32 0, i32 14
+  store ptr %14, ptr %16, align 8, !tbaa !10
+  %17 = load ptr, ptr %6, align 8, !tbaa !63
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %75
 
 19:                                               ; preds = %3
-  store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %7, align 4, !tbaa !8
   br label %20
 
 20:                                               ; preds = %71, %19
-  %21 = load i32, ptr %7, align 4
-  %22 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %7, align 4, !tbaa !8
+  %22 = load ptr, ptr %5, align 8, !tbaa !34
   %23 = call i32 @Vec_VecSize(ptr noundef %22)
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %25, label %74
 
 25:                                               ; preds = %20
-  store i32 0, ptr %9, align 4
+  store i32 0, ptr %9, align 4, !tbaa !8
   br label %26
 
 26:                                               ; preds = %67, %25
-  %27 = load i32, ptr %9, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %7, align 4
+  %27 = load i32, ptr %9, align 4, !tbaa !8
+  %28 = load ptr, ptr %5, align 8, !tbaa !34
+  %29 = load i32, ptr %7, align 4, !tbaa !8
   %30 = call ptr @Vec_VecEntry(ptr noundef %28, i32 noundef %29)
   %31 = call i32 @Vec_PtrSize(ptr noundef %30)
   %32 = icmp slt i32 %27, %31
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %26
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i32, ptr %7, align 4
+  %34 = load ptr, ptr %5, align 8, !tbaa !34
+  %35 = load i32, ptr %7, align 4, !tbaa !8
   %36 = call ptr @Vec_VecEntry(ptr noundef %34, i32 noundef %35)
-  %37 = load i32, ptr %9, align 4
+  %37 = load i32, ptr %9, align 4, !tbaa !8
   %38 = call ptr @Vec_PtrEntry(ptr noundef %36, i32 noundef %37)
-  store ptr %38, ptr %8, align 8
+  store ptr %38, ptr %8, align 8, !tbaa !28
   br label %39
 
 39:                                               ; preds = %33, %26
@@ -1776,82 +1927,85 @@ define i32 @IPdr_ManRestoreClauses(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %40, label %41, label %70
 
 41:                                               ; preds = %39
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !8
   br label %42
 
 42:                                               ; preds = %63, %41
-  %43 = load i32, ptr %10, align 4
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %44, i32 0, i32 3
-  %46 = load i32, ptr %45, align 8
+  %43 = load i32, ptr %10, align 4, !tbaa !8
+  %44 = load ptr, ptr %8, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 8, !tbaa !72
   %47 = icmp slt i32 %43, %46
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr %6, align 8
+  %49 = load ptr, ptr %6, align 8, !tbaa !63
   %50 = call ptr @Vec_IntArray(ptr noundef %49)
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %51, i32 0, i32 4
-  %53 = load i32, ptr %10, align 4
+  %51 = load ptr, ptr %8, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %51, i32 0, i32 4
+  %53 = load i32, ptr %10, align 4, !tbaa !8
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds [0 x i32], ptr %52, i64 0, i64 %54
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 4, !tbaa !8
   %57 = call i32 @Abc_Lit2LitV(ptr noundef %50, i32 noundef %56)
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %58, i32 0, i32 4
-  %60 = load i32, ptr %10, align 4
+  %58 = load ptr, ptr %8, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %58, i32 0, i32 4
+  %60 = load i32, ptr %10, align 4, !tbaa !8
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [0 x i32], ptr %59, i64 0, i64 %61
-  store i32 %57, ptr %62, align 4
+  store i32 %57, ptr %62, align 4, !tbaa !8
   br label %63
 
 63:                                               ; preds = %48
-  %64 = load i32, ptr %10, align 4
+  %64 = load i32, ptr %10, align 4, !tbaa !8
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %10, align 4
-  br label %42, !llvm.loop !25
+  store i32 %65, ptr %10, align 4, !tbaa !8
+  br label %42, !llvm.loop !78
 
 66:                                               ; preds = %42
   br label %67
 
 67:                                               ; preds = %66
-  %68 = load i32, ptr %9, align 4
+  %68 = load i32, ptr %9, align 4, !tbaa !8
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %9, align 4
-  br label %26, !llvm.loop !26
+  store i32 %69, ptr %9, align 4, !tbaa !8
+  br label %26, !llvm.loop !79
 
 70:                                               ; preds = %39
   br label %71
 
 71:                                               ; preds = %70
-  %72 = load i32, ptr %7, align 4
+  %72 = load i32, ptr %7, align 4, !tbaa !8
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %7, align 4
-  br label %20, !llvm.loop !27
+  store i32 %73, ptr %7, align 4, !tbaa !8
+  br label %20, !llvm.loop !80
 
 74:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
   br label %75
 
 75:                                               ; preds = %74, %3
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !8
   br label %76
 
 76:                                               ; preds = %95, %75
-  %77 = load i32, ptr %7, align 4
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %78, i32 0, i32 14
-  %80 = load ptr, ptr %79, align 8
+  %77 = load i32, ptr %7, align 4, !tbaa !8
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %78, i32 0, i32 14
+  %80 = load ptr, ptr %79, align 8, !tbaa !10
   %81 = call i32 @Vec_VecSize(ptr noundef %80)
   %82 = icmp slt i32 %77, %81
   br i1 %82, label %83, label %98
 
 83:                                               ; preds = %76
-  %84 = load ptr, ptr %4, align 8
-  %85 = load i32, ptr %7, align 4
-  %86 = load i32, ptr %7, align 4
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %87, i32 0, i32 14
-  %89 = load ptr, ptr %88, align 8
+  %84 = load ptr, ptr %4, align 8, !tbaa !3
+  %85 = load i32, ptr %7, align 4, !tbaa !8
+  %86 = load i32, ptr %7, align 4, !tbaa !8
+  %87 = load ptr, ptr %4, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %87, i32 0, i32 14
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
   %90 = call i32 @Vec_VecSize(ptr noundef %89)
   %91 = sub nsw i32 %90, 1
   %92 = icmp slt i32 %86, %91
@@ -1860,40 +2014,41 @@ define i32 @IPdr_ManRestoreClauses(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %95
 
 95:                                               ; preds = %83
-  %96 = load i32, ptr %7, align 4
+  %96 = load i32, ptr %7, align 4, !tbaa !8
   %97 = add nsw i32 %96, 1
-  store i32 %97, ptr %7, align 4
-  br label %76, !llvm.loop !28
+  store i32 %97, ptr %7, align 4, !tbaa !8
+  br label %76, !llvm.loop !81
 
 98:                                               ; preds = %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Lit2LitV(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Lit2LitV(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !82
+  %6 = load i32, ptr %4, align 4, !tbaa !8
   %7 = call i32 @Abc_Lit2Var(i32 noundef %6)
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = load i32, ptr %4, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !8
   %12 = call i32 @Abc_LitIsCompl(i32 noundef %11)
   %13 = call i32 @Abc_Var2Lit(i32 noundef %10, i32 noundef %12)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntArray(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   ret ptr %5
 }
 
@@ -1913,2624 +2068,2705 @@ define i32 @IPdr_ManSolveInt(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store ptr null, ptr %9, align 8
-  store i32 -1, ptr %13, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @Saig_ManPoNum(ptr noundef %27)
-  %29 = call i32 @Abc_Base10Log(i32 noundef %28)
-  store i32 %29, ptr %14, align 4
-  %30 = call i64 @Abc_Clock()
-  store i64 %30, ptr %15, align 8
-  store i64 0, ptr %16, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %33, i32 0, i32 5
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %47
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  store ptr null, ptr %9, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  store i32 -1, ptr %13, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !83
+  %29 = call i32 @Saig_ManPoNum(ptr noundef %28)
+  %30 = call i32 @Abc_Base10Log(i32 noundef %29)
+  store i32 %30, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %31 = call i64 @Abc_Clock()
+  store i64 %31, ptr %15, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  store i64 0, ptr %16, align 8, !tbaa !84
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %35 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %34, i32 0, i32 5
+  %36 = load i32, ptr %35, align 4, !tbaa !85
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %48
 
-37:                                               ; preds = %3
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %40, i32 0, i32 5
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = mul nsw i64 %43, 1000000
-  %45 = call i64 @Abc_Clock()
-  %46 = add nsw i64 %44, %45
-  br label %48
+38:                                               ; preds = %3
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !55
+  %42 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %41, i32 0, i32 5
+  %43 = load i32, ptr %42, align 4, !tbaa !85
+  %44 = sext i32 %43 to i64
+  %45 = mul nsw i64 %44, 1000000
+  %46 = call i64 @Abc_Clock()
+  %47 = add nsw i64 %45, %46
+  br label %49
 
-47:                                               ; preds = %3
-  br label %48
+48:                                               ; preds = %3
+  br label %49
 
-48:                                               ; preds = %47, %37
-  %49 = phi i64 [ %46, %37 ], [ 0, %47 ]
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %50, i32 0, i32 56
-  store i64 %49, ptr %51, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %54, i32 0, i32 29
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %113
+49:                                               ; preds = %48, %38
+  %50 = phi i64 [ %47, %38 ], [ 0, %48 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %51, i32 0, i32 56
+  store i64 %50, ptr %52, align 8, !tbaa !86
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !55
+  %56 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %55, i32 0, i32 29
+  %57 = load i32, ptr %56, align 4, !tbaa !87
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %114
 
-58:                                               ; preds = %48
-  store i32 0, ptr %12, align 4
-  br label %59
+59:                                               ; preds = %49
+  store i32 0, ptr %12, align 4, !tbaa !8
+  br label %60
 
-59:                                               ; preds = %109, %58
-  %60 = load i32, ptr %12, align 4
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @Saig_ManPoNum(ptr noundef %63)
-  %65 = icmp slt i32 %60, %64
-  br i1 %65, label %66, label %74
+60:                                               ; preds = %110, %59
+  %61 = load i32, ptr %12, align 4, !tbaa !8
+  %62 = load ptr, ptr %5, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !83
+  %65 = call i32 @Saig_ManPoNum(ptr noundef %64)
+  %66 = icmp slt i32 %61, %65
+  br i1 %66, label %67, label %75
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.Aig_Man_t_, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %12, align 4
-  %73 = call ptr @Vec_PtrEntry(ptr noundef %71, i32 noundef %72)
-  store ptr %73, ptr %10, align 8
-  br label %74
+67:                                               ; preds = %60
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !83
+  %71 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %70, i32 0, i32 3
+  %72 = load ptr, ptr %71, align 8, !tbaa !88
+  %73 = load i32, ptr %12, align 4, !tbaa !8
+  %74 = call ptr @Vec_PtrEntry(ptr noundef %72, i32 noundef %73)
+  store ptr %74, ptr %10, align 8, !tbaa !95
+  br label %75
 
-74:                                               ; preds = %66, %59
-  %75 = phi i1 [ false, %59 ], [ true, %66 ]
-  br i1 %75, label %76, label %112
+75:                                               ; preds = %67, %60
+  %76 = phi i1 [ false, %60 ], [ true, %67 ]
+  br i1 %76, label %77, label %113
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr %10, align 8
-  %78 = call ptr @Aig_ObjChild0(ptr noundef %77)
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = call ptr @Aig_ManConst0(ptr noundef %81)
-  %83 = icmp eq ptr %78, %82
-  br i1 %83, label %84, label %108
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %10, align 8, !tbaa !95
+  %79 = call ptr @Aig_ObjChild0(ptr noundef %78)
+  %80 = load ptr, ptr %5, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !83
+  %83 = call ptr @Aig_ManConst0(ptr noundef %82)
+  %84 = icmp eq ptr %79, %83
+  br i1 %84, label %85, label %109
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %87, i32 0, i32 41
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr %12, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %89, i32 noundef %90, i32 noundef 1)
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %93, i32 0, i32 35
-  %95 = load i32, ptr %94, align 4
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %94, align 4
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %99, i32 0, i32 31
-  %101 = load i32, ptr %100, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %107
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %5, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8, !tbaa !55
+  %89 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %88, i32 0, i32 41
+  %90 = load ptr, ptr %89, align 8, !tbaa !96
+  %91 = load i32, ptr %12, align 4, !tbaa !8
+  call void @Vec_IntWriteEntry(ptr noundef %90, i32 noundef %91, i32 noundef 1)
+  %92 = load ptr, ptr %5, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8, !tbaa !55
+  %95 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %94, i32 0, i32 35
+  %96 = load i32, ptr %95, align 4, !tbaa !97
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %95, align 4, !tbaa !97
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %98, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8, !tbaa !55
+  %101 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %100, i32 0, i32 31
+  %102 = load i32, ptr %101, align 4, !tbaa !98
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %108
 
-103:                                              ; preds = %84
-  %104 = load ptr, ptr @stdout, align 8
-  %105 = load i32, ptr %12, align 4
-  %106 = call i32 @Gia_ManToBridgeResult(ptr noundef %104, i32 noundef 1, ptr noundef null, i32 noundef %105)
-  br label %107
-
-107:                                              ; preds = %103, %84
+104:                                              ; preds = %85
+  %105 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %106 = load i32, ptr %12, align 4, !tbaa !8
+  %107 = call i32 @Gia_ManToBridgeResult(ptr noundef %105, i32 noundef 1, ptr noundef null, i32 noundef %106)
   br label %108
 
-108:                                              ; preds = %107, %76
+108:                                              ; preds = %104, %85
   br label %109
 
-109:                                              ; preds = %108
-  %110 = load i32, ptr %12, align 4
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %12, align 4
-  br label %59, !llvm.loop !29
+109:                                              ; preds = %108, %77
+  br label %110
 
-112:                                              ; preds = %74
-  br label %113
+110:                                              ; preds = %109
+  %111 = load i32, ptr %12, align 4, !tbaa !8
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %12, align 4, !tbaa !8
+  br label %60, !llvm.loop !99
 
-113:                                              ; preds = %112, %48
-  %114 = call i64 @Abc_Clock()
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %115, i32 0, i32 0
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %117, i32 0, i32 40
-  store i64 %114, ptr %118, align 8
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %119, i32 0, i32 14
-  %121 = load ptr, ptr %120, align 8
-  %122 = call i32 @Vec_VecSize(ptr noundef %121)
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %127
+113:                                              ; preds = %75
+  br label %114
 
-124:                                              ; preds = %113
-  %125 = load ptr, ptr %5, align 8
-  store i32 0, ptr %12, align 4
-  %126 = call ptr @Pdr_ManCreateSolver(ptr noundef %125, i32 noundef 0)
-  br label %232
+114:                                              ; preds = %113, %49
+  %115 = call i64 @Abc_Clock()
+  %116 = load ptr, ptr %5, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8, !tbaa !55
+  %119 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %118, i32 0, i32 40
+  store i64 %115, ptr %119, align 8, !tbaa !100
+  %120 = load ptr, ptr %5, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %120, i32 0, i32 14
+  %122 = load ptr, ptr %121, align 8, !tbaa !10
+  %123 = call i32 @Vec_VecSize(ptr noundef %122)
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %128
 
-127:                                              ; preds = %113
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %128, i32 0, i32 14
-  %130 = load ptr, ptr %129, align 8
-  %131 = call i32 @Vec_VecSize(ptr noundef %130)
-  %132 = sub nsw i32 %131, 1
-  store i32 %132, ptr %12, align 4
-  %133 = load i32, ptr %6, align 4
-  %134 = icmp ne i32 %133, 0
-  br i1 %134, label %135, label %156
+125:                                              ; preds = %114
+  %126 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %12, align 4, !tbaa !8
+  %127 = call ptr @Pdr_ManCreateSolver(ptr noundef %126, i32 noundef 0)
+  br label %233
 
-135:                                              ; preds = %127
-  %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %136, i32 0, i32 0
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %138, i32 0, i32 25
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %145
+128:                                              ; preds = %114
+  %129 = load ptr, ptr %5, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %129, i32 0, i32 14
+  %131 = load ptr, ptr %130, align 8, !tbaa !10
+  %132 = call i32 @Vec_VecSize(ptr noundef %131)
+  %133 = sub nsw i32 %132, 1
+  store i32 %133, ptr %12, align 4, !tbaa !8
+  %134 = load i32, ptr %6, align 4, !tbaa !8
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %157
 
-142:                                              ; preds = %135
-  %143 = load i32, ptr %12, align 4
-  %144 = add nsw i32 %143, 1
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.5, i32 noundef %144)
-  br label %145
+136:                                              ; preds = %128
+  %137 = load ptr, ptr %5, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8, !tbaa !55
+  %140 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %139, i32 0, i32 25
+  %141 = load i32, ptr %140, align 4, !tbaa !101
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %143, label %146
 
-145:                                              ; preds = %142, %135
-  %146 = load ptr, ptr %5, align 8
-  %147 = call i32 @IPdr_ManCheckClauses(ptr noundef %146)
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %148, i32 0, i32 0
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %150, i32 0, i32 25
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp ne i32 %152, 0
-  br i1 %153, label %154, label %155
+143:                                              ; preds = %136
+  %144 = load i32, ptr %12, align 4, !tbaa !8
+  %145 = add nsw i32 %144, 1
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.5, i32 noundef %145)
+  br label %146
 
-154:                                              ; preds = %145
+146:                                              ; preds = %143, %136
+  %147 = load ptr, ptr %5, align 8, !tbaa !3
+  %148 = call i32 @IPdr_ManCheckClauses(ptr noundef %147)
+  %149 = load ptr, ptr %5, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8, !tbaa !55
+  %152 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %151, i32 0, i32 25
+  %153 = load i32, ptr %152, align 4, !tbaa !101
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %156
+
+155:                                              ; preds = %146
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.6)
-  br label %155
-
-155:                                              ; preds = %154, %145
   br label %156
 
-156:                                              ; preds = %155, %127
-  %157 = load i32, ptr %7, align 4
-  %158 = icmp ne i32 %157, 0
-  br i1 %158, label %159, label %196
+156:                                              ; preds = %155, %146
+  br label %157
 
-159:                                              ; preds = %156
-  %160 = load i32, ptr %12, align 4
-  %161 = call i32 @Abc_MaxInt(i32 noundef %160, i32 noundef 1)
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %162, i32 0, i32 18
-  store i32 %161, ptr %163, align 8
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %164, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %166, i32 0, i32 25
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %175
+157:                                              ; preds = %156, %128
+  %158 = load i32, ptr %7, align 4, !tbaa !8
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %160, label %197
 
-170:                                              ; preds = %159
+160:                                              ; preds = %157
+  %161 = load i32, ptr %12, align 4, !tbaa !8
+  %162 = call i32 @Abc_MaxInt(i32 noundef %161, i32 noundef 1)
+  %163 = load ptr, ptr %5, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %163, i32 0, i32 18
+  store i32 %162, ptr %164, align 8, !tbaa !102
+  %165 = load ptr, ptr %5, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %165, i32 0, i32 0
+  %167 = load ptr, ptr %166, align 8, !tbaa !55
+  %168 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %167, i32 0, i32 25
+  %169 = load i32, ptr %168, align 4, !tbaa !101
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %171, label %176
+
+171:                                              ; preds = %160
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.7)
-  %171 = load ptr, ptr %5, align 8
-  %172 = call i64 @Abc_Clock()
-  %173 = load i64, ptr %15, align 8
-  %174 = sub nsw i64 %172, %173
-  call void @Pdr_ManPrintProgress(ptr noundef %171, i32 noundef 1, i64 noundef %174)
-  br label %175
+  %172 = load ptr, ptr %5, align 8, !tbaa !3
+  %173 = call i64 @Abc_Clock()
+  %174 = load i64, ptr %15, align 8, !tbaa !84
+  %175 = sub nsw i64 %173, %174
+  call void @Pdr_ManPrintProgress(ptr noundef %172, i32 noundef 1, i64 noundef %175)
+  br label %176
 
-175:                                              ; preds = %170, %159
-  %176 = load ptr, ptr %5, align 8
-  %177 = call i32 @Pdr_ManPushClauses(ptr noundef %176)
-  store i32 %177, ptr %13, align 4
-  %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %178, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %180, i32 0, i32 25
-  %182 = load i32, ptr %181, align 4
-  %183 = icmp ne i32 %182, 0
-  br i1 %183, label %184, label %189
+176:                                              ; preds = %171, %160
+  %177 = load ptr, ptr %5, align 8, !tbaa !3
+  %178 = call i32 @Pdr_ManPushClauses(ptr noundef %177)
+  store i32 %178, ptr %13, align 4, !tbaa !8
+  %179 = load ptr, ptr %5, align 8, !tbaa !3
+  %180 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %179, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8, !tbaa !55
+  %182 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %181, i32 0, i32 25
+  %183 = load i32, ptr %182, align 4, !tbaa !101
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %190
 
-184:                                              ; preds = %175
+185:                                              ; preds = %176
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.8)
-  %185 = load ptr, ptr %5, align 8
-  %186 = call i64 @Abc_Clock()
-  %187 = load i64, ptr %15, align 8
-  %188 = sub nsw i64 %186, %187
-  call void @Pdr_ManPrintProgress(ptr noundef %185, i32 noundef 1, i64 noundef %188)
-  br label %189
+  %186 = load ptr, ptr %5, align 8, !tbaa !3
+  %187 = call i64 @Abc_Clock()
+  %188 = load i64, ptr %15, align 8, !tbaa !84
+  %189 = sub nsw i64 %187, %188
+  call void @Pdr_ManPrintProgress(ptr noundef %186, i32 noundef 1, i64 noundef %189)
+  br label %190
 
-189:                                              ; preds = %184, %175
-  %190 = load i32, ptr %13, align 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %192, label %195
+190:                                              ; preds = %185, %176
+  %191 = load i32, ptr %13, align 4, !tbaa !8
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %193, label %196
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %5, align 8
-  call void @Pdr_ManReportInvariant(ptr noundef %193)
-  %194 = load ptr, ptr %5, align 8
-  call void @Pdr_ManVerifyInvariant(ptr noundef %194)
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManReportInvariant(ptr noundef %194)
+  %195 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManVerifyInvariant(ptr noundef %195)
   store i32 1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1810
 
-195:                                              ; preds = %189
-  br label %196
+196:                                              ; preds = %190
+  br label %197
 
-196:                                              ; preds = %195, %156
-  %197 = load ptr, ptr %5, align 8
-  %198 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %197, i32 0, i32 0
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %199, i32 0, i32 23
-  %201 = load i32, ptr %200, align 4
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %231
+197:                                              ; preds = %196, %157
+  %198 = load ptr, ptr %5, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %198, i32 0, i32 0
+  %200 = load ptr, ptr %199, align 8, !tbaa !55
+  %201 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %200, i32 0, i32 23
+  %202 = load i32, ptr %201, align 4, !tbaa !103
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %232
 
-203:                                              ; preds = %196
-  %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %204, i32 0, i32 20
-  %206 = load ptr, ptr %205, align 8
-  %207 = icmp eq ptr %206, null
-  br i1 %207, label %208, label %231
+204:                                              ; preds = %197
+  %205 = load ptr, ptr %5, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %205, i32 0, i32 20
+  %207 = load ptr, ptr %206, align 8, !tbaa !74
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %209, label %232
 
-208:                                              ; preds = %203
-  %209 = load i32, ptr %12, align 4
-  %210 = icmp sge i32 %209, 1
-  br i1 %210, label %211, label %231
+209:                                              ; preds = %204
+  %210 = load i32, ptr %12, align 4, !tbaa !8
+  %211 = icmp sge i32 %210, 1
+  br i1 %211, label %212, label %232
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %5, align 8
-  %213 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %212, i32 0, i32 1
-  %214 = load ptr, ptr %213, align 8
-  %215 = call i32 @Saig_ManRegNum(ptr noundef %214)
-  %216 = call ptr @Vec_IntStart(i32 noundef %215)
-  %217 = load ptr, ptr %5, align 8
-  %218 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %217, i32 0, i32 20
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %219, i32 0, i32 1
-  %221 = load ptr, ptr %220, align 8
-  %222 = call i32 @Saig_ManRegNum(ptr noundef %221)
-  %223 = call ptr @Vec_IntStartFull(i32 noundef %222)
-  %224 = load ptr, ptr %5, align 8
-  %225 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %224, i32 0, i32 21
-  store ptr %223, ptr %225, align 8
-  %226 = call ptr @Vec_IntAlloc(i32 noundef 100)
-  %227 = load ptr, ptr %5, align 8
-  %228 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %227, i32 0, i32 22
-  store ptr %226, ptr %228, align 8
-  %229 = load ptr, ptr %5, align 8
-  %230 = call i32 @IPdr_ManRestoreAbsFlops(ptr noundef %229)
-  br label %231
-
-231:                                              ; preds = %211, %208, %203, %196
+212:                                              ; preds = %209
+  %213 = load ptr, ptr %5, align 8, !tbaa !3
+  %214 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %213, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8, !tbaa !83
+  %216 = call i32 @Saig_ManRegNum(ptr noundef %215)
+  %217 = call ptr @Vec_IntStart(i32 noundef %216)
+  %218 = load ptr, ptr %5, align 8, !tbaa !3
+  %219 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %218, i32 0, i32 20
+  store ptr %217, ptr %219, align 8, !tbaa !74
+  %220 = load ptr, ptr %5, align 8, !tbaa !3
+  %221 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %220, i32 0, i32 1
+  %222 = load ptr, ptr %221, align 8, !tbaa !83
+  %223 = call i32 @Saig_ManRegNum(ptr noundef %222)
+  %224 = call ptr @Vec_IntStartFull(i32 noundef %223)
+  %225 = load ptr, ptr %5, align 8, !tbaa !3
+  %226 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %225, i32 0, i32 21
+  store ptr %224, ptr %226, align 8, !tbaa !104
+  %227 = call ptr @Vec_IntAlloc(i32 noundef 100)
+  %228 = load ptr, ptr %5, align 8, !tbaa !3
+  %229 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %228, i32 0, i32 22
+  store ptr %227, ptr %229, align 8, !tbaa !105
+  %230 = load ptr, ptr %5, align 8, !tbaa !3
+  %231 = call i32 @IPdr_ManRestoreAbsFlops(ptr noundef %230)
   br label %232
 
-232:                                              ; preds = %231, %124
+232:                                              ; preds = %212, %209, %204, %197
   br label %233
 
-233:                                              ; preds = %1803, %1400, %232
-  store i32 0, ptr %17, align 4
-  %234 = load ptr, ptr %5, align 8
-  %235 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %234, i32 0, i32 0
-  %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %236, i32 0, i32 23
-  %238 = load i32, ptr %237, align 4
-  %239 = icmp ne i32 %238, 0
-  br i1 %239, label %240, label %266
+233:                                              ; preds = %232, %125
+  br label %234
 
-240:                                              ; preds = %233
-  %241 = load ptr, ptr %5, align 8
-  %242 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %241, i32 0, i32 20
-  %243 = load ptr, ptr %242, align 8
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %245, label %266
+234:                                              ; preds = %1809, %1807, %233
+  br label %235
 
-245:                                              ; preds = %240
-  %246 = load i32, ptr %12, align 4
-  %247 = icmp eq i32 %246, 1
-  br i1 %247, label %248, label %266
+235:                                              ; preds = %234
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
+  store i32 0, ptr %18, align 4, !tbaa !8
+  %236 = load ptr, ptr %5, align 8, !tbaa !3
+  %237 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %236, i32 0, i32 0
+  %238 = load ptr, ptr %237, align 8, !tbaa !55
+  %239 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %238, i32 0, i32 23
+  %240 = load i32, ptr %239, align 4, !tbaa !103
+  %241 = icmp ne i32 %240, 0
+  br i1 %241, label %242, label %268
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr %5, align 8
-  %250 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %249, i32 0, i32 1
-  %251 = load ptr, ptr %250, align 8
-  %252 = call i32 @Saig_ManRegNum(ptr noundef %251)
-  %253 = call ptr @Vec_IntStart(i32 noundef %252)
-  %254 = load ptr, ptr %5, align 8
-  %255 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %254, i32 0, i32 20
-  store ptr %253, ptr %255, align 8
-  %256 = load ptr, ptr %5, align 8
-  %257 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %256, i32 0, i32 1
-  %258 = load ptr, ptr %257, align 8
-  %259 = call i32 @Saig_ManRegNum(ptr noundef %258)
-  %260 = call ptr @Vec_IntStartFull(i32 noundef %259)
-  %261 = load ptr, ptr %5, align 8
-  %262 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %261, i32 0, i32 21
-  store ptr %260, ptr %262, align 8
-  %263 = call ptr @Vec_IntAlloc(i32 noundef 100)
-  %264 = load ptr, ptr %5, align 8
-  %265 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %264, i32 0, i32 22
-  store ptr %263, ptr %265, align 8
-  br label %266
+242:                                              ; preds = %235
+  %243 = load ptr, ptr %5, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %243, i32 0, i32 20
+  %245 = load ptr, ptr %244, align 8, !tbaa !74
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %247, label %268
 
-266:                                              ; preds = %248, %245, %240, %233
-  %267 = load i32, ptr %12, align 4
-  %268 = load ptr, ptr %5, align 8
-  %269 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %268, i32 0, i32 46
-  store i32 %267, ptr %269, align 4
-  %270 = load i32, ptr %12, align 4
-  %271 = call i32 @Abc_MaxInt(i32 noundef %270, i32 noundef 1)
-  %272 = load ptr, ptr %5, align 8
-  %273 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %272, i32 0, i32 18
-  store i32 %271, ptr %273, align 8
-  %274 = load ptr, ptr %5, align 8
-  %275 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %274, i32 0, i32 10
-  store i32 0, ptr %275, align 8
-  br label %276
+247:                                              ; preds = %242
+  %248 = load i32, ptr %12, align 4, !tbaa !8
+  %249 = icmp eq i32 %248, 1
+  br i1 %249, label %250, label %268
 
-276:                                              ; preds = %1296, %266
-  %277 = load ptr, ptr %5, align 8
-  %278 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %277, i32 0, i32 10
-  %279 = load i32, ptr %278, align 8
-  %280 = load ptr, ptr %5, align 8
-  %281 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %280, i32 0, i32 1
-  %282 = load ptr, ptr %281, align 8
-  %283 = call i32 @Saig_ManPoNum(ptr noundef %282)
-  %284 = icmp slt i32 %279, %283
-  br i1 %284, label %285, label %295
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %5, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8, !tbaa !83
+  %254 = call i32 @Saig_ManRegNum(ptr noundef %253)
+  %255 = call ptr @Vec_IntStart(i32 noundef %254)
+  %256 = load ptr, ptr %5, align 8, !tbaa !3
+  %257 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %256, i32 0, i32 20
+  store ptr %255, ptr %257, align 8, !tbaa !74
+  %258 = load ptr, ptr %5, align 8, !tbaa !3
+  %259 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %259, align 8, !tbaa !83
+  %261 = call i32 @Saig_ManRegNum(ptr noundef %260)
+  %262 = call ptr @Vec_IntStartFull(i32 noundef %261)
+  %263 = load ptr, ptr %5, align 8, !tbaa !3
+  %264 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %263, i32 0, i32 21
+  store ptr %262, ptr %264, align 8, !tbaa !104
+  %265 = call ptr @Vec_IntAlloc(i32 noundef 100)
+  %266 = load ptr, ptr %5, align 8, !tbaa !3
+  %267 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %266, i32 0, i32 22
+  store ptr %265, ptr %267, align 8, !tbaa !105
+  br label %268
 
-285:                                              ; preds = %276
-  %286 = load ptr, ptr %5, align 8
-  %287 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %286, i32 0, i32 1
-  %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds %struct.Aig_Man_t_, ptr %288, i32 0, i32 3
-  %290 = load ptr, ptr %289, align 8
-  %291 = load ptr, ptr %5, align 8
-  %292 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %291, i32 0, i32 10
-  %293 = load i32, ptr %292, align 8
-  %294 = call ptr @Vec_PtrEntry(ptr noundef %290, i32 noundef %293)
-  store ptr %294, ptr %10, align 8
-  br label %295
+268:                                              ; preds = %250, %247, %242, %235
+  %269 = load i32, ptr %12, align 4, !tbaa !8
+  %270 = load ptr, ptr %5, align 8, !tbaa !3
+  %271 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %270, i32 0, i32 46
+  store i32 %269, ptr %271, align 4, !tbaa !106
+  %272 = load i32, ptr %12, align 4, !tbaa !8
+  %273 = call i32 @Abc_MaxInt(i32 noundef %272, i32 noundef 1)
+  %274 = load ptr, ptr %5, align 8, !tbaa !3
+  %275 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %274, i32 0, i32 18
+  store i32 %273, ptr %275, align 8, !tbaa !102
+  %276 = load ptr, ptr %5, align 8, !tbaa !3
+  %277 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %276, i32 0, i32 10
+  store i32 0, ptr %277, align 8, !tbaa !107
+  br label %278
 
-295:                                              ; preds = %285, %276
-  %296 = phi i1 [ false, %276 ], [ true, %285 ]
-  br i1 %296, label %297, label %1301
+278:                                              ; preds = %1299, %268
+  %279 = load ptr, ptr %5, align 8, !tbaa !3
+  %280 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %279, i32 0, i32 10
+  %281 = load i32, ptr %280, align 8, !tbaa !107
+  %282 = load ptr, ptr %5, align 8, !tbaa !3
+  %283 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %282, i32 0, i32 1
+  %284 = load ptr, ptr %283, align 8, !tbaa !83
+  %285 = call i32 @Saig_ManPoNum(ptr noundef %284)
+  %286 = icmp slt i32 %281, %285
+  br i1 %286, label %287, label %297
 
-297:                                              ; preds = %295
-  %298 = load ptr, ptr %5, align 8
-  %299 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %298, i32 0, i32 12
-  %300 = load ptr, ptr %299, align 8
-  %301 = icmp ne ptr %300, null
-  br i1 %301, label %302, label %312
+287:                                              ; preds = %278
+  %288 = load ptr, ptr %5, align 8, !tbaa !3
+  %289 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %288, i32 0, i32 1
+  %290 = load ptr, ptr %289, align 8, !tbaa !83
+  %291 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %290, i32 0, i32 3
+  %292 = load ptr, ptr %291, align 8, !tbaa !88
+  %293 = load ptr, ptr %5, align 8, !tbaa !3
+  %294 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %293, i32 0, i32 10
+  %295 = load i32, ptr %294, align 8, !tbaa !107
+  %296 = call ptr @Vec_PtrEntry(ptr noundef %292, i32 noundef %295)
+  store ptr %296, ptr %10, align 8, !tbaa !95
+  br label %297
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %5, align 8
-  %304 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %303, i32 0, i32 12
-  %305 = load ptr, ptr %304, align 8
-  %306 = load ptr, ptr %5, align 8
-  %307 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %306, i32 0, i32 10
-  %308 = load i32, ptr %307, align 8
-  %309 = call ptr @Vec_PtrEntry(ptr noundef %305, i32 noundef %308)
-  %310 = icmp ne ptr %309, null
-  br i1 %310, label %311, label %312
+297:                                              ; preds = %287, %278
+  %298 = phi i1 [ false, %278 ], [ true, %287 ]
+  br i1 %298, label %299, label %1304
 
-311:                                              ; preds = %302
-  br label %1296
+299:                                              ; preds = %297
+  %300 = load ptr, ptr %5, align 8, !tbaa !3
+  %301 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %300, i32 0, i32 12
+  %302 = load ptr, ptr %301, align 8, !tbaa !108
+  %303 = icmp ne ptr %302, null
+  br i1 %303, label %304, label %314
 
-312:                                              ; preds = %302, %297
-  %313 = load ptr, ptr %5, align 8
-  %314 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %313, i32 0, i32 37
-  %315 = load ptr, ptr %314, align 8
-  %316 = icmp ne ptr %315, null
-  br i1 %316, label %317, label %329
+304:                                              ; preds = %299
+  %305 = load ptr, ptr %5, align 8, !tbaa !3
+  %306 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %305, i32 0, i32 12
+  %307 = load ptr, ptr %306, align 8, !tbaa !108
+  %308 = load ptr, ptr %5, align 8, !tbaa !3
+  %309 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %308, i32 0, i32 10
+  %310 = load i32, ptr %309, align 8, !tbaa !107
+  %311 = call ptr @Vec_PtrEntry(ptr noundef %307, i32 noundef %310)
+  %312 = icmp ne ptr %311, null
+  br i1 %312, label %313, label %314
 
-317:                                              ; preds = %312
-  %318 = load ptr, ptr %5, align 8
-  %319 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %318, i32 0, i32 37
-  %320 = load ptr, ptr %319, align 8
-  %321 = load ptr, ptr %5, align 8
-  %322 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %321, i32 0, i32 10
-  %323 = load i32, ptr %322, align 8
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i64, ptr %320, i64 %324
-  %326 = load i64, ptr %325, align 8
-  %327 = icmp eq i64 %326, 0
-  br i1 %327, label %328, label %329
+313:                                              ; preds = %304
+  br label %1299
 
-328:                                              ; preds = %317
-  br label %1296
+314:                                              ; preds = %304, %299
+  %315 = load ptr, ptr %5, align 8, !tbaa !3
+  %316 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %315, i32 0, i32 37
+  %317 = load ptr, ptr %316, align 8, !tbaa !109
+  %318 = icmp ne ptr %317, null
+  br i1 %318, label %319, label %331
 
-329:                                              ; preds = %317, %312
-  %330 = load ptr, ptr %10, align 8
-  %331 = call ptr @Aig_ObjChild0(ptr noundef %330)
-  %332 = load ptr, ptr %5, align 8
-  %333 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %332, i32 0, i32 1
-  %334 = load ptr, ptr %333, align 8
-  %335 = call ptr @Aig_ManConst0(ptr noundef %334)
-  %336 = icmp eq ptr %331, %335
-  br i1 %336, label %337, label %338
+319:                                              ; preds = %314
+  %320 = load ptr, ptr %5, align 8, !tbaa !3
+  %321 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %320, i32 0, i32 37
+  %322 = load ptr, ptr %321, align 8, !tbaa !109
+  %323 = load ptr, ptr %5, align 8, !tbaa !3
+  %324 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %323, i32 0, i32 10
+  %325 = load i32, ptr %324, align 8, !tbaa !107
+  %326 = sext i32 %325 to i64
+  %327 = getelementptr inbounds i64, ptr %322, i64 %326
+  %328 = load i64, ptr %327, align 8, !tbaa !84
+  %329 = icmp eq i64 %328, 0
+  br i1 %329, label %330, label %331
 
-337:                                              ; preds = %329
-  br label %1296
+330:                                              ; preds = %319
+  br label %1299
 
-338:                                              ; preds = %329
-  %339 = load ptr, ptr %10, align 8
-  %340 = call ptr @Aig_ObjChild0(ptr noundef %339)
-  %341 = load ptr, ptr %5, align 8
-  %342 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %341, i32 0, i32 1
-  %343 = load ptr, ptr %342, align 8
-  %344 = call ptr @Aig_ManConst1(ptr noundef %343)
-  %345 = icmp eq ptr %340, %344
-  br i1 %345, label %346, label %583
+331:                                              ; preds = %319, %314
+  %332 = load ptr, ptr %10, align 8, !tbaa !95
+  %333 = call ptr @Aig_ObjChild0(ptr noundef %332)
+  %334 = load ptr, ptr %5, align 8, !tbaa !3
+  %335 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %334, i32 0, i32 1
+  %336 = load ptr, ptr %335, align 8, !tbaa !83
+  %337 = call ptr @Aig_ManConst0(ptr noundef %336)
+  %338 = icmp eq ptr %333, %337
+  br i1 %338, label %339, label %340
 
-346:                                              ; preds = %338
-  %347 = load ptr, ptr %5, align 8
-  %348 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %347, i32 0, i32 0
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %349, i32 0, i32 29
-  %351 = load i32, ptr %350, align 4
-  %352 = icmp ne i32 %351, 0
-  br i1 %352, label %382, label %353
+339:                                              ; preds = %331
+  br label %1299
 
-353:                                              ; preds = %346
-  %354 = load ptr, ptr %5, align 8
-  %355 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %354, i32 0, i32 1
-  %356 = load ptr, ptr %355, align 8
-  %357 = call i32 @Aig_ManRegNum(ptr noundef %356)
-  %358 = load ptr, ptr %5, align 8
-  %359 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %358, i32 0, i32 1
-  %360 = load ptr, ptr %359, align 8
-  %361 = call i32 @Saig_ManPiNum(ptr noundef %360)
-  %362 = load ptr, ptr %5, align 8
-  %363 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %362, i32 0, i32 1
-  %364 = load ptr, ptr %363, align 8
-  %365 = call i32 @Saig_ManPoNum(ptr noundef %364)
-  %366 = load i32, ptr %12, align 4
-  %367 = load ptr, ptr %5, align 8
-  %368 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %367, i32 0, i32 1
-  %369 = load ptr, ptr %368, align 8
-  %370 = call i32 @Saig_ManPoNum(ptr noundef %369)
-  %371 = mul nsw i32 %366, %370
-  %372 = load ptr, ptr %5, align 8
-  %373 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %372, i32 0, i32 10
-  %374 = load i32, ptr %373, align 8
-  %375 = add nsw i32 %371, %374
-  %376 = call ptr @Abc_CexMakeTriv(i32 noundef %357, i32 noundef %361, i32 noundef %365, i32 noundef %375)
-  store ptr %376, ptr %11, align 8
-  %377 = load ptr, ptr %11, align 8
-  %378 = load ptr, ptr %5, align 8
-  %379 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %378, i32 0, i32 1
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds %struct.Aig_Man_t_, ptr %380, i32 0, i32 51
-  store ptr %377, ptr %381, align 8
+340:                                              ; preds = %331
+  %341 = load ptr, ptr %10, align 8, !tbaa !95
+  %342 = call ptr @Aig_ObjChild0(ptr noundef %341)
+  %343 = load ptr, ptr %5, align 8, !tbaa !3
+  %344 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %343, i32 0, i32 1
+  %345 = load ptr, ptr %344, align 8, !tbaa !83
+  %346 = call ptr @Aig_ManConst1(ptr noundef %345)
+  %347 = icmp eq ptr %342, %346
+  br i1 %347, label %348, label %584
+
+348:                                              ; preds = %340
+  %349 = load ptr, ptr %5, align 8, !tbaa !3
+  %350 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %349, i32 0, i32 0
+  %351 = load ptr, ptr %350, align 8, !tbaa !55
+  %352 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %351, i32 0, i32 29
+  %353 = load i32, ptr %352, align 4, !tbaa !87
+  %354 = icmp ne i32 %353, 0
+  br i1 %354, label %384, label %355
+
+355:                                              ; preds = %348
+  %356 = load ptr, ptr %5, align 8, !tbaa !3
+  %357 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %356, i32 0, i32 1
+  %358 = load ptr, ptr %357, align 8, !tbaa !83
+  %359 = call i32 @Aig_ManRegNum(ptr noundef %358)
+  %360 = load ptr, ptr %5, align 8, !tbaa !3
+  %361 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %360, i32 0, i32 1
+  %362 = load ptr, ptr %361, align 8, !tbaa !83
+  %363 = call i32 @Saig_ManPiNum(ptr noundef %362)
+  %364 = load ptr, ptr %5, align 8, !tbaa !3
+  %365 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %364, i32 0, i32 1
+  %366 = load ptr, ptr %365, align 8, !tbaa !83
+  %367 = call i32 @Saig_ManPoNum(ptr noundef %366)
+  %368 = load i32, ptr %12, align 4, !tbaa !8
+  %369 = load ptr, ptr %5, align 8, !tbaa !3
+  %370 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %369, i32 0, i32 1
+  %371 = load ptr, ptr %370, align 8, !tbaa !83
+  %372 = call i32 @Saig_ManPoNum(ptr noundef %371)
+  %373 = mul nsw i32 %368, %372
+  %374 = load ptr, ptr %5, align 8, !tbaa !3
+  %375 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %374, i32 0, i32 10
+  %376 = load i32, ptr %375, align 8, !tbaa !107
+  %377 = add nsw i32 %373, %376
+  %378 = call ptr @Abc_CexMakeTriv(i32 noundef %359, i32 noundef %363, i32 noundef %367, i32 noundef %377)
+  store ptr %378, ptr %11, align 8, !tbaa !110
+  %379 = load ptr, ptr %11, align 8, !tbaa !110
+  %380 = load ptr, ptr %5, align 8, !tbaa !3
+  %381 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %380, i32 0, i32 1
+  %382 = load ptr, ptr %381, align 8, !tbaa !83
+  %383 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %382, i32 0, i32 51
+  store ptr %379, ptr %383, align 8, !tbaa !111
   store i32 0, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-382:                                              ; preds = %346
-  %383 = load ptr, ptr %5, align 8
-  %384 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %383, i32 0, i32 0
-  %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %385, i32 0, i32 31
-  %387 = load i32, ptr %386, align 4
-  %388 = icmp ne i32 %387, 0
-  br i1 %388, label %396, label %389
+384:                                              ; preds = %348
+  %385 = load ptr, ptr %5, align 8, !tbaa !3
+  %386 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %385, i32 0, i32 0
+  %387 = load ptr, ptr %386, align 8, !tbaa !55
+  %388 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %387, i32 0, i32 31
+  %389 = load i32, ptr %388, align 4, !tbaa !98
+  %390 = icmp ne i32 %389, 0
+  br i1 %390, label %398, label %391
 
-389:                                              ; preds = %382
-  %390 = load ptr, ptr %5, align 8
-  %391 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %390, i32 0, i32 0
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %392, i32 0, i32 30
-  %394 = load i32, ptr %393, align 8
-  %395 = icmp ne i32 %394, 0
-  br i1 %395, label %396, label %420
+391:                                              ; preds = %384
+  %392 = load ptr, ptr %5, align 8, !tbaa !3
+  %393 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %392, i32 0, i32 0
+  %394 = load ptr, ptr %393, align 8, !tbaa !55
+  %395 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %394, i32 0, i32 30
+  %396 = load i32, ptr %395, align 8, !tbaa !112
+  %397 = icmp ne i32 %396, 0
+  br i1 %397, label %398, label %422
 
-396:                                              ; preds = %389, %382
-  %397 = load ptr, ptr %5, align 8
-  %398 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %397, i32 0, i32 1
-  %399 = load ptr, ptr %398, align 8
-  %400 = call i32 @Aig_ManRegNum(ptr noundef %399)
-  %401 = load ptr, ptr %5, align 8
-  %402 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %401, i32 0, i32 1
-  %403 = load ptr, ptr %402, align 8
-  %404 = call i32 @Saig_ManPiNum(ptr noundef %403)
-  %405 = load ptr, ptr %5, align 8
-  %406 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %405, i32 0, i32 1
-  %407 = load ptr, ptr %406, align 8
-  %408 = call i32 @Saig_ManPoNum(ptr noundef %407)
-  %409 = load i32, ptr %12, align 4
-  %410 = load ptr, ptr %5, align 8
-  %411 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %410, i32 0, i32 1
-  %412 = load ptr, ptr %411, align 8
-  %413 = call i32 @Saig_ManPoNum(ptr noundef %412)
-  %414 = mul nsw i32 %409, %413
-  %415 = load ptr, ptr %5, align 8
-  %416 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %415, i32 0, i32 10
-  %417 = load i32, ptr %416, align 8
-  %418 = add nsw i32 %414, %417
-  %419 = call ptr @Abc_CexMakeTriv(i32 noundef %400, i32 noundef %404, i32 noundef %408, i32 noundef %418)
-  br label %422
+398:                                              ; preds = %391, %384
+  %399 = load ptr, ptr %5, align 8, !tbaa !3
+  %400 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %399, i32 0, i32 1
+  %401 = load ptr, ptr %400, align 8, !tbaa !83
+  %402 = call i32 @Aig_ManRegNum(ptr noundef %401)
+  %403 = load ptr, ptr %5, align 8, !tbaa !3
+  %404 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %403, i32 0, i32 1
+  %405 = load ptr, ptr %404, align 8, !tbaa !83
+  %406 = call i32 @Saig_ManPiNum(ptr noundef %405)
+  %407 = load ptr, ptr %5, align 8, !tbaa !3
+  %408 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %407, i32 0, i32 1
+  %409 = load ptr, ptr %408, align 8, !tbaa !83
+  %410 = call i32 @Saig_ManPoNum(ptr noundef %409)
+  %411 = load i32, ptr %12, align 4, !tbaa !8
+  %412 = load ptr, ptr %5, align 8, !tbaa !3
+  %413 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %412, i32 0, i32 1
+  %414 = load ptr, ptr %413, align 8, !tbaa !83
+  %415 = call i32 @Saig_ManPoNum(ptr noundef %414)
+  %416 = mul nsw i32 %411, %415
+  %417 = load ptr, ptr %5, align 8, !tbaa !3
+  %418 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %417, i32 0, i32 10
+  %419 = load i32, ptr %418, align 8, !tbaa !107
+  %420 = add nsw i32 %416, %419
+  %421 = call ptr @Abc_CexMakeTriv(i32 noundef %402, i32 noundef %406, i32 noundef %410, i32 noundef %420)
+  br label %423
 
-420:                                              ; preds = %389
-  %421 = inttoptr i64 1 to ptr
-  br label %422
+422:                                              ; preds = %391
+  br label %423
 
-422:                                              ; preds = %420, %396
-  %423 = phi ptr [ %419, %396 ], [ %421, %420 ]
-  store ptr %423, ptr %11, align 8
-  %424 = load ptr, ptr %5, align 8
-  %425 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %424, i32 0, i32 0
-  %426 = load ptr, ptr %425, align 8
-  %427 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %426, i32 0, i32 33
-  %428 = load i32, ptr %427, align 4
-  %429 = add nsw i32 %428, 1
-  store i32 %429, ptr %427, align 4
-  %430 = load ptr, ptr %5, align 8
-  %431 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %430, i32 0, i32 0
-  %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %432, i32 0, i32 41
-  %434 = load ptr, ptr %433, align 8
-  %435 = icmp ne ptr %434, null
-  br i1 %435, label %436, label %445
+423:                                              ; preds = %422, %398
+  %424 = phi ptr [ %421, %398 ], [ inttoptr (i64 1 to ptr), %422 ]
+  store ptr %424, ptr %11, align 8, !tbaa !110
+  %425 = load ptr, ptr %5, align 8, !tbaa !3
+  %426 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %425, i32 0, i32 0
+  %427 = load ptr, ptr %426, align 8, !tbaa !55
+  %428 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %427, i32 0, i32 33
+  %429 = load i32, ptr %428, align 4, !tbaa !113
+  %430 = add nsw i32 %429, 1
+  store i32 %430, ptr %428, align 4, !tbaa !113
+  %431 = load ptr, ptr %5, align 8, !tbaa !3
+  %432 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %431, i32 0, i32 0
+  %433 = load ptr, ptr %432, align 8, !tbaa !55
+  %434 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %433, i32 0, i32 41
+  %435 = load ptr, ptr %434, align 8, !tbaa !96
+  %436 = icmp ne ptr %435, null
+  br i1 %436, label %437, label %446
 
-436:                                              ; preds = %422
-  %437 = load ptr, ptr %5, align 8
-  %438 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %437, i32 0, i32 0
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %439, i32 0, i32 41
-  %441 = load ptr, ptr %440, align 8
-  %442 = load ptr, ptr %5, align 8
-  %443 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %442, i32 0, i32 10
-  %444 = load i32, ptr %443, align 8
-  call void @Vec_IntWriteEntry(ptr noundef %441, i32 noundef %444, i32 noundef 0)
-  br label %445
+437:                                              ; preds = %423
+  %438 = load ptr, ptr %5, align 8, !tbaa !3
+  %439 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %438, i32 0, i32 0
+  %440 = load ptr, ptr %439, align 8, !tbaa !55
+  %441 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %440, i32 0, i32 41
+  %442 = load ptr, ptr %441, align 8, !tbaa !96
+  %443 = load ptr, ptr %5, align 8, !tbaa !3
+  %444 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %443, i32 0, i32 10
+  %445 = load i32, ptr %444, align 8, !tbaa !107
+  call void @Vec_IntWriteEntry(ptr noundef %442, i32 noundef %445, i32 noundef 0)
+  br label %446
 
-445:                                              ; preds = %436, %422
-  %446 = load ptr, ptr %5, align 8
-  %447 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %446, i32 0, i32 0
-  %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %448, i32 0, i32 27
-  %450 = load i32, ptr %449, align 4
-  %451 = icmp ne i32 %450, 0
-  br i1 %451, label %469, label %452
+446:                                              ; preds = %437, %423
+  %447 = load ptr, ptr %5, align 8, !tbaa !3
+  %448 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %447, i32 0, i32 0
+  %449 = load ptr, ptr %448, align 8, !tbaa !55
+  %450 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %449, i32 0, i32 27
+  %451 = load i32, ptr %450, align 4, !tbaa !114
+  %452 = icmp ne i32 %451, 0
+  br i1 %452, label %470, label %453
 
-452:                                              ; preds = %445
-  %453 = load i32, ptr %14, align 4
-  %454 = load ptr, ptr %5, align 8
-  %455 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %454, i32 0, i32 10
-  %456 = load i32, ptr %455, align 8
-  %457 = load i32, ptr %12, align 4
-  %458 = load i32, ptr %14, align 4
-  %459 = load ptr, ptr %5, align 8
-  %460 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %459, i32 0, i32 0
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %461, i32 0, i32 33
-  %463 = load i32, ptr %462, align 4
-  %464 = load i32, ptr %14, align 4
-  %465 = load ptr, ptr %5, align 8
-  %466 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %465, i32 0, i32 1
-  %467 = load ptr, ptr %466, align 8
-  %468 = call i32 @Saig_ManPoNum(ptr noundef %467)
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, i32 noundef %453, i32 noundef %456, i32 noundef %457, i32 noundef %458, i32 noundef %463, i32 noundef %464, i32 noundef %468)
-  br label %469
+453:                                              ; preds = %446
+  %454 = load i32, ptr %14, align 4, !tbaa !8
+  %455 = load ptr, ptr %5, align 8, !tbaa !3
+  %456 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %455, i32 0, i32 10
+  %457 = load i32, ptr %456, align 8, !tbaa !107
+  %458 = load i32, ptr %12, align 4, !tbaa !8
+  %459 = load i32, ptr %14, align 4, !tbaa !8
+  %460 = load ptr, ptr %5, align 8, !tbaa !3
+  %461 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %460, i32 0, i32 0
+  %462 = load ptr, ptr %461, align 8, !tbaa !55
+  %463 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %462, i32 0, i32 33
+  %464 = load i32, ptr %463, align 4, !tbaa !113
+  %465 = load i32, ptr %14, align 4, !tbaa !8
+  %466 = load ptr, ptr %5, align 8, !tbaa !3
+  %467 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %466, i32 0, i32 1
+  %468 = load ptr, ptr %467, align 8, !tbaa !83
+  %469 = call i32 @Saig_ManPoNum(ptr noundef %468)
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, i32 noundef %454, i32 noundef %457, i32 noundef %458, i32 noundef %459, i32 noundef %464, i32 noundef %465, i32 noundef %469)
+  br label %470
 
-469:                                              ; preds = %452, %445
-  %470 = load ptr, ptr %5, align 8
-  %471 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %470, i32 0, i32 0
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %472, i32 0, i32 31
-  %474 = load i32, ptr %473, align 4
-  %475 = icmp ne i32 %474, 0
-  br i1 %475, label %476, label %483
+470:                                              ; preds = %453, %446
+  %471 = load ptr, ptr %5, align 8, !tbaa !3
+  %472 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %471, i32 0, i32 0
+  %473 = load ptr, ptr %472, align 8, !tbaa !55
+  %474 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %473, i32 0, i32 31
+  %475 = load i32, ptr %474, align 4, !tbaa !98
+  %476 = icmp ne i32 %475, 0
+  br i1 %476, label %477, label %484
 
-476:                                              ; preds = %469
-  %477 = load ptr, ptr @stdout, align 8
-  %478 = load ptr, ptr %11, align 8
-  %479 = load ptr, ptr %11, align 8
-  %480 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %479, i32 0, i32 0
-  %481 = load i32, ptr %480, align 4
-  %482 = call i32 @Gia_ManToBridgeResult(ptr noundef %477, i32 noundef 0, ptr noundef %478, i32 noundef %481)
-  br label %483
+477:                                              ; preds = %470
+  %478 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %479 = load ptr, ptr %11, align 8, !tbaa !110
+  %480 = load ptr, ptr %11, align 8, !tbaa !110
+  %481 = getelementptr inbounds nuw %struct.Abc_Cex_t_, ptr %480, i32 0, i32 0
+  %482 = load i32, ptr %481, align 4, !tbaa !115
+  %483 = call i32 @Gia_ManToBridgeResult(ptr noundef %478, i32 noundef 0, ptr noundef %479, i32 noundef %482)
+  br label %484
 
-483:                                              ; preds = %476, %469
-  %484 = load ptr, ptr %5, align 8
-  %485 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %484, i32 0, i32 12
-  %486 = load ptr, ptr %485, align 8
-  %487 = load ptr, ptr %5, align 8
-  %488 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %487, i32 0, i32 10
-  %489 = load i32, ptr %488, align 8
-  %490 = load ptr, ptr %11, align 8
-  call void @Vec_PtrWriteEntry(ptr noundef %486, i32 noundef %489, ptr noundef %490)
-  %491 = load ptr, ptr %5, align 8
-  %492 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %491, i32 0, i32 0
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %493, i32 0, i32 39
-  %495 = load ptr, ptr %494, align 8
-  %496 = icmp ne ptr %495, null
-  br i1 %496, label %497, label %552
+484:                                              ; preds = %477, %470
+  %485 = load ptr, ptr %5, align 8, !tbaa !3
+  %486 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %485, i32 0, i32 12
+  %487 = load ptr, ptr %486, align 8, !tbaa !108
+  %488 = load ptr, ptr %5, align 8, !tbaa !3
+  %489 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %488, i32 0, i32 10
+  %490 = load i32, ptr %489, align 8, !tbaa !107
+  %491 = load ptr, ptr %11, align 8, !tbaa !110
+  call void @Vec_PtrWriteEntry(ptr noundef %487, i32 noundef %490, ptr noundef %491)
+  %492 = load ptr, ptr %5, align 8, !tbaa !3
+  %493 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %492, i32 0, i32 0
+  %494 = load ptr, ptr %493, align 8, !tbaa !55
+  %495 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %494, i32 0, i32 39
+  %496 = load ptr, ptr %495, align 8, !tbaa !117
+  %497 = icmp ne ptr %496, null
+  br i1 %497, label %498, label %553
 
-497:                                              ; preds = %483
-  %498 = load ptr, ptr %5, align 8
-  %499 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %498, i32 0, i32 0
-  %500 = load ptr, ptr %499, align 8
-  %501 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %500, i32 0, i32 39
-  %502 = load ptr, ptr %501, align 8
-  %503 = load ptr, ptr %5, align 8
-  %504 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %503, i32 0, i32 10
-  %505 = load i32, ptr %504, align 8
-  %506 = load ptr, ptr %5, align 8
-  %507 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %506, i32 0, i32 0
-  %508 = load ptr, ptr %507, align 8
-  %509 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %508, i32 0, i32 30
-  %510 = load i32, ptr %509, align 8
-  %511 = icmp ne i32 %510, 0
-  br i1 %511, label %512, label %520
+498:                                              ; preds = %484
+  %499 = load ptr, ptr %5, align 8, !tbaa !3
+  %500 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %499, i32 0, i32 0
+  %501 = load ptr, ptr %500, align 8, !tbaa !55
+  %502 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %501, i32 0, i32 39
+  %503 = load ptr, ptr %502, align 8, !tbaa !117
+  %504 = load ptr, ptr %5, align 8, !tbaa !3
+  %505 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %504, i32 0, i32 10
+  %506 = load i32, ptr %505, align 8, !tbaa !107
+  %507 = load ptr, ptr %5, align 8, !tbaa !3
+  %508 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %507, i32 0, i32 0
+  %509 = load ptr, ptr %508, align 8, !tbaa !55
+  %510 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %509, i32 0, i32 30
+  %511 = load i32, ptr %510, align 8, !tbaa !112
+  %512 = icmp ne i32 %511, 0
+  br i1 %512, label %513, label %521
 
-512:                                              ; preds = %497
-  %513 = load ptr, ptr %5, align 8
-  %514 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %513, i32 0, i32 12
-  %515 = load ptr, ptr %514, align 8
-  %516 = load ptr, ptr %5, align 8
-  %517 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %516, i32 0, i32 10
-  %518 = load i32, ptr %517, align 8
-  %519 = call ptr @Vec_PtrEntry(ptr noundef %515, i32 noundef %518)
-  br label %521
+513:                                              ; preds = %498
+  %514 = load ptr, ptr %5, align 8, !tbaa !3
+  %515 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %514, i32 0, i32 12
+  %516 = load ptr, ptr %515, align 8, !tbaa !108
+  %517 = load ptr, ptr %5, align 8, !tbaa !3
+  %518 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %517, i32 0, i32 10
+  %519 = load i32, ptr %518, align 8, !tbaa !107
+  %520 = call ptr @Vec_PtrEntry(ptr noundef %516, i32 noundef %519)
+  br label %522
 
-520:                                              ; preds = %497
-  br label %521
+521:                                              ; preds = %498
+  br label %522
 
-521:                                              ; preds = %520, %512
-  %522 = phi ptr [ %519, %512 ], [ null, %520 ]
-  %523 = call i32 %502(i32 noundef %505, ptr noundef %522)
-  %524 = icmp ne i32 %523, 0
-  br i1 %524, label %525, label %552
+522:                                              ; preds = %521, %513
+  %523 = phi ptr [ %520, %513 ], [ null, %521 ]
+  %524 = call i32 %503(i32 noundef %506, ptr noundef %523)
+  %525 = icmp ne i32 %524, 0
+  br i1 %525, label %526, label %553
 
-525:                                              ; preds = %521
-  %526 = load ptr, ptr %5, align 8
-  %527 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %526, i32 0, i32 0
-  %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %528, i32 0, i32 25
-  %530 = load i32, ptr %529, align 4
-  %531 = icmp ne i32 %530, 0
-  br i1 %531, label %532, label %537
+526:                                              ; preds = %522
+  %527 = load ptr, ptr %5, align 8, !tbaa !3
+  %528 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %527, i32 0, i32 0
+  %529 = load ptr, ptr %528, align 8, !tbaa !55
+  %530 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %529, i32 0, i32 25
+  %531 = load i32, ptr %530, align 4, !tbaa !101
+  %532 = icmp ne i32 %531, 0
+  br i1 %532, label %533, label %538
 
-532:                                              ; preds = %525
-  %533 = load ptr, ptr %5, align 8
-  %534 = call i64 @Abc_Clock()
-  %535 = load i64, ptr %15, align 8
-  %536 = sub nsw i64 %534, %535
-  call void @Pdr_ManPrintProgress(ptr noundef %533, i32 noundef 1, i64 noundef %536)
-  br label %537
+533:                                              ; preds = %526
+  %534 = load ptr, ptr %5, align 8, !tbaa !3
+  %535 = call i64 @Abc_Clock()
+  %536 = load i64, ptr %15, align 8, !tbaa !84
+  %537 = sub nsw i64 %535, %536
+  call void @Pdr_ManPrintProgress(ptr noundef %534, i32 noundef 1, i64 noundef %537)
+  br label %538
 
-537:                                              ; preds = %532, %525
-  %538 = load ptr, ptr %5, align 8
-  %539 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %538, i32 0, i32 0
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %540, i32 0, i32 28
-  %542 = load i32, ptr %541, align 8
-  %543 = icmp ne i32 %542, 0
-  br i1 %543, label %546, label %544
+538:                                              ; preds = %533, %526
+  %539 = load ptr, ptr %5, align 8, !tbaa !3
+  %540 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %539, i32 0, i32 0
+  %541 = load ptr, ptr %540, align 8, !tbaa !55
+  %542 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %541, i32 0, i32 28
+  %543 = load i32, ptr %542, align 8, !tbaa !118
+  %544 = icmp ne i32 %543, 0
+  br i1 %544, label %547, label %545
 
-544:                                              ; preds = %537
-  %545 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.10, i32 noundef %545)
-  br label %546
+545:                                              ; preds = %538
+  %546 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.10, i32 noundef %546)
+  br label %547
 
-546:                                              ; preds = %544, %537
-  %547 = load i32, ptr %12, align 4
-  %548 = load ptr, ptr %5, align 8
-  %549 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %548, i32 0, i32 0
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %550, i32 0, i32 36
-  store i32 %547, ptr %551, align 8
+547:                                              ; preds = %545, %538
+  %548 = load i32, ptr %12, align 4, !tbaa !8
+  %549 = load ptr, ptr %5, align 8, !tbaa !3
+  %550 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %549, i32 0, i32 0
+  %551 = load ptr, ptr %550, align 8, !tbaa !55
+  %552 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %551, i32 0, i32 36
+  store i32 %548, ptr %552, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-552:                                              ; preds = %521, %483
-  %553 = load ptr, ptr %5, align 8
-  %554 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %553, i32 0, i32 0
-  %555 = load ptr, ptr %554, align 8
-  %556 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %555, i32 0, i32 33
-  %557 = load i32, ptr %556, align 4
-  %558 = load ptr, ptr %5, align 8
-  %559 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %558, i32 0, i32 0
-  %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %560, i32 0, i32 34
-  %562 = load i32, ptr %561, align 8
-  %563 = add nsw i32 %557, %562
-  %564 = load ptr, ptr %5, align 8
-  %565 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %564, i32 0, i32 1
-  %566 = load ptr, ptr %565, align 8
-  %567 = call i32 @Saig_ManPoNum(ptr noundef %566)
-  %568 = icmp eq i32 %563, %567
-  br i1 %568, label %569, label %577
+553:                                              ; preds = %522, %484
+  %554 = load ptr, ptr %5, align 8, !tbaa !3
+  %555 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %554, i32 0, i32 0
+  %556 = load ptr, ptr %555, align 8, !tbaa !55
+  %557 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %556, i32 0, i32 33
+  %558 = load i32, ptr %557, align 4, !tbaa !113
+  %559 = load ptr, ptr %5, align 8, !tbaa !3
+  %560 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %559, i32 0, i32 0
+  %561 = load ptr, ptr %560, align 8, !tbaa !55
+  %562 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %561, i32 0, i32 34
+  %563 = load i32, ptr %562, align 8, !tbaa !120
+  %564 = add nsw i32 %558, %563
+  %565 = load ptr, ptr %5, align 8, !tbaa !3
+  %566 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %565, i32 0, i32 1
+  %567 = load ptr, ptr %566, align 8, !tbaa !83
+  %568 = call i32 @Saig_ManPoNum(ptr noundef %567)
+  %569 = icmp eq i32 %564, %568
+  br i1 %569, label %570, label %578
 
-569:                                              ; preds = %552
-  %570 = load ptr, ptr %5, align 8
-  %571 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %570, i32 0, i32 0
-  %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %572, i32 0, i32 33
-  %574 = load i32, ptr %573, align 4
-  %575 = icmp ne i32 %574, 0
-  %576 = select i1 %575, i32 0, i32 -1
-  store i32 %576, ptr %4, align 4
-  br label %1804
+570:                                              ; preds = %553
+  %571 = load ptr, ptr %5, align 8, !tbaa !3
+  %572 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %571, i32 0, i32 0
+  %573 = load ptr, ptr %572, align 8, !tbaa !55
+  %574 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %573, i32 0, i32 33
+  %575 = load i32, ptr %574, align 4, !tbaa !113
+  %576 = icmp ne i32 %575, 0
+  %577 = select i1 %576, i32 0, i32 -1
+  store i32 %577, ptr %4, align 4
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-577:                                              ; preds = %552
-  %578 = call i64 @Abc_Clock()
-  %579 = load ptr, ptr %5, align 8
-  %580 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %579, i32 0, i32 0
-  %581 = load ptr, ptr %580, align 8
-  %582 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %581, i32 0, i32 40
-  store i64 %578, ptr %582, align 8
-  br label %1296
+578:                                              ; preds = %553
+  %579 = call i64 @Abc_Clock()
+  %580 = load ptr, ptr %5, align 8, !tbaa !3
+  %581 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %580, i32 0, i32 0
+  %582 = load ptr, ptr %581, align 8, !tbaa !55
+  %583 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %582, i32 0, i32 40
+  store i64 %579, ptr %583, align 8, !tbaa !100
+  br label %1299
 
-583:                                              ; preds = %338
-  %584 = load ptr, ptr %5, align 8
-  %585 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %584, i32 0, i32 37
-  %586 = load ptr, ptr %585, align 8
-  %587 = icmp ne ptr %586, null
-  br i1 %587, label %588, label %603
+584:                                              ; preds = %340
+  %585 = load ptr, ptr %5, align 8, !tbaa !3
+  %586 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %585, i32 0, i32 37
+  %587 = load ptr, ptr %586, align 8, !tbaa !109
+  %588 = icmp ne ptr %587, null
+  br i1 %588, label %589, label %604
 
-588:                                              ; preds = %583
-  %589 = call i64 @Abc_Clock()
-  store i64 %589, ptr %16, align 8
-  %590 = load ptr, ptr %5, align 8
-  %591 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %590, i32 0, i32 37
-  %592 = load ptr, ptr %591, align 8
-  %593 = load ptr, ptr %5, align 8
-  %594 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %593, i32 0, i32 10
-  %595 = load i32, ptr %594, align 8
-  %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds i64, ptr %592, i64 %596
-  %598 = load i64, ptr %597, align 8
-  %599 = call i64 @Abc_Clock()
-  %600 = add nsw i64 %598, %599
-  %601 = load ptr, ptr %5, align 8
-  %602 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %601, i32 0, i32 57
-  store i64 %600, ptr %602, align 8
-  br label %603
-
-603:                                              ; preds = %588, %583
+589:                                              ; preds = %584
+  %590 = call i64 @Abc_Clock()
+  store i64 %590, ptr %16, align 8, !tbaa !84
+  %591 = load ptr, ptr %5, align 8, !tbaa !3
+  %592 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %591, i32 0, i32 37
+  %593 = load ptr, ptr %592, align 8, !tbaa !109
+  %594 = load ptr, ptr %5, align 8, !tbaa !3
+  %595 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %594, i32 0, i32 10
+  %596 = load i32, ptr %595, align 8, !tbaa !107
+  %597 = sext i32 %596 to i64
+  %598 = getelementptr inbounds i64, ptr %593, i64 %597
+  %599 = load i64, ptr %598, align 8, !tbaa !84
+  %600 = call i64 @Abc_Clock()
+  %601 = add nsw i64 %599, %600
+  %602 = load ptr, ptr %5, align 8, !tbaa !3
+  %603 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %602, i32 0, i32 57
+  store i64 %601, ptr %603, align 8, !tbaa !121
   br label %604
 
-604:                                              ; preds = %1189, %603
-  %605 = load ptr, ptr %5, align 8
-  %606 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %605, i32 0, i32 0
-  %607 = load ptr, ptr %606, align 8
-  %608 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %607, i32 0, i32 6
-  %609 = load i32, ptr %608, align 8
-  %610 = icmp ne i32 %609, 0
-  br i1 %610, label %611, label %666
+604:                                              ; preds = %589, %584
+  br label %605
 
-611:                                              ; preds = %604
-  %612 = load ptr, ptr %5, align 8
-  %613 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %612, i32 0, i32 0
-  %614 = load ptr, ptr %613, align 8
-  %615 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %614, i32 0, i32 40
-  %616 = load i64, ptr %615, align 8
-  %617 = icmp ne i64 %616, 0
-  br i1 %617, label %618, label %666
+605:                                              ; preds = %1192, %604
+  br label %606
 
-618:                                              ; preds = %611
-  %619 = call i64 @Abc_Clock()
-  %620 = load ptr, ptr %5, align 8
-  %621 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %620, i32 0, i32 0
-  %622 = load ptr, ptr %621, align 8
-  %623 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %622, i32 0, i32 40
-  %624 = load i64, ptr %623, align 8
-  %625 = load ptr, ptr %5, align 8
-  %626 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %625, i32 0, i32 0
-  %627 = load ptr, ptr %626, align 8
-  %628 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %627, i32 0, i32 6
-  %629 = load i32, ptr %628, align 8
-  %630 = sext i32 %629 to i64
-  %631 = mul nsw i64 %630, 1000000
-  %632 = add nsw i64 %624, %631
-  %633 = icmp sgt i64 %619, %632
-  br i1 %633, label %634, label %666
+606:                                              ; preds = %605
+  %607 = load ptr, ptr %5, align 8, !tbaa !3
+  %608 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %607, i32 0, i32 0
+  %609 = load ptr, ptr %608, align 8, !tbaa !55
+  %610 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %609, i32 0, i32 6
+  %611 = load i32, ptr %610, align 8, !tbaa !122
+  %612 = icmp ne i32 %611, 0
+  br i1 %612, label %613, label %668
 
-634:                                              ; preds = %618
-  %635 = load ptr, ptr %5, align 8
-  %636 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %635, i32 0, i32 0
-  %637 = load ptr, ptr %636, align 8
-  %638 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %637, i32 0, i32 25
-  %639 = load i32, ptr %638, align 4
-  %640 = icmp ne i32 %639, 0
-  br i1 %640, label %641, label %646
+613:                                              ; preds = %606
+  %614 = load ptr, ptr %5, align 8, !tbaa !3
+  %615 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %614, i32 0, i32 0
+  %616 = load ptr, ptr %615, align 8, !tbaa !55
+  %617 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %616, i32 0, i32 40
+  %618 = load i64, ptr %617, align 8, !tbaa !100
+  %619 = icmp ne i64 %618, 0
+  br i1 %619, label %620, label %668
 
-641:                                              ; preds = %634
-  %642 = load ptr, ptr %5, align 8
-  %643 = call i64 @Abc_Clock()
-  %644 = load i64, ptr %15, align 8
-  %645 = sub nsw i64 %643, %644
-  call void @Pdr_ManPrintProgress(ptr noundef %642, i32 noundef 1, i64 noundef %645)
-  br label %646
+620:                                              ; preds = %613
+  %621 = call i64 @Abc_Clock()
+  %622 = load ptr, ptr %5, align 8, !tbaa !3
+  %623 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %622, i32 0, i32 0
+  %624 = load ptr, ptr %623, align 8, !tbaa !55
+  %625 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %624, i32 0, i32 40
+  %626 = load i64, ptr %625, align 8, !tbaa !100
+  %627 = load ptr, ptr %5, align 8, !tbaa !3
+  %628 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %627, i32 0, i32 0
+  %629 = load ptr, ptr %628, align 8, !tbaa !55
+  %630 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %629, i32 0, i32 6
+  %631 = load i32, ptr %630, align 8, !tbaa !122
+  %632 = sext i32 %631 to i64
+  %633 = mul nsw i64 %632, 1000000
+  %634 = add nsw i64 %626, %633
+  %635 = icmp sgt i64 %621, %634
+  br i1 %635, label %636, label %668
 
-646:                                              ; preds = %641, %634
-  %647 = load ptr, ptr %5, align 8
-  %648 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %647, i32 0, i32 0
-  %649 = load ptr, ptr %648, align 8
-  %650 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %649, i32 0, i32 28
-  %651 = load i32, ptr %650, align 8
-  %652 = icmp ne i32 %651, 0
-  br i1 %652, label %660, label %653
+636:                                              ; preds = %620
+  %637 = load ptr, ptr %5, align 8, !tbaa !3
+  %638 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %637, i32 0, i32 0
+  %639 = load ptr, ptr %638, align 8, !tbaa !55
+  %640 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %639, i32 0, i32 25
+  %641 = load i32, ptr %640, align 4, !tbaa !101
+  %642 = icmp ne i32 %641, 0
+  br i1 %642, label %643, label %648
 
-653:                                              ; preds = %646
-  %654 = load ptr, ptr %5, align 8
-  %655 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %654, i32 0, i32 0
-  %656 = load ptr, ptr %655, align 8
-  %657 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %656, i32 0, i32 6
-  %658 = load i32, ptr %657, align 8
-  %659 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %658, i32 noundef %659)
-  br label %660
+643:                                              ; preds = %636
+  %644 = load ptr, ptr %5, align 8, !tbaa !3
+  %645 = call i64 @Abc_Clock()
+  %646 = load i64, ptr %15, align 8, !tbaa !84
+  %647 = sub nsw i64 %645, %646
+  call void @Pdr_ManPrintProgress(ptr noundef %644, i32 noundef 1, i64 noundef %647)
+  br label %648
 
-660:                                              ; preds = %653, %646
-  %661 = load i32, ptr %12, align 4
-  %662 = load ptr, ptr %5, align 8
-  %663 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %662, i32 0, i32 0
-  %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %664, i32 0, i32 36
-  store i32 %661, ptr %665, align 8
+648:                                              ; preds = %643, %636
+  %649 = load ptr, ptr %5, align 8, !tbaa !3
+  %650 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %649, i32 0, i32 0
+  %651 = load ptr, ptr %650, align 8, !tbaa !55
+  %652 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %651, i32 0, i32 28
+  %653 = load i32, ptr %652, align 8, !tbaa !118
+  %654 = icmp ne i32 %653, 0
+  br i1 %654, label %662, label %655
+
+655:                                              ; preds = %648
+  %656 = load ptr, ptr %5, align 8, !tbaa !3
+  %657 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %656, i32 0, i32 0
+  %658 = load ptr, ptr %657, align 8, !tbaa !55
+  %659 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %658, i32 0, i32 6
+  %660 = load i32, ptr %659, align 8, !tbaa !122
+  %661 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %660, i32 noundef %661)
+  br label %662
+
+662:                                              ; preds = %655, %648
+  %663 = load i32, ptr %12, align 4, !tbaa !8
+  %664 = load ptr, ptr %5, align 8, !tbaa !3
+  %665 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %664, i32 0, i32 0
+  %666 = load ptr, ptr %665, align 8, !tbaa !55
+  %667 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %666, i32 0, i32 36
+  store i32 %663, ptr %667, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-666:                                              ; preds = %618, %611, %604
-  %667 = load ptr, ptr %5, align 8
-  %668 = load i32, ptr %12, align 4
-  %669 = load ptr, ptr %5, align 8
-  %670 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %669, i32 0, i32 0
-  %671 = load ptr, ptr %670, align 8
-  %672 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %671, i32 0, i32 2
-  %673 = load i32, ptr %672, align 8
-  %674 = call i32 @Pdr_ManCheckCube(ptr noundef %667, i32 noundef %668, ptr noundef null, ptr noundef %9, i32 noundef %673, i32 noundef 0, i32 noundef 1)
-  store i32 %674, ptr %13, align 4
-  %675 = load i32, ptr %13, align 4
-  %676 = icmp eq i32 %675, 1
-  br i1 %676, label %677, label %678
+668:                                              ; preds = %620, %613, %606
+  %669 = load ptr, ptr %5, align 8, !tbaa !3
+  %670 = load i32, ptr %12, align 4, !tbaa !8
+  %671 = load ptr, ptr %5, align 8, !tbaa !3
+  %672 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %671, i32 0, i32 0
+  %673 = load ptr, ptr %672, align 8, !tbaa !55
+  %674 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %673, i32 0, i32 2
+  %675 = load i32, ptr %674, align 8, !tbaa !123
+  %676 = call i32 @Pdr_ManCheckCube(ptr noundef %669, i32 noundef %670, ptr noundef null, ptr noundef %9, i32 noundef %675, i32 noundef 0, i32 noundef 1)
+  store i32 %676, ptr %13, align 4, !tbaa !8
+  %677 = load i32, ptr %13, align 4, !tbaa !8
+  %678 = icmp eq i32 %677, 1
+  br i1 %678, label %679, label %680
 
-677:                                              ; preds = %666
-  br label %1190
+679:                                              ; preds = %668
+  br label %1193
 
-678:                                              ; preds = %666
-  %679 = load i32, ptr %13, align 4
-  %680 = icmp eq i32 %679, -1
-  br i1 %680, label %681, label %794
+680:                                              ; preds = %668
+  %681 = load i32, ptr %13, align 4, !tbaa !8
+  %682 = icmp eq i32 %681, -1
+  br i1 %682, label %683, label %796
 
-681:                                              ; preds = %678
-  %682 = load ptr, ptr %5, align 8
-  %683 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %682, i32 0, i32 0
-  %684 = load ptr, ptr %683, align 8
-  %685 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %684, i32 0, i32 25
-  %686 = load i32, ptr %685, align 4
-  %687 = icmp ne i32 %686, 0
-  br i1 %687, label %688, label %693
+683:                                              ; preds = %680
+  %684 = load ptr, ptr %5, align 8, !tbaa !3
+  %685 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %684, i32 0, i32 0
+  %686 = load ptr, ptr %685, align 8, !tbaa !55
+  %687 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %686, i32 0, i32 25
+  %688 = load i32, ptr %687, align 4, !tbaa !101
+  %689 = icmp ne i32 %688, 0
+  br i1 %689, label %690, label %695
 
-688:                                              ; preds = %681
-  %689 = load ptr, ptr %5, align 8
-  %690 = call i64 @Abc_Clock()
-  %691 = load i64, ptr %15, align 8
-  %692 = sub nsw i64 %690, %691
-  call void @Pdr_ManPrintProgress(ptr noundef %689, i32 noundef 1, i64 noundef %692)
-  br label %693
+690:                                              ; preds = %683
+  %691 = load ptr, ptr %5, align 8, !tbaa !3
+  %692 = call i64 @Abc_Clock()
+  %693 = load i64, ptr %15, align 8, !tbaa !84
+  %694 = sub nsw i64 %692, %693
+  call void @Pdr_ManPrintProgress(ptr noundef %691, i32 noundef 1, i64 noundef %694)
+  br label %695
 
-693:                                              ; preds = %688, %681
-  %694 = load ptr, ptr %5, align 8
-  %695 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %694, i32 0, i32 56
-  %696 = load i64, ptr %695, align 8
-  %697 = icmp ne i64 %696, 0
-  br i1 %697, label %698, label %711
+695:                                              ; preds = %690, %683
+  %696 = load ptr, ptr %5, align 8, !tbaa !3
+  %697 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %696, i32 0, i32 56
+  %698 = load i64, ptr %697, align 8, !tbaa !86
+  %699 = icmp ne i64 %698, 0
+  br i1 %699, label %700, label %713
 
-698:                                              ; preds = %693
-  %699 = call i64 @Abc_Clock()
-  %700 = load ptr, ptr %5, align 8
-  %701 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %700, i32 0, i32 56
-  %702 = load i64, ptr %701, align 8
-  %703 = icmp sgt i64 %699, %702
-  br i1 %703, label %704, label %711
+700:                                              ; preds = %695
+  %701 = call i64 @Abc_Clock()
+  %702 = load ptr, ptr %5, align 8, !tbaa !3
+  %703 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %702, i32 0, i32 56
+  %704 = load i64, ptr %703, align 8, !tbaa !86
+  %705 = icmp sgt i64 %701, %704
+  br i1 %705, label %706, label %713
 
-704:                                              ; preds = %698
-  %705 = load ptr, ptr %5, align 8
-  %706 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %705, i32 0, i32 0
-  %707 = load ptr, ptr %706, align 8
-  %708 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %707, i32 0, i32 5
-  %709 = load i32, ptr %708, align 4
-  %710 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %709, i32 noundef %710)
-  br label %788
+706:                                              ; preds = %700
+  %707 = load ptr, ptr %5, align 8, !tbaa !3
+  %708 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %707, i32 0, i32 0
+  %709 = load ptr, ptr %708, align 8, !tbaa !55
+  %710 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %709, i32 0, i32 5
+  %711 = load i32, ptr %710, align 4, !tbaa !85
+  %712 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %711, i32 noundef %712)
+  br label %790
 
-711:                                              ; preds = %698, %693
-  %712 = load ptr, ptr %5, align 8
-  %713 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %712, i32 0, i32 0
-  %714 = load ptr, ptr %713, align 8
-  %715 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %714, i32 0, i32 6
-  %716 = load i32, ptr %715, align 8
-  %717 = icmp ne i32 %716, 0
-  br i1 %717, label %718, label %748
+713:                                              ; preds = %700, %695
+  %714 = load ptr, ptr %5, align 8, !tbaa !3
+  %715 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %714, i32 0, i32 0
+  %716 = load ptr, ptr %715, align 8, !tbaa !55
+  %717 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %716, i32 0, i32 6
+  %718 = load i32, ptr %717, align 8, !tbaa !122
+  %719 = icmp ne i32 %718, 0
+  br i1 %719, label %720, label %750
 
-718:                                              ; preds = %711
-  %719 = load ptr, ptr %5, align 8
-  %720 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %719, i32 0, i32 0
-  %721 = load ptr, ptr %720, align 8
-  %722 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %721, i32 0, i32 40
-  %723 = load i64, ptr %722, align 8
-  %724 = icmp ne i64 %723, 0
-  br i1 %724, label %725, label %748
+720:                                              ; preds = %713
+  %721 = load ptr, ptr %5, align 8, !tbaa !3
+  %722 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %721, i32 0, i32 0
+  %723 = load ptr, ptr %722, align 8, !tbaa !55
+  %724 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %723, i32 0, i32 40
+  %725 = load i64, ptr %724, align 8, !tbaa !100
+  %726 = icmp ne i64 %725, 0
+  br i1 %726, label %727, label %750
 
-725:                                              ; preds = %718
-  %726 = call i64 @Abc_Clock()
-  %727 = load ptr, ptr %5, align 8
-  %728 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %727, i32 0, i32 0
-  %729 = load ptr, ptr %728, align 8
-  %730 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %729, i32 0, i32 40
-  %731 = load i64, ptr %730, align 8
-  %732 = load ptr, ptr %5, align 8
-  %733 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %732, i32 0, i32 0
-  %734 = load ptr, ptr %733, align 8
-  %735 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %734, i32 0, i32 6
-  %736 = load i32, ptr %735, align 8
-  %737 = sext i32 %736 to i64
-  %738 = mul nsw i64 %737, 1000000
-  %739 = add nsw i64 %731, %738
-  %740 = icmp sgt i64 %726, %739
-  br i1 %740, label %741, label %748
+727:                                              ; preds = %720
+  %728 = call i64 @Abc_Clock()
+  %729 = load ptr, ptr %5, align 8, !tbaa !3
+  %730 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %729, i32 0, i32 0
+  %731 = load ptr, ptr %730, align 8, !tbaa !55
+  %732 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %731, i32 0, i32 40
+  %733 = load i64, ptr %732, align 8, !tbaa !100
+  %734 = load ptr, ptr %5, align 8, !tbaa !3
+  %735 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %734, i32 0, i32 0
+  %736 = load ptr, ptr %735, align 8, !tbaa !55
+  %737 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %736, i32 0, i32 6
+  %738 = load i32, ptr %737, align 8, !tbaa !122
+  %739 = sext i32 %738 to i64
+  %740 = mul nsw i64 %739, 1000000
+  %741 = add nsw i64 %733, %740
+  %742 = icmp sgt i64 %728, %741
+  br i1 %742, label %743, label %750
 
-741:                                              ; preds = %725
-  %742 = load ptr, ptr %5, align 8
-  %743 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %742, i32 0, i32 0
-  %744 = load ptr, ptr %743, align 8
-  %745 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %744, i32 0, i32 6
-  %746 = load i32, ptr %745, align 8
-  %747 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %746, i32 noundef %747)
+743:                                              ; preds = %727
+  %744 = load ptr, ptr %5, align 8, !tbaa !3
+  %745 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %744, i32 0, i32 0
+  %746 = load ptr, ptr %745, align 8, !tbaa !55
+  %747 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %746, i32 0, i32 6
+  %748 = load i32, ptr %747, align 8, !tbaa !122
+  %749 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %748, i32 noundef %749)
+  br label %789
+
+750:                                              ; preds = %727, %720, %713
+  %751 = load ptr, ptr %5, align 8, !tbaa !3
+  %752 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %751, i32 0, i32 57
+  %753 = load i64, ptr %752, align 8, !tbaa !121
+  %754 = icmp ne i64 %753, 0
+  br i1 %754, label %755, label %763
+
+755:                                              ; preds = %750
+  %756 = call i64 @Abc_Clock()
+  %757 = load ptr, ptr %5, align 8, !tbaa !3
+  %758 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %757, i32 0, i32 57
+  %759 = load i64, ptr %758, align 8, !tbaa !121
+  %760 = icmp sgt i64 %756, %759
+  br i1 %760, label %761, label %763
+
+761:                                              ; preds = %755
+  %762 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_QueueClean(ptr noundef %762)
+  store ptr null, ptr %9, align 8, !tbaa !28
+  br label %1193
+
+763:                                              ; preds = %755, %750
+  %764 = load ptr, ptr %5, align 8, !tbaa !3
+  %765 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %764, i32 0, i32 0
+  %766 = load ptr, ptr %765, align 8, !tbaa !55
+  %767 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %766, i32 0, i32 2
+  %768 = load i32, ptr %767, align 8, !tbaa !123
+  %769 = icmp ne i32 %768, 0
+  br i1 %769, label %770, label %777
+
+770:                                              ; preds = %763
+  %771 = load ptr, ptr %5, align 8, !tbaa !3
+  %772 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %771, i32 0, i32 0
+  %773 = load ptr, ptr %772, align 8, !tbaa !55
+  %774 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %773, i32 0, i32 2
+  %775 = load i32, ptr %774, align 8, !tbaa !123
+  %776 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.13, i32 noundef %775, i32 noundef %776)
   br label %787
 
-748:                                              ; preds = %725, %718, %711
-  %749 = load ptr, ptr %5, align 8
-  %750 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %749, i32 0, i32 57
-  %751 = load i64, ptr %750, align 8
-  %752 = icmp ne i64 %751, 0
-  br i1 %752, label %753, label %761
+777:                                              ; preds = %763
+  %778 = load ptr, ptr %5, align 8, !tbaa !3
+  %779 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %778, i32 0, i32 0
+  %780 = load ptr, ptr %779, align 8, !tbaa !55
+  %781 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %780, i32 0, i32 25
+  %782 = load i32, ptr %781, align 4, !tbaa !101
+  %783 = icmp ne i32 %782, 0
+  br i1 %783, label %784, label %786
 
-753:                                              ; preds = %748
-  %754 = call i64 @Abc_Clock()
-  %755 = load ptr, ptr %5, align 8
-  %756 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %755, i32 0, i32 57
-  %757 = load i64, ptr %756, align 8
-  %758 = icmp sgt i64 %754, %757
-  br i1 %758, label %759, label %761
-
-759:                                              ; preds = %753
-  %760 = load ptr, ptr %5, align 8
-  call void @Pdr_QueueClean(ptr noundef %760)
-  store ptr null, ptr %9, align 8
-  br label %1190
-
-761:                                              ; preds = %753, %748
-  %762 = load ptr, ptr %5, align 8
-  %763 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %762, i32 0, i32 0
-  %764 = load ptr, ptr %763, align 8
-  %765 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %764, i32 0, i32 2
-  %766 = load i32, ptr %765, align 8
-  %767 = icmp ne i32 %766, 0
-  br i1 %767, label %768, label %775
-
-768:                                              ; preds = %761
-  %769 = load ptr, ptr %5, align 8
-  %770 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %769, i32 0, i32 0
-  %771 = load ptr, ptr %770, align 8
-  %772 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %771, i32 0, i32 2
-  %773 = load i32, ptr %772, align 8
-  %774 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.13, i32 noundef %773, i32 noundef %774)
-  br label %785
-
-775:                                              ; preds = %761
-  %776 = load ptr, ptr %5, align 8
-  %777 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %776, i32 0, i32 0
-  %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %778, i32 0, i32 25
-  %780 = load i32, ptr %779, align 4
-  %781 = icmp ne i32 %780, 0
-  br i1 %781, label %782, label %784
-
-782:                                              ; preds = %775
-  %783 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.14, i32 noundef %783)
-  br label %784
-
-784:                                              ; preds = %782, %775
-  br label %785
-
-785:                                              ; preds = %784, %768
+784:                                              ; preds = %777
+  %785 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.14, i32 noundef %785)
   br label %786
 
-786:                                              ; preds = %785
+786:                                              ; preds = %784, %777
   br label %787
 
-787:                                              ; preds = %786, %741
+787:                                              ; preds = %786, %770
   br label %788
 
-788:                                              ; preds = %787, %704
-  %789 = load i32, ptr %12, align 4
-  %790 = load ptr, ptr %5, align 8
-  %791 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %790, i32 0, i32 0
-  %792 = load ptr, ptr %791, align 8
-  %793 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %792, i32 0, i32 36
-  store i32 %789, ptr %793, align 8
+788:                                              ; preds = %787
+  br label %789
+
+789:                                              ; preds = %788, %743
+  br label %790
+
+790:                                              ; preds = %789, %706
+  %791 = load i32, ptr %12, align 4, !tbaa !8
+  %792 = load ptr, ptr %5, align 8, !tbaa !3
+  %793 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %792, i32 0, i32 0
+  %794 = load ptr, ptr %793, align 8, !tbaa !55
+  %795 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %794, i32 0, i32 36
+  store i32 %791, ptr %795, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-794:                                              ; preds = %678
-  %795 = load i32, ptr %13, align 4
-  %796 = icmp eq i32 %795, 0
-  br i1 %796, label %797, label %1189
+796:                                              ; preds = %680
+  %797 = load i32, ptr %13, align 4, !tbaa !8
+  %798 = icmp eq i32 %797, 0
+  br i1 %798, label %799, label %1192
 
-797:                                              ; preds = %794
-  %798 = load ptr, ptr %5, align 8
-  %799 = load ptr, ptr %9, align 8
-  %800 = call i32 @Pdr_ManBlockCube(ptr noundef %798, ptr noundef %799)
-  store i32 %800, ptr %13, align 4
-  %801 = load i32, ptr %13, align 4
-  %802 = icmp eq i32 %801, -1
-  br i1 %802, label %803, label %916
+799:                                              ; preds = %796
+  %800 = load ptr, ptr %5, align 8, !tbaa !3
+  %801 = load ptr, ptr %9, align 8, !tbaa !28
+  %802 = call i32 @Pdr_ManBlockCube(ptr noundef %800, ptr noundef %801)
+  store i32 %802, ptr %13, align 4, !tbaa !8
+  %803 = load i32, ptr %13, align 4, !tbaa !8
+  %804 = icmp eq i32 %803, -1
+  br i1 %804, label %805, label %918
 
-803:                                              ; preds = %797
-  %804 = load ptr, ptr %5, align 8
-  %805 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %804, i32 0, i32 0
-  %806 = load ptr, ptr %805, align 8
-  %807 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %806, i32 0, i32 25
-  %808 = load i32, ptr %807, align 4
-  %809 = icmp ne i32 %808, 0
-  br i1 %809, label %810, label %815
+805:                                              ; preds = %799
+  %806 = load ptr, ptr %5, align 8, !tbaa !3
+  %807 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %806, i32 0, i32 0
+  %808 = load ptr, ptr %807, align 8, !tbaa !55
+  %809 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %808, i32 0, i32 25
+  %810 = load i32, ptr %809, align 4, !tbaa !101
+  %811 = icmp ne i32 %810, 0
+  br i1 %811, label %812, label %817
 
-810:                                              ; preds = %803
-  %811 = load ptr, ptr %5, align 8
-  %812 = call i64 @Abc_Clock()
-  %813 = load i64, ptr %15, align 8
-  %814 = sub nsw i64 %812, %813
-  call void @Pdr_ManPrintProgress(ptr noundef %811, i32 noundef 1, i64 noundef %814)
-  br label %815
+812:                                              ; preds = %805
+  %813 = load ptr, ptr %5, align 8, !tbaa !3
+  %814 = call i64 @Abc_Clock()
+  %815 = load i64, ptr %15, align 8, !tbaa !84
+  %816 = sub nsw i64 %814, %815
+  call void @Pdr_ManPrintProgress(ptr noundef %813, i32 noundef 1, i64 noundef %816)
+  br label %817
 
-815:                                              ; preds = %810, %803
-  %816 = load ptr, ptr %5, align 8
-  %817 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %816, i32 0, i32 56
-  %818 = load i64, ptr %817, align 8
-  %819 = icmp ne i64 %818, 0
-  br i1 %819, label %820, label %833
+817:                                              ; preds = %812, %805
+  %818 = load ptr, ptr %5, align 8, !tbaa !3
+  %819 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %818, i32 0, i32 56
+  %820 = load i64, ptr %819, align 8, !tbaa !86
+  %821 = icmp ne i64 %820, 0
+  br i1 %821, label %822, label %835
 
-820:                                              ; preds = %815
-  %821 = call i64 @Abc_Clock()
-  %822 = load ptr, ptr %5, align 8
-  %823 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %822, i32 0, i32 56
-  %824 = load i64, ptr %823, align 8
-  %825 = icmp sgt i64 %821, %824
-  br i1 %825, label %826, label %833
+822:                                              ; preds = %817
+  %823 = call i64 @Abc_Clock()
+  %824 = load ptr, ptr %5, align 8, !tbaa !3
+  %825 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %824, i32 0, i32 56
+  %826 = load i64, ptr %825, align 8, !tbaa !86
+  %827 = icmp sgt i64 %823, %826
+  br i1 %827, label %828, label %835
 
-826:                                              ; preds = %820
-  %827 = load ptr, ptr %5, align 8
-  %828 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %827, i32 0, i32 0
-  %829 = load ptr, ptr %828, align 8
-  %830 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %829, i32 0, i32 5
-  %831 = load i32, ptr %830, align 4
-  %832 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %831, i32 noundef %832)
-  br label %910
+828:                                              ; preds = %822
+  %829 = load ptr, ptr %5, align 8, !tbaa !3
+  %830 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %829, i32 0, i32 0
+  %831 = load ptr, ptr %830, align 8, !tbaa !55
+  %832 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %831, i32 0, i32 5
+  %833 = load i32, ptr %832, align 4, !tbaa !85
+  %834 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %833, i32 noundef %834)
+  br label %912
 
-833:                                              ; preds = %820, %815
-  %834 = load ptr, ptr %5, align 8
-  %835 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %834, i32 0, i32 0
-  %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %836, i32 0, i32 6
-  %838 = load i32, ptr %837, align 8
-  %839 = icmp ne i32 %838, 0
-  br i1 %839, label %840, label %870
+835:                                              ; preds = %822, %817
+  %836 = load ptr, ptr %5, align 8, !tbaa !3
+  %837 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %836, i32 0, i32 0
+  %838 = load ptr, ptr %837, align 8, !tbaa !55
+  %839 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %838, i32 0, i32 6
+  %840 = load i32, ptr %839, align 8, !tbaa !122
+  %841 = icmp ne i32 %840, 0
+  br i1 %841, label %842, label %872
 
-840:                                              ; preds = %833
-  %841 = load ptr, ptr %5, align 8
-  %842 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %841, i32 0, i32 0
-  %843 = load ptr, ptr %842, align 8
-  %844 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %843, i32 0, i32 40
-  %845 = load i64, ptr %844, align 8
-  %846 = icmp ne i64 %845, 0
-  br i1 %846, label %847, label %870
+842:                                              ; preds = %835
+  %843 = load ptr, ptr %5, align 8, !tbaa !3
+  %844 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %843, i32 0, i32 0
+  %845 = load ptr, ptr %844, align 8, !tbaa !55
+  %846 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %845, i32 0, i32 40
+  %847 = load i64, ptr %846, align 8, !tbaa !100
+  %848 = icmp ne i64 %847, 0
+  br i1 %848, label %849, label %872
 
-847:                                              ; preds = %840
-  %848 = call i64 @Abc_Clock()
-  %849 = load ptr, ptr %5, align 8
-  %850 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %849, i32 0, i32 0
-  %851 = load ptr, ptr %850, align 8
-  %852 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %851, i32 0, i32 40
-  %853 = load i64, ptr %852, align 8
-  %854 = load ptr, ptr %5, align 8
-  %855 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %854, i32 0, i32 0
-  %856 = load ptr, ptr %855, align 8
-  %857 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %856, i32 0, i32 6
-  %858 = load i32, ptr %857, align 8
-  %859 = sext i32 %858 to i64
-  %860 = mul nsw i64 %859, 1000000
-  %861 = add nsw i64 %853, %860
-  %862 = icmp sgt i64 %848, %861
-  br i1 %862, label %863, label %870
+849:                                              ; preds = %842
+  %850 = call i64 @Abc_Clock()
+  %851 = load ptr, ptr %5, align 8, !tbaa !3
+  %852 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %851, i32 0, i32 0
+  %853 = load ptr, ptr %852, align 8, !tbaa !55
+  %854 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %853, i32 0, i32 40
+  %855 = load i64, ptr %854, align 8, !tbaa !100
+  %856 = load ptr, ptr %5, align 8, !tbaa !3
+  %857 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %856, i32 0, i32 0
+  %858 = load ptr, ptr %857, align 8, !tbaa !55
+  %859 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %858, i32 0, i32 6
+  %860 = load i32, ptr %859, align 8, !tbaa !122
+  %861 = sext i32 %860 to i64
+  %862 = mul nsw i64 %861, 1000000
+  %863 = add nsw i64 %855, %862
+  %864 = icmp sgt i64 %850, %863
+  br i1 %864, label %865, label %872
 
-863:                                              ; preds = %847
-  %864 = load ptr, ptr %5, align 8
-  %865 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %864, i32 0, i32 0
-  %866 = load ptr, ptr %865, align 8
-  %867 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %866, i32 0, i32 6
-  %868 = load i32, ptr %867, align 8
-  %869 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %868, i32 noundef %869)
+865:                                              ; preds = %849
+  %866 = load ptr, ptr %5, align 8, !tbaa !3
+  %867 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %866, i32 0, i32 0
+  %868 = load ptr, ptr %867, align 8, !tbaa !55
+  %869 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %868, i32 0, i32 6
+  %870 = load i32, ptr %869, align 8, !tbaa !122
+  %871 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %870, i32 noundef %871)
+  br label %911
+
+872:                                              ; preds = %849, %842, %835
+  %873 = load ptr, ptr %5, align 8, !tbaa !3
+  %874 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %873, i32 0, i32 57
+  %875 = load i64, ptr %874, align 8, !tbaa !121
+  %876 = icmp ne i64 %875, 0
+  br i1 %876, label %877, label %885
+
+877:                                              ; preds = %872
+  %878 = call i64 @Abc_Clock()
+  %879 = load ptr, ptr %5, align 8, !tbaa !3
+  %880 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %879, i32 0, i32 57
+  %881 = load i64, ptr %880, align 8, !tbaa !121
+  %882 = icmp sgt i64 %878, %881
+  br i1 %882, label %883, label %885
+
+883:                                              ; preds = %877
+  %884 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_QueueClean(ptr noundef %884)
+  store ptr null, ptr %9, align 8, !tbaa !28
+  br label %1193
+
+885:                                              ; preds = %877, %872
+  %886 = load ptr, ptr %5, align 8, !tbaa !3
+  %887 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %886, i32 0, i32 0
+  %888 = load ptr, ptr %887, align 8, !tbaa !55
+  %889 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %888, i32 0, i32 2
+  %890 = load i32, ptr %889, align 8, !tbaa !123
+  %891 = icmp ne i32 %890, 0
+  br i1 %891, label %892, label %899
+
+892:                                              ; preds = %885
+  %893 = load ptr, ptr %5, align 8, !tbaa !3
+  %894 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %893, i32 0, i32 0
+  %895 = load ptr, ptr %894, align 8, !tbaa !55
+  %896 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %895, i32 0, i32 2
+  %897 = load i32, ptr %896, align 8, !tbaa !123
+  %898 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.13, i32 noundef %897, i32 noundef %898)
   br label %909
 
-870:                                              ; preds = %847, %840, %833
-  %871 = load ptr, ptr %5, align 8
-  %872 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %871, i32 0, i32 57
-  %873 = load i64, ptr %872, align 8
-  %874 = icmp ne i64 %873, 0
-  br i1 %874, label %875, label %883
+899:                                              ; preds = %885
+  %900 = load ptr, ptr %5, align 8, !tbaa !3
+  %901 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %900, i32 0, i32 0
+  %902 = load ptr, ptr %901, align 8, !tbaa !55
+  %903 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %902, i32 0, i32 25
+  %904 = load i32, ptr %903, align 4, !tbaa !101
+  %905 = icmp ne i32 %904, 0
+  br i1 %905, label %906, label %908
 
-875:                                              ; preds = %870
-  %876 = call i64 @Abc_Clock()
-  %877 = load ptr, ptr %5, align 8
-  %878 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %877, i32 0, i32 57
-  %879 = load i64, ptr %878, align 8
-  %880 = icmp sgt i64 %876, %879
-  br i1 %880, label %881, label %883
-
-881:                                              ; preds = %875
-  %882 = load ptr, ptr %5, align 8
-  call void @Pdr_QueueClean(ptr noundef %882)
-  store ptr null, ptr %9, align 8
-  br label %1190
-
-883:                                              ; preds = %875, %870
-  %884 = load ptr, ptr %5, align 8
-  %885 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %884, i32 0, i32 0
-  %886 = load ptr, ptr %885, align 8
-  %887 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %886, i32 0, i32 2
-  %888 = load i32, ptr %887, align 8
-  %889 = icmp ne i32 %888, 0
-  br i1 %889, label %890, label %897
-
-890:                                              ; preds = %883
-  %891 = load ptr, ptr %5, align 8
-  %892 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %891, i32 0, i32 0
-  %893 = load ptr, ptr %892, align 8
-  %894 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %893, i32 0, i32 2
-  %895 = load i32, ptr %894, align 8
-  %896 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.13, i32 noundef %895, i32 noundef %896)
-  br label %907
-
-897:                                              ; preds = %883
-  %898 = load ptr, ptr %5, align 8
-  %899 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %898, i32 0, i32 0
-  %900 = load ptr, ptr %899, align 8
-  %901 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %900, i32 0, i32 25
-  %902 = load i32, ptr %901, align 4
-  %903 = icmp ne i32 %902, 0
-  br i1 %903, label %904, label %906
-
-904:                                              ; preds = %897
-  %905 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.14, i32 noundef %905)
-  br label %906
-
-906:                                              ; preds = %904, %897
-  br label %907
-
-907:                                              ; preds = %906, %890
+906:                                              ; preds = %899
+  %907 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.14, i32 noundef %907)
   br label %908
 
-908:                                              ; preds = %907
+908:                                              ; preds = %906, %899
   br label %909
 
-909:                                              ; preds = %908, %863
+909:                                              ; preds = %908, %892
   br label %910
 
-910:                                              ; preds = %909, %826
-  %911 = load i32, ptr %12, align 4
-  %912 = load ptr, ptr %5, align 8
-  %913 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %912, i32 0, i32 0
-  %914 = load ptr, ptr %913, align 8
-  %915 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %914, i32 0, i32 36
-  store i32 %911, ptr %915, align 8
+910:                                              ; preds = %909
+  br label %911
+
+911:                                              ; preds = %910, %865
+  br label %912
+
+912:                                              ; preds = %911, %828
+  %913 = load i32, ptr %12, align 4, !tbaa !8
+  %914 = load ptr, ptr %5, align 8, !tbaa !3
+  %915 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %914, i32 0, i32 0
+  %916 = load ptr, ptr %915, align 8, !tbaa !55
+  %917 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %916, i32 0, i32 36
+  store i32 %913, ptr %917, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
-
-916:                                              ; preds = %797
-  %917 = load i32, ptr %13, align 4
-  %918 = icmp eq i32 %917, 0
-  br i1 %918, label %919, label %1176
-
-919:                                              ; preds = %916
-  %920 = load i32, ptr %8, align 4
-  %921 = icmp ne i32 %920, 0
-  br i1 %921, label %922, label %925
-
-922:                                              ; preds = %919
-  %923 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %923)
-  %924 = load ptr, ptr %5, align 8
-  call void @Pdr_ManPrintClauses(ptr noundef %924, i32 noundef 0)
-  br label %925
-
-925:                                              ; preds = %922, %919
-  %926 = load ptr, ptr %5, align 8
-  %927 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %926, i32 0, i32 0
-  %928 = load ptr, ptr %927, align 8
-  %929 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %928, i32 0, i32 25
-  %930 = load i32, ptr %929, align 4
-  %931 = icmp ne i32 %930, 0
-  br i1 %931, label %932, label %952
-
-932:                                              ; preds = %925
-  %933 = load ptr, ptr %5, align 8
-  %934 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %933, i32 0, i32 0
-  %935 = load ptr, ptr %934, align 8
-  %936 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %935, i32 0, i32 23
-  %937 = load i32, ptr %936, align 4
-  %938 = icmp ne i32 %937, 0
-  br i1 %938, label %952, label %939
-
-939:                                              ; preds = %932
-  %940 = load ptr, ptr %5, align 8
-  %941 = load ptr, ptr %5, align 8
-  %942 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %941, i32 0, i32 0
-  %943 = load ptr, ptr %942, align 8
-  %944 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %943, i32 0, i32 29
-  %945 = load i32, ptr %944, align 4
-  %946 = icmp ne i32 %945, 0
-  %947 = xor i1 %946, true
-  %948 = zext i1 %947 to i32
-  %949 = call i64 @Abc_Clock()
-  %950 = load i64, ptr %15, align 8
-  %951 = sub nsw i64 %949, %950
-  call void @Pdr_ManPrintProgress(ptr noundef %940, i32 noundef %948, i64 noundef %951)
-  br label %952
-
-952:                                              ; preds = %939, %932, %925
-  %953 = load i32, ptr %12, align 4
-  %954 = load ptr, ptr %5, align 8
-  %955 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %954, i32 0, i32 0
-  %956 = load ptr, ptr %955, align 8
-  %957 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %956, i32 0, i32 36
-  store i32 %953, ptr %957, align 8
-  %958 = load ptr, ptr %5, align 8
-  %959 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %958, i32 0, i32 0
-  %960 = load ptr, ptr %959, align 8
-  %961 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %960, i32 0, i32 29
-  %962 = load i32, ptr %961, align 4
-  %963 = icmp ne i32 %962, 0
-  br i1 %963, label %1012, label %964
-
-964:                                              ; preds = %952
-  %965 = call i64 @Abc_Clock()
-  store i64 %965, ptr %18, align 8
-  %966 = load ptr, ptr %5, align 8
-  %967 = call ptr @Pdr_ManDeriveCexAbs(ptr noundef %966)
-  store ptr %967, ptr %19, align 8
-  %968 = call i64 @Abc_Clock()
-  %969 = load i64, ptr %18, align 8
-  %970 = sub nsw i64 %968, %969
-  %971 = load ptr, ptr %5, align 8
-  %972 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %971, i32 0, i32 66
-  %973 = load i64, ptr %972, align 8
-  %974 = add nsw i64 %973, %970
-  store i64 %974, ptr %972, align 8
-  %975 = load ptr, ptr %19, align 8
-  %976 = icmp eq ptr %975, null
-  br i1 %976, label %977, label %979
-
-977:                                              ; preds = %964
-  %978 = load ptr, ptr %5, align 8
-  call void @Pdr_QueueClean(ptr noundef %978)
-  store ptr null, ptr %9, align 8
   store i32 1, ptr %17, align 4
-  br label %1190
+  br label %1807
 
-979:                                              ; preds = %964
-  %980 = load ptr, ptr %19, align 8
-  %981 = load ptr, ptr %5, align 8
-  %982 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %981, i32 0, i32 1
-  %983 = load ptr, ptr %982, align 8
-  %984 = getelementptr inbounds %struct.Aig_Man_t_, ptr %983, i32 0, i32 51
-  store ptr %980, ptr %984, align 8
-  %985 = load ptr, ptr %5, align 8
-  %986 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %985, i32 0, i32 0
-  %987 = load ptr, ptr %986, align 8
-  %988 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %987, i32 0, i32 25
-  %989 = load i32, ptr %988, align 4
-  %990 = icmp ne i32 %989, 0
-  br i1 %990, label %991, label %1011
+918:                                              ; preds = %799
+  %919 = load i32, ptr %13, align 4, !tbaa !8
+  %920 = icmp eq i32 %919, 0
+  br i1 %920, label %921, label %1179
 
-991:                                              ; preds = %979
-  %992 = load ptr, ptr %5, align 8
-  %993 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %992, i32 0, i32 0
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %994, i32 0, i32 23
-  %996 = load i32, ptr %995, align 4
-  %997 = icmp ne i32 %996, 0
-  br i1 %997, label %998, label %1011
+921:                                              ; preds = %918
+  %922 = load i32, ptr %8, align 4, !tbaa !8
+  %923 = icmp ne i32 %922, 0
+  br i1 %923, label %924, label %927
 
-998:                                              ; preds = %991
-  %999 = load ptr, ptr %5, align 8
-  %1000 = load ptr, ptr %5, align 8
-  %1001 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1000, i32 0, i32 0
-  %1002 = load ptr, ptr %1001, align 8
-  %1003 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1002, i32 0, i32 29
-  %1004 = load i32, ptr %1003, align 4
-  %1005 = icmp ne i32 %1004, 0
-  %1006 = xor i1 %1005, true
-  %1007 = zext i1 %1006 to i32
-  %1008 = call i64 @Abc_Clock()
-  %1009 = load i64, ptr %15, align 8
-  %1010 = sub nsw i64 %1008, %1009
-  call void @Pdr_ManPrintProgress(ptr noundef %999, i32 noundef %1007, i64 noundef %1010)
-  br label %1011
+924:                                              ; preds = %921
+  %925 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %925)
+  %926 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManPrintClauses(ptr noundef %926, i32 noundef 0)
+  br label %927
 
-1011:                                             ; preds = %998, %991, %979
+927:                                              ; preds = %924, %921
+  %928 = load ptr, ptr %5, align 8, !tbaa !3
+  %929 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %928, i32 0, i32 0
+  %930 = load ptr, ptr %929, align 8, !tbaa !55
+  %931 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %930, i32 0, i32 25
+  %932 = load i32, ptr %931, align 4, !tbaa !101
+  %933 = icmp ne i32 %932, 0
+  br i1 %933, label %934, label %954
+
+934:                                              ; preds = %927
+  %935 = load ptr, ptr %5, align 8, !tbaa !3
+  %936 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %935, i32 0, i32 0
+  %937 = load ptr, ptr %936, align 8, !tbaa !55
+  %938 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %937, i32 0, i32 23
+  %939 = load i32, ptr %938, align 4, !tbaa !103
+  %940 = icmp ne i32 %939, 0
+  br i1 %940, label %954, label %941
+
+941:                                              ; preds = %934
+  %942 = load ptr, ptr %5, align 8, !tbaa !3
+  %943 = load ptr, ptr %5, align 8, !tbaa !3
+  %944 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %943, i32 0, i32 0
+  %945 = load ptr, ptr %944, align 8, !tbaa !55
+  %946 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %945, i32 0, i32 29
+  %947 = load i32, ptr %946, align 4, !tbaa !87
+  %948 = icmp ne i32 %947, 0
+  %949 = xor i1 %948, true
+  %950 = zext i1 %949 to i32
+  %951 = call i64 @Abc_Clock()
+  %952 = load i64, ptr %15, align 8, !tbaa !84
+  %953 = sub nsw i64 %951, %952
+  call void @Pdr_ManPrintProgress(ptr noundef %942, i32 noundef %950, i64 noundef %953)
+  br label %954
+
+954:                                              ; preds = %941, %934, %927
+  %955 = load i32, ptr %12, align 4, !tbaa !8
+  %956 = load ptr, ptr %5, align 8, !tbaa !3
+  %957 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %956, i32 0, i32 0
+  %958 = load ptr, ptr %957, align 8, !tbaa !55
+  %959 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %958, i32 0, i32 36
+  store i32 %955, ptr %959, align 8, !tbaa !119
+  %960 = load ptr, ptr %5, align 8, !tbaa !3
+  %961 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %960, i32 0, i32 0
+  %962 = load ptr, ptr %961, align 8, !tbaa !55
+  %963 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %962, i32 0, i32 29
+  %964 = load i32, ptr %963, align 4, !tbaa !87
+  %965 = icmp ne i32 %964, 0
+  br i1 %965, label %1016, label %966
+
+966:                                              ; preds = %954
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  %967 = call i64 @Abc_Clock()
+  store i64 %967, ptr %19, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  %968 = load ptr, ptr %5, align 8, !tbaa !3
+  %969 = call ptr @Pdr_ManDeriveCexAbs(ptr noundef %968)
+  store ptr %969, ptr %20, align 8, !tbaa !110
+  %970 = call i64 @Abc_Clock()
+  %971 = load i64, ptr %19, align 8, !tbaa !84
+  %972 = sub nsw i64 %970, %971
+  %973 = load ptr, ptr %5, align 8, !tbaa !3
+  %974 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %973, i32 0, i32 66
+  %975 = load i64, ptr %974, align 8, !tbaa !124
+  %976 = add nsw i64 %975, %972
+  store i64 %976, ptr %974, align 8, !tbaa !124
+  %977 = load ptr, ptr %20, align 8, !tbaa !110
+  %978 = icmp eq ptr %977, null
+  br i1 %978, label %979, label %981
+
+979:                                              ; preds = %966
+  %980 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_QueueClean(ptr noundef %980)
+  store ptr null, ptr %9, align 8, !tbaa !28
+  store i32 1, ptr %18, align 4, !tbaa !8
+  store i32 11, ptr %17, align 4
+  br label %1014
+
+981:                                              ; preds = %966
+  %982 = load ptr, ptr %20, align 8, !tbaa !110
+  %983 = load ptr, ptr %5, align 8, !tbaa !3
+  %984 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %983, i32 0, i32 1
+  %985 = load ptr, ptr %984, align 8, !tbaa !83
+  %986 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %985, i32 0, i32 51
+  store ptr %982, ptr %986, align 8, !tbaa !111
+  %987 = load ptr, ptr %5, align 8, !tbaa !3
+  %988 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %987, i32 0, i32 0
+  %989 = load ptr, ptr %988, align 8, !tbaa !55
+  %990 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %989, i32 0, i32 25
+  %991 = load i32, ptr %990, align 4, !tbaa !101
+  %992 = icmp ne i32 %991, 0
+  br i1 %992, label %993, label %1013
+
+993:                                              ; preds = %981
+  %994 = load ptr, ptr %5, align 8, !tbaa !3
+  %995 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %994, i32 0, i32 0
+  %996 = load ptr, ptr %995, align 8, !tbaa !55
+  %997 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %996, i32 0, i32 23
+  %998 = load i32, ptr %997, align 4, !tbaa !103
+  %999 = icmp ne i32 %998, 0
+  br i1 %999, label %1000, label %1013
+
+1000:                                             ; preds = %993
+  %1001 = load ptr, ptr %5, align 8, !tbaa !3
+  %1002 = load ptr, ptr %5, align 8, !tbaa !3
+  %1003 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1002, i32 0, i32 0
+  %1004 = load ptr, ptr %1003, align 8, !tbaa !55
+  %1005 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1004, i32 0, i32 29
+  %1006 = load i32, ptr %1005, align 4, !tbaa !87
+  %1007 = icmp ne i32 %1006, 0
+  %1008 = xor i1 %1007, true
+  %1009 = zext i1 %1008 to i32
+  %1010 = call i64 @Abc_Clock()
+  %1011 = load i64, ptr %15, align 8, !tbaa !84
+  %1012 = sub nsw i64 %1010, %1011
+  call void @Pdr_ManPrintProgress(ptr noundef %1001, i32 noundef %1009, i64 noundef %1012)
+  br label %1013
+
+1013:                                             ; preds = %1000, %993, %981
   store i32 0, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1014
 
-1012:                                             ; preds = %952
-  %1013 = load ptr, ptr %5, align 8
-  %1014 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1013, i32 0, i32 0
-  %1015 = load ptr, ptr %1014, align 8
-  %1016 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1015, i32 0, i32 33
-  %1017 = load i32, ptr %1016, align 4
-  %1018 = add nsw i32 %1017, 1
-  store i32 %1018, ptr %1016, align 4
-  %1019 = load ptr, ptr %5, align 8
-  %1020 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1019, i32 0, i32 0
-  %1021 = load ptr, ptr %1020, align 8
-  %1022 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1021, i32 0, i32 31
-  %1023 = load i32, ptr %1022, align 4
-  %1024 = icmp ne i32 %1023, 0
-  br i1 %1024, label %1032, label %1025
+1014:                                             ; preds = %1013, %979
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  %1015 = load i32, ptr %17, align 4
+  switch i32 %1015, label %1807 [
+    i32 11, label %1193
+  ]
 
-1025:                                             ; preds = %1012
-  %1026 = load ptr, ptr %5, align 8
-  %1027 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1026, i32 0, i32 0
-  %1028 = load ptr, ptr %1027, align 8
-  %1029 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1028, i32 0, i32 30
-  %1030 = load i32, ptr %1029, align 8
-  %1031 = icmp ne i32 %1030, 0
-  br i1 %1031, label %1032, label %1035
+1016:                                             ; preds = %954
+  %1017 = load ptr, ptr %5, align 8, !tbaa !3
+  %1018 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1017, i32 0, i32 0
+  %1019 = load ptr, ptr %1018, align 8, !tbaa !55
+  %1020 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1019, i32 0, i32 33
+  %1021 = load i32, ptr %1020, align 4, !tbaa !113
+  %1022 = add nsw i32 %1021, 1
+  store i32 %1022, ptr %1020, align 4, !tbaa !113
+  %1023 = load ptr, ptr %5, align 8, !tbaa !3
+  %1024 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1023, i32 0, i32 0
+  %1025 = load ptr, ptr %1024, align 8, !tbaa !55
+  %1026 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1025, i32 0, i32 31
+  %1027 = load i32, ptr %1026, align 4, !tbaa !98
+  %1028 = icmp ne i32 %1027, 0
+  br i1 %1028, label %1036, label %1029
 
-1032:                                             ; preds = %1025, %1012
-  %1033 = load ptr, ptr %5, align 8
-  %1034 = call ptr @Pdr_ManDeriveCex(ptr noundef %1033)
-  br label %1037
+1029:                                             ; preds = %1016
+  %1030 = load ptr, ptr %5, align 8, !tbaa !3
+  %1031 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1030, i32 0, i32 0
+  %1032 = load ptr, ptr %1031, align 8, !tbaa !55
+  %1033 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1032, i32 0, i32 30
+  %1034 = load i32, ptr %1033, align 8, !tbaa !112
+  %1035 = icmp ne i32 %1034, 0
+  br i1 %1035, label %1036, label %1039
 
-1035:                                             ; preds = %1025
-  %1036 = inttoptr i64 1 to ptr
-  br label %1037
+1036:                                             ; preds = %1029, %1016
+  %1037 = load ptr, ptr %5, align 8, !tbaa !3
+  %1038 = call ptr @Pdr_ManDeriveCex(ptr noundef %1037)
+  br label %1040
 
-1037:                                             ; preds = %1035, %1032
-  %1038 = phi ptr [ %1034, %1032 ], [ %1036, %1035 ]
-  store ptr %1038, ptr %11, align 8
-  %1039 = load ptr, ptr %5, align 8
-  %1040 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1039, i32 0, i32 0
-  %1041 = load ptr, ptr %1040, align 8
-  %1042 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1041, i32 0, i32 41
-  %1043 = load ptr, ptr %1042, align 8
-  %1044 = icmp ne ptr %1043, null
-  br i1 %1044, label %1045, label %1054
+1039:                                             ; preds = %1029
+  br label %1040
 
-1045:                                             ; preds = %1037
-  %1046 = load ptr, ptr %5, align 8
-  %1047 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1046, i32 0, i32 0
-  %1048 = load ptr, ptr %1047, align 8
-  %1049 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1048, i32 0, i32 41
-  %1050 = load ptr, ptr %1049, align 8
-  %1051 = load ptr, ptr %5, align 8
-  %1052 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1051, i32 0, i32 10
-  %1053 = load i32, ptr %1052, align 8
-  call void @Vec_IntWriteEntry(ptr noundef %1050, i32 noundef %1053, i32 noundef 0)
-  br label %1054
+1040:                                             ; preds = %1039, %1036
+  %1041 = phi ptr [ %1038, %1036 ], [ inttoptr (i64 1 to ptr), %1039 ]
+  store ptr %1041, ptr %11, align 8, !tbaa !110
+  %1042 = load ptr, ptr %5, align 8, !tbaa !3
+  %1043 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1042, i32 0, i32 0
+  %1044 = load ptr, ptr %1043, align 8, !tbaa !55
+  %1045 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1044, i32 0, i32 41
+  %1046 = load ptr, ptr %1045, align 8, !tbaa !96
+  %1047 = icmp ne ptr %1046, null
+  br i1 %1047, label %1048, label %1057
 
-1054:                                             ; preds = %1045, %1037
-  %1055 = load ptr, ptr %5, align 8
-  %1056 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1055, i32 0, i32 0
-  %1057 = load ptr, ptr %1056, align 8
-  %1058 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1057, i32 0, i32 31
-  %1059 = load i32, ptr %1058, align 4
-  %1060 = icmp ne i32 %1059, 0
-  br i1 %1060, label %1061, label %1068
+1048:                                             ; preds = %1040
+  %1049 = load ptr, ptr %5, align 8, !tbaa !3
+  %1050 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1049, i32 0, i32 0
+  %1051 = load ptr, ptr %1050, align 8, !tbaa !55
+  %1052 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1051, i32 0, i32 41
+  %1053 = load ptr, ptr %1052, align 8, !tbaa !96
+  %1054 = load ptr, ptr %5, align 8, !tbaa !3
+  %1055 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1054, i32 0, i32 10
+  %1056 = load i32, ptr %1055, align 8, !tbaa !107
+  call void @Vec_IntWriteEntry(ptr noundef %1053, i32 noundef %1056, i32 noundef 0)
+  br label %1057
 
-1061:                                             ; preds = %1054
-  %1062 = load ptr, ptr @stdout, align 8
-  %1063 = load ptr, ptr %11, align 8
-  %1064 = load ptr, ptr %11, align 8
-  %1065 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %1064, i32 0, i32 0
-  %1066 = load i32, ptr %1065, align 4
-  %1067 = call i32 @Gia_ManToBridgeResult(ptr noundef %1062, i32 noundef 0, ptr noundef %1063, i32 noundef %1066)
-  br label %1068
+1057:                                             ; preds = %1048, %1040
+  %1058 = load ptr, ptr %5, align 8, !tbaa !3
+  %1059 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1058, i32 0, i32 0
+  %1060 = load ptr, ptr %1059, align 8, !tbaa !55
+  %1061 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1060, i32 0, i32 31
+  %1062 = load i32, ptr %1061, align 4, !tbaa !98
+  %1063 = icmp ne i32 %1062, 0
+  br i1 %1063, label %1064, label %1071
 
-1068:                                             ; preds = %1061, %1054
-  %1069 = load ptr, ptr %5, align 8
-  %1070 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1069, i32 0, i32 12
-  %1071 = load ptr, ptr %1070, align 8
-  %1072 = load ptr, ptr %5, align 8
-  %1073 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1072, i32 0, i32 10
-  %1074 = load i32, ptr %1073, align 8
-  %1075 = load ptr, ptr %11, align 8
-  call void @Vec_PtrWriteEntry(ptr noundef %1071, i32 noundef %1074, ptr noundef %1075)
-  %1076 = load ptr, ptr %5, align 8
-  %1077 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1076, i32 0, i32 0
-  %1078 = load ptr, ptr %1077, align 8
-  %1079 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1078, i32 0, i32 39
-  %1080 = load ptr, ptr %1079, align 8
-  %1081 = icmp ne ptr %1080, null
-  br i1 %1081, label %1082, label %1137
+1064:                                             ; preds = %1057
+  %1065 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %1066 = load ptr, ptr %11, align 8, !tbaa !110
+  %1067 = load ptr, ptr %11, align 8, !tbaa !110
+  %1068 = getelementptr inbounds nuw %struct.Abc_Cex_t_, ptr %1067, i32 0, i32 0
+  %1069 = load i32, ptr %1068, align 4, !tbaa !115
+  %1070 = call i32 @Gia_ManToBridgeResult(ptr noundef %1065, i32 noundef 0, ptr noundef %1066, i32 noundef %1069)
+  br label %1071
 
-1082:                                             ; preds = %1068
-  %1083 = load ptr, ptr %5, align 8
-  %1084 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1083, i32 0, i32 0
-  %1085 = load ptr, ptr %1084, align 8
-  %1086 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1085, i32 0, i32 39
-  %1087 = load ptr, ptr %1086, align 8
-  %1088 = load ptr, ptr %5, align 8
-  %1089 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1088, i32 0, i32 10
-  %1090 = load i32, ptr %1089, align 8
-  %1091 = load ptr, ptr %5, align 8
-  %1092 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1091, i32 0, i32 0
-  %1093 = load ptr, ptr %1092, align 8
-  %1094 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1093, i32 0, i32 30
-  %1095 = load i32, ptr %1094, align 8
-  %1096 = icmp ne i32 %1095, 0
-  br i1 %1096, label %1097, label %1105
+1071:                                             ; preds = %1064, %1057
+  %1072 = load ptr, ptr %5, align 8, !tbaa !3
+  %1073 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1072, i32 0, i32 12
+  %1074 = load ptr, ptr %1073, align 8, !tbaa !108
+  %1075 = load ptr, ptr %5, align 8, !tbaa !3
+  %1076 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1075, i32 0, i32 10
+  %1077 = load i32, ptr %1076, align 8, !tbaa !107
+  %1078 = load ptr, ptr %11, align 8, !tbaa !110
+  call void @Vec_PtrWriteEntry(ptr noundef %1074, i32 noundef %1077, ptr noundef %1078)
+  %1079 = load ptr, ptr %5, align 8, !tbaa !3
+  %1080 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1079, i32 0, i32 0
+  %1081 = load ptr, ptr %1080, align 8, !tbaa !55
+  %1082 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1081, i32 0, i32 39
+  %1083 = load ptr, ptr %1082, align 8, !tbaa !117
+  %1084 = icmp ne ptr %1083, null
+  br i1 %1084, label %1085, label %1140
 
-1097:                                             ; preds = %1082
-  %1098 = load ptr, ptr %5, align 8
-  %1099 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1098, i32 0, i32 12
-  %1100 = load ptr, ptr %1099, align 8
-  %1101 = load ptr, ptr %5, align 8
-  %1102 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1101, i32 0, i32 10
-  %1103 = load i32, ptr %1102, align 8
-  %1104 = call ptr @Vec_PtrEntry(ptr noundef %1100, i32 noundef %1103)
-  br label %1106
+1085:                                             ; preds = %1071
+  %1086 = load ptr, ptr %5, align 8, !tbaa !3
+  %1087 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1086, i32 0, i32 0
+  %1088 = load ptr, ptr %1087, align 8, !tbaa !55
+  %1089 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1088, i32 0, i32 39
+  %1090 = load ptr, ptr %1089, align 8, !tbaa !117
+  %1091 = load ptr, ptr %5, align 8, !tbaa !3
+  %1092 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1091, i32 0, i32 10
+  %1093 = load i32, ptr %1092, align 8, !tbaa !107
+  %1094 = load ptr, ptr %5, align 8, !tbaa !3
+  %1095 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1094, i32 0, i32 0
+  %1096 = load ptr, ptr %1095, align 8, !tbaa !55
+  %1097 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1096, i32 0, i32 30
+  %1098 = load i32, ptr %1097, align 8, !tbaa !112
+  %1099 = icmp ne i32 %1098, 0
+  br i1 %1099, label %1100, label %1108
 
-1105:                                             ; preds = %1082
-  br label %1106
+1100:                                             ; preds = %1085
+  %1101 = load ptr, ptr %5, align 8, !tbaa !3
+  %1102 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1101, i32 0, i32 12
+  %1103 = load ptr, ptr %1102, align 8, !tbaa !108
+  %1104 = load ptr, ptr %5, align 8, !tbaa !3
+  %1105 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1104, i32 0, i32 10
+  %1106 = load i32, ptr %1105, align 8, !tbaa !107
+  %1107 = call ptr @Vec_PtrEntry(ptr noundef %1103, i32 noundef %1106)
+  br label %1109
 
-1106:                                             ; preds = %1105, %1097
-  %1107 = phi ptr [ %1104, %1097 ], [ null, %1105 ]
-  %1108 = call i32 %1087(i32 noundef %1090, ptr noundef %1107)
-  %1109 = icmp ne i32 %1108, 0
-  br i1 %1109, label %1110, label %1137
+1108:                                             ; preds = %1085
+  br label %1109
 
-1110:                                             ; preds = %1106
-  %1111 = load ptr, ptr %5, align 8
-  %1112 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1111, i32 0, i32 0
-  %1113 = load ptr, ptr %1112, align 8
-  %1114 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1113, i32 0, i32 25
-  %1115 = load i32, ptr %1114, align 4
-  %1116 = icmp ne i32 %1115, 0
-  br i1 %1116, label %1117, label %1122
+1109:                                             ; preds = %1108, %1100
+  %1110 = phi ptr [ %1107, %1100 ], [ null, %1108 ]
+  %1111 = call i32 %1090(i32 noundef %1093, ptr noundef %1110)
+  %1112 = icmp ne i32 %1111, 0
+  br i1 %1112, label %1113, label %1140
 
-1117:                                             ; preds = %1110
-  %1118 = load ptr, ptr %5, align 8
-  %1119 = call i64 @Abc_Clock()
-  %1120 = load i64, ptr %15, align 8
-  %1121 = sub nsw i64 %1119, %1120
-  call void @Pdr_ManPrintProgress(ptr noundef %1118, i32 noundef 1, i64 noundef %1121)
-  br label %1122
+1113:                                             ; preds = %1109
+  %1114 = load ptr, ptr %5, align 8, !tbaa !3
+  %1115 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1114, i32 0, i32 0
+  %1116 = load ptr, ptr %1115, align 8, !tbaa !55
+  %1117 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1116, i32 0, i32 25
+  %1118 = load i32, ptr %1117, align 4, !tbaa !101
+  %1119 = icmp ne i32 %1118, 0
+  br i1 %1119, label %1120, label %1125
 
-1122:                                             ; preds = %1117, %1110
-  %1123 = load ptr, ptr %5, align 8
-  %1124 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1123, i32 0, i32 0
-  %1125 = load ptr, ptr %1124, align 8
-  %1126 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1125, i32 0, i32 28
-  %1127 = load i32, ptr %1126, align 8
-  %1128 = icmp ne i32 %1127, 0
-  br i1 %1128, label %1131, label %1129
+1120:                                             ; preds = %1113
+  %1121 = load ptr, ptr %5, align 8, !tbaa !3
+  %1122 = call i64 @Abc_Clock()
+  %1123 = load i64, ptr %15, align 8, !tbaa !84
+  %1124 = sub nsw i64 %1122, %1123
+  call void @Pdr_ManPrintProgress(ptr noundef %1121, i32 noundef 1, i64 noundef %1124)
+  br label %1125
 
-1129:                                             ; preds = %1122
-  %1130 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.10, i32 noundef %1130)
-  br label %1131
+1125:                                             ; preds = %1120, %1113
+  %1126 = load ptr, ptr %5, align 8, !tbaa !3
+  %1127 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1126, i32 0, i32 0
+  %1128 = load ptr, ptr %1127, align 8, !tbaa !55
+  %1129 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1128, i32 0, i32 28
+  %1130 = load i32, ptr %1129, align 8, !tbaa !118
+  %1131 = icmp ne i32 %1130, 0
+  br i1 %1131, label %1134, label %1132
 
-1131:                                             ; preds = %1129, %1122
-  %1132 = load i32, ptr %12, align 4
-  %1133 = load ptr, ptr %5, align 8
-  %1134 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1133, i32 0, i32 0
-  %1135 = load ptr, ptr %1134, align 8
-  %1136 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1135, i32 0, i32 36
-  store i32 %1132, ptr %1136, align 8
+1132:                                             ; preds = %1125
+  %1133 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.10, i32 noundef %1133)
+  br label %1134
+
+1134:                                             ; preds = %1132, %1125
+  %1135 = load i32, ptr %12, align 4, !tbaa !8
+  %1136 = load ptr, ptr %5, align 8, !tbaa !3
+  %1137 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1136, i32 0, i32 0
+  %1138 = load ptr, ptr %1137, align 8, !tbaa !55
+  %1139 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1138, i32 0, i32 36
+  store i32 %1135, ptr %1139, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1137:                                             ; preds = %1106, %1068
-  %1138 = load ptr, ptr %5, align 8
-  %1139 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1138, i32 0, i32 0
-  %1140 = load ptr, ptr %1139, align 8
-  %1141 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1140, i32 0, i32 27
-  %1142 = load i32, ptr %1141, align 4
-  %1143 = icmp ne i32 %1142, 0
-  br i1 %1143, label %1162, label %1144
+1140:                                             ; preds = %1109, %1071
+  %1141 = load ptr, ptr %5, align 8, !tbaa !3
+  %1142 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1141, i32 0, i32 0
+  %1143 = load ptr, ptr %1142, align 8, !tbaa !55
+  %1144 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1143, i32 0, i32 27
+  %1145 = load i32, ptr %1144, align 4, !tbaa !114
+  %1146 = icmp ne i32 %1145, 0
+  br i1 %1146, label %1165, label %1147
 
-1144:                                             ; preds = %1137
-  %1145 = load i32, ptr %14, align 4
-  %1146 = load ptr, ptr %5, align 8
-  %1147 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1146, i32 0, i32 10
-  %1148 = load i32, ptr %1147, align 8
-  %1149 = load i32, ptr %12, align 4
-  %1150 = load i32, ptr %12, align 4
-  %1151 = load i32, ptr %14, align 4
-  %1152 = load ptr, ptr %5, align 8
-  %1153 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1152, i32 0, i32 0
-  %1154 = load ptr, ptr %1153, align 8
-  %1155 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1154, i32 0, i32 33
-  %1156 = load i32, ptr %1155, align 4
-  %1157 = load i32, ptr %14, align 4
-  %1158 = load ptr, ptr %5, align 8
-  %1159 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1158, i32 0, i32 1
-  %1160 = load ptr, ptr %1159, align 8
-  %1161 = call i32 @Saig_ManPoNum(ptr noundef %1160)
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.16, i32 noundef %1145, i32 noundef %1148, i32 noundef %1149, i32 noundef %1150, i32 noundef %1151, i32 noundef %1156, i32 noundef %1157, i32 noundef %1161)
-  br label %1162
+1147:                                             ; preds = %1140
+  %1148 = load i32, ptr %14, align 4, !tbaa !8
+  %1149 = load ptr, ptr %5, align 8, !tbaa !3
+  %1150 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1149, i32 0, i32 10
+  %1151 = load i32, ptr %1150, align 8, !tbaa !107
+  %1152 = load i32, ptr %12, align 4, !tbaa !8
+  %1153 = load i32, ptr %12, align 4, !tbaa !8
+  %1154 = load i32, ptr %14, align 4, !tbaa !8
+  %1155 = load ptr, ptr %5, align 8, !tbaa !3
+  %1156 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1155, i32 0, i32 0
+  %1157 = load ptr, ptr %1156, align 8, !tbaa !55
+  %1158 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1157, i32 0, i32 33
+  %1159 = load i32, ptr %1158, align 4, !tbaa !113
+  %1160 = load i32, ptr %14, align 4, !tbaa !8
+  %1161 = load ptr, ptr %5, align 8, !tbaa !3
+  %1162 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1161, i32 0, i32 1
+  %1163 = load ptr, ptr %1162, align 8, !tbaa !83
+  %1164 = call i32 @Saig_ManPoNum(ptr noundef %1163)
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.16, i32 noundef %1148, i32 noundef %1151, i32 noundef %1152, i32 noundef %1153, i32 noundef %1154, i32 noundef %1159, i32 noundef %1160, i32 noundef %1164)
+  br label %1165
 
-1162:                                             ; preds = %1144, %1137
-  %1163 = load ptr, ptr %5, align 8
-  %1164 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1163, i32 0, i32 0
-  %1165 = load ptr, ptr %1164, align 8
-  %1166 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1165, i32 0, i32 33
-  %1167 = load i32, ptr %1166, align 4
-  %1168 = load ptr, ptr %5, align 8
-  %1169 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1168, i32 0, i32 1
-  %1170 = load ptr, ptr %1169, align 8
-  %1171 = call i32 @Saig_ManPoNum(ptr noundef %1170)
-  %1172 = icmp eq i32 %1167, %1171
-  br i1 %1172, label %1173, label %1174
+1165:                                             ; preds = %1147, %1140
+  %1166 = load ptr, ptr %5, align 8, !tbaa !3
+  %1167 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1166, i32 0, i32 0
+  %1168 = load ptr, ptr %1167, align 8, !tbaa !55
+  %1169 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1168, i32 0, i32 33
+  %1170 = load i32, ptr %1169, align 4, !tbaa !113
+  %1171 = load ptr, ptr %5, align 8, !tbaa !3
+  %1172 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1171, i32 0, i32 1
+  %1173 = load ptr, ptr %1172, align 8, !tbaa !83
+  %1174 = call i32 @Saig_ManPoNum(ptr noundef %1173)
+  %1175 = icmp eq i32 %1170, %1174
+  br i1 %1175, label %1176, label %1177
 
-1173:                                             ; preds = %1162
+1176:                                             ; preds = %1165
   store i32 0, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1174:                                             ; preds = %1162
-  %1175 = load ptr, ptr %5, align 8
-  call void @Pdr_QueueClean(ptr noundef %1175)
-  store ptr null, ptr %9, align 8
-  br label %1190
+1177:                                             ; preds = %1165
+  %1178 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_QueueClean(ptr noundef %1178)
+  store ptr null, ptr %9, align 8, !tbaa !28
+  br label %1193
 
-1176:                                             ; preds = %916
-  %1177 = load ptr, ptr %5, align 8
-  %1178 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1177, i32 0, i32 0
-  %1179 = load ptr, ptr %1178, align 8
-  %1180 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1179, i32 0, i32 25
-  %1181 = load i32, ptr %1180, align 4
-  %1182 = icmp ne i32 %1181, 0
-  br i1 %1182, label %1183, label %1188
+1179:                                             ; preds = %918
+  %1180 = load ptr, ptr %5, align 8, !tbaa !3
+  %1181 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1180, i32 0, i32 0
+  %1182 = load ptr, ptr %1181, align 8, !tbaa !55
+  %1183 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1182, i32 0, i32 25
+  %1184 = load i32, ptr %1183, align 4, !tbaa !101
+  %1185 = icmp ne i32 %1184, 0
+  br i1 %1185, label %1186, label %1191
 
-1183:                                             ; preds = %1176
-  %1184 = load ptr, ptr %5, align 8
-  %1185 = call i64 @Abc_Clock()
-  %1186 = load i64, ptr %15, align 8
-  %1187 = sub nsw i64 %1185, %1186
-  call void @Pdr_ManPrintProgress(ptr noundef %1184, i32 noundef 0, i64 noundef %1187)
-  br label %1188
+1186:                                             ; preds = %1179
+  %1187 = load ptr, ptr %5, align 8, !tbaa !3
+  %1188 = call i64 @Abc_Clock()
+  %1189 = load i64, ptr %15, align 8, !tbaa !84
+  %1190 = sub nsw i64 %1188, %1189
+  call void @Pdr_ManPrintProgress(ptr noundef %1187, i32 noundef 0, i64 noundef %1190)
+  br label %1191
 
-1188:                                             ; preds = %1183, %1176
-  br label %1189
+1191:                                             ; preds = %1186, %1179
+  br label %1192
 
-1189:                                             ; preds = %1188, %794
-  br label %604
+1192:                                             ; preds = %1191, %796
+  br label %605
 
-1190:                                             ; preds = %1174, %977, %881, %759, %677
-  %1191 = load i32, ptr %17, align 4
-  %1192 = icmp ne i32 %1191, 0
-  br i1 %1192, label %1193, label %1194
+1193:                                             ; preds = %1177, %1014, %883, %761, %679
+  %1194 = load i32, ptr %18, align 4, !tbaa !8
+  %1195 = icmp ne i32 %1194, 0
+  br i1 %1195, label %1196, label %1197
 
-1193:                                             ; preds = %1190
-  br label %1301
+1196:                                             ; preds = %1193
+  br label %1304
 
-1194:                                             ; preds = %1190
-  %1195 = load ptr, ptr %5, align 8
-  %1196 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1195, i32 0, i32 37
-  %1197 = load ptr, ptr %1196, align 8
-  %1198 = icmp ne ptr %1197, null
-  br i1 %1198, label %1199, label %1295
+1197:                                             ; preds = %1193
+  %1198 = load ptr, ptr %5, align 8, !tbaa !3
+  %1199 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1198, i32 0, i32 37
+  %1200 = load ptr, ptr %1199, align 8, !tbaa !109
+  %1201 = icmp ne ptr %1200, null
+  br i1 %1201, label %1202, label %1298
 
-1199:                                             ; preds = %1194
-  %1200 = call i64 @Abc_Clock()
-  %1201 = load i64, ptr %16, align 8
-  %1202 = sub nsw i64 %1200, %1201
-  store i64 %1202, ptr %20, align 8
-  %1203 = load ptr, ptr %5, align 8
-  %1204 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1203, i32 0, i32 37
-  %1205 = load ptr, ptr %1204, align 8
-  %1206 = load ptr, ptr %5, align 8
-  %1207 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1206, i32 0, i32 10
-  %1208 = load i32, ptr %1207, align 8
-  %1209 = sext i32 %1208 to i64
-  %1210 = getelementptr inbounds i64, ptr %1205, i64 %1209
-  %1211 = load i64, ptr %1210, align 8
-  %1212 = load i64, ptr %20, align 8
-  %1213 = icmp sgt i64 %1211, %1212
-  br i1 %1213, label %1214, label %1226
+1202:                                             ; preds = %1197
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
+  %1203 = call i64 @Abc_Clock()
+  %1204 = load i64, ptr %16, align 8, !tbaa !84
+  %1205 = sub nsw i64 %1203, %1204
+  store i64 %1205, ptr %21, align 8, !tbaa !84
+  %1206 = load ptr, ptr %5, align 8, !tbaa !3
+  %1207 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1206, i32 0, i32 37
+  %1208 = load ptr, ptr %1207, align 8, !tbaa !109
+  %1209 = load ptr, ptr %5, align 8, !tbaa !3
+  %1210 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1209, i32 0, i32 10
+  %1211 = load i32, ptr %1210, align 8, !tbaa !107
+  %1212 = sext i32 %1211 to i64
+  %1213 = getelementptr inbounds i64, ptr %1208, i64 %1212
+  %1214 = load i64, ptr %1213, align 8, !tbaa !84
+  %1215 = load i64, ptr %21, align 8, !tbaa !84
+  %1216 = icmp sgt i64 %1214, %1215
+  br i1 %1216, label %1217, label %1229
 
-1214:                                             ; preds = %1199
-  %1215 = load ptr, ptr %5, align 8
-  %1216 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1215, i32 0, i32 37
-  %1217 = load ptr, ptr %1216, align 8
-  %1218 = load ptr, ptr %5, align 8
-  %1219 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1218, i32 0, i32 10
-  %1220 = load i32, ptr %1219, align 8
-  %1221 = sext i32 %1220 to i64
-  %1222 = getelementptr inbounds i64, ptr %1217, i64 %1221
-  %1223 = load i64, ptr %1222, align 8
-  %1224 = load i64, ptr %20, align 8
-  %1225 = sub nsw i64 %1223, %1224
-  br label %1227
+1217:                                             ; preds = %1202
+  %1218 = load ptr, ptr %5, align 8, !tbaa !3
+  %1219 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1218, i32 0, i32 37
+  %1220 = load ptr, ptr %1219, align 8, !tbaa !109
+  %1221 = load ptr, ptr %5, align 8, !tbaa !3
+  %1222 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1221, i32 0, i32 10
+  %1223 = load i32, ptr %1222, align 8, !tbaa !107
+  %1224 = sext i32 %1223 to i64
+  %1225 = getelementptr inbounds i64, ptr %1220, i64 %1224
+  %1226 = load i64, ptr %1225, align 8, !tbaa !84
+  %1227 = load i64, ptr %21, align 8, !tbaa !84
+  %1228 = sub nsw i64 %1226, %1227
+  br label %1230
 
-1226:                                             ; preds = %1199
-  br label %1227
+1229:                                             ; preds = %1202
+  br label %1230
 
-1227:                                             ; preds = %1226, %1214
-  %1228 = phi i64 [ %1225, %1214 ], [ 0, %1226 ]
-  %1229 = load ptr, ptr %5, align 8
-  %1230 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1229, i32 0, i32 37
-  %1231 = load ptr, ptr %1230, align 8
-  %1232 = load ptr, ptr %5, align 8
-  %1233 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1232, i32 0, i32 10
-  %1234 = load i32, ptr %1233, align 8
-  %1235 = sext i32 %1234 to i64
-  %1236 = getelementptr inbounds i64, ptr %1231, i64 %1235
-  store i64 %1228, ptr %1236, align 8
-  %1237 = load ptr, ptr %5, align 8
-  %1238 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1237, i32 0, i32 37
-  %1239 = load ptr, ptr %1238, align 8
-  %1240 = load ptr, ptr %5, align 8
-  %1241 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1240, i32 0, i32 10
-  %1242 = load i32, ptr %1241, align 8
-  %1243 = sext i32 %1242 to i64
-  %1244 = getelementptr inbounds i64, ptr %1239, i64 %1243
-  %1245 = load i64, ptr %1244, align 8
-  %1246 = icmp eq i64 %1245, 0
-  br i1 %1246, label %1247, label %1292
+1230:                                             ; preds = %1229, %1217
+  %1231 = phi i64 [ %1228, %1217 ], [ 0, %1229 ]
+  %1232 = load ptr, ptr %5, align 8, !tbaa !3
+  %1233 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1232, i32 0, i32 37
+  %1234 = load ptr, ptr %1233, align 8, !tbaa !109
+  %1235 = load ptr, ptr %5, align 8, !tbaa !3
+  %1236 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1235, i32 0, i32 10
+  %1237 = load i32, ptr %1236, align 8, !tbaa !107
+  %1238 = sext i32 %1237 to i64
+  %1239 = getelementptr inbounds i64, ptr %1234, i64 %1238
+  store i64 %1231, ptr %1239, align 8, !tbaa !84
+  %1240 = load ptr, ptr %5, align 8, !tbaa !3
+  %1241 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1240, i32 0, i32 37
+  %1242 = load ptr, ptr %1241, align 8, !tbaa !109
+  %1243 = load ptr, ptr %5, align 8, !tbaa !3
+  %1244 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1243, i32 0, i32 10
+  %1245 = load i32, ptr %1244, align 8, !tbaa !107
+  %1246 = sext i32 %1245 to i64
+  %1247 = getelementptr inbounds i64, ptr %1242, i64 %1246
+  %1248 = load i64, ptr %1247, align 8, !tbaa !84
+  %1249 = icmp eq i64 %1248, 0
+  br i1 %1249, label %1250, label %1295
 
-1247:                                             ; preds = %1227
-  %1248 = load ptr, ptr %5, align 8
-  %1249 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1248, i32 0, i32 12
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = load ptr, ptr %5, align 8
-  %1252 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1251, i32 0, i32 10
-  %1253 = load i32, ptr %1252, align 8
-  %1254 = call ptr @Vec_PtrEntry(ptr noundef %1250, i32 noundef %1253)
-  %1255 = icmp eq ptr %1254, null
-  br i1 %1255, label %1256, label %1292
+1250:                                             ; preds = %1230
+  %1251 = load ptr, ptr %5, align 8, !tbaa !3
+  %1252 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1251, i32 0, i32 12
+  %1253 = load ptr, ptr %1252, align 8, !tbaa !108
+  %1254 = load ptr, ptr %5, align 8, !tbaa !3
+  %1255 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1254, i32 0, i32 10
+  %1256 = load i32, ptr %1255, align 8, !tbaa !107
+  %1257 = call ptr @Vec_PtrEntry(ptr noundef %1253, i32 noundef %1256)
+  %1258 = icmp eq ptr %1257, null
+  br i1 %1258, label %1259, label %1295
 
-1256:                                             ; preds = %1247
-  %1257 = load ptr, ptr %5, align 8
-  %1258 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1257, i32 0, i32 0
-  %1259 = load ptr, ptr %1258, align 8
-  %1260 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1259, i32 0, i32 34
-  %1261 = load i32, ptr %1260, align 8
-  %1262 = add nsw i32 %1261, 1
-  store i32 %1262, ptr %1260, align 8
-  %1263 = load ptr, ptr %5, align 8
-  %1264 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1263, i32 0, i32 0
-  %1265 = load ptr, ptr %1264, align 8
-  %1266 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1265, i32 0, i32 41
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = icmp ne ptr %1267, null
-  br i1 %1268, label %1269, label %1278
+1259:                                             ; preds = %1250
+  %1260 = load ptr, ptr %5, align 8, !tbaa !3
+  %1261 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1260, i32 0, i32 0
+  %1262 = load ptr, ptr %1261, align 8, !tbaa !55
+  %1263 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1262, i32 0, i32 34
+  %1264 = load i32, ptr %1263, align 8, !tbaa !120
+  %1265 = add nsw i32 %1264, 1
+  store i32 %1265, ptr %1263, align 8, !tbaa !120
+  %1266 = load ptr, ptr %5, align 8, !tbaa !3
+  %1267 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1266, i32 0, i32 0
+  %1268 = load ptr, ptr %1267, align 8, !tbaa !55
+  %1269 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1268, i32 0, i32 41
+  %1270 = load ptr, ptr %1269, align 8, !tbaa !96
+  %1271 = icmp ne ptr %1270, null
+  br i1 %1271, label %1272, label %1281
 
-1269:                                             ; preds = %1256
-  %1270 = load ptr, ptr %5, align 8
-  %1271 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1270, i32 0, i32 0
-  %1272 = load ptr, ptr %1271, align 8
-  %1273 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1272, i32 0, i32 41
-  %1274 = load ptr, ptr %1273, align 8
-  %1275 = load ptr, ptr %5, align 8
-  %1276 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1275, i32 0, i32 10
-  %1277 = load i32, ptr %1276, align 8
-  call void @Vec_IntWriteEntry(ptr noundef %1274, i32 noundef %1277, i32 noundef -1)
-  br label %1278
+1272:                                             ; preds = %1259
+  %1273 = load ptr, ptr %5, align 8, !tbaa !3
+  %1274 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1273, i32 0, i32 0
+  %1275 = load ptr, ptr %1274, align 8, !tbaa !55
+  %1276 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1275, i32 0, i32 41
+  %1277 = load ptr, ptr %1276, align 8, !tbaa !96
+  %1278 = load ptr, ptr %5, align 8, !tbaa !3
+  %1279 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1278, i32 0, i32 10
+  %1280 = load i32, ptr %1279, align 8, !tbaa !107
+  call void @Vec_IntWriteEntry(ptr noundef %1277, i32 noundef %1280, i32 noundef -1)
+  br label %1281
 
-1278:                                             ; preds = %1269, %1256
-  %1279 = load ptr, ptr %5, align 8
-  %1280 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1279, i32 0, i32 0
-  %1281 = load ptr, ptr %1280, align 8
-  %1282 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1281, i32 0, i32 27
-  %1283 = load i32, ptr %1282, align 4
-  %1284 = icmp ne i32 %1283, 0
-  br i1 %1284, label %1291, label %1285
+1281:                                             ; preds = %1272, %1259
+  %1282 = load ptr, ptr %5, align 8, !tbaa !3
+  %1283 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1282, i32 0, i32 0
+  %1284 = load ptr, ptr %1283, align 8, !tbaa !55
+  %1285 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1284, i32 0, i32 27
+  %1286 = load i32, ptr %1285, align 4, !tbaa !114
+  %1287 = icmp ne i32 %1286, 0
+  br i1 %1287, label %1294, label %1288
 
-1285:                                             ; preds = %1278
-  %1286 = load i32, ptr %14, align 4
-  %1287 = load ptr, ptr %5, align 8
-  %1288 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1287, i32 0, i32 10
-  %1289 = load i32, ptr %1288, align 8
-  %1290 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.17, i32 noundef %1286, i32 noundef %1289, i32 noundef %1290)
-  br label %1291
+1288:                                             ; preds = %1281
+  %1289 = load i32, ptr %14, align 4, !tbaa !8
+  %1290 = load ptr, ptr %5, align 8, !tbaa !3
+  %1291 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1290, i32 0, i32 10
+  %1292 = load i32, ptr %1291, align 8, !tbaa !107
+  %1293 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.17, i32 noundef %1289, i32 noundef %1292, i32 noundef %1293)
+  br label %1294
 
-1291:                                             ; preds = %1285, %1278
-  br label %1292
-
-1292:                                             ; preds = %1291, %1247, %1227
-  %1293 = load ptr, ptr %5, align 8
-  %1294 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1293, i32 0, i32 57
-  store i64 0, ptr %1294, align 8
+1294:                                             ; preds = %1288, %1281
   br label %1295
 
-1295:                                             ; preds = %1292, %1194
-  br label %1296
+1295:                                             ; preds = %1294, %1250, %1230
+  %1296 = load ptr, ptr %5, align 8, !tbaa !3
+  %1297 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1296, i32 0, i32 57
+  store i64 0, ptr %1297, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  br label %1298
 
-1296:                                             ; preds = %1295, %577, %337, %328, %311
-  %1297 = load ptr, ptr %5, align 8
-  %1298 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1297, i32 0, i32 10
-  %1299 = load i32, ptr %1298, align 8
-  %1300 = add nsw i32 %1299, 1
-  store i32 %1300, ptr %1298, align 8
-  br label %276, !llvm.loop !30
+1298:                                             ; preds = %1295, %1197
+  br label %1299
 
-1301:                                             ; preds = %1193, %295
-  %1302 = load ptr, ptr %5, align 8
-  %1303 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1302, i32 0, i32 0
-  %1304 = load ptr, ptr %1303, align 8
-  %1305 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1304, i32 0, i32 23
-  %1306 = load i32, ptr %1305, align 4
-  %1307 = icmp ne i32 %1306, 0
-  br i1 %1307, label %1308, label %1381
+1299:                                             ; preds = %1298, %578, %339, %330, %313
+  %1300 = load ptr, ptr %5, align 8, !tbaa !3
+  %1301 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1300, i32 0, i32 10
+  %1302 = load i32, ptr %1301, align 8, !tbaa !107
+  %1303 = add nsw i32 %1302, 1
+  store i32 %1303, ptr %1301, align 8, !tbaa !107
+  br label %278, !llvm.loop !125
 
-1308:                                             ; preds = %1301
-  %1309 = load ptr, ptr %5, align 8
-  %1310 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1309, i32 0, i32 20
-  %1311 = load ptr, ptr %1310, align 8
-  %1312 = icmp ne ptr %1311, null
-  br i1 %1312, label %1313, label %1381
+1304:                                             ; preds = %1196, %297
+  %1305 = load ptr, ptr %5, align 8, !tbaa !3
+  %1306 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1305, i32 0, i32 0
+  %1307 = load ptr, ptr %1306, align 8, !tbaa !55
+  %1308 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1307, i32 0, i32 23
+  %1309 = load i32, ptr %1308, align 4, !tbaa !103
+  %1310 = icmp ne i32 %1309, 0
+  br i1 %1310, label %1311, label %1384
 
-1313:                                             ; preds = %1308
-  %1314 = load i32, ptr %17, align 4
-  %1315 = icmp ne i32 %1314, 0
-  br i1 %1315, label %1381, label %1316
+1311:                                             ; preds = %1304
+  %1312 = load ptr, ptr %5, align 8, !tbaa !3
+  %1313 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1312, i32 0, i32 20
+  %1314 = load ptr, ptr %1313, align 8, !tbaa !74
+  %1315 = icmp ne ptr %1314, null
+  br i1 %1315, label %1316, label %1384
 
-1316:                                             ; preds = %1313
-  %1317 = load ptr, ptr %5, align 8
-  %1318 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1317, i32 0, i32 20
-  %1319 = load ptr, ptr %1318, align 8
-  %1320 = load ptr, ptr %5, align 8
-  %1321 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1320, i32 0, i32 20
-  %1322 = load ptr, ptr %1321, align 8
-  %1323 = call i32 @Vec_IntSize(ptr noundef %1322)
-  call void @Vec_IntFill(ptr noundef %1319, i32 noundef %1323, i32 noundef 0)
-  store i32 0, ptr %22, align 4
-  br label %1324
+1316:                                             ; preds = %1311
+  %1317 = load i32, ptr %18, align 4, !tbaa !8
+  %1318 = icmp ne i32 %1317, 0
+  br i1 %1318, label %1384, label %1319
 
-1324:                                             ; preds = %1377, %1316
-  %1325 = load i32, ptr %22, align 4
-  %1326 = load ptr, ptr %5, align 8
-  %1327 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1326, i32 0, i32 14
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = call i32 @Vec_VecSize(ptr noundef %1328)
-  %1330 = icmp slt i32 %1325, %1329
-  br i1 %1330, label %1331, label %1380
+1319:                                             ; preds = %1316
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #11
+  %1320 = load ptr, ptr %5, align 8, !tbaa !3
+  %1321 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1320, i32 0, i32 20
+  %1322 = load ptr, ptr %1321, align 8, !tbaa !74
+  %1323 = load ptr, ptr %5, align 8, !tbaa !3
+  %1324 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1323, i32 0, i32 20
+  %1325 = load ptr, ptr %1324, align 8, !tbaa !74
+  %1326 = call i32 @Vec_IntSize(ptr noundef %1325)
+  call void @Vec_IntFill(ptr noundef %1322, i32 noundef %1326, i32 noundef 0)
+  store i32 0, ptr %23, align 4, !tbaa !8
+  br label %1327
 
-1331:                                             ; preds = %1324
-  store i32 0, ptr %23, align 4
-  br label %1332
+1327:                                             ; preds = %1380, %1319
+  %1328 = load i32, ptr %23, align 4, !tbaa !8
+  %1329 = load ptr, ptr %5, align 8, !tbaa !3
+  %1330 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1329, i32 0, i32 14
+  %1331 = load ptr, ptr %1330, align 8, !tbaa !10
+  %1332 = call i32 @Vec_VecSize(ptr noundef %1331)
+  %1333 = icmp slt i32 %1328, %1332
+  br i1 %1333, label %1334, label %1383
 
-1332:                                             ; preds = %1373, %1331
-  %1333 = load i32, ptr %23, align 4
-  %1334 = load ptr, ptr %5, align 8
-  %1335 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1334, i32 0, i32 14
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = load i32, ptr %22, align 4
-  %1338 = call ptr @Vec_VecEntry(ptr noundef %1336, i32 noundef %1337)
-  %1339 = call i32 @Vec_PtrSize(ptr noundef %1338)
-  %1340 = icmp slt i32 %1333, %1339
-  br i1 %1340, label %1341, label %1349
+1334:                                             ; preds = %1327
+  store i32 0, ptr %24, align 4, !tbaa !8
+  br label %1335
 
-1341:                                             ; preds = %1332
-  %1342 = load ptr, ptr %5, align 8
-  %1343 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1342, i32 0, i32 14
-  %1344 = load ptr, ptr %1343, align 8
-  %1345 = load i32, ptr %22, align 4
-  %1346 = call ptr @Vec_VecEntry(ptr noundef %1344, i32 noundef %1345)
-  %1347 = load i32, ptr %23, align 4
-  %1348 = call ptr @Vec_PtrEntry(ptr noundef %1346, i32 noundef %1347)
-  store ptr %1348, ptr %21, align 8
-  br label %1349
+1335:                                             ; preds = %1376, %1334
+  %1336 = load i32, ptr %24, align 4, !tbaa !8
+  %1337 = load ptr, ptr %5, align 8, !tbaa !3
+  %1338 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1337, i32 0, i32 14
+  %1339 = load ptr, ptr %1338, align 8, !tbaa !10
+  %1340 = load i32, ptr %23, align 4, !tbaa !8
+  %1341 = call ptr @Vec_VecEntry(ptr noundef %1339, i32 noundef %1340)
+  %1342 = call i32 @Vec_PtrSize(ptr noundef %1341)
+  %1343 = icmp slt i32 %1336, %1342
+  br i1 %1343, label %1344, label %1352
 
-1349:                                             ; preds = %1341, %1332
-  %1350 = phi i1 [ false, %1332 ], [ true, %1341 ]
-  br i1 %1350, label %1351, label %1376
-
-1351:                                             ; preds = %1349
-  store i32 0, ptr %24, align 4
+1344:                                             ; preds = %1335
+  %1345 = load ptr, ptr %5, align 8, !tbaa !3
+  %1346 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1345, i32 0, i32 14
+  %1347 = load ptr, ptr %1346, align 8, !tbaa !10
+  %1348 = load i32, ptr %23, align 4, !tbaa !8
+  %1349 = call ptr @Vec_VecEntry(ptr noundef %1347, i32 noundef %1348)
+  %1350 = load i32, ptr %24, align 4, !tbaa !8
+  %1351 = call ptr @Vec_PtrEntry(ptr noundef %1349, i32 noundef %1350)
+  store ptr %1351, ptr %22, align 8, !tbaa !28
   br label %1352
 
-1352:                                             ; preds = %1369, %1351
-  %1353 = load i32, ptr %24, align 4
-  %1354 = load ptr, ptr %21, align 8
-  %1355 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %1354, i32 0, i32 3
-  %1356 = load i32, ptr %1355, align 8
-  %1357 = icmp slt i32 %1353, %1356
-  br i1 %1357, label %1358, label %1372
+1352:                                             ; preds = %1344, %1335
+  %1353 = phi i1 [ false, %1335 ], [ true, %1344 ]
+  br i1 %1353, label %1354, label %1379
 
-1358:                                             ; preds = %1352
-  %1359 = load ptr, ptr %5, align 8
-  %1360 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1359, i32 0, i32 20
-  %1361 = load ptr, ptr %1360, align 8
-  %1362 = load ptr, ptr %21, align 8
-  %1363 = getelementptr inbounds %struct.Pdr_Set_t_, ptr %1362, i32 0, i32 4
-  %1364 = load i32, ptr %24, align 4
-  %1365 = sext i32 %1364 to i64
-  %1366 = getelementptr inbounds [0 x i32], ptr %1363, i64 0, i64 %1365
-  %1367 = load i32, ptr %1366, align 4
-  %1368 = call i32 @Abc_Lit2Var(i32 noundef %1367)
-  call void @Vec_IntWriteEntry(ptr noundef %1361, i32 noundef %1368, i32 noundef 1)
-  br label %1369
+1354:                                             ; preds = %1352
+  store i32 0, ptr %25, align 4, !tbaa !8
+  br label %1355
 
-1369:                                             ; preds = %1358
-  %1370 = load i32, ptr %24, align 4
-  %1371 = add nsw i32 %1370, 1
-  store i32 %1371, ptr %24, align 4
-  br label %1352, !llvm.loop !31
+1355:                                             ; preds = %1372, %1354
+  %1356 = load i32, ptr %25, align 4, !tbaa !8
+  %1357 = load ptr, ptr %22, align 8, !tbaa !28
+  %1358 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %1357, i32 0, i32 3
+  %1359 = load i32, ptr %1358, align 8, !tbaa !72
+  %1360 = icmp slt i32 %1356, %1359
+  br i1 %1360, label %1361, label %1375
 
-1372:                                             ; preds = %1352
-  br label %1373
+1361:                                             ; preds = %1355
+  %1362 = load ptr, ptr %5, align 8, !tbaa !3
+  %1363 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1362, i32 0, i32 20
+  %1364 = load ptr, ptr %1363, align 8, !tbaa !74
+  %1365 = load ptr, ptr %22, align 8, !tbaa !28
+  %1366 = getelementptr inbounds nuw %struct.Pdr_Set_t_, ptr %1365, i32 0, i32 4
+  %1367 = load i32, ptr %25, align 4, !tbaa !8
+  %1368 = sext i32 %1367 to i64
+  %1369 = getelementptr inbounds [0 x i32], ptr %1366, i64 0, i64 %1368
+  %1370 = load i32, ptr %1369, align 4, !tbaa !8
+  %1371 = call i32 @Abc_Lit2Var(i32 noundef %1370)
+  call void @Vec_IntWriteEntry(ptr noundef %1364, i32 noundef %1371, i32 noundef 1)
+  br label %1372
 
-1373:                                             ; preds = %1372
-  %1374 = load i32, ptr %23, align 4
-  %1375 = add nsw i32 %1374, 1
-  store i32 %1375, ptr %23, align 4
-  br label %1332, !llvm.loop !32
+1372:                                             ; preds = %1361
+  %1373 = load i32, ptr %25, align 4, !tbaa !8
+  %1374 = add nsw i32 %1373, 1
+  store i32 %1374, ptr %25, align 4, !tbaa !8
+  br label %1355, !llvm.loop !126
 
-1376:                                             ; preds = %1349
-  br label %1377
+1375:                                             ; preds = %1355
+  br label %1376
 
-1377:                                             ; preds = %1376
-  %1378 = load i32, ptr %22, align 4
-  %1379 = add nsw i32 %1378, 1
-  store i32 %1379, ptr %22, align 4
-  br label %1324, !llvm.loop !33
+1376:                                             ; preds = %1375
+  %1377 = load i32, ptr %24, align 4, !tbaa !8
+  %1378 = add nsw i32 %1377, 1
+  store i32 %1378, ptr %24, align 4, !tbaa !8
+  br label %1335, !llvm.loop !127
 
-1380:                                             ; preds = %1324
-  br label %1381
+1379:                                             ; preds = %1352
+  br label %1380
 
-1381:                                             ; preds = %1380, %1313, %1308, %1301
-  %1382 = load ptr, ptr %5, align 8
-  %1383 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1382, i32 0, i32 0
-  %1384 = load ptr, ptr %1383, align 8
-  %1385 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1384, i32 0, i32 25
-  %1386 = load i32, ptr %1385, align 4
-  %1387 = icmp ne i32 %1386, 0
-  br i1 %1387, label %1388, label %1397
+1380:                                             ; preds = %1379
+  %1381 = load i32, ptr %23, align 4, !tbaa !8
+  %1382 = add nsw i32 %1381, 1
+  store i32 %1382, ptr %23, align 4, !tbaa !8
+  br label %1327, !llvm.loop !128
 
-1388:                                             ; preds = %1381
-  %1389 = load ptr, ptr %5, align 8
-  %1390 = load i32, ptr %17, align 4
-  %1391 = icmp ne i32 %1390, 0
-  %1392 = xor i1 %1391, true
-  %1393 = zext i1 %1392 to i32
-  %1394 = call i64 @Abc_Clock()
-  %1395 = load i64, ptr %15, align 8
-  %1396 = sub nsw i64 %1394, %1395
-  call void @Pdr_ManPrintProgress(ptr noundef %1389, i32 noundef %1393, i64 noundef %1396)
-  br label %1397
+1383:                                             ; preds = %1327
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  br label %1384
 
-1397:                                             ; preds = %1388, %1381
-  %1398 = load i32, ptr %17, align 4
-  %1399 = icmp ne i32 %1398, 0
-  br i1 %1399, label %1400, label %1401
+1384:                                             ; preds = %1383, %1316, %1311, %1304
+  %1385 = load ptr, ptr %5, align 8, !tbaa !3
+  %1386 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1385, i32 0, i32 0
+  %1387 = load ptr, ptr %1386, align 8, !tbaa !55
+  %1388 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1387, i32 0, i32 25
+  %1389 = load i32, ptr %1388, align 4, !tbaa !101
+  %1390 = icmp ne i32 %1389, 0
+  br i1 %1390, label %1391, label %1400
 
-1400:                                             ; preds = %1397
-  br label %233
+1391:                                             ; preds = %1384
+  %1392 = load ptr, ptr %5, align 8, !tbaa !3
+  %1393 = load i32, ptr %18, align 4, !tbaa !8
+  %1394 = icmp ne i32 %1393, 0
+  %1395 = xor i1 %1394, true
+  %1396 = zext i1 %1395 to i32
+  %1397 = call i64 @Abc_Clock()
+  %1398 = load i64, ptr %15, align 8, !tbaa !84
+  %1399 = sub nsw i64 %1397, %1398
+  call void @Pdr_ManPrintProgress(ptr noundef %1392, i32 noundef %1396, i64 noundef %1399)
+  br label %1400
 
-1401:                                             ; preds = %1397
-  %1402 = load ptr, ptr %5, align 8
-  %1403 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1402, i32 0, i32 0
-  %1404 = load ptr, ptr %1403, align 8
-  %1405 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1404, i32 0, i32 4
-  %1406 = load i32, ptr %1405, align 8
-  %1407 = load ptr, ptr %5, align 8
-  %1408 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1407, i32 0, i32 53
-  store i32 %1406, ptr %1408, align 8
-  %1409 = load ptr, ptr %5, align 8
-  %1410 = load i32, ptr %12, align 4
-  call void @Pdr_ManSetPropertyOutput(ptr noundef %1409, i32 noundef %1410)
-  %1411 = load ptr, ptr %5, align 8
-  %1412 = load i32, ptr %12, align 4
-  %1413 = add nsw i32 %1412, 1
-  store i32 %1413, ptr %12, align 4
-  %1414 = call ptr @Pdr_ManCreateSolver(ptr noundef %1411, i32 noundef %1413)
-  %1415 = load i32, ptr %8, align 4
-  %1416 = icmp ne i32 %1415, 0
-  br i1 %1416, label %1417, label %1420
+1400:                                             ; preds = %1391, %1384
+  %1401 = load i32, ptr %18, align 4, !tbaa !8
+  %1402 = icmp ne i32 %1401, 0
+  br i1 %1402, label %1403, label %1404
 
-1417:                                             ; preds = %1401
-  %1418 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1418)
-  %1419 = load ptr, ptr %5, align 8
-  call void @Pdr_ManPrintClauses(ptr noundef %1419, i32 noundef 0)
-  br label %1420
+1403:                                             ; preds = %1400
+  store i32 5, ptr %17, align 4
+  br label %1807
 
-1420:                                             ; preds = %1417, %1401
-  %1421 = load ptr, ptr %5, align 8
-  %1422 = call i32 @Pdr_ManPushClauses(ptr noundef %1421)
-  store i32 %1422, ptr %13, align 4
-  %1423 = load i32, ptr %13, align 4
-  %1424 = icmp eq i32 %1423, -1
-  br i1 %1424, label %1425, label %1476
+1404:                                             ; preds = %1400
+  %1405 = load ptr, ptr %5, align 8, !tbaa !3
+  %1406 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1405, i32 0, i32 0
+  %1407 = load ptr, ptr %1406, align 8, !tbaa !55
+  %1408 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1407, i32 0, i32 4
+  %1409 = load i32, ptr %1408, align 8, !tbaa !129
+  %1410 = load ptr, ptr %5, align 8, !tbaa !3
+  %1411 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1410, i32 0, i32 53
+  store i32 %1409, ptr %1411, align 8, !tbaa !130
+  %1412 = load ptr, ptr %5, align 8, !tbaa !3
+  %1413 = load i32, ptr %12, align 4, !tbaa !8
+  call void @Pdr_ManSetPropertyOutput(ptr noundef %1412, i32 noundef %1413)
+  %1414 = load ptr, ptr %5, align 8, !tbaa !3
+  %1415 = load i32, ptr %12, align 4, !tbaa !8
+  %1416 = add nsw i32 %1415, 1
+  store i32 %1416, ptr %12, align 4, !tbaa !8
+  %1417 = call ptr @Pdr_ManCreateSolver(ptr noundef %1414, i32 noundef %1416)
+  %1418 = load i32, ptr %8, align 4, !tbaa !8
+  %1419 = icmp ne i32 %1418, 0
+  br i1 %1419, label %1420, label %1423
 
-1425:                                             ; preds = %1420
-  %1426 = load ptr, ptr %5, align 8
-  %1427 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1426, i32 0, i32 0
-  %1428 = load ptr, ptr %1427, align 8
-  %1429 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1428, i32 0, i32 25
-  %1430 = load i32, ptr %1429, align 4
-  %1431 = icmp ne i32 %1430, 0
-  br i1 %1431, label %1432, label %1437
+1420:                                             ; preds = %1404
+  %1421 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1421)
+  %1422 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManPrintClauses(ptr noundef %1422, i32 noundef 0)
+  br label %1423
 
-1432:                                             ; preds = %1425
-  %1433 = load ptr, ptr %5, align 8
-  %1434 = call i64 @Abc_Clock()
-  %1435 = load i64, ptr %15, align 8
-  %1436 = sub nsw i64 %1434, %1435
-  call void @Pdr_ManPrintProgress(ptr noundef %1433, i32 noundef 1, i64 noundef %1436)
-  br label %1437
+1423:                                             ; preds = %1420, %1404
+  %1424 = load ptr, ptr %5, align 8, !tbaa !3
+  %1425 = call i32 @Pdr_ManPushClauses(ptr noundef %1424)
+  store i32 %1425, ptr %13, align 4, !tbaa !8
+  %1426 = load i32, ptr %13, align 4, !tbaa !8
+  %1427 = icmp eq i32 %1426, -1
+  br i1 %1427, label %1428, label %1479
 
-1437:                                             ; preds = %1432, %1425
-  %1438 = load ptr, ptr %5, align 8
-  %1439 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1438, i32 0, i32 0
-  %1440 = load ptr, ptr %1439, align 8
-  %1441 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1440, i32 0, i32 28
-  %1442 = load i32, ptr %1441, align 8
-  %1443 = icmp ne i32 %1442, 0
-  br i1 %1443, label %1470, label %1444
+1428:                                             ; preds = %1423
+  %1429 = load ptr, ptr %5, align 8, !tbaa !3
+  %1430 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1429, i32 0, i32 0
+  %1431 = load ptr, ptr %1430, align 8, !tbaa !55
+  %1432 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1431, i32 0, i32 25
+  %1433 = load i32, ptr %1432, align 4, !tbaa !101
+  %1434 = icmp ne i32 %1433, 0
+  br i1 %1434, label %1435, label %1440
 
-1444:                                             ; preds = %1437
-  %1445 = load ptr, ptr %5, align 8
-  %1446 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1445, i32 0, i32 56
-  %1447 = load i64, ptr %1446, align 8
-  %1448 = icmp ne i64 %1447, 0
-  br i1 %1448, label %1449, label %1462
+1435:                                             ; preds = %1428
+  %1436 = load ptr, ptr %5, align 8, !tbaa !3
+  %1437 = call i64 @Abc_Clock()
+  %1438 = load i64, ptr %15, align 8, !tbaa !84
+  %1439 = sub nsw i64 %1437, %1438
+  call void @Pdr_ManPrintProgress(ptr noundef %1436, i32 noundef 1, i64 noundef %1439)
+  br label %1440
 
-1449:                                             ; preds = %1444
-  %1450 = call i64 @Abc_Clock()
-  %1451 = load ptr, ptr %5, align 8
-  %1452 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1451, i32 0, i32 56
-  %1453 = load i64, ptr %1452, align 8
-  %1454 = icmp sgt i64 %1450, %1453
-  br i1 %1454, label %1455, label %1462
+1440:                                             ; preds = %1435, %1428
+  %1441 = load ptr, ptr %5, align 8, !tbaa !3
+  %1442 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1441, i32 0, i32 0
+  %1443 = load ptr, ptr %1442, align 8, !tbaa !55
+  %1444 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1443, i32 0, i32 28
+  %1445 = load i32, ptr %1444, align 8, !tbaa !118
+  %1446 = icmp ne i32 %1445, 0
+  br i1 %1446, label %1473, label %1447
 
-1455:                                             ; preds = %1449
-  %1456 = load ptr, ptr %5, align 8
-  %1457 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1456, i32 0, i32 0
-  %1458 = load ptr, ptr %1457, align 8
-  %1459 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1458, i32 0, i32 5
-  %1460 = load i32, ptr %1459, align 4
-  %1461 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %1460, i32 noundef %1461)
-  br label %1469
+1447:                                             ; preds = %1440
+  %1448 = load ptr, ptr %5, align 8, !tbaa !3
+  %1449 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1448, i32 0, i32 56
+  %1450 = load i64, ptr %1449, align 8, !tbaa !86
+  %1451 = icmp ne i64 %1450, 0
+  br i1 %1451, label %1452, label %1465
 
-1462:                                             ; preds = %1449, %1444
-  %1463 = load ptr, ptr %5, align 8
-  %1464 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1463, i32 0, i32 0
-  %1465 = load ptr, ptr %1464, align 8
-  %1466 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1465, i32 0, i32 2
-  %1467 = load i32, ptr %1466, align 8
-  %1468 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.18, i32 noundef %1467, i32 noundef %1468)
-  br label %1469
+1452:                                             ; preds = %1447
+  %1453 = call i64 @Abc_Clock()
+  %1454 = load ptr, ptr %5, align 8, !tbaa !3
+  %1455 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1454, i32 0, i32 56
+  %1456 = load i64, ptr %1455, align 8, !tbaa !86
+  %1457 = icmp sgt i64 %1453, %1456
+  br i1 %1457, label %1458, label %1465
 
-1469:                                             ; preds = %1462, %1455
-  br label %1470
+1458:                                             ; preds = %1452
+  %1459 = load ptr, ptr %5, align 8, !tbaa !3
+  %1460 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1459, i32 0, i32 0
+  %1461 = load ptr, ptr %1460, align 8, !tbaa !55
+  %1462 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1461, i32 0, i32 5
+  %1463 = load i32, ptr %1462, align 4, !tbaa !85
+  %1464 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %1463, i32 noundef %1464)
+  br label %1472
 
-1470:                                             ; preds = %1469, %1437
-  %1471 = load i32, ptr %12, align 4
-  %1472 = load ptr, ptr %5, align 8
-  %1473 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1472, i32 0, i32 0
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1474, i32 0, i32 36
-  store i32 %1471, ptr %1475, align 8
+1465:                                             ; preds = %1452, %1447
+  %1466 = load ptr, ptr %5, align 8, !tbaa !3
+  %1467 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1466, i32 0, i32 0
+  %1468 = load ptr, ptr %1467, align 8, !tbaa !55
+  %1469 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1468, i32 0, i32 2
+  %1470 = load i32, ptr %1469, align 8, !tbaa !123
+  %1471 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.18, i32 noundef %1470, i32 noundef %1471)
+  br label %1472
+
+1472:                                             ; preds = %1465, %1458
+  br label %1473
+
+1473:                                             ; preds = %1472, %1440
+  %1474 = load i32, ptr %12, align 4, !tbaa !8
+  %1475 = load ptr, ptr %5, align 8, !tbaa !3
+  %1476 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1475, i32 0, i32 0
+  %1477 = load ptr, ptr %1476, align 8, !tbaa !55
+  %1478 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1477, i32 0, i32 36
+  store i32 %1474, ptr %1478, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1476:                                             ; preds = %1420
-  %1477 = load i32, ptr %13, align 4
-  %1478 = icmp ne i32 %1477, 0
-  br i1 %1478, label %1479, label %1602
+1479:                                             ; preds = %1423
+  %1480 = load i32, ptr %13, align 4, !tbaa !8
+  %1481 = icmp ne i32 %1480, 0
+  br i1 %1481, label %1482, label %1605
 
-1479:                                             ; preds = %1476
-  %1480 = load ptr, ptr %5, align 8
-  %1481 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1480, i32 0, i32 0
-  %1482 = load ptr, ptr %1481, align 8
-  %1483 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1482, i32 0, i32 25
-  %1484 = load i32, ptr %1483, align 4
-  %1485 = icmp ne i32 %1484, 0
-  br i1 %1485, label %1486, label %1491
+1482:                                             ; preds = %1479
+  %1483 = load ptr, ptr %5, align 8, !tbaa !3
+  %1484 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1483, i32 0, i32 0
+  %1485 = load ptr, ptr %1484, align 8, !tbaa !55
+  %1486 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1485, i32 0, i32 25
+  %1487 = load i32, ptr %1486, align 4, !tbaa !101
+  %1488 = icmp ne i32 %1487, 0
+  br i1 %1488, label %1489, label %1494
 
-1486:                                             ; preds = %1479
-  %1487 = load ptr, ptr %5, align 8
-  %1488 = call i64 @Abc_Clock()
-  %1489 = load i64, ptr %15, align 8
-  %1490 = sub nsw i64 %1488, %1489
-  call void @Pdr_ManPrintProgress(ptr noundef %1487, i32 noundef 1, i64 noundef %1490)
-  br label %1491
+1489:                                             ; preds = %1482
+  %1490 = load ptr, ptr %5, align 8, !tbaa !3
+  %1491 = call i64 @Abc_Clock()
+  %1492 = load i64, ptr %15, align 8, !tbaa !84
+  %1493 = sub nsw i64 %1491, %1492
+  call void @Pdr_ManPrintProgress(ptr noundef %1490, i32 noundef 1, i64 noundef %1493)
+  br label %1494
 
-1491:                                             ; preds = %1486, %1479
-  %1492 = load ptr, ptr %5, align 8
-  %1493 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1492, i32 0, i32 0
-  %1494 = load ptr, ptr %1493, align 8
-  %1495 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1494, i32 0, i32 28
-  %1496 = load i32, ptr %1495, align 8
-  %1497 = icmp ne i32 %1496, 0
-  br i1 %1497, label %1500, label %1498
+1494:                                             ; preds = %1489, %1482
+  %1495 = load ptr, ptr %5, align 8, !tbaa !3
+  %1496 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1495, i32 0, i32 0
+  %1497 = load ptr, ptr %1496, align 8, !tbaa !55
+  %1498 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1497, i32 0, i32 28
+  %1499 = load i32, ptr %1498, align 8, !tbaa !118
+  %1500 = icmp ne i32 %1499, 0
+  br i1 %1500, label %1503, label %1501
 
-1498:                                             ; preds = %1491
-  %1499 = load ptr, ptr %5, align 8
-  call void @Pdr_ManReportInvariant(ptr noundef %1499)
-  br label %1500
+1501:                                             ; preds = %1494
+  %1502 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManReportInvariant(ptr noundef %1502)
+  br label %1503
 
-1500:                                             ; preds = %1498, %1491
-  %1501 = load ptr, ptr %5, align 8
-  %1502 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1501, i32 0, i32 0
-  %1503 = load ptr, ptr %1502, align 8
-  %1504 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1503, i32 0, i32 28
-  %1505 = load i32, ptr %1504, align 8
-  %1506 = icmp ne i32 %1505, 0
-  br i1 %1506, label %1509, label %1507
+1503:                                             ; preds = %1501, %1494
+  %1504 = load ptr, ptr %5, align 8, !tbaa !3
+  %1505 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1504, i32 0, i32 0
+  %1506 = load ptr, ptr %1505, align 8, !tbaa !55
+  %1507 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1506, i32 0, i32 28
+  %1508 = load i32, ptr %1507, align 8, !tbaa !118
+  %1509 = icmp ne i32 %1508, 0
+  br i1 %1509, label %1512, label %1510
 
-1507:                                             ; preds = %1500
-  %1508 = load ptr, ptr %5, align 8
-  call void @Pdr_ManVerifyInvariant(ptr noundef %1508)
-  br label %1509
+1510:                                             ; preds = %1503
+  %1511 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManVerifyInvariant(ptr noundef %1511)
+  br label %1512
 
-1509:                                             ; preds = %1507, %1500
-  %1510 = load i32, ptr %12, align 4
-  %1511 = load ptr, ptr %5, align 8
-  %1512 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1511, i32 0, i32 0
-  %1513 = load ptr, ptr %1512, align 8
-  %1514 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1513, i32 0, i32 36
-  store i32 %1510, ptr %1514, align 8
-  %1515 = load ptr, ptr %5, align 8
-  %1516 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1515, i32 0, i32 1
-  %1517 = load ptr, ptr %1516, align 8
-  %1518 = call i32 @Saig_ManPoNum(ptr noundef %1517)
-  %1519 = load ptr, ptr %5, align 8
-  %1520 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1519, i32 0, i32 0
-  %1521 = load ptr, ptr %1520, align 8
-  %1522 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1521, i32 0, i32 33
-  %1523 = load i32, ptr %1522, align 4
-  %1524 = sub nsw i32 %1518, %1523
-  %1525 = load ptr, ptr %5, align 8
-  %1526 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1525, i32 0, i32 0
-  %1527 = load ptr, ptr %1526, align 8
-  %1528 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1527, i32 0, i32 34
-  %1529 = load i32, ptr %1528, align 8
-  %1530 = sub nsw i32 %1524, %1529
-  %1531 = load ptr, ptr %5, align 8
-  %1532 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1531, i32 0, i32 0
-  %1533 = load ptr, ptr %1532, align 8
-  %1534 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1533, i32 0, i32 35
-  store i32 %1530, ptr %1534, align 4
-  %1535 = load ptr, ptr %5, align 8
-  %1536 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1535, i32 0, i32 0
-  %1537 = load ptr, ptr %1536, align 8
-  %1538 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1537, i32 0, i32 41
-  %1539 = load ptr, ptr %1538, align 8
-  %1540 = icmp ne ptr %1539, null
-  br i1 %1540, label %1541, label %1581
+1512:                                             ; preds = %1510, %1503
+  %1513 = load i32, ptr %12, align 4, !tbaa !8
+  %1514 = load ptr, ptr %5, align 8, !tbaa !3
+  %1515 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1514, i32 0, i32 0
+  %1516 = load ptr, ptr %1515, align 8, !tbaa !55
+  %1517 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1516, i32 0, i32 36
+  store i32 %1513, ptr %1517, align 8, !tbaa !119
+  %1518 = load ptr, ptr %5, align 8, !tbaa !3
+  %1519 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1518, i32 0, i32 1
+  %1520 = load ptr, ptr %1519, align 8, !tbaa !83
+  %1521 = call i32 @Saig_ManPoNum(ptr noundef %1520)
+  %1522 = load ptr, ptr %5, align 8, !tbaa !3
+  %1523 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1522, i32 0, i32 0
+  %1524 = load ptr, ptr %1523, align 8, !tbaa !55
+  %1525 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1524, i32 0, i32 33
+  %1526 = load i32, ptr %1525, align 4, !tbaa !113
+  %1527 = sub nsw i32 %1521, %1526
+  %1528 = load ptr, ptr %5, align 8, !tbaa !3
+  %1529 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1528, i32 0, i32 0
+  %1530 = load ptr, ptr %1529, align 8, !tbaa !55
+  %1531 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1530, i32 0, i32 34
+  %1532 = load i32, ptr %1531, align 8, !tbaa !120
+  %1533 = sub nsw i32 %1527, %1532
+  %1534 = load ptr, ptr %5, align 8, !tbaa !3
+  %1535 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1534, i32 0, i32 0
+  %1536 = load ptr, ptr %1535, align 8, !tbaa !55
+  %1537 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1536, i32 0, i32 35
+  store i32 %1533, ptr %1537, align 4, !tbaa !97
+  %1538 = load ptr, ptr %5, align 8, !tbaa !3
+  %1539 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1538, i32 0, i32 0
+  %1540 = load ptr, ptr %1539, align 8, !tbaa !55
+  %1541 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1540, i32 0, i32 41
+  %1542 = load ptr, ptr %1541, align 8, !tbaa !96
+  %1543 = icmp ne ptr %1542, null
+  br i1 %1543, label %1544, label %1584
 
-1541:                                             ; preds = %1509
-  store i32 0, ptr %12, align 4
-  br label %1542
+1544:                                             ; preds = %1512
+  store i32 0, ptr %12, align 4, !tbaa !8
+  br label %1545
 
-1542:                                             ; preds = %1577, %1541
-  %1543 = load i32, ptr %12, align 4
-  %1544 = load ptr, ptr %5, align 8
-  %1545 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1544, i32 0, i32 1
-  %1546 = load ptr, ptr %1545, align 8
-  %1547 = call i32 @Saig_ManPoNum(ptr noundef %1546)
-  %1548 = icmp slt i32 %1543, %1547
-  br i1 %1548, label %1549, label %1580
+1545:                                             ; preds = %1580, %1544
+  %1546 = load i32, ptr %12, align 4, !tbaa !8
+  %1547 = load ptr, ptr %5, align 8, !tbaa !3
+  %1548 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1547, i32 0, i32 1
+  %1549 = load ptr, ptr %1548, align 8, !tbaa !83
+  %1550 = call i32 @Saig_ManPoNum(ptr noundef %1549)
+  %1551 = icmp slt i32 %1546, %1550
+  br i1 %1551, label %1552, label %1583
 
-1549:                                             ; preds = %1542
-  %1550 = load ptr, ptr %5, align 8
-  %1551 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1550, i32 0, i32 0
-  %1552 = load ptr, ptr %1551, align 8
-  %1553 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1552, i32 0, i32 41
-  %1554 = load ptr, ptr %1553, align 8
-  %1555 = load i32, ptr %12, align 4
-  %1556 = call i32 @Vec_IntEntry(ptr noundef %1554, i32 noundef %1555)
-  %1557 = icmp eq i32 %1556, -2
-  br i1 %1557, label %1558, label %1576
+1552:                                             ; preds = %1545
+  %1553 = load ptr, ptr %5, align 8, !tbaa !3
+  %1554 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1553, i32 0, i32 0
+  %1555 = load ptr, ptr %1554, align 8, !tbaa !55
+  %1556 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1555, i32 0, i32 41
+  %1557 = load ptr, ptr %1556, align 8, !tbaa !96
+  %1558 = load i32, ptr %12, align 4, !tbaa !8
+  %1559 = call i32 @Vec_IntEntry(ptr noundef %1557, i32 noundef %1558)
+  %1560 = icmp eq i32 %1559, -2
+  br i1 %1560, label %1561, label %1579
 
-1558:                                             ; preds = %1549
-  %1559 = load ptr, ptr %5, align 8
-  %1560 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1559, i32 0, i32 0
-  %1561 = load ptr, ptr %1560, align 8
-  %1562 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1561, i32 0, i32 41
-  %1563 = load ptr, ptr %1562, align 8
-  %1564 = load i32, ptr %12, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %1563, i32 noundef %1564, i32 noundef 1)
-  %1565 = load ptr, ptr %5, align 8
-  %1566 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1565, i32 0, i32 0
-  %1567 = load ptr, ptr %1566, align 8
-  %1568 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1567, i32 0, i32 31
-  %1569 = load i32, ptr %1568, align 4
-  %1570 = icmp ne i32 %1569, 0
-  br i1 %1570, label %1571, label %1575
+1561:                                             ; preds = %1552
+  %1562 = load ptr, ptr %5, align 8, !tbaa !3
+  %1563 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1562, i32 0, i32 0
+  %1564 = load ptr, ptr %1563, align 8, !tbaa !55
+  %1565 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1564, i32 0, i32 41
+  %1566 = load ptr, ptr %1565, align 8, !tbaa !96
+  %1567 = load i32, ptr %12, align 4, !tbaa !8
+  call void @Vec_IntWriteEntry(ptr noundef %1566, i32 noundef %1567, i32 noundef 1)
+  %1568 = load ptr, ptr %5, align 8, !tbaa !3
+  %1569 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1568, i32 0, i32 0
+  %1570 = load ptr, ptr %1569, align 8, !tbaa !55
+  %1571 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1570, i32 0, i32 31
+  %1572 = load i32, ptr %1571, align 4, !tbaa !98
+  %1573 = icmp ne i32 %1572, 0
+  br i1 %1573, label %1574, label %1578
 
-1571:                                             ; preds = %1558
-  %1572 = load ptr, ptr @stdout, align 8
-  %1573 = load i32, ptr %12, align 4
-  %1574 = call i32 @Gia_ManToBridgeResult(ptr noundef %1572, i32 noundef 1, ptr noundef null, i32 noundef %1573)
-  br label %1575
+1574:                                             ; preds = %1561
+  %1575 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %1576 = load i32, ptr %12, align 4, !tbaa !8
+  %1577 = call i32 @Gia_ManToBridgeResult(ptr noundef %1575, i32 noundef 1, ptr noundef null, i32 noundef %1576)
+  br label %1578
 
-1575:                                             ; preds = %1571, %1558
-  br label %1576
+1578:                                             ; preds = %1574, %1561
+  br label %1579
 
-1576:                                             ; preds = %1575, %1549
-  br label %1577
+1579:                                             ; preds = %1578, %1552
+  br label %1580
 
-1577:                                             ; preds = %1576
-  %1578 = load i32, ptr %12, align 4
-  %1579 = add nsw i32 %1578, 1
-  store i32 %1579, ptr %12, align 4
-  br label %1542, !llvm.loop !34
+1580:                                             ; preds = %1579
+  %1581 = load i32, ptr %12, align 4, !tbaa !8
+  %1582 = add nsw i32 %1581, 1
+  store i32 %1582, ptr %12, align 4, !tbaa !8
+  br label %1545, !llvm.loop !131
 
-1580:                                             ; preds = %1542
-  br label %1581
+1583:                                             ; preds = %1545
+  br label %1584
 
-1581:                                             ; preds = %1580, %1509
-  %1582 = load ptr, ptr %5, align 8
-  %1583 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1582, i32 0, i32 0
-  %1584 = load ptr, ptr %1583, align 8
-  %1585 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1584, i32 0, i32 35
-  %1586 = load i32, ptr %1585, align 4
-  %1587 = load ptr, ptr %5, align 8
-  %1588 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1587, i32 0, i32 1
-  %1589 = load ptr, ptr %1588, align 8
-  %1590 = call i32 @Saig_ManPoNum(ptr noundef %1589)
-  %1591 = icmp eq i32 %1586, %1590
-  br i1 %1591, label %1592, label %1593
+1584:                                             ; preds = %1583, %1512
+  %1585 = load ptr, ptr %5, align 8, !tbaa !3
+  %1586 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1585, i32 0, i32 0
+  %1587 = load ptr, ptr %1586, align 8, !tbaa !55
+  %1588 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1587, i32 0, i32 35
+  %1589 = load i32, ptr %1588, align 4, !tbaa !97
+  %1590 = load ptr, ptr %5, align 8, !tbaa !3
+  %1591 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1590, i32 0, i32 1
+  %1592 = load ptr, ptr %1591, align 8, !tbaa !83
+  %1593 = call i32 @Saig_ManPoNum(ptr noundef %1592)
+  %1594 = icmp eq i32 %1589, %1593
+  br i1 %1594, label %1595, label %1596
 
-1592:                                             ; preds = %1581
+1595:                                             ; preds = %1584
   store i32 1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1593:                                             ; preds = %1581
-  %1594 = load ptr, ptr %5, align 8
-  %1595 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1594, i32 0, i32 0
-  %1596 = load ptr, ptr %1595, align 8
-  %1597 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1596, i32 0, i32 33
-  %1598 = load i32, ptr %1597, align 4
-  %1599 = icmp sgt i32 %1598, 0
-  br i1 %1599, label %1600, label %1601
+1596:                                             ; preds = %1584
+  %1597 = load ptr, ptr %5, align 8, !tbaa !3
+  %1598 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1597, i32 0, i32 0
+  %1599 = load ptr, ptr %1598, align 8, !tbaa !55
+  %1600 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1599, i32 0, i32 33
+  %1601 = load i32, ptr %1600, align 4, !tbaa !113
+  %1602 = icmp sgt i32 %1601, 0
+  br i1 %1602, label %1603, label %1604
 
-1600:                                             ; preds = %1593
+1603:                                             ; preds = %1596
   store i32 0, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1601:                                             ; preds = %1593
+1604:                                             ; preds = %1596
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1602:                                             ; preds = %1476
-  %1603 = load ptr, ptr %5, align 8
-  %1604 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1603, i32 0, i32 0
-  %1605 = load ptr, ptr %1604, align 8
-  %1606 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1605, i32 0, i32 25
-  %1607 = load i32, ptr %1606, align 4
-  %1608 = icmp ne i32 %1607, 0
-  br i1 %1608, label %1609, label %1614
+1605:                                             ; preds = %1479
+  %1606 = load ptr, ptr %5, align 8, !tbaa !3
+  %1607 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1606, i32 0, i32 0
+  %1608 = load ptr, ptr %1607, align 8, !tbaa !55
+  %1609 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1608, i32 0, i32 25
+  %1610 = load i32, ptr %1609, align 4, !tbaa !101
+  %1611 = icmp ne i32 %1610, 0
+  br i1 %1611, label %1612, label %1617
 
-1609:                                             ; preds = %1602
-  %1610 = load ptr, ptr %5, align 8
-  %1611 = call i64 @Abc_Clock()
-  %1612 = load i64, ptr %15, align 8
-  %1613 = sub nsw i64 %1611, %1612
-  call void @Pdr_ManPrintProgress(ptr noundef %1610, i32 noundef 0, i64 noundef %1613)
-  br label %1614
+1612:                                             ; preds = %1605
+  %1613 = load ptr, ptr %5, align 8, !tbaa !3
+  %1614 = call i64 @Abc_Clock()
+  %1615 = load i64, ptr %15, align 8, !tbaa !84
+  %1616 = sub nsw i64 %1614, %1615
+  call void @Pdr_ManPrintProgress(ptr noundef %1613, i32 noundef 0, i64 noundef %1616)
+  br label %1617
 
-1614:                                             ; preds = %1609, %1602
-  %1615 = load ptr, ptr %5, align 8
-  %1616 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1615, i32 0, i32 0
-  %1617 = load ptr, ptr %1616, align 8
-  %1618 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1617, i32 0, i32 38
-  %1619 = load ptr, ptr %1618, align 8
-  %1620 = icmp ne ptr %1619, null
-  br i1 %1620, label %1621, label %1640
+1617:                                             ; preds = %1612, %1605
+  %1618 = load ptr, ptr %5, align 8, !tbaa !3
+  %1619 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1618, i32 0, i32 0
+  %1620 = load ptr, ptr %1619, align 8, !tbaa !55
+  %1621 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1620, i32 0, i32 38
+  %1622 = load ptr, ptr %1621, align 8, !tbaa !132
+  %1623 = icmp ne ptr %1622, null
+  br i1 %1623, label %1624, label %1643
 
-1621:                                             ; preds = %1614
-  %1622 = load ptr, ptr %5, align 8
-  %1623 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1622, i32 0, i32 0
-  %1624 = load ptr, ptr %1623, align 8
-  %1625 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1624, i32 0, i32 38
-  %1626 = load ptr, ptr %1625, align 8
-  %1627 = load ptr, ptr %5, align 8
-  %1628 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1627, i32 0, i32 0
-  %1629 = load ptr, ptr %1628, align 8
-  %1630 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1629, i32 0, i32 37
-  %1631 = load i32, ptr %1630, align 4
-  %1632 = call i32 %1626(i32 noundef %1631)
-  %1633 = icmp ne i32 %1632, 0
-  br i1 %1633, label %1634, label %1640
+1624:                                             ; preds = %1617
+  %1625 = load ptr, ptr %5, align 8, !tbaa !3
+  %1626 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1625, i32 0, i32 0
+  %1627 = load ptr, ptr %1626, align 8, !tbaa !55
+  %1628 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1627, i32 0, i32 38
+  %1629 = load ptr, ptr %1628, align 8, !tbaa !132
+  %1630 = load ptr, ptr %5, align 8, !tbaa !3
+  %1631 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1630, i32 0, i32 0
+  %1632 = load ptr, ptr %1631, align 8, !tbaa !55
+  %1633 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1632, i32 0, i32 37
+  %1634 = load i32, ptr %1633, align 4, !tbaa !133
+  %1635 = call i32 %1629(i32 noundef %1634)
+  %1636 = icmp ne i32 %1635, 0
+  br i1 %1636, label %1637, label %1643
 
-1634:                                             ; preds = %1621
-  %1635 = load i32, ptr %12, align 4
-  %1636 = load ptr, ptr %5, align 8
-  %1637 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1636, i32 0, i32 0
-  %1638 = load ptr, ptr %1637, align 8
-  %1639 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1638, i32 0, i32 36
-  store i32 %1635, ptr %1639, align 8
+1637:                                             ; preds = %1624
+  %1638 = load i32, ptr %12, align 4, !tbaa !8
+  %1639 = load ptr, ptr %5, align 8, !tbaa !3
+  %1640 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1639, i32 0, i32 0
+  %1641 = load ptr, ptr %1640, align 8, !tbaa !55
+  %1642 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1641, i32 0, i32 36
+  store i32 %1638, ptr %1642, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1640:                                             ; preds = %1621, %1614
-  %1641 = load ptr, ptr %5, align 8
-  %1642 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1641, i32 0, i32 56
-  %1643 = load i64, ptr %1642, align 8
-  %1644 = icmp ne i64 %1643, 0
-  br i1 %1644, label %1645, label %1689
+1643:                                             ; preds = %1624, %1617
+  %1644 = load ptr, ptr %5, align 8, !tbaa !3
+  %1645 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1644, i32 0, i32 56
+  %1646 = load i64, ptr %1645, align 8, !tbaa !86
+  %1647 = icmp ne i64 %1646, 0
+  br i1 %1647, label %1648, label %1692
 
-1645:                                             ; preds = %1640
-  %1646 = call i64 @Abc_Clock()
-  %1647 = load ptr, ptr %5, align 8
-  %1648 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1647, i32 0, i32 56
-  %1649 = load i64, ptr %1648, align 8
-  %1650 = icmp sgt i64 %1646, %1649
-  br i1 %1650, label %1651, label %1689
+1648:                                             ; preds = %1643
+  %1649 = call i64 @Abc_Clock()
+  %1650 = load ptr, ptr %5, align 8, !tbaa !3
+  %1651 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1650, i32 0, i32 56
+  %1652 = load i64, ptr %1651, align 8, !tbaa !86
+  %1653 = icmp sgt i64 %1649, %1652
+  br i1 %1653, label %1654, label %1692
 
-1651:                                             ; preds = %1645
-  %1652 = load i32, ptr %8, align 4
-  %1653 = icmp ne i32 %1652, 0
-  br i1 %1653, label %1654, label %1657
+1654:                                             ; preds = %1648
+  %1655 = load i32, ptr %8, align 4, !tbaa !8
+  %1656 = icmp ne i32 %1655, 0
+  br i1 %1656, label %1657, label %1660
 
-1654:                                             ; preds = %1651
-  %1655 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1655)
-  %1656 = load ptr, ptr %5, align 8
-  call void @Pdr_ManPrintClauses(ptr noundef %1656, i32 noundef 0)
-  br label %1657
+1657:                                             ; preds = %1654
+  %1658 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1658)
+  %1659 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManPrintClauses(ptr noundef %1659, i32 noundef 0)
+  br label %1660
 
-1657:                                             ; preds = %1654, %1651
-  %1658 = load ptr, ptr %5, align 8
-  %1659 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1658, i32 0, i32 0
-  %1660 = load ptr, ptr %1659, align 8
-  %1661 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1660, i32 0, i32 25
-  %1662 = load i32, ptr %1661, align 4
-  %1663 = icmp ne i32 %1662, 0
-  br i1 %1663, label %1664, label %1669
+1660:                                             ; preds = %1657, %1654
+  %1661 = load ptr, ptr %5, align 8, !tbaa !3
+  %1662 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1661, i32 0, i32 0
+  %1663 = load ptr, ptr %1662, align 8, !tbaa !55
+  %1664 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1663, i32 0, i32 25
+  %1665 = load i32, ptr %1664, align 4, !tbaa !101
+  %1666 = icmp ne i32 %1665, 0
+  br i1 %1666, label %1667, label %1672
 
-1664:                                             ; preds = %1657
-  %1665 = load ptr, ptr %5, align 8
-  %1666 = call i64 @Abc_Clock()
-  %1667 = load i64, ptr %15, align 8
-  %1668 = sub nsw i64 %1666, %1667
-  call void @Pdr_ManPrintProgress(ptr noundef %1665, i32 noundef 1, i64 noundef %1668)
-  br label %1669
+1667:                                             ; preds = %1660
+  %1668 = load ptr, ptr %5, align 8, !tbaa !3
+  %1669 = call i64 @Abc_Clock()
+  %1670 = load i64, ptr %15, align 8, !tbaa !84
+  %1671 = sub nsw i64 %1669, %1670
+  call void @Pdr_ManPrintProgress(ptr noundef %1668, i32 noundef 1, i64 noundef %1671)
+  br label %1672
 
-1669:                                             ; preds = %1664, %1657
-  %1670 = load ptr, ptr %5, align 8
-  %1671 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1670, i32 0, i32 0
-  %1672 = load ptr, ptr %1671, align 8
-  %1673 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1672, i32 0, i32 28
-  %1674 = load i32, ptr %1673, align 8
-  %1675 = icmp ne i32 %1674, 0
-  br i1 %1675, label %1683, label %1676
+1672:                                             ; preds = %1667, %1660
+  %1673 = load ptr, ptr %5, align 8, !tbaa !3
+  %1674 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1673, i32 0, i32 0
+  %1675 = load ptr, ptr %1674, align 8, !tbaa !55
+  %1676 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1675, i32 0, i32 28
+  %1677 = load i32, ptr %1676, align 8, !tbaa !118
+  %1678 = icmp ne i32 %1677, 0
+  br i1 %1678, label %1686, label %1679
 
-1676:                                             ; preds = %1669
-  %1677 = load ptr, ptr %5, align 8
-  %1678 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1677, i32 0, i32 0
-  %1679 = load ptr, ptr %1678, align 8
-  %1680 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1679, i32 0, i32 5
-  %1681 = load i32, ptr %1680, align 4
-  %1682 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %1681, i32 noundef %1682)
-  br label %1683
+1679:                                             ; preds = %1672
+  %1680 = load ptr, ptr %5, align 8, !tbaa !3
+  %1681 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1680, i32 0, i32 0
+  %1682 = load ptr, ptr %1681, align 8, !tbaa !55
+  %1683 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1682, i32 0, i32 5
+  %1684 = load i32, ptr %1683, align 4, !tbaa !85
+  %1685 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.12, i32 noundef %1684, i32 noundef %1685)
+  br label %1686
 
-1683:                                             ; preds = %1676, %1669
-  %1684 = load i32, ptr %12, align 4
-  %1685 = load ptr, ptr %5, align 8
-  %1686 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1685, i32 0, i32 0
-  %1687 = load ptr, ptr %1686, align 8
-  %1688 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1687, i32 0, i32 36
-  store i32 %1684, ptr %1688, align 8
+1686:                                             ; preds = %1679, %1672
+  %1687 = load i32, ptr %12, align 4, !tbaa !8
+  %1688 = load ptr, ptr %5, align 8, !tbaa !3
+  %1689 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1688, i32 0, i32 0
+  %1690 = load ptr, ptr %1689, align 8, !tbaa !55
+  %1691 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1690, i32 0, i32 36
+  store i32 %1687, ptr %1691, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1689:                                             ; preds = %1645, %1640
-  %1690 = load ptr, ptr %5, align 8
-  %1691 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1690, i32 0, i32 0
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1692, i32 0, i32 6
-  %1694 = load i32, ptr %1693, align 8
-  %1695 = icmp ne i32 %1694, 0
-  br i1 %1695, label %1696, label %1757
+1692:                                             ; preds = %1648, %1643
+  %1693 = load ptr, ptr %5, align 8, !tbaa !3
+  %1694 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1693, i32 0, i32 0
+  %1695 = load ptr, ptr %1694, align 8, !tbaa !55
+  %1696 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1695, i32 0, i32 6
+  %1697 = load i32, ptr %1696, align 8, !tbaa !122
+  %1698 = icmp ne i32 %1697, 0
+  br i1 %1698, label %1699, label %1760
 
-1696:                                             ; preds = %1689
-  %1697 = load ptr, ptr %5, align 8
-  %1698 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1697, i32 0, i32 0
-  %1699 = load ptr, ptr %1698, align 8
-  %1700 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1699, i32 0, i32 40
-  %1701 = load i64, ptr %1700, align 8
-  %1702 = icmp ne i64 %1701, 0
-  br i1 %1702, label %1703, label %1757
+1699:                                             ; preds = %1692
+  %1700 = load ptr, ptr %5, align 8, !tbaa !3
+  %1701 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1700, i32 0, i32 0
+  %1702 = load ptr, ptr %1701, align 8, !tbaa !55
+  %1703 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1702, i32 0, i32 40
+  %1704 = load i64, ptr %1703, align 8, !tbaa !100
+  %1705 = icmp ne i64 %1704, 0
+  br i1 %1705, label %1706, label %1760
 
-1703:                                             ; preds = %1696
-  %1704 = call i64 @Abc_Clock()
-  %1705 = load ptr, ptr %5, align 8
-  %1706 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1705, i32 0, i32 0
-  %1707 = load ptr, ptr %1706, align 8
-  %1708 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1707, i32 0, i32 40
-  %1709 = load i64, ptr %1708, align 8
-  %1710 = load ptr, ptr %5, align 8
-  %1711 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1710, i32 0, i32 0
-  %1712 = load ptr, ptr %1711, align 8
-  %1713 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1712, i32 0, i32 6
-  %1714 = load i32, ptr %1713, align 8
-  %1715 = sext i32 %1714 to i64
-  %1716 = mul nsw i64 %1715, 1000000
-  %1717 = add nsw i64 %1709, %1716
-  %1718 = icmp sgt i64 %1704, %1717
-  br i1 %1718, label %1719, label %1757
+1706:                                             ; preds = %1699
+  %1707 = call i64 @Abc_Clock()
+  %1708 = load ptr, ptr %5, align 8, !tbaa !3
+  %1709 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1708, i32 0, i32 0
+  %1710 = load ptr, ptr %1709, align 8, !tbaa !55
+  %1711 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1710, i32 0, i32 40
+  %1712 = load i64, ptr %1711, align 8, !tbaa !100
+  %1713 = load ptr, ptr %5, align 8, !tbaa !3
+  %1714 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1713, i32 0, i32 0
+  %1715 = load ptr, ptr %1714, align 8, !tbaa !55
+  %1716 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1715, i32 0, i32 6
+  %1717 = load i32, ptr %1716, align 8, !tbaa !122
+  %1718 = sext i32 %1717 to i64
+  %1719 = mul nsw i64 %1718, 1000000
+  %1720 = add nsw i64 %1712, %1719
+  %1721 = icmp sgt i64 %1707, %1720
+  br i1 %1721, label %1722, label %1760
 
-1719:                                             ; preds = %1703
-  %1720 = load i32, ptr %8, align 4
-  %1721 = icmp ne i32 %1720, 0
-  br i1 %1721, label %1722, label %1725
+1722:                                             ; preds = %1706
+  %1723 = load i32, ptr %8, align 4, !tbaa !8
+  %1724 = icmp ne i32 %1723, 0
+  br i1 %1724, label %1725, label %1728
 
-1722:                                             ; preds = %1719
-  %1723 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1723)
-  %1724 = load ptr, ptr %5, align 8
-  call void @Pdr_ManPrintClauses(ptr noundef %1724, i32 noundef 0)
-  br label %1725
+1725:                                             ; preds = %1722
+  %1726 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.15, i32 noundef %1726)
+  %1727 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManPrintClauses(ptr noundef %1727, i32 noundef 0)
+  br label %1728
 
-1725:                                             ; preds = %1722, %1719
-  %1726 = load ptr, ptr %5, align 8
-  %1727 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1726, i32 0, i32 0
-  %1728 = load ptr, ptr %1727, align 8
-  %1729 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1728, i32 0, i32 25
-  %1730 = load i32, ptr %1729, align 4
-  %1731 = icmp ne i32 %1730, 0
-  br i1 %1731, label %1732, label %1737
+1728:                                             ; preds = %1725, %1722
+  %1729 = load ptr, ptr %5, align 8, !tbaa !3
+  %1730 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1729, i32 0, i32 0
+  %1731 = load ptr, ptr %1730, align 8, !tbaa !55
+  %1732 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1731, i32 0, i32 25
+  %1733 = load i32, ptr %1732, align 4, !tbaa !101
+  %1734 = icmp ne i32 %1733, 0
+  br i1 %1734, label %1735, label %1740
 
-1732:                                             ; preds = %1725
-  %1733 = load ptr, ptr %5, align 8
-  %1734 = call i64 @Abc_Clock()
-  %1735 = load i64, ptr %15, align 8
-  %1736 = sub nsw i64 %1734, %1735
-  call void @Pdr_ManPrintProgress(ptr noundef %1733, i32 noundef 1, i64 noundef %1736)
-  br label %1737
+1735:                                             ; preds = %1728
+  %1736 = load ptr, ptr %5, align 8, !tbaa !3
+  %1737 = call i64 @Abc_Clock()
+  %1738 = load i64, ptr %15, align 8, !tbaa !84
+  %1739 = sub nsw i64 %1737, %1738
+  call void @Pdr_ManPrintProgress(ptr noundef %1736, i32 noundef 1, i64 noundef %1739)
+  br label %1740
 
-1737:                                             ; preds = %1732, %1725
-  %1738 = load ptr, ptr %5, align 8
-  %1739 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1738, i32 0, i32 0
-  %1740 = load ptr, ptr %1739, align 8
-  %1741 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1740, i32 0, i32 28
-  %1742 = load i32, ptr %1741, align 8
-  %1743 = icmp ne i32 %1742, 0
-  br i1 %1743, label %1751, label %1744
+1740:                                             ; preds = %1735, %1728
+  %1741 = load ptr, ptr %5, align 8, !tbaa !3
+  %1742 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1741, i32 0, i32 0
+  %1743 = load ptr, ptr %1742, align 8, !tbaa !55
+  %1744 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1743, i32 0, i32 28
+  %1745 = load i32, ptr %1744, align 8, !tbaa !118
+  %1746 = icmp ne i32 %1745, 0
+  br i1 %1746, label %1754, label %1747
 
-1744:                                             ; preds = %1737
-  %1745 = load ptr, ptr %5, align 8
-  %1746 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1745, i32 0, i32 0
-  %1747 = load ptr, ptr %1746, align 8
-  %1748 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1747, i32 0, i32 6
-  %1749 = load i32, ptr %1748, align 8
-  %1750 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %1749, i32 noundef %1750)
-  br label %1751
+1747:                                             ; preds = %1740
+  %1748 = load ptr, ptr %5, align 8, !tbaa !3
+  %1749 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1748, i32 0, i32 0
+  %1750 = load ptr, ptr %1749, align 8, !tbaa !55
+  %1751 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1750, i32 0, i32 6
+  %1752 = load i32, ptr %1751, align 8, !tbaa !122
+  %1753 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.11, i32 noundef %1752, i32 noundef %1753)
+  br label %1754
 
-1751:                                             ; preds = %1744, %1737
-  %1752 = load i32, ptr %12, align 4
-  %1753 = load ptr, ptr %5, align 8
-  %1754 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1753, i32 0, i32 0
-  %1755 = load ptr, ptr %1754, align 8
-  %1756 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1755, i32 0, i32 36
-  store i32 %1752, ptr %1756, align 8
+1754:                                             ; preds = %1747, %1740
+  %1755 = load i32, ptr %12, align 4, !tbaa !8
+  %1756 = load ptr, ptr %5, align 8, !tbaa !3
+  %1757 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1756, i32 0, i32 0
+  %1758 = load ptr, ptr %1757, align 8, !tbaa !55
+  %1759 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1758, i32 0, i32 36
+  store i32 %1755, ptr %1759, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1757:                                             ; preds = %1703, %1696, %1689
-  %1758 = load ptr, ptr %5, align 8
-  %1759 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1758, i32 0, i32 0
-  %1760 = load ptr, ptr %1759, align 8
-  %1761 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1760, i32 0, i32 1
-  %1762 = load i32, ptr %1761, align 4
-  %1763 = icmp ne i32 %1762, 0
-  br i1 %1763, label %1764, label %1803
+1760:                                             ; preds = %1706, %1699, %1692
+  %1761 = load ptr, ptr %5, align 8, !tbaa !3
+  %1762 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1761, i32 0, i32 0
+  %1763 = load ptr, ptr %1762, align 8, !tbaa !55
+  %1764 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1763, i32 0, i32 1
+  %1765 = load i32, ptr %1764, align 4, !tbaa !134
+  %1766 = icmp ne i32 %1765, 0
+  br i1 %1766, label %1767, label %1806
 
-1764:                                             ; preds = %1757
-  %1765 = load i32, ptr %12, align 4
-  %1766 = load ptr, ptr %5, align 8
-  %1767 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1766, i32 0, i32 0
-  %1768 = load ptr, ptr %1767, align 8
-  %1769 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1768, i32 0, i32 1
-  %1770 = load i32, ptr %1769, align 4
-  %1771 = icmp sge i32 %1765, %1770
-  br i1 %1771, label %1772, label %1803
+1767:                                             ; preds = %1760
+  %1768 = load i32, ptr %12, align 4, !tbaa !8
+  %1769 = load ptr, ptr %5, align 8, !tbaa !3
+  %1770 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1769, i32 0, i32 0
+  %1771 = load ptr, ptr %1770, align 8, !tbaa !55
+  %1772 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1771, i32 0, i32 1
+  %1773 = load i32, ptr %1772, align 4, !tbaa !134
+  %1774 = icmp sge i32 %1768, %1773
+  br i1 %1774, label %1775, label %1806
 
-1772:                                             ; preds = %1764
-  %1773 = load ptr, ptr %5, align 8
-  %1774 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1773, i32 0, i32 0
-  %1775 = load ptr, ptr %1774, align 8
-  %1776 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1775, i32 0, i32 25
-  %1777 = load i32, ptr %1776, align 4
-  %1778 = icmp ne i32 %1777, 0
-  br i1 %1778, label %1779, label %1784
+1775:                                             ; preds = %1767
+  %1776 = load ptr, ptr %5, align 8, !tbaa !3
+  %1777 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1776, i32 0, i32 0
+  %1778 = load ptr, ptr %1777, align 8, !tbaa !55
+  %1779 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1778, i32 0, i32 25
+  %1780 = load i32, ptr %1779, align 4, !tbaa !101
+  %1781 = icmp ne i32 %1780, 0
+  br i1 %1781, label %1782, label %1787
 
-1779:                                             ; preds = %1772
-  %1780 = load ptr, ptr %5, align 8
-  %1781 = call i64 @Abc_Clock()
-  %1782 = load i64, ptr %15, align 8
-  %1783 = sub nsw i64 %1781, %1782
-  call void @Pdr_ManPrintProgress(ptr noundef %1780, i32 noundef 1, i64 noundef %1783)
-  br label %1784
+1782:                                             ; preds = %1775
+  %1783 = load ptr, ptr %5, align 8, !tbaa !3
+  %1784 = call i64 @Abc_Clock()
+  %1785 = load i64, ptr %15, align 8, !tbaa !84
+  %1786 = sub nsw i64 %1784, %1785
+  call void @Pdr_ManPrintProgress(ptr noundef %1783, i32 noundef 1, i64 noundef %1786)
+  br label %1787
 
-1784:                                             ; preds = %1779, %1772
-  %1785 = load ptr, ptr %5, align 8
-  %1786 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1785, i32 0, i32 0
-  %1787 = load ptr, ptr %1786, align 8
-  %1788 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1787, i32 0, i32 28
-  %1789 = load i32, ptr %1788, align 8
-  %1790 = icmp ne i32 %1789, 0
-  br i1 %1790, label %1797, label %1791
+1787:                                             ; preds = %1782, %1775
+  %1788 = load ptr, ptr %5, align 8, !tbaa !3
+  %1789 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1788, i32 0, i32 0
+  %1790 = load ptr, ptr %1789, align 8, !tbaa !55
+  %1791 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1790, i32 0, i32 28
+  %1792 = load i32, ptr %1791, align 8, !tbaa !118
+  %1793 = icmp ne i32 %1792, 0
+  br i1 %1793, label %1800, label %1794
 
-1791:                                             ; preds = %1784
-  %1792 = load ptr, ptr %5, align 8
-  %1793 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1792, i32 0, i32 0
-  %1794 = load ptr, ptr %1793, align 8
-  %1795 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1794, i32 0, i32 1
-  %1796 = load i32, ptr %1795, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.19, i32 noundef %1796)
-  br label %1797
+1794:                                             ; preds = %1787
+  %1795 = load ptr, ptr %5, align 8, !tbaa !3
+  %1796 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1795, i32 0, i32 0
+  %1797 = load ptr, ptr %1796, align 8, !tbaa !55
+  %1798 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1797, i32 0, i32 1
+  %1799 = load i32, ptr %1798, align 4, !tbaa !134
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.19, i32 noundef %1799)
+  br label %1800
 
-1797:                                             ; preds = %1791, %1784
-  %1798 = load i32, ptr %12, align 4
-  %1799 = load ptr, ptr %5, align 8
-  %1800 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %1799, i32 0, i32 0
-  %1801 = load ptr, ptr %1800, align 8
-  %1802 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %1801, i32 0, i32 36
-  store i32 %1798, ptr %1802, align 8
+1800:                                             ; preds = %1794, %1787
+  %1801 = load i32, ptr %12, align 4, !tbaa !8
+  %1802 = load ptr, ptr %5, align 8, !tbaa !3
+  %1803 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %1802, i32 0, i32 0
+  %1804 = load ptr, ptr %1803, align 8, !tbaa !55
+  %1805 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %1804, i32 0, i32 36
+  store i32 %1801, ptr %1805, align 8, !tbaa !119
   store i32 -1, ptr %4, align 4
-  br label %1804
+  store i32 1, ptr %17, align 4
+  br label %1807
 
-1803:                                             ; preds = %1764, %1757
-  br label %233
+1806:                                             ; preds = %1767, %1760
+  store i32 0, ptr %17, align 4
+  br label %1807
 
-1804:                                             ; preds = %1797, %1751, %1683, %1634, %1601, %1600, %1592, %1470, %1173, %1131, %1011, %910, %788, %660, %569, %546, %353, %192
-  %1805 = load i32, ptr %4, align 4
-  ret i32 %1805
+1807:                                             ; preds = %1806, %1800, %1754, %1686, %1637, %1604, %1603, %1595, %1473, %1403, %1176, %1134, %1014, %912, %790, %662, %570, %547, %355
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  %1808 = load i32, ptr %17, align 4
+  switch i32 %1808, label %1810 [
+    i32 0, label %1809
+    i32 5, label %234
+  ]
+
+1809:                                             ; preds = %1807
+  br label %234
+
+1810:                                             ; preds = %1807, %193
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %1811 = load i32, ptr %4, align 4
+  ret i32 %1811
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Base10Log(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Base10Log(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = icmp ult i32 %5, 2
-  br i1 %6, label %7, label %9
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %6 = load i32, ptr %3, align 4, !tbaa !8
+  %7 = icmp ult i32 %6, 2
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %1
-  %8 = load i32, ptr %3, align 4
-  store i32 %8, ptr %2, align 4
-  br label %23
+8:                                                ; preds = %1
+  %9 = load i32, ptr %3, align 4, !tbaa !8
+  store i32 %9, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %24
 
-9:                                                ; preds = %1
-  store i32 0, ptr %4, align 4
-  %10 = load i32, ptr %3, align 4
-  %11 = add i32 %10, -1
-  store i32 %11, ptr %3, align 4
-  br label %12
+10:                                               ; preds = %1
+  store i32 0, ptr %4, align 4, !tbaa !8
+  %11 = load i32, ptr %3, align 4, !tbaa !8
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %3, align 4, !tbaa !8
+  br label %13
 
-12:                                               ; preds = %16, %9
-  %13 = load i32, ptr %3, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %21
+13:                                               ; preds = %17, %10
+  %14 = load i32, ptr %3, align 4, !tbaa !8
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %12
-  br label %16
+16:                                               ; preds = %13
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = load i32, ptr %3, align 4
-  %18 = udiv i32 %17, 10
-  store i32 %18, ptr %3, align 4
-  %19 = load i32, ptr %4, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %4, align 4
-  br label %12, !llvm.loop !35
+17:                                               ; preds = %16
+  %18 = load i32, ptr %3, align 4, !tbaa !8
+  %19 = udiv i32 %18, 10
+  store i32 %19, ptr %3, align 4, !tbaa !8
+  %20 = load i32, ptr %4, align 4, !tbaa !8
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %4, align 4, !tbaa !8
+  br label %13, !llvm.loop !135
 
-21:                                               ; preds = %12
-  %22 = load i32, ptr %4, align 4
-  store i32 %22, ptr %2, align 4
-  br label %23
+22:                                               ; preds = %13
+  %23 = load i32, ptr %4, align 4, !tbaa !8
+  store i32 %23, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %24
 
-23:                                               ; preds = %21, %7
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+24:                                               ; preds = %22, %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Saig_ManPoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Saig_ManPoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 10
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 10
+  %5 = load i32, ptr %4, align 8, !tbaa !137
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Aig_ObjChild0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Aig_ObjChild0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Obj_t_, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = getelementptr inbounds nuw %struct.Aig_Obj_t_, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !138
   ret ptr %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Aig_ManConst0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Aig_ManConst0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
   %6 = call ptr @Aig_Not(ptr noundef %5)
   ret ptr %6
 }
 
-declare i32 @Gia_ManToBridgeResult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @Gia_ManToBridgeResult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @Pdr_ManCreateSolver(ptr noundef, i32 noundef) #1
+declare ptr @Pdr_ManCreateSolver(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_MaxInt(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_MaxInt(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
   %7 = icmp sgt i32 %5, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !8
   br label %12
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
+  %11 = load i32, ptr %4, align 4, !tbaa !8
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -4538,131 +4774,136 @@ define internal i32 @Abc_MaxInt(i32 noundef %0, i32 noundef %1) #0 {
   ret i32 %13
 }
 
-declare void @Pdr_ManPrintProgress(ptr noundef, i32 noundef, i64 noundef) #1
+declare void @Pdr_ManPrintProgress(ptr noundef, i32 noundef, i64 noundef) #3
 
-declare i32 @Pdr_ManPushClauses(ptr noundef) #1
+declare i32 @Pdr_ManPushClauses(ptr noundef) #3
 
-declare void @Pdr_ManReportInvariant(ptr noundef) #1
+declare void @Pdr_ManReportInvariant(ptr noundef) #3
 
-declare void @Pdr_ManVerifyInvariant(ptr noundef) #1
+declare void @Pdr_ManVerifyInvariant(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntStart(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntStart(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load i32, ptr %2, align 4, !tbaa !8
   %5 = call ptr @Vec_IntAlloc(i32 noundef %4)
-  store ptr %5, ptr %3, align 8
-  %6 = load i32, ptr %2, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
-  store i32 %6, ptr %8, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
+  store ptr %5, ptr %3, align 8, !tbaa !63
+  %6 = load i32, ptr %2, align 4, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
+  store i32 %6, ptr %8, align 4, !tbaa !64
+  %9 = load ptr, ptr %3, align 8, !tbaa !63
+  %10 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %2, align 4
+  %14 = load ptr, ptr %3, align 8, !tbaa !63
+  %15 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %17 = load i32, ptr %2, align 4, !tbaa !8
   %18 = sext i32 %17 to i64
   %19 = mul i64 4, %18
   call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %13, %1
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Saig_ManRegNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Saig_ManRegNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 8
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 8
+  %5 = load i32, ptr %4, align 8, !tbaa !140
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntStartFull(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntStartFull(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load i32, ptr %2, align 4, !tbaa !8
   %5 = call ptr @Vec_IntAlloc(i32 noundef %4)
-  store ptr %5, ptr %3, align 8
-  %6 = load i32, ptr %2, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
-  store i32 %6, ptr %8, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
+  store ptr %5, ptr %3, align 8, !tbaa !63
+  %6 = load i32, ptr %2, align 4, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %7, i32 0, i32 1
+  store i32 %6, ptr %8, align 4, !tbaa !64
+  %9 = load ptr, ptr %3, align 8, !tbaa !63
+  %10 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %2, align 4
+  %14 = load ptr, ptr %3, align 8, !tbaa !63
+  %15 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %17 = load i32, ptr %2, align 4, !tbaa !8
   %18 = sext i32 %17 to i64
   %19 = mul i64 4, %18
   call void @llvm.memset.p0.i64(ptr align 4 %16, i8 -1, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %13, %1
-  %21 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #9
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !63
+  %5 = load i32, ptr %2, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !8
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !8
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !64
+  %14 = load i32, ptr %2, align 4, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !66
+  %17 = load ptr, ptr %3, align 8, !tbaa !63
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !66
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !63
+  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !66
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #9
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -4670,124 +4911,127 @@ define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !63
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !67
+  %33 = load ptr, ptr %3, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Aig_ManConst1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Aig_ManConst1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 6
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
   ret ptr %5
 }
 
-declare ptr @Abc_CexMakeTriv(i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare ptr @Abc_CexMakeTriv(i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Aig_ManRegNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Aig_ManRegNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 8
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 8
+  %5 = load i32, ptr %4, align 8, !tbaa !140
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Saig_ManPiNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Saig_ManPiNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Aig_Man_t_, ptr %3, i32 0, i32 9
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %4 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %3, i32 0, i32 9
+  %5 = load i32, ptr %4, align 4, !tbaa !141
   ret i32 %5
 }
 
-declare void @Pdr_QueueClean(ptr noundef) #1
+declare void @Pdr_QueueClean(ptr noundef) #3
 
-declare i32 @Pdr_ManBlockCube(ptr noundef, ptr noundef) #1
+declare i32 @Pdr_ManBlockCube(ptr noundef, ptr noundef) #3
 
-declare void @Pdr_ManPrintClauses(ptr noundef, i32 noundef) #1
+declare void @Pdr_ManPrintClauses(ptr noundef, i32 noundef) #3
 
-declare ptr @Pdr_ManDeriveCexAbs(ptr noundef) #1
+declare ptr @Pdr_ManDeriveCexAbs(ptr noundef) #3
 
-declare ptr @Pdr_ManDeriveCex(ptr noundef) #1
+declare ptr @Pdr_ManDeriveCex(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntFill(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntFill(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !63
+  %9 = load i32, ptr %5, align 4, !tbaa !8
   call void @Vec_IntGrow(ptr noundef %8, i32 noundef %9)
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !8
   br label %10
 
 10:                                               ; preds = %22, %3
-  %11 = load i32, ptr %7, align 4
-  %12 = load i32, ptr %5, align 4
+  %11 = load i32, ptr %7, align 4, !tbaa !8
+  %12 = load i32, ptr %5, align 4, !tbaa !8
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %6, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %7, align 4
+  %15 = load i32, ptr %6, align 4, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !63
+  %17 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  %19 = load i32, ptr %7, align 4, !tbaa !8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %18, i64 %20
-  store i32 %15, ptr %21, align 4
+  store i32 %15, ptr %21, align 4, !tbaa !8
   br label %22
 
 22:                                               ; preds = %14
-  %23 = load i32, ptr %7, align 4
+  %23 = load i32, ptr %7, align 4, !tbaa !8
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %7, align 4
-  br label %10, !llvm.loop !36
+  store i32 %24, ptr %7, align 4, !tbaa !8
+  br label %10, !llvm.loop !142
 
 25:                                               ; preds = %10
-  %26 = load i32, ptr %5, align 4
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.Vec_Int_t_, ptr %27, i32 0, i32 1
-  store i32 %26, ptr %28, align 4
+  %26 = load i32, ptr %5, align 4, !tbaa !8
+  %27 = load ptr, ptr %4, align 8, !tbaa !63
+  %28 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %27, i32 0, i32 1
+  store i32 %26, ptr %28, align 4, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !64
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !8
   ret i32 %11
 }
 
@@ -4801,397 +5045,416 @@ define i32 @IPdr_ManSolve(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !136
+  store ptr %1, ptr %4, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
   %11 = call i64 @Abc_Clock()
-  store i64 %11, ptr %9, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %12, i32 0, i32 7
-  %14 = load i32, ptr %13, align 4
+  store i64 %11, ptr %9, align 8, !tbaa !84
+  %12 = load ptr, ptr %4, align 8, !tbaa !143
+  %13 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %12, i32 0, i32 7
+  %14 = load i32, ptr %13, align 4, !tbaa !144
   %15 = icmp ne i32 %14, 0
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %17, i32 0, i32 29
-  %19 = load i32, ptr %18, align 4
+  %17 = load ptr, ptr %4, align 8, !tbaa !143
+  %18 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %17, i32 0, i32 29
+  %19 = load i32, ptr %18, align 4, !tbaa !87
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %22, i32 0, i32 7
-  store i32 0, ptr %23, align 4
+  %22 = load ptr, ptr %4, align 8, !tbaa !143
+  %23 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %22, i32 0, i32 7
+  store i32 0, ptr %23, align 4, !tbaa !144
   br label %24
 
 24:                                               ; preds = %21, %16, %2
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %25, i32 0, i32 7
-  %27 = load i32, ptr %26, align 4
+  %25 = load ptr, ptr %4, align 8, !tbaa !143
+  %26 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %25, i32 0, i32 7
+  %27 = load i32, ptr %26, align 4, !tbaa !144
   %28 = icmp ne i32 %27, 0
   br i1 %28, label %29, label %54
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %30, i32 0, i32 5
-  %32 = load i32, ptr %31, align 4
+  %30 = load ptr, ptr %4, align 8, !tbaa !143
+  %31 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %30, i32 0, i32 5
+  %32 = load i32, ptr %31, align 4, !tbaa !85
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %54
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %35, i32 0, i32 7
-  %37 = load i32, ptr %36, align 4
-  %38 = load ptr, ptr %3, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !143
+  %36 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %35, i32 0, i32 7
+  %37 = load i32, ptr %36, align 4, !tbaa !144
+  %38 = load ptr, ptr %3, align 8, !tbaa !136
   %39 = call i32 @Saig_ManPoNum(ptr noundef %38)
   %40 = mul nsw i32 %37, %39
   %41 = sdiv i32 %40, 1000
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %42, i32 0, i32 7
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %4, align 8, !tbaa !143
+  %43 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %42, i32 0, i32 7
+  %44 = load i32, ptr %43, align 4, !tbaa !144
+  %45 = load ptr, ptr %3, align 8, !tbaa !136
   %46 = call i32 @Saig_ManPoNum(ptr noundef %45)
   %47 = mul nsw i32 %44, %46
   %48 = srem i32 %47, 1000
   %49 = icmp sgt i32 %48, 0
   %50 = zext i1 %49 to i32
   %51 = add nsw i32 %41, %50
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %52, i32 0, i32 5
-  store i32 %51, ptr %53, align 4
+  %52 = load ptr, ptr %4, align 8, !tbaa !143
+  %53 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %52, i32 0, i32 5
+  store i32 %51, ptr %53, align 4, !tbaa !85
   br label %54
 
 54:                                               ; preds = %34, %29, %24
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %55, i32 0, i32 25
-  %57 = load i32, ptr %56, align 4
+  %55 = load ptr, ptr %4, align 8, !tbaa !143
+  %56 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %55, i32 0, i32 25
+  %57 = load i32, ptr %56, align 4, !tbaa !101
   %58 = icmp ne i32 %57, 0
   br i1 %58, label %59, label %87
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 4
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %66, i32 0, i32 4
-  %68 = load i32, ptr %67, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %69, i32 0, i32 5
-  %71 = load i32, ptr %70, align 4
+  %60 = load ptr, ptr %4, align 8, !tbaa !143
+  %61 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 8, !tbaa !145
+  %63 = load ptr, ptr %4, align 8, !tbaa !143
+  %64 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4, !tbaa !134
+  %66 = load ptr, ptr %4, align 8, !tbaa !143
+  %67 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %66, i32 0, i32 4
+  %68 = load i32, ptr %67, align 8, !tbaa !129
+  %69 = load ptr, ptr %4, align 8, !tbaa !143
+  %70 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %69, i32 0, i32 5
+  %71 = load i32, ptr %70, align 4, !tbaa !85
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.20, i32 noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef %71)
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %72, i32 0, i32 10
-  %74 = load i32, ptr %73, align 8
+  %72 = load ptr, ptr %4, align 8, !tbaa !143
+  %73 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %72, i32 0, i32 10
+  %74 = load i32, ptr %73, align 8, !tbaa !146
   %75 = icmp ne i32 %74, 0
   %76 = select i1 %75, ptr @.str.22, ptr @.str.23
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %77, i32 0, i32 20
-  %79 = load i32, ptr %78, align 8
+  %77 = load ptr, ptr %4, align 8, !tbaa !143
+  %78 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %77, i32 0, i32 20
+  %79 = load i32, ptr %78, align 8, !tbaa !147
   %80 = icmp ne i32 %79, 0
   %81 = select i1 %80, ptr @.str.22, ptr @.str.23
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %82, i32 0, i32 29
-  %84 = load i32, ptr %83, align 4
+  %82 = load ptr, ptr %4, align 8, !tbaa !143
+  %83 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %82, i32 0, i32 29
+  %84 = load i32, ptr %83, align 4, !tbaa !87
   %85 = icmp ne i32 %84, 0
   %86 = select i1 %85, ptr @.str.22, ptr @.str.23
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.21, ptr noundef %76, ptr noundef %81, ptr noundef %86)
   br label %87
 
 87:                                               ; preds = %59, %54
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.Aig_Man_t_, ptr %88, i32 0, i32 51
-  %90 = load ptr, ptr %89, align 8
+  %88 = load ptr, ptr %3, align 8, !tbaa !136
+  %89 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %88, i32 0, i32 51
+  %90 = load ptr, ptr %89, align 8, !tbaa !111
   %91 = icmp ne ptr %90, null
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %87
-  %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds %struct.Aig_Man_t_, ptr %93, i32 0, i32 51
-  %95 = load ptr, ptr %94, align 8
+  %93 = load ptr, ptr %3, align 8, !tbaa !136
+  %94 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %93, i32 0, i32 51
+  %95 = load ptr, ptr %94, align 8, !tbaa !111
   call void @free(ptr noundef %95) #11
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.Aig_Man_t_, ptr %96, i32 0, i32 51
-  store ptr null, ptr %97, align 8
+  %96 = load ptr, ptr %3, align 8, !tbaa !136
+  %97 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %96, i32 0, i32 51
+  store ptr null, ptr %97, align 8, !tbaa !111
   br label %99
 
 98:                                               ; preds = %87
   br label %99
 
 99:                                               ; preds = %98, %92
-  %100 = load ptr, ptr %3, align 8
-  %101 = load ptr, ptr %4, align 8
+  %100 = load ptr, ptr %3, align 8, !tbaa !136
+  %101 = load ptr, ptr %4, align 8, !tbaa !143
   %102 = call ptr @Pdr_ManStart(ptr noundef %100, ptr noundef %101, ptr noundef null)
-  store ptr %102, ptr %5, align 8
+  store ptr %102, ptr %5, align 8, !tbaa !3
   br label %103
 
-103:                                              ; preds = %116, %99
-  %104 = load ptr, ptr %5, align 8
-  %105 = call i32 @IPdr_ManSolveInt(ptr noundef %104, i32 noundef 1, i32 noundef 0)
-  store i32 %105, ptr %7, align 4
-  %106 = load i32, ptr %7, align 4
-  %107 = icmp eq i32 %106, -1
-  br i1 %107, label %108, label %132
+103:                                              ; preds = %117, %99
+  br label %104
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %109, i32 0, i32 36
-  %111 = load i32, ptr %110, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %112, i32 0, i32 1
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %111, %114
-  br i1 %115, label %116, label %132
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %5, align 8, !tbaa !3
+  %106 = call i32 @IPdr_ManSolveInt(ptr noundef %105, i32 noundef 1, i32 noundef 0)
+  store i32 %106, ptr %7, align 4, !tbaa !8
+  %107 = load i32, ptr %7, align 4, !tbaa !8
+  %108 = icmp eq i32 %107, -1
+  br i1 %108, label %109, label %133
 
-116:                                              ; preds = %108
-  %117 = load ptr, ptr %5, align 8
-  %118 = call ptr @IPdr_ManSaveClauses(ptr noundef %117, i32 noundef 1)
-  store ptr %118, ptr %8, align 8
-  %119 = load ptr, ptr %5, align 8
-  call void @Pdr_ManStop(ptr noundef %119)
-  %120 = load ptr, ptr %3, align 8
-  %121 = load ptr, ptr %4, align 8
-  %122 = call ptr @Pdr_ManStart(ptr noundef %120, ptr noundef %121, ptr noundef null)
-  store ptr %122, ptr %5, align 8
-  %123 = load ptr, ptr %5, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = call i32 @IPdr_ManRestoreClauses(ptr noundef %123, ptr noundef %124, ptr noundef null)
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %126, i32 0, i32 1
-  %128 = load i32, ptr %127, align 4
-  %129 = shl i32 %128, 1
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %130, i32 0, i32 1
-  store i32 %129, ptr %131, align 4
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %4, align 8, !tbaa !143
+  %111 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %110, i32 0, i32 36
+  %112 = load i32, ptr %111, align 8, !tbaa !119
+  %113 = load ptr, ptr %4, align 8, !tbaa !143
+  %114 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %113, i32 0, i32 1
+  %115 = load i32, ptr %114, align 4, !tbaa !134
+  %116 = icmp eq i32 %112, %115
+  br i1 %116, label %117, label %133
+
+117:                                              ; preds = %109
+  %118 = load ptr, ptr %5, align 8, !tbaa !3
+  %119 = call ptr @IPdr_ManSaveClauses(ptr noundef %118, i32 noundef 1)
+  store ptr %119, ptr %8, align 8, !tbaa !34
+  %120 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManStop(ptr noundef %120)
+  %121 = load ptr, ptr %3, align 8, !tbaa !136
+  %122 = load ptr, ptr %4, align 8, !tbaa !143
+  %123 = call ptr @Pdr_ManStart(ptr noundef %121, ptr noundef %122, ptr noundef null)
+  store ptr %123, ptr %5, align 8, !tbaa !3
+  %124 = load ptr, ptr %5, align 8, !tbaa !3
+  %125 = load ptr, ptr %8, align 8, !tbaa !34
+  %126 = call i32 @IPdr_ManRestoreClauses(ptr noundef %124, ptr noundef %125, ptr noundef null)
+  %127 = load ptr, ptr %4, align 8, !tbaa !143
+  %128 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %127, i32 0, i32 1
+  %129 = load i32, ptr %128, align 4, !tbaa !134
+  %130 = shl i32 %129, 1
+  %131 = load ptr, ptr %4, align 8, !tbaa !143
+  %132 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %131, i32 0, i32 1
+  store i32 %130, ptr %132, align 4, !tbaa !134
   br label %103
 
-132:                                              ; preds = %108, %103
-  %133 = load i32, ptr %7, align 4
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %136
+133:                                              ; preds = %109, %104
+  %134 = load i32, ptr %7, align 4, !tbaa !8
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %137
 
-135:                                              ; preds = %132
-  br label %136
+136:                                              ; preds = %133
+  br label %137
 
-136:                                              ; preds = %135, %132
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %137, i32 0, i32 12
-  %139 = load ptr, ptr %138, align 8
-  %140 = icmp ne ptr %139, null
-  br i1 %140, label %141, label %151
+137:                                              ; preds = %136, %133
+  %138 = load ptr, ptr %5, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %138, i32 0, i32 12
+  %140 = load ptr, ptr %139, align 8, !tbaa !108
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %142, label %152
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %142, i32 0, i32 12
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %145, i32 0, i32 1
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds %struct.Aig_Man_t_, ptr %147, i32 0, i32 52
-  store ptr %144, ptr %148, align 8
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %149, i32 0, i32 12
-  store ptr null, ptr %150, align 8
-  br label %151
+142:                                              ; preds = %137
+  %143 = load ptr, ptr %5, align 8, !tbaa !3
+  %144 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %143, i32 0, i32 12
+  %145 = load ptr, ptr %144, align 8, !tbaa !108
+  %146 = load ptr, ptr %5, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8, !tbaa !83
+  %149 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %148, i32 0, i32 52
+  store ptr %145, ptr %149, align 8, !tbaa !148
+  %150 = load ptr, ptr %5, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %150, i32 0, i32 12
+  store ptr null, ptr %151, align 8, !tbaa !108
+  br label %152
 
-151:                                              ; preds = %141, %136
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %152, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %154, i32 0, i32 14
-  %156 = load i32, ptr %155, align 8
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %186
+152:                                              ; preds = %142, %137
+  %153 = load ptr, ptr %5, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8, !tbaa !55
+  %156 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %155, i32 0, i32 14
+  %157 = load i32, ptr %156, align 8, !tbaa !149
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %187
 
-158:                                              ; preds = %151
-  %159 = load ptr, ptr %4, align 8
-  %160 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %159, i32 0, i32 42
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp ne ptr %161, null
-  br i1 %162, label %163, label %167
+159:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %160 = load ptr, ptr %4, align 8, !tbaa !143
+  %161 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %160, i32 0, i32 42
+  %162 = load ptr, ptr %161, align 8, !tbaa !150
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %164, label %168
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %164, i32 0, i32 42
-  %166 = load ptr, ptr %165, align 8
-  br label %174
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %4, align 8, !tbaa !143
+  %166 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %165, i32 0, i32 42
+  %167 = load ptr, ptr %166, align 8, !tbaa !150
+  br label %175
 
-167:                                              ; preds = %158
-  %168 = load ptr, ptr %5, align 8
-  %169 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %168, i32 0, i32 1
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds %struct.Aig_Man_t_, ptr %170, i32 0, i32 0
-  %172 = load ptr, ptr %171, align 8
-  %173 = call ptr @Extra_FileNameGenericAppend(ptr noundef %172, ptr noundef @.str.24)
-  br label %174
+168:                                              ; preds = %159
+  %169 = load ptr, ptr %5, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %169, i32 0, i32 1
+  %171 = load ptr, ptr %170, align 8, !tbaa !83
+  %172 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %171, i32 0, i32 0
+  %173 = load ptr, ptr %172, align 8, !tbaa !151
+  %174 = call ptr @Extra_FileNameGenericAppend(ptr noundef %173, ptr noundef @.str.24)
+  br label %175
 
-174:                                              ; preds = %167, %163
-  %175 = phi ptr [ %166, %163 ], [ %173, %167 ]
-  store ptr %175, ptr %10, align 8
-  %176 = load ptr, ptr %5, align 8
-  %177 = load i32, ptr %7, align 4
-  %178 = icmp ne i32 %177, 1
-  %179 = zext i1 %178 to i32
-  %180 = call ptr @Pdr_ManDeriveInfinityClauses(ptr noundef %176, i32 noundef %179)
-  call void @Abc_FrameSetInv(ptr noundef %180)
-  %181 = load ptr, ptr %5, align 8
-  %182 = load ptr, ptr %10, align 8
-  %183 = load i32, ptr %7, align 4
-  %184 = icmp eq i32 %183, 1
-  %185 = zext i1 %184 to i32
-  call void @Pdr_ManDumpClauses(ptr noundef %181, ptr noundef %182, i32 noundef %185)
+175:                                              ; preds = %168, %164
+  %176 = phi ptr [ %167, %164 ], [ %174, %168 ]
+  store ptr %176, ptr %10, align 8, !tbaa !44
+  %177 = load ptr, ptr %5, align 8, !tbaa !3
+  %178 = load i32, ptr %7, align 4, !tbaa !8
+  %179 = icmp ne i32 %178, 1
+  %180 = zext i1 %179 to i32
+  %181 = call ptr @Pdr_ManDeriveInfinityClauses(ptr noundef %177, i32 noundef %180)
+  call void @Abc_FrameSetInv(ptr noundef %181)
+  %182 = load ptr, ptr %5, align 8, !tbaa !3
+  %183 = load ptr, ptr %10, align 8, !tbaa !44
+  %184 = load i32, ptr %7, align 4, !tbaa !8
+  %185 = icmp eq i32 %184, 1
+  %186 = zext i1 %185 to i32
+  call void @Pdr_ManDumpClauses(ptr noundef %182, ptr noundef %183, i32 noundef %186)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %197
+
+187:                                              ; preds = %152
+  %188 = load i32, ptr %7, align 4, !tbaa !8
+  %189 = icmp eq i32 %188, 1
+  br i1 %189, label %190, label %196
+
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %5, align 8, !tbaa !3
+  %192 = load i32, ptr %7, align 4, !tbaa !8
+  %193 = icmp ne i32 %192, 1
+  %194 = zext i1 %193 to i32
+  %195 = call ptr @Pdr_ManDeriveInfinityClauses(ptr noundef %191, i32 noundef %194)
+  call void @Abc_FrameSetInv(ptr noundef %195)
   br label %196
 
-186:                                              ; preds = %151
-  %187 = load i32, ptr %7, align 4
-  %188 = icmp eq i32 %187, 1
-  br i1 %188, label %189, label %195
+196:                                              ; preds = %190, %187
+  br label %197
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr %5, align 8
-  %191 = load i32, ptr %7, align 4
-  %192 = icmp ne i32 %191, 1
-  %193 = zext i1 %192 to i32
-  %194 = call ptr @Pdr_ManDeriveInfinityClauses(ptr noundef %190, i32 noundef %193)
-  call void @Abc_FrameSetInv(ptr noundef %194)
-  br label %195
+197:                                              ; preds = %196, %175
+  %198 = call i64 @Abc_Clock()
+  %199 = load i64, ptr %9, align 8, !tbaa !84
+  %200 = sub nsw i64 %198, %199
+  %201 = load ptr, ptr %5, align 8, !tbaa !3
+  %202 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %201, i32 0, i32 67
+  %203 = load i64, ptr %202, align 8, !tbaa !152
+  %204 = add nsw i64 %203, %200
+  store i64 %204, ptr %202, align 8, !tbaa !152
+  %205 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @Pdr_ManStop(ptr noundef %205)
+  br label %206
 
-195:                                              ; preds = %189, %186
-  br label %196
+206:                                              ; preds = %197
+  %207 = load ptr, ptr %4, align 8, !tbaa !143
+  %208 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %207, i32 0, i32 36
+  %209 = load i32, ptr %208, align 8, !tbaa !119
+  %210 = add nsw i32 %209, -1
+  store i32 %210, ptr %208, align 8, !tbaa !119
+  %211 = load ptr, ptr %4, align 8, !tbaa !143
+  %212 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %211, i32 0, i32 41
+  %213 = load ptr, ptr %212, align 8, !tbaa !96
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %238
 
-196:                                              ; preds = %195, %174
-  %197 = call i64 @Abc_Clock()
-  %198 = load i64, ptr %9, align 8
-  %199 = sub nsw i64 %197, %198
-  %200 = load ptr, ptr %5, align 8
-  %201 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %200, i32 0, i32 67
-  %202 = load i64, ptr %201, align 8
-  %203 = add nsw i64 %202, %199
-  store i64 %203, ptr %201, align 8
-  %204 = load ptr, ptr %5, align 8
-  call void @Pdr_ManStop(ptr noundef %204)
-  br label %205
+215:                                              ; preds = %206
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %216
 
-205:                                              ; preds = %196
-  %206 = load ptr, ptr %4, align 8
-  %207 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %206, i32 0, i32 36
-  %208 = load i32, ptr %207, align 8
-  %209 = add nsw i32 %208, -1
-  store i32 %209, ptr %207, align 8
-  %210 = load ptr, ptr %4, align 8
-  %211 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %210, i32 0, i32 41
-  %212 = load ptr, ptr %211, align 8
-  %213 = icmp ne ptr %212, null
-  br i1 %213, label %214, label %237
+216:                                              ; preds = %234, %215
+  %217 = load i32, ptr %6, align 4, !tbaa !8
+  %218 = load ptr, ptr %3, align 8, !tbaa !136
+  %219 = call i32 @Saig_ManPoNum(ptr noundef %218)
+  %220 = icmp slt i32 %217, %219
+  br i1 %220, label %221, label %237
 
-214:                                              ; preds = %205
-  store i32 0, ptr %6, align 4
-  br label %215
+221:                                              ; preds = %216
+  %222 = load ptr, ptr %4, align 8, !tbaa !143
+  %223 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %222, i32 0, i32 41
+  %224 = load ptr, ptr %223, align 8, !tbaa !96
+  %225 = load i32, ptr %6, align 4, !tbaa !8
+  %226 = call i32 @Vec_IntEntry(ptr noundef %224, i32 noundef %225)
+  %227 = icmp eq i32 %226, -2
+  br i1 %227, label %228, label %233
 
-215:                                              ; preds = %233, %214
-  %216 = load i32, ptr %6, align 4
-  %217 = load ptr, ptr %3, align 8
-  %218 = call i32 @Saig_ManPoNum(ptr noundef %217)
-  %219 = icmp slt i32 %216, %218
-  br i1 %219, label %220, label %236
-
-220:                                              ; preds = %215
-  %221 = load ptr, ptr %4, align 8
-  %222 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %221, i32 0, i32 41
-  %223 = load ptr, ptr %222, align 8
-  %224 = load i32, ptr %6, align 4
-  %225 = call i32 @Vec_IntEntry(ptr noundef %223, i32 noundef %224)
-  %226 = icmp eq i32 %225, -2
-  br i1 %226, label %227, label %232
-
-227:                                              ; preds = %220
-  %228 = load ptr, ptr %4, align 8
-  %229 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %228, i32 0, i32 41
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %6, align 4
-  call void @Vec_IntWriteEntry(ptr noundef %230, i32 noundef %231, i32 noundef -1)
-  br label %232
-
-232:                                              ; preds = %227, %220
+228:                                              ; preds = %221
+  %229 = load ptr, ptr %4, align 8, !tbaa !143
+  %230 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %229, i32 0, i32 41
+  %231 = load ptr, ptr %230, align 8, !tbaa !96
+  %232 = load i32, ptr %6, align 4, !tbaa !8
+  call void @Vec_IntWriteEntry(ptr noundef %231, i32 noundef %232, i32 noundef -1)
   br label %233
 
-233:                                              ; preds = %232
-  %234 = load i32, ptr %6, align 4
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %6, align 4
-  br label %215, !llvm.loop !37
+233:                                              ; preds = %228, %221
+  br label %234
 
-236:                                              ; preds = %215
-  br label %237
+234:                                              ; preds = %233
+  %235 = load i32, ptr %6, align 4, !tbaa !8
+  %236 = add nsw i32 %235, 1
+  store i32 %236, ptr %6, align 4, !tbaa !8
+  br label %216, !llvm.loop !153
 
-237:                                              ; preds = %236, %205
-  %238 = load ptr, ptr %4, align 8
-  %239 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %238, i32 0, i32 31
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %245
+237:                                              ; preds = %216
+  br label %238
 
-242:                                              ; preds = %237
-  %243 = load ptr, ptr @stdout, align 8
-  %244 = call i32 @Gia_ManToBridgeAbort(ptr noundef %243, i32 noundef 7, ptr noundef @.str.25)
-  br label %245
+238:                                              ; preds = %237, %206
+  %239 = load ptr, ptr %4, align 8, !tbaa !143
+  %240 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %239, i32 0, i32 31
+  %241 = load i32, ptr %240, align 4, !tbaa !98
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %246
 
-245:                                              ; preds = %242, %237
-  %246 = load i32, ptr %7, align 4
-  ret i32 %246
+243:                                              ; preds = %238
+  %244 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %245 = call i32 @Gia_ManToBridgeAbort(ptr noundef %244, i32 noundef 7, ptr noundef @.str.25)
+  br label %246
+
+246:                                              ; preds = %243, %238
+  %247 = load i32, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret i32 %247
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #4
 
-declare ptr @Pdr_ManStart(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @Pdr_ManStart(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @Pdr_ManStop(ptr noundef) #1
+declare void @Pdr_ManStop(ptr noundef) #3
 
-declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) #1
+declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) #3
 
-declare void @Abc_FrameSetInv(ptr noundef) #1
+declare void @Abc_FrameSetInv(ptr noundef) #3
 
-declare ptr @Pdr_ManDeriveInfinityClauses(ptr noundef, i32 noundef) #1
+declare ptr @Pdr_ManDeriveInfinityClauses(ptr noundef, i32 noundef) #3
 
-declare void @Pdr_ManDumpClauses(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @Pdr_ManDumpClauses(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @Gia_ManToBridgeAbort(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @Gia_ManToBridgeAbort(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @IPdr_ManCheckCombUnsat(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 -1, ptr %4, align 4
-  %5 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 -1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !8
   %6 = call ptr @Pdr_ManCreateSolver(ptr noundef %5, i32 noundef 0)
-  %7 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  store i32 1, ptr %3, align 4, !tbaa !8
   %8 = call ptr @Pdr_ManCreateSolver(ptr noundef %7, i32 noundef 1)
-  %9 = load i32, ptr %3, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %10, i32 0, i32 46
-  store i32 %9, ptr %11, align 4
-  %12 = load i32, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !8
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %10, i32 0, i32 46
+  store i32 %9, ptr %11, align 4, !tbaa !106
+  %12 = load i32, ptr %3, align 4, !tbaa !8
   %13 = call i32 @Abc_MaxInt(i32 noundef %12, i32 noundef 1)
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %14, i32 0, i32 18
-  store i32 %13, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = load i32, ptr %3, align 4
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %20, i32 0, i32 2
-  %22 = load i32, ptr %21, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %14, i32 0, i32 18
+  store i32 %13, ptr %15, align 8, !tbaa !102
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = load i32, ptr %3, align 4, !tbaa !8
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !55
+  %21 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 8, !tbaa !123
   %23 = call i32 @Pdr_ManCheckCube(ptr noundef %16, i32 noundef %17, ptr noundef null, ptr noundef null, i32 noundef %22, i32 noundef 0, i32 noundef 1)
-  store i32 %23, ptr %4, align 4
-  %24 = load i32, ptr %4, align 4
+  store i32 %23, ptr %4, align 4, !tbaa !8
+  %24 = load i32, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret i32 %24
 }
 
@@ -5212,395 +5475,426 @@ define i32 @IPdr_ManCheckCubeReduce(ptr noundef %0, ptr noundef %1, ptr noundef 
   %17 = alloca i32, align 4
   %18 = alloca i64, align 8
   %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
+  %20 = alloca i32, align 4
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store i32 1, ptr %14, align 4
-  store i32 0, ptr %17, align 4
-  %23 = call i64 @Abc_Clock()
-  store i64 %23, ptr %18, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = call ptr @Pdr_ManSolver(ptr noundef %24, i32 noundef 1)
-  store ptr %25, ptr %10, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %118
+  %23 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  store i32 1, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  store i32 0, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %24 = call i64 @Abc_Clock()
+  store i64 %24, ptr %18, align 8, !tbaa !84
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = call ptr @Pdr_ManSolver(ptr noundef %25, i32 noundef 1)
+  store ptr %26, ptr %10, align 8, !tbaa !58
+  %27 = load ptr, ptr %8, align 8, !tbaa !28
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %119
 
-28:                                               ; preds = %4
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %33, i32 0, i32 10
-  %35 = load i32, ptr %34, align 8
-  %36 = call ptr @Aig_ManCo(ptr noundef %32, i32 noundef %35)
-  %37 = call i32 @Pdr_ObjSatVar(ptr noundef %29, i32 noundef 1, i32 noundef 2, ptr noundef %36)
-  %38 = call i32 @Abc_Var2Lit(i32 noundef %37, i32 noundef 0)
-  store i32 %38, ptr %13, align 4
-  %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds i32, ptr %13, i64 1
-  %41 = call i32 @sat_solver_addclause(ptr noundef %39, ptr noundef %13, ptr noundef %40)
-  store i32 %41, ptr %14, align 4
-  %42 = load ptr, ptr %7, align 8
-  %43 = call i32 @Vec_PtrSize(ptr noundef %42)
-  %44 = call ptr @Vec_IntStart(i32 noundef %43)
-  store ptr %44, ptr %12, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @Pdr_ManFreeVar(ptr noundef %45, i32 noundef 1)
-  store i32 %46, ptr %17, align 4
-  store i32 1, ptr %15, align 4
-  br label %47
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !83
+  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %34, i32 0, i32 10
+  %36 = load i32, ptr %35, align 8, !tbaa !107
+  %37 = call ptr @Aig_ManCo(ptr noundef %33, i32 noundef %36)
+  %38 = call i32 @Pdr_ObjSatVar(ptr noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef %37)
+  %39 = call i32 @Abc_Var2Lit(i32 noundef %38, i32 noundef 0)
+  store i32 %39, ptr %13, align 4, !tbaa !8
+  %40 = load ptr, ptr %10, align 8, !tbaa !58
+  %41 = getelementptr inbounds i32, ptr %13, i64 1
+  %42 = call i32 @sat_solver_addclause(ptr noundef %40, ptr noundef %13, ptr noundef %41)
+  store i32 %42, ptr %14, align 4, !tbaa !8
+  %43 = load ptr, ptr %7, align 8, !tbaa !27
+  %44 = call i32 @Vec_PtrSize(ptr noundef %43)
+  %45 = call ptr @Vec_IntStart(i32 noundef %44)
+  store ptr %45, ptr %12, align 8, !tbaa !63
+  %46 = load ptr, ptr %6, align 8, !tbaa !3
+  %47 = call i32 @Pdr_ManFreeVar(ptr noundef %46, i32 noundef 1)
+  store i32 %47, ptr %17, align 4, !tbaa !8
+  store i32 1, ptr %15, align 4, !tbaa !8
+  br label %48
 
-47:                                               ; preds = %55, %28
-  %48 = load i32, ptr %15, align 4
-  %49 = load ptr, ptr %7, align 8
-  %50 = call i32 @Vec_PtrSize(ptr noundef %49)
-  %51 = icmp slt i32 %48, %50
-  br i1 %51, label %52, label %58
+48:                                               ; preds = %56, %29
+  %49 = load i32, ptr %15, align 4, !tbaa !8
+  %50 = load ptr, ptr %7, align 8, !tbaa !27
+  %51 = call i32 @Vec_PtrSize(ptr noundef %50)
+  %52 = icmp slt i32 %49, %51
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %6, align 8
-  %54 = call i32 @Pdr_ManFreeVar(ptr noundef %53, i32 noundef 1)
-  br label %55
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %55 = call i32 @Pdr_ManFreeVar(ptr noundef %54, i32 noundef 1)
+  br label %56
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr %15, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %15, align 4
-  br label %47, !llvm.loop !38
+56:                                               ; preds = %53
+  %57 = load i32, ptr %15, align 4, !tbaa !8
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %15, align 4, !tbaa !8
+  br label %48, !llvm.loop !154
 
-58:                                               ; preds = %47
-  store i32 0, ptr %15, align 4
-  br label %59
+59:                                               ; preds = %48
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %60
 
-59:                                               ; preds = %96, %58
-  %60 = load i32, ptr %15, align 4
-  %61 = load ptr, ptr %7, align 8
-  %62 = call i32 @Vec_PtrSize(ptr noundef %61)
-  %63 = icmp slt i32 %60, %62
-  br i1 %63, label %64, label %68
+60:                                               ; preds = %97, %59
+  %61 = load i32, ptr %15, align 4, !tbaa !8
+  %62 = load ptr, ptr %7, align 8, !tbaa !27
+  %63 = call i32 @Vec_PtrSize(ptr noundef %62)
+  %64 = icmp slt i32 %61, %63
+  br i1 %64, label %65, label %69
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %7, align 8
-  %66 = load i32, ptr %15, align 4
-  %67 = call ptr @Vec_PtrEntry(ptr noundef %65, i32 noundef %66)
-  store ptr %67, ptr %16, align 8
-  br label %68
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %7, align 8, !tbaa !27
+  %67 = load i32, ptr %15, align 4, !tbaa !8
+  %68 = call ptr @Vec_PtrEntry(ptr noundef %66, i32 noundef %67)
+  store ptr %68, ptr %16, align 8, !tbaa !28
+  br label %69
 
-68:                                               ; preds = %64, %59
-  %69 = phi i1 [ false, %59 ], [ true, %64 ]
-  br i1 %69, label %70, label %99
+69:                                               ; preds = %65, %60
+  %70 = phi i1 [ false, %60 ], [ true, %65 ]
+  br i1 %70, label %71, label %100
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %16, align 8
-  %73 = call ptr @Pdr_ManCubeToLits(ptr noundef %71, i32 noundef 1, ptr noundef %72, i32 noundef 1, i32 noundef 0)
-  store ptr %73, ptr %11, align 8
-  %74 = load i32, ptr %17, align 4
-  %75 = load i32, ptr %15, align 4
-  %76 = add nsw i32 %74, %75
-  %77 = call i32 @Abc_Var2Lit(i32 noundef %76, i32 noundef 1)
-  store i32 %77, ptr %13, align 4
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i32, ptr %13, align 4
-  call void @Vec_IntPush(ptr noundef %78, i32 noundef %79)
-  %80 = load ptr, ptr %10, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = call ptr @Vec_IntArray(ptr noundef %81)
-  %83 = load ptr, ptr %11, align 8
-  %84 = call ptr @Vec_IntArray(ptr noundef %83)
-  %85 = load ptr, ptr %11, align 8
-  %86 = call i32 @Vec_IntSize(ptr noundef %85)
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %84, i64 %87
-  %89 = call i32 @sat_solver_addclause(ptr noundef %80, ptr noundef %82, ptr noundef %88)
-  store i32 %89, ptr %14, align 4
-  %90 = load ptr, ptr %12, align 8
-  %91 = load i32, ptr %15, align 4
-  %92 = load i32, ptr %17, align 4
-  %93 = load i32, ptr %15, align 4
-  %94 = add nsw i32 %92, %93
-  %95 = call i32 @Abc_Var2Lit(i32 noundef %94, i32 noundef 0)
-  call void @Vec_IntWriteEntry(ptr noundef %90, i32 noundef %91, i32 noundef %95)
-  br label %96
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %6, align 8, !tbaa !3
+  %73 = load ptr, ptr %16, align 8, !tbaa !28
+  %74 = call ptr @Pdr_ManCubeToLits(ptr noundef %72, i32 noundef 1, ptr noundef %73, i32 noundef 1, i32 noundef 0)
+  store ptr %74, ptr %11, align 8, !tbaa !63
+  %75 = load i32, ptr %17, align 4, !tbaa !8
+  %76 = load i32, ptr %15, align 4, !tbaa !8
+  %77 = add nsw i32 %75, %76
+  %78 = call i32 @Abc_Var2Lit(i32 noundef %77, i32 noundef 1)
+  store i32 %78, ptr %13, align 4, !tbaa !8
+  %79 = load ptr, ptr %11, align 8, !tbaa !63
+  %80 = load i32, ptr %13, align 4, !tbaa !8
+  call void @Vec_IntPush(ptr noundef %79, i32 noundef %80)
+  %81 = load ptr, ptr %10, align 8, !tbaa !58
+  %82 = load ptr, ptr %11, align 8, !tbaa !63
+  %83 = call ptr @Vec_IntArray(ptr noundef %82)
+  %84 = load ptr, ptr %11, align 8, !tbaa !63
+  %85 = call ptr @Vec_IntArray(ptr noundef %84)
+  %86 = load ptr, ptr %11, align 8, !tbaa !63
+  %87 = call i32 @Vec_IntSize(ptr noundef %86)
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %85, i64 %88
+  %90 = call i32 @sat_solver_addclause(ptr noundef %81, ptr noundef %83, ptr noundef %89)
+  store i32 %90, ptr %14, align 4, !tbaa !8
+  %91 = load ptr, ptr %12, align 8, !tbaa !63
+  %92 = load i32, ptr %15, align 4, !tbaa !8
+  %93 = load i32, ptr %17, align 4, !tbaa !8
+  %94 = load i32, ptr %15, align 4, !tbaa !8
+  %95 = add nsw i32 %93, %94
+  %96 = call i32 @Abc_Var2Lit(i32 noundef %95, i32 noundef 0)
+  call void @Vec_IntWriteEntry(ptr noundef %91, i32 noundef %92, i32 noundef %96)
+  br label %97
 
-96:                                               ; preds = %70
-  %97 = load i32, ptr %15, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %15, align 4
-  br label %59, !llvm.loop !39
+97:                                               ; preds = %71
+  %98 = load i32, ptr %15, align 4, !tbaa !8
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %15, align 4, !tbaa !8
+  br label %60, !llvm.loop !155
 
-99:                                               ; preds = %68
-  %100 = load ptr, ptr %10, align 8
-  call void @sat_solver_compress(ptr noundef %100)
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = call ptr @Vec_IntArray(ptr noundef %102)
-  %104 = load ptr, ptr %12, align 8
-  %105 = call ptr @Vec_IntArray(ptr noundef %104)
-  %106 = load ptr, ptr %12, align 8
-  %107 = call i32 @Vec_IntSize(ptr noundef %106)
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i32, ptr %105, i64 %108
-  %110 = load i32, ptr %9, align 4
-  %111 = sext i32 %110 to i64
-  %112 = call i32 @sat_solver_solve(ptr noundef %101, ptr noundef %103, ptr noundef %109, i64 noundef %111, i64 noundef 0, i64 noundef 0, i64 noundef 0)
-  store i32 %112, ptr %14, align 4
-  %113 = load ptr, ptr %12, align 8
-  call void @Vec_IntFree(ptr noundef %113)
-  %114 = load i32, ptr %14, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %117
+100:                                              ; preds = %69
+  %101 = load ptr, ptr %10, align 8, !tbaa !58
+  call void @sat_solver_compress(ptr noundef %101)
+  %102 = load ptr, ptr %10, align 8, !tbaa !58
+  %103 = load ptr, ptr %12, align 8, !tbaa !63
+  %104 = call ptr @Vec_IntArray(ptr noundef %103)
+  %105 = load ptr, ptr %12, align 8, !tbaa !63
+  %106 = call ptr @Vec_IntArray(ptr noundef %105)
+  %107 = load ptr, ptr %12, align 8, !tbaa !63
+  %108 = call i32 @Vec_IntSize(ptr noundef %107)
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i32, ptr %106, i64 %109
+  %111 = load i32, ptr %9, align 4, !tbaa !8
+  %112 = sext i32 %111 to i64
+  %113 = call i32 @sat_solver_solve(ptr noundef %102, ptr noundef %104, ptr noundef %110, i64 noundef %112, i64 noundef 0, i64 noundef 0, i64 noundef 0)
+  store i32 %113, ptr %14, align 4, !tbaa !8
+  %114 = load ptr, ptr %12, align 8, !tbaa !63
+  call void @Vec_IntFree(ptr noundef %114)
+  %115 = load i32, ptr %14, align 4, !tbaa !8
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %118
 
-116:                                              ; preds = %99
+117:                                              ; preds = %100
   store i32 -1, ptr %5, align 4
-  br label %187
+  store i32 1, ptr %19, align 4
+  br label %188
 
-117:                                              ; preds = %99
-  br label %118
+118:                                              ; preds = %100
+  br label %119
 
-118:                                              ; preds = %117, %4
-  %119 = load i32, ptr %14, align 4
-  %120 = icmp eq i32 %119, -1
-  br i1 %120, label %121, label %181
+119:                                              ; preds = %118, %4
+  %120 = load i32, ptr %14, align 4, !tbaa !8
+  %121 = icmp eq i32 %120, -1
+  br i1 %121, label %122, label %182
 
-121:                                              ; preds = %118
-  store ptr null, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = call i32 @sat_solver_final(ptr noundef %122, ptr noundef %20)
-  store i32 %123, ptr %19, align 4
-  %124 = load i32, ptr %19, align 4
-  %125 = load ptr, ptr %7, align 8
-  %126 = call i32 @Vec_PtrSize(ptr noundef %125)
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.26, i32 noundef %124, i32 noundef %126)
-  %127 = call i64 @Abc_Clock()
-  %128 = load i64, ptr %18, align 8
-  %129 = sub nsw i64 %127, %128
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.27, i64 noundef %129)
-  %130 = load ptr, ptr %7, align 8
-  %131 = call ptr @Vec_PtrDup(ptr noundef %130)
-  store ptr %131, ptr %21, align 8
-  %132 = load ptr, ptr %7, align 8
-  %133 = call i32 @Vec_PtrSize(ptr noundef %132)
-  %134 = call ptr @Vec_BitStart(i32 noundef %133)
-  store ptr %134, ptr %22, align 8
-  %135 = load ptr, ptr %7, align 8
-  call void @Vec_PtrClear(ptr noundef %135)
-  store i32 0, ptr %15, align 4
-  br label %136
+122:                                              ; preds = %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  store ptr null, ptr %22, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  store ptr null, ptr %23, align 8, !tbaa !156
+  %123 = load ptr, ptr %10, align 8, !tbaa !58
+  %124 = call i32 @sat_solver_final(ptr noundef %123, ptr noundef %21)
+  store i32 %124, ptr %20, align 4, !tbaa !8
+  %125 = load i32, ptr %20, align 4, !tbaa !8
+  %126 = load ptr, ptr %7, align 8, !tbaa !27
+  %127 = call i32 @Vec_PtrSize(ptr noundef %126)
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.26, i32 noundef %125, i32 noundef %127)
+  %128 = call i64 @Abc_Clock()
+  %129 = load i64, ptr %18, align 8, !tbaa !84
+  %130 = sub nsw i64 %128, %129
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.27, i64 noundef %130)
+  %131 = load ptr, ptr %7, align 8, !tbaa !27
+  %132 = call ptr @Vec_PtrDup(ptr noundef %131)
+  store ptr %132, ptr %22, align 8, !tbaa !27
+  %133 = load ptr, ptr %7, align 8, !tbaa !27
+  %134 = call i32 @Vec_PtrSize(ptr noundef %133)
+  %135 = call ptr @Vec_BitStart(i32 noundef %134)
+  store ptr %135, ptr %23, align 8, !tbaa !156
+  %136 = load ptr, ptr %7, align 8, !tbaa !27
+  call void @Vec_PtrClear(ptr noundef %136)
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %137
 
-136:                                              ; preds = %150, %121
-  %137 = load i32, ptr %15, align 4
-  %138 = load i32, ptr %19, align 4
-  %139 = icmp slt i32 %137, %138
-  br i1 %139, label %140, label %153
+137:                                              ; preds = %151, %122
+  %138 = load i32, ptr %15, align 4, !tbaa !8
+  %139 = load i32, ptr %20, align 4, !tbaa !8
+  %140 = icmp slt i32 %138, %139
+  br i1 %140, label %141, label %154
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %22, align 8
-  %142 = load ptr, ptr %20, align 8
-  %143 = load i32, ptr %15, align 4
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %142, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = call i32 @Abc_Lit2Var(i32 noundef %146)
-  %148 = load i32, ptr %17, align 4
-  %149 = sub nsw i32 %147, %148
-  call void @Vec_BitWriteEntry(ptr noundef %141, i32 noundef %149, i32 noundef 1)
-  br label %150
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %23, align 8, !tbaa !156
+  %143 = load ptr, ptr %21, align 8, !tbaa !82
+  %144 = load i32, ptr %15, align 4, !tbaa !8
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %143, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !8
+  %148 = call i32 @Abc_Lit2Var(i32 noundef %147)
+  %149 = load i32, ptr %17, align 4, !tbaa !8
+  %150 = sub nsw i32 %148, %149
+  call void @Vec_BitWriteEntry(ptr noundef %142, i32 noundef %150, i32 noundef 1)
+  br label %151
 
-150:                                              ; preds = %140
-  %151 = load i32, ptr %15, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %15, align 4
-  br label %136, !llvm.loop !40
+151:                                              ; preds = %141
+  %152 = load i32, ptr %15, align 4, !tbaa !8
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %15, align 4, !tbaa !8
+  br label %137, !llvm.loop !158
 
-153:                                              ; preds = %136
-  store i32 0, ptr %15, align 4
-  br label %154
+154:                                              ; preds = %137
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %155
 
-154:                                              ; preds = %175, %153
-  %155 = load i32, ptr %15, align 4
-  %156 = load ptr, ptr %21, align 8
-  %157 = call i32 @Vec_PtrSize(ptr noundef %156)
-  %158 = icmp slt i32 %155, %157
-  br i1 %158, label %159, label %163
+155:                                              ; preds = %176, %154
+  %156 = load i32, ptr %15, align 4, !tbaa !8
+  %157 = load ptr, ptr %22, align 8, !tbaa !27
+  %158 = call i32 @Vec_PtrSize(ptr noundef %157)
+  %159 = icmp slt i32 %156, %158
+  br i1 %159, label %160, label %164
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %21, align 8
-  %161 = load i32, ptr %15, align 4
-  %162 = call ptr @Vec_PtrEntry(ptr noundef %160, i32 noundef %161)
-  store ptr %162, ptr %16, align 8
-  br label %163
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %22, align 8, !tbaa !27
+  %162 = load i32, ptr %15, align 4, !tbaa !8
+  %163 = call ptr @Vec_PtrEntry(ptr noundef %161, i32 noundef %162)
+  store ptr %163, ptr %16, align 8, !tbaa !28
+  br label %164
 
-163:                                              ; preds = %159, %154
-  %164 = phi i1 [ false, %154 ], [ true, %159 ]
-  br i1 %164, label %165, label %178
+164:                                              ; preds = %160, %155
+  %165 = phi i1 [ false, %155 ], [ true, %160 ]
+  br i1 %165, label %166, label %179
 
-165:                                              ; preds = %163
-  %166 = load ptr, ptr %22, align 8
-  %167 = load i32, ptr %15, align 4
-  %168 = call i32 @Vec_BitEntry(ptr noundef %166, i32 noundef %167)
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %173
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %23, align 8, !tbaa !156
+  %168 = load i32, ptr %15, align 4, !tbaa !8
+  %169 = call i32 @Vec_BitEntry(ptr noundef %167, i32 noundef %168)
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %171, label %174
 
-170:                                              ; preds = %165
-  %171 = load ptr, ptr %7, align 8
-  %172 = load ptr, ptr %16, align 8
-  call void @Vec_PtrPush(ptr noundef %171, ptr noundef %172)
-  br label %175
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %7, align 8, !tbaa !27
+  %173 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @Vec_PtrPush(ptr noundef %172, ptr noundef %173)
+  br label %176
 
-173:                                              ; preds = %165
-  %174 = load ptr, ptr %16, align 8
-  call void @Pdr_SetDeref(ptr noundef %174)
-  br label %175
+174:                                              ; preds = %166
+  %175 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @Pdr_SetDeref(ptr noundef %175)
+  br label %176
 
-175:                                              ; preds = %173, %170
-  %176 = load i32, ptr %15, align 4
-  %177 = add nsw i32 %176, 1
-  store i32 %177, ptr %15, align 4
-  br label %154, !llvm.loop !41
+176:                                              ; preds = %174, %171
+  %177 = load i32, ptr %15, align 4, !tbaa !8
+  %178 = add nsw i32 %177, 1
+  store i32 %178, ptr %15, align 4, !tbaa !8
+  br label %155, !llvm.loop !159
 
-178:                                              ; preds = %163
-  %179 = load ptr, ptr %21, align 8
-  call void @Vec_PtrFree(ptr noundef %179)
-  %180 = load ptr, ptr %22, align 8
-  call void @Vec_BitFree(ptr noundef %180)
-  store i32 1, ptr %14, align 4
-  br label %185
+179:                                              ; preds = %164
+  %180 = load ptr, ptr %22, align 8, !tbaa !27
+  call void @Vec_PtrFree(ptr noundef %180)
+  %181 = load ptr, ptr %23, align 8, !tbaa !156
+  call void @Vec_BitFree(ptr noundef %181)
+  store i32 1, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  br label %186
 
-181:                                              ; preds = %118
+182:                                              ; preds = %119
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.28)
-  %182 = call i64 @Abc_Clock()
-  %183 = load i64, ptr %18, align 8
-  %184 = sub nsw i64 %182, %183
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.27, i64 noundef %184)
-  store i32 0, ptr %14, align 4
-  br label %185
+  %183 = call i64 @Abc_Clock()
+  %184 = load i64, ptr %18, align 8, !tbaa !84
+  %185 = sub nsw i64 %183, %184
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.27, i64 noundef %185)
+  store i32 0, ptr %14, align 4, !tbaa !8
+  br label %186
 
-185:                                              ; preds = %181, %178
-  %186 = load i32, ptr %14, align 4
-  store i32 %186, ptr %5, align 4
-  br label %187
+186:                                              ; preds = %182, %179
+  %187 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %187, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %188
 
-187:                                              ; preds = %185, %116
-  %188 = load i32, ptr %5, align 4
-  ret i32 %188
+188:                                              ; preds = %186, %117
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %189 = load i32, ptr %5, align 4
+  ret i32 %189
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Pdr_ManSolver(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Pdr_ManSolver(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %5, i32 0, i32 13
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %5, i32 0, i32 13
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = call ptr @Vec_PtrEntry(ptr noundef %7, i32 noundef %8)
   ret ptr %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_Var2Lit(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_Var2Lit(i32 noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load i32, ptr %3, align 4, !tbaa !8
   %7 = add nsw i32 %5, %6
-  %8 = load i32, ptr %4, align 4
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = add nsw i32 %7, %8
   ret i32 %9
 }
 
-declare i32 @Pdr_ObjSatVar(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare i32 @Pdr_ObjSatVar(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Aig_ManCo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Aig_ManCo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Aig_Man_t_, ptr %5, i32 0, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !136
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !136
+  %6 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %5, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = call ptr @Vec_PtrEntry(ptr noundef %7, i32 noundef %8)
   ret ptr %9
 }
 
-declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @Pdr_ManFreeVar(ptr noundef, i32 noundef) #1
+declare i32 @Pdr_ManFreeVar(ptr noundef, i32 noundef) #3
 
-declare ptr @Pdr_ManCubeToLits(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @Pdr_ManCubeToLits(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @sat_solver_compress(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @sat_solver_compress(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.sat_solver_t, ptr %4, i32 0, i32 3
-  %6 = load i32, ptr %5, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.sat_solver_t, ptr %7, i32 0, i32 2
-  %9 = load i32, ptr %8, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %4 = load ptr, ptr %2, align 8, !tbaa !58
+  %5 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %4, i32 0, i32 3
+  %6 = load i32, ptr %5, align 4, !tbaa !160
+  %7 = load ptr, ptr %2, align 8, !tbaa !58
+  %8 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !170
   %10 = icmp ne i32 %6, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  %12 = load ptr, ptr %2, align 8, !tbaa !58
   %13 = call i32 @sat_solver_simplify(ptr noundef %12)
-  store i32 %13, ptr %3, align 4
+  store i32 %13, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   br label %14
 
 14:                                               ; preds = %11, %1
   ret void
 }
 
-declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #1
+declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !63
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
   call void @free(ptr noundef %10) #11
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !63
+  %12 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !67
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !63
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !63
   call void @free(ptr noundef %18) #11
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !63
   br label %20
 
 19:                                               ; preds = %14
@@ -5610,36 +5904,36 @@ define internal void @Vec_IntFree(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @sat_solver_final(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @sat_solver_final(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.sat_solver_t, ptr %5, i32 0, i32 37
-  %7 = getelementptr inbounds %struct.veci_t, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.sat_solver_t, ptr %10, i32 0, i32 37
-  %12 = getelementptr inbounds %struct.veci_t, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %4, align 8, !tbaa !171
+  %5 = load ptr, ptr %3, align 8, !tbaa !58
+  %6 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %5, i32 0, i32 37
+  %7 = getelementptr inbounds nuw %struct.veci_t, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !172
+  %9 = load ptr, ptr %4, align 8, !tbaa !171
+  store ptr %8, ptr %9, align 8, !tbaa !82
+  %10 = load ptr, ptr %3, align 8, !tbaa !58
+  %11 = getelementptr inbounds nuw %struct.sat_solver_t, ptr %10, i32 0, i32 37
+  %12 = getelementptr inbounds nuw %struct.veci_t, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4, !tbaa !173
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store i64 %2, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %5, align 8, !tbaa !44
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.34, ptr noundef %7)
-  %8 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8, !tbaa !84
   %9 = sitofp i64 %8 to double
   %10 = fmul double 1.000000e+00, %9
   %11 = fdiv double %10, 1.000000e+06
@@ -5647,38 +5941,39 @@ define internal void @Abc_PrintTime(i32 noundef %0, ptr noundef %1, i64 noundef 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrDup(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrDup(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = call noalias ptr @malloc(i64 noundef 16) #9
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 1
-  store i32 %7, ptr %9, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
-  store i32 %12, ptr %14, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !27
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 1
+  store i32 %7, ptr %9, align 4, !tbaa !38
+  %10 = load ptr, ptr %2, align 8, !tbaa !27
+  %11 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !40
+  %13 = load ptr, ptr %3, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %13, i32 0, i32 0
+  store i32 %12, ptr %14, align 8, !tbaa !40
+  %15 = load ptr, ptr %3, align 8, !tbaa !27
+  %16 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8, !tbaa !40
   %18 = icmp ne i32 %17, 0
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !27
+  %21 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !40
   %23 = sext i32 %22 to i64
   %24 = mul i64 8, %23
-  %25 = call noalias ptr @malloc(i64 noundef %24) #9
+  %25 = call noalias ptr @malloc(i64 noundef %24) #12
   br label %27
 
 26:                                               ; preds = %1
@@ -5686,116 +5981,119 @@ define internal ptr @Vec_PtrDup(ptr noundef %0) #0 {
 
 27:                                               ; preds = %26, %19
   %28 = phi ptr [ %25, %19 ], [ null, %26 ]
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %29, i32 0, i32 2
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 4
+  %29 = load ptr, ptr %3, align 8, !tbaa !27
+  %30 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %29, i32 0, i32 2
+  store ptr %28, ptr %30, align 8, !tbaa !39
+  %31 = load ptr, ptr %3, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
+  %34 = load ptr, ptr %2, align 8, !tbaa !27
+  %35 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %37 = load ptr, ptr %2, align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = sext i32 %39 to i64
   %41 = mul i64 8, %40
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %36, i64 %41, i1 false)
-  %42 = load ptr, ptr %3, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %42
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_BitStart(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_BitStart(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load i32, ptr %2, align 4, !tbaa !8
   %5 = ashr i32 %4, 5
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !8
   %7 = and i32 %6, 31
   %8 = icmp sgt i32 %7, 0
   %9 = zext i1 %8 to i32
   %10 = add nsw i32 %5, %9
-  store i32 %10, ptr %2, align 4
-  %11 = load i32, ptr %2, align 4
+  store i32 %10, ptr %2, align 4, !tbaa !8
+  %11 = load i32, ptr %2, align 4, !tbaa !8
   %12 = mul nsw i32 %11, 32
   %13 = call ptr @Vec_BitAlloc(i32 noundef %12)
-  store ptr %13, ptr %3, align 8
-  %14 = load i32, ptr %2, align 4
+  store ptr %13, ptr %3, align 8, !tbaa !156
+  %14 = load i32, ptr %2, align 4, !tbaa !8
   %15 = mul nsw i32 %14, 32
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %16, i32 0, i32 1
-  store i32 %15, ptr %17, align 4
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %18, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %2, align 4
+  %16 = load ptr, ptr %3, align 8, !tbaa !156
+  %17 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %16, i32 0, i32 1
+  store i32 %15, ptr %17, align 4, !tbaa !174
+  %18 = load ptr, ptr %3, align 8, !tbaa !156
+  %19 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !176
+  %21 = load i32, ptr %2, align 4, !tbaa !8
   %22 = sext i32 %21 to i64
   %23 = mul i64 4, %22
   call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false)
-  %24 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %24
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrClear(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrClear(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !38
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_BitWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_BitWriteEntry(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !156
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %5, align 4, !tbaa !8
   %11 = and i32 %10, 31
   %12 = shl i32 1, %11
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %5, align 4
+  %13 = load ptr, ptr %4, align 8, !tbaa !156
+  %14 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !176
+  %16 = load i32, ptr %5, align 4, !tbaa !8
   %17 = ashr i32 %16, 5
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %15, i64 %18
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = or i32 %20, %12
-  store i32 %21, ptr %19, align 4
+  store i32 %21, ptr %19, align 4, !tbaa !8
   br label %41
 
 22:                                               ; preds = %3
-  %23 = load i32, ptr %6, align 4
+  %23 = load i32, ptr %6, align 4, !tbaa !8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %5, align 4, !tbaa !8
   %27 = and i32 %26, 31
   %28 = shl i32 1, %27
   %29 = xor i32 %28, -1
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %5, align 4
+  %30 = load ptr, ptr %4, align 8, !tbaa !156
+  %31 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !176
+  %33 = load i32, ptr %5, align 4, !tbaa !8
   %34 = ashr i32 %33, 5
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %32, i64 %35
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !8
   %38 = and i32 %37, %29
-  store i32 %38, ptr %36, align 4
+  store i32 %38, ptr %36, align 4, !tbaa !8
   br label %40
 
 39:                                               ; preds = %22
@@ -5808,59 +6106,59 @@ define internal void @Vec_BitWriteEntry(ptr noundef %0, i32 noundef %1, i32 noun
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_BitEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_BitEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !156
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !156
+  %6 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !176
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = ashr i32 %8, 5
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %7, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !8
+  %13 = load i32, ptr %4, align 4, !tbaa !8
   %14 = and i32 %13, 31
   %15 = ashr i32 %12, %14
   %16 = and i32 %15, 1
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !27
+  %9 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
   call void @free(ptr noundef %10) #11
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !27
+  %12 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !39
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !27
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !27
   call void @free(ptr noundef %18) #11
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !27
   br label %20
 
 19:                                               ; preds = %14
@@ -5870,38 +6168,38 @@ define internal void @Vec_PtrFree(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_BitFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_BitFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
+  %4 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !176
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !156
+  %9 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !176
   call void @free(ptr noundef %10) #11
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %11, i32 0, i32 2
-  store ptr null, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !156
+  %12 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %11, i32 0, i32 2
+  store ptr null, ptr %12, align 8, !tbaa !176
   br label %14
 
 13:                                               ; preds = %1
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !156
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8, !tbaa !156
   call void @free(ptr noundef %18) #11
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !156
   br label %20
 
 19:                                               ; preds = %14
@@ -5918,41 +6216,47 @@ define i32 @IPdr_ManReduceClauses(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 -1, ptr %6, align 4
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
-  store i32 0, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 -1, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  store i32 0, ptr %5, align 4, !tbaa !8
   %9 = call ptr @Pdr_ManCreateSolver(ptr noundef %8, i32 noundef 0)
-  %10 = load ptr, ptr %3, align 8
-  store i32 1, ptr %5, align 4
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store i32 1, ptr %5, align 4, !tbaa !8
   %11 = call ptr @Pdr_ManCreateSolver(ptr noundef %10, i32 noundef 1)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %13, i32 0, i32 46
-  store i32 %12, ptr %14, align 4
-  %15 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %13, i32 0, i32 46
+  store i32 %12, ptr %14, align 4, !tbaa !106
+  %15 = load i32, ptr %5, align 4, !tbaa !8
   %16 = call i32 @Abc_MaxInt(i32 noundef %15, i32 noundef 1)
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %17, i32 0, i32 18
-  store i32 %16, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %17, i32 0, i32 18
+  store i32 %16, ptr %18, align 8, !tbaa !102
+  %19 = load ptr, ptr %4, align 8, !tbaa !34
+  %20 = load ptr, ptr %4, align 8, !tbaa !34
   %21 = call i32 @Vec_VecSize(ptr noundef %20)
   %22 = sub nsw i32 %21, 1
   %23 = call ptr @Vec_VecEntry(ptr noundef %19, i32 noundef %22)
-  store ptr %23, ptr %7, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Pdr_Man_t_, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.Pdr_Par_t_, ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 8
+  store ptr %23, ptr %7, align 8, !tbaa !27
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = load ptr, ptr %7, align 8, !tbaa !27
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.Pdr_Man_t_, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !55
+  %29 = getelementptr inbounds nuw %struct.Pdr_Par_t_, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8, !tbaa !123
   %31 = call i32 @IPdr_ManCheckCubeReduce(ptr noundef %24, ptr noundef %25, ptr noundef null, i32 noundef %30)
-  store i32 %31, ptr %6, align 4
-  %32 = load i32, ptr %6, align 4
+  store i32 %31, ptr %6, align 4, !tbaa !8
+  %32 = load i32, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret i32 %32
 }
 
@@ -5963,19 +6267,22 @@ define i32 @Abc_NtkDarIPdr(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 -1, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !177
+  store ptr %1, ptr %4, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 -1, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   %8 = call i64 @Abc_Clock()
-  store i64 %8, ptr %6, align 8
-  %9 = load ptr, ptr %3, align 8
+  store i64 %8, ptr %6, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !177
   %10 = call ptr @Abc_NtkToDar(ptr noundef %9, i32 noundef 0, i32 noundef 1)
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %7, align 8, !tbaa !136
+  %11 = load ptr, ptr %7, align 8, !tbaa !136
+  %12 = load ptr, ptr %4, align 8, !tbaa !143
   %13 = call i32 @IPdr_ManSolve(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %5, align 4
-  %14 = load i32, ptr %5, align 4
+  store i32 %13, ptr %5, align 4, !tbaa !8
+  %14 = load i32, ptr %5, align 4, !tbaa !8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %17
 
@@ -5984,14 +6291,14 @@ define i32 @Abc_NtkDarIPdr(ptr noundef %0, ptr noundef %1) #0 {
   br label %56
 
 17:                                               ; preds = %2
-  %18 = load i32, ptr %5, align 4
+  %18 = load i32, ptr %5, align 4, !tbaa !8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %49
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.Aig_Man_t_, ptr %21, i32 0, i32 51
-  %23 = load ptr, ptr %22, align 8
+  %21 = load ptr, ptr %7, align 8, !tbaa !136
+  %22 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %21, i32 0, i32 51
+  %23 = load ptr, ptr %22, align 8, !tbaa !111
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -6000,24 +6307,24 @@ define i32 @Abc_NtkDarIPdr(ptr noundef %0, ptr noundef %1) #0 {
   br label %48
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.Aig_Man_t_, ptr %27, i32 0, i32 51
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.Aig_Man_t_, ptr %35, i32 0, i32 51
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.Abc_Cex_t_, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 4
+  %27 = load ptr, ptr %7, align 8, !tbaa !136
+  %28 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %27, i32 0, i32 51
+  %29 = load ptr, ptr %28, align 8, !tbaa !111
+  %30 = getelementptr inbounds nuw %struct.Abc_Cex_t_, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 4, !tbaa !115
+  %32 = load ptr, ptr %3, align 8, !tbaa !177
+  %33 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %32, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !179
+  %35 = load ptr, ptr %7, align 8, !tbaa !136
+  %36 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %35, i32 0, i32 51
+  %37 = load ptr, ptr %36, align 8, !tbaa !111
+  %38 = getelementptr inbounds nuw %struct.Abc_Cex_t_, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4, !tbaa !188
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.31, i32 noundef %31, ptr noundef %34, i32 noundef %39)
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct.Aig_Man_t_, ptr %41, i32 0, i32 51
-  %43 = load ptr, ptr %42, align 8
+  %40 = load ptr, ptr %7, align 8, !tbaa !136
+  %41 = load ptr, ptr %7, align 8, !tbaa !136
+  %42 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %41, i32 0, i32 51
+  %43 = load ptr, ptr %42, align 8, !tbaa !111
   %44 = call i32 @Saig_ManVerifyCex(ptr noundef %40, ptr noundef %43)
   %45 = icmp ne i32 %44, 0
   br i1 %45, label %47, label %46
@@ -6033,7 +6340,7 @@ define i32 @Abc_NtkDarIPdr(ptr noundef %0, ptr noundef %1) #0 {
   br label %55
 
 49:                                               ; preds = %17
-  %50 = load i32, ptr %5, align 4
+  %50 = load i32, ptr %5, align 4, !tbaa !8
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %52, label %53
 
@@ -6053,79 +6360,82 @@ define i32 @Abc_NtkDarIPdr(ptr noundef %0, ptr noundef %1) #0 {
 56:                                               ; preds = %55, %16
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.34, ptr noundef @.str.35)
   %57 = call i64 @Abc_Clock()
-  %58 = load i64, ptr %6, align 8
+  %58 = load i64, ptr %6, align 8, !tbaa !84
   %59 = sub nsw i64 %57, %58
   %60 = sitofp i64 %59 to double
   %61 = fmul double 1.000000e+00, %60
   %62 = fdiv double %61, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.36, double noundef %62)
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %63, i32 0, i32 38
-  %65 = load ptr, ptr %64, align 8
+  %63 = load ptr, ptr %3, align 8, !tbaa !177
+  %64 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %63, i32 0, i32 38
+  %65 = load ptr, ptr %64, align 8, !tbaa !189
   %66 = icmp ne ptr %65, null
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %56
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %68, i32 0, i32 38
-  %70 = load ptr, ptr %69, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !177
+  %69 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %68, i32 0, i32 38
+  %70 = load ptr, ptr %69, align 8, !tbaa !189
   call void @free(ptr noundef %70) #11
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %71, i32 0, i32 38
-  store ptr null, ptr %72, align 8
+  %71 = load ptr, ptr %3, align 8, !tbaa !177
+  %72 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %71, i32 0, i32 38
+  store ptr null, ptr %72, align 8, !tbaa !189
   br label %74
 
 73:                                               ; preds = %56
   br label %74
 
 74:                                               ; preds = %73, %67
-  %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct.Aig_Man_t_, ptr %75, i32 0, i32 51
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %78, i32 0, i32 38
-  store ptr %77, ptr %79, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.Aig_Man_t_, ptr %80, i32 0, i32 51
-  store ptr null, ptr %81, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %82, i32 0, i32 39
-  %84 = load ptr, ptr %83, align 8
+  %75 = load ptr, ptr %7, align 8, !tbaa !136
+  %76 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %75, i32 0, i32 51
+  %77 = load ptr, ptr %76, align 8, !tbaa !111
+  %78 = load ptr, ptr %3, align 8, !tbaa !177
+  %79 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %78, i32 0, i32 38
+  store ptr %77, ptr %79, align 8, !tbaa !189
+  %80 = load ptr, ptr %7, align 8, !tbaa !136
+  %81 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %80, i32 0, i32 51
+  store ptr null, ptr %81, align 8, !tbaa !111
+  %82 = load ptr, ptr %3, align 8, !tbaa !177
+  %83 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %82, i32 0, i32 39
+  %84 = load ptr, ptr %83, align 8, !tbaa !190
   %85 = icmp ne ptr %84, null
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %74
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %87, i32 0, i32 39
-  %89 = load ptr, ptr %88, align 8
+  %87 = load ptr, ptr %3, align 8, !tbaa !177
+  %88 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %87, i32 0, i32 39
+  %89 = load ptr, ptr %88, align 8, !tbaa !190
   call void @Vec_PtrFreeFree(ptr noundef %89)
   br label %90
 
 90:                                               ; preds = %86, %74
-  %91 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds %struct.Aig_Man_t_, ptr %91, i32 0, i32 52
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %94, i32 0, i32 39
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct.Aig_Man_t_, ptr %96, i32 0, i32 52
-  store ptr null, ptr %97, align 8
-  %98 = load ptr, ptr %7, align 8
+  %91 = load ptr, ptr %7, align 8, !tbaa !136
+  %92 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %91, i32 0, i32 52
+  %93 = load ptr, ptr %92, align 8, !tbaa !148
+  %94 = load ptr, ptr %3, align 8, !tbaa !177
+  %95 = getelementptr inbounds nuw %struct.Abc_Ntk_t_, ptr %94, i32 0, i32 39
+  store ptr %93, ptr %95, align 8, !tbaa !190
+  %96 = load ptr, ptr %7, align 8, !tbaa !136
+  %97 = getelementptr inbounds nuw %struct.Aig_Man_t_, ptr %96, i32 0, i32 52
+  store ptr null, ptr %97, align 8, !tbaa !148
+  %98 = load ptr, ptr %7, align 8, !tbaa !136
   call void @Aig_ManStop(ptr noundef %98)
-  %99 = load i32, ptr %5, align 4
+  %99 = load i32, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret i32 %99
 }
 
-declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @Saig_ManVerifyCex(ptr noundef, ptr noundef) #1
+declare i32 @Saig_ManVerifyCex(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrFreeFree(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrFreeFree(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -6133,9 +6443,9 @@ define internal void @Vec_PtrFreeFree(ptr noundef %0) #0 {
   br label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !27
   call void @Vec_PtrFreeData(ptr noundef %7)
-  %8 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !27
   call void @Vec_PtrFree(ptr noundef %8)
   br label %9
 
@@ -6143,21 +6453,21 @@ define internal void @Vec_PtrFreeFree(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @Aig_ManStop(ptr noundef) #1
+declare void @Aig_ManStop(ptr noundef) #3
 
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_PtrSortComparePtr(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %4, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %8 = load ptr, ptr %5, align 8, !tbaa !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = icmp ult ptr %7, %9
   br i1 %10, label %11, label %12
 
@@ -6166,10 +6476,10 @@ define internal i32 @Vec_PtrSortComparePtr(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %15, align 8
+  %13 = load ptr, ptr %4, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %15 = load ptr, ptr %5, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = icmp ugt ptr %14, %16
   br i1 %17, label %18, label %19
 
@@ -6187,18 +6497,18 @@ define internal i32 @Vec_PtrSortComparePtr(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !40
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -6206,38 +6516,38 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = load i32, ptr %4, align 4, !tbaa !8
   %21 = sext i32 %20 to i64
   %22 = mul i64 8, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #12
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #14
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !8
   %26 = sext i32 %25 to i64
   %27 = mul i64 8, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #9
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !39
+  %33 = load i32, ptr %4, align 4, !tbaa !8
+  %34 = load ptr, ptr %3, align 8, !tbaa !27
+  %35 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !40
   br label %36
 
 36:                                               ; preds = %29, %10
@@ -6245,61 +6555,81 @@ define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #4
+declare ptr @realloc(ptr noundef, i64 noundef) #6
 
-declare i32 @Abc_FrameIsBridgeMode(...) #1
+declare i32 @Abc_FrameIsBridgeMode(...) #3
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+declare ptr @vnsprintf(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #8
+
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !191
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %6 = load ptr, ptr %3, align 8, !tbaa !44
+  %7 = load ptr, ptr %4, align 8, !tbaa !191
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #11
+  ret i32 %8
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #2
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_VecAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_VecAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #9
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %4, ptr %3, align 8, !tbaa !34
+  %5 = load i32, ptr %2, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !8
   %9 = icmp slt i32 %8, 8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 8, ptr %2, align 4
+  store i32 8, ptr %2, align 4, !tbaa !8
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !34
+  %13 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !43
+  %14 = load i32, ptr %2, align 4, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !34
+  %16 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !193
+  %17 = load ptr, ptr %3, align 8, !tbaa !34
+  %18 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !193
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !34
+  %23 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !193
   %25 = sext i32 %24 to i64
   %26 = mul i64 8, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #9
+  %27 = call noalias ptr @malloc(i64 noundef %26) #12
   br label %29
 
 28:                                               ; preds = %11
@@ -6307,23 +6637,24 @@ define internal ptr @Vec_VecAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Vec_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !34
+  %32 = getelementptr inbounds nuw %struct.Vec_Vec_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !35
+  %33 = load ptr, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !66
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -6331,95 +6662,102 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !63
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !67
+  %20 = load i32, ptr %4, align 4, !tbaa !8
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #12
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #14
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !8
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #9
+  %28 = call noalias ptr @malloc(i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !63
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !67
+  %33 = load i32, ptr %4, align 4, !tbaa !8
+  %34 = load ptr, ptr %3, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !66
   br label %36
 
 36:                                               ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_LitIsCompl(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_LitIsCompl(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = and i32 %3, 1
   ret i32 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Clock() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Abc_Clock() #2 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.timespec, align 8
-  %3 = alloca i64, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #11
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i64 -1, ptr %1, align 8
-  br label %18
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #11
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #11
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = mul nsw i64 %9, 1000000
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = sdiv i64 %13, 1000000000
-  %15 = load i64, ptr %3, align 8
-  %16 = add nsw i64 %15, %14
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  store i64 %17, ptr %1, align 8
-  br label %18
+  store i64 -1, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %19
 
-18:                                               ; preds = %7, %6
-  %19 = load i64, ptr %1, align 8
-  ret i64 %19
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %9 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !194
+  %11 = mul nsw i64 %10, 1000000
+  store i64 %11, ptr %4, align 8, !tbaa !84
+  %12 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !196
+  %14 = mul nsw i64 %13, 1000000
+  %15 = sdiv i64 %14, 1000000000
+  %16 = load i64, ptr %4, align 8, !tbaa !84
+  %17 = add nsw i64 %16, %15
+  store i64 %17, ptr %4, align 8, !tbaa !84
+  %18 = load i64, ptr %4, align 8, !tbaa !84
+  store i64 %18, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  br label %19
+
+19:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #11
+  %20 = load i64, ptr %1, align 8
+  ret i64 %20
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Aig_Not(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Aig_Not(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = ptrtoint ptr %3 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
@@ -6427,45 +6765,46 @@ define internal ptr @Aig_Not(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare i32 @sat_solver_simplify(ptr noundef) #1
+declare i32 @sat_solver_simplify(ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_BitAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_BitAlloc(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load i32, ptr %2, align 4, !tbaa !8
   %5 = ashr i32 %4, 5
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !8
   %7 = and i32 %6, 31
   %8 = icmp sgt i32 %7, 0
   %9 = zext i1 %8 to i32
   %10 = add nsw i32 %5, %9
-  store i32 %10, ptr %2, align 4
-  %11 = call noalias ptr @malloc(i64 noundef 16) #9
-  store ptr %11, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
+  store i32 %10, ptr %2, align 4, !tbaa !8
+  %11 = call noalias ptr @malloc(i64 noundef 16) #12
+  store ptr %11, ptr %3, align 8, !tbaa !156
+  %12 = load ptr, ptr %3, align 8, !tbaa !156
+  %13 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !174
+  %14 = load i32, ptr %2, align 4, !tbaa !8
   %15 = mul nsw i32 %14, 32
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %16, i32 0, i32 0
-  store i32 %15, ptr %17, align 8
-  %18 = load i32, ptr %2, align 4
+  %16 = load ptr, ptr %3, align 8, !tbaa !156
+  %17 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %16, i32 0, i32 0
+  store i32 %15, ptr %17, align 8, !tbaa !197
+  %18 = load i32, ptr %2, align 4, !tbaa !8
   %19 = icmp ne i32 %18, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %1
-  %21 = load i32, ptr %2, align 4
+  %21 = load i32, ptr %2, align 4, !tbaa !8
   %22 = sext i32 %21 to i64
   %23 = mul i64 4, %22
-  %24 = call noalias ptr @malloc(i64 noundef %23) #9
+  %24 = call noalias ptr @malloc(i64 noundef %23) #12
   br label %26
 
 25:                                               ; preds = %1
@@ -6473,152 +6812,323 @@ define internal ptr @Vec_BitAlloc(i32 noundef %0) #0 {
 
 26:                                               ; preds = %25, %20
   %27 = phi ptr [ %24, %20 ], [ null, %25 ]
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Bit_t_, ptr %28, i32 0, i32 2
-  store ptr %27, ptr %29, align 8
-  %30 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %3, align 8, !tbaa !156
+  %29 = getelementptr inbounds nuw %struct.Vec_Bit_t_, ptr %28, i32 0, i32 2
+  store ptr %27, ptr %29, align 8, !tbaa !176
+  %30 = load ptr, ptr %3, align 8, !tbaa !156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_PtrFreeData(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_PtrFreeData(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %1
-  br label %39
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  store i32 0, ptr %4, align 4
-  br label %9
+  store i32 1, ptr %5, align 4
+  br label %39
 
-9:                                                ; preds = %36, %8
-  %10 = load i32, ptr %4, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = call i32 @Vec_PtrSize(ptr noundef %11)
-  %13 = icmp slt i32 %10, %12
-  br i1 %13, label %14, label %18
+9:                                                ; preds = %1
+  store i32 0, ptr %4, align 4, !tbaa !8
+  br label %10
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = call ptr @Vec_PtrEntry(ptr noundef %15, i32 noundef %16)
-  store ptr %17, ptr %3, align 8
-  br label %18
+10:                                               ; preds = %35, %9
+  %11 = load i32, ptr %4, align 4, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !27
+  %13 = call i32 @Vec_PtrSize(ptr noundef %12)
+  %14 = icmp slt i32 %11, %13
+  br i1 %14, label %15, label %19
 
-18:                                               ; preds = %14, %9
-  %19 = phi i1 [ false, %9 ], [ true, %14 ]
-  br i1 %19, label %20, label %39
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %2, align 8, !tbaa !27
+  %17 = load i32, ptr %4, align 4, !tbaa !8
+  %18 = call ptr @Vec_PtrEntry(ptr noundef %16, i32 noundef %17)
+  store ptr %18, ptr %3, align 8, !tbaa !37
+  br label %19
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %3, align 8
-  %22 = inttoptr i64 1 to ptr
-  %23 = icmp ne ptr %21, %22
-  br i1 %23, label %24, label %35
+19:                                               ; preds = %15, %10
+  %20 = phi i1 [ false, %10 ], [ true, %15 ]
+  br i1 %20, label %21, label %38
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %3, align 8
-  %26 = inttoptr i64 2 to ptr
-  %27 = icmp ne ptr %25, %26
-  br i1 %27, label %28, label %35
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %3, align 8, !tbaa !37
+  %23 = icmp ne ptr %22, inttoptr (i64 1 to ptr)
+  br i1 %23, label %24, label %34
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %3, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %33
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %3, align 8, !tbaa !37
+  %26 = icmp ne ptr %25, inttoptr (i64 2 to ptr)
+  br i1 %26, label %27, label %34
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %32) #11
-  store ptr null, ptr %3, align 8
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %3, align 8, !tbaa !37
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %3, align 8, !tbaa !37
+  call void @free(ptr noundef %31) #11
+  store ptr null, ptr %3, align 8, !tbaa !37
+  br label %33
+
+32:                                               ; preds = %27
+  br label %33
+
+33:                                               ; preds = %32, %30
   br label %34
 
-33:                                               ; preds = %28
-  br label %34
-
-34:                                               ; preds = %33, %31
+34:                                               ; preds = %33, %24, %21
   br label %35
 
-35:                                               ; preds = %34, %24, %20
-  br label %36
+35:                                               ; preds = %34
+  %36 = load i32, ptr %4, align 4, !tbaa !8
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %4, align 4, !tbaa !8
+  br label %10, !llvm.loop !198
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr %4, align 4
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %4, align 4
-  br label %9, !llvm.loop !42
+38:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  br label %39
 
-39:                                               ; preds = %18, %7
+39:                                               ; preds = %38, %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  %40 = load i32, ptr %5, align 4
+  switch i32 %40, label %42 [
+    i32 0, label %41
+    i32 1, label %41
+  ]
+
+41:                                               ; preds = %39, %39
   ret void
+
+42:                                               ; preds = %39
+  unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(1) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10Pdr_Man_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !21, i64 112}
+!11 = !{!"Pdr_Man_t_", !12, i64 0, !13, i64 8, !14, i64 16, !15, i64 24, !16, i64 32, !17, i64 40, !16, i64 48, !17, i64 56, !18, i64 64, !19, i64 80, !9, i64 88, !9, i64 92, !20, i64 96, !20, i64 104, !21, i64 112, !22, i64 120, !23, i64 128, !17, i64 136, !9, i64 144, !9, i64 148, !17, i64 152, !17, i64 160, !17, i64 168, !9, i64 176, !9, i64 180, !24, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !17, i64 216, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !17, i64 272, !25, i64 280, !20, i64 288, !9, i64 296, !9, i64 300, !9, i64 304, !9, i64 308, !9, i64 312, !9, i64 316, !9, i64 320, !9, i64 324, !9, i64 328, !9, i64 332, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !9, i64 352, !9, i64 356, !9, i64 360, !26, i64 368, !26, i64 376, !26, i64 384, !26, i64 392, !26, i64 400, !26, i64 408, !26, i64 416, !26, i64 424, !26, i64 432, !26, i64 440, !26, i64 448, !26, i64 456}
+!12 = !{!"p1 _ZTS10Pdr_Par_t_", !5, i64 0}
+!13 = !{!"p1 _ZTS10Aig_Man_t_", !5, i64 0}
+!14 = !{!"p1 _ZTS10Gia_Man_t_", !5, i64 0}
+!15 = !{!"p1 _ZTS10Cnf_Man_t_", !5, i64 0}
+!16 = !{!"p1 _ZTS10Cnf_Dat_t_", !5, i64 0}
+!17 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!18 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !5, i64 8}
+!19 = !{!"p1 _ZTS10Vec_Wec_t_", !5, i64 0}
+!20 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!21 = !{!"p1 _ZTS10Vec_Vec_t_", !5, i64 0}
+!22 = !{!"p1 _ZTS10Pdr_Obl_t_", !5, i64 0}
+!23 = !{!"p1 int", !5, i64 0}
+!24 = !{!"p1 _ZTS11Txs3_Man_t_", !5, i64 0}
+!25 = !{!"p1 long", !5, i64 0}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!20, !20, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS10Pdr_Set_t_", !5, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}
+!33 = distinct !{!33, !31}
+!34 = !{!21, !21, i64 0}
+!35 = !{!36, !5, i64 8}
+!36 = !{!"Vec_Vec_t_", !9, i64 0, !9, i64 4, !5, i64 8}
+!37 = !{!5, !5, i64 0}
+!38 = !{!18, !9, i64 4}
+!39 = !{!18, !5, i64 8}
+!40 = !{!18, !9, i64 0}
+!41 = distinct !{!41, !31}
+!42 = distinct !{!42, !31}
+!43 = !{!36, !9, i64 4}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 omnipotent char", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!48 = !{!11, !20, i64 104}
+!49 = distinct !{!49, !31}
+!50 = distinct !{!50, !31}
+!51 = distinct !{!51, !31}
+!52 = distinct !{!52, !31}
+!53 = distinct !{!53, !31}
+!54 = distinct !{!54, !31}
+!55 = !{!11, !12, i64 0}
+!56 = !{!57, !9, i64 32}
+!57 = !{!"Pdr_Par_t_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !9, i64 132, !9, i64 136, !9, i64 140, !9, i64 144, !9, i64 148, !5, i64 152, !5, i64 160, !26, i64 168, !17, i64 176, !45, i64 184}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS12sat_solver_t", !5, i64 0}
+!60 = !{!11, !17, i64 136}
+!61 = distinct !{!61, !31}
+!62 = distinct !{!62, !31}
+!63 = !{!17, !17, i64 0}
+!64 = !{!65, !9, i64 4}
+!65 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !23, i64 8}
+!66 = !{!65, !9, i64 0}
+!67 = !{!65, !23, i64 8}
+!68 = distinct !{!68, !31}
+!69 = distinct !{!69, !31}
+!70 = distinct !{!70, !31}
+!71 = distinct !{!71, !31}
+!72 = !{!73, !9, i64 16}
+!73 = !{!"Pdr_Set_t_", !26, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !6, i64 20}
+!74 = !{!11, !17, i64 152}
+!75 = distinct !{!75, !31}
+!76 = distinct !{!76, !31}
+!77 = distinct !{!77, !31}
+!78 = distinct !{!78, !31}
+!79 = distinct !{!79, !31}
+!80 = distinct !{!80, !31}
+!81 = distinct !{!81, !31}
+!82 = !{!23, !23, i64 0}
+!83 = !{!11, !13, i64 8}
+!84 = !{!26, !26, i64 0}
+!85 = !{!57, !9, i64 20}
+!86 = !{!11, !26, i64 368}
+!87 = !{!57, !9, i64 116}
+!88 = !{!89, !20, i64 24}
+!89 = !{!"Aig_Man_t_", !45, i64 0, !45, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !90, i64 48, !91, i64 56, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !6, i64 128, !9, i64 156, !92, i64 160, !9, i64 168, !23, i64 176, !9, i64 184, !21, i64 192, !9, i64 200, !9, i64 204, !9, i64 208, !23, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !92, i64 248, !92, i64 256, !9, i64 264, !93, i64 272, !17, i64 280, !9, i64 288, !5, i64 296, !5, i64 304, !9, i64 312, !9, i64 316, !9, i64 320, !92, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !23, i64 368, !23, i64 376, !20, i64 384, !17, i64 392, !17, i64 400, !94, i64 408, !20, i64 416, !13, i64 424, !20, i64 432, !9, i64 440, !17, i64 448, !21, i64 456, !17, i64 464, !17, i64 472, !9, i64 480, !26, i64 488, !26, i64 496, !26, i64 504, !20, i64 512, !20, i64 520}
+!90 = !{!"p1 _ZTS10Aig_Obj_t_", !5, i64 0}
+!91 = !{!"Aig_Obj_t_", !6, i64 0, !90, i64 8, !90, i64 16, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 28, !9, i64 31, !9, i64 32, !9, i64 36, !6, i64 40}
+!92 = !{!"p2 _ZTS10Aig_Obj_t_", !5, i64 0}
+!93 = !{!"p1 _ZTS14Aig_MmFixed_t_", !5, i64 0}
+!94 = !{!"p1 _ZTS10Abc_Cex_t_", !5, i64 0}
+!95 = !{!90, !90, i64 0}
+!96 = !{!57, !17, i64 176}
+!97 = !{!57, !9, i64 140}
+!98 = !{!57, !9, i64 124}
+!99 = distinct !{!99, !31}
+!100 = !{!57, !26, i64 168}
+!101 = !{!57, !9, i64 100}
+!102 = !{!11, !9, i64 144}
+!103 = !{!57, !9, i64 92}
+!104 = !{!11, !17, i64 160}
+!105 = !{!11, !17, i64 168}
+!106 = !{!11, !9, i64 324}
+!107 = !{!11, !9, i64 88}
+!108 = !{!11, !20, i64 96}
+!109 = !{!11, !25, i64 280}
+!110 = !{!94, !94, i64 0}
+!111 = !{!89, !94, i64 408}
+!112 = !{!57, !9, i64 120}
+!113 = !{!57, !9, i64 132}
+!114 = !{!57, !9, i64 108}
+!115 = !{!116, !9, i64 0}
+!116 = !{!"Abc_Cex_t_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !6, i64 20}
+!117 = !{!57, !5, i64 160}
+!118 = !{!57, !9, i64 112}
+!119 = !{!57, !9, i64 144}
+!120 = !{!57, !9, i64 136}
+!121 = !{!11, !26, i64 376}
+!122 = !{!57, !9, i64 24}
+!123 = !{!57, !9, i64 8}
+!124 = !{!11, !26, i64 448}
+!125 = distinct !{!125, !31}
+!126 = distinct !{!126, !31}
+!127 = distinct !{!127, !31}
+!128 = distinct !{!128, !31}
+!129 = !{!57, !9, i64 16}
+!130 = !{!11, !9, i64 352}
+!131 = distinct !{!131, !31}
+!132 = !{!57, !5, i64 152}
+!133 = !{!57, !9, i64 148}
+!134 = !{!57, !9, i64 4}
+!135 = distinct !{!135, !31}
+!136 = !{!13, !13, i64 0}
+!137 = !{!89, !9, i64 112}
+!138 = !{!91, !90, i64 8}
+!139 = !{!89, !90, i64 48}
+!140 = !{!89, !9, i64 104}
+!141 = !{!89, !9, i64 108}
+!142 = distinct !{!142, !31}
+!143 = !{!12, !12, i64 0}
+!144 = !{!57, !9, i64 28}
+!145 = !{!57, !9, i64 0}
+!146 = !{!57, !9, i64 40}
+!147 = !{!57, !9, i64 80}
+!148 = !{!89, !20, i64 416}
+!149 = !{!57, !9, i64 56}
+!150 = !{!57, !45, i64 184}
+!151 = !{!89, !45, i64 0}
+!152 = !{!11, !26, i64 456}
+!153 = distinct !{!153, !31}
+!154 = distinct !{!154, !31}
+!155 = distinct !{!155, !31}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 _ZTS10Vec_Bit_t_", !5, i64 0}
+!158 = distinct !{!158, !31}
+!159 = distinct !{!159, !31}
+!160 = !{!161, !9, i64 12}
+!161 = !{!"sat_solver_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !162, i64 16, !9, i64 72, !9, i64 76, !164, i64 80, !165, i64 88, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !26, i64 120, !26, i64 128, !26, i64 136, !25, i64 144, !25, i64 152, !9, i64 160, !9, i64 164, !166, i64 168, !45, i64 184, !9, i64 192, !23, i64 200, !45, i64 208, !45, i64 216, !45, i64 224, !45, i64 232, !23, i64 240, !23, i64 248, !23, i64 256, !166, i64 264, !166, i64 280, !166, i64 296, !166, i64 312, !23, i64 328, !166, i64 336, !9, i64 352, !9, i64 356, !9, i64 360, !167, i64 368, !167, i64 376, !9, i64 384, !9, i64 388, !9, i64 392, !168, i64 400, !9, i64 472, !9, i64 476, !9, i64 480, !9, i64 484, !9, i64 488, !26, i64 496, !26, i64 504, !26, i64 512, !166, i64 520, !169, i64 536, !9, i64 544, !9, i64 548, !9, i64 552, !166, i64 560, !166, i64 576, !9, i64 592, !9, i64 596, !9, i64 600, !23, i64 608, !5, i64 616, !9, i64 624, !47, i64 632, !9, i64 640, !9, i64 644, !166, i64 648, !166, i64 664, !166, i64 680, !5, i64 696, !5, i64 704, !9, i64 712, !5, i64 720}
+!162 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !163, i64 48}
+!163 = !{!"p2 int", !5, i64 0}
+!164 = !{!"p1 _ZTS8clause_t", !5, i64 0}
+!165 = !{!"p1 _ZTS6veci_t", !5, i64 0}
+!166 = !{!"veci_t", !9, i64 0, !9, i64 4, !23, i64 8}
+!167 = !{!"double", !6, i64 0}
+!168 = !{!"stats_t", !9, i64 0, !9, i64 4, !9, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56, !26, i64 64}
+!169 = !{!"p1 double", !5, i64 0}
+!170 = !{!161, !9, i64 8}
+!171 = !{!163, !163, i64 0}
+!172 = !{!161, !23, i64 344}
+!173 = !{!161, !9, i64 340}
+!174 = !{!175, !9, i64 4}
+!175 = !{!"Vec_Bit_t_", !9, i64 0, !9, i64 4, !23, i64 8}
+!176 = !{!175, !23, i64 8}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTS10Abc_Ntk_t_", !5, i64 0}
+!179 = !{!180, !45, i64 8}
+!180 = !{!"Abc_Ntk_t_", !9, i64 0, !9, i64 4, !45, i64 8, !45, i64 16, !181, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !20, i64 80, !20, i64 88, !6, i64 96, !9, i64 140, !9, i64 144, !9, i64 148, !9, i64 152, !178, i64 160, !9, i64 168, !182, i64 176, !178, i64 184, !9, i64 192, !9, i64 196, !9, i64 200, !167, i64 208, !9, i64 216, !65, i64 224, !183, i64 240, !184, i64 248, !5, i64 256, !185, i64 264, !5, i64 272, !186, i64 280, !9, i64 284, !17, i64 288, !20, i64 296, !23, i64 304, !94, i64 312, !20, i64 320, !178, i64 328, !5, i64 336, !5, i64 344, !178, i64 352, !5, i64 360, !5, i64 368, !17, i64 376, !17, i64 384, !45, i64 392, !187, i64 400, !20, i64 408, !17, i64 416, !17, i64 424, !20, i64 432, !17, i64 440, !17, i64 448, !17, i64 456}
+!181 = !{!"p1 _ZTS9Nm_Man_t_", !5, i64 0}
+!182 = !{!"p1 _ZTS10Abc_Des_t_", !5, i64 0}
+!183 = !{!"p1 _ZTS12Mem_Fixed_t_", !5, i64 0}
+!184 = !{!"p1 _ZTS11Mem_Step_t_", !5, i64 0}
+!185 = !{!"p1 _ZTS14Abc_ManTime_t_", !5, i64 0}
+!186 = !{!"float", !6, i64 0}
+!187 = !{!"p1 float", !5, i64 0}
+!188 = !{!116, !9, i64 4}
+!189 = !{!180, !94, i64 312}
+!190 = !{!180, !20, i64 320}
+!191 = !{!192, !192, i64 0}
+!192 = !{!"p1 _ZTS13__va_list_tag", !5, i64 0}
+!193 = !{!36, !9, i64 0}
+!194 = !{!195, !26, i64 0}
+!195 = !{!"timespec", !26, i64 0, !26, i64 8}
+!196 = !{!195, !26, i64 8}
+!197 = !{!175, !9, i64 0}
+!198 = distinct !{!198, !31}

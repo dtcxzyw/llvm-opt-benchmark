@@ -14,454 +14,481 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Sat_MmFixedStart(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 56) #6
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = call noalias ptr @malloc(i64 noundef 56) #8
+  store ptr %4, ptr %3, align 8, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 56, i1 false)
-  %6 = load i32, ptr %2, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %7, i32 0, i32 0
-  store i32 %6, ptr %8, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %9, i32 0, i32 1
-  store i32 0, ptr %10, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %11, i32 0, i32 2
-  store i32 0, ptr %12, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 4
-  store ptr null, ptr %14, align 8
-  %15 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %7, i32 0, i32 0
+  store i32 %6, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %3, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %9, i32 0, i32 1
+  store i32 0, ptr %10, align 4, !tbaa !14
+  %11 = load ptr, ptr %3, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %11, i32 0, i32 2
+  store i32 0, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %3, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 4
+  store ptr null, ptr %14, align 8, !tbaa !16
+  %15 = load i32, ptr %2, align 4, !tbaa !3
   %16 = mul nsw i32 %15, 1024
   %17 = icmp slt i32 %16, 65536
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %19, i32 0, i32 5
-  store i32 1024, ptr %20, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %19, i32 0, i32 5
+  store i32 1024, ptr %20, align 8, !tbaa !17
   br label %26
 
 21:                                               ; preds = %1
-  %22 = load i32, ptr %2, align 4
+  %22 = load i32, ptr %2, align 4, !tbaa !3
   %23 = sdiv i32 65536, %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %24, i32 0, i32 5
-  store i32 %23, ptr %25, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %24, i32 0, i32 5
+  store i32 %23, ptr %25, align 8, !tbaa !17
   br label %26
 
 26:                                               ; preds = %21, %18
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %27, i32 0, i32 5
-  %29 = load i32, ptr %28, align 8
+  %27 = load ptr, ptr %3, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 8, !tbaa !17
   %30 = icmp slt i32 %29, 8
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %32, i32 0, i32 5
-  store i32 8, ptr %33, align 8
+  %32 = load ptr, ptr %3, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %32, i32 0, i32 5
+  store i32 8, ptr %33, align 8, !tbaa !17
   br label %34
 
 34:                                               ; preds = %31, %26
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %35, i32 0, i32 6
-  store i32 64, ptr %36, align 4
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %37, i32 0, i32 7
-  store i32 0, ptr %38, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %39, i32 0, i32 6
-  %41 = load i32, ptr %40, align 4
+  %35 = load ptr, ptr %3, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %35, i32 0, i32 6
+  store i32 64, ptr %36, align 4, !tbaa !18
+  %37 = load ptr, ptr %3, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %37, i32 0, i32 7
+  store i32 0, ptr %38, align 8, !tbaa !19
+  %39 = load ptr, ptr %3, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %39, i32 0, i32 6
+  %41 = load i32, ptr %40, align 4, !tbaa !18
   %42 = sext i32 %41 to i64
   %43 = mul i64 8, %42
-  %44 = call noalias ptr @malloc(i64 noundef %43) #6
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %45, i32 0, i32 8
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %47, i32 0, i32 9
-  store i32 0, ptr %48, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %49, i32 0, i32 10
-  store i32 0, ptr %50, align 4
-  %51 = load ptr, ptr %3, align 8
+  %44 = call noalias ptr @malloc(i64 noundef %43) #8
+  %45 = load ptr, ptr %3, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %45, i32 0, i32 8
+  store ptr %44, ptr %46, align 8, !tbaa !20
+  %47 = load ptr, ptr %3, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %47, i32 0, i32 9
+  store i32 0, ptr %48, align 8, !tbaa !21
+  %49 = load ptr, ptr %3, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %49, i32 0, i32 10
+  store i32 0, ptr %50, align 4, !tbaa !22
+  %51 = load ptr, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %51
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
+declare noalias ptr @malloc(i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Sat_MmFixedStop(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %2
-  br label %94
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !7
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %40
+  store i32 1, ptr %6, align 4
+  br label %95
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %16, i32 0, i32 5
-  %18 = load i32, ptr %17, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %19, i32 0, i32 7
-  %21 = load i32, ptr %20, align 8
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %15, i32 noundef %18, i32 noundef %21)
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %24, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %26, i32 0, i32 3
-  %28 = load i32, ptr %27, align 4
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %33, align 8
-  %35 = mul nsw i32 %31, %34
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %36, i32 0, i32 10
-  %38 = load i32, ptr %37, align 4
-  %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %25, i32 noundef %28, i32 noundef %35, i32 noundef %38)
-  br label %40
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %41
 
-40:                                               ; preds = %12, %9
-  store i32 0, ptr %5, align 4
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8, !tbaa !10
+  %17 = load ptr, ptr %3, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %17, i32 0, i32 5
+  %19 = load i32, ptr %18, align 8, !tbaa !17
+  %20 = load ptr, ptr %3, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %20, i32 0, i32 7
+  %22 = load i32, ptr %21, align 8, !tbaa !19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %16, i32 noundef %19, i32 noundef %22)
+  %24 = load ptr, ptr %3, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %24, i32 0, i32 2
+  %26 = load i32, ptr %25, align 8, !tbaa !15
+  %27 = load ptr, ptr %3, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 4, !tbaa !23
+  %30 = load ptr, ptr %3, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !10
+  %33 = load ptr, ptr %3, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !15
+  %36 = mul nsw i32 %32, %35
+  %37 = load ptr, ptr %3, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %37, i32 0, i32 10
+  %39 = load i32, ptr %38, align 4, !tbaa !22
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %26, i32 noundef %29, i32 noundef %36, i32 noundef %39)
   br label %41
 
-41:                                               ; preds = %72, %40
-  %42 = load i32, ptr %5, align 4
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %43, i32 0, i32 7
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %42, %45
-  br i1 %46, label %47, label %75
+41:                                               ; preds = %13, %10
+  store i32 0, ptr %5, align 4, !tbaa !3
+  br label %42
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %48, i32 0, i32 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %5, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  br i1 %55, label %56, label %70
+42:                                               ; preds = %73, %41
+  %43 = load i32, ptr %5, align 4, !tbaa !3
+  %44 = load ptr, ptr %3, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %44, i32 0, i32 7
+  %46 = load i32, ptr %45, align 8, !tbaa !19
+  %47 = icmp slt i32 %43, %46
+  br i1 %47, label %48, label %76
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %57, i32 0, i32 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %5, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  call void @free(ptr noundef %63) #7
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %64, i32 0, i32 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
-  store ptr null, ptr %69, align 8
-  br label %71
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %3, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %49, i32 0, i32 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !20
+  %52 = load i32, ptr %5, align 4, !tbaa !3
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !24
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %71
 
-70:                                               ; preds = %47
-  br label %71
-
-71:                                               ; preds = %70, %56
+57:                                               ; preds = %48
+  %58 = load ptr, ptr %3, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %58, i32 0, i32 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !20
+  %61 = load i32, ptr %5, align 4, !tbaa !3
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %64 = load ptr, ptr %63, align 8, !tbaa !24
+  call void @free(ptr noundef %64) #7
+  %65 = load ptr, ptr %3, align 8, !tbaa !7
+  %66 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !20
+  %68 = load i32, ptr %5, align 4, !tbaa !3
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  store ptr null, ptr %70, align 8, !tbaa !24
   br label %72
 
-72:                                               ; preds = %71
-  %73 = load i32, ptr %5, align 4
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %5, align 4
-  br label %41, !llvm.loop !4
+71:                                               ; preds = %48
+  br label %72
 
-75:                                               ; preds = %41
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %76, i32 0, i32 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %86
+72:                                               ; preds = %71, %57
+  br label %73
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %81, i32 0, i32 8
-  %83 = load ptr, ptr %82, align 8
-  call void @free(ptr noundef %83) #7
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %84, i32 0, i32 8
-  store ptr null, ptr %85, align 8
-  br label %87
+73:                                               ; preds = %72
+  %74 = load i32, ptr %5, align 4, !tbaa !3
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %5, align 4, !tbaa !3
+  br label %42, !llvm.loop !25
 
-86:                                               ; preds = %75
-  br label %87
+76:                                               ; preds = %42
+  %77 = load ptr, ptr %3, align 8, !tbaa !7
+  %78 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %77, i32 0, i32 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !20
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %87
 
-87:                                               ; preds = %86, %80
-  %88 = load ptr, ptr %3, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %92
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %3, align 8, !tbaa !7
+  %83 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %82, i32 0, i32 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !20
+  call void @free(ptr noundef %84) #7
+  %85 = load ptr, ptr %3, align 8, !tbaa !7
+  %86 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %85, i32 0, i32 8
+  store ptr null, ptr %86, align 8, !tbaa !20
+  br label %88
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %91) #7
-  store ptr null, ptr %3, align 8
-  br label %93
+87:                                               ; preds = %76
+  br label %88
 
-92:                                               ; preds = %87
-  br label %93
+88:                                               ; preds = %87, %81
+  %89 = load ptr, ptr %3, align 8, !tbaa !7
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %93
 
-93:                                               ; preds = %92, %90
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %3, align 8, !tbaa !7
+  call void @free(ptr noundef %92) #7
+  store ptr null, ptr %3, align 8, !tbaa !7
   br label %94
 
-94:                                               ; preds = %93, %8
+93:                                               ; preds = %88
+  br label %94
+
+94:                                               ; preds = %93, %91
+  store i32 0, ptr %6, align 4
+  br label %95
+
+95:                                               ; preds = %94, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  %96 = load i32, ptr %6, align 4
+  switch i32 %96, label %98 [
+    i32 0, label %97
+    i32 1, label %97
+  ]
+
+97:                                               ; preds = %95, %95
   ret void
+
+98:                                               ; preds = %95
+  unreachable
 }
 
-declare i32 @printf(ptr noundef, ...) #3
+declare i32 @printf(ptr noundef, ...) #4
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @Sat_MmFixedEntryFetch(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %6, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8, !tbaa !15
+  %8 = load ptr, ptr %2, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4, !tbaa !14
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %121
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 7
-  %15 = load i32, ptr %14, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %16, i32 0, i32 6
-  %18 = load i32, ptr %17, align 4
+  %13 = load ptr, ptr %2, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 7
+  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %16 = load ptr, ptr %2, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = icmp eq i32 %15, %18
   br i1 %19, label %20, label %50
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %21, i32 0, i32 6
-  %23 = load i32, ptr %22, align 4
+  %21 = load ptr, ptr %2, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %21, i32 0, i32 6
+  %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = mul nsw i32 %23, 2
-  store i32 %24, ptr %22, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %25, i32 0, i32 8
-  %27 = load ptr, ptr %26, align 8
+  store i32 %24, ptr %22, align 4, !tbaa !18
+  %25 = load ptr, ptr %2, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %25, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %20
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %30, i32 0, i32 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %33, i32 0, i32 6
-  %35 = load i32, ptr %34, align 4
+  %30 = load ptr, ptr %2, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %30, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  %33 = load ptr, ptr %2, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %33, i32 0, i32 6
+  %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = sext i32 %35 to i64
   %37 = mul i64 8, %36
-  %38 = call ptr @realloc(ptr noundef %32, i64 noundef %37) #8
+  %38 = call ptr @realloc(ptr noundef %32, i64 noundef %37) #9
   br label %46
 
 39:                                               ; preds = %20
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %40, i32 0, i32 6
-  %42 = load i32, ptr %41, align 4
+  %40 = load ptr, ptr %2, align 8, !tbaa !7
+  %41 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %40, i32 0, i32 6
+  %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = sext i32 %42 to i64
   %44 = mul i64 8, %43
-  %45 = call noalias ptr @malloc(i64 noundef %44) #6
+  %45 = call noalias ptr @malloc(i64 noundef %44) #8
   br label %46
 
 46:                                               ; preds = %39, %29
   %47 = phi ptr [ %38, %29 ], [ %45, %39 ]
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %48, i32 0, i32 8
-  store ptr %47, ptr %49, align 8
+  %48 = load ptr, ptr %2, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8, !tbaa !20
   br label %50
 
 50:                                               ; preds = %46, %12
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %54, i32 0, i32 5
-  %56 = load i32, ptr %55, align 8
+  %51 = load ptr, ptr %2, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !10
+  %54 = load ptr, ptr %2, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %54, i32 0, i32 5
+  %56 = load i32, ptr %55, align 8, !tbaa !17
   %57 = mul nsw i32 %53, %56
   %58 = sext i32 %57 to i64
   %59 = mul i64 1, %58
-  %60 = call noalias ptr @malloc(i64 noundef %59) #6
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %61, i32 0, i32 4
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %63, i32 0, i32 0
-  %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %66, i32 0, i32 5
-  %68 = load i32, ptr %67, align 8
+  %60 = call noalias ptr @malloc(i64 noundef %59) #8
+  %61 = load ptr, ptr %2, align 8, !tbaa !7
+  %62 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %61, i32 0, i32 4
+  store ptr %60, ptr %62, align 8, !tbaa !16
+  %63 = load ptr, ptr %2, align 8, !tbaa !7
+  %64 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8, !tbaa !10
+  %66 = load ptr, ptr %2, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %66, i32 0, i32 5
+  %68 = load i32, ptr %67, align 8, !tbaa !17
   %69 = mul nsw i32 %65, %68
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %70, i32 0, i32 10
-  %72 = load i32, ptr %71, align 4
+  %70 = load ptr, ptr %2, align 8, !tbaa !7
+  %71 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %70, i32 0, i32 10
+  %72 = load i32, ptr %71, align 4, !tbaa !22
   %73 = add nsw i32 %72, %69
-  store i32 %73, ptr %71, align 4
-  %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %74, i32 0, i32 4
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %3, align 8
-  store i32 1, ptr %4, align 4
+  store i32 %73, ptr %71, align 4, !tbaa !22
+  %74 = load ptr, ptr %2, align 8, !tbaa !7
+  %75 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %74, i32 0, i32 4
+  %76 = load ptr, ptr %75, align 8, !tbaa !16
+  store ptr %76, ptr %3, align 8, !tbaa !24
+  store i32 1, ptr %4, align 4, !tbaa !3
   br label %77
 
 77:                                               ; preds = %97, %50
-  %78 = load i32, ptr %4, align 4
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %79, i32 0, i32 5
-  %81 = load i32, ptr %80, align 8
+  %78 = load i32, ptr %4, align 4, !tbaa !3
+  %79 = load ptr, ptr %2, align 8, !tbaa !7
+  %80 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %79, i32 0, i32 5
+  %81 = load i32, ptr %80, align 8, !tbaa !17
   %82 = icmp slt i32 %78, %81
   br i1 %82, label %83, label %100
 
 83:                                               ; preds = %77
-  %84 = load ptr, ptr %3, align 8
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
+  %84 = load ptr, ptr %3, align 8, !tbaa !24
+  %85 = load ptr, ptr %2, align 8, !tbaa !7
+  %86 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %85, i32 0, i32 0
+  %87 = load i32, ptr %86, align 8, !tbaa !10
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %84, i64 %88
-  %90 = load ptr, ptr %3, align 8
-  store ptr %89, ptr %90, align 8
-  %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %91, i32 0, i32 0
-  %93 = load i32, ptr %92, align 8
-  %94 = load ptr, ptr %3, align 8
+  %90 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %89, ptr %90, align 8, !tbaa !24
+  %91 = load ptr, ptr %2, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8, !tbaa !10
+  %94 = load ptr, ptr %3, align 8, !tbaa !24
   %95 = sext i32 %93 to i64
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  store ptr %96, ptr %3, align 8
+  store ptr %96, ptr %3, align 8, !tbaa !24
   br label %97
 
 97:                                               ; preds = %83
-  %98 = load i32, ptr %4, align 4
+  %98 = load i32, ptr %4, align 4, !tbaa !3
   %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %4, align 4
-  br label %77, !llvm.loop !6
+  store i32 %99, ptr %4, align 4, !tbaa !3
+  br label %77, !llvm.loop !27
 
 100:                                              ; preds = %77
-  %101 = load ptr, ptr %3, align 8
-  store ptr null, ptr %101, align 8
-  %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %102, i32 0, i32 4
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %105, i32 0, i32 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %2, align 8
-  %109 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %108, i32 0, i32 7
-  %110 = load i32, ptr %109, align 8
+  %101 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr null, ptr %101, align 8, !tbaa !24
+  %102 = load ptr, ptr %2, align 8, !tbaa !7
+  %103 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %102, i32 0, i32 4
+  %104 = load ptr, ptr %103, align 8, !tbaa !16
+  %105 = load ptr, ptr %2, align 8, !tbaa !7
+  %106 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %105, i32 0, i32 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !20
+  %108 = load ptr, ptr %2, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %108, i32 0, i32 7
+  %110 = load i32, ptr %109, align 8, !tbaa !19
   %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %109, align 8
+  store i32 %111, ptr %109, align 8, !tbaa !19
   %112 = sext i32 %110 to i64
   %113 = getelementptr inbounds ptr, ptr %107, i64 %112
-  store ptr %104, ptr %113, align 8
-  %114 = load ptr, ptr %2, align 8
-  %115 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %114, i32 0, i32 5
-  %116 = load i32, ptr %115, align 8
-  %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %117, i32 0, i32 1
-  %119 = load i32, ptr %118, align 4
+  store ptr %104, ptr %113, align 8, !tbaa !24
+  %114 = load ptr, ptr %2, align 8, !tbaa !7
+  %115 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %114, i32 0, i32 5
+  %116 = load i32, ptr %115, align 8, !tbaa !17
+  %117 = load ptr, ptr %2, align 8, !tbaa !7
+  %118 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %118, align 4, !tbaa !14
   %120 = add nsw i32 %119, %116
-  store i32 %120, ptr %118, align 4
+  store i32 %120, ptr %118, align 4, !tbaa !14
   br label %121
 
 121:                                              ; preds = %100, %1
-  %122 = load ptr, ptr %2, align 8
-  %123 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 8
+  %122 = load ptr, ptr %2, align 8, !tbaa !7
+  %123 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %122, i32 0, i32 2
+  %124 = load i32, ptr %123, align 8, !tbaa !15
   %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %123, align 8
-  %126 = load ptr, ptr %2, align 8
-  %127 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %126, i32 0, i32 3
-  %128 = load i32, ptr %127, align 4
-  %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %129, i32 0, i32 2
-  %131 = load i32, ptr %130, align 8
+  store i32 %125, ptr %123, align 8, !tbaa !15
+  %126 = load ptr, ptr %2, align 8, !tbaa !7
+  %127 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %126, i32 0, i32 3
+  %128 = load i32, ptr %127, align 4, !tbaa !23
+  %129 = load ptr, ptr %2, align 8, !tbaa !7
+  %130 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8, !tbaa !15
   %132 = icmp slt i32 %128, %131
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %121
-  %134 = load ptr, ptr %2, align 8
-  %135 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %134, i32 0, i32 2
-  %136 = load i32, ptr %135, align 8
-  %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %137, i32 0, i32 3
-  store i32 %136, ptr %138, align 4
+  %134 = load ptr, ptr %2, align 8, !tbaa !7
+  %135 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %134, i32 0, i32 2
+  %136 = load i32, ptr %135, align 8, !tbaa !15
+  %137 = load ptr, ptr %2, align 8, !tbaa !7
+  %138 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %137, i32 0, i32 3
+  store i32 %136, ptr %138, align 4, !tbaa !23
   br label %139
 
 139:                                              ; preds = %133, %121
-  %140 = load ptr, ptr %2, align 8
-  %141 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %140, i32 0, i32 4
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %3, align 8
-  %143 = load ptr, ptr %3, align 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %2, align 8
-  %146 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %145, i32 0, i32 4
-  store ptr %144, ptr %146, align 8
-  %147 = load ptr, ptr %3, align 8
+  %140 = load ptr, ptr %2, align 8, !tbaa !7
+  %141 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %140, i32 0, i32 4
+  %142 = load ptr, ptr %141, align 8, !tbaa !16
+  store ptr %142, ptr %3, align 8, !tbaa !24
+  %143 = load ptr, ptr %3, align 8, !tbaa !24
+  %144 = load ptr, ptr %143, align 8, !tbaa !24
+  %145 = load ptr, ptr %2, align 8, !tbaa !7
+  %146 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %145, i32 0, i32 4
+  store ptr %144, ptr %146, align 8, !tbaa !16
+  %147 = load ptr, ptr %3, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %147
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #5
+declare ptr @realloc(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define void @Sat_MmFixedEntryRecycle(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = add nsw i32 %7, -1
-  store i32 %8, ptr %6, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %9, i32 0, i32 4
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %14, i32 0, i32 4
-  store ptr %13, ptr %15, align 8
+  store i32 %8, ptr %6, align 8, !tbaa !15
+  %9 = load ptr, ptr %3, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %9, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %12 = load ptr, ptr %4, align 8, !tbaa !24
+  store ptr %11, ptr %12, align 8, !tbaa !24
+  %13 = load ptr, ptr %4, align 8, !tbaa !24
+  %14 = load ptr, ptr %3, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %14, i32 0, i32 4
+  store ptr %13, ptr %15, align 8, !tbaa !16
   ret void
 }
 
@@ -470,204 +497,223 @@ define void @Sat_MmFixedRestart(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %5, i32 0, i32 7
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %1
-  br label %103
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %6, i32 0, i32 7
+  %8 = load i32, ptr %7, align 8, !tbaa !19
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  store i32 1, ptr %3, align 4
-  br label %11
+  store i32 1, ptr %5, align 4
+  br label %104
 
-11:                                               ; preds = %42, %10
-  %12 = load i32, ptr %3, align 4
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %13, i32 0, i32 7
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp slt i32 %12, %15
-  br i1 %16, label %17, label %45
+11:                                               ; preds = %1
+  store i32 1, ptr %3, align 4, !tbaa !3
+  br label %12
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %18, i32 0, i32 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %3, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %40
+12:                                               ; preds = %43, %11
+  %13 = load i32, ptr %3, align 4, !tbaa !3
+  %14 = load ptr, ptr %2, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %14, i32 0, i32 7
+  %16 = load i32, ptr %15, align 8, !tbaa !19
+  %17 = icmp slt i32 %13, %16
+  br i1 %17, label %18, label %46
 
-26:                                               ; preds = %17
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %27, i32 0, i32 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %3, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %33) #7
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %34, i32 0, i32 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %3, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  store ptr null, ptr %39, align 8
-  br label %41
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %2, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %19, i32 0, i32 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = load i32, ptr %3, align 4, !tbaa !3
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %41
 
-40:                                               ; preds = %17
-  br label %41
-
-41:                                               ; preds = %40, %26
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %2, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %28, i32 0, i32 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %31 = load i32, ptr %3, align 4, !tbaa !3
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
+  call void @free(ptr noundef %34) #7
+  %35 = load ptr, ptr %2, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %35, i32 0, i32 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
+  %38 = load i32, ptr %3, align 4, !tbaa !3
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
+  store ptr null, ptr %40, align 8, !tbaa !24
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %3, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %3, align 4
-  br label %11, !llvm.loop !7
+41:                                               ; preds = %18
+  br label %42
 
-45:                                               ; preds = %11
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %46, i32 0, i32 7
-  store i32 1, ptr %47, align 8
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %48, i32 0, i32 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 0
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %4, align 8
-  store i32 1, ptr %3, align 4
-  br label %53
+42:                                               ; preds = %41, %27
+  br label %43
 
-53:                                               ; preds = %73, %45
-  %54 = load i32, ptr %3, align 4
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %55, i32 0, i32 5
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp slt i32 %54, %57
-  br i1 %58, label %59, label %76
+43:                                               ; preds = %42
+  %44 = load i32, ptr %3, align 4, !tbaa !3
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %3, align 4, !tbaa !3
+  br label %12, !llvm.loop !28
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %4, align 8
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %60, i64 %64
-  %66 = load ptr, ptr %4, align 8
-  store ptr %65, ptr %66, align 8
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %67, i32 0, i32 0
-  %69 = load i32, ptr %68, align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i8, ptr %70, i64 %71
-  store ptr %72, ptr %4, align 8
-  br label %73
+46:                                               ; preds = %12
+  %47 = load ptr, ptr %2, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %47, i32 0, i32 7
+  store i32 1, ptr %48, align 8, !tbaa !19
+  %49 = load ptr, ptr %2, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %49, i32 0, i32 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !20
+  %52 = getelementptr inbounds ptr, ptr %51, i64 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !24
+  store ptr %53, ptr %4, align 8, !tbaa !24
+  store i32 1, ptr %3, align 4, !tbaa !3
+  br label %54
 
-73:                                               ; preds = %59
-  %74 = load i32, ptr %3, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %3, align 4
-  br label %53, !llvm.loop !8
+54:                                               ; preds = %74, %46
+  %55 = load i32, ptr %3, align 4, !tbaa !3
+  %56 = load ptr, ptr %2, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %56, i32 0, i32 5
+  %58 = load i32, ptr %57, align 8, !tbaa !17
+  %59 = icmp slt i32 %55, %58
+  br i1 %59, label %60, label %77
 
-76:                                               ; preds = %53
-  %77 = load ptr, ptr %4, align 8
-  store ptr null, ptr %77, align 8
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %78, i32 0, i32 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %83, i32 0, i32 4
-  store ptr %82, ptr %84, align 8
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %88, i32 0, i32 5
-  %90 = load i32, ptr %89, align 8
-  %91 = mul nsw i32 %87, %90
-  %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %92, i32 0, i32 10
-  store i32 %91, ptr %93, align 4
-  %94 = load ptr, ptr %2, align 8
-  %95 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %94, i32 0, i32 9
-  store i32 0, ptr %95, align 8
-  %96 = load ptr, ptr %2, align 8
-  %97 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %96, i32 0, i32 5
-  %98 = load i32, ptr %97, align 8
-  %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %99, i32 0, i32 1
-  store i32 %98, ptr %100, align 4
-  %101 = load ptr, ptr %2, align 8
-  %102 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %101, i32 0, i32 2
-  store i32 0, ptr %102, align 8
-  br label %103
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %4, align 8, !tbaa !24
+  %62 = load ptr, ptr %2, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %63, align 8, !tbaa !10
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %61, i64 %65
+  %67 = load ptr, ptr %4, align 8, !tbaa !24
+  store ptr %66, ptr %67, align 8, !tbaa !24
+  %68 = load ptr, ptr %2, align 8, !tbaa !7
+  %69 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %69, align 8, !tbaa !10
+  %71 = load ptr, ptr %4, align 8, !tbaa !24
+  %72 = sext i32 %70 to i64
+  %73 = getelementptr inbounds i8, ptr %71, i64 %72
+  store ptr %73, ptr %4, align 8, !tbaa !24
+  br label %74
 
-103:                                              ; preds = %76, %9
+74:                                               ; preds = %60
+  %75 = load i32, ptr %3, align 4, !tbaa !3
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %3, align 4, !tbaa !3
+  br label %54, !llvm.loop !29
+
+77:                                               ; preds = %54
+  %78 = load ptr, ptr %4, align 8, !tbaa !24
+  store ptr null, ptr %78, align 8, !tbaa !24
+  %79 = load ptr, ptr %2, align 8, !tbaa !7
+  %80 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !20
+  %82 = getelementptr inbounds ptr, ptr %81, i64 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !24
+  %84 = load ptr, ptr %2, align 8, !tbaa !7
+  %85 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %84, i32 0, i32 4
+  store ptr %83, ptr %85, align 8, !tbaa !16
+  %86 = load ptr, ptr %2, align 8, !tbaa !7
+  %87 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 8, !tbaa !10
+  %89 = load ptr, ptr %2, align 8, !tbaa !7
+  %90 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %89, i32 0, i32 5
+  %91 = load i32, ptr %90, align 8, !tbaa !17
+  %92 = mul nsw i32 %88, %91
+  %93 = load ptr, ptr %2, align 8, !tbaa !7
+  %94 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %93, i32 0, i32 10
+  store i32 %92, ptr %94, align 4, !tbaa !22
+  %95 = load ptr, ptr %2, align 8, !tbaa !7
+  %96 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %95, i32 0, i32 9
+  store i32 0, ptr %96, align 8, !tbaa !21
+  %97 = load ptr, ptr %2, align 8, !tbaa !7
+  %98 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %97, i32 0, i32 5
+  %99 = load i32, ptr %98, align 8, !tbaa !17
+  %100 = load ptr, ptr %2, align 8, !tbaa !7
+  %101 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %100, i32 0, i32 1
+  store i32 %99, ptr %101, align 4, !tbaa !14
+  %102 = load ptr, ptr %2, align 8, !tbaa !7
+  %103 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %102, i32 0, i32 2
+  store i32 0, ptr %103, align 8, !tbaa !15
+  store i32 0, ptr %5, align 4
+  br label %104
+
+104:                                              ; preds = %77, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  %105 = load i32, ptr %5, align 4
+  switch i32 %105, label %107 [
+    i32 0, label %106
+    i32 1, label %106
+  ]
+
+106:                                              ; preds = %104, %104
   ret void
+
+107:                                              ; preds = %104
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @Sat_MmFixedReadMemUsage(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %3, i32 0, i32 10
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %3, i32 0, i32 10
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @Sat_MmFlexStart() #0 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @malloc(i64 noundef 56) #6
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %2 = call noalias ptr @malloc(i64 noundef 56) #8
+  store ptr %2, ptr %1, align 8, !tbaa !30
+  %3 = load ptr, ptr %1, align 8, !tbaa !30
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 56, i1 false)
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %4, i32 0, i32 0
-  store i32 0, ptr %5, align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %6, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %8, i32 0, i32 2
-  store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %10, i32 0, i32 3
-  store i32 65536, ptr %11, align 8
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %12, i32 0, i32 4
-  store i32 64, ptr %13, align 4
-  %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %14, i32 0, i32 5
-  store i32 0, ptr %15, align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %16, i32 0, i32 4
-  %18 = load i32, ptr %17, align 4
+  %4 = load ptr, ptr %1, align 8, !tbaa !30
+  %5 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %4, i32 0, i32 0
+  store i32 0, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %1, align 8, !tbaa !30
+  %7 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %6, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %8, i32 0, i32 2
+  store ptr null, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %1, align 8, !tbaa !30
+  %11 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %10, i32 0, i32 3
+  store i32 65536, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %1, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %12, i32 0, i32 4
+  store i32 64, ptr %13, align 4, !tbaa !37
+  %14 = load ptr, ptr %1, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %14, i32 0, i32 5
+  store i32 0, ptr %15, align 8, !tbaa !38
+  %16 = load ptr, ptr %1, align 8, !tbaa !30
+  %17 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %16, i32 0, i32 4
+  %18 = load i32, ptr %17, align 4, !tbaa !37
   %19 = sext i32 %18 to i64
   %20 = mul i64 8, %19
-  %21 = call noalias ptr @malloc(i64 noundef %20) #6
-  %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %22, i32 0, i32 6
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %24, i32 0, i32 7
-  store i32 0, ptr %25, align 8
-  %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %26, i32 0, i32 8
-  store i32 0, ptr %27, align 4
-  %28 = load ptr, ptr %1, align 8
+  %21 = call noalias ptr @malloc(i64 noundef %20) #8
+  %22 = load ptr, ptr %1, align 8, !tbaa !30
+  %23 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %22, i32 0, i32 6
+  store ptr %21, ptr %23, align 8, !tbaa !39
+  %24 = load ptr, ptr %1, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %24, i32 0, i32 7
+  store i32 0, ptr %25, align 8, !tbaa !40
+  %26 = load ptr, ptr %1, align 8, !tbaa !30
+  %27 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %26, i32 0, i32 8
+  store i32 0, ptr %27, align 4, !tbaa !41
+  %28 = load ptr, ptr %1, align 8, !tbaa !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret ptr %28
 }
 
@@ -676,132 +722,147 @@ define void @Sat_MmFlexStop(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %2
-  br label %84
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !30
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %30
+  store i32 1, ptr %6, align 4
+  br label %85
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %13, i32 0, i32 3
-  %15 = load i32, ptr %14, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %16, i32 0, i32 5
-  %18 = load i32, ptr %17, align 8
-  %19 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %15, i32 noundef %18)
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %23, i32 0, i32 7
-  %25 = load i32, ptr %24, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %26, i32 0, i32 8
-  %28 = load i32, ptr %27, align 4
-  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %22, i32 noundef %25, i32 noundef %28)
-  br label %30
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %31
 
-30:                                               ; preds = %12, %9
-  store i32 0, ptr %5, align 4
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %15, align 8, !tbaa !36
+  %17 = load ptr, ptr %3, align 8, !tbaa !30
+  %18 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %17, i32 0, i32 5
+  %19 = load i32, ptr %18, align 8, !tbaa !38
+  %20 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %16, i32 noundef %19)
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !32
+  %24 = load ptr, ptr %3, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %24, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8, !tbaa !40
+  %27 = load ptr, ptr %3, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %27, i32 0, i32 8
+  %29 = load i32, ptr %28, align 4, !tbaa !41
+  %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %23, i32 noundef %26, i32 noundef %29)
   br label %31
 
-31:                                               ; preds = %62, %30
-  %32 = load i32, ptr %5, align 4
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %33, i32 0, i32 5
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp slt i32 %32, %35
-  br i1 %36, label %37, label %65
+31:                                               ; preds = %13, %10
+  store i32 0, ptr %5, align 4, !tbaa !3
+  br label %32
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %38, i32 0, i32 6
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %5, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %60
+32:                                               ; preds = %63, %31
+  %33 = load i32, ptr %5, align 4, !tbaa !3
+  %34 = load ptr, ptr %3, align 8, !tbaa !30
+  %35 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %34, i32 0, i32 5
+  %36 = load i32, ptr %35, align 8, !tbaa !38
+  %37 = icmp slt i32 %33, %36
+  br i1 %37, label %38, label %66
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %47, i32 0, i32 6
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i32, ptr %5, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  call void @free(ptr noundef %53) #7
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %54, i32 0, i32 6
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %5, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
-  store ptr null, ptr %59, align 8
-  br label %61
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %3, align 8, !tbaa !30
+  %40 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8, !tbaa !39
+  %42 = load i32, ptr %5, align 4, !tbaa !3
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !24
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %61
 
-60:                                               ; preds = %37
-  br label %61
-
-61:                                               ; preds = %60, %46
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %3, align 8, !tbaa !30
+  %49 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %48, i32 0, i32 6
+  %50 = load ptr, ptr %49, align 8, !tbaa !39
+  %51 = load i32, ptr %5, align 4, !tbaa !3
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  call void @free(ptr noundef %54) #7
+  %55 = load ptr, ptr %3, align 8, !tbaa !30
+  %56 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %55, i32 0, i32 6
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
+  %58 = load i32, ptr %5, align 4, !tbaa !3
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  store ptr null, ptr %60, align 8, !tbaa !24
   br label %62
 
-62:                                               ; preds = %61
-  %63 = load i32, ptr %5, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %5, align 4
-  br label %31, !llvm.loop !9
+61:                                               ; preds = %38
+  br label %62
 
-65:                                               ; preds = %31
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %66, i32 0, i32 6
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %70, label %76
+62:                                               ; preds = %61, %47
+  br label %63
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %71, i32 0, i32 6
-  %73 = load ptr, ptr %72, align 8
-  call void @free(ptr noundef %73) #7
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %74, i32 0, i32 6
-  store ptr null, ptr %75, align 8
-  br label %77
+63:                                               ; preds = %62
+  %64 = load i32, ptr %5, align 4, !tbaa !3
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %5, align 4, !tbaa !3
+  br label %32, !llvm.loop !42
 
-76:                                               ; preds = %65
-  br label %77
+66:                                               ; preds = %32
+  %67 = load ptr, ptr %3, align 8, !tbaa !30
+  %68 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %67, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8, !tbaa !39
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %77
 
-77:                                               ; preds = %76, %70
-  %78 = load ptr, ptr %3, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %82
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %3, align 8, !tbaa !30
+  %73 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %72, i32 0, i32 6
+  %74 = load ptr, ptr %73, align 8, !tbaa !39
+  call void @free(ptr noundef %74) #7
+  %75 = load ptr, ptr %3, align 8, !tbaa !30
+  %76 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %75, i32 0, i32 6
+  store ptr null, ptr %76, align 8, !tbaa !39
+  br label %78
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %81) #7
-  store ptr null, ptr %3, align 8
-  br label %83
+77:                                               ; preds = %66
+  br label %78
 
-82:                                               ; preds = %77
-  br label %83
+78:                                               ; preds = %77, %71
+  %79 = load ptr, ptr %3, align 8, !tbaa !30
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %83
 
-83:                                               ; preds = %82, %80
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %3, align 8, !tbaa !30
+  call void @free(ptr noundef %82) #7
+  store ptr null, ptr %3, align 8, !tbaa !30
   br label %84
 
-84:                                               ; preds = %83, %8
+83:                                               ; preds = %78
+  br label %84
+
+84:                                               ; preds = %83, %81
+  store i32 0, ptr %6, align 4
+  br label %85
+
+85:                                               ; preds = %84, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  %86 = load i32, ptr %6, align 4
+  switch i32 %86, label %88 [
+    i32 0, label %87
+    i32 1, label %87
+  ]
+
+87:                                               ; preds = %85, %85
   ret void
+
+88:                                               ; preds = %85
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -809,172 +870,174 @@ define ptr @Sat_MmFlexEntryFetch(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !30
+  %7 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = icmp eq ptr %8, null
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %4, align 4
+  %11 = load ptr, ptr %3, align 8, !tbaa !30
+  %12 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %14 = load i32, ptr %4, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !30
+  %18 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = icmp ugt ptr %16, %19
   br i1 %20, label %21, label %108
 
 21:                                               ; preds = %10, %2
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %22, i32 0, i32 5
-  %24 = load i32, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %25, i32 0, i32 4
-  %27 = load i32, ptr %26, align 4
+  %22 = load ptr, ptr %3, align 8, !tbaa !30
+  %23 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %22, i32 0, i32 5
+  %24 = load i32, ptr %23, align 8, !tbaa !38
+  %25 = load ptr, ptr %3, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 4, !tbaa !37
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %29, label %59
 
 29:                                               ; preds = %21
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %30, i32 0, i32 4
-  %32 = load i32, ptr %31, align 4
+  %30 = load ptr, ptr %3, align 8, !tbaa !30
+  %31 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %30, i32 0, i32 4
+  %32 = load i32, ptr %31, align 4, !tbaa !37
   %33 = mul nsw i32 %32, 2
-  store i32 %33, ptr %31, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %34, i32 0, i32 6
-  %36 = load ptr, ptr %35, align 8
+  store i32 %33, ptr %31, align 4, !tbaa !37
+  %34 = load ptr, ptr %3, align 8, !tbaa !30
+  %35 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %34, i32 0, i32 6
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %29
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %39, i32 0, i32 6
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %42, i32 0, i32 4
-  %44 = load i32, ptr %43, align 4
+  %39 = load ptr, ptr %3, align 8, !tbaa !30
+  %40 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8, !tbaa !39
+  %42 = load ptr, ptr %3, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %42, i32 0, i32 4
+  %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = sext i32 %44 to i64
   %46 = mul i64 8, %45
-  %47 = call ptr @realloc(ptr noundef %41, i64 noundef %46) #8
+  %47 = call ptr @realloc(ptr noundef %41, i64 noundef %46) #9
   br label %55
 
 48:                                               ; preds = %29
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %49, i32 0, i32 4
-  %51 = load i32, ptr %50, align 4
+  %49 = load ptr, ptr %3, align 8, !tbaa !30
+  %50 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %49, i32 0, i32 4
+  %51 = load i32, ptr %50, align 4, !tbaa !37
   %52 = sext i32 %51 to i64
   %53 = mul i64 8, %52
-  %54 = call noalias ptr @malloc(i64 noundef %53) #6
+  %54 = call noalias ptr @malloc(i64 noundef %53) #8
   br label %55
 
 55:                                               ; preds = %48, %38
   %56 = phi ptr [ %47, %38 ], [ %54, %48 ]
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %57, i32 0, i32 6
-  store ptr %56, ptr %58, align 8
+  %57 = load ptr, ptr %3, align 8, !tbaa !30
+  %58 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %57, i32 0, i32 6
+  store ptr %56, ptr %58, align 8, !tbaa !39
   br label %59
 
 59:                                               ; preds = %55, %21
-  %60 = load i32, ptr %4, align 4
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %61, i32 0, i32 3
-  %63 = load i32, ptr %62, align 8
+  %60 = load i32, ptr %4, align 4, !tbaa !3
+  %61 = load ptr, ptr %3, align 8, !tbaa !30
+  %62 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %61, i32 0, i32 3
+  %63 = load i32, ptr %62, align 8, !tbaa !36
   %64 = icmp sgt i32 %60, %63
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %59
-  %66 = load i32, ptr %4, align 4
+  %66 = load i32, ptr %4, align 4, !tbaa !3
   %67 = mul nsw i32 2, %66
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %68, i32 0, i32 3
-  store i32 %67, ptr %69, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !30
+  %69 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %68, i32 0, i32 3
+  store i32 %67, ptr %69, align 8, !tbaa !36
   br label %70
 
 70:                                               ; preds = %65, %59
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %71, i32 0, i32 3
-  %73 = load i32, ptr %72, align 8
+  %71 = load ptr, ptr %3, align 8, !tbaa !30
+  %72 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 8, !tbaa !36
   %74 = sext i32 %73 to i64
   %75 = mul i64 1, %74
-  %76 = call noalias ptr @malloc(i64 noundef %75) #6
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %77, i32 0, i32 1
-  store ptr %76, ptr %78, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %82, i32 0, i32 3
-  %84 = load i32, ptr %83, align 8
+  %76 = call noalias ptr @malloc(i64 noundef %75) #8
+  %77 = load ptr, ptr %3, align 8, !tbaa !30
+  %78 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %77, i32 0, i32 1
+  store ptr %76, ptr %78, align 8, !tbaa !34
+  %79 = load ptr, ptr %3, align 8, !tbaa !30
+  %80 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %79, i32 0, i32 1
+  %81 = load ptr, ptr %80, align 8, !tbaa !34
+  %82 = load ptr, ptr %3, align 8, !tbaa !30
+  %83 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 8, !tbaa !36
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %81, i64 %85
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %87, i32 0, i32 2
-  store ptr %86, ptr %88, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %89, i32 0, i32 3
-  %91 = load i32, ptr %90, align 8
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %92, i32 0, i32 8
-  %94 = load i32, ptr %93, align 4
+  %87 = load ptr, ptr %3, align 8, !tbaa !30
+  %88 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %87, i32 0, i32 2
+  store ptr %86, ptr %88, align 8, !tbaa !35
+  %89 = load ptr, ptr %3, align 8, !tbaa !30
+  %90 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %89, i32 0, i32 3
+  %91 = load i32, ptr %90, align 8, !tbaa !36
+  %92 = load ptr, ptr %3, align 8, !tbaa !30
+  %93 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %92, i32 0, i32 8
+  %94 = load i32, ptr %93, align 4, !tbaa !41
   %95 = add nsw i32 %94, %91
-  store i32 %95, ptr %93, align 4
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %99, i32 0, i32 6
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %102, i32 0, i32 5
-  %104 = load i32, ptr %103, align 8
+  store i32 %95, ptr %93, align 4, !tbaa !41
+  %96 = load ptr, ptr %3, align 8, !tbaa !30
+  %97 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !34
+  %99 = load ptr, ptr %3, align 8, !tbaa !30
+  %100 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %99, i32 0, i32 6
+  %101 = load ptr, ptr %100, align 8, !tbaa !39
+  %102 = load ptr, ptr %3, align 8, !tbaa !30
+  %103 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %102, i32 0, i32 5
+  %104 = load i32, ptr %103, align 8, !tbaa !38
   %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %103, align 8
+  store i32 %105, ptr %103, align 8, !tbaa !38
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds ptr, ptr %101, i64 %106
-  store ptr %98, ptr %107, align 8
+  store ptr %98, ptr %107, align 8, !tbaa !24
   br label %108
 
 108:                                              ; preds = %70, %10
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %109, i32 0, i32 0
-  %111 = load i32, ptr %110, align 8
+  %109 = load ptr, ptr %3, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %109, i32 0, i32 0
+  %111 = load i32, ptr %110, align 8, !tbaa !32
   %112 = add nsw i32 %111, 1
-  store i32 %112, ptr %110, align 8
-  %113 = load i32, ptr %4, align 4
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %114, i32 0, i32 7
-  %116 = load i32, ptr %115, align 8
+  store i32 %112, ptr %110, align 8, !tbaa !32
+  %113 = load i32, ptr %4, align 4, !tbaa !3
+  %114 = load ptr, ptr %3, align 8, !tbaa !30
+  %115 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %114, i32 0, i32 7
+  %116 = load i32, ptr %115, align 8, !tbaa !40
   %117 = add nsw i32 %116, %113
-  store i32 %117, ptr %115, align 8
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %118, i32 0, i32 1
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %5, align 8
-  %121 = load i32, ptr %4, align 4
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
+  store i32 %117, ptr %115, align 8, !tbaa !40
+  %118 = load ptr, ptr %3, align 8, !tbaa !30
+  %119 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8, !tbaa !34
+  store ptr %120, ptr %5, align 8, !tbaa !24
+  %121 = load i32, ptr %4, align 4, !tbaa !3
+  %122 = load ptr, ptr %3, align 8, !tbaa !30
+  %123 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %122, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8, !tbaa !34
   %125 = sext i32 %121 to i64
   %126 = getelementptr inbounds i8, ptr %124, i64 %125
-  store ptr %126, ptr %123, align 8
-  %127 = load ptr, ptr %5, align 8
+  store ptr %126, ptr %123, align 8, !tbaa !34
+  %127 = load ptr, ptr %5, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %127
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @Sat_MmFlexReadMemUsage(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Sat_MmFlex_t_, ptr %3, i32 0, i32 8
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds nuw %struct.Sat_MmFlex_t_, ptr %3, i32 0, i32 8
+  %5 = load i32, ptr %4, align 4, !tbaa !41
   ret i32 %5
 }
 
@@ -984,179 +1047,185 @@ define ptr @Sat_MmStepStart(i32 noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %6 = call noalias ptr @malloc(i64 noundef 48) #6
-  store ptr %6, ptr %3, align 8
-  %7 = load i32, ptr %2, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %8, i32 0, i32 0
-  store i32 %7, ptr %9, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %11, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = call noalias ptr @malloc(i64 noundef 48) #8
+  store ptr %6, ptr %3, align 8, !tbaa !43
+  %7 = load i32, ptr %2, align 4, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !43
+  %9 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %8, i32 0, i32 0
+  store i32 %7, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %3, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !45
   %13 = sext i32 %12 to i64
   %14 = mul i64 8, %13
-  %15 = call noalias ptr @malloc(i64 noundef %14) #6
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 1
-  store ptr %15, ptr %17, align 8
-  store i32 0, ptr %4, align 4
+  %15 = call noalias ptr @malloc(i64 noundef %14) #8
+  %16 = load ptr, ptr %3, align 8, !tbaa !43
+  %17 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 1
+  store ptr %15, ptr %17, align 8, !tbaa !48
+  store i32 0, ptr %4, align 4, !tbaa !3
   br label %18
 
 18:                                               ; preds = %34, %1
-  %19 = load i32, ptr %4, align 4
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
+  %19 = load i32, ptr %4, align 4, !tbaa !3
+  %20 = load ptr, ptr %3, align 8, !tbaa !43
+  %21 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !45
   %23 = icmp slt i32 %19, %22
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %18
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !3
   %26 = shl i32 8, %25
   %27 = call ptr @Sat_MmFixedStart(i32 noundef %26)
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %4, align 4
+  %28 = load ptr, ptr %3, align 8, !tbaa !43
+  %29 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %31 = load i32, ptr %4, align 4, !tbaa !3
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %30, i64 %32
-  store ptr %27, ptr %33, align 8
+  store ptr %27, ptr %33, align 8, !tbaa !7
   br label %34
 
 34:                                               ; preds = %24
-  %35 = load i32, ptr %4, align 4
+  %35 = load i32, ptr %4, align 4, !tbaa !3
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %4, align 4
-  br label %18, !llvm.loop !10
+  store i32 %36, ptr %4, align 4, !tbaa !3
+  br label %18, !llvm.loop !49
 
 37:                                               ; preds = %18
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
+  %38 = load ptr, ptr %3, align 8, !tbaa !43
+  %39 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8, !tbaa !45
   %41 = shl i32 4, %40
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %42, i32 0, i32 2
-  store i32 %41, ptr %43, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %45, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !43
+  %43 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %42, i32 0, i32 2
+  store i32 %41, ptr %43, align 8, !tbaa !50
+  %44 = load ptr, ptr %3, align 8, !tbaa !43
+  %45 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %44, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8, !tbaa !50
   %47 = add nsw i32 %46, 1
   %48 = sext i32 %47 to i64
   %49 = mul i64 8, %48
-  %50 = call noalias ptr @malloc(i64 noundef %49) #6
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 3
-  store ptr %50, ptr %52, align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %53, i32 0, i32 3
-  %55 = load ptr, ptr %54, align 8
+  %50 = call noalias ptr @malloc(i64 noundef %49) #8
+  %51 = load ptr, ptr %3, align 8, !tbaa !43
+  %52 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 3
+  store ptr %50, ptr %52, align 8, !tbaa !51
+  %53 = load ptr, ptr %3, align 8, !tbaa !43
+  %54 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !51
   %56 = getelementptr inbounds ptr, ptr %55, i64 0
-  store ptr null, ptr %56, align 8
-  store i32 1, ptr %5, align 4
+  store ptr null, ptr %56, align 8, !tbaa !7
+  store i32 1, ptr %5, align 4, !tbaa !3
   br label %57
 
 57:                                               ; preds = %72, %37
-  %58 = load i32, ptr %5, align 4
+  %58 = load i32, ptr %5, align 4, !tbaa !3
   %59 = icmp sle i32 %58, 4
   br i1 %59, label %60, label %75
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
+  %61 = load ptr, ptr %3, align 8, !tbaa !43
+  %62 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !48
   %64 = getelementptr inbounds ptr, ptr %63, i64 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %5, align 4
+  %65 = load ptr, ptr %64, align 8, !tbaa !7
+  %66 = load ptr, ptr %3, align 8, !tbaa !43
+  %67 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8, !tbaa !51
+  %69 = load i32, ptr %5, align 4, !tbaa !3
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %68, i64 %70
-  store ptr %65, ptr %71, align 8
+  store ptr %65, ptr %71, align 8, !tbaa !7
   br label %72
 
 72:                                               ; preds = %60
-  %73 = load i32, ptr %5, align 4
+  %73 = load i32, ptr %5, align 4, !tbaa !3
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %5, align 4
-  br label %57, !llvm.loop !11
+  store i32 %74, ptr %5, align 4, !tbaa !3
+  br label %57, !llvm.loop !52
 
 75:                                               ; preds = %57
-  store i32 0, ptr %4, align 4
+  store i32 0, ptr %4, align 4, !tbaa !3
   br label %76
 
 76:                                               ; preds = %109, %75
-  %77 = load i32, ptr %4, align 4
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 0
-  %80 = load i32, ptr %79, align 8
+  %77 = load i32, ptr %4, align 4, !tbaa !3
+  %78 = load ptr, ptr %3, align 8, !tbaa !43
+  %79 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 0
+  %80 = load i32, ptr %79, align 8, !tbaa !45
   %81 = icmp slt i32 %77, %80
   br i1 %81, label %82, label %112
 
 82:                                               ; preds = %76
-  %83 = load i32, ptr %4, align 4
+  %83 = load i32, ptr %4, align 4, !tbaa !3
   %84 = shl i32 4, %83
   %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %5, align 4
+  store i32 %85, ptr %5, align 4, !tbaa !3
   br label %86
 
 86:                                               ; preds = %105, %82
-  %87 = load i32, ptr %5, align 4
-  %88 = load i32, ptr %4, align 4
+  %87 = load i32, ptr %5, align 4, !tbaa !3
+  %88 = load i32, ptr %4, align 4, !tbaa !3
   %89 = shl i32 8, %88
   %90 = icmp sle i32 %87, %89
   br i1 %90, label %91, label %108
 
 91:                                               ; preds = %86
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %92, i32 0, i32 1
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %4, align 4
+  %92 = load ptr, ptr %3, align 8, !tbaa !43
+  %93 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !48
+  %95 = load i32, ptr %4, align 4, !tbaa !3
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds ptr, ptr %94, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %99, i32 0, i32 3
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr %5, align 4
+  %98 = load ptr, ptr %97, align 8, !tbaa !7
+  %99 = load ptr, ptr %3, align 8, !tbaa !43
+  %100 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %99, i32 0, i32 3
+  %101 = load ptr, ptr %100, align 8, !tbaa !51
+  %102 = load i32, ptr %5, align 4, !tbaa !3
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds ptr, ptr %101, i64 %103
-  store ptr %98, ptr %104, align 8
+  store ptr %98, ptr %104, align 8, !tbaa !7
   br label %105
 
 105:                                              ; preds = %91
-  %106 = load i32, ptr %5, align 4
+  %106 = load i32, ptr %5, align 4, !tbaa !3
   %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %5, align 4
-  br label %86, !llvm.loop !12
+  store i32 %107, ptr %5, align 4, !tbaa !3
+  br label %86, !llvm.loop !53
 
 108:                                              ; preds = %86
   br label %109
 
 109:                                              ; preds = %108
-  %110 = load i32, ptr %4, align 4
+  %110 = load i32, ptr %4, align 4, !tbaa !3
   %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %4, align 4
-  br label %76, !llvm.loop !13
+  store i32 %111, ptr %4, align 4, !tbaa !3
+  br label %76, !llvm.loop !54
 
 112:                                              ; preds = %76
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %113, i32 0, i32 4
-  store i32 64, ptr %114, align 8
-  %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %115, i32 0, i32 5
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %117, i32 0, i32 4
-  %119 = load i32, ptr %118, align 8
+  %113 = load ptr, ptr %3, align 8, !tbaa !43
+  %114 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %113, i32 0, i32 4
+  store i32 64, ptr %114, align 8, !tbaa !55
+  %115 = load ptr, ptr %3, align 8, !tbaa !43
+  %116 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %115, i32 0, i32 5
+  store i32 0, ptr %116, align 4, !tbaa !56
+  %117 = load ptr, ptr %3, align 8, !tbaa !43
+  %118 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %117, i32 0, i32 4
+  %119 = load i32, ptr %118, align 8, !tbaa !55
   %120 = sext i32 %119 to i64
   %121 = mul i64 8, %120
-  %122 = call noalias ptr @malloc(i64 noundef %121) #6
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %123, i32 0, i32 6
-  store ptr %122, ptr %124, align 8
-  %125 = load ptr, ptr %3, align 8
+  %122 = call noalias ptr @malloc(i64 noundef %121) #8
+  %123 = load ptr, ptr %3, align 8, !tbaa !43
+  %124 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %123, i32 0, i32 6
+  store ptr %122, ptr %124, align 8, !tbaa !57
+  %125 = load ptr, ptr %3, align 8, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %125
 }
 
@@ -1165,53 +1234,54 @@ define void @Sat_MmStepStop(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %6, i32 0, i32 4
-  %8 = load i32, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !43
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !43
+  %7 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %6, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp ne i32 %8, 0
   br i1 %9, label %10, label %58
 
 10:                                               ; preds = %2
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !3
   br label %11
 
 11:                                               ; preds = %42, %10
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %13, i32 0, i32 5
-  %15 = load i32, ptr %14, align 4
+  %12 = load i32, ptr %5, align 4, !tbaa !3
+  %13 = load ptr, ptr %3, align 8, !tbaa !43
+  %14 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %13, i32 0, i32 5
+  %15 = load i32, ptr %14, align 4, !tbaa !56
   %16 = icmp slt i32 %12, %15
   br i1 %16, label %17, label %45
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %18, i32 0, i32 6
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %5, align 4
+  %18 = load ptr, ptr %3, align 8, !tbaa !43
+  %19 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %21 = load i32, ptr %5, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
   %25 = icmp ne ptr %24, null
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %17
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %27, i32 0, i32 6
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %5, align 4
+  %27 = load ptr, ptr %3, align 8, !tbaa !43
+  %28 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %27, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
+  %30 = load i32, ptr %5, align 4, !tbaa !3
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
   call void @free(ptr noundef %33) #7
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %34, i32 0, i32 6
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %5, align 4
+  %34 = load ptr, ptr %3, align 8, !tbaa !43
+  %35 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %34, i32 0, i32 6
+  %36 = load ptr, ptr %35, align 8, !tbaa !57
+  %37 = load i32, ptr %5, align 4, !tbaa !3
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  store ptr null, ptr %39, align 8
+  store ptr null, ptr %39, align 8, !tbaa !24
   br label %41
 
 40:                                               ; preds = %17
@@ -1221,26 +1291,26 @@ define void @Sat_MmStepStop(ptr noundef %0, i32 noundef %1) #0 {
   br label %42
 
 42:                                               ; preds = %41
-  %43 = load i32, ptr %5, align 4
+  %43 = load i32, ptr %5, align 4, !tbaa !3
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %5, align 4
-  br label %11, !llvm.loop !14
+  store i32 %44, ptr %5, align 4, !tbaa !3
+  br label %11, !llvm.loop !58
 
 45:                                               ; preds = %11
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %46, i32 0, i32 6
-  %48 = load ptr, ptr %47, align 8
+  %46 = load ptr, ptr %3, align 8, !tbaa !43
+  %47 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %46, i32 0, i32 6
+  %48 = load ptr, ptr %47, align 8, !tbaa !57
   %49 = icmp ne ptr %48, null
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 6
-  %53 = load ptr, ptr %52, align 8
+  %51 = load ptr, ptr %3, align 8, !tbaa !43
+  %52 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8, !tbaa !57
   call void @free(ptr noundef %53) #7
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %54, i32 0, i32 6
-  store ptr null, ptr %55, align 8
+  %54 = load ptr, ptr %3, align 8, !tbaa !43
+  %55 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %54, i32 0, i32 6
+  store ptr null, ptr %55, align 8, !tbaa !57
   br label %57
 
 56:                                               ; preds = %45
@@ -1250,90 +1320,91 @@ define void @Sat_MmStepStop(ptr noundef %0, i32 noundef %1) #0 {
   br label %58
 
 58:                                               ; preds = %57, %2
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !3
   br label %59
 
 59:                                               ; preds = %74, %58
-  %60 = load i32, ptr %5, align 4
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
+  %60 = load i32, ptr %5, align 4, !tbaa !3
+  %61 = load ptr, ptr %3, align 8, !tbaa !43
+  %62 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 8, !tbaa !45
   %64 = icmp slt i32 %60, %63
   br i1 %64, label %65, label %77
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %5, align 4
+  %66 = load ptr, ptr %3, align 8, !tbaa !43
+  %67 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !48
+  %69 = load i32, ptr %5, align 4, !tbaa !3
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %68, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = load i32, ptr %4, align 4
+  %72 = load ptr, ptr %71, align 8, !tbaa !7
+  %73 = load i32, ptr %4, align 4, !tbaa !3
   call void @Sat_MmFixedStop(ptr noundef %72, i32 noundef %73)
   br label %74
 
 74:                                               ; preds = %65
-  %75 = load i32, ptr %5, align 4
+  %75 = load i32, ptr %5, align 4, !tbaa !3
   %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %5, align 4
-  br label %59, !llvm.loop !15
+  store i32 %76, ptr %5, align 4, !tbaa !3
+  br label %59, !llvm.loop !59
 
 77:                                               ; preds = %59
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
+  %78 = load ptr, ptr %3, align 8, !tbaa !43
+  %79 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !48
   %81 = icmp ne ptr %80, null
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %77
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
+  %83 = load ptr, ptr %3, align 8, !tbaa !43
+  %84 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8, !tbaa !48
   call void @free(ptr noundef %85) #7
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %86, i32 0, i32 1
-  store ptr null, ptr %87, align 8
+  %86 = load ptr, ptr %3, align 8, !tbaa !43
+  %87 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %86, i32 0, i32 1
+  store ptr null, ptr %87, align 8, !tbaa !48
   br label %89
 
 88:                                               ; preds = %77
   br label %89
 
 89:                                               ; preds = %88, %82
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %90, i32 0, i32 3
-  %92 = load ptr, ptr %91, align 8
+  %90 = load ptr, ptr %3, align 8, !tbaa !43
+  %91 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %90, i32 0, i32 3
+  %92 = load ptr, ptr %91, align 8, !tbaa !51
   %93 = icmp ne ptr %92, null
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
+  %95 = load ptr, ptr %3, align 8, !tbaa !43
+  %96 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %95, i32 0, i32 3
+  %97 = load ptr, ptr %96, align 8, !tbaa !51
   call void @free(ptr noundef %97) #7
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %98, i32 0, i32 3
-  store ptr null, ptr %99, align 8
+  %98 = load ptr, ptr %3, align 8, !tbaa !43
+  %99 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %98, i32 0, i32 3
+  store ptr null, ptr %99, align 8, !tbaa !51
   br label %101
 
 100:                                              ; preds = %89
   br label %101
 
 101:                                              ; preds = %100, %94
-  %102 = load ptr, ptr %3, align 8
+  %102 = load ptr, ptr %3, align 8, !tbaa !43
   %103 = icmp ne ptr %102, null
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr %3, align 8
+  %105 = load ptr, ptr %3, align 8, !tbaa !43
   call void @free(ptr noundef %105) #7
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !43
   br label %107
 
 106:                                              ; preds = %101
   br label %107
 
 107:                                              ; preds = %106, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
@@ -1341,52 +1412,53 @@ define void @Sat_MmStepStop(ptr noundef %0, i32 noundef %1) #0 {
 define void @Sat_MmStepRestart(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %4, i32 0, i32 4
-  %6 = load i32, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !43
+  %5 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %4, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8, !tbaa !55
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %46
 
 8:                                                ; preds = %1
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %9
 
 9:                                                ; preds = %40, %8
-  %10 = load i32, ptr %3, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %11, i32 0, i32 5
-  %13 = load i32, ptr %12, align 4
+  %10 = load i32, ptr %3, align 4, !tbaa !3
+  %11 = load ptr, ptr %2, align 8, !tbaa !43
+  %12 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %11, i32 0, i32 5
+  %13 = load i32, ptr %12, align 4, !tbaa !56
   %14 = icmp slt i32 %10, %13
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 6
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %3, align 4
+  %16 = load ptr, ptr %2, align 8, !tbaa !43
+  %17 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 6
+  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  %19 = load i32, ptr %3, align 4, !tbaa !3
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %18, i64 %20
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %38
 
 24:                                               ; preds = %15
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %25, i32 0, i32 6
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %3, align 4
+  %25 = load ptr, ptr %2, align 8, !tbaa !43
+  %26 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %25, i32 0, i32 6
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
+  %28 = load i32, ptr %3, align 4, !tbaa !3
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !24
   call void @free(ptr noundef %31) #7
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %32, i32 0, i32 6
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %3, align 4
+  %32 = load ptr, ptr %2, align 8, !tbaa !43
+  %33 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8, !tbaa !57
+  %35 = load i32, ptr %3, align 4, !tbaa !3
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %34, i64 %36
-  store ptr null, ptr %37, align 8
+  store ptr null, ptr %37, align 8, !tbaa !24
   br label %39
 
 38:                                               ; preds = %15
@@ -1396,47 +1468,48 @@ define void @Sat_MmStepRestart(ptr noundef %0) #0 {
   br label %40
 
 40:                                               ; preds = %39
-  %41 = load i32, ptr %3, align 4
+  %41 = load i32, ptr %3, align 4, !tbaa !3
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %3, align 4
-  br label %9, !llvm.loop !16
+  store i32 %42, ptr %3, align 4, !tbaa !3
+  br label %9, !llvm.loop !60
 
 43:                                               ; preds = %9
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %44, i32 0, i32 5
-  store i32 0, ptr %45, align 4
+  %44 = load ptr, ptr %2, align 8, !tbaa !43
+  %45 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %44, i32 0, i32 5
+  store i32 0, ptr %45, align 4, !tbaa !56
   br label %46
 
 46:                                               ; preds = %43, %1
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %47
 
 47:                                               ; preds = %61, %46
-  %48 = load i32, ptr %3, align 4
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
+  %48 = load i32, ptr %3, align 4, !tbaa !3
+  %49 = load ptr, ptr %2, align 8, !tbaa !43
+  %50 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !45
   %52 = icmp slt i32 %48, %51
   br i1 %52, label %53, label %64
 
 53:                                               ; preds = %47
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %3, align 4
+  %54 = load ptr, ptr %2, align 8, !tbaa !43
+  %55 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !48
+  %57 = load i32, ptr %3, align 4, !tbaa !3
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !7
   call void @Sat_MmFixedRestart(ptr noundef %60)
   br label %61
 
 61:                                               ; preds = %53
-  %62 = load i32, ptr %3, align 4
+  %62 = load i32, ptr %3, align 4, !tbaa !3
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %3, align 4
-  br label %47, !llvm.loop !17
+  store i32 %63, ptr %3, align 4, !tbaa !3
+  br label %47, !llvm.loop !61
 
 64:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
@@ -1445,9 +1518,9 @@ define ptr @Sat_MmStepEntryFetch(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !43
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
 
@@ -1456,100 +1529,100 @@ define ptr @Sat_MmStepEntryFetch(ptr noundef %0, i32 noundef %1) #0 {
   br label %86
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %5, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %11, i32 0, i32 2
-  %13 = load i32, ptr %12, align 8
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  %11 = load ptr, ptr %4, align 8, !tbaa !43
+  %12 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8, !tbaa !50
   %14 = icmp sgt i32 %10, %13
   br i1 %14, label %15, label %77
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 5
-  %18 = load i32, ptr %17, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !43
+  %17 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %16, i32 0, i32 5
+  %18 = load i32, ptr %17, align 4, !tbaa !56
+  %19 = load ptr, ptr %4, align 8, !tbaa !43
+  %20 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8, !tbaa !55
   %22 = icmp eq i32 %18, %21
   br i1 %22, label %23, label %53
 
 23:                                               ; preds = %15
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %24, i32 0, i32 4
-  %26 = load i32, ptr %25, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !43
+  %25 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 8, !tbaa !55
   %27 = mul nsw i32 %26, 2
-  store i32 %27, ptr %25, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %28, i32 0, i32 6
-  %30 = load ptr, ptr %29, align 8
+  store i32 %27, ptr %25, align 8, !tbaa !55
+  %28 = load ptr, ptr %4, align 8, !tbaa !43
+  %29 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !57
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %23
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %33, i32 0, i32 6
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %36, i32 0, i32 4
-  %38 = load i32, ptr %37, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !43
+  %34 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %33, i32 0, i32 6
+  %35 = load ptr, ptr %34, align 8, !tbaa !57
+  %36 = load ptr, ptr %4, align 8, !tbaa !43
+  %37 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %36, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8, !tbaa !55
   %39 = sext i32 %38 to i64
   %40 = mul i64 8, %39
-  %41 = call ptr @realloc(ptr noundef %35, i64 noundef %40) #8
+  %41 = call ptr @realloc(ptr noundef %35, i64 noundef %40) #9
   br label %49
 
 42:                                               ; preds = %23
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 8
+  %43 = load ptr, ptr %4, align 8, !tbaa !43
+  %44 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %43, i32 0, i32 4
+  %45 = load i32, ptr %44, align 8, !tbaa !55
   %46 = sext i32 %45 to i64
   %47 = mul i64 8, %46
-  %48 = call noalias ptr @malloc(i64 noundef %47) #6
+  %48 = call noalias ptr @malloc(i64 noundef %47) #8
   br label %49
 
 49:                                               ; preds = %42, %32
   %50 = phi ptr [ %41, %32 ], [ %48, %42 ]
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 6
-  store ptr %50, ptr %52, align 8
+  %51 = load ptr, ptr %4, align 8, !tbaa !43
+  %52 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %51, i32 0, i32 6
+  store ptr %50, ptr %52, align 8, !tbaa !57
   br label %53
 
 53:                                               ; preds = %49, %15
-  %54 = load i32, ptr %5, align 4
+  %54 = load i32, ptr %5, align 4, !tbaa !3
   %55 = sext i32 %54 to i64
   %56 = mul i64 1, %55
-  %57 = call noalias ptr @malloc(i64 noundef %56) #6
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %58, i32 0, i32 6
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 5
-  %63 = load i32, ptr %62, align 4
+  %57 = call noalias ptr @malloc(i64 noundef %56) #8
+  %58 = load ptr, ptr %4, align 8, !tbaa !43
+  %59 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !57
+  %61 = load ptr, ptr %4, align 8, !tbaa !43
+  %62 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %61, i32 0, i32 5
+  %63 = load i32, ptr %62, align 4, !tbaa !56
   %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %62, align 4
+  store i32 %64, ptr %62, align 4, !tbaa !56
   %65 = sext i32 %63 to i64
   %66 = getelementptr inbounds ptr, ptr %60, i64 %65
-  store ptr %57, ptr %66, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %67, i32 0, i32 6
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %70, i32 0, i32 5
-  %72 = load i32, ptr %71, align 4
+  store ptr %57, ptr %66, align 8, !tbaa !24
+  %67 = load ptr, ptr %4, align 8, !tbaa !43
+  %68 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %67, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8, !tbaa !57
+  %70 = load ptr, ptr %4, align 8, !tbaa !43
+  %71 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %70, i32 0, i32 5
+  %72 = load i32, ptr %71, align 4, !tbaa !56
   %73 = sub nsw i32 %72, 1
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds ptr, ptr %69, i64 %74
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !24
   store ptr %76, ptr %3, align 8
   br label %86
 
 77:                                               ; preds = %9
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %5, align 4
+  %78 = load ptr, ptr %4, align 8, !tbaa !43
+  %79 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %78, i32 0, i32 3
+  %80 = load ptr, ptr %79, align 8, !tbaa !51
+  %81 = load i32, ptr %5, align 4, !tbaa !3
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr %80, i64 %82
-  %84 = load ptr, ptr %83, align 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !7
   %85 = call ptr @Sat_MmFixedEntryFetch(ptr noundef %84)
   store ptr %85, ptr %3, align 8
   br label %86
@@ -1564,10 +1637,10 @@ define void @Sat_MmStepEntryRecycle(ptr noundef %0, ptr noundef %1, i32 noundef 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !43
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
@@ -1575,10 +1648,10 @@ define void @Sat_MmStepEntryRecycle(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %26
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %6, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 8
+  %11 = load i32, ptr %6, align 4, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !43
+  %13 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 8, !tbaa !50
   %15 = icmp sgt i32 %11, %14
   br i1 %15, label %16, label %17
 
@@ -1586,14 +1659,14 @@ define void @Sat_MmStepEntryRecycle(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %26
 
 17:                                               ; preds = %10
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %18, i32 0, i32 3
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %6, align 4
+  %18 = load ptr, ptr %4, align 8, !tbaa !43
+  %19 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %18, i32 0, i32 3
+  %20 = load ptr, ptr %19, align 8, !tbaa !51
+  %21 = load i32, ptr %6, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !7
+  %25 = load ptr, ptr %5, align 8, !tbaa !24
   call void @Sat_MmFixedEntryRecycle(ptr noundef %24, ptr noundef %25)
   br label %26
 
@@ -1606,73 +1679,122 @@ define i32 @Sat_MmStepReadMemUsage(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %5
 
 5:                                                ; preds = %23, %1
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
+  %6 = load i32, ptr %3, align 4, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !43
+  %8 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !45
   %10 = icmp slt i32 %6, %9
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.Sat_MmStep_t_, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %3, align 4
+  %12 = load ptr, ptr %2, align 8, !tbaa !43
+  %13 = getelementptr inbounds nuw %struct.Sat_MmStep_t_, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %15 = load i32, ptr %3, align 4, !tbaa !3
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %14, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.Sat_MmFixed_t_, ptr %18, i32 0, i32 10
-  %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %4, align 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.Sat_MmFixed_t_, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4, !tbaa !22
+  %21 = load i32, ptr %4, align 4, !tbaa !3
   %22 = add nsw i32 %21, %20
-  store i32 %22, ptr %4, align 4
+  store i32 %22, ptr %4, align 4, !tbaa !3
   br label %23
 
 23:                                               ; preds = %11
-  %24 = load i32, ptr %3, align 4
+  %24 = load i32, ptr %3, align 4, !tbaa !3
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %3, align 4
-  br label %5, !llvm.loop !18
+  store i32 %25, ptr %3, align 4, !tbaa !3
+  br label %5, !llvm.loop !62
 
 26:                                               ; preds = %5
-  %27 = load i32, ptr %4, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret i32 %27
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(1) }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS14Sat_MmFixed_t_", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !4, i64 0}
+!11 = !{!"Sat_MmFixed_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !12, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !13, i64 40, !4, i64 48, !4, i64 52}
+!12 = !{!"p1 omnipotent char", !9, i64 0}
+!13 = !{!"p2 omnipotent char", !9, i64 0}
+!14 = !{!11, !4, i64 4}
+!15 = !{!11, !4, i64 8}
+!16 = !{!11, !12, i64 16}
+!17 = !{!11, !4, i64 24}
+!18 = !{!11, !4, i64 28}
+!19 = !{!11, !4, i64 32}
+!20 = !{!11, !13, i64 40}
+!21 = !{!11, !4, i64 48}
+!22 = !{!11, !4, i64 52}
+!23 = !{!11, !4, i64 12}
+!24 = !{!12, !12, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS13Sat_MmFlex_t_", !9, i64 0}
+!32 = !{!33, !4, i64 0}
+!33 = !{!"Sat_MmFlex_t_", !4, i64 0, !12, i64 8, !12, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !13, i64 40, !4, i64 48, !4, i64 52}
+!34 = !{!33, !12, i64 8}
+!35 = !{!33, !12, i64 16}
+!36 = !{!33, !4, i64 24}
+!37 = !{!33, !4, i64 28}
+!38 = !{!33, !4, i64 32}
+!39 = !{!33, !13, i64 40}
+!40 = !{!33, !4, i64 48}
+!41 = !{!33, !4, i64 52}
+!42 = distinct !{!42, !26}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS13Sat_MmStep_t_", !9, i64 0}
+!45 = !{!46, !4, i64 0}
+!46 = !{!"Sat_MmStep_t_", !4, i64 0, !47, i64 8, !4, i64 16, !47, i64 24, !4, i64 32, !4, i64 36, !13, i64 40}
+!47 = !{!"p2 _ZTS14Sat_MmFixed_t_", !9, i64 0}
+!48 = !{!46, !47, i64 8}
+!49 = distinct !{!49, !26}
+!50 = !{!46, !4, i64 16}
+!51 = !{!46, !47, i64 24}
+!52 = distinct !{!52, !26}
+!53 = distinct !{!53, !26}
+!54 = distinct !{!54, !26}
+!55 = !{!46, !4, i64 32}
+!56 = !{!46, !4, i64 36}
+!57 = !{!46, !13, i64 40}
+!58 = distinct !{!58, !26}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = distinct !{!61, !26}
+!62 = distinct !{!62, !26}

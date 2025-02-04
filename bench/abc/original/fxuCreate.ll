@@ -55,726 +55,780 @@ define ptr @Fxu_CreateMatrix(ptr noundef %0) #0 {
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  %25 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 0, ptr %18, align 4
-  store i32 0, ptr %19, align 4
-  store i32 0, ptr %20, align 4
-  store i32 -1, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  br label %26
+  %25 = alloca i32, align 4
+  %26 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  store i32 0, ptr %18, align 4, !tbaa !8
+  store i32 0, ptr %19, align 4, !tbaa !8
+  store i32 0, ptr %20, align 4, !tbaa !8
+  store i32 -1, ptr %14, align 4, !tbaa !8
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %27
 
-26:                                               ; preds = %70, %1
-  %27 = load i32, ptr %15, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.FxuDataStruct, ptr %28, i32 0, i32 17
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp slt i32 %27, %30
-  br i1 %31, label %32, label %73
+27:                                               ; preds = %71, %1
+  %28 = load i32, ptr %15, align 4, !tbaa !8
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %29, i32 0, i32 17
+  %31 = load i32, ptr %30, align 8, !tbaa !10
+  %32 = icmp slt i32 %28, %31
+  br i1 %32, label %33, label %74
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.FxuDataStruct, ptr %33, i32 0, i32 12
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %15, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %11, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %69
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %34, i32 0, i32 12
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
+  %39 = load i32, ptr %15, align 4, !tbaa !8
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  store ptr %42, ptr %11, align 8, !tbaa !18
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %70
 
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %11, align 8
-  %45 = call i32 @Abc_SopGetCubeNum(ptr noundef %44)
-  store i32 %45, ptr %21, align 4
-  %46 = load ptr, ptr %11, align 8
-  %47 = call i32 @Abc_SopGetVarNum(ptr noundef %46)
-  store i32 %47, ptr %24, align 4
-  %48 = load i32, ptr %21, align 4
-  %49 = load i32, ptr %18, align 4
-  %50 = add nsw i32 %49, %48
-  store i32 %50, ptr %18, align 4
-  %51 = load i32, ptr %21, align 4
-  %52 = load i32, ptr %21, align 4
-  %53 = sub nsw i32 %52, 1
-  %54 = mul nsw i32 %51, %53
-  %55 = sdiv i32 %54, 2
-  %56 = load i32, ptr %19, align 4
-  %57 = add nsw i32 %56, %55
-  store i32 %57, ptr %19, align 4
-  %58 = load i32, ptr %21, align 4
-  %59 = load i32, ptr %21, align 4
-  %60 = mul nsw i32 %58, %59
-  %61 = load i32, ptr %20, align 4
-  %62 = add nsw i32 %61, %60
-  store i32 %62, ptr %20, align 4
-  %63 = load i32, ptr %14, align 4
-  %64 = load i32, ptr %24, align 4
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %66, label %68
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %11, align 8, !tbaa !18
+  %46 = call i32 @Abc_SopGetCubeNum(ptr noundef %45)
+  store i32 %46, ptr %21, align 4, !tbaa !8
+  %47 = load ptr, ptr %11, align 8, !tbaa !18
+  %48 = call i32 @Abc_SopGetVarNum(ptr noundef %47)
+  store i32 %48, ptr %24, align 4, !tbaa !8
+  %49 = load i32, ptr %21, align 4, !tbaa !8
+  %50 = load i32, ptr %18, align 4, !tbaa !8
+  %51 = add nsw i32 %50, %49
+  store i32 %51, ptr %18, align 4, !tbaa !8
+  %52 = load i32, ptr %21, align 4, !tbaa !8
+  %53 = load i32, ptr %21, align 4, !tbaa !8
+  %54 = sub nsw i32 %53, 1
+  %55 = mul nsw i32 %52, %54
+  %56 = sdiv i32 %55, 2
+  %57 = load i32, ptr %19, align 4, !tbaa !8
+  %58 = add nsw i32 %57, %56
+  store i32 %58, ptr %19, align 4, !tbaa !8
+  %59 = load i32, ptr %21, align 4, !tbaa !8
+  %60 = load i32, ptr %21, align 4, !tbaa !8
+  %61 = mul nsw i32 %59, %60
+  %62 = load i32, ptr %20, align 4, !tbaa !8
+  %63 = add nsw i32 %62, %61
+  store i32 %63, ptr %20, align 4, !tbaa !8
+  %64 = load i32, ptr %14, align 4, !tbaa !8
+  %65 = load i32, ptr %24, align 4, !tbaa !8
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %43
-  %67 = load i32, ptr %24, align 4
-  store i32 %67, ptr %14, align 4
-  br label %68
-
-68:                                               ; preds = %66, %43
+67:                                               ; preds = %44
+  %68 = load i32, ptr %24, align 4, !tbaa !8
+  store i32 %68, ptr %14, align 4, !tbaa !8
   br label %69
 
-69:                                               ; preds = %68, %32
+69:                                               ; preds = %67, %44
   br label %70
 
-70:                                               ; preds = %69
-  %71 = load i32, ptr %15, align 4
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %15, align 4
-  br label %26, !llvm.loop !4
+70:                                               ; preds = %69, %33
+  br label %71
 
-73:                                               ; preds = %26
-  %74 = load i32, ptr %14, align 4
-  %75 = icmp sle i32 %74, 0
-  br i1 %75, label %76, label %78
+71:                                               ; preds = %70
+  %72 = load i32, ptr %15, align 4, !tbaa !8
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %15, align 4, !tbaa !8
+  br label %27, !llvm.loop !20
 
-76:                                               ; preds = %73
-  %77 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+74:                                               ; preds = %27
+  %75 = load i32, ptr %14, align 4, !tbaa !8
+  %76 = icmp sle i32 %75, 0
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %74
+  %78 = call i32 (ptr, ...) @printf(ptr noundef @.str)
   store ptr null, ptr %2, align 8
-  br label %483
+  store i32 1, ptr %25, align 4
+  br label %484
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr %20, align 4
-  %80 = icmp sgt i32 %79, 50000000
-  br i1 %80, label %81, label %85
+79:                                               ; preds = %74
+  %80 = load i32, ptr %20, align 4, !tbaa !8
+  %81 = icmp sgt i32 %80, 50000000
+  br i1 %81, label %82, label %86
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %18, align 4
-  %83 = load i32, ptr %20, align 4
-  %84 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %82, i32 noundef %83)
+82:                                               ; preds = %79
+  %83 = load i32, ptr %18, align 4, !tbaa !8
+  %84 = load i32, ptr %20, align 4, !tbaa !8
+  %85 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %83, i32 noundef %84)
   store ptr null, ptr %2, align 8
-  br label %483
+  store i32 1, ptr %25, align 4
+  br label %484
 
-85:                                               ; preds = %78
-  %86 = call ptr (...) @Fxu_MatrixAllocate()
-  store ptr %86, ptr %4, align 8
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.FxuDataStruct, ptr %87, i32 0, i32 17
-  %89 = load i32, ptr %88, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.FxuDataStruct, ptr %90, i32 0, i32 6
-  %92 = load i32, ptr %91, align 8
-  %93 = add nsw i32 %89, %92
-  %94 = mul nsw i32 2, %93
-  %95 = sext i32 %94 to i64
-  %96 = mul i64 8, %95
-  %97 = call noalias ptr @malloc(i64 noundef %96) #6
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %struct.FxuMatrix, ptr %98, i32 0, i32 2
-  store ptr %97, ptr %99, align 8
-  store i32 0, ptr %15, align 4
-  br label %100
+86:                                               ; preds = %79
+  %87 = call ptr (...) @Fxu_MatrixAllocate()
+  store ptr %87, ptr %4, align 8, !tbaa !22
+  %88 = load ptr, ptr %3, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %88, i32 0, i32 17
+  %90 = load i32, ptr %89, align 8, !tbaa !10
+  %91 = load ptr, ptr %3, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %91, i32 0, i32 6
+  %93 = load i32, ptr %92, align 8, !tbaa !24
+  %94 = add nsw i32 %90, %93
+  %95 = mul nsw i32 2, %94
+  %96 = sext i32 %95 to i64
+  %97 = mul i64 8, %96
+  %98 = call noalias ptr @malloc(i64 noundef %97) #9
+  %99 = load ptr, ptr %4, align 8, !tbaa !22
+  %100 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %99, i32 0, i32 2
+  store ptr %98, ptr %100, align 8, !tbaa !25
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %101
 
-100:                                              ; preds = %116, %85
-  %101 = load i32, ptr %15, align 4
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.FxuDataStruct, ptr %102, i32 0, i32 17
-  %104 = load i32, ptr %103, align 8
-  %105 = mul nsw i32 2, %104
-  %106 = icmp slt i32 %101, %105
-  br i1 %106, label %107, label %119
+101:                                              ; preds = %117, %86
+  %102 = load i32, ptr %15, align 4, !tbaa !8
+  %103 = load ptr, ptr %3, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %103, i32 0, i32 17
+  %105 = load i32, ptr %104, align 8, !tbaa !10
+  %106 = mul nsw i32 2, %105
+  %107 = icmp slt i32 %102, %106
+  br i1 %107, label %108, label %120
 
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %4, align 8
-  %109 = call ptr @Fxu_MatrixAddVar(ptr noundef %108)
-  %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds %struct.FxuMatrix, ptr %110, i32 0, i32 2
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr %15, align 4
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %112, i64 %114
-  store ptr %109, ptr %115, align 8
-  br label %116
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %4, align 8, !tbaa !22
+  %110 = call ptr @Fxu_MatrixAddVar(ptr noundef %109)
+  %111 = load ptr, ptr %4, align 8, !tbaa !22
+  %112 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %111, i32 0, i32 2
+  %113 = load ptr, ptr %112, align 8, !tbaa !25
+  %114 = load i32, ptr %15, align 4, !tbaa !8
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds ptr, ptr %113, i64 %115
+  store ptr %110, ptr %116, align 8, !tbaa !41
+  br label %117
 
-116:                                              ; preds = %107
-  %117 = load i32, ptr %15, align 4
-  %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %15, align 4
-  br label %100, !llvm.loop !6
+117:                                              ; preds = %108
+  %118 = load i32, ptr %15, align 4, !tbaa !8
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %15, align 4, !tbaa !8
+  br label %101, !llvm.loop !42
 
-119:                                              ; preds = %100
-  %120 = load i32, ptr %18, align 4
-  %121 = add nsw i32 %120, 100
-  %122 = sext i32 %121 to i64
-  %123 = mul i64 8, %122
-  %124 = call noalias ptr @malloc(i64 noundef %123) #6
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.FxuMatrix, ptr %125, i32 0, i32 12
-  store ptr %124, ptr %126, align 8
-  %127 = load i32, ptr %20, align 4
-  %128 = add nsw i32 %127, 100
-  %129 = sext i32 %128 to i64
-  %130 = mul i64 8, %129
-  %131 = call noalias ptr @malloc(i64 noundef %130) #6
-  %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds %struct.FxuMatrix, ptr %132, i32 0, i32 13
-  store ptr %131, ptr %133, align 8
-  %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %struct.FxuMatrix, ptr %134, i32 0, i32 13
-  %136 = load ptr, ptr %135, align 8
-  %137 = load i32, ptr %20, align 4
-  %138 = sext i32 %137 to i64
-  %139 = mul i64 8, %138
-  call void @llvm.memset.p0.i64(ptr align 8 %136, i8 0, i64 %139, i1 false)
-  store i32 0, ptr %22, align 4
-  store i32 0, ptr %23, align 4
-  store i32 0, ptr %15, align 4
-  br label %140
+120:                                              ; preds = %101
+  %121 = load i32, ptr %18, align 4, !tbaa !8
+  %122 = add nsw i32 %121, 100
+  %123 = sext i32 %122 to i64
+  %124 = mul i64 8, %123
+  %125 = call noalias ptr @malloc(i64 noundef %124) #9
+  %126 = load ptr, ptr %4, align 8, !tbaa !22
+  %127 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %126, i32 0, i32 12
+  store ptr %125, ptr %127, align 8, !tbaa !43
+  %128 = load i32, ptr %20, align 4, !tbaa !8
+  %129 = add nsw i32 %128, 100
+  %130 = sext i32 %129 to i64
+  %131 = mul i64 8, %130
+  %132 = call noalias ptr @malloc(i64 noundef %131) #9
+  %133 = load ptr, ptr %4, align 8, !tbaa !22
+  %134 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %133, i32 0, i32 13
+  store ptr %132, ptr %134, align 8, !tbaa !44
+  %135 = load ptr, ptr %4, align 8, !tbaa !22
+  %136 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %135, i32 0, i32 13
+  %137 = load ptr, ptr %136, align 8, !tbaa !44
+  %138 = load i32, ptr %20, align 4, !tbaa !8
+  %139 = sext i32 %138 to i64
+  %140 = mul i64 8, %139
+  call void @llvm.memset.p0.i64(ptr align 8 %137, i8 0, i64 %140, i1 false)
+  store i32 0, ptr %22, align 4, !tbaa !8
+  store i32 0, ptr %23, align 4, !tbaa !8
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %141
 
-140:                                              ; preds = %229, %119
-  %141 = load i32, ptr %15, align 4
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.FxuDataStruct, ptr %142, i32 0, i32 17
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp slt i32 %141, %144
-  br i1 %145, label %146, label %232
+141:                                              ; preds = %230, %120
+  %142 = load i32, ptr %15, align 4, !tbaa !8
+  %143 = load ptr, ptr %3, align 8, !tbaa !3
+  %144 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %143, i32 0, i32 17
+  %145 = load i32, ptr %144, align 8, !tbaa !10
+  %146 = icmp slt i32 %142, %145
+  br i1 %146, label %147, label %233
 
-146:                                              ; preds = %140
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.FxuDataStruct, ptr %147, i32 0, i32 12
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %149, i32 0, i32 2
-  %151 = load ptr, ptr %150, align 8
-  %152 = load i32, ptr %15, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %151, i64 %153
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr %11, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %157, label %228
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %3, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %148, i32 0, i32 12
+  %150 = load ptr, ptr %149, align 8, !tbaa !14
+  %151 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %150, i32 0, i32 2
+  %152 = load ptr, ptr %151, align 8, !tbaa !15
+  %153 = load i32, ptr %15, align 4, !tbaa !8
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds ptr, ptr %152, i64 %154
+  %156 = load ptr, ptr %155, align 8, !tbaa !17
+  store ptr %156, ptr %11, align 8, !tbaa !18
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %229
 
-157:                                              ; preds = %146
-  %158 = load ptr, ptr %11, align 8
-  %159 = call i32 @Abc_SopGetCubeNum(ptr noundef %158)
-  store i32 %159, ptr %21, align 4
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds %struct.FxuMatrix, ptr %160, i32 0, i32 2
-  %162 = load ptr, ptr %161, align 8
-  %163 = load i32, ptr %15, align 4
-  %164 = mul nsw i32 2, %163
-  %165 = add nsw i32 %164, 1
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds ptr, ptr %162, i64 %166
-  %168 = load ptr, ptr %167, align 8
-  store ptr %168, ptr %5, align 8
-  %169 = load i32, ptr %21, align 4
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds %struct.FxuVar, ptr %170, i32 0, i32 1
-  store i32 %169, ptr %171, align 4
-  %172 = load i32, ptr %21, align 4
-  %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %174, label %219
+158:                                              ; preds = %147
+  %159 = load ptr, ptr %11, align 8, !tbaa !18
+  %160 = call i32 @Abc_SopGetCubeNum(ptr noundef %159)
+  store i32 %160, ptr %21, align 4, !tbaa !8
+  %161 = load ptr, ptr %4, align 8, !tbaa !22
+  %162 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %161, i32 0, i32 2
+  %163 = load ptr, ptr %162, align 8, !tbaa !25
+  %164 = load i32, ptr %15, align 4, !tbaa !8
+  %165 = mul nsw i32 2, %164
+  %166 = add nsw i32 %165, 1
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds ptr, ptr %163, i64 %167
+  %169 = load ptr, ptr %168, align 8, !tbaa !41
+  store ptr %169, ptr %5, align 8, !tbaa !41
+  %170 = load i32, ptr %21, align 4, !tbaa !8
+  %171 = load ptr, ptr %5, align 8, !tbaa !41
+  %172 = getelementptr inbounds nuw %struct.FxuVar, ptr %171, i32 0, i32 1
+  store i32 %170, ptr %172, align 4, !tbaa !45
+  %173 = load i32, ptr %21, align 4, !tbaa !8
+  %174 = icmp sgt i32 %173, 0
+  br i1 %174, label %175, label %220
 
-174:                                              ; preds = %157
-  %175 = load ptr, ptr %4, align 8
-  %176 = getelementptr inbounds %struct.FxuMatrix, ptr %175, i32 0, i32 12
-  %177 = load ptr, ptr %176, align 8
-  %178 = load i32, ptr %22, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %177, i64 %179
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds %struct.FxuVar, ptr %181, i32 0, i32 3
-  store ptr %180, ptr %182, align 8
-  %183 = load ptr, ptr %4, align 8
-  %184 = getelementptr inbounds %struct.FxuMatrix, ptr %183, i32 0, i32 13
-  %185 = load ptr, ptr %184, align 8
-  %186 = load i32, ptr %23, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds ptr, ptr %185, i64 %187
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.FxuVar, ptr %189, i32 0, i32 3
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds ptr, ptr %191, i64 0
-  store ptr %188, ptr %192, align 8
-  store i32 1, ptr %16, align 4
-  br label %193
+175:                                              ; preds = %158
+  %176 = load ptr, ptr %4, align 8, !tbaa !22
+  %177 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %176, i32 0, i32 12
+  %178 = load ptr, ptr %177, align 8, !tbaa !43
+  %179 = load i32, ptr %22, align 4, !tbaa !8
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds ptr, ptr %178, i64 %180
+  %182 = load ptr, ptr %5, align 8, !tbaa !41
+  %183 = getelementptr inbounds nuw %struct.FxuVar, ptr %182, i32 0, i32 3
+  store ptr %181, ptr %183, align 8, !tbaa !49
+  %184 = load ptr, ptr %4, align 8, !tbaa !22
+  %185 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %184, i32 0, i32 13
+  %186 = load ptr, ptr %185, align 8, !tbaa !44
+  %187 = load i32, ptr %23, align 4, !tbaa !8
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
+  %190 = load ptr, ptr %5, align 8, !tbaa !41
+  %191 = getelementptr inbounds nuw %struct.FxuVar, ptr %190, i32 0, i32 3
+  %192 = load ptr, ptr %191, align 8, !tbaa !49
+  %193 = getelementptr inbounds ptr, ptr %192, i64 0
+  store ptr %189, ptr %193, align 8, !tbaa !50
+  store i32 1, ptr %16, align 4, !tbaa !8
+  br label %194
 
-193:                                              ; preds = %215, %174
-  %194 = load i32, ptr %16, align 4
-  %195 = load i32, ptr %21, align 4
-  %196 = icmp slt i32 %194, %195
-  br i1 %196, label %197, label %218
+194:                                              ; preds = %216, %175
+  %195 = load i32, ptr %16, align 4, !tbaa !8
+  %196 = load i32, ptr %21, align 4, !tbaa !8
+  %197 = icmp slt i32 %195, %196
+  br i1 %197, label %198, label %219
 
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %5, align 8
-  %199 = getelementptr inbounds %struct.FxuVar, ptr %198, i32 0, i32 3
-  %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr %16, align 4
-  %202 = sub nsw i32 %201, 1
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds ptr, ptr %200, i64 %203
-  %205 = load ptr, ptr %204, align 8
-  %206 = load i32, ptr %21, align 4
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr %205, i64 %207
-  %209 = load ptr, ptr %5, align 8
-  %210 = getelementptr inbounds %struct.FxuVar, ptr %209, i32 0, i32 3
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i32, ptr %16, align 4
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds ptr, ptr %211, i64 %213
-  store ptr %208, ptr %214, align 8
-  br label %215
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %5, align 8, !tbaa !41
+  %200 = getelementptr inbounds nuw %struct.FxuVar, ptr %199, i32 0, i32 3
+  %201 = load ptr, ptr %200, align 8, !tbaa !49
+  %202 = load i32, ptr %16, align 4, !tbaa !8
+  %203 = sub nsw i32 %202, 1
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %206 = load ptr, ptr %205, align 8, !tbaa !50
+  %207 = load i32, ptr %21, align 4, !tbaa !8
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds ptr, ptr %206, i64 %208
+  %210 = load ptr, ptr %5, align 8, !tbaa !41
+  %211 = getelementptr inbounds nuw %struct.FxuVar, ptr %210, i32 0, i32 3
+  %212 = load ptr, ptr %211, align 8, !tbaa !49
+  %213 = load i32, ptr %16, align 4, !tbaa !8
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds ptr, ptr %212, i64 %214
+  store ptr %209, ptr %215, align 8, !tbaa !50
+  br label %216
 
-215:                                              ; preds = %197
-  %216 = load i32, ptr %16, align 4
-  %217 = add nsw i32 %216, 1
-  store i32 %217, ptr %16, align 4
-  br label %193, !llvm.loop !7
+216:                                              ; preds = %198
+  %217 = load i32, ptr %16, align 4, !tbaa !8
+  %218 = add nsw i32 %217, 1
+  store i32 %218, ptr %16, align 4, !tbaa !8
+  br label %194, !llvm.loop !51
 
-218:                                              ; preds = %193
-  br label %219
+219:                                              ; preds = %194
+  br label %220
 
-219:                                              ; preds = %218, %157
-  %220 = load i32, ptr %21, align 4
-  %221 = load i32, ptr %22, align 4
-  %222 = add nsw i32 %221, %220
-  store i32 %222, ptr %22, align 4
-  %223 = load i32, ptr %21, align 4
-  %224 = load i32, ptr %21, align 4
-  %225 = mul nsw i32 %223, %224
-  %226 = load i32, ptr %23, align 4
-  %227 = add nsw i32 %226, %225
-  store i32 %227, ptr %23, align 4
-  br label %228
-
-228:                                              ; preds = %219, %146
+220:                                              ; preds = %219, %158
+  %221 = load i32, ptr %21, align 4, !tbaa !8
+  %222 = load i32, ptr %22, align 4, !tbaa !8
+  %223 = add nsw i32 %222, %221
+  store i32 %223, ptr %22, align 4, !tbaa !8
+  %224 = load i32, ptr %21, align 4, !tbaa !8
+  %225 = load i32, ptr %21, align 4, !tbaa !8
+  %226 = mul nsw i32 %224, %225
+  %227 = load i32, ptr %23, align 4, !tbaa !8
+  %228 = add nsw i32 %227, %226
+  store i32 %228, ptr %23, align 4, !tbaa !8
   br label %229
 
-229:                                              ; preds = %228
-  %230 = load i32, ptr %15, align 4
-  %231 = add nsw i32 %230, 1
-  store i32 %231, ptr %15, align 4
-  br label %140, !llvm.loop !8
+229:                                              ; preds = %220, %147
+  br label %230
 
-232:                                              ; preds = %140
-  %233 = load i32, ptr %14, align 4
-  %234 = sext i32 %233 to i64
-  %235 = mul i64 4, %234
-  %236 = call noalias ptr @malloc(i64 noundef %235) #6
-  store ptr %236, ptr %13, align 8
-  store i32 0, ptr %15, align 4
-  br label %237
+230:                                              ; preds = %229
+  %231 = load i32, ptr %15, align 4, !tbaa !8
+  %232 = add nsw i32 %231, 1
+  store i32 %232, ptr %15, align 4, !tbaa !8
+  br label %141, !llvm.loop !52
 
-237:                                              ; preds = %368, %232
-  %238 = load i32, ptr %15, align 4
-  %239 = load ptr, ptr %3, align 8
-  %240 = getelementptr inbounds %struct.FxuDataStruct, ptr %239, i32 0, i32 17
-  %241 = load i32, ptr %240, align 8
-  %242 = icmp slt i32 %238, %241
-  br i1 %242, label %243, label %371
+233:                                              ; preds = %141
+  %234 = load i32, ptr %14, align 4, !tbaa !8
+  %235 = sext i32 %234 to i64
+  %236 = mul i64 4, %235
+  %237 = call noalias ptr @malloc(i64 noundef %236) #9
+  store ptr %237, ptr %13, align 8, !tbaa !53
+  store i32 0, ptr %15, align 4, !tbaa !8
+  br label %238
 
-243:                                              ; preds = %237
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.FxuDataStruct, ptr %244, i32 0, i32 12
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %246, i32 0, i32 2
-  %248 = load ptr, ptr %247, align 8
-  %249 = load i32, ptr %15, align 4
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %248, i64 %250
-  %252 = load ptr, ptr %251, align 8
-  store ptr %252, ptr %11, align 8
-  %253 = icmp ne ptr %252, null
-  br i1 %253, label %254, label %367
+238:                                              ; preds = %369, %233
+  %239 = load i32, ptr %15, align 4, !tbaa !8
+  %240 = load ptr, ptr %3, align 8, !tbaa !3
+  %241 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %240, i32 0, i32 17
+  %242 = load i32, ptr %241, align 8, !tbaa !10
+  %243 = icmp slt i32 %239, %242
+  br i1 %243, label %244, label %372
 
-254:                                              ; preds = %243
-  %255 = load ptr, ptr %4, align 8
-  %256 = getelementptr inbounds %struct.FxuMatrix, ptr %255, i32 0, i32 2
-  %257 = load ptr, ptr %256, align 8
-  %258 = load i32, ptr %15, align 4
-  %259 = mul nsw i32 2, %258
-  %260 = add nsw i32 %259, 1
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds ptr, ptr %257, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  store ptr %263, ptr %5, align 8
-  %264 = load ptr, ptr %3, align 8
-  %265 = getelementptr inbounds %struct.FxuDataStruct, ptr %264, i32 0, i32 13
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %266, i32 0, i32 2
-  %268 = load ptr, ptr %267, align 8
-  %269 = load i32, ptr %15, align 4
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds ptr, ptr %268, i64 %270
-  %272 = load ptr, ptr %271, align 8
-  store ptr %272, ptr %10, align 8
-  %273 = load ptr, ptr %10, align 8
-  %274 = getelementptr inbounds %struct.Vec_Int_t_, ptr %273, i32 0, i32 2
-  %275 = load ptr, ptr %274, align 8
-  store ptr %275, ptr @s_pLits, align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = call i32 @Abc_SopGetVarNum(ptr noundef %276)
-  store i32 %277, ptr %24, align 4
-  store i32 0, ptr %16, align 4
-  br label %278
+244:                                              ; preds = %238
+  %245 = load ptr, ptr %3, align 8, !tbaa !3
+  %246 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %245, i32 0, i32 12
+  %247 = load ptr, ptr %246, align 8, !tbaa !14
+  %248 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %247, i32 0, i32 2
+  %249 = load ptr, ptr %248, align 8, !tbaa !15
+  %250 = load i32, ptr %15, align 4, !tbaa !8
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds ptr, ptr %249, i64 %251
+  %253 = load ptr, ptr %252, align 8, !tbaa !17
+  store ptr %253, ptr %11, align 8, !tbaa !18
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %255, label %368
 
-278:                                              ; preds = %288, %254
-  %279 = load i32, ptr %16, align 4
-  %280 = load i32, ptr %24, align 4
-  %281 = icmp slt i32 %279, %280
-  br i1 %281, label %282, label %291
+255:                                              ; preds = %244
+  %256 = load ptr, ptr %4, align 8, !tbaa !22
+  %257 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %256, i32 0, i32 2
+  %258 = load ptr, ptr %257, align 8, !tbaa !25
+  %259 = load i32, ptr %15, align 4, !tbaa !8
+  %260 = mul nsw i32 2, %259
+  %261 = add nsw i32 %260, 1
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds ptr, ptr %258, i64 %262
+  %264 = load ptr, ptr %263, align 8, !tbaa !41
+  store ptr %264, ptr %5, align 8, !tbaa !41
+  %265 = load ptr, ptr %3, align 8, !tbaa !3
+  %266 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %265, i32 0, i32 13
+  %267 = load ptr, ptr %266, align 8, !tbaa !55
+  %268 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %267, i32 0, i32 2
+  %269 = load ptr, ptr %268, align 8, !tbaa !15
+  %270 = load i32, ptr %15, align 4, !tbaa !8
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds ptr, ptr %269, i64 %271
+  %273 = load ptr, ptr %272, align 8, !tbaa !17
+  store ptr %273, ptr %10, align 8, !tbaa !56
+  %274 = load ptr, ptr %10, align 8, !tbaa !56
+  %275 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %274, i32 0, i32 2
+  %276 = load ptr, ptr %275, align 8, !tbaa !58
+  store ptr %276, ptr @s_pLits, align 8, !tbaa !53
+  %277 = load ptr, ptr %11, align 8, !tbaa !18
+  %278 = call i32 @Abc_SopGetVarNum(ptr noundef %277)
+  store i32 %278, ptr %24, align 4, !tbaa !8
+  store i32 0, ptr %16, align 4, !tbaa !8
+  br label %279
 
-282:                                              ; preds = %278
-  %283 = load i32, ptr %16, align 4
-  %284 = load ptr, ptr %13, align 8
-  %285 = load i32, ptr %16, align 4
-  %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i32, ptr %284, i64 %286
-  store i32 %283, ptr %287, align 4
-  br label %288
+279:                                              ; preds = %289, %255
+  %280 = load i32, ptr %16, align 4, !tbaa !8
+  %281 = load i32, ptr %24, align 4, !tbaa !8
+  %282 = icmp slt i32 %280, %281
+  br i1 %282, label %283, label %292
 
-288:                                              ; preds = %282
-  %289 = load i32, ptr %16, align 4
-  %290 = add nsw i32 %289, 1
-  store i32 %290, ptr %16, align 4
-  br label %278, !llvm.loop !9
+283:                                              ; preds = %279
+  %284 = load i32, ptr %16, align 4, !tbaa !8
+  %285 = load ptr, ptr %13, align 8, !tbaa !53
+  %286 = load i32, ptr %16, align 4, !tbaa !8
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds i32, ptr %285, i64 %287
+  store i32 %284, ptr %288, align 4, !tbaa !8
+  br label %289
 
-291:                                              ; preds = %278
-  %292 = load ptr, ptr %13, align 8
-  %293 = load i32, ptr %24, align 4
-  %294 = sext i32 %293 to i64
-  call void @qsort(ptr noundef %292, i64 noundef %294, i64 noundef 4, ptr noundef @Fxu_CreateMatrixLitCompare)
-  store ptr null, ptr %6, align 8
-  store i32 0, ptr %17, align 4
-  %295 = load ptr, ptr %11, align 8
-  store ptr %295, ptr %12, align 8
-  br label %296
+289:                                              ; preds = %283
+  %290 = load i32, ptr %16, align 4, !tbaa !8
+  %291 = add nsw i32 %290, 1
+  store i32 %291, ptr %16, align 4, !tbaa !8
+  br label %279, !llvm.loop !60
 
-296:                                              ; preds = %319, %291
-  %297 = load ptr, ptr %12, align 8
-  %298 = load i8, ptr %297, align 1
-  %299 = icmp ne i8 %298, 0
-  br i1 %299, label %300, label %325
+292:                                              ; preds = %279
+  %293 = load ptr, ptr %13, align 8, !tbaa !53
+  %294 = load i32, ptr %24, align 4, !tbaa !8
+  %295 = sext i32 %294 to i64
+  call void @qsort(ptr noundef %293, i64 noundef %295, i64 noundef 4, ptr noundef @Fxu_CreateMatrixLitCompare)
+  store ptr null, ptr %6, align 8, !tbaa !61
+  store i32 0, ptr %17, align 4, !tbaa !8
+  %296 = load ptr, ptr %11, align 8, !tbaa !18
+  store ptr %296, ptr %12, align 8, !tbaa !18
+  br label %297
 
-300:                                              ; preds = %296
-  %301 = load ptr, ptr %4, align 8
-  %302 = load ptr, ptr %5, align 8
-  %303 = load i32, ptr %17, align 4
-  %304 = add nsw i32 %303, 1
-  store i32 %304, ptr %17, align 4
-  %305 = call ptr @Fxu_MatrixAddCube(ptr noundef %301, ptr noundef %302, i32 noundef %303)
-  store ptr %305, ptr %7, align 8
-  %306 = load ptr, ptr %4, align 8
-  %307 = load ptr, ptr %7, align 8
-  %308 = load ptr, ptr %12, align 8
-  %309 = load ptr, ptr %10, align 8
-  %310 = load ptr, ptr %13, align 8
-  call void @Fxu_CreateMatrixAddCube(ptr noundef %306, ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310)
-  %311 = load ptr, ptr %6, align 8
-  %312 = icmp eq ptr %311, null
-  br i1 %312, label %313, label %315
+297:                                              ; preds = %320, %292
+  %298 = load ptr, ptr %12, align 8, !tbaa !18
+  %299 = load i8, ptr %298, align 1, !tbaa !62
+  %300 = icmp ne i8 %299, 0
+  br i1 %300, label %301, label %326
 
-313:                                              ; preds = %300
-  %314 = load ptr, ptr %7, align 8
-  store ptr %314, ptr %6, align 8
-  br label %315
+301:                                              ; preds = %297
+  %302 = load ptr, ptr %4, align 8, !tbaa !22
+  %303 = load ptr, ptr %5, align 8, !tbaa !41
+  %304 = load i32, ptr %17, align 4, !tbaa !8
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %17, align 4, !tbaa !8
+  %306 = call ptr @Fxu_MatrixAddCube(ptr noundef %302, ptr noundef %303, i32 noundef %304)
+  store ptr %306, ptr %7, align 8, !tbaa !61
+  %307 = load ptr, ptr %4, align 8, !tbaa !22
+  %308 = load ptr, ptr %7, align 8, !tbaa !61
+  %309 = load ptr, ptr %12, align 8, !tbaa !18
+  %310 = load ptr, ptr %10, align 8, !tbaa !56
+  %311 = load ptr, ptr %13, align 8, !tbaa !53
+  call void @Fxu_CreateMatrixAddCube(ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310, ptr noundef %311)
+  %312 = load ptr, ptr %6, align 8, !tbaa !61
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %314, label %316
 
-315:                                              ; preds = %313, %300
-  %316 = load ptr, ptr %6, align 8
-  %317 = load ptr, ptr %7, align 8
-  %318 = getelementptr inbounds %struct.FxuCube, ptr %317, i32 0, i32 1
-  store ptr %316, ptr %318, align 8
-  br label %319
+314:                                              ; preds = %301
+  %315 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %315, ptr %6, align 8, !tbaa !61
+  br label %316
 
-319:                                              ; preds = %315
-  %320 = load i32, ptr %24, align 4
-  %321 = add nsw i32 %320, 3
-  %322 = load ptr, ptr %12, align 8
-  %323 = sext i32 %321 to i64
-  %324 = getelementptr inbounds i8, ptr %322, i64 %323
-  store ptr %324, ptr %12, align 8
-  br label %296, !llvm.loop !10
+316:                                              ; preds = %314, %301
+  %317 = load ptr, ptr %6, align 8, !tbaa !61
+  %318 = load ptr, ptr %7, align 8, !tbaa !61
+  %319 = getelementptr inbounds nuw %struct.FxuCube, ptr %318, i32 0, i32 1
+  store ptr %317, ptr %319, align 8, !tbaa !63
+  br label %320
 
-325:                                              ; preds = %296
-  %326 = load ptr, ptr %6, align 8
-  %327 = load ptr, ptr %5, align 8
-  %328 = getelementptr inbounds %struct.FxuVar, ptr %327, i32 0, i32 2
-  store ptr %326, ptr %328, align 8
-  %329 = load i32, ptr %19, align 4
-  %330 = load ptr, ptr %3, align 8
-  %331 = getelementptr inbounds %struct.FxuDataStruct, ptr %330, i32 0, i32 8
-  %332 = load i32, ptr %331, align 8
-  %333 = icmp sle i32 %329, %332
-  br i1 %333, label %334, label %366
+320:                                              ; preds = %316
+  %321 = load i32, ptr %24, align 4, !tbaa !8
+  %322 = add nsw i32 %321, 3
+  %323 = load ptr, ptr %12, align 8, !tbaa !18
+  %324 = sext i32 %322 to i64
+  %325 = getelementptr inbounds i8, ptr %323, i64 %324
+  store ptr %325, ptr %12, align 8, !tbaa !18
+  br label %297, !llvm.loop !65
 
-334:                                              ; preds = %325
-  %335 = load ptr, ptr %6, align 8
-  store ptr %335, ptr %8, align 8
-  br label %336
+326:                                              ; preds = %297
+  %327 = load ptr, ptr %6, align 8, !tbaa !61
+  %328 = load ptr, ptr %5, align 8, !tbaa !41
+  %329 = getelementptr inbounds nuw %struct.FxuVar, ptr %328, i32 0, i32 2
+  store ptr %327, ptr %329, align 8, !tbaa !66
+  %330 = load i32, ptr %19, align 4, !tbaa !8
+  %331 = load ptr, ptr %3, align 8, !tbaa !3
+  %332 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %331, i32 0, i32 8
+  %333 = load i32, ptr %332, align 8, !tbaa !67
+  %334 = icmp sle i32 %330, %333
+  br i1 %334, label %335, label %367
 
-336:                                              ; preds = %361, %334
-  %337 = load ptr, ptr %8, align 8
-  %338 = icmp ne ptr %337, null
-  br i1 %338, label %339, label %365
+335:                                              ; preds = %326
+  %336 = load ptr, ptr %6, align 8, !tbaa !61
+  store ptr %336, ptr %8, align 8, !tbaa !61
+  br label %337
 
-339:                                              ; preds = %336
-  %340 = load ptr, ptr %8, align 8
-  %341 = icmp ne ptr %340, null
-  br i1 %341, label %342, label %346
+337:                                              ; preds = %362, %335
+  %338 = load ptr, ptr %8, align 8, !tbaa !61
+  %339 = icmp ne ptr %338, null
+  br i1 %339, label %340, label %366
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %8, align 8
-  %344 = getelementptr inbounds %struct.FxuCube, ptr %343, i32 0, i32 5
-  %345 = load ptr, ptr %344, align 8
-  br label %347
+340:                                              ; preds = %337
+  %341 = load ptr, ptr %8, align 8, !tbaa !61
+  %342 = icmp ne ptr %341, null
+  br i1 %342, label %343, label %347
 
-346:                                              ; preds = %339
-  br label %347
+343:                                              ; preds = %340
+  %344 = load ptr, ptr %8, align 8, !tbaa !61
+  %345 = getelementptr inbounds nuw %struct.FxuCube, ptr %344, i32 0, i32 5
+  %346 = load ptr, ptr %345, align 8, !tbaa !68
+  br label %348
 
-347:                                              ; preds = %346, %342
-  %348 = phi ptr [ %345, %342 ], [ null, %346 ]
-  store ptr %348, ptr %9, align 8
-  br label %349
+347:                                              ; preds = %340
+  br label %348
 
-349:                                              ; preds = %356, %347
-  %350 = load ptr, ptr %9, align 8
-  %351 = icmp ne ptr %350, null
-  br i1 %351, label %352, label %360
+348:                                              ; preds = %347, %343
+  %349 = phi ptr [ %346, %343 ], [ null, %347 ]
+  store ptr %349, ptr %9, align 8, !tbaa !61
+  br label %350
 
-352:                                              ; preds = %349
-  %353 = load ptr, ptr %4, align 8
-  %354 = load ptr, ptr %8, align 8
-  %355 = load ptr, ptr %9, align 8
-  call void @Fxu_MatrixAddDivisor(ptr noundef %353, ptr noundef %354, ptr noundef %355)
-  br label %356
+350:                                              ; preds = %357, %348
+  %351 = load ptr, ptr %9, align 8, !tbaa !61
+  %352 = icmp ne ptr %351, null
+  br i1 %352, label %353, label %361
 
-356:                                              ; preds = %352
-  %357 = load ptr, ptr %9, align 8
-  %358 = getelementptr inbounds %struct.FxuCube, ptr %357, i32 0, i32 5
-  %359 = load ptr, ptr %358, align 8
-  store ptr %359, ptr %9, align 8
-  br label %349, !llvm.loop !11
+353:                                              ; preds = %350
+  %354 = load ptr, ptr %4, align 8, !tbaa !22
+  %355 = load ptr, ptr %8, align 8, !tbaa !61
+  %356 = load ptr, ptr %9, align 8, !tbaa !61
+  call void @Fxu_MatrixAddDivisor(ptr noundef %354, ptr noundef %355, ptr noundef %356)
+  br label %357
 
-360:                                              ; preds = %349
-  br label %361
+357:                                              ; preds = %353
+  %358 = load ptr, ptr %9, align 8, !tbaa !61
+  %359 = getelementptr inbounds nuw %struct.FxuCube, ptr %358, i32 0, i32 5
+  %360 = load ptr, ptr %359, align 8, !tbaa !68
+  store ptr %360, ptr %9, align 8, !tbaa !61
+  br label %350, !llvm.loop !69
 
-361:                                              ; preds = %360
-  %362 = load ptr, ptr %8, align 8
-  %363 = getelementptr inbounds %struct.FxuCube, ptr %362, i32 0, i32 5
-  %364 = load ptr, ptr %363, align 8
-  store ptr %364, ptr %8, align 8
-  br label %336, !llvm.loop !12
+361:                                              ; preds = %350
+  br label %362
 
-365:                                              ; preds = %336
-  br label %366
+362:                                              ; preds = %361
+  %363 = load ptr, ptr %8, align 8, !tbaa !61
+  %364 = getelementptr inbounds nuw %struct.FxuCube, ptr %363, i32 0, i32 5
+  %365 = load ptr, ptr %364, align 8, !tbaa !68
+  store ptr %365, ptr %8, align 8, !tbaa !61
+  br label %337, !llvm.loop !70
 
-366:                                              ; preds = %365, %325
+366:                                              ; preds = %337
   br label %367
 
-367:                                              ; preds = %366, %243
+367:                                              ; preds = %366, %326
   br label %368
 
-368:                                              ; preds = %367
-  %369 = load i32, ptr %15, align 4
-  %370 = add nsw i32 %369, 1
-  store i32 %370, ptr %15, align 4
-  br label %237, !llvm.loop !13
+368:                                              ; preds = %367, %244
+  br label %369
 
-371:                                              ; preds = %237
-  %372 = load ptr, ptr %13, align 8
-  %373 = icmp ne ptr %372, null
-  br i1 %373, label %374, label %376
+369:                                              ; preds = %368
+  %370 = load i32, ptr %15, align 4, !tbaa !8
+  %371 = add nsw i32 %370, 1
+  store i32 %371, ptr %15, align 4, !tbaa !8
+  br label %238, !llvm.loop !71
 
-374:                                              ; preds = %371
-  %375 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %375) #7
-  store ptr null, ptr %13, align 8
-  br label %377
+372:                                              ; preds = %238
+  %373 = load ptr, ptr %13, align 8, !tbaa !53
+  %374 = icmp ne ptr %373, null
+  br i1 %374, label %375, label %377
 
-376:                                              ; preds = %371
-  br label %377
+375:                                              ; preds = %372
+  %376 = load ptr, ptr %13, align 8, !tbaa !53
+  call void @free(ptr noundef %376) #8
+  store ptr null, ptr %13, align 8, !tbaa !53
+  br label %378
 
-377:                                              ; preds = %376, %374
-  %378 = load i32, ptr %19, align 4
-  %379 = icmp sgt i32 %378, 10000000
-  br i1 %379, label %380, label %387
+377:                                              ; preds = %372
+  br label %378
 
-380:                                              ; preds = %377
-  %381 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
-  %382 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  %383 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  %384 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  %385 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  %386 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+378:                                              ; preds = %377, %375
+  %379 = load i32, ptr %19, align 4, !tbaa !8
+  %380 = icmp sgt i32 %379, 10000000
+  br i1 %380, label %381, label %388
+
+381:                                              ; preds = %378
+  %382 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
+  %383 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  %384 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  %385 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  %386 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  %387 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
   store ptr null, ptr %2, align 8
-  br label %483
+  store i32 1, ptr %25, align 4
+  br label %484
 
-387:                                              ; preds = %377
-  %388 = load i32, ptr %19, align 4
-  %389 = load ptr, ptr %3, align 8
-  %390 = getelementptr inbounds %struct.FxuDataStruct, ptr %389, i32 0, i32 8
-  %391 = load i32, ptr %390, align 8
-  %392 = icmp sgt i32 %388, %391
-  br i1 %392, label %393, label %406
+388:                                              ; preds = %378
+  %389 = load i32, ptr %19, align 4, !tbaa !8
+  %390 = load ptr, ptr %3, align 8, !tbaa !3
+  %391 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %390, i32 0, i32 8
+  %392 = load i32, ptr %391, align 8, !tbaa !67
+  %393 = icmp sgt i32 %389, %392
+  br i1 %393, label %394, label %407
 
-393:                                              ; preds = %387
-  %394 = load ptr, ptr %4, align 8
-  %395 = load ptr, ptr %3, align 8
-  %396 = getelementptr inbounds %struct.FxuDataStruct, ptr %395, i32 0, i32 12
-  %397 = load ptr, ptr %396, align 8
-  %398 = load i32, ptr %19, align 4
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.FxuDataStruct, ptr %399, i32 0, i32 8
-  %401 = load i32, ptr %400, align 8
-  %402 = call i32 @Fxu_PreprocessCubePairs(ptr noundef %394, ptr noundef %397, i32 noundef %398, i32 noundef %401)
-  %403 = icmp ne i32 %402, 0
-  br i1 %403, label %405, label %404
+394:                                              ; preds = %388
+  %395 = load ptr, ptr %4, align 8, !tbaa !22
+  %396 = load ptr, ptr %3, align 8, !tbaa !3
+  %397 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %396, i32 0, i32 12
+  %398 = load ptr, ptr %397, align 8, !tbaa !14
+  %399 = load i32, ptr %19, align 4, !tbaa !8
+  %400 = load ptr, ptr %3, align 8, !tbaa !3
+  %401 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %400, i32 0, i32 8
+  %402 = load i32, ptr %401, align 8, !tbaa !67
+  %403 = call i32 @Fxu_PreprocessCubePairs(ptr noundef %395, ptr noundef %398, i32 noundef %399, i32 noundef %402)
+  %404 = icmp ne i32 %403, 0
+  br i1 %404, label %406, label %405
 
-404:                                              ; preds = %393
+405:                                              ; preds = %394
   store ptr null, ptr %2, align 8
-  br label %483
+  store i32 1, ptr %25, align 4
+  br label %484
 
-405:                                              ; preds = %393
-  br label %406
+406:                                              ; preds = %394
+  br label %407
 
-406:                                              ; preds = %405, %387
-  %407 = load ptr, ptr %4, align 8
-  %408 = getelementptr inbounds %struct.FxuMatrix, ptr %407, i32 0, i32 1
-  %409 = getelementptr inbounds %struct.FxuListVar, ptr %408, i32 0, i32 2
-  %410 = load i32, ptr %409, align 8
-  %411 = icmp sgt i32 %410, 1000000
-  br i1 %411, label %412, label %419
+407:                                              ; preds = %406, %388
+  %408 = load ptr, ptr %4, align 8, !tbaa !22
+  %409 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %408, i32 0, i32 1
+  %410 = getelementptr inbounds nuw %struct.FxuListVar, ptr %409, i32 0, i32 2
+  %411 = load i32, ptr %410, align 8, !tbaa !72
+  %412 = icmp sgt i32 %411, 1000000
+  br i1 %412, label %413, label %420
 
-412:                                              ; preds = %406
-  %413 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
-  %414 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  %415 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  %416 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  %417 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  %418 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+413:                                              ; preds = %407
+  %414 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
+  %415 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  %416 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  %417 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  %418 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  %419 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
   store ptr null, ptr %2, align 8
-  br label %483
+  store i32 1, ptr %25, align 4
+  br label %484
 
-419:                                              ; preds = %406
-  %420 = load ptr, ptr %4, align 8
-  %421 = load ptr, ptr %3, align 8
-  %422 = getelementptr inbounds %struct.FxuDataStruct, ptr %421, i32 0, i32 2
-  %423 = load i32, ptr %422, align 8
-  %424 = load ptr, ptr %3, align 8
-  %425 = getelementptr inbounds %struct.FxuDataStruct, ptr %424, i32 0, i32 7
-  %426 = load i32, ptr %425, align 4
-  call void @Fxu_MatrixComputeSingles(ptr noundef %420, i32 noundef %423, i32 noundef %426)
-  %427 = load ptr, ptr %3, align 8
-  %428 = getelementptr inbounds %struct.FxuDataStruct, ptr %427, i32 0, i32 4
-  %429 = load i32, ptr %428, align 8
-  %430 = icmp ne i32 %429, 0
-  br i1 %430, label %431, label %481
+420:                                              ; preds = %407
+  %421 = load ptr, ptr %4, align 8, !tbaa !22
+  %422 = load ptr, ptr %3, align 8, !tbaa !3
+  %423 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %422, i32 0, i32 2
+  %424 = load i32, ptr %423, align 8, !tbaa !73
+  %425 = load ptr, ptr %3, align 8, !tbaa !3
+  %426 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %425, i32 0, i32 7
+  %427 = load i32, ptr %426, align 4, !tbaa !74
+  call void @Fxu_MatrixComputeSingles(ptr noundef %421, i32 noundef %424, i32 noundef %427)
+  %428 = load ptr, ptr %3, align 8, !tbaa !3
+  %429 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %428, i32 0, i32 4
+  %430 = load i32, ptr %429, align 8, !tbaa !75
+  %431 = icmp ne i32 %430, 0
+  br i1 %431, label %432, label %482
 
-431:                                              ; preds = %419
-  %432 = load ptr, ptr %4, align 8
-  %433 = getelementptr inbounds %struct.FxuMatrix, ptr %432, i32 0, i32 19
-  %434 = load i32, ptr %433, align 8
-  %435 = sitofp i32 %434 to double
-  %436 = load ptr, ptr %4, align 8
-  %437 = getelementptr inbounds %struct.FxuMatrix, ptr %436, i32 0, i32 1
-  %438 = getelementptr inbounds %struct.FxuListVar, ptr %437, i32 0, i32 2
-  %439 = load i32, ptr %438, align 8
-  %440 = sitofp i32 %439 to double
-  %441 = fdiv double %435, %440
-  %442 = load ptr, ptr %4, align 8
-  %443 = getelementptr inbounds %struct.FxuMatrix, ptr %442, i32 0, i32 0
-  %444 = getelementptr inbounds %struct.FxuListCube, ptr %443, i32 0, i32 2
-  %445 = load i32, ptr %444, align 8
-  %446 = sitofp i32 %445 to double
-  %447 = fdiv double %441, %446
-  store double %447, ptr %25, align 8
-  %448 = load ptr, ptr @stdout, align 8
-  %449 = load ptr, ptr %4, align 8
-  %450 = getelementptr inbounds %struct.FxuMatrix, ptr %449, i32 0, i32 1
-  %451 = getelementptr inbounds %struct.FxuListVar, ptr %450, i32 0, i32 2
-  %452 = load i32, ptr %451, align 8
-  %453 = load ptr, ptr %4, align 8
-  %454 = getelementptr inbounds %struct.FxuMatrix, ptr %453, i32 0, i32 0
-  %455 = getelementptr inbounds %struct.FxuListCube, ptr %454, i32 0, i32 2
-  %456 = load i32, ptr %455, align 8
-  %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %448, ptr noundef @.str.9, i32 noundef %452, i32 noundef %456) #7
-  %458 = load ptr, ptr @stdout, align 8
-  %459 = load ptr, ptr %4, align 8
-  %460 = getelementptr inbounds %struct.FxuMatrix, ptr %459, i32 0, i32 19
-  %461 = load i32, ptr %460, align 8
-  %462 = load double, ptr %25, align 8
-  %463 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef @.str.10, i32 noundef %461, double noundef %462) #7
-  %464 = load ptr, ptr @stdout, align 8
-  %465 = load ptr, ptr %4, align 8
-  %466 = getelementptr inbounds %struct.FxuMatrix, ptr %465, i32 0, i32 8
-  %467 = getelementptr inbounds %struct.FxuListSingle, ptr %466, i32 0, i32 2
-  %468 = load i32, ptr %467, align 8
-  %469 = load ptr, ptr %4, align 8
-  %470 = getelementptr inbounds %struct.FxuMatrix, ptr %469, i32 0, i32 11
-  %471 = load i32, ptr %470, align 4
-  %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %464, ptr noundef @.str.11, i32 noundef %468, i32 noundef %471) #7
-  %473 = load ptr, ptr @stdout, align 8
-  %474 = load ptr, ptr %4, align 8
-  %475 = getelementptr inbounds %struct.FxuMatrix, ptr %474, i32 0, i32 6
-  %476 = load i32, ptr %475, align 8
-  %477 = load i32, ptr %19, align 4
-  %478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %473, ptr noundef @.str.12, i32 noundef %476, i32 noundef %477) #7
-  %479 = load ptr, ptr @stdout, align 8
-  %480 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %479, ptr noundef @.str.13) #7
-  br label %481
+432:                                              ; preds = %420
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #8
+  %433 = load ptr, ptr %4, align 8, !tbaa !22
+  %434 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %433, i32 0, i32 19
+  %435 = load i32, ptr %434, align 8, !tbaa !76
+  %436 = sitofp i32 %435 to double
+  %437 = load ptr, ptr %4, align 8, !tbaa !22
+  %438 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %437, i32 0, i32 1
+  %439 = getelementptr inbounds nuw %struct.FxuListVar, ptr %438, i32 0, i32 2
+  %440 = load i32, ptr %439, align 8, !tbaa !72
+  %441 = sitofp i32 %440 to double
+  %442 = fdiv double %436, %441
+  %443 = load ptr, ptr %4, align 8, !tbaa !22
+  %444 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %443, i32 0, i32 0
+  %445 = getelementptr inbounds nuw %struct.FxuListCube, ptr %444, i32 0, i32 2
+  %446 = load i32, ptr %445, align 8, !tbaa !77
+  %447 = sitofp i32 %446 to double
+  %448 = fdiv double %442, %447
+  store double %448, ptr %26, align 8, !tbaa !78
+  %449 = load ptr, ptr @stdout, align 8, !tbaa !80
+  %450 = load ptr, ptr %4, align 8, !tbaa !22
+  %451 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %450, i32 0, i32 1
+  %452 = getelementptr inbounds nuw %struct.FxuListVar, ptr %451, i32 0, i32 2
+  %453 = load i32, ptr %452, align 8, !tbaa !72
+  %454 = load ptr, ptr %4, align 8, !tbaa !22
+  %455 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %454, i32 0, i32 0
+  %456 = getelementptr inbounds nuw %struct.FxuListCube, ptr %455, i32 0, i32 2
+  %457 = load i32, ptr %456, align 8, !tbaa !77
+  %458 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %449, ptr noundef @.str.9, i32 noundef %453, i32 noundef %457) #8
+  %459 = load ptr, ptr @stdout, align 8, !tbaa !80
+  %460 = load ptr, ptr %4, align 8, !tbaa !22
+  %461 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %460, i32 0, i32 19
+  %462 = load i32, ptr %461, align 8, !tbaa !76
+  %463 = load double, ptr %26, align 8, !tbaa !78
+  %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %459, ptr noundef @.str.10, i32 noundef %462, double noundef %463) #8
+  %465 = load ptr, ptr @stdout, align 8, !tbaa !80
+  %466 = load ptr, ptr %4, align 8, !tbaa !22
+  %467 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %466, i32 0, i32 8
+  %468 = getelementptr inbounds nuw %struct.FxuListSingle, ptr %467, i32 0, i32 2
+  %469 = load i32, ptr %468, align 8, !tbaa !82
+  %470 = load ptr, ptr %4, align 8, !tbaa !22
+  %471 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %470, i32 0, i32 11
+  %472 = load i32, ptr %471, align 4, !tbaa !83
+  %473 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef @.str.11, i32 noundef %469, i32 noundef %472) #8
+  %474 = load ptr, ptr @stdout, align 8, !tbaa !80
+  %475 = load ptr, ptr %4, align 8, !tbaa !22
+  %476 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %475, i32 0, i32 6
+  %477 = load i32, ptr %476, align 8, !tbaa !84
+  %478 = load i32, ptr %19, align 4, !tbaa !8
+  %479 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %474, ptr noundef @.str.12, i32 noundef %477, i32 noundef %478) #8
+  %480 = load ptr, ptr @stdout, align 8, !tbaa !80
+  %481 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %480, ptr noundef @.str.13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #8
+  br label %482
 
-481:                                              ; preds = %431, %419
-  %482 = load ptr, ptr %4, align 8
-  store ptr %482, ptr %2, align 8
-  br label %483
+482:                                              ; preds = %432, %420
+  %483 = load ptr, ptr %4, align 8, !tbaa !22
+  store ptr %483, ptr %2, align 8
+  store i32 1, ptr %25, align 4
+  br label %484
 
-483:                                              ; preds = %481, %412, %404, %380, %81, %76
-  %484 = load ptr, ptr %2, align 8
-  ret ptr %484
+484:                                              ; preds = %482, %413, %405, %381, %82, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %485 = load ptr, ptr %2, align 8
+  ret ptr %485
 }
 
-declare i32 @Abc_SopGetCubeNum(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @Abc_SopGetVarNum(ptr noundef) #1
+declare i32 @Abc_SopGetCubeNum(ptr noundef) #2
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @Abc_SopGetVarNum(ptr noundef) #2
 
-declare ptr @Fxu_MatrixAllocate(...) #1
+declare i32 @printf(ptr noundef, ...) #2
+
+declare ptr @Fxu_MatrixAllocate(...) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare ptr @Fxu_MatrixAddVar(ptr noundef) #1
+declare ptr @Fxu_MatrixAddVar(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Fxu_CreateMatrixLitCompare(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr @s_pLits, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr @s_pLits, align 8, !tbaa !53
+  %6 = load ptr, ptr %3, align 8, !tbaa !53
+  %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = load ptr, ptr @s_pLits, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %12, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !8
+  %11 = load ptr, ptr @s_pLits, align 8, !tbaa !53
+  %12 = load ptr, ptr %4, align 8, !tbaa !53
+  %13 = load i32, ptr %12, align 4, !tbaa !8
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i32, ptr %11, i64 %14
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = sub nsw i32 %10, %16
   ret i32 %17
 }
 
-declare ptr @Fxu_MatrixAddCube(ptr noundef, ptr noundef, i32 noundef) #1
+declare ptr @Fxu_MatrixAddCube(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @Fxu_CreateMatrixAddCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -786,32 +840,35 @@ define internal void @Fxu_CreateMatrixAddCube(ptr noundef %0, ptr noundef %1, pt
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  store i32 0, ptr %13, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !22
+  store ptr %1, ptr %7, align 8, !tbaa !61
+  store ptr %2, ptr %8, align 8, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !56
+  store ptr %4, ptr %10, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !8
   br label %14
 
 14:                                               ; preds = %95, %5
-  %15 = load ptr, ptr %8, align 8
-  %16 = load i32, ptr %13, align 4
+  %15 = load ptr, ptr %8, align 8, !tbaa !18
+  %16 = load i32, ptr %13, align 4, !tbaa !8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 1, !tbaa !62
   %20 = sext i8 %19 to i32
   %21 = icmp ne i32 %20, 32
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i32, ptr %13, align 4
+  %23 = load ptr, ptr %8, align 8, !tbaa !18
+  %24 = load i32, ptr %13, align 4, !tbaa !8
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 1, !tbaa !62
   %28 = sext i8 %27 to i32
-  store i32 %28, ptr %12, align 4
+  store i32 %28, ptr %12, align 4, !tbaa !8
   %29 = icmp ne i32 %28, 0
   br label %30
 
@@ -820,76 +877,76 @@ define internal void @Fxu_CreateMatrixAddCube(ptr noundef %0, ptr noundef %1, pt
   br i1 %31, label %32, label %98
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr %13, align 4
+  %33 = load ptr, ptr %8, align 8, !tbaa !18
+  %34 = load ptr, ptr %10, align 8, !tbaa !53
+  %35 = load i32, ptr %13, align 4, !tbaa !8
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %34, i64 %36
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 4, !tbaa !8
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %33, i64 %39
-  %41 = load i8, ptr %40, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !62
   %42 = sext i8 %41 to i32
-  store i32 %42, ptr %12, align 4
-  %43 = load i32, ptr %12, align 4
+  store i32 %42, ptr %12, align 4, !tbaa !8
+  %43 = load i32, ptr %12, align 4, !tbaa !8
   %44 = icmp eq i32 %43, 48
   br i1 %44, label %45, label %68
 
 45:                                               ; preds = %32
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.FxuMatrix, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.Vec_Int_t_, ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = load i32, ptr %13, align 4
+  %46 = load ptr, ptr %6, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %49 = load ptr, ptr %9, align 8, !tbaa !56
+  %50 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !58
+  %52 = load ptr, ptr %10, align 8, !tbaa !53
+  %53 = load i32, ptr %13, align 4, !tbaa !8
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = load i32, ptr %55, align 4
+  %56 = load i32, ptr %55, align 4, !tbaa !8
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i32, ptr %51, i64 %57
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 4, !tbaa !8
   %60 = mul nsw i32 2, %59
   %61 = add nsw i32 %60, 1
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %48, i64 %62
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %11, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %11, align 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !41
+  store ptr %64, ptr %11, align 8, !tbaa !41
+  %65 = load ptr, ptr %6, align 8, !tbaa !22
+  %66 = load ptr, ptr %7, align 8, !tbaa !61
+  %67 = load ptr, ptr %11, align 8, !tbaa !41
   call void @Fxu_MatrixAddLiteral(ptr noundef %65, ptr noundef %66, ptr noundef %67)
   br label %94
 
 68:                                               ; preds = %32
-  %69 = load i32, ptr %12, align 4
+  %69 = load i32, ptr %12, align 4, !tbaa !8
   %70 = icmp eq i32 %69, 49
   br i1 %70, label %71, label %93
 
 71:                                               ; preds = %68
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.FxuMatrix, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct.Vec_Int_t_, ptr %75, i32 0, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr %13, align 4
+  %72 = load ptr, ptr %6, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8, !tbaa !25
+  %75 = load ptr, ptr %9, align 8, !tbaa !56
+  %76 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !58
+  %78 = load ptr, ptr %10, align 8, !tbaa !53
+  %79 = load i32, ptr %13, align 4, !tbaa !8
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %78, i64 %80
-  %82 = load i32, ptr %81, align 4
+  %82 = load i32, ptr %81, align 4, !tbaa !8
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i32, ptr %77, i64 %83
-  %85 = load i32, ptr %84, align 4
+  %85 = load i32, ptr %84, align 4, !tbaa !8
   %86 = mul nsw i32 2, %85
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds ptr, ptr %74, i64 %87
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %11, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = load ptr, ptr %11, align 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
+  store ptr %89, ptr %11, align 8, !tbaa !41
+  %90 = load ptr, ptr %6, align 8, !tbaa !22
+  %91 = load ptr, ptr %7, align 8, !tbaa !61
+  %92 = load ptr, ptr %11, align 8, !tbaa !41
   call void @Fxu_MatrixAddLiteral(ptr noundef %90, ptr noundef %91, ptr noundef %92)
   br label %93
 
@@ -900,26 +957,32 @@ define internal void @Fxu_CreateMatrixAddCube(ptr noundef %0, ptr noundef %1, pt
   br label %95
 
 95:                                               ; preds = %94
-  %96 = load i32, ptr %13, align 4
+  %96 = load i32, ptr %13, align 4, !tbaa !8
   %97 = add nsw i32 %96, 1
-  store i32 %97, ptr %13, align 4
-  br label %14, !llvm.loop !14
+  store i32 %97, ptr %13, align 4, !tbaa !8
+  br label %14, !llvm.loop !85
 
 98:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
   ret void
 }
 
-declare void @Fxu_MatrixAddDivisor(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @Fxu_MatrixAddDivisor(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #5
 
-declare i32 @Fxu_PreprocessCubePairs(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @Fxu_PreprocessCubePairs(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @Fxu_MatrixComputeSingles(ptr noundef, i32 noundef, i32 noundef) #1
+declare void @Fxu_MatrixComputeSingles(ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Fxu_CreateCovers(ptr noundef %0, ptr noundef %1) #0 {
@@ -931,74 +994,80 @@ define void @Fxu_CreateCovers(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !22
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
   %13 = call ptr @Fxu_CreateCoversFirstCube(ptr noundef %11, ptr noundef %12, i32 noundef 0)
-  store ptr %13, ptr %6, align 8
-  store i32 0, ptr %10, align 4
+  store ptr %13, ptr %6, align 8, !tbaa !61
+  store i32 0, ptr %10, align 4, !tbaa !8
   br label %14
 
 14:                                               ; preds = %80, %2
-  %15 = load i32, ptr %10, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.FxuDataStruct, ptr %16, i32 0, i32 17
-  %18 = load i32, ptr %17, align 8
+  %15 = load i32, ptr %10, align 4, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %16, i32 0, i32 17
+  %18 = load i32, ptr %17, align 8, !tbaa !10
   %19 = icmp slt i32 %15, %18
   br i1 %19, label %20, label %83
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.FxuDataStruct, ptr %21, i32 0, i32 12
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %10, align 4
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %21, i32 0, i32 12
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = load i32, ptr %10, align 4, !tbaa !8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %8, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  store ptr %29, ptr %8, align 8, !tbaa !18
   %30 = icmp ne ptr %29, null
   br i1 %30, label %31, label %79
 
 31:                                               ; preds = %20
-  %32 = load i32, ptr %10, align 4
-  store i32 %32, ptr %9, align 4
-  %33 = load ptr, ptr %3, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %9, align 4
+  %32 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %32, ptr %9, align 4, !tbaa !8
+  %33 = load ptr, ptr %3, align 8, !tbaa !22
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = load i32, ptr %9, align 4, !tbaa !8
   %36 = add nsw i32 %35, 1
   %37 = call ptr @Fxu_CreateCoversFirstCube(ptr noundef %33, ptr noundef %34, i32 noundef %36)
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %6, align 8
-  store ptr %38, ptr %5, align 8
+  store ptr %37, ptr %7, align 8, !tbaa !61
+  %38 = load ptr, ptr %6, align 8, !tbaa !61
+  store ptr %38, ptr %5, align 8, !tbaa !61
   br label %39
 
 39:                                               ; preds = %63, %31
-  %40 = load ptr, ptr %5, align 8
-  %41 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %5, align 8, !tbaa !61
+  %41 = load ptr, ptr %7, align 8, !tbaa !61
   %42 = icmp ne ptr %40, %41
   br i1 %42, label %43, label %67
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.FxuCube, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds %struct.FxuListLit, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
+  %44 = load ptr, ptr %5, align 8, !tbaa !61
+  %45 = getelementptr inbounds nuw %struct.FxuCube, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds nuw %struct.FxuListLit, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !86
   %48 = icmp ne ptr %47, null
   br i1 %48, label %49, label %62
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.FxuCube, ptr %50, i32 0, i32 3
-  %52 = getelementptr inbounds %struct.FxuListLit, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.FxuLit, ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.FxuDataStruct, ptr %56, i32 0, i32 17
-  %58 = load i32, ptr %57, align 8
+  %50 = load ptr, ptr %5, align 8, !tbaa !61
+  %51 = getelementptr inbounds nuw %struct.FxuCube, ptr %50, i32 0, i32 3
+  %52 = getelementptr inbounds nuw %struct.FxuListLit, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !86
+  %54 = getelementptr inbounds nuw %struct.FxuLit, ptr %53, i32 0, i32 0
+  %55 = load i32, ptr %54, align 8, !tbaa !87
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %56, i32 0, i32 17
+  %58 = load i32, ptr %57, align 8, !tbaa !10
   %59 = mul nsw i32 2, %58
   %60 = icmp sge i32 %55, %59
   br i1 %60, label %61, label %62
@@ -1010,83 +1079,89 @@ define void @Fxu_CreateCovers(ptr noundef %0, ptr noundef %1) #0 {
   br label %63
 
 63:                                               ; preds = %62
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.FxuCube, ptr %64, i32 0, i32 5
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %5, align 8
-  br label %39, !llvm.loop !15
+  %64 = load ptr, ptr %5, align 8, !tbaa !61
+  %65 = getelementptr inbounds nuw %struct.FxuCube, ptr %64, i32 0, i32 5
+  %66 = load ptr, ptr %65, align 8, !tbaa !68
+  store ptr %66, ptr %5, align 8, !tbaa !61
+  br label %39, !llvm.loop !89
 
 67:                                               ; preds = %61, %39
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %7, align 8
+  %68 = load ptr, ptr %5, align 8, !tbaa !61
+  %69 = load ptr, ptr %7, align 8, !tbaa !61
   %70 = icmp ne ptr %68, %69
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %3, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = load ptr, ptr %6, align 8
-  %76 = load ptr, ptr %7, align 8
+  %72 = load ptr, ptr %3, align 8, !tbaa !22
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = load i32, ptr %9, align 4, !tbaa !8
+  %75 = load ptr, ptr %6, align 8, !tbaa !61
+  %76 = load ptr, ptr %7, align 8, !tbaa !61
   call void @Fxu_CreateCoversNode(ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef %75, ptr noundef %76)
   br label %77
 
 77:                                               ; preds = %71, %67
-  %78 = load ptr, ptr %7, align 8
-  store ptr %78, ptr %6, align 8
+  %78 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %78, ptr %6, align 8, !tbaa !61
   br label %79
 
 79:                                               ; preds = %77, %20
   br label %80
 
 80:                                               ; preds = %79
-  %81 = load i32, ptr %10, align 4
+  %81 = load i32, ptr %10, align 4, !tbaa !8
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %10, align 4
-  br label %14, !llvm.loop !16
+  store i32 %82, ptr %10, align 4, !tbaa !8
+  br label %14, !llvm.loop !90
 
 83:                                               ; preds = %14
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !8
   br label %84
 
 84:                                               ; preds = %107, %83
-  %85 = load i32, ptr %10, align 4
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.FxuDataStruct, ptr %86, i32 0, i32 18
-  %88 = load i32, ptr %87, align 4
+  %85 = load i32, ptr %10, align 4, !tbaa !8
+  %86 = load ptr, ptr %4, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %86, i32 0, i32 18
+  %88 = load i32, ptr %87, align 4, !tbaa !91
   %89 = icmp slt i32 %85, %88
   br i1 %89, label %90, label %110
 
 90:                                               ; preds = %84
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.FxuDataStruct, ptr %91, i32 0, i32 17
-  %93 = load i32, ptr %92, align 8
-  %94 = load i32, ptr %10, align 4
+  %91 = load ptr, ptr %4, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %91, i32 0, i32 17
+  %93 = load i32, ptr %92, align 8, !tbaa !10
+  %94 = load i32, ptr %10, align 4, !tbaa !8
   %95 = add nsw i32 %93, %94
-  store i32 %95, ptr %9, align 4
-  %96 = load ptr, ptr %3, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = load i32, ptr %9, align 4
+  store i32 %95, ptr %9, align 4, !tbaa !8
+  %96 = load ptr, ptr %3, align 8, !tbaa !22
+  %97 = load ptr, ptr %4, align 8, !tbaa !3
+  %98 = load i32, ptr %9, align 4, !tbaa !8
   %99 = add nsw i32 %98, 1
   %100 = call ptr @Fxu_CreateCoversFirstCube(ptr noundef %96, ptr noundef %97, i32 noundef %99)
-  store ptr %100, ptr %7, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = load ptr, ptr %4, align 8
-  %103 = load i32, ptr %9, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = load ptr, ptr %7, align 8
+  store ptr %100, ptr %7, align 8, !tbaa !61
+  %101 = load ptr, ptr %3, align 8, !tbaa !22
+  %102 = load ptr, ptr %4, align 8, !tbaa !3
+  %103 = load i32, ptr %9, align 4, !tbaa !8
+  %104 = load ptr, ptr %6, align 8, !tbaa !61
+  %105 = load ptr, ptr %7, align 8, !tbaa !61
   call void @Fxu_CreateCoversNode(ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %104, ptr noundef %105)
-  %106 = load ptr, ptr %7, align 8
-  store ptr %106, ptr %6, align 8
+  %106 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %106, ptr %6, align 8, !tbaa !61
   br label %107
 
 107:                                              ; preds = %90
-  %108 = load i32, ptr %10, align 4
+  %108 = load i32, ptr %10, align 4, !tbaa !8
   %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %10, align 4
-  br label %84, !llvm.loop !17
+  store i32 %109, ptr %10, align 4, !tbaa !8
+  br label %84, !llvm.loop !92
 
 110:                                              ; preds = %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
@@ -1097,71 +1172,76 @@ define internal ptr @Fxu_CreateCoversFirstCube(ptr noundef %0, ptr noundef %1, i
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %9 = load i32, ptr %7, align 4
-  store i32 %9, ptr %8, align 4
-  br label %10
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %10 = load i32, ptr %7, align 4, !tbaa !8
+  store i32 %10, ptr %8, align 4, !tbaa !8
+  br label %11
 
-10:                                               ; preds = %46, %3
-  %11 = load i32, ptr %8, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.FxuDataStruct, ptr %12, i32 0, i32 17
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.FxuDataStruct, ptr %15, i32 0, i32 18
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %14, %17
-  %19 = icmp slt i32 %11, %18
-  br i1 %19, label %20, label %49
+11:                                               ; preds = %47, %3
+  %12 = load i32, ptr %8, align 4, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %13, i32 0, i32 17
+  %15 = load i32, ptr %14, align 8, !tbaa !10
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %16, i32 0, i32 18
+  %18 = load i32, ptr %17, align 4, !tbaa !91
+  %19 = add nsw i32 %15, %18
+  %20 = icmp slt i32 %12, %19
+  br i1 %20, label %21, label %50
 
-20:                                               ; preds = %10
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.FxuMatrix, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %8, align 4
-  %25 = mul nsw i32 2, %24
-  %26 = add nsw i32 %25, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %23, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.FxuVar, ptr %29, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %45
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %25 = load i32, ptr %8, align 4, !tbaa !8
+  %26 = mul nsw i32 2, %25
+  %27 = add nsw i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %24, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds nuw %struct.FxuVar, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %46
 
-33:                                               ; preds = %20
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.FxuMatrix, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %8, align 4
-  %38 = mul nsw i32 2, %37
-  %39 = add nsw i32 %38, 1
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.FxuVar, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %4, align 8
-  br label %50
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %5, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %38 = load i32, ptr %8, align 4, !tbaa !8
+  %39 = mul nsw i32 2, %38
+  %40 = add nsw i32 %39, 1
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !41
+  %44 = getelementptr inbounds nuw %struct.FxuVar, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8, !tbaa !66
+  store ptr %45, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %51
 
-45:                                               ; preds = %20
-  br label %46
+46:                                               ; preds = %21
+  br label %47
 
-46:                                               ; preds = %45
-  %47 = load i32, ptr %8, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %8, align 4
-  br label %10, !llvm.loop !18
+47:                                               ; preds = %46
+  %48 = load i32, ptr %8, align 4, !tbaa !8
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %8, align 4, !tbaa !8
+  br label %11, !llvm.loop !93
 
-49:                                               ; preds = %10
+50:                                               ; preds = %11
   store ptr null, ptr %4, align 8
-  br label %50
+  store i32 1, ptr %9, align 4
+  br label %51
 
-50:                                               ; preds = %49, %33
-  %51 = load ptr, ptr %4, align 8
-  ret ptr %51
+51:                                               ; preds = %50, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %52 = load ptr, ptr %4, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1180,467 +1260,484 @@ define internal void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 n
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.FxuMatrix, ptr %20, i32 0, i32 16
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.FxuMatrix, ptr %22, i32 0, i32 17
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.FxuMatrix, ptr %24, i32 0, i32 16
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %9, align 8
-  store ptr %26, ptr %15, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !22
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !61
+  store ptr %4, ptr %10, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %20 = load ptr, ptr %6, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %20, i32 0, i32 16
+  %22 = load ptr, ptr %6, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %22, i32 0, i32 17
+  store ptr %21, ptr %23, align 8, !tbaa !94
+  %24 = load ptr, ptr %6, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %24, i32 0, i32 16
+  store ptr null, ptr %25, align 8, !tbaa !95
+  %26 = load ptr, ptr %9, align 8, !tbaa !61
+  store ptr %26, ptr %15, align 8, !tbaa !61
   br label %27
 
-27:                                               ; preds = %76, %5
-  %28 = load ptr, ptr %15, align 8
-  %29 = load ptr, ptr %10, align 8
+27:                                               ; preds = %75, %5
+  %28 = load ptr, ptr %15, align 8, !tbaa !61
+  %29 = load ptr, ptr %10, align 8, !tbaa !61
   %30 = icmp ne ptr %28, %29
-  br i1 %30, label %31, label %80
+  br i1 %30, label %31, label %79
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds %struct.FxuCube, ptr %32, i32 0, i32 3
-  %34 = getelementptr inbounds %struct.FxuListLit, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %16, align 8
+  %32 = load ptr, ptr %15, align 8, !tbaa !61
+  %33 = getelementptr inbounds nuw %struct.FxuCube, ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds nuw %struct.FxuListLit, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !96
+  store ptr %35, ptr %16, align 8, !tbaa !97
   br label %36
 
-36:                                               ; preds = %71, %31
-  %37 = load ptr, ptr %16, align 8
+36:                                               ; preds = %70, %31
+  %37 = load ptr, ptr %16, align 8, !tbaa !97
   %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %75
+  br i1 %38, label %39, label %74
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.FxuMatrix, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %16, align 8
-  %44 = getelementptr inbounds %struct.FxuLit, ptr %43, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.FxuVar, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
+  %40 = load ptr, ptr %6, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = load ptr, ptr %16, align 8, !tbaa !97
+  %44 = getelementptr inbounds nuw %struct.FxuLit, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8, !tbaa !98
+  %46 = getelementptr inbounds nuw %struct.FxuVar, ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8, !tbaa !99
   %48 = sdiv i32 %47, 2
   %49 = mul nsw i32 2, %48
   %50 = add nsw i32 %49, 1
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %42, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %14, align 8
-  %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds %struct.FxuVar, ptr %54, i32 0, i32 7
-  %56 = load ptr, ptr %55, align 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
+  store ptr %53, ptr %14, align 8, !tbaa !41
+  %54 = load ptr, ptr %14, align 8, !tbaa !41
+  %55 = getelementptr inbounds nuw %struct.FxuVar, ptr %54, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8, !tbaa !100
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %70
+  br i1 %57, label %58, label %69
 
 58:                                               ; preds = %39
-  %59 = load ptr, ptr %14, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.FxuMatrix, ptr %60, i32 0, i32 17
-  %62 = load ptr, ptr %61, align 8
-  store ptr %59, ptr %62, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = getelementptr inbounds %struct.FxuVar, ptr %63, i32 0, i32 7
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.FxuMatrix, ptr %65, i32 0, i32 17
-  store ptr %64, ptr %66, align 8
-  %67 = load ptr, ptr %14, align 8
-  %68 = getelementptr inbounds %struct.FxuVar, ptr %67, i32 0, i32 7
-  %69 = inttoptr i64 1 to ptr
-  store ptr %69, ptr %68, align 8
+  %59 = load ptr, ptr %14, align 8, !tbaa !41
+  %60 = load ptr, ptr %6, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %60, i32 0, i32 17
+  %62 = load ptr, ptr %61, align 8, !tbaa !94
+  store ptr %59, ptr %62, align 8, !tbaa !41
+  %63 = load ptr, ptr %14, align 8, !tbaa !41
+  %64 = getelementptr inbounds nuw %struct.FxuVar, ptr %63, i32 0, i32 7
+  %65 = load ptr, ptr %6, align 8, !tbaa !22
+  %66 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %65, i32 0, i32 17
+  store ptr %64, ptr %66, align 8, !tbaa !94
+  %67 = load ptr, ptr %14, align 8, !tbaa !41
+  %68 = getelementptr inbounds nuw %struct.FxuVar, ptr %67, i32 0, i32 7
+  store ptr inttoptr (i64 1 to ptr), ptr %68, align 8, !tbaa !100
+  br label %69
+
+69:                                               ; preds = %58, %39
   br label %70
 
-70:                                               ; preds = %58, %39
-  br label %71
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %16, align 8, !tbaa !97
+  %72 = getelementptr inbounds nuw %struct.FxuLit, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8, !tbaa !101
+  store ptr %73, ptr %16, align 8, !tbaa !97
+  br label %36, !llvm.loop !102
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %16, align 8
-  %73 = getelementptr inbounds %struct.FxuLit, ptr %72, i32 0, i32 5
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %16, align 8
-  br label %36, !llvm.loop !19
+74:                                               ; preds = %36
+  br label %75
 
-75:                                               ; preds = %36
-  br label %76
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %15, align 8, !tbaa !61
+  %77 = getelementptr inbounds nuw %struct.FxuCube, ptr %76, i32 0, i32 5
+  %78 = load ptr, ptr %77, align 8, !tbaa !68
+  store ptr %78, ptr %15, align 8, !tbaa !61
+  br label %27, !llvm.loop !103
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %15, align 8
-  %78 = getelementptr inbounds %struct.FxuCube, ptr %77, i32 0, i32 5
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %15, align 8
-  br label %27, !llvm.loop !20
+79:                                               ; preds = %27
+  %80 = call ptr @Vec_IntAlloc(i32 noundef 4)
+  store ptr %80, ptr %11, align 8, !tbaa !56
+  %81 = load ptr, ptr %6, align 8, !tbaa !22
+  %82 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %81, i32 0, i32 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !95
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %103
 
-80:                                               ; preds = %27
-  %81 = call ptr @Vec_IntAlloc(i32 noundef 4)
-  store ptr %81, ptr %11, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.FxuMatrix, ptr %82, i32 0, i32 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp ne ptr %84, null
-  br i1 %85, label %86, label %105
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %6, align 8, !tbaa !22
+  %87 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %86, i32 0, i32 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !95
+  store ptr %88, ptr %14, align 8, !tbaa !41
+  br label %89
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.FxuMatrix, ptr %87, i32 0, i32 16
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %14, align 8
-  br label %90
+89:                                               ; preds = %98, %85
+  %90 = load ptr, ptr %14, align 8, !tbaa !41
+  %91 = icmp ne ptr %90, inttoptr (i64 1 to ptr)
+  br i1 %91, label %92, label %102
 
-90:                                               ; preds = %100, %86
-  %91 = load ptr, ptr %14, align 8
-  %92 = inttoptr i64 1 to ptr
-  %93 = icmp ne ptr %91, %92
-  br i1 %93, label %94, label %104
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %11, align 8, !tbaa !56
+  %94 = load ptr, ptr %14, align 8, !tbaa !41
+  %95 = getelementptr inbounds nuw %struct.FxuVar, ptr %94, i32 0, i32 0
+  %96 = load i32, ptr %95, align 8, !tbaa !99
+  %97 = sdiv i32 %96, 2
+  call void @Vec_IntPush(ptr noundef %93, i32 noundef %97)
+  br label %98
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %11, align 8
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %struct.FxuVar, ptr %96, i32 0, i32 0
-  %98 = load i32, ptr %97, align 8
-  %99 = sdiv i32 %98, 2
-  call void @Vec_IntPush(ptr noundef %95, i32 noundef %99)
-  br label %100
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %14, align 8, !tbaa !41
+  %100 = getelementptr inbounds nuw %struct.FxuVar, ptr %99, i32 0, i32 7
+  %101 = load ptr, ptr %100, align 8, !tbaa !100
+  store ptr %101, ptr %14, align 8, !tbaa !41
+  br label %89, !llvm.loop !104
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %14, align 8
-  %102 = getelementptr inbounds %struct.FxuVar, ptr %101, i32 0, i32 7
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %14, align 8
-  br label %90, !llvm.loop !21
+102:                                              ; preds = %89
+  br label %103
 
-104:                                              ; preds = %90
-  br label %105
+103:                                              ; preds = %102, %79
+  %104 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %104)
+  %105 = load ptr, ptr %11, align 8, !tbaa !56
+  call void @Vec_IntSort(ptr noundef %105, i32 noundef 0)
+  store i32 0, ptr %19, align 4, !tbaa !8
+  br label %106
 
-105:                                              ; preds = %104, %80
-  %106 = load ptr, ptr %6, align 8
-  call void @Fxu_MatrixRingVarsUnmark(ptr noundef %106)
-  %107 = load ptr, ptr %11, align 8
-  call void @Vec_IntSort(ptr noundef %107, i32 noundef 0)
-  store i32 0, ptr %19, align 4
-  br label %108
+106:                                              ; preds = %149, %103
+  %107 = load i32, ptr %19, align 4, !tbaa !8
+  %108 = load ptr, ptr %11, align 8, !tbaa !56
+  %109 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 4, !tbaa !105
+  %111 = icmp slt i32 %107, %110
+  br i1 %111, label %112, label %152
 
-108:                                              ; preds = %151, %105
-  %109 = load i32, ptr %19, align 4
-  %110 = load ptr, ptr %11, align 8
-  %111 = getelementptr inbounds %struct.Vec_Int_t_, ptr %110, i32 0, i32 1
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp slt i32 %109, %112
-  br i1 %113, label %114, label %154
+112:                                              ; preds = %106
+  %113 = load i32, ptr %19, align 4, !tbaa !8
+  %114 = load ptr, ptr %6, align 8, !tbaa !22
+  %115 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %114, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8, !tbaa !25
+  %117 = load ptr, ptr %11, align 8, !tbaa !56
+  %118 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !58
+  %120 = load i32, ptr %19, align 4, !tbaa !8
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %119, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !8
+  %124 = mul nsw i32 2, %123
+  %125 = add nsw i32 %124, 0
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds ptr, ptr %116, i64 %126
+  %128 = load ptr, ptr %127, align 8, !tbaa !41
+  %129 = getelementptr inbounds nuw %struct.FxuVar, ptr %128, i32 0, i32 4
+  %130 = getelementptr inbounds nuw %struct.FxuListLit, ptr %129, i32 0, i32 2
+  store i32 %113, ptr %130, align 8, !tbaa !106
+  %131 = load i32, ptr %19, align 4, !tbaa !8
+  %132 = load ptr, ptr %6, align 8, !tbaa !22
+  %133 = getelementptr inbounds nuw %struct.FxuMatrix, ptr %132, i32 0, i32 2
+  %134 = load ptr, ptr %133, align 8, !tbaa !25
+  %135 = load ptr, ptr %11, align 8, !tbaa !56
+  %136 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %135, i32 0, i32 2
+  %137 = load ptr, ptr %136, align 8, !tbaa !58
+  %138 = load i32, ptr %19, align 4, !tbaa !8
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds i32, ptr %137, i64 %139
+  %141 = load i32, ptr %140, align 4, !tbaa !8
+  %142 = mul nsw i32 2, %141
+  %143 = add nsw i32 %142, 1
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds ptr, ptr %134, i64 %144
+  %146 = load ptr, ptr %145, align 8, !tbaa !41
+  %147 = getelementptr inbounds nuw %struct.FxuVar, ptr %146, i32 0, i32 4
+  %148 = getelementptr inbounds nuw %struct.FxuListLit, ptr %147, i32 0, i32 2
+  store i32 %131, ptr %148, align 8, !tbaa !106
+  br label %149
 
-114:                                              ; preds = %108
-  %115 = load i32, ptr %19, align 4
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %struct.FxuMatrix, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %11, align 8
-  %120 = getelementptr inbounds %struct.Vec_Int_t_, ptr %119, i32 0, i32 2
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %19, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %121, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %126 = mul nsw i32 2, %125
-  %127 = add nsw i32 %126, 0
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %118, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.FxuVar, ptr %130, i32 0, i32 4
-  %132 = getelementptr inbounds %struct.FxuListLit, ptr %131, i32 0, i32 2
-  store i32 %115, ptr %132, align 8
-  %133 = load i32, ptr %19, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds %struct.FxuMatrix, ptr %134, i32 0, i32 2
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %11, align 8
-  %138 = getelementptr inbounds %struct.Vec_Int_t_, ptr %137, i32 0, i32 2
-  %139 = load ptr, ptr %138, align 8
-  %140 = load i32, ptr %19, align 4
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %139, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = mul nsw i32 2, %143
-  %145 = add nsw i32 %144, 1
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr %136, i64 %146
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct.FxuVar, ptr %148, i32 0, i32 4
-  %150 = getelementptr inbounds %struct.FxuListLit, ptr %149, i32 0, i32 2
-  store i32 %133, ptr %150, align 8
-  br label %151
+149:                                              ; preds = %112
+  %150 = load i32, ptr %19, align 4, !tbaa !8
+  %151 = add nsw i32 %150, 1
+  store i32 %151, ptr %19, align 4, !tbaa !8
+  br label %106, !llvm.loop !107
 
-151:                                              ; preds = %114
-  %152 = load i32, ptr %19, align 4
-  %153 = add nsw i32 %152, 1
-  store i32 %153, ptr %19, align 4
-  br label %108, !llvm.loop !22
+152:                                              ; preds = %106
+  store i32 0, ptr %18, align 4, !tbaa !8
+  %153 = load ptr, ptr %9, align 8, !tbaa !61
+  store ptr %153, ptr %15, align 8, !tbaa !61
+  br label %154
 
-154:                                              ; preds = %108
-  store i32 0, ptr %18, align 4
-  %155 = load ptr, ptr %9, align 8
-  store ptr %155, ptr %15, align 8
-  br label %156
+154:                                              ; preds = %168, %152
+  %155 = load ptr, ptr %15, align 8, !tbaa !61
+  %156 = load ptr, ptr %10, align 8, !tbaa !61
+  %157 = icmp ne ptr %155, %156
+  br i1 %157, label %158, label %172
 
-156:                                              ; preds = %170, %154
-  %157 = load ptr, ptr %15, align 8
-  %158 = load ptr, ptr %10, align 8
-  %159 = icmp ne ptr %157, %158
-  br i1 %159, label %160, label %174
+158:                                              ; preds = %154
+  %159 = load ptr, ptr %15, align 8, !tbaa !61
+  %160 = getelementptr inbounds nuw %struct.FxuCube, ptr %159, i32 0, i32 3
+  %161 = getelementptr inbounds nuw %struct.FxuListLit, ptr %160, i32 0, i32 2
+  %162 = load i32, ptr %161, align 8, !tbaa !108
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %167
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %15, align 8
-  %162 = getelementptr inbounds %struct.FxuCube, ptr %161, i32 0, i32 3
-  %163 = getelementptr inbounds %struct.FxuListLit, ptr %162, i32 0, i32 2
-  %164 = load i32, ptr %163, align 8
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %166, label %169
+164:                                              ; preds = %158
+  %165 = load i32, ptr %18, align 4, !tbaa !8
+  %166 = add nsw i32 %165, 1
+  store i32 %166, ptr %18, align 4, !tbaa !8
+  br label %167
 
-166:                                              ; preds = %160
-  %167 = load i32, ptr %18, align 4
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %18, align 4
-  br label %169
+167:                                              ; preds = %164, %158
+  br label %168
 
-169:                                              ; preds = %166, %160
-  br label %170
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %15, align 8, !tbaa !61
+  %170 = getelementptr inbounds nuw %struct.FxuCube, ptr %169, i32 0, i32 5
+  %171 = load ptr, ptr %170, align 8, !tbaa !68
+  store ptr %171, ptr %15, align 8, !tbaa !61
+  br label %154, !llvm.loop !109
 
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %15, align 8
-  %172 = getelementptr inbounds %struct.FxuCube, ptr %171, i32 0, i32 5
-  %173 = load ptr, ptr %172, align 8
-  store ptr %173, ptr %15, align 8
-  br label %156, !llvm.loop !23
+172:                                              ; preds = %154
+  %173 = load ptr, ptr %7, align 8, !tbaa !3
+  %174 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %173, i32 0, i32 16
+  %175 = load ptr, ptr %174, align 8, !tbaa !110
+  %176 = load i32, ptr %18, align 4, !tbaa !8
+  %177 = load ptr, ptr %11, align 8, !tbaa !56
+  %178 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %177, i32 0, i32 1
+  %179 = load i32, ptr %178, align 4, !tbaa !105
+  %180 = call ptr @Abc_SopStart(ptr noundef %175, i32 noundef %176, i32 noundef %179)
+  store ptr %180, ptr %12, align 8, !tbaa !18
+  %181 = load i32, ptr %8, align 4, !tbaa !8
+  %182 = load ptr, ptr %7, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %182, i32 0, i32 17
+  %184 = load i32, ptr %183, align 8, !tbaa !10
+  %185 = icmp slt i32 %181, %184
+  br i1 %185, label %186, label %200
 
-174:                                              ; preds = %156
-  %175 = load ptr, ptr %7, align 8
-  %176 = getelementptr inbounds %struct.FxuDataStruct, ptr %175, i32 0, i32 16
-  %177 = load ptr, ptr %176, align 8
-  %178 = load i32, ptr %18, align 4
-  %179 = load ptr, ptr %11, align 8
-  %180 = getelementptr inbounds %struct.Vec_Int_t_, ptr %179, i32 0, i32 1
-  %181 = load i32, ptr %180, align 4
-  %182 = call ptr @Abc_SopStart(ptr noundef %177, i32 noundef %178, i32 noundef %181)
-  store ptr %182, ptr %12, align 8
-  %183 = load i32, ptr %8, align 4
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct.FxuDataStruct, ptr %184, i32 0, i32 17
-  %186 = load i32, ptr %185, align 8
-  %187 = icmp slt i32 %183, %186
-  br i1 %187, label %188, label %202
+186:                                              ; preds = %172
+  %187 = load ptr, ptr %7, align 8, !tbaa !3
+  %188 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %187, i32 0, i32 12
+  %189 = load ptr, ptr %188, align 8, !tbaa !14
+  %190 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %189, i32 0, i32 2
+  %191 = load ptr, ptr %190, align 8, !tbaa !15
+  %192 = load i32, ptr %8, align 4, !tbaa !8
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds ptr, ptr %191, i64 %193
+  %195 = load ptr, ptr %194, align 8, !tbaa !17
+  %196 = call i32 @Abc_SopGetPhase(ptr noundef %195)
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %198, label %200
 
-188:                                              ; preds = %174
-  %189 = load ptr, ptr %7, align 8
-  %190 = getelementptr inbounds %struct.FxuDataStruct, ptr %189, i32 0, i32 12
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %191, i32 0, i32 2
-  %193 = load ptr, ptr %192, align 8
-  %194 = load i32, ptr %8, align 4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds ptr, ptr %193, i64 %195
-  %197 = load ptr, ptr %196, align 8
-  %198 = call i32 @Abc_SopGetPhase(ptr noundef %197)
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %200, label %202
+198:                                              ; preds = %186
+  %199 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @Abc_SopComplement(ptr noundef %199)
+  br label %200
 
-200:                                              ; preds = %188
-  %201 = load ptr, ptr %12, align 8
-  call void @Abc_SopComplement(ptr noundef %201)
+200:                                              ; preds = %198, %186, %172
+  store i32 0, ptr %18, align 4, !tbaa !8
+  %201 = load ptr, ptr %9, align 8, !tbaa !61
+  store ptr %201, ptr %15, align 8, !tbaa !61
   br label %202
 
-202:                                              ; preds = %200, %188, %174
-  store i32 0, ptr %18, align 4
-  %203 = load ptr, ptr %9, align 8
-  store ptr %203, ptr %15, align 8
-  br label %204
+202:                                              ; preds = %283, %200
+  %203 = load ptr, ptr %15, align 8, !tbaa !61
+  %204 = load ptr, ptr %10, align 8, !tbaa !61
+  %205 = icmp ne ptr %203, %204
+  br i1 %205, label %206, label %287
 
-204:                                              ; preds = %285, %202
-  %205 = load ptr, ptr %15, align 8
-  %206 = load ptr, ptr %10, align 8
-  %207 = icmp ne ptr %205, %206
-  br i1 %207, label %208, label %289
+206:                                              ; preds = %202
+  %207 = load ptr, ptr %15, align 8, !tbaa !61
+  %208 = getelementptr inbounds nuw %struct.FxuCube, ptr %207, i32 0, i32 3
+  %209 = getelementptr inbounds nuw %struct.FxuListLit, ptr %208, i32 0, i32 2
+  %210 = load i32, ptr %209, align 8, !tbaa !108
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %212, label %213
 
-208:                                              ; preds = %204
-  %209 = load ptr, ptr %15, align 8
-  %210 = getelementptr inbounds %struct.FxuCube, ptr %209, i32 0, i32 3
-  %211 = getelementptr inbounds %struct.FxuListLit, ptr %210, i32 0, i32 2
-  %212 = load i32, ptr %211, align 8
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %215
+212:                                              ; preds = %206
+  br label %283
 
-214:                                              ; preds = %208
-  br label %285
+213:                                              ; preds = %206
+  %214 = load ptr, ptr %12, align 8, !tbaa !18
+  %215 = load i32, ptr %18, align 4, !tbaa !8
+  %216 = load ptr, ptr %11, align 8, !tbaa !56
+  %217 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %216, i32 0, i32 1
+  %218 = load i32, ptr %217, align 4, !tbaa !105
+  %219 = add nsw i32 %218, 3
+  %220 = mul nsw i32 %215, %219
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i8, ptr %214, i64 %221
+  store ptr %222, ptr %13, align 8, !tbaa !18
+  %223 = load ptr, ptr %15, align 8, !tbaa !61
+  %224 = getelementptr inbounds nuw %struct.FxuCube, ptr %223, i32 0, i32 3
+  %225 = getelementptr inbounds nuw %struct.FxuListLit, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8, !tbaa !96
+  store ptr %226, ptr %16, align 8, !tbaa !97
+  br label %227
 
-215:                                              ; preds = %208
-  %216 = load ptr, ptr %12, align 8
-  %217 = load i32, ptr %18, align 4
-  %218 = load ptr, ptr %11, align 8
-  %219 = getelementptr inbounds %struct.Vec_Int_t_, ptr %218, i32 0, i32 1
-  %220 = load i32, ptr %219, align 4
-  %221 = add nsw i32 %220, 3
-  %222 = mul nsw i32 %217, %221
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i8, ptr %216, i64 %223
-  store ptr %224, ptr %13, align 8
-  %225 = load ptr, ptr %15, align 8
-  %226 = getelementptr inbounds %struct.FxuCube, ptr %225, i32 0, i32 3
-  %227 = getelementptr inbounds %struct.FxuListLit, ptr %226, i32 0, i32 0
-  %228 = load ptr, ptr %227, align 8
-  store ptr %228, ptr %16, align 8
-  br label %229
+227:                                              ; preds = %276, %213
+  %228 = load ptr, ptr %16, align 8, !tbaa !97
+  %229 = icmp ne ptr %228, null
+  br i1 %229, label %230, label %280
 
-229:                                              ; preds = %278, %215
-  %230 = load ptr, ptr %16, align 8
-  %231 = icmp ne ptr %230, null
-  br i1 %231, label %232, label %282
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %16, align 8, !tbaa !97
+  %232 = getelementptr inbounds nuw %struct.FxuLit, ptr %231, i32 0, i32 3
+  %233 = load ptr, ptr %232, align 8, !tbaa !98
+  %234 = getelementptr inbounds nuw %struct.FxuVar, ptr %233, i32 0, i32 4
+  %235 = getelementptr inbounds nuw %struct.FxuListLit, ptr %234, i32 0, i32 2
+  %236 = load i32, ptr %235, align 8, !tbaa !106
+  store i32 %236, ptr %17, align 4, !tbaa !8
+  %237 = load ptr, ptr %16, align 8, !tbaa !97
+  %238 = getelementptr inbounds nuw %struct.FxuLit, ptr %237, i32 0, i32 3
+  %239 = load ptr, ptr %238, align 8, !tbaa !98
+  %240 = getelementptr inbounds nuw %struct.FxuVar, ptr %239, i32 0, i32 0
+  %241 = load i32, ptr %240, align 8, !tbaa !99
+  %242 = sdiv i32 %241, 2
+  %243 = load ptr, ptr %7, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %243, i32 0, i32 17
+  %245 = load i32, ptr %244, align 8, !tbaa !10
+  %246 = icmp slt i32 %242, %245
+  br i1 %246, label %247, label %261
 
-232:                                              ; preds = %229
-  %233 = load ptr, ptr %16, align 8
-  %234 = getelementptr inbounds %struct.FxuLit, ptr %233, i32 0, i32 3
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.FxuVar, ptr %235, i32 0, i32 4
-  %237 = getelementptr inbounds %struct.FxuListLit, ptr %236, i32 0, i32 2
-  %238 = load i32, ptr %237, align 8
-  store i32 %238, ptr %17, align 4
-  %239 = load ptr, ptr %16, align 8
-  %240 = getelementptr inbounds %struct.FxuLit, ptr %239, i32 0, i32 3
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.FxuVar, ptr %241, i32 0, i32 0
-  %243 = load i32, ptr %242, align 8
-  %244 = sdiv i32 %243, 2
-  %245 = load ptr, ptr %7, align 8
-  %246 = getelementptr inbounds %struct.FxuDataStruct, ptr %245, i32 0, i32 17
-  %247 = load i32, ptr %246, align 8
-  %248 = icmp slt i32 %244, %247
-  br i1 %248, label %249, label %263
+247:                                              ; preds = %230
+  %248 = load ptr, ptr %16, align 8, !tbaa !97
+  %249 = getelementptr inbounds nuw %struct.FxuLit, ptr %248, i32 0, i32 3
+  %250 = load ptr, ptr %249, align 8, !tbaa !98
+  %251 = getelementptr inbounds nuw %struct.FxuVar, ptr %250, i32 0, i32 0
+  %252 = load i32, ptr %251, align 8, !tbaa !99
+  %253 = and i32 %252, 1
+  %254 = icmp ne i32 %253, 0
+  %255 = select i1 %254, i32 48, i32 49
+  %256 = trunc i32 %255 to i8
+  %257 = load ptr, ptr %13, align 8, !tbaa !18
+  %258 = load i32, ptr %17, align 4, !tbaa !8
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds i8, ptr %257, i64 %259
+  store i8 %256, ptr %260, align 1, !tbaa !62
+  br label %275
 
-249:                                              ; preds = %232
-  %250 = load ptr, ptr %16, align 8
-  %251 = getelementptr inbounds %struct.FxuLit, ptr %250, i32 0, i32 3
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds %struct.FxuVar, ptr %252, i32 0, i32 0
-  %254 = load i32, ptr %253, align 8
-  %255 = and i32 %254, 1
-  %256 = icmp ne i32 %255, 0
-  %257 = select i1 %256, i32 48, i32 49
-  %258 = trunc i32 %257 to i8
-  %259 = load ptr, ptr %13, align 8
-  %260 = load i32, ptr %17, align 4
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds i8, ptr %259, i64 %261
-  store i8 %258, ptr %262, align 1
-  br label %277
+261:                                              ; preds = %230
+  %262 = load ptr, ptr %16, align 8, !tbaa !97
+  %263 = getelementptr inbounds nuw %struct.FxuLit, ptr %262, i32 0, i32 3
+  %264 = load ptr, ptr %263, align 8, !tbaa !98
+  %265 = getelementptr inbounds nuw %struct.FxuVar, ptr %264, i32 0, i32 0
+  %266 = load i32, ptr %265, align 8, !tbaa !99
+  %267 = and i32 %266, 1
+  %268 = icmp ne i32 %267, 0
+  %269 = select i1 %268, i32 49, i32 48
+  %270 = trunc i32 %269 to i8
+  %271 = load ptr, ptr %13, align 8, !tbaa !18
+  %272 = load i32, ptr %17, align 4, !tbaa !8
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i8, ptr %271, i64 %273
+  store i8 %270, ptr %274, align 1, !tbaa !62
+  br label %275
 
-263:                                              ; preds = %232
-  %264 = load ptr, ptr %16, align 8
-  %265 = getelementptr inbounds %struct.FxuLit, ptr %264, i32 0, i32 3
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds %struct.FxuVar, ptr %266, i32 0, i32 0
-  %268 = load i32, ptr %267, align 8
-  %269 = and i32 %268, 1
-  %270 = icmp ne i32 %269, 0
-  %271 = select i1 %270, i32 49, i32 48
-  %272 = trunc i32 %271 to i8
-  %273 = load ptr, ptr %13, align 8
-  %274 = load i32, ptr %17, align 4
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds i8, ptr %273, i64 %275
-  store i8 %272, ptr %276, align 1
-  br label %277
+275:                                              ; preds = %261, %247
+  br label %276
 
-277:                                              ; preds = %263, %249
-  br label %278
+276:                                              ; preds = %275
+  %277 = load ptr, ptr %16, align 8, !tbaa !97
+  %278 = getelementptr inbounds nuw %struct.FxuLit, ptr %277, i32 0, i32 5
+  %279 = load ptr, ptr %278, align 8, !tbaa !101
+  store ptr %279, ptr %16, align 8, !tbaa !97
+  br label %227, !llvm.loop !111
 
-278:                                              ; preds = %277
-  %279 = load ptr, ptr %16, align 8
-  %280 = getelementptr inbounds %struct.FxuLit, ptr %279, i32 0, i32 5
-  %281 = load ptr, ptr %280, align 8
-  store ptr %281, ptr %16, align 8
-  br label %229, !llvm.loop !24
+280:                                              ; preds = %227
+  %281 = load i32, ptr %18, align 4, !tbaa !8
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %18, align 4, !tbaa !8
+  br label %283
 
-282:                                              ; preds = %229
-  %283 = load i32, ptr %18, align 4
-  %284 = add nsw i32 %283, 1
-  store i32 %284, ptr %18, align 4
-  br label %285
+283:                                              ; preds = %280, %212
+  %284 = load ptr, ptr %15, align 8, !tbaa !61
+  %285 = getelementptr inbounds nuw %struct.FxuCube, ptr %284, i32 0, i32 5
+  %286 = load ptr, ptr %285, align 8, !tbaa !68
+  store ptr %286, ptr %15, align 8, !tbaa !61
+  br label %202, !llvm.loop !112
 
-285:                                              ; preds = %282, %214
-  %286 = load ptr, ptr %15, align 8
-  %287 = getelementptr inbounds %struct.FxuCube, ptr %286, i32 0, i32 5
-  %288 = load ptr, ptr %287, align 8
-  store ptr %288, ptr %15, align 8
-  br label %204, !llvm.loop !25
-
-289:                                              ; preds = %204
-  %290 = load ptr, ptr %12, align 8
-  %291 = load ptr, ptr %7, align 8
-  %292 = getelementptr inbounds %struct.FxuDataStruct, ptr %291, i32 0, i32 14
-  %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %293, i32 0, i32 2
-  %295 = load ptr, ptr %294, align 8
-  %296 = load i32, ptr %8, align 4
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds ptr, ptr %295, i64 %297
-  store ptr %290, ptr %298, align 8
-  %299 = load ptr, ptr %11, align 8
-  %300 = load ptr, ptr %7, align 8
-  %301 = getelementptr inbounds %struct.FxuDataStruct, ptr %300, i32 0, i32 15
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %302, i32 0, i32 2
-  %304 = load ptr, ptr %303, align 8
-  %305 = load i32, ptr %8, align 4
-  %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds ptr, ptr %304, i64 %306
-  store ptr %299, ptr %307, align 8
+287:                                              ; preds = %202
+  %288 = load ptr, ptr %12, align 8, !tbaa !18
+  %289 = load ptr, ptr %7, align 8, !tbaa !3
+  %290 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %289, i32 0, i32 14
+  %291 = load ptr, ptr %290, align 8, !tbaa !113
+  %292 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %291, i32 0, i32 2
+  %293 = load ptr, ptr %292, align 8, !tbaa !15
+  %294 = load i32, ptr %8, align 4, !tbaa !8
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds ptr, ptr %293, i64 %295
+  store ptr %288, ptr %296, align 8, !tbaa !17
+  %297 = load ptr, ptr %11, align 8, !tbaa !56
+  %298 = load ptr, ptr %7, align 8, !tbaa !3
+  %299 = getelementptr inbounds nuw %struct.FxuDataStruct, ptr %298, i32 0, i32 15
+  %300 = load ptr, ptr %299, align 8, !tbaa !114
+  %301 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %300, i32 0, i32 2
+  %302 = load ptr, ptr %301, align 8, !tbaa !15
+  %303 = load i32, ptr %8, align 4, !tbaa !8
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds ptr, ptr %302, i64 %304
+  store ptr %297, ptr %305, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
   ret void
 }
 
-declare void @Fxu_MatrixAddLiteral(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @Fxu_MatrixAddLiteral(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_IntAlloc(i32 noundef %0) #6 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noalias ptr @malloc(i64 noundef 16) #6
-  store ptr %4, ptr %3, align 8
-  %5 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = call noalias ptr @malloc(i64 noundef 16) #9
+  store ptr %4, ptr %3, align 8, !tbaa !56
+  %5 = load i32, ptr %2, align 4, !tbaa !8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %2, align 4, !tbaa !8
   %9 = icmp slt i32 %8, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 16, ptr %2, align 4
+  store i32 16, ptr %2, align 4, !tbaa !8
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %2, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !56
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !105
+  %14 = load i32, ptr %2, align 4, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !56
+  %16 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8, !tbaa !115
+  %17 = load ptr, ptr %3, align 8, !tbaa !56
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 8, !tbaa !115
   %20 = icmp ne i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %11
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
+  %22 = load ptr, ptr %3, align 8, !tbaa !56
+  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !115
   %25 = sext i32 %24 to i64
   %26 = mul i64 4, %25
-  %27 = call noalias ptr @malloc(i64 noundef %26) #6
+  %27 = call noalias ptr @malloc(i64 noundef %26) #9
   br label %29
 
 28:                                               ; preds = %11
@@ -1648,45 +1745,46 @@ define internal ptr @Vec_IntAlloc(i32 noundef %0) #0 {
 
 29:                                               ; preds = %28, %21
   %30 = phi ptr [ %27, %21 ], [ null, %28 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !56
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !58
+  %33 = load ptr, ptr %3, align 8, !tbaa !56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !56
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !105
+  %8 = load ptr, ptr %3, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !115
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !56
+  %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !115
   %16 = icmp slt i32 %15, 16
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !56
   call void @Vec_IntGrow(ptr noundef %18, i32 noundef 16)
   br label %25
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !56
+  %21 = load ptr, ptr %3, align 8, !tbaa !56
+  %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !115
   %24 = mul nsw i32 2, %23
   call void @Vec_IntGrow(ptr noundef %20, i32 noundef %24)
   br label %25
@@ -1695,51 +1793,51 @@ define internal void @Vec_IntPush(ptr noundef %0, i32 noundef %1) #0 {
   br label %26
 
 26:                                               ; preds = %25, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !8
+  %28 = load ptr, ptr %3, align 8, !tbaa !56
+  %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !58
+  %31 = load ptr, ptr %3, align 8, !tbaa !56
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 4, !tbaa !105
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4
+  store i32 %34, ptr %32, align 4, !tbaa !105
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds i32, ptr %30, i64 %35
-  store i32 %27, ptr %36, align 4
+  store i32 %27, ptr %36, align 4, !tbaa !8
   ret void
 }
 
-declare void @Fxu_MatrixRingVarsUnmark(ptr noundef) #1
+declare void @Fxu_MatrixRingVarsUnmark(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntSort(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntSort(ptr noundef %0, i32 noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = icmp ne i32 %5, 0
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
+  %8 = load ptr, ptr %3, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %11 = load ptr, ptr %3, align 8, !tbaa !56
+  %12 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4, !tbaa !105
   %14 = sext i32 %13 to i64
   call void @qsort(ptr noundef %10, i64 noundef %14, i64 noundef 4, ptr noundef @Vec_IntSortCompare2)
   br label %23
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.Vec_Int_t_, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
+  %16 = load ptr, ptr %3, align 8, !tbaa !56
+  %17 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
+  %19 = load ptr, ptr %3, align 8, !tbaa !56
+  %20 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !105
   %22 = sext i32 %21 to i64
   call void @qsort(ptr noundef %18, i64 noundef %22, i64 noundef 4, ptr noundef @Vec_IntSortCompare1)
   br label %23
@@ -1748,22 +1846,22 @@ define internal void @Vec_IntSort(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare ptr @Abc_SopStart(ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @Abc_SopStart(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @Abc_SopGetPhase(ptr noundef) #1
+declare i32 @Abc_SopGetPhase(ptr noundef) #2
 
-declare void @Abc_SopComplement(ptr noundef) #1
+declare void @Abc_SopComplement(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !56
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8, !tbaa !115
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = icmp sge i32 %7, %8
   br i1 %9, label %10, label %11
 
@@ -1771,38 +1869,38 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
   br label %36
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !56
+  %13 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !58
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !56
+  %18 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !58
+  %20 = load i32, ptr %4, align 4, !tbaa !8
   %21 = sext i32 %20 to i64
   %22 = mul i64 4, %21
-  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #8
+  %23 = call ptr @realloc(ptr noundef %19, i64 noundef %22) #10
   br label %29
 
 24:                                               ; preds = %11
-  %25 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4, !tbaa !8
   %26 = sext i32 %25 to i64
   %27 = mul i64 4, %26
-  %28 = call noalias ptr @malloc(i64 noundef %27) #6
+  %28 = call noalias ptr @malloc(i64 noundef %27) #9
   br label %29
 
 29:                                               ; preds = %24, %16
   %30 = phi ptr [ %23, %16 ], [ %28, %24 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %32, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
+  %31 = load ptr, ptr %3, align 8, !tbaa !56
+  %32 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %31, i32 0, i32 2
+  store ptr %30, ptr %32, align 8, !tbaa !58
+  %33 = load i32, ptr %4, align 4, !tbaa !8
+  %34 = load ptr, ptr %3, align 8, !tbaa !56
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %34, i32 0, i32 0
+  store i32 %33, ptr %35, align 8, !tbaa !115
   br label %36
 
 36:                                               ; preds = %29, %10
@@ -1810,19 +1908,19 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #5
+declare ptr @realloc(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_IntSortCompare2(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %4, align 8, !tbaa !53
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp sgt i32 %7, %9
   br i1 %10, label %11, label %12
 
@@ -1831,10 +1929,10 @@ define internal i32 @Vec_IntSortCompare2(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %13, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %15, align 4
+  %13 = load ptr, ptr %4, align 8, !tbaa !53
+  %14 = load i32, ptr %13, align 4, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !53
+  %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = icmp slt i32 %14, %16
   br i1 %17, label %18, label %19
 
@@ -1856,12 +1954,12 @@ define internal i32 @Vec_IntSortCompare1(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %4, align 8, !tbaa !53
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp slt i32 %7, %9
   br i1 %10, label %11, label %12
 
@@ -1870,10 +1968,10 @@ define internal i32 @Vec_IntSortCompare1(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %13, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %15, align 4
+  %13 = load ptr, ptr %4, align 8, !tbaa !53
+  %14 = load i32, ptr %13, align 4, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !53
+  %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %19
 
@@ -1890,41 +1988,133 @@ define internal i32 @Vec_IntSortCompare1(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(1) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS13FxuDataStruct", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !9, i64 88}
+!11 = !{!"FxuDataStruct", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !13, i64 80, !9, i64 88, !9, i64 92}
+!12 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!13 = !{!"p1 _ZTS11Mem_Flex_t_", !5, i64 0}
+!14 = !{!11, !12, i64 48}
+!15 = !{!16, !5, i64 8}
+!16 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !5, i64 8}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !5, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS9FxuMatrix", !5, i64 0}
+!24 = !{!11, !9, i64 24}
+!25 = !{!26, !31, i64 48}
+!26 = !{!"FxuMatrix", !27, i64 0, !29, i64 24, !31, i64 48, !32, i64 56, !9, i64 64, !9, i64 68, !9, i64 72, !33, i64 80, !34, i64 88, !36, i64 112, !9, i64 120, !9, i64 124, !37, i64 128, !38, i64 136, !28, i64 144, !39, i64 152, !30, i64 160, !31, i64 168, !12, i64 176, !9, i64 184, !9, i64 188, !9, i64 192, !9, i64 196, !40, i64 200}
+!27 = !{!"FxuListCube", !28, i64 0, !28, i64 8, !9, i64 16}
+!28 = !{!"p1 _ZTS7FxuCube", !5, i64 0}
+!29 = !{!"FxuListVar", !30, i64 0, !30, i64 8, !9, i64 16}
+!30 = !{!"p1 _ZTS6FxuVar", !5, i64 0}
+!31 = !{!"p2 _ZTS6FxuVar", !5, i64 0}
+!32 = !{!"p1 _ZTS13FxuListDouble", !5, i64 0}
+!33 = !{!"p1 _ZTS13FxuHeapDouble", !5, i64 0}
+!34 = !{!"FxuListSingle", !35, i64 0, !35, i64 8, !9, i64 16}
+!35 = !{!"p1 _ZTS9FxuSingle", !5, i64 0}
+!36 = !{!"p1 _ZTS13FxuHeapSingle", !5, i64 0}
+!37 = !{!"p3 _ZTS7FxuPair", !5, i64 0}
+!38 = !{!"p2 _ZTS7FxuPair", !5, i64 0}
+!39 = !{!"p2 _ZTS7FxuCube", !5, i64 0}
+!40 = !{!"p1 _ZTS16Extra_MmFixed_t_", !5, i64 0}
+!41 = !{!30, !30, i64 0}
+!42 = distinct !{!42, !21}
+!43 = !{!26, !37, i64 128}
+!44 = !{!26, !38, i64 136}
+!45 = !{!46, !9, i64 4}
+!46 = !{!"FxuVar", !9, i64 0, !9, i64 4, !28, i64 8, !37, i64 16, !47, i64 24, !30, i64 48, !30, i64 56, !30, i64 64}
+!47 = !{!"FxuListLit", !48, i64 0, !48, i64 8, !9, i64 16}
+!48 = !{!"p1 _ZTS6FxuLit", !5, i64 0}
+!49 = !{!46, !37, i64 16}
+!50 = !{!38, !38, i64 0}
+!51 = distinct !{!51, !21}
+!52 = distinct !{!52, !21}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 int", !5, i64 0}
+!55 = !{!11, !12, i64 56}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!58 = !{!59, !54, i64 8}
+!59 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !54, i64 8}
+!60 = distinct !{!60, !21}
+!61 = !{!28, !28, i64 0}
+!62 = !{!6, !6, i64 0}
+!63 = !{!64, !28, i64 8}
+!64 = !{!"FxuCube", !9, i64 0, !28, i64 8, !30, i64 16, !47, i64 24, !28, i64 48, !28, i64 56, !28, i64 64}
+!65 = distinct !{!65, !21}
+!66 = !{!46, !28, i64 8}
+!67 = !{!11, !9, i64 32}
+!68 = !{!64, !28, i64 56}
+!69 = distinct !{!69, !21}
+!70 = distinct !{!70, !21}
+!71 = distinct !{!71, !21}
+!72 = !{!26, !9, i64 40}
+!73 = !{!11, !9, i64 8}
+!74 = !{!11, !9, i64 28}
+!75 = !{!11, !9, i64 16}
+!76 = !{!26, !9, i64 184}
+!77 = !{!26, !9, i64 16}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"double", !6, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!82 = !{!26, !9, i64 104}
+!83 = !{!26, !9, i64 124}
+!84 = !{!26, !9, i64 72}
+!85 = distinct !{!85, !21}
+!86 = !{!64, !48, i64 32}
+!87 = !{!88, !9, i64 0}
+!88 = !{!"FxuLit", !9, i64 0, !9, i64 4, !28, i64 8, !30, i64 16, !48, i64 24, !48, i64 32, !48, i64 40, !48, i64 48}
+!89 = distinct !{!89, !21}
+!90 = distinct !{!90, !21}
+!91 = !{!11, !9, i64 92}
+!92 = distinct !{!92, !21}
+!93 = distinct !{!93, !21}
+!94 = !{!26, !31, i64 168}
+!95 = !{!26, !30, i64 160}
+!96 = !{!64, !48, i64 24}
+!97 = !{!48, !48, i64 0}
+!98 = !{!88, !30, i64 16}
+!99 = !{!46, !9, i64 0}
+!100 = !{!46, !30, i64 64}
+!101 = !{!88, !48, i64 32}
+!102 = distinct !{!102, !21}
+!103 = distinct !{!103, !21}
+!104 = distinct !{!104, !21}
+!105 = !{!59, !9, i64 4}
+!106 = !{!46, !9, i64 40}
+!107 = distinct !{!107, !21}
+!108 = !{!64, !9, i64 40}
+!109 = distinct !{!109, !21}
+!110 = !{!11, !13, i64 80}
+!111 = distinct !{!111, !21}
+!112 = distinct !{!112, !21}
+!113 = !{!11, !12, i64 64}
+!114 = !{!11, !12, i64 72}
+!115 = !{!59, !9, i64 0}

@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/msatRead.c.ll'
-source_filename = "bench/abc/original/msatRead.c.ll"
+; ModuleID = 'bench/abc/original/msatRead.ll'
+source_filename = "bench/abc/original/msatRead.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -20,11 +20,11 @@ define i32 @Msat_SolverParseDimacs(ptr noundef captures(none) %0, ptr noundef wr
   %9 = ashr exact i64 %6, 32
   %10 = tail call i64 @fread(ptr noundef %8, i64 noundef %9, i64 noundef 1, ptr noundef %0)
   %11 = getelementptr inbounds i8, ptr %8, i64 %9
-  store i8 10, ptr %11, align 1
+  store i8 10, ptr %11, align 1, !tbaa !3
   %sext12.i = add i64 %6, 4294967296
   %12 = ashr exact i64 %sext12.i, 32
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  store i8 0, ptr %13, align 1
+  store i8 0, ptr %13, align 1, !tbaa !3
   br label %skipLine.exit.i.outer
 
 skipLine.exit.i.outer:                            ; preds = %skipLine.exit42.i, %3
@@ -40,7 +40,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 
 15:                                               ; preds = %.critedge.i.i, %skipLine.exit.i
   %.2.i = phi ptr [ %.044.i, %skipLine.exit.i ], [ %17, %.critedge.i.i ]
-  %16 = load i8, ptr %.2.i, align 1
+  %16 = load i8, ptr %.2.i, align 1, !tbaa !3
   switch i8 %16, label %69 [
     i8 32, label %.critedge.i.i
     i8 13, label %.critedge.i.i
@@ -55,7 +55,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 
 .critedge.i.i:                                    ; preds = %15, %15, %15, %15, %15, %15
   %17 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  br label %15, !llvm.loop !4
+  br label %15, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %15, %21
   %18 = phi i8 [ %.pr.i, %21 ], [ %16, %15 ]
@@ -71,13 +71,13 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 
 21:                                               ; preds = %.preheader.i
   %22 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  %.pr.i = load i8, ptr %22, align 1
+  %.pr.i = load i8, ptr %22, align 1, !tbaa !3
   br label %.preheader.i
 
 .preheader47.i:                                   ; preds = %15, %.preheader47.i.backedge
   %.2.pn.i = phi ptr [ %.5.i, %.preheader47.i.backedge ], [ %.2.i, %15 ]
   %.5.i = getelementptr inbounds nuw i8, ptr %.2.pn.i, i64 1
-  %23 = load i8, ptr %.5.i, align 1
+  %23 = load i8, ptr %.5.i, align 1, !tbaa !3
   switch i8 %23, label %Msat_ReadWhitespace.exit23.i [
     i8 32, label %.preheader47.i.backedge
     i8 13, label %.preheader47.i.backedge
@@ -88,7 +88,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 .preheader47.i.backedge:                          ; preds = %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i
-  br label %.preheader47.i, !llvm.loop !4
+  br label %.preheader47.i, !llvm.loop !6
 
 Msat_ReadWhitespace.exit23.i:                     ; preds = %.preheader47.i, %25
   %24 = phi i8 [ %.pre.i, %25 ], [ %23, %.preheader47.i ]
@@ -107,8 +107,8 @@ Msat_ReadNotWhitespace.exit.i.preheader:          ; preds = %Msat_ReadWhitespace
 
 25:                                               ; preds = %Msat_ReadWhitespace.exit23.i
   %26 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
-  %.pre.i = load i8, ptr %26, align 1
-  br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !6
+  %.pre.i = load i8, ptr %26, align 1, !tbaa !3
+  br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !8
 
 Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitespace.exit.i.preheader, %.critedge.i.i.i
   %27 = phi i8 [ %.pre127.i, %.critedge.i.i.i ], [ %24, %Msat_ReadNotWhitespace.exit.i.preheader ]
@@ -126,12 +126,12 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
 
 .critedge.i.i.i:                                  ; preds = %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %.pre127.i = load i8, ptr %29, align 1
-  br label %Msat_ReadNotWhitespace.exit.i, !llvm.loop !4
+  %.pre127.i = load i8, ptr %29, align 1, !tbaa !3
+  br label %Msat_ReadNotWhitespace.exit.i, !llvm.loop !6
 
 .sink.split.i.i:                                  ; preds = %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %.pre128.i = load i8, ptr %30, align 1
+  %.pre128.i = load i8, ptr %30, align 1, !tbaa !3
   br label %.loopexit46.i
 
 .loopexit46.i:                                    ; preds = %Msat_ReadNotWhitespace.exit.i, %.sink.split.i.i
@@ -142,7 +142,7 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   br i1 %or.cond.i.i, label %33, label %.lr.ph.i.i
 
 33:                                               ; preds = %.loopexit46.i
-  %34 = load ptr, ptr @stderr, align 8
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !9
   %35 = sext i8 %31 to i32
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.1, i32 noundef %35) #9
   tail call void @exit(i32 noundef 1) #10
@@ -157,10 +157,10 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   %40 = zext nneg i8 %narrow.i.i to i32
   %41 = add nsw i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %43 = load i8, ptr %42, align 1
+  %43 = load i8, ptr %42, align 1, !tbaa !3
   %44 = add i8 %43, -48
   %or.cond19.i.i = icmp ult i8 %44, 10
-  br i1 %or.cond19.i.i, label %.lr.ph.i.i, label %Msat_ReadInt.exit.i, !llvm.loop !7
+  br i1 %or.cond19.i.i, label %.lr.ph.i.i, label %Msat_ReadInt.exit.i, !llvm.loop !12
 
 Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq i8 %27, 45
@@ -184,12 +184,12 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
 
 .critedge.i.i29.i:                                ; preds = %47, %47, %47, %47, %47, %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %.pre129.i = load i8, ptr %50, align 1
-  br label %47, !llvm.loop !4
+  %.pre129.i = load i8, ptr %50, align 1, !tbaa !3
+  br label %47, !llvm.loop !6
 
 .sink.split.i31.i:                                ; preds = %47, %47
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %.pre130.i = load i8, ptr %51, align 1
+  %.pre130.i = load i8, ptr %51, align 1, !tbaa !3
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %47, %.sink.split.i31.i
@@ -200,7 +200,7 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   br i1 %or.cond.i33.i, label %54, label %.lr.ph.i34.i
 
 54:                                               ; preds = %.loopexit.i
-  %55 = load ptr, ptr @stderr, align 8
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !9
   %56 = sext i8 %52 to i32
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i32 noundef %56) #9
   tail call void @exit(i32 noundef 1) #10
@@ -209,10 +209,10 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
 .lr.ph.i34.i:                                     ; preds = %.loopexit.i, %.lr.ph.i34.i
   %58 = phi ptr [ %59, %.lr.ph.i34.i ], [ %.promoted.i32.i, %.loopexit.i ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  %60 = load i8, ptr %59, align 1
+  %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = add i8 %60, -48
   %or.cond19.i37.i = icmp ult i8 %61, 10
-  br i1 %or.cond19.i37.i, label %.lr.ph.i34.i, label %Msat_ReadInt.exit40.i, !llvm.loop !7
+  br i1 %or.cond19.i37.i, label %.lr.ph.i34.i, label %Msat_ReadInt.exit40.i, !llvm.loop !12
 
 Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
   %62 = phi i8 [ %.pre131.i, %65 ], [ %60, %.lr.ph.i34.i ]
@@ -228,7 +228,7 @@ Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
 
 65:                                               ; preds = %Msat_ReadInt.exit40.i
   %66 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
-  %.pre131.i = load i8, ptr %66, align 1
+  %.pre131.i = load i8, ptr %66, align 1, !tbaa !3
   br label %Msat_ReadInt.exit40.i
 
 skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40.i, %63
@@ -254,7 +254,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
 
 73:                                               ; preds = %.backedge, %71
   %74 = phi ptr [ %.2.i, %71 ], [ %.be, %.backedge ]
-  %75 = load i8, ptr %74, align 1
+  %75 = load i8, ptr %74, align 1, !tbaa !3
   switch i8 %75, label %.loopexit.i.i [
     i8 32, label %.critedge.i.i.i.i
     i8 13, label %.critedge.i.i.i.i
@@ -272,11 +272,11 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
 
 .backedge:                                        ; preds = %.critedge.i.i.i.i, %99
   %.be = phi ptr [ %76, %.critedge.i.i.i.i ], [ %89, %99 ]
-  br label %73, !llvm.loop !4
+  br label %73, !llvm.loop !6
 
 .sink.split.i.i.i:                                ; preds = %73, %73
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  %.pre.i.i = load i8, ptr %77, align 1
+  %.pre.i.i = load i8, ptr %77, align 1, !tbaa !3
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %73, %.sink.split.i.i.i
@@ -287,7 +287,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   br i1 %or.cond.i.i.i, label %80, label %.lr.ph.i.i.i
 
 80:                                               ; preds = %.loopexit.i.i
-  %81 = load ptr, ptr @stderr, align 8
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !9
   %82 = sext i8 %78 to i32
   %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.1, i32 noundef %82) #9
   tail call void @exit(i32 noundef 1) #10
@@ -302,10 +302,10 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   %87 = zext nneg i8 %narrow.i.i.i to i32
   %88 = add nsw i32 %86, %87
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  %90 = load i8, ptr %89, align 1
+  %90 = load i8, ptr %89, align 1, !tbaa !3
   %91 = add i8 %90, -48
   %or.cond19.i.i.i = icmp ult i8 %91, 10
-  br i1 %or.cond19.i.i.i, label %.lr.ph.i.i.i, label %Msat_ReadInt.exit.i.i, !llvm.loop !7
+  br i1 %or.cond19.i.i.i, label %.lr.ph.i.i.i, label %Msat_ReadInt.exit.i.i, !llvm.loop !12
 
 Msat_ReadInt.exit.i.i:                            ; preds = %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq i8 %75, 45
@@ -344,7 +344,7 @@ skipLine.exit.i.backedge:                         ; preds = %.preheader.i, %Msat
 
 106:                                              ; preds = %15
   tail call void @Msat_IntVecFree(ptr noundef %.017.i.ph) #11
-  store ptr %.016.i.ph, ptr %1, align 8
+  store ptr %.016.i.ph, ptr %1, align 8, !tbaa !13
   %107 = tail call i32 @Msat_SolverSimplifyDB(ptr noundef %.016.i.ph) #11
   br label %Msat_ReadDimacs.exit
 
@@ -414,12 +414,12 @@ declare void @Msat_IntVecPush(ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind allocsize(0) }
@@ -427,13 +427,20 @@ attributes #9 = { cold nounwind }
 attributes #10 = { cold noreturn nounwind }
 attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = distinct !{!12, !7}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS14Msat_Solver_t_", !11, i64 0}

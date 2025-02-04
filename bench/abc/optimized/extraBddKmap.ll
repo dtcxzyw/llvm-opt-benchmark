@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/extraBddKmap.c.ll'
-source_filename = "bench/abc/original/extraBddKmap.c.ll"
+; ModuleID = 'bench/abc/original/extraBddKmap.ll'
+source_filename = "bench/abc/original/extraBddKmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -31,7 +31,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 
 13:                                               ; preds = %8
   %14 = tail call i64 @fwrite(ptr nonnull @.str, i64 48, i64 1, ptr %0)
-  br label %179
+  br label %183
 
 15:                                               ; preds = %8
   %16 = icmp eq i32 %4, 0
@@ -43,49 +43,49 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %20 = and i32 %19, 1
   %21 = xor i32 %20, 1
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %21)
-  br label %179
+  br label %183
 
 23:                                               ; preds = %15
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %25 = icmp eq i32 %4, 1
-  br i1 %25, label %.thread556, label %.preheader430.lr.ph
+  br i1 %25, label %.thread557, label %.preheader432.lr.ph
 
-.preheader430.lr.ph:                              ; preds = %23
+.preheader432.lr.ph:                              ; preds = %23
   %26 = add nsw i32 %4, -2
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %.preheader430
+  br label %.preheader432
 
-.preheader430:                                    ; preds = %.preheader430.lr.ph, %49
-  %.0299433 = phi i32 [ %27, %.preheader430.lr.ph ], [ %50, %49 ]
-  %30 = shl nsw i32 %.0299433, 2
+.preheader432:                                    ; preds = %.preheader432.lr.ph, %49
+  %.0300435 = phi i32 [ %27, %.preheader432.lr.ph ], [ %50, %49 ]
+  %30 = shl nsw i32 %.0300435, 2
   br label %31
 
-31:                                               ; preds = %.preheader430, %31
-  %.0306432 = phi i32 [ 0, %.preheader430 ], [ %41, %31 ]
-  %.0320431 = phi i32 [ 0, %.preheader430 ], [ %40, %31 ]
-  %32 = add nuw nsw i32 %.0306432, %30
-  %33 = load ptr, ptr %28, align 8
+31:                                               ; preds = %.preheader432, %31
+  %.0307434 = phi i32 [ 0, %.preheader432 ], [ %41, %31 ]
+  %.0321433 = phi i32 [ 0, %.preheader432 ], [ %40, %31 ]
+  %32 = add nuw nsw i32 %.0307434, %30
+  %33 = load ptr, ptr %28, align 8, !tbaa !3
   %34 = tail call ptr @Extra_bddBitsToCube(ptr noundef %1, i32 noundef %32, i32 noundef %4, ptr noundef %33, i32 noundef 0) #5
   tail call void @Cudd_Ref(ptr noundef %34) #5
   %35 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %2, ptr noundef %34) #5
   tail call void @Cudd_Ref(ptr noundef %35) #5
-  %36 = load ptr, ptr %29, align 8
+  %36 = load ptr, ptr %29, align 8, !tbaa !24
   %37 = icmp eq ptr %35, %36
   %38 = zext i1 %37 to i32
-  %39 = shl nuw nsw i32 %38, %.0306432
-  %40 = or i32 %39, %.0320431
+  %39 = shl nuw nsw i32 %38, %.0307434
+  %40 = or i32 %39, %.0321433
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %35) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %34) #5
-  %41 = add nuw nsw i32 %.0306432, 1
+  %41 = add nuw nsw i32 %.0307434, 1
   %exitcond.not = icmp eq i32 %41, 4
-  br i1 %exitcond.not, label %42, label %31, !llvm.loop !4
+  br i1 %exitcond.not, label %42, label %31, !llvm.loop !25
 
 42:                                               ; preds = %31
   %43 = icmp slt i32 %40, 10
-  %44 = load ptr, ptr @stdout, align 8
+  %44 = load ptr, ptr @stdout, align 8, !tbaa !27
   br i1 %43, label %45, label %47
 
 45:                                               ; preds = %42
@@ -97,10 +97,10 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %fputc = tail call i32 @fputc(i32 %48, ptr %44)
   br label %49
 
-49:                                               ; preds = %45, %47
-  %50 = add nsw i32 %.0299433, -1
-  %51 = icmp sgt i32 %.0299433, 0
-  br i1 %51, label %.preheader430, label %._crit_edge, !llvm.loop !6
+49:                                               ; preds = %47, %45
+  %50 = add nsw i32 %.0300435, -1
+  %51 = icmp sgt i32 %.0300435, 0
+  br i1 %51, label %.preheader432, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %49
   %putchar = tail call i32 @putchar(i32 10)
@@ -109,58 +109,58 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 
 52:                                               ; preds = %._crit_edge
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef 20) #5
-  br label %179
+  br label %183
 
 54:                                               ; preds = %._crit_edge
   %55 = icmp eq ptr %5, null
   br i1 %55, label %58, label %.lr.ph.preheader
 
-.thread556:                                       ; preds = %23
+.thread557:                                       ; preds = %23
   %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
-  %putchar417 = tail call i32 @putchar(i32 10)
+  %putchar418 = tail call i32 @putchar(i32 10)
   %57 = icmp eq ptr %5, null
   br i1 %57, label %58, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %54, %.thread556
+.lr.ph.preheader:                                 ; preds = %54, %.thread557
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-58:                                               ; preds = %.thread556, %54
+58:                                               ; preds = %.thread557, %54
   switch i32 %6, label %69 [
-    i32 0, label %.lr.ph438.preheader
-    i32 1, label %.lr.ph436
+    i32 0, label %.lr.ph440.preheader
+    i32 1, label %.lr.ph438
   ]
 
-.lr.ph436:                                        ; preds = %58
+.lr.ph438:                                        ; preds = %58
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %wide.trip.count510 = zext nneg i32 %4 to i64
+  %wide.trip.count513 = zext nneg i32 %4 to i64
   br label %63
 
-.lr.ph438.preheader:                              ; preds = %58
-  %wide.trip.count515 = zext nneg i32 %4 to i64
-  br label %.lr.ph438
+.lr.ph440.preheader:                              ; preds = %58
+  %wide.trip.count518 = zext nneg i32 %4 to i64
+  br label %.lr.ph440
 
-.lr.ph438:                                        ; preds = %.lr.ph438.preheader, %.lr.ph438
-  %indvars.iv512 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next513, %.lr.ph438 ]
-  %60 = trunc nuw nsw i64 %indvars.iv512 to i32
+.lr.ph440:                                        ; preds = %.lr.ph440.preheader, %.lr.ph440
+  %indvars.iv515 = phi i64 [ 0, %.lr.ph440.preheader ], [ %indvars.iv.next516, %.lr.ph440 ]
+  %60 = trunc nuw nsw i64 %indvars.iv515 to i32
   %61 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %60) #5
-  %62 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv512
-  store ptr %61, ptr %62, align 8
-  %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
-  %exitcond516.not = icmp eq i64 %indvars.iv.next513, %wide.trip.count515
-  br i1 %exitcond516.not, label %.loopexit, label %.lr.ph438, !llvm.loop !7
+  %62 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv515
+  store ptr %61, ptr %62, align 8, !tbaa !29
+  %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
+  %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
+  br i1 %exitcond519.not, label %.loopexit, label %.lr.ph440, !llvm.loop !30
 
-63:                                               ; preds = %.lr.ph436, %63
-  %indvars.iv507 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next508, %63 ]
-  %64 = load ptr, ptr %59, align 8
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv507
-  %66 = load i32, ptr %65, align 4
+63:                                               ; preds = %.lr.ph438, %63
+  %indvars.iv510 = phi i64 [ 0, %.lr.ph438 ], [ %indvars.iv.next511, %63 ]
+  %64 = load ptr, ptr %59, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv510
+  %66 = load i32, ptr %65, align 4, !tbaa !32
   %67 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %66) #5
-  %68 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv507
-  store ptr %67, ptr %68, align 8
-  %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
-  %exitcond511.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count510
-  br i1 %exitcond511.not, label %.loopexit, label %63, !llvm.loop !8
+  %68 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv510
+  store ptr %67, ptr %68, align 8, !tbaa !29
+  %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
+  %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
+  br i1 %exitcond514.not, label %.loopexit, label %63, !llvm.loop !33
 
 69:                                               ; preds = %58
   %70 = tail call ptr @Cudd_Support(ptr noundef %1, ptr noundef %2) #5
@@ -172,414 +172,429 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %70) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %71) #5
   %73 = tail call i32 @Cudd_SupportSize(ptr noundef %1, ptr noundef %72) #5
-  %74 = icmp sgt i32 %73, 20
-  br i1 %74, label %77, label %.preheader424
+  %74 = icmp slt i32 %73, 21
+  br i1 %74, label %.preheader426, label %.thread420
 
-.preheader424:                                    ; preds = %69
+.preheader426:                                    ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %76 = load ptr, ptr %75, align 8
-  %.not337439 = icmp eq ptr %72, %76
-  br i1 %.not337439, label %._crit_edge443, label %.lr.ph442
+  %76 = load ptr, ptr %75, align 8, !tbaa !24
+  %.not338441 = icmp eq ptr %72, %76
+  br i1 %.not338441, label %._crit_edge445, label %.lr.ph444
 
-77:                                               ; preds = %69
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef 20) #5
+.thread420:                                       ; preds = %69
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef 20) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %72) #5
-  br label %179
+  br label %183
 
-.lr.ph442:                                        ; preds = %.preheader424, %.lr.ph442
-  %indvars.iv517 = phi i64 [ %indvars.iv.next518, %.lr.ph442 ], [ 0, %.preheader424 ]
-  %.0311441 = phi ptr [ %86, %.lr.ph442 ], [ %72, %.preheader424 ]
-  %79 = load i32, ptr %.0311441, align 8
-  %80 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %1, i32 noundef %79) #5
-  %81 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv517
-  store ptr %80, ptr %81, align 8
-  %82 = ptrtoint ptr %.0311441 to i64
-  %83 = and i64 %82, -2
-  %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
-  %87 = load ptr, ptr %75, align 8
-  %.not337 = icmp eq ptr %86, %87
-  br i1 %.not337, label %._crit_edge443, label %.lr.ph442, !llvm.loop !9
+.lr.ph444:                                        ; preds = %.preheader426, %.lr.ph444
+  %indvars.iv520 = phi i64 [ %indvars.iv.next521, %.lr.ph444 ], [ 0, %.preheader426 ]
+  %.0312443 = phi ptr [ %85, %.lr.ph444 ], [ %72, %.preheader426 ]
+  %78 = load i32, ptr %.0312443, align 8, !tbaa !34
+  %79 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %1, i32 noundef %78) #5
+  %80 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv520
+  store ptr %79, ptr %80, align 8, !tbaa !29
+  %81 = ptrtoint ptr %.0312443 to i64
+  %82 = and i64 %81, -2
+  %83 = inttoptr i64 %82 to ptr
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !35
+  %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
+  %86 = load ptr, ptr %75, align 8, !tbaa !24
+  %.not338 = icmp eq ptr %85, %86
+  br i1 %.not338, label %._crit_edge445, label %.lr.ph444, !llvm.loop !36
 
-._crit_edge443:                                   ; preds = %.lr.ph442, %.preheader424
-  %.0311.lcssa = phi ptr [ %72, %.preheader424 ], [ %86, %.lr.ph442 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.0311.lcssa) #5
+._crit_edge445:                                   ; preds = %.lr.ph444, %.preheader426
+  %.0312.lcssa = phi ptr [ %72, %.preheader426 ], [ %85, %.lr.ph444 ]
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.0312.lcssa) #5
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %88 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv
-  store ptr %89, ptr %90, align 8
+  %87 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %88 = load ptr, ptr %87, align 8, !tbaa !29
+  %89 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv
+  store ptr %88, ptr %89, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond506.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond506.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  %exitcond509.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond509.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
-.loopexit:                                        ; preds = %.lr.ph, %63, %.lr.ph438, %._crit_edge443
-  %.0 = phi i32 [ %73, %._crit_edge443 ], [ %4, %.lr.ph438 ], [ %4, %63 ], [ %4, %.lr.ph ]
-  %91 = sdiv i32 %.0, 2
-  %92 = sub i32 %.0, %91
-  %93 = shl nuw nsw i32 1, %91
-  %94 = shl nuw i32 1, %92
-  %fputc338 = tail call i32 @fputc(i32 10, ptr %0)
-  %95 = icmp sgt i32 %.0, 1
-  br i1 %95, label %.lr.ph446, label %._crit_edge447
-
-.lr.ph446:                                        ; preds = %.loopexit
-  %96 = icmp eq ptr %7, null
-  %97 = add nsw i32 %92, 97
-  br i1 %96, label %.lr.ph446.split.us, label %.lr.ph446.split.preheader
-
-.lr.ph446.split.preheader:                        ; preds = %.lr.ph446
-  %98 = sext i32 %92 to i64
-  %wide.trip.count523 = zext nneg i32 %91 to i64
-  %invariant.gep = getelementptr ptr, ptr %7, i64 %98
-  br label %.lr.ph446.split
-
-.lr.ph446.split.us:                               ; preds = %.lr.ph446, %.lr.ph446.split.us
-  %.0318444.us = phi i32 [ %100, %.lr.ph446.split.us ], [ 0, %.lr.ph446 ]
-  %99 = add nsw i32 %97, %.0318444.us
-  %fputc408.us = tail call i32 @fputc(i32 %99, ptr %0)
-  %100 = add nuw nsw i32 %.0318444.us, 1
-  %exitcond525.not = icmp eq i32 %100, %91
-  br i1 %exitcond525.not, label %._crit_edge447, label %.lr.ph446.split.us, !llvm.loop !11
-
-.lr.ph446.split:                                  ; preds = %.lr.ph446.split.preheader, %.lr.ph446.split
-  %indvars.iv520 = phi i64 [ 0, %.lr.ph446.split.preheader ], [ %indvars.iv.next521, %.lr.ph446.split ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv520
-  %101 = load ptr, ptr %gep, align 8
-  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %101) #5
-  %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
-  %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %._crit_edge447, label %.lr.ph446.split, !llvm.loop !11
-
-._crit_edge447:                                   ; preds = %.lr.ph446.split, %.lr.ph446.split.us, %.loopexit
-  %103 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %0)
-  %104 = icmp sgt i32 %92, 0
-  br i1 %104, label %.lr.ph450, label %._crit_edge451.thread
-
-._crit_edge451.thread:                            ; preds = %._crit_edge447
-  %fputc339557 = tail call i32 @fputc(i32 10, ptr %0)
-  br label %.preheader421
-
-.lr.ph450:                                        ; preds = %._crit_edge447
-  %105 = icmp eq ptr %7, null
-  br i1 %105, label %.lr.ph450.split.us, label %.lr.ph450.split.preheader
-
-.lr.ph450.split.preheader:                        ; preds = %.lr.ph450
-  %wide.trip.count529 = zext nneg i32 %92 to i64
-  br label %.lr.ph450.split
-
-.lr.ph450.split.us:                               ; preds = %.lr.ph450, %.lr.ph450.split.us
-  %.1319448.us = phi i32 [ %107, %.lr.ph450.split.us ], [ 0, %.lr.ph450 ]
-  %106 = add nuw nsw i32 %.1319448.us, 97
-  %fputc407.us = tail call i32 @fputc(i32 %106, ptr %0)
-  %107 = add nuw nsw i32 %.1319448.us, 1
-  %exitcond531.not = icmp eq i32 %107, %92
-  br i1 %exitcond531.not, label %._crit_edge451, label %.lr.ph450.split.us, !llvm.loop !12
-
-.lr.ph450.split:                                  ; preds = %.lr.ph450.split.preheader, %.lr.ph450.split
-  %indvars.iv526 = phi i64 [ 0, %.lr.ph450.split.preheader ], [ %indvars.iv.next527, %.lr.ph450.split ]
-  %108 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv526
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %109) #5
-  %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
-  %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
-  br i1 %exitcond530.not, label %._crit_edge451, label %.lr.ph450.split, !llvm.loop !12
-
-._crit_edge451:                                   ; preds = %.lr.ph450.split, %.lr.ph450.split.us
+.loopexit:                                        ; preds = %.lr.ph, %63, %.lr.ph440, %._crit_edge445
+  %.0 = phi i32 [ %73, %._crit_edge445 ], [ %4, %.lr.ph440 ], [ %4, %63 ], [ %4, %.lr.ph ]
+  %90 = sdiv i32 %.0, 2
+  %91 = sub i32 %.0, %90
+  %92 = shl nuw i32 1, %90
+  %93 = shl nuw i32 1, %91
   %fputc339 = tail call i32 @fputc(i32 10, ptr %0)
-  %111 = icmp sgt i32 %.0, -6
-  %.not494 = icmp eq i32 %92, 31
-  %112 = tail call i32 @llvm.smax.i32(i32 %91, i32 -2)
-  %smax533 = tail call i32 @llvm.smax.i32(i32 %94, i32 1)
-  %113 = add nsw i32 %112, 2
+  %94 = icmp sgt i32 %.0, 1
+  br i1 %94, label %.lr.ph448, label %._crit_edge449
+
+.lr.ph448:                                        ; preds = %.loopexit
+  %95 = icmp eq ptr %7, null
+  %96 = add nsw i32 %91, 97
+  br i1 %95, label %.lr.ph448.split.us, label %.lr.ph448.split.preheader
+
+.lr.ph448.split.preheader:                        ; preds = %.lr.ph448
+  %97 = sext i32 %91 to i64
+  %wide.trip.count526 = zext nneg i32 %90 to i64
+  %invariant.gep = getelementptr ptr, ptr %7, i64 %97
+  br label %.lr.ph448.split
+
+.lr.ph448.split.us:                               ; preds = %.lr.ph448, %.lr.ph448.split.us
+  %.0319446.us = phi i32 [ %99, %.lr.ph448.split.us ], [ 0, %.lr.ph448 ]
+  %98 = add nsw i32 %96, %.0319446.us
+  %fputc409.us = tail call i32 @fputc(i32 %98, ptr %0)
+  %99 = add nuw nsw i32 %.0319446.us, 1
+  %exitcond528.not = icmp eq i32 %99, %90
+  br i1 %exitcond528.not, label %._crit_edge449, label %.lr.ph448.split.us, !llvm.loop !38
+
+.lr.ph448.split:                                  ; preds = %.lr.ph448.split.preheader, %.lr.ph448.split
+  %indvars.iv523 = phi i64 [ 0, %.lr.ph448.split.preheader ], [ %indvars.iv.next524, %.lr.ph448.split ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv523
+  %100 = load ptr, ptr %gep, align 8, !tbaa !39
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %100) #5
+  %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
+  %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
+  br i1 %exitcond527.not, label %._crit_edge449, label %.lr.ph448.split, !llvm.loop !38
+
+._crit_edge449:                                   ; preds = %.lr.ph448.split, %.lr.ph448.split.us, %.loopexit
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %0)
+  %103 = icmp sgt i32 %91, 0
+  br i1 %103, label %.lr.ph452, label %._crit_edge453.thread
+
+._crit_edge453.thread:                            ; preds = %._crit_edge449
+  %fputc340558 = tail call i32 @fputc(i32 10, ptr %0)
   br label %.preheader423
 
-.preheader423:                                    ; preds = %._crit_edge451, %._crit_edge456
-  %.1457 = phi i32 [ 0, %._crit_edge451 ], [ %124, %._crit_edge456 ]
-  br i1 %111, label %.lr.ph453, label %.preheader422
+.lr.ph452:                                        ; preds = %._crit_edge449
+  %104 = icmp eq ptr %7, null
+  br i1 %104, label %.lr.ph452.split.us, label %.lr.ph452.split.preheader
 
-.preheader421:                                    ; preds = %._crit_edge456, %._crit_edge451.thread
-  %.not340458 = icmp slt i32 %.0, -1
-  br i1 %.not340458, label %._crit_edge461, label %.lr.ph460
+.lr.ph452.split.preheader:                        ; preds = %.lr.ph452
+  %wide.trip.count532 = zext nneg i32 %91 to i64
+  br label %.lr.ph452.split
 
-.preheader422:                                    ; preds = %.lr.ph453, %.preheader423
-  br i1 %.not494, label %._crit_edge456, label %.lr.ph455
+.lr.ph452.split.us:                               ; preds = %.lr.ph452, %.lr.ph452.split.us
+  %.1320450.us = phi i32 [ %106, %.lr.ph452.split.us ], [ 0, %.lr.ph452 ]
+  %105 = add nuw nsw i32 %.1320450.us, 97
+  %fputc408.us = tail call i32 @fputc(i32 %105, ptr %0)
+  %106 = add nuw nsw i32 %.1320450.us, 1
+  %exitcond534.not = icmp eq i32 %106, %91
+  br i1 %exitcond534.not, label %._crit_edge453, label %.lr.ph452.split.us, !llvm.loop !40
 
-.lr.ph455:                                        ; preds = %.preheader422
-  %114 = xor i32 %.1457, -1
-  %115 = add nsw i32 %92, %114
-  %116 = shl nuw i32 1, %115
-  br label %118
+.lr.ph452.split:                                  ; preds = %.lr.ph452.split.preheader, %.lr.ph452.split
+  %indvars.iv529 = phi i64 [ 0, %.lr.ph452.split.preheader ], [ %indvars.iv.next530, %.lr.ph452.split ]
+  %107 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv529
+  %108 = load ptr, ptr %107, align 8, !tbaa !39
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %108) #5
+  %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
+  %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
+  br i1 %exitcond533.not, label %._crit_edge453, label %.lr.ph452.split, !llvm.loop !40
 
-.lr.ph453:                                        ; preds = %.preheader423, %.lr.ph453
-  %.0300452 = phi i32 [ %117, %.lr.ph453 ], [ 0, %.preheader423 ]
-  %117 = add nuw nsw i32 %.0300452, 1
-  %fputc406 = tail call i32 @fputc(i32 32, ptr %0)
-  %exitcond532.not = icmp eq i32 %.0300452, %113
-  br i1 %exitcond532.not, label %.preheader422, label %.lr.ph453, !llvm.loop !13
+._crit_edge453:                                   ; preds = %.lr.ph452.split, %.lr.ph452.split.us
+  %fputc340 = tail call i32 @fputc(i32 10, ptr %0)
+  %110 = icmp sgt i32 %.0, -6
+  %.not496 = icmp eq i32 %91, 31
+  %111 = tail call i32 @llvm.smax.i32(i32 %90, i32 -2)
+  %smax536 = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
+  %112 = add nsw i32 %111, 2
+  br label %.preheader425
 
-118:                                              ; preds = %.lr.ph455, %118
-  %.0303454 = phi i32 [ 0, %.lr.ph455 ], [ %123, %118 ]
-  %119 = lshr i32 %.0303454, 1
-  %120 = xor i32 %119, %.0303454
-  %121 = and i32 %120, %116
-  %.not405 = icmp eq i32 %121, 0
-  %.str.15..str.14 = select i1 %.not405, ptr @.str.15, ptr @.str.14
-  %122 = tail call i64 @fwrite(ptr nonnull %.str.15..str.14, i64 4, i64 1, ptr %0)
-  %123 = add nuw nsw i32 %.0303454, 1
-  %exitcond534.not = icmp eq i32 %123, %smax533
-  br i1 %exitcond534.not, label %._crit_edge456, label %118, !llvm.loop !14
+.preheader425:                                    ; preds = %._crit_edge453, %._crit_edge458
+  %.1459 = phi i32 [ 0, %._crit_edge453 ], [ %123, %._crit_edge458 ]
+  br i1 %110, label %.lr.ph455, label %.preheader424
 
-._crit_edge456:                                   ; preds = %118, %.preheader422
-  %fputc404 = tail call i32 @fputc(i32 10, ptr %0)
-  %124 = add nuw nsw i32 %.1457, 1
-  %exitcond535.not = icmp eq i32 %124, %92
-  br i1 %exitcond535.not, label %.preheader421, label %.preheader423, !llvm.loop !15
+.preheader423:                                    ; preds = %._crit_edge458, %._crit_edge453.thread
+  %.not341460 = icmp slt i32 %.0, -1
+  br i1 %.not341460, label %._crit_edge463, label %.lr.ph462
 
-.lr.ph460:                                        ; preds = %.preheader421, %.lr.ph460
-  %.1301459 = phi i32 [ %125, %.lr.ph460 ], [ 0, %.preheader421 ]
-  %125 = add nuw nsw i32 %.1301459, 1
-  %fputc403 = tail call i32 @fputc(i32 32, ptr %0)
-  %exitcond536.not = icmp eq i32 %.1301459, %91
-  br i1 %exitcond536.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !16
+.preheader424:                                    ; preds = %.lr.ph455, %.preheader425
+  br i1 %.not496, label %._crit_edge458, label %.lr.ph457
 
-._crit_edge461:                                   ; preds = %.lr.ph460, %.preheader421
-  %fputc341 = tail call i32 @fputc(i32 43, ptr %0)
-  %.not495 = icmp eq i32 %92, 31
-  %.pre = add nsw i32 %94, -1
-  br i1 %.not495, label %._crit_edge465, label %.lr.ph464
+.lr.ph457:                                        ; preds = %.preheader424
+  %113 = xor i32 %.1459, -1
+  %114 = add nsw i32 %91, %113
+  %115 = shl nuw i32 1, %114
+  br label %117
 
-.lr.ph464:                                        ; preds = %._crit_edge461
-  %smax537 = tail call i32 @llvm.smax.i32(i32 %94, i32 1)
+.lr.ph455:                                        ; preds = %.preheader425, %.lr.ph455
+  %.0301454 = phi i32 [ %116, %.lr.ph455 ], [ 0, %.preheader425 ]
+  %116 = add nuw nsw i32 %.0301454, 1
+  %fputc407 = tail call i32 @fputc(i32 32, ptr %0)
+  %exitcond535.not = icmp eq i32 %.0301454, %112
+  br i1 %exitcond535.not, label %.preheader424, label %.lr.ph455, !llvm.loop !41
+
+117:                                              ; preds = %.lr.ph457, %117
+  %.0304456 = phi i32 [ 0, %.lr.ph457 ], [ %122, %117 ]
+  %118 = lshr i32 %.0304456, 1
+  %119 = xor i32 %118, %.0304456
+  %120 = and i32 %119, %115
+  %.not406 = icmp eq i32 %120, 0
+  %.str.15..str.14 = select i1 %.not406, ptr @.str.15, ptr @.str.14
+  %121 = tail call i64 @fwrite(ptr nonnull %.str.15..str.14, i64 4, i64 1, ptr %0)
+  %122 = add nuw nsw i32 %.0304456, 1
+  %exitcond537.not = icmp eq i32 %122, %smax536
+  br i1 %exitcond537.not, label %._crit_edge458, label %117, !llvm.loop !42
+
+._crit_edge458:                                   ; preds = %117, %.preheader424
+  %fputc405 = tail call i32 @fputc(i32 10, ptr %0)
+  %123 = add nuw nsw i32 %.1459, 1
+  %exitcond538.not = icmp eq i32 %123, %91
+  br i1 %exitcond538.not, label %.preheader423, label %.preheader425, !llvm.loop !43
+
+.lr.ph462:                                        ; preds = %.preheader423, %.lr.ph462
+  %.1302461 = phi i32 [ %124, %.lr.ph462 ], [ 0, %.preheader423 ]
+  %124 = add nuw nsw i32 %.1302461, 1
+  %fputc404 = tail call i32 @fputc(i32 32, ptr %0)
+  %exitcond539.not = icmp eq i32 %.1302461, %90
+  br i1 %exitcond539.not, label %._crit_edge463, label %.lr.ph462, !llvm.loop !44
+
+._crit_edge463:                                   ; preds = %.lr.ph462, %.preheader423
+  %fputc342 = tail call i32 @fputc(i32 43, ptr %0)
+  %.not497 = icmp eq i32 %91, 31
+  br i1 %.not497, label %._crit_edge467, label %.lr.ph466
+
+.lr.ph466:                                        ; preds = %._crit_edge463
+  %125 = add nsw i32 %93, -1
+  %smax540 = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
   br label %126
 
-126:                                              ; preds = %.lr.ph464, %128
-  %.1307462 = phi i32 [ 0, %.lr.ph464 ], [ %129, %128 ]
-  %fputc396 = tail call i32 @fputc(i32 45, ptr %0)
+126:                                              ; preds = %.lr.ph466, %128
+  %.1308464 = phi i32 [ 0, %.lr.ph466 ], [ %129, %128 ]
   %fputc397 = tail call i32 @fputc(i32 45, ptr %0)
   %fputc398 = tail call i32 @fputc(i32 45, ptr %0)
-  %.not399 = icmp eq i32 %.1307462, %.pre
-  br i1 %.not399, label %128, label %127
+  %fputc399 = tail call i32 @fputc(i32 45, ptr %0)
+  %.not400 = icmp eq i32 %.1308464, %125
+  br i1 %.not400, label %128, label %127
 
 127:                                              ; preds = %126
-  %fputc401 = tail call i32 @fputc(i32 43, ptr %0)
+  %fputc402 = tail call i32 @fputc(i32 43, ptr %0)
   br label %128
 
 128:                                              ; preds = %127, %126
-  %129 = add nuw nsw i32 %.1307462, 1
-  %exitcond538.not = icmp eq i32 %129, %smax537
-  br i1 %exitcond538.not, label %._crit_edge465, label %126, !llvm.loop !17
+  %129 = add nuw nsw i32 %.1308464, 1
+  %exitcond541.not = icmp eq i32 %129, %smax540
+  br i1 %exitcond541.not, label %._crit_edge467, label %126, !llvm.loop !45
 
-._crit_edge465:                                   ; preds = %128, %._crit_edge461
-  %smax540.pre-phi = phi i32 [ 1, %._crit_edge461 ], [ %smax537, %128 ]
-  %fputc342 = tail call i32 @fputc(i32 43, ptr %0)
-  %fputc343 = tail call i32 @fputc(i32 10, ptr %0)
-  %130 = sext i32 %92 to i64
-  %131 = getelementptr inbounds ptr, ptr @s_XVars, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %133 = add nsw i32 %93, -1
-  br label %.preheader420
+._crit_edge467:                                   ; preds = %128, %._crit_edge463
+  %fputc343 = tail call i32 @fputc(i32 43, ptr %0)
+  %fputc344 = tail call i32 @fputc(i32 10, ptr %0)
+  %130 = and i32 %.0, -2
+  %.not498 = icmp eq i32 %130, 62
+  br i1 %.not498, label %.lr.ph490.preheader, label %.preheader422.lr.ph
 
-.preheader420:                                    ; preds = %._crit_edge465, %173
-  %.3316485 = phi i32 [ 0, %._crit_edge465 ], [ %174, %173 ]
-  %134 = lshr i32 %.3316485, 1
-  %135 = xor i32 %134, %.3316485
-  br i1 %95, label %.lr.ph467, label %._crit_edge468
+.preheader422.lr.ph:                              ; preds = %._crit_edge467
+  %131 = sext i32 %91 to i64
+  %132 = getelementptr inbounds ptr, ptr @s_XVars, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %134 = add nsw i32 %93, -1
+  %135 = add nsw i32 %92, -1
+  %smax543 = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
+  %smax550 = tail call i32 @llvm.smax.i32(i32 %92, i32 1)
+  br label %.preheader422
 
-.preheader:                                       ; preds = %173
-  br i1 %.not340458, label %._crit_edge489, label %.lr.ph488
+.preheader422:                                    ; preds = %.preheader422.lr.ph, %175
+  %.3317487 = phi i32 [ 0, %.preheader422.lr.ph ], [ %176, %175 ]
+  %136 = lshr i32 %.3317487, 1
+  %137 = xor i32 %136, %.3317487
+  br i1 %94, label %.lr.ph469, label %._crit_edge470
 
-.lr.ph467:                                        ; preds = %.preheader420, %.lr.ph467
-  %.1304466 = phi i32 [ %140, %.lr.ph467 ], [ 0, %.preheader420 ]
-  %136 = xor i32 %.1304466, -1
-  %137 = add nsw i32 %91, %136
-  %138 = shl nuw i32 1, %137
-  %139 = and i32 %138, %135
-  %.not393 = icmp eq i32 %139, 0
-  %. = select i1 %.not393, i32 48, i32 49
-  %fputc395 = tail call i32 @fputc(i32 %., ptr %0)
-  %140 = add nuw nsw i32 %.1304466, 1
-  %exitcond539.not = icmp eq i32 %140, %91
-  br i1 %exitcond539.not, label %._crit_edge468, label %.lr.ph467, !llvm.loop !18
+.preheader:                                       ; preds = %175
+  br i1 %.not341460, label %._crit_edge491, label %.lr.ph490.preheader
 
-._crit_edge468:                                   ; preds = %.lr.ph467, %.preheader420
-  %fputc356 = tail call i32 @fputc(i32 32, ptr %0)
-  %141 = tail call ptr @Extra_bddBitsToCube(ptr noundef %1, i32 noundef %135, i32 noundef %91, ptr noundef nonnull %131, i32 noundef 1) #5
-  tail call void @Cudd_Ref(ptr noundef %141) #5
-  %fputc357 = tail call i32 @fputc(i32 124, ptr %0)
-  br i1 %.not495, label %._crit_edge472, label %.lr.ph471
+.lr.ph490.preheader:                              ; preds = %._crit_edge467, %.preheader
+  br label %.lr.ph490
 
-.lr.ph471:                                        ; preds = %._crit_edge468, %161
-  %.0317469 = phi i32 [ %162, %161 ], [ 0, %._crit_edge468 ]
-  %fputc383 = tail call i32 @fputc(i32 32, ptr %0)
-  %142 = lshr i32 %.0317469, 1
-  %143 = xor i32 %142, %.0317469
-  %144 = tail call ptr @Extra_bddBitsToCube(ptr noundef %1, i32 noundef %143, i32 noundef %92, ptr noundef nonnull @s_XVars, i32 noundef 1) #5
-  tail call void @Cudd_Ref(ptr noundef %144) #5
-  %145 = tail call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %144, ptr noundef %141) #5
-  tail call void @Cudd_Ref(ptr noundef %145) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %144) #5
-  %146 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %2, ptr noundef %145) #5
+.lr.ph469:                                        ; preds = %.preheader422, %.lr.ph469
+  %.1305468 = phi i32 [ %142, %.lr.ph469 ], [ 0, %.preheader422 ]
+  %138 = xor i32 %.1305468, -1
+  %139 = add nsw i32 %90, %138
+  %140 = shl nuw i32 1, %139
+  %141 = and i32 %140, %137
+  %.not394 = icmp eq i32 %141, 0
+  %. = select i1 %.not394, i32 48, i32 49
+  %fputc396 = tail call i32 @fputc(i32 %., ptr %0)
+  %142 = add nuw nsw i32 %.1305468, 1
+  %exitcond542.not = icmp eq i32 %142, %90
+  br i1 %exitcond542.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !46
+
+._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader422
+  %fputc357 = tail call i32 @fputc(i32 32, ptr %0)
+  %143 = tail call ptr @Extra_bddBitsToCube(ptr noundef %1, i32 noundef %137, i32 noundef %90, ptr noundef nonnull %132, i32 noundef 1) #5
+  tail call void @Cudd_Ref(ptr noundef %143) #5
+  %fputc358 = tail call i32 @fputc(i32 124, ptr %0)
+  br i1 %.not497, label %._crit_edge474, label %.lr.ph473
+
+.lr.ph473:                                        ; preds = %._crit_edge470, %163
+  %.0318471 = phi i32 [ %164, %163 ], [ 0, %._crit_edge470 ]
+  %fputc384 = tail call i32 @fputc(i32 32, ptr %0)
+  %144 = lshr i32 %.0318471, 1
+  %145 = xor i32 %144, %.0318471
+  %146 = tail call ptr @Extra_bddBitsToCube(ptr noundef %1, i32 noundef %145, i32 noundef %91, ptr noundef nonnull @s_XVars, i32 noundef 1) #5
   tail call void @Cudd_Ref(ptr noundef %146) #5
-  %147 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %3, ptr noundef %145) #5
+  %147 = tail call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %146, ptr noundef %143) #5
   tail call void @Cudd_Ref(ptr noundef %147) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %145) #5
-  %148 = load ptr, ptr %132, align 8
-  %149 = icmp eq ptr %146, %148
-  %150 = ptrtoint ptr %148 to i64
-  %151 = xor i64 %150, 1
-  %152 = inttoptr i64 %151 to ptr
-  %153 = icmp eq ptr %147, %152
-  %or.cond413 = and i1 %149, %153
-  br i1 %or.cond413, label %.sink.split, label %154
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %146) #5
+  %148 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %2, ptr noundef %147) #5
+  tail call void @Cudd_Ref(ptr noundef %148) #5
+  %149 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %3, ptr noundef %147) #5
+  tail call void @Cudd_Ref(ptr noundef %149) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %147) #5
+  %150 = load ptr, ptr %133, align 8, !tbaa !24
+  %151 = icmp eq ptr %148, %150
+  %152 = ptrtoint ptr %150 to i64
+  %153 = xor i64 %152, 1
+  %154 = inttoptr i64 %153 to ptr
+  %155 = icmp eq ptr %149, %154
+  %or.cond414 = and i1 %151, %155
+  br i1 %or.cond414, label %.sink.split, label %156
 
-154:                                              ; preds = %.lr.ph471
-  %155 = icmp eq ptr %146, %152
-  %156 = icmp eq ptr %147, %148
-  %or.cond414 = and i1 %156, %155
-  br i1 %or.cond414, label %.sink.split, label %157
+156:                                              ; preds = %.lr.ph473
+  %157 = icmp eq ptr %148, %154
+  %158 = icmp eq ptr %149, %150
+  %or.cond415 = and i1 %158, %157
+  br i1 %or.cond415, label %.sink.split, label %159
 
-157:                                              ; preds = %154
-  %or.cond415 = and i1 %155, %153
-  br i1 %or.cond415, label %.sink.split, label %158
-
-158:                                              ; preds = %157
-  %or.cond416 = and i1 %149, %156
-  br i1 %or.cond416, label %.sink.split, label %159
-
-.sink.split:                                      ; preds = %158, %157, %154, %.lr.ph471
-  %.sink563 = phi i32 [ 49, %.lr.ph471 ], [ 32, %154 ], [ 45, %157 ], [ 63, %158 ]
-  %fputc386 = tail call i32 @fputc(i32 %.sink563, ptr %0)
-  br label %159
-
-159:                                              ; preds = %.sink.split, %158
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %146) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %147) #5
-  %fputc388 = tail call i32 @fputc(i32 32, ptr %0)
-  %.not389 = icmp eq i32 %.0317469, %.pre
-  br i1 %.not389, label %161, label %160
+159:                                              ; preds = %156
+  %or.cond416 = and i1 %157, %155
+  br i1 %or.cond416, label %.sink.split, label %160
 
 160:                                              ; preds = %159
-  %fputc391 = tail call i32 @fputc(i32 124, ptr %0)
+  %or.cond417 = and i1 %151, %158
+  br i1 %or.cond417, label %.sink.split, label %161
+
+.sink.split:                                      ; preds = %160, %159, %156, %.lr.ph473
+  %.sink564 = phi i32 [ 49, %.lr.ph473 ], [ 32, %156 ], [ 45, %159 ], [ 63, %160 ]
+  %fputc387 = tail call i32 @fputc(i32 %.sink564, ptr %0)
   br label %161
 
-161:                                              ; preds = %160, %159
-  %162 = add nuw nsw i32 %.0317469, 1
-  %exitcond541.not = icmp eq i32 %162, %smax540.pre-phi
-  br i1 %exitcond541.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !19
+161:                                              ; preds = %.sink.split, %160
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %148) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %149) #5
+  %fputc389 = tail call i32 @fputc(i32 32, ptr %0)
+  %.not390 = icmp eq i32 %.0318471, %134
+  br i1 %.not390, label %163, label %162
 
-._crit_edge472:                                   ; preds = %161, %._crit_edge468
-  %fputc358 = tail call i32 @fputc(i32 124, ptr %0)
-  %fputc359 = tail call i32 @fputc(i32 10, ptr %0)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %141) #5
-  %.not360 = icmp eq i32 %.3316485, %133
-  br i1 %.not360, label %173, label %.preheader419
+162:                                              ; preds = %161
+  %fputc392 = tail call i32 @fputc(i32 124, ptr %0)
+  br label %163
 
-.preheader419:                                    ; preds = %._crit_edge472
-  br i1 %.not340458, label %._crit_edge476, label %.lr.ph475
+163:                                              ; preds = %162, %161
+  %164 = add nuw nsw i32 %.0318471, 1
+  %exitcond544.not = icmp eq i32 %164, %smax543
+  br i1 %exitcond544.not, label %._crit_edge474, label %.lr.ph473, !llvm.loop !47
 
-.lr.ph475:                                        ; preds = %.preheader419, %.lr.ph475
-  %.2302474 = phi i32 [ %163, %.lr.ph475 ], [ 0, %.preheader419 ]
-  %163 = add nuw nsw i32 %.2302474, 1
-  %fputc382 = tail call i32 @fputc(i32 32, ptr %0)
-  %exitcond542.not = icmp eq i32 %.2302474, %91
-  br i1 %exitcond542.not, label %._crit_edge476, label %.lr.ph475, !llvm.loop !20
+._crit_edge474:                                   ; preds = %163, %._crit_edge470
+  %fputc359 = tail call i32 @fputc(i32 124, ptr %0)
+  %fputc360 = tail call i32 @fputc(i32 10, ptr %0)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %143) #5
+  %.not361 = icmp eq i32 %.3317487, %135
+  br i1 %.not361, label %175, label %.preheader421
 
-._crit_edge476:                                   ; preds = %.lr.ph475, %.preheader419
-  %164 = and i32 %.3316485, 1
-  %.not362 = icmp eq i32 %164, 0
-  %fputc363 = tail call i32 @fputc(i32 43, ptr %0)
-  br i1 %.not362, label %169, label %165
+.preheader421:                                    ; preds = %._crit_edge474
+  br i1 %.not341460, label %._crit_edge478, label %.lr.ph477
 
-165:                                              ; preds = %._crit_edge476
-  br i1 %.not495, label %._crit_edge480, label %.lr.ph479
+.lr.ph477:                                        ; preds = %.preheader421, %.lr.ph477
+  %.2303476 = phi i32 [ %165, %.lr.ph477 ], [ 0, %.preheader421 ]
+  %165 = add nuw nsw i32 %.2303476, 1
+  %fputc383 = tail call i32 @fputc(i32 32, ptr %0)
+  %exitcond545.not = icmp eq i32 %.2303476, %90
+  br i1 %exitcond545.not, label %._crit_edge478, label %.lr.ph477, !llvm.loop !48
 
-.lr.ph479:                                        ; preds = %165, %167
-  %.2308477 = phi i32 [ %168, %167 ], [ 0, %165 ]
-  %fputc375 = tail call i32 @fputc(i32 45, ptr %0)
+._crit_edge478:                                   ; preds = %.lr.ph477, %.preheader421
+  %166 = and i32 %.3317487, 1
+  %.not363 = icmp eq i32 %166, 0
+  %fputc364 = tail call i32 @fputc(i32 43, ptr %0)
+  br i1 %.not363, label %171, label %167
+
+167:                                              ; preds = %._crit_edge478
+  br i1 %.not497, label %._crit_edge482, label %.lr.ph481
+
+.lr.ph481:                                        ; preds = %167, %169
+  %.2309479 = phi i32 [ %170, %169 ], [ 0, %167 ]
   %fputc376 = tail call i32 @fputc(i32 45, ptr %0)
   %fputc377 = tail call i32 @fputc(i32 45, ptr %0)
-  %.not378 = icmp eq i32 %.2308477, %.pre
-  br i1 %.not378, label %167, label %166
+  %fputc378 = tail call i32 @fputc(i32 45, ptr %0)
+  %.not379 = icmp eq i32 %.2309479, %134
+  br i1 %.not379, label %169, label %168
 
-166:                                              ; preds = %.lr.ph479
-  %fputc380 = tail call i32 @fputc(i32 43, ptr %0)
-  br label %167
+168:                                              ; preds = %.lr.ph481
+  %fputc381 = tail call i32 @fputc(i32 43, ptr %0)
+  br label %169
 
-167:                                              ; preds = %166, %.lr.ph479
-  %168 = add nuw nsw i32 %.2308477, 1
-  %exitcond544.not = icmp eq i32 %168, %smax540.pre-phi
-  br i1 %exitcond544.not, label %._crit_edge480, label %.lr.ph479, !llvm.loop !21
+169:                                              ; preds = %168, %.lr.ph481
+  %170 = add nuw nsw i32 %.2309479, 1
+  %exitcond547.not = icmp eq i32 %170, %smax543
+  br i1 %exitcond547.not, label %._crit_edge482, label %.lr.ph481, !llvm.loop !49
 
-169:                                              ; preds = %._crit_edge476
-  br i1 %.not495, label %._crit_edge480, label %.lr.ph483
+171:                                              ; preds = %._crit_edge478
+  br i1 %.not497, label %._crit_edge482, label %.lr.ph485
 
-.lr.ph483:                                        ; preds = %169, %171
-  %.3309481 = phi i32 [ %172, %171 ], [ 0, %169 ]
-  %fputc365 = tail call i32 @fputc(i32 45, ptr %0)
+.lr.ph485:                                        ; preds = %171, %173
+  %.3310483 = phi i32 [ %174, %173 ], [ 0, %171 ]
   %fputc366 = tail call i32 @fputc(i32 45, ptr %0)
   %fputc367 = tail call i32 @fputc(i32 45, ptr %0)
-  %.not368 = icmp eq i32 %.3309481, %.pre
-  br i1 %.not368, label %171, label %170
+  %fputc368 = tail call i32 @fputc(i32 45, ptr %0)
+  %.not369 = icmp eq i32 %.3310483, %134
+  br i1 %.not369, label %173, label %172
 
-170:                                              ; preds = %.lr.ph483
-  %fputc370 = tail call i32 @fputc(i32 43, ptr %0)
-  br label %171
-
-171:                                              ; preds = %170, %.lr.ph483
-  %172 = add nuw nsw i32 %.3309481, 1
-  %exitcond546.not = icmp eq i32 %172, %smax540.pre-phi
-  br i1 %exitcond546.not, label %._crit_edge480, label %.lr.ph483, !llvm.loop !22
-
-._crit_edge480:                                   ; preds = %167, %171, %169, %165
-  %fputc364 = tail call i32 @fputc(i32 43, ptr %0)
-  %fputc374 = tail call i32 @fputc(i32 10, ptr %0)
+172:                                              ; preds = %.lr.ph485
+  %fputc371 = tail call i32 @fputc(i32 43, ptr %0)
   br label %173
 
-173:                                              ; preds = %._crit_edge472, %._crit_edge480
-  %174 = add nuw nsw i32 %.3316485, 1
-  %exitcond547.not = icmp eq i32 %174, %93
-  br i1 %exitcond547.not, label %.preheader, label %.preheader420, !llvm.loop !23
+173:                                              ; preds = %172, %.lr.ph485
+  %174 = add nuw nsw i32 %.3310483, 1
+  %exitcond549.not = icmp eq i32 %174, %smax543
+  br i1 %exitcond549.not, label %._crit_edge482, label %.lr.ph485, !llvm.loop !50
 
-.lr.ph488:                                        ; preds = %.preheader, %.lr.ph488
-  %.3487 = phi i32 [ %175, %.lr.ph488 ], [ 0, %.preheader ]
-  %175 = add nuw nsw i32 %.3487, 1
-  %fputc355 = tail call i32 @fputc(i32 32, ptr %0)
-  %exitcond548.not = icmp eq i32 %.3487, %91
-  br i1 %exitcond548.not, label %._crit_edge489, label %.lr.ph488, !llvm.loop !24
+._crit_edge482:                                   ; preds = %169, %173, %171, %167
+  %fputc365 = tail call i32 @fputc(i32 43, ptr %0)
+  %fputc375 = tail call i32 @fputc(i32 10, ptr %0)
+  br label %175
 
-._crit_edge489:                                   ; preds = %.lr.ph488, %.preheader
-  %fputc345 = tail call i32 @fputc(i32 43, ptr %0)
-  br i1 %.not495, label %._crit_edge493, label %.lr.ph492
+175:                                              ; preds = %._crit_edge482, %._crit_edge474
+  %176 = add nuw nsw i32 %.3317487, 1
+  %exitcond551.not = icmp eq i32 %176, %smax550
+  br i1 %exitcond551.not, label %.preheader, label %.preheader422, !llvm.loop !51
 
-.lr.ph492:                                        ; preds = %._crit_edge489, %177
-  %.4310490 = phi i32 [ %178, %177 ], [ 0, %._crit_edge489 ]
-  %fputc348 = tail call i32 @fputc(i32 45, ptr %0)
-  %fputc349 = tail call i32 @fputc(i32 45, ptr %0)
-  %fputc350 = tail call i32 @fputc(i32 45, ptr %0)
-  %.not351 = icmp eq i32 %.4310490, %.pre
-  br i1 %.not351, label %177, label %176
+.lr.ph490:                                        ; preds = %.lr.ph490.preheader, %.lr.ph490
+  %.3489 = phi i32 [ %177, %.lr.ph490 ], [ 0, %.lr.ph490.preheader ]
+  %177 = add nuw nsw i32 %.3489, 1
+  %fputc356 = tail call i32 @fputc(i32 32, ptr %0)
+  %exitcond552.not = icmp eq i32 %.3489, %90
+  br i1 %exitcond552.not, label %._crit_edge491, label %.lr.ph490, !llvm.loop !52
 
-176:                                              ; preds = %.lr.ph492
-  %fputc353 = tail call i32 @fputc(i32 43, ptr %0)
-  br label %177
-
-177:                                              ; preds = %176, %.lr.ph492
-  %178 = add nuw nsw i32 %.4310490, 1
-  %exitcond550.not = icmp eq i32 %178, %smax540.pre-phi
-  br i1 %exitcond550.not, label %._crit_edge493, label %.lr.ph492, !llvm.loop !25
-
-._crit_edge493:                                   ; preds = %177, %._crit_edge489
+._crit_edge491:                                   ; preds = %.lr.ph490, %.preheader
   %fputc346 = tail call i32 @fputc(i32 43, ptr %0)
-  %fputc347 = tail call i32 @fputc(i32 10, ptr %0)
+  br i1 %.not497, label %._crit_edge495, label %.lr.ph494
+
+.lr.ph494:                                        ; preds = %._crit_edge491
+  %178 = add nsw i32 %93, -1
+  %smax553 = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
   br label %179
 
-179:                                              ; preds = %._crit_edge493, %77, %52, %17, %13
+179:                                              ; preds = %.lr.ph494, %181
+  %.4311492 = phi i32 [ 0, %.lr.ph494 ], [ %182, %181 ]
+  %fputc349 = tail call i32 @fputc(i32 45, ptr %0)
+  %fputc350 = tail call i32 @fputc(i32 45, ptr %0)
+  %fputc351 = tail call i32 @fputc(i32 45, ptr %0)
+  %.not352 = icmp eq i32 %.4311492, %178
+  br i1 %.not352, label %181, label %180
+
+180:                                              ; preds = %179
+  %fputc354 = tail call i32 @fputc(i32 43, ptr %0)
+  br label %181
+
+181:                                              ; preds = %180, %179
+  %182 = add nuw nsw i32 %.4311492, 1
+  %exitcond554.not = icmp eq i32 %182, %smax553
+  br i1 %exitcond554.not, label %._crit_edge495, label %179, !llvm.loop !53
+
+._crit_edge495:                                   ; preds = %181, %._crit_edge491
+  %fputc347 = tail call i32 @fputc(i32 43, ptr %0)
+  %fputc348 = tail call i32 @fputc(i32 10, ptr %0)
+  br label %183
+
+183:                                              ; preds = %.thread420, %._crit_edge495, %52, %17, %13
   ret void
 }
 
@@ -622,7 +637,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = icmp eq ptr %2, %17
   br i1 %18, label %19, label %21
 
@@ -664,7 +679,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc310 = tail call i32 @fputc(i32 %35, ptr %0)
   %36 = add nuw nsw i32 %.0226323, 1
   %exitcond.not = icmp eq i32 %36, %4
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %34, %29
   %37 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 3, i64 1, ptr %0)
@@ -681,7 +696,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc309 = tail call i32 @fputc(i32 %39, ptr %0)
   %40 = add nuw nsw i32 %.1227324, 1
   %exitcond377.not = icmp eq i32 %40, %5
-  br i1 %exitcond377.not, label %._crit_edge327, label %.lr.ph326, !llvm.loop !27
+  br i1 %exitcond377.not, label %._crit_edge327, label %.lr.ph326, !llvm.loop !55
 
 ._crit_edge327:                                   ; preds = %.lr.ph326
   %fputc241 = tail call i32 @fputc(i32 10, ptr %0)
@@ -714,7 +729,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %46 = add nuw i32 %.0215328, 1
   %fputc308 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond378.not = icmp eq i32 %.0215328, %smax
-  br i1 %exitcond378.not, label %.preheader321, label %.lr.ph329, !llvm.loop !28
+  br i1 %exitcond378.not, label %.preheader321, label %.lr.ph329, !llvm.loop !56
 
 47:                                               ; preds = %.lr.ph331, %47
   %.0217330 = phi i32 [ 0, %.lr.ph331 ], [ %52, %47 ]
@@ -726,20 +741,20 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %51 = tail call i64 @fwrite(ptr nonnull %.str.15..str.14, i64 4, i64 1, ptr %0)
   %52 = add nuw nsw i32 %.0217330, 1
   %exitcond380.not = icmp eq i32 %52, %smax379
-  br i1 %exitcond380.not, label %._crit_edge332, label %47, !llvm.loop !29
+  br i1 %exitcond380.not, label %._crit_edge332, label %47, !llvm.loop !57
 
 ._crit_edge332:                                   ; preds = %47, %.preheader321
   %fputc306 = tail call i32 @fputc(i32 10, ptr %0)
   %53 = add nuw nsw i32 %.0333, 1
   %exitcond381.not = icmp eq i32 %53, %5
-  br i1 %exitcond381.not, label %.preheader320, label %.preheader322, !llvm.loop !30
+  br i1 %exitcond381.not, label %.preheader320, label %.preheader322, !llvm.loop !58
 
 .lr.ph336:                                        ; preds = %.preheader320, %.lr.ph336
   %.1216335 = phi i32 [ %54, %.lr.ph336 ], [ 0, %.preheader320 ]
   %54 = add nuw i32 %.1216335, 1
   %fputc305 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond382.not = icmp eq i32 %.1216335, %4
-  br i1 %exitcond382.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !31
+  br i1 %exitcond382.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !59
 
 ._crit_edge337:                                   ; preds = %.lr.ph336, %.preheader320
   %fputc243 = tail call i32 @fputc(i32 43, ptr %0)
@@ -766,7 +781,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 58:                                               ; preds = %57, %56
   %59 = add nuw nsw i32 %.0220338, 1
   %exitcond384.not = icmp eq i32 %59, %smax383
-  br i1 %exitcond384.not, label %._crit_edge341, label %56, !llvm.loop !32
+  br i1 %exitcond384.not, label %._crit_edge341, label %56, !llvm.loop !60
 
 ._crit_edge341:                                   ; preds = %58, %._crit_edge337
   %fputc244 = tail call i32 @fputc(i32 43, ptr %0)
@@ -804,7 +819,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %fputc297 = tail call i32 @fputc(i32 %., ptr %0)
   %68 = add nuw nsw i32 %.1218342, 1
   %exitcond385.not = icmp eq i32 %68, %4
-  br i1 %exitcond385.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !33
+  br i1 %exitcond385.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !61
 
 ._crit_edge344:                                   ; preds = %.lr.ph343, %.preheader319
   %fputc258 = tail call i32 @fputc(i32 32, ptr %0)
@@ -828,7 +843,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %75 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %3, ptr noundef %73) #5
   tail call void @Cudd_Ref(ptr noundef %75) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %73) #5
-  %76 = load ptr, ptr %16, align 8
+  %76 = load ptr, ptr %16, align 8, !tbaa !24
   %77 = icmp eq ptr %74, %76
   %78 = ptrtoint ptr %76 to i64
   %79 = xor i64 %78, 1
@@ -870,7 +885,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 89:                                               ; preds = %88, %87
   %90 = add nuw nsw i32 %.0225345, 1
   %exitcond387.not = icmp eq i32 %90, %smax386
-  br i1 %exitcond387.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !34
+  br i1 %exitcond387.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !62
 
 ._crit_edge348:                                   ; preds = %89, %._crit_edge344
   %fputc260 = tail call i32 @fputc(i32 124, ptr %0)
@@ -887,7 +902,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   %91 = add nuw i32 %.2350, 1
   %fputc284 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond388.not = icmp eq i32 %.2350, %4
-  br i1 %exitcond388.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !35
+  br i1 %exitcond388.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !63
 
 ._crit_edge352:                                   ; preds = %.lr.ph351, %.preheader318
   %92 = and i32 %.0224361, 1
@@ -913,7 +928,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 95:                                               ; preds = %94, %.lr.ph355
   %96 = add nuw nsw i32 %.1221353, 1
   %exitcond390.not = icmp eq i32 %96, %smax386
-  br i1 %exitcond390.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !36
+  br i1 %exitcond390.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !64
 
 97:                                               ; preds = %._crit_edge352
   br i1 %.not371, label %._crit_edge356, label %.lr.ph359
@@ -933,24 +948,24 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 99:                                               ; preds = %98, %.lr.ph359
   %100 = add nuw nsw i32 %.2222357, 1
   %exitcond392.not = icmp eq i32 %100, %smax386
-  br i1 %exitcond392.not, label %._crit_edge356, label %.lr.ph359, !llvm.loop !37
+  br i1 %exitcond392.not, label %._crit_edge356, label %.lr.ph359, !llvm.loop !65
 
 ._crit_edge356:                                   ; preds = %95, %99, %97, %93
   %fputc266 = tail call i32 @fputc(i32 43, ptr %0)
   %fputc276 = tail call i32 @fputc(i32 10, ptr %0)
   br label %101
 
-101:                                              ; preds = %._crit_edge348, %._crit_edge356
+101:                                              ; preds = %._crit_edge356, %._crit_edge348
   %102 = add nuw nsw i32 %.0224361, 1
   %exitcond394.not = icmp eq i32 %102, %smax393
-  br i1 %exitcond394.not, label %.preheader, label %.preheader319, !llvm.loop !38
+  br i1 %exitcond394.not, label %.preheader, label %.preheader319, !llvm.loop !66
 
 .lr.ph364:                                        ; preds = %.lr.ph364.preheader, %.lr.ph364
   %.3363 = phi i32 [ %103, %.lr.ph364 ], [ 0, %.lr.ph364.preheader ]
   %103 = add nuw i32 %.3363, 1
   %fputc257 = tail call i32 @fputc(i32 32, ptr %0)
   %exitcond395.not = icmp eq i32 %.3363, %4
-  br i1 %exitcond395.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !39
+  br i1 %exitcond395.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !67
 
 ._crit_edge365:                                   ; preds = %.lr.ph364, %.preheader
   %fputc247 = tail call i32 @fputc(i32 43, ptr %0)
@@ -976,7 +991,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
 107:                                              ; preds = %106, %105
   %108 = add nuw nsw i32 %.3223366, 1
   %exitcond397.not = icmp eq i32 %108, %smax396
-  br i1 %exitcond397.not, label %._crit_edge369, label %105, !llvm.loop !40
+  br i1 %exitcond397.not, label %._crit_edge369, label %105, !llvm.loop !68
 
 ._crit_edge369:                                   ; preds = %107, %._crit_edge365
   %fputc248 = tail call i32 @fputc(i32 43, ptr %0)
@@ -999,53 +1014,81 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
+!3 = !{!4, !16, i64 344}
+!4 = !{!"DdManager", !5, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 100, !13, i64 104, !13, i64 112, !13, i64 120, !6, i64 128, !6, i64 132, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !14, i64 152, !14, i64 160, !15, i64 168, !6, i64 224, !6, i64 228, !6, i64 232, !6, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !13, i64 256, !6, i64 264, !6, i64 268, !6, i64 272, !16, i64 280, !11, i64 288, !13, i64 296, !6, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !16, i64 344, !17, i64 352, !16, i64 360, !6, i64 368, !18, i64 376, !18, i64 384, !16, i64 392, !9, i64 400, !19, i64 408, !16, i64 416, !6, i64 424, !6, i64 428, !6, i64 432, !13, i64 440, !6, i64 448, !6, i64 452, !6, i64 456, !6, i64 460, !13, i64 464, !13, i64 472, !6, i64 480, !6, i64 484, !6, i64 488, !6, i64 492, !6, i64 496, !6, i64 500, !6, i64 504, !6, i64 508, !6, i64 512, !20, i64 520, !20, i64 528, !6, i64 536, !6, i64 540, !6, i64 544, !6, i64 548, !6, i64 552, !6, i64 556, !21, i64 560, !19, i64 568, !22, i64 576, !22, i64 584, !22, i64 592, !22, i64 600, !23, i64 608, !23, i64 616, !6, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !6, i64 656, !11, i64 664, !11, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !13, i64 720, !6, i64 728, !9, i64 736, !9, i64 744, !11, i64 752}
+!5 = !{!"DdNode", !6, i64 0, !6, i64 4, !9, i64 8, !7, i64 16, !11, i64 32}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS6DdNode", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!"p1 _ZTS7DdCache", !10, i64 0}
+!13 = !{!"double", !7, i64 0}
+!14 = !{!"p1 _ZTS10DdSubtable", !10, i64 0}
+!15 = !{!"DdSubtable", !16, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48}
+!16 = !{!"p2 _ZTS6DdNode", !10, i64 0}
+!17 = !{!"p1 int", !10, i64 0}
+!18 = !{!"p1 long", !10, i64 0}
+!19 = !{!"p1 omnipotent char", !10, i64 0}
+!20 = !{!"p1 _ZTS7MtrNode", !10, i64 0}
+!21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
+!22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!24 = !{!4, !9, i64 40}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!23, !23, i64 0}
+!28 = distinct !{!28, !26}
+!29 = !{!9, !9, i64 0}
+!30 = distinct !{!30, !26}
+!31 = !{!4, !17, i64 328}
+!32 = !{!6, !6, i64 0}
+!33 = distinct !{!33, !26}
+!34 = !{!5, !6, i64 0}
+!35 = !{!7, !7, i64 0}
+!36 = distinct !{!36, !26}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !26}
+!39 = !{!19, !19, i64 0}
+!40 = distinct !{!40, !26}
+!41 = distinct !{!41, !26}
+!42 = distinct !{!42, !26}
+!43 = distinct !{!43, !26}
+!44 = distinct !{!44, !26}
+!45 = distinct !{!45, !26}
+!46 = distinct !{!46, !26}
+!47 = distinct !{!47, !26}
+!48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}
+!50 = distinct !{!50, !26}
+!51 = distinct !{!51, !26}
+!52 = distinct !{!52, !26}
+!53 = distinct !{!53, !26}
+!54 = distinct !{!54, !26}
+!55 = distinct !{!55, !26}
+!56 = distinct !{!56, !26}
+!57 = distinct !{!57, !26}
+!58 = distinct !{!58, !26}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = distinct !{!61, !26}
+!62 = distinct !{!62, !26}
+!63 = distinct !{!63, !26}
+!64 = distinct !{!64, !26}
+!65 = distinct !{!65, !26}
+!66 = distinct !{!66, !26}
+!67 = distinct !{!67, !26}
+!68 = distinct !{!68, !26}

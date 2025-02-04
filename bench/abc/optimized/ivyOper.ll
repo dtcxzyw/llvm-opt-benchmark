@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/ivyOper.c.ll'
-source_filename = "bench/abc/original/ivyOper.c.ll"
+; ModuleID = 'bench/abc/original/ivyOper.ll'
+source_filename = "bench/abc/original/ivyOper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -23,7 +23,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
@@ -34,7 +34,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %25, label %30
 
@@ -90,7 +90,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
@@ -101,7 +101,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
 
@@ -153,7 +153,7 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
@@ -164,7 +164,7 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
 
@@ -211,7 +211,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = ptrtoint ptr %48 to i64
   %50 = xor i64 %49, 1
   %51 = inttoptr i64 %50 to ptr
@@ -221,7 +221,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   %53 = and i64 %40, -2
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
   %57 = icmp eq ptr %56, %54
   br i1 %57, label %58, label %63
 
@@ -270,7 +270,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !3
   %86 = ptrtoint ptr %85 to i64
   %87 = xor i64 %86, 1
   br label %Ivy_Or.exit
@@ -279,7 +279,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
   %89 = and i64 %74, -2
   %90 = inttoptr i64 %89 to ptr
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %92 = load ptr, ptr %91, align 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !3
   %93 = icmp eq ptr %92, %90
   br i1 %93, label %94, label %97
 
@@ -335,7 +335,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %16, 1
   br label %Ivy_And.exit
@@ -344,7 +344,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   %19 = and i64 %4, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %27
 
@@ -400,9 +400,9 @@ define ptr @Ivy_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %15 = or disjoint i32 %14, 5
   store i32 %15, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %16, align 8
+  store ptr %1, ptr %16, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %2, ptr %17, align 8
+  store ptr %2, ptr %17, align 8, !tbaa !17
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %Ivy_ObjCreateGhost.exit, label %18
 
@@ -414,20 +414,20 @@ define ptr @Ivy_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %.val.i.i = load i32, ptr %22, align 8
+  %.val.i.i = load i32, ptr %22, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i
 
 Ivy_ObjFaninId1.exit.i:                           ; preds = %19, %18
   %23 = phi i32 [ %.val.i.i, %19 ], [ 0, %18 ]
   %24 = and i64 %5, -2
   %25 = inttoptr i64 %24 to ptr
-  %.val.i19.i = load i32, ptr %25, align 8
+  %.val.i19.i = load i32, ptr %25, align 8, !tbaa !18
   %26 = icmp sgt i32 %23, %.val.i19.i
   br i1 %26, label %27, label %Ivy_ObjCreateGhost.exit
 
 27:                                               ; preds = %Ivy_ObjFaninId1.exit.i
-  store ptr %2, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
+  store ptr %2, ptr %16, align 8, !tbaa !16
+  store ptr %1, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit
 
 Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId1.exit.i, %27
@@ -440,8 +440,8 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId
   %34 = and i32 %33, -1552
   %35 = or disjoint i32 %34, 5
   store i32 %35, ptr %12, align 8
-  store ptr %32, ptr %16, align 8
-  store ptr %3, ptr %17, align 8
+  store ptr %32, ptr %16, align 8, !tbaa !16
+  store ptr %3, ptr %17, align 8, !tbaa !17
   %.not.i85 = icmp eq ptr %3, null
   br i1 %.not.i85, label %Ivy_ObjCreateGhost.exit90, label %36
 
@@ -452,7 +452,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId
 37:                                               ; preds = %36
   %38 = and i64 %30, -2
   %39 = inttoptr i64 %38 to ptr
-  %.val.i.i87 = load i32, ptr %39, align 8
+  %.val.i.i87 = load i32, ptr %39, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i88
 
 Ivy_ObjFaninId1.exit.i88:                         ; preds = %37, %36
@@ -460,13 +460,13 @@ Ivy_ObjFaninId1.exit.i88:                         ; preds = %37, %36
   %41 = ptrtoint ptr %3 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %.val.i19.i89 = load i32, ptr %43, align 8
+  %.val.i19.i89 = load i32, ptr %43, align 8, !tbaa !18
   %44 = icmp sgt i32 %40, %.val.i19.i89
   br i1 %44, label %45, label %Ivy_ObjCreateGhost.exit90
 
 45:                                               ; preds = %Ivy_ObjFaninId1.exit.i88
-  store ptr %3, ptr %16, align 8
-  store ptr %32, ptr %17, align 8
+  store ptr %3, ptr %16, align 8, !tbaa !16
+  store ptr %32, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit90
 
 Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.exit, %Ivy_ObjFaninId1.exit.i88, %45
@@ -487,8 +487,8 @@ Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.
   %57 = and i32 %56, -1552
   %58 = or disjoint i32 %57, 5
   store i32 %58, ptr %12, align 8
-  store ptr %52, ptr %16, align 8
-  store ptr %55, ptr %17, align 8
+  store ptr %52, ptr %16, align 8, !tbaa !16
+  store ptr %55, ptr %17, align 8, !tbaa !17
   %.not.i91 = icmp eq ptr %46, inttoptr (i64 1 to ptr)
   br i1 %.not.i91, label %Ivy_ObjCreateGhost.exit96, label %59
 
@@ -499,20 +499,20 @@ Ivy_ObjCreateGhost.exit90:                        ; preds = %Ivy_ObjCreateGhost.
 60:                                               ; preds = %59
   %61 = and i64 %50, -2
   %62 = inttoptr i64 %61 to ptr
-  %.val.i.i93 = load i32, ptr %62, align 8
+  %.val.i.i93 = load i32, ptr %62, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i94
 
 Ivy_ObjFaninId1.exit.i94:                         ; preds = %60, %59
   %63 = phi i32 [ %.val.i.i93, %60 ], [ 0, %59 ]
   %64 = and i64 %53, -2
   %65 = inttoptr i64 %64 to ptr
-  %.val.i19.i95 = load i32, ptr %65, align 8
+  %.val.i19.i95 = load i32, ptr %65, align 8, !tbaa !18
   %66 = icmp sgt i32 %63, %.val.i19.i95
   br i1 %66, label %67, label %Ivy_ObjCreateGhost.exit96
 
 67:                                               ; preds = %Ivy_ObjFaninId1.exit.i94
-  store ptr %55, ptr %16, align 8
-  store ptr %52, ptr %17, align 8
+  store ptr %55, ptr %16, align 8, !tbaa !16
+  store ptr %52, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit96
 
 Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId1.exit.i94, %67
@@ -534,8 +534,8 @@ Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId
   %78 = and i32 %77, -1552
   %79 = or disjoint i32 %78, 5
   store i32 %79, ptr %12, align 8
-  store ptr %1, ptr %16, align 8
-  store ptr %7, ptr %17, align 8
+  store ptr %1, ptr %16, align 8, !tbaa !16
+  store ptr %7, ptr %17, align 8, !tbaa !17
   %.not.i97 = icmp eq ptr %2, inttoptr (i64 1 to ptr)
   br i1 %.not.i97, label %Ivy_ObjCreateGhost.exit102, label %80
 
@@ -546,20 +546,20 @@ Ivy_ObjCreateGhost.exit96:                        ; preds = %49, %Ivy_ObjFaninId
 81:                                               ; preds = %80
   %82 = and i64 %30, -2
   %83 = inttoptr i64 %82 to ptr
-  %.val.i.i99 = load i32, ptr %83, align 8
+  %.val.i.i99 = load i32, ptr %83, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i100
 
 Ivy_ObjFaninId1.exit.i100:                        ; preds = %81, %80
   %84 = phi i32 [ %.val.i.i99, %81 ], [ 0, %80 ]
   %85 = and i64 %5, -2
   %86 = inttoptr i64 %85 to ptr
-  %.val.i19.i101 = load i32, ptr %86, align 8
+  %.val.i19.i101 = load i32, ptr %86, align 8, !tbaa !18
   %87 = icmp sgt i32 %84, %.val.i19.i101
   br i1 %87, label %88, label %Ivy_ObjCreateGhost.exit102
 
 88:                                               ; preds = %Ivy_ObjFaninId1.exit.i100
-  store ptr %7, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
+  store ptr %7, ptr %16, align 8, !tbaa !16
+  store ptr %1, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit102
 
 Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId1.exit.i100, %88
@@ -571,8 +571,8 @@ Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId
   %94 = and i32 %93, -1552
   %95 = or disjoint i32 %94, 5
   store i32 %95, ptr %12, align 8
-  store ptr %32, ptr %16, align 8
-  store ptr %92, ptr %17, align 8
+  store ptr %32, ptr %16, align 8, !tbaa !16
+  store ptr %92, ptr %17, align 8, !tbaa !17
   %.not.i103 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
   br i1 %.not.i103, label %Ivy_ObjCreateGhost.exit108, label %96
 
@@ -583,20 +583,20 @@ Ivy_ObjCreateGhost.exit102:                       ; preds = %73, %Ivy_ObjFaninId
 97:                                               ; preds = %96
   %98 = and i64 %30, -2
   %99 = inttoptr i64 %98 to ptr
-  %.val.i.i105 = load i32, ptr %99, align 8
+  %.val.i.i105 = load i32, ptr %99, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i106
 
 Ivy_ObjFaninId1.exit.i106:                        ; preds = %97, %96
   %100 = phi i32 [ %.val.i.i105, %97 ], [ 0, %96 ]
   %101 = and i64 %90, -2
   %102 = inttoptr i64 %101 to ptr
-  %.val.i19.i107 = load i32, ptr %102, align 8
+  %.val.i19.i107 = load i32, ptr %102, align 8, !tbaa !18
   %103 = icmp sgt i32 %100, %.val.i19.i107
   br i1 %103, label %104, label %Ivy_ObjCreateGhost.exit108
 
 104:                                              ; preds = %Ivy_ObjFaninId1.exit.i106
-  store ptr %92, ptr %16, align 8
-  store ptr %32, ptr %17, align 8
+  store ptr %92, ptr %16, align 8, !tbaa !16
+  store ptr %32, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit108
 
 Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.exit102, %Ivy_ObjFaninId1.exit.i106, %104
@@ -617,8 +617,8 @@ Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.
   %116 = and i32 %115, -1552
   %117 = or disjoint i32 %116, 5
   store i32 %117, ptr %12, align 8
-  store ptr %111, ptr %16, align 8
-  store ptr %114, ptr %17, align 8
+  store ptr %111, ptr %16, align 8, !tbaa !16
+  store ptr %114, ptr %17, align 8, !tbaa !17
   %.not.i109 = icmp eq ptr %105, inttoptr (i64 1 to ptr)
   br i1 %.not.i109, label %Ivy_ObjCreateGhost.exit114, label %118
 
@@ -629,20 +629,20 @@ Ivy_ObjCreateGhost.exit108:                       ; preds = %Ivy_ObjCreateGhost.
 119:                                              ; preds = %118
   %120 = and i64 %109, -2
   %121 = inttoptr i64 %120 to ptr
-  %.val.i.i111 = load i32, ptr %121, align 8
+  %.val.i.i111 = load i32, ptr %121, align 8, !tbaa !18
   br label %Ivy_ObjFaninId1.exit.i112
 
 Ivy_ObjFaninId1.exit.i112:                        ; preds = %119, %118
   %122 = phi i32 [ %.val.i.i111, %119 ], [ 0, %118 ]
   %123 = and i64 %112, -2
   %124 = inttoptr i64 %123 to ptr
-  %.val.i19.i113 = load i32, ptr %124, align 8
+  %.val.i19.i113 = load i32, ptr %124, align 8, !tbaa !18
   %125 = icmp sgt i32 %122, %.val.i19.i113
   br i1 %125, label %126, label %Ivy_ObjCreateGhost.exit114
 
 126:                                              ; preds = %Ivy_ObjFaninId1.exit.i112
-  store ptr %114, ptr %16, align 8
-  store ptr %111, ptr %17, align 8
+  store ptr %114, ptr %16, align 8, !tbaa !16
+  store ptr %111, ptr %17, align 8, !tbaa !17
   br label %Ivy_ObjCreateGhost.exit114
 
 Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninId1.exit.i112, %126
@@ -670,7 +670,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %139 = load ptr, ptr %138, align 8
+  %139 = load ptr, ptr %138, align 8, !tbaa !3
   %140 = ptrtoint ptr %139 to i64
   %141 = xor i64 %140, 1
   %142 = inttoptr i64 %141 to ptr
@@ -680,7 +680,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   %144 = and i64 %30, -2
   %145 = inttoptr i64 %144 to ptr
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %147 = load ptr, ptr %146, align 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !3
   %148 = icmp eq ptr %147, %145
   br i1 %148, label %149, label %154
 
@@ -726,7 +726,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %172 = load ptr, ptr %171, align 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !3
   %173 = ptrtoint ptr %172 to i64
   %174 = xor i64 %173, 1
   %175 = inttoptr i64 %174 to ptr
@@ -736,7 +736,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   %177 = and i64 %30, -2
   %178 = inttoptr i64 %177 to ptr
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %180 = load ptr, ptr %179, align 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !3
   %181 = icmp eq ptr %180, %178
   br i1 %181, label %182, label %187
 
@@ -785,7 +785,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %210 = load ptr, ptr %209, align 8
+  %210 = load ptr, ptr %209, align 8, !tbaa !3
   %211 = ptrtoint ptr %210 to i64
   %212 = xor i64 %211, 1
   br label %Ivy_Or.exit
@@ -794,7 +794,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
   %214 = and i64 %199, -2
   %215 = inttoptr i64 %214 to ptr
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %217 = load ptr, ptr %216, align 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !3
   %218 = icmp eq ptr %217, %215
   br i1 %218, label %219, label %222
 
@@ -843,7 +843,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
 
 241:                                              ; preds = %239
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %243 = load ptr, ptr %242, align 8
+  %243 = load ptr, ptr %242, align 8, !tbaa !3
   %244 = ptrtoint ptr %243 to i64
   %245 = xor i64 %244, 1
   %246 = inttoptr i64 %245 to ptr
@@ -853,7 +853,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
   %248 = and i64 %30, -2
   %249 = inttoptr i64 %248 to ptr
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %251 = load ptr, ptr %250, align 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !3
   %252 = icmp eq ptr %251, %249
   br i1 %252, label %253, label %258
 
@@ -899,7 +899,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
 
 274:                                              ; preds = %272
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %276 = load ptr, ptr %275, align 8
+  %276 = load ptr, ptr %275, align 8, !tbaa !3
   %277 = ptrtoint ptr %276 to i64
   %278 = xor i64 %277, 1
   %279 = inttoptr i64 %278 to ptr
@@ -909,7 +909,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   %281 = and i64 %30, -2
   %282 = inttoptr i64 %281 to ptr
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %284 = load ptr, ptr %283, align 8
+  %284 = load ptr, ptr %283, align 8, !tbaa !3
   %285 = icmp eq ptr %284, %282
   br i1 %285, label %286, label %291
 
@@ -958,7 +958,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
 
 312:                                              ; preds = %310
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %314 = load ptr, ptr %313, align 8
+  %314 = load ptr, ptr %313, align 8, !tbaa !3
   %315 = ptrtoint ptr %314 to i64
   %316 = xor i64 %315, 1
   br label %Ivy_Or.exit123
@@ -967,7 +967,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
   %318 = and i64 %303, -2
   %319 = inttoptr i64 %318 to ptr
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %321 = load ptr, ptr %320, align 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !3
   %322 = icmp eq ptr %321, %319
   br i1 %322, label %323, label %326
 
@@ -1023,7 +1023,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -1034,7 +1034,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %29
 
@@ -1081,7 +1081,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = ptrtoint ptr %49 to i64
   %51 = xor i64 %50, 1
   %52 = inttoptr i64 %51 to ptr
@@ -1092,7 +1092,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load ptr, ptr %57, align 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !3
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %60, label %65
 
@@ -1142,7 +1142,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %88 = load ptr, ptr %87, align 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !3
   %89 = ptrtoint ptr %88 to i64
   %90 = xor i64 %89, 1
   br label %Ivy_Or.exit
@@ -1151,7 +1151,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
   %92 = and i64 %77, -2
   %93 = inttoptr i64 %92 to ptr
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = load ptr, ptr %94, align 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !3
   %96 = icmp eq ptr %95, %93
   br i1 %96, label %97, label %100
 
@@ -1197,7 +1197,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
 
 120:                                              ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load ptr, ptr %121, align 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !3
   %123 = ptrtoint ptr %122 to i64
   %124 = xor i64 %123, 1
   %125 = inttoptr i64 %124 to ptr
@@ -1208,7 +1208,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   %128 = and i64 %127, -2
   %129 = inttoptr i64 %128 to ptr
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %131 = load ptr, ptr %130, align 8
+  %131 = load ptr, ptr %130, align 8, !tbaa !3
   %132 = icmp eq ptr %131, %129
   br i1 %132, label %133, label %138
 
@@ -1255,7 +1255,7 @@ Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %120, 
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %158 = load ptr, ptr %157, align 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !3
   %159 = ptrtoint ptr %158 to i64
   %160 = xor i64 %159, 1
   br label %Ivy_Or.exit17
@@ -1264,7 +1264,7 @@ Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %120, 
   %162 = and i64 %.0.i.i, -2
   %163 = inttoptr i64 %162 to ptr
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %165 = load ptr, ptr %164, align 8
+  %165 = load ptr, ptr %164, align 8, !tbaa !3
   %166 = icmp eq ptr %165, %163
   br i1 %166, label %167, label %170
 
@@ -1307,7 +1307,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8, !tbaa !19
   br label %Ivy_Oper.exit
 
 8:                                                ; preds = %4
@@ -1335,7 +1335,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
@@ -1346,7 +1346,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = icmp eq ptr %33, %31
   br i1 %34, label %35, label %40
 
@@ -1397,7 +1397,7 @@ define ptr @Ivy_Multi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !20
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1407,32 +1407,32 @@ define ptr @Ivy_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = or disjoint i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = tail call ptr @Ivy_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %13)
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !22
   %19 = lshr exact i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  store ptr %17, ptr %20, align 8
+  store ptr %17, ptr %20, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %21 = load i32, ptr %3, align 4
+  %21 = load i32, ptr %3, align 4, !tbaa !20
   %22 = trunc nuw i64 %indvars.iv.next to i32
   %23 = icmp sgt i32 %21, %22
-  br i1 %23, label %7, label %._crit_edge, !llvm.loop !4
+  br i1 %23, label %7, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %7, %2
   %.lcssa = phi i32 [ %4, %2 ], [ %21, %7 ]
   %24 = sdiv i32 %.lcssa, 2
-  store i32 %24, ptr %3, align 4
+  store i32 %24, ptr %3, align 4, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = tail call ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %24, i32 noundef 5)
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, 1
@@ -1448,15 +1448,35 @@ define ptr @Ivy_Latch(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 
 declare ptr @Ivy_CanonLatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !9, i64 32}
+!4 = !{!"Ivy_Man_t_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !9, i64 32, !10, i64 40, !7, i64 120, !11, i64 152, !11, i64 156, !12, i64 160, !11, i64 168, !11, i64 172, !11, i64 176, !11, i64 180, !13, i64 184, !11, i64 192, !6, i64 200, !6, i64 208, !14, i64 216, !11, i64 224, !5, i64 232, !5, i64 240, !9, i64 248, !15, i64 256, !15, i64 264}
+!5 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS10Ivy_Obj_t_", !6, i64 0}
+!10 = !{!"Ivy_Obj_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 8, !11, i64 8, !11, i64 8, !11, i64 8, !11, i64 9, !11, i64 9, !11, i64 9, !11, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!"p1 int", !6, i64 0}
+!13 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
+!14 = !{!"p1 _ZTS10Ivy_Man_t_", !6, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!10, !9, i64 16}
+!17 = !{!10, !9, i64 24}
+!18 = !{!10, !11, i64 0}
+!19 = !{!9, !9, i64 0}
+!20 = !{!21, !11, i64 4}
+!21 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
+!22 = !{!21, !6, i64 8}
+!23 = !{!6, !6, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}

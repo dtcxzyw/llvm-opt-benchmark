@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/lpkAbcMux.c.ll'
-source_filename = "bench/abc/original/lpkAbcMux.c.ll"
+; ModuleID = 'bench/abc/original/lpkAbcMux.ll'
+source_filename = "bench/abc/original/lpkAbcMux.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) @Lpk_MuxAnalize.Res, i8 0, i64 40, i1 false)
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21,7 +21,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 
 8:                                                ; preds = %2, %221
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %221 ]
-  %9 = load i32, ptr %3, align 4
+  %9 = load i32, ptr %3, align 4, !tbaa !8
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
   %12 = and i32 %9, %11
@@ -31,7 +31,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 13:                                               ; preds = %8
   %14 = shl nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !12
   %17 = and i32 %16, 1431655765
   %18 = lshr i32 %16, 1
   %19 = and i32 %18, 1431655765
@@ -53,7 +53,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %35 = add nuw nsw i32 %33, %34
   %36 = or disjoint i64 %14, 1
   %37 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = and i32 %38, 1431655765
   %40 = lshr i32 %38, 1
   %41 = and i32 %40, 1431655765
@@ -91,14 +91,14 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 65:                                               ; preds = %60
   %66 = or i32 %16, %11
   %67 = tail call i32 @Lpk_SuppDelay(i32 noundef %66, ptr noundef nonnull %6) #4
-  %68 = load i32, ptr %37, align 4
+  %68 = load i32, ptr %37, align 4, !tbaa !12
   %69 = tail call i32 @Lpk_SuppDelay(i32 noundef %68, ptr noundef nonnull %6) #4
   %70 = add nsw i32 %69, 1
   %71 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %67, i32 range(i32 -2147483647, -2147483648) %70)
-  %72 = load i32, ptr %37, align 4
+  %72 = load i32, ptr %37, align 4, !tbaa !12
   %73 = or i32 %72, %11
   %74 = tail call i32 @Lpk_SuppDelay(i32 noundef %73, ptr noundef nonnull %6) #4
-  %75 = load i32, ptr %15, align 4
+  %75 = load i32, ptr %15, align 4, !tbaa !12
   %76 = tail call i32 @Lpk_SuppDelay(i32 noundef %75, ptr noundef nonnull %6) #4
   %77 = add nsw i32 %76, 1
   %78 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %74, i32 range(i32 -2147483647, -2147483648) %77)
@@ -112,7 +112,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 82:                                               ; preds = %81
   %83 = or i32 %16, %11
   %84 = tail call i32 @Lpk_SuppDelay(i32 noundef %83, ptr noundef nonnull %6) #4
-  %85 = load i32, ptr %37, align 4
+  %85 = load i32, ptr %37, align 4, !tbaa !12
   %86 = tail call i32 @Lpk_SuppDelay(i32 noundef %85, ptr noundef nonnull %6) #4
   %87 = add nsw i32 %86, 1
   %88 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %84, i32 range(i32 -2147483647, -2147483648) %87)
@@ -138,7 +138,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 101:                                              ; preds = %100
   %102 = or i32 %38, %11
   %103 = tail call i32 @Lpk_SuppDelay(i32 noundef %102, ptr noundef nonnull %6) #4
-  %104 = load i32, ptr %15, align 4
+  %104 = load i32, ptr %15, align 4, !tbaa !12
   %105 = tail call i32 @Lpk_SuppDelay(i32 noundef %104, ptr noundef nonnull %6) #4
   %106 = add nsw i32 %105, 1
   %107 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %103, i32 range(i32 -2147483647, -2147483648) %106)
@@ -165,7 +165,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
 120:                                              ; preds = %119
   %121 = or i32 %38, %11
   %122 = tail call i32 @Lpk_SuppDelay(i32 noundef %121, ptr noundef nonnull %6) #4
-  %123 = load i32, ptr %15, align 4
+  %123 = load i32, ptr %15, align 4, !tbaa !12
   %124 = tail call i32 @Lpk_SuppDelay(i32 noundef %123, ptr noundef nonnull %6) #4
   %125 = add nsw i32 %124, 1
   %126 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %122, i32 range(i32 -2147483647, -2147483648) %125)
@@ -189,7 +189,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %.not163 = icmp samesign ugt i32 %57, %63
   %139 = or i32 %16, %11
   %140 = tail call i32 @Lpk_SuppDelay(i32 noundef %139, ptr noundef nonnull %6) #4
-  %141 = load i32, ptr %37, align 4
+  %141 = load i32, ptr %37, align 4, !tbaa !12
   %142 = tail call i32 @Lpk_SuppDelay(i32 noundef %141, ptr noundef nonnull %6) #4
   %143 = add nsw i32 %142, 1
   %144 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %140, i32 range(i32 -2147483647, -2147483648) %143)
@@ -213,10 +213,10 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   br label %184
 
 157:                                              ; preds = %138
-  %158 = load i32, ptr %37, align 4
+  %158 = load i32, ptr %37, align 4, !tbaa !12
   %159 = or i32 %158, %11
   %160 = tail call i32 @Lpk_SuppDelay(i32 noundef %159, ptr noundef nonnull %6) #4
-  %161 = load i32, ptr %15, align 4
+  %161 = load i32, ptr %15, align 4, !tbaa !12
   %162 = tail call i32 @Lpk_SuppDelay(i32 noundef %161, ptr noundef nonnull %6) #4
   %163 = add nsw i32 %162, 1
   %164 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %160, i32 range(i32 -2147483647, -2147483648) %163)
@@ -254,7 +254,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %.0148.shrunk = phi i1 [ %80, %65 ], [ false, %82 ], [ true, %101 ], [ true, %120 ], [ false, %145 ], [ %183, %157 ]
   %.0 = phi i32 [ %79, %65 ], [ %88, %82 ], [ %107, %101 ], [ %126, %120 ], [ %144, %145 ], [ %165, %157 ]
   %.0148 = zext i1 %.0148.shrunk to i32
-  %185 = load i32, ptr %7, align 8
+  %185 = load i32, ptr %7, align 8, !tbaa !13
   %186 = icmp sgt i32 %.0, %185
   br i1 %186, label %221, label %187
 
@@ -278,12 +278,12 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   br i1 %201, label %221, label %202
 
 202:                                              ; preds = %192
-  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
   %204 = icmp eq i32 %203, -1
   br i1 %204, label %220, label %205
 
 205:                                              ; preds = %202
-  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
+  %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4, !tbaa !14
   %207 = icmp sgt i32 %206, %.0149
   br i1 %207, label %220, label %208
 
@@ -292,8 +292,8 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   br i1 %209, label %210, label %221
 
 210:                                              ; preds = %208
-  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
+  %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
   %213 = add nsw i32 %212, %211
   %214 = add nuw nsw i32 %194, %196
   %215 = icmp sgt i32 %213, %214
@@ -307,21 +307,21 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   br i1 %or.cond166, label %220, label %221
 
 220:                                              ; preds = %216, %210, %205, %202
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
-  store i32 %.0148, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4
-  store i32 %.0149, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
-  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
-  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  store i32 %198, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
+  store i32 %.0148, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4, !tbaa !17
+  store i32 %.0149, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4, !tbaa !14
+  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4, !tbaa !18
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
+  store i32 %198, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
   br label %221
 
 221:                                              ; preds = %208, %8, %220, %216, %192, %187, %184, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %222, label %8, !llvm.loop !4
+  br i1 %exitcond.not, label %222, label %8, !llvm.loop !19
 
 222:                                              ; preds = %221
-  %223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
   %224 = icmp eq i32 %223, -1
   %225 = select i1 %224, ptr null, ptr @Lpk_MuxAnalize.Res
   ret ptr %225
@@ -374,13 +374,13 @@ define ptr @Lpk_MuxSplit(ptr noundef readnone captures(none) %0, ptr noundef %1,
 33:                                               ; preds = %30
   %34 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %34, 32
-  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %30, !llvm.loop !6
+  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %30, !llvm.loop !21
 
 Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
   %.06.i = phi i32 [ -1, %33 ], [ %.07.i, %30 ]
   %35 = shl nuw i32 1, %.06.i
   %36 = or i32 %35, %29
-  store i32 %36, ptr %27, align 4
+  store i32 %36, ptr %27, align 4, !tbaa !8
   %37 = load i32, ptr %6, align 8
   %38 = lshr i32 %37, 7
   %39 = and i32 %38, 31
@@ -400,17 +400,17 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
 .preheader.i:                                     ; preds = %Kit_WordFindFirstBit.exit
   %47 = sext i32 %.06.i to i64
   %48 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
+  %49 = load i32, ptr %48, align 4, !tbaa !12
   %wide.trip.count29.i = zext nneg i32 %43 to i64
   br label %50
 
 50:                                               ; preds = %50, %.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next26.i, %50 ]
   %51 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv25.i
-  store i32 %49, ptr %51, align 4
+  store i32 %49, ptr %51, align 4, !tbaa !12
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %Kit_TruthIthVar.exit, label %50, !llvm.loop !7
+  br i1 %exitcond30.not.i, label %Kit_TruthIthVar.exit, label %50, !llvm.loop !22
 
 52:                                               ; preds = %52, %.preheader19.i
   %indvars.iv.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next.i, %52 ]
@@ -419,10 +419,10 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
   %.not.i79 = icmp ne i32 %54, 0
   %spec.select.i = sext i1 %.not.i79 to i32
   %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
-  store i32 %spec.select.i, ptr %55, align 4
+  store i32 %spec.select.i, ptr %55, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i80, label %Kit_TruthIthVar.exit, label %52, !llvm.loop !8
+  br i1 %exitcond.not.i80, label %Kit_TruthIthVar.exit, label %52, !llvm.loop !23
 
 Kit_TruthIthVar.exit:                             ; preds = %52, %50
   br i1 %.not, label %57, label %56
@@ -443,22 +443,22 @@ Kit_TruthIthVar.exit:                             ; preds = %52, %50
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %64 = sext i32 %.06.i to i64
   %65 = getelementptr inbounds [16 x i8], ptr %63, i64 0, i64 %64
-  store i8 %62, ptr %65, align 1
+  store i8 %62, ptr %65, align 1, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %67 = load i32, ptr %66, align 8
+  %67 = load i32, ptr %66, align 8, !tbaa !13
   %68 = add i32 %67, -1
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %70 = getelementptr inbounds [16 x i32], ptr %69, i64 0, i64 %64
-  store i32 %68, ptr %70, align 4
+  store i32 %68, ptr %70, align 4, !tbaa !12
   %71 = load i32, ptr %6, align 8
   %72 = and i32 %71, -1073741825
   store i32 %72, ptr %6, align 8
   %73 = tail call i32 @Lpk_FunSuppMinimize(ptr noundef nonnull %1) #4
   %74 = tail call i32 @Lpk_FunSuppMinimize(ptr noundef %21) #4
-  %75 = load i32, ptr %66, align 8
+  %75 = load i32, ptr %66, align 8, !tbaa !13
   %76 = add i32 %75, -1
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 144
-  store i32 %76, ptr %77, align 8
+  store i32 %76, ptr %77, align 8, !tbaa !13
   %78 = load i32, ptr %59, align 8
   %79 = lshr i32 %78, 7
   %80 = and i32 %79, 31
@@ -578,20 +578,36 @@ declare i32 @llvm.umax.i32(i32, i32) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !5, i64 32}
+!4 = !{!"Lpk_Res_t_", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !5, i64 12}
+!9 = !{!"Lpk_Fun_t_", !10, i64 0, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16, !5, i64 144, !6, i64 148, !6, i64 212, !6, i64 228}
+!10 = !{!"p1 _ZTS10Vec_Ptr_t_", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = !{!9, !5, i64 144}
+!14 = !{!4, !5, i64 28}
+!15 = !{!4, !5, i64 16}
+!16 = !{!4, !5, i64 20}
+!17 = !{!4, !5, i64 36}
+!18 = !{!4, !5, i64 24}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = !{!6, !6, i64 0}

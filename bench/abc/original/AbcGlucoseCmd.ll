@@ -3,7 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Glucose_Pars_ = type { i32, i32, i32, i32 }
 %struct.Abc_Frame_t_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, float, float, i32, i32, ptr, ptr, ptr, double, double, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, float, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr }
+%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -26,18 +26,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [10 x i8] c"Warning: \00", align 1
 @stdout = external global ptr, align 8
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define void @Glucose_Init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @Cmd_CommandAdd(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @_ZL18Abc_CommandGlucoseP12Abc_Frame_t_iPPc, i32 noundef 0)
   ret void
 }
 
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame_t_iPPc(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -50,326 +50,375 @@ define internal noundef i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame_t_iPPc(ptr noun
   %12 = alloca i32, align 4
   %13 = alloca %struct.Glucose_Pars_, align 4
   %14 = alloca %struct.Glucose_Pars_, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store i32 0, ptr %8, align 4
-  store i32 1, ptr %9, align 4
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  store i32 0, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  store i32 1, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  store i32 0, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  store i32 0, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  store i32 0, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #9
   call void @Extra_UtilGetoptReset()
-  br label %15
+  br label %16
 
-15:                                               ; preds = %51, %3
-  %16 = load i32, ptr %6, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @Extra_UtilGetopt(i32 noundef %16, ptr noundef %17, ptr noundef @.str.2)
-  store i32 %18, ptr %8, align 4
-  %19 = icmp ne i32 %18, -1
-  br i1 %19, label %20, label %52
+16:                                               ; preds = %52, %3
+  %17 = load i32, ptr %6, align 4, !tbaa !8
+  %18 = load ptr, ptr %7, align 8, !tbaa !10
+  %19 = call i32 @Extra_UtilGetopt(i32 noundef %17, ptr noundef %18, ptr noundef @.str.2)
+  store i32 %19, ptr %8, align 4, !tbaa !8
+  %20 = icmp ne i32 %19, -1
+  br i1 %20, label %21, label %53
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %8, align 4
-  switch i32 %21, label %50 [
-    i32 67, label %22
-    i32 112, label %40
-    i32 100, label %43
-    i32 118, label %46
-    i32 104, label %49
+21:                                               ; preds = %16
+  %22 = load i32, ptr %8, align 4, !tbaa !8
+  switch i32 %22, label %51 [
+    i32 67, label %23
+    i32 112, label %41
+    i32 100, label %44
+    i32 118, label %47
+    i32 104, label %50
   ]
 
-22:                                               ; preds = %20
-  %23 = load i32, ptr @globalUtilOptind, align 4
-  %24 = load i32, ptr %6, align 4
-  %25 = icmp sge i32 %23, %24
-  br i1 %25, label %26, label %27
+23:                                               ; preds = %21
+  %24 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %25 = load i32, ptr %6, align 4, !tbaa !8
+  %26 = icmp sge i32 %24, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -1, ptr noundef @.str.3)
-  br label %91
+  br label %92
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr @globalUtilOptind, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @atoi(ptr noundef %32) #7
-  store i32 %33, ptr %11, align 4
-  %34 = load i32, ptr @globalUtilOptind, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr @globalUtilOptind, align 4
-  %36 = load i32, ptr %11, align 4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %39
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %7, align 8, !tbaa !10
+  %30 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
+  %34 = call i32 @atoi(ptr noundef %33) #10
+  store i32 %34, ptr %11, align 4, !tbaa !8
+  %35 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr @globalUtilOptind, align 4, !tbaa !8
+  %37 = load i32, ptr %11, align 4, !tbaa !8
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %27
-  br label %91
+39:                                               ; preds = %28
+  br label %92
 
-39:                                               ; preds = %27
-  br label %51
+40:                                               ; preds = %28
+  br label %52
 
-40:                                               ; preds = %20
-  %41 = load i32, ptr %9, align 4
-  %42 = xor i32 %41, 1
-  store i32 %42, ptr %9, align 4
-  br label %51
+41:                                               ; preds = %21
+  %42 = load i32, ptr %9, align 4, !tbaa !8
+  %43 = xor i32 %42, 1
+  store i32 %43, ptr %9, align 4, !tbaa !8
+  br label %52
 
-43:                                               ; preds = %20
-  %44 = load i32, ptr %12, align 4
-  %45 = xor i32 %44, 1
-  store i32 %45, ptr %12, align 4
-  br label %51
+44:                                               ; preds = %21
+  %45 = load i32, ptr %12, align 4, !tbaa !8
+  %46 = xor i32 %45, 1
+  store i32 %46, ptr %12, align 4, !tbaa !8
+  br label %52
 
-46:                                               ; preds = %20
-  %47 = load i32, ptr %10, align 4
-  %48 = xor i32 %47, 1
-  store i32 %48, ptr %10, align 4
-  br label %51
+47:                                               ; preds = %21
+  %48 = load i32, ptr %10, align 4, !tbaa !8
+  %49 = xor i32 %48, 1
+  store i32 %49, ptr %10, align 4, !tbaa !8
+  br label %52
 
-49:                                               ; preds = %20
-  br label %91
+50:                                               ; preds = %21
+  br label %92
 
-50:                                               ; preds = %20
-  br label %91
+51:                                               ; preds = %21
+  br label %92
 
-51:                                               ; preds = %46, %43, %40, %39
-  br label %15, !llvm.loop !4
+52:                                               ; preds = %47, %44, %41, %40
+  br label %16, !llvm.loop !14
 
-52:                                               ; preds = %15
-  %53 = load i32, ptr %9, align 4
-  %54 = load i32, ptr %10, align 4
-  %55 = load i32, ptr %11, align 4
-  %56 = call { i64, i64 } @_ZL18Glucose_CreateParsiiii(i32 noundef %53, i32 noundef %54, i32 noundef 0, i32 noundef %55)
-  %57 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
-  %58 = extractvalue { i64, i64 } %56, 0
-  store i64 %58, ptr %57, align 4
-  %59 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
-  %60 = extractvalue { i64, i64 } %56, 1
-  store i64 %60, ptr %59, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %14, i64 16, i1 false)
-  %61 = load i32, ptr %6, align 4
-  %62 = load i32, ptr @globalUtilOptind, align 4
-  %63 = add nsw i32 %62, 1
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %72
+53:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #9
+  %54 = load i32, ptr %9, align 4, !tbaa !8
+  %55 = load i32, ptr %10, align 4, !tbaa !8
+  %56 = load i32, ptr %11, align 4, !tbaa !8
+  %57 = call { i64, i64 } @_ZL18Glucose_CreateParsiiii(i32 noundef %54, i32 noundef %55, i32 noundef 0, i32 noundef %56)
+  %58 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 0
+  %59 = extractvalue { i64, i64 } %57, 0
+  store i64 %59, ptr %58, align 4
+  %60 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i32 0, i32 1
+  %61 = extractvalue { i64, i64 } %57, 1
+  store i64 %61, ptr %60, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %14, i64 16, i1 false), !tbaa.struct !16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #9
+  %62 = load i32, ptr %6, align 4, !tbaa !8
+  %63 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %64 = add nsw i32 %63, 1
+  %65 = icmp eq i32 %62, %64
+  br i1 %65, label %66, label %73
 
-65:                                               ; preds = %52
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr @globalUtilOptind, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %12, align 4
-  call void @Glucose_SolveCnf(ptr noundef %70, ptr noundef %13, i32 noundef %71)
+66:                                               ; preds = %53
+  %67 = load ptr, ptr %7, align 8, !tbaa !10
+  %68 = load i32, ptr @globalUtilOptind, align 4, !tbaa !8
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !12
+  %72 = load i32, ptr %12, align 4, !tbaa !8
+  call void @Glucose_SolveCnf(ptr noundef %71, ptr noundef %13, i32 noundef %72)
   store i32 0, ptr %4, align 4
-  br label %96
+  store i32 1, ptr %15, align 4
+  br label %97
 
-72:                                               ; preds = %52
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %73, i32 0, i32 40
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %78
+73:                                               ; preds = %53
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.Abc_Frame_t_, ptr %74, i32 0, i32 40
+  %76 = load ptr, ptr %75, align 8, !tbaa !17
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %72
+78:                                               ; preds = %73
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -1, ptr noundef @.str.4)
   store i32 1, ptr %4, align 4
-  br label %96
+  store i32 1, ptr %15, align 4
+  br label %97
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %79, i32 0, i32 40
-  %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @Glucose_SolveAig(ptr noundef %81, ptr noundef %13)
-  %83 = icmp eq i32 %82, 10
-  br i1 %83, label %84, label %90
+79:                                               ; preds = %73
+  %80 = load ptr, ptr %5, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.Abc_Frame_t_, ptr %80, i32 0, i32 40
+  %82 = load ptr, ptr %81, align 8, !tbaa !17
+  %83 = call i32 @Glucose_SolveAig(ptr noundef %82, ptr noundef %13)
+  %84 = icmp eq i32 %83, 10
+  br i1 %84, label %85, label %91
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %5, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.Abc_Frame_t_, ptr %86, i32 0, i32 40
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.Gia_Man_t_, ptr %88, i32 0, i32 50
-  call void @Abc_FrameReplaceCex(ptr noundef %85, ptr noundef %89)
-  br label %90
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %5, align 8, !tbaa !3
+  %87 = load ptr, ptr %5, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.Abc_Frame_t_, ptr %87, i32 0, i32 40
+  %89 = load ptr, ptr %88, align 8, !tbaa !17
+  %90 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %89, i32 0, i32 50
+  call void @Abc_FrameReplaceCex(ptr noundef %86, ptr noundef %90)
+  br label %91
 
-90:                                               ; preds = %84, %78
+91:                                               ; preds = %85, %79
   store i32 0, ptr %4, align 4
-  br label %96
+  store i32 1, ptr %15, align 4
+  br label %97
 
-91:                                               ; preds = %50, %49, %38, %26
+92:                                               ; preds = %51, %50, %39, %27
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.5)
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.6)
-  %92 = load i32, ptr %11, align 4
-  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.7, i32 noundef %92)
-  %93 = load i32, ptr %9, align 4
-  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.8, i32 noundef %93)
-  %94 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.9, i32 noundef %94)
-  %95 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.10, i32 noundef %95)
+  %93 = load i32, ptr %11, align 4, !tbaa !8
+  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.7, i32 noundef %93)
+  %94 = load i32, ptr %9, align 4, !tbaa !8
+  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.8, i32 noundef %94)
+  %95 = load i32, ptr %12, align 4, !tbaa !8
+  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.9, i32 noundef %95)
+  %96 = load i32, ptr %10, align 4, !tbaa !8
+  call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.10, i32 noundef %96)
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.11)
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef @.str.12)
   store i32 1, ptr %4, align 4
-  br label %96
+  store i32 1, ptr %15, align 4
+  br label %97
 
-96:                                               ; preds = %91, %90, %77, %65
-  %97 = load i32, ptr %4, align 4
-  ret i32 %97
+97:                                               ; preds = %92, %91, %78, %66
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %98 = load i32, ptr %4, align 4
+  ret i32 %98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @Glucose_End(ptr noundef %0) #2 {
+define void @Glucose_End(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @Extra_UtilGetoptReset() #1
 
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL9Abc_PrintiPKcz(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZL9Abc_PrintiPKcz(i32 noundef %0, ptr noundef %1, ...) #3 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #9
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !8
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !8
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.13)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !8
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.13)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.14)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.14)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
-  %41 = call i32 @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #7
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #8
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #8
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %45 = load ptr, ptr %4, align 8, !tbaa !12
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !12
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %49 = load ptr, ptr %7, align 8, !tbaa !12
+  %50 = call i64 @strlen(ptr noundef %49) #10
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !12
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @free(ptr noundef %54) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !12
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #9
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #9
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #3
+; Function Attrs: inlinehint mustprogress nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #9
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal { i64, i64 } @_ZL18Glucose_CreateParsiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal { i64, i64 } @_ZL18Glucose_CreateParsiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 {
   %5 = alloca %struct.Glucose_Pars_, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %10 = load i32, ptr %6, align 4
-  %11 = getelementptr inbounds %struct.Glucose_Pars_, ptr %5, i32 0, i32 0
-  store i32 %10, ptr %11, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = getelementptr inbounds %struct.Glucose_Pars_, ptr %5, i32 0, i32 1
-  store i32 %12, ptr %13, align 4
-  %14 = load i32, ptr %8, align 4
-  %15 = getelementptr inbounds %struct.Glucose_Pars_, ptr %5, i32 0, i32 2
-  store i32 %14, ptr %15, align 4
-  %16 = load i32, ptr %9, align 4
-  %17 = getelementptr inbounds %struct.Glucose_Pars_, ptr %5, i32 0, i32 3
-  store i32 %16, ptr %17, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !8
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.Glucose_Pars_, ptr %5, i32 0, i32 0
+  store i32 %10, ptr %11, align 4, !tbaa !33
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.Glucose_Pars_, ptr %5, i32 0, i32 1
+  store i32 %12, ptr %13, align 4, !tbaa !35
+  %14 = load i32, ptr %8, align 4, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.Glucose_Pars_, ptr %5, i32 0, i32 2
+  store i32 %14, ptr %15, align 4, !tbaa !36
+  %16 = load i32, ptr %9, align 4, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.Glucose_Pars_, ptr %5, i32 0, i32 3
+  store i32 %16, ptr %17, align 4, !tbaa !37
   %18 = load { i64, i64 }, ptr %5, align 4
   ret { i64, i64 } %18
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @Glucose_SolveCnf(ptr noundef, ptr noundef, i32 noundef) #1
 
@@ -384,37 +433,89 @@ declare i32 @printf(ptr noundef, ...) #1
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #6
 
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #6
+declare void @free(ptr noundef) #8
 
-; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #9
+  ret i32 %8
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_end.p0(ptr) #6
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
+; Function Attrs: nounwind
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #8
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS12Abc_Frame_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{i64 0, i64 4, !8, i64 4, i64 4, !8, i64 8, i64 4, !8, i64 12, i64 4, !8}
+!17 = !{!18, !26, i64 288}
+!18 = !{!"_ZTS12Abc_Frame_t_", !13, i64 0, !13, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !20, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !21, i64 104, !22, i64 112, !22, i64 116, !9, i64 120, !9, i64 124, !23, i64 128, !23, i64 136, !23, i64 144, !24, i64 152, !24, i64 160, !20, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !13, i64 256, !22, i64 264, !25, i64 272, !9, i64 280, !26, i64 288, !26, i64 296, !26, i64 304, !26, i64 312, !26, i64 320, !9, i64 328, !9, i64 332, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !27, i64 352, !27, i64 360, !20, i64 368, !20, i64 376, !25, i64 384, !25, i64 392, !9, i64 400, !9, i64 404, !20, i64 408, !20, i64 416, !20, i64 424, !13, i64 432, !5, i64 440, !5, i64 448, !5, i64 456, !5, i64 464, !5, i64 472, !5, i64 480, !5, i64 488, !5, i64 496, !5, i64 504, !25, i64 512, !5, i64 520, !5, i64 528, !5, i64 536, !5, i64 544, !28, i64 552, !29, i64 560, !30, i64 568, !26, i64 576, !26, i64 584, !25, i64 592, !25, i64 600, !31, i64 608, !31, i64 616, !5, i64 624, !31, i64 632, !5, i64 640}
+!19 = !{!"p1 _ZTS9st__table", !5, i64 0}
+!20 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!21 = !{!"p1 _ZTS10Abc_Ntk_t_", !5, i64 0}
+!22 = !{!"float", !6, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!24 = !{!"double", !6, i64 0}
+!25 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!26 = !{!"p1 _ZTS10Gia_Man_t_", !5, i64 0}
+!27 = !{!"p1 _ZTS10Abc_Cex_t_", !5, i64 0}
+!28 = !{!"p1 _ZTS10Abc_Nam_t_", !5, i64 0}
+!29 = !{!"p1 _ZTS10Vec_Wec_t_", !5, i64 0}
+!30 = !{!"p1 _ZTS9DdManager", !5, i64 0}
+!31 = !{!"p1 int", !5, i64 0}
+!32 = !{!23, !23, i64 0}
+!33 = !{!34, !9, i64 0}
+!34 = !{!"_ZTS13Glucose_Pars_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!35 = !{!34, !9, i64 4}
+!36 = !{!34, !9, i64 8}
+!37 = !{!34, !9, i64 12}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS13__va_list_tag", !5, i64 0}

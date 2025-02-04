@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr }
+%struct.Gia_Man_t_ = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, i32, i32, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, float, float, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.timespec = type { i64, i64 }
 
@@ -60,563 +60,639 @@ define ptr @Gia_ManDeepSynOne(i32 noundef %0, i32 noundef %1, i32 noundef %2, i3
   %29 = alloca i32, align 4
   %30 = alloca [2000 x i8], align 16
   %31 = alloca [1000 x i8], align 16
-  store i32 %0, ptr %8, align 4
-  store i32 %1, ptr %9, align 4
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store i32 %5, ptr %13, align 4
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %40
+  %32 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !3
+  store i32 %1, ptr %9, align 4, !tbaa !3
+  store i32 %2, ptr %10, align 4, !tbaa !3
+  store i32 %3, ptr %11, align 4, !tbaa !3
+  store i32 %4, ptr %12, align 4, !tbaa !3
+  store i32 %5, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %33 = load i32, ptr %9, align 4, !tbaa !3
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %41
 
-34:                                               ; preds = %6
-  %35 = call i64 @Abc_Clock()
-  %36 = load i32, ptr %9, align 4
-  %37 = sext i32 %36 to i64
-  %38 = mul nsw i64 %37, 1000000
-  %39 = add nsw i64 %35, %38
-  br label %41
+35:                                               ; preds = %6
+  %36 = call i64 @Abc_Clock()
+  %37 = load i32, ptr %9, align 4, !tbaa !3
+  %38 = sext i32 %37 to i64
+  %39 = mul nsw i64 %38, 1000000
+  %40 = add nsw i64 %36, %39
+  br label %42
 
-40:                                               ; preds = %6
-  br label %41
+41:                                               ; preds = %6
+  br label %42
 
-41:                                               ; preds = %40, %34
-  %42 = phi i64 [ %39, %34 ], [ 0, %40 ]
-  store i64 %42, ptr %14, align 8
-  %43 = call i64 @Abc_Clock()
-  store i64 %43, ptr %15, align 8
-  store i32 100000, ptr %18, align 4
-  store i32 -1, ptr %19, align 4
-  store i32 -1, ptr %20, align 4
-  %44 = call ptr (...) @Abc_FrameGetGlobalFrame()
-  %45 = call ptr @Abc_FrameReadGia(ptr noundef %44)
-  store ptr %45, ptr %21, align 8
-  %46 = load ptr, ptr %21, align 8
-  %47 = call ptr @Gia_ManDup(ptr noundef %46)
-  store ptr %47, ptr %22, align 8
-  %48 = call i32 @Abc_Random(i32 noundef 1)
-  store i32 0, ptr %16, align 4
-  br label %49
+42:                                               ; preds = %41, %35
+  %43 = phi i64 [ %40, %35 ], [ 0, %41 ]
+  store i64 %43, ptr %14, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %44 = call i64 @Abc_Clock()
+  store i64 %44, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  store i32 100000, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  store i32 -1, ptr %19, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #7
+  store i32 -1, ptr %20, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %45 = call ptr (...) @Abc_FrameGetGlobalFrame()
+  %46 = call ptr @Abc_FrameReadGia(ptr noundef %45)
+  store ptr %46, ptr %21, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %47 = load ptr, ptr %21, align 8, !tbaa !9
+  %48 = call ptr @Gia_ManDup(ptr noundef %47)
+  store ptr %48, ptr %22, align 8, !tbaa !9
+  %49 = call i32 @Abc_Random(i32 noundef 1)
+  store i32 0, ptr %16, align 4, !tbaa !3
+  br label %50
 
-49:                                               ; preds = %56, %41
-  %50 = load i32, ptr %16, align 4
-  %51 = load i32, ptr %11, align 4
-  %52 = add nsw i32 10, %51
-  %53 = icmp slt i32 %50, %52
-  br i1 %53, label %54, label %59
+50:                                               ; preds = %57, %42
+  %51 = load i32, ptr %16, align 4, !tbaa !3
+  %52 = load i32, ptr %11, align 4, !tbaa !3
+  %53 = add nsw i32 10, %52
+  %54 = icmp slt i32 %51, %53
+  br i1 %54, label %55, label %60
 
-54:                                               ; preds = %49
-  %55 = call i32 @Abc_Random(i32 noundef 0)
-  br label %56
+55:                                               ; preds = %50
+  %56 = call i32 @Abc_Random(i32 noundef 0)
+  br label %57
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr %16, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %16, align 4
-  br label %49, !llvm.loop !4
+57:                                               ; preds = %55
+  %58 = load i32, ptr %16, align 4, !tbaa !3
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %16, align 4, !tbaa !3
+  br label %50, !llvm.loop !12
 
-59:                                               ; preds = %49
-  store i32 0, ptr %17, align 4
-  br label %60
+60:                                               ; preds = %50
+  store i32 0, ptr %17, align 4, !tbaa !3
+  br label %61
 
-60:                                               ; preds = %241, %59
-  %61 = load i32, ptr %17, align 4
-  %62 = load i32, ptr %18, align 4
-  %63 = icmp slt i32 %61, %62
-  br i1 %63, label %64, label %244
+61:                                               ; preds = %245, %60
+  %62 = load i32, ptr %17, align 4, !tbaa !3
+  %63 = load i32, ptr %18, align 4, !tbaa !3
+  %64 = icmp slt i32 %62, %63
+  br i1 %64, label %65, label %248
 
-64:                                               ; preds = %60
-  store ptr @.str, ptr %23, align 8
-  %65 = call i32 @Abc_Random(i32 noundef 0)
-  store i32 %65, ptr %24, align 4
-  %66 = load i32, ptr %24, align 4
-  %67 = and i32 %66, 1
-  store i32 %67, ptr %25, align 4
-  %68 = load i32, ptr %24, align 4
-  %69 = lshr i32 %68, 1
-  %70 = and i32 %69, 1
-  store i32 %70, ptr %26, align 4
-  %71 = load i32, ptr %24, align 4
-  %72 = lshr i32 %71, 2
-  %73 = and i32 %72, 1
-  store i32 %73, ptr %27, align 4
-  %74 = load i32, ptr %12, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %80
+65:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  store ptr @.str, ptr %23, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  %66 = call i32 @Abc_Random(i32 noundef 0)
+  store i32 %66, ptr %24, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #7
+  %67 = load i32, ptr %24, align 4, !tbaa !3
+  %68 = and i32 %67, 1
+  store i32 %68, ptr %25, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #7
+  %69 = load i32, ptr %24, align 4, !tbaa !3
+  %70 = lshr i32 %69, 1
+  %71 = and i32 %70, 1
+  store i32 %71, ptr %26, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #7
+  %72 = load i32, ptr %24, align 4, !tbaa !3
+  %73 = lshr i32 %72, 2
+  %74 = and i32 %73, 1
+  store i32 %74, ptr %27, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #7
+  %75 = load i32, ptr %12, align 4, !tbaa !3
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %81
 
-76:                                               ; preds = %64
-  %77 = load i32, ptr %17, align 4
-  %78 = srem i32 %77, 5
-  %79 = add nsw i32 2, %78
-  br label %84
+77:                                               ; preds = %65
+  %78 = load i32, ptr %17, align 4, !tbaa !3
+  %79 = srem i32 %78, 5
+  %80 = add nsw i32 2, %79
+  br label %85
 
-80:                                               ; preds = %64
-  %81 = load i32, ptr %17, align 4
-  %82 = srem i32 %81, 4
-  %83 = add nsw i32 3, %82
-  br label %84
+81:                                               ; preds = %65
+  %82 = load i32, ptr %17, align 4, !tbaa !3
+  %83 = srem i32 %82, 4
+  %84 = add nsw i32 3, %83
+  br label %85
 
-84:                                               ; preds = %80, %76
-  %85 = phi i32 [ %79, %76 ], [ %83, %80 ]
-  store i32 %85, ptr %28, align 4
-  store i32 0, ptr %29, align 4
-  %86 = load i32, ptr %26, align 4
-  %87 = icmp eq i32 %86, 3
-  br i1 %87, label %88, label %94
+85:                                               ; preds = %81, %77
+  %86 = phi i32 [ %80, %77 ], [ %84, %81 ]
+  store i32 %86, ptr %28, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #7
+  store i32 0, ptr %29, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 2000, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 1000, ptr %31) #7
+  %87 = load i32, ptr %26, align 4, !tbaa !3
+  %88 = icmp eq i32 %87, 3
+  br i1 %88, label %89, label %95
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
-  %90 = load ptr, ptr %23, align 8
-  %91 = load ptr, ptr %23, align 8
-  %92 = load ptr, ptr %23, align 8
-  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %89, ptr noundef @.str.1, ptr noundef %90, ptr noundef %91, ptr noundef %92) #5
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
+  %91 = load ptr, ptr %23, align 8, !tbaa !14
+  %92 = load ptr, ptr %23, align 8, !tbaa !14
+  %93 = load ptr, ptr %23, align 8, !tbaa !14
+  %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %90, ptr noundef @.str.1, ptr noundef %91, ptr noundef %92, ptr noundef %93) #7
+  br label %119
+
+95:                                               ; preds = %85
+  %96 = load i32, ptr %26, align 4, !tbaa !3
+  %97 = icmp eq i32 %96, 2
+  br i1 %97, label %98, label %103
+
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
+  %100 = load ptr, ptr %23, align 8, !tbaa !14
+  %101 = load ptr, ptr %23, align 8, !tbaa !14
+  %102 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %99, ptr noundef @.str.2, ptr noundef %100, ptr noundef %101) #7
   br label %118
 
-94:                                               ; preds = %84
-  %95 = load i32, ptr %26, align 4
-  %96 = icmp eq i32 %95, 2
-  br i1 %96, label %97, label %102
+103:                                              ; preds = %95
+  %104 = load i32, ptr %26, align 4, !tbaa !3
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %110
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
-  %99 = load ptr, ptr %23, align 8
-  %100 = load ptr, ptr %23, align 8
-  %101 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %98, ptr noundef @.str.2, ptr noundef %99, ptr noundef %100) #5
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
+  %108 = load ptr, ptr %23, align 8, !tbaa !14
+  %109 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %107, ptr noundef @.str.3, ptr noundef %108) #7
   br label %117
 
-102:                                              ; preds = %94
-  %103 = load i32, ptr %26, align 4
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %109
+110:                                              ; preds = %103
+  %111 = load i32, ptr %26, align 4, !tbaa !3
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %116
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
-  %107 = load ptr, ptr %23, align 8
-  %108 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %106, ptr noundef @.str.3, ptr noundef %107) #5
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
+  %115 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %114, ptr noundef @.str.4) #7
   br label %116
 
-109:                                              ; preds = %102
-  %110 = load i32, ptr %26, align 4
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %115
-
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
-  %114 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %113, ptr noundef @.str.4) #5
-  br label %115
-
-115:                                              ; preds = %112, %109
-  br label %116
-
-116:                                              ; preds = %115, %105
+116:                                              ; preds = %113, %110
   br label %117
 
-117:                                              ; preds = %116, %97
+117:                                              ; preds = %116, %106
   br label %118
 
-118:                                              ; preds = %117, %88
-  %119 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  %120 = load i32, ptr %25, align 4
-  %121 = icmp ne i32 %120, 0
-  %122 = select i1 %121, ptr @.str.6, ptr @.str.7
-  %123 = load i32, ptr %28, align 4
-  %124 = load i32, ptr %27, align 4
-  %125 = icmp ne i32 %124, 0
-  %126 = select i1 %125, ptr @.str.8, ptr @.str.7
-  %127 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
-  %128 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %119, ptr noundef @.str.5, ptr noundef %122, i32 noundef %123, ptr noundef %126, ptr noundef %127) #5
-  %129 = call i32 (...) @Abc_FrameIsBatchMode()
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %139
+118:                                              ; preds = %117, %98
+  br label %119
 
-131:                                              ; preds = %118
-  %132 = call ptr (...) @Abc_FrameGetGlobalFrame()
-  %133 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  %134 = call i32 @Cmd_CommandExecute(ptr noundef %132, ptr noundef %133)
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %138
+119:                                              ; preds = %118, %89
+  %120 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  %121 = load i32, ptr %25, align 4, !tbaa !3
+  %122 = icmp ne i32 %121, 0
+  %123 = select i1 %122, ptr @.str.6, ptr @.str.7
+  %124 = load i32, ptr %28, align 4, !tbaa !3
+  %125 = load i32, ptr %27, align 4, !tbaa !3
+  %126 = icmp ne i32 %125, 0
+  %127 = select i1 %126, ptr @.str.8, ptr @.str.7
+  %128 = getelementptr inbounds [1000 x i8], ptr %31, i64 0, i64 0
+  %129 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %120, ptr noundef @.str.5, ptr noundef %123, i32 noundef %124, ptr noundef %127, ptr noundef %128) #7
+  %130 = call i32 (...) @Abc_FrameIsBatchMode()
+  %131 = icmp ne i32 %130, 0
+  br i1 %131, label %132, label %140
 
-136:                                              ; preds = %131
-  %137 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, ptr noundef %137)
+132:                                              ; preds = %119
+  %133 = call ptr (...) @Abc_FrameGetGlobalFrame()
+  %134 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  %135 = call i32 @Cmd_CommandExecute(ptr noundef %133, ptr noundef %134)
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %132
+  %138 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, ptr noundef %138)
   store ptr null, ptr %7, align 8
-  br label %280
+  store i32 1, ptr %32, align 4
+  br label %242
 
-138:                                              ; preds = %131
-  br label %147
+139:                                              ; preds = %132
+  br label %148
 
-139:                                              ; preds = %118
+140:                                              ; preds = %119
   call void @Abc_FrameSetBatchMode(i32 noundef 1)
-  %140 = call ptr (...) @Abc_FrameGetGlobalFrame()
-  %141 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  %142 = call i32 @Cmd_CommandExecute(ptr noundef %140, ptr noundef %141)
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %146
+  %141 = call ptr (...) @Abc_FrameGetGlobalFrame()
+  %142 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  %143 = call i32 @Cmd_CommandExecute(ptr noundef %141, ptr noundef %142)
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %147
 
-144:                                              ; preds = %139
-  %145 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, ptr noundef %145)
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.9, ptr noundef %146)
   store ptr null, ptr %7, align 8
-  br label %280
+  store i32 1, ptr %32, align 4
+  br label %242
 
-146:                                              ; preds = %139
+147:                                              ; preds = %140
   call void @Abc_FrameSetBatchMode(i32 noundef 0)
-  br label %147
+  br label %148
 
-147:                                              ; preds = %146, %138
-  %148 = call ptr (...) @Abc_FrameGetGlobalFrame()
-  %149 = call ptr @Abc_FrameReadGia(ptr noundef %148)
-  store ptr %149, ptr %21, align 8
-  %150 = load ptr, ptr %22, align 8
-  %151 = call i32 @Gia_ManAndNum(ptr noundef %150)
-  %152 = load ptr, ptr %21, align 8
-  %153 = call i32 @Gia_ManAndNum(ptr noundef %152)
-  %154 = icmp sgt i32 %151, %153
-  br i1 %154, label %155, label %160
+148:                                              ; preds = %147, %139
+  %149 = call ptr (...) @Abc_FrameGetGlobalFrame()
+  %150 = call ptr @Abc_FrameReadGia(ptr noundef %149)
+  store ptr %150, ptr %21, align 8, !tbaa !9
+  %151 = load ptr, ptr %22, align 8, !tbaa !9
+  %152 = call i32 @Gia_ManAndNum(ptr noundef %151)
+  %153 = load ptr, ptr %21, align 8, !tbaa !9
+  %154 = call i32 @Gia_ManAndNum(ptr noundef %153)
+  %155 = icmp sgt i32 %152, %154
+  br i1 %155, label %156, label %161
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %22, align 8
-  call void @Gia_ManStop(ptr noundef %156)
-  %157 = load ptr, ptr %21, align 8
-  %158 = call ptr @Gia_ManDup(ptr noundef %157)
-  store ptr %158, ptr %22, align 8
-  store i32 1, ptr %29, align 4
-  %159 = load i32, ptr %17, align 4
-  store i32 %159, ptr %20, align 4
+156:                                              ; preds = %148
+  %157 = load ptr, ptr %22, align 8, !tbaa !9
+  call void @Gia_ManStop(ptr noundef %157)
+  %158 = load ptr, ptr %21, align 8, !tbaa !9
+  %159 = call ptr @Gia_ManDup(ptr noundef %158)
+  store ptr %159, ptr %22, align 8, !tbaa !9
+  store i32 1, ptr %29, align 4, !tbaa !3
+  %160 = load i32, ptr %17, align 4, !tbaa !3
+  store i32 %160, ptr %20, align 4, !tbaa !3
+  br label %173
+
+161:                                              ; preds = %148
+  %162 = load ptr, ptr %22, align 8, !tbaa !9
+  %163 = call i32 @Gia_ManAndNum(ptr noundef %162)
+  %164 = load ptr, ptr %22, align 8, !tbaa !9
+  %165 = call i32 @Gia_ManAndNum(ptr noundef %164)
+  %166 = sdiv i32 %165, 10
+  %167 = add nsw i32 %163, %166
+  %168 = load ptr, ptr %21, align 8, !tbaa !9
+  %169 = call i32 @Gia_ManAndNum(ptr noundef %168)
+  %170 = icmp slt i32 %167, %169
+  br i1 %170, label %171, label %172
+
+171:                                              ; preds = %161
   br label %172
 
-160:                                              ; preds = %147
-  %161 = load ptr, ptr %22, align 8
-  %162 = call i32 @Gia_ManAndNum(ptr noundef %161)
-  %163 = load ptr, ptr %22, align 8
-  %164 = call i32 @Gia_ManAndNum(ptr noundef %163)
-  %165 = sdiv i32 %164, 10
-  %166 = add nsw i32 %162, %165
-  %167 = load ptr, ptr %21, align 8
-  %168 = call i32 @Gia_ManAndNum(ptr noundef %167)
-  %169 = icmp slt i32 %166, %168
-  br i1 %169, label %170, label %171
+172:                                              ; preds = %171, %161
+  br label %173
 
-170:                                              ; preds = %160
-  br label %171
+173:                                              ; preds = %172, %156
+  %174 = load i32, ptr %29, align 4, !tbaa !3
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %210
 
-171:                                              ; preds = %170, %160
-  br label %172
+176:                                              ; preds = %173
+  %177 = load i32, ptr %13, align 4, !tbaa !3
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %210
 
-172:                                              ; preds = %171, %155
-  %173 = load i32, ptr %29, align 4
-  %174 = icmp ne i32 %173, 0
-  br i1 %174, label %175, label %209
+179:                                              ; preds = %176
+  %180 = load i32, ptr %17, align 4, !tbaa !3
+  %181 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %180)
+  %182 = call i64 @Abc_Clock()
+  %183 = load i64, ptr %15, align 8, !tbaa !7
+  %184 = sub nsw i64 %182, %183
+  %185 = sitofp i64 %184 to float
+  %186 = fmul float 1.000000e+00, %185
+  %187 = fdiv float %186, 1.000000e+06
+  %188 = fpext float %187 to double
+  %189 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, double noundef %188)
+  %190 = load ptr, ptr %22, align 8, !tbaa !9
+  %191 = call i32 @Gia_ManAndNum(ptr noundef %190)
+  %192 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %191)
+  %193 = load ptr, ptr %22, align 8, !tbaa !9
+  %194 = call i32 @Gia_ManLevelNum(ptr noundef %193)
+  %195 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %194)
+  %196 = load i32, ptr %29, align 4, !tbaa !3
+  %197 = icmp ne i32 %196, 0
+  br i1 %197, label %198, label %200
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr %13, align 4
-  %177 = icmp ne i32 %176, 0
-  br i1 %177, label %178, label %209
+198:                                              ; preds = %179
+  %199 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
+  br label %206
 
-178:                                              ; preds = %175
-  %179 = load i32, ptr %17, align 4
-  %180 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %179)
-  %181 = call i64 @Abc_Clock()
-  %182 = load i64, ptr %15, align 8
-  %183 = sub nsw i64 %181, %182
-  %184 = sitofp i64 %183 to float
-  %185 = fmul float 1.000000e+00, %184
-  %186 = fdiv float %185, 1.000000e+06
-  %187 = fpext float %186 to double
-  %188 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, double noundef %187)
-  %189 = load ptr, ptr %22, align 8
-  %190 = call i32 @Gia_ManAndNum(ptr noundef %189)
-  %191 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %190)
-  %192 = load ptr, ptr %22, align 8
-  %193 = call i32 @Gia_ManLevelNum(ptr noundef %192)
-  %194 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %193)
-  %195 = load i32, ptr %29, align 4
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %197, label %199
+200:                                              ; preds = %179
+  %201 = load i32, ptr %13, align 4, !tbaa !3
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %203, label %205
 
-197:                                              ; preds = %178
-  %198 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
+203:                                              ; preds = %200
+  %204 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
   br label %205
 
-199:                                              ; preds = %178
-  %200 = load i32, ptr %13, align 4
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %204
+205:                                              ; preds = %203, %200
+  br label %206
 
-202:                                              ; preds = %199
-  %203 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
-  br label %204
+206:                                              ; preds = %205, %198
+  %207 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
+  %208 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %207)
+  %209 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
+  br label %210
 
-204:                                              ; preds = %202, %199
-  br label %205
+210:                                              ; preds = %206, %176, %173
+  %211 = load i64, ptr %14, align 8, !tbaa !7
+  %212 = icmp ne i64 %211, 0
+  br i1 %212, label %213, label %225
 
-205:                                              ; preds = %204, %197
-  %206 = getelementptr inbounds [2000 x i8], ptr %30, i64 0, i64 0
-  %207 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %206)
-  %208 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
-  br label %209
+213:                                              ; preds = %210
+  %214 = call i64 @Abc_Clock()
+  %215 = load i64, ptr %14, align 8, !tbaa !7
+  %216 = icmp sgt i64 %214, %215
+  br i1 %216, label %217, label %225
 
-209:                                              ; preds = %205, %175, %172
-  %210 = load i64, ptr %14, align 8
-  %211 = icmp ne i64 %210, 0
-  br i1 %211, label %212, label %224
+217:                                              ; preds = %213
+  %218 = call i32 (...) @Abc_FrameIsBatchMode()
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %224, label %220
 
-212:                                              ; preds = %209
-  %213 = call i64 @Abc_Clock()
-  %214 = load i64, ptr %14, align 8
-  %215 = icmp sgt i64 %213, %214
-  br i1 %215, label %216, label %224
+220:                                              ; preds = %217
+  %221 = load i32, ptr %9, align 4, !tbaa !3
+  %222 = load i32, ptr %17, align 4, !tbaa !3
+  %223 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i32 noundef %221, i32 noundef %222)
+  br label %224
 
-216:                                              ; preds = %212
-  %217 = call i32 (...) @Abc_FrameIsBatchMode()
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %223, label %219
+224:                                              ; preds = %220, %217
+  store i32 5, ptr %32, align 4
+  br label %242
 
-219:                                              ; preds = %216
-  %220 = load i32, ptr %9, align 4
-  %221 = load i32, ptr %17, align 4
-  %222 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, i32 noundef %220, i32 noundef %221)
-  br label %223
+225:                                              ; preds = %213, %210
+  %226 = load i32, ptr %17, align 4, !tbaa !3
+  %227 = load i32, ptr %20, align 4, !tbaa !3
+  %228 = sub nsw i32 %226, %227
+  %229 = load i32, ptr %8, align 4, !tbaa !3
+  %230 = icmp sgt i32 %228, %229
+  br i1 %230, label %231, label %241
 
-223:                                              ; preds = %219, %216
-  br label %244
+231:                                              ; preds = %225
+  %232 = load i32, ptr %8, align 4, !tbaa !3
+  %233 = call i64 @Abc_Clock()
+  %234 = load i64, ptr %15, align 8, !tbaa !7
+  %235 = sub nsw i64 %233, %234
+  %236 = sitofp i64 %235 to float
+  %237 = fmul float 1.000000e+00, %236
+  %238 = fdiv float %237, 1.000000e+06
+  %239 = fpext float %238 to double
+  %240 = call i32 (ptr, ...) @printf(ptr noundef @.str.19, i32 noundef %232, double noundef %239)
+  store i32 5, ptr %32, align 4
+  br label %242
 
-224:                                              ; preds = %212, %209
-  %225 = load i32, ptr %17, align 4
-  %226 = load i32, ptr %20, align 4
-  %227 = sub nsw i32 %225, %226
-  %228 = load i32, ptr %8, align 4
-  %229 = icmp sgt i32 %227, %228
-  br i1 %229, label %230, label %240
+241:                                              ; preds = %225
+  store i32 0, ptr %32, align 4
+  br label %242
 
-230:                                              ; preds = %224
-  %231 = load i32, ptr %8, align 4
-  %232 = call i64 @Abc_Clock()
-  %233 = load i64, ptr %15, align 8
-  %234 = sub nsw i64 %232, %233
-  %235 = sitofp i64 %234 to float
-  %236 = fmul float 1.000000e+00, %235
-  %237 = fdiv float %236, 1.000000e+06
-  %238 = fpext float %237 to double
-  %239 = call i32 (ptr, ...) @printf(ptr noundef @.str.19, i32 noundef %231, double noundef %238)
-  br label %244
+242:                                              ; preds = %241, %231, %224, %145, %137
+  call void @llvm.lifetime.end.p0(i64 1000, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 2000, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  %243 = load i32, ptr %32, align 4
+  switch i32 %243, label %284 [
+    i32 0, label %244
+    i32 5, label %248
+  ]
 
-240:                                              ; preds = %224
-  br label %241
+244:                                              ; preds = %242
+  br label %245
 
-241:                                              ; preds = %240
-  %242 = load i32, ptr %17, align 4
-  %243 = add nsw i32 %242, 1
-  store i32 %243, ptr %17, align 4
-  br label %60, !llvm.loop !6
+245:                                              ; preds = %244
+  %246 = load i32, ptr %17, align 4, !tbaa !3
+  %247 = add nsw i32 %246, 1
+  store i32 %247, ptr %17, align 4, !tbaa !3
+  br label %61, !llvm.loop !16
 
-244:                                              ; preds = %230, %223, %60
-  %245 = load i32, ptr %17, align 4
-  %246 = load i32, ptr %18, align 4
-  %247 = icmp eq i32 %245, %246
-  br i1 %247, label %248, label %258
+248:                                              ; preds = %242, %61
+  %249 = load i32, ptr %17, align 4, !tbaa !3
+  %250 = load i32, ptr %18, align 4, !tbaa !3
+  %251 = icmp eq i32 %249, %250
+  br i1 %251, label %252, label %262
 
-248:                                              ; preds = %244
-  %249 = load i32, ptr %18, align 4
-  %250 = call i64 @Abc_Clock()
-  %251 = load i64, ptr %15, align 8
-  %252 = sub nsw i64 %250, %251
-  %253 = sitofp i64 %252 to float
-  %254 = fmul float 1.000000e+00, %253
-  %255 = fdiv float %254, 1.000000e+06
-  %256 = fpext float %255 to double
-  %257 = call i32 (ptr, ...) @printf(ptr noundef @.str.20, i32 noundef %249, double noundef %256)
-  br label %278
+252:                                              ; preds = %248
+  %253 = load i32, ptr %18, align 4, !tbaa !3
+  %254 = call i64 @Abc_Clock()
+  %255 = load i64, ptr %15, align 8, !tbaa !7
+  %256 = sub nsw i64 %254, %255
+  %257 = sitofp i64 %256 to float
+  %258 = fmul float 1.000000e+00, %257
+  %259 = fdiv float %258, 1.000000e+06
+  %260 = fpext float %259 to double
+  %261 = call i32 (ptr, ...) @printf(ptr noundef @.str.20, i32 noundef %253, double noundef %260)
+  br label %282
 
-258:                                              ; preds = %244
-  %259 = load i32, ptr %10, align 4
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %277
+262:                                              ; preds = %248
+  %263 = load i32, ptr %10, align 4, !tbaa !3
+  %264 = icmp ne i32 %263, 0
+  br i1 %264, label %265, label %281
 
-261:                                              ; preds = %258
-  %262 = load i32, ptr %19, align 4
-  %263 = load i32, ptr %10, align 4
-  %264 = icmp sle i32 %262, %263
-  br i1 %264, label %265, label %277
+265:                                              ; preds = %262
+  %266 = load i32, ptr %19, align 4, !tbaa !3
+  %267 = load i32, ptr %10, align 4, !tbaa !3
+  %268 = icmp sle i32 %266, %267
+  br i1 %268, label %269, label %281
 
-265:                                              ; preds = %261
-  %266 = load i32, ptr %19, align 4
-  %267 = load i32, ptr %10, align 4
-  %268 = load i32, ptr %17, align 4
-  %269 = call i64 @Abc_Clock()
-  %270 = load i64, ptr %15, align 8
-  %271 = sub nsw i64 %269, %270
-  %272 = sitofp i64 %271 to float
-  %273 = fmul float 1.000000e+00, %272
-  %274 = fdiv float %273, 1.000000e+06
-  %275 = fpext float %274 to double
-  %276 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, i32 noundef %266, i32 noundef %267, i32 noundef %268, double noundef %275)
-  br label %277
+269:                                              ; preds = %265
+  %270 = load i32, ptr %19, align 4, !tbaa !3
+  %271 = load i32, ptr %10, align 4, !tbaa !3
+  %272 = load i32, ptr %17, align 4, !tbaa !3
+  %273 = call i64 @Abc_Clock()
+  %274 = load i64, ptr %15, align 8, !tbaa !7
+  %275 = sub nsw i64 %273, %274
+  %276 = sitofp i64 %275 to float
+  %277 = fmul float 1.000000e+00, %276
+  %278 = fdiv float %277, 1.000000e+06
+  %279 = fpext float %278 to double
+  %280 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, i32 noundef %270, i32 noundef %271, i32 noundef %272, double noundef %279)
+  br label %281
 
-277:                                              ; preds = %265, %261, %258
-  br label %278
+281:                                              ; preds = %269, %265, %262
+  br label %282
 
-278:                                              ; preds = %277, %248
-  %279 = load ptr, ptr %22, align 8
-  store ptr %279, ptr %7, align 8
-  br label %280
+282:                                              ; preds = %281, %252
+  %283 = load ptr, ptr %22, align 8, !tbaa !9
+  store ptr %283, ptr %7, align 8
+  store i32 1, ptr %32, align 4
+  br label %284
 
-280:                                              ; preds = %278, %144, %136
-  %281 = load ptr, ptr %7, align 8
-  ret ptr %281
+284:                                              ; preds = %282, %242
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %285 = load ptr, ptr %7, align 8
+  ret ptr %285
 }
 
-declare ptr @Abc_FrameReadGia(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @Abc_FrameGetGlobalFrame(...) #1
+declare ptr @Abc_FrameReadGia(ptr noundef) #2
 
-declare ptr @Gia_ManDup(ptr noundef) #1
+declare ptr @Abc_FrameGetGlobalFrame(...) #2
 
-declare i32 @Abc_Random(i32 noundef) #1
+declare ptr @Gia_ManDup(ptr noundef) #2
+
+declare i32 @Abc_Random(i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
 
-declare i32 @Abc_FrameIsBatchMode(...) #1
+declare i32 @Abc_FrameIsBatchMode(...) #2
 
-declare i32 @Cmd_CommandExecute(ptr noundef, ptr noundef) #1
+declare i32 @Cmd_CommandExecute(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #4 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @enable_dbg_outs, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %60
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #7
+  %8 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !3
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %25, label %13
+  store i32 1, ptr %6, align 4
+  br label %61
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %2
+  %12 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %26, label %14
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4, !tbaa !3
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %25
+
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4, !tbaa !3
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %19
+  %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
   br label %24
 
-18:                                               ; preds = %13
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+24:                                               ; preds = %22, %19
+  br label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
-  br label %23
+25:                                               ; preds = %24, %17
+  br label %40
 
-23:                                               ; preds = %21, %18
-  br label %24
+26:                                               ; preds = %11
+  %27 = load i32, ptr %3, align 4, !tbaa !3
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %32
 
-24:                                               ; preds = %23, %16
+29:                                               ; preds = %26
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !17
+  %31 = call i32 @Gia_ManToBridgeText(ptr noundef %30, i32 noundef 7, ptr noundef @.str.22)
   br label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %3, align 4
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %31
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4, !tbaa !3
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %38
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @stdout, align 8
-  %30 = call i32 @Gia_ManToBridgeText(ptr noundef %29, i32 noundef 7, ptr noundef @.str.22)
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !17
+  %37 = call i32 @Gia_ManToBridgeText(ptr noundef %36, i32 noundef 9, ptr noundef @.str.23)
   br label %38
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %37
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @Gia_ManToBridgeText(ptr noundef %35, i32 noundef 9, ptr noundef @.str.23)
-  br label %37
-
-37:                                               ; preds = %34, %31
-  br label %38
-
-38:                                               ; preds = %37, %28
+38:                                               ; preds = %35, %32
   br label %39
 
-39:                                               ; preds = %38, %24
-  %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
-  %41 = call i32 (...) @Abc_FrameIsBridgeMode()
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %54
+39:                                               ; preds = %38, %29
+  br label %40
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %46 = call ptr @vnsprintf(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr %6, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #6
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @Gia_ManToBridgeText(ptr noundef %47, i32 noundef %50, ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %53) #5
-  br label %58
+40:                                               ; preds = %39, %25
+  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %41)
+  %42 = call i32 (...) @Abc_FrameIsBridgeMode()
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
 
-54:                                               ; preds = %39
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  %57 = call i32 @vprintf(ptr noundef %55, ptr noundef %56) #5
-  br label %58
+44:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %45 = load ptr, ptr %4, align 8, !tbaa !14
+  %46 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %47 = call ptr @vnsprintf(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8, !tbaa !14
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !17
+  %49 = load ptr, ptr %7, align 8, !tbaa !14
+  %50 = call i64 @strlen(ptr noundef %49) #8
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr %7, align 8, !tbaa !14
+  %53 = call i32 @Gia_ManToBridgeText(ptr noundef %48, i32 noundef %51, ptr noundef %52)
+  %54 = load ptr, ptr %7, align 8, !tbaa !14
+  call void @free(ptr noundef %54) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %59
 
-58:                                               ; preds = %54, %43
-  %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
-  br label %60
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %4, align 8, !tbaa !14
+  %57 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  %58 = call i32 @vprintf(ptr noundef %56, ptr noundef %57) #7
+  br label %59
 
-60:                                               ; preds = %58, %9
+59:                                               ; preds = %55, %44
+  %60 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %60)
+  store i32 0, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #7
+  %62 = load i32, ptr %6, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-declare void @Abc_FrameSetBatchMode(i32 noundef) #1
+declare void @Abc_FrameSetBatchMode(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Gia_ManAndNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Gia_ManAndNum(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %6, i32 0, i32 11
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = call i32 @Vec_IntSize(ptr noundef %8)
   %10 = sub nsw i32 %5, %9
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Gia_Man_t_, ptr %11, i32 0, i32 12
-  %13 = load ptr, ptr %12, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.Gia_Man_t_, ptr %11, i32 0, i32 12
+  %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = call i32 @Vec_IntSize(ptr noundef %13)
   %15 = sub nsw i32 %10, %14
   %16 = sub nsw i32 %15, 1
   ret i32 %16
 }
 
-declare void @Gia_ManStop(ptr noundef) #1
+declare void @Gia_ManStop(ptr noundef) #2
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #2
 
-declare i32 @Gia_ManLevelNum(ptr noundef) #1
+declare i32 @Gia_ManLevelNum(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManDeepSyn(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 {
@@ -632,60 +708,64 @@ define ptr @Gia_ManDeepSyn(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
-  store i32 %6, ptr %15, align 4
-  store i32 %7, ptr %16, align 4
-  %21 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !9
+  store i32 %1, ptr %10, align 4, !tbaa !3
+  store i32 %2, ptr %11, align 4, !tbaa !3
+  store i32 %3, ptr %12, align 4, !tbaa !3
+  store i32 %4, ptr %13, align 4, !tbaa !3
+  store i32 %5, ptr %14, align 4, !tbaa !3
+  store i32 %6, ptr %15, align 4, !tbaa !3
+  store i32 %7, ptr %16, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %21 = load ptr, ptr %9, align 8, !tbaa !9
   %22 = call ptr @Gia_ManDup(ptr noundef %21)
-  store ptr %22, ptr %17, align 8
-  %23 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %17, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %23 = load ptr, ptr %9, align 8, !tbaa !9
   %24 = call ptr @Gia_ManDup(ptr noundef %23)
-  store ptr %24, ptr %18, align 8
-  store i32 0, ptr %20, align 4
+  store ptr %24, ptr %18, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #7
+  store i32 0, ptr %20, align 4, !tbaa !3
   br label %25
 
 25:                                               ; preds = %53, %8
-  %26 = load i32, ptr %20, align 4
-  %27 = load i32, ptr %10, align 4
+  %26 = load i32, ptr %20, align 4, !tbaa !3
+  %27 = load i32, ptr %10, align 4, !tbaa !3
   %28 = icmp slt i32 %26, %27
   br i1 %28, label %29, label %56
 
 29:                                               ; preds = %25
   %30 = call ptr (...) @Abc_FrameGetGlobalFrame()
-  %31 = load ptr, ptr %17, align 8
+  %31 = load ptr, ptr %17, align 8, !tbaa !9
   %32 = call ptr @Gia_ManDup(ptr noundef %31)
   call void @Abc_FrameUpdateGia(ptr noundef %30, ptr noundef %32)
-  %33 = load i32, ptr %11, align 4
-  %34 = load i32, ptr %12, align 4
-  %35 = load i32, ptr %13, align 4
-  %36 = load i32, ptr %14, align 4
-  %37 = load i32, ptr %20, align 4
+  %33 = load i32, ptr %11, align 4, !tbaa !3
+  %34 = load i32, ptr %12, align 4, !tbaa !3
+  %35 = load i32, ptr %13, align 4, !tbaa !3
+  %36 = load i32, ptr %14, align 4, !tbaa !3
+  %37 = load i32, ptr %20, align 4, !tbaa !3
   %38 = add nsw i32 %36, %37
-  %39 = load i32, ptr %15, align 4
-  %40 = load i32, ptr %16, align 4
+  %39 = load i32, ptr %15, align 4, !tbaa !3
+  %40 = load i32, ptr %16, align 4, !tbaa !3
   %41 = call ptr @Gia_ManDeepSynOne(i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %38, i32 noundef %39, i32 noundef %40)
-  store ptr %41, ptr %19, align 8
-  %42 = load ptr, ptr %18, align 8
+  store ptr %41, ptr %19, align 8, !tbaa !9
+  %42 = load ptr, ptr %18, align 8, !tbaa !9
   %43 = call i32 @Gia_ManAndNum(ptr noundef %42)
-  %44 = load ptr, ptr %19, align 8
+  %44 = load ptr, ptr %19, align 8, !tbaa !9
   %45 = call i32 @Gia_ManAndNum(ptr noundef %44)
   %46 = icmp sgt i32 %43, %45
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %29
-  %48 = load ptr, ptr %18, align 8
+  %48 = load ptr, ptr %18, align 8, !tbaa !9
   call void @Gia_ManStop(ptr noundef %48)
-  %49 = load ptr, ptr %19, align 8
-  store ptr %49, ptr %18, align 8
+  %49 = load ptr, ptr %19, align 8, !tbaa !9
+  store ptr %49, ptr %18, align 8, !tbaa !9
   br label %52
 
 50:                                               ; preds = %29
-  %51 = load ptr, ptr %19, align 8
+  %51 = load ptr, ptr %19, align 8, !tbaa !9
   call void @Gia_ManStop(ptr noundef %51)
   br label %52
 
@@ -693,103 +773,168 @@ define ptr @Gia_ManDeepSyn(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %53
 
 53:                                               ; preds = %52
-  %54 = load i32, ptr %20, align 4
+  %54 = load i32, ptr %20, align 4, !tbaa !3
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %20, align 4
-  br label %25, !llvm.loop !7
+  store i32 %55, ptr %20, align 4, !tbaa !3
+  br label %25, !llvm.loop !39
 
 56:                                               ; preds = %25
-  %57 = load ptr, ptr %17, align 8
+  %57 = load ptr, ptr %17, align 8, !tbaa !9
   call void @Gia_ManStop(ptr noundef %57)
-  %58 = load ptr, ptr %18, align 8
+  %58 = load ptr, ptr %18, align 8, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
   ret ptr %58
 }
 
-declare void @Abc_FrameUpdateGia(ptr noundef, ptr noundef) #1
+declare void @Abc_FrameUpdateGia(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Clock() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Abc_Clock() #4 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.timespec, align 8
-  %3 = alloca i64, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #5
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i64 -1, ptr %1, align 8
-  br label %18
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #7
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #7
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = mul nsw i64 %9, 1000000
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = sdiv i64 %13, 1000000000
-  %15 = load i64, ptr %3, align 8
-  %16 = add nsw i64 %15, %14
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  store i64 %17, ptr %1, align 8
-  br label %18
+  store i64 -1, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %19
 
-18:                                               ; preds = %7, %6
-  %19 = load i64, ptr %1, align 8
-  ret i64 %19
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %9 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %11 = mul nsw i64 %10, 1000000
+  store i64 %11, ptr %4, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !42
+  %14 = mul nsw i64 %13, 1000000
+  %15 = sdiv i64 %14, 1000000000
+  %16 = load i64, ptr %4, align 8, !tbaa !7
+  %17 = add nsw i64 %16, %15
+  store i64 %17, ptr %4, align 8, !tbaa !7
+  %18 = load i64, ptr %4, align 8, !tbaa !7
+  store i64 %18, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %19
+
+19:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #7
+  %20 = load i64, ptr %1, align 8
+  ret i64 %20
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #3
 
-declare i32 @Abc_FrameIsBridgeMode(...) #1
+declare i32 @Abc_FrameIsBridgeMode(...) #2
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
+declare void @llvm.va_start.p0(ptr) #5
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
+declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
-; Function Attrs: nounwind
-declare i32 @vprintf(ptr noundef, ptr noundef) #2
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @vprintf(ptr noalias noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8, !tbaa !43
+  %8 = call i32 @vfprintf(ptr noundef %5, ptr noundef %6, ptr noundef %7) #7
+  ret i32 %8
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_end.p0(ptr) #5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: nounwind
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !46
   ret i32 %5
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS10Gia_Man_t_", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !11, i64 0}
+!16 = distinct !{!16, !13}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!19 = !{!20, !4, i64 24}
+!20 = !{!"Gia_Man_t_", !15, i64 0, !15, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !21, i64 32, !22, i64 40, !4, i64 48, !4, i64 52, !4, i64 56, !23, i64 64, !23, i64 72, !24, i64 80, !24, i64 96, !4, i64 112, !4, i64 116, !4, i64 120, !24, i64 128, !22, i64 144, !22, i64 152, !23, i64 160, !4, i64 168, !4, i64 172, !4, i64 176, !4, i64 180, !22, i64 184, !25, i64 192, !22, i64 200, !22, i64 208, !22, i64 216, !4, i64 224, !4, i64 228, !22, i64 232, !4, i64 240, !23, i64 248, !23, i64 256, !23, i64 264, !26, i64 272, !26, i64 280, !23, i64 288, !11, i64 296, !23, i64 304, !23, i64 312, !15, i64 320, !23, i64 328, !23, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !27, i64 368, !27, i64 376, !28, i64 384, !24, i64 392, !24, i64 408, !23, i64 424, !23, i64 432, !23, i64 440, !23, i64 448, !23, i64 456, !23, i64 464, !23, i64 472, !23, i64 480, !23, i64 488, !23, i64 496, !23, i64 504, !15, i64 512, !29, i64 520, !10, i64 528, !30, i64 536, !30, i64 544, !23, i64 552, !23, i64 560, !23, i64 568, !23, i64 576, !23, i64 584, !4, i64 592, !31, i64 596, !31, i64 600, !23, i64 608, !22, i64 616, !4, i64 624, !28, i64 632, !28, i64 640, !28, i64 648, !23, i64 656, !23, i64 664, !23, i64 672, !23, i64 680, !23, i64 688, !23, i64 696, !23, i64 704, !23, i64 712, !32, i64 720, !30, i64 728, !11, i64 736, !11, i64 744, !8, i64 752, !8, i64 760, !11, i64 768, !22, i64 776, !4, i64 784, !4, i64 788, !4, i64 792, !4, i64 796, !4, i64 800, !4, i64 804, !4, i64 808, !4, i64 812, !4, i64 816, !4, i64 820, !4, i64 824, !4, i64 828, !33, i64 832, !33, i64 840, !33, i64 848, !33, i64 856, !23, i64 864, !23, i64 872, !23, i64 880, !34, i64 888, !4, i64 896, !4, i64 900, !4, i64 904, !23, i64 912, !4, i64 920, !4, i64 924, !23, i64 928, !23, i64 936, !28, i64 944, !33, i64 952, !23, i64 960, !23, i64 968, !4, i64 976, !4, i64 980, !33, i64 984, !24, i64 992, !24, i64 1008, !24, i64 1024, !35, i64 1040, !36, i64 1048, !36, i64 1056, !4, i64 1064, !4, i64 1068, !4, i64 1072, !4, i64 1076, !36, i64 1080, !23, i64 1088, !23, i64 1096, !23, i64 1104, !28, i64 1112}
+!21 = !{!"p1 _ZTS10Gia_Obj_t_", !11, i64 0}
+!22 = !{!"p1 int", !11, i64 0}
+!23 = !{!"p1 _ZTS10Vec_Int_t_", !11, i64 0}
+!24 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !22, i64 8}
+!25 = !{!"p1 _ZTS10Gia_Rpr_t_", !11, i64 0}
+!26 = !{!"p1 _ZTS10Vec_Wec_t_", !11, i64 0}
+!27 = !{!"p1 _ZTS10Abc_Cex_t_", !11, i64 0}
+!28 = !{!"p1 _ZTS10Vec_Ptr_t_", !11, i64 0}
+!29 = !{!"p1 _ZTS10Gia_Plc_t_", !11, i64 0}
+!30 = !{!"p1 _ZTS10Vec_Flt_t_", !11, i64 0}
+!31 = !{!"float", !5, i64 0}
+!32 = !{!"p1 _ZTS10Vec_Vec_t_", !11, i64 0}
+!33 = !{!"p1 _ZTS10Vec_Wrd_t_", !11, i64 0}
+!34 = !{!"p1 _ZTS10Vec_Bit_t_", !11, i64 0}
+!35 = !{!"p1 _ZTS10Gia_Dat_t_", !11, i64 0}
+!36 = !{!"p1 _ZTS10Vec_Str_t_", !11, i64 0}
+!37 = !{!20, !23, i64 64}
+!38 = !{!20, !23, i64 72}
+!39 = distinct !{!39, !13}
+!40 = !{!41, !8, i64 0}
+!41 = !{!"timespec", !8, i64 0, !8, i64 8}
+!42 = !{!41, !8, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS13__va_list_tag", !11, i64 0}
+!45 = !{!23, !23, i64 0}
+!46 = !{!24, !4, i64 4}

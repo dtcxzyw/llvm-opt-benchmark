@@ -8,93 +8,105 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [16 x i8] c"/proc/%d/status\00", align 1
 @.str.5 = private unnamed_addr constant [14 x i8] c"VmPeak: %d kB\00", align 1
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZN6Gluco27memUsedEv() #0 {
   %1 = call noundef i32 @_ZL11memReadStati(i32 noundef 0)
   %2 = sitofp i32 %1 to double
-  %3 = call i32 @getpagesize() #5
+  %3 = call i32 @getpagesize() #7
   %4 = sitofp i32 %3 to double
   %5 = fmul double %2, %4
   %6 = fdiv double %5, 0x4130000000000000
   ret double %6
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL11memReadStati(i32 noundef %0) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @_ZL11memReadStati(i32 noundef %0) #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [256 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  %8 = call i32 @getpid() #6
-  store i32 %8, ptr %5, align 4
-  %9 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
-  %10 = load i32, ptr %5, align 4
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %9, ptr noundef @.str, i32 noundef %10) #6
-  %12 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
-  %13 = call noalias ptr @fopen(ptr noundef %12, ptr noundef @.str.1)
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %35
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 256, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %9 = call i32 @getpid() #8
+  store i32 %9, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %10 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
+  %11 = load i32, ptr %5, align 4, !tbaa !3
+  %12 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef @.str, i32 noundef %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %13 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
+  %14 = call noalias ptr @fopen(ptr noundef %13, ptr noundef @.str.1)
+  store ptr %14, ptr %7, align 8, !tbaa !7
+  %15 = load ptr, ptr %7, align 8, !tbaa !7
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %1
-  br label %18
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %36
 
-18:                                               ; preds = %28, %17
-  %19 = load i32, ptr %3, align 4
-  %20 = icmp sge i32 %19, 0
-  br i1 %20, label %21, label %31
+18:                                               ; preds = %1
+  br label %19
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %7, align 8
-  %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %22, ptr noundef @.str.2, ptr noundef %6)
-  %24 = icmp ne i32 %23, 1
-  br i1 %24, label %25, label %27
+19:                                               ; preds = %29, %18
+  %20 = load i32, ptr %3, align 4, !tbaa !3
+  %21 = icmp sge i32 %20, 0
+  br i1 %21, label %22, label %32
 
-25:                                               ; preds = %21
-  %26 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  call void @exit(i32 noundef 1) #7
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %7, align 8, !tbaa !7
+  %24 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %23, ptr noundef @.str.2, ptr noundef %6)
+  %25 = icmp ne i32 %24, 1
+  br i1 %25, label %26, label %28
+
+26:                                               ; preds = %22
+  %27 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  call void @exit(i32 noundef 1) #9
   unreachable
 
-27:                                               ; preds = %21
-  br label %28
+28:                                               ; preds = %22
+  br label %29
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %3, align 4
-  %30 = add nsw i32 %29, -1
-  store i32 %30, ptr %3, align 4
-  br label %18, !llvm.loop !4
+29:                                               ; preds = %28
+  %30 = load i32, ptr %3, align 4, !tbaa !3
+  %31 = add nsw i32 %30, -1
+  store i32 %31, ptr %3, align 4, !tbaa !3
+  br label %19, !llvm.loop !10
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 @fclose(ptr noundef %32)
-  %34 = load i32, ptr %6, align 4
-  store i32 %34, ptr %2, align 4
-  br label %35
+32:                                               ; preds = %19
+  %33 = load ptr, ptr %7, align 8, !tbaa !7
+  %34 = call i32 @fclose(ptr noundef %33)
+  %35 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %35, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %36
 
-35:                                               ; preds = %31, %16
-  %36 = load i32, ptr %2, align 4
-  ret i32 %36
+36:                                               ; preds = %32, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr %4) #8
+  %37 = load i32, ptr %2, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @getpagesize() #1
+declare i32 @getpagesize() #2
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZN6Gluco211memUsedPeakEv() #0 {
   %1 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
   %2 = call noundef i32 @_ZL11memReadPeakv()
   %3 = sdiv i32 %2, 1024
   %4 = sitofp i32 %3 to double
-  store double %4, ptr %1, align 8
-  %5 = load double, ptr %1, align 8
+  store double %4, ptr %1, align 8, !tbaa !12
+  %5 = load double, ptr %1, align 8, !tbaa !12
   %6 = fcmp oeq double %5, 0.000000e+00
   br i1 %6, label %7, label %9
 
@@ -103,132 +115,160 @@ define noundef double @_ZN6Gluco211memUsedPeakEv() #0 {
   br label %11
 
 9:                                                ; preds = %0
-  %10 = load double, ptr %1, align 8
+  %10 = load double, ptr %1, align 8, !tbaa !12
   br label %11
 
 11:                                               ; preds = %9, %7
   %12 = phi double [ %8, %7 ], [ %10, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
   ret double %12
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL11memReadPeakv() #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @_ZL11memReadPeakv() #1 {
   %1 = alloca i32, align 4
   %2 = alloca [256 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = call i32 @getpid() #6
-  store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 0
-  %8 = load i32, ptr %3, align 4
-  %9 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef @.str.4, i32 noundef %8) #6
-  %10 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 0
-  %11 = call noalias ptr @fopen(ptr noundef %10, ptr noundef @.str.1)
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %43
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 256, ptr %2) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %7 = call i32 @getpid() #8
+  store i32 %7, ptr %3, align 4, !tbaa !3
+  %8 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 0
+  %9 = load i32, ptr %3, align 4, !tbaa !3
+  %10 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %8, ptr noundef @.str.4, i32 noundef %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %11 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 0
+  %12 = call noalias ptr @fopen(ptr noundef %11, ptr noundef @.str.1)
+  store ptr %12, ptr %4, align 8, !tbaa !7
+  %13 = load ptr, ptr %4, align 8, !tbaa !7
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %0
-  store i32 0, ptr %5, align 4
-  br label %16
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %5, align 4
+  br label %44
 
-16:                                               ; preds = %38, %15
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i32 @feof(ptr noundef %17) #6
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %24, label %20
+16:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !3
+  br label %17
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %4, align 8
-  %22 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %21, ptr noundef @.str.5, ptr noundef %5)
-  %23 = icmp ne i32 %22, 1
-  br label %24
+17:                                               ; preds = %39, %16
+  %18 = load ptr, ptr %4, align 8, !tbaa !7
+  %19 = call i32 @feof(ptr noundef %18) #8
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %25, label %21
 
-24:                                               ; preds = %20, %16
-  %25 = phi i1 [ false, %16 ], [ %23, %20 ]
-  br i1 %25, label %26, label %39
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %4, align 8, !tbaa !7
+  %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %22, ptr noundef @.str.5, ptr noundef %6)
+  %24 = icmp ne i32 %23, 1
+  br label %25
 
-26:                                               ; preds = %24
-  br label %27
+25:                                               ; preds = %21, %17
+  %26 = phi i1 [ false, %17 ], [ %24, %21 ]
+  br i1 %26, label %27, label %40
 
-27:                                               ; preds = %37, %26
-  %28 = load ptr, ptr %4, align 8
-  %29 = call i32 @feof(ptr noundef %28) #6
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %35, label %31
+27:                                               ; preds = %25
+  br label %28
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %4, align 8
-  %33 = call i32 @fgetc(ptr noundef %32)
-  %34 = icmp ne i32 %33, 10
-  br label %35
+28:                                               ; preds = %38, %27
+  %29 = load ptr, ptr %4, align 8, !tbaa !7
+  %30 = call i32 @feof(ptr noundef %29) #8
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %36, label %32
 
-35:                                               ; preds = %31, %27
-  %36 = phi i1 [ false, %27 ], [ %34, %31 ]
-  br i1 %36, label %37, label %38
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %4, align 8, !tbaa !7
+  %34 = call i32 @fgetc(ptr noundef %33)
+  %35 = icmp ne i32 %34, 10
+  br label %36
 
-37:                                               ; preds = %35
-  br label %27, !llvm.loop !6
+36:                                               ; preds = %32, %28
+  %37 = phi i1 [ false, %28 ], [ %35, %32 ]
+  br i1 %37, label %38, label %39
 
-38:                                               ; preds = %35
-  br label %16, !llvm.loop !7
+38:                                               ; preds = %36
+  br label %28, !llvm.loop !14
 
-39:                                               ; preds = %24
-  %40 = load ptr, ptr %4, align 8
-  %41 = call i32 @fclose(ptr noundef %40)
-  %42 = load i32, ptr %5, align 4
-  store i32 %42, ptr %1, align 4
-  br label %43
+39:                                               ; preds = %36
+  br label %17, !llvm.loop !15
 
-43:                                               ; preds = %39, %14
-  %44 = load i32, ptr %1, align 4
-  ret i32 %44
+40:                                               ; preds = %25
+  %41 = load ptr, ptr %4, align 8, !tbaa !7
+  %42 = call i32 @fclose(ptr noundef %41)
+  %43 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %43, ptr %1, align 4
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  br label %44
+
+44:                                               ; preds = %40, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr %2) #8
+  %45 = load i32, ptr %1, align 4
+  ret i32 %45
 }
 
-; Function Attrs: nounwind
-declare i32 @getpid() #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @getpid() #4
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #3
+; Function Attrs: nounwind
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #4
 
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) #3
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #5
 
-declare i32 @printf(ptr noundef, ...) #3
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) #5
+
+declare i32 @printf(ptr noundef, ...) #5
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #4
+declare void @exit(i32 noundef) #6
 
-declare i32 @fclose(ptr noundef) #3
+declare i32 @fclose(ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @feof(ptr noundef) #2
+declare i32 @feof(ptr noundef) #4
 
-declare i32 @fgetc(ptr noundef) #3
+declare i32 @fgetc(ptr noundef) #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"double", !5, i64 0}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}

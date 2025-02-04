@@ -23,390 +23,442 @@ define i32 @Hop_ManCheck(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 0, ptr %6, align 4
-  br label %7
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %8
 
-7:                                                ; preds = %34, %1
-  %8 = load i32, ptr %6, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Hop_Man_t_, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = call i32 @Vec_PtrSize(ptr noundef %11)
-  %13 = icmp slt i32 %8, %12
-  br i1 %13, label %14, label %20
+8:                                                ; preds = %35, %1
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  %13 = call i32 @Vec_PtrSize(ptr noundef %12)
+  %14 = icmp slt i32 %9, %13
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %7
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.Hop_Man_t_, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = call ptr @Vec_PtrEntry(ptr noundef %17, i32 noundef %18)
-  store ptr %19, ptr %4, align 8
-  br label %20
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = call ptr @Vec_PtrEntry(ptr noundef %18, i32 noundef %19)
+  store ptr %20, ptr %4, align 8, !tbaa !17
+  br label %21
 
-20:                                               ; preds = %14, %7
-  %21 = phi i1 [ false, %7 ], [ true, %14 ]
-  br i1 %21, label %22, label %37
+21:                                               ; preds = %15, %8
+  %22 = phi i1 [ false, %8 ], [ true, %15 ]
+  br i1 %22, label %23, label %38
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %4, align 8
-  %24 = call ptr @Hop_ObjFanin0(ptr noundef %23)
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %30, label %26
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %4, align 8, !tbaa !17
+  %25 = call ptr @Hop_ObjFanin0(ptr noundef %24)
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %4, align 8
-  %28 = call ptr @Hop_ObjFanin1(ptr noundef %27)
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %33
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %4, align 8, !tbaa !17
+  %29 = call ptr @Hop_ObjFanin1(ptr noundef %28)
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %26, %22
-  %31 = load ptr, ptr %4, align 8
-  %32 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %31)
+31:                                               ; preds = %27, %23
+  %32 = load ptr, ptr %4, align 8, !tbaa !17
+  %33 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %32)
   store i32 0, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-33:                                               ; preds = %26
-  br label %34
+34:                                               ; preds = %27
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr %6, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %6, align 4
-  br label %7, !llvm.loop !4
+35:                                               ; preds = %34
+  %36 = load i32, ptr %6, align 4, !tbaa !8
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %6, align 4, !tbaa !8
+  br label %8, !llvm.loop !18
 
-37:                                               ; preds = %20
-  store i32 0, ptr %6, align 4
-  br label %38
+38:                                               ; preds = %21
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %39
 
-38:                                               ; preds = %68, %37
-  %39 = load i32, ptr %6, align 4
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.Hop_Man_t_, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @Vec_PtrSize(ptr noundef %42)
-  %44 = icmp slt i32 %39, %43
-  br i1 %44, label %45, label %51
+39:                                               ; preds = %69, %38
+  %40 = load i32, ptr %6, align 4, !tbaa !8
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %44 = call i32 @Vec_PtrSize(ptr noundef %43)
+  %45 = icmp slt i32 %40, %44
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.Hop_Man_t_, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %6, align 4
-  %50 = call ptr @Vec_PtrEntry(ptr noundef %48, i32 noundef %49)
-  store ptr %50, ptr %4, align 8
-  br label %51
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
+  %50 = load i32, ptr %6, align 4, !tbaa !8
+  %51 = call ptr @Vec_PtrEntry(ptr noundef %49, i32 noundef %50)
+  store ptr %51, ptr %4, align 8, !tbaa !17
+  br label %52
 
-51:                                               ; preds = %45, %38
-  %52 = phi i1 [ false, %38 ], [ true, %45 ]
-  br i1 %52, label %53, label %71
+52:                                               ; preds = %46, %39
+  %53 = phi i1 [ false, %39 ], [ true, %46 ]
+  br i1 %53, label %54, label %72
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %4, align 8
-  %55 = call ptr @Hop_ObjFanin0(ptr noundef %54)
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %60, label %57
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %4, align 8, !tbaa !17
+  %56 = call ptr @Hop_ObjFanin0(ptr noundef %55)
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %61, label %58
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %4, align 8
-  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %58)
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %4, align 8, !tbaa !17
+  %60 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %59)
   store i32 0, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %4, align 8
-  %62 = call ptr @Hop_ObjFanin1(ptr noundef %61)
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %67
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %4, align 8, !tbaa !17
+  %63 = call ptr @Hop_ObjFanin1(ptr noundef %62)
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %4, align 8
-  %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %65)
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %4, align 8, !tbaa !17
+  %67 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %66)
   store i32 0, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-67:                                               ; preds = %60
-  br label %68
+68:                                               ; preds = %61
+  br label %69
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr %6, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %6, align 4
-  br label %38, !llvm.loop !6
+69:                                               ; preds = %68
+  %70 = load i32, ptr %6, align 4, !tbaa !8
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %6, align 4, !tbaa !8
+  br label %39, !llvm.loop !21
 
-71:                                               ; preds = %51
-  store i32 0, ptr %6, align 4
-  br label %72
+72:                                               ; preds = %52
+  store i32 0, ptr %6, align 4, !tbaa !8
+  br label %73
 
-72:                                               ; preds = %124, %71
-  %73 = load i32, ptr %6, align 4
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.Hop_Man_t_, ptr %74, i32 0, i32 9
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp slt i32 %73, %76
-  br i1 %77, label %78, label %127
+73:                                               ; preds = %125, %72
+  %74 = load i32, ptr %6, align 4, !tbaa !8
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %75, i32 0, i32 9
+  %77 = load i32, ptr %76, align 8, !tbaa !22
+  %78 = icmp slt i32 %74, %77
+  br i1 %78, label %79, label %128
 
-78:                                               ; preds = %72
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.Hop_Man_t_, ptr %79, i32 0, i32 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr %6, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %4, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %88
+79:                                               ; preds = %73
+  %80 = load ptr, ptr %3, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %80, i32 0, i32 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !23
+  %83 = load i32, ptr %6, align 4, !tbaa !8
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !17
+  store ptr %86, ptr %4, align 8, !tbaa !17
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %78
-  br label %123
-
-88:                                               ; preds = %78
-  %89 = load ptr, ptr %4, align 8
-  %90 = call ptr @Hop_ObjFanin0(ptr noundef %89)
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %96
-
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %4, align 8
-  %94 = call ptr @Hop_ObjFanin1(ptr noundef %93)
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %99, label %96
-
-96:                                               ; preds = %92, %88
-  %97 = load ptr, ptr %4, align 8
-  %98 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, ptr noundef %97)
-  store i32 0, ptr %2, align 4
-  br label %157
-
-99:                                               ; preds = %92
-  %100 = load ptr, ptr %4, align 8
-  %101 = call ptr @Hop_ObjFanin0(ptr noundef %100)
-  %102 = getelementptr inbounds %struct.Hop_Obj_t_, ptr %101, i32 0, i32 5
-  %103 = load i32, ptr %102, align 4
-  %104 = load ptr, ptr %4, align 8
-  %105 = call ptr @Hop_ObjFanin1(ptr noundef %104)
-  %106 = getelementptr inbounds %struct.Hop_Obj_t_, ptr %105, i32 0, i32 5
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp sge i32 %103, %107
-  br i1 %108, label %109, label %112
-
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %4, align 8
-  %111 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %110)
-  store i32 0, ptr %2, align 4
-  br label %157
-
-112:                                              ; preds = %99
-  %113 = load ptr, ptr %3, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = call ptr @Hop_TableLookup(ptr noundef %113, ptr noundef %114)
-  store ptr %115, ptr %5, align 8
-  %116 = load ptr, ptr %5, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = icmp ne ptr %116, %117
-  br i1 %118, label %119, label %122
-
-119:                                              ; preds = %112
-  %120 = load ptr, ptr %4, align 8
-  %121 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %120)
-  store i32 0, ptr %2, align 4
-  br label %157
-
-122:                                              ; preds = %112
-  br label %123
-
-123:                                              ; preds = %122, %87
+88:                                               ; preds = %79
   br label %124
 
-124:                                              ; preds = %123
-  %125 = load i32, ptr %6, align 4
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %6, align 4
-  br label %72, !llvm.loop !7
+89:                                               ; preds = %79
+  %90 = load ptr, ptr %4, align 8, !tbaa !17
+  %91 = call ptr @Hop_ObjFanin0(ptr noundef %90)
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %97
 
-127:                                              ; preds = %72
-  %128 = load ptr, ptr %3, align 8
-  %129 = call i32 @Hop_ManObjNum(ptr noundef %128)
-  %130 = load ptr, ptr %3, align 8
-  %131 = call i32 @Hop_ManPiNum(ptr noundef %130)
-  %132 = add nsw i32 1, %131
-  %133 = load ptr, ptr %3, align 8
-  %134 = call i32 @Hop_ManPoNum(ptr noundef %133)
-  %135 = add nsw i32 %132, %134
-  %136 = load ptr, ptr %3, align 8
-  %137 = call i32 @Hop_ManAndNum(ptr noundef %136)
-  %138 = add nsw i32 %135, %137
-  %139 = load ptr, ptr %3, align 8
-  %140 = call i32 @Hop_ManExorNum(ptr noundef %139)
-  %141 = add nsw i32 %138, %140
-  %142 = icmp ne i32 %129, %141
-  br i1 %142, label %143, label %145
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %4, align 8, !tbaa !17
+  %95 = call ptr @Hop_ObjFanin1(ptr noundef %94)
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %100, label %97
 
-143:                                              ; preds = %127
-  %144 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+97:                                               ; preds = %93, %89
+  %98 = load ptr, ptr %4, align 8, !tbaa !17
+  %99 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, ptr noundef %98)
   store i32 0, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-145:                                              ; preds = %127
-  %146 = load ptr, ptr %3, align 8
-  %147 = call i32 @Hop_TableCountEntries(ptr noundef %146)
-  %148 = load ptr, ptr %3, align 8
-  %149 = call i32 @Hop_ManAndNum(ptr noundef %148)
-  %150 = load ptr, ptr %3, align 8
-  %151 = call i32 @Hop_ManExorNum(ptr noundef %150)
-  %152 = add nsw i32 %149, %151
-  %153 = icmp ne i32 %147, %152
-  br i1 %153, label %154, label %156
+100:                                              ; preds = %93
+  %101 = load ptr, ptr %4, align 8, !tbaa !17
+  %102 = call ptr @Hop_ObjFanin0(ptr noundef %101)
+  %103 = getelementptr inbounds nuw %struct.Hop_Obj_t_, ptr %102, i32 0, i32 5
+  %104 = load i32, ptr %103, align 4, !tbaa !24
+  %105 = load ptr, ptr %4, align 8, !tbaa !17
+  %106 = call ptr @Hop_ObjFanin1(ptr noundef %105)
+  %107 = getelementptr inbounds nuw %struct.Hop_Obj_t_, ptr %106, i32 0, i32 5
+  %108 = load i32, ptr %107, align 4, !tbaa !24
+  %109 = icmp sge i32 %104, %108
+  br i1 %109, label %110, label %113
 
-154:                                              ; preds = %145
-  %155 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+110:                                              ; preds = %100
+  %111 = load ptr, ptr %4, align 8, !tbaa !17
+  %112 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %111)
   store i32 0, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-156:                                              ; preds = %145
+113:                                              ; preds = %100
+  %114 = load ptr, ptr %3, align 8, !tbaa !3
+  %115 = load ptr, ptr %4, align 8, !tbaa !17
+  %116 = call ptr @Hop_TableLookup(ptr noundef %114, ptr noundef %115)
+  store ptr %116, ptr %5, align 8, !tbaa !17
+  %117 = load ptr, ptr %5, align 8, !tbaa !17
+  %118 = load ptr, ptr %4, align 8, !tbaa !17
+  %119 = icmp ne ptr %117, %118
+  br i1 %119, label %120, label %123
+
+120:                                              ; preds = %113
+  %121 = load ptr, ptr %4, align 8, !tbaa !17
+  %122 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %121)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %158
+
+123:                                              ; preds = %113
+  br label %124
+
+124:                                              ; preds = %123, %88
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = load i32, ptr %6, align 4, !tbaa !8
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %6, align 4, !tbaa !8
+  br label %73, !llvm.loop !25
+
+128:                                              ; preds = %73
+  %129 = load ptr, ptr %3, align 8, !tbaa !3
+  %130 = call i32 @Hop_ManObjNum(ptr noundef %129)
+  %131 = load ptr, ptr %3, align 8, !tbaa !3
+  %132 = call i32 @Hop_ManPiNum(ptr noundef %131)
+  %133 = add nsw i32 1, %132
+  %134 = load ptr, ptr %3, align 8, !tbaa !3
+  %135 = call i32 @Hop_ManPoNum(ptr noundef %134)
+  %136 = add nsw i32 %133, %135
+  %137 = load ptr, ptr %3, align 8, !tbaa !3
+  %138 = call i32 @Hop_ManAndNum(ptr noundef %137)
+  %139 = add nsw i32 %136, %138
+  %140 = load ptr, ptr %3, align 8, !tbaa !3
+  %141 = call i32 @Hop_ManExorNum(ptr noundef %140)
+  %142 = add nsw i32 %139, %141
+  %143 = icmp ne i32 %130, %142
+  br i1 %143, label %144, label %146
+
+144:                                              ; preds = %128
+  %145 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %158
+
+146:                                              ; preds = %128
+  %147 = load ptr, ptr %3, align 8, !tbaa !3
+  %148 = call i32 @Hop_TableCountEntries(ptr noundef %147)
+  %149 = load ptr, ptr %3, align 8, !tbaa !3
+  %150 = call i32 @Hop_ManAndNum(ptr noundef %149)
+  %151 = load ptr, ptr %3, align 8, !tbaa !3
+  %152 = call i32 @Hop_ManExorNum(ptr noundef %151)
+  %153 = add nsw i32 %150, %152
+  %154 = icmp ne i32 %148, %153
+  br i1 %154, label %155, label %157
+
+155:                                              ; preds = %146
+  %156 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %158
+
+157:                                              ; preds = %146
   store i32 1, ptr %2, align 4
-  br label %157
+  store i32 1, ptr %7, align 4
+  br label %158
 
-157:                                              ; preds = %156, %154, %143, %119, %109, %96, %64, %57, %30
-  %158 = load i32, ptr %2, align 4
-  ret i32 %158
+158:                                              ; preds = %157, %155, %144, %120, %110, %97, %65, %58, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %159 = load i32, ptr %2, align 4
+  ret i32 %159
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_PtrSize(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_PtrSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %4 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Vec_PtrEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
+  %6 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = load i32, ptr %4, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Hop_ObjFanin0(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Hop_ObjFanin0(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Obj_t_, ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %4 = getelementptr inbounds nuw %struct.Hop_Obj_t_, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = call ptr @Hop_Regular(ptr noundef %5)
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Hop_ObjFanin1(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Hop_ObjFanin1(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Obj_t_, ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %4 = getelementptr inbounds nuw %struct.Hop_Obj_t_, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = call ptr @Hop_Regular(ptr noundef %5)
   ret ptr %6
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
-declare ptr @Hop_TableLookup(ptr noundef, ptr noundef) #1
+declare ptr @Hop_TableLookup(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Hop_ManObjNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Hop_ManObjNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Man_t_, ptr %3, i32 0, i32 6
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Hop_Man_t_, ptr %6, i32 0, i32 7
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %3, i32 0, i32 6
+  %5 = load i32, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %6, i32 0, i32 7
+  %8 = load i32, ptr %7, align 4, !tbaa !34
   %9 = sub nsw i32 %5, %8
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Hop_ManPiNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Hop_ManPiNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
   %5 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 2
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !8
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Hop_ManPoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Hop_ManPoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
   %5 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 3
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !8
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Hop_ManAndNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Hop_ManAndNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
   %5 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 4
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !8
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Hop_ManExorNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Hop_ManExorNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Hop_Man_t_, ptr %3, i32 0, i32 5
   %5 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 5
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !8
   ret i32 %6
 }
 
-declare i32 @Hop_TableCountEntries(ptr noundef) #1
+declare i32 @Hop_TableCountEntries(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Hop_Regular(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Hop_Regular(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   ret ptr %6
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10Hop_Man_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"Hop_Man_t_", !12, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !14, i64 32, !6, i64 72, !9, i64 96, !9, i64 100, !15, i64 104, !9, i64 112, !5, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !12, i64 144, !12, i64 152, !13, i64 160, !16, i64 168, !16, i64 176}
+!12 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!13 = !{!"p1 _ZTS10Hop_Obj_t_", !5, i64 0}
+!14 = !{!"Hop_Obj_t_", !6, i64 0, !6, i64 8, !13, i64 16, !13, i64 24, !9, i64 32, !9, i64 32, !9, i64 32, !9, i64 32, !9, i64 32, !9, i64 36}
+!15 = !{!"p2 _ZTS10Hop_Obj_t_", !5, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!13, !13, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!11, !12, i64 8}
+!21 = distinct !{!21, !19}
+!22 = !{!11, !9, i64 112}
+!23 = !{!11, !15, i64 104}
+!24 = !{!14, !9, i64 36}
+!25 = distinct !{!25, !19}
+!26 = !{!12, !12, i64 0}
+!27 = !{!28, !9, i64 4}
+!28 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !5, i64 8}
+!29 = !{!28, !5, i64 8}
+!30 = !{!5, !5, i64 0}
+!31 = !{!14, !13, i64 16}
+!32 = !{!14, !13, i64 24}
+!33 = !{!11, !9, i64 96}
+!34 = !{!11, !9, i64 100}

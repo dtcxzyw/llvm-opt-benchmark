@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/cuddWindow.c.ll'
-source_filename = "bench/abc/original/cuddWindow.c.ll"
+; ModuleID = 'bench/abc/original/cuddWindow.ll'
+source_filename = "bench/abc/original/cuddWindow.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -20,9 +20,9 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = sub i32 %8, %10
   br label %12
 
@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 20:                                               ; preds = %17, %16
   %.1.i = phi i32 [ %18, %17 ], [ %14, %16 ]
   %exitcond.not.i = icmp eq i32 %13, %2
-  br i1 %exitcond.not.i, label %ddWindow2.exit, label %12, !llvm.loop !4
+  br i1 %exitcond.not.i, label %ddWindow2.exit, label %12, !llvm.loop !25
 
 21:                                               ; preds = %4
   %22 = sub nsw i32 %2, %1
@@ -59,9 +59,9 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %29 = load i32, ptr %28, align 8
+  %29 = load i32, ptr %28, align 8, !tbaa !24
   %30 = sub i32 %27, %29
   br label %31
 
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 39:                                               ; preds = %36, %35
   %.1.i.i = phi i32 [ %37, %36 ], [ %33, %35 ]
   %exitcond.not.i.i = icmp eq i32 %32, %2
-  br i1 %exitcond.not.i.i, label %ddWindow2.exit, label %31, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %ddWindow2.exit, label %31, !llvm.loop !25
 
 .preheader.i:                                     ; preds = %21, %42
   %.012.i = phi i32 [ %40, %42 ], [ %1, %21 ]
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 42:                                               ; preds = %.preheader.i
   %43 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i)
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %ddWindow2.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %44, label %ddWindow2.exit, label %.preheader.i, !llvm.loop !27
 
 45:                                               ; preds = %4
   %46 = sub nsw i32 %2, %1
@@ -113,9 +113,9 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 4, !tbaa !3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %54 = load i32, ptr %53, align 8
+  %54 = load i32, ptr %53, align 8, !tbaa !24
   %55 = sub i32 %52, %54
   br label %56
 
@@ -139,7 +139,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 64:                                               ; preds = %61, %60
   %.1.i.i.i = phi i32 [ %62, %61 ], [ %58, %60 ]
   %exitcond.not.i.i.i = icmp eq i32 %57, %2
-  br i1 %exitcond.not.i.i.i, label %ddWindow2.exit, label %56, !llvm.loop !4
+  br i1 %exitcond.not.i.i.i, label %ddWindow2.exit, label %56, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %48, %67
   %.012.i.i = phi i32 [ %65, %67 ], [ %1, %48 ]
@@ -150,13 +150,13 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 67:                                               ; preds = %.preheader.i.i
   %68 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i.i)
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %ddWindow2.exit, label %.preheader.i.i, !llvm.loop !6
+  br i1 %69, label %ddWindow2.exit, label %.preheader.i.i, !llvm.loop !27
 
 70:                                               ; preds = %.lr.ph.i
   %71 = add nsw i32 %.01217.i, 1
   %72 = add nsw i32 %.01217.i, 3
   %73 = icmp slt i32 %72, %2
-  br i1 %73, label %.lr.ph.i, label %ddWindow2.exit, !llvm.loop !7
+  br i1 %73, label %.lr.ph.i, label %ddWindow2.exit, !llvm.loop !28
 
 .lr.ph.i:                                         ; preds = %45, %70
   %.01217.i = phi i32 [ %71, %70 ], [ %1, %45 ]
@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %92, align 8
+  store i32 1, ptr %92, align 8, !tbaa !29
   br label %ddWindow2.exit
 
 .lr.ph139.us.preheader.i:                         ; preds = %.lr.ph.i25
@@ -207,7 +207,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %indvars.iv143.i = phi i64 [ 0, %.lr.ph139.us.preheader.i ], [ %indvars.iv143.i.be, %.lr.ph139.us.i.backedge ]
   %.0138.us.i = phi i32 [ 0, %.lr.ph139.us.preheader.i ], [ %.0138.us.i.be, %.lr.ph139.us.i.backedge ]
   %99 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv143.i
-  %100 = load i32, ptr %99, align 4
+  %100 = load i32, ptr %99, align 4, !tbaa !30
   %.not121.us.i = icmp eq i32 %100, 0
   br i1 %.not121.us.i, label %176, label %101
 
@@ -248,7 +248,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 1, ptr %108, align 4
+  store i32 1, ptr %108, align 4, !tbaa !30
   br label %109
 
 109:                                              ; preds = %107, %105
@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 1, ptr %114, align 4
+  store i32 1, ptr %114, align 4, !tbaa !30
   br label %115
 
 115:                                              ; preds = %113, %111
@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 1, ptr %118, align 4
+  store i32 1, ptr %118, align 4, !tbaa !30
   br label %119
 
 119:                                              ; preds = %117, %115
@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 121:                                              ; preds = %119
   %122 = getelementptr i8, ptr %99, i64 -8
-  store i32 1, ptr %122, align 4
+  store i32 1, ptr %122, align 4, !tbaa !30
   %.not130.us.i = icmp eq i64 %indvars.iv143.i, 2
   br i1 %.not130.us.i, label %.thread.us.i, label %.thread.us.sink.split.i
 
@@ -289,7 +289,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 1, ptr %126, align 4
+  store i32 1, ptr %126, align 4, !tbaa !30
   br label %127
 
 127:                                              ; preds = %125, %123
@@ -298,7 +298,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 1, ptr %130, align 4
+  store i32 1, ptr %130, align 4, !tbaa !30
   br label %131
 
 131:                                              ; preds = %129, %127
@@ -307,7 +307,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 1, ptr %134, align 4
+  store i32 1, ptr %134, align 4, !tbaa !30
   br label %135
 
 135:                                              ; preds = %133, %131
@@ -316,13 +316,13 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 136:                                              ; preds = %135
   %137 = getelementptr i8, ptr %99, i64 -4
-  store i32 1, ptr %137, align 4
+  store i32 1, ptr %137, align 4, !tbaa !30
   %.not131.us.i = icmp eq i64 %indvars.iv143.i, 1
   br i1 %.not131.us.i, label %.thread.us.i, label %138
 
 138:                                              ; preds = %136
   %139 = getelementptr i8, ptr %99, i64 -8
-  store i32 1, ptr %139, align 4
+  store i32 1, ptr %139, align 4, !tbaa !30
   %140 = icmp samesign ugt i64 %indvars.iv143.i, 2
   br i1 %140, label %.thread.us.sink.split.i, label %.thread.us.i
 
@@ -332,7 +332,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 1, ptr %144, align 4
+  store i32 1, ptr %144, align 4, !tbaa !30
   br label %145
 
 145:                                              ; preds = %143, %141
@@ -341,7 +341,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 147:                                              ; preds = %145
   %148 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 1, ptr %148, align 4
+  store i32 1, ptr %148, align 4, !tbaa !30
   br label %149
 
 149:                                              ; preds = %147, %145
@@ -350,7 +350,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 150:                                              ; preds = %149
   %151 = getelementptr i8, ptr %99, i64 -4
-  store i32 1, ptr %151, align 4
+  store i32 1, ptr %151, align 4, !tbaa !30
   %.not132.us.i = icmp eq i64 %indvars.iv143.i, 1
   br i1 %.not132.us.i, label %.thread.us.i, label %.thread.us.sink.split.i
 
@@ -360,7 +360,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 1, ptr %155, align 4
+  store i32 1, ptr %155, align 4, !tbaa !30
   br label %156
 
 156:                                              ; preds = %154, %152
@@ -373,7 +373,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 1, ptr %160, align 4
+  store i32 1, ptr %160, align 4, !tbaa !30
   br label %161
 
 161:                                              ; preds = %159, %157
@@ -382,7 +382,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 1, ptr %164, align 4
+  store i32 1, ptr %164, align 4, !tbaa !30
   br label %165
 
 165:                                              ; preds = %163, %161
@@ -391,7 +391,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 166:                                              ; preds = %165
   %167 = getelementptr i8, ptr %99, i64 -4
-  store i32 1, ptr %167, align 4
+  store i32 1, ptr %167, align 4, !tbaa !30
   %168 = icmp samesign ugt i64 %indvars.iv143.i, 2
   br i1 %168, label %.thread.us.sink.split.i, label %.thread.us.i
 
@@ -401,7 +401,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 1, ptr %172, align 4
+  store i32 1, ptr %172, align 4, !tbaa !30
   br label %173
 
 173:                                              ; preds = %171, %169
@@ -411,12 +411,12 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 .thread.us.sink.split.i:                          ; preds = %173, %166, %156, %150, %138, %121, %109
   %.sink148.i = phi i64 [ -8, %109 ], [ -12, %121 ], [ -12, %138 ], [ -8, %150 ], [ -4, %156 ], [ -12, %166 ], [ -12, %173 ]
   %175 = getelementptr i8, ptr %99, i64 %.sink148.i
-  store i32 1, ptr %175, align 4
+  store i32 1, ptr %175, align 4, !tbaa !30
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.thread.us.sink.split.i, %173, %166, %165, %156, %150, %149, %138, %136, %135, %121, %119, %109, %101
   %.1.us.i = phi i32 [ %.0138.us.i, %101 ], [ 1, %173 ], [ 1, %166 ], [ 1, %156 ], [ 1, %150 ], [ 1, %138 ], [ 1, %121 ], [ 1, %109 ], [ 1, %165 ], [ 1, %149 ], [ 1, %136 ], [ 1, %135 ], [ 1, %119 ], [ 1, %.thread.us.sink.split.i ]
-  store i32 0, ptr %99, align 4
+  store i32 0, ptr %99, align 4, !tbaa !30
   br label %176
 
 176:                                              ; preds = %.thread.us.i, %.lr.ph139.us.i
@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 .lr.ph139.us.i.backedge:                          ; preds = %176, %._crit_edge.us.i
   %indvars.iv143.i.be = phi i64 [ %indvars.iv.next144.i, %176 ], [ 0, %._crit_edge.us.i ]
   %.0138.us.i.be = phi i32 [ %.2.us.i, %176 ], [ 0, %._crit_edge.us.i ]
-  br label %.lr.ph139.us.i, !llvm.loop !8
+  br label %.lr.ph139.us.i, !llvm.loop !31
 
 ._crit_edge.us.i:                                 ; preds = %176
   %.not.us.i = icmp eq i32 %.2.us.i, 0
@@ -437,10 +437,10 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
 .lr.ph.i25:                                       ; preds = %85, %.lr.ph.i25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i25 ], [ 0, %85 ]
   %177 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i
-  store i32 1, ptr %177, align 4
+  store i32 1, ptr %177, align 4, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i, %87
-  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !9
+  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !32
 
 .split141.us.i:                                   ; preds = %101
   tail call void @free(ptr noundef nonnull %89) #5
@@ -473,22 +473,22 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %12, align 8
+  store i32 1, ptr %12, align 8, !tbaa !29
   br label %49
 
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  store i32 1, ptr %13, align 4
+  store i32 1, ptr %13, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !33
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %18 = load i32, ptr %17, align 8
+  %18 = load i32, ptr %17, align 8, !tbaa !24
   %19 = sub i32 %16, %18
   %20 = add nsw i32 %4, -1
   %21 = sext i32 %20 to i64
@@ -500,7 +500,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %.05578 = phi i32 [ 0, %14 ], [ %.05578.be, %.backedge ]
   %.15975 = phi i32 [ %19, %14 ], [ %.3, %.backedge ]
   %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv80
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !30
   %.not65 = icmp eq i32 %24, 0
   br i1 %.not65, label %46, label %25
 
@@ -541,7 +541,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 1, ptr %41, align 4
+  store i32 1, ptr %41, align 4, !tbaa !30
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -550,12 +550,12 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 
 43:                                               ; preds = %42
   %44 = getelementptr i8, ptr %23, i64 -4
-  store i32 1, ptr %44, align 4
+  store i32 1, ptr %44, align 4, !tbaa !30
   br label %45
 
 45:                                               ; preds = %42, %43, %36
   %.1 = phi i32 [ %.05578, %36 ], [ 1, %43 ], [ 1, %42 ]
-  store i32 0, ptr %23, align 4
+  store i32 0, ptr %23, align 4, !tbaa !30
   br label %46
 
 46:                                               ; preds = %22, %45
@@ -568,7 +568,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 .backedge:                                        ; preds = %46, %47
   %indvars.iv80.be = phi i64 [ %indvars.iv.next81, %46 ], [ 0, %47 ]
   %.05578.be = phi i32 [ %.2, %46 ], [ 0, %47 ]
-  br label %22, !llvm.loop !11
+  br label %22, !llvm.loop !34
 
 47:                                               ; preds = %46
   %.not = icmp eq i32 %.2, 0
@@ -603,7 +603,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %15, align 8
+  store i32 1, ptr %15, align 8, !tbaa !29
   br label %51
 
 .lr.ph75.us.preheader:                            ; preds = %.lr.ph
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %indvars.iv79 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv79.be, %.lr.ph75.us.backedge ]
   %.074.us = phi i32 [ 0, %.lr.ph75.us.preheader ], [ %.074.us.be, %.lr.ph75.us.backedge ]
   %20 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv79
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !30
   %.not65.us = icmp eq i32 %21, 0
   br i1 %.not65.us, label %49, label %22
 
@@ -642,7 +642,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 1, ptr %29, align 4
+  store i32 1, ptr %29, align 4, !tbaa !30
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -655,7 +655,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 1, ptr %34, align 4
+  store i32 1, ptr %34, align 4, !tbaa !30
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -664,7 +664,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 1, ptr %38, align 4
+  store i32 1, ptr %38, align 4, !tbaa !30
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -673,7 +673,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 40:                                               ; preds = %39
   %41 = getelementptr i8, ptr %20, i64 -4
-  store i32 1, ptr %41, align 4
+  store i32 1, ptr %41, align 4, !tbaa !30
   %.not68.us = icmp eq i64 %indvars.iv79, 1
   br i1 %.not68.us, label %.thread.us, label %.thread.us.sink.split
 
@@ -683,7 +683,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 1, ptr %45, align 4
+  store i32 1, ptr %45, align 4, !tbaa !30
   br label %46
 
 46:                                               ; preds = %44, %42
@@ -693,12 +693,12 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 .thread.us.sink.split:                            ; preds = %46, %40, %30
   %.sink84 = phi i64 [ -4, %30 ], [ -8, %40 ], [ -8, %46 ]
   %48 = getelementptr i8, ptr %20, i64 %.sink84
-  store i32 1, ptr %48, align 4
+  store i32 1, ptr %48, align 4, !tbaa !30
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.sink.split, %46, %40, %39, %30, %22
   %.1.us = phi i32 [ %.074.us, %22 ], [ 1, %46 ], [ 1, %40 ], [ 1, %30 ], [ 1, %39 ], [ 1, %.thread.us.sink.split ]
-  store i32 0, ptr %20, align 4
+  store i32 0, ptr %20, align 4, !tbaa !30
   br label %49
 
 49:                                               ; preds = %.thread.us, %.lr.ph75.us
@@ -710,7 +710,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 .lr.ph75.us.backedge:                             ; preds = %49, %._crit_edge.us
   %indvars.iv79.be = phi i64 [ %indvars.iv.next80, %49 ], [ 0, %._crit_edge.us ]
   %.074.us.be = phi i32 [ %.2.us, %49 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph75.us, !llvm.loop !12
+  br label %.lr.ph75.us, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %49
   %.not.us = icmp eq i32 %.2.us, 0
@@ -719,10 +719,10 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %50 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  store i32 1, ptr %50, align 4
+  store i32 1, ptr %50, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !36
 
 .split77.us:                                      ; preds = %22
   tail call void @free(ptr noundef nonnull %12) #5
@@ -748,9 +748,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !24
   %7 = sub i32 %4, %6
   %8 = add nsw i32 %1, 1
   %9 = add nsw i32 %1, 2
@@ -855,9 +855,9 @@ default.unreachable73:                            ; preds = %34
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !24
   %7 = sub i32 %4, %6
   %8 = add nsw i32 %1, 1
   %9 = add nsw i32 %1, 2
@@ -1374,8 +1374,8 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 default.unreachable418:                           ; preds = %173
   unreachable
 
-.thread:                                          ; preds = %171, %226, %220, %212, %204, %194, %173, %184
-  %.22417 = phi i32 [ %.21, %226 ], [ %.21, %220 ], [ %.21, %212 ], [ %.21, %204 ], [ %.21, %194 ], [ %.21, %173 ], [ %.21, %184 ], [ 2, %171 ]
+.thread:                                          ; preds = %171, %226, %220, %212, %204, %194, %184, %173
+  %.22417 = phi i32 [ %.21, %226 ], [ %.21, %220 ], [ %.21, %212 ], [ %.21, %204 ], [ %.21, %194 ], [ %.21, %184 ], [ %.21, %173 ], [ 2, %171 ]
   br label %228
 
 228:                                              ; preds = %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %171, %163, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %75, %70, %62, %54, %49, %44, %39, %31, %26, %18, %13, %.thread
@@ -1386,27 +1386,50 @@ default.unreachable418:                           ; preds = %173
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{!4, !6, i64 228}
+!4 = !{!"DdManager", !5, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 100, !13, i64 104, !13, i64 112, !13, i64 120, !6, i64 128, !6, i64 132, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !14, i64 152, !14, i64 160, !15, i64 168, !6, i64 224, !6, i64 228, !6, i64 232, !6, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !13, i64 256, !6, i64 264, !6, i64 268, !6, i64 272, !16, i64 280, !11, i64 288, !13, i64 296, !6, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !16, i64 344, !17, i64 352, !16, i64 360, !6, i64 368, !18, i64 376, !18, i64 384, !16, i64 392, !9, i64 400, !19, i64 408, !16, i64 416, !6, i64 424, !6, i64 428, !6, i64 432, !13, i64 440, !6, i64 448, !6, i64 452, !6, i64 456, !6, i64 460, !13, i64 464, !13, i64 472, !6, i64 480, !6, i64 484, !6, i64 488, !6, i64 492, !6, i64 496, !6, i64 500, !6, i64 504, !6, i64 508, !6, i64 512, !20, i64 520, !20, i64 528, !6, i64 536, !6, i64 540, !6, i64 544, !6, i64 548, !6, i64 552, !6, i64 556, !21, i64 560, !19, i64 568, !22, i64 576, !22, i64 584, !22, i64 592, !22, i64 600, !23, i64 608, !23, i64 616, !6, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !6, i64 656, !11, i64 664, !11, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !13, i64 720, !6, i64 728, !9, i64 736, !9, i64 744, !11, i64 752}
+!5 = !{!"DdNode", !6, i64 0, !6, i64 4, !9, i64 8, !7, i64 16, !11, i64 32}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS6DdNode", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!"p1 _ZTS7DdCache", !10, i64 0}
+!13 = !{!"double", !7, i64 0}
+!14 = !{!"p1 _ZTS10DdSubtable", !10, i64 0}
+!15 = !{!"DdSubtable", !16, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48}
+!16 = !{!"p2 _ZTS6DdNode", !10, i64 0}
+!17 = !{!"p1 int", !10, i64 0}
+!18 = !{!"p1 long", !10, i64 0}
+!19 = !{!"p1 omnipotent char", !10, i64 0}
+!20 = !{!"p1 _ZTS7MtrNode", !10, i64 0}
+!21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
+!22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!24 = !{!4, !6, i64 304}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = !{!4, !6, i64 624}
+!30 = !{!6, !6, i64 0}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = distinct !{!34, !26}
+!35 = distinct !{!35, !26}
+!36 = distinct !{!36, !26}

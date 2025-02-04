@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/mvcSort.c.ll'
-source_filename = "bench/abc/original/mvcSort.c.ll"
+; ModuleID = 'bench/abc/original/mvcSort.ll'
+source_filename = "bench/abc/original/mvcSort.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -21,7 +21,10 @@ define void @Mvc_CoverSort(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   ret void
 }
 
-declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -30,7 +33,7 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !3
   br label %30
 
 8:                                                ; preds = %4
@@ -42,17 +45,17 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.028 = phi i32 [ %13, %.lr.ph ], [ 0, %8 ]
   %.02427 = phi ptr [ %12, %.lr.ph ], [ %0, %8 ]
-  %12 = load ptr, ptr %.02427, align 8
+  %12 = load ptr, ptr %.02427, align 8, !tbaa !3
   %13 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %13, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.024.lcssa = phi ptr [ %0, %8 ], [ %12, %.lr.ph ]
   %14 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3)
   %15 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %.024.lcssa, i32 noundef %10, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !12
   %16 = icmp ne ptr %14, null
   %17 = icmp ne ptr %15, null
   %18 = and i1 %16, %17
@@ -67,22 +70,22 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = load ptr, ptr %.01822.i, align 8
+  %22 = load ptr, ptr %.01822.i, align 8, !tbaa !3
   br label %25
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = load ptr, ptr %.01921.i, align 8
+  %24 = load ptr, ptr %.01921.i, align 8, !tbaa !3
   br label %25
 
 25:                                               ; preds = %23, %21
   %.120.i = phi ptr [ %.01921.i, %21 ], [ %24, %23 ]
   %.1.i = phi ptr [ %22, %21 ], [ %.01822.i, %23 ]
   %.0.i = phi ptr [ %.01822.i, %21 ], [ %.01921.i, %23 ]
-  store ptr %.0.i, ptr %.01723.i, align 8
+  store ptr %.0.i, ptr %.01723.i, align 8, !tbaa !12
   %26 = icmp ne ptr %.1.i, null
   %27 = icmp ne ptr %.120.i, null
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %Mvc_CoverSortMerge.exit, !llvm.loop !6
+  br i1 %28, label %.lr.ph.i, label %Mvc_CoverSortMerge.exit, !llvm.loop !13
 
 Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   %.019.lcssa.i = phi ptr [ %15, %._crit_edge ], [ %.120.i, %25 ]
@@ -90,8 +93,8 @@ Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   %.017.lcssa.i = phi ptr [ %5, %._crit_edge ], [ %.0.i, %25 ]
   %.lcssa.i = phi i1 [ %16, %._crit_edge ], [ %26, %25 ]
   %29 = select i1 %.lcssa.i, ptr %.018.lcssa.i, ptr %.019.lcssa.i
-  store ptr %29, ptr %.017.lcssa.i, align 8
-  %.0..0..0..0..0..0..i = load ptr, ptr %5, align 8
+  store ptr %29, ptr %.017.lcssa.i, align 8, !tbaa !12
+  %.0..0..0..0..0..0..i = load ptr, ptr %5, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %30
 
@@ -100,18 +103,22 @@ Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   ret ptr %.023
 }
 
-declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #1
+declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #2
 
-declare void @Mvc_CoverSetCubeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @Mvc_CoverSetCubeHead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Mvc_CoverSetCubeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @Mvc_CoverSetCubeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @Mvc_ListGetTailFromHead(ptr noundef) local_unnamed_addr #1
+declare ptr @Mvc_ListGetTailFromHead(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !12
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %8 = and i1 %6, %7
@@ -126,22 +133,22 @@ define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph
-  %12 = load ptr, ptr %.01822, align 8
+  %12 = load ptr, ptr %.01822, align 8, !tbaa !3
   br label %15
 
 13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr %.01921, align 8
+  %14 = load ptr, ptr %.01921, align 8, !tbaa !3
   br label %15
 
 15:                                               ; preds = %13, %11
   %.120 = phi ptr [ %.01921, %11 ], [ %14, %13 ]
   %.1 = phi ptr [ %12, %11 ], [ %.01822, %13 ]
   %.0 = phi ptr [ %.01822, %11 ], [ %.01921, %13 ]
-  store ptr %.0, ptr %.01723, align 8
+  store ptr %.0, ptr %.01723, align 8, !tbaa !12
   %16 = icmp ne ptr %.1, null
   %17 = icmp ne ptr %.120, null
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15, %4
   %.019.lcssa = phi ptr [ %1, %4 ], [ %.120, %15 ]
@@ -149,28 +156,30 @@ define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %.017.lcssa = phi ptr [ %5, %4 ], [ %.0, %15 ]
   %.lcssa = phi i1 [ %6, %4 ], [ %16, %15 ]
   %19 = select i1 %.lcssa, ptr %.018.lcssa, ptr %.019.lcssa
-  store ptr %19, ptr %.017.lcssa, align 8
-  %.0..0..0..0. = load ptr, ptr %5, align 8
+  store ptr %19, ptr %.017.lcssa, align 8, !tbaa !12
+  %.0..0..0..0. = load ptr, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret ptr %.0..0..0..0.
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"MvcCubeStruct", !5, i64 0, !9, i64 8, !9, i64 11, !9, i64 11, !9, i64 11, !9, i64 12, !7, i64 16}
+!5 = !{!"p1 _ZTS13MvcCubeStruct", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !11}

@@ -27,359 +27,391 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 no
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store double %4, ptr %11, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.DdManager, ptr %22, i32 0, i32 15
-  %24 = load i32, ptr %23, align 8
-  store i32 %24, ptr %21, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.DdManager, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %14, align 8
-  %28 = load ptr, ptr %14, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = xor i64 %29, 1
-  %31 = inttoptr i64 %30 to ptr
-  store ptr %31, ptr %13, align 8
-  %32 = load double, ptr %11, align 8
-  %33 = fcmp oeq double %32, 0.000000e+00
-  br i1 %33, label %34, label %36
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !10
+  store i32 %3, ptr %10, align 4, !tbaa !12
+  store double %4, ptr %11, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.DdManager, ptr %23, i32 0, i32 15
+  %25 = load i32, ptr %24, align 8, !tbaa !16
+  store i32 %25, ptr %21, align 4, !tbaa !12
+  %26 = load ptr, ptr %7, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.DdManager, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  store ptr %28, ptr %14, align 8, !tbaa !8
+  %29 = load ptr, ptr %14, align 8, !tbaa !8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = xor i64 %30, 1
+  %32 = inttoptr i64 %31 to ptr
+  store ptr %32, ptr %13, align 8, !tbaa !8
+  %33 = load double, ptr %11, align 8, !tbaa !14
+  %34 = fcmp oeq double %33, 0.000000e+00
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %5
-  %35 = load ptr, ptr %13, align 8
-  store ptr %35, ptr %6, align 8
-  br label %219
+35:                                               ; preds = %5
+  %36 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %36, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %220
 
-36:                                               ; preds = %5
-  %37 = load ptr, ptr %8, align 8
-  %38 = load ptr, ptr %13, align 8
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %41
+37:                                               ; preds = %5
+  %38 = load ptr, ptr %8, align 8, !tbaa !8
+  %39 = load ptr, ptr %13, align 8, !tbaa !8
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   store ptr null, ptr %6, align 8
-  br label %219
+  store i32 1, ptr %22, align 4
+  br label %220
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %10, align 4
-  %43 = sitofp i32 %42 to double
-  %44 = call double @pow(double noundef 2.000000e+00, double noundef %43) #4
-  store double %44, ptr %15, align 8
-  %45 = load double, ptr %11, align 8
-  %46 = load double, ptr %15, align 8
-  %47 = fcmp ogt double %45, %46
-  br i1 %47, label %48, label %49
+42:                                               ; preds = %37
+  %43 = load i32, ptr %10, align 4, !tbaa !12
+  %44 = sitofp i32 %43 to double
+  %45 = call double @pow(double noundef 2.000000e+00, double noundef %44) #5, !tbaa !12
+  store double %45, ptr %15, align 8, !tbaa !14
+  %46 = load double, ptr %11, align 8, !tbaa !14
+  %47 = load double, ptr %15, align 8, !tbaa !14
+  %48 = fcmp ogt double %46, %47
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %41
+49:                                               ; preds = %42
   store ptr null, ptr %6, align 8
-  br label %219
+  store i32 1, ptr %22, align 4
+  br label %220
 
-49:                                               ; preds = %41
-  br label %50
+50:                                               ; preds = %42
+  br label %51
 
-50:                                               ; preds = %205, %49
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct.DdManager, ptr %51, i32 0, i32 55
-  store i32 0, ptr %52, align 8
-  %53 = load i32, ptr %21, align 4
-  %54 = sext i32 %53 to i64
-  %55 = mul i64 4, %54
-  %56 = call noalias ptr @malloc(i64 noundef %55) #5
-  store ptr %56, ptr %18, align 8
-  %57 = load ptr, ptr %18, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %62
+51:                                               ; preds = %206, %50
+  %52 = load ptr, ptr %7, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.DdManager, ptr %52, i32 0, i32 55
+  store i32 0, ptr %53, align 8, !tbaa !31
+  %54 = load i32, ptr %21, align 4, !tbaa !12
+  %55 = sext i32 %54 to i64
+  %56 = mul i64 4, %55
+  %57 = call noalias ptr @malloc(i64 noundef %56) #6
+  store ptr %57, ptr %18, align 8, !tbaa !32
+  %58 = load ptr, ptr %18, align 8, !tbaa !32
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %50
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.DdManager, ptr %60, i32 0, i32 86
-  store i32 1, ptr %61, align 8
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %7, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.DdManager, ptr %61, i32 0, i32 86
+  store i32 1, ptr %62, align 8, !tbaa !33
   store ptr null, ptr %6, align 8
-  br label %219
+  store i32 1, ptr %22, align 4
+  br label %220
 
-62:                                               ; preds = %50
-  store i32 0, ptr %19, align 4
-  br label %63
+63:                                               ; preds = %51
+  store i32 0, ptr %19, align 4, !tbaa !12
+  br label %64
 
-63:                                               ; preds = %72, %62
-  %64 = load i32, ptr %19, align 4
-  %65 = load i32, ptr %21, align 4
-  %66 = icmp slt i32 %64, %65
-  br i1 %66, label %67, label %75
+64:                                               ; preds = %73, %63
+  %65 = load i32, ptr %19, align 4, !tbaa !12
+  %66 = load i32, ptr %21, align 4, !tbaa !12
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %68, label %76
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %18, align 8
-  %69 = load i32, ptr %19, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
-  store i32 -1, ptr %71, align 4
-  br label %72
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %18, align 8, !tbaa !32
+  %70 = load i32, ptr %19, align 4, !tbaa !12
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %69, i64 %71
+  store i32 -1, ptr %72, align 4, !tbaa !12
+  br label %73
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr %19, align 4
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %19, align 4
-  br label %63, !llvm.loop !4
+73:                                               ; preds = %68
+  %74 = load i32, ptr %19, align 4, !tbaa !12
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %19, align 4, !tbaa !12
+  br label %64, !llvm.loop !34
 
-75:                                               ; preds = %63
-  store i32 0, ptr %19, align 4
-  br label %76
+76:                                               ; preds = %64
+  store i32 0, ptr %19, align 4, !tbaa !12
+  br label %77
 
-76:                                               ; preds = %98, %75
-  %77 = load i32, ptr %19, align 4
-  %78 = load i32, ptr %10, align 4
-  %79 = icmp slt i32 %77, %78
-  br i1 %79, label %80, label %101
+77:                                               ; preds = %99, %76
+  %78 = load i32, ptr %19, align 4, !tbaa !12
+  %79 = load i32, ptr %10, align 4, !tbaa !12
+  %80 = icmp slt i32 %78, %79
+  br i1 %80, label %81, label %102
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %9, align 8
-  %82 = load i32, ptr %19, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.DdNode, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
-  store i32 %87, ptr %20, align 4
-  %88 = load ptr, ptr %18, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.DdManager, ptr %89, i32 0, i32 39
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %20, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %91, i64 %93
-  %95 = load i32, ptr %94, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %88, i64 %96
-  store i32 0, ptr %97, align 4
-  br label %98
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %9, align 8, !tbaa !10
+  %83 = load i32, ptr %19, align 4, !tbaa !12
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw %struct.DdNode, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 8, !tbaa !36
+  store i32 %88, ptr %20, align 4, !tbaa !12
+  %89 = load ptr, ptr %18, align 8, !tbaa !32
+  %90 = load ptr, ptr %7, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.DdManager, ptr %90, i32 0, i32 39
+  %92 = load ptr, ptr %91, align 8, !tbaa !37
+  %93 = load i32, ptr %20, align 4, !tbaa !12
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr %92, i64 %94
+  %96 = load i32, ptr %95, align 4, !tbaa !12
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i32, ptr %89, i64 %97
+  store i32 0, ptr %98, align 4, !tbaa !12
+  br label %99
 
-98:                                               ; preds = %80
-  %99 = load i32, ptr %19, align 4
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %19, align 4
-  br label %76, !llvm.loop !6
+99:                                               ; preds = %81
+  %100 = load i32, ptr %19, align 4, !tbaa !12
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr %19, align 4, !tbaa !12
+  br label %77, !llvm.loop !38
 
-101:                                              ; preds = %76
-  %102 = load ptr, ptr %8, align 8
-  %103 = load ptr, ptr %14, align 8
-  %104 = icmp eq ptr %102, %103
-  br i1 %104, label %105, label %139
+102:                                              ; preds = %77
+  %103 = load ptr, ptr %8, align 8, !tbaa !8
+  %104 = load ptr, ptr %14, align 8, !tbaa !8
+  %105 = icmp eq ptr %103, %104
+  br i1 %105, label %106, label %140
 
-105:                                              ; preds = %101
-  %106 = load double, ptr %11, align 8
-  %107 = load double, ptr %15, align 8
-  %108 = fcmp oeq double %106, %107
-  br i1 %108, label %109, label %117
+106:                                              ; preds = %102
+  %107 = load double, ptr %11, align 8, !tbaa !14
+  %108 = load double, ptr %15, align 8, !tbaa !14
+  %109 = fcmp oeq double %107, %108
+  br i1 %109, label %110, label %118
 
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %18, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %112, label %114
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %18, align 8, !tbaa !32
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %113) #4
-  store ptr null, ptr %18, align 8
-  br label %115
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @free(ptr noundef %114) #5
+  store ptr null, ptr %18, align 8, !tbaa !32
+  br label %116
 
-114:                                              ; preds = %109
-  br label %115
+115:                                              ; preds = %110
+  br label %116
 
-115:                                              ; preds = %114, %112
-  %116 = load ptr, ptr %8, align 8
-  store ptr %116, ptr %6, align 8
-  br label %219
+116:                                              ; preds = %115, %113
+  %117 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %117, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %220
 
-117:                                              ; preds = %105
-  %118 = load ptr, ptr %7, align 8
-  %119 = load ptr, ptr %18, align 8
-  %120 = load double, ptr %11, align 8
-  %121 = call ptr @selectMintermsFromUniverse(ptr noundef %118, ptr noundef %119, double noundef %120)
-  store ptr %121, ptr %12, align 8
-  %122 = load ptr, ptr %12, align 8
-  %123 = icmp ne ptr %122, null
-  br i1 %123, label %124, label %132
+118:                                              ; preds = %106
+  %119 = load ptr, ptr %7, align 8, !tbaa !3
+  %120 = load ptr, ptr %18, align 8, !tbaa !32
+  %121 = load double, ptr %11, align 8, !tbaa !14
+  %122 = call ptr @selectMintermsFromUniverse(ptr noundef %119, ptr noundef %120, double noundef %121)
+  store ptr %122, ptr %12, align 8, !tbaa !8
+  %123 = load ptr, ptr %12, align 8, !tbaa !8
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %133
 
-124:                                              ; preds = %117
-  %125 = load ptr, ptr %12, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %127 = and i64 %126, -2
-  %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds %struct.DdNode, ptr %128, i32 0, i32 1
-  %130 = load i32, ptr %129, align 4
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %129, align 4
-  br label %132
+125:                                              ; preds = %118
+  %126 = load ptr, ptr %12, align 8, !tbaa !8
+  %127 = ptrtoint ptr %126 to i64
+  %128 = and i64 %127, -2
+  %129 = inttoptr i64 %128 to ptr
+  %130 = getelementptr inbounds nuw %struct.DdNode, ptr %129, i32 0, i32 1
+  %131 = load i32, ptr %130, align 4, !tbaa !39
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 4, !tbaa !39
+  br label %133
 
-132:                                              ; preds = %124, %117
-  %133 = load ptr, ptr %18, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %137
+133:                                              ; preds = %125, %118
+  %134 = load ptr, ptr %18, align 8, !tbaa !32
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %138
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %136) #4
-  store ptr null, ptr %18, align 8
-  br label %138
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @free(ptr noundef %137) #5
+  store ptr null, ptr %18, align 8, !tbaa !32
+  br label %139
 
-137:                                              ; preds = %132
-  br label %138
+138:                                              ; preds = %133
+  br label %139
 
-138:                                              ; preds = %137, %135
-  br label %204
-
-139:                                              ; preds = %101
-  %140 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
-  store ptr %140, ptr %17, align 8
-  %141 = load ptr, ptr %17, align 8
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %156
-
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds %struct.DdManager, ptr %144, i32 0, i32 84
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef @.str) #4
-  %148 = load ptr, ptr %18, align 8
-  %149 = icmp ne ptr %148, null
-  br i1 %149, label %150, label %152
-
-150:                                              ; preds = %143
-  %151 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %151) #4
-  store ptr null, ptr %18, align 8
-  br label %153
-
-152:                                              ; preds = %143
-  br label %153
-
-153:                                              ; preds = %152, %150
-  %154 = load ptr, ptr %7, align 8
-  %155 = getelementptr inbounds %struct.DdManager, ptr %154, i32 0, i32 86
-  store i32 1, ptr %155, align 8
-  store ptr null, ptr %6, align 8
-  br label %219
-
-156:                                              ; preds = %139
-  %157 = load ptr, ptr %7, align 8
-  %158 = load ptr, ptr %8, align 8
-  %159 = load double, ptr %15, align 8
-  %160 = load ptr, ptr %17, align 8
-  %161 = call double @bddAnnotateMintermCount(ptr noundef %157, ptr noundef %158, double noundef %159, ptr noundef %160)
-  store double %161, ptr %16, align 8
-  %162 = load double, ptr %11, align 8
-  %163 = load double, ptr %16, align 8
-  %164 = fcmp oeq double %162, %163
-  br i1 %164, label %165, label %176
-
-165:                                              ; preds = %156
-  %166 = load ptr, ptr %17, align 8
-  %167 = call i32 @st__foreach(ptr noundef %166, ptr noundef @cuddStCountfree, ptr noundef null)
-  %168 = load ptr, ptr %17, align 8
-  call void @st__free_table(ptr noundef %168)
-  %169 = load ptr, ptr %18, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %171, label %173
-
-171:                                              ; preds = %165
-  %172 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %172) #4
-  store ptr null, ptr %18, align 8
-  br label %174
-
-173:                                              ; preds = %165
-  br label %174
-
-174:                                              ; preds = %173, %171
-  %175 = load ptr, ptr %8, align 8
-  store ptr %175, ptr %6, align 8
-  br label %219
-
-176:                                              ; preds = %156
-  %177 = load ptr, ptr %7, align 8
-  %178 = load ptr, ptr %17, align 8
-  %179 = load ptr, ptr %18, align 8
-  %180 = load ptr, ptr %8, align 8
-  %181 = load double, ptr %11, align 8
-  %182 = load double, ptr %15, align 8
-  %183 = call ptr @cuddSplitSetRecur(ptr noundef %177, ptr noundef %178, ptr noundef %179, ptr noundef %180, double noundef %181, double noundef %182, i32 noundef 0)
-  store ptr %183, ptr %12, align 8
-  %184 = load ptr, ptr %12, align 8
-  %185 = icmp ne ptr %184, null
-  br i1 %185, label %186, label %194
-
-186:                                              ; preds = %176
-  %187 = load ptr, ptr %12, align 8
-  %188 = ptrtoint ptr %187 to i64
-  %189 = and i64 %188, -2
-  %190 = inttoptr i64 %189 to ptr
-  %191 = getelementptr inbounds %struct.DdNode, ptr %190, i32 0, i32 1
-  %192 = load i32, ptr %191, align 4
-  %193 = add i32 %192, 1
-  store i32 %193, ptr %191, align 4
-  br label %194
-
-194:                                              ; preds = %186, %176
-  %195 = load ptr, ptr %17, align 8
-  %196 = call i32 @st__foreach(ptr noundef %195, ptr noundef @cuddStCountfree, ptr noundef null)
-  %197 = load ptr, ptr %17, align 8
-  call void @st__free_table(ptr noundef %197)
-  %198 = load ptr, ptr %18, align 8
-  %199 = icmp ne ptr %198, null
-  br i1 %199, label %200, label %202
-
-200:                                              ; preds = %194
-  %201 = load ptr, ptr %18, align 8
-  call void @free(ptr noundef %201) #4
-  store ptr null, ptr %18, align 8
-  br label %203
-
-202:                                              ; preds = %194
-  br label %203
-
-203:                                              ; preds = %202, %200
-  br label %204
-
-204:                                              ; preds = %203, %138
+139:                                              ; preds = %138, %136
   br label %205
 
-205:                                              ; preds = %204
-  %206 = load ptr, ptr %7, align 8
-  %207 = getelementptr inbounds %struct.DdManager, ptr %206, i32 0, i32 55
-  %208 = load i32, ptr %207, align 8
-  %209 = icmp eq i32 %208, 1
-  br i1 %209, label %50, label %210, !llvm.loop !7
+140:                                              ; preds = %102
+  %141 = call ptr @st__init_table(ptr noundef @st__ptrcmp, ptr noundef @st__ptrhash)
+  store ptr %141, ptr %17, align 8, !tbaa !40
+  %142 = load ptr, ptr %17, align 8, !tbaa !40
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %144, label %157
 
-210:                                              ; preds = %205
-  %211 = load ptr, ptr %12, align 8
-  %212 = ptrtoint ptr %211 to i64
-  %213 = and i64 %212, -2
-  %214 = inttoptr i64 %213 to ptr
-  %215 = getelementptr inbounds %struct.DdNode, ptr %214, i32 0, i32 1
-  %216 = load i32, ptr %215, align 4
-  %217 = add i32 %216, -1
-  store i32 %217, ptr %215, align 4
-  %218 = load ptr, ptr %12, align 8
-  store ptr %218, ptr %6, align 8
-  br label %219
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %7, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw %struct.DdManager, ptr %145, i32 0, i32 84
+  %147 = load ptr, ptr %146, align 8, !tbaa !42
+  %148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef @.str) #5
+  %149 = load ptr, ptr %18, align 8, !tbaa !32
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %153
 
-219:                                              ; preds = %210, %174, %153, %115, %59, %48, %40, %34
-  %220 = load ptr, ptr %6, align 8
-  ret ptr %220
+151:                                              ; preds = %144
+  %152 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @free(ptr noundef %152) #5
+  store ptr null, ptr %18, align 8, !tbaa !32
+  br label %154
+
+153:                                              ; preds = %144
+  br label %154
+
+154:                                              ; preds = %153, %151
+  %155 = load ptr, ptr %7, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.DdManager, ptr %155, i32 0, i32 86
+  store i32 1, ptr %156, align 8, !tbaa !33
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %220
+
+157:                                              ; preds = %140
+  %158 = load ptr, ptr %7, align 8, !tbaa !3
+  %159 = load ptr, ptr %8, align 8, !tbaa !8
+  %160 = load double, ptr %15, align 8, !tbaa !14
+  %161 = load ptr, ptr %17, align 8, !tbaa !40
+  %162 = call double @bddAnnotateMintermCount(ptr noundef %158, ptr noundef %159, double noundef %160, ptr noundef %161)
+  store double %162, ptr %16, align 8, !tbaa !14
+  %163 = load double, ptr %11, align 8, !tbaa !14
+  %164 = load double, ptr %16, align 8, !tbaa !14
+  %165 = fcmp oeq double %163, %164
+  br i1 %165, label %166, label %177
+
+166:                                              ; preds = %157
+  %167 = load ptr, ptr %17, align 8, !tbaa !40
+  %168 = call i32 @st__foreach(ptr noundef %167, ptr noundef @cuddStCountfree, ptr noundef null)
+  %169 = load ptr, ptr %17, align 8, !tbaa !40
+  call void @st__free_table(ptr noundef %169)
+  %170 = load ptr, ptr %18, align 8, !tbaa !32
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %174
+
+172:                                              ; preds = %166
+  %173 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @free(ptr noundef %173) #5
+  store ptr null, ptr %18, align 8, !tbaa !32
+  br label %175
+
+174:                                              ; preds = %166
+  br label %175
+
+175:                                              ; preds = %174, %172
+  %176 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %176, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %220
+
+177:                                              ; preds = %157
+  %178 = load ptr, ptr %7, align 8, !tbaa !3
+  %179 = load ptr, ptr %17, align 8, !tbaa !40
+  %180 = load ptr, ptr %18, align 8, !tbaa !32
+  %181 = load ptr, ptr %8, align 8, !tbaa !8
+  %182 = load double, ptr %11, align 8, !tbaa !14
+  %183 = load double, ptr %15, align 8, !tbaa !14
+  %184 = call ptr @cuddSplitSetRecur(ptr noundef %178, ptr noundef %179, ptr noundef %180, ptr noundef %181, double noundef %182, double noundef %183, i32 noundef 0)
+  store ptr %184, ptr %12, align 8, !tbaa !8
+  %185 = load ptr, ptr %12, align 8, !tbaa !8
+  %186 = icmp ne ptr %185, null
+  br i1 %186, label %187, label %195
+
+187:                                              ; preds = %177
+  %188 = load ptr, ptr %12, align 8, !tbaa !8
+  %189 = ptrtoint ptr %188 to i64
+  %190 = and i64 %189, -2
+  %191 = inttoptr i64 %190 to ptr
+  %192 = getelementptr inbounds nuw %struct.DdNode, ptr %191, i32 0, i32 1
+  %193 = load i32, ptr %192, align 4, !tbaa !39
+  %194 = add i32 %193, 1
+  store i32 %194, ptr %192, align 4, !tbaa !39
+  br label %195
+
+195:                                              ; preds = %187, %177
+  %196 = load ptr, ptr %17, align 8, !tbaa !40
+  %197 = call i32 @st__foreach(ptr noundef %196, ptr noundef @cuddStCountfree, ptr noundef null)
+  %198 = load ptr, ptr %17, align 8, !tbaa !40
+  call void @st__free_table(ptr noundef %198)
+  %199 = load ptr, ptr %18, align 8, !tbaa !32
+  %200 = icmp ne ptr %199, null
+  br i1 %200, label %201, label %203
+
+201:                                              ; preds = %195
+  %202 = load ptr, ptr %18, align 8, !tbaa !32
+  call void @free(ptr noundef %202) #5
+  store ptr null, ptr %18, align 8, !tbaa !32
+  br label %204
+
+203:                                              ; preds = %195
+  br label %204
+
+204:                                              ; preds = %203, %201
+  br label %205
+
+205:                                              ; preds = %204, %139
+  br label %206
+
+206:                                              ; preds = %205
+  %207 = load ptr, ptr %7, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.DdManager, ptr %207, i32 0, i32 55
+  %209 = load i32, ptr %208, align 8, !tbaa !31
+  %210 = icmp eq i32 %209, 1
+  br i1 %210, label %51, label %211, !llvm.loop !43
+
+211:                                              ; preds = %206
+  %212 = load ptr, ptr %12, align 8, !tbaa !8
+  %213 = ptrtoint ptr %212 to i64
+  %214 = and i64 %213, -2
+  %215 = inttoptr i64 %214 to ptr
+  %216 = getelementptr inbounds nuw %struct.DdNode, ptr %215, i32 0, i32 1
+  %217 = load i32, ptr %216, align 4, !tbaa !39
+  %218 = add i32 %217, -1
+  store i32 %218, ptr %216, align 4, !tbaa !39
+  %219 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %219, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %220
+
+220:                                              ; preds = %211, %175, %154, %116, %60, %49, %41, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %221 = load ptr, ptr %6, align 8
+  ret ptr %221
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #1
+declare double @pow(double noundef, double noundef) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @selectMintermsFromUniverse(ptr noundef %0, ptr noundef %1, double noundef %2) #0 {
@@ -395,218 +427,237 @@ define internal ptr @selectMintermsFromUniverse(ptr noundef %0, ptr noundef %1, 
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  store i32 0, ptr %8, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.DdManager, ptr %16, i32 0, i32 15
-  %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %10, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.DdManager, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %12, align 8
-  %22 = load ptr, ptr %12, align 8
-  %23 = ptrtoint ptr %22 to i64
-  %24 = xor i64 %23, 1
-  %25 = inttoptr i64 %24 to ptr
-  store ptr %25, ptr %13, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = sub nsw i32 %26, 1
-  store i32 %27, ptr %9, align 4
-  br label %28
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !32
+  store double %2, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  store i32 0, ptr %8, align 4, !tbaa !12
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.DdManager, ptr %17, i32 0, i32 15
+  %19 = load i32, ptr %18, align 8, !tbaa !16
+  store i32 %19, ptr %10, align 4, !tbaa !12
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.DdManager, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  store ptr %22, ptr %12, align 8, !tbaa !8
+  %23 = load ptr, ptr %12, align 8, !tbaa !8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = xor i64 %24, 1
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %13, align 8, !tbaa !8
+  %27 = load i32, ptr %10, align 4, !tbaa !12
+  %28 = sub nsw i32 %27, 1
+  store i32 %28, ptr %9, align 4, !tbaa !12
+  br label %29
 
-28:                                               ; preds = %42, %3
-  %29 = load i32, ptr %9, align 4
-  %30 = icmp sge i32 %29, 0
-  br i1 %30, label %31, label %45
+29:                                               ; preds = %43, %3
+  %30 = load i32, ptr %9, align 4, !tbaa !12
+  %31 = icmp sge i32 %30, 0
+  br i1 %31, label %32, label %46
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %6, align 8
-  %33 = load i32, ptr %9, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %32, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %41
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %6, align 8, !tbaa !32
+  %34 = load i32, ptr %9, align 4, !tbaa !12
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i32, ptr %33, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !12
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %31
-  %39 = load i32, ptr %8, align 4
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %8, align 4
-  br label %41
-
-41:                                               ; preds = %38, %31
+39:                                               ; preds = %32
+  %40 = load i32, ptr %8, align 4, !tbaa !12
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %8, align 4, !tbaa !12
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %9, align 4
-  %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %9, align 4
-  br label %28, !llvm.loop !8
+42:                                               ; preds = %39, %32
+  br label %43
 
-45:                                               ; preds = %28
-  %46 = load i32, ptr %8, align 4
-  %47 = sext i32 %46 to i64
-  %48 = mul i64 8, %47
-  %49 = call noalias ptr @malloc(i64 noundef %48) #5
-  store ptr %49, ptr %15, align 8
-  %50 = load ptr, ptr %15, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %55, label %52
+43:                                               ; preds = %42
+  %44 = load i32, ptr %9, align 4, !tbaa !12
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %9, align 4, !tbaa !12
+  br label %29, !llvm.loop !44
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.DdManager, ptr %53, i32 0, i32 86
-  store i32 1, ptr %54, align 8
+46:                                               ; preds = %29
+  %47 = load i32, ptr %8, align 4, !tbaa !12
+  %48 = sext i32 %47 to i64
+  %49 = mul i64 8, %48
+  %50 = call noalias ptr @malloc(i64 noundef %49) #6
+  store ptr %50, ptr %15, align 8, !tbaa !10
+  %51 = load ptr, ptr %15, align 8, !tbaa !10
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %56, label %53
+
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %5, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.DdManager, ptr %54, i32 0, i32 86
+  store i32 1, ptr %55, align 8, !tbaa !33
   store ptr null, ptr %4, align 8
-  br label %140
+  store i32 1, ptr %16, align 4
+  br label %141
 
-55:                                               ; preds = %45
-  store i32 0, ptr %11, align 4
-  %56 = load i32, ptr %10, align 4
-  %57 = sub nsw i32 %56, 1
-  store i32 %57, ptr %9, align 4
-  br label %58
+56:                                               ; preds = %46
+  store i32 0, ptr %11, align 4, !tbaa !12
+  %57 = load i32, ptr %10, align 4, !tbaa !12
+  %58 = sub nsw i32 %57, 1
+  store i32 %58, ptr %9, align 4, !tbaa !12
+  br label %59
 
-58:                                               ; preds = %98, %55
-  %59 = load i32, ptr %9, align 4
-  %60 = icmp sge i32 %59, 0
-  br i1 %60, label %61, label %101
+59:                                               ; preds = %99, %56
+  %60 = load i32, ptr %9, align 4, !tbaa !12
+  %61 = icmp sge i32 %60, 0
+  br i1 %61, label %62, label %102
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %9, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %62, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %97
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %6, align 8, !tbaa !32
+  %64 = load i32, ptr %9, align 4, !tbaa !12
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i32, ptr %63, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !12
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %98
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.DdManager, ptr %70, i32 0, i32 37
-  %72 = load ptr, ptr %71, align 8
-  %73 = load i32, ptr %9, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %72, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = load ptr, ptr %12, align 8
-  %78 = load ptr, ptr %13, align 8
-  %79 = call ptr @cuddUniqueInter(ptr noundef %69, i32 noundef %76, ptr noundef %77, ptr noundef %78)
-  %80 = load ptr, ptr %15, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
-  store ptr %79, ptr %83, align 8
-  %84 = load ptr, ptr %15, align 8
-  %85 = load i32, ptr %11, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %88 to i64
-  %90 = and i64 %89, -2
-  %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds %struct.DdNode, ptr %91, i32 0, i32 1
-  %93 = load i32, ptr %92, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %92, align 4
-  %95 = load i32, ptr %11, align 4
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %11, align 4
-  br label %97
-
-97:                                               ; preds = %68, %61
+69:                                               ; preds = %62
+  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.DdManager, ptr %71, i32 0, i32 37
+  %73 = load ptr, ptr %72, align 8, !tbaa !45
+  %74 = load i32, ptr %9, align 4, !tbaa !12
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %73, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !12
+  %78 = load ptr, ptr %12, align 8, !tbaa !8
+  %79 = load ptr, ptr %13, align 8, !tbaa !8
+  %80 = call ptr @cuddUniqueInter(ptr noundef %70, i32 noundef %77, ptr noundef %78, ptr noundef %79)
+  %81 = load ptr, ptr %15, align 8, !tbaa !10
+  %82 = load i32, ptr %11, align 4, !tbaa !12
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
+  store ptr %80, ptr %84, align 8, !tbaa !8
+  %85 = load ptr, ptr %15, align 8, !tbaa !10
+  %86 = load i32, ptr %11, align 4, !tbaa !12
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  %89 = load ptr, ptr %88, align 8, !tbaa !8
+  %90 = ptrtoint ptr %89 to i64
+  %91 = and i64 %90, -2
+  %92 = inttoptr i64 %91 to ptr
+  %93 = getelementptr inbounds nuw %struct.DdNode, ptr %92, i32 0, i32 1
+  %94 = load i32, ptr %93, align 4, !tbaa !39
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %93, align 4, !tbaa !39
+  %96 = load i32, ptr %11, align 4, !tbaa !12
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %11, align 4, !tbaa !12
   br label %98
 
-98:                                               ; preds = %97
-  %99 = load i32, ptr %9, align 4
-  %100 = add nsw i32 %99, -1
-  store i32 %100, ptr %9, align 4
-  br label %58, !llvm.loop !9
+98:                                               ; preds = %69, %62
+  br label %99
 
-101:                                              ; preds = %58
-  %102 = load ptr, ptr %5, align 8
-  %103 = load ptr, ptr %15, align 8
-  %104 = load i32, ptr %8, align 4
-  %105 = load double, ptr %7, align 8
-  %106 = call ptr @mintermsFromUniverse(ptr noundef %102, ptr noundef %103, i32 noundef %104, double noundef %105, i32 noundef 0)
-  store ptr %106, ptr %14, align 8
-  %107 = load ptr, ptr %14, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %117
+99:                                               ; preds = %98
+  %100 = load i32, ptr %9, align 4, !tbaa !12
+  %101 = add nsw i32 %100, -1
+  store i32 %101, ptr %9, align 4, !tbaa !12
+  br label %59, !llvm.loop !46
 
-109:                                              ; preds = %101
-  %110 = load ptr, ptr %14, align 8
-  %111 = ptrtoint ptr %110 to i64
-  %112 = and i64 %111, -2
-  %113 = inttoptr i64 %112 to ptr
-  %114 = getelementptr inbounds %struct.DdNode, ptr %113, i32 0, i32 1
-  %115 = load i32, ptr %114, align 4
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %114, align 4
-  br label %117
+102:                                              ; preds = %59
+  %103 = load ptr, ptr %5, align 8, !tbaa !3
+  %104 = load ptr, ptr %15, align 8, !tbaa !10
+  %105 = load i32, ptr %8, align 4, !tbaa !12
+  %106 = load double, ptr %7, align 8, !tbaa !14
+  %107 = call ptr @mintermsFromUniverse(ptr noundef %103, ptr noundef %104, i32 noundef %105, double noundef %106, i32 noundef 0)
+  store ptr %107, ptr %14, align 8, !tbaa !8
+  %108 = load ptr, ptr %14, align 8, !tbaa !8
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %118
 
-117:                                              ; preds = %109, %101
-  store i32 0, ptr %9, align 4
+110:                                              ; preds = %102
+  %111 = load ptr, ptr %14, align 8, !tbaa !8
+  %112 = ptrtoint ptr %111 to i64
+  %113 = and i64 %112, -2
+  %114 = inttoptr i64 %113 to ptr
+  %115 = getelementptr inbounds nuw %struct.DdNode, ptr %114, i32 0, i32 1
+  %116 = load i32, ptr %115, align 4, !tbaa !39
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %115, align 4, !tbaa !39
   br label %118
 
-118:                                              ; preds = %129, %117
-  %119 = load i32, ptr %9, align 4
-  %120 = load i32, ptr %8, align 4
-  %121 = icmp slt i32 %119, %120
-  br i1 %121, label %122, label %132
+118:                                              ; preds = %110, %102
+  store i32 0, ptr %9, align 4, !tbaa !12
+  br label %119
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %5, align 8
-  %124 = load ptr, ptr %15, align 8
-  %125 = load i32, ptr %9, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %123, ptr noundef %128)
-  br label %129
+119:                                              ; preds = %130, %118
+  %120 = load i32, ptr %9, align 4, !tbaa !12
+  %121 = load i32, ptr %8, align 4, !tbaa !12
+  %122 = icmp slt i32 %120, %121
+  br i1 %122, label %123, label %133
 
-129:                                              ; preds = %122
-  %130 = load i32, ptr %9, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %9, align 4
-  br label %118, !llvm.loop !10
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %5, align 8, !tbaa !3
+  %125 = load ptr, ptr %15, align 8, !tbaa !10
+  %126 = load i32, ptr %9, align 4, !tbaa !12
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds ptr, ptr %125, i64 %127
+  %129 = load ptr, ptr %128, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %124, ptr noundef %129)
+  br label %130
 
-132:                                              ; preds = %118
-  %133 = load ptr, ptr %15, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %137
+130:                                              ; preds = %123
+  %131 = load i32, ptr %9, align 4, !tbaa !12
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %9, align 4, !tbaa !12
+  br label %119, !llvm.loop !47
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %136) #4
-  store ptr null, ptr %15, align 8
-  br label %138
+133:                                              ; preds = %119
+  %134 = load ptr, ptr %15, align 8, !tbaa !10
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %138
 
-137:                                              ; preds = %132
-  br label %138
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %15, align 8, !tbaa !10
+  call void @free(ptr noundef %137) #5
+  store ptr null, ptr %15, align 8, !tbaa !10
+  br label %139
 
-138:                                              ; preds = %137, %135
-  %139 = load ptr, ptr %14, align 8
-  store ptr %139, ptr %4, align 8
-  br label %140
+138:                                              ; preds = %133
+  br label %139
 
-140:                                              ; preds = %138, %52
-  %141 = load ptr, ptr %4, align 8
-  ret ptr %141
+139:                                              ; preds = %138, %136
+  %140 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %140, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %141
+
+141:                                              ; preds = %139, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %142 = load ptr, ptr %4, align 8
+  ret ptr %142
 }
 
-declare ptr @st__init_table(ptr noundef, ptr noundef) #3
+declare ptr @st__init_table(ptr noundef, ptr noundef) #4
 
-declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #3
+declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #4
 
-declare i32 @st__ptrhash(ptr noundef, i32 noundef) #3
+declare i32 @st__ptrhash(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define internal double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) #0 {
@@ -623,174 +674,199 @@ define internal double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, 
   %15 = alloca double, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store double %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  store ptr %21, ptr %10, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %struct.DdNode, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, 2147483647
-  br i1 %25, label %26, label %35
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store double %2, ptr %8, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %19 = load ptr, ptr %7, align 8, !tbaa !8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, -2
+  %22 = inttoptr i64 %21 to ptr
+  store ptr %22, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.DdNode, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 8, !tbaa !36
+  %26 = icmp eq i32 %25, 2147483647
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %4
-  %27 = load ptr, ptr %7, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.DdManager, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %27, %30
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %4
+  %28 = load ptr, ptr %7, align 8, !tbaa !8
+  %29 = load ptr, ptr %6, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.DdManager, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %32 = icmp eq ptr %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %26
-  %33 = load double, ptr %8, align 8
-  store double %33, ptr %5, align 8
-  br label %111
+33:                                               ; preds = %27
+  %34 = load double, ptr %8, align 8, !tbaa !14
+  store double %34, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %112
 
-34:                                               ; preds = %26
+35:                                               ; preds = %27
   store double 0.000000e+00, ptr %5, align 8
-  br label %111
+  store i32 1, ptr %18, align 4
+  br label %112
 
-35:                                               ; preds = %4
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = call i32 @st__lookup(ptr noundef %36, ptr noundef %37, ptr noundef %17)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %43
+36:                                               ; preds = %4
+  %37 = load ptr, ptr %9, align 8, !tbaa !40
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = call i32 @st__lookup(ptr noundef %37, ptr noundef %38, ptr noundef %17)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %17, align 8
-  %42 = load double, ptr %41, align 8
-  store double %42, ptr %5, align 8
-  br label %111
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %17, align 8, !tbaa !48
+  %43 = load double, ptr %42, align 8, !tbaa !14
+  store double %43, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %112
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.DdNode, ptr %44, i32 0, i32 3
-  %46 = getelementptr inbounds %struct.DdChildren, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %11, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.DdNode, ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds %struct.DdChildren, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %12, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = icmp ne ptr %52, %53
-  br i1 %54, label %55, label %64
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.DdNode, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.DdChildren, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !50
+  store ptr %48, ptr %11, align 8, !tbaa !8
+  %49 = load ptr, ptr %10, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.DdNode, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.DdChildren, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !50
+  store ptr %52, ptr %12, align 8, !tbaa !8
+  %53 = load ptr, ptr %10, align 8, !tbaa !8
+  %54 = load ptr, ptr %7, align 8, !tbaa !8
+  %55 = icmp ne ptr %53, %54
+  br i1 %55, label %56, label %65
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %11, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = xor i64 %57, 1
-  %59 = inttoptr i64 %58 to ptr
-  store ptr %59, ptr %11, align 8
-  %60 = load ptr, ptr %12, align 8
-  %61 = ptrtoint ptr %60 to i64
-  %62 = xor i64 %61, 1
-  %63 = inttoptr i64 %62 to ptr
-  store ptr %63, ptr %12, align 8
-  br label %64
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %11, align 8, !tbaa !8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = xor i64 %58, 1
+  %60 = inttoptr i64 %59 to ptr
+  store ptr %60, ptr %11, align 8, !tbaa !8
+  %61 = load ptr, ptr %12, align 8, !tbaa !8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = xor i64 %62, 1
+  %64 = inttoptr i64 %63 to ptr
+  store ptr %64, ptr %12, align 8, !tbaa !8
+  br label %65
 
-64:                                               ; preds = %55, %43
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %11, align 8
-  %67 = load double, ptr %8, align 8
-  %68 = load ptr, ptr %9, align 8
-  %69 = call double @bddAnnotateMintermCount(ptr noundef %65, ptr noundef %66, double noundef %67, ptr noundef %68)
-  %70 = fdiv double %69, 2.000000e+00
-  store double %70, ptr %13, align 8
-  %71 = load double, ptr %13, align 8
-  %72 = fcmp oeq double %71, -1.000000e+00
-  br i1 %72, label %73, label %74
+65:                                               ; preds = %56, %44
+  %66 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = load ptr, ptr %11, align 8, !tbaa !8
+  %68 = load double, ptr %8, align 8, !tbaa !14
+  %69 = load ptr, ptr %9, align 8, !tbaa !40
+  %70 = call double @bddAnnotateMintermCount(ptr noundef %66, ptr noundef %67, double noundef %68, ptr noundef %69)
+  %71 = fdiv double %70, 2.000000e+00
+  store double %71, ptr %13, align 8, !tbaa !14
+  %72 = load double, ptr %13, align 8, !tbaa !14
+  %73 = fcmp oeq double %72, -1.000000e+00
+  br i1 %73, label %74, label %75
 
-73:                                               ; preds = %64
+74:                                               ; preds = %65
   store double -1.000000e+00, ptr %5, align 8
-  br label %111
+  store i32 1, ptr %18, align 4
+  br label %112
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %6, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = load double, ptr %8, align 8
-  %78 = load ptr, ptr %9, align 8
-  %79 = call double @bddAnnotateMintermCount(ptr noundef %75, ptr noundef %76, double noundef %77, ptr noundef %78)
-  %80 = fdiv double %79, 2.000000e+00
-  store double %80, ptr %14, align 8
-  %81 = load double, ptr %14, align 8
-  %82 = fcmp oeq double %81, -1.000000e+00
-  br i1 %82, label %83, label %84
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %6, align 8, !tbaa !3
+  %77 = load ptr, ptr %12, align 8, !tbaa !8
+  %78 = load double, ptr %8, align 8, !tbaa !14
+  %79 = load ptr, ptr %9, align 8, !tbaa !40
+  %80 = call double @bddAnnotateMintermCount(ptr noundef %76, ptr noundef %77, double noundef %78, ptr noundef %79)
+  %81 = fdiv double %80, 2.000000e+00
+  store double %81, ptr %14, align 8, !tbaa !14
+  %82 = load double, ptr %14, align 8, !tbaa !14
+  %83 = fcmp oeq double %82, -1.000000e+00
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %74
+84:                                               ; preds = %75
   store double -1.000000e+00, ptr %5, align 8
-  br label %111
+  store i32 1, ptr %18, align 4
+  br label %112
 
-84:                                               ; preds = %74
-  %85 = load double, ptr %13, align 8
-  %86 = load double, ptr %14, align 8
-  %87 = fadd double %85, %86
-  store double %87, ptr %15, align 8
-  %88 = call noalias ptr @malloc(i64 noundef 8) #5
-  store ptr %88, ptr %16, align 8
-  %89 = load ptr, ptr %16, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %94
+85:                                               ; preds = %75
+  %86 = load double, ptr %13, align 8, !tbaa !14
+  %87 = load double, ptr %14, align 8, !tbaa !14
+  %88 = fadd double %86, %87
+  store double %88, ptr %15, align 8, !tbaa !14
+  %89 = call noalias ptr @malloc(i64 noundef 8) #6
+  store ptr %89, ptr %16, align 8, !tbaa !48
+  %90 = load ptr, ptr %16, align 8, !tbaa !48
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %95
 
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct.DdManager, ptr %92, i32 0, i32 86
-  store i32 1, ptr %93, align 8
+92:                                               ; preds = %85
+  %93 = load ptr, ptr %6, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.DdManager, ptr %93, i32 0, i32 86
+  store i32 1, ptr %94, align 8, !tbaa !33
   store double -1.000000e+00, ptr %5, align 8
-  br label %111
+  store i32 1, ptr %18, align 4
+  br label %112
 
-94:                                               ; preds = %84
-  %95 = load double, ptr %15, align 8
-  %96 = load ptr, ptr %16, align 8
-  store double %95, ptr %96, align 8
-  %97 = load ptr, ptr %9, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = load ptr, ptr %16, align 8
-  %100 = call i32 @st__insert(ptr noundef %97, ptr noundef %98, ptr noundef %99)
-  %101 = icmp eq i32 %100, -10000
-  br i1 %101, label %102, label %109
+95:                                               ; preds = %85
+  %96 = load double, ptr %15, align 8, !tbaa !14
+  %97 = load ptr, ptr %16, align 8, !tbaa !48
+  store double %96, ptr %97, align 8, !tbaa !14
+  %98 = load ptr, ptr %9, align 8, !tbaa !40
+  %99 = load ptr, ptr %7, align 8, !tbaa !8
+  %100 = load ptr, ptr %16, align 8, !tbaa !48
+  %101 = call i32 @st__insert(ptr noundef %98, ptr noundef %99, ptr noundef %100)
+  %102 = icmp eq i32 %101, -10000
+  br i1 %102, label %103, label %110
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr %16, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %107
+103:                                              ; preds = %95
+  %104 = load ptr, ptr %16, align 8, !tbaa !48
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %108
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %16, align 8
-  call void @free(ptr noundef %106) #4
-  store ptr null, ptr %16, align 8
-  br label %108
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %16, align 8, !tbaa !48
+  call void @free(ptr noundef %107) #5
+  store ptr null, ptr %16, align 8, !tbaa !48
+  br label %109
 
-107:                                              ; preds = %102
-  br label %108
+108:                                              ; preds = %103
+  br label %109
 
-108:                                              ; preds = %107, %105
+109:                                              ; preds = %108, %106
   store double -1.000000e+00, ptr %5, align 8
-  br label %111
+  store i32 1, ptr %18, align 4
+  br label %112
 
-109:                                              ; preds = %94
-  %110 = load double, ptr %15, align 8
-  store double %110, ptr %5, align 8
-  br label %111
+110:                                              ; preds = %95
+  %111 = load double, ptr %15, align 8, !tbaa !14
+  store double %111, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %112
 
-111:                                              ; preds = %109, %108, %91, %83, %73, %40, %34, %32
-  %112 = load double, ptr %5, align 8
-  ret double %112
+112:                                              ; preds = %110, %109, %92, %84, %74, %41, %35, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %113 = load double, ptr %5, align 8
+  ret double %113
 }
 
-declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @cuddStCountfree(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @cuddStCountfree(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare void @st__free_table(ptr noundef) #3
+declare void @st__free_table(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, i32 noundef %6) #0 {
@@ -816,892 +892,949 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %27 = alloca double, align 8
   %28 = alloca i32, align 4
   %29 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store double %4, ptr %13, align 8
-  store double %5, ptr %14, align 8
-  store i32 %6, ptr %15, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.DdManager, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %16, align 8
-  %33 = load ptr, ptr %16, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = xor i64 %34, 1
-  %36 = inttoptr i64 %35 to ptr
-  store ptr %36, ptr %17, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = and i64 %38, -2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds %struct.DdNode, ptr %40, i32 0, i32 0
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 2147483647
-  br i1 %43, label %44, label %50
+  %30 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !3
+  store ptr %1, ptr %10, align 8, !tbaa !40
+  store ptr %2, ptr %11, align 8, !tbaa !32
+  store ptr %3, ptr %12, align 8, !tbaa !8
+  store double %4, ptr %13, align 8, !tbaa !14
+  store double %5, ptr %14, align 8, !tbaa !14
+  store i32 %6, ptr %15, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #5
+  %31 = load ptr, ptr %9, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.DdManager, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
+  store ptr %33, ptr %16, align 8, !tbaa !8
+  %34 = load ptr, ptr %16, align 8, !tbaa !8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = xor i64 %35, 1
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr %17, align 8, !tbaa !8
+  %38 = load ptr, ptr %12, align 8, !tbaa !8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = and i64 %39, -2
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw %struct.DdNode, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr %42, align 8, !tbaa !36
+  %44 = icmp eq i32 %43, 2147483647
+  br i1 %44, label %45, label %51
 
-44:                                               ; preds = %7
-  %45 = load ptr, ptr %9, align 8
-  %46 = load ptr, ptr %11, align 8
-  %47 = load double, ptr %13, align 8
-  %48 = call ptr @selectMintermsFromUniverse(ptr noundef %45, ptr noundef %46, double noundef %47)
-  store ptr %48, ptr %21, align 8
-  %49 = load ptr, ptr %21, align 8
-  store ptr %49, ptr %8, align 8
-  br label %635
+45:                                               ; preds = %7
+  %46 = load ptr, ptr %9, align 8, !tbaa !3
+  %47 = load ptr, ptr %11, align 8, !tbaa !32
+  %48 = load double, ptr %13, align 8, !tbaa !14
+  %49 = call ptr @selectMintermsFromUniverse(ptr noundef %46, ptr noundef %47, double noundef %48)
+  store ptr %49, ptr %21, align 8, !tbaa !8
+  %50 = load ptr, ptr %21, align 8, !tbaa !8
+  store ptr %50, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-50:                                               ; preds = %7
-  %51 = load ptr, ptr %12, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = and i64 %52, -2
-  %54 = inttoptr i64 %53 to ptr
-  store ptr %54, ptr %18, align 8
-  %55 = load ptr, ptr %18, align 8
-  %56 = getelementptr inbounds %struct.DdNode, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 8
-  store i32 %57, ptr %28, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct.DdManager, ptr %59, i32 0, i32 39
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %28, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %58, i64 %66
-  store i32 -1, ptr %67, align 4
-  %68 = load ptr, ptr %18, align 8
-  %69 = getelementptr inbounds %struct.DdNode, ptr %68, i32 0, i32 3
-  %70 = getelementptr inbounds %struct.DdChildren, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  store ptr %71, ptr %19, align 8
-  %72 = load ptr, ptr %18, align 8
-  %73 = getelementptr inbounds %struct.DdNode, ptr %72, i32 0, i32 3
-  %74 = getelementptr inbounds %struct.DdChildren, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %20, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = and i64 %77, 1
-  %79 = trunc i64 %78 to i32
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %90
+51:                                               ; preds = %7
+  %52 = load ptr, ptr %12, align 8, !tbaa !8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = and i64 %53, -2
+  %55 = inttoptr i64 %54 to ptr
+  store ptr %55, ptr %18, align 8, !tbaa !8
+  %56 = load ptr, ptr %18, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.DdNode, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 8, !tbaa !36
+  store i32 %58, ptr %28, align 4, !tbaa !12
+  %59 = load ptr, ptr %11, align 8, !tbaa !32
+  %60 = load ptr, ptr %9, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.DdManager, ptr %60, i32 0, i32 39
+  %62 = load ptr, ptr %61, align 8, !tbaa !37
+  %63 = load i32, ptr %28, align 4, !tbaa !12
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !12
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %59, i64 %67
+  store i32 -1, ptr %68, align 4, !tbaa !12
+  %69 = load ptr, ptr %18, align 8, !tbaa !8
+  %70 = getelementptr inbounds nuw %struct.DdNode, ptr %69, i32 0, i32 3
+  %71 = getelementptr inbounds nuw %struct.DdChildren, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
+  store ptr %72, ptr %19, align 8, !tbaa !8
+  %73 = load ptr, ptr %18, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw %struct.DdNode, ptr %73, i32 0, i32 3
+  %75 = getelementptr inbounds nuw %struct.DdChildren, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8, !tbaa !50
+  store ptr %76, ptr %20, align 8, !tbaa !8
+  %77 = load ptr, ptr %12, align 8, !tbaa !8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = and i64 %78, 1
+  %80 = trunc i64 %79 to i32
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %91
 
-81:                                               ; preds = %50
-  %82 = load ptr, ptr %19, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = xor i64 %83, 1
-  %85 = inttoptr i64 %84 to ptr
-  store ptr %85, ptr %19, align 8
-  %86 = load ptr, ptr %20, align 8
-  %87 = ptrtoint ptr %86 to i64
-  %88 = xor i64 %87, 1
-  %89 = inttoptr i64 %88 to ptr
-  store ptr %89, ptr %20, align 8
-  br label %90
+82:                                               ; preds = %51
+  %83 = load ptr, ptr %19, align 8, !tbaa !8
+  %84 = ptrtoint ptr %83 to i64
+  %85 = xor i64 %84, 1
+  %86 = inttoptr i64 %85 to ptr
+  store ptr %86, ptr %19, align 8, !tbaa !8
+  %87 = load ptr, ptr %20, align 8, !tbaa !8
+  %88 = ptrtoint ptr %87 to i64
+  %89 = xor i64 %88, 1
+  %90 = inttoptr i64 %89 to ptr
+  store ptr %90, ptr %20, align 8, !tbaa !8
+  br label %91
 
-90:                                               ; preds = %81, %50
-  %91 = load ptr, ptr %19, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = and i64 %92, -2
-  %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds %struct.DdNode, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 2147483647
-  br i1 %97, label %98, label %149
+91:                                               ; preds = %82, %51
+  %92 = load ptr, ptr %19, align 8, !tbaa !8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = and i64 %93, -2
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds nuw %struct.DdNode, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8, !tbaa !36
+  %98 = icmp eq i32 %97, 2147483647
+  br i1 %98, label %99, label %150
 
-98:                                               ; preds = %90
-  %99 = load ptr, ptr %20, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = and i64 %100, -2
-  %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds %struct.DdNode, ptr %102, i32 0, i32 0
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, 2147483647
-  br i1 %105, label %106, label %149
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %20, align 8, !tbaa !8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = and i64 %101, -2
+  %103 = inttoptr i64 %102 to ptr
+  %104 = getelementptr inbounds nuw %struct.DdNode, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 8, !tbaa !36
+  %106 = icmp eq i32 %105, 2147483647
+  br i1 %106, label %107, label %150
 
-106:                                              ; preds = %98
-  %107 = load ptr, ptr %9, align 8
-  %108 = load ptr, ptr %11, align 8
-  %109 = load double, ptr %13, align 8
-  %110 = call ptr @selectMintermsFromUniverse(ptr noundef %107, ptr noundef %108, double noundef %109)
-  store ptr %110, ptr %21, align 8
-  %111 = load ptr, ptr %21, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %114
+107:                                              ; preds = %99
+  %108 = load ptr, ptr %9, align 8, !tbaa !3
+  %109 = load ptr, ptr %11, align 8, !tbaa !32
+  %110 = load double, ptr %13, align 8, !tbaa !14
+  %111 = call ptr @selectMintermsFromUniverse(ptr noundef %108, ptr noundef %109, double noundef %110)
+  store ptr %111, ptr %21, align 8, !tbaa !8
+  %112 = load ptr, ptr %21, align 8, !tbaa !8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %106
+114:                                              ; preds = %107
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %21, align 8
-  %116 = ptrtoint ptr %115 to i64
-  %117 = and i64 %116, -2
-  %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds %struct.DdNode, ptr %118, i32 0, i32 1
-  %120 = load i32, ptr %119, align 4
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %119, align 4
-  %122 = load ptr, ptr %9, align 8
-  %123 = load ptr, ptr %12, align 8
-  %124 = load ptr, ptr %21, align 8
-  %125 = call ptr @cuddBddAndRecur(ptr noundef %122, ptr noundef %123, ptr noundef %124)
-  store ptr %125, ptr %22, align 8
-  %126 = load ptr, ptr %22, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %131
+115:                                              ; preds = %107
+  %116 = load ptr, ptr %21, align 8, !tbaa !8
+  %117 = ptrtoint ptr %116 to i64
+  %118 = and i64 %117, -2
+  %119 = inttoptr i64 %118 to ptr
+  %120 = getelementptr inbounds nuw %struct.DdNode, ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %120, align 4, !tbaa !39
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %120, align 4, !tbaa !39
+  %123 = load ptr, ptr %9, align 8, !tbaa !3
+  %124 = load ptr, ptr %12, align 8, !tbaa !8
+  %125 = load ptr, ptr %21, align 8, !tbaa !8
+  %126 = call ptr @cuddBddAndRecur(ptr noundef %123, ptr noundef %124, ptr noundef %125)
+  store ptr %126, ptr %22, align 8, !tbaa !8
+  %127 = load ptr, ptr %22, align 8, !tbaa !8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %114
-  %129 = load ptr, ptr %9, align 8
-  %130 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %129, ptr noundef %130)
+129:                                              ; preds = %115
+  %130 = load ptr, ptr %9, align 8, !tbaa !3
+  %131 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %130, ptr noundef %131)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-131:                                              ; preds = %114
-  %132 = load ptr, ptr %22, align 8
-  %133 = ptrtoint ptr %132 to i64
-  %134 = and i64 %133, -2
-  %135 = inttoptr i64 %134 to ptr
-  %136 = getelementptr inbounds %struct.DdNode, ptr %135, i32 0, i32 1
-  %137 = load i32, ptr %136, align 4
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %136, align 4
-  %139 = load ptr, ptr %9, align 8
-  %140 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %139, ptr noundef %140)
-  %141 = load ptr, ptr %22, align 8
-  %142 = ptrtoint ptr %141 to i64
-  %143 = and i64 %142, -2
-  %144 = inttoptr i64 %143 to ptr
-  %145 = getelementptr inbounds %struct.DdNode, ptr %144, i32 0, i32 1
-  %146 = load i32, ptr %145, align 4
-  %147 = add i32 %146, -1
-  store i32 %147, ptr %145, align 4
-  %148 = load ptr, ptr %22, align 8
-  store ptr %148, ptr %8, align 8
-  br label %635
+132:                                              ; preds = %115
+  %133 = load ptr, ptr %22, align 8, !tbaa !8
+  %134 = ptrtoint ptr %133 to i64
+  %135 = and i64 %134, -2
+  %136 = inttoptr i64 %135 to ptr
+  %137 = getelementptr inbounds nuw %struct.DdNode, ptr %136, i32 0, i32 1
+  %138 = load i32, ptr %137, align 4, !tbaa !39
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %137, align 4, !tbaa !39
+  %140 = load ptr, ptr %9, align 8, !tbaa !3
+  %141 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %140, ptr noundef %141)
+  %142 = load ptr, ptr %22, align 8, !tbaa !8
+  %143 = ptrtoint ptr %142 to i64
+  %144 = and i64 %143, -2
+  %145 = inttoptr i64 %144 to ptr
+  %146 = getelementptr inbounds nuw %struct.DdNode, ptr %145, i32 0, i32 1
+  %147 = load i32, ptr %146, align 4, !tbaa !39
+  %148 = add i32 %147, -1
+  store i32 %148, ptr %146, align 4, !tbaa !39
+  %149 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %149, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-149:                                              ; preds = %98, %90
-  %150 = load ptr, ptr %19, align 8
-  %151 = ptrtoint ptr %150 to i64
-  %152 = and i64 %151, -2
-  %153 = inttoptr i64 %152 to ptr
-  %154 = getelementptr inbounds %struct.DdNode, ptr %153, i32 0, i32 0
-  %155 = load i32, ptr %154, align 8
-  %156 = icmp eq i32 %155, 2147483647
-  br i1 %156, label %171, label %157
+150:                                              ; preds = %99, %91
+  %151 = load ptr, ptr %19, align 8, !tbaa !8
+  %152 = ptrtoint ptr %151 to i64
+  %153 = and i64 %152, -2
+  %154 = inttoptr i64 %153 to ptr
+  %155 = getelementptr inbounds nuw %struct.DdNode, ptr %154, i32 0, i32 0
+  %156 = load i32, ptr %155, align 8, !tbaa !36
+  %157 = icmp eq i32 %156, 2147483647
+  br i1 %157, label %172, label %158
 
-157:                                              ; preds = %149
-  %158 = load ptr, ptr %10, align 8
-  %159 = load ptr, ptr %19, align 8
-  %160 = call i32 @st__lookup(ptr noundef %158, ptr noundef %159, ptr noundef %25)
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %163, label %162
+158:                                              ; preds = %150
+  %159 = load ptr, ptr %10, align 8, !tbaa !40
+  %160 = load ptr, ptr %19, align 8, !tbaa !8
+  %161 = call i32 @st__lookup(ptr noundef %159, ptr noundef %160, ptr noundef %25)
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %164, label %163
 
-162:                                              ; preds = %157
+163:                                              ; preds = %158
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-163:                                              ; preds = %157
-  %164 = load ptr, ptr %25, align 8
-  %165 = load double, ptr %164, align 8
-  %166 = load i32, ptr %15, align 4
-  %167 = shl i32 1, %166
-  %168 = mul nsw i32 2, %167
-  %169 = sitofp i32 %168 to double
-  %170 = fdiv double %165, %169
-  store double %170, ptr %26, align 8
+164:                                              ; preds = %158
+  %165 = load ptr, ptr %25, align 8, !tbaa !48
+  %166 = load double, ptr %165, align 8, !tbaa !14
+  %167 = load i32, ptr %15, align 4, !tbaa !12
+  %168 = shl i32 1, %167
+  %169 = mul nsw i32 2, %168
+  %170 = sitofp i32 %169 to double
+  %171 = fdiv double %166, %170
+  store double %171, ptr %26, align 8, !tbaa !14
+  br label %185
+
+172:                                              ; preds = %150
+  %173 = load ptr, ptr %19, align 8, !tbaa !8
+  %174 = load ptr, ptr %16, align 8, !tbaa !8
+  %175 = icmp eq ptr %173, %174
+  br i1 %175, label %176, label %183
+
+176:                                              ; preds = %172
+  %177 = load double, ptr %14, align 8, !tbaa !14
+  %178 = load i32, ptr %15, align 4, !tbaa !12
+  %179 = shl i32 1, %178
+  %180 = mul nsw i32 2, %179
+  %181 = sitofp i32 %180 to double
+  %182 = fdiv double %177, %181
+  store double %182, ptr %26, align 8, !tbaa !14
   br label %184
 
-171:                                              ; preds = %149
-  %172 = load ptr, ptr %19, align 8
-  %173 = load ptr, ptr %16, align 8
-  %174 = icmp eq ptr %172, %173
-  br i1 %174, label %175, label %182
-
-175:                                              ; preds = %171
-  %176 = load double, ptr %14, align 8
-  %177 = load i32, ptr %15, align 4
-  %178 = shl i32 1, %177
-  %179 = mul nsw i32 2, %178
-  %180 = sitofp i32 %179 to double
-  %181 = fdiv double %176, %180
-  store double %181, ptr %26, align 8
-  br label %183
-
-182:                                              ; preds = %171
-  store double 0.000000e+00, ptr %26, align 8
-  br label %183
-
-183:                                              ; preds = %182, %175
+183:                                              ; preds = %172
+  store double 0.000000e+00, ptr %26, align 8, !tbaa !14
   br label %184
 
-184:                                              ; preds = %183, %163
-  %185 = load ptr, ptr %20, align 8
-  %186 = ptrtoint ptr %185 to i64
-  %187 = and i64 %186, -2
-  %188 = inttoptr i64 %187 to ptr
-  %189 = getelementptr inbounds %struct.DdNode, ptr %188, i32 0, i32 0
-  %190 = load i32, ptr %189, align 8
-  %191 = icmp eq i32 %190, 2147483647
-  br i1 %191, label %206, label %192
+184:                                              ; preds = %183, %176
+  br label %185
 
-192:                                              ; preds = %184
-  %193 = load ptr, ptr %10, align 8
-  %194 = load ptr, ptr %20, align 8
-  %195 = call i32 @st__lookup(ptr noundef %193, ptr noundef %194, ptr noundef %25)
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %198, label %197
+185:                                              ; preds = %184, %164
+  %186 = load ptr, ptr %20, align 8, !tbaa !8
+  %187 = ptrtoint ptr %186 to i64
+  %188 = and i64 %187, -2
+  %189 = inttoptr i64 %188 to ptr
+  %190 = getelementptr inbounds nuw %struct.DdNode, ptr %189, i32 0, i32 0
+  %191 = load i32, ptr %190, align 8, !tbaa !36
+  %192 = icmp eq i32 %191, 2147483647
+  br i1 %192, label %207, label %193
 
-197:                                              ; preds = %192
+193:                                              ; preds = %185
+  %194 = load ptr, ptr %10, align 8, !tbaa !40
+  %195 = load ptr, ptr %20, align 8, !tbaa !8
+  %196 = call i32 @st__lookup(ptr noundef %194, ptr noundef %195, ptr noundef %25)
+  %197 = icmp ne i32 %196, 0
+  br i1 %197, label %199, label %198
+
+198:                                              ; preds = %193
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-198:                                              ; preds = %192
-  %199 = load ptr, ptr %25, align 8
-  %200 = load double, ptr %199, align 8
-  %201 = load i32, ptr %15, align 4
-  %202 = shl i32 1, %201
-  %203 = mul nsw i32 2, %202
-  %204 = sitofp i32 %203 to double
-  %205 = fdiv double %200, %204
-  store double %205, ptr %27, align 8
+199:                                              ; preds = %193
+  %200 = load ptr, ptr %25, align 8, !tbaa !48
+  %201 = load double, ptr %200, align 8, !tbaa !14
+  %202 = load i32, ptr %15, align 4, !tbaa !12
+  %203 = shl i32 1, %202
+  %204 = mul nsw i32 2, %203
+  %205 = sitofp i32 %204 to double
+  %206 = fdiv double %201, %205
+  store double %206, ptr %27, align 8, !tbaa !14
+  br label %220
+
+207:                                              ; preds = %185
+  %208 = load ptr, ptr %20, align 8, !tbaa !8
+  %209 = load ptr, ptr %16, align 8, !tbaa !8
+  %210 = icmp eq ptr %208, %209
+  br i1 %210, label %211, label %218
+
+211:                                              ; preds = %207
+  %212 = load double, ptr %14, align 8, !tbaa !14
+  %213 = load i32, ptr %15, align 4, !tbaa !12
+  %214 = shl i32 1, %213
+  %215 = mul nsw i32 2, %214
+  %216 = sitofp i32 %215 to double
+  %217 = fdiv double %212, %216
+  store double %217, ptr %27, align 8, !tbaa !14
   br label %219
 
-206:                                              ; preds = %184
-  %207 = load ptr, ptr %20, align 8
-  %208 = load ptr, ptr %16, align 8
-  %209 = icmp eq ptr %207, %208
-  br i1 %209, label %210, label %217
-
-210:                                              ; preds = %206
-  %211 = load double, ptr %14, align 8
-  %212 = load i32, ptr %15, align 4
-  %213 = shl i32 1, %212
-  %214 = mul nsw i32 2, %213
-  %215 = sitofp i32 %214 to double
-  %216 = fdiv double %211, %215
-  store double %216, ptr %27, align 8
-  br label %218
-
-217:                                              ; preds = %206
-  store double 0.000000e+00, ptr %27, align 8
-  br label %218
-
-218:                                              ; preds = %217, %210
+218:                                              ; preds = %207
+  store double 0.000000e+00, ptr %27, align 8, !tbaa !14
   br label %219
 
-219:                                              ; preds = %218, %198
-  %220 = load ptr, ptr %9, align 8
-  %221 = load i32, ptr %28, align 4
-  %222 = load ptr, ptr %16, align 8
-  %223 = load ptr, ptr %17, align 8
-  %224 = call ptr @cuddUniqueInter(ptr noundef %220, i32 noundef %221, ptr noundef %222, ptr noundef %223)
-  store ptr %224, ptr %23, align 8
-  %225 = load ptr, ptr %23, align 8
-  %226 = ptrtoint ptr %225 to i64
-  %227 = and i64 %226, -2
-  %228 = inttoptr i64 %227 to ptr
-  %229 = getelementptr inbounds %struct.DdNode, ptr %228, i32 0, i32 1
-  %230 = load i32, ptr %229, align 4
-  %231 = add i32 %230, 1
-  store i32 %231, ptr %229, align 4
-  %232 = load double, ptr %26, align 8
-  %233 = load double, ptr %13, align 8
-  %234 = fcmp oeq double %232, %233
-  br i1 %234, label %235, label %263
+219:                                              ; preds = %218, %211
+  br label %220
 
-235:                                              ; preds = %219
-  %236 = load ptr, ptr %9, align 8
-  %237 = load ptr, ptr %23, align 8
-  %238 = load ptr, ptr %19, align 8
-  %239 = call ptr @cuddBddAndRecur(ptr noundef %236, ptr noundef %237, ptr noundef %238)
-  store ptr %239, ptr %21, align 8
-  %240 = load ptr, ptr %21, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %242, label %245
+220:                                              ; preds = %219, %199
+  %221 = load ptr, ptr %9, align 8, !tbaa !3
+  %222 = load i32, ptr %28, align 4, !tbaa !12
+  %223 = load ptr, ptr %16, align 8, !tbaa !8
+  %224 = load ptr, ptr %17, align 8, !tbaa !8
+  %225 = call ptr @cuddUniqueInter(ptr noundef %221, i32 noundef %222, ptr noundef %223, ptr noundef %224)
+  store ptr %225, ptr %23, align 8, !tbaa !8
+  %226 = load ptr, ptr %23, align 8, !tbaa !8
+  %227 = ptrtoint ptr %226 to i64
+  %228 = and i64 %227, -2
+  %229 = inttoptr i64 %228 to ptr
+  %230 = getelementptr inbounds nuw %struct.DdNode, ptr %229, i32 0, i32 1
+  %231 = load i32, ptr %230, align 4, !tbaa !39
+  %232 = add i32 %231, 1
+  store i32 %232, ptr %230, align 4, !tbaa !39
+  %233 = load double, ptr %26, align 8, !tbaa !14
+  %234 = load double, ptr %13, align 8, !tbaa !14
+  %235 = fcmp oeq double %233, %234
+  br i1 %235, label %236, label %264
 
-242:                                              ; preds = %235
-  %243 = load ptr, ptr %9, align 8
-  %244 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %243, ptr noundef %244)
+236:                                              ; preds = %220
+  %237 = load ptr, ptr %9, align 8, !tbaa !3
+  %238 = load ptr, ptr %23, align 8, !tbaa !8
+  %239 = load ptr, ptr %19, align 8, !tbaa !8
+  %240 = call ptr @cuddBddAndRecur(ptr noundef %237, ptr noundef %238, ptr noundef %239)
+  store ptr %240, ptr %21, align 8, !tbaa !8
+  %241 = load ptr, ptr %21, align 8, !tbaa !8
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %243, label %246
+
+243:                                              ; preds = %236
+  %244 = load ptr, ptr %9, align 8, !tbaa !3
+  %245 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %244, ptr noundef %245)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-245:                                              ; preds = %235
-  %246 = load ptr, ptr %21, align 8
-  %247 = ptrtoint ptr %246 to i64
-  %248 = and i64 %247, -2
-  %249 = inttoptr i64 %248 to ptr
-  %250 = getelementptr inbounds %struct.DdNode, ptr %249, i32 0, i32 1
-  %251 = load i32, ptr %250, align 4
-  %252 = add i32 %251, 1
-  store i32 %252, ptr %250, align 4
-  %253 = load ptr, ptr %9, align 8
-  %254 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %253, ptr noundef %254)
-  %255 = load ptr, ptr %21, align 8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = and i64 %256, -2
-  %258 = inttoptr i64 %257 to ptr
-  %259 = getelementptr inbounds %struct.DdNode, ptr %258, i32 0, i32 1
-  %260 = load i32, ptr %259, align 4
-  %261 = add i32 %260, -1
-  store i32 %261, ptr %259, align 4
-  %262 = load ptr, ptr %21, align 8
-  store ptr %262, ptr %8, align 8
-  br label %635
+246:                                              ; preds = %236
+  %247 = load ptr, ptr %21, align 8, !tbaa !8
+  %248 = ptrtoint ptr %247 to i64
+  %249 = and i64 %248, -2
+  %250 = inttoptr i64 %249 to ptr
+  %251 = getelementptr inbounds nuw %struct.DdNode, ptr %250, i32 0, i32 1
+  %252 = load i32, ptr %251, align 4, !tbaa !39
+  %253 = add i32 %252, 1
+  store i32 %253, ptr %251, align 4, !tbaa !39
+  %254 = load ptr, ptr %9, align 8, !tbaa !3
+  %255 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %254, ptr noundef %255)
+  %256 = load ptr, ptr %21, align 8, !tbaa !8
+  %257 = ptrtoint ptr %256 to i64
+  %258 = and i64 %257, -2
+  %259 = inttoptr i64 %258 to ptr
+  %260 = getelementptr inbounds nuw %struct.DdNode, ptr %259, i32 0, i32 1
+  %261 = load i32, ptr %260, align 4, !tbaa !39
+  %262 = add i32 %261, -1
+  store i32 %262, ptr %260, align 4, !tbaa !39
+  %263 = load ptr, ptr %21, align 8, !tbaa !8
+  store ptr %263, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-263:                                              ; preds = %219
-  %264 = load double, ptr %27, align 8
-  %265 = load double, ptr %13, align 8
-  %266 = fcmp oeq double %264, %265
-  br i1 %266, label %267, label %298
+264:                                              ; preds = %220
+  %265 = load double, ptr %27, align 8, !tbaa !14
+  %266 = load double, ptr %13, align 8, !tbaa !14
+  %267 = fcmp oeq double %265, %266
+  br i1 %267, label %268, label %299
 
-267:                                              ; preds = %263
-  %268 = load ptr, ptr %9, align 8
-  %269 = load ptr, ptr %23, align 8
-  %270 = ptrtoint ptr %269 to i64
-  %271 = xor i64 %270, 1
-  %272 = inttoptr i64 %271 to ptr
-  %273 = load ptr, ptr %20, align 8
-  %274 = call ptr @cuddBddAndRecur(ptr noundef %268, ptr noundef %272, ptr noundef %273)
-  store ptr %274, ptr %21, align 8
-  %275 = load ptr, ptr %21, align 8
-  %276 = icmp eq ptr %275, null
-  br i1 %276, label %277, label %280
+268:                                              ; preds = %264
+  %269 = load ptr, ptr %9, align 8, !tbaa !3
+  %270 = load ptr, ptr %23, align 8, !tbaa !8
+  %271 = ptrtoint ptr %270 to i64
+  %272 = xor i64 %271, 1
+  %273 = inttoptr i64 %272 to ptr
+  %274 = load ptr, ptr %20, align 8, !tbaa !8
+  %275 = call ptr @cuddBddAndRecur(ptr noundef %269, ptr noundef %273, ptr noundef %274)
+  store ptr %275, ptr %21, align 8, !tbaa !8
+  %276 = load ptr, ptr %21, align 8, !tbaa !8
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %278, label %281
 
-277:                                              ; preds = %267
-  %278 = load ptr, ptr %9, align 8
-  %279 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %278, ptr noundef %279)
+278:                                              ; preds = %268
+  %279 = load ptr, ptr %9, align 8, !tbaa !3
+  %280 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %279, ptr noundef %280)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-280:                                              ; preds = %267
-  %281 = load ptr, ptr %21, align 8
-  %282 = ptrtoint ptr %281 to i64
-  %283 = and i64 %282, -2
-  %284 = inttoptr i64 %283 to ptr
-  %285 = getelementptr inbounds %struct.DdNode, ptr %284, i32 0, i32 1
-  %286 = load i32, ptr %285, align 4
-  %287 = add i32 %286, 1
-  store i32 %287, ptr %285, align 4
-  %288 = load ptr, ptr %9, align 8
-  %289 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %288, ptr noundef %289)
-  %290 = load ptr, ptr %21, align 8
-  %291 = ptrtoint ptr %290 to i64
-  %292 = and i64 %291, -2
-  %293 = inttoptr i64 %292 to ptr
-  %294 = getelementptr inbounds %struct.DdNode, ptr %293, i32 0, i32 1
-  %295 = load i32, ptr %294, align 4
-  %296 = add i32 %295, -1
-  store i32 %296, ptr %294, align 4
-  %297 = load ptr, ptr %21, align 8
-  store ptr %297, ptr %8, align 8
-  br label %635
+281:                                              ; preds = %268
+  %282 = load ptr, ptr %21, align 8, !tbaa !8
+  %283 = ptrtoint ptr %282 to i64
+  %284 = and i64 %283, -2
+  %285 = inttoptr i64 %284 to ptr
+  %286 = getelementptr inbounds nuw %struct.DdNode, ptr %285, i32 0, i32 1
+  %287 = load i32, ptr %286, align 4, !tbaa !39
+  %288 = add i32 %287, 1
+  store i32 %288, ptr %286, align 4, !tbaa !39
+  %289 = load ptr, ptr %9, align 8, !tbaa !3
+  %290 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %289, ptr noundef %290)
+  %291 = load ptr, ptr %21, align 8, !tbaa !8
+  %292 = ptrtoint ptr %291 to i64
+  %293 = and i64 %292, -2
+  %294 = inttoptr i64 %293 to ptr
+  %295 = getelementptr inbounds nuw %struct.DdNode, ptr %294, i32 0, i32 1
+  %296 = load i32, ptr %295, align 4, !tbaa !39
+  %297 = add i32 %296, -1
+  store i32 %297, ptr %295, align 4, !tbaa !39
+  %298 = load ptr, ptr %21, align 8, !tbaa !8
+  store ptr %298, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-298:                                              ; preds = %263
-  %299 = load double, ptr %26, align 8
-  %300 = load double, ptr %13, align 8
-  %301 = fcmp olt double %299, %300
-  br i1 %301, label %302, label %359
+299:                                              ; preds = %264
+  %300 = load double, ptr %26, align 8, !tbaa !14
+  %301 = load double, ptr %13, align 8, !tbaa !14
+  %302 = fcmp olt double %300, %301
+  br i1 %302, label %303, label %360
 
-302:                                              ; preds = %298
-  %303 = load ptr, ptr %9, align 8
-  %304 = load ptr, ptr %10, align 8
-  %305 = load ptr, ptr %11, align 8
-  %306 = load ptr, ptr %20, align 8
-  %307 = load double, ptr %13, align 8
-  %308 = load double, ptr %26, align 8
-  %309 = fsub double %307, %308
-  %310 = load double, ptr %14, align 8
-  %311 = load i32, ptr %15, align 4
-  %312 = add nsw i32 %311, 1
-  %313 = call ptr @cuddSplitSetRecur(ptr noundef %303, ptr noundef %304, ptr noundef %305, ptr noundef %306, double noundef %309, double noundef %310, i32 noundef %312)
-  store ptr %313, ptr %21, align 8
-  %314 = load ptr, ptr %21, align 8
-  %315 = icmp eq ptr %314, null
-  br i1 %315, label %316, label %319
+303:                                              ; preds = %299
+  %304 = load ptr, ptr %9, align 8, !tbaa !3
+  %305 = load ptr, ptr %10, align 8, !tbaa !40
+  %306 = load ptr, ptr %11, align 8, !tbaa !32
+  %307 = load ptr, ptr %20, align 8, !tbaa !8
+  %308 = load double, ptr %13, align 8, !tbaa !14
+  %309 = load double, ptr %26, align 8, !tbaa !14
+  %310 = fsub double %308, %309
+  %311 = load double, ptr %14, align 8, !tbaa !14
+  %312 = load i32, ptr %15, align 4, !tbaa !12
+  %313 = add nsw i32 %312, 1
+  %314 = call ptr @cuddSplitSetRecur(ptr noundef %304, ptr noundef %305, ptr noundef %306, ptr noundef %307, double noundef %310, double noundef %311, i32 noundef %313)
+  store ptr %314, ptr %21, align 8, !tbaa !8
+  %315 = load ptr, ptr %21, align 8, !tbaa !8
+  %316 = icmp eq ptr %315, null
+  br i1 %316, label %317, label %320
 
-316:                                              ; preds = %302
-  %317 = load ptr, ptr %9, align 8
-  %318 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %317, ptr noundef %318)
+317:                                              ; preds = %303
+  %318 = load ptr, ptr %9, align 8, !tbaa !3
+  %319 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %318, ptr noundef %319)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-319:                                              ; preds = %302
-  %320 = load ptr, ptr %21, align 8
-  %321 = ptrtoint ptr %320 to i64
-  %322 = and i64 %321, -2
-  %323 = inttoptr i64 %322 to ptr
-  %324 = getelementptr inbounds %struct.DdNode, ptr %323, i32 0, i32 1
-  %325 = load i32, ptr %324, align 4
-  %326 = add i32 %325, 1
-  store i32 %326, ptr %324, align 4
-  %327 = load ptr, ptr %9, align 8
-  %328 = load ptr, ptr %23, align 8
-  %329 = load ptr, ptr %19, align 8
-  %330 = load ptr, ptr %21, align 8
-  %331 = call ptr @cuddBddIteRecur(ptr noundef %327, ptr noundef %328, ptr noundef %329, ptr noundef %330)
-  store ptr %331, ptr %22, align 8
-  %332 = load ptr, ptr %22, align 8
-  %333 = icmp eq ptr %332, null
-  br i1 %333, label %334, label %339
+320:                                              ; preds = %303
+  %321 = load ptr, ptr %21, align 8, !tbaa !8
+  %322 = ptrtoint ptr %321 to i64
+  %323 = and i64 %322, -2
+  %324 = inttoptr i64 %323 to ptr
+  %325 = getelementptr inbounds nuw %struct.DdNode, ptr %324, i32 0, i32 1
+  %326 = load i32, ptr %325, align 4, !tbaa !39
+  %327 = add i32 %326, 1
+  store i32 %327, ptr %325, align 4, !tbaa !39
+  %328 = load ptr, ptr %9, align 8, !tbaa !3
+  %329 = load ptr, ptr %23, align 8, !tbaa !8
+  %330 = load ptr, ptr %19, align 8, !tbaa !8
+  %331 = load ptr, ptr %21, align 8, !tbaa !8
+  %332 = call ptr @cuddBddIteRecur(ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331)
+  store ptr %332, ptr %22, align 8, !tbaa !8
+  %333 = load ptr, ptr %22, align 8, !tbaa !8
+  %334 = icmp eq ptr %333, null
+  br i1 %334, label %335, label %340
 
-334:                                              ; preds = %319
-  %335 = load ptr, ptr %9, align 8
-  %336 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %335, ptr noundef %336)
-  %337 = load ptr, ptr %9, align 8
-  %338 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %337, ptr noundef %338)
+335:                                              ; preds = %320
+  %336 = load ptr, ptr %9, align 8, !tbaa !3
+  %337 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %336, ptr noundef %337)
+  %338 = load ptr, ptr %9, align 8, !tbaa !3
+  %339 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %338, ptr noundef %339)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-339:                                              ; preds = %319
-  %340 = load ptr, ptr %22, align 8
-  %341 = ptrtoint ptr %340 to i64
-  %342 = and i64 %341, -2
-  %343 = inttoptr i64 %342 to ptr
-  %344 = getelementptr inbounds %struct.DdNode, ptr %343, i32 0, i32 1
-  %345 = load i32, ptr %344, align 4
-  %346 = add i32 %345, 1
-  store i32 %346, ptr %344, align 4
-  %347 = load ptr, ptr %9, align 8
-  %348 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %347, ptr noundef %348)
-  %349 = load ptr, ptr %9, align 8
-  %350 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %349, ptr noundef %350)
-  %351 = load ptr, ptr %22, align 8
-  %352 = ptrtoint ptr %351 to i64
-  %353 = and i64 %352, -2
-  %354 = inttoptr i64 %353 to ptr
-  %355 = getelementptr inbounds %struct.DdNode, ptr %354, i32 0, i32 1
-  %356 = load i32, ptr %355, align 4
-  %357 = add i32 %356, -1
-  store i32 %357, ptr %355, align 4
-  %358 = load ptr, ptr %22, align 8
-  store ptr %358, ptr %8, align 8
-  br label %635
+340:                                              ; preds = %320
+  %341 = load ptr, ptr %22, align 8, !tbaa !8
+  %342 = ptrtoint ptr %341 to i64
+  %343 = and i64 %342, -2
+  %344 = inttoptr i64 %343 to ptr
+  %345 = getelementptr inbounds nuw %struct.DdNode, ptr %344, i32 0, i32 1
+  %346 = load i32, ptr %345, align 4, !tbaa !39
+  %347 = add i32 %346, 1
+  store i32 %347, ptr %345, align 4, !tbaa !39
+  %348 = load ptr, ptr %9, align 8, !tbaa !3
+  %349 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %348, ptr noundef %349)
+  %350 = load ptr, ptr %9, align 8, !tbaa !3
+  %351 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %350, ptr noundef %351)
+  %352 = load ptr, ptr %22, align 8, !tbaa !8
+  %353 = ptrtoint ptr %352 to i64
+  %354 = and i64 %353, -2
+  %355 = inttoptr i64 %354 to ptr
+  %356 = getelementptr inbounds nuw %struct.DdNode, ptr %355, i32 0, i32 1
+  %357 = load i32, ptr %356, align 4, !tbaa !39
+  %358 = add i32 %357, -1
+  store i32 %358, ptr %356, align 4, !tbaa !39
+  %359 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %359, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-359:                                              ; preds = %298
-  %360 = load double, ptr %27, align 8
-  %361 = load double, ptr %13, align 8
-  %362 = fcmp olt double %360, %361
-  br i1 %362, label %363, label %420
+360:                                              ; preds = %299
+  %361 = load double, ptr %27, align 8, !tbaa !14
+  %362 = load double, ptr %13, align 8, !tbaa !14
+  %363 = fcmp olt double %361, %362
+  br i1 %363, label %364, label %421
 
-363:                                              ; preds = %359
-  %364 = load ptr, ptr %9, align 8
-  %365 = load ptr, ptr %10, align 8
-  %366 = load ptr, ptr %11, align 8
-  %367 = load ptr, ptr %19, align 8
-  %368 = load double, ptr %13, align 8
-  %369 = load double, ptr %27, align 8
-  %370 = fsub double %368, %369
-  %371 = load double, ptr %14, align 8
-  %372 = load i32, ptr %15, align 4
-  %373 = add nsw i32 %372, 1
-  %374 = call ptr @cuddSplitSetRecur(ptr noundef %364, ptr noundef %365, ptr noundef %366, ptr noundef %367, double noundef %370, double noundef %371, i32 noundef %373)
-  store ptr %374, ptr %21, align 8
-  %375 = load ptr, ptr %21, align 8
-  %376 = icmp eq ptr %375, null
-  br i1 %376, label %377, label %380
+364:                                              ; preds = %360
+  %365 = load ptr, ptr %9, align 8, !tbaa !3
+  %366 = load ptr, ptr %10, align 8, !tbaa !40
+  %367 = load ptr, ptr %11, align 8, !tbaa !32
+  %368 = load ptr, ptr %19, align 8, !tbaa !8
+  %369 = load double, ptr %13, align 8, !tbaa !14
+  %370 = load double, ptr %27, align 8, !tbaa !14
+  %371 = fsub double %369, %370
+  %372 = load double, ptr %14, align 8, !tbaa !14
+  %373 = load i32, ptr %15, align 4, !tbaa !12
+  %374 = add nsw i32 %373, 1
+  %375 = call ptr @cuddSplitSetRecur(ptr noundef %365, ptr noundef %366, ptr noundef %367, ptr noundef %368, double noundef %371, double noundef %372, i32 noundef %374)
+  store ptr %375, ptr %21, align 8, !tbaa !8
+  %376 = load ptr, ptr %21, align 8, !tbaa !8
+  %377 = icmp eq ptr %376, null
+  br i1 %377, label %378, label %381
 
-377:                                              ; preds = %363
-  %378 = load ptr, ptr %9, align 8
-  %379 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %378, ptr noundef %379)
+378:                                              ; preds = %364
+  %379 = load ptr, ptr %9, align 8, !tbaa !3
+  %380 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %379, ptr noundef %380)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-380:                                              ; preds = %363
-  %381 = load ptr, ptr %21, align 8
-  %382 = ptrtoint ptr %381 to i64
-  %383 = and i64 %382, -2
-  %384 = inttoptr i64 %383 to ptr
-  %385 = getelementptr inbounds %struct.DdNode, ptr %384, i32 0, i32 1
-  %386 = load i32, ptr %385, align 4
-  %387 = add i32 %386, 1
-  store i32 %387, ptr %385, align 4
-  %388 = load ptr, ptr %9, align 8
-  %389 = load ptr, ptr %23, align 8
-  %390 = load ptr, ptr %21, align 8
-  %391 = load ptr, ptr %20, align 8
-  %392 = call ptr @cuddBddIteRecur(ptr noundef %388, ptr noundef %389, ptr noundef %390, ptr noundef %391)
-  store ptr %392, ptr %22, align 8
-  %393 = load ptr, ptr %22, align 8
-  %394 = icmp eq ptr %393, null
-  br i1 %394, label %395, label %400
+381:                                              ; preds = %364
+  %382 = load ptr, ptr %21, align 8, !tbaa !8
+  %383 = ptrtoint ptr %382 to i64
+  %384 = and i64 %383, -2
+  %385 = inttoptr i64 %384 to ptr
+  %386 = getelementptr inbounds nuw %struct.DdNode, ptr %385, i32 0, i32 1
+  %387 = load i32, ptr %386, align 4, !tbaa !39
+  %388 = add i32 %387, 1
+  store i32 %388, ptr %386, align 4, !tbaa !39
+  %389 = load ptr, ptr %9, align 8, !tbaa !3
+  %390 = load ptr, ptr %23, align 8, !tbaa !8
+  %391 = load ptr, ptr %21, align 8, !tbaa !8
+  %392 = load ptr, ptr %20, align 8, !tbaa !8
+  %393 = call ptr @cuddBddIteRecur(ptr noundef %389, ptr noundef %390, ptr noundef %391, ptr noundef %392)
+  store ptr %393, ptr %22, align 8, !tbaa !8
+  %394 = load ptr, ptr %22, align 8, !tbaa !8
+  %395 = icmp eq ptr %394, null
+  br i1 %395, label %396, label %401
 
-395:                                              ; preds = %380
-  %396 = load ptr, ptr %9, align 8
-  %397 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %396, ptr noundef %397)
-  %398 = load ptr, ptr %9, align 8
-  %399 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %398, ptr noundef %399)
+396:                                              ; preds = %381
+  %397 = load ptr, ptr %9, align 8, !tbaa !3
+  %398 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %397, ptr noundef %398)
+  %399 = load ptr, ptr %9, align 8, !tbaa !3
+  %400 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %399, ptr noundef %400)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-400:                                              ; preds = %380
-  %401 = load ptr, ptr %22, align 8
-  %402 = ptrtoint ptr %401 to i64
-  %403 = and i64 %402, -2
-  %404 = inttoptr i64 %403 to ptr
-  %405 = getelementptr inbounds %struct.DdNode, ptr %404, i32 0, i32 1
-  %406 = load i32, ptr %405, align 4
-  %407 = add i32 %406, 1
-  store i32 %407, ptr %405, align 4
-  %408 = load ptr, ptr %9, align 8
-  %409 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %408, ptr noundef %409)
-  %410 = load ptr, ptr %9, align 8
-  %411 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %410, ptr noundef %411)
-  %412 = load ptr, ptr %22, align 8
-  %413 = ptrtoint ptr %412 to i64
-  %414 = and i64 %413, -2
-  %415 = inttoptr i64 %414 to ptr
-  %416 = getelementptr inbounds %struct.DdNode, ptr %415, i32 0, i32 1
-  %417 = load i32, ptr %416, align 4
-  %418 = add i32 %417, -1
-  store i32 %418, ptr %416, align 4
-  %419 = load ptr, ptr %22, align 8
-  store ptr %419, ptr %8, align 8
-  br label %635
+401:                                              ; preds = %381
+  %402 = load ptr, ptr %22, align 8, !tbaa !8
+  %403 = ptrtoint ptr %402 to i64
+  %404 = and i64 %403, -2
+  %405 = inttoptr i64 %404 to ptr
+  %406 = getelementptr inbounds nuw %struct.DdNode, ptr %405, i32 0, i32 1
+  %407 = load i32, ptr %406, align 4, !tbaa !39
+  %408 = add i32 %407, 1
+  store i32 %408, ptr %406, align 4, !tbaa !39
+  %409 = load ptr, ptr %9, align 8, !tbaa !3
+  %410 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %409, ptr noundef %410)
+  %411 = load ptr, ptr %9, align 8, !tbaa !3
+  %412 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %411, ptr noundef %412)
+  %413 = load ptr, ptr %22, align 8, !tbaa !8
+  %414 = ptrtoint ptr %413 to i64
+  %415 = and i64 %414, -2
+  %416 = inttoptr i64 %415 to ptr
+  %417 = getelementptr inbounds nuw %struct.DdNode, ptr %416, i32 0, i32 1
+  %418 = load i32, ptr %417, align 4, !tbaa !39
+  %419 = add i32 %418, -1
+  store i32 %419, ptr %417, align 4, !tbaa !39
+  %420 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %420, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-420:                                              ; preds = %359
-  %421 = load ptr, ptr %19, align 8
-  %422 = ptrtoint ptr %421 to i64
-  %423 = and i64 %422, -2
-  %424 = inttoptr i64 %423 to ptr
-  %425 = getelementptr inbounds %struct.DdNode, ptr %424, i32 0, i32 0
-  %426 = load i32, ptr %425, align 8
-  %427 = icmp eq i32 %426, 2147483647
-  br i1 %427, label %428, label %485
+421:                                              ; preds = %360
+  %422 = load ptr, ptr %19, align 8, !tbaa !8
+  %423 = ptrtoint ptr %422 to i64
+  %424 = and i64 %423, -2
+  %425 = inttoptr i64 %424 to ptr
+  %426 = getelementptr inbounds nuw %struct.DdNode, ptr %425, i32 0, i32 0
+  %427 = load i32, ptr %426, align 8, !tbaa !36
+  %428 = icmp eq i32 %427, 2147483647
+  br i1 %428, label %429, label %486
 
-428:                                              ; preds = %420
-  %429 = load ptr, ptr %20, align 8
-  %430 = ptrtoint ptr %429 to i64
-  %431 = and i64 %430, -2
-  %432 = inttoptr i64 %431 to ptr
-  %433 = getelementptr inbounds %struct.DdNode, ptr %432, i32 0, i32 0
-  %434 = load i32, ptr %433, align 8
-  %435 = icmp eq i32 %434, 2147483647
-  br i1 %435, label %485, label %436
+429:                                              ; preds = %421
+  %430 = load ptr, ptr %20, align 8, !tbaa !8
+  %431 = ptrtoint ptr %430 to i64
+  %432 = and i64 %431, -2
+  %433 = inttoptr i64 %432 to ptr
+  %434 = getelementptr inbounds nuw %struct.DdNode, ptr %433, i32 0, i32 0
+  %435 = load i32, ptr %434, align 8, !tbaa !36
+  %436 = icmp eq i32 %435, 2147483647
+  br i1 %436, label %486, label %437
 
-436:                                              ; preds = %428
-  %437 = load ptr, ptr %9, align 8
-  %438 = load ptr, ptr %11, align 8
-  %439 = load double, ptr %13, align 8
-  %440 = call ptr @selectMintermsFromUniverse(ptr noundef %437, ptr noundef %438, double noundef %439)
-  store ptr %440, ptr %21, align 8
-  %441 = load ptr, ptr %21, align 8
-  %442 = icmp eq ptr %441, null
-  br i1 %442, label %443, label %446
+437:                                              ; preds = %429
+  %438 = load ptr, ptr %9, align 8, !tbaa !3
+  %439 = load ptr, ptr %11, align 8, !tbaa !32
+  %440 = load double, ptr %13, align 8, !tbaa !14
+  %441 = call ptr @selectMintermsFromUniverse(ptr noundef %438, ptr noundef %439, double noundef %440)
+  store ptr %441, ptr %21, align 8, !tbaa !8
+  %442 = load ptr, ptr %21, align 8, !tbaa !8
+  %443 = icmp eq ptr %442, null
+  br i1 %443, label %444, label %447
 
-443:                                              ; preds = %436
-  %444 = load ptr, ptr %9, align 8
-  %445 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %444, ptr noundef %445)
+444:                                              ; preds = %437
+  %445 = load ptr, ptr %9, align 8, !tbaa !3
+  %446 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %445, ptr noundef %446)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-446:                                              ; preds = %436
-  %447 = load ptr, ptr %21, align 8
-  %448 = ptrtoint ptr %447 to i64
-  %449 = and i64 %448, -2
-  %450 = inttoptr i64 %449 to ptr
-  %451 = getelementptr inbounds %struct.DdNode, ptr %450, i32 0, i32 1
-  %452 = load i32, ptr %451, align 4
-  %453 = add i32 %452, 1
-  store i32 %453, ptr %451, align 4
-  %454 = load ptr, ptr %9, align 8
-  %455 = load ptr, ptr %23, align 8
-  %456 = load ptr, ptr %21, align 8
-  %457 = call ptr @cuddBddAndRecur(ptr noundef %454, ptr noundef %455, ptr noundef %456)
-  store ptr %457, ptr %24, align 8
-  %458 = load ptr, ptr %24, align 8
-  %459 = icmp eq ptr %458, null
-  br i1 %459, label %460, label %465
+447:                                              ; preds = %437
+  %448 = load ptr, ptr %21, align 8, !tbaa !8
+  %449 = ptrtoint ptr %448 to i64
+  %450 = and i64 %449, -2
+  %451 = inttoptr i64 %450 to ptr
+  %452 = getelementptr inbounds nuw %struct.DdNode, ptr %451, i32 0, i32 1
+  %453 = load i32, ptr %452, align 4, !tbaa !39
+  %454 = add i32 %453, 1
+  store i32 %454, ptr %452, align 4, !tbaa !39
+  %455 = load ptr, ptr %9, align 8, !tbaa !3
+  %456 = load ptr, ptr %23, align 8, !tbaa !8
+  %457 = load ptr, ptr %21, align 8, !tbaa !8
+  %458 = call ptr @cuddBddAndRecur(ptr noundef %455, ptr noundef %456, ptr noundef %457)
+  store ptr %458, ptr %24, align 8, !tbaa !8
+  %459 = load ptr, ptr %24, align 8, !tbaa !8
+  %460 = icmp eq ptr %459, null
+  br i1 %460, label %461, label %466
 
-460:                                              ; preds = %446
-  %461 = load ptr, ptr %9, align 8
-  %462 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %461, ptr noundef %462)
-  %463 = load ptr, ptr %9, align 8
-  %464 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %463, ptr noundef %464)
+461:                                              ; preds = %447
+  %462 = load ptr, ptr %9, align 8, !tbaa !3
+  %463 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %462, ptr noundef %463)
+  %464 = load ptr, ptr %9, align 8, !tbaa !3
+  %465 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %464, ptr noundef %465)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-465:                                              ; preds = %446
-  %466 = load ptr, ptr %24, align 8
-  %467 = ptrtoint ptr %466 to i64
-  %468 = and i64 %467, -2
-  %469 = inttoptr i64 %468 to ptr
-  %470 = getelementptr inbounds %struct.DdNode, ptr %469, i32 0, i32 1
-  %471 = load i32, ptr %470, align 4
-  %472 = add i32 %471, 1
-  store i32 %472, ptr %470, align 4
-  %473 = load ptr, ptr %9, align 8
-  %474 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %473, ptr noundef %474)
-  %475 = load ptr, ptr %9, align 8
-  %476 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %475, ptr noundef %476)
-  %477 = load ptr, ptr %24, align 8
-  %478 = ptrtoint ptr %477 to i64
-  %479 = and i64 %478, -2
-  %480 = inttoptr i64 %479 to ptr
-  %481 = getelementptr inbounds %struct.DdNode, ptr %480, i32 0, i32 1
-  %482 = load i32, ptr %481, align 4
-  %483 = add i32 %482, -1
-  store i32 %483, ptr %481, align 4
-  %484 = load ptr, ptr %24, align 8
-  store ptr %484, ptr %8, align 8
-  br label %635
+466:                                              ; preds = %447
+  %467 = load ptr, ptr %24, align 8, !tbaa !8
+  %468 = ptrtoint ptr %467 to i64
+  %469 = and i64 %468, -2
+  %470 = inttoptr i64 %469 to ptr
+  %471 = getelementptr inbounds nuw %struct.DdNode, ptr %470, i32 0, i32 1
+  %472 = load i32, ptr %471, align 4, !tbaa !39
+  %473 = add i32 %472, 1
+  store i32 %473, ptr %471, align 4, !tbaa !39
+  %474 = load ptr, ptr %9, align 8, !tbaa !3
+  %475 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %474, ptr noundef %475)
+  %476 = load ptr, ptr %9, align 8, !tbaa !3
+  %477 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %476, ptr noundef %477)
+  %478 = load ptr, ptr %24, align 8, !tbaa !8
+  %479 = ptrtoint ptr %478 to i64
+  %480 = and i64 %479, -2
+  %481 = inttoptr i64 %480 to ptr
+  %482 = getelementptr inbounds nuw %struct.DdNode, ptr %481, i32 0, i32 1
+  %483 = load i32, ptr %482, align 4, !tbaa !39
+  %484 = add i32 %483, -1
+  store i32 %484, ptr %482, align 4, !tbaa !39
+  %485 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %485, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-485:                                              ; preds = %428, %420
-  %486 = load ptr, ptr %19, align 8
-  %487 = ptrtoint ptr %486 to i64
-  %488 = and i64 %487, -2
-  %489 = inttoptr i64 %488 to ptr
-  %490 = getelementptr inbounds %struct.DdNode, ptr %489, i32 0, i32 0
-  %491 = load i32, ptr %490, align 8
-  %492 = icmp eq i32 %491, 2147483647
-  br i1 %492, label %553, label %493
+486:                                              ; preds = %429, %421
+  %487 = load ptr, ptr %19, align 8, !tbaa !8
+  %488 = ptrtoint ptr %487 to i64
+  %489 = and i64 %488, -2
+  %490 = inttoptr i64 %489 to ptr
+  %491 = getelementptr inbounds nuw %struct.DdNode, ptr %490, i32 0, i32 0
+  %492 = load i32, ptr %491, align 8, !tbaa !36
+  %493 = icmp eq i32 %492, 2147483647
+  br i1 %493, label %554, label %494
 
-493:                                              ; preds = %485
-  %494 = load ptr, ptr %20, align 8
-  %495 = ptrtoint ptr %494 to i64
-  %496 = and i64 %495, -2
-  %497 = inttoptr i64 %496 to ptr
-  %498 = getelementptr inbounds %struct.DdNode, ptr %497, i32 0, i32 0
-  %499 = load i32, ptr %498, align 8
-  %500 = icmp eq i32 %499, 2147483647
-  br i1 %500, label %501, label %553
+494:                                              ; preds = %486
+  %495 = load ptr, ptr %20, align 8, !tbaa !8
+  %496 = ptrtoint ptr %495 to i64
+  %497 = and i64 %496, -2
+  %498 = inttoptr i64 %497 to ptr
+  %499 = getelementptr inbounds nuw %struct.DdNode, ptr %498, i32 0, i32 0
+  %500 = load i32, ptr %499, align 8, !tbaa !36
+  %501 = icmp eq i32 %500, 2147483647
+  br i1 %501, label %502, label %554
 
-501:                                              ; preds = %493
-  %502 = load ptr, ptr %9, align 8
-  %503 = load ptr, ptr %11, align 8
-  %504 = load double, ptr %13, align 8
-  %505 = call ptr @selectMintermsFromUniverse(ptr noundef %502, ptr noundef %503, double noundef %504)
-  store ptr %505, ptr %21, align 8
-  %506 = load ptr, ptr %21, align 8
-  %507 = icmp eq ptr %506, null
-  br i1 %507, label %508, label %511
+502:                                              ; preds = %494
+  %503 = load ptr, ptr %9, align 8, !tbaa !3
+  %504 = load ptr, ptr %11, align 8, !tbaa !32
+  %505 = load double, ptr %13, align 8, !tbaa !14
+  %506 = call ptr @selectMintermsFromUniverse(ptr noundef %503, ptr noundef %504, double noundef %505)
+  store ptr %506, ptr %21, align 8, !tbaa !8
+  %507 = load ptr, ptr %21, align 8, !tbaa !8
+  %508 = icmp eq ptr %507, null
+  br i1 %508, label %509, label %512
 
-508:                                              ; preds = %501
-  %509 = load ptr, ptr %9, align 8
-  %510 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %509, ptr noundef %510)
+509:                                              ; preds = %502
+  %510 = load ptr, ptr %9, align 8, !tbaa !3
+  %511 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %510, ptr noundef %511)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-511:                                              ; preds = %501
-  %512 = load ptr, ptr %21, align 8
-  %513 = ptrtoint ptr %512 to i64
-  %514 = and i64 %513, -2
-  %515 = inttoptr i64 %514 to ptr
-  %516 = getelementptr inbounds %struct.DdNode, ptr %515, i32 0, i32 1
-  %517 = load i32, ptr %516, align 4
-  %518 = add i32 %517, 1
-  store i32 %518, ptr %516, align 4
-  %519 = load ptr, ptr %9, align 8
-  %520 = load ptr, ptr %23, align 8
-  %521 = ptrtoint ptr %520 to i64
-  %522 = xor i64 %521, 1
-  %523 = inttoptr i64 %522 to ptr
-  %524 = load ptr, ptr %21, align 8
-  %525 = call ptr @cuddBddAndRecur(ptr noundef %519, ptr noundef %523, ptr noundef %524)
-  store ptr %525, ptr %24, align 8
-  %526 = load ptr, ptr %24, align 8
-  %527 = icmp eq ptr %526, null
-  br i1 %527, label %528, label %533
+512:                                              ; preds = %502
+  %513 = load ptr, ptr %21, align 8, !tbaa !8
+  %514 = ptrtoint ptr %513 to i64
+  %515 = and i64 %514, -2
+  %516 = inttoptr i64 %515 to ptr
+  %517 = getelementptr inbounds nuw %struct.DdNode, ptr %516, i32 0, i32 1
+  %518 = load i32, ptr %517, align 4, !tbaa !39
+  %519 = add i32 %518, 1
+  store i32 %519, ptr %517, align 4, !tbaa !39
+  %520 = load ptr, ptr %9, align 8, !tbaa !3
+  %521 = load ptr, ptr %23, align 8, !tbaa !8
+  %522 = ptrtoint ptr %521 to i64
+  %523 = xor i64 %522, 1
+  %524 = inttoptr i64 %523 to ptr
+  %525 = load ptr, ptr %21, align 8, !tbaa !8
+  %526 = call ptr @cuddBddAndRecur(ptr noundef %520, ptr noundef %524, ptr noundef %525)
+  store ptr %526, ptr %24, align 8, !tbaa !8
+  %527 = load ptr, ptr %24, align 8, !tbaa !8
+  %528 = icmp eq ptr %527, null
+  br i1 %528, label %529, label %534
 
-528:                                              ; preds = %511
-  %529 = load ptr, ptr %9, align 8
-  %530 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %529, ptr noundef %530)
-  %531 = load ptr, ptr %9, align 8
-  %532 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %531, ptr noundef %532)
+529:                                              ; preds = %512
+  %530 = load ptr, ptr %9, align 8, !tbaa !3
+  %531 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %530, ptr noundef %531)
+  %532 = load ptr, ptr %9, align 8, !tbaa !3
+  %533 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %532, ptr noundef %533)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-533:                                              ; preds = %511
-  %534 = load ptr, ptr %24, align 8
-  %535 = ptrtoint ptr %534 to i64
-  %536 = and i64 %535, -2
-  %537 = inttoptr i64 %536 to ptr
-  %538 = getelementptr inbounds %struct.DdNode, ptr %537, i32 0, i32 1
-  %539 = load i32, ptr %538, align 4
-  %540 = add i32 %539, 1
-  store i32 %540, ptr %538, align 4
-  %541 = load ptr, ptr %9, align 8
-  %542 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %541, ptr noundef %542)
-  %543 = load ptr, ptr %9, align 8
-  %544 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %543, ptr noundef %544)
-  %545 = load ptr, ptr %24, align 8
-  %546 = ptrtoint ptr %545 to i64
-  %547 = and i64 %546, -2
-  %548 = inttoptr i64 %547 to ptr
-  %549 = getelementptr inbounds %struct.DdNode, ptr %548, i32 0, i32 1
-  %550 = load i32, ptr %549, align 4
-  %551 = add i32 %550, -1
-  store i32 %551, ptr %549, align 4
-  %552 = load ptr, ptr %24, align 8
-  store ptr %552, ptr %8, align 8
-  br label %635
+534:                                              ; preds = %512
+  %535 = load ptr, ptr %24, align 8, !tbaa !8
+  %536 = ptrtoint ptr %535 to i64
+  %537 = and i64 %536, -2
+  %538 = inttoptr i64 %537 to ptr
+  %539 = getelementptr inbounds nuw %struct.DdNode, ptr %538, i32 0, i32 1
+  %540 = load i32, ptr %539, align 4, !tbaa !39
+  %541 = add i32 %540, 1
+  store i32 %541, ptr %539, align 4, !tbaa !39
+  %542 = load ptr, ptr %9, align 8, !tbaa !3
+  %543 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %542, ptr noundef %543)
+  %544 = load ptr, ptr %9, align 8, !tbaa !3
+  %545 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %544, ptr noundef %545)
+  %546 = load ptr, ptr %24, align 8, !tbaa !8
+  %547 = ptrtoint ptr %546 to i64
+  %548 = and i64 %547, -2
+  %549 = inttoptr i64 %548 to ptr
+  %550 = getelementptr inbounds nuw %struct.DdNode, ptr %549, i32 0, i32 1
+  %551 = load i32, ptr %550, align 4, !tbaa !39
+  %552 = add i32 %551, -1
+  store i32 %552, ptr %550, align 4, !tbaa !39
+  %553 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %553, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-553:                                              ; preds = %493, %485
-  br label %554
+554:                                              ; preds = %494, %486
+  br label %555
 
-554:                                              ; preds = %553
-  store i32 0, ptr %29, align 4
-  %555 = load double, ptr %26, align 8
-  %556 = load double, ptr %27, align 8
-  %557 = fcmp olt double %555, %556
-  br i1 %557, label %558, label %568
+555:                                              ; preds = %554
+  store i32 0, ptr %29, align 4, !tbaa !12
+  %556 = load double, ptr %26, align 8, !tbaa !14
+  %557 = load double, ptr %27, align 8, !tbaa !14
+  %558 = fcmp olt double %556, %557
+  br i1 %558, label %559, label %569
 
-558:                                              ; preds = %554
-  %559 = load ptr, ptr %9, align 8
-  %560 = load ptr, ptr %10, align 8
-  %561 = load ptr, ptr %11, align 8
-  %562 = load ptr, ptr %19, align 8
-  %563 = load double, ptr %13, align 8
-  %564 = load double, ptr %14, align 8
-  %565 = load i32, ptr %15, align 4
-  %566 = add nsw i32 %565, 1
-  %567 = call ptr @cuddSplitSetRecur(ptr noundef %559, ptr noundef %560, ptr noundef %561, ptr noundef %562, double noundef %563, double noundef %564, i32 noundef %566)
-  store ptr %567, ptr %21, align 8
-  store i32 1, ptr %29, align 4
-  br label %578
+559:                                              ; preds = %555
+  %560 = load ptr, ptr %9, align 8, !tbaa !3
+  %561 = load ptr, ptr %10, align 8, !tbaa !40
+  %562 = load ptr, ptr %11, align 8, !tbaa !32
+  %563 = load ptr, ptr %19, align 8, !tbaa !8
+  %564 = load double, ptr %13, align 8, !tbaa !14
+  %565 = load double, ptr %14, align 8, !tbaa !14
+  %566 = load i32, ptr %15, align 4, !tbaa !12
+  %567 = add nsw i32 %566, 1
+  %568 = call ptr @cuddSplitSetRecur(ptr noundef %560, ptr noundef %561, ptr noundef %562, ptr noundef %563, double noundef %564, double noundef %565, i32 noundef %567)
+  store ptr %568, ptr %21, align 8, !tbaa !8
+  store i32 1, ptr %29, align 4, !tbaa !12
+  br label %579
 
-568:                                              ; preds = %554
-  %569 = load ptr, ptr %9, align 8
-  %570 = load ptr, ptr %10, align 8
-  %571 = load ptr, ptr %11, align 8
-  %572 = load ptr, ptr %20, align 8
-  %573 = load double, ptr %13, align 8
-  %574 = load double, ptr %14, align 8
-  %575 = load i32, ptr %15, align 4
-  %576 = add nsw i32 %575, 1
-  %577 = call ptr @cuddSplitSetRecur(ptr noundef %569, ptr noundef %570, ptr noundef %571, ptr noundef %572, double noundef %573, double noundef %574, i32 noundef %576)
-  store ptr %577, ptr %21, align 8
-  br label %578
+569:                                              ; preds = %555
+  %570 = load ptr, ptr %9, align 8, !tbaa !3
+  %571 = load ptr, ptr %10, align 8, !tbaa !40
+  %572 = load ptr, ptr %11, align 8, !tbaa !32
+  %573 = load ptr, ptr %20, align 8, !tbaa !8
+  %574 = load double, ptr %13, align 8, !tbaa !14
+  %575 = load double, ptr %14, align 8, !tbaa !14
+  %576 = load i32, ptr %15, align 4, !tbaa !12
+  %577 = add nsw i32 %576, 1
+  %578 = call ptr @cuddSplitSetRecur(ptr noundef %570, ptr noundef %571, ptr noundef %572, ptr noundef %573, double noundef %574, double noundef %575, i32 noundef %577)
+  store ptr %578, ptr %21, align 8, !tbaa !8
+  br label %579
 
-578:                                              ; preds = %568, %558
-  %579 = load ptr, ptr %21, align 8
-  %580 = icmp eq ptr %579, null
-  br i1 %580, label %581, label %584
+579:                                              ; preds = %569, %559
+  %580 = load ptr, ptr %21, align 8, !tbaa !8
+  %581 = icmp eq ptr %580, null
+  br i1 %581, label %582, label %585
 
-581:                                              ; preds = %578
-  %582 = load ptr, ptr %9, align 8
-  %583 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %582, ptr noundef %583)
+582:                                              ; preds = %579
+  %583 = load ptr, ptr %9, align 8, !tbaa !3
+  %584 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %583, ptr noundef %584)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-584:                                              ; preds = %578
-  %585 = load ptr, ptr %21, align 8
-  %586 = ptrtoint ptr %585 to i64
-  %587 = and i64 %586, -2
-  %588 = inttoptr i64 %587 to ptr
-  %589 = getelementptr inbounds %struct.DdNode, ptr %588, i32 0, i32 1
-  %590 = load i32, ptr %589, align 4
-  %591 = add i32 %590, 1
-  store i32 %591, ptr %589, align 4
-  %592 = load i32, ptr %29, align 4
-  %593 = icmp ne i32 %592, 0
-  br i1 %593, label %594, label %599
+585:                                              ; preds = %579
+  %586 = load ptr, ptr %21, align 8, !tbaa !8
+  %587 = ptrtoint ptr %586 to i64
+  %588 = and i64 %587, -2
+  %589 = inttoptr i64 %588 to ptr
+  %590 = getelementptr inbounds nuw %struct.DdNode, ptr %589, i32 0, i32 1
+  %591 = load i32, ptr %590, align 4, !tbaa !39
+  %592 = add i32 %591, 1
+  store i32 %592, ptr %590, align 4, !tbaa !39
+  %593 = load i32, ptr %29, align 4, !tbaa !12
+  %594 = icmp ne i32 %593, 0
+  br i1 %594, label %595, label %600
 
-594:                                              ; preds = %584
-  %595 = load ptr, ptr %9, align 8
-  %596 = load ptr, ptr %23, align 8
-  %597 = load ptr, ptr %21, align 8
-  %598 = call ptr @cuddBddAndRecur(ptr noundef %595, ptr noundef %596, ptr noundef %597)
-  store ptr %598, ptr %24, align 8
-  br label %607
+595:                                              ; preds = %585
+  %596 = load ptr, ptr %9, align 8, !tbaa !3
+  %597 = load ptr, ptr %23, align 8, !tbaa !8
+  %598 = load ptr, ptr %21, align 8, !tbaa !8
+  %599 = call ptr @cuddBddAndRecur(ptr noundef %596, ptr noundef %597, ptr noundef %598)
+  store ptr %599, ptr %24, align 8, !tbaa !8
+  br label %608
 
-599:                                              ; preds = %584
-  %600 = load ptr, ptr %9, align 8
-  %601 = load ptr, ptr %23, align 8
-  %602 = ptrtoint ptr %601 to i64
-  %603 = xor i64 %602, 1
-  %604 = inttoptr i64 %603 to ptr
-  %605 = load ptr, ptr %21, align 8
-  %606 = call ptr @cuddBddAndRecur(ptr noundef %600, ptr noundef %604, ptr noundef %605)
-  store ptr %606, ptr %24, align 8
-  br label %607
+600:                                              ; preds = %585
+  %601 = load ptr, ptr %9, align 8, !tbaa !3
+  %602 = load ptr, ptr %23, align 8, !tbaa !8
+  %603 = ptrtoint ptr %602 to i64
+  %604 = xor i64 %603, 1
+  %605 = inttoptr i64 %604 to ptr
+  %606 = load ptr, ptr %21, align 8, !tbaa !8
+  %607 = call ptr @cuddBddAndRecur(ptr noundef %601, ptr noundef %605, ptr noundef %606)
+  store ptr %607, ptr %24, align 8, !tbaa !8
+  br label %608
 
-607:                                              ; preds = %599, %594
-  %608 = load ptr, ptr %24, align 8
-  %609 = icmp eq ptr %608, null
-  br i1 %609, label %610, label %615
+608:                                              ; preds = %600, %595
+  %609 = load ptr, ptr %24, align 8, !tbaa !8
+  %610 = icmp eq ptr %609, null
+  br i1 %610, label %611, label %616
 
-610:                                              ; preds = %607
-  %611 = load ptr, ptr %9, align 8
-  %612 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %611, ptr noundef %612)
-  %613 = load ptr, ptr %9, align 8
-  %614 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %613, ptr noundef %614)
+611:                                              ; preds = %608
+  %612 = load ptr, ptr %9, align 8, !tbaa !3
+  %613 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %612, ptr noundef %613)
+  %614 = load ptr, ptr %9, align 8, !tbaa !3
+  %615 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %614, ptr noundef %615)
   store ptr null, ptr %8, align 8
-  br label %635
+  store i32 1, ptr %30, align 4
+  br label %636
 
-615:                                              ; preds = %607
-  %616 = load ptr, ptr %24, align 8
-  %617 = ptrtoint ptr %616 to i64
-  %618 = and i64 %617, -2
-  %619 = inttoptr i64 %618 to ptr
-  %620 = getelementptr inbounds %struct.DdNode, ptr %619, i32 0, i32 1
-  %621 = load i32, ptr %620, align 4
-  %622 = add i32 %621, 1
-  store i32 %622, ptr %620, align 4
-  %623 = load ptr, ptr %9, align 8
-  %624 = load ptr, ptr %21, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %623, ptr noundef %624)
-  %625 = load ptr, ptr %9, align 8
-  %626 = load ptr, ptr %23, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %625, ptr noundef %626)
-  %627 = load ptr, ptr %24, align 8
-  %628 = ptrtoint ptr %627 to i64
-  %629 = and i64 %628, -2
-  %630 = inttoptr i64 %629 to ptr
-  %631 = getelementptr inbounds %struct.DdNode, ptr %630, i32 0, i32 1
-  %632 = load i32, ptr %631, align 4
-  %633 = add i32 %632, -1
-  store i32 %633, ptr %631, align 4
-  %634 = load ptr, ptr %24, align 8
-  store ptr %634, ptr %8, align 8
-  br label %635
+616:                                              ; preds = %608
+  %617 = load ptr, ptr %24, align 8, !tbaa !8
+  %618 = ptrtoint ptr %617 to i64
+  %619 = and i64 %618, -2
+  %620 = inttoptr i64 %619 to ptr
+  %621 = getelementptr inbounds nuw %struct.DdNode, ptr %620, i32 0, i32 1
+  %622 = load i32, ptr %621, align 4, !tbaa !39
+  %623 = add i32 %622, 1
+  store i32 %623, ptr %621, align 4, !tbaa !39
+  %624 = load ptr, ptr %9, align 8, !tbaa !3
+  %625 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %624, ptr noundef %625)
+  %626 = load ptr, ptr %9, align 8, !tbaa !3
+  %627 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %626, ptr noundef %627)
+  %628 = load ptr, ptr %24, align 8, !tbaa !8
+  %629 = ptrtoint ptr %628 to i64
+  %630 = and i64 %629, -2
+  %631 = inttoptr i64 %630 to ptr
+  %632 = getelementptr inbounds nuw %struct.DdNode, ptr %631, i32 0, i32 1
+  %633 = load i32, ptr %632, align 4, !tbaa !39
+  %634 = add i32 %633, -1
+  store i32 %634, ptr %632, align 4, !tbaa !39
+  %635 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %635, ptr %8, align 8
+  store i32 1, ptr %30, align 4
+  br label %636
 
-635:                                              ; preds = %615, %610, %581, %533, %528, %508, %465, %460, %443, %400, %395, %377, %339, %334, %316, %280, %277, %245, %242, %197, %162, %131, %128, %113, %44
-  %636 = load ptr, ptr %8, align 8
-  ret ptr %636
+636:                                              ; preds = %616, %611, %582, %534, %529, %509, %466, %461, %444, %401, %396, %378, %340, %335, %317, %281, %278, %246, %243, %198, %163, %132, %129, %114, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %637 = load ptr, ptr %8, align 8
+  ret ptr %637
 }
 
-declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #3
+declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #4
 
-declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) #0 {
@@ -1717,210 +1850,271 @@ define internal ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %1, i32 no
   %15 = alloca ptr, align 8
   %16 = alloca double, align 8
   %17 = alloca double, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct.DdManager, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = xor i64 %22, 1
-  %24 = inttoptr i64 %23 to ptr
-  store ptr %24, ptr %13, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = sitofp i32 %25 to double
-  %27 = call double @pow(double noundef 2.000000e+00, double noundef %26) #4
-  store double %27, ptr %16, align 8
-  %28 = load double, ptr %16, align 8
-  %29 = fdiv double %28, 2.000000e+00
-  store double %29, ptr %17, align 8
-  %30 = load double, ptr %10, align 8
-  %31 = load double, ptr %16, align 8
-  %32 = fcmp oeq double %30, %31
-  br i1 %32, label %33, label %35
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !10
+  store i32 %2, ptr %9, align 4, !tbaa !12
+  store double %3, ptr %10, align 8, !tbaa !14
+  store i32 %4, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.DdManager, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  store ptr %21, ptr %12, align 8, !tbaa !8
+  %22 = load ptr, ptr %12, align 8, !tbaa !8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = xor i64 %23, 1
+  %25 = inttoptr i64 %24 to ptr
+  store ptr %25, ptr %13, align 8, !tbaa !8
+  %26 = load i32, ptr %9, align 4, !tbaa !12
+  %27 = sitofp i32 %26 to double
+  %28 = call double @pow(double noundef 2.000000e+00, double noundef %27) #5, !tbaa !12
+  store double %28, ptr %16, align 8, !tbaa !14
+  %29 = load double, ptr %16, align 8, !tbaa !14
+  %30 = fdiv double %29, 2.000000e+00
+  store double %30, ptr %17, align 8, !tbaa !14
+  %31 = load double, ptr %10, align 8, !tbaa !14
+  %32 = load double, ptr %16, align 8, !tbaa !14
+  %33 = fcmp oeq double %31, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %5
-  %34 = load ptr, ptr %12, align 8
-  store ptr %34, ptr %6, align 8
-  br label %138
+34:                                               ; preds = %5
+  %35 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %35, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  br label %139
 
-35:                                               ; preds = %5
-  %36 = load double, ptr %10, align 8
-  %37 = fcmp oeq double %36, 0.000000e+00
-  br i1 %37, label %38, label %40
+36:                                               ; preds = %5
+  %37 = load double, ptr %10, align 8, !tbaa !14
+  %38 = fcmp oeq double %37, 0.000000e+00
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %13, align 8
-  store ptr %39, ptr %6, align 8
-  br label %138
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %40, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  br label %139
 
-40:                                               ; preds = %35
-  %41 = load double, ptr %10, align 8
-  %42 = load double, ptr %17, align 8
-  %43 = fcmp oeq double %41, %42
-  br i1 %43, label %44, label %50
+41:                                               ; preds = %36
+  %42 = load double, ptr %10, align 8, !tbaa !14
+  %43 = load double, ptr %17, align 8, !tbaa !14
+  %44 = fcmp oeq double %42, %43
+  br i1 %44, label %45, label %51
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %6, align 8
-  br label %138
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %8, align 8, !tbaa !10
+  %47 = load i32, ptr %11, align 4, !tbaa !12
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !8
+  store ptr %50, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  br label %139
 
-50:                                               ; preds = %40
-  %51 = load double, ptr %10, align 8
-  %52 = load double, ptr %17, align 8
-  %53 = fcmp ogt double %51, %52
-  br i1 %53, label %54, label %85
+51:                                               ; preds = %41
+  %52 = load double, ptr %10, align 8, !tbaa !14
+  %53 = load double, ptr %17, align 8, !tbaa !14
+  %54 = fcmp ogt double %52, %53
+  br i1 %54, label %55, label %86
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load i32, ptr %9, align 4
-  %58 = sub nsw i32 %57, 1
-  %59 = load double, ptr %10, align 8
-  %60 = load double, ptr %17, align 8
-  %61 = fsub double %59, %60
-  %62 = load i32, ptr %11, align 4
-  %63 = add nsw i32 %62, 1
-  %64 = call ptr @mintermsFromUniverse(ptr noundef %55, ptr noundef %56, i32 noundef %58, double noundef %61, i32 noundef %63)
-  store ptr %64, ptr %14, align 8
-  %65 = load ptr, ptr %14, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %7, align 8, !tbaa !3
+  %57 = load ptr, ptr %8, align 8, !tbaa !10
+  %58 = load i32, ptr %9, align 4, !tbaa !12
+  %59 = sub nsw i32 %58, 1
+  %60 = load double, ptr %10, align 8, !tbaa !14
+  %61 = load double, ptr %17, align 8, !tbaa !14
+  %62 = fsub double %60, %61
+  %63 = load i32, ptr %11, align 4, !tbaa !12
+  %64 = add nsw i32 %63, 1
+  %65 = call ptr @mintermsFromUniverse(ptr noundef %56, ptr noundef %57, i32 noundef %59, double noundef %62, i32 noundef %64)
+  store ptr %65, ptr %14, align 8, !tbaa !8
+  %66 = load ptr, ptr %14, align 8, !tbaa !8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %54
+68:                                               ; preds = %55
   store ptr null, ptr %6, align 8
-  br label %138
+  store i32 1, ptr %18, align 4
+  br label %139
 
-68:                                               ; preds = %54
-  %69 = load ptr, ptr %14, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = and i64 %70, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds %struct.DdNode, ptr %72, i32 0, i32 1
-  %74 = load i32, ptr %73, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %73, align 4
-  %76 = load ptr, ptr %7, align 8
-  %77 = load ptr, ptr %8, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %77, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = load ptr, ptr %14, align 8
-  %84 = call ptr @cuddBddIteRecur(ptr noundef %76, ptr noundef %81, ptr noundef %82, ptr noundef %83)
-  store ptr %84, ptr %15, align 8
-  br label %113
-
-85:                                               ; preds = %50
-  %86 = load ptr, ptr %7, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = sub nsw i32 %88, 1
-  %90 = load double, ptr %10, align 8
-  %91 = load i32, ptr %11, align 4
-  %92 = add nsw i32 %91, 1
-  %93 = call ptr @mintermsFromUniverse(ptr noundef %86, ptr noundef %87, i32 noundef %89, double noundef %90, i32 noundef %92)
-  store ptr %93, ptr %14, align 8
-  %94 = load ptr, ptr %14, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
-
-96:                                               ; preds = %85
-  store ptr null, ptr %6, align 8
-  br label %138
-
-97:                                               ; preds = %85
-  %98 = load ptr, ptr %14, align 8
-  %99 = ptrtoint ptr %98 to i64
-  %100 = and i64 %99, -2
-  %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds %struct.DdNode, ptr %101, i32 0, i32 1
-  %103 = load i32, ptr %102, align 4
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %102, align 4
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = load i32, ptr %11, align 4
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %14, align 8
-  %112 = call ptr @cuddBddAndRecur(ptr noundef %105, ptr noundef %110, ptr noundef %111)
-  store ptr %112, ptr %15, align 8
-  br label %113
-
-113:                                              ; preds = %97, %68
+69:                                               ; preds = %55
+  %70 = load ptr, ptr %14, align 8, !tbaa !8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = and i64 %71, -2
+  %73 = inttoptr i64 %72 to ptr
+  %74 = getelementptr inbounds nuw %struct.DdNode, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4, !tbaa !39
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 4, !tbaa !39
+  %77 = load ptr, ptr %7, align 8, !tbaa !3
+  %78 = load ptr, ptr %8, align 8, !tbaa !10
+  %79 = load i32, ptr %11, align 4, !tbaa !12
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !8
+  %83 = load ptr, ptr %12, align 8, !tbaa !8
+  %84 = load ptr, ptr %14, align 8, !tbaa !8
+  %85 = call ptr @cuddBddIteRecur(ptr noundef %77, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  store ptr %85, ptr %15, align 8, !tbaa !8
   br label %114
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %15, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %120
+86:                                               ; preds = %51
+  %87 = load ptr, ptr %7, align 8, !tbaa !3
+  %88 = load ptr, ptr %8, align 8, !tbaa !10
+  %89 = load i32, ptr %9, align 4, !tbaa !12
+  %90 = sub nsw i32 %89, 1
+  %91 = load double, ptr %10, align 8, !tbaa !14
+  %92 = load i32, ptr %11, align 4, !tbaa !12
+  %93 = add nsw i32 %92, 1
+  %94 = call ptr @mintermsFromUniverse(ptr noundef %87, ptr noundef %88, i32 noundef %90, double noundef %91, i32 noundef %93)
+  store ptr %94, ptr %14, align 8, !tbaa !8
+  %95 = load ptr, ptr %14, align 8, !tbaa !8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr %7, align 8
-  %119 = load ptr, ptr %14, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %118, ptr noundef %119)
+97:                                               ; preds = %86
   store ptr null, ptr %6, align 8
-  br label %138
+  store i32 1, ptr %18, align 4
+  br label %139
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %15, align 8
-  %122 = ptrtoint ptr %121 to i64
-  %123 = and i64 %122, -2
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds %struct.DdNode, ptr %124, i32 0, i32 1
-  %126 = load i32, ptr %125, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %125, align 4
-  %128 = load ptr, ptr %7, align 8
-  %129 = load ptr, ptr %14, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %128, ptr noundef %129)
-  %130 = load ptr, ptr %15, align 8
-  %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %131, -2
-  %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds %struct.DdNode, ptr %133, i32 0, i32 1
-  %135 = load i32, ptr %134, align 4
-  %136 = add i32 %135, -1
-  store i32 %136, ptr %134, align 4
-  %137 = load ptr, ptr %15, align 8
-  store ptr %137, ptr %6, align 8
-  br label %138
+98:                                               ; preds = %86
+  %99 = load ptr, ptr %14, align 8, !tbaa !8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = and i64 %100, -2
+  %102 = inttoptr i64 %101 to ptr
+  %103 = getelementptr inbounds nuw %struct.DdNode, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 4, !tbaa !39
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %103, align 4, !tbaa !39
+  %106 = load ptr, ptr %7, align 8, !tbaa !3
+  %107 = load ptr, ptr %8, align 8, !tbaa !10
+  %108 = load i32, ptr %11, align 4, !tbaa !12
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %111 = load ptr, ptr %110, align 8, !tbaa !8
+  %112 = load ptr, ptr %14, align 8, !tbaa !8
+  %113 = call ptr @cuddBddAndRecur(ptr noundef %106, ptr noundef %111, ptr noundef %112)
+  store ptr %113, ptr %15, align 8, !tbaa !8
+  br label %114
 
-138:                                              ; preds = %120, %117, %96, %67, %44, %38, %33
-  %139 = load ptr, ptr %6, align 8
-  ret ptr %139
+114:                                              ; preds = %98, %69
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %15, align 8, !tbaa !8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %118, label %121
+
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %7, align 8, !tbaa !3
+  %120 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %119, ptr noundef %120)
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  br label %139
+
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %15, align 8, !tbaa !8
+  %123 = ptrtoint ptr %122 to i64
+  %124 = and i64 %123, -2
+  %125 = inttoptr i64 %124 to ptr
+  %126 = getelementptr inbounds nuw %struct.DdNode, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 4, !tbaa !39
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %126, align 4, !tbaa !39
+  %129 = load ptr, ptr %7, align 8, !tbaa !3
+  %130 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %129, ptr noundef %130)
+  %131 = load ptr, ptr %15, align 8, !tbaa !8
+  %132 = ptrtoint ptr %131 to i64
+  %133 = and i64 %132, -2
+  %134 = inttoptr i64 %133 to ptr
+  %135 = getelementptr inbounds nuw %struct.DdNode, ptr %134, i32 0, i32 1
+  %136 = load i32, ptr %135, align 4, !tbaa !39
+  %137 = add i32 %136, -1
+  store i32 %137, ptr %135, align 4, !tbaa !39
+  %138 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %138, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  br label %139
+
+139:                                              ; preds = %121, %118, %97, %68, %45, %39, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %140 = load ptr, ptr %6, align 8
+  ret ptr %140
 }
 
-declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9DdManager", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !6, i64 0}
+!16 = !{!17, !13, i64 136}
+!17 = !{!"DdManager", !18, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !20, i64 80, !20, i64 88, !13, i64 96, !13, i64 100, !15, i64 104, !15, i64 112, !15, i64 120, !13, i64 128, !13, i64 132, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !21, i64 152, !21, i64 160, !22, i64 168, !13, i64 224, !13, i64 228, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !15, i64 256, !13, i64 264, !13, i64 268, !13, i64 272, !11, i64 280, !19, i64 288, !15, i64 296, !13, i64 304, !23, i64 312, !23, i64 320, !23, i64 328, !23, i64 336, !11, i64 344, !23, i64 352, !11, i64 360, !13, i64 368, !24, i64 376, !24, i64 384, !11, i64 392, !9, i64 400, !25, i64 408, !11, i64 416, !13, i64 424, !13, i64 428, !13, i64 432, !15, i64 440, !13, i64 448, !13, i64 452, !13, i64 456, !13, i64 460, !15, i64 464, !15, i64 472, !13, i64 480, !13, i64 484, !13, i64 488, !13, i64 492, !13, i64 496, !13, i64 500, !13, i64 504, !13, i64 508, !13, i64 512, !26, i64 520, !26, i64 528, !13, i64 536, !13, i64 540, !13, i64 544, !13, i64 548, !13, i64 552, !13, i64 556, !27, i64 560, !25, i64 568, !28, i64 576, !28, i64 584, !28, i64 592, !28, i64 600, !29, i64 608, !29, i64 616, !13, i64 624, !19, i64 632, !19, i64 640, !19, i64 648, !13, i64 656, !19, i64 664, !19, i64 672, !15, i64 680, !15, i64 688, !15, i64 696, !15, i64 704, !15, i64 712, !15, i64 720, !13, i64 728, !9, i64 736, !9, i64 744, !19, i64 752}
+!18 = !{!"DdNode", !13, i64 0, !13, i64 4, !9, i64 8, !6, i64 16, !19, i64 32}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!21 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!22 = !{!"DdSubtable", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48}
+!23 = !{!"p1 int", !5, i64 0}
+!24 = !{!"p1 long", !5, i64 0}
+!25 = !{!"p1 omnipotent char", !5, i64 0}
+!26 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!27 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!28 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!30 = !{!17, !9, i64 40}
+!31 = !{!17, !13, i64 448}
+!32 = !{!23, !23, i64 0}
+!33 = !{!17, !13, i64 624}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!18, !13, i64 0}
+!37 = !{!17, !23, i64 328}
+!38 = distinct !{!38, !35}
+!39 = !{!18, !13, i64 4}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS9st__table", !5, i64 0}
+!42 = !{!17, !29, i64 608}
+!43 = distinct !{!43, !35}
+!44 = distinct !{!44, !35}
+!45 = !{!17, !23, i64 312}
+!46 = distinct !{!46, !35}
+!47 = distinct !{!47, !35}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 double", !5, i64 0}
+!50 = !{!6, !6, i64 0}

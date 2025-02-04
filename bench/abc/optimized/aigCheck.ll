@@ -1,5 +1,5 @@
-; ModuleID = 'bench/abc/original/aigCheck.c.ll'
-source_filename = "bench/abc/original/aigCheck.c.ll"
+; ModuleID = 'bench/abc/original/aigCheck.ll'
+source_filename = "bench/abc/original/aigCheck.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
@@ -18,49 +18,49 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr i8, ptr %3, i64 4
-  %.val = load i32, ptr %4, align 4
+  %.val = load i32, ptr %4, align 4, !tbaa !21
   %5 = icmp sgt i32 %.val, 0
   br i1 %5, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val81 = load ptr, ptr %6, align 8
+  %.val81 = load ptr, ptr %6, align 8, !tbaa !23
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %13
 
 7:                                                ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %13, !llvm.loop !4
+  br i1 %exitcond.not, label %.critedge.preheader, label %13, !llvm.loop !24
 
 .critedge.preheader:                              ; preds = %7, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr i8, ptr %9, i64 4
-  %.val79 = load i32, ptr %10, align 4
+  %.val79 = load i32, ptr %10, align 4, !tbaa !21
   %11 = icmp sgt i32 %.val79, 0
   br i1 %11, label %.lr.ph133, label %.critedge2.preheader
 
 .lr.ph133:                                        ; preds = %.critedge.preheader
   %12 = getelementptr i8, ptr %9, i64 8
-  %.val82 = load ptr, ptr %12, align 8
+  %.val82 = load ptr, ptr %12, align 8, !tbaa !23
   %wide.trip.count150 = zext nneg i32 %.val79 to i64
   br label %25
 
 13:                                               ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %14 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = getelementptr i8, ptr %15, i64 8
-  %.val84 = load ptr, ptr %16, align 8
+  %.val84 = load ptr, ptr %16, align 8, !tbaa !28
   %.not77 = icmp ult ptr %.val84, inttoptr (i64 2 to ptr)
   br i1 %.not77, label %17, label %19
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %15, i64 16
-  %.val88 = load ptr, ptr %18, align 8
+  %.val88 = load ptr, ptr %18, align 8, !tbaa !29
   %.not78 = icmp ult ptr %.val88, inttoptr (i64 2 to ptr)
   br i1 %.not78, label %7, label %19
 
@@ -71,22 +71,22 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %31
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.critedge2.preheader, label %25, !llvm.loop !6
+  br i1 %exitcond151.not, label %.critedge2.preheader, label %25, !llvm.loop !30
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = getelementptr i8, ptr %22, i64 4
-  %.val80134 = load i32, ptr %23, align 4
+  %.val80134 = load i32, ptr %23, align 4, !tbaa !21
   %24 = icmp sgt i32 %.val80134, 0
   br i1 %24, label %.lr.ph136, label %.critedge4
 
 25:                                               ; preds = %.lr.ph133, %.critedge
   %indvars.iv147 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next148, %.critedge ]
   %26 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv147
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = getelementptr i8, ptr %27, i64 8
-  %.val85 = load ptr, ptr %28, align 8
+  %.val85 = load ptr, ptr %28, align 8, !tbaa !28
   %.not75 = icmp ult ptr %.val85, inttoptr (i64 2 to ptr)
   br i1 %.not75, label %29, label %31
 
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %25
   %32 = getelementptr i8, ptr %27, i64 16
-  %.val89 = load ptr, ptr %32, align 8
+  %.val89 = load ptr, ptr %32, align 8, !tbaa !29
   %.not76 = icmp ult ptr %.val89, inttoptr (i64 2 to ptr)
   br i1 %.not76, label %.critedge, label %33
 
@@ -108,9 +108,9 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %35 = phi ptr [ %68, %.critedge2 ], [ %22, %.critedge2.preheader ]
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %36 = getelementptr i8, ptr %35, i64 8
-  %.val83 = load ptr, ptr %36, align 8
+  %.val83 = load ptr, ptr %36, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw ptr, ptr %.val83, i64 %indvars.iv152
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge2, label %40
 
@@ -125,7 +125,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %40
   %46 = getelementptr i8, ptr %38, i64 8
-  %.val86 = load ptr, ptr %46, align 8
+  %.val86 = load ptr, ptr %46, align 8, !tbaa !28
   %47 = ptrtoint ptr %.val86 to i64
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %45
   %51 = getelementptr i8, ptr %38, i64 16
-  %.val90 = load ptr, ptr %51, align 8
+  %.val90 = load ptr, ptr %51, align 8, !tbaa !29
   %52 = ptrtoint ptr %.val90 to i64
   %53 = and i64 %52, -2
   %.not72 = icmp eq i64 %53, 0
@@ -147,9 +147,9 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 56:                                               ; preds = %50
   %57 = inttoptr i64 %53 to ptr
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 36
-  %59 = load i32, ptr %58, align 4
+  %59 = load i32, ptr %58, align 4, !tbaa !32
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 36
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 4, !tbaa !32
   %.not73 = icmp slt i32 %59, %61
   br i1 %.not73, label %64, label %62
 
@@ -163,7 +163,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not74, label %..critedge2_crit_edge, label %66
 
 ..critedge2_crit_edge:                            ; preds = %64
-  %.pre = load ptr, ptr %21, align 8
+  %.pre = load ptr, ptr %21, align 8, !tbaa !31
   br label %.critedge2
 
 66:                                               ; preds = %64
@@ -174,59 +174,59 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %68 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %35, %.lr.ph136 ], [ %35, %40 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %69 = getelementptr i8, ptr %68, i64 4
-  %.val80 = load i32, ptr %69, align 4
+  %.val80 = load i32, ptr %69, align 4, !tbaa !21
   %70 = sext i32 %.val80 to i64
   %71 = icmp slt i64 %indvars.iv.next153, %70
-  br i1 %71, label %.lr.ph136, label %.critedge4, !llvm.loop !7
+  br i1 %71, label %.lr.ph136, label %.critedge4, !llvm.loop !33
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %.val80.lcssa = phi i32 [ %.val80134, %.critedge2.preheader ], [ %.val80, %.critedge2 ]
   %72 = getelementptr i8, ptr %0, i64 156
-  %.val94 = load i32, ptr %72, align 4
+  %.val94 = load i32, ptr %72, align 4, !tbaa !34
   %73 = sub nsw i32 %.val80.lcssa, %.val94
   %74 = getelementptr i8, ptr %0, i64 136
-  %.val97 = load i32, ptr %74, align 8
+  %.val97 = load i32, ptr %74, align 8, !tbaa !35
   %75 = add nsw i32 %.val97, 1
   %76 = getelementptr i8, ptr %0, i64 140
-  %.val100 = load i32, ptr %76, align 4
+  %.val100 = load i32, ptr %76, align 4, !tbaa !35
   %77 = add nsw i32 %75, %.val100
   %78 = getelementptr i8, ptr %0, i64 144
-  %.val103 = load i32, ptr %78, align 8
+  %.val103 = load i32, ptr %78, align 8, !tbaa !35
   %79 = add nsw i32 %77, %.val103
   %80 = getelementptr i8, ptr %0, i64 148
-  %.val106 = load i32, ptr %80, align 4
+  %.val106 = load i32, ptr %80, align 4, !tbaa !35
   %81 = add nsw i32 %79, %.val106
   %82 = getelementptr i8, ptr %0, i64 152
-  %.val112 = load i32, ptr %82, align 8
+  %.val112 = load i32, ptr %82, align 8, !tbaa !35
   %83 = add nsw i32 %81, %.val112
   %.not = icmp eq i32 %73, %83
   br i1 %.not, label %95, label %84
 
 84:                                               ; preds = %.critedge4
   %puts69 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %.val98 = load i32, ptr %74, align 8
-  %.val101 = load i32, ptr %76, align 4
-  %.val104 = load i32, ptr %78, align 8
-  %.val107 = load i32, ptr %80, align 4
-  %.val113 = load i32, ptr %82, align 8
+  %.val98 = load i32, ptr %74, align 8, !tbaa !35
+  %.val101 = load i32, ptr %76, align 4, !tbaa !35
+  %.val104 = load i32, ptr %78, align 8, !tbaa !35
+  %.val107 = load i32, ptr %80, align 4, !tbaa !35
+  %.val113 = load i32, ptr %82, align 8, !tbaa !35
   %85 = add nsw i32 %.val98, 1
   %86 = add nsw i32 %85, %.val101
   %87 = add nsw i32 %86, %.val104
   %88 = add nsw i32 %87, %.val107
   %89 = add nsw i32 %88, %.val113
   %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 1, i32 noundef %.val98, i32 noundef %.val101, i32 noundef %.val104, i32 noundef %.val107, i32 noundef %.val113, i32 noundef %89)
-  %.val118 = load ptr, ptr %21, align 8
+  %.val118 = load ptr, ptr %21, align 8, !tbaa !31
   %91 = getelementptr i8, ptr %.val118, i64 4
-  %.val118.val = load i32, ptr %91, align 4
-  %92 = load i32, ptr %72, align 4
+  %.val118.val = load i32, ptr %91, align 4, !tbaa !21
+  %92 = load i32, ptr %72, align 4, !tbaa !34
   %93 = sub nsw i32 %.val118.val, %92
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val118.val, i32 noundef %92, i32 noundef %93)
   br label %102
 
 95:                                               ; preds = %.critedge4
   %96 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #5
-  %.val109 = load i32, ptr %80, align 4
-  %.val115 = load i32, ptr %82, align 8
+  %.val109 = load i32, ptr %80, align 4, !tbaa !35
+  %.val115 = load i32, ptr %82, align 8, !tbaa !35
   %97 = add nsw i32 %.val115, %.val109
   %.not68 = icmp eq i32 %96, %97
   br i1 %.not68, label %102, label %98
@@ -234,8 +234,8 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 98:                                               ; preds = %95
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %99 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #5
-  %.val110 = load i32, ptr %80, align 4
-  %.val116 = load i32, ptr %82, align 8
+  %.val110 = load i32, ptr %80, align 4, !tbaa !35
+  %.val116 = load i32, ptr %82, align 8, !tbaa !35
   %100 = add nsw i32 %.val116, %.val110
   %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %99, i32 noundef %.val110, i32 noundef %.val116, i32 noundef %100)
   br label %102
@@ -267,20 +267,48 @@ define void @Aig_ManCheckPhase(ptr noundef readonly captures(none) %0) local_unn
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !9, i64 16}
+!4 = !{!"Aig_Man_t_", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !10, i64 48, !11, i64 56, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !12, i64 120, !12, i64 124, !7, i64 128, !12, i64 156, !13, i64 160, !12, i64 168, !14, i64 176, !12, i64 184, !15, i64 192, !12, i64 200, !12, i64 204, !12, i64 208, !14, i64 216, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !13, i64 248, !13, i64 256, !12, i64 264, !16, i64 272, !17, i64 280, !12, i64 288, !6, i64 296, !6, i64 304, !12, i64 312, !12, i64 316, !12, i64 320, !13, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !14, i64 368, !14, i64 376, !9, i64 384, !17, i64 392, !17, i64 400, !18, i64 408, !9, i64 416, !19, i64 424, !9, i64 432, !12, i64 440, !17, i64 448, !15, i64 456, !17, i64 464, !17, i64 472, !12, i64 480, !20, i64 488, !20, i64 496, !20, i64 504, !9, i64 512, !9, i64 520}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!10 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
+!11 = !{!"Aig_Obj_t_", !7, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 28, !12, i64 31, !12, i64 32, !12, i64 36, !7, i64 40}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
+!14 = !{!"p1 int", !6, i64 0}
+!15 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
+!16 = !{!"p1 _ZTS14Aig_MmFixed_t_", !6, i64 0}
+!17 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
+!18 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!19 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!22, !12, i64 4}
+!22 = !{!"Vec_Ptr_t_", !12, i64 0, !12, i64 4, !6, i64 8}
+!23 = !{!22, !6, i64 8}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!4, !9, i64 24}
+!27 = !{!6, !6, i64 0}
+!28 = !{!11, !10, i64 8}
+!29 = !{!11, !10, i64 16}
+!30 = distinct !{!30, !25}
+!31 = !{!4, !9, i64 32}
+!32 = !{!11, !12, i64 36}
+!33 = distinct !{!33, !25}
+!34 = !{!4, !12, i64 156}
+!35 = !{!12, !12, i64 0}

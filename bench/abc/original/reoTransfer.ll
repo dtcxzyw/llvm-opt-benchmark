@@ -20,306 +20,323 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct._reo_man, ptr %10, i32 0, i32 6
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 8
-  store i32 -1, ptr %8, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %16 = trunc i64 %15 to i32
-  store i32 %16, ptr %9, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, -2
-  %20 = inttoptr i64 %19 to ptr
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.DdNode, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, 1
-  br i1 %24, label %25, label %92
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct._reo_man, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  store ptr %13, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  store i32 -1, ptr %8, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %14 = load ptr, ptr %5, align 8, !tbaa !8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = and i64 %15, 1
+  %17 = trunc i64 %16 to i32
+  store i32 %17, ptr %9, align 4, !tbaa !23
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = and i64 %19, -2
+  %21 = inttoptr i64 %20 to ptr
+  store ptr %21, ptr %5, align 8, !tbaa !8
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.DdNode, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !24
+  %25 = icmp ne i32 %24, 1
+  br i1 %25, label %26, label %93
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct._reo_man, ptr %26, i32 0, i32 35
-  %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  %30 = load ptr, ptr %5, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = mul i64 %31, 12582917
-  %33 = add i64 %29, %32
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._reo_man, ptr %34, i32 0, i32 34
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = urem i64 %33, %37
-  %39 = trunc i64 %38 to i32
-  store i32 %39, ptr %8, align 4
-  br label %40
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct._reo_man, ptr %27, i32 0, i32 35
+  %29 = load i32, ptr %28, align 4, !tbaa !27
+  %30 = sext i32 %29 to i64
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = mul i64 %32, 12582917
+  %34 = add i64 %30, %33
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct._reo_man, ptr %35, i32 0, i32 34
+  %37 = load i32, ptr %36, align 8, !tbaa !28
+  %38 = sext i32 %37 to i64
+  %39 = urem i64 %34, %38
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %8, align 4, !tbaa !23
+  br label %41
 
-40:                                               ; preds = %84, %25
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct._reo_man, ptr %41, i32 0, i32 33
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %8, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct._reo_hash, ptr %43, i64 %45
-  %47 = getelementptr inbounds %struct._reo_hash, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct._reo_man, ptr %49, i32 0, i32 35
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %48, %51
-  br i1 %52, label %53, label %91
+41:                                               ; preds = %85, %26
+  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct._reo_man, ptr %42, i32 0, i32 33
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
+  %45 = load i32, ptr %8, align 4, !tbaa !23
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct._reo_hash, ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw %struct._reo_hash, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 8, !tbaa !30
+  %50 = load ptr, ptr %4, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct._reo_man, ptr %50, i32 0, i32 35
+  %52 = load i32, ptr %51, align 4, !tbaa !27
+  %53 = icmp eq i32 %49, %52
+  br i1 %53, label %54, label %92
 
-53:                                               ; preds = %40
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._reo_man, ptr %54, i32 0, i32 33
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %8, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct._reo_hash, ptr %56, i64 %58
-  %60 = getelementptr inbounds %struct._reo_hash, ptr %59, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %64, label %83
+54:                                               ; preds = %41
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct._reo_man, ptr %55, i32 0, i32 33
+  %57 = load ptr, ptr %56, align 8, !tbaa !29
+  %58 = load i32, ptr %8, align 4, !tbaa !23
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %struct._reo_hash, ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw %struct._reo_hash, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !32
+  %63 = load ptr, ptr %5, align 8, !tbaa !8
+  %64 = icmp eq ptr %62, %63
+  br i1 %64, label %65, label %84
 
-64:                                               ; preds = %53
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct._reo_man, ptr %65, i32 0, i32 33
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i32, ptr %8, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct._reo_hash, ptr %67, i64 %69
-  %71 = getelementptr inbounds %struct._reo_hash, ptr %70, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %7, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %struct._reo_unit, ptr %73, i32 0, i32 3
-  %75 = load i16, ptr %74, align 2
-  %76 = add i16 %75, 1
-  store i16 %76, ptr %74, align 2
-  %77 = load ptr, ptr %7, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = load i32, ptr %9, align 4
-  %80 = sext i32 %79 to i64
-  %81 = xor i64 %78, %80
-  %82 = inttoptr i64 %81 to ptr
-  store ptr %82, ptr %3, align 8
-  br label %234
+65:                                               ; preds = %54
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct._reo_man, ptr %66, i32 0, i32 33
+  %68 = load ptr, ptr %67, align 8, !tbaa !29
+  %69 = load i32, ptr %8, align 4, !tbaa !23
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds %struct._reo_hash, ptr %68, i64 %70
+  %72 = getelementptr inbounds nuw %struct._reo_hash, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !33
+  store ptr %73, ptr %7, align 8, !tbaa !34
+  %74 = load ptr, ptr %7, align 8, !tbaa !34
+  %75 = getelementptr inbounds nuw %struct._reo_unit, ptr %74, i32 0, i32 3
+  %76 = load i16, ptr %75, align 2, !tbaa !35
+  %77 = add i16 %76, 1
+  store i16 %77, ptr %75, align 2, !tbaa !35
+  %78 = load ptr, ptr %7, align 8, !tbaa !34
+  %79 = ptrtoint ptr %78 to i64
+  %80 = load i32, ptr %9, align 4, !tbaa !23
+  %81 = sext i32 %80 to i64
+  %82 = xor i64 %79, %81
+  %83 = inttoptr i64 %82 to ptr
+  store ptr %83, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %235
 
-83:                                               ; preds = %53
-  br label %84
+84:                                               ; preds = %54
+  br label %85
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr %8, align 4
-  %86 = add nsw i32 %85, 1
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct._reo_man, ptr %87, i32 0, i32 34
-  %89 = load i32, ptr %88, align 8
-  %90 = srem i32 %86, %89
-  store i32 %90, ptr %8, align 4
-  br label %40, !llvm.loop !4
+85:                                               ; preds = %84
+  %86 = load i32, ptr %8, align 4, !tbaa !23
+  %87 = add nsw i32 %86, 1
+  %88 = load ptr, ptr %4, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct._reo_man, ptr %88, i32 0, i32 34
+  %90 = load i32, ptr %89, align 8, !tbaa !28
+  %91 = srem i32 %87, %90
+  store i32 %91, ptr %8, align 4, !tbaa !23
+  br label %41, !llvm.loop !38
 
-91:                                               ; preds = %40
-  br label %92
+92:                                               ; preds = %41
+  br label %93
 
-92:                                               ; preds = %91, %2
-  %93 = load ptr, ptr %4, align 8
-  %94 = call ptr @reoUnitsGetNextUnit(ptr noundef %93)
-  store ptr %94, ptr %7, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %struct._reo_unit, ptr %95, i32 0, i32 3
-  store i16 1, ptr %96, align 2
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.DdNode, ptr %97, i32 0, i32 0
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp eq i32 %99, 2147483647
-  br i1 %100, label %101, label %131
+93:                                               ; preds = %92, %2
+  %94 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = call ptr @reoUnitsGetNextUnit(ptr noundef %94)
+  store ptr %95, ptr %7, align 8, !tbaa !34
+  %96 = load ptr, ptr %7, align 8, !tbaa !34
+  %97 = getelementptr inbounds nuw %struct._reo_unit, ptr %96, i32 0, i32 3
+  store i16 1, ptr %97, align 2, !tbaa !35
+  %98 = load ptr, ptr %5, align 8, !tbaa !8
+  %99 = getelementptr inbounds nuw %struct.DdNode, ptr %98, i32 0, i32 0
+  %100 = load i32, ptr %99, align 8, !tbaa !40
+  %101 = icmp eq i32 %100, 2147483647
+  br i1 %101, label %102, label %132
 
-101:                                              ; preds = %92
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct._reo_unit, ptr %102, i32 0, i32 0
-  store i16 30000, ptr %103, align 8
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds %struct.DdNode, ptr %104, i32 0, i32 3
-  %106 = load double, ptr %105, align 8
-  %107 = fptoui double %106 to i64
-  %108 = inttoptr i64 %107 to ptr
-  %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds %struct._reo_unit, ptr %109, i32 0, i32 5
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._reo_unit, ptr %111, i32 0, i32 6
-  store ptr null, ptr %112, align 8
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.DdManager, ptr %114, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %113, %116
-  br i1 %117, label %118, label %121
+102:                                              ; preds = %93
+  %103 = load ptr, ptr %7, align 8, !tbaa !34
+  %104 = getelementptr inbounds nuw %struct._reo_unit, ptr %103, i32 0, i32 0
+  store i16 30000, ptr %104, align 8, !tbaa !41
+  %105 = load ptr, ptr %5, align 8, !tbaa !8
+  %106 = getelementptr inbounds nuw %struct.DdNode, ptr %105, i32 0, i32 3
+  %107 = load double, ptr %106, align 8, !tbaa !42
+  %108 = fptoui double %107 to i64
+  %109 = inttoptr i64 %108 to ptr
+  %110 = load ptr, ptr %7, align 8, !tbaa !34
+  %111 = getelementptr inbounds nuw %struct._reo_unit, ptr %110, i32 0, i32 5
+  store ptr %109, ptr %111, align 8, !tbaa !43
+  %112 = load ptr, ptr %7, align 8, !tbaa !34
+  %113 = getelementptr inbounds nuw %struct._reo_unit, ptr %112, i32 0, i32 6
+  store ptr null, ptr %113, align 8, !tbaa !44
+  %114 = load ptr, ptr %5, align 8, !tbaa !8
+  %115 = load ptr, ptr %6, align 8, !tbaa !22
+  %116 = getelementptr inbounds nuw %struct.DdManager, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8, !tbaa !45
+  %118 = icmp ne ptr %114, %117
+  br i1 %118, label %119, label %122
 
-118:                                              ; preds = %101
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds %struct._reo_man, ptr %119, i32 0, i32 8
-  store i32 1, ptr %120, align 8
-  br label %121
+119:                                              ; preds = %102
+  %120 = load ptr, ptr %4, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct._reo_man, ptr %120, i32 0, i32 8
+  store i32 1, ptr %121, align 8, !tbaa !56
+  br label %122
 
-121:                                              ; preds = %118, %101
-  %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds %struct._reo_man, ptr %122, i32 0, i32 28
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct._reo_man, ptr %125, i32 0, i32 11
-  %127 = load i32, ptr %126, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct._reo_plane, ptr %124, i64 %128
-  %130 = load ptr, ptr %7, align 8
-  call void @reoUnitsAddUnitToPlane(ptr noundef %129, ptr noundef %130)
-  br label %169
+122:                                              ; preds = %119, %102
+  %123 = load ptr, ptr %4, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct._reo_man, ptr %123, i32 0, i32 28
+  %125 = load ptr, ptr %124, align 8, !tbaa !57
+  %126 = load ptr, ptr %4, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct._reo_man, ptr %126, i32 0, i32 11
+  %128 = load i32, ptr %127, align 4, !tbaa !58
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds %struct._reo_plane, ptr %125, i64 %129
+  %131 = load ptr, ptr %7, align 8, !tbaa !34
+  call void @reoUnitsAddUnitToPlane(ptr noundef %130, ptr noundef %131)
+  br label %170
 
-131:                                              ; preds = %92
-  %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr inbounds %struct._reo_man, ptr %132, i32 0, i32 25
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds %struct.DdNode, ptr %135, i32 0, i32 0
-  %137 = load i32, ptr %136, align 8
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %134, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = trunc i32 %140 to i16
-  %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct._reo_unit, ptr %142, i32 0, i32 0
-  store i16 %141, ptr %143, align 8
-  %144 = load ptr, ptr %4, align 8
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.DdNode, ptr %145, i32 0, i32 3
-  %147 = getelementptr inbounds %struct.DdChildren, ptr %146, i32 0, i32 1
-  %148 = load ptr, ptr %147, align 8
-  %149 = call ptr @reoTransferNodesToUnits_rec(ptr noundef %144, ptr noundef %148)
-  %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct._reo_unit, ptr %150, i32 0, i32 5
-  store ptr %149, ptr %151, align 8
-  %152 = load ptr, ptr %4, align 8
-  %153 = load ptr, ptr %5, align 8
-  %154 = getelementptr inbounds %struct.DdNode, ptr %153, i32 0, i32 3
-  %155 = getelementptr inbounds %struct.DdChildren, ptr %154, i32 0, i32 0
-  %156 = load ptr, ptr %155, align 8
-  %157 = call ptr @reoTransferNodesToUnits_rec(ptr noundef %152, ptr noundef %156)
-  %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds %struct._reo_unit, ptr %158, i32 0, i32 6
-  store ptr %157, ptr %159, align 8
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds %struct._reo_man, ptr %160, i32 0, i32 28
-  %162 = load ptr, ptr %161, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct._reo_unit, ptr %163, i32 0, i32 0
-  %165 = load i16, ptr %164, align 8
-  %166 = sext i16 %165 to i64
-  %167 = getelementptr inbounds %struct._reo_plane, ptr %162, i64 %166
-  %168 = load ptr, ptr %7, align 8
-  call void @reoUnitsAddUnitToPlane(ptr noundef %167, ptr noundef %168)
-  br label %169
+132:                                              ; preds = %93
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct._reo_man, ptr %133, i32 0, i32 25
+  %135 = load ptr, ptr %134, align 8, !tbaa !59
+  %136 = load ptr, ptr %5, align 8, !tbaa !8
+  %137 = getelementptr inbounds nuw %struct.DdNode, ptr %136, i32 0, i32 0
+  %138 = load i32, ptr %137, align 8, !tbaa !40
+  %139 = zext i32 %138 to i64
+  %140 = getelementptr inbounds nuw i32, ptr %135, i64 %139
+  %141 = load i32, ptr %140, align 4, !tbaa !23
+  %142 = trunc i32 %141 to i16
+  %143 = load ptr, ptr %7, align 8, !tbaa !34
+  %144 = getelementptr inbounds nuw %struct._reo_unit, ptr %143, i32 0, i32 0
+  store i16 %142, ptr %144, align 8, !tbaa !41
+  %145 = load ptr, ptr %4, align 8, !tbaa !3
+  %146 = load ptr, ptr %5, align 8, !tbaa !8
+  %147 = getelementptr inbounds nuw %struct.DdNode, ptr %146, i32 0, i32 3
+  %148 = getelementptr inbounds nuw %struct.DdChildren, ptr %147, i32 0, i32 1
+  %149 = load ptr, ptr %148, align 8, !tbaa !42
+  %150 = call ptr @reoTransferNodesToUnits_rec(ptr noundef %145, ptr noundef %149)
+  %151 = load ptr, ptr %7, align 8, !tbaa !34
+  %152 = getelementptr inbounds nuw %struct._reo_unit, ptr %151, i32 0, i32 5
+  store ptr %150, ptr %152, align 8, !tbaa !43
+  %153 = load ptr, ptr %4, align 8, !tbaa !3
+  %154 = load ptr, ptr %5, align 8, !tbaa !8
+  %155 = getelementptr inbounds nuw %struct.DdNode, ptr %154, i32 0, i32 3
+  %156 = getelementptr inbounds nuw %struct.DdChildren, ptr %155, i32 0, i32 0
+  %157 = load ptr, ptr %156, align 8, !tbaa !42
+  %158 = call ptr @reoTransferNodesToUnits_rec(ptr noundef %153, ptr noundef %157)
+  %159 = load ptr, ptr %7, align 8, !tbaa !34
+  %160 = getelementptr inbounds nuw %struct._reo_unit, ptr %159, i32 0, i32 6
+  store ptr %158, ptr %160, align 8, !tbaa !44
+  %161 = load ptr, ptr %4, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct._reo_man, ptr %161, i32 0, i32 28
+  %163 = load ptr, ptr %162, align 8, !tbaa !57
+  %164 = load ptr, ptr %7, align 8, !tbaa !34
+  %165 = getelementptr inbounds nuw %struct._reo_unit, ptr %164, i32 0, i32 0
+  %166 = load i16, ptr %165, align 8, !tbaa !41
+  %167 = sext i16 %166 to i64
+  %168 = getelementptr inbounds %struct._reo_plane, ptr %163, i64 %167
+  %169 = load ptr, ptr %7, align 8, !tbaa !34
+  call void @reoUnitsAddUnitToPlane(ptr noundef %168, ptr noundef %169)
+  br label %170
 
-169:                                              ; preds = %131, %121
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds %struct.DdNode, ptr %170, i32 0, i32 1
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp ne i32 %172, 1
-  br i1 %173, label %174, label %223
+170:                                              ; preds = %132, %122
+  %171 = load ptr, ptr %5, align 8, !tbaa !8
+  %172 = getelementptr inbounds nuw %struct.DdNode, ptr %171, i32 0, i32 1
+  %173 = load i32, ptr %172, align 4, !tbaa !24
+  %174 = icmp ne i32 %173, 1
+  br i1 %174, label %175, label %224
 
-174:                                              ; preds = %169
-  br label %175
+175:                                              ; preds = %170
+  br label %176
 
-175:                                              ; preds = %189, %174
-  %176 = load ptr, ptr %4, align 8
-  %177 = getelementptr inbounds %struct._reo_man, ptr %176, i32 0, i32 33
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i32, ptr %8, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds %struct._reo_hash, ptr %178, i64 %180
-  %182 = getelementptr inbounds %struct._reo_hash, ptr %181, i32 0, i32 0
-  %183 = load i32, ptr %182, align 8
-  %184 = load ptr, ptr %4, align 8
-  %185 = getelementptr inbounds %struct._reo_man, ptr %184, i32 0, i32 35
-  %186 = load i32, ptr %185, align 4
-  %187 = icmp eq i32 %183, %186
-  br i1 %187, label %188, label %196
+176:                                              ; preds = %190, %175
+  %177 = load ptr, ptr %4, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct._reo_man, ptr %177, i32 0, i32 33
+  %179 = load ptr, ptr %178, align 8, !tbaa !29
+  %180 = load i32, ptr %8, align 4, !tbaa !23
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %struct._reo_hash, ptr %179, i64 %181
+  %183 = getelementptr inbounds nuw %struct._reo_hash, ptr %182, i32 0, i32 0
+  %184 = load i32, ptr %183, align 8, !tbaa !30
+  %185 = load ptr, ptr %4, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct._reo_man, ptr %185, i32 0, i32 35
+  %187 = load i32, ptr %186, align 4, !tbaa !27
+  %188 = icmp eq i32 %184, %187
+  br i1 %188, label %189, label %197
 
-188:                                              ; preds = %175
-  br label %189
+189:                                              ; preds = %176
+  br label %190
 
-189:                                              ; preds = %188
-  %190 = load i32, ptr %8, align 4
-  %191 = add nsw i32 %190, 1
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct._reo_man, ptr %192, i32 0, i32 34
-  %194 = load i32, ptr %193, align 8
-  %195 = srem i32 %191, %194
-  store i32 %195, ptr %8, align 4
-  br label %175, !llvm.loop !6
+190:                                              ; preds = %189
+  %191 = load i32, ptr %8, align 4, !tbaa !23
+  %192 = add nsw i32 %191, 1
+  %193 = load ptr, ptr %4, align 8, !tbaa !3
+  %194 = getelementptr inbounds nuw %struct._reo_man, ptr %193, i32 0, i32 34
+  %195 = load i32, ptr %194, align 8, !tbaa !28
+  %196 = srem i32 %192, %195
+  store i32 %196, ptr %8, align 4, !tbaa !23
+  br label %176, !llvm.loop !60
 
-196:                                              ; preds = %175
-  %197 = load ptr, ptr %4, align 8
-  %198 = getelementptr inbounds %struct._reo_man, ptr %197, i32 0, i32 35
-  %199 = load i32, ptr %198, align 4
-  %200 = load ptr, ptr %4, align 8
-  %201 = getelementptr inbounds %struct._reo_man, ptr %200, i32 0, i32 33
-  %202 = load ptr, ptr %201, align 8
-  %203 = load i32, ptr %8, align 4
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds %struct._reo_hash, ptr %202, i64 %204
-  %206 = getelementptr inbounds %struct._reo_hash, ptr %205, i32 0, i32 0
-  store i32 %199, ptr %206, align 8
-  %207 = load ptr, ptr %5, align 8
-  %208 = load ptr, ptr %4, align 8
-  %209 = getelementptr inbounds %struct._reo_man, ptr %208, i32 0, i32 33
-  %210 = load ptr, ptr %209, align 8
-  %211 = load i32, ptr %8, align 4
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds %struct._reo_hash, ptr %210, i64 %212
-  %214 = getelementptr inbounds %struct._reo_hash, ptr %213, i32 0, i32 1
-  store ptr %207, ptr %214, align 8
-  %215 = load ptr, ptr %7, align 8
-  %216 = load ptr, ptr %4, align 8
-  %217 = getelementptr inbounds %struct._reo_man, ptr %216, i32 0, i32 33
-  %218 = load ptr, ptr %217, align 8
-  %219 = load i32, ptr %8, align 4
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds %struct._reo_hash, ptr %218, i64 %220
-  %222 = getelementptr inbounds %struct._reo_hash, ptr %221, i32 0, i32 2
-  store ptr %215, ptr %222, align 8
-  br label %223
+197:                                              ; preds = %176
+  %198 = load ptr, ptr %4, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw %struct._reo_man, ptr %198, i32 0, i32 35
+  %200 = load i32, ptr %199, align 4, !tbaa !27
+  %201 = load ptr, ptr %4, align 8, !tbaa !3
+  %202 = getelementptr inbounds nuw %struct._reo_man, ptr %201, i32 0, i32 33
+  %203 = load ptr, ptr %202, align 8, !tbaa !29
+  %204 = load i32, ptr %8, align 4, !tbaa !23
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds %struct._reo_hash, ptr %203, i64 %205
+  %207 = getelementptr inbounds nuw %struct._reo_hash, ptr %206, i32 0, i32 0
+  store i32 %200, ptr %207, align 8, !tbaa !30
+  %208 = load ptr, ptr %5, align 8, !tbaa !8
+  %209 = load ptr, ptr %4, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct._reo_man, ptr %209, i32 0, i32 33
+  %211 = load ptr, ptr %210, align 8, !tbaa !29
+  %212 = load i32, ptr %8, align 4, !tbaa !23
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds %struct._reo_hash, ptr %211, i64 %213
+  %215 = getelementptr inbounds nuw %struct._reo_hash, ptr %214, i32 0, i32 1
+  store ptr %208, ptr %215, align 8, !tbaa !32
+  %216 = load ptr, ptr %7, align 8, !tbaa !34
+  %217 = load ptr, ptr %4, align 8, !tbaa !3
+  %218 = getelementptr inbounds nuw %struct._reo_man, ptr %217, i32 0, i32 33
+  %219 = load ptr, ptr %218, align 8, !tbaa !29
+  %220 = load i32, ptr %8, align 4, !tbaa !23
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds %struct._reo_hash, ptr %219, i64 %221
+  %223 = getelementptr inbounds nuw %struct._reo_hash, ptr %222, i32 0, i32 2
+  store ptr %216, ptr %223, align 8, !tbaa !33
+  br label %224
 
-223:                                              ; preds = %196, %169
-  %224 = load ptr, ptr %4, align 8
-  %225 = getelementptr inbounds %struct._reo_man, ptr %224, i32 0, i32 17
-  %226 = load i32, ptr %225, align 4
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %225, align 4
-  %228 = load ptr, ptr %7, align 8
-  %229 = ptrtoint ptr %228 to i64
-  %230 = load i32, ptr %9, align 4
-  %231 = sext i32 %230 to i64
-  %232 = xor i64 %229, %231
-  %233 = inttoptr i64 %232 to ptr
-  store ptr %233, ptr %3, align 8
-  br label %234
+224:                                              ; preds = %197, %170
+  %225 = load ptr, ptr %4, align 8, !tbaa !3
+  %226 = getelementptr inbounds nuw %struct._reo_man, ptr %225, i32 0, i32 17
+  %227 = load i32, ptr %226, align 4, !tbaa !61
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %226, align 4, !tbaa !61
+  %229 = load ptr, ptr %7, align 8, !tbaa !34
+  %230 = ptrtoint ptr %229 to i64
+  %231 = load i32, ptr %9, align 4, !tbaa !23
+  %232 = sext i32 %231 to i64
+  %233 = xor i64 %230, %232
+  %234 = inttoptr i64 %233 to ptr
+  store ptr %234, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %235
 
-234:                                              ; preds = %223, %64
-  %235 = load ptr, ptr %3, align 8
-  ret ptr %235
+235:                                              ; preds = %224, %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %236 = load ptr, ptr %3, align 8
+  ret ptr %236
 }
 
-declare ptr @reoUnitsGetNextUnit(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @reoUnitsAddUnitToPlane(ptr noundef, ptr noundef) #1
+declare ptr @reoUnitsGetNextUnit(ptr noundef) #2
+
+declare void @reoUnitsAddUnitToPlane(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) #0 {
@@ -332,376 +349,454 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._reo_man, ptr %12, i32 0, i32 6
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %6, align 8
-  store i32 -1, ptr %10, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = and i64 %16, 1
-  %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %11, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  store ptr %22, ptr %5, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct._reo_unit, ptr %23, i32 0, i32 3
-  %25 = load i16, ptr %24, align 2
-  %26 = sext i16 %25 to i32
-  %27 = icmp ne i32 %26, 1
-  br i1 %27, label %28, label %91
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct._reo_man, ptr %13, i32 0, i32 6
+  %15 = load ptr, ptr %14, align 8, !tbaa !10
+  store ptr %15, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  store i32 -1, ptr %10, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %16 = load ptr, ptr %5, align 8, !tbaa !34
+  %17 = ptrtoint ptr %16 to i64
+  %18 = and i64 %17, 1
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %11, align 4, !tbaa !23
+  %20 = load ptr, ptr %5, align 8, !tbaa !34
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %5, align 8, !tbaa !34
+  %24 = load ptr, ptr %5, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw %struct._reo_unit, ptr %24, i32 0, i32 3
+  %26 = load i16, ptr %25, align 2, !tbaa !35
+  %27 = sext i16 %26 to i32
+  %28 = icmp ne i32 %27, 1
+  br i1 %28, label %29, label %92
 
-28:                                               ; preds = %2
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct._reo_man, ptr %29, i32 0, i32 35
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr %5, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = mul i64 %34, 12582917
-  %36 = add i64 %32, %35
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct._reo_man, ptr %37, i32 0, i32 34
-  %39 = load i32, ptr %38, align 8
-  %40 = sext i32 %39 to i64
-  %41 = urem i64 %36, %40
-  %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %10, align 4
-  br label %43
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct._reo_man, ptr %30, i32 0, i32 35
+  %32 = load i32, ptr %31, align 4, !tbaa !27
+  %33 = sext i32 %32 to i64
+  %34 = load ptr, ptr %5, align 8, !tbaa !34
+  %35 = ptrtoint ptr %34 to i64
+  %36 = mul i64 %35, 12582917
+  %37 = add i64 %33, %36
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct._reo_man, ptr %38, i32 0, i32 34
+  %40 = load i32, ptr %39, align 8, !tbaa !28
+  %41 = sext i32 %40 to i64
+  %42 = urem i64 %37, %41
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %10, align 4, !tbaa !23
+  br label %44
 
-43:                                               ; preds = %83, %28
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct._reo_man, ptr %44, i32 0, i32 33
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %10, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct._reo_hash, ptr %46, i64 %48
-  %50 = getelementptr inbounds %struct._reo_hash, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct._reo_man, ptr %52, i32 0, i32 35
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %51, %54
-  br i1 %55, label %56, label %90
+44:                                               ; preds = %84, %29
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct._reo_man, ptr %45, i32 0, i32 33
+  %47 = load ptr, ptr %46, align 8, !tbaa !29
+  %48 = load i32, ptr %10, align 4, !tbaa !23
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %struct._reo_hash, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw %struct._reo_hash, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8, !tbaa !30
+  %53 = load ptr, ptr %4, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct._reo_man, ptr %53, i32 0, i32 35
+  %55 = load i32, ptr %54, align 4, !tbaa !27
+  %56 = icmp eq i32 %52, %55
+  br i1 %56, label %57, label %91
 
-56:                                               ; preds = %43
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct._reo_man, ptr %57, i32 0, i32 33
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %10, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct._reo_hash, ptr %59, i64 %61
-  %63 = getelementptr inbounds %struct._reo_hash, ptr %62, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = icmp eq ptr %64, %65
-  br i1 %66, label %67, label %82
+57:                                               ; preds = %44
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct._reo_man, ptr %58, i32 0, i32 33
+  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %61 = load i32, ptr %10, align 4, !tbaa !23
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %struct._reo_hash, ptr %60, i64 %62
+  %64 = getelementptr inbounds nuw %struct._reo_hash, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !32
+  %66 = load ptr, ptr %5, align 8, !tbaa !34
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %68, label %83
 
-67:                                               ; preds = %56
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct._reo_man, ptr %68, i32 0, i32 33
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %10, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct._reo_hash, ptr %70, i64 %72
-  %74 = getelementptr inbounds %struct._reo_hash, ptr %73, i32 0, i32 2
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %7, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = load i32, ptr %11, align 4
-  %79 = sext i32 %78 to i64
-  %80 = xor i64 %77, %79
-  %81 = inttoptr i64 %80 to ptr
-  store ptr %81, ptr %3, align 8
-  br label %274
+68:                                               ; preds = %57
+  %69 = load ptr, ptr %4, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct._reo_man, ptr %69, i32 0, i32 33
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
+  %72 = load i32, ptr %10, align 4, !tbaa !23
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds %struct._reo_hash, ptr %71, i64 %73
+  %75 = getelementptr inbounds nuw %struct._reo_hash, ptr %74, i32 0, i32 2
+  %76 = load ptr, ptr %75, align 8, !tbaa !33
+  store ptr %76, ptr %7, align 8, !tbaa !8
+  %77 = load ptr, ptr %7, align 8, !tbaa !8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = load i32, ptr %11, align 4, !tbaa !23
+  %80 = sext i32 %79 to i64
+  %81 = xor i64 %78, %80
+  %82 = inttoptr i64 %81 to ptr
+  store ptr %82, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  br label %275
 
-82:                                               ; preds = %56
-  br label %83
+83:                                               ; preds = %57
+  br label %84
 
-83:                                               ; preds = %82
-  %84 = load i32, ptr %10, align 4
-  %85 = add nsw i32 %84, 1
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct._reo_man, ptr %86, i32 0, i32 34
-  %88 = load i32, ptr %87, align 8
-  %89 = srem i32 %85, %88
-  store i32 %89, ptr %10, align 4
-  br label %43, !llvm.loop !7
+84:                                               ; preds = %83
+  %85 = load i32, ptr %10, align 4, !tbaa !23
+  %86 = add nsw i32 %85, 1
+  %87 = load ptr, ptr %4, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct._reo_man, ptr %87, i32 0, i32 34
+  %89 = load i32, ptr %88, align 8, !tbaa !28
+  %90 = srem i32 %86, %89
+  store i32 %90, ptr %10, align 4, !tbaa !23
+  br label %44, !llvm.loop !62
 
-90:                                               ; preds = %43
-  br label %91
+91:                                               ; preds = %44
+  br label %92
 
-91:                                               ; preds = %90, %2
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct._reo_unit, ptr %92, i32 0, i32 0
-  %94 = load i16, ptr %93, align 8
-  %95 = sext i16 %94 to i32
-  %96 = icmp eq i32 %95, 30000
-  br i1 %96, label %97, label %113
+92:                                               ; preds = %91, %2
+  %93 = load ptr, ptr %5, align 8, !tbaa !34
+  %94 = getelementptr inbounds nuw %struct._reo_unit, ptr %93, i32 0, i32 0
+  %95 = load i16, ptr %94, align 8, !tbaa !41
+  %96 = sext i16 %95 to i32
+  %97 = icmp eq i32 %96, 30000
+  br i1 %97, label %98, label %114
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %6, align 8
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct._reo_unit, ptr %99, i32 0, i32 5
-  %101 = load ptr, ptr %100, align 8
-  %102 = ptrtoint ptr %101 to i64
-  %103 = trunc i64 %102 to i32
-  %104 = sitofp i32 %103 to double
-  %105 = call ptr @cuddUniqueConst(ptr noundef %98, double noundef %104)
-  store ptr %105, ptr %7, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = ptrtoint ptr %106 to i64
-  %108 = and i64 %107, -2
-  %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %struct.DdNode, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %110, align 4
-  br label %190
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %6, align 8, !tbaa !22
+  %100 = load ptr, ptr %5, align 8, !tbaa !34
+  %101 = getelementptr inbounds nuw %struct._reo_unit, ptr %100, i32 0, i32 5
+  %102 = load ptr, ptr %101, align 8, !tbaa !43
+  %103 = ptrtoint ptr %102 to i64
+  %104 = trunc i64 %103 to i32
+  %105 = sitofp i32 %104 to double
+  %106 = call ptr @cuddUniqueConst(ptr noundef %99, double noundef %105)
+  store ptr %106, ptr %7, align 8, !tbaa !8
+  %107 = load ptr, ptr %7, align 8, !tbaa !8
+  %108 = ptrtoint ptr %107 to i64
+  %109 = and i64 %108, -2
+  %110 = inttoptr i64 %109 to ptr
+  %111 = getelementptr inbounds nuw %struct.DdNode, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4, !tbaa !24
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %111, align 4, !tbaa !24
+  br label %191
 
-113:                                              ; preds = %91
-  %114 = load ptr, ptr %4, align 8
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct._reo_unit, ptr %115, i32 0, i32 5
-  %117 = load ptr, ptr %116, align 8
-  %118 = call ptr @reoTransferUnitsToNodes_rec(ptr noundef %114, ptr noundef %117)
-  store ptr %118, ptr %8, align 8
-  %119 = load ptr, ptr %8, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %122
+114:                                              ; preds = %92
+  %115 = load ptr, ptr %4, align 8, !tbaa !3
+  %116 = load ptr, ptr %5, align 8, !tbaa !34
+  %117 = getelementptr inbounds nuw %struct._reo_unit, ptr %116, i32 0, i32 5
+  %118 = load ptr, ptr %117, align 8, !tbaa !43
+  %119 = call ptr @reoTransferUnitsToNodes_rec(ptr noundef %115, ptr noundef %118)
+  store ptr %119, ptr %8, align 8, !tbaa !8
+  %120 = load ptr, ptr %8, align 8, !tbaa !8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %123
 
-121:                                              ; preds = %113
+122:                                              ; preds = %114
   store ptr null, ptr %3, align 8
-  br label %274
+  store i32 1, ptr %12, align 4
+  br label %275
 
-122:                                              ; preds = %113
-  %123 = load ptr, ptr %8, align 8
-  %124 = ptrtoint ptr %123 to i64
-  %125 = and i64 %124, -2
-  %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds %struct.DdNode, ptr %126, i32 0, i32 1
-  %128 = load i32, ptr %127, align 4
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %127, align 4
-  %130 = load ptr, ptr %4, align 8
-  %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds %struct._reo_unit, ptr %131, i32 0, i32 6
-  %133 = load ptr, ptr %132, align 8
-  %134 = call ptr @reoTransferUnitsToNodes_rec(ptr noundef %130, ptr noundef %133)
-  store ptr %134, ptr %9, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %140
+123:                                              ; preds = %114
+  %124 = load ptr, ptr %8, align 8, !tbaa !8
+  %125 = ptrtoint ptr %124 to i64
+  %126 = and i64 %125, -2
+  %127 = inttoptr i64 %126 to ptr
+  %128 = getelementptr inbounds nuw %struct.DdNode, ptr %127, i32 0, i32 1
+  %129 = load i32, ptr %128, align 4, !tbaa !24
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %128, align 4, !tbaa !24
+  %131 = load ptr, ptr %4, align 8, !tbaa !3
+  %132 = load ptr, ptr %5, align 8, !tbaa !34
+  %133 = getelementptr inbounds nuw %struct._reo_unit, ptr %132, i32 0, i32 6
+  %134 = load ptr, ptr %133, align 8, !tbaa !44
+  %135 = call ptr @reoTransferUnitsToNodes_rec(ptr noundef %131, ptr noundef %134)
+  store ptr %135, ptr %9, align 8, !tbaa !8
+  %136 = load ptr, ptr %9, align 8, !tbaa !8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %141
 
-137:                                              ; preds = %122
-  %138 = load ptr, ptr %6, align 8
-  %139 = load ptr, ptr %8, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %138, ptr noundef %139)
+138:                                              ; preds = %123
+  %139 = load ptr, ptr %6, align 8, !tbaa !22
+  %140 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %139, ptr noundef %140)
   store ptr null, ptr %3, align 8
-  br label %274
+  store i32 1, ptr %12, align 4
+  br label %275
 
-140:                                              ; preds = %122
-  %141 = load ptr, ptr %9, align 8
-  %142 = ptrtoint ptr %141 to i64
-  %143 = and i64 %142, -2
-  %144 = inttoptr i64 %143 to ptr
-  %145 = getelementptr inbounds %struct.DdNode, ptr %144, i32 0, i32 1
-  %146 = load i32, ptr %145, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %145, align 4
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %4, align 8
-  %150 = getelementptr inbounds %struct._reo_man, ptr %149, i32 0, i32 27
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct._reo_unit, ptr %152, i32 0, i32 0
-  %154 = load i16, ptr %153, align 8
-  %155 = sext i16 %154 to i64
-  %156 = getelementptr inbounds i32, ptr %151, i64 %155
-  %157 = load i32, ptr %156, align 4
-  %158 = load ptr, ptr %9, align 8
-  %159 = load ptr, ptr %8, align 8
-  %160 = call ptr @cuddUniqueInter(ptr noundef %148, i32 noundef %157, ptr noundef %158, ptr noundef %159)
-  store ptr %160, ptr %7, align 8
-  %161 = load ptr, ptr %7, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %168
+141:                                              ; preds = %123
+  %142 = load ptr, ptr %9, align 8, !tbaa !8
+  %143 = ptrtoint ptr %142 to i64
+  %144 = and i64 %143, -2
+  %145 = inttoptr i64 %144 to ptr
+  %146 = getelementptr inbounds nuw %struct.DdNode, ptr %145, i32 0, i32 1
+  %147 = load i32, ptr %146, align 4, !tbaa !24
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %146, align 4, !tbaa !24
+  %149 = load ptr, ptr %6, align 8, !tbaa !22
+  %150 = load ptr, ptr %4, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw %struct._reo_man, ptr %150, i32 0, i32 27
+  %152 = load ptr, ptr %151, align 8, !tbaa !63
+  %153 = load ptr, ptr %5, align 8, !tbaa !34
+  %154 = getelementptr inbounds nuw %struct._reo_unit, ptr %153, i32 0, i32 0
+  %155 = load i16, ptr %154, align 8, !tbaa !41
+  %156 = sext i16 %155 to i64
+  %157 = getelementptr inbounds i32, ptr %152, i64 %156
+  %158 = load i32, ptr %157, align 4, !tbaa !23
+  %159 = load ptr, ptr %9, align 8, !tbaa !8
+  %160 = load ptr, ptr %8, align 8, !tbaa !8
+  %161 = call ptr @cuddUniqueInter(ptr noundef %149, i32 noundef %158, ptr noundef %159, ptr noundef %160)
+  store ptr %161, ptr %7, align 8, !tbaa !8
+  %162 = load ptr, ptr %7, align 8, !tbaa !8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %169
 
-163:                                              ; preds = %140
-  %164 = load ptr, ptr %6, align 8
-  %165 = load ptr, ptr %8, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %164, ptr noundef %165)
-  %166 = load ptr, ptr %6, align 8
-  %167 = load ptr, ptr %9, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %166, ptr noundef %167)
+164:                                              ; preds = %141
+  %165 = load ptr, ptr %6, align 8, !tbaa !22
+  %166 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %165, ptr noundef %166)
+  %167 = load ptr, ptr %6, align 8, !tbaa !22
+  %168 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @Cudd_RecursiveDeref(ptr noundef %167, ptr noundef %168)
   store ptr null, ptr %3, align 8
-  br label %274
+  store i32 1, ptr %12, align 4
+  br label %275
 
-168:                                              ; preds = %140
-  %169 = load ptr, ptr %7, align 8
-  %170 = ptrtoint ptr %169 to i64
-  %171 = and i64 %170, -2
-  %172 = inttoptr i64 %171 to ptr
-  %173 = getelementptr inbounds %struct.DdNode, ptr %172, i32 0, i32 1
-  %174 = load i32, ptr %173, align 4
-  %175 = add i32 %174, 1
-  store i32 %175, ptr %173, align 4
-  %176 = load ptr, ptr %8, align 8
-  %177 = ptrtoint ptr %176 to i64
-  %178 = and i64 %177, -2
-  %179 = inttoptr i64 %178 to ptr
-  %180 = getelementptr inbounds %struct.DdNode, ptr %179, i32 0, i32 1
-  %181 = load i32, ptr %180, align 4
-  %182 = add i32 %181, -1
-  store i32 %182, ptr %180, align 4
-  %183 = load ptr, ptr %9, align 8
-  %184 = ptrtoint ptr %183 to i64
-  %185 = and i64 %184, -2
-  %186 = inttoptr i64 %185 to ptr
-  %187 = getelementptr inbounds %struct.DdNode, ptr %186, i32 0, i32 1
-  %188 = load i32, ptr %187, align 4
-  %189 = add i32 %188, -1
-  store i32 %189, ptr %187, align 4
-  br label %190
+169:                                              ; preds = %141
+  %170 = load ptr, ptr %7, align 8, !tbaa !8
+  %171 = ptrtoint ptr %170 to i64
+  %172 = and i64 %171, -2
+  %173 = inttoptr i64 %172 to ptr
+  %174 = getelementptr inbounds nuw %struct.DdNode, ptr %173, i32 0, i32 1
+  %175 = load i32, ptr %174, align 4, !tbaa !24
+  %176 = add i32 %175, 1
+  store i32 %176, ptr %174, align 4, !tbaa !24
+  %177 = load ptr, ptr %8, align 8, !tbaa !8
+  %178 = ptrtoint ptr %177 to i64
+  %179 = and i64 %178, -2
+  %180 = inttoptr i64 %179 to ptr
+  %181 = getelementptr inbounds nuw %struct.DdNode, ptr %180, i32 0, i32 1
+  %182 = load i32, ptr %181, align 4, !tbaa !24
+  %183 = add i32 %182, -1
+  store i32 %183, ptr %181, align 4, !tbaa !24
+  %184 = load ptr, ptr %9, align 8, !tbaa !8
+  %185 = ptrtoint ptr %184 to i64
+  %186 = and i64 %185, -2
+  %187 = inttoptr i64 %186 to ptr
+  %188 = getelementptr inbounds nuw %struct.DdNode, ptr %187, i32 0, i32 1
+  %189 = load i32, ptr %188, align 4, !tbaa !24
+  %190 = add i32 %189, -1
+  store i32 %190, ptr %188, align 4, !tbaa !24
+  br label %191
 
-190:                                              ; preds = %168, %97
-  %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds %struct._reo_unit, ptr %191, i32 0, i32 3
-  %193 = load i16, ptr %192, align 2
-  %194 = sext i16 %193 to i32
-  %195 = icmp ne i32 %194, 1
-  br i1 %195, label %196, label %256
+191:                                              ; preds = %169, %98
+  %192 = load ptr, ptr %5, align 8, !tbaa !34
+  %193 = getelementptr inbounds nuw %struct._reo_unit, ptr %192, i32 0, i32 3
+  %194 = load i16, ptr %193, align 2, !tbaa !35
+  %195 = sext i16 %194 to i32
+  %196 = icmp ne i32 %195, 1
+  br i1 %196, label %197, label %257
 
-196:                                              ; preds = %190
-  br label %197
+197:                                              ; preds = %191
+  br label %198
 
-197:                                              ; preds = %211, %196
-  %198 = load ptr, ptr %4, align 8
-  %199 = getelementptr inbounds %struct._reo_man, ptr %198, i32 0, i32 33
-  %200 = load ptr, ptr %199, align 8
-  %201 = load i32, ptr %10, align 4
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds %struct._reo_hash, ptr %200, i64 %202
-  %204 = getelementptr inbounds %struct._reo_hash, ptr %203, i32 0, i32 0
-  %205 = load i32, ptr %204, align 8
-  %206 = load ptr, ptr %4, align 8
-  %207 = getelementptr inbounds %struct._reo_man, ptr %206, i32 0, i32 35
-  %208 = load i32, ptr %207, align 4
-  %209 = icmp eq i32 %205, %208
-  br i1 %209, label %210, label %218
+198:                                              ; preds = %212, %197
+  %199 = load ptr, ptr %4, align 8, !tbaa !3
+  %200 = getelementptr inbounds nuw %struct._reo_man, ptr %199, i32 0, i32 33
+  %201 = load ptr, ptr %200, align 8, !tbaa !29
+  %202 = load i32, ptr %10, align 4, !tbaa !23
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds %struct._reo_hash, ptr %201, i64 %203
+  %205 = getelementptr inbounds nuw %struct._reo_hash, ptr %204, i32 0, i32 0
+  %206 = load i32, ptr %205, align 8, !tbaa !30
+  %207 = load ptr, ptr %4, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct._reo_man, ptr %207, i32 0, i32 35
+  %209 = load i32, ptr %208, align 4, !tbaa !27
+  %210 = icmp eq i32 %206, %209
+  br i1 %210, label %211, label %219
 
-210:                                              ; preds = %197
-  br label %211
+211:                                              ; preds = %198
+  br label %212
 
-211:                                              ; preds = %210
-  %212 = load i32, ptr %10, align 4
-  %213 = add nsw i32 %212, 1
-  %214 = load ptr, ptr %4, align 8
-  %215 = getelementptr inbounds %struct._reo_man, ptr %214, i32 0, i32 34
-  %216 = load i32, ptr %215, align 8
-  %217 = srem i32 %213, %216
-  store i32 %217, ptr %10, align 4
-  br label %197, !llvm.loop !8
+212:                                              ; preds = %211
+  %213 = load i32, ptr %10, align 4, !tbaa !23
+  %214 = add nsw i32 %213, 1
+  %215 = load ptr, ptr %4, align 8, !tbaa !3
+  %216 = getelementptr inbounds nuw %struct._reo_man, ptr %215, i32 0, i32 34
+  %217 = load i32, ptr %216, align 8, !tbaa !28
+  %218 = srem i32 %214, %217
+  store i32 %218, ptr %10, align 4, !tbaa !23
+  br label %198, !llvm.loop !64
 
-218:                                              ; preds = %197
-  %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr inbounds %struct._reo_man, ptr %219, i32 0, i32 35
-  %221 = load i32, ptr %220, align 4
-  %222 = load ptr, ptr %4, align 8
-  %223 = getelementptr inbounds %struct._reo_man, ptr %222, i32 0, i32 33
-  %224 = load ptr, ptr %223, align 8
-  %225 = load i32, ptr %10, align 4
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds %struct._reo_hash, ptr %224, i64 %226
-  %228 = getelementptr inbounds %struct._reo_hash, ptr %227, i32 0, i32 0
-  store i32 %221, ptr %228, align 8
-  %229 = load ptr, ptr %5, align 8
-  %230 = load ptr, ptr %4, align 8
-  %231 = getelementptr inbounds %struct._reo_man, ptr %230, i32 0, i32 33
-  %232 = load ptr, ptr %231, align 8
-  %233 = load i32, ptr %10, align 4
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct._reo_hash, ptr %232, i64 %234
-  %236 = getelementptr inbounds %struct._reo_hash, ptr %235, i32 0, i32 1
-  store ptr %229, ptr %236, align 8
-  %237 = load ptr, ptr %7, align 8
-  %238 = load ptr, ptr %4, align 8
-  %239 = getelementptr inbounds %struct._reo_man, ptr %238, i32 0, i32 33
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i32, ptr %10, align 4
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds %struct._reo_hash, ptr %240, i64 %242
-  %244 = getelementptr inbounds %struct._reo_hash, ptr %243, i32 0, i32 2
-  store ptr %237, ptr %244, align 8
-  %245 = load ptr, ptr %7, align 8
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %struct._reo_man, ptr %246, i32 0, i32 37
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %4, align 8
-  %250 = getelementptr inbounds %struct._reo_man, ptr %249, i32 0, i32 38
-  %251 = load i32, ptr %250, align 8
-  %252 = add nsw i32 %251, 1
-  store i32 %252, ptr %250, align 8
-  %253 = sext i32 %251 to i64
-  %254 = getelementptr inbounds ptr, ptr %248, i64 %253
-  store ptr %245, ptr %254, align 8
-  %255 = load ptr, ptr %7, align 8
-  call void @Cudd_Ref(ptr noundef %255)
-  br label %256
+219:                                              ; preds = %198
+  %220 = load ptr, ptr %4, align 8, !tbaa !3
+  %221 = getelementptr inbounds nuw %struct._reo_man, ptr %220, i32 0, i32 35
+  %222 = load i32, ptr %221, align 4, !tbaa !27
+  %223 = load ptr, ptr %4, align 8, !tbaa !3
+  %224 = getelementptr inbounds nuw %struct._reo_man, ptr %223, i32 0, i32 33
+  %225 = load ptr, ptr %224, align 8, !tbaa !29
+  %226 = load i32, ptr %10, align 4, !tbaa !23
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds %struct._reo_hash, ptr %225, i64 %227
+  %229 = getelementptr inbounds nuw %struct._reo_hash, ptr %228, i32 0, i32 0
+  store i32 %222, ptr %229, align 8, !tbaa !30
+  %230 = load ptr, ptr %5, align 8, !tbaa !34
+  %231 = load ptr, ptr %4, align 8, !tbaa !3
+  %232 = getelementptr inbounds nuw %struct._reo_man, ptr %231, i32 0, i32 33
+  %233 = load ptr, ptr %232, align 8, !tbaa !29
+  %234 = load i32, ptr %10, align 4, !tbaa !23
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds %struct._reo_hash, ptr %233, i64 %235
+  %237 = getelementptr inbounds nuw %struct._reo_hash, ptr %236, i32 0, i32 1
+  store ptr %230, ptr %237, align 8, !tbaa !32
+  %238 = load ptr, ptr %7, align 8, !tbaa !8
+  %239 = load ptr, ptr %4, align 8, !tbaa !3
+  %240 = getelementptr inbounds nuw %struct._reo_man, ptr %239, i32 0, i32 33
+  %241 = load ptr, ptr %240, align 8, !tbaa !29
+  %242 = load i32, ptr %10, align 4, !tbaa !23
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds %struct._reo_hash, ptr %241, i64 %243
+  %245 = getelementptr inbounds nuw %struct._reo_hash, ptr %244, i32 0, i32 2
+  store ptr %238, ptr %245, align 8, !tbaa !33
+  %246 = load ptr, ptr %7, align 8, !tbaa !8
+  %247 = load ptr, ptr %4, align 8, !tbaa !3
+  %248 = getelementptr inbounds nuw %struct._reo_man, ptr %247, i32 0, i32 37
+  %249 = load ptr, ptr %248, align 8, !tbaa !65
+  %250 = load ptr, ptr %4, align 8, !tbaa !3
+  %251 = getelementptr inbounds nuw %struct._reo_man, ptr %250, i32 0, i32 38
+  %252 = load i32, ptr %251, align 8, !tbaa !66
+  %253 = add nsw i32 %252, 1
+  store i32 %253, ptr %251, align 8, !tbaa !66
+  %254 = sext i32 %252 to i64
+  %255 = getelementptr inbounds ptr, ptr %249, i64 %254
+  store ptr %246, ptr %255, align 8, !tbaa !8
+  %256 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @Cudd_Ref(ptr noundef %256)
+  br label %257
 
-256:                                              ; preds = %218, %190
-  %257 = load ptr, ptr %4, align 8
-  %258 = getelementptr inbounds %struct._reo_man, ptr %257, i32 0, i32 17
-  %259 = load i32, ptr %258, align 4
-  %260 = add nsw i32 %259, 1
-  store i32 %260, ptr %258, align 4
-  %261 = load ptr, ptr %7, align 8
-  %262 = ptrtoint ptr %261 to i64
-  %263 = and i64 %262, -2
-  %264 = inttoptr i64 %263 to ptr
-  %265 = getelementptr inbounds %struct.DdNode, ptr %264, i32 0, i32 1
-  %266 = load i32, ptr %265, align 4
-  %267 = add i32 %266, -1
-  store i32 %267, ptr %265, align 4
-  %268 = load ptr, ptr %7, align 8
-  %269 = ptrtoint ptr %268 to i64
-  %270 = load i32, ptr %11, align 4
-  %271 = sext i32 %270 to i64
-  %272 = xor i64 %269, %271
-  %273 = inttoptr i64 %272 to ptr
-  store ptr %273, ptr %3, align 8
-  br label %274
+257:                                              ; preds = %219, %191
+  %258 = load ptr, ptr %4, align 8, !tbaa !3
+  %259 = getelementptr inbounds nuw %struct._reo_man, ptr %258, i32 0, i32 17
+  %260 = load i32, ptr %259, align 4, !tbaa !61
+  %261 = add nsw i32 %260, 1
+  store i32 %261, ptr %259, align 4, !tbaa !61
+  %262 = load ptr, ptr %7, align 8, !tbaa !8
+  %263 = ptrtoint ptr %262 to i64
+  %264 = and i64 %263, -2
+  %265 = inttoptr i64 %264 to ptr
+  %266 = getelementptr inbounds nuw %struct.DdNode, ptr %265, i32 0, i32 1
+  %267 = load i32, ptr %266, align 4, !tbaa !24
+  %268 = add i32 %267, -1
+  store i32 %268, ptr %266, align 4, !tbaa !24
+  %269 = load ptr, ptr %7, align 8, !tbaa !8
+  %270 = ptrtoint ptr %269 to i64
+  %271 = load i32, ptr %11, align 4, !tbaa !23
+  %272 = sext i32 %271 to i64
+  %273 = xor i64 %270, %272
+  %274 = inttoptr i64 %273 to ptr
+  store ptr %274, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  br label %275
 
-274:                                              ; preds = %256, %163, %137, %121, %67
-  %275 = load ptr, ptr %3, align 8
-  ret ptr %275
+275:                                              ; preds = %257, %164, %138, %122, %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %276 = load ptr, ptr %3, align 8
+  ret ptr %276
 }
 
-declare ptr @cuddUniqueConst(ptr noundef, double noundef) #1
+declare ptr @cuddUniqueConst(ptr noundef, double noundef) #2
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #1
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) #2
 
-declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @Cudd_Ref(ptr noundef) #1
+declare void @Cudd_Ref(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS8_reo_man", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS6DdNode", !5, i64 0}
+!10 = !{!11, !13, i64 24}
+!11 = !{!"_reo_man", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !13, i64 24, !14, i64 32, !12, i64 40, !14, i64 48, !12, i64 56, !12, i64 60, !14, i64 64, !15, i64 72, !14, i64 80, !16, i64 88, !12, i64 96, !12, i64 100, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !17, i64 120, !17, i64 128, !17, i64 136, !14, i64 144, !14, i64 152, !14, i64 160, !18, i64 168, !12, i64 176, !16, i64 184, !12, i64 192, !12, i64 196, !19, i64 200, !12, i64 208, !12, i64 212, !12, i64 216, !20, i64 224, !12, i64 232, !12, i64 236, !21, i64 240, !16, i64 248, !12, i64 256, !12, i64 260, !12, i64 264, !12, i64 268, !12, i64 272, !12, i64 276, !12, i64 280}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"p1 _ZTS9DdManager", !5, i64 0}
+!14 = !{!"p1 int", !5, i64 0}
+!15 = !{!"p1 double", !5, i64 0}
+!16 = !{!"p2 _ZTS9_reo_unit", !5, i64 0}
+!17 = !{!"double", !6, i64 0}
+!18 = !{!"p1 _ZTS10_reo_plane", !5, i64 0}
+!19 = !{!"p1 _ZTS9_reo_hash", !5, i64 0}
+!20 = !{!"p2 _ZTS6DdNode", !5, i64 0}
+!21 = !{!"p1 _ZTS9_reo_unit", !5, i64 0}
+!22 = !{!13, !13, i64 0}
+!23 = !{!12, !12, i64 0}
+!24 = !{!25, !12, i64 4}
+!25 = !{!"DdNode", !12, i64 0, !12, i64 4, !9, i64 8, !6, i64 16, !26, i64 32}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!11, !12, i64 212}
+!28 = !{!11, !12, i64 208}
+!29 = !{!11, !19, i64 200}
+!30 = !{!31, !12, i64 0}
+!31 = !{!"_reo_hash", !12, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
+!32 = !{!31, !21, i64 8}
+!33 = !{!31, !21, i64 16}
+!34 = !{!21, !21, i64 0}
+!35 = !{!36, !37, i64 6}
+!36 = !{!"_reo_unit", !37, i64 0, !37, i64 2, !37, i64 4, !37, i64 6, !12, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !17, i64 40}
+!37 = !{!"short", !6, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = !{!25, !12, i64 0}
+!41 = !{!36, !37, i64 0}
+!42 = !{!6, !6, i64 0}
+!43 = !{!36, !21, i64 16}
+!44 = !{!36, !21, i64 24}
+!45 = !{!46, !9, i64 40}
+!46 = !{!"DdManager", !25, i64 0, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !47, i64 80, !47, i64 88, !12, i64 96, !12, i64 100, !17, i64 104, !17, i64 112, !17, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !12, i64 148, !48, i64 152, !48, i64 160, !49, i64 168, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !17, i64 256, !12, i64 264, !12, i64 268, !12, i64 272, !20, i64 280, !26, i64 288, !17, i64 296, !12, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !20, i64 344, !14, i64 352, !20, i64 360, !12, i64 368, !50, i64 376, !50, i64 384, !20, i64 392, !9, i64 400, !51, i64 408, !20, i64 416, !12, i64 424, !12, i64 428, !12, i64 432, !17, i64 440, !12, i64 448, !12, i64 452, !12, i64 456, !12, i64 460, !17, i64 464, !17, i64 472, !12, i64 480, !12, i64 484, !12, i64 488, !12, i64 492, !12, i64 496, !12, i64 500, !12, i64 504, !12, i64 508, !12, i64 512, !52, i64 520, !52, i64 528, !12, i64 536, !12, i64 540, !12, i64 544, !12, i64 548, !12, i64 552, !12, i64 556, !53, i64 560, !51, i64 568, !54, i64 576, !54, i64 584, !54, i64 592, !54, i64 600, !55, i64 608, !55, i64 616, !12, i64 624, !26, i64 632, !26, i64 640, !26, i64 648, !12, i64 656, !26, i64 664, !26, i64 672, !17, i64 680, !17, i64 688, !17, i64 696, !17, i64 704, !17, i64 712, !17, i64 720, !12, i64 728, !9, i64 736, !9, i64 744, !26, i64 752}
+!47 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!48 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!49 = !{!"DdSubtable", !20, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48}
+!50 = !{!"p1 long", !5, i64 0}
+!51 = !{!"p1 omnipotent char", !5, i64 0}
+!52 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!53 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!54 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!55 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!56 = !{!11, !12, i64 40}
+!57 = !{!11, !18, i64 168}
+!58 = !{!11, !12, i64 60}
+!59 = !{!11, !14, i64 144}
+!60 = distinct !{!60, !39}
+!61 = !{!11, !12, i64 100}
+!62 = distinct !{!62, !39}
+!63 = !{!11, !14, i64 160}
+!64 = distinct !{!64, !39}
+!65 = !{!11, !20, i64 224}
+!66 = !{!11, !12, i64 232}

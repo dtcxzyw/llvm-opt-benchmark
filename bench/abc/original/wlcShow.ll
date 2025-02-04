@@ -1,7 +1,6 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.If_Man_t_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [5 x i32], i32, float, float, float, float, i32, float, i32, i32, [4 x ptr], ptr, i32, i32, i32, ptr, [3 x [32 x i32]], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [16 x i32], i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i32], [32 x i32], i32, i32, i32, i32, ptr, [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], [16 x ptr], ptr, ptr, ptr, ptr, [32 x i8], i32, i32, i32, [6 x i64], [2 x i32], [2 x i32], ptr, [15 x i32], ptr, ptr, ptr, [16 x i32], ptr, ptr, ptr, ptr, [2 x i32], [2 x i32], [2 x ptr], ptr }
 %struct.Wlc_Ntk_t_ = type { ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, ptr, ptr, ptr, [60 x i32], [60 x i32], i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, %struct.Vec_Int_t_, %struct.Vec_Int_t_, i32, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_ }
 %struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.Wlc_Obj_t_ = type { i16, i32, i32, i32, %union.anon }
@@ -87,24 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @If_CutCopy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.If_Man_t_, ptr %9, i32 0, i32 41
-  %11 = load i32, ptr %10, align 4
-  %12 = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 %12, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -117,1475 +98,1524 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %21
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %16 = load ptr, ptr %6, align 8, !tbaa !10
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i32 @Vec_IntSize(ptr noundef %18)
-  %20 = icmp sgt i32 %19, 2000
-  br i1 %20, label %25, label %28
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %6, align 8, !tbaa !10
+  %20 = call i32 @Vec_IntSize(ptr noundef %19)
+  %21 = icmp sgt i32 %20, 2000
+  br i1 %21, label %26, label %29
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %4, align 8
-  %23 = call i32 @Wlc_NtkObjNum(ptr noundef %22)
-  %24 = icmp sgt i32 %23, 2000
-  br i1 %24, label %25, label %28
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = call i32 @Wlc_NtkObjNum(ptr noundef %23)
+  %25 = icmp sgt i32 %24, 2000
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %21, %17
-  %26 = load ptr, ptr @stdout, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str, i32 noundef 2000) #5
-  br label %946
+26:                                               ; preds = %22, %18
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str, i32 noundef 2000) #6
+  store i32 1, ptr %13, align 4
+  br label %951
 
-28:                                               ; preds = %21, %17
-  %29 = load ptr, ptr %5, align 8
-  %30 = call noalias ptr @fopen(ptr noundef %29, ptr noundef @.str.1)
-  store ptr %30, ptr %7, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %36
+29:                                               ; preds = %22, %18
+  %30 = load ptr, ptr %5, align 8, !tbaa !8
+  %31 = call noalias ptr @fopen(ptr noundef %30, ptr noundef @.str.1)
+  store ptr %31, ptr %7, align 8, !tbaa !12
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @stdout, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.2, ptr noundef %34) #5
-  br label %946
+33:                                               ; preds = %29
+  %34 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %35 = load ptr, ptr %5, align 8, !tbaa !8
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.2, ptr noundef %35) #6
+  store i32 1, ptr %13, align 4
+  br label %951
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %6, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %62
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %6, align 8, !tbaa !10
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %63
 
-39:                                               ; preds = %36
-  store i32 0, ptr %12, align 4
-  br label %40
+40:                                               ; preds = %37
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %41
 
-40:                                               ; preds = %58, %39
-  %41 = load i32, ptr %12, align 4
-  %42 = load ptr, ptr %6, align 8
-  %43 = call i32 @Vec_IntSize(ptr noundef %42)
-  %44 = icmp slt i32 %41, %43
-  br i1 %44, label %45, label %51
+41:                                               ; preds = %59, %40
+  %42 = load i32, ptr %12, align 4, !tbaa !14
+  %43 = load ptr, ptr %6, align 8, !tbaa !10
+  %44 = call i32 @Vec_IntSize(ptr noundef %43)
+  %45 = icmp slt i32 %42, %44
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i32, ptr %12, align 4
-  %49 = call i32 @Vec_IntEntry(ptr noundef %47, i32 noundef %48)
-  %50 = call ptr @Wlc_NtkObj(ptr noundef %46, i32 noundef %49)
-  store ptr %50, ptr %8, align 8
-  br label %51
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %4, align 8, !tbaa !3
+  %48 = load ptr, ptr %6, align 8, !tbaa !10
+  %49 = load i32, ptr %12, align 4, !tbaa !14
+  %50 = call i32 @Vec_IntEntry(ptr noundef %48, i32 noundef %49)
+  %51 = call ptr @Wlc_NtkObj(ptr noundef %47, i32 noundef %50)
+  store ptr %51, ptr %8, align 8, !tbaa !16
+  br label %52
 
-51:                                               ; preds = %45, %40
-  %52 = phi i1 [ false, %40 ], [ true, %45 ]
-  br i1 %52, label %53, label %61
+52:                                               ; preds = %46, %41
+  %53 = phi i1 [ false, %41 ], [ true, %46 ]
+  br i1 %53, label %54, label %62
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i16, ptr %54, align 8
-  %56 = and i16 %55, -129
-  %57 = or i16 %56, 128
-  store i16 %57, ptr %54, align 8
-  br label %58
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %8, align 8, !tbaa !16
+  %56 = load i16, ptr %55, align 8
+  %57 = and i16 %56, -129
+  %58 = or i16 %57, 128
+  store i16 %58, ptr %55, align 8
+  br label %59
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %12, align 4
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %12, align 4
-  br label %40, !llvm.loop !4
+59:                                               ; preds = %54
+  %60 = load i32, ptr %12, align 4, !tbaa !14
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %12, align 4, !tbaa !14
+  br label %41, !llvm.loop !18
 
-61:                                               ; preds = %51
-  br label %62
+62:                                               ; preds = %52
+  br label %63
 
-62:                                               ; preds = %61, %36
-  %63 = load ptr, ptr %4, align 8
-  %64 = call i32 @Wlc_NtkCreateLevels(ptr noundef %63)
-  %65 = add nsw i32 1, %64
-  store i32 %65, ptr %9, align 4
-  %66 = load ptr, ptr %6, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %73
+63:                                               ; preds = %62, %37
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = call i32 @Wlc_NtkCreateLevels(ptr noundef %64)
+  %66 = add nsw i32 1, %65
+  store i32 %66, ptr %9, align 4, !tbaa !14
+  %67 = load ptr, ptr %6, align 8, !tbaa !10
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %4, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i32, ptr %9, align 4
-  %72 = call i32 @Wlc_NtkRemapLevels(ptr noundef %69, ptr noundef %70, i32 noundef %71)
-  store i32 %72, ptr %9, align 4
-  br label %73
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %4, align 8, !tbaa !3
+  %71 = load ptr, ptr %6, align 8, !tbaa !10
+  %72 = load i32, ptr %9, align 4, !tbaa !14
+  %73 = call i32 @Wlc_NtkRemapLevels(ptr noundef %70, ptr noundef %71, i32 noundef %72)
+  store i32 %73, ptr %9, align 4, !tbaa !14
+  br label %74
 
-73:                                               ; preds = %68, %62
-  %74 = load ptr, ptr %7, align 8
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.3, ptr noundef @.str.4) #5
-  %76 = load ptr, ptr %7, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.5) #5
-  %78 = load ptr, ptr %7, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.6) #5
-  %80 = load ptr, ptr %7, align 8
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.7) #5
-  %82 = load ptr, ptr %7, align 8
-  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef @.str.8) #5
-  %84 = load ptr, ptr %7, align 8
-  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.9) #5
-  %86 = load ptr, ptr %7, align 8
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef @.str.5) #5
-  %88 = load ptr, ptr %7, align 8
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.10) #5
-  %90 = load ptr, ptr %7, align 8
-  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef @.str.11) #5
-  %92 = load ptr, ptr %7, align 8
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef @.str.12) #5
-  %94 = load ptr, ptr %7, align 8
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef @.str.13) #5
-  %96 = load ptr, ptr %7, align 8
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.14) #5
-  %98 = load i32, ptr %9, align 4
-  store i32 %98, ptr %11, align 4
-  br label %99
+74:                                               ; preds = %69, %63
+  %75 = load ptr, ptr %7, align 8, !tbaa !12
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.3, ptr noundef @.str.4) #6
+  %77 = load ptr, ptr %7, align 8, !tbaa !12
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.5) #6
+  %79 = load ptr, ptr %7, align 8, !tbaa !12
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.6) #6
+  %81 = load ptr, ptr %7, align 8, !tbaa !12
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.7) #6
+  %83 = load ptr, ptr %7, align 8, !tbaa !12
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef @.str.8) #6
+  %85 = load ptr, ptr %7, align 8, !tbaa !12
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef @.str.9) #6
+  %87 = load ptr, ptr %7, align 8, !tbaa !12
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.5) #6
+  %89 = load ptr, ptr %7, align 8, !tbaa !12
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef @.str.10) #6
+  %91 = load ptr, ptr %7, align 8, !tbaa !12
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef @.str.11) #6
+  %93 = load ptr, ptr %7, align 8, !tbaa !12
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.12) #6
+  %95 = load ptr, ptr %7, align 8, !tbaa !12
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.13) #6
+  %97 = load ptr, ptr %7, align 8, !tbaa !12
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef @.str.14) #6
+  %99 = load i32, ptr %9, align 4, !tbaa !14
+  store i32 %99, ptr %11, align 4, !tbaa !14
+  br label %100
 
-99:                                               ; preds = %114, %73
-  %100 = load i32, ptr %11, align 4
-  %101 = icmp sge i32 %100, 0
-  br i1 %101, label %102, label %117
+100:                                              ; preds = %115, %74
+  %101 = load i32, ptr %11, align 4, !tbaa !14
+  %102 = icmp sge i32 %101, 0
+  br i1 %102, label %103, label %118
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr %11, align 4
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.15, i32 noundef %104) #5
-  %106 = load ptr, ptr %7, align 8
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef @.str.16) #5
-  %108 = load ptr, ptr %7, align 8
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.17) #5
-  %110 = load ptr, ptr %7, align 8
-  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.17) #5
-  %112 = load ptr, ptr %7, align 8
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef @.str.18) #5
-  br label %114
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %7, align 8, !tbaa !12
+  %105 = load i32, ptr %11, align 4, !tbaa !14
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef @.str.15, i32 noundef %105) #6
+  %107 = load ptr, ptr %7, align 8, !tbaa !12
+  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef @.str.16) #6
+  %109 = load ptr, ptr %7, align 8, !tbaa !12
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef @.str.17) #6
+  %111 = load ptr, ptr %7, align 8, !tbaa !12
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef @.str.17) #6
+  %113 = load ptr, ptr %7, align 8, !tbaa !12
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.18) #6
+  br label %115
 
-114:                                              ; preds = %102
-  %115 = load i32, ptr %11, align 4
-  %116 = add nsw i32 %115, -1
-  store i32 %116, ptr %11, align 4
-  br label %99, !llvm.loop !6
+115:                                              ; preds = %103
+  %116 = load i32, ptr %11, align 4, !tbaa !14
+  %117 = add nsw i32 %116, -1
+  store i32 %117, ptr %11, align 4, !tbaa !14
+  br label %100, !llvm.loop !20
 
-117:                                              ; preds = %99
-  %118 = load ptr, ptr %7, align 8
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.19) #5
-  %120 = load i32, ptr %9, align 4
-  store i32 %120, ptr %11, align 4
-  br label %121
+118:                                              ; preds = %100
+  %119 = load ptr, ptr %7, align 8, !tbaa !12
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.19) #6
+  %121 = load i32, ptr %9, align 4, !tbaa !14
+  store i32 %121, ptr %11, align 4, !tbaa !14
+  br label %122
 
-121:                                              ; preds = %137, %117
-  %122 = load i32, ptr %11, align 4
-  %123 = icmp sge i32 %122, 0
-  br i1 %123, label %124, label %140
+122:                                              ; preds = %138, %118
+  %123 = load i32, ptr %11, align 4, !tbaa !14
+  %124 = icmp sge i32 %123, 0
+  br i1 %124, label %125, label %141
 
-124:                                              ; preds = %121
-  %125 = load ptr, ptr %7, align 8
-  %126 = load i32, ptr %11, align 4
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef @.str.15, i32 noundef %126) #5
-  %128 = load i32, ptr %11, align 4
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %133
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %7, align 8, !tbaa !12
+  %127 = load i32, ptr %11, align 4, !tbaa !14
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef @.str.15, i32 noundef %127) #6
+  %129 = load i32, ptr %11, align 4, !tbaa !14
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %134
 
-130:                                              ; preds = %124
-  %131 = load ptr, ptr %7, align 8
-  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef @.str.20) #5
-  br label %136
-
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %7, align 8
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef @.str.21) #5
-  br label %136
-
-136:                                              ; preds = %133, %130
+131:                                              ; preds = %125
+  %132 = load ptr, ptr %7, align 8, !tbaa !12
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef @.str.20) #6
   br label %137
 
-137:                                              ; preds = %136
-  %138 = load i32, ptr %11, align 4
-  %139 = add nsw i32 %138, -1
-  store i32 %139, ptr %11, align 4
-  br label %121, !llvm.loop !7
+134:                                              ; preds = %125
+  %135 = load ptr, ptr %7, align 8, !tbaa !12
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef @.str.21) #6
+  br label %137
 
-140:                                              ; preds = %121
-  %141 = load ptr, ptr %7, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef @.str.5) #5
-  %143 = load ptr, ptr %7, align 8
-  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef @.str.22) #5
-  %145 = load ptr, ptr %7, align 8
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.5) #5
-  %147 = load ptr, ptr %7, align 8
-  %148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef @.str.5) #5
-  %149 = load ptr, ptr %7, align 8
-  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef @.str.10) #5
-  %151 = load ptr, ptr %7, align 8
-  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef @.str.23) #5
-  %153 = load ptr, ptr %7, align 8
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef @.str.24) #5
-  %155 = load ptr, ptr %7, align 8
-  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef @.str.25) #5
-  %157 = load ptr, ptr %7, align 8
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef @.str.26) #5
-  %159 = load ptr, ptr %7, align 8
-  %160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef @.str.27) #5
-  %161 = load ptr, ptr %7, align 8
-  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef @.str.28) #5
-  %163 = load ptr, ptr %7, align 8
-  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef @.str.29, ptr noundef @.str.4) #5
-  %165 = load ptr, ptr %7, align 8
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef @.str.30) #5
-  %167 = load ptr, ptr %7, align 8
-  %168 = load ptr, ptr %4, align 8
-  %169 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %168, i32 0, i32 0
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %4, align 8
-  %172 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp ne ptr %173, null
-  br i1 %174, label %175, label %180
+137:                                              ; preds = %134, %131
+  br label %138
 
-175:                                              ; preds = %140
-  %176 = load ptr, ptr %4, align 8
-  %177 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %176, i32 0, i32 1
-  %178 = load ptr, ptr %177, align 8
-  %179 = call ptr @Extra_FileNameWithoutPath(ptr noundef %178)
-  br label %181
+138:                                              ; preds = %137
+  %139 = load i32, ptr %11, align 4, !tbaa !14
+  %140 = add nsw i32 %139, -1
+  store i32 %140, ptr %11, align 4, !tbaa !14
+  br label %122, !llvm.loop !21
 
-180:                                              ; preds = %140
-  br label %181
+141:                                              ; preds = %122
+  %142 = load ptr, ptr %7, align 8, !tbaa !12
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.5) #6
+  %144 = load ptr, ptr %7, align 8, !tbaa !12
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef @.str.22) #6
+  %146 = load ptr, ptr %7, align 8, !tbaa !12
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef @.str.5) #6
+  %148 = load ptr, ptr %7, align 8, !tbaa !12
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef @.str.5) #6
+  %150 = load ptr, ptr %7, align 8, !tbaa !12
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef @.str.10) #6
+  %152 = load ptr, ptr %7, align 8, !tbaa !12
+  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef @.str.23) #6
+  %154 = load ptr, ptr %7, align 8, !tbaa !12
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef @.str.24) #6
+  %156 = load ptr, ptr %7, align 8, !tbaa !12
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.25) #6
+  %158 = load ptr, ptr %7, align 8, !tbaa !12
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef @.str.26) #6
+  %160 = load ptr, ptr %7, align 8, !tbaa !12
+  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef @.str.27) #6
+  %162 = load ptr, ptr %7, align 8, !tbaa !12
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef @.str.28) #6
+  %164 = load ptr, ptr %7, align 8, !tbaa !12
+  %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.29, ptr noundef @.str.4) #6
+  %166 = load ptr, ptr %7, align 8, !tbaa !12
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef @.str.30) #6
+  %168 = load ptr, ptr %7, align 8, !tbaa !12
+  %169 = load ptr, ptr %4, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %169, i32 0, i32 0
+  %171 = load ptr, ptr %170, align 8, !tbaa !22
+  %172 = load ptr, ptr %4, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8, !tbaa !30
+  %175 = icmp ne ptr %174, null
+  br i1 %175, label %176, label %181
 
-181:                                              ; preds = %180, %175
-  %182 = phi ptr [ %179, %175 ], [ @.str.32, %180 ]
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.31, ptr noundef %170, ptr noundef %182) #5
-  %184 = load ptr, ptr %7, align 8
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef @.str.33) #5
-  %186 = load ptr, ptr %7, align 8
-  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef @.str.34) #5
-  %188 = load ptr, ptr %7, align 8
-  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef @.str.22) #5
-  %190 = load ptr, ptr %7, align 8
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef @.str.5) #5
-  %192 = load ptr, ptr %7, align 8
-  %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef @.str.5) #5
-  %194 = load ptr, ptr %7, align 8
-  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.10) #5
-  %196 = load ptr, ptr %7, align 8
-  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef @.str.23) #5
-  %198 = load ptr, ptr %7, align 8
-  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef @.str.35) #5
-  %200 = load ptr, ptr %7, align 8
-  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef @.str.36) #5
-  %202 = load ptr, ptr %7, align 8
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef @.str.37) #5
-  %204 = load ptr, ptr %7, align 8
-  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef @.str.27) #5
-  %206 = load ptr, ptr %7, align 8
-  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef @.str.28) #5
-  %208 = load ptr, ptr %7, align 8
-  %209 = load ptr, ptr %4, align 8
-  %210 = call i32 @Wlc_NtkObjNum(ptr noundef %209)
-  %211 = load ptr, ptr %4, align 8
-  %212 = call i32 @Wlc_NtkCiNum(ptr noundef %211)
-  %213 = sub nsw i32 %210, %212
-  %214 = load i32, ptr %9, align 4
-  %215 = sub nsw i32 %214, 1
-  %216 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef @.str.38, i32 noundef %213, i32 noundef %215) #5
-  %217 = load ptr, ptr %7, align 8
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef @.str.30) #5
-  %219 = load ptr, ptr %7, align 8
-  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef @.str.33) #5
-  %221 = load ptr, ptr %7, align 8
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef @.str.34) #5
-  %223 = load ptr, ptr %7, align 8
-  %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %223, ptr noundef @.str.22) #5
-  %225 = load ptr, ptr %7, align 8
-  %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef @.str.5) #5
-  %227 = load ptr, ptr %7, align 8
-  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef @.str.5) #5
-  %229 = load ptr, ptr %7, align 8
-  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef @.str.10) #5
-  %231 = load ptr, ptr %7, align 8
-  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef @.str.23) #5
-  %233 = load ptr, ptr %7, align 8
-  %234 = load i32, ptr %9, align 4
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef @.str.39, i32 noundef %234) #5
-  store i32 0, ptr %12, align 4
-  br label %236
+176:                                              ; preds = %141
+  %177 = load ptr, ptr %4, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %177, i32 0, i32 1
+  %179 = load ptr, ptr %178, align 8, !tbaa !30
+  %180 = call ptr @Extra_FileNameWithoutPath(ptr noundef %179)
+  br label %182
 
-236:                                              ; preds = %289, %181
-  %237 = load i32, ptr %12, align 4
-  %238 = load ptr, ptr %4, align 8
-  %239 = call i32 @Wlc_NtkCoNum(ptr noundef %238)
-  %240 = icmp slt i32 %237, %239
-  br i1 %240, label %241, label %245
+181:                                              ; preds = %141
+  br label %182
 
-241:                                              ; preds = %236
-  %242 = load ptr, ptr %4, align 8
-  %243 = load i32, ptr %12, align 4
-  %244 = call ptr @Wlc_NtkCo(ptr noundef %242, i32 noundef %243)
-  store ptr %244, ptr %8, align 8
-  br label %245
+182:                                              ; preds = %181, %176
+  %183 = phi ptr [ %180, %176 ], [ @.str.32, %181 ]
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef @.str.31, ptr noundef %171, ptr noundef %183) #6
+  %185 = load ptr, ptr %7, align 8, !tbaa !12
+  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef @.str.33) #6
+  %187 = load ptr, ptr %7, align 8, !tbaa !12
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef @.str.34) #6
+  %189 = load ptr, ptr %7, align 8, !tbaa !12
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.22) #6
+  %191 = load ptr, ptr %7, align 8, !tbaa !12
+  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef @.str.5) #6
+  %193 = load ptr, ptr %7, align 8, !tbaa !12
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef @.str.5) #6
+  %195 = load ptr, ptr %7, align 8, !tbaa !12
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef @.str.10) #6
+  %197 = load ptr, ptr %7, align 8, !tbaa !12
+  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef @.str.23) #6
+  %199 = load ptr, ptr %7, align 8, !tbaa !12
+  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef @.str.35) #6
+  %201 = load ptr, ptr %7, align 8, !tbaa !12
+  %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef @.str.36) #6
+  %203 = load ptr, ptr %7, align 8, !tbaa !12
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef @.str.37) #6
+  %205 = load ptr, ptr %7, align 8, !tbaa !12
+  %206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef @.str.27) #6
+  %207 = load ptr, ptr %7, align 8, !tbaa !12
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef @.str.28) #6
+  %209 = load ptr, ptr %7, align 8, !tbaa !12
+  %210 = load ptr, ptr %4, align 8, !tbaa !3
+  %211 = call i32 @Wlc_NtkObjNum(ptr noundef %210)
+  %212 = load ptr, ptr %4, align 8, !tbaa !3
+  %213 = call i32 @Wlc_NtkCiNum(ptr noundef %212)
+  %214 = sub nsw i32 %211, %213
+  %215 = load i32, ptr %9, align 4, !tbaa !14
+  %216 = sub nsw i32 %215, 1
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef @.str.38, i32 noundef %214, i32 noundef %216) #6
+  %218 = load ptr, ptr %7, align 8, !tbaa !12
+  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef @.str.30) #6
+  %220 = load ptr, ptr %7, align 8, !tbaa !12
+  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef @.str.33) #6
+  %222 = load ptr, ptr %7, align 8, !tbaa !12
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef @.str.34) #6
+  %224 = load ptr, ptr %7, align 8, !tbaa !12
+  %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef @.str.22) #6
+  %226 = load ptr, ptr %7, align 8, !tbaa !12
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef @.str.5) #6
+  %228 = load ptr, ptr %7, align 8, !tbaa !12
+  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef @.str.5) #6
+  %230 = load ptr, ptr %7, align 8, !tbaa !12
+  %231 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef @.str.10) #6
+  %232 = load ptr, ptr %7, align 8, !tbaa !12
+  %233 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef @.str.23) #6
+  %234 = load ptr, ptr %7, align 8, !tbaa !12
+  %235 = load i32, ptr %9, align 4, !tbaa !14
+  %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef @.str.39, i32 noundef %235) #6
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %237
 
-245:                                              ; preds = %241, %236
-  %246 = phi i1 [ false, %236 ], [ true, %241 ]
-  br i1 %246, label %247, label %292
+237:                                              ; preds = %290, %182
+  %238 = load i32, ptr %12, align 4, !tbaa !14
+  %239 = load ptr, ptr %4, align 8, !tbaa !3
+  %240 = call i32 @Wlc_NtkCoNum(ptr noundef %239)
+  %241 = icmp slt i32 %238, %240
+  br i1 %241, label %242, label %246
 
-247:                                              ; preds = %245
-  %248 = load ptr, ptr %6, align 8
-  %249 = icmp ne ptr %248, null
-  br i1 %249, label %250, label %258
+242:                                              ; preds = %237
+  %243 = load ptr, ptr %4, align 8, !tbaa !3
+  %244 = load i32, ptr %12, align 4, !tbaa !14
+  %245 = call ptr @Wlc_NtkCo(ptr noundef %243, i32 noundef %244)
+  store ptr %245, ptr %8, align 8, !tbaa !16
+  br label %246
 
-250:                                              ; preds = %247
-  %251 = load ptr, ptr %8, align 8
-  %252 = load i16, ptr %251, align 8
-  %253 = lshr i16 %252, 7
-  %254 = and i16 %253, 1
-  %255 = zext i16 %254 to i32
-  %256 = icmp ne i32 %255, 0
-  br i1 %256, label %258, label %257
+246:                                              ; preds = %242, %237
+  %247 = phi i1 [ false, %237 ], [ true, %242 ]
+  br i1 %247, label %248, label %293
 
-257:                                              ; preds = %250
-  br label %289
+248:                                              ; preds = %246
+  %249 = load ptr, ptr %6, align 8, !tbaa !10
+  %250 = icmp ne ptr %249, null
+  br i1 %250, label %251, label %259
 
-258:                                              ; preds = %250, %247
-  %259 = load ptr, ptr %4, align 8
-  %260 = load i32, ptr %12, align 4
-  %261 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %259, i32 noundef %260)
-  store ptr %261, ptr %8, align 8
-  %262 = load ptr, ptr %7, align 8
-  %263 = load ptr, ptr %4, align 8
-  %264 = load ptr, ptr %8, align 8
-  %265 = call i32 @Wlc_ObjId(ptr noundef %263, ptr noundef %264)
-  %266 = load ptr, ptr %4, align 8
-  %267 = load ptr, ptr %4, align 8
-  %268 = load ptr, ptr %8, align 8
-  %269 = call i32 @Wlc_ObjId(ptr noundef %267, ptr noundef %268)
-  %270 = call ptr @Wlc_ObjName(ptr noundef %266, i32 noundef %269)
-  %271 = load ptr, ptr %8, align 8
-  %272 = call i32 @Wlc_ObjIsPo(ptr noundef %271)
-  %273 = icmp ne i32 %272, 0
-  %274 = select i1 %273, ptr @.str.41, ptr @.str.42
-  %275 = load ptr, ptr %8, align 8
-  %276 = call i32 @Wlc_ObjRange(ptr noundef %275)
-  %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef @.str.40, i32 noundef %265, ptr noundef %270, ptr noundef %274, i32 noundef %276) #5
-  %278 = load ptr, ptr %7, align 8
-  %279 = load i32, ptr %12, align 4
-  %280 = load ptr, ptr %4, align 8
-  %281 = call i32 @Wlc_NtkPoNum(ptr noundef %280)
-  %282 = icmp slt i32 %279, %281
-  %283 = select i1 %282, ptr @.str.44, ptr @.str.45
-  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef @.str.43, ptr noundef %283) #5
-  %285 = load ptr, ptr %7, align 8
-  %286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef @.str.46) #5
-  %287 = load ptr, ptr %7, align 8
-  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef @.str.18) #5
-  br label %289
+251:                                              ; preds = %248
+  %252 = load ptr, ptr %8, align 8, !tbaa !16
+  %253 = load i16, ptr %252, align 8
+  %254 = lshr i16 %253, 7
+  %255 = and i16 %254, 1
+  %256 = zext i16 %255 to i32
+  %257 = icmp ne i32 %256, 0
+  br i1 %257, label %259, label %258
 
-289:                                              ; preds = %258, %257
-  %290 = load i32, ptr %12, align 4
-  %291 = add nsw i32 %290, 1
-  store i32 %291, ptr %12, align 4
-  br label %236, !llvm.loop !8
+258:                                              ; preds = %251
+  br label %290
 
-292:                                              ; preds = %245
-  %293 = load ptr, ptr %7, align 8
-  %294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef @.str.22) #5
-  %295 = load ptr, ptr %7, align 8
-  %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %295, ptr noundef @.str.5) #5
-  %297 = load ptr, ptr %7, align 8
-  %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef @.str.5) #5
-  %299 = load i32, ptr %9, align 4
-  %300 = sub nsw i32 %299, 1
-  store i32 %300, ptr %11, align 4
-  br label %301
+259:                                              ; preds = %251, %248
+  %260 = load ptr, ptr %4, align 8, !tbaa !3
+  %261 = load i32, ptr %12, align 4, !tbaa !14
+  %262 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %260, i32 noundef %261)
+  store ptr %262, ptr %8, align 8, !tbaa !16
+  %263 = load ptr, ptr %7, align 8, !tbaa !12
+  %264 = load ptr, ptr %4, align 8, !tbaa !3
+  %265 = load ptr, ptr %8, align 8, !tbaa !16
+  %266 = call i32 @Wlc_ObjId(ptr noundef %264, ptr noundef %265)
+  %267 = load ptr, ptr %4, align 8, !tbaa !3
+  %268 = load ptr, ptr %4, align 8, !tbaa !3
+  %269 = load ptr, ptr %8, align 8, !tbaa !16
+  %270 = call i32 @Wlc_ObjId(ptr noundef %268, ptr noundef %269)
+  %271 = call ptr @Wlc_ObjName(ptr noundef %267, i32 noundef %270)
+  %272 = load ptr, ptr %8, align 8, !tbaa !16
+  %273 = call i32 @Wlc_ObjIsPo(ptr noundef %272)
+  %274 = icmp ne i32 %273, 0
+  %275 = select i1 %274, ptr @.str.41, ptr @.str.42
+  %276 = load ptr, ptr %8, align 8, !tbaa !16
+  %277 = call i32 @Wlc_ObjRange(ptr noundef %276)
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef @.str.40, i32 noundef %266, ptr noundef %271, ptr noundef %275, i32 noundef %277) #6
+  %279 = load ptr, ptr %7, align 8, !tbaa !12
+  %280 = load i32, ptr %12, align 4, !tbaa !14
+  %281 = load ptr, ptr %4, align 8, !tbaa !3
+  %282 = call i32 @Wlc_NtkPoNum(ptr noundef %281)
+  %283 = icmp slt i32 %280, %282
+  %284 = select i1 %283, ptr @.str.44, ptr @.str.45
+  %285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef @.str.43, ptr noundef %284) #6
+  %286 = load ptr, ptr %7, align 8, !tbaa !12
+  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef @.str.46) #6
+  %288 = load ptr, ptr %7, align 8, !tbaa !12
+  %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef @.str.18) #6
+  br label %290
 
-301:                                              ; preds = %549, %292
-  %302 = load i32, ptr %11, align 4
-  %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %304, label %552
+290:                                              ; preds = %259, %258
+  %291 = load i32, ptr %12, align 4, !tbaa !14
+  %292 = add nsw i32 %291, 1
+  store i32 %292, ptr %12, align 4, !tbaa !14
+  br label %237, !llvm.loop !31
 
-304:                                              ; preds = %301
-  %305 = load ptr, ptr %7, align 8
-  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef @.str.10) #5
-  %307 = load ptr, ptr %7, align 8
-  %308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef @.str.23) #5
-  %309 = load ptr, ptr %7, align 8
-  %310 = load i32, ptr %11, align 4
-  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef @.str.39, i32 noundef %310) #5
-  store i32 1, ptr %12, align 4
-  br label %312
+293:                                              ; preds = %246
+  %294 = load ptr, ptr %7, align 8, !tbaa !12
+  %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef @.str.22) #6
+  %296 = load ptr, ptr %7, align 8, !tbaa !12
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef @.str.5) #6
+  %298 = load ptr, ptr %7, align 8, !tbaa !12
+  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef @.str.5) #6
+  %300 = load i32, ptr %9, align 4, !tbaa !14
+  %301 = sub nsw i32 %300, 1
+  store i32 %301, ptr %11, align 4, !tbaa !14
+  br label %302
 
-312:                                              ; preds = %539, %304
-  %313 = load i32, ptr %12, align 4
-  %314 = load ptr, ptr %4, align 8
-  %315 = call i32 @Wlc_NtkObjNumMax(ptr noundef %314)
-  %316 = icmp slt i32 %313, %315
-  br i1 %316, label %317, label %321
+302:                                              ; preds = %550, %293
+  %303 = load i32, ptr %11, align 4, !tbaa !14
+  %304 = icmp sgt i32 %303, 0
+  br i1 %304, label %305, label %553
 
-317:                                              ; preds = %312
-  %318 = load ptr, ptr %4, align 8
-  %319 = load i32, ptr %12, align 4
-  %320 = call ptr @Wlc_NtkObj(ptr noundef %318, i32 noundef %319)
-  store ptr %320, ptr %8, align 8
-  br label %321
+305:                                              ; preds = %302
+  %306 = load ptr, ptr %7, align 8, !tbaa !12
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef @.str.10) #6
+  %308 = load ptr, ptr %7, align 8, !tbaa !12
+  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef @.str.23) #6
+  %310 = load ptr, ptr %7, align 8, !tbaa !12
+  %311 = load i32, ptr %11, align 4, !tbaa !14
+  %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef @.str.39, i32 noundef %311) #6
+  store i32 1, ptr %12, align 4, !tbaa !14
+  br label %313
 
-321:                                              ; preds = %317, %312
-  %322 = phi i1 [ false, %312 ], [ true, %317 ]
-  br i1 %322, label %323, label %542
+313:                                              ; preds = %540, %305
+  %314 = load i32, ptr %12, align 4, !tbaa !14
+  %315 = load ptr, ptr %4, align 8, !tbaa !3
+  %316 = call i32 @Wlc_NtkObjNumMax(ptr noundef %315)
+  %317 = icmp slt i32 %314, %316
+  br i1 %317, label %318, label %322
 
-323:                                              ; preds = %321
-  %324 = load ptr, ptr %4, align 8
-  %325 = load ptr, ptr %8, align 8
-  %326 = call i32 @Wlc_ObjLevel(ptr noundef %324, ptr noundef %325)
-  %327 = load i32, ptr %11, align 4
-  %328 = icmp ne i32 %326, %327
-  br i1 %328, label %329, label %330
+318:                                              ; preds = %313
+  %319 = load ptr, ptr %4, align 8, !tbaa !3
+  %320 = load i32, ptr %12, align 4, !tbaa !14
+  %321 = call ptr @Wlc_NtkObj(ptr noundef %319, i32 noundef %320)
+  store ptr %321, ptr %8, align 8, !tbaa !16
+  br label %322
 
-329:                                              ; preds = %323
-  br label %539
+322:                                              ; preds = %318, %313
+  %323 = phi i1 [ false, %313 ], [ true, %318 ]
+  br i1 %323, label %324, label %543
 
-330:                                              ; preds = %323
-  %331 = load ptr, ptr %6, align 8
-  %332 = icmp ne ptr %331, null
-  br i1 %332, label %333, label %341
+324:                                              ; preds = %322
+  %325 = load ptr, ptr %4, align 8, !tbaa !3
+  %326 = load ptr, ptr %8, align 8, !tbaa !16
+  %327 = call i32 @Wlc_ObjLevel(ptr noundef %325, ptr noundef %326)
+  %328 = load i32, ptr %11, align 4, !tbaa !14
+  %329 = icmp ne i32 %327, %328
+  br i1 %329, label %330, label %331
 
-333:                                              ; preds = %330
-  %334 = load ptr, ptr %8, align 8
-  %335 = load i16, ptr %334, align 8
-  %336 = lshr i16 %335, 7
-  %337 = and i16 %336, 1
-  %338 = zext i16 %337 to i32
-  %339 = icmp ne i32 %338, 0
-  br i1 %339, label %341, label %340
+330:                                              ; preds = %324
+  br label %540
 
-340:                                              ; preds = %333
-  br label %539
+331:                                              ; preds = %324
+  %332 = load ptr, ptr %6, align 8, !tbaa !10
+  %333 = icmp ne ptr %332, null
+  br i1 %333, label %334, label %342
 
-341:                                              ; preds = %333, %330
-  %342 = load ptr, ptr %8, align 8
-  %343 = load i16, ptr %342, align 8
-  %344 = and i16 %343, 63
-  %345 = zext i16 %344 to i32
-  %346 = icmp eq i32 %345, 6
-  br i1 %346, label %347, label %374
+334:                                              ; preds = %331
+  %335 = load ptr, ptr %8, align 8, !tbaa !16
+  %336 = load i16, ptr %335, align 8
+  %337 = lshr i16 %336, 7
+  %338 = and i16 %337, 1
+  %339 = zext i16 %338 to i32
+  %340 = icmp ne i32 %339, 0
+  br i1 %340, label %342, label %341
 
-347:                                              ; preds = %341
-  %348 = load ptr, ptr %7, align 8
-  %349 = load i32, ptr %12, align 4
-  %350 = load i32, ptr %12, align 4
-  %351 = load ptr, ptr %8, align 8
-  %352 = call i32 @Wlc_ObjRange(ptr noundef %351)
-  %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef @.str.47, i32 noundef %349, i32 noundef %350, i32 noundef %352) #5
-  %354 = load ptr, ptr %8, align 8
-  %355 = call i32 @Wlc_ObjRange(ptr noundef %354)
-  %356 = icmp sgt i32 %355, 64
-  br i1 %356, label %357, label %363
+341:                                              ; preds = %334
+  br label %540
 
-357:                                              ; preds = %347
-  %358 = load ptr, ptr %7, align 8
-  %359 = load ptr, ptr %8, align 8
-  %360 = call ptr @Wlc_ObjConstValue(ptr noundef %359)
-  call void @Abc_TtPrintHexArrayRev(ptr noundef %358, ptr noundef %360, i32 noundef 16)
-  %361 = load ptr, ptr %7, align 8
-  %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef @.str.48) #5
-  br label %371
+342:                                              ; preds = %334, %331
+  %343 = load ptr, ptr %8, align 8, !tbaa !16
+  %344 = load i16, ptr %343, align 8
+  %345 = and i16 %344, 63
+  %346 = zext i16 %345 to i32
+  %347 = icmp eq i32 %346, 6
+  br i1 %347, label %348, label %375
 
-363:                                              ; preds = %347
-  %364 = load ptr, ptr %7, align 8
-  %365 = load ptr, ptr %8, align 8
-  %366 = call ptr @Wlc_ObjConstValue(ptr noundef %365)
-  %367 = load ptr, ptr %8, align 8
-  %368 = call i32 @Wlc_ObjRange(ptr noundef %367)
-  %369 = add nsw i32 %368, 3
-  %370 = sdiv i32 %369, 4
-  call void @Abc_TtPrintHexArrayRev(ptr noundef %364, ptr noundef %366, i32 noundef %370)
-  br label %371
+348:                                              ; preds = %342
+  %349 = load ptr, ptr %7, align 8, !tbaa !12
+  %350 = load i32, ptr %12, align 4, !tbaa !14
+  %351 = load i32, ptr %12, align 4, !tbaa !14
+  %352 = load ptr, ptr %8, align 8, !tbaa !16
+  %353 = call i32 @Wlc_ObjRange(ptr noundef %352)
+  %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef @.str.47, i32 noundef %350, i32 noundef %351, i32 noundef %353) #6
+  %355 = load ptr, ptr %8, align 8, !tbaa !16
+  %356 = call i32 @Wlc_ObjRange(ptr noundef %355)
+  %357 = icmp sgt i32 %356, 64
+  br i1 %357, label %358, label %364
 
-371:                                              ; preds = %363, %357
-  %372 = load ptr, ptr %7, align 8
-  %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef @.str.17) #5
+358:                                              ; preds = %348
+  %359 = load ptr, ptr %7, align 8, !tbaa !12
+  %360 = load ptr, ptr %8, align 8, !tbaa !16
+  %361 = call ptr @Wlc_ObjConstValue(ptr noundef %360)
+  call void @Abc_TtPrintHexArrayRev(ptr noundef %359, ptr noundef %361, i32 noundef 16)
+  %362 = load ptr, ptr %7, align 8, !tbaa !12
+  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef @.str.48) #6
+  br label %372
+
+364:                                              ; preds = %348
+  %365 = load ptr, ptr %7, align 8, !tbaa !12
+  %366 = load ptr, ptr %8, align 8, !tbaa !16
+  %367 = call ptr @Wlc_ObjConstValue(ptr noundef %366)
+  %368 = load ptr, ptr %8, align 8, !tbaa !16
+  %369 = call i32 @Wlc_ObjRange(ptr noundef %368)
+  %370 = add nsw i32 %369, 3
+  %371 = sdiv i32 %370, 4
+  call void @Abc_TtPrintHexArrayRev(ptr noundef %365, ptr noundef %367, i32 noundef %371)
+  br label %372
+
+372:                                              ; preds = %364, %358
+  %373 = load ptr, ptr %7, align 8, !tbaa !12
+  %374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef @.str.17) #6
+  br label %424
+
+375:                                              ; preds = %342
+  %376 = load ptr, ptr %8, align 8, !tbaa !16
+  %377 = load i16, ptr %376, align 8
+  %378 = and i16 %377, 63
+  %379 = zext i16 %378 to i32
+  %380 = icmp eq i32 %379, 7
+  br i1 %380, label %387, label %381
+
+381:                                              ; preds = %375
+  %382 = load ptr, ptr %8, align 8, !tbaa !16
+  %383 = load i16, ptr %382, align 8
+  %384 = and i16 %383, 63
+  %385 = zext i16 %384 to i32
+  %386 = icmp eq i32 %385, 8
+  br i1 %386, label %387, label %394
+
+387:                                              ; preds = %381, %375
+  %388 = load ptr, ptr %7, align 8, !tbaa !12
+  %389 = load i32, ptr %12, align 4, !tbaa !14
+  %390 = load i32, ptr %12, align 4, !tbaa !14
+  %391 = load ptr, ptr %8, align 8, !tbaa !16
+  %392 = call i32 @Wlc_ObjRange(ptr noundef %391)
+  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef @.str.49, i32 noundef %389, i32 noundef %390, i32 noundef %392) #6
   br label %423
 
-374:                                              ; preds = %341
-  %375 = load ptr, ptr %8, align 8
-  %376 = load i16, ptr %375, align 8
-  %377 = and i16 %376, 63
-  %378 = zext i16 %377 to i32
-  %379 = icmp eq i32 %378, 7
-  br i1 %379, label %386, label %380
+394:                                              ; preds = %381
+  %395 = load ptr, ptr %8, align 8, !tbaa !16
+  %396 = load i16, ptr %395, align 8
+  %397 = and i16 %396, 63
+  %398 = zext i16 %397 to i32
+  %399 = icmp sge i32 %398, 26
+  br i1 %399, label %400, label %413
 
-380:                                              ; preds = %374
-  %381 = load ptr, ptr %8, align 8
-  %382 = load i16, ptr %381, align 8
-  %383 = and i16 %382, 63
-  %384 = zext i16 %383 to i32
-  %385 = icmp eq i32 %384, 8
-  br i1 %385, label %386, label %393
+400:                                              ; preds = %394
+  %401 = load ptr, ptr %8, align 8, !tbaa !16
+  %402 = load i16, ptr %401, align 8
+  %403 = and i16 %402, 63
+  %404 = zext i16 %403 to i32
+  %405 = icmp sle i32 %404, 36
+  br i1 %405, label %406, label %413
 
-386:                                              ; preds = %380, %374
-  %387 = load ptr, ptr %7, align 8
-  %388 = load i32, ptr %12, align 4
-  %389 = load i32, ptr %12, align 4
-  %390 = load ptr, ptr %8, align 8
-  %391 = call i32 @Wlc_ObjRange(ptr noundef %390)
-  %392 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef @.str.49, i32 noundef %388, i32 noundef %389, i32 noundef %391) #5
+406:                                              ; preds = %400
+  %407 = load ptr, ptr %7, align 8, !tbaa !12
+  %408 = load i32, ptr %12, align 4, !tbaa !14
+  %409 = load i32, ptr %12, align 4, !tbaa !14
+  %410 = load ptr, ptr %8, align 8, !tbaa !16
+  %411 = call ptr @Wlc_ObjTypeName(ptr noundef %410)
+  %412 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %407, ptr noundef @.str.50, i32 noundef %408, i32 noundef %409, ptr noundef %411) #6
   br label %422
 
-393:                                              ; preds = %380
-  %394 = load ptr, ptr %8, align 8
-  %395 = load i16, ptr %394, align 8
-  %396 = and i16 %395, 63
-  %397 = zext i16 %396 to i32
-  %398 = icmp sge i32 %397, 26
-  br i1 %398, label %399, label %412
-
-399:                                              ; preds = %393
-  %400 = load ptr, ptr %8, align 8
-  %401 = load i16, ptr %400, align 8
-  %402 = and i16 %401, 63
-  %403 = zext i16 %402 to i32
-  %404 = icmp sle i32 %403, 36
-  br i1 %404, label %405, label %412
-
-405:                                              ; preds = %399
-  %406 = load ptr, ptr %7, align 8
-  %407 = load i32, ptr %12, align 4
-  %408 = load i32, ptr %12, align 4
-  %409 = load ptr, ptr %8, align 8
-  %410 = call ptr @Wlc_ObjTypeName(ptr noundef %409)
-  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef @.str.50, i32 noundef %407, i32 noundef %408, ptr noundef %410) #5
-  br label %421
-
-412:                                              ; preds = %399, %393
-  %413 = load ptr, ptr %7, align 8
-  %414 = load i32, ptr %12, align 4
-  %415 = load i32, ptr %12, align 4
-  %416 = load ptr, ptr %8, align 8
-  %417 = call ptr @Wlc_ObjTypeName(ptr noundef %416)
-  %418 = load ptr, ptr %8, align 8
-  %419 = call i32 @Wlc_ObjRange(ptr noundef %418)
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef @.str.51, i32 noundef %414, i32 noundef %415, ptr noundef %417, i32 noundef %419) #5
-  br label %421
-
-421:                                              ; preds = %412, %405
+413:                                              ; preds = %400, %394
+  %414 = load ptr, ptr %7, align 8, !tbaa !12
+  %415 = load i32, ptr %12, align 4, !tbaa !14
+  %416 = load i32, ptr %12, align 4, !tbaa !14
+  %417 = load ptr, ptr %8, align 8, !tbaa !16
+  %418 = call ptr @Wlc_ObjTypeName(ptr noundef %417)
+  %419 = load ptr, ptr %8, align 8, !tbaa !16
+  %420 = call i32 @Wlc_ObjRange(ptr noundef %419)
+  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %414, ptr noundef @.str.51, i32 noundef %415, i32 noundef %416, ptr noundef %418, i32 noundef %420) #6
   br label %422
 
-422:                                              ; preds = %421, %386
+422:                                              ; preds = %413, %406
   br label %423
 
-423:                                              ; preds = %422, %371
-  %424 = load ptr, ptr %8, align 8
-  %425 = load i16, ptr %424, align 8
-  %426 = and i16 %425, 63
-  %427 = zext i16 %426 to i32
-  %428 = icmp eq i32 %427, 45
-  br i1 %428, label %429, label %432
+423:                                              ; preds = %422, %387
+  br label %424
 
-429:                                              ; preds = %423
-  %430 = load ptr, ptr %7, align 8
-  %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef @.str.52) #5
+424:                                              ; preds = %423, %372
+  %425 = load ptr, ptr %8, align 8, !tbaa !16
+  %426 = load i16, ptr %425, align 8
+  %427 = and i16 %426, 63
+  %428 = zext i16 %427 to i32
+  %429 = icmp eq i32 %428, 45
+  br i1 %429, label %430, label %433
+
+430:                                              ; preds = %424
+  %431 = load ptr, ptr %7, align 8, !tbaa !12
+  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef @.str.52) #6
+  br label %506
+
+433:                                              ; preds = %424
+  %434 = load ptr, ptr %8, align 8, !tbaa !16
+  %435 = load i16, ptr %434, align 8
+  %436 = and i16 %435, 63
+  %437 = zext i16 %436 to i32
+  %438 = icmp sge i32 %437, 31
+  br i1 %438, label %439, label %448
+
+439:                                              ; preds = %433
+  %440 = load ptr, ptr %8, align 8, !tbaa !16
+  %441 = load i16, ptr %440, align 8
+  %442 = and i16 %441, 63
+  %443 = zext i16 %442 to i32
+  %444 = icmp sle i32 %443, 36
+  br i1 %444, label %445, label %448
+
+445:                                              ; preds = %439
+  %446 = load ptr, ptr %7, align 8, !tbaa !12
+  %447 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %446, ptr noundef @.str.53) #6
   br label %505
 
-432:                                              ; preds = %423
-  %433 = load ptr, ptr %8, align 8
-  %434 = load i16, ptr %433, align 8
-  %435 = and i16 %434, 63
-  %436 = zext i16 %435 to i32
-  %437 = icmp sge i32 %436, 31
-  br i1 %437, label %438, label %447
+448:                                              ; preds = %439, %433
+  %449 = load ptr, ptr %8, align 8, !tbaa !16
+  %450 = load i16, ptr %449, align 8
+  %451 = and i16 %450, 63
+  %452 = zext i16 %451 to i32
+  %453 = icmp eq i32 %452, 22
+  br i1 %453, label %466, label %454
 
-438:                                              ; preds = %432
-  %439 = load ptr, ptr %8, align 8
-  %440 = load i16, ptr %439, align 8
-  %441 = and i16 %440, 63
-  %442 = zext i16 %441 to i32
-  %443 = icmp sle i32 %442, 36
-  br i1 %443, label %444, label %447
+454:                                              ; preds = %448
+  %455 = load ptr, ptr %8, align 8, !tbaa !16
+  %456 = load i16, ptr %455, align 8
+  %457 = and i16 %456, 63
+  %458 = zext i16 %457 to i32
+  %459 = icmp eq i32 %458, 23
+  br i1 %459, label %466, label %460
 
-444:                                              ; preds = %438
-  %445 = load ptr, ptr %7, align 8
-  %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef @.str.53) #5
+460:                                              ; preds = %454
+  %461 = load ptr, ptr %8, align 8, !tbaa !16
+  %462 = load i16, ptr %461, align 8
+  %463 = and i16 %462, 63
+  %464 = zext i16 %463 to i32
+  %465 = icmp eq i32 %464, 5
+  br i1 %465, label %466, label %469
+
+466:                                              ; preds = %460, %454, %448
+  %467 = load ptr, ptr %7, align 8, !tbaa !12
+  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef @.str.54) #6
   br label %504
 
-447:                                              ; preds = %438, %432
-  %448 = load ptr, ptr %8, align 8
-  %449 = load i16, ptr %448, align 8
-  %450 = and i16 %449, 63
-  %451 = zext i16 %450 to i32
-  %452 = icmp eq i32 %451, 22
-  br i1 %452, label %465, label %453
+469:                                              ; preds = %460
+  %470 = load ptr, ptr %8, align 8, !tbaa !16
+  %471 = load i16, ptr %470, align 8
+  %472 = and i16 %471, 63
+  %473 = zext i16 %472 to i32
+  %474 = icmp eq i32 %473, 7
+  br i1 %474, label %487, label %475
 
-453:                                              ; preds = %447
-  %454 = load ptr, ptr %8, align 8
-  %455 = load i16, ptr %454, align 8
-  %456 = and i16 %455, 63
-  %457 = zext i16 %456 to i32
-  %458 = icmp eq i32 %457, 23
-  br i1 %458, label %465, label %459
+475:                                              ; preds = %469
+  %476 = load ptr, ptr %8, align 8, !tbaa !16
+  %477 = load i16, ptr %476, align 8
+  %478 = and i16 %477, 63
+  %479 = zext i16 %478 to i32
+  %480 = icmp eq i32 %479, 24
+  br i1 %480, label %487, label %481
 
-459:                                              ; preds = %453
-  %460 = load ptr, ptr %8, align 8
-  %461 = load i16, ptr %460, align 8
-  %462 = and i16 %461, 63
-  %463 = zext i16 %462 to i32
-  %464 = icmp eq i32 %463, 5
-  br i1 %464, label %465, label %468
+481:                                              ; preds = %475
+  %482 = load ptr, ptr %8, align 8, !tbaa !16
+  %483 = load i16, ptr %482, align 8
+  %484 = and i16 %483, 63
+  %485 = zext i16 %484 to i32
+  %486 = icmp eq i32 %485, 25
+  br i1 %486, label %487, label %490
 
-465:                                              ; preds = %459, %453, %447
-  %466 = load ptr, ptr %7, align 8
-  %467 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef @.str.54) #5
+487:                                              ; preds = %481, %475, %469
+  %488 = load ptr, ptr %7, align 8, !tbaa !12
+  %489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef @.str.55) #6
   br label %503
 
-468:                                              ; preds = %459
-  %469 = load ptr, ptr %8, align 8
-  %470 = load i16, ptr %469, align 8
-  %471 = and i16 %470, 63
-  %472 = zext i16 %471 to i32
-  %473 = icmp eq i32 %472, 7
-  br i1 %473, label %486, label %474
+490:                                              ; preds = %481
+  %491 = load ptr, ptr %8, align 8, !tbaa !16
+  %492 = load i16, ptr %491, align 8
+  %493 = and i16 %492, 63
+  %494 = zext i16 %493 to i32
+  %495 = icmp eq i32 %494, 8
+  br i1 %495, label %496, label %499
 
-474:                                              ; preds = %468
-  %475 = load ptr, ptr %8, align 8
-  %476 = load i16, ptr %475, align 8
-  %477 = and i16 %476, 63
-  %478 = zext i16 %477 to i32
-  %479 = icmp eq i32 %478, 24
-  br i1 %479, label %486, label %480
-
-480:                                              ; preds = %474
-  %481 = load ptr, ptr %8, align 8
-  %482 = load i16, ptr %481, align 8
-  %483 = and i16 %482, 63
-  %484 = zext i16 %483 to i32
-  %485 = icmp eq i32 %484, 25
-  br i1 %485, label %486, label %489
-
-486:                                              ; preds = %480, %474, %468
-  %487 = load ptr, ptr %7, align 8
-  %488 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef @.str.55) #5
+496:                                              ; preds = %490
+  %497 = load ptr, ptr %7, align 8, !tbaa !12
+  %498 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %497, ptr noundef @.str.56) #6
   br label %502
 
-489:                                              ; preds = %480
-  %490 = load ptr, ptr %8, align 8
-  %491 = load i16, ptr %490, align 8
-  %492 = and i16 %491, 63
-  %493 = zext i16 %492 to i32
-  %494 = icmp eq i32 %493, 8
-  br i1 %494, label %495, label %498
-
-495:                                              ; preds = %489
-  %496 = load ptr, ptr %7, align 8
-  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %496, ptr noundef @.str.56) #5
-  br label %501
-
-498:                                              ; preds = %489
-  %499 = load ptr, ptr %7, align 8
-  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %499, ptr noundef @.str.57) #5
-  br label %501
-
-501:                                              ; preds = %498, %495
+499:                                              ; preds = %490
+  %500 = load ptr, ptr %7, align 8, !tbaa !12
+  %501 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %500, ptr noundef @.str.57) #6
   br label %502
 
-502:                                              ; preds = %501, %486
+502:                                              ; preds = %499, %496
   br label %503
 
-503:                                              ; preds = %502, %465
+503:                                              ; preds = %502, %487
   br label %504
 
-504:                                              ; preds = %503, %444
+504:                                              ; preds = %503, %466
   br label %505
 
-505:                                              ; preds = %504, %429
-  %506 = load ptr, ptr %6, align 8
-  %507 = icmp ne ptr %506, null
-  br i1 %507, label %508, label %515
-
-508:                                              ; preds = %505
-  %509 = load ptr, ptr %8, align 8
-  %510 = load i16, ptr %509, align 8
-  %511 = lshr i16 %510, 7
-  %512 = and i16 %511, 1
-  %513 = zext i16 %512 to i32
-  %514 = icmp ne i32 %513, 0
-  br i1 %514, label %533, label %536
-
-515:                                              ; preds = %505
-  %516 = load ptr, ptr %8, align 8
-  %517 = load i16, ptr %516, align 8
-  %518 = and i16 %517, 63
-  %519 = zext i16 %518 to i32
-  %520 = icmp sge i32 %519, 43
-  br i1 %520, label %521, label %527
-
-521:                                              ; preds = %515
-  %522 = load ptr, ptr %8, align 8
-  %523 = load i16, ptr %522, align 8
-  %524 = and i16 %523, 63
-  %525 = zext i16 %524 to i32
-  %526 = icmp sle i32 %525, 52
-  br i1 %526, label %533, label %527
-
-527:                                              ; preds = %521, %515
-  %528 = load ptr, ptr %8, align 8
-  %529 = load i16, ptr %528, align 8
-  %530 = and i16 %529, 63
-  %531 = zext i16 %530 to i32
-  %532 = icmp eq i32 %531, 15
-  br i1 %532, label %533, label %536
-
-533:                                              ; preds = %527, %521, %508
-  %534 = load ptr, ptr %7, align 8
-  %535 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef @.str.58) #5
-  br label %536
-
-536:                                              ; preds = %533, %527, %508
-  %537 = load ptr, ptr %7, align 8
-  %538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %537, ptr noundef @.str.18) #5
-  br label %539
-
-539:                                              ; preds = %536, %340, %329
-  %540 = load i32, ptr %12, align 4
-  %541 = add nsw i32 %540, 1
-  store i32 %541, ptr %12, align 4
-  br label %312, !llvm.loop !9
-
-542:                                              ; preds = %321
-  %543 = load ptr, ptr %7, align 8
-  %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %543, ptr noundef @.str.22) #5
-  %545 = load ptr, ptr %7, align 8
-  %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef @.str.5) #5
-  %547 = load ptr, ptr %7, align 8
-  %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %547, ptr noundef @.str.5) #5
-  br label %549
-
-549:                                              ; preds = %542
-  %550 = load i32, ptr %11, align 4
-  %551 = add nsw i32 %550, -1
-  store i32 %551, ptr %11, align 4
-  br label %301, !llvm.loop !10
-
-552:                                              ; preds = %301
-  %553 = load ptr, ptr %7, align 8
-  %554 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %553, ptr noundef @.str.10) #5
-  %555 = load ptr, ptr %7, align 8
-  %556 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %555, ptr noundef @.str.23) #5
-  %557 = load ptr, ptr %7, align 8
-  %558 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef @.str.39, i32 noundef 0) #5
-  store i32 1, ptr %12, align 4
-  br label %559
-
-559:                                              ; preds = %659, %552
-  %560 = load i32, ptr %12, align 4
-  %561 = load ptr, ptr %4, align 8
-  %562 = call i32 @Wlc_NtkObjNumMax(ptr noundef %561)
-  %563 = icmp slt i32 %560, %562
-  br i1 %563, label %564, label %568
-
-564:                                              ; preds = %559
-  %565 = load ptr, ptr %4, align 8
-  %566 = load i32, ptr %12, align 4
-  %567 = call ptr @Wlc_NtkObj(ptr noundef %565, i32 noundef %566)
-  store ptr %567, ptr %8, align 8
-  br label %568
-
-568:                                              ; preds = %564, %559
-  %569 = phi i1 [ false, %559 ], [ true, %564 ]
-  br i1 %569, label %570, label %662
-
-570:                                              ; preds = %568
-  %571 = load ptr, ptr %8, align 8
-  %572 = call i32 @Wlc_ObjIsCi(ptr noundef %571)
-  %573 = icmp ne i32 %572, 0
-  br i1 %573, label %579, label %574
-
-574:                                              ; preds = %570
-  %575 = load ptr, ptr %8, align 8
-  %576 = call i32 @Wlc_ObjFaninNum(ptr noundef %575)
-  %577 = icmp sgt i32 %576, 0
-  br i1 %577, label %578, label %579
-
-578:                                              ; preds = %574
-  br label %659
-
-579:                                              ; preds = %574, %570
-  %580 = load ptr, ptr %6, align 8
-  %581 = icmp ne ptr %580, null
-  br i1 %581, label %582, label %590
-
-582:                                              ; preds = %579
-  %583 = load ptr, ptr %8, align 8
-  %584 = load i16, ptr %583, align 8
-  %585 = lshr i16 %584, 7
-  %586 = and i16 %585, 1
-  %587 = zext i16 %586 to i32
-  %588 = icmp ne i32 %587, 0
-  br i1 %588, label %590, label %589
-
-589:                                              ; preds = %582
-  br label %659
-
-590:                                              ; preds = %582, %579
-  %591 = load ptr, ptr %8, align 8
-  %592 = load i16, ptr %591, align 8
-  %593 = and i16 %592, 63
-  %594 = zext i16 %593 to i32
-  %595 = icmp eq i32 %594, 6
-  br i1 %595, label %596, label %623
-
-596:                                              ; preds = %590
-  %597 = load ptr, ptr %7, align 8
-  %598 = load i32, ptr %12, align 4
-  %599 = load i32, ptr %12, align 4
-  %600 = load ptr, ptr %8, align 8
-  %601 = call i32 @Wlc_ObjRange(ptr noundef %600)
-  %602 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %597, ptr noundef @.str.47, i32 noundef %598, i32 noundef %599, i32 noundef %601) #5
-  %603 = load ptr, ptr %8, align 8
-  %604 = call i32 @Wlc_ObjRange(ptr noundef %603)
-  %605 = icmp sgt i32 %604, 64
-  br i1 %605, label %606, label %612
-
-606:                                              ; preds = %596
-  %607 = load ptr, ptr %7, align 8
-  %608 = load ptr, ptr %8, align 8
-  %609 = call ptr @Wlc_ObjConstValue(ptr noundef %608)
-  call void @Abc_TtPrintHexArrayRev(ptr noundef %607, ptr noundef %609, i32 noundef 16)
-  %610 = load ptr, ptr %7, align 8
-  %611 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %610, ptr noundef @.str.48) #5
-  br label %620
-
-612:                                              ; preds = %596
-  %613 = load ptr, ptr %7, align 8
-  %614 = load ptr, ptr %8, align 8
-  %615 = call ptr @Wlc_ObjConstValue(ptr noundef %614)
-  %616 = load ptr, ptr %8, align 8
-  %617 = call i32 @Wlc_ObjRange(ptr noundef %616)
-  %618 = add nsw i32 %617, 3
-  %619 = sdiv i32 %618, 4
-  call void @Abc_TtPrintHexArrayRev(ptr noundef %613, ptr noundef %615, i32 noundef %619)
-  br label %620
-
-620:                                              ; preds = %612, %606
-  %621 = load ptr, ptr %7, align 8
-  %622 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef @.str.17) #5
-  br label %656
-
-623:                                              ; preds = %590
-  %624 = load ptr, ptr %7, align 8
-  %625 = load ptr, ptr %4, align 8
-  %626 = load ptr, ptr %8, align 8
-  %627 = call i32 @Wlc_ObjId(ptr noundef %625, ptr noundef %626)
-  %628 = load ptr, ptr %4, align 8
-  %629 = load ptr, ptr %8, align 8
-  %630 = call i32 @Wlc_ObjId(ptr noundef %628, ptr noundef %629)
-  %631 = load ptr, ptr %4, align 8
-  %632 = load ptr, ptr %4, align 8
-  %633 = load ptr, ptr %8, align 8
-  %634 = call i32 @Wlc_ObjId(ptr noundef %632, ptr noundef %633)
-  %635 = call ptr @Wlc_ObjName(ptr noundef %631, i32 noundef %634)
-  %636 = load ptr, ptr %8, align 8
-  %637 = call i32 @Wlc_ObjRange(ptr noundef %636)
-  %638 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %624, ptr noundef @.str.51, i32 noundef %627, i32 noundef %630, ptr noundef %635, i32 noundef %637) #5
-  %639 = load ptr, ptr %7, align 8
-  %640 = load ptr, ptr %4, align 8
-  %641 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %640, i32 0, i32 7
-  %642 = call i32 @Vec_IntSize(ptr noundef %641)
-  %643 = icmp sgt i32 %642, 0
-  br i1 %643, label %650, label %644
-
-644:                                              ; preds = %623
-  %645 = load ptr, ptr %8, align 8
-  %646 = call i32 @Wlc_ObjCiId(ptr noundef %645)
-  %647 = load ptr, ptr %4, align 8
-  %648 = call i32 @Wlc_NtkPiNum(ptr noundef %647)
-  %649 = icmp slt i32 %646, %648
-  br label %650
-
-650:                                              ; preds = %644, %623
-  %651 = phi i1 [ true, %623 ], [ %649, %644 ]
-  %652 = select i1 %651, ptr @.str.59, ptr @.str.45
-  %653 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %639, ptr noundef @.str.43, ptr noundef %652) #5
-  %654 = load ptr, ptr %7, align 8
-  %655 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %654, ptr noundef @.str.46) #5
-  br label %656
-
-656:                                              ; preds = %650, %620
-  %657 = load ptr, ptr %7, align 8
-  %658 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %657, ptr noundef @.str.18) #5
-  br label %659
-
-659:                                              ; preds = %656, %589, %578
-  %660 = load i32, ptr %12, align 4
-  %661 = add nsw i32 %660, 1
-  store i32 %661, ptr %12, align 4
-  br label %559, !llvm.loop !11
-
-662:                                              ; preds = %568
-  %663 = load ptr, ptr %7, align 8
-  %664 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %663, ptr noundef @.str.22) #5
-  %665 = load ptr, ptr %7, align 8
-  %666 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %665, ptr noundef @.str.5) #5
-  %667 = load ptr, ptr %7, align 8
-  %668 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %667, ptr noundef @.str.5) #5
-  %669 = load ptr, ptr %7, align 8
-  %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %669, ptr noundef @.str.60) #5
-  store i32 0, ptr %12, align 4
-  br label %671
-
-671:                                              ; preds = %702, %662
-  %672 = load i32, ptr %12, align 4
-  %673 = load ptr, ptr %4, align 8
-  %674 = call i32 @Wlc_NtkCoNum(ptr noundef %673)
-  %675 = icmp slt i32 %672, %674
-  br i1 %675, label %676, label %680
-
-676:                                              ; preds = %671
-  %677 = load ptr, ptr %4, align 8
-  %678 = load i32, ptr %12, align 4
-  %679 = call ptr @Wlc_NtkCo(ptr noundef %677, i32 noundef %678)
-  store ptr %679, ptr %8, align 8
-  br label %680
-
-680:                                              ; preds = %676, %671
-  %681 = phi i1 [ false, %671 ], [ true, %676 ]
-  br i1 %681, label %682, label %705
-
-682:                                              ; preds = %680
-  %683 = load ptr, ptr %6, align 8
-  %684 = icmp ne ptr %683, null
-  br i1 %684, label %685, label %693
-
-685:                                              ; preds = %682
-  %686 = load ptr, ptr %8, align 8
-  %687 = load i16, ptr %686, align 8
-  %688 = lshr i16 %687, 7
-  %689 = and i16 %688, 1
-  %690 = zext i16 %689 to i32
-  %691 = icmp ne i32 %690, 0
-  br i1 %691, label %693, label %692
-
-692:                                              ; preds = %685
-  br label %702
-
-693:                                              ; preds = %685, %682
-  %694 = load ptr, ptr %4, align 8
-  %695 = load i32, ptr %12, align 4
-  %696 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %694, i32 noundef %695)
-  store ptr %696, ptr %8, align 8
-  %697 = load ptr, ptr %7, align 8
-  %698 = load ptr, ptr %4, align 8
-  %699 = load ptr, ptr %8, align 8
-  %700 = call i32 @Wlc_ObjId(ptr noundef %698, ptr noundef %699)
-  %701 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef @.str.61, i32 noundef %700) #5
-  br label %702
-
-702:                                              ; preds = %693, %692
-  %703 = load i32, ptr %12, align 4
-  %704 = add nsw i32 %703, 1
-  store i32 %704, ptr %12, align 4
-  br label %671, !llvm.loop !12
-
-705:                                              ; preds = %680
-  store i32 -1, ptr %10, align 4
-  store i32 0, ptr %12, align 4
-  br label %706
-
-706:                                              ; preds = %745, %705
-  %707 = load i32, ptr %12, align 4
-  %708 = load ptr, ptr %4, align 8
-  %709 = call i32 @Wlc_NtkCoNum(ptr noundef %708)
-  %710 = icmp slt i32 %707, %709
-  br i1 %710, label %711, label %715
-
-711:                                              ; preds = %706
-  %712 = load ptr, ptr %4, align 8
-  %713 = load i32, ptr %12, align 4
-  %714 = call ptr @Wlc_NtkCo(ptr noundef %712, i32 noundef %713)
-  store ptr %714, ptr %8, align 8
-  br label %715
-
-715:                                              ; preds = %711, %706
-  %716 = phi i1 [ false, %706 ], [ true, %711 ]
-  br i1 %716, label %717, label %748
-
-717:                                              ; preds = %715
-  %718 = load ptr, ptr %4, align 8
-  %719 = load i32, ptr %12, align 4
-  %720 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %718, i32 noundef %719)
-  store ptr %720, ptr %8, align 8
-  %721 = load ptr, ptr %6, align 8
-  %722 = icmp ne ptr %721, null
-  br i1 %722, label %723, label %731
-
-723:                                              ; preds = %717
-  %724 = load ptr, ptr %8, align 8
-  %725 = load i16, ptr %724, align 8
-  %726 = lshr i16 %725, 7
-  %727 = and i16 %726, 1
-  %728 = zext i16 %727 to i32
-  %729 = icmp ne i32 %728, 0
-  br i1 %729, label %731, label %730
-
-730:                                              ; preds = %723
-  br label %745
-
-731:                                              ; preds = %723, %717
-  %732 = load i32, ptr %10, align 4
-  %733 = icmp sge i32 %732, 0
-  br i1 %733, label %734, label %741
-
-734:                                              ; preds = %731
-  %735 = load ptr, ptr %7, align 8
-  %736 = load i32, ptr %10, align 4
-  %737 = load ptr, ptr %4, align 8
-  %738 = load ptr, ptr %8, align 8
-  %739 = call i32 @Wlc_ObjId(ptr noundef %737, ptr noundef %738)
-  %740 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %735, ptr noundef @.str.62, i32 noundef %736, i32 noundef %739) #5
-  br label %741
-
-741:                                              ; preds = %734, %731
-  %742 = load ptr, ptr %4, align 8
-  %743 = load ptr, ptr %8, align 8
-  %744 = call i32 @Wlc_ObjId(ptr noundef %742, ptr noundef %743)
-  store i32 %744, ptr %10, align 4
-  br label %745
-
-745:                                              ; preds = %741, %730
-  %746 = load i32, ptr %12, align 4
-  %747 = add nsw i32 %746, 1
-  store i32 %747, ptr %12, align 4
-  br label %706, !llvm.loop !13
-
-748:                                              ; preds = %715
-  store i32 -1, ptr %10, align 4
-  store i32 0, ptr %12, align 4
-  br label %749
-
-749:                                              ; preds = %785, %748
-  %750 = load i32, ptr %12, align 4
-  %751 = load ptr, ptr %4, align 8
-  %752 = call i32 @Wlc_NtkCiNum(ptr noundef %751)
-  %753 = icmp slt i32 %750, %752
-  br i1 %753, label %754, label %758
-
-754:                                              ; preds = %749
-  %755 = load ptr, ptr %4, align 8
-  %756 = load i32, ptr %12, align 4
-  %757 = call ptr @Wlc_NtkCi(ptr noundef %755, i32 noundef %756)
-  store ptr %757, ptr %8, align 8
-  br label %758
-
-758:                                              ; preds = %754, %749
-  %759 = phi i1 [ false, %749 ], [ true, %754 ]
-  br i1 %759, label %760, label %788
-
-760:                                              ; preds = %758
-  %761 = load ptr, ptr %6, align 8
-  %762 = icmp ne ptr %761, null
-  br i1 %762, label %763, label %771
-
-763:                                              ; preds = %760
-  %764 = load ptr, ptr %8, align 8
-  %765 = load i16, ptr %764, align 8
-  %766 = lshr i16 %765, 7
-  %767 = and i16 %766, 1
-  %768 = zext i16 %767 to i32
-  %769 = icmp ne i32 %768, 0
-  br i1 %769, label %771, label %770
-
-770:                                              ; preds = %763
-  br label %785
-
-771:                                              ; preds = %763, %760
-  %772 = load i32, ptr %10, align 4
-  %773 = icmp sge i32 %772, 0
-  br i1 %773, label %774, label %781
-
-774:                                              ; preds = %771
-  %775 = load ptr, ptr %7, align 8
-  %776 = load i32, ptr %10, align 4
-  %777 = load ptr, ptr %4, align 8
-  %778 = load ptr, ptr %8, align 8
-  %779 = call i32 @Wlc_ObjId(ptr noundef %777, ptr noundef %778)
-  %780 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %775, ptr noundef @.str.63, i32 noundef %776, i32 noundef %779) #5
-  br label %781
-
-781:                                              ; preds = %774, %771
-  %782 = load ptr, ptr %4, align 8
-  %783 = load ptr, ptr %8, align 8
-  %784 = call i32 @Wlc_ObjId(ptr noundef %782, ptr noundef %783)
-  store i32 %784, ptr %10, align 4
-  br label %785
-
-785:                                              ; preds = %781, %770
-  %786 = load i32, ptr %12, align 4
-  %787 = add nsw i32 %786, 1
-  store i32 %787, ptr %12, align 4
-  br label %749, !llvm.loop !14
-
-788:                                              ; preds = %758
-  store i32 0, ptr %12, align 4
-  br label %789
-
-789:                                              ; preds = %841, %788
-  %790 = load i32, ptr %12, align 4
-  %791 = load ptr, ptr %4, align 8
-  %792 = call i32 @Wlc_NtkCoNum(ptr noundef %791)
-  %793 = icmp slt i32 %790, %792
-  br i1 %793, label %794, label %798
-
-794:                                              ; preds = %789
-  %795 = load ptr, ptr %4, align 8
-  %796 = load i32, ptr %12, align 4
-  %797 = call ptr @Wlc_NtkCo(ptr noundef %795, i32 noundef %796)
-  store ptr %797, ptr %8, align 8
-  br label %798
-
-798:                                              ; preds = %794, %789
-  %799 = phi i1 [ false, %789 ], [ true, %794 ]
-  br i1 %799, label %800, label %844
-
-800:                                              ; preds = %798
-  %801 = load ptr, ptr %6, align 8
-  %802 = icmp ne ptr %801, null
-  br i1 %802, label %803, label %811
-
-803:                                              ; preds = %800
-  %804 = load ptr, ptr %8, align 8
-  %805 = load i16, ptr %804, align 8
-  %806 = lshr i16 %805, 7
-  %807 = and i16 %806, 1
-  %808 = zext i16 %807 to i32
-  %809 = icmp ne i32 %808, 0
-  br i1 %809, label %811, label %810
-
-810:                                              ; preds = %803
-  br label %841
-
-811:                                              ; preds = %803, %800
-  %812 = load ptr, ptr %7, align 8
-  %813 = load ptr, ptr %4, align 8
-  %814 = load ptr, ptr %4, align 8
-  %815 = load i32, ptr %12, align 4
-  %816 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %814, i32 noundef %815)
-  %817 = call i32 @Wlc_ObjId(ptr noundef %813, ptr noundef %816)
-  %818 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %812, ptr noundef @.str.64, i32 noundef %817) #5
-  %819 = load ptr, ptr %7, align 8
-  %820 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %819, ptr noundef @.str.65) #5
-  %821 = load ptr, ptr %7, align 8
-  %822 = load ptr, ptr %4, align 8
-  %823 = load ptr, ptr %8, align 8
-  %824 = call i32 @Wlc_ObjId(ptr noundef %822, ptr noundef %823)
-  %825 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %821, ptr noundef @.str.66, i32 noundef %824) #5
-  %826 = load ptr, ptr %7, align 8
-  %827 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %826, ptr noundef @.str.67) #5
-  %828 = load ptr, ptr %7, align 8
-  %829 = load ptr, ptr %8, align 8
-  %830 = load i16, ptr %829, align 8
-  %831 = lshr i16 %830, 6
-  %832 = and i16 %831, 1
-  %833 = zext i16 %832 to i32
-  %834 = icmp ne i32 %833, 0
-  %835 = select i1 %834, ptr @.str.69, ptr @.str.70
-  %836 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %828, ptr noundef @.str.68, ptr noundef %835) #5
-  %837 = load ptr, ptr %7, align 8
-  %838 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %837, ptr noundef @.str.71) #5
-  %839 = load ptr, ptr %7, align 8
-  %840 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %839, ptr noundef @.str.72) #5
-  br label %841
-
-841:                                              ; preds = %811, %810
-  %842 = load i32, ptr %12, align 4
-  %843 = add nsw i32 %842, 1
-  store i32 %843, ptr %12, align 4
-  br label %789, !llvm.loop !15
-
-844:                                              ; preds = %798
-  store i32 1, ptr %12, align 4
-  br label %845
-
-845:                                              ; preds = %930, %844
-  %846 = load i32, ptr %12, align 4
-  %847 = load ptr, ptr %4, align 8
-  %848 = call i32 @Wlc_NtkObjNumMax(ptr noundef %847)
-  %849 = icmp slt i32 %846, %848
-  br i1 %849, label %850, label %854
-
-850:                                              ; preds = %845
-  %851 = load ptr, ptr %4, align 8
-  %852 = load i32, ptr %12, align 4
-  %853 = call ptr @Wlc_NtkObj(ptr noundef %851, i32 noundef %852)
-  store ptr %853, ptr %8, align 8
-  br label %854
-
-854:                                              ; preds = %850, %845
-  %855 = phi i1 [ false, %845 ], [ true, %850 ]
-  br i1 %855, label %856, label %933
-
-856:                                              ; preds = %854
-  %857 = load ptr, ptr %8, align 8
-  %858 = call i32 @Wlc_ObjIsCi(ptr noundef %857)
-  %859 = icmp ne i32 %858, 0
-  br i1 %859, label %860, label %861
-
-860:                                              ; preds = %856
-  br label %930
-
-861:                                              ; preds = %856
-  %862 = load ptr, ptr %6, align 8
-  %863 = icmp ne ptr %862, null
-  br i1 %863, label %864, label %872
-
-864:                                              ; preds = %861
-  %865 = load ptr, ptr %8, align 8
-  %866 = load i16, ptr %865, align 8
-  %867 = lshr i16 %866, 7
-  %868 = and i16 %867, 1
-  %869 = zext i16 %868 to i32
-  %870 = icmp ne i32 %869, 0
-  br i1 %870, label %872, label %871
-
-871:                                              ; preds = %864
-  br label %930
-
-872:                                              ; preds = %864, %861
-  store i32 0, ptr %13, align 4
-  br label %873
-
-873:                                              ; preds = %926, %872
-  %874 = load i32, ptr %13, align 4
-  %875 = load ptr, ptr %8, align 8
-  %876 = call i32 @Wlc_ObjFaninNum(ptr noundef %875)
-  %877 = icmp slt i32 %874, %876
-  br i1 %877, label %878, label %882
-
-878:                                              ; preds = %873
-  %879 = load ptr, ptr %8, align 8
-  %880 = load i32, ptr %13, align 4
-  %881 = call i32 @Wlc_ObjFaninId(ptr noundef %879, i32 noundef %880)
-  store i32 %881, ptr %14, align 4
-  br label %882
-
-882:                                              ; preds = %878, %873
-  %883 = phi i1 [ false, %873 ], [ true, %878 ]
-  br i1 %883, label %884, label %929
-
-884:                                              ; preds = %882
-  %885 = load i32, ptr %14, align 4
-  %886 = icmp ne i32 %885, 0
-  br i1 %886, label %887, label %925
-
-887:                                              ; preds = %884
-  %888 = load ptr, ptr %7, align 8
-  %889 = load i32, ptr %12, align 4
-  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %888, ptr noundef @.str.66, i32 noundef %889) #5
-  %891 = load ptr, ptr %7, align 8
-  %892 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %891, ptr noundef @.str.65) #5
-  %893 = load ptr, ptr %7, align 8
-  %894 = load i32, ptr %14, align 4
-  %895 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %893, ptr noundef @.str.66, i32 noundef %894) #5
-  %896 = load ptr, ptr %7, align 8
-  %897 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %896, ptr noundef @.str.67) #5
-  %898 = load ptr, ptr %7, align 8
-  %899 = load ptr, ptr %4, align 8
-  %900 = load i32, ptr %14, align 4
-  %901 = call ptr @Wlc_NtkObj(ptr noundef %899, i32 noundef %900)
-  %902 = load i16, ptr %901, align 8
-  %903 = lshr i16 %902, 6
-  %904 = and i16 %903, 1
-  %905 = zext i16 %904 to i32
-  %906 = icmp ne i32 %905, 0
-  %907 = select i1 %906, ptr @.str.69, ptr @.str.70
-  %908 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %898, ptr noundef @.str.68, ptr noundef %907) #5
-  %909 = load ptr, ptr %8, align 8
-  %910 = load i16, ptr %909, align 8
-  %911 = and i16 %910, 63
-  %912 = zext i16 %911 to i32
-  %913 = icmp eq i32 %912, 8
-  br i1 %913, label %914, label %920
-
-914:                                              ; preds = %887
-  %915 = load i32, ptr %13, align 4
-  %916 = icmp eq i32 %915, 0
-  br i1 %916, label %917, label %920
-
-917:                                              ; preds = %914
-  %918 = load ptr, ptr %7, align 8
-  %919 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %918, ptr noundef @.str.73, ptr noundef @.str.74) #5
-  br label %920
-
-920:                                              ; preds = %917, %914, %887
-  %921 = load ptr, ptr %7, align 8
-  %922 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %921, ptr noundef @.str.71) #5
-  %923 = load ptr, ptr %7, align 8
-  %924 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %923, ptr noundef @.str.72) #5
-  br label %925
-
-925:                                              ; preds = %920, %884
+505:                                              ; preds = %504, %445
+  br label %506
+
+506:                                              ; preds = %505, %430
+  %507 = load ptr, ptr %6, align 8, !tbaa !10
+  %508 = icmp ne ptr %507, null
+  br i1 %508, label %509, label %516
+
+509:                                              ; preds = %506
+  %510 = load ptr, ptr %8, align 8, !tbaa !16
+  %511 = load i16, ptr %510, align 8
+  %512 = lshr i16 %511, 7
+  %513 = and i16 %512, 1
+  %514 = zext i16 %513 to i32
+  %515 = icmp ne i32 %514, 0
+  br i1 %515, label %534, label %537
+
+516:                                              ; preds = %506
+  %517 = load ptr, ptr %8, align 8, !tbaa !16
+  %518 = load i16, ptr %517, align 8
+  %519 = and i16 %518, 63
+  %520 = zext i16 %519 to i32
+  %521 = icmp sge i32 %520, 43
+  br i1 %521, label %522, label %528
+
+522:                                              ; preds = %516
+  %523 = load ptr, ptr %8, align 8, !tbaa !16
+  %524 = load i16, ptr %523, align 8
+  %525 = and i16 %524, 63
+  %526 = zext i16 %525 to i32
+  %527 = icmp sle i32 %526, 52
+  br i1 %527, label %534, label %528
+
+528:                                              ; preds = %522, %516
+  %529 = load ptr, ptr %8, align 8, !tbaa !16
+  %530 = load i16, ptr %529, align 8
+  %531 = and i16 %530, 63
+  %532 = zext i16 %531 to i32
+  %533 = icmp eq i32 %532, 15
+  br i1 %533, label %534, label %537
+
+534:                                              ; preds = %528, %522, %509
+  %535 = load ptr, ptr %7, align 8, !tbaa !12
+  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef @.str.58) #6
+  br label %537
+
+537:                                              ; preds = %534, %528, %509
+  %538 = load ptr, ptr %7, align 8, !tbaa !12
+  %539 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %538, ptr noundef @.str.18) #6
+  br label %540
+
+540:                                              ; preds = %537, %341, %330
+  %541 = load i32, ptr %12, align 4, !tbaa !14
+  %542 = add nsw i32 %541, 1
+  store i32 %542, ptr %12, align 4, !tbaa !14
+  br label %313, !llvm.loop !32
+
+543:                                              ; preds = %322
+  %544 = load ptr, ptr %7, align 8, !tbaa !12
+  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef @.str.22) #6
+  %546 = load ptr, ptr %7, align 8, !tbaa !12
+  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %546, ptr noundef @.str.5) #6
+  %548 = load ptr, ptr %7, align 8, !tbaa !12
+  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef @.str.5) #6
+  br label %550
+
+550:                                              ; preds = %543
+  %551 = load i32, ptr %11, align 4, !tbaa !14
+  %552 = add nsw i32 %551, -1
+  store i32 %552, ptr %11, align 4, !tbaa !14
+  br label %302, !llvm.loop !33
+
+553:                                              ; preds = %302
+  %554 = load ptr, ptr %7, align 8, !tbaa !12
+  %555 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %554, ptr noundef @.str.10) #6
+  %556 = load ptr, ptr %7, align 8, !tbaa !12
+  %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %556, ptr noundef @.str.23) #6
+  %558 = load ptr, ptr %7, align 8, !tbaa !12
+  %559 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %558, ptr noundef @.str.39, i32 noundef 0) #6
+  store i32 1, ptr %12, align 4, !tbaa !14
+  br label %560
+
+560:                                              ; preds = %660, %553
+  %561 = load i32, ptr %12, align 4, !tbaa !14
+  %562 = load ptr, ptr %4, align 8, !tbaa !3
+  %563 = call i32 @Wlc_NtkObjNumMax(ptr noundef %562)
+  %564 = icmp slt i32 %561, %563
+  br i1 %564, label %565, label %569
+
+565:                                              ; preds = %560
+  %566 = load ptr, ptr %4, align 8, !tbaa !3
+  %567 = load i32, ptr %12, align 4, !tbaa !14
+  %568 = call ptr @Wlc_NtkObj(ptr noundef %566, i32 noundef %567)
+  store ptr %568, ptr %8, align 8, !tbaa !16
+  br label %569
+
+569:                                              ; preds = %565, %560
+  %570 = phi i1 [ false, %560 ], [ true, %565 ]
+  br i1 %570, label %571, label %663
+
+571:                                              ; preds = %569
+  %572 = load ptr, ptr %8, align 8, !tbaa !16
+  %573 = call i32 @Wlc_ObjIsCi(ptr noundef %572)
+  %574 = icmp ne i32 %573, 0
+  br i1 %574, label %580, label %575
+
+575:                                              ; preds = %571
+  %576 = load ptr, ptr %8, align 8, !tbaa !16
+  %577 = call i32 @Wlc_ObjFaninNum(ptr noundef %576)
+  %578 = icmp sgt i32 %577, 0
+  br i1 %578, label %579, label %580
+
+579:                                              ; preds = %575
+  br label %660
+
+580:                                              ; preds = %575, %571
+  %581 = load ptr, ptr %6, align 8, !tbaa !10
+  %582 = icmp ne ptr %581, null
+  br i1 %582, label %583, label %591
+
+583:                                              ; preds = %580
+  %584 = load ptr, ptr %8, align 8, !tbaa !16
+  %585 = load i16, ptr %584, align 8
+  %586 = lshr i16 %585, 7
+  %587 = and i16 %586, 1
+  %588 = zext i16 %587 to i32
+  %589 = icmp ne i32 %588, 0
+  br i1 %589, label %591, label %590
+
+590:                                              ; preds = %583
+  br label %660
+
+591:                                              ; preds = %583, %580
+  %592 = load ptr, ptr %8, align 8, !tbaa !16
+  %593 = load i16, ptr %592, align 8
+  %594 = and i16 %593, 63
+  %595 = zext i16 %594 to i32
+  %596 = icmp eq i32 %595, 6
+  br i1 %596, label %597, label %624
+
+597:                                              ; preds = %591
+  %598 = load ptr, ptr %7, align 8, !tbaa !12
+  %599 = load i32, ptr %12, align 4, !tbaa !14
+  %600 = load i32, ptr %12, align 4, !tbaa !14
+  %601 = load ptr, ptr %8, align 8, !tbaa !16
+  %602 = call i32 @Wlc_ObjRange(ptr noundef %601)
+  %603 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %598, ptr noundef @.str.47, i32 noundef %599, i32 noundef %600, i32 noundef %602) #6
+  %604 = load ptr, ptr %8, align 8, !tbaa !16
+  %605 = call i32 @Wlc_ObjRange(ptr noundef %604)
+  %606 = icmp sgt i32 %605, 64
+  br i1 %606, label %607, label %613
+
+607:                                              ; preds = %597
+  %608 = load ptr, ptr %7, align 8, !tbaa !12
+  %609 = load ptr, ptr %8, align 8, !tbaa !16
+  %610 = call ptr @Wlc_ObjConstValue(ptr noundef %609)
+  call void @Abc_TtPrintHexArrayRev(ptr noundef %608, ptr noundef %610, i32 noundef 16)
+  %611 = load ptr, ptr %7, align 8, !tbaa !12
+  %612 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %611, ptr noundef @.str.48) #6
+  br label %621
+
+613:                                              ; preds = %597
+  %614 = load ptr, ptr %7, align 8, !tbaa !12
+  %615 = load ptr, ptr %8, align 8, !tbaa !16
+  %616 = call ptr @Wlc_ObjConstValue(ptr noundef %615)
+  %617 = load ptr, ptr %8, align 8, !tbaa !16
+  %618 = call i32 @Wlc_ObjRange(ptr noundef %617)
+  %619 = add nsw i32 %618, 3
+  %620 = sdiv i32 %619, 4
+  call void @Abc_TtPrintHexArrayRev(ptr noundef %614, ptr noundef %616, i32 noundef %620)
+  br label %621
+
+621:                                              ; preds = %613, %607
+  %622 = load ptr, ptr %7, align 8, !tbaa !12
+  %623 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %622, ptr noundef @.str.17) #6
+  br label %657
+
+624:                                              ; preds = %591
+  %625 = load ptr, ptr %7, align 8, !tbaa !12
+  %626 = load ptr, ptr %4, align 8, !tbaa !3
+  %627 = load ptr, ptr %8, align 8, !tbaa !16
+  %628 = call i32 @Wlc_ObjId(ptr noundef %626, ptr noundef %627)
+  %629 = load ptr, ptr %4, align 8, !tbaa !3
+  %630 = load ptr, ptr %8, align 8, !tbaa !16
+  %631 = call i32 @Wlc_ObjId(ptr noundef %629, ptr noundef %630)
+  %632 = load ptr, ptr %4, align 8, !tbaa !3
+  %633 = load ptr, ptr %4, align 8, !tbaa !3
+  %634 = load ptr, ptr %8, align 8, !tbaa !16
+  %635 = call i32 @Wlc_ObjId(ptr noundef %633, ptr noundef %634)
+  %636 = call ptr @Wlc_ObjName(ptr noundef %632, i32 noundef %635)
+  %637 = load ptr, ptr %8, align 8, !tbaa !16
+  %638 = call i32 @Wlc_ObjRange(ptr noundef %637)
+  %639 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %625, ptr noundef @.str.51, i32 noundef %628, i32 noundef %631, ptr noundef %636, i32 noundef %638) #6
+  %640 = load ptr, ptr %7, align 8, !tbaa !12
+  %641 = load ptr, ptr %4, align 8, !tbaa !3
+  %642 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %641, i32 0, i32 7
+  %643 = call i32 @Vec_IntSize(ptr noundef %642)
+  %644 = icmp sgt i32 %643, 0
+  br i1 %644, label %651, label %645
+
+645:                                              ; preds = %624
+  %646 = load ptr, ptr %8, align 8, !tbaa !16
+  %647 = call i32 @Wlc_ObjCiId(ptr noundef %646)
+  %648 = load ptr, ptr %4, align 8, !tbaa !3
+  %649 = call i32 @Wlc_NtkPiNum(ptr noundef %648)
+  %650 = icmp slt i32 %647, %649
+  br label %651
+
+651:                                              ; preds = %645, %624
+  %652 = phi i1 [ true, %624 ], [ %650, %645 ]
+  %653 = select i1 %652, ptr @.str.59, ptr @.str.45
+  %654 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %640, ptr noundef @.str.43, ptr noundef %653) #6
+  %655 = load ptr, ptr %7, align 8, !tbaa !12
+  %656 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %655, ptr noundef @.str.46) #6
+  br label %657
+
+657:                                              ; preds = %651, %621
+  %658 = load ptr, ptr %7, align 8, !tbaa !12
+  %659 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %658, ptr noundef @.str.18) #6
+  br label %660
+
+660:                                              ; preds = %657, %590, %579
+  %661 = load i32, ptr %12, align 4, !tbaa !14
+  %662 = add nsw i32 %661, 1
+  store i32 %662, ptr %12, align 4, !tbaa !14
+  br label %560, !llvm.loop !34
+
+663:                                              ; preds = %569
+  %664 = load ptr, ptr %7, align 8, !tbaa !12
+  %665 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %664, ptr noundef @.str.22) #6
+  %666 = load ptr, ptr %7, align 8, !tbaa !12
+  %667 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %666, ptr noundef @.str.5) #6
+  %668 = load ptr, ptr %7, align 8, !tbaa !12
+  %669 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %668, ptr noundef @.str.5) #6
+  %670 = load ptr, ptr %7, align 8, !tbaa !12
+  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %670, ptr noundef @.str.60) #6
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %672
+
+672:                                              ; preds = %703, %663
+  %673 = load i32, ptr %12, align 4, !tbaa !14
+  %674 = load ptr, ptr %4, align 8, !tbaa !3
+  %675 = call i32 @Wlc_NtkCoNum(ptr noundef %674)
+  %676 = icmp slt i32 %673, %675
+  br i1 %676, label %677, label %681
+
+677:                                              ; preds = %672
+  %678 = load ptr, ptr %4, align 8, !tbaa !3
+  %679 = load i32, ptr %12, align 4, !tbaa !14
+  %680 = call ptr @Wlc_NtkCo(ptr noundef %678, i32 noundef %679)
+  store ptr %680, ptr %8, align 8, !tbaa !16
+  br label %681
+
+681:                                              ; preds = %677, %672
+  %682 = phi i1 [ false, %672 ], [ true, %677 ]
+  br i1 %682, label %683, label %706
+
+683:                                              ; preds = %681
+  %684 = load ptr, ptr %6, align 8, !tbaa !10
+  %685 = icmp ne ptr %684, null
+  br i1 %685, label %686, label %694
+
+686:                                              ; preds = %683
+  %687 = load ptr, ptr %8, align 8, !tbaa !16
+  %688 = load i16, ptr %687, align 8
+  %689 = lshr i16 %688, 7
+  %690 = and i16 %689, 1
+  %691 = zext i16 %690 to i32
+  %692 = icmp ne i32 %691, 0
+  br i1 %692, label %694, label %693
+
+693:                                              ; preds = %686
+  br label %703
+
+694:                                              ; preds = %686, %683
+  %695 = load ptr, ptr %4, align 8, !tbaa !3
+  %696 = load i32, ptr %12, align 4, !tbaa !14
+  %697 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %695, i32 noundef %696)
+  store ptr %697, ptr %8, align 8, !tbaa !16
+  %698 = load ptr, ptr %7, align 8, !tbaa !12
+  %699 = load ptr, ptr %4, align 8, !tbaa !3
+  %700 = load ptr, ptr %8, align 8, !tbaa !16
+  %701 = call i32 @Wlc_ObjId(ptr noundef %699, ptr noundef %700)
+  %702 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %698, ptr noundef @.str.61, i32 noundef %701) #6
+  br label %703
+
+703:                                              ; preds = %694, %693
+  %704 = load i32, ptr %12, align 4, !tbaa !14
+  %705 = add nsw i32 %704, 1
+  store i32 %705, ptr %12, align 4, !tbaa !14
+  br label %672, !llvm.loop !35
+
+706:                                              ; preds = %681
+  store i32 -1, ptr %10, align 4, !tbaa !14
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %707
+
+707:                                              ; preds = %746, %706
+  %708 = load i32, ptr %12, align 4, !tbaa !14
+  %709 = load ptr, ptr %4, align 8, !tbaa !3
+  %710 = call i32 @Wlc_NtkCoNum(ptr noundef %709)
+  %711 = icmp slt i32 %708, %710
+  br i1 %711, label %712, label %716
+
+712:                                              ; preds = %707
+  %713 = load ptr, ptr %4, align 8, !tbaa !3
+  %714 = load i32, ptr %12, align 4, !tbaa !14
+  %715 = call ptr @Wlc_NtkCo(ptr noundef %713, i32 noundef %714)
+  store ptr %715, ptr %8, align 8, !tbaa !16
+  br label %716
+
+716:                                              ; preds = %712, %707
+  %717 = phi i1 [ false, %707 ], [ true, %712 ]
+  br i1 %717, label %718, label %749
+
+718:                                              ; preds = %716
+  %719 = load ptr, ptr %4, align 8, !tbaa !3
+  %720 = load i32, ptr %12, align 4, !tbaa !14
+  %721 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %719, i32 noundef %720)
+  store ptr %721, ptr %8, align 8, !tbaa !16
+  %722 = load ptr, ptr %6, align 8, !tbaa !10
+  %723 = icmp ne ptr %722, null
+  br i1 %723, label %724, label %732
+
+724:                                              ; preds = %718
+  %725 = load ptr, ptr %8, align 8, !tbaa !16
+  %726 = load i16, ptr %725, align 8
+  %727 = lshr i16 %726, 7
+  %728 = and i16 %727, 1
+  %729 = zext i16 %728 to i32
+  %730 = icmp ne i32 %729, 0
+  br i1 %730, label %732, label %731
+
+731:                                              ; preds = %724
+  br label %746
+
+732:                                              ; preds = %724, %718
+  %733 = load i32, ptr %10, align 4, !tbaa !14
+  %734 = icmp sge i32 %733, 0
+  br i1 %734, label %735, label %742
+
+735:                                              ; preds = %732
+  %736 = load ptr, ptr %7, align 8, !tbaa !12
+  %737 = load i32, ptr %10, align 4, !tbaa !14
+  %738 = load ptr, ptr %4, align 8, !tbaa !3
+  %739 = load ptr, ptr %8, align 8, !tbaa !16
+  %740 = call i32 @Wlc_ObjId(ptr noundef %738, ptr noundef %739)
+  %741 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %736, ptr noundef @.str.62, i32 noundef %737, i32 noundef %740) #6
+  br label %742
+
+742:                                              ; preds = %735, %732
+  %743 = load ptr, ptr %4, align 8, !tbaa !3
+  %744 = load ptr, ptr %8, align 8, !tbaa !16
+  %745 = call i32 @Wlc_ObjId(ptr noundef %743, ptr noundef %744)
+  store i32 %745, ptr %10, align 4, !tbaa !14
+  br label %746
+
+746:                                              ; preds = %742, %731
+  %747 = load i32, ptr %12, align 4, !tbaa !14
+  %748 = add nsw i32 %747, 1
+  store i32 %748, ptr %12, align 4, !tbaa !14
+  br label %707, !llvm.loop !36
+
+749:                                              ; preds = %716
+  store i32 -1, ptr %10, align 4, !tbaa !14
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %750
+
+750:                                              ; preds = %786, %749
+  %751 = load i32, ptr %12, align 4, !tbaa !14
+  %752 = load ptr, ptr %4, align 8, !tbaa !3
+  %753 = call i32 @Wlc_NtkCiNum(ptr noundef %752)
+  %754 = icmp slt i32 %751, %753
+  br i1 %754, label %755, label %759
+
+755:                                              ; preds = %750
+  %756 = load ptr, ptr %4, align 8, !tbaa !3
+  %757 = load i32, ptr %12, align 4, !tbaa !14
+  %758 = call ptr @Wlc_NtkCi(ptr noundef %756, i32 noundef %757)
+  store ptr %758, ptr %8, align 8, !tbaa !16
+  br label %759
+
+759:                                              ; preds = %755, %750
+  %760 = phi i1 [ false, %750 ], [ true, %755 ]
+  br i1 %760, label %761, label %789
+
+761:                                              ; preds = %759
+  %762 = load ptr, ptr %6, align 8, !tbaa !10
+  %763 = icmp ne ptr %762, null
+  br i1 %763, label %764, label %772
+
+764:                                              ; preds = %761
+  %765 = load ptr, ptr %8, align 8, !tbaa !16
+  %766 = load i16, ptr %765, align 8
+  %767 = lshr i16 %766, 7
+  %768 = and i16 %767, 1
+  %769 = zext i16 %768 to i32
+  %770 = icmp ne i32 %769, 0
+  br i1 %770, label %772, label %771
+
+771:                                              ; preds = %764
+  br label %786
+
+772:                                              ; preds = %764, %761
+  %773 = load i32, ptr %10, align 4, !tbaa !14
+  %774 = icmp sge i32 %773, 0
+  br i1 %774, label %775, label %782
+
+775:                                              ; preds = %772
+  %776 = load ptr, ptr %7, align 8, !tbaa !12
+  %777 = load i32, ptr %10, align 4, !tbaa !14
+  %778 = load ptr, ptr %4, align 8, !tbaa !3
+  %779 = load ptr, ptr %8, align 8, !tbaa !16
+  %780 = call i32 @Wlc_ObjId(ptr noundef %778, ptr noundef %779)
+  %781 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %776, ptr noundef @.str.63, i32 noundef %777, i32 noundef %780) #6
+  br label %782
+
+782:                                              ; preds = %775, %772
+  %783 = load ptr, ptr %4, align 8, !tbaa !3
+  %784 = load ptr, ptr %8, align 8, !tbaa !16
+  %785 = call i32 @Wlc_ObjId(ptr noundef %783, ptr noundef %784)
+  store i32 %785, ptr %10, align 4, !tbaa !14
+  br label %786
+
+786:                                              ; preds = %782, %771
+  %787 = load i32, ptr %12, align 4, !tbaa !14
+  %788 = add nsw i32 %787, 1
+  store i32 %788, ptr %12, align 4, !tbaa !14
+  br label %750, !llvm.loop !37
+
+789:                                              ; preds = %759
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %790
+
+790:                                              ; preds = %842, %789
+  %791 = load i32, ptr %12, align 4, !tbaa !14
+  %792 = load ptr, ptr %4, align 8, !tbaa !3
+  %793 = call i32 @Wlc_NtkCoNum(ptr noundef %792)
+  %794 = icmp slt i32 %791, %793
+  br i1 %794, label %795, label %799
+
+795:                                              ; preds = %790
+  %796 = load ptr, ptr %4, align 8, !tbaa !3
+  %797 = load i32, ptr %12, align 4, !tbaa !14
+  %798 = call ptr @Wlc_NtkCo(ptr noundef %796, i32 noundef %797)
+  store ptr %798, ptr %8, align 8, !tbaa !16
+  br label %799
+
+799:                                              ; preds = %795, %790
+  %800 = phi i1 [ false, %790 ], [ true, %795 ]
+  br i1 %800, label %801, label %845
+
+801:                                              ; preds = %799
+  %802 = load ptr, ptr %6, align 8, !tbaa !10
+  %803 = icmp ne ptr %802, null
+  br i1 %803, label %804, label %812
+
+804:                                              ; preds = %801
+  %805 = load ptr, ptr %8, align 8, !tbaa !16
+  %806 = load i16, ptr %805, align 8
+  %807 = lshr i16 %806, 7
+  %808 = and i16 %807, 1
+  %809 = zext i16 %808 to i32
+  %810 = icmp ne i32 %809, 0
+  br i1 %810, label %812, label %811
+
+811:                                              ; preds = %804
+  br label %842
+
+812:                                              ; preds = %804, %801
+  %813 = load ptr, ptr %7, align 8, !tbaa !12
+  %814 = load ptr, ptr %4, align 8, !tbaa !3
+  %815 = load ptr, ptr %4, align 8, !tbaa !3
+  %816 = load i32, ptr %12, align 4, !tbaa !14
+  %817 = call ptr @Wlc_ObjCo2PoFo(ptr noundef %815, i32 noundef %816)
+  %818 = call i32 @Wlc_ObjId(ptr noundef %814, ptr noundef %817)
+  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %813, ptr noundef @.str.64, i32 noundef %818) #6
+  %820 = load ptr, ptr %7, align 8, !tbaa !12
+  %821 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %820, ptr noundef @.str.65) #6
+  %822 = load ptr, ptr %7, align 8, !tbaa !12
+  %823 = load ptr, ptr %4, align 8, !tbaa !3
+  %824 = load ptr, ptr %8, align 8, !tbaa !16
+  %825 = call i32 @Wlc_ObjId(ptr noundef %823, ptr noundef %824)
+  %826 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef @.str.66, i32 noundef %825) #6
+  %827 = load ptr, ptr %7, align 8, !tbaa !12
+  %828 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %827, ptr noundef @.str.67) #6
+  %829 = load ptr, ptr %7, align 8, !tbaa !12
+  %830 = load ptr, ptr %8, align 8, !tbaa !16
+  %831 = load i16, ptr %830, align 8
+  %832 = lshr i16 %831, 6
+  %833 = and i16 %832, 1
+  %834 = zext i16 %833 to i32
+  %835 = icmp ne i32 %834, 0
+  %836 = select i1 %835, ptr @.str.69, ptr @.str.70
+  %837 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %829, ptr noundef @.str.68, ptr noundef %836) #6
+  %838 = load ptr, ptr %7, align 8, !tbaa !12
+  %839 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %838, ptr noundef @.str.71) #6
+  %840 = load ptr, ptr %7, align 8, !tbaa !12
+  %841 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %840, ptr noundef @.str.72) #6
+  br label %842
+
+842:                                              ; preds = %812, %811
+  %843 = load i32, ptr %12, align 4, !tbaa !14
+  %844 = add nsw i32 %843, 1
+  store i32 %844, ptr %12, align 4, !tbaa !14
+  br label %790, !llvm.loop !38
+
+845:                                              ; preds = %799
+  store i32 1, ptr %12, align 4, !tbaa !14
+  br label %846
+
+846:                                              ; preds = %934, %845
+  %847 = load i32, ptr %12, align 4, !tbaa !14
+  %848 = load ptr, ptr %4, align 8, !tbaa !3
+  %849 = call i32 @Wlc_NtkObjNumMax(ptr noundef %848)
+  %850 = icmp slt i32 %847, %849
+  br i1 %850, label %851, label %855
+
+851:                                              ; preds = %846
+  %852 = load ptr, ptr %4, align 8, !tbaa !3
+  %853 = load i32, ptr %12, align 4, !tbaa !14
+  %854 = call ptr @Wlc_NtkObj(ptr noundef %852, i32 noundef %853)
+  store ptr %854, ptr %8, align 8, !tbaa !16
+  br label %855
+
+855:                                              ; preds = %851, %846
+  %856 = phi i1 [ false, %846 ], [ true, %851 ]
+  br i1 %856, label %857, label %937
+
+857:                                              ; preds = %855
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %858 = load ptr, ptr %8, align 8, !tbaa !16
+  %859 = call i32 @Wlc_ObjIsCi(ptr noundef %858)
+  %860 = icmp ne i32 %859, 0
+  br i1 %860, label %861, label %862
+
+861:                                              ; preds = %857
+  store i32 37, ptr %13, align 4
+  br label %931
+
+862:                                              ; preds = %857
+  %863 = load ptr, ptr %6, align 8, !tbaa !10
+  %864 = icmp ne ptr %863, null
+  br i1 %864, label %865, label %873
+
+865:                                              ; preds = %862
+  %866 = load ptr, ptr %8, align 8, !tbaa !16
+  %867 = load i16, ptr %866, align 8
+  %868 = lshr i16 %867, 7
+  %869 = and i16 %868, 1
+  %870 = zext i16 %869 to i32
+  %871 = icmp ne i32 %870, 0
+  br i1 %871, label %873, label %872
+
+872:                                              ; preds = %865
+  store i32 37, ptr %13, align 4
+  br label %931
+
+873:                                              ; preds = %865, %862
+  store i32 0, ptr %14, align 4, !tbaa !14
+  br label %874
+
+874:                                              ; preds = %927, %873
+  %875 = load i32, ptr %14, align 4, !tbaa !14
+  %876 = load ptr, ptr %8, align 8, !tbaa !16
+  %877 = call i32 @Wlc_ObjFaninNum(ptr noundef %876)
+  %878 = icmp slt i32 %875, %877
+  br i1 %878, label %879, label %883
+
+879:                                              ; preds = %874
+  %880 = load ptr, ptr %8, align 8, !tbaa !16
+  %881 = load i32, ptr %14, align 4, !tbaa !14
+  %882 = call i32 @Wlc_ObjFaninId(ptr noundef %880, i32 noundef %881)
+  store i32 %882, ptr %15, align 4, !tbaa !14
+  br label %883
+
+883:                                              ; preds = %879, %874
+  %884 = phi i1 [ false, %874 ], [ true, %879 ]
+  br i1 %884, label %885, label %930
+
+885:                                              ; preds = %883
+  %886 = load i32, ptr %15, align 4, !tbaa !14
+  %887 = icmp ne i32 %886, 0
+  br i1 %887, label %888, label %926
+
+888:                                              ; preds = %885
+  %889 = load ptr, ptr %7, align 8, !tbaa !12
+  %890 = load i32, ptr %12, align 4, !tbaa !14
+  %891 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %889, ptr noundef @.str.66, i32 noundef %890) #6
+  %892 = load ptr, ptr %7, align 8, !tbaa !12
+  %893 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %892, ptr noundef @.str.65) #6
+  %894 = load ptr, ptr %7, align 8, !tbaa !12
+  %895 = load i32, ptr %15, align 4, !tbaa !14
+  %896 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %894, ptr noundef @.str.66, i32 noundef %895) #6
+  %897 = load ptr, ptr %7, align 8, !tbaa !12
+  %898 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %897, ptr noundef @.str.67) #6
+  %899 = load ptr, ptr %7, align 8, !tbaa !12
+  %900 = load ptr, ptr %4, align 8, !tbaa !3
+  %901 = load i32, ptr %15, align 4, !tbaa !14
+  %902 = call ptr @Wlc_NtkObj(ptr noundef %900, i32 noundef %901)
+  %903 = load i16, ptr %902, align 8
+  %904 = lshr i16 %903, 6
+  %905 = and i16 %904, 1
+  %906 = zext i16 %905 to i32
+  %907 = icmp ne i32 %906, 0
+  %908 = select i1 %907, ptr @.str.69, ptr @.str.70
+  %909 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %899, ptr noundef @.str.68, ptr noundef %908) #6
+  %910 = load ptr, ptr %8, align 8, !tbaa !16
+  %911 = load i16, ptr %910, align 8
+  %912 = and i16 %911, 63
+  %913 = zext i16 %912 to i32
+  %914 = icmp eq i32 %913, 8
+  br i1 %914, label %915, label %921
+
+915:                                              ; preds = %888
+  %916 = load i32, ptr %14, align 4, !tbaa !14
+  %917 = icmp eq i32 %916, 0
+  br i1 %917, label %918, label %921
+
+918:                                              ; preds = %915
+  %919 = load ptr, ptr %7, align 8, !tbaa !12
+  %920 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %919, ptr noundef @.str.73, ptr noundef @.str.74) #6
+  br label %921
+
+921:                                              ; preds = %918, %915, %888
+  %922 = load ptr, ptr %7, align 8, !tbaa !12
+  %923 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %922, ptr noundef @.str.71) #6
+  %924 = load ptr, ptr %7, align 8, !tbaa !12
+  %925 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %924, ptr noundef @.str.72) #6
   br label %926
 
-926:                                              ; preds = %925
-  %927 = load i32, ptr %13, align 4
-  %928 = add nsw i32 %927, 1
-  store i32 %928, ptr %13, align 4
-  br label %873, !llvm.loop !16
+926:                                              ; preds = %921, %885
+  br label %927
 
-929:                                              ; preds = %882
-  br label %930
+927:                                              ; preds = %926
+  %928 = load i32, ptr %14, align 4, !tbaa !14
+  %929 = add nsw i32 %928, 1
+  store i32 %929, ptr %14, align 4, !tbaa !14
+  br label %874, !llvm.loop !39
 
-930:                                              ; preds = %929, %871, %860
-  %931 = load i32, ptr %12, align 4
-  %932 = add nsw i32 %931, 1
-  store i32 %932, ptr %12, align 4
-  br label %845, !llvm.loop !17
+930:                                              ; preds = %883
+  store i32 0, ptr %13, align 4
+  br label %931
 
-933:                                              ; preds = %854
-  %934 = load ptr, ptr %7, align 8
-  %935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %934, ptr noundef @.str.22) #5
-  %936 = load ptr, ptr %7, align 8
-  %937 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %936, ptr noundef @.str.5) #5
-  %938 = load ptr, ptr %7, align 8
-  %939 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %938, ptr noundef @.str.5) #5
-  %940 = load ptr, ptr %7, align 8
-  %941 = call i32 @fclose(ptr noundef %940)
-  %942 = load ptr, ptr %6, align 8
-  %943 = icmp ne ptr %942, null
-  br i1 %943, label %944, label %946
+931:                                              ; preds = %930, %872, %861
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %932 = load i32, ptr %13, align 4
+  switch i32 %932, label %954 [
+    i32 0, label %933
+    i32 37, label %934
+  ]
 
-944:                                              ; preds = %933
-  %945 = load ptr, ptr %4, align 8
-  call void @Wlc_NtkCleanMarks(ptr noundef %945)
-  br label %946
+933:                                              ; preds = %931
+  br label %934
 
-946:                                              ; preds = %944, %933, %32, %25
+934:                                              ; preds = %933, %931
+  %935 = load i32, ptr %12, align 4, !tbaa !14
+  %936 = add nsw i32 %935, 1
+  store i32 %936, ptr %12, align 4, !tbaa !14
+  br label %846, !llvm.loop !40
+
+937:                                              ; preds = %855
+  %938 = load ptr, ptr %7, align 8, !tbaa !12
+  %939 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %938, ptr noundef @.str.22) #6
+  %940 = load ptr, ptr %7, align 8, !tbaa !12
+  %941 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %940, ptr noundef @.str.5) #6
+  %942 = load ptr, ptr %7, align 8, !tbaa !12
+  %943 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %942, ptr noundef @.str.5) #6
+  %944 = load ptr, ptr %7, align 8, !tbaa !12
+  %945 = call i32 @fclose(ptr noundef %944)
+  %946 = load ptr, ptr %6, align 8, !tbaa !10
+  %947 = icmp ne ptr %946, null
+  br i1 %947, label %948, label %950
+
+948:                                              ; preds = %937
+  %949 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @Wlc_NtkCleanMarks(ptr noundef %949)
+  br label %950
+
+950:                                              ; preds = %948, %937
+  store i32 0, ptr %13, align 4
+  br label %951
+
+951:                                              ; preds = %950, %33, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  %952 = load i32, ptr %13, align 4
+  switch i32 %952, label %954 [
+    i32 0, label %953
+    i32 1, label %953
+  ]
+
+953:                                              ; preds = %951, %951
   ret void
+
+954:                                              ; preds = %951, %931
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntSize(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntSize(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !41
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkObjNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkObjNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 19
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 19
+  %5 = load i32, ptr %4, align 8, !tbaa !42
   %6 = sub nsw i32 %5, 1
   ret i32 %6
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #2
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_NtkObj(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_NtkObj(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %5, i32 0, i32 18
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %5, i32 0, i32 18
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %7, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %7, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !14
   ret i32 %11
 }
 
-declare i32 @Wlc_NtkCreateLevels(ptr noundef) #2
+declare i32 @Wlc_NtkCreateLevels(ptr noundef) #4
 
-declare i32 @Wlc_NtkRemapLevels(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @Wlc_NtkRemapLevels(ptr noundef, ptr noundef, i32 noundef) #4
 
-declare ptr @Extra_FileNameWithoutPath(ptr noundef) #2
+declare ptr @Extra_FileNameWithoutPath(ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkCiNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkCiNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 4
   %5 = call i32 @Vec_IntSize(ptr noundef %4)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkCoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkCoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 5
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 5
   %5 = call i32 @Vec_IntSize(ptr noundef %4)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_NtkCo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_NtkCo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 5
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 5
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = call i32 @Vec_IntEntry(ptr noundef %7, i32 noundef %8)
   %10 = call ptr @Wlc_NtkObj(ptr noundef %5, i32 noundef %9)
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_ObjCo2PoFo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_ObjCo2PoFo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load i32, ptr %4, align 4, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = call i32 @Wlc_NtkPoNum(ptr noundef %6)
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8
-  %11 = load i32, ptr %4, align 4
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = load i32, ptr %4, align 4, !tbaa !14
   %12 = call ptr @Wlc_NtkPo(ptr noundef %10, i32 noundef %11)
   br label %23
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = call i32 @Wlc_NtkPiNum(ptr noundef %15)
-  %17 = load i32, ptr %4, align 4
+  %17 = load i32, ptr %4, align 4, !tbaa !14
   %18 = add nsw i32 %16, %17
-  %19 = load ptr, ptr %3, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
   %20 = call i32 @Wlc_NtkPoNum(ptr noundef %19)
   %21 = sub nsw i32 %18, %20
   %22 = call ptr @Wlc_NtkCi(ptr noundef %14, i32 noundef %21)
@@ -1596,16 +1626,16 @@ define internal ptr @Wlc_ObjCo2PoFo(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr %24
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjId(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjId(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 18
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 18
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -1614,13 +1644,13 @@ define internal i32 @Wlc_ObjId(ptr noundef %0, ptr noundef %1) #0 {
   ret i32 %13
 }
 
-declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) #2
+declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjIsPo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjIsPo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i16, ptr %3, align 8
   %5 = lshr i16 %4, 9
   %6 = and i16 %5, 1
@@ -1628,36 +1658,36 @@ define internal i32 @Wlc_ObjIsPo(ptr noundef %0) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjRange(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjRange(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %6, i32 0, i32 3
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %6 = load ptr, ptr %2, align 8, !tbaa !16
+  %7 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %7, align 4, !tbaa !47
   %9 = icmp sge i32 %5, %8
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %11, i32 0, i32 2
-  %13 = load i32, ptr %12, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %14, i32 0, i32 3
-  %16 = load i32, ptr %15, align 4
+  %11 = load ptr, ptr %2, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8, !tbaa !45
+  %14 = load ptr, ptr %2, align 8, !tbaa !16
+  %15 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %14, i32 0, i32 3
+  %16 = load i32, ptr %15, align 4, !tbaa !47
   %17 = sub nsw i32 %13, %16
   br label %26
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 4
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %23, align 8
+  %19 = load ptr, ptr %2, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %19, i32 0, i32 3
+  %21 = load i32, ptr %20, align 4, !tbaa !47
+  %22 = load ptr, ptr %2, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8, !tbaa !45
   %25 = sub nsw i32 %21, %24
   br label %26
 
@@ -1667,95 +1697,97 @@ define internal i32 @Wlc_ObjRange(ptr noundef %0) #0 {
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkPoNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkPoNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 3
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 3
   %5 = call i32 @Vec_IntSize(ptr noundef %4)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkObjNumMax(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkObjNumMax(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 19
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 19
+  %5 = load i32, ptr %4, align 8, !tbaa !42
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjLevel(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjLevel(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
   %8 = call i32 @Wlc_ObjId(ptr noundef %6, ptr noundef %7)
   %9 = call i32 @Wlc_ObjLevelId(ptr noundef %5, i32 noundef %8)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Abc_TtPrintHexArrayRev(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Abc_TtPrintHexArrayRev(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %8 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !48
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %8 = load i32, ptr %6, align 4, !tbaa !14
   %9 = sub nsw i32 %8, 1
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !14
   br label %10
 
 10:                                               ; preds = %21, %3
-  %11 = load i32, ptr %7, align 4
+  %11 = load i32, ptr %7, align 4, !tbaa !14
   %12 = icmp sge i32 %11, 0
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %7, align 4
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = load ptr, ptr %5, align 8, !tbaa !48
+  %16 = load i32, ptr %7, align 4, !tbaa !14
   %17 = call i32 @Abc_TtGetHex(ptr noundef %15, i32 noundef %16)
   %18 = call signext i8 @Abc_TtPrintDigitLower(i32 noundef %17)
   %19 = sext i8 %18 to i32
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.76, i32 noundef %19) #5
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.76, i32 noundef %19) #6
   br label %21
 
 21:                                               ; preds = %13
-  %22 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %7, align 4, !tbaa !14
   %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %7, align 4
-  br label %10, !llvm.loop !18
+  store i32 %23, ptr %7, align 4, !tbaa !14
+  br label %10, !llvm.loop !50
 
 24:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_ObjConstValue(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_ObjConstValue(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = call ptr @Wlc_ObjFanins(ptr noundef %3)
   ret ptr %4
 }
 
-declare ptr @Wlc_ObjTypeName(ptr noundef) #2
+declare ptr @Wlc_ObjTypeName(ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjIsCi(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjIsCi(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 63
   %6 = zext i16 %5 to i32
@@ -1763,7 +1795,7 @@ define internal i32 @Wlc_ObjIsCi(ptr noundef %0) #0 {
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !16
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 63
   %12 = zext i16 %11 to i32
@@ -1776,70 +1808,73 @@ define internal i32 @Wlc_ObjIsCi(ptr noundef %0) #0 {
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjFaninNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjFaninNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !51
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjCiId(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjCiId(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 4
   %5 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 1
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !52
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_NtkPiNum(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_NtkPiNum(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 2
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %3, i32 0, i32 2
   %5 = call i32 @Vec_IntSize(ptr noundef %4)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_NtkCi(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_NtkCi(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 4
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 4
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = call i32 @Vec_IntEntry(ptr noundef %7, i32 noundef %8)
   %10 = call ptr @Wlc_NtkObj(ptr noundef %5, i32 noundef %9)
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjFaninId(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjFaninId(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
   %6 = call ptr @Wlc_ObjFanins(ptr noundef %5)
-  %7 = load i32, ptr %4, align 4
+  %7 = load i32, ptr %4, align 4, !tbaa !14
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %6, i64 %8
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !14
   ret i32 %10
 }
 
-declare i32 @fclose(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @Wlc_NtkCleanMarks(ptr noundef) #2
+declare i32 @fclose(ptr noundef) #4
+
+declare void @Wlc_NtkCleanMarks(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define void @Wlc_NtkShow(ptr noundef %0, ptr noundef %1) #0 {
@@ -1849,162 +1884,180 @@ define void @Wlc_NtkShow(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca [200 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = call ptr @Extra_FileDesignName(ptr noundef %11)
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %22
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 200, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %13 = call ptr @Extra_FileDesignName(ptr noundef %12)
+  store ptr %13, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %23
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @Extra_FileDesignName(ptr noundef %20)
-  br label %23
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  %22 = call ptr @Extra_FileDesignName(ptr noundef %21)
+  br label %24
 
-22:                                               ; preds = %2
-  br label %23
+23:                                               ; preds = %2
+  br label %24
 
-23:                                               ; preds = %22, %17
-  %24 = phi ptr [ %21, %17 ], [ @.str.32, %22 ]
-  store ptr %24, ptr %8, align 8
-  %25 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
-  %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.75, ptr noundef %26, ptr noundef %27) #5
-  %29 = load ptr, ptr %7, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %33
+24:                                               ; preds = %23, %18
+  %25 = phi ptr [ %22, %18 ], [ @.str.32, %23 ]
+  store ptr %25, ptr %8, align 8, !tbaa !8
+  %26 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
+  %28 = load ptr, ptr %8, align 8, !tbaa !8
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %26, ptr noundef @.str.75, ptr noundef %27, ptr noundef %28) #6
+  %30 = load ptr, ptr %7, align 8, !tbaa !8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %32) #5
-  store ptr null, ptr %7, align 8
-  br label %34
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @free(ptr noundef %33) #6
+  store ptr null, ptr %7, align 8, !tbaa !8
+  br label %35
 
-33:                                               ; preds = %23
-  br label %34
+34:                                               ; preds = %24
+  br label %35
 
-34:                                               ; preds = %33, %31
-  %35 = load ptr, ptr %8, align 8
-  %36 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.32) #6
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %45
+35:                                               ; preds = %34, %32
+  %36 = load ptr, ptr %8, align 8, !tbaa !8
+  %37 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.32) #7
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %43
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %42) #5
-  store ptr null, ptr %8, align 8
-  br label %44
-
-43:                                               ; preds = %38
-  br label %44
-
-44:                                               ; preds = %43, %41
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @free(ptr noundef %43) #6
+  store ptr null, ptr %8, align 8, !tbaa !8
   br label %45
 
-45:                                               ; preds = %44, %34
-  %46 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
-  %47 = call noalias ptr @fopen(ptr noundef %46, ptr noundef @.str.1)
-  store ptr %47, ptr %5, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %53
+44:                                               ; preds = %39
+  br label %45
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr @stdout, align 8
-  %51 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef @.str.2, ptr noundef %51) #5
-  br label %60
+45:                                               ; preds = %44, %42
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %5, align 8
-  %55 = call i32 @fclose(ptr noundef %54)
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
-  %58 = load ptr, ptr %4, align 8
-  call void @Wlc_NtkDumpDot(ptr noundef %56, ptr noundef %57, ptr noundef %58)
-  %59 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
-  call void @Abc_ShowFile(ptr noundef %59, i32 noundef 0)
-  br label %60
+46:                                               ; preds = %45, %35
+  %47 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
+  %48 = call noalias ptr @fopen(ptr noundef %47, ptr noundef @.str.1)
+  store ptr %48, ptr %5, align 8, !tbaa !12
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %54
 
-60:                                               ; preds = %53, %49
+50:                                               ; preds = %46
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %52 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.2, ptr noundef %52) #6
+  store i32 1, ptr %9, align 4
+  br label %61
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %5, align 8, !tbaa !12
+  %56 = call i32 @fclose(ptr noundef %55)
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
+  %59 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @Wlc_NtkDumpDot(ptr noundef %57, ptr noundef %58, ptr noundef %59)
+  %60 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 0
+  call void @Abc_ShowFile(ptr noundef %60, i32 noundef 0)
+  store i32 0, ptr %9, align 4
+  br label %61
+
+61:                                               ; preds = %54, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 200, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  %62 = load i32, ptr %9, align 4
+  switch i32 %62, label %64 [
+    i32 0, label %63
+    i32 1, label %63
+  ]
+
+63:                                               ; preds = %61, %61
   ret void
+
+64:                                               ; preds = %61
+  unreachable
 }
 
-declare ptr @Extra_FileDesignName(ptr noundef) #2
+declare ptr @Extra_FileDesignName(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-declare void @Abc_ShowFile(ptr noundef, i32 noundef) #2
+declare void @Abc_ShowFile(ptr noundef, i32 noundef) #4
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
-
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_NtkPo(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_NtkPo(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 3
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %4, align 4, !tbaa !14
   %9 = call i32 @Vec_IntEntry(ptr noundef %7, i32 noundef %8)
   %10 = call ptr @Wlc_NtkObj(ptr noundef %5, i32 noundef %9)
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjLevelId(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjLevelId(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Wlc_Ntk_t_, ptr %5, i32 0, i32 32
-  %7 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.Wlc_Ntk_t_, ptr %5, i32 0, i32 32
+  %7 = load i32, ptr %4, align 4, !tbaa !14
   %8 = call i32 @Vec_IntEntry(ptr noundef %6, i32 noundef %7)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal signext i8 @Abc_TtPrintDigitLower(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal signext i8 @Abc_TtPrintDigitLower(i32 noundef %0) #2 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
   %5 = icmp slt i32 %4, 10
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr %3, align 4
+  %7 = load i32, ptr %3, align 4, !tbaa !14
   %8 = add nsw i32 48, %7
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %2, align 1
   br label %15
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %3, align 4
+  %11 = load i32, ptr %3, align 4, !tbaa !14
   %12 = add nsw i32 97, %11
   %13 = sub nsw i32 %12, 10
   %14 = trunc i32 %13 to i8
@@ -2016,19 +2069,19 @@ define internal signext i8 @Abc_TtPrintDigitLower(i32 noundef %0) #0 {
   ret i8 %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Abc_TtGetHex(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Abc_TtGetHex(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !48
+  %6 = load i32, ptr %4, align 4, !tbaa !14
   %7 = ashr i32 %6, 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  %10 = load i64, ptr %9, align 8
-  %11 = load i32, ptr %4, align 4
+  %10 = load i64, ptr %9, align 8, !tbaa !53
+  %11 = load i32, ptr %4, align 4, !tbaa !14
   %12 = shl i32 %11, 2
   %13 = and i32 %12, 63
   %14 = zext i32 %13 to i64
@@ -2038,25 +2091,25 @@ define internal i32 @Abc_TtGetHex(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Wlc_ObjFanins(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Wlc_ObjFanins(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = call i32 @Wlc_ObjHasArray(ptr noundef %3)
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %7, i32 0, i32 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %7, i32 0, i32 4
   %9 = getelementptr inbounds [1 x ptr], ptr %8, i64 0, i64 0
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   br label %15
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %12, i32 0, i32 4
+  %12 = load ptr, ptr %2, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %12, i32 0, i32 4
   %14 = getelementptr inbounds [2 x i32], ptr %13, i64 0, i64 0
   br label %15
 
@@ -2065,18 +2118,18 @@ define internal ptr @Wlc_ObjFanins(ptr noundef %0) #0 {
   ret ptr %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Wlc_ObjHasArray(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Wlc_ObjHasArray(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !51
   %6 = icmp ugt i32 %5, 2
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !16
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 63
   %11 = zext i16 %10 to i32
@@ -2084,7 +2137,7 @@ define internal i32 @Wlc_ObjHasArray(ptr noundef %0) #0 {
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %7
-  %14 = load ptr, ptr %2, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 63
   %17 = zext i16 %16 to i32
@@ -2097,32 +2150,69 @@ define internal i32 @Wlc_ObjHasArray(ptr noundef %0) #0 {
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10Wlc_Ntk_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS10Wlc_Obj_t_", !5, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = !{!23, !9, i64 0}
+!23 = !{!"Wlc_Ntk_t_", !9, i64 0, !9, i64 8, !24, i64 16, !24, i64 32, !24, i64 48, !24, i64 64, !24, i64 80, !24, i64 96, !11, i64 112, !11, i64 120, !9, i64 128, !6, i64 136, !6, i64 376, !15, i64 616, !15, i64 620, !15, i64 624, !15, i64 628, !15, i64 632, !17, i64 640, !15, i64 648, !15, i64 652, !26, i64 656, !26, i64 664, !27, i64 672, !28, i64 680, !29, i64 688, !24, i64 696, !24, i64 712, !15, i64 728, !24, i64 736, !24, i64 752, !24, i64 768, !24, i64 784, !24, i64 800, !24, i64 816}
+!24 = !{!"Vec_Int_t_", !15, i64 0, !15, i64 4, !25, i64 8}
+!25 = !{!"p1 int", !5, i64 0}
+!26 = !{!"p1 _ZTS11Mem_Flex_t_", !5, i64 0}
+!27 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!28 = !{!"p1 _ZTS10Vec_Wrd_t_", !5, i64 0}
+!29 = !{!"p1 _ZTS10Abc_Nam_t_", !5, i64 0}
+!30 = !{!23, !9, i64 8}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}
+!40 = distinct !{!40, !19}
+!41 = !{!24, !15, i64 4}
+!42 = !{!23, !15, i64 648}
+!43 = !{!23, !17, i64 640}
+!44 = !{!24, !25, i64 8}
+!45 = !{!46, !15, i64 8}
+!46 = !{!"Wlc_Obj_t_", !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 1, !15, i64 4, !15, i64 8, !15, i64 12, !6, i64 16}
+!47 = !{!46, !15, i64 12}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 long", !5, i64 0}
+!50 = distinct !{!50, !19}
+!51 = !{!46, !15, i64 4}
+!52 = !{!6, !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"long", !6, i64 0}

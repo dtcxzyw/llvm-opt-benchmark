@@ -23,572 +23,608 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
   %22 = alloca ptr, align 8
   %23 = alloca ptr, align 8
   %24 = alloca i64, align 8
-  store ptr %0, ptr %11, align 8
-  store i32 %1, ptr %12, align 4
-  store i32 %2, ptr %13, align 4
-  store i32 %3, ptr %14, align 4
-  store i32 %4, ptr %15, align 4
-  store i32 %5, ptr %16, align 4
-  store i32 %6, ptr %17, align 4
-  store i32 %7, ptr %18, align 4
-  store i32 %8, ptr %19, align 4
-  store i32 %9, ptr %20, align 4
-  store ptr %21, ptr %22, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = load i32, ptr %12, align 4
-  %27 = call ptr @Cut_NodeReadCutsOld(ptr noundef %25, i32 noundef %26)
-  %28 = call i32 @Cut_CutCountList(ptr noundef %27)
-  %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %29, i32 0, i32 14
-  store i32 %28, ptr %30, align 4
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %31, i32 0, i32 14
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp sge i32 %33, %38
-  br i1 %39, label %40, label %41
-
-40:                                               ; preds = %10
-  br label %321
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !3
+  store i32 %1, ptr %12, align 4, !tbaa !8
+  store i32 %2, ptr %13, align 4, !tbaa !8
+  store i32 %3, ptr %14, align 4, !tbaa !8
+  store i32 %4, ptr %15, align 4, !tbaa !8
+  store i32 %5, ptr %16, align 4, !tbaa !8
+  store i32 %6, ptr %17, align 4, !tbaa !8
+  store i32 %7, ptr %18, align 4, !tbaa !8
+  store i32 %8, ptr %19, align 4, !tbaa !8
+  store i32 %9, ptr %20, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 208, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  store ptr %21, ptr %22, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %26 = load ptr, ptr %11, align 8, !tbaa !3
+  %27 = load i32, ptr %12, align 4, !tbaa !8
+  %28 = call ptr @Cut_NodeReadCutsOld(ptr noundef %26, i32 noundef %27)
+  %29 = call i32 @Cut_CutCountList(ptr noundef %28)
+  %30 = load ptr, ptr %11, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %30, i32 0, i32 14
+  store i32 %29, ptr %31, align 4, !tbaa !12
+  %32 = load ptr, ptr %11, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %32, i32 0, i32 14
+  %34 = load i32, ptr %33, align 4, !tbaa !12
+  %35 = load ptr, ptr %11, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
+  %38 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4, !tbaa !21
+  %40 = icmp sge i32 %34, %39
+  br i1 %40, label %41, label %42
 
 41:                                               ; preds = %10
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %42, i32 0, i32 14
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %51
+  store i32 1, ptr %25, align 4
+  br label %323
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %47, i32 0, i32 34
-  %49 = load i32, ptr %48, align 8
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 8
-  br label %51
+42:                                               ; preds = %10
+  %43 = load ptr, ptr %11, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %43, i32 0, i32 14
+  %45 = load i32, ptr %44, align 4, !tbaa !12
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %52
 
-51:                                               ; preds = %46, %41
-  %52 = load ptr, ptr %11, align 8
-  %53 = load i32, ptr %13, align 4
-  %54 = call ptr @Cut_NodeReadCutsOld(ptr noundef %52, i32 noundef %53)
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %55, i32 0, i32 15
-  %57 = getelementptr inbounds [2 x ptr], ptr %56, i64 0, i64 0
-  store ptr %54, ptr %57, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %13, align 4
-  %60 = call ptr @Cut_NodeReadCutsNew(ptr noundef %58, i32 noundef %59)
-  %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %61, i32 0, i32 15
-  %63 = getelementptr inbounds [2 x ptr], ptr %62, i64 0, i64 1
-  store ptr %60, ptr %63, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = load i32, ptr %14, align 4
-  %66 = call ptr @Cut_NodeReadCutsOld(ptr noundef %64, i32 noundef %65)
-  %67 = load ptr, ptr %11, align 8
-  %68 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %67, i32 0, i32 16
-  %69 = getelementptr inbounds [2 x ptr], ptr %68, i64 0, i64 0
-  store ptr %66, ptr %69, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = load i32, ptr %14, align 4
-  %72 = call ptr @Cut_NodeReadCutsNew(ptr noundef %70, i32 noundef %71)
-  %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %73, i32 0, i32 16
-  %75 = getelementptr inbounds [2 x ptr], ptr %74, i64 0, i64 1
-  store ptr %72, ptr %75, align 8
-  %76 = load i32, ptr %12, align 4
-  %77 = load i32, ptr %13, align 4
-  %78 = icmp eq i32 %76, %77
-  br i1 %78, label %87, label %79
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %11, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %48, i32 0, i32 34
+  %50 = load i32, ptr %49, align 8, !tbaa !23
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %49, align 8, !tbaa !23
+  br label %52
 
-79:                                               ; preds = %51
-  %80 = load i32, ptr %12, align 4
-  %81 = load i32, ptr %14, align 4
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %87, label %83
+52:                                               ; preds = %47, %42
+  %53 = load ptr, ptr %11, align 8, !tbaa !3
+  %54 = load i32, ptr %13, align 4, !tbaa !8
+  %55 = call ptr @Cut_NodeReadCutsOld(ptr noundef %53, i32 noundef %54)
+  %56 = load ptr, ptr %11, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %56, i32 0, i32 15
+  %58 = getelementptr inbounds [2 x ptr], ptr %57, i64 0, i64 0
+  store ptr %55, ptr %58, align 8, !tbaa !24
+  %59 = load ptr, ptr %11, align 8, !tbaa !3
+  %60 = load i32, ptr %13, align 4, !tbaa !8
+  %61 = call ptr @Cut_NodeReadCutsNew(ptr noundef %59, i32 noundef %60)
+  %62 = load ptr, ptr %11, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %62, i32 0, i32 15
+  %64 = getelementptr inbounds [2 x ptr], ptr %63, i64 0, i64 1
+  store ptr %61, ptr %64, align 8, !tbaa !24
+  %65 = load ptr, ptr %11, align 8, !tbaa !3
+  %66 = load i32, ptr %14, align 4, !tbaa !8
+  %67 = call ptr @Cut_NodeReadCutsOld(ptr noundef %65, i32 noundef %66)
+  %68 = load ptr, ptr %11, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %68, i32 0, i32 16
+  %70 = getelementptr inbounds [2 x ptr], ptr %69, i64 0, i64 0
+  store ptr %67, ptr %70, align 8, !tbaa !24
+  %71 = load ptr, ptr %11, align 8, !tbaa !3
+  %72 = load i32, ptr %14, align 4, !tbaa !8
+  %73 = call ptr @Cut_NodeReadCutsNew(ptr noundef %71, i32 noundef %72)
+  %74 = load ptr, ptr %11, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %74, i32 0, i32 16
+  %76 = getelementptr inbounds [2 x ptr], ptr %75, i64 0, i64 1
+  store ptr %73, ptr %76, align 8, !tbaa !24
+  %77 = load i32, ptr %12, align 4, !tbaa !8
+  %78 = load i32, ptr %13, align 4, !tbaa !8
+  %79 = icmp eq i32 %77, %78
+  br i1 %79, label %88, label %80
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %13, align 4
-  %85 = load i32, ptr %14, align 4
-  %86 = icmp eq i32 %84, %85
-  br i1 %86, label %87, label %124
+80:                                               ; preds = %52
+  %81 = load i32, ptr %12, align 4, !tbaa !8
+  %82 = load i32, ptr %14, align 4, !tbaa !8
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %88, label %84
 
-87:                                               ; preds = %83, %79, %51
-  %88 = load ptr, ptr %11, align 8
-  %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %89, i32 0, i32 15
-  %91 = getelementptr inbounds [2 x ptr], ptr %90, i64 0, i64 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @Cut_CutDupList(ptr noundef %88, ptr noundef %92)
-  %94 = load ptr, ptr %11, align 8
-  %95 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %94, i32 0, i32 15
-  %96 = getelementptr inbounds [2 x ptr], ptr %95, i64 0, i64 0
-  store ptr %93, ptr %96, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %98, i32 0, i32 15
-  %100 = getelementptr inbounds [2 x ptr], ptr %99, i64 0, i64 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @Cut_CutDupList(ptr noundef %97, ptr noundef %101)
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %103, i32 0, i32 15
-  %105 = getelementptr inbounds [2 x ptr], ptr %104, i64 0, i64 1
-  store ptr %102, ptr %105, align 8
-  %106 = load ptr, ptr %11, align 8
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %107, i32 0, i32 16
-  %109 = getelementptr inbounds [2 x ptr], ptr %108, i64 0, i64 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = call ptr @Cut_CutDupList(ptr noundef %106, ptr noundef %110)
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %112, i32 0, i32 16
-  %114 = getelementptr inbounds [2 x ptr], ptr %113, i64 0, i64 0
-  store ptr %111, ptr %114, align 8
-  %115 = load ptr, ptr %11, align 8
-  %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %116, i32 0, i32 16
-  %118 = getelementptr inbounds [2 x ptr], ptr %117, i64 0, i64 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = call ptr @Cut_CutDupList(ptr noundef %115, ptr noundef %119)
-  %121 = load ptr, ptr %11, align 8
-  %122 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %121, i32 0, i32 16
-  %123 = getelementptr inbounds [2 x ptr], ptr %122, i64 0, i64 1
-  store ptr %120, ptr %123, align 8
-  br label %124
+84:                                               ; preds = %80
+  %85 = load i32, ptr %13, align 4, !tbaa !8
+  %86 = load i32, ptr %14, align 4, !tbaa !8
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %88, label %125
 
-124:                                              ; preds = %87, %83
-  %125 = load i32, ptr %17, align 4
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %133
+88:                                               ; preds = %84, %80, %52
+  %89 = load ptr, ptr %11, align 8, !tbaa !3
+  %90 = load ptr, ptr %11, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %90, i32 0, i32 15
+  %92 = getelementptr inbounds [2 x ptr], ptr %91, i64 0, i64 0
+  %93 = load ptr, ptr %92, align 8, !tbaa !24
+  %94 = call ptr @Cut_CutDupList(ptr noundef %89, ptr noundef %93)
+  %95 = load ptr, ptr %11, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %95, i32 0, i32 15
+  %97 = getelementptr inbounds [2 x ptr], ptr %96, i64 0, i64 0
+  store ptr %94, ptr %97, align 8, !tbaa !24
+  %98 = load ptr, ptr %11, align 8, !tbaa !3
+  %99 = load ptr, ptr %11, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %99, i32 0, i32 15
+  %101 = getelementptr inbounds [2 x ptr], ptr %100, i64 0, i64 1
+  %102 = load ptr, ptr %101, align 8, !tbaa !24
+  %103 = call ptr @Cut_CutDupList(ptr noundef %98, ptr noundef %102)
+  %104 = load ptr, ptr %11, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %104, i32 0, i32 15
+  %106 = getelementptr inbounds [2 x ptr], ptr %105, i64 0, i64 1
+  store ptr %103, ptr %106, align 8, !tbaa !24
+  %107 = load ptr, ptr %11, align 8, !tbaa !3
+  %108 = load ptr, ptr %11, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %108, i32 0, i32 16
+  %110 = getelementptr inbounds [2 x ptr], ptr %109, i64 0, i64 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !24
+  %112 = call ptr @Cut_CutDupList(ptr noundef %107, ptr noundef %111)
+  %113 = load ptr, ptr %11, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %113, i32 0, i32 16
+  %115 = getelementptr inbounds [2 x ptr], ptr %114, i64 0, i64 0
+  store ptr %112, ptr %115, align 8, !tbaa !24
+  %116 = load ptr, ptr %11, align 8, !tbaa !3
+  %117 = load ptr, ptr %11, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %117, i32 0, i32 16
+  %119 = getelementptr inbounds [2 x ptr], ptr %118, i64 0, i64 1
+  %120 = load ptr, ptr %119, align 8, !tbaa !24
+  %121 = call ptr @Cut_CutDupList(ptr noundef %116, ptr noundef %120)
+  %122 = load ptr, ptr %11, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %122, i32 0, i32 16
+  %124 = getelementptr inbounds [2 x ptr], ptr %123, i64 0, i64 1
+  store ptr %121, ptr %124, align 8, !tbaa !24
+  br label %125
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %128, i32 0, i32 15
-  %130 = getelementptr inbounds [2 x ptr], ptr %129, i64 0, i64 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %17, align 4
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %131, i32 noundef %132)
-  br label %133
+125:                                              ; preds = %88, %84
+  %126 = load i32, ptr %17, align 4, !tbaa !8
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %134
 
-133:                                              ; preds = %127, %124
-  %134 = load i32, ptr %17, align 4
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %142
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %11, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %129, i32 0, i32 15
+  %131 = getelementptr inbounds [2 x ptr], ptr %130, i64 0, i64 0
+  %132 = load ptr, ptr %131, align 8, !tbaa !24
+  %133 = load i32, ptr %17, align 4, !tbaa !8
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %132, i32 noundef %133)
+  br label %134
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %11, align 8
-  %138 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %137, i32 0, i32 15
-  %139 = getelementptr inbounds [2 x ptr], ptr %138, i64 0, i64 1
-  %140 = load ptr, ptr %139, align 8
-  %141 = load i32, ptr %17, align 4
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %140, i32 noundef %141)
-  br label %142
+134:                                              ; preds = %128, %125
+  %135 = load i32, ptr %17, align 4, !tbaa !8
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %143
 
-142:                                              ; preds = %136, %133
-  %143 = load i32, ptr %18, align 4
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %151
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %11, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %138, i32 0, i32 15
+  %140 = getelementptr inbounds [2 x ptr], ptr %139, i64 0, i64 1
+  %141 = load ptr, ptr %140, align 8, !tbaa !24
+  %142 = load i32, ptr %17, align 4, !tbaa !8
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %141, i32 noundef %142)
+  br label %143
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %11, align 8
-  %147 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %146, i32 0, i32 16
-  %148 = getelementptr inbounds [2 x ptr], ptr %147, i64 0, i64 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i32, ptr %18, align 4
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %149, i32 noundef %150)
-  br label %151
+143:                                              ; preds = %137, %134
+  %144 = load i32, ptr %18, align 4, !tbaa !8
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %152
 
-151:                                              ; preds = %145, %142
-  %152 = load i32, ptr %18, align 4
-  %153 = icmp ne i32 %152, 0
-  br i1 %153, label %154, label %160
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %11, align 8, !tbaa !3
+  %148 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %147, i32 0, i32 16
+  %149 = getelementptr inbounds [2 x ptr], ptr %148, i64 0, i64 0
+  %150 = load ptr, ptr %149, align 8, !tbaa !24
+  %151 = load i32, ptr %18, align 4, !tbaa !8
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %150, i32 noundef %151)
+  br label %152
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %155, i32 0, i32 16
-  %157 = getelementptr inbounds [2 x ptr], ptr %156, i64 0, i64 1
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr %18, align 4
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %158, i32 noundef %159)
-  br label %160
+152:                                              ; preds = %146, %143
+  %153 = load i32, ptr %18, align 4, !tbaa !8
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %161
 
-160:                                              ; preds = %154, %151
-  %161 = load ptr, ptr %11, align 8
-  %162 = load i32, ptr %12, align 4
-  %163 = call ptr @Cut_NodeReadCutsOld(ptr noundef %161, i32 noundef %162)
-  %164 = load ptr, ptr %11, align 8
-  %165 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %164, i32 0, i32 17
-  store ptr %163, ptr %165, align 8
-  %166 = load ptr, ptr %11, align 8
-  %167 = load i32, ptr %12, align 4
-  %168 = call ptr @Cut_NodeReadCutsNew(ptr noundef %166, i32 noundef %167)
-  %169 = load ptr, ptr %11, align 8
-  %170 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %169, i32 0, i32 18
-  store ptr %168, ptr %170, align 8
-  %171 = call i64 @Abc_Clock()
-  store i64 %171, ptr %24, align 8
-  %172 = load ptr, ptr %22, align 8
-  call void @Cut_ListStart(ptr noundef %172)
-  %173 = load ptr, ptr %11, align 8
-  %174 = load ptr, ptr %22, align 8
-  %175 = load i32, ptr %12, align 4
-  %176 = load i32, ptr %15, align 4
-  %177 = load i32, ptr %16, align 4
-  %178 = load ptr, ptr %11, align 8
-  %179 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %178, i32 0, i32 15
-  %180 = getelementptr inbounds [2 x ptr], ptr %179, i64 0, i64 0
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %11, align 8
-  %183 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %182, i32 0, i32 16
-  %184 = getelementptr inbounds [2 x ptr], ptr %183, i64 0, i64 1
-  %185 = load ptr, ptr %184, align 8
-  call void @Cut_NodeDoComputeCuts(ptr noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef %181, ptr noundef %185, i32 noundef 0, i32 noundef 0)
-  %186 = load ptr, ptr %11, align 8
-  %187 = load ptr, ptr %22, align 8
-  %188 = load i32, ptr %12, align 4
-  %189 = load i32, ptr %15, align 4
-  %190 = load i32, ptr %16, align 4
-  %191 = load ptr, ptr %11, align 8
-  %192 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %191, i32 0, i32 15
-  %193 = getelementptr inbounds [2 x ptr], ptr %192, i64 0, i64 1
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %11, align 8
-  %196 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %195, i32 0, i32 16
-  %197 = getelementptr inbounds [2 x ptr], ptr %196, i64 0, i64 0
-  %198 = load ptr, ptr %197, align 8
-  call void @Cut_NodeDoComputeCuts(ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef %194, ptr noundef %198, i32 noundef 0, i32 noundef 0)
-  %199 = load ptr, ptr %11, align 8
-  %200 = load ptr, ptr %22, align 8
-  %201 = load i32, ptr %12, align 4
-  %202 = load i32, ptr %15, align 4
-  %203 = load i32, ptr %16, align 4
-  %204 = load ptr, ptr %11, align 8
-  %205 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %204, i32 0, i32 15
-  %206 = getelementptr inbounds [2 x ptr], ptr %205, i64 0, i64 1
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %208, i32 0, i32 16
-  %210 = getelementptr inbounds [2 x ptr], ptr %209, i64 0, i64 1
-  %211 = load ptr, ptr %210, align 8
-  %212 = load i32, ptr %19, align 4
-  call void @Cut_NodeDoComputeCuts(ptr noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %202, i32 noundef %203, ptr noundef %207, ptr noundef %211, i32 noundef %212, i32 noundef 0)
-  %213 = load ptr, ptr %22, align 8
-  %214 = call ptr @Cut_ListFinish(ptr noundef %213)
-  store ptr %214, ptr %23, align 8
-  %215 = call i64 @Abc_Clock()
-  %216 = load i64, ptr %24, align 8
-  %217 = sub nsw i64 %215, %216
-  %218 = load ptr, ptr %11, align 8
-  %219 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %218, i32 0, i32 37
-  %220 = load i64, ptr %219, align 8
-  %221 = add nsw i64 %220, %217
-  store i64 %221, ptr %219, align 8
-  %222 = load i32, ptr %12, align 4
-  %223 = load i32, ptr %13, align 4
-  %224 = icmp eq i32 %222, %223
-  br i1 %224, label %233, label %225
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %11, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %156, i32 0, i32 16
+  %158 = getelementptr inbounds [2 x ptr], ptr %157, i64 0, i64 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !24
+  %160 = load i32, ptr %18, align 4, !tbaa !8
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %159, i32 noundef %160)
+  br label %161
 
-225:                                              ; preds = %160
-  %226 = load i32, ptr %12, align 4
-  %227 = load i32, ptr %14, align 4
-  %228 = icmp eq i32 %226, %227
-  br i1 %228, label %233, label %229
+161:                                              ; preds = %155, %152
+  %162 = load ptr, ptr %11, align 8, !tbaa !3
+  %163 = load i32, ptr %12, align 4, !tbaa !8
+  %164 = call ptr @Cut_NodeReadCutsOld(ptr noundef %162, i32 noundef %163)
+  %165 = load ptr, ptr %11, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %165, i32 0, i32 17
+  store ptr %164, ptr %166, align 8, !tbaa !25
+  %167 = load ptr, ptr %11, align 8, !tbaa !3
+  %168 = load i32, ptr %12, align 4, !tbaa !8
+  %169 = call ptr @Cut_NodeReadCutsNew(ptr noundef %167, i32 noundef %168)
+  %170 = load ptr, ptr %11, align 8, !tbaa !3
+  %171 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %170, i32 0, i32 18
+  store ptr %169, ptr %171, align 8, !tbaa !26
+  %172 = call i64 @Abc_Clock()
+  store i64 %172, ptr %24, align 8, !tbaa !27
+  %173 = load ptr, ptr %22, align 8, !tbaa !10
+  call void @Cut_ListStart(ptr noundef %173)
+  %174 = load ptr, ptr %11, align 8, !tbaa !3
+  %175 = load ptr, ptr %22, align 8, !tbaa !10
+  %176 = load i32, ptr %12, align 4, !tbaa !8
+  %177 = load i32, ptr %15, align 4, !tbaa !8
+  %178 = load i32, ptr %16, align 4, !tbaa !8
+  %179 = load ptr, ptr %11, align 8, !tbaa !3
+  %180 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %179, i32 0, i32 15
+  %181 = getelementptr inbounds [2 x ptr], ptr %180, i64 0, i64 0
+  %182 = load ptr, ptr %181, align 8, !tbaa !24
+  %183 = load ptr, ptr %11, align 8, !tbaa !3
+  %184 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %183, i32 0, i32 16
+  %185 = getelementptr inbounds [2 x ptr], ptr %184, i64 0, i64 1
+  %186 = load ptr, ptr %185, align 8, !tbaa !24
+  call void @Cut_NodeDoComputeCuts(ptr noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef %178, ptr noundef %182, ptr noundef %186, i32 noundef 0, i32 noundef 0)
+  %187 = load ptr, ptr %11, align 8, !tbaa !3
+  %188 = load ptr, ptr %22, align 8, !tbaa !10
+  %189 = load i32, ptr %12, align 4, !tbaa !8
+  %190 = load i32, ptr %15, align 4, !tbaa !8
+  %191 = load i32, ptr %16, align 4, !tbaa !8
+  %192 = load ptr, ptr %11, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %192, i32 0, i32 15
+  %194 = getelementptr inbounds [2 x ptr], ptr %193, i64 0, i64 1
+  %195 = load ptr, ptr %194, align 8, !tbaa !24
+  %196 = load ptr, ptr %11, align 8, !tbaa !3
+  %197 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %196, i32 0, i32 16
+  %198 = getelementptr inbounds [2 x ptr], ptr %197, i64 0, i64 0
+  %199 = load ptr, ptr %198, align 8, !tbaa !24
+  call void @Cut_NodeDoComputeCuts(ptr noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef %195, ptr noundef %199, i32 noundef 0, i32 noundef 0)
+  %200 = load ptr, ptr %11, align 8, !tbaa !3
+  %201 = load ptr, ptr %22, align 8, !tbaa !10
+  %202 = load i32, ptr %12, align 4, !tbaa !8
+  %203 = load i32, ptr %15, align 4, !tbaa !8
+  %204 = load i32, ptr %16, align 4, !tbaa !8
+  %205 = load ptr, ptr %11, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %205, i32 0, i32 15
+  %207 = getelementptr inbounds [2 x ptr], ptr %206, i64 0, i64 1
+  %208 = load ptr, ptr %207, align 8, !tbaa !24
+  %209 = load ptr, ptr %11, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %209, i32 0, i32 16
+  %211 = getelementptr inbounds [2 x ptr], ptr %210, i64 0, i64 1
+  %212 = load ptr, ptr %211, align 8, !tbaa !24
+  %213 = load i32, ptr %19, align 4, !tbaa !8
+  call void @Cut_NodeDoComputeCuts(ptr noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef %203, i32 noundef %204, ptr noundef %208, ptr noundef %212, i32 noundef %213, i32 noundef 0)
+  %214 = load ptr, ptr %22, align 8, !tbaa !10
+  %215 = call ptr @Cut_ListFinish(ptr noundef %214)
+  store ptr %215, ptr %23, align 8, !tbaa !24
+  %216 = call i64 @Abc_Clock()
+  %217 = load i64, ptr %24, align 8, !tbaa !27
+  %218 = sub nsw i64 %216, %217
+  %219 = load ptr, ptr %11, align 8, !tbaa !3
+  %220 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %219, i32 0, i32 37
+  %221 = load i64, ptr %220, align 8, !tbaa !28
+  %222 = add nsw i64 %221, %218
+  store i64 %222, ptr %220, align 8, !tbaa !28
+  %223 = load i32, ptr %12, align 4, !tbaa !8
+  %224 = load i32, ptr %13, align 4, !tbaa !8
+  %225 = icmp eq i32 %223, %224
+  br i1 %225, label %234, label %226
 
-229:                                              ; preds = %225
-  %230 = load i32, ptr %13, align 4
-  %231 = load i32, ptr %14, align 4
-  %232 = icmp eq i32 %230, %231
-  br i1 %232, label %233, label %254
+226:                                              ; preds = %161
+  %227 = load i32, ptr %12, align 4, !tbaa !8
+  %228 = load i32, ptr %14, align 4, !tbaa !8
+  %229 = icmp eq i32 %227, %228
+  br i1 %229, label %234, label %230
 
-233:                                              ; preds = %229, %225, %160
-  %234 = load ptr, ptr %11, align 8
-  %235 = load ptr, ptr %11, align 8
-  %236 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %235, i32 0, i32 15
-  %237 = getelementptr inbounds [2 x ptr], ptr %236, i64 0, i64 0
-  %238 = load ptr, ptr %237, align 8
-  call void @Cut_CutRecycleList(ptr noundef %234, ptr noundef %238)
-  %239 = load ptr, ptr %11, align 8
-  %240 = load ptr, ptr %11, align 8
-  %241 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %240, i32 0, i32 15
-  %242 = getelementptr inbounds [2 x ptr], ptr %241, i64 0, i64 1
-  %243 = load ptr, ptr %242, align 8
-  call void @Cut_CutRecycleList(ptr noundef %239, ptr noundef %243)
-  %244 = load ptr, ptr %11, align 8
-  %245 = load ptr, ptr %11, align 8
-  %246 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %245, i32 0, i32 16
-  %247 = getelementptr inbounds [2 x ptr], ptr %246, i64 0, i64 0
-  %248 = load ptr, ptr %247, align 8
-  call void @Cut_CutRecycleList(ptr noundef %244, ptr noundef %248)
-  %249 = load ptr, ptr %11, align 8
-  %250 = load ptr, ptr %11, align 8
-  %251 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %250, i32 0, i32 16
-  %252 = getelementptr inbounds [2 x ptr], ptr %251, i64 0, i64 1
-  %253 = load ptr, ptr %252, align 8
-  call void @Cut_CutRecycleList(ptr noundef %249, ptr noundef %253)
+230:                                              ; preds = %226
+  %231 = load i32, ptr %13, align 4, !tbaa !8
+  %232 = load i32, ptr %14, align 4, !tbaa !8
+  %233 = icmp eq i32 %231, %232
+  br i1 %233, label %234, label %255
+
+234:                                              ; preds = %230, %226, %161
+  %235 = load ptr, ptr %11, align 8, !tbaa !3
+  %236 = load ptr, ptr %11, align 8, !tbaa !3
+  %237 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %236, i32 0, i32 15
+  %238 = getelementptr inbounds [2 x ptr], ptr %237, i64 0, i64 0
+  %239 = load ptr, ptr %238, align 8, !tbaa !24
+  call void @Cut_CutRecycleList(ptr noundef %235, ptr noundef %239)
+  %240 = load ptr, ptr %11, align 8, !tbaa !3
+  %241 = load ptr, ptr %11, align 8, !tbaa !3
+  %242 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %241, i32 0, i32 15
+  %243 = getelementptr inbounds [2 x ptr], ptr %242, i64 0, i64 1
+  %244 = load ptr, ptr %243, align 8, !tbaa !24
+  call void @Cut_CutRecycleList(ptr noundef %240, ptr noundef %244)
+  %245 = load ptr, ptr %11, align 8, !tbaa !3
+  %246 = load ptr, ptr %11, align 8, !tbaa !3
+  %247 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %246, i32 0, i32 16
+  %248 = getelementptr inbounds [2 x ptr], ptr %247, i64 0, i64 0
+  %249 = load ptr, ptr %248, align 8, !tbaa !24
+  call void @Cut_CutRecycleList(ptr noundef %245, ptr noundef %249)
+  %250 = load ptr, ptr %11, align 8, !tbaa !3
+  %251 = load ptr, ptr %11, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %251, i32 0, i32 16
+  %253 = getelementptr inbounds [2 x ptr], ptr %252, i64 0, i64 1
+  %254 = load ptr, ptr %253, align 8, !tbaa !24
+  call void @Cut_CutRecycleList(ptr noundef %250, ptr noundef %254)
+  br label %296
+
+255:                                              ; preds = %230
+  %256 = load i32, ptr %17, align 4, !tbaa !8
+  %257 = icmp ne i32 %256, 0
+  br i1 %257, label %258, label %265
+
+258:                                              ; preds = %255
+  %259 = load ptr, ptr %11, align 8, !tbaa !3
+  %260 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %259, i32 0, i32 15
+  %261 = getelementptr inbounds [2 x ptr], ptr %260, i64 0, i64 0
+  %262 = load ptr, ptr %261, align 8, !tbaa !24
+  %263 = load i32, ptr %17, align 4, !tbaa !8
+  %264 = sub nsw i32 0, %263
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %262, i32 noundef %264)
+  br label %265
+
+265:                                              ; preds = %258, %255
+  %266 = load i32, ptr %17, align 4, !tbaa !8
+  %267 = icmp ne i32 %266, 0
+  br i1 %267, label %268, label %275
+
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %11, align 8, !tbaa !3
+  %270 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %269, i32 0, i32 15
+  %271 = getelementptr inbounds [2 x ptr], ptr %270, i64 0, i64 1
+  %272 = load ptr, ptr %271, align 8, !tbaa !24
+  %273 = load i32, ptr %17, align 4, !tbaa !8
+  %274 = sub nsw i32 0, %273
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %272, i32 noundef %274)
+  br label %275
+
+275:                                              ; preds = %268, %265
+  %276 = load i32, ptr %18, align 4, !tbaa !8
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %285
+
+278:                                              ; preds = %275
+  %279 = load ptr, ptr %11, align 8, !tbaa !3
+  %280 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %279, i32 0, i32 16
+  %281 = getelementptr inbounds [2 x ptr], ptr %280, i64 0, i64 0
+  %282 = load ptr, ptr %281, align 8, !tbaa !24
+  %283 = load i32, ptr %18, align 4, !tbaa !8
+  %284 = sub nsw i32 0, %283
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %282, i32 noundef %284)
+  br label %285
+
+285:                                              ; preds = %278, %275
+  %286 = load i32, ptr %18, align 4, !tbaa !8
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %288, label %295
+
+288:                                              ; preds = %285
+  %289 = load ptr, ptr %11, align 8, !tbaa !3
+  %290 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %289, i32 0, i32 16
+  %291 = getelementptr inbounds [2 x ptr], ptr %290, i64 0, i64 1
+  %292 = load ptr, ptr %291, align 8, !tbaa !24
+  %293 = load i32, ptr %18, align 4, !tbaa !8
+  %294 = sub nsw i32 0, %293
+  call void @Cut_NodeShiftCutLeaves(ptr noundef %292, i32 noundef %294)
   br label %295
 
-254:                                              ; preds = %229
-  %255 = load i32, ptr %17, align 4
-  %256 = icmp ne i32 %255, 0
-  br i1 %256, label %257, label %264
+295:                                              ; preds = %288, %285
+  br label %296
 
-257:                                              ; preds = %254
-  %258 = load ptr, ptr %11, align 8
-  %259 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %258, i32 0, i32 15
-  %260 = getelementptr inbounds [2 x ptr], ptr %259, i64 0, i64 0
-  %261 = load ptr, ptr %260, align 8
-  %262 = load i32, ptr %17, align 4
-  %263 = sub nsw i32 0, %262
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %261, i32 noundef %263)
-  br label %264
+296:                                              ; preds = %295, %234
+  %297 = load i32, ptr %20, align 4, !tbaa !8
+  %298 = icmp sge i32 %297, 0
+  br i1 %298, label %299, label %303
 
-264:                                              ; preds = %257, %254
-  %265 = load i32, ptr %17, align 4
-  %266 = icmp ne i32 %265, 0
-  br i1 %266, label %267, label %274
+299:                                              ; preds = %296
+  %300 = load ptr, ptr %11, align 8, !tbaa !3
+  %301 = load i32, ptr %20, align 4, !tbaa !8
+  %302 = load ptr, ptr %23, align 8, !tbaa !24
+  call void @Cut_NodeWriteCutsTemp(ptr noundef %300, i32 noundef %301, ptr noundef %302)
+  br label %307
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %11, align 8
-  %269 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %268, i32 0, i32 15
-  %270 = getelementptr inbounds [2 x ptr], ptr %269, i64 0, i64 1
-  %271 = load ptr, ptr %270, align 8
-  %272 = load i32, ptr %17, align 4
-  %273 = sub nsw i32 0, %272
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %271, i32 noundef %273)
-  br label %274
+303:                                              ; preds = %296
+  %304 = load ptr, ptr %11, align 8, !tbaa !3
+  %305 = load i32, ptr %12, align 4, !tbaa !8
+  %306 = load ptr, ptr %23, align 8, !tbaa !24
+  call void @Cut_NodeWriteCutsNew(ptr noundef %304, i32 noundef %305, ptr noundef %306)
+  br label %307
 
-274:                                              ; preds = %267, %264
-  %275 = load i32, ptr %18, align 4
-  %276 = icmp ne i32 %275, 0
-  br i1 %276, label %277, label %284
+307:                                              ; preds = %303, %299
+  %308 = load ptr, ptr %11, align 8, !tbaa !3
+  %309 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %308, i32 0, i32 14
+  %310 = load i32, ptr %309, align 4, !tbaa !12
+  %311 = load ptr, ptr %11, align 8, !tbaa !3
+  %312 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %311, i32 0, i32 0
+  %313 = load ptr, ptr %312, align 8, !tbaa !20
+  %314 = getelementptr inbounds nuw %struct.Cut_ParamsStruct_t_, ptr %313, i32 0, i32 1
+  %315 = load i32, ptr %314, align 4, !tbaa !21
+  %316 = icmp sge i32 %310, %315
+  br i1 %316, label %317, label %322
 
-277:                                              ; preds = %274
-  %278 = load ptr, ptr %11, align 8
-  %279 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %278, i32 0, i32 16
-  %280 = getelementptr inbounds [2 x ptr], ptr %279, i64 0, i64 0
-  %281 = load ptr, ptr %280, align 8
-  %282 = load i32, ptr %18, align 4
-  %283 = sub nsw i32 0, %282
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %281, i32 noundef %283)
-  br label %284
+317:                                              ; preds = %307
+  %318 = load ptr, ptr %11, align 8, !tbaa !3
+  %319 = getelementptr inbounds nuw %struct.Cut_ManStruct_t_, ptr %318, i32 0, i32 33
+  %320 = load i32, ptr %319, align 4, !tbaa !29
+  %321 = add nsw i32 %320, 1
+  store i32 %321, ptr %319, align 4, !tbaa !29
+  br label %322
 
-284:                                              ; preds = %277, %274
-  %285 = load i32, ptr %18, align 4
-  %286 = icmp ne i32 %285, 0
-  br i1 %286, label %287, label %294
+322:                                              ; preds = %317, %307
+  store i32 0, ptr %25, align 4
+  br label %323
 
-287:                                              ; preds = %284
-  %288 = load ptr, ptr %11, align 8
-  %289 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %288, i32 0, i32 16
-  %290 = getelementptr inbounds [2 x ptr], ptr %289, i64 0, i64 1
-  %291 = load ptr, ptr %290, align 8
-  %292 = load i32, ptr %18, align 4
-  %293 = sub nsw i32 0, %292
-  call void @Cut_NodeShiftCutLeaves(ptr noundef %291, i32 noundef %293)
-  br label %294
+323:                                              ; preds = %322, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 208, ptr %21) #5
+  %324 = load i32, ptr %25, align 4
+  switch i32 %324, label %326 [
+    i32 0, label %325
+    i32 1, label %325
+  ]
 
-294:                                              ; preds = %287, %284
-  br label %295
-
-295:                                              ; preds = %294, %233
-  %296 = load i32, ptr %20, align 4
-  %297 = icmp sge i32 %296, 0
-  br i1 %297, label %298, label %302
-
-298:                                              ; preds = %295
-  %299 = load ptr, ptr %11, align 8
-  %300 = load i32, ptr %20, align 4
-  %301 = load ptr, ptr %23, align 8
-  call void @Cut_NodeWriteCutsTemp(ptr noundef %299, i32 noundef %300, ptr noundef %301)
-  br label %306
-
-302:                                              ; preds = %295
-  %303 = load ptr, ptr %11, align 8
-  %304 = load i32, ptr %12, align 4
-  %305 = load ptr, ptr %23, align 8
-  call void @Cut_NodeWriteCutsNew(ptr noundef %303, i32 noundef %304, ptr noundef %305)
-  br label %306
-
-306:                                              ; preds = %302, %298
-  %307 = load ptr, ptr %11, align 8
-  %308 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %307, i32 0, i32 14
-  %309 = load i32, ptr %308, align 4
-  %310 = load ptr, ptr %11, align 8
-  %311 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %310, i32 0, i32 0
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.Cut_ParamsStruct_t_, ptr %312, i32 0, i32 1
-  %314 = load i32, ptr %313, align 4
-  %315 = icmp sge i32 %309, %314
-  br i1 %315, label %316, label %321
-
-316:                                              ; preds = %306
-  %317 = load ptr, ptr %11, align 8
-  %318 = getelementptr inbounds %struct.Cut_ManStruct_t_, ptr %317, i32 0, i32 33
-  %319 = load i32, ptr %318, align 4
-  %320 = add nsw i32 %319, 1
-  store i32 %320, ptr %318, align 4
-  br label %321
-
-321:                                              ; preds = %316, %306, %40
+325:                                              ; preds = %323, %323
   ret void
+
+326:                                              ; preds = %323
+  unreachable
 }
 
-declare i32 @Cut_CutCountList(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @Cut_NodeReadCutsOld(ptr noundef, i32 noundef) #1
+declare i32 @Cut_CutCountList(ptr noundef) #2
 
-declare ptr @Cut_NodeReadCutsNew(ptr noundef, i32 noundef) #1
+declare ptr @Cut_NodeReadCutsOld(ptr noundef, i32 noundef) #2
 
-declare ptr @Cut_CutDupList(ptr noundef, ptr noundef) #1
+declare ptr @Cut_NodeReadCutsNew(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @Cut_NodeShiftCutLeaves(ptr noundef %0, i32 noundef %1) #0 {
+declare ptr @Cut_CutDupList(ptr noundef, ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Cut_NodeShiftCutLeaves(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr %7, ptr %5, align 8, !tbaa !24
   br label %8
 
 8:                                                ; preds = %44, %2
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !24
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %48
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %12, i32 0, i32 1
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %6, align 4
+  %12 = load ptr, ptr %5, align 8, !tbaa !24
+  %13 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %12, i32 0, i32 1
+  store i32 0, ptr %13, align 4, !tbaa !30
+  store i32 0, ptr %6, align 4, !tbaa !8
   br label %14
 
 14:                                               ; preds = %40, %11
-  %15 = load i32, ptr %6, align 4
-  %16 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !24
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 28
   %19 = icmp slt i32 %15, %18
   br i1 %19, label %20, label %43
 
 20:                                               ; preds = %14
-  %21 = load i32, ptr %4, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %22, i32 0, i32 5
-  %24 = load i32, ptr %6, align 4
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = load ptr, ptr %5, align 8, !tbaa !24
+  %23 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %22, i32 0, i32 5
+  %24 = load i32, ptr %6, align 4, !tbaa !8
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 4, !tbaa !8
   %28 = add nsw i32 %27, %21
-  store i32 %28, ptr %26, align 4
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %29, i32 0, i32 5
-  %31 = load i32, ptr %6, align 4
+  store i32 %28, ptr %26, align 4, !tbaa !8
+  %29 = load ptr, ptr %5, align 8, !tbaa !24
+  %30 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %29, i32 0, i32 5
+  %31 = load i32, ptr %6, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [0 x i32], ptr %30, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4
+  %34 = load i32, ptr %33, align 4, !tbaa !8
   %35 = call i32 @Cut_NodeSign(i32 noundef %34)
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
+  %36 = load ptr, ptr %5, align 8, !tbaa !24
+  %37 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = or i32 %38, %35
-  store i32 %39, ptr %37, align 4
+  store i32 %39, ptr %37, align 4, !tbaa !30
   br label %40
 
 40:                                               ; preds = %20
-  %41 = load i32, ptr %6, align 4
+  %41 = load i32, ptr %6, align 4, !tbaa !8
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %6, align 4
-  br label %14, !llvm.loop !4
+  store i32 %42, ptr %6, align 4, !tbaa !8
+  br label %14, !llvm.loop !32
 
 43:                                               ; preds = %14
   br label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.Cut_CutStruct_t_, ptr %45, i32 0, i32 4
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %5, align 8
-  br label %8, !llvm.loop !6
+  %45 = load ptr, ptr %5, align 8, !tbaa !24
+  %46 = getelementptr inbounds nuw %struct.Cut_CutStruct_t_, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8, !tbaa !34
+  store ptr %47, ptr %5, align 8, !tbaa !24
+  br label %8, !llvm.loop !35
 
 48:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @Cut_ListStart(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @Cut_ListStart(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 1, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  store i32 1, ptr %3, align 4, !tbaa !8
   br label %4
 
 4:                                                ; preds = %23, %1
-  %5 = load i32, ptr %3, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !8
   %6 = icmp sle i32 %5, 12
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %2, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %3, align 4, !tbaa !8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [13 x ptr], ptr %9, i64 0, i64 %11
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %3, align 4
+  store ptr null, ptr %12, align 8, !tbaa !24
+  %13 = load ptr, ptr %2, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %3, align 4, !tbaa !8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [13 x ptr], ptr %14, i64 0, i64 %16
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %3, align 4
+  %18 = load ptr, ptr %2, align 8, !tbaa !10
+  %19 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %3, align 4, !tbaa !8
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [13 x ptr], ptr %19, i64 0, i64 %21
-  store ptr %17, ptr %22, align 8
+  store ptr %17, ptr %22, align 8, !tbaa !36
   br label %23
 
 23:                                               ; preds = %7
-  %24 = load i32, ptr %3, align 4
+  %24 = load i32, ptr %3, align 4, !tbaa !8
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %3, align 4
-  br label %4, !llvm.loop !7
+  store i32 %25, ptr %3, align 4, !tbaa !8
+  br label %4, !llvm.loop !38
 
 26:                                               ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret void
 }
 
-declare void @Cut_NodeDoComputeCuts(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare void @Cut_NodeDoComputeCuts(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @Cut_ListFinish(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @Cut_ListFinish(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store ptr null, ptr %3, align 8
-  store ptr %3, ptr %4, align 8
-  store i32 1, ptr %5, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  store ptr null, ptr %3, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  store ptr %3, ptr %4, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 1, ptr %5, align 4, !tbaa !8
   br label %6
 
 6:                                                ; preds = %32, %1
-  %7 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %5, align 4, !tbaa !8
   %8 = icmp sle i32 %7, 12
   br i1 %8, label %9, label %35
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %2, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %5, align 4, !tbaa !8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [13 x ptr], ptr %11, i64 0, i64 %13
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -596,41 +632,47 @@ define internal ptr @Cut_ListFinish(ptr noundef %0) #0 {
   br label %32
 
 18:                                               ; preds = %9
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %5, align 4
+  %19 = load ptr, ptr %2, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %5, align 4, !tbaa !8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [13 x ptr], ptr %20, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %4, align 8
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.Cut_ListStruct_t_, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %5, align 4
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  %25 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr %24, ptr %25, align 8, !tbaa !24
+  %26 = load ptr, ptr %2, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw %struct.Cut_ListStruct_t_, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %5, align 4, !tbaa !8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [13 x ptr], ptr %27, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %4, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  store ptr %31, ptr %4, align 8, !tbaa !36
   br label %32
 
 32:                                               ; preds = %18, %17
-  %33 = load i32, ptr %5, align 4
+  %33 = load i32, ptr %5, align 4, !tbaa !8
   %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %5, align 4
-  br label %6, !llvm.loop !8
+  store i32 %34, ptr %5, align 4, !tbaa !8
+  br label %6, !llvm.loop !39
 
 35:                                               ; preds = %6
-  %36 = load ptr, ptr %4, align 8
-  store ptr null, ptr %36, align 8
-  %37 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr null, ptr %36, align 8, !tbaa !24
+  %37 = load ptr, ptr %3, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %37
 }
 
-declare void @Cut_CutRecycleList(ptr noundef, ptr noundef) #1
+declare void @Cut_CutRecycleList(ptr noundef, ptr noundef) #2
 
-declare void @Cut_NodeWriteCutsTemp(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @Cut_NodeWriteCutsTemp(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @Cut_NodeWriteCutsNew(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @Cut_NodeWriteCutsNew(ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Cut_NodeNewMergeWithOld(ptr noundef %0, i32 noundef %1) #0 {
@@ -639,56 +681,76 @@ define void @Cut_NodeNewMergeWithOld(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = call ptr @Cut_NodeReadCutsNew(ptr noundef %8, i32 noundef %9)
-  store ptr %10, ptr %6, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %2
-  br label %33
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load i32, ptr %4, align 4, !tbaa !8
+  %11 = call ptr @Cut_NodeReadCutsNew(ptr noundef %9, i32 noundef %10)
+  store ptr %11, ptr %6, align 8, !tbaa !24
+  %12 = load ptr, ptr %6, align 8, !tbaa !24
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  call void @Cut_NodeWriteCutsNew(ptr noundef %15, i32 noundef %16, ptr noundef null)
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = call ptr @Cut_NodeReadCutsOld(ptr noundef %17, i32 noundef %18)
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %26
+  store i32 1, ptr %8, align 4
+  br label %34
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  %25 = load ptr, ptr %6, align 8
-  call void @Cut_NodeWriteCutsOld(ptr noundef %23, i32 noundef %24, ptr noundef %25)
-  br label %33
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = load i32, ptr %4, align 4, !tbaa !8
+  call void @Cut_NodeWriteCutsNew(ptr noundef %16, i32 noundef %17, ptr noundef null)
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = load i32, ptr %4, align 4, !tbaa !8
+  %20 = call ptr @Cut_NodeReadCutsOld(ptr noundef %18, i32 noundef %19)
+  store ptr %20, ptr %5, align 8, !tbaa !24
+  %21 = load ptr, ptr %5, align 8, !tbaa !24
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %27
 
-26:                                               ; preds = %14
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @Cut_CutMergeLists(ptr noundef %27, ptr noundef %28)
-  store ptr %29, ptr %7, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i32, ptr %4, align 4
-  %32 = load ptr, ptr %7, align 8
-  call void @Cut_NodeWriteCutsOld(ptr noundef %30, i32 noundef %31, ptr noundef %32)
-  br label %33
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = load i32, ptr %4, align 4, !tbaa !8
+  %26 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @Cut_NodeWriteCutsOld(ptr noundef %24, i32 noundef %25, ptr noundef %26)
+  store i32 1, ptr %8, align 4
+  br label %34
 
-33:                                               ; preds = %26, %22, %13
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %5, align 8, !tbaa !24
+  %29 = load ptr, ptr %6, align 8, !tbaa !24
+  %30 = call ptr @Cut_CutMergeLists(ptr noundef %28, ptr noundef %29)
+  store ptr %30, ptr %7, align 8, !tbaa !24
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = load i32, ptr %4, align 4, !tbaa !8
+  %33 = load ptr, ptr %7, align 8, !tbaa !24
+  call void @Cut_NodeWriteCutsOld(ptr noundef %31, i32 noundef %32, ptr noundef %33)
+  store i32 0, ptr %8, align 4
+  br label %34
+
+34:                                               ; preds = %27, %23, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  %35 = load i32, ptr %8, align 4
+  switch i32 %35, label %37 [
+    i32 0, label %36
+    i32 1, label %36
+  ]
+
+36:                                               ; preds = %34, %34
   ret void
+
+37:                                               ; preds = %34
+  unreachable
 }
 
-declare void @Cut_NodeWriteCutsOld(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @Cut_NodeWriteCutsOld(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @Cut_CutMergeLists(ptr noundef, ptr noundef) #1
+declare ptr @Cut_CutMergeLists(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @Cut_NodeTempTransferToNew(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -696,109 +758,156 @@ define i32 @Cut_NodeTempTransferToNew(ptr noundef %0, i32 noundef %1, i32 nounde
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load i32, ptr %6, align 4, !tbaa !8
   %10 = call ptr @Cut_NodeReadCutsTemp(ptr noundef %8, i32 noundef %9)
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i32, ptr %6, align 4
+  store ptr %10, ptr %7, align 8, !tbaa !24
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load i32, ptr %6, align 4, !tbaa !8
   call void @Cut_NodeWriteCutsTemp(ptr noundef %11, i32 noundef %12, ptr noundef null)
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load i32, ptr %5, align 4, !tbaa !8
+  %15 = load ptr, ptr %7, align 8, !tbaa !24
   call void @Cut_NodeWriteCutsNew(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8, !tbaa !24
   %17 = icmp ne ptr %16, null
   %18 = zext i1 %17 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 %18
 }
 
-declare ptr @Cut_NodeReadCutsTemp(ptr noundef, i32 noundef) #1
+declare ptr @Cut_NodeReadCutsTemp(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @Cut_NodeOldTransferToNew(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load i32, ptr %4, align 4, !tbaa !8
   %8 = call ptr @Cut_NodeReadCutsOld(ptr noundef %6, i32 noundef %7)
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
+  store ptr %8, ptr %5, align 8, !tbaa !24
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = load i32, ptr %4, align 4, !tbaa !8
   call void @Cut_NodeWriteCutsOld(ptr noundef %9, i32 noundef %10, ptr noundef null)
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i32, ptr %4, align 4
-  %13 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load i32, ptr %4, align 4, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !24
   call void @Cut_NodeWriteCutsNew(ptr noundef %11, i32 noundef %12, ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @Cut_NodeSign(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Cut_NodeSign(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = srem i32 %3, 31
   %5 = shl i32 1, %4
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Clock() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Abc_Clock() #3 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.timespec, align 8
-  %3 = alloca i64, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #3
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i64 -1, ptr %1, align 8
-  br label %18
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #5
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #5
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = mul nsw i64 %9, 1000000
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = sdiv i64 %13, 1000000000
-  %15 = load i64, ptr %3, align 8
-  %16 = add nsw i64 %15, %14
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  store i64 %17, ptr %1, align 8
-  br label %18
+  store i64 -1, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %19
 
-18:                                               ; preds = %7, %6
-  %19 = load i64, ptr %1, align 8
-  ret i64 %19
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %9 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %11 = mul nsw i64 %10, 1000000
+  store i64 %11, ptr %4, align 8, !tbaa !27
+  %12 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !42
+  %14 = mul nsw i64 %13, 1000000
+  %15 = sdiv i64 %14, 1000000000
+  %16 = load i64, ptr %4, align 8, !tbaa !27
+  %17 = add nsw i64 %16, %15
+  store i64 %17, ptr %4, align 8, !tbaa !27
+  %18 = load i64, ptr %4, align 8, !tbaa !27
+  store i64 %18, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  br label %19
+
+19:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #5
+  %20 = load i64, ptr %1, align 8
+  ret i64 %20
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS16Cut_ManStruct_t_", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS17Cut_ListStruct_t_", !5, i64 0}
+!12 = !{!13, !9, i64 92}
+!13 = !{!"Cut_ManStruct_t_", !14, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !17, i64 48, !9, i64 56, !9, i64 60, !18, i64 64, !16, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !6, i64 96, !6, i64 112, !18, i64 128, !18, i64 136, !6, i64 144, !15, i64 176, !15, i64 184, !15, i64 192, !16, i64 200, !15, i64 208, !15, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !9, i64 244, !9, i64 248, !9, i64 252, !9, i64 256, !9, i64 260, !9, i64 264, !19, i64 272, !19, i64 280, !19, i64 288, !19, i64 296, !19, i64 304, !19, i64 312}
+!14 = !{!"p1 _ZTS19Cut_ParamsStruct_t_", !5, i64 0}
+!15 = !{!"p1 _ZTS10Vec_Int_t_", !5, i64 0}
+!16 = !{!"p1 _ZTS10Vec_Ptr_t_", !5, i64 0}
+!17 = !{!"p1 _ZTS16Extra_MmFixed_t_", !5, i64 0}
+!18 = !{!"p1 _ZTS16Cut_CutStruct_t_", !5, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!13, !14, i64 0}
+!21 = !{!22, !9, i64 4}
+!22 = !{!"Cut_ParamsStruct_t_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !9, i64 72, !9, i64 76}
+!23 = !{!13, !9, i64 256}
+!24 = !{!18, !18, i64 0}
+!25 = !{!13, !18, i64 128}
+!26 = !{!13, !18, i64 136}
+!27 = !{!19, !19, i64 0}
+!28 = !{!13, !19, i64 272}
+!29 = !{!13, !9, i64 252}
+!30 = !{!31, !9, i64 4}
+!31 = !{!"Cut_CutStruct_t_", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 2, !9, i64 3, !9, i64 3, !9, i64 4, !9, i64 8, !9, i64 12, !18, i64 16, !6, i64 24}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = !{!31, !18, i64 16}
+!35 = distinct !{!35, !33}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p2 _ZTS16Cut_CutStruct_t_", !5, i64 0}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = !{!41, !19, i64 0}
+!41 = !{!"timespec", !19, i64 0, !19, i64 8}
+!42 = !{!41, !19, i64 8}

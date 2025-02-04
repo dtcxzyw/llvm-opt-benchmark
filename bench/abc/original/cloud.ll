@@ -36,275 +36,286 @@ define ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %9 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  store i32 23, ptr %4, align 4
+  store i32 23, ptr %4, align 4, !tbaa !3
   br label %12
 
 12:                                               ; preds = %11, %2
-  %13 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 304) #5
-  store ptr %13, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.cloudManager, ptr %14, i32 0, i32 9
-  %16 = load i32, ptr %15, align 4
+  %13 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 304) #8
+  store ptr %13, ptr %5, align 8, !tbaa !7
+  %14 = load ptr, ptr %5, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.cloudManager, ptr %14, i32 0, i32 9
+  %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = sext i32 %16 to i64
   %18 = add i64 %17, 304
   %19 = trunc i64 %18 to i32
-  store i32 %19, ptr %15, align 4
-  %20 = load i32, ptr %3, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.cloudManager, ptr %21, i32 0, i32 0
-  store i32 %20, ptr %22, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.cloudManager, ptr %24, i32 0, i32 1
-  store i32 %23, ptr %25, align 4
-  store i32 0, ptr %6, align 4
+  store i32 %19, ptr %15, align 4, !tbaa !10
+  %20 = load i32, ptr %3, align 4, !tbaa !3
+  %21 = load ptr, ptr %5, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.cloudManager, ptr %21, i32 0, i32 0
+  store i32 %20, ptr %22, align 8, !tbaa !14
+  %23 = load i32, ptr %4, align 4, !tbaa !3
+  %24 = load ptr, ptr %5, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.cloudManager, ptr %24, i32 0, i32 1
+  store i32 %23, ptr %25, align 4, !tbaa !15
+  store i32 0, ptr %6, align 4, !tbaa !3
   br label %26
 
 26:                                               ; preds = %42, %12
-  %27 = load i32, ptr %6, align 4
-  %28 = load i32, ptr @CacheOperNum, align 4
+  %27 = load i32, ptr %6, align 4, !tbaa !3
+  %28 = load i32, ptr @CacheOperNum, align 4, !tbaa !3
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %26
-  %31 = load i32, ptr %4, align 4
-  %32 = load i32, ptr %6, align 4
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = load i32, ptr %6, align 4, !tbaa !3
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [4 x i32], ptr @CacheLogRatioDefault, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = sub nsw i32 %31, %35
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.cloudManager, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %6, align 4
+  %37 = load ptr, ptr %5, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw %struct.cloudManager, ptr %37, i32 0, i32 2
+  %39 = load i32, ptr %6, align 4, !tbaa !3
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds [4 x i32], ptr %38, i64 0, i64 %40
-  store i32 %36, ptr %41, align 4
+  store i32 %36, ptr %41, align 4, !tbaa !3
   br label %42
 
 42:                                               ; preds = %30
-  %43 = load i32, ptr %6, align 4
+  %43 = load i32, ptr %6, align 4, !tbaa !3
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %6, align 4
-  br label %26, !llvm.loop !4
+  store i32 %44, ptr %6, align 4, !tbaa !3
+  br label %26, !llvm.loop !16
 
 45:                                               ; preds = %26
-  %46 = load i32, ptr %4, align 4
+  %46 = load i32, ptr %4, align 4, !tbaa !3
   %47 = add nsw i32 %46, 1
   %48 = sext i32 %47 to i64
   %49 = sub i64 32, %48
   %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.cloudManager, ptr %51, i32 0, i32 3
-  store i32 %50, ptr %52, align 8
-  store i32 0, ptr %6, align 4
+  %51 = load ptr, ptr %5, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %struct.cloudManager, ptr %51, i32 0, i32 3
+  store i32 %50, ptr %52, align 8, !tbaa !18
+  store i32 0, ptr %6, align 4, !tbaa !3
   br label %53
 
 53:                                               ; preds = %72, %45
-  %54 = load i32, ptr %6, align 4
-  %55 = load i32, ptr @CacheOperNum, align 4
+  %54 = load i32, ptr %6, align 4, !tbaa !3
+  %55 = load i32, ptr @CacheOperNum, align 4, !tbaa !3
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %57, label %75
 
 57:                                               ; preds = %53
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.cloudManager, ptr %58, i32 0, i32 2
-  %60 = load i32, ptr %6, align 4
+  %58 = load ptr, ptr %5, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.cloudManager, ptr %58, i32 0, i32 2
+  %60 = load i32, ptr %6, align 4, !tbaa !3
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [4 x i32], ptr %59, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4
+  %63 = load i32, ptr %62, align 4, !tbaa !3
   %64 = sext i32 %63 to i64
   %65 = sub i64 32, %64
   %66 = trunc i64 %65 to i32
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.cloudManager, ptr %67, i32 0, i32 4
-  %69 = load i32, ptr %6, align 4
+  %67 = load ptr, ptr %5, align 8, !tbaa !7
+  %68 = getelementptr inbounds nuw %struct.cloudManager, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %6, align 4, !tbaa !3
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds [4 x i32], ptr %68, i64 0, i64 %70
-  store i32 %66, ptr %71, align 4
+  store i32 %66, ptr %71, align 4, !tbaa !3
   br label %72
 
 72:                                               ; preds = %57
-  %73 = load i32, ptr %6, align 4
+  %73 = load i32, ptr %6, align 4, !tbaa !3
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %6, align 4
-  br label %53, !llvm.loop !6
+  store i32 %74, ptr %6, align 4, !tbaa !3
+  br label %53, !llvm.loop !19
 
 75:                                               ; preds = %53
-  %76 = load i32, ptr %4, align 4
+  %76 = load i32, ptr %4, align 4, !tbaa !3
   %77 = add nsw i32 %76, 1
   %78 = shl i32 1, %77
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.cloudManager, ptr %79, i32 0, i32 5
-  store i32 %78, ptr %80, align 4
-  %81 = load i32, ptr %4, align 4
+  %79 = load ptr, ptr %5, align 8, !tbaa !7
+  %80 = getelementptr inbounds nuw %struct.cloudManager, ptr %79, i32 0, i32 5
+  store i32 %78, ptr %80, align 4, !tbaa !20
+  %81 = load i32, ptr %4, align 4, !tbaa !3
   %82 = shl i32 1, %81
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.cloudManager, ptr %83, i32 0, i32 6
-  store i32 %82, ptr %84, align 8
+  %83 = load ptr, ptr %5, align 8, !tbaa !7
+  %84 = getelementptr inbounds nuw %struct.cloudManager, ptr %83, i32 0, i32 6
+  store i32 %82, ptr %84, align 8, !tbaa !21
   %85 = call i64 @Abc_Clock()
-  store i64 %85, ptr %7, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.cloudManager, ptr %86, i32 0, i32 5
-  %88 = load i32, ptr %87, align 4
+  store i64 %85, ptr %7, align 8, !tbaa !22
+  %86 = load ptr, ptr %5, align 8, !tbaa !7
+  %87 = getelementptr inbounds nuw %struct.cloudManager, ptr %86, i32 0, i32 5
+  %88 = load i32, ptr %87, align 4, !tbaa !20
   %89 = sext i32 %88 to i64
-  %90 = call noalias ptr @calloc(i64 noundef %89, i64 noundef 24) #5
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.cloudManager, ptr %91, i32 0, i32 15
-  store ptr %90, ptr %92, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.cloudManager, ptr %93, i32 0, i32 5
-  %95 = load i32, ptr %94, align 4
+  %90 = call noalias ptr @calloc(i64 noundef %89, i64 noundef 24) #8
+  %91 = load ptr, ptr %5, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.cloudManager, ptr %91, i32 0, i32 15
+  store ptr %90, ptr %92, align 8, !tbaa !24
+  %93 = load ptr, ptr %5, align 8, !tbaa !7
+  %94 = getelementptr inbounds nuw %struct.cloudManager, ptr %93, i32 0, i32 5
+  %95 = load i32, ptr %94, align 4, !tbaa !20
   %96 = sext i32 %95 to i64
   %97 = mul i64 24, %96
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.cloudManager, ptr %98, i32 0, i32 9
-  %100 = load i32, ptr %99, align 4
+  %98 = load ptr, ptr %5, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw %struct.cloudManager, ptr %98, i32 0, i32 9
+  %100 = load i32, ptr %99, align 4, !tbaa !10
   %101 = sext i32 %100 to i64
   %102 = add i64 %101, %97
   %103 = trunc i64 %102 to i32
-  store i32 %103, ptr %99, align 4
+  store i32 %103, ptr %99, align 4, !tbaa !10
   %104 = call i64 @Abc_Clock()
-  store i64 %104, ptr %8, align 8
-  %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds %struct.cloudManager, ptr %105, i32 0, i32 8
-  store i32 1, ptr %106, align 8
-  %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds %struct.cloudManager, ptr %107, i32 0, i32 8
-  %109 = load i32, ptr %108, align 8
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.cloudManager, ptr %110, i32 0, i32 15
-  %112 = load ptr, ptr %111, align 8
+  store i64 %104, ptr %8, align 8, !tbaa !22
+  %105 = load ptr, ptr %5, align 8, !tbaa !7
+  %106 = getelementptr inbounds nuw %struct.cloudManager, ptr %105, i32 0, i32 8
+  store i32 1, ptr %106, align 8, !tbaa !25
+  %107 = load ptr, ptr %5, align 8, !tbaa !7
+  %108 = getelementptr inbounds nuw %struct.cloudManager, ptr %107, i32 0, i32 8
+  %109 = load i32, ptr %108, align 8, !tbaa !25
+  %110 = load ptr, ptr %5, align 8, !tbaa !7
+  %111 = getelementptr inbounds nuw %struct.cloudManager, ptr %110, i32 0, i32 15
+  %112 = load ptr, ptr %111, align 8, !tbaa !24
   %113 = getelementptr inbounds %struct.cloudNode, ptr %112, i64 0
-  %114 = getelementptr inbounds %struct.cloudNode, ptr %113, i32 0, i32 0
-  store i32 %109, ptr %114, align 8
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.cloudManager, ptr %115, i32 0, i32 15
-  %117 = load ptr, ptr %116, align 8
+  %114 = getelementptr inbounds nuw %struct.cloudNode, ptr %113, i32 0, i32 0
+  store i32 %109, ptr %114, align 8, !tbaa !26
+  %115 = load ptr, ptr %5, align 8, !tbaa !7
+  %116 = getelementptr inbounds nuw %struct.cloudManager, ptr %115, i32 0, i32 15
+  %117 = load ptr, ptr %116, align 8, !tbaa !24
   %118 = getelementptr inbounds %struct.cloudNode, ptr %117, i64 0
-  %119 = getelementptr inbounds %struct.cloudNode, ptr %118, i32 0, i32 1
-  store i32 268435455, ptr %119, align 4
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.cloudManager, ptr %120, i32 0, i32 15
-  %122 = load ptr, ptr %121, align 8
+  %119 = getelementptr inbounds nuw %struct.cloudNode, ptr %118, i32 0, i32 1
+  store i32 268435455, ptr %119, align 4, !tbaa !28
+  %120 = load ptr, ptr %5, align 8, !tbaa !7
+  %121 = getelementptr inbounds nuw %struct.cloudManager, ptr %120, i32 0, i32 15
+  %122 = load ptr, ptr %121, align 8, !tbaa !24
   %123 = getelementptr inbounds %struct.cloudNode, ptr %122, i64 0
-  %124 = getelementptr inbounds %struct.cloudNode, ptr %123, i32 0, i32 2
-  store ptr null, ptr %124, align 8
-  %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds %struct.cloudManager, ptr %125, i32 0, i32 15
-  %127 = load ptr, ptr %126, align 8
+  %124 = getelementptr inbounds nuw %struct.cloudNode, ptr %123, i32 0, i32 2
+  store ptr null, ptr %124, align 8, !tbaa !29
+  %125 = load ptr, ptr %5, align 8, !tbaa !7
+  %126 = getelementptr inbounds nuw %struct.cloudManager, ptr %125, i32 0, i32 15
+  %127 = load ptr, ptr %126, align 8, !tbaa !24
   %128 = getelementptr inbounds %struct.cloudNode, ptr %127, i64 0
-  %129 = getelementptr inbounds %struct.cloudNode, ptr %128, i32 0, i32 3
-  store ptr null, ptr %129, align 8
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds %struct.cloudManager, ptr %130, i32 0, i32 15
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %5, align 8
-  %134 = getelementptr inbounds %struct.cloudManager, ptr %133, i32 0, i32 18
-  store ptr %132, ptr %134, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds %struct.cloudManager, ptr %135, i32 0, i32 18
-  %137 = load ptr, ptr %136, align 8
+  %129 = getelementptr inbounds nuw %struct.cloudNode, ptr %128, i32 0, i32 3
+  store ptr null, ptr %129, align 8, !tbaa !30
+  %130 = load ptr, ptr %5, align 8, !tbaa !7
+  %131 = getelementptr inbounds nuw %struct.cloudManager, ptr %130, i32 0, i32 15
+  %132 = load ptr, ptr %131, align 8, !tbaa !24
+  %133 = load ptr, ptr %5, align 8, !tbaa !7
+  %134 = getelementptr inbounds nuw %struct.cloudManager, ptr %133, i32 0, i32 18
+  store ptr %132, ptr %134, align 8, !tbaa !31
+  %135 = load ptr, ptr %5, align 8, !tbaa !7
+  %136 = getelementptr inbounds nuw %struct.cloudManager, ptr %135, i32 0, i32 18
+  %137 = load ptr, ptr %136, align 8, !tbaa !31
   %138 = ptrtoint ptr %137 to i64
   %139 = xor i64 %138, 1
   %140 = inttoptr i64 %139 to ptr
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.cloudManager, ptr %141, i32 0, i32 19
-  store ptr %140, ptr %142, align 8
-  %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds %struct.cloudManager, ptr %143, i32 0, i32 7
-  store i32 1, ptr %144, align 4
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.cloudManager, ptr %145, i32 0, i32 15
-  %147 = load ptr, ptr %146, align 8
+  %141 = load ptr, ptr %5, align 8, !tbaa !7
+  %142 = getelementptr inbounds nuw %struct.cloudManager, ptr %141, i32 0, i32 19
+  store ptr %140, ptr %142, align 8, !tbaa !32
+  %143 = load ptr, ptr %5, align 8, !tbaa !7
+  %144 = getelementptr inbounds nuw %struct.cloudManager, ptr %143, i32 0, i32 7
+  store i32 1, ptr %144, align 4, !tbaa !33
+  %145 = load ptr, ptr %5, align 8, !tbaa !7
+  %146 = getelementptr inbounds nuw %struct.cloudManager, ptr %145, i32 0, i32 15
+  %147 = load ptr, ptr %146, align 8, !tbaa !24
   %148 = getelementptr inbounds %struct.cloudNode, ptr %147, i64 1
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.cloudManager, ptr %149, i32 0, i32 16
-  store ptr %148, ptr %150, align 8
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds %struct.cloudManager, ptr %151, i32 0, i32 15
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds %struct.cloudManager, ptr %154, i32 0, i32 5
-  %156 = load i32, ptr %155, align 4
+  %149 = load ptr, ptr %5, align 8, !tbaa !7
+  %150 = getelementptr inbounds nuw %struct.cloudManager, ptr %149, i32 0, i32 16
+  store ptr %148, ptr %150, align 8, !tbaa !34
+  %151 = load ptr, ptr %5, align 8, !tbaa !7
+  %152 = getelementptr inbounds nuw %struct.cloudManager, ptr %151, i32 0, i32 15
+  %153 = load ptr, ptr %152, align 8, !tbaa !24
+  %154 = load ptr, ptr %5, align 8, !tbaa !7
+  %155 = getelementptr inbounds nuw %struct.cloudManager, ptr %154, i32 0, i32 5
+  %156 = load i32, ptr %155, align 4, !tbaa !20
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds %struct.cloudNode, ptr %153, i64 %157
-  %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds %struct.cloudManager, ptr %159, i32 0, i32 17
-  store ptr %158, ptr %160, align 8
-  %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr inbounds %struct.cloudManager, ptr %161, i32 0, i32 0
-  %163 = load i32, ptr %162, align 8
+  %159 = load ptr, ptr %5, align 8, !tbaa !7
+  %160 = getelementptr inbounds nuw %struct.cloudManager, ptr %159, i32 0, i32 17
+  store ptr %158, ptr %160, align 8, !tbaa !35
+  %161 = load ptr, ptr %5, align 8, !tbaa !7
+  %162 = getelementptr inbounds nuw %struct.cloudManager, ptr %161, i32 0, i32 0
+  %163 = load i32, ptr %162, align 8, !tbaa !14
   %164 = sext i32 %163 to i64
   %165 = mul i64 8, %164
-  %166 = call noalias ptr @malloc(i64 noundef %165) #6
-  %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.cloudManager, ptr %167, i32 0, i32 20
-  store ptr %166, ptr %168, align 8
-  %169 = load ptr, ptr %5, align 8
-  %170 = getelementptr inbounds %struct.cloudManager, ptr %169, i32 0, i32 0
-  %171 = load i32, ptr %170, align 8
+  %166 = call noalias ptr @malloc(i64 noundef %165) #9
+  %167 = load ptr, ptr %5, align 8, !tbaa !7
+  %168 = getelementptr inbounds nuw %struct.cloudManager, ptr %167, i32 0, i32 20
+  store ptr %166, ptr %168, align 8, !tbaa !36
+  %169 = load ptr, ptr %5, align 8, !tbaa !7
+  %170 = getelementptr inbounds nuw %struct.cloudManager, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8, !tbaa !14
   %172 = sext i32 %171 to i64
   %173 = mul i64 8, %172
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.cloudManager, ptr %174, i32 0, i32 9
-  %176 = load i32, ptr %175, align 4
+  %174 = load ptr, ptr %5, align 8, !tbaa !7
+  %175 = getelementptr inbounds nuw %struct.cloudManager, ptr %174, i32 0, i32 9
+  %176 = load i32, ptr %175, align 4, !tbaa !10
   %177 = sext i32 %176 to i64
   %178 = add i64 %177, %173
   %179 = trunc i64 %178 to i32
-  store i32 %179, ptr %175, align 4
-  store i32 0, ptr %6, align 4
+  store i32 %179, ptr %175, align 4, !tbaa !10
+  store i32 0, ptr %6, align 4, !tbaa !3
   br label %180
 
 180:                                              ; preds = %202, %75
-  %181 = load i32, ptr %6, align 4
-  %182 = load ptr, ptr %5, align 8
-  %183 = getelementptr inbounds %struct.cloudManager, ptr %182, i32 0, i32 0
-  %184 = load i32, ptr %183, align 8
+  %181 = load i32, ptr %6, align 4, !tbaa !3
+  %182 = load ptr, ptr %5, align 8, !tbaa !7
+  %183 = getelementptr inbounds nuw %struct.cloudManager, ptr %182, i32 0, i32 0
+  %184 = load i32, ptr %183, align 8, !tbaa !14
   %185 = icmp slt i32 %181, %184
   br i1 %185, label %186, label %205
 
 186:                                              ; preds = %180
-  %187 = load ptr, ptr %5, align 8
-  %188 = load i32, ptr %6, align 4
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.cloudManager, ptr %189, i32 0, i32 18
-  %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds %struct.cloudManager, ptr %192, i32 0, i32 19
-  %194 = load ptr, ptr %193, align 8
+  %187 = load ptr, ptr %5, align 8, !tbaa !7
+  %188 = load i32, ptr %6, align 4, !tbaa !3
+  %189 = load ptr, ptr %5, align 8, !tbaa !7
+  %190 = getelementptr inbounds nuw %struct.cloudManager, ptr %189, i32 0, i32 18
+  %191 = load ptr, ptr %190, align 8, !tbaa !31
+  %192 = load ptr, ptr %5, align 8, !tbaa !7
+  %193 = getelementptr inbounds nuw %struct.cloudManager, ptr %192, i32 0, i32 19
+  %194 = load ptr, ptr %193, align 8, !tbaa !32
   %195 = call ptr @cloudMakeNode(ptr noundef %187, i32 noundef %188, ptr noundef %191, ptr noundef %194)
-  %196 = load ptr, ptr %5, align 8
-  %197 = getelementptr inbounds %struct.cloudManager, ptr %196, i32 0, i32 20
-  %198 = load ptr, ptr %197, align 8
-  %199 = load i32, ptr %6, align 4
+  %196 = load ptr, ptr %5, align 8, !tbaa !7
+  %197 = getelementptr inbounds nuw %struct.cloudManager, ptr %196, i32 0, i32 20
+  %198 = load ptr, ptr %197, align 8, !tbaa !36
+  %199 = load i32, ptr %6, align 4, !tbaa !3
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds ptr, ptr %198, i64 %200
-  store ptr %195, ptr %201, align 8
+  store ptr %195, ptr %201, align 8, !tbaa !37
   br label %202
 
 202:                                              ; preds = %186
-  %203 = load i32, ptr %6, align 4
+  %203 = load i32, ptr %6, align 4, !tbaa !3
   %204 = add nsw i32 %203, 1
-  store i32 %204, ptr %6, align 4
-  br label %180, !llvm.loop !7
+  store i32 %204, ptr %6, align 4, !tbaa !3
+  br label %180, !llvm.loop !38
 
 205:                                              ; preds = %180
-  %206 = load ptr, ptr %5, align 8
+  %206 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %206
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #1
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cloudMakeNode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -314,261 +325,271 @@ define internal ptr @cloudMakeNode(ptr noundef %0, i32 noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.cloudManager, ptr %11, i32 0, i32 15
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %7, align 4
-  %15 = zext i32 %14 to i64
-  %16 = trunc i64 %15 to i32
-  %17 = mul i32 %16, 12582917
-  %18 = load ptr, ptr %8, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  %21 = add i32 %17, %20
-  %22 = mul i32 %21, 4256249
-  %23 = load ptr, ptr %9, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %25 = trunc i64 %24 to i32
-  %26 = add i32 %22, %25
-  %27 = mul i32 %26, 741457
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.cloudManager, ptr %28, i32 0, i32 3
-  %30 = load i32, ptr %29, align 8
-  %31 = lshr i32 %27, %30
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.cloudNode, ptr %13, i64 %32
-  store ptr %33, ptr %10, align 8
-  br label %34
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !37
+  store ptr %3, ptr %9, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.cloudManager, ptr %12, i32 0, i32 15
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = load i32, ptr %7, align 4, !tbaa !3
+  %16 = zext i32 %15 to i64
+  %17 = trunc i64 %16 to i32
+  %18 = mul i32 %17, 12582917
+  %19 = load ptr, ptr %8, align 8, !tbaa !37
+  %20 = ptrtoint ptr %19 to i64
+  %21 = trunc i64 %20 to i32
+  %22 = add i32 %18, %21
+  %23 = mul i32 %22, 4256249
+  %24 = load ptr, ptr %9, align 8, !tbaa !37
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  %27 = add i32 %23, %26
+  %28 = mul i32 %27, 741457
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.cloudManager, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 8, !tbaa !18
+  %32 = lshr i32 %28, %31
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %struct.cloudNode, ptr %14, i64 %33
+  store ptr %34, ptr %10, align 8, !tbaa !37
+  br label %35
 
-34:                                               ; preds = %86, %4
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.cloudNode, ptr %35, i32 0, i32 0
-  %37 = load i32, ptr %36, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.cloudManager, ptr %38, i32 0, i32 8
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %37, %40
-  br i1 %41, label %42, label %91
+35:                                               ; preds = %87, %4
+  %36 = load ptr, ptr %10, align 8, !tbaa !37
+  %37 = getelementptr inbounds nuw %struct.cloudNode, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 8, !tbaa !26
+  %39 = load ptr, ptr %6, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.cloudManager, ptr %39, i32 0, i32 8
+  %41 = load i32, ptr %40, align 8, !tbaa !25
+  %42 = icmp eq i32 %38, %41
+  br i1 %42, label %43, label %92
 
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.cloudNode, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 4
-  %46 = load i32, ptr %7, align 4
-  %47 = icmp eq i32 %45, %46
-  br i1 %47, label %48, label %66
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %10, align 8, !tbaa !37
+  %45 = getelementptr inbounds nuw %struct.cloudNode, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 4, !tbaa !28
+  %47 = load i32, ptr %7, align 4, !tbaa !3
+  %48 = icmp eq i32 %46, %47
+  br i1 %48, label %49, label %67
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.cloudNode, ptr %49, i32 0, i32 3
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = icmp eq ptr %51, %52
-  br i1 %53, label %54, label %66
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %10, align 8, !tbaa !37
+  %51 = getelementptr inbounds nuw %struct.cloudNode, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8, !tbaa !30
+  %53 = load ptr, ptr %8, align 8, !tbaa !37
+  %54 = icmp eq ptr %52, %53
+  br i1 %54, label %55, label %67
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.cloudNode, ptr %55, i32 0, i32 2
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = icmp eq ptr %57, %58
-  br i1 %59, label %60, label %66
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %10, align 8, !tbaa !37
+  %57 = getelementptr inbounds nuw %struct.cloudNode, ptr %56, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  %59 = load ptr, ptr %9, align 8, !tbaa !37
+  %60 = icmp eq ptr %58, %59
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.cloudManager, ptr %61, i32 0, i32 10
-  %63 = load i32, ptr %62, align 8
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %62, align 8
-  %65 = load ptr, ptr %10, align 8
-  store ptr %65, ptr %5, align 8
-  br label %122
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %6, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.cloudManager, ptr %62, i32 0, i32 10
+  %64 = load i32, ptr %63, align 8, !tbaa !39
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %63, align 8, !tbaa !39
+  %66 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %66, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %123
 
-66:                                               ; preds = %54, %48, %42
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.cloudNode, ptr %67, i32 1
-  store ptr %68, ptr %10, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.cloudManager, ptr %69, i32 0, i32 15
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %68 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = sdiv exact i64 %74, 24
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.cloudManager, ptr %76, i32 0, i32 5
-  %78 = load i32, ptr %77, align 4
-  %79 = sext i32 %78 to i64
-  %80 = icmp eq i64 %75, %79
-  br i1 %80, label %81, label %86
+67:                                               ; preds = %55, %49, %43
+  %68 = load ptr, ptr %10, align 8, !tbaa !37
+  %69 = getelementptr inbounds nuw %struct.cloudNode, ptr %68, i32 1
+  store ptr %69, ptr %10, align 8, !tbaa !37
+  %70 = load ptr, ptr %6, align 8, !tbaa !7
+  %71 = getelementptr inbounds nuw %struct.cloudManager, ptr %70, i32 0, i32 15
+  %72 = load ptr, ptr %71, align 8, !tbaa !24
+  %73 = ptrtoint ptr %69 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = sdiv exact i64 %75, 24
+  %77 = load ptr, ptr %6, align 8, !tbaa !7
+  %78 = getelementptr inbounds nuw %struct.cloudManager, ptr %77, i32 0, i32 5
+  %79 = load i32, ptr %78, align 4, !tbaa !20
+  %80 = sext i32 %79 to i64
+  %81 = icmp eq i64 %76, %80
+  br i1 %81, label %82, label %87
 
-81:                                               ; preds = %66
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.cloudManager, ptr %82, i32 0, i32 15
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds %struct.cloudNode, ptr %84, i64 1
-  store ptr %85, ptr %10, align 8
-  br label %86
+82:                                               ; preds = %67
+  %83 = load ptr, ptr %6, align 8, !tbaa !7
+  %84 = getelementptr inbounds nuw %struct.cloudManager, ptr %83, i32 0, i32 15
+  %85 = load ptr, ptr %84, align 8, !tbaa !24
+  %86 = getelementptr inbounds %struct.cloudNode, ptr %85, i64 1
+  store ptr %86, ptr %10, align 8, !tbaa !37
+  br label %87
 
-86:                                               ; preds = %81, %66
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.cloudManager, ptr %87, i32 0, i32 14
-  %89 = load i32, ptr %88, align 8
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %88, align 8
-  br label %34, !llvm.loop !8
+87:                                               ; preds = %82, %67
+  %88 = load ptr, ptr %6, align 8, !tbaa !7
+  %89 = getelementptr inbounds nuw %struct.cloudManager, ptr %88, i32 0, i32 14
+  %90 = load i32, ptr %89, align 8, !tbaa !40
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %89, align 8, !tbaa !40
+  br label %35, !llvm.loop !41
 
-91:                                               ; preds = %34
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct.cloudManager, ptr %92, i32 0, i32 11
-  %94 = load i32, ptr %93, align 4
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr %93, align 4
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds %struct.cloudManager, ptr %96, i32 0, i32 7
-  %98 = load i32, ptr %97, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %97, align 4
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.cloudManager, ptr %100, i32 0, i32 6
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp eq i32 %99, %102
-  br i1 %103, label %104, label %106
+92:                                               ; preds = %35
+  %93 = load ptr, ptr %6, align 8, !tbaa !7
+  %94 = getelementptr inbounds nuw %struct.cloudManager, ptr %93, i32 0, i32 11
+  %95 = load i32, ptr %94, align 4, !tbaa !42
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %94, align 4, !tbaa !42
+  %97 = load ptr, ptr %6, align 8, !tbaa !7
+  %98 = getelementptr inbounds nuw %struct.cloudManager, ptr %97, i32 0, i32 7
+  %99 = load i32, ptr %98, align 4, !tbaa !33
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 4, !tbaa !33
+  %101 = load ptr, ptr %6, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw %struct.cloudManager, ptr %101, i32 0, i32 6
+  %103 = load i32, ptr %102, align 8, !tbaa !21
+  %104 = icmp eq i32 %100, %103
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %91
-  %105 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
+105:                                              ; preds = %92
+  %106 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
   store ptr null, ptr %5, align 8
-  br label %122
+  store i32 1, ptr %11, align 4
+  br label %123
 
-106:                                              ; preds = %91
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.cloudManager, ptr %107, i32 0, i32 8
-  %109 = load i32, ptr %108, align 8
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.cloudNode, ptr %110, i32 0, i32 0
-  store i32 %109, ptr %111, align 8
-  %112 = load i32, ptr %7, align 4
-  %113 = load ptr, ptr %10, align 8
-  %114 = getelementptr inbounds %struct.cloudNode, ptr %113, i32 0, i32 1
-  store i32 %112, ptr %114, align 4
-  %115 = load ptr, ptr %8, align 8
-  %116 = load ptr, ptr %10, align 8
-  %117 = getelementptr inbounds %struct.cloudNode, ptr %116, i32 0, i32 3
-  store ptr %115, ptr %117, align 8
-  %118 = load ptr, ptr %9, align 8
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.cloudNode, ptr %119, i32 0, i32 2
-  store ptr %118, ptr %120, align 8
-  %121 = load ptr, ptr %10, align 8
-  store ptr %121, ptr %5, align 8
-  br label %122
+107:                                              ; preds = %92
+  %108 = load ptr, ptr %6, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw %struct.cloudManager, ptr %108, i32 0, i32 8
+  %110 = load i32, ptr %109, align 8, !tbaa !25
+  %111 = load ptr, ptr %10, align 8, !tbaa !37
+  %112 = getelementptr inbounds nuw %struct.cloudNode, ptr %111, i32 0, i32 0
+  store i32 %110, ptr %112, align 8, !tbaa !26
+  %113 = load i32, ptr %7, align 4, !tbaa !3
+  %114 = load ptr, ptr %10, align 8, !tbaa !37
+  %115 = getelementptr inbounds nuw %struct.cloudNode, ptr %114, i32 0, i32 1
+  store i32 %113, ptr %115, align 4, !tbaa !28
+  %116 = load ptr, ptr %8, align 8, !tbaa !37
+  %117 = load ptr, ptr %10, align 8, !tbaa !37
+  %118 = getelementptr inbounds nuw %struct.cloudNode, ptr %117, i32 0, i32 3
+  store ptr %116, ptr %118, align 8, !tbaa !30
+  %119 = load ptr, ptr %9, align 8, !tbaa !37
+  %120 = load ptr, ptr %10, align 8, !tbaa !37
+  %121 = getelementptr inbounds nuw %struct.cloudNode, ptr %120, i32 0, i32 2
+  store ptr %119, ptr %121, align 8, !tbaa !29
+  %122 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %122, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %123
 
-122:                                              ; preds = %106, %104, %60
-  %123 = load ptr, ptr %5, align 8
-  ret ptr %123
+123:                                              ; preds = %107, %105, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %124 = load ptr, ptr %5, align 8
+  ret ptr %124
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Cloud_Quit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.cloudManager, ptr %4, i32 0, i32 21
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !7
+  %5 = getelementptr inbounds nuw %struct.cloudManager, ptr %4, i32 0, i32 21
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.cloudManager, ptr %9, i32 0, i32 21
-  %11 = load ptr, ptr %10, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw %struct.cloudManager, ptr %9, i32 0, i32 21
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   call void @free(ptr noundef %11) #7
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.cloudManager, ptr %12, i32 0, i32 21
-  store ptr null, ptr %13, align 8
+  %12 = load ptr, ptr %2, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.cloudManager, ptr %12, i32 0, i32 21
+  store ptr null, ptr %13, align 8, !tbaa !43
   br label %15
 
 14:                                               ; preds = %1
   br label %15
 
 15:                                               ; preds = %14, %8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.cloudManager, ptr %16, i32 0, i32 15
-  %18 = load ptr, ptr %17, align 8
+  %16 = load ptr, ptr %2, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.cloudManager, ptr %16, i32 0, i32 15
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.cloudManager, ptr %21, i32 0, i32 15
-  %23 = load ptr, ptr %22, align 8
+  %21 = load ptr, ptr %2, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.cloudManager, ptr %21, i32 0, i32 15
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   call void @free(ptr noundef %23) #7
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.cloudManager, ptr %24, i32 0, i32 15
-  store ptr null, ptr %25, align 8
+  %24 = load ptr, ptr %2, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.cloudManager, ptr %24, i32 0, i32 15
+  store ptr null, ptr %25, align 8, !tbaa !24
   br label %27
 
 26:                                               ; preds = %15
   br label %27
 
 27:                                               ; preds = %26, %20
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.cloudManager, ptr %28, i32 0, i32 20
-  %30 = load ptr, ptr %29, align 8
+  %28 = load ptr, ptr %2, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.cloudManager, ptr %28, i32 0, i32 20
+  %30 = load ptr, ptr %29, align 8, !tbaa !36
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.cloudManager, ptr %33, i32 0, i32 20
-  %35 = load ptr, ptr %34, align 8
+  %33 = load ptr, ptr %2, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.cloudManager, ptr %33, i32 0, i32 20
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
   call void @free(ptr noundef %35) #7
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.cloudManager, ptr %36, i32 0, i32 20
-  store ptr null, ptr %37, align 8
+  %36 = load ptr, ptr %2, align 8, !tbaa !7
+  %37 = getelementptr inbounds nuw %struct.cloudManager, ptr %36, i32 0, i32 20
+  store ptr null, ptr %37, align 8, !tbaa !36
   br label %39
 
 38:                                               ; preds = %27
   br label %39
 
 39:                                               ; preds = %38, %32
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %40
 
 40:                                               ; preds = %65, %39
-  %41 = load i32, ptr %3, align 4
+  %41 = load i32, ptr %3, align 4, !tbaa !3
   %42 = icmp slt i32 %41, 4
   br i1 %42, label %43, label %68
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.cloudManager, ptr %44, i32 0, i32 22
-  %46 = load i32, ptr %3, align 4
+  %44 = load ptr, ptr %2, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.cloudManager, ptr %44, i32 0, i32 22
+  %46 = load i32, ptr %3, align 4, !tbaa !3
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds [20 x ptr], ptr %45, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !44
   %50 = icmp ne ptr %49, null
   br i1 %50, label %51, label %63
 
 51:                                               ; preds = %43
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds %struct.cloudManager, ptr %52, i32 0, i32 22
-  %54 = load i32, ptr %3, align 4
+  %52 = load ptr, ptr %2, align 8, !tbaa !7
+  %53 = getelementptr inbounds nuw %struct.cloudManager, ptr %52, i32 0, i32 22
+  %54 = load i32, ptr %3, align 4, !tbaa !3
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds [20 x ptr], ptr %53, i64 0, i64 %55
-  %57 = load ptr, ptr %56, align 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !44
   call void @free(ptr noundef %57) #7
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.cloudManager, ptr %58, i32 0, i32 22
-  %60 = load i32, ptr %3, align 4
+  %58 = load ptr, ptr %2, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.cloudManager, ptr %58, i32 0, i32 22
+  %60 = load i32, ptr %3, align 4, !tbaa !3
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [20 x ptr], ptr %59, i64 0, i64 %61
-  store ptr null, ptr %62, align 8
+  store ptr null, ptr %62, align 8, !tbaa !44
   br label %64
 
 63:                                               ; preds = %43
@@ -578,88 +599,91 @@ define void @Cloud_Quit(ptr noundef %0) #0 {
   br label %65
 
 65:                                               ; preds = %64
-  %66 = load i32, ptr %3, align 4
+  %66 = load i32, ptr %3, align 4, !tbaa !3
   %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %3, align 4
-  br label %40, !llvm.loop !9
+  store i32 %67, ptr %3, align 4, !tbaa !3
+  br label %40, !llvm.loop !46
 
 68:                                               ; preds = %40
-  %69 = load ptr, ptr %2, align 8
+  %69 = load ptr, ptr %2, align 8, !tbaa !7
   %70 = icmp ne ptr %69, null
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = load ptr, ptr %2, align 8
+  %72 = load ptr, ptr %2, align 8, !tbaa !7
   call void @free(ptr noundef %72) #7
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !7
   br label %74
 
 73:                                               ; preds = %68
   br label %74
 
 74:                                               ; preds = %73, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define void @Cloud_Restart(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.cloudManager, ptr %4, i32 0, i32 8
-  %6 = load i32, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !7
+  %5 = getelementptr inbounds nuw %struct.cloudManager, ptr %4, i32 0, i32 8
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = add i32 %6, 1
-  store i32 %7, ptr %5, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.cloudManager, ptr %8, i32 0, i32 18
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.cloudNode, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %11, align 8
+  store i32 %7, ptr %5, align 8, !tbaa !25
+  %8 = load ptr, ptr %2, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.cloudManager, ptr %8, i32 0, i32 18
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %11 = getelementptr inbounds nuw %struct.cloudNode, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !26
   %13 = add i32 %12, 1
-  store i32 %13, ptr %11, align 8
-  store i32 0, ptr %3, align 4
+  store i32 %13, ptr %11, align 8, !tbaa !26
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %14
 
 14:                                               ; preds = %31, %1
-  %15 = load i32, ptr %3, align 4
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.cloudManager, ptr %16, i32 0, i32 0
-  %18 = load i32, ptr %17, align 8
+  %15 = load i32, ptr %3, align 4, !tbaa !3
+  %16 = load ptr, ptr %2, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.cloudManager, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !14
   %19 = icmp slt i32 %15, %18
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.cloudManager, ptr %21, i32 0, i32 20
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %3, align 4
+  %21 = load ptr, ptr %2, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.cloudManager, ptr %21, i32 0, i32 20
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %24 = load i32, ptr %3, align 4, !tbaa !3
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %23, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.cloudNode, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw %struct.cloudNode, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !26
   %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 8
+  store i32 %30, ptr %28, align 8, !tbaa !26
   br label %31
 
 31:                                               ; preds = %20
-  %32 = load i32, ptr %3, align 4
+  %32 = load i32, ptr %3, align 4, !tbaa !3
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %3, align 4
-  br label %14, !llvm.loop !10
+  store i32 %33, ptr %3, align 4, !tbaa !3
+  br label %14, !llvm.loop !47
 
 34:                                               ; preds = %14
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.cloudManager, ptr %35, i32 0, i32 0
-  %37 = load i32, ptr %36, align 8
+  %35 = load ptr, ptr %2, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.cloudManager, ptr %35, i32 0, i32 0
+  %37 = load i32, ptr %36, align 8, !tbaa !14
   %38 = add nsw i32 1, %37
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.cloudManager, ptr %39, i32 0, i32 7
-  store i32 %38, ptr %40, align 4
+  %39 = load ptr, ptr %2, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.cloudManager, ptr %39, i32 0, i32 7
+  store i32 %38, ptr %40, align 4, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
@@ -668,45 +692,45 @@ define void @Cloud_CacheAllocate(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = icmp ne i32 %7, 0
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.cloudManager, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %6, align 4
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw %struct.cloudManager, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !15
+  %13 = load i32, ptr %6, align 4, !tbaa !3
   %14 = sub nsw i32 %12, %13
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.cloudManager, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %5, align 4
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.cloudManager, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %5, align 4, !tbaa !3
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %18
-  store i32 %14, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.cloudManager, ptr %20, i32 0, i32 2
-  %22 = load i32, ptr %5, align 4
+  %19 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %18
+  store i32 %14, ptr %19, align 4, !tbaa !3
+  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw %struct.cloudManager, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %5, align 4, !tbaa !3
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
+  %24 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = sext i32 %25 to i64
   %27 = sub i64 32, %26
   %28 = trunc i64 %27 to i32
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.cloudManager, ptr %29, i32 0, i32 4
-  %31 = load i32, ptr %5, align 4
+  %29 = load ptr, ptr %4, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.cloudManager, ptr %29, i32 0, i32 4
+  %31 = load i32, ptr %5, align 4, !tbaa !3
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds [4 x i32], ptr %30, i64 0, i64 %32
-  store i32 %28, ptr %33, align 4
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %32
+  store i32 %28, ptr %33, align 4, !tbaa !3
   br label %34
 
 34:                                               ; preds = %9, %3
-  %35 = load ptr, ptr %4, align 8
-  %36 = load i32, ptr %5, align 4
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %36 = load i32, ptr %5, align 4, !tbaa !3
   call void @cloudCacheAllocate(ptr noundef %35, i32 noundef %36)
   ret void
 }
@@ -716,103 +740,104 @@ define internal void @cloudCacheAllocate(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.cloudManager, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.cloudManager, ptr %6, i32 0, i32 2
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %10 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = shl i32 1, %11
-  store i32 %12, ptr %5, align 4
-  %13 = load i32, ptr %4, align 4
+  store i32 %12, ptr %5, align 4, !tbaa !3
+  %13 = load i32, ptr %4, align 4, !tbaa !3
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr @CacheSize, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
+  %15 = getelementptr inbounds nuw [4 x i32], ptr @CacheSize, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %36
 
 18:                                               ; preds = %2
-  %19 = load i32, ptr %5, align 4
+  %19 = load i32, ptr %5, align 4, !tbaa !3
   %20 = sext i32 %19 to i64
-  %21 = call noalias ptr @calloc(i64 noundef %20, i64 noundef 24) #5
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.cloudManager, ptr %22, i32 0, i32 22
-  %24 = load i32, ptr %4, align 4
+  %21 = call noalias ptr @calloc(i64 noundef %20, i64 noundef 24) #8
+  %22 = load ptr, ptr %3, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.cloudManager, ptr %22, i32 0, i32 22
+  %24 = load i32, ptr %4, align 4, !tbaa !3
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds [20 x ptr], ptr %23, i64 0, i64 %25
-  store ptr %21, ptr %26, align 8
-  %27 = load i32, ptr %5, align 4
+  %26 = getelementptr inbounds nuw [20 x ptr], ptr %23, i64 0, i64 %25
+  store ptr %21, ptr %26, align 8, !tbaa !44
+  %27 = load i32, ptr %5, align 4, !tbaa !3
   %28 = sext i32 %27 to i64
   %29 = mul i64 24, %28
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.cloudManager, ptr %30, i32 0, i32 9
-  %32 = load i32, ptr %31, align 4
+  %30 = load ptr, ptr %3, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.cloudManager, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = sext i32 %32 to i64
   %34 = add i64 %33, %29
   %35 = trunc i64 %34 to i32
-  store i32 %35, ptr %31, align 4
+  store i32 %35, ptr %31, align 4, !tbaa !10
   br label %86
 
 36:                                               ; preds = %2
-  %37 = load i32, ptr %4, align 4
+  %37 = load i32, ptr %4, align 4, !tbaa !3
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds [4 x i32], ptr @CacheSize, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4
+  %39 = getelementptr inbounds nuw [4 x i32], ptr @CacheSize, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = icmp eq i32 %40, 2
   br i1 %41, label %42, label %60
 
 42:                                               ; preds = %36
-  %43 = load i32, ptr %5, align 4
+  %43 = load i32, ptr %5, align 4, !tbaa !3
   %44 = sext i32 %43 to i64
-  %45 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 32) #5
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.cloudManager, ptr %46, i32 0, i32 22
-  %48 = load i32, ptr %4, align 4
+  %45 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 32) #8
+  %46 = load ptr, ptr %3, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.cloudManager, ptr %46, i32 0, i32 22
+  %48 = load i32, ptr %4, align 4, !tbaa !3
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds [20 x ptr], ptr %47, i64 0, i64 %49
-  store ptr %45, ptr %50, align 8
-  %51 = load i32, ptr %5, align 4
+  %50 = getelementptr inbounds nuw [20 x ptr], ptr %47, i64 0, i64 %49
+  store ptr %45, ptr %50, align 8, !tbaa !44
+  %51 = load i32, ptr %5, align 4, !tbaa !3
   %52 = sext i32 %51 to i64
   %53 = mul i64 32, %52
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.cloudManager, ptr %54, i32 0, i32 9
-  %56 = load i32, ptr %55, align 4
+  %54 = load ptr, ptr %3, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw %struct.cloudManager, ptr %54, i32 0, i32 9
+  %56 = load i32, ptr %55, align 4, !tbaa !10
   %57 = sext i32 %56 to i64
   %58 = add i64 %57, %53
   %59 = trunc i64 %58 to i32
-  store i32 %59, ptr %55, align 4
+  store i32 %59, ptr %55, align 4, !tbaa !10
   br label %85
 
 60:                                               ; preds = %36
-  %61 = load i32, ptr %4, align 4
+  %61 = load i32, ptr %4, align 4, !tbaa !3
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds [4 x i32], ptr @CacheSize, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4
+  %63 = getelementptr inbounds nuw [4 x i32], ptr @CacheSize, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !3
   %65 = icmp eq i32 %64, 3
   br i1 %65, label %66, label %84
 
 66:                                               ; preds = %60
-  %67 = load i32, ptr %5, align 4
+  %67 = load i32, ptr %5, align 4, !tbaa !3
   %68 = sext i32 %67 to i64
-  %69 = call noalias ptr @calloc(i64 noundef %68, i64 noundef 40) #5
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.cloudManager, ptr %70, i32 0, i32 22
-  %72 = load i32, ptr %4, align 4
+  %69 = call noalias ptr @calloc(i64 noundef %68, i64 noundef 40) #8
+  %70 = load ptr, ptr %3, align 8, !tbaa !7
+  %71 = getelementptr inbounds nuw %struct.cloudManager, ptr %70, i32 0, i32 22
+  %72 = load i32, ptr %4, align 4, !tbaa !3
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds [20 x ptr], ptr %71, i64 0, i64 %73
-  store ptr %69, ptr %74, align 8
-  %75 = load i32, ptr %5, align 4
+  %74 = getelementptr inbounds nuw [20 x ptr], ptr %71, i64 0, i64 %73
+  store ptr %69, ptr %74, align 8, !tbaa !44
+  %75 = load i32, ptr %5, align 4, !tbaa !3
   %76 = sext i32 %75 to i64
   %77 = mul i64 40, %76
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.cloudManager, ptr %78, i32 0, i32 9
-  %80 = load i32, ptr %79, align 4
+  %78 = load ptr, ptr %3, align 8, !tbaa !7
+  %79 = getelementptr inbounds nuw %struct.cloudManager, ptr %78, i32 0, i32 9
+  %80 = load i32, ptr %79, align 4, !tbaa !10
   %81 = sext i32 %80 to i64
   %82 = add i64 %81, %77
   %83 = trunc i64 %82 to i32
-  store i32 %83, ptr %79, align 4
+  store i32 %83, ptr %79, align 4, !tbaa !10
   br label %84
 
 84:                                               ; preds = %66, %60
@@ -822,6 +847,7 @@ define internal void @cloudCacheAllocate(ptr noundef %0, i32 noundef %1) #0 {
   br label %86
 
 86:                                               ; preds = %85, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
@@ -832,11 +858,12 @@ define ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  store ptr %3, ptr %8, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %10 = load ptr, ptr %7, align 8, !tbaa !37
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
   %13 = trunc i64 %12 to i32
@@ -844,44 +871,45 @@ define ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   br i1 %14, label %15, label %35
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = load i32, ptr %6, align 4, !tbaa !3
+  %18 = load ptr, ptr %7, align 8, !tbaa !37
   %19 = ptrtoint ptr %18 to i64
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %8, align 8, !tbaa !37
   %23 = ptrtoint ptr %22 to i64
   %24 = xor i64 %23, 1
   %25 = inttoptr i64 %24 to ptr
   %26 = call ptr @cloudMakeNode(ptr noundef %16, i32 noundef %17, ptr noundef %21, ptr noundef %25)
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %9, align 8
+  store ptr %26, ptr %9, align 8, !tbaa !37
+  %27 = load ptr, ptr %9, align 8, !tbaa !37
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %15
-  %30 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %9, align 8, !tbaa !37
   %31 = ptrtoint ptr %30 to i64
   %32 = xor i64 %31, 1
   %33 = inttoptr i64 %32 to ptr
-  store ptr %33, ptr %9, align 8
+  store ptr %33, ptr %9, align 8, !tbaa !37
   br label %34
 
 34:                                               ; preds = %29, %15
   br label %41
 
 35:                                               ; preds = %4
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i32, ptr %6, align 4
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %5, align 8, !tbaa !7
+  %37 = load i32, ptr %6, align 4, !tbaa !3
+  %38 = load ptr, ptr %7, align 8, !tbaa !37
+  %39 = load ptr, ptr %8, align 8, !tbaa !37
   %40 = call ptr @cloudMakeNode(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39)
-  store ptr %40, ptr %9, align 8
+  store ptr %40, ptr %9, align 8, !tbaa !37
   br label %41
 
 41:                                               ; preds = %35, %34
-  %42 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %9, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret ptr %42
 }
 
@@ -902,421 +930,454 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  store ptr %22, ptr %8, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %25 = and i64 %24, -2
-  %26 = inttoptr i64 %25 to ptr
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %40
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  %20 = load ptr, ptr %6, align 8, !tbaa !37
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %8, align 8, !tbaa !37
+  %24 = load ptr, ptr %7, align 8, !tbaa !37
+  %25 = ptrtoint ptr %24 to i64
+  %26 = and i64 %25, -2
+  %27 = inttoptr i64 %26 to ptr
+  store ptr %27, ptr %9, align 8, !tbaa !37
+  %28 = load ptr, ptr %8, align 8, !tbaa !37
+  %29 = load ptr, ptr %9, align 8, !tbaa !37
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %31, label %41
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = icmp eq ptr %31, %32
-  br i1 %33, label %34, label %36
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %6, align 8, !tbaa !37
+  %33 = load ptr, ptr %7, align 8, !tbaa !37
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %6, align 8
-  store ptr %35, ptr %4, align 8
-  br label %290
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %6, align 8, !tbaa !37
+  store ptr %36, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.cloudManager, ptr %37, i32 0, i32 19
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %4, align 8
-  br label %290
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %39 = getelementptr inbounds nuw %struct.cloudManager, ptr %38, i32 0, i32 19
+  %40 = load ptr, ptr %39, align 8, !tbaa !32
+  store ptr %40, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
 
-40:                                               ; preds = %3
-  %41 = load ptr, ptr %8, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.cloudManager, ptr %42, i32 0, i32 18
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %41, %44
-  br i1 %45, label %46, label %56
+41:                                               ; preds = %3
+  %42 = load ptr, ptr %8, align 8, !tbaa !37
+  %43 = load ptr, ptr %5, align 8, !tbaa !7
+  %44 = getelementptr inbounds nuw %struct.cloudManager, ptr %43, i32 0, i32 18
+  %45 = load ptr, ptr %44, align 8, !tbaa !31
+  %46 = icmp eq ptr %42, %45
+  br i1 %46, label %47, label %57
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.cloudManager, ptr %48, i32 0, i32 18
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %47, %50
-  br i1 %51, label %52, label %54
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %6, align 8, !tbaa !37
+  %49 = load ptr, ptr %5, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.cloudManager, ptr %49, i32 0, i32 18
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
+  %52 = icmp eq ptr %48, %51
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %7, align 8
-  store ptr %53, ptr %4, align 8
-  br label %290
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %7, align 8, !tbaa !37
+  store ptr %54, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %6, align 8
-  store ptr %55, ptr %4, align 8
-  br label %290
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %6, align 8, !tbaa !37
+  store ptr %56, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
 
-56:                                               ; preds = %40
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.cloudManager, ptr %57, i32 0, i32 22
-  %59 = getelementptr inbounds [20 x ptr], ptr %58, i64 0, i64 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = ptrtoint ptr %61 to i64
-  %63 = trunc i64 %62 to i32
-  %64 = mul i32 %63, 12582917
-  %65 = load ptr, ptr %7, align 8
-  %66 = ptrtoint ptr %65 to i64
-  %67 = trunc i64 %66 to i32
-  %68 = add i32 %64, %67
-  %69 = mul i32 %68, 4256249
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.cloudManager, ptr %70, i32 0, i32 4
-  %72 = getelementptr inbounds [4 x i32], ptr %71, i64 0, i64 0
-  %73 = load i32, ptr %72, align 4
-  %74 = lshr i32 %69, %73
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %60, i64 %75
-  store ptr %76, ptr %11, align 8
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %77, i32 0, i32 0
-  %79 = load i32, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.cloudManager, ptr %80, i32 0, i32 8
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %79, %82
-  br i1 %83, label %84, label %100
+57:                                               ; preds = %41
+  %58 = load ptr, ptr %5, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.cloudManager, ptr %58, i32 0, i32 22
+  %60 = getelementptr inbounds [20 x ptr], ptr %59, i64 0, i64 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !44
+  %62 = load ptr, ptr %6, align 8, !tbaa !37
+  %63 = ptrtoint ptr %62 to i64
+  %64 = trunc i64 %63 to i32
+  %65 = mul i32 %64, 12582917
+  %66 = load ptr, ptr %7, align 8, !tbaa !37
+  %67 = ptrtoint ptr %66 to i64
+  %68 = trunc i64 %67 to i32
+  %69 = add i32 %65, %68
+  %70 = mul i32 %69, 4256249
+  %71 = load ptr, ptr %5, align 8, !tbaa !7
+  %72 = getelementptr inbounds nuw %struct.cloudManager, ptr %71, i32 0, i32 4
+  %73 = getelementptr inbounds [4 x i32], ptr %72, i64 0, i64 0
+  %74 = load i32, ptr %73, align 4, !tbaa !3
+  %75 = lshr i32 %70, %74
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %61, i64 %76
+  store ptr %77, ptr %11, align 8, !tbaa !44
+  %78 = load ptr, ptr %11, align 8, !tbaa !44
+  %79 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %78, i32 0, i32 0
+  %80 = load i32, ptr %79, align 8, !tbaa !48
+  %81 = load ptr, ptr %5, align 8, !tbaa !7
+  %82 = getelementptr inbounds nuw %struct.cloudManager, ptr %81, i32 0, i32 8
+  %83 = load i32, ptr %82, align 8, !tbaa !25
+  %84 = icmp eq i32 %80, %83
+  br i1 %84, label %85, label %101
 
-84:                                               ; preds = %56
-  %85 = load ptr, ptr %11, align 8
-  %86 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %85, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = icmp eq ptr %87, %88
-  br i1 %89, label %90, label %100
+85:                                               ; preds = %57
+  %86 = load ptr, ptr %11, align 8, !tbaa !44
+  %87 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !50
+  %89 = load ptr, ptr %6, align 8, !tbaa !37
+  %90 = icmp eq ptr %88, %89
+  br i1 %90, label %91, label %101
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %11, align 8
-  %92 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %91, i32 0, i32 2
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %96, label %100
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %11, align 8, !tbaa !44
+  %93 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %92, i32 0, i32 2
+  %94 = load ptr, ptr %93, align 8, !tbaa !51
+  %95 = load ptr, ptr %7, align 8, !tbaa !37
+  %96 = icmp eq ptr %94, %95
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %11, align 8
-  %98 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %97, i32 0, i32 3
-  %99 = load ptr, ptr %98, align 8
-  br label %101
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %11, align 8, !tbaa !44
+  %99 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8, !tbaa !52
+  br label %102
 
-100:                                              ; preds = %90, %84, %56
-  br label %101
+101:                                              ; preds = %91, %85, %57
+  br label %102
 
-101:                                              ; preds = %100, %96
-  %102 = phi ptr [ %99, %96 ], [ null, %100 ]
-  store ptr %102, ptr %10, align 8
-  %103 = load ptr, ptr %10, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %111
+102:                                              ; preds = %101, %97
+  %103 = phi ptr [ %100, %97 ], [ null, %101 ]
+  store ptr %103, ptr %10, align 8, !tbaa !37
+  %104 = load ptr, ptr %10, align 8, !tbaa !37
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %112
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.cloudManager, ptr %106, i32 0, i32 12
-  %108 = load i32, ptr %107, align 8
-  %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %107, align 8
-  %110 = load ptr, ptr %10, align 8
-  store ptr %110, ptr %4, align 8
-  br label %290
+106:                                              ; preds = %102
+  %107 = load ptr, ptr %5, align 8, !tbaa !7
+  %108 = getelementptr inbounds nuw %struct.cloudManager, ptr %107, i32 0, i32 12
+  %109 = load i32, ptr %108, align 8, !tbaa !53
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %108, align 8, !tbaa !53
+  %111 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %111, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
 
-111:                                              ; preds = %101
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.cloudManager, ptr %112, i32 0, i32 13
-  %114 = load i32, ptr %113, align 4
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %113, align 4
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds %struct.cloudNode, ptr %116, i32 0, i32 1
-  %118 = load i32, ptr %117, align 4
-  %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr inbounds %struct.cloudNode, ptr %119, i32 0, i32 1
-  %121 = load i32, ptr %120, align 4
-  %122 = icmp ule i32 %118, %121
-  br i1 %122, label %123, label %153
+112:                                              ; preds = %102
+  %113 = load ptr, ptr %5, align 8, !tbaa !7
+  %114 = getelementptr inbounds nuw %struct.cloudManager, ptr %113, i32 0, i32 13
+  %115 = load i32, ptr %114, align 4, !tbaa !54
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %114, align 4, !tbaa !54
+  %117 = load ptr, ptr %8, align 8, !tbaa !37
+  %118 = getelementptr inbounds nuw %struct.cloudNode, ptr %117, i32 0, i32 1
+  %119 = load i32, ptr %118, align 4, !tbaa !28
+  %120 = load ptr, ptr %9, align 8, !tbaa !37
+  %121 = getelementptr inbounds nuw %struct.cloudNode, ptr %120, i32 0, i32 1
+  %122 = load i32, ptr %121, align 4, !tbaa !28
+  %123 = icmp ule i32 %119, %122
+  br i1 %123, label %124, label %154
 
-123:                                              ; preds = %111
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.cloudNode, ptr %124, i32 0, i32 1
-  %126 = load i32, ptr %125, align 4
-  store i32 %126, ptr %18, align 4
-  %127 = load ptr, ptr %6, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %129 = and i64 %128, 1
-  %130 = trunc i64 %129 to i32
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %145
+124:                                              ; preds = %112
+  %125 = load ptr, ptr %8, align 8, !tbaa !37
+  %126 = getelementptr inbounds nuw %struct.cloudNode, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 4, !tbaa !28
+  store i32 %127, ptr %18, align 4, !tbaa !3
+  %128 = load ptr, ptr %6, align 8, !tbaa !37
+  %129 = ptrtoint ptr %128 to i64
+  %130 = and i64 %129, 1
+  %131 = trunc i64 %130 to i32
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %146
 
-132:                                              ; preds = %123
-  %133 = load ptr, ptr %8, align 8
-  %134 = getelementptr inbounds %struct.cloudNode, ptr %133, i32 0, i32 2
-  %135 = load ptr, ptr %134, align 8
-  %136 = ptrtoint ptr %135 to i64
-  %137 = xor i64 %136, 1
-  %138 = inttoptr i64 %137 to ptr
-  store ptr %138, ptr %13, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct.cloudNode, ptr %139, i32 0, i32 3
-  %141 = load ptr, ptr %140, align 8
-  %142 = ptrtoint ptr %141 to i64
-  %143 = xor i64 %142, 1
-  %144 = inttoptr i64 %143 to ptr
-  store ptr %144, ptr %12, align 8
-  br label %152
+133:                                              ; preds = %124
+  %134 = load ptr, ptr %8, align 8, !tbaa !37
+  %135 = getelementptr inbounds nuw %struct.cloudNode, ptr %134, i32 0, i32 2
+  %136 = load ptr, ptr %135, align 8, !tbaa !29
+  %137 = ptrtoint ptr %136 to i64
+  %138 = xor i64 %137, 1
+  %139 = inttoptr i64 %138 to ptr
+  store ptr %139, ptr %13, align 8, !tbaa !37
+  %140 = load ptr, ptr %8, align 8, !tbaa !37
+  %141 = getelementptr inbounds nuw %struct.cloudNode, ptr %140, i32 0, i32 3
+  %142 = load ptr, ptr %141, align 8, !tbaa !30
+  %143 = ptrtoint ptr %142 to i64
+  %144 = xor i64 %143, 1
+  %145 = inttoptr i64 %144 to ptr
+  store ptr %145, ptr %12, align 8, !tbaa !37
+  br label %153
 
-145:                                              ; preds = %123
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds %struct.cloudNode, ptr %146, i32 0, i32 2
-  %148 = load ptr, ptr %147, align 8
-  store ptr %148, ptr %13, align 8
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds %struct.cloudNode, ptr %149, i32 0, i32 3
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %12, align 8
-  br label %152
+146:                                              ; preds = %124
+  %147 = load ptr, ptr %8, align 8, !tbaa !37
+  %148 = getelementptr inbounds nuw %struct.cloudNode, ptr %147, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8, !tbaa !29
+  store ptr %149, ptr %13, align 8, !tbaa !37
+  %150 = load ptr, ptr %8, align 8, !tbaa !37
+  %151 = getelementptr inbounds nuw %struct.cloudNode, ptr %150, i32 0, i32 3
+  %152 = load ptr, ptr %151, align 8, !tbaa !30
+  store ptr %152, ptr %12, align 8, !tbaa !37
+  br label %153
 
-152:                                              ; preds = %145, %132
-  br label %158
+153:                                              ; preds = %146, %133
+  br label %159
 
-153:                                              ; preds = %111
-  %154 = load ptr, ptr %9, align 8
-  %155 = getelementptr inbounds %struct.cloudNode, ptr %154, i32 0, i32 1
-  %156 = load i32, ptr %155, align 4
-  store i32 %156, ptr %18, align 4
-  %157 = load ptr, ptr %6, align 8
-  store ptr %157, ptr %13, align 8
-  store ptr %157, ptr %12, align 8
-  br label %158
+154:                                              ; preds = %112
+  %155 = load ptr, ptr %9, align 8, !tbaa !37
+  %156 = getelementptr inbounds nuw %struct.cloudNode, ptr %155, i32 0, i32 1
+  %157 = load i32, ptr %156, align 4, !tbaa !28
+  store i32 %157, ptr %18, align 4, !tbaa !3
+  %158 = load ptr, ptr %6, align 8, !tbaa !37
+  store ptr %158, ptr %13, align 8, !tbaa !37
+  store ptr %158, ptr %12, align 8, !tbaa !37
+  br label %159
 
-158:                                              ; preds = %153, %152
-  %159 = load ptr, ptr %9, align 8
-  %160 = getelementptr inbounds %struct.cloudNode, ptr %159, i32 0, i32 1
-  %161 = load i32, ptr %160, align 4
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds %struct.cloudNode, ptr %162, i32 0, i32 1
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp ule i32 %161, %164
-  br i1 %165, label %166, label %193
+159:                                              ; preds = %154, %153
+  %160 = load ptr, ptr %9, align 8, !tbaa !37
+  %161 = getelementptr inbounds nuw %struct.cloudNode, ptr %160, i32 0, i32 1
+  %162 = load i32, ptr %161, align 4, !tbaa !28
+  %163 = load ptr, ptr %8, align 8, !tbaa !37
+  %164 = getelementptr inbounds nuw %struct.cloudNode, ptr %163, i32 0, i32 1
+  %165 = load i32, ptr %164, align 4, !tbaa !28
+  %166 = icmp ule i32 %162, %165
+  br i1 %166, label %167, label %194
 
-166:                                              ; preds = %158
-  %167 = load ptr, ptr %7, align 8
-  %168 = ptrtoint ptr %167 to i64
-  %169 = and i64 %168, 1
-  %170 = trunc i64 %169 to i32
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %185
+167:                                              ; preds = %159
+  %168 = load ptr, ptr %7, align 8, !tbaa !37
+  %169 = ptrtoint ptr %168 to i64
+  %170 = and i64 %169, 1
+  %171 = trunc i64 %170 to i32
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %186
 
-172:                                              ; preds = %166
-  %173 = load ptr, ptr %9, align 8
-  %174 = getelementptr inbounds %struct.cloudNode, ptr %173, i32 0, i32 2
-  %175 = load ptr, ptr %174, align 8
-  %176 = ptrtoint ptr %175 to i64
-  %177 = xor i64 %176, 1
-  %178 = inttoptr i64 %177 to ptr
-  store ptr %178, ptr %15, align 8
-  %179 = load ptr, ptr %9, align 8
-  %180 = getelementptr inbounds %struct.cloudNode, ptr %179, i32 0, i32 3
-  %181 = load ptr, ptr %180, align 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = xor i64 %182, 1
-  %184 = inttoptr i64 %183 to ptr
-  store ptr %184, ptr %14, align 8
-  br label %192
+173:                                              ; preds = %167
+  %174 = load ptr, ptr %9, align 8, !tbaa !37
+  %175 = getelementptr inbounds nuw %struct.cloudNode, ptr %174, i32 0, i32 2
+  %176 = load ptr, ptr %175, align 8, !tbaa !29
+  %177 = ptrtoint ptr %176 to i64
+  %178 = xor i64 %177, 1
+  %179 = inttoptr i64 %178 to ptr
+  store ptr %179, ptr %15, align 8, !tbaa !37
+  %180 = load ptr, ptr %9, align 8, !tbaa !37
+  %181 = getelementptr inbounds nuw %struct.cloudNode, ptr %180, i32 0, i32 3
+  %182 = load ptr, ptr %181, align 8, !tbaa !30
+  %183 = ptrtoint ptr %182 to i64
+  %184 = xor i64 %183, 1
+  %185 = inttoptr i64 %184 to ptr
+  store ptr %185, ptr %14, align 8, !tbaa !37
+  br label %193
 
-185:                                              ; preds = %166
-  %186 = load ptr, ptr %9, align 8
-  %187 = getelementptr inbounds %struct.cloudNode, ptr %186, i32 0, i32 2
-  %188 = load ptr, ptr %187, align 8
-  store ptr %188, ptr %15, align 8
-  %189 = load ptr, ptr %9, align 8
-  %190 = getelementptr inbounds %struct.cloudNode, ptr %189, i32 0, i32 3
-  %191 = load ptr, ptr %190, align 8
-  store ptr %191, ptr %14, align 8
-  br label %192
+186:                                              ; preds = %167
+  %187 = load ptr, ptr %9, align 8, !tbaa !37
+  %188 = getelementptr inbounds nuw %struct.cloudNode, ptr %187, i32 0, i32 2
+  %189 = load ptr, ptr %188, align 8, !tbaa !29
+  store ptr %189, ptr %15, align 8, !tbaa !37
+  %190 = load ptr, ptr %9, align 8, !tbaa !37
+  %191 = getelementptr inbounds nuw %struct.cloudNode, ptr %190, i32 0, i32 3
+  %192 = load ptr, ptr %191, align 8, !tbaa !30
+  store ptr %192, ptr %14, align 8, !tbaa !37
+  br label %193
 
-192:                                              ; preds = %185, %172
-  br label %195
+193:                                              ; preds = %186, %173
+  br label %196
 
-193:                                              ; preds = %158
-  %194 = load ptr, ptr %7, align 8
-  store ptr %194, ptr %15, align 8
-  store ptr %194, ptr %14, align 8
-  br label %195
+194:                                              ; preds = %159
+  %195 = load ptr, ptr %7, align 8, !tbaa !37
+  store ptr %195, ptr %15, align 8, !tbaa !37
+  store ptr %195, ptr %14, align 8, !tbaa !37
+  br label %196
 
-195:                                              ; preds = %193, %192
-  %196 = load ptr, ptr %12, align 8
-  %197 = load ptr, ptr %14, align 8
-  %198 = icmp ule ptr %196, %197
-  br i1 %198, label %199, label %204
+196:                                              ; preds = %194, %193
+  %197 = load ptr, ptr %12, align 8, !tbaa !37
+  %198 = load ptr, ptr %14, align 8, !tbaa !37
+  %199 = icmp ule ptr %197, %198
+  br i1 %199, label %200, label %205
 
-199:                                              ; preds = %195
-  %200 = load ptr, ptr %5, align 8
-  %201 = load ptr, ptr %12, align 8
-  %202 = load ptr, ptr %14, align 8
-  %203 = call ptr @cloudBddAnd(ptr noundef %200, ptr noundef %201, ptr noundef %202)
-  store ptr %203, ptr %16, align 8
-  br label %209
+200:                                              ; preds = %196
+  %201 = load ptr, ptr %5, align 8, !tbaa !7
+  %202 = load ptr, ptr %12, align 8, !tbaa !37
+  %203 = load ptr, ptr %14, align 8, !tbaa !37
+  %204 = call ptr @cloudBddAnd(ptr noundef %201, ptr noundef %202, ptr noundef %203)
+  store ptr %204, ptr %16, align 8, !tbaa !37
+  br label %210
 
-204:                                              ; preds = %195
-  %205 = load ptr, ptr %5, align 8
-  %206 = load ptr, ptr %14, align 8
-  %207 = load ptr, ptr %12, align 8
-  %208 = call ptr @cloudBddAnd(ptr noundef %205, ptr noundef %206, ptr noundef %207)
-  store ptr %208, ptr %16, align 8
-  br label %209
+205:                                              ; preds = %196
+  %206 = load ptr, ptr %5, align 8, !tbaa !7
+  %207 = load ptr, ptr %14, align 8, !tbaa !37
+  %208 = load ptr, ptr %12, align 8, !tbaa !37
+  %209 = call ptr @cloudBddAnd(ptr noundef %206, ptr noundef %207, ptr noundef %208)
+  store ptr %209, ptr %16, align 8, !tbaa !37
+  br label %210
 
-209:                                              ; preds = %204, %199
-  %210 = load ptr, ptr %16, align 8
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %213
+210:                                              ; preds = %205, %200
+  %211 = load ptr, ptr %16, align 8, !tbaa !37
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %213, label %214
 
-212:                                              ; preds = %209
+213:                                              ; preds = %210
   store ptr null, ptr %4, align 8
-  br label %290
+  store i32 1, ptr %19, align 4
+  br label %291
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %13, align 8
-  %215 = load ptr, ptr %15, align 8
-  %216 = icmp ule ptr %214, %215
-  br i1 %216, label %217, label %222
+214:                                              ; preds = %210
+  %215 = load ptr, ptr %13, align 8, !tbaa !37
+  %216 = load ptr, ptr %15, align 8, !tbaa !37
+  %217 = icmp ule ptr %215, %216
+  br i1 %217, label %218, label %223
 
-217:                                              ; preds = %213
-  %218 = load ptr, ptr %5, align 8
-  %219 = load ptr, ptr %13, align 8
-  %220 = load ptr, ptr %15, align 8
-  %221 = call ptr @cloudBddAnd(ptr noundef %218, ptr noundef %219, ptr noundef %220)
-  store ptr %221, ptr %17, align 8
-  br label %227
+218:                                              ; preds = %214
+  %219 = load ptr, ptr %5, align 8, !tbaa !7
+  %220 = load ptr, ptr %13, align 8, !tbaa !37
+  %221 = load ptr, ptr %15, align 8, !tbaa !37
+  %222 = call ptr @cloudBddAnd(ptr noundef %219, ptr noundef %220, ptr noundef %221)
+  store ptr %222, ptr %17, align 8, !tbaa !37
+  br label %228
 
-222:                                              ; preds = %213
-  %223 = load ptr, ptr %5, align 8
-  %224 = load ptr, ptr %15, align 8
-  %225 = load ptr, ptr %13, align 8
-  %226 = call ptr @cloudBddAnd(ptr noundef %223, ptr noundef %224, ptr noundef %225)
-  store ptr %226, ptr %17, align 8
-  br label %227
+223:                                              ; preds = %214
+  %224 = load ptr, ptr %5, align 8, !tbaa !7
+  %225 = load ptr, ptr %15, align 8, !tbaa !37
+  %226 = load ptr, ptr %13, align 8, !tbaa !37
+  %227 = call ptr @cloudBddAnd(ptr noundef %224, ptr noundef %225, ptr noundef %226)
+  store ptr %227, ptr %17, align 8, !tbaa !37
+  br label %228
 
-227:                                              ; preds = %222, %217
-  %228 = load ptr, ptr %17, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %231
+228:                                              ; preds = %223, %218
+  %229 = load ptr, ptr %17, align 8, !tbaa !37
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %231, label %232
 
-230:                                              ; preds = %227
+231:                                              ; preds = %228
   store ptr null, ptr %4, align 8
-  br label %290
+  store i32 1, ptr %19, align 4
+  br label %291
 
-231:                                              ; preds = %227
-  %232 = load ptr, ptr %16, align 8
-  %233 = load ptr, ptr %17, align 8
-  %234 = icmp eq ptr %232, %233
-  br i1 %234, label %235, label %237
+232:                                              ; preds = %228
+  %233 = load ptr, ptr %16, align 8, !tbaa !37
+  %234 = load ptr, ptr %17, align 8, !tbaa !37
+  %235 = icmp eq ptr %233, %234
+  br i1 %235, label %236, label %238
 
-235:                                              ; preds = %231
-  %236 = load ptr, ptr %16, align 8
-  store ptr %236, ptr %10, align 8
+236:                                              ; preds = %232
+  %237 = load ptr, ptr %16, align 8, !tbaa !37
+  store ptr %237, ptr %10, align 8, !tbaa !37
+  br label %275
+
+238:                                              ; preds = %232
+  %239 = load ptr, ptr %16, align 8, !tbaa !37
+  %240 = ptrtoint ptr %239 to i64
+  %241 = and i64 %240, 1
+  %242 = trunc i64 %241 to i32
+  %243 = icmp ne i32 %242, 0
+  br i1 %243, label %244, label %264
+
+244:                                              ; preds = %238
+  %245 = load ptr, ptr %5, align 8, !tbaa !7
+  %246 = load i32, ptr %18, align 4, !tbaa !3
+  %247 = load ptr, ptr %16, align 8, !tbaa !37
+  %248 = ptrtoint ptr %247 to i64
+  %249 = xor i64 %248, 1
+  %250 = inttoptr i64 %249 to ptr
+  %251 = load ptr, ptr %17, align 8, !tbaa !37
+  %252 = ptrtoint ptr %251 to i64
+  %253 = xor i64 %252, 1
+  %254 = inttoptr i64 %253 to ptr
+  %255 = call ptr @cloudMakeNode(ptr noundef %245, i32 noundef %246, ptr noundef %250, ptr noundef %254)
+  store ptr %255, ptr %10, align 8, !tbaa !37
+  %256 = load ptr, ptr %10, align 8, !tbaa !37
+  %257 = icmp eq ptr %256, null
+  br i1 %257, label %258, label %259
+
+258:                                              ; preds = %244
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
+
+259:                                              ; preds = %244
+  %260 = load ptr, ptr %10, align 8, !tbaa !37
+  %261 = ptrtoint ptr %260 to i64
+  %262 = xor i64 %261, 1
+  %263 = inttoptr i64 %262 to ptr
+  store ptr %263, ptr %10, align 8, !tbaa !37
   br label %274
 
-237:                                              ; preds = %231
-  %238 = load ptr, ptr %16, align 8
-  %239 = ptrtoint ptr %238 to i64
-  %240 = and i64 %239, 1
-  %241 = trunc i64 %240 to i32
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %263
+264:                                              ; preds = %238
+  %265 = load ptr, ptr %5, align 8, !tbaa !7
+  %266 = load i32, ptr %18, align 4, !tbaa !3
+  %267 = load ptr, ptr %16, align 8, !tbaa !37
+  %268 = load ptr, ptr %17, align 8, !tbaa !37
+  %269 = call ptr @cloudMakeNode(ptr noundef %265, i32 noundef %266, ptr noundef %267, ptr noundef %268)
+  store ptr %269, ptr %10, align 8, !tbaa !37
+  %270 = load ptr, ptr %10, align 8, !tbaa !37
+  %271 = icmp eq ptr %270, null
+  br i1 %271, label %272, label %273
 
-243:                                              ; preds = %237
-  %244 = load ptr, ptr %5, align 8
-  %245 = load i32, ptr %18, align 4
-  %246 = load ptr, ptr %16, align 8
-  %247 = ptrtoint ptr %246 to i64
-  %248 = xor i64 %247, 1
-  %249 = inttoptr i64 %248 to ptr
-  %250 = load ptr, ptr %17, align 8
-  %251 = ptrtoint ptr %250 to i64
-  %252 = xor i64 %251, 1
-  %253 = inttoptr i64 %252 to ptr
-  %254 = call ptr @cloudMakeNode(ptr noundef %244, i32 noundef %245, ptr noundef %249, ptr noundef %253)
-  store ptr %254, ptr %10, align 8
-  %255 = load ptr, ptr %10, align 8
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %257, label %258
-
-257:                                              ; preds = %243
+272:                                              ; preds = %264
   store ptr null, ptr %4, align 8
-  br label %290
+  store i32 1, ptr %19, align 4
+  br label %291
 
-258:                                              ; preds = %243
-  %259 = load ptr, ptr %10, align 8
-  %260 = ptrtoint ptr %259 to i64
-  %261 = xor i64 %260, 1
-  %262 = inttoptr i64 %261 to ptr
-  store ptr %262, ptr %10, align 8
-  br label %273
-
-263:                                              ; preds = %237
-  %264 = load ptr, ptr %5, align 8
-  %265 = load i32, ptr %18, align 4
-  %266 = load ptr, ptr %16, align 8
-  %267 = load ptr, ptr %17, align 8
-  %268 = call ptr @cloudMakeNode(ptr noundef %264, i32 noundef %265, ptr noundef %266, ptr noundef %267)
-  store ptr %268, ptr %10, align 8
-  %269 = load ptr, ptr %10, align 8
-  %270 = icmp eq ptr %269, null
-  br i1 %270, label %271, label %272
-
-271:                                              ; preds = %263
-  store ptr null, ptr %4, align 8
-  br label %290
-
-272:                                              ; preds = %263
-  br label %273
-
-273:                                              ; preds = %272, %258
+273:                                              ; preds = %264
   br label %274
 
-274:                                              ; preds = %273, %235
-  %275 = load ptr, ptr %5, align 8
-  %276 = getelementptr inbounds %struct.cloudManager, ptr %275, i32 0, i32 8
-  %277 = load i32, ptr %276, align 8
-  %278 = load ptr, ptr %11, align 8
-  %279 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %278, i32 0, i32 0
-  store i32 %277, ptr %279, align 8
-  %280 = load ptr, ptr %6, align 8
-  %281 = load ptr, ptr %11, align 8
-  %282 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %281, i32 0, i32 1
-  store ptr %280, ptr %282, align 8
-  %283 = load ptr, ptr %7, align 8
-  %284 = load ptr, ptr %11, align 8
-  %285 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %284, i32 0, i32 2
-  store ptr %283, ptr %285, align 8
-  %286 = load ptr, ptr %10, align 8
-  %287 = load ptr, ptr %11, align 8
-  %288 = getelementptr inbounds %struct.cloudCacheEntry2, ptr %287, i32 0, i32 3
-  store ptr %286, ptr %288, align 8
-  %289 = load ptr, ptr %10, align 8
-  store ptr %289, ptr %4, align 8
-  br label %290
+274:                                              ; preds = %273, %259
+  br label %275
 
-290:                                              ; preds = %274, %271, %257, %230, %212, %105, %54, %52, %36, %34
-  %291 = load ptr, ptr %4, align 8
-  ret ptr %291
+275:                                              ; preds = %274, %236
+  %276 = load ptr, ptr %5, align 8, !tbaa !7
+  %277 = getelementptr inbounds nuw %struct.cloudManager, ptr %276, i32 0, i32 8
+  %278 = load i32, ptr %277, align 8, !tbaa !25
+  %279 = load ptr, ptr %11, align 8, !tbaa !44
+  %280 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %279, i32 0, i32 0
+  store i32 %278, ptr %280, align 8, !tbaa !48
+  %281 = load ptr, ptr %6, align 8, !tbaa !37
+  %282 = load ptr, ptr %11, align 8, !tbaa !44
+  %283 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %282, i32 0, i32 1
+  store ptr %281, ptr %283, align 8, !tbaa !50
+  %284 = load ptr, ptr %7, align 8, !tbaa !37
+  %285 = load ptr, ptr %11, align 8, !tbaa !44
+  %286 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %285, i32 0, i32 2
+  store ptr %284, ptr %286, align 8, !tbaa !51
+  %287 = load ptr, ptr %10, align 8, !tbaa !37
+  %288 = load ptr, ptr %11, align 8, !tbaa !44
+  %289 = getelementptr inbounds nuw %struct.cloudCacheEntry2, ptr %288, i32 0, i32 3
+  store ptr %287, ptr %289, align 8, !tbaa !52
+  %290 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %290, ptr %4, align 8
+  store i32 1, ptr %19, align 4
+  br label %291
+
+291:                                              ; preds = %275, %272, %258, %231, %213, %106, %55, %53, %37, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %292 = load ptr, ptr %4, align 8
+  ret ptr %292
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1325,10 +1386,10 @@ define ptr @Cloud_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %6, align 8, !tbaa !37
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
@@ -1336,7 +1397,7 @@ define ptr @Cloud_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !37
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
@@ -1348,22 +1409,22 @@ define ptr @Cloud_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %33
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.cloudManager, ptr %21, i32 0, i32 22
+  %21 = load ptr, ptr %5, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.cloudManager, ptr %21, i32 0, i32 22
   %23 = getelementptr inbounds [20 x ptr], ptr %22, i64 0, i64 0
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8, !tbaa !7
   call void @cloudCacheAllocate(ptr noundef %27, i32 noundef 0)
   br label %28
 
 28:                                               ; preds = %26, %20
-  %29 = load ptr, ptr %5, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %7, align 8
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = load ptr, ptr %6, align 8, !tbaa !37
+  %31 = load ptr, ptr %7, align 8, !tbaa !37
   %32 = call ptr @cloudBddAnd_gate(ptr noundef %29, ptr noundef %30, ptr noundef %31)
   store ptr %32, ptr %4, align 8
   br label %33
@@ -1373,32 +1434,32 @@ define ptr @Cloud_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   ret ptr %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @cloudBddAnd_gate(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @cloudBddAnd_gate(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %6, align 8, !tbaa !37
+  %9 = load ptr, ptr %7, align 8, !tbaa !37
   %10 = icmp ule ptr %8, %9
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !37
+  %14 = load ptr, ptr %7, align 8, !tbaa !37
   %15 = call ptr @cloudBddAnd(ptr noundef %12, ptr noundef %13, ptr noundef %14)
   store ptr %15, ptr %4, align 8
   br label %21
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %5, align 8, !tbaa !7
+  %18 = load ptr, ptr %7, align 8, !tbaa !37
+  %19 = load ptr, ptr %6, align 8, !tbaa !37
   %20 = call ptr @cloudBddAnd(ptr noundef %17, ptr noundef %18, ptr noundef %19)
   store ptr %20, ptr %4, align 8
   br label %21
@@ -1415,69 +1476,74 @@ define ptr @Cloud_bddOr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, -2
-  %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %20, label %14
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr %6, align 8, !tbaa !37
+  %11 = ptrtoint ptr %10 to i64
+  %12 = and i64 %11, -2
+  %13 = inttoptr i64 %12 to ptr
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %21, label %15
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %7, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = and i64 %16, -2
-  %18 = inttoptr i64 %17 to ptr
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %7, align 8, !tbaa !37
+  %17 = ptrtoint ptr %16 to i64
+  %18 = and i64 %17, -2
+  %19 = inttoptr i64 %18 to ptr
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %14, %3
+21:                                               ; preds = %15, %3
   store ptr null, ptr %4, align 8
-  br label %49
+  store i32 1, ptr %9, align 4
+  br label %50
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.cloudManager, ptr %22, i32 0, i32 22
-  %24 = getelementptr inbounds [20 x ptr], ptr %23, i64 0, i64 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %29
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %5, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw %struct.cloudManager, ptr %23, i32 0, i32 22
+  %25 = getelementptr inbounds [20 x ptr], ptr %24, i64 0, i64 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !44
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %5, align 8
-  call void @cloudCacheAllocate(ptr noundef %28, i32 noundef 0)
-  br label %29
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @cloudCacheAllocate(ptr noundef %29, i32 noundef 0)
+  br label %30
 
-29:                                               ; preds = %27, %21
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = xor i64 %32, 1
-  %34 = inttoptr i64 %33 to ptr
-  %35 = load ptr, ptr %7, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = xor i64 %36, 1
-  %38 = inttoptr i64 %37 to ptr
-  %39 = call ptr @cloudBddAnd_gate(ptr noundef %30, ptr noundef %34, ptr noundef %38)
-  store ptr %39, ptr %8, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = load ptr, ptr %8, align 8
-  %43 = icmp ne ptr %42, null
-  %44 = zext i1 %43 to i32
-  %45 = sext i32 %44 to i64
-  %46 = xor i64 %41, %45
-  %47 = inttoptr i64 %46 to ptr
-  store ptr %47, ptr %8, align 8
-  %48 = load ptr, ptr %8, align 8
-  store ptr %48, ptr %4, align 8
-  br label %49
+30:                                               ; preds = %28, %22
+  %31 = load ptr, ptr %5, align 8, !tbaa !7
+  %32 = load ptr, ptr %6, align 8, !tbaa !37
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %33, 1
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load ptr, ptr %7, align 8, !tbaa !37
+  %37 = ptrtoint ptr %36 to i64
+  %38 = xor i64 %37, 1
+  %39 = inttoptr i64 %38 to ptr
+  %40 = call ptr @cloudBddAnd_gate(ptr noundef %31, ptr noundef %35, ptr noundef %39)
+  store ptr %40, ptr %8, align 8, !tbaa !37
+  %41 = load ptr, ptr %8, align 8, !tbaa !37
+  %42 = ptrtoint ptr %41 to i64
+  %43 = load ptr, ptr %8, align 8, !tbaa !37
+  %44 = icmp ne ptr %43, null
+  %45 = zext i1 %44 to i32
+  %46 = sext i32 %45 to i64
+  %47 = xor i64 %42, %46
+  %48 = inttoptr i64 %47 to ptr
+  store ptr %48, ptr %8, align 8, !tbaa !37
+  %49 = load ptr, ptr %8, align 8, !tbaa !37
+  store ptr %49, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %50
 
-49:                                               ; preds = %29, %20
-  %50 = load ptr, ptr %4, align 8
-  ret ptr %50
+50:                                               ; preds = %30, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %51 = load ptr, ptr %4, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1489,88 +1555,99 @@ define ptr @Cloud_bddXor(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, -2
-  %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %22, label %16
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !37
+  %13 = ptrtoint ptr %12 to i64
+  %14 = and i64 %13, -2
+  %15 = inttoptr i64 %14 to ptr
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %7, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, -2
-  %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %7, align 8, !tbaa !37
+  %19 = ptrtoint ptr %18 to i64
+  %20 = and i64 %19, -2
+  %21 = inttoptr i64 %20 to ptr
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %16, %3
+23:                                               ; preds = %17, %3
   store ptr null, ptr %4, align 8
-  br label %59
+  store i32 1, ptr %11, align 4
+  br label %60
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.cloudManager, ptr %24, i32 0, i32 22
-  %26 = getelementptr inbounds [20 x ptr], ptr %25, i64 0, i64 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.cloudManager, ptr %25, i32 0, i32 22
+  %27 = getelementptr inbounds [20 x ptr], ptr %26, i64 0, i64 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %5, align 8
-  call void @cloudCacheAllocate(ptr noundef %30, i32 noundef 0)
-  br label %31
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @cloudCacheAllocate(ptr noundef %31, i32 noundef 0)
+  br label %32
 
-31:                                               ; preds = %29, %23
-  %32 = load ptr, ptr %5, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = xor i64 %35, 1
-  %37 = inttoptr i64 %36 to ptr
-  %38 = call ptr @cloudBddAnd_gate(ptr noundef %32, ptr noundef %33, ptr noundef %37)
-  store ptr %38, ptr %8, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
+32:                                               ; preds = %30, %24
+  %33 = load ptr, ptr %5, align 8, !tbaa !7
+  %34 = load ptr, ptr %6, align 8, !tbaa !37
+  %35 = load ptr, ptr %7, align 8, !tbaa !37
+  %36 = ptrtoint ptr %35 to i64
+  %37 = xor i64 %36, 1
+  %38 = inttoptr i64 %37 to ptr
+  %39 = call ptr @cloudBddAnd_gate(ptr noundef %33, ptr noundef %34, ptr noundef %38)
+  store ptr %39, ptr %8, align 8, !tbaa !37
+  %40 = load ptr, ptr %8, align 8, !tbaa !37
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %31
+42:                                               ; preds = %32
   store ptr null, ptr %4, align 8
-  br label %59
+  store i32 1, ptr %11, align 4
+  br label %60
 
-42:                                               ; preds = %31
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = xor i64 %45, 1
-  %47 = inttoptr i64 %46 to ptr
-  %48 = load ptr, ptr %7, align 8
-  %49 = call ptr @cloudBddAnd_gate(ptr noundef %43, ptr noundef %47, ptr noundef %48)
-  store ptr %49, ptr %9, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %53
+43:                                               ; preds = %32
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
+  %45 = load ptr, ptr %6, align 8, !tbaa !37
+  %46 = ptrtoint ptr %45 to i64
+  %47 = xor i64 %46, 1
+  %48 = inttoptr i64 %47 to ptr
+  %49 = load ptr, ptr %7, align 8, !tbaa !37
+  %50 = call ptr @cloudBddAnd_gate(ptr noundef %44, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %9, align 8, !tbaa !37
+  %51 = load ptr, ptr %9, align 8, !tbaa !37
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %42
+53:                                               ; preds = %43
   store ptr null, ptr %4, align 8
-  br label %59
+  store i32 1, ptr %11, align 4
+  br label %60
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %5, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = load ptr, ptr %9, align 8
-  %57 = call ptr @Cloud_bddOr(ptr noundef %54, ptr noundef %55, ptr noundef %56)
-  store ptr %57, ptr %10, align 8
-  %58 = load ptr, ptr %10, align 8
-  store ptr %58, ptr %4, align 8
-  br label %59
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %5, align 8, !tbaa !7
+  %56 = load ptr, ptr %8, align 8, !tbaa !37
+  %57 = load ptr, ptr %9, align 8, !tbaa !37
+  %58 = call ptr @Cloud_bddOr(ptr noundef %55, ptr noundef %56, ptr noundef %57)
+  store ptr %58, ptr %10, align 8, !tbaa !37
+  %59 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %59, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %60
 
-59:                                               ; preds = %53, %52, %41, %22
-  %60 = load ptr, ptr %4, align 8
-  ret ptr %60
+60:                                               ; preds = %54, %53, %42, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %61 = load ptr, ptr %4, align 8
+  ret ptr %61
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1580,65 +1657,68 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cloudManager, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %8 = load ptr, ptr %3, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.cloudManager, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !14
   %11 = sext i32 %10 to i64
-  %12 = call noalias ptr @calloc(i64 noundef %11, i64 noundef 4) #5
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr %4, align 8
+  %12 = call noalias ptr @calloc(i64 noundef %11, i64 noundef 4) #8
+  store ptr %12, ptr %6, align 8, !tbaa !55
+  %13 = load ptr, ptr %3, align 8, !tbaa !7
+  %14 = load ptr, ptr %4, align 8, !tbaa !37
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !55
   call void @cloudSupport(ptr noundef %13, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = load ptr, ptr %4, align 8, !tbaa !37
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
   call void @cloudClearMark(ptr noundef %19, ptr noundef %23)
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.cloudManager, ptr %24, i32 0, i32 18
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %5, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.cloudManager, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.cloudManager, ptr %24, i32 0, i32 18
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  store ptr %26, ptr %5, align 8, !tbaa !37
+  %27 = load ptr, ptr %3, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.cloudManager, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !14
   %30 = sub nsw i32 %29, 1
-  store i32 %30, ptr %7, align 4
+  store i32 %30, ptr %7, align 4, !tbaa !3
   br label %31
 
 31:                                               ; preds = %57, %2
-  %32 = load i32, ptr %7, align 4
+  %32 = load i32, ptr %7, align 4, !tbaa !3
   %33 = icmp sge i32 %32, 0
   br i1 %33, label %34, label %60
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %7, align 4
+  %35 = load ptr, ptr %6, align 8, !tbaa !55
+  %36 = load i32, ptr %7, align 4, !tbaa !3
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i32, ptr %35, i64 %37
-  %39 = load i32, ptr %38, align 4
+  %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %56
 
 41:                                               ; preds = %34
-  %42 = load ptr, ptr %3, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.cloudManager, ptr %44, i32 0, i32 20
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %7, align 4
+  %42 = load ptr, ptr %3, align 8, !tbaa !7
+  %43 = load ptr, ptr %5, align 8, !tbaa !37
+  %44 = load ptr, ptr %3, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.cloudManager, ptr %44, i32 0, i32 20
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %47 = load i32, ptr %7, align 4, !tbaa !3
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %46, i64 %48
-  %50 = load ptr, ptr %49, align 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !37
   %51 = call ptr @Cloud_bddAnd(ptr noundef %42, ptr noundef %43, ptr noundef %50)
-  store ptr %51, ptr %5, align 8
-  %52 = load ptr, ptr %5, align 8
+  store ptr %51, ptr %5, align 8, !tbaa !37
+  %52 = load ptr, ptr %5, align 8, !tbaa !37
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
@@ -1652,27 +1732,30 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) #0 {
   br label %57
 
 57:                                               ; preds = %56
-  %58 = load i32, ptr %7, align 4
+  %58 = load i32, ptr %7, align 4, !tbaa !3
   %59 = add nsw i32 %58, -1
-  store i32 %59, ptr %7, align 4
-  br label %31, !llvm.loop !11
+  store i32 %59, ptr %7, align 4, !tbaa !3
+  br label %31, !llvm.loop !57
 
 60:                                               ; preds = %54, %31
-  %61 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %6, align 8, !tbaa !55
   %62 = icmp ne ptr %61, null
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8, !tbaa !55
   call void @free(ptr noundef %64) #7
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 8, !tbaa !55
   br label %66
 
 65:                                               ; preds = %60
   br label %66
 
 66:                                               ; preds = %65, %63
-  %67 = load ptr, ptr %5, align 8
+  %67 = load ptr, ptr %5, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %67
 }
 
@@ -1681,20 +1764,20 @@ define internal void @cloudSupport(ptr noundef %0, ptr noundef %1, ptr noundef %
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.cloudNode, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %5, align 8, !tbaa !37
+  %8 = getelementptr inbounds nuw %struct.cloudNode, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4, !tbaa !28
   %10 = and i32 %9, -268435457
   %11 = icmp eq i32 %10, 268435455
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.cloudNode, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
+  %13 = load ptr, ptr %5, align 8, !tbaa !37
+  %14 = getelementptr inbounds nuw %struct.cloudNode, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !28
   %16 = and i32 %15, 268435456
   %17 = icmp ne i32 %16, 0
   br i1 %17, label %18, label %19
@@ -1703,32 +1786,32 @@ define internal void @cloudSupport(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %43
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.cloudNode, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 4
+  %20 = load ptr, ptr %5, align 8, !tbaa !37
+  %21 = getelementptr inbounds nuw %struct.cloudNode, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !28
   %23 = or i32 %22, 268435456
-  store i32 %23, ptr %21, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.cloudNode, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
+  store i32 %23, ptr %21, align 4, !tbaa !28
+  %24 = load ptr, ptr %6, align 8, !tbaa !55
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
+  %26 = getelementptr inbounds nuw %struct.cloudNode, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !28
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %24, i64 %28
-  store i32 1, ptr %29, align 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.cloudNode, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw i32, ptr %24, i64 %28
+  store i32 1, ptr %29, align 4, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !7
+  %31 = load ptr, ptr %5, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw %struct.cloudNode, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
+  %34 = load ptr, ptr %6, align 8, !tbaa !55
   call void @cloudSupport(ptr noundef %30, ptr noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.cloudNode, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %36 = load ptr, ptr %5, align 8, !tbaa !37
+  %37 = getelementptr inbounds nuw %struct.cloudNode, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !29
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %6, align 8, !tbaa !55
   call void @cloudSupport(ptr noundef %35, ptr noundef %41, ptr noundef %42)
   br label %43
 
@@ -1740,11 +1823,11 @@ define internal void @cloudSupport(ptr noundef %0, ptr noundef %1, ptr noundef %
 define internal void @cloudClearMark(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.cloudNode, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %6 = getelementptr inbounds nuw %struct.cloudNode, ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !28
   %8 = and i32 %7, 268435456
   %9 = icmp ne i32 %8, 0
   br i1 %9, label %11, label %10
@@ -1753,14 +1836,14 @@ define internal void @cloudClearMark(ptr noundef %0, ptr noundef %1) #0 {
   br label %34
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.cloudNode, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 4
+  %12 = load ptr, ptr %4, align 8, !tbaa !37
+  %13 = getelementptr inbounds nuw %struct.cloudNode, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !28
   %15 = and i32 %14, -268435457
-  store i32 %15, ptr %13, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.cloudNode, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 4
+  store i32 %15, ptr %13, align 4, !tbaa !28
+  %16 = load ptr, ptr %4, align 8, !tbaa !37
+  %17 = getelementptr inbounds nuw %struct.cloudNode, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !28
   %19 = and i32 %18, -268435457
   %20 = icmp eq i32 %19, 268435455
   br i1 %20, label %21, label %22
@@ -1769,15 +1852,15 @@ define internal void @cloudClearMark(ptr noundef %0, ptr noundef %1) #0 {
   br label %34
 
 22:                                               ; preds = %11
-  %23 = load ptr, ptr %3, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.cloudNode, ptr %24, i32 0, i32 3
-  %26 = load ptr, ptr %25, align 8
+  %23 = load ptr, ptr %3, align 8, !tbaa !7
+  %24 = load ptr, ptr %4, align 8, !tbaa !37
+  %25 = getelementptr inbounds nuw %struct.cloudNode, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   call void @cloudClearMark(ptr noundef %23, ptr noundef %26)
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.cloudNode, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
+  %27 = load ptr, ptr %3, align 8, !tbaa !7
+  %28 = load ptr, ptr %4, align 8, !tbaa !37
+  %29 = getelementptr inbounds nuw %struct.cloudNode, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !29
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
@@ -1795,79 +1878,85 @@ define i32 @Cloud_SupportSize(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cloudManager, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %8 = load ptr, ptr %3, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.cloudManager, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !14
   %11 = sext i32 %10 to i64
-  %12 = call noalias ptr @calloc(i64 noundef %11, i64 noundef 4) #5
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr %4, align 8
+  %12 = call noalias ptr @calloc(i64 noundef %11, i64 noundef 4) #8
+  store ptr %12, ptr %5, align 8, !tbaa !55
+  %13 = load ptr, ptr %3, align 8, !tbaa !7
+  %14 = load ptr, ptr %4, align 8, !tbaa !37
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8, !tbaa !55
   call void @cloudSupport(ptr noundef %13, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !7
+  %20 = load ptr, ptr %4, align 8, !tbaa !37
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
   call void @cloudClearMark(ptr noundef %19, ptr noundef %23)
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 4, !tbaa !3
+  store i32 0, ptr %6, align 4, !tbaa !3
   br label %24
 
 24:                                               ; preds = %41, %2
-  %25 = load i32, ptr %6, align 4
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.cloudManager, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
+  %25 = load i32, ptr %6, align 4, !tbaa !3
+  %26 = load ptr, ptr %3, align 8, !tbaa !7
+  %27 = getelementptr inbounds nuw %struct.cloudManager, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8, !tbaa !14
   %29 = icmp slt i32 %25, %28
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
+  %31 = load ptr, ptr %5, align 8, !tbaa !55
+  %32 = load i32, ptr %6, align 4, !tbaa !3
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %31, i64 %33
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %30
-  %38 = load i32, ptr %7, align 4
+  %38 = load i32, ptr %7, align 4, !tbaa !3
   %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %7, align 4
+  store i32 %39, ptr %7, align 4, !tbaa !3
   br label %40
 
 40:                                               ; preds = %37, %30
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load i32, ptr %6, align 4
+  %42 = load i32, ptr %6, align 4, !tbaa !3
   %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %6, align 4
-  br label %24, !llvm.loop !12
+  store i32 %43, ptr %6, align 4, !tbaa !3
+  br label %24, !llvm.loop !58
 
 44:                                               ; preds = %24
-  %45 = load ptr, ptr %5, align 8
+  %45 = load ptr, ptr %5, align 8, !tbaa !55
   %46 = icmp ne ptr %45, null
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %5, align 8, !tbaa !55
   call void @free(ptr noundef %48) #7
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !55
   br label %50
 
 49:                                               ; preds = %44
   br label %50
 
 50:                                               ; preds = %49, %47
-  %51 = load i32, ptr %7, align 4
+  %51 = load i32, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret i32 %51
 }
 
@@ -1876,22 +1965,24 @@ define i32 @Cloud_DagSize(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = load ptr, ptr %4, align 8, !tbaa !37
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = call i32 @cloudDagSize(ptr noundef %6, ptr noundef %10)
-  store i32 %11, ptr %5, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %4, align 8
+  store i32 %11, ptr %5, align 4, !tbaa !3
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = load ptr, ptr %4, align 8, !tbaa !37
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
   call void @cloudClearMark(ptr noundef %12, ptr noundef %16)
-  %17 = load i32, ptr %5, align 4
+  %17 = load i32, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i32 %17
 }
 
@@ -1902,62 +1993,70 @@ define internal i32 @cloudDagSize(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.cloudNode, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 268435456
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %43
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %9 = load ptr, ptr %5, align 8, !tbaa !37
+  %10 = getelementptr inbounds nuw %struct.cloudNode, ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4, !tbaa !28
+  %12 = and i32 %11, 268435456
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.cloudNode, ptr %15, i32 0, i32 1
-  %17 = load i32, ptr %16, align 4
-  %18 = or i32 %17, 268435456
-  store i32 %18, ptr %16, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.cloudNode, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, -268435457
-  %23 = icmp eq i32 %22, 268435455
-  br i1 %23, label %24, label %25
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-24:                                               ; preds = %14
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8, !tbaa !37
+  %17 = getelementptr inbounds nuw %struct.cloudNode, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !28
+  %19 = or i32 %18, 268435456
+  store i32 %19, ptr %17, align 4, !tbaa !28
+  %20 = load ptr, ptr %5, align 8, !tbaa !37
+  %21 = getelementptr inbounds nuw %struct.cloudNode, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !28
+  %23 = and i32 %22, -268435457
+  %24 = icmp eq i32 %23, 268435455
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %15
   store i32 1, ptr %3, align 4
-  br label %43
+  store i32 1, ptr %8, align 4
+  br label %44
 
-25:                                               ; preds = %14
-  %26 = load ptr, ptr %4, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.cloudNode, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @cloudDagSize(ptr noundef %26, ptr noundef %29)
-  store i32 %30, ptr %6, align 4
-  %31 = load ptr, ptr %4, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.cloudNode, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -2
-  %37 = inttoptr i64 %36 to ptr
-  %38 = call i32 @cloudDagSize(ptr noundef %31, ptr noundef %37)
-  store i32 %38, ptr %7, align 4
-  %39 = load i32, ptr %6, align 4
-  %40 = load i32, ptr %7, align 4
-  %41 = add nsw i32 %39, %40
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %3, align 4
-  br label %43
+26:                                               ; preds = %15
+  %27 = load ptr, ptr %4, align 8, !tbaa !7
+  %28 = load ptr, ptr %5, align 8, !tbaa !37
+  %29 = getelementptr inbounds nuw %struct.cloudNode, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
+  %31 = call i32 @cloudDagSize(ptr noundef %27, ptr noundef %30)
+  store i32 %31, ptr %6, align 4, !tbaa !3
+  %32 = load ptr, ptr %4, align 8, !tbaa !7
+  %33 = load ptr, ptr %5, align 8, !tbaa !37
+  %34 = getelementptr inbounds nuw %struct.cloudNode, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %36 = ptrtoint ptr %35 to i64
+  %37 = and i64 %36, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = call i32 @cloudDagSize(ptr noundef %32, ptr noundef %38)
+  store i32 %39, ptr %7, align 4, !tbaa !3
+  %40 = load i32, ptr %6, align 4, !tbaa !3
+  %41 = load i32, ptr %7, align 4, !tbaa !3
+  %42 = add nsw i32 %40, %41
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-43:                                               ; preds = %25, %24, %13
-  %44 = load i32, ptr %3, align 4
-  ret i32 %44
+44:                                               ; preds = %26, %25, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %45 = load i32, ptr %3, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1966,42 +2065,46 @@ define i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.cloudManager, ptr %7, i32 0, i32 21
-  %9 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw %struct.cloudManager, ptr %7, i32 0, i32 21
+  %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.cloudManager, ptr %12, i32 0, i32 6
-  %14 = load i32, ptr %13, align 8
+  %12 = load ptr, ptr %3, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.cloudManager, ptr %12, i32 0, i32 6
+  %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = sext i32 %14 to i64
   %16 = mul i64 8, %15
-  %17 = call noalias ptr @malloc(i64 noundef %16) #6
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.cloudManager, ptr %18, i32 0, i32 21
-  store ptr %17, ptr %19, align 8
+  %17 = call noalias ptr @malloc(i64 noundef %16) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.cloudManager, ptr %18, i32 0, i32 21
+  store ptr %17, ptr %19, align 8, !tbaa !43
   br label %20
 
 20:                                               ; preds = %11, %2
-  %21 = load ptr, ptr %3, align 8
-  %22 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !7
+  %22 = load ptr, ptr %4, align 8, !tbaa !37
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
   %26 = call i32 @Cloud_DagCollect_rec(ptr noundef %21, ptr noundef %25, ptr noundef %6)
-  store i32 %26, ptr %5, align 4
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %4, align 8
+  store i32 %26, ptr %5, align 4, !tbaa !3
+  %27 = load ptr, ptr %3, align 8, !tbaa !7
+  %28 = load ptr, ptr %4, align 8, !tbaa !37
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   call void @cloudClearMark(ptr noundef %27, ptr noundef %31)
-  %32 = load i32, ptr %5, align 4
+  %32 = load i32, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret i32 %32
 }
 
@@ -2013,87 +2116,95 @@ define internal i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.cloudNode, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 268435456
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %65
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %11 = load ptr, ptr %6, align 8, !tbaa !37
+  %12 = getelementptr inbounds nuw %struct.cloudNode, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %14 = and i32 %13, 268435456
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.cloudNode, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
-  %20 = or i32 %19, 268435456
-  store i32 %20, ptr %18, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.cloudNode, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, -268435457
-  %25 = icmp eq i32 %24, 268435455
-  br i1 %25, label %26, label %36
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %66
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.cloudManager, ptr %28, i32 0, i32 21
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %31, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds ptr, ptr %30, i64 %34
-  store ptr %27, ptr %35, align 8
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !37
+  %19 = getelementptr inbounds nuw %struct.cloudNode, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !28
+  %21 = or i32 %20, 268435456
+  store i32 %21, ptr %19, align 4, !tbaa !28
+  %22 = load ptr, ptr %6, align 8, !tbaa !37
+  %23 = getelementptr inbounds nuw %struct.cloudNode, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %25 = and i32 %24, -268435457
+  %26 = icmp eq i32 %25, 268435455
+  br i1 %26, label %27, label %37
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %6, align 8, !tbaa !37
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.cloudManager, ptr %29, i32 0, i32 21
+  %31 = load ptr, ptr %30, align 8, !tbaa !43
+  %32 = load ptr, ptr %7, align 8, !tbaa !55
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %32, align 4, !tbaa !3
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr inbounds ptr, ptr %31, i64 %35
+  store ptr %28, ptr %36, align 8, !tbaa !37
   store i32 1, ptr %4, align 4
-  br label %65
+  store i32 1, ptr %10, align 4
+  br label %66
 
-36:                                               ; preds = %16
-  %37 = load ptr, ptr %5, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.cloudNode, ptr %38, i32 0, i32 3
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = call i32 @Cloud_DagCollect_rec(ptr noundef %37, ptr noundef %40, ptr noundef %41)
-  store i32 %42, ptr %8, align 4
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.cloudNode, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = and i64 %47, -2
-  %49 = inttoptr i64 %48 to ptr
-  %50 = load ptr, ptr %7, align 8
-  %51 = call i32 @Cloud_DagCollect_rec(ptr noundef %43, ptr noundef %49, ptr noundef %50)
-  store i32 %51, ptr %9, align 4
-  %52 = load ptr, ptr %6, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.cloudManager, ptr %53, i32 0, i32 21
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = load i32, ptr %56, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %56, align 4
-  %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds ptr, ptr %55, i64 %59
-  store ptr %52, ptr %60, align 8
-  %61 = load i32, ptr %8, align 4
-  %62 = load i32, ptr %9, align 4
-  %63 = add nsw i32 %61, %62
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %4, align 4
-  br label %65
+37:                                               ; preds = %17
+  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %39 = load ptr, ptr %6, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw %struct.cloudNode, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
+  %42 = load ptr, ptr %7, align 8, !tbaa !55
+  %43 = call i32 @Cloud_DagCollect_rec(ptr noundef %38, ptr noundef %41, ptr noundef %42)
+  store i32 %43, ptr %8, align 4, !tbaa !3
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
+  %45 = load ptr, ptr %6, align 8, !tbaa !37
+  %46 = getelementptr inbounds nuw %struct.cloudNode, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8, !tbaa !29
+  %48 = ptrtoint ptr %47 to i64
+  %49 = and i64 %48, -2
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %7, align 8, !tbaa !55
+  %52 = call i32 @Cloud_DagCollect_rec(ptr noundef %44, ptr noundef %50, ptr noundef %51)
+  store i32 %52, ptr %9, align 4, !tbaa !3
+  %53 = load ptr, ptr %6, align 8, !tbaa !37
+  %54 = load ptr, ptr %5, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw %struct.cloudManager, ptr %54, i32 0, i32 21
+  %56 = load ptr, ptr %55, align 8, !tbaa !43
+  %57 = load ptr, ptr %7, align 8, !tbaa !55
+  %58 = load i32, ptr %57, align 4, !tbaa !3
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !3
+  %60 = sext i32 %58 to i64
+  %61 = getelementptr inbounds ptr, ptr %56, i64 %60
+  store ptr %53, ptr %61, align 8, !tbaa !37
+  %62 = load i32, ptr %8, align 4, !tbaa !3
+  %63 = load i32, ptr %9, align 4, !tbaa !3
+  %64 = add nsw i32 %62, %63
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %66
 
-65:                                               ; preds = %36, %26, %15
-  %66 = load i32, ptr %4, align 4
-  ret i32 %66
+66:                                               ; preds = %37, %27, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %67 = load i32, ptr %4, align 4
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2103,58 +2214,60 @@ define i32 @Cloud_SharingSize(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  store i32 0, ptr %7, align 4, !tbaa !3
+  store i32 0, ptr %8, align 4, !tbaa !3
   br label %9
 
 9:                                                ; preds = %26, %3
-  %10 = load i32, ptr %8, align 4
-  %11 = load i32, ptr %6, align 4
+  %10 = load i32, ptr %8, align 4, !tbaa !3
+  %11 = load i32, ptr %6, align 4, !tbaa !3
   %12 = icmp slt i32 %10, %11
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %8, align 4
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  %15 = load ptr, ptr %5, align 8, !tbaa !59
+  %16 = load i32, ptr %8, align 4, !tbaa !3
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %15, i64 %17
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
   %23 = call i32 @cloudDagSize(ptr noundef %14, ptr noundef %22)
-  %24 = load i32, ptr %7, align 4
+  %24 = load i32, ptr %7, align 4, !tbaa !3
   %25 = add nsw i32 %24, %23
-  store i32 %25, ptr %7, align 4
+  store i32 %25, ptr %7, align 4, !tbaa !3
   br label %26
 
 26:                                               ; preds = %13
-  %27 = load i32, ptr %8, align 4
+  %27 = load i32, ptr %8, align 4, !tbaa !3
   %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %8, align 4
-  br label %9, !llvm.loop !13
+  store i32 %28, ptr %8, align 4, !tbaa !3
+  br label %9, !llvm.loop !60
 
 29:                                               ; preds = %9
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !3
   br label %30
 
 30:                                               ; preds = %44, %29
-  %31 = load i32, ptr %8, align 4
-  %32 = load i32, ptr %6, align 4
+  %31 = load i32, ptr %8, align 4, !tbaa !3
+  %32 = load i32, ptr %6, align 4, !tbaa !3
   %33 = icmp slt i32 %31, %32
   br i1 %33, label %34, label %47
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %4, align 8, !tbaa !7
+  %36 = load ptr, ptr %5, align 8, !tbaa !59
+  %37 = load i32, ptr %8, align 4, !tbaa !3
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
@@ -2162,13 +2275,15 @@ define i32 @Cloud_SharingSize(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br label %44
 
 44:                                               ; preds = %34
-  %45 = load i32, ptr %8, align 4
+  %45 = load i32, ptr %8, align 4, !tbaa !3
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %8, align 4
-  br label %30, !llvm.loop !14
+  store i32 %46, ptr %8, align 4, !tbaa !3
+  br label %30, !llvm.loop !61
 
 47:                                               ; preds = %30
-  %48 = load i32, ptr %7, align 4
+  %48 = load i32, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   ret i32 %48
 }
 
@@ -2180,142 +2295,153 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, -2
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds %struct.cloudNode, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, -268435457
-  %16 = icmp eq i32 %15, 268435455
-  br i1 %16, label %17, label %19
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr %5, align 8, !tbaa !37
+  %11 = ptrtoint ptr %10 to i64
+  %12 = and i64 %11, -2
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds nuw %struct.cloudNode, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !28
+  %16 = and i32 %15, -268435457
+  %17 = icmp eq i32 %16, 268435455
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %5, align 8
-  store ptr %18, ptr %3, align 8
-  br label %102
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %19, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %103
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %21, 1
-  %23 = trunc i64 %22 to i32
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %38
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !37
+  %22 = ptrtoint ptr %21 to i64
+  %23 = and i64 %22, 1
+  %24 = trunc i64 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.cloudNode, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = xor i64 %29, 1
-  %31 = inttoptr i64 %30 to ptr
-  store ptr %31, ptr %6, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.cloudNode, ptr %32, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = xor i64 %35, 1
-  %37 = inttoptr i64 %36 to ptr
-  store ptr %37, ptr %7, align 8
-  br label %45
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %5, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw %struct.cloudNode, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %30 = ptrtoint ptr %29 to i64
+  %31 = xor i64 %30, 1
+  %32 = inttoptr i64 %31 to ptr
+  store ptr %32, ptr %6, align 8, !tbaa !37
+  %33 = load ptr, ptr %5, align 8, !tbaa !37
+  %34 = getelementptr inbounds nuw %struct.cloudNode, ptr %33, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
+  %36 = ptrtoint ptr %35 to i64
+  %37 = xor i64 %36, 1
+  %38 = inttoptr i64 %37 to ptr
+  store ptr %38, ptr %7, align 8, !tbaa !37
+  br label %46
 
-38:                                               ; preds = %19
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.cloudNode, ptr %39, i32 0, i32 2
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %6, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.cloudNode, ptr %42, i32 0, i32 3
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %7, align 8
-  br label %45
+39:                                               ; preds = %20
+  %40 = load ptr, ptr %5, align 8, !tbaa !37
+  %41 = getelementptr inbounds nuw %struct.cloudNode, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  store ptr %42, ptr %6, align 8, !tbaa !37
+  %43 = load ptr, ptr %5, align 8, !tbaa !37
+  %44 = getelementptr inbounds nuw %struct.cloudNode, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
+  store ptr %45, ptr %7, align 8, !tbaa !37
+  br label %46
 
-45:                                               ; preds = %38, %25
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @Cloud_GetOneCube(ptr noundef %46, ptr noundef %47)
-  store ptr %48, ptr %8, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+46:                                               ; preds = %39, %26
+  %47 = load ptr, ptr %4, align 8, !tbaa !7
+  %48 = load ptr, ptr %6, align 8, !tbaa !37
+  %49 = call ptr @Cloud_GetOneCube(ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %8, align 8, !tbaa !37
+  %50 = load ptr, ptr %8, align 8, !tbaa !37
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %46
   store ptr null, ptr %3, align 8
-  br label %102
+  store i32 1, ptr %9, align 4
+  br label %103
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %8, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.cloudManager, ptr %54, i32 0, i32 19
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp ne ptr %53, %56
-  br i1 %57, label %58, label %77
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %8, align 8, !tbaa !37
+  %55 = load ptr, ptr %4, align 8, !tbaa !7
+  %56 = getelementptr inbounds nuw %struct.cloudManager, ptr %55, i32 0, i32 19
+  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %58 = icmp ne ptr %54, %57
+  br i1 %58, label %59, label %78
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.cloudManager, ptr %61, i32 0, i32 20
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, -2
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds %struct.cloudNode, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %63, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = xor i64 %73, 1
-  %75 = inttoptr i64 %74 to ptr
-  %76 = call ptr @Cloud_bddAnd(ptr noundef %59, ptr noundef %60, ptr noundef %75)
-  store ptr %76, ptr %8, align 8
-  br label %100
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %4, align 8, !tbaa !7
+  %61 = load ptr, ptr %8, align 8, !tbaa !37
+  %62 = load ptr, ptr %4, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.cloudManager, ptr %62, i32 0, i32 20
+  %64 = load ptr, ptr %63, align 8, !tbaa !36
+  %65 = load ptr, ptr %5, align 8, !tbaa !37
+  %66 = ptrtoint ptr %65 to i64
+  %67 = and i64 %66, -2
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds nuw %struct.cloudNode, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !28
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw ptr, ptr %64, i64 %71
+  %73 = load ptr, ptr %72, align 8, !tbaa !37
+  %74 = ptrtoint ptr %73 to i64
+  %75 = xor i64 %74, 1
+  %76 = inttoptr i64 %75 to ptr
+  %77 = call ptr @Cloud_bddAnd(ptr noundef %60, ptr noundef %61, ptr noundef %76)
+  store ptr %77, ptr %8, align 8, !tbaa !37
+  br label %101
 
-77:                                               ; preds = %52
-  %78 = load ptr, ptr %4, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = call ptr @Cloud_GetOneCube(ptr noundef %78, ptr noundef %79)
-  store ptr %80, ptr %8, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %84
+78:                                               ; preds = %53
+  %79 = load ptr, ptr %4, align 8, !tbaa !7
+  %80 = load ptr, ptr %7, align 8, !tbaa !37
+  %81 = call ptr @Cloud_GetOneCube(ptr noundef %79, ptr noundef %80)
+  store ptr %81, ptr %8, align 8, !tbaa !37
+  %82 = load ptr, ptr %8, align 8, !tbaa !37
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %77
+84:                                               ; preds = %78
   store ptr null, ptr %3, align 8
-  br label %102
+  store i32 1, ptr %9, align 4
+  br label %103
 
-84:                                               ; preds = %77
-  %85 = load ptr, ptr %4, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.cloudManager, ptr %87, i32 0, i32 20
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %5, align 8
-  %91 = ptrtoint ptr %90 to i64
-  %92 = and i64 %91, -2
-  %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds %struct.cloudNode, ptr %93, i32 0, i32 1
-  %95 = load i32, ptr %94, align 4
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %89, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @Cloud_bddAnd(ptr noundef %85, ptr noundef %86, ptr noundef %98)
-  store ptr %99, ptr %8, align 8
-  br label %100
+85:                                               ; preds = %78
+  %86 = load ptr, ptr %4, align 8, !tbaa !7
+  %87 = load ptr, ptr %8, align 8, !tbaa !37
+  %88 = load ptr, ptr %4, align 8, !tbaa !7
+  %89 = getelementptr inbounds nuw %struct.cloudManager, ptr %88, i32 0, i32 20
+  %90 = load ptr, ptr %89, align 8, !tbaa !36
+  %91 = load ptr, ptr %5, align 8, !tbaa !37
+  %92 = ptrtoint ptr %91 to i64
+  %93 = and i64 %92, -2
+  %94 = inttoptr i64 %93 to ptr
+  %95 = getelementptr inbounds nuw %struct.cloudNode, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4, !tbaa !28
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds nuw ptr, ptr %90, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !37
+  %100 = call ptr @Cloud_bddAnd(ptr noundef %86, ptr noundef %87, ptr noundef %99)
+  store ptr %100, ptr %8, align 8, !tbaa !37
+  br label %101
 
-100:                                              ; preds = %84, %58
-  %101 = load ptr, ptr %8, align 8
-  store ptr %101, ptr %3, align 8
-  br label %102
+101:                                              ; preds = %85, %59
+  %102 = load ptr, ptr %8, align 8, !tbaa !37
+  store ptr %102, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %103
 
-102:                                              ; preds = %100, %83, %51, %17
-  %103 = load ptr, ptr %3, align 8
-  ret ptr %103
+103:                                              ; preds = %101, %84, %52, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %104 = load ptr, ptr %3, align 8
+  ret ptr %104
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2324,94 +2450,101 @@ define void @Cloud_bddPrint(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 1, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.cloudManager, ptr %8, i32 0, i32 19
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 1, ptr %6, align 4, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !37
+  %8 = load ptr, ptr %3, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw %struct.cloudManager, ptr %8, i32 0, i32 19
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %7, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
   %13 = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  br label %54
+  br label %55
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.cloudManager, ptr %16, i32 0, i32 18
-  %18 = load ptr, ptr %17, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !37
+  %16 = load ptr, ptr %3, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.cloudManager, ptr %16, i32 0, i32 18
+  %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = icmp eq ptr %15, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %14
   %21 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
-  br label %53
+  br label %54
 
 22:                                               ; preds = %14
   br label %23
 
-23:                                               ; preds = %42, %22
-  %24 = load ptr, ptr %3, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = call ptr @Cloud_GetOneCube(ptr noundef %24, ptr noundef %25)
-  store ptr %26, ptr %5, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %35, label %29
+23:                                               ; preds = %43, %22
+  br label %24
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.cloudManager, ptr %31, i32 0, i32 19
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %30, %33
-  br i1 %34, label %35, label %36
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %3, align 8, !tbaa !7
+  %26 = load ptr, ptr %4, align 8, !tbaa !37
+  %27 = call ptr @Cloud_GetOneCube(ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %5, align 8, !tbaa !37
+  %28 = load ptr, ptr %5, align 8, !tbaa !37
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %36, label %30
 
-35:                                               ; preds = %29, %23
-  br label %52
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %5, align 8, !tbaa !37
+  %32 = load ptr, ptr %3, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw %struct.cloudManager, ptr %32, i32 0, i32 19
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = icmp eq ptr %31, %34
+  br i1 %35, label %36, label %37
 
-36:                                               ; preds = %29
-  %37 = load i32, ptr %6, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %36
-  store i32 0, ptr %6, align 4
-  br label %42
-
-40:                                               ; preds = %36
-  %41 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
-  br label %42
-
-42:                                               ; preds = %40, %39
-  %43 = load ptr, ptr %3, align 8
-  %44 = load ptr, ptr %5, align 8
-  call void @Cloud_bddPrintCube(ptr noundef %43, ptr noundef %44)
-  %45 = load ptr, ptr %3, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = xor i64 %48, 1
-  %50 = inttoptr i64 %49 to ptr
-  %51 = call ptr @Cloud_bddAnd(ptr noundef %45, ptr noundef %46, ptr noundef %50)
-  store ptr %51, ptr %4, align 8
-  br label %23
-
-52:                                               ; preds = %35
+36:                                               ; preds = %30, %24
   br label %53
 
-53:                                               ; preds = %52, %20
+37:                                               ; preds = %30
+  %38 = load i32, ptr %6, align 4, !tbaa !3
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %37
+  store i32 0, ptr %6, align 4, !tbaa !3
+  br label %43
+
+41:                                               ; preds = %37
+  %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
+  br label %43
+
+43:                                               ; preds = %41, %40
+  %44 = load ptr, ptr %3, align 8, !tbaa !7
+  %45 = load ptr, ptr %5, align 8, !tbaa !37
+  call void @Cloud_bddPrintCube(ptr noundef %44, ptr noundef %45)
+  %46 = load ptr, ptr %3, align 8, !tbaa !7
+  %47 = load ptr, ptr %4, align 8, !tbaa !37
+  %48 = load ptr, ptr %5, align 8, !tbaa !37
+  %49 = ptrtoint ptr %48 to i64
+  %50 = xor i64 %49, 1
+  %51 = inttoptr i64 %50 to ptr
+  %52 = call ptr @Cloud_bddAnd(ptr noundef %46, ptr noundef %47, ptr noundef %51)
+  store ptr %52, ptr %4, align 8, !tbaa !37
+  br label %23
+
+53:                                               ; preds = %36
   br label %54
 
-54:                                               ; preds = %53, %12
-  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+54:                                               ; preds = %53, %20
+  br label %55
+
+55:                                               ; preds = %54, %12
+  %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-declare i32 @printf(ptr noundef, ...) #4
+declare i32 @printf(ptr noundef, ...) #6
 
 ; Function Attrs: nounwind uwtable
 define void @Cloud_bddPrintCube(ptr noundef %0, ptr noundef %1) #0 {
@@ -2419,98 +2552,105 @@ define void @Cloud_bddPrintCube(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   br label %7
 
-7:                                                ; preds = %61, %2
-  %8 = load ptr, ptr %4, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, -2
-  %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds %struct.cloudNode, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, -268435457
-  %15 = icmp eq i32 %14, 268435455
-  br i1 %15, label %16, label %17
+7:                                                ; preds = %62, %2
+  br label %8
 
-16:                                               ; preds = %7
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %4, align 8, !tbaa !37
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = getelementptr inbounds nuw %struct.cloudNode, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %15 = and i32 %14, -268435457
+  %16 = icmp eq i32 %15, 268435455
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %8
+  br label %63
+
+18:                                               ; preds = %8
+  %19 = load ptr, ptr %4, align 8, !tbaa !37
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, 1
+  %22 = trunc i64 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %37
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %4, align 8, !tbaa !37
+  %26 = getelementptr inbounds nuw %struct.cloudNode, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, 1
+  %30 = inttoptr i64 %29 to ptr
+  store ptr %30, ptr %5, align 8, !tbaa !37
+  %31 = load ptr, ptr %4, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw %struct.cloudNode, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
+  %34 = ptrtoint ptr %33 to i64
+  %35 = xor i64 %34, 1
+  %36 = inttoptr i64 %35 to ptr
+  store ptr %36, ptr %6, align 8, !tbaa !37
+  br label %44
+
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %4, align 8, !tbaa !37
+  %39 = getelementptr inbounds nuw %struct.cloudNode, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !29
+  store ptr %40, ptr %5, align 8, !tbaa !37
+  %41 = load ptr, ptr %4, align 8, !tbaa !37
+  %42 = getelementptr inbounds nuw %struct.cloudNode, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8, !tbaa !30
+  store ptr %43, ptr %6, align 8, !tbaa !37
+  br label %44
+
+44:                                               ; preds = %37, %24
+  %45 = load ptr, ptr %5, align 8, !tbaa !37
+  %46 = load ptr, ptr %3, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.cloudManager, ptr %46, i32 0, i32 19
+  %48 = load ptr, ptr %47, align 8, !tbaa !32
+  %49 = icmp ne ptr %45, %48
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %4, align 8, !tbaa !37
+  %52 = getelementptr inbounds nuw %struct.cloudNode, ptr %51, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, i32 noundef %53)
+  %55 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %55, ptr %4, align 8, !tbaa !37
   br label %62
 
-17:                                               ; preds = %7
-  %18 = load ptr, ptr %4, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 1
-  %21 = trunc i64 %20 to i32
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %36
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %4, align 8, !tbaa !37
+  %58 = getelementptr inbounds nuw %struct.cloudNode, ptr %57, i32 0, i32 1
+  %59 = load i32, ptr %58, align 4, !tbaa !28
+  %60 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %59)
+  %61 = load ptr, ptr %6, align 8, !tbaa !37
+  store ptr %61, ptr %4, align 8, !tbaa !37
+  br label %62
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.cloudNode, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = xor i64 %27, 1
-  %29 = inttoptr i64 %28 to ptr
-  store ptr %29, ptr %5, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.cloudNode, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = ptrtoint ptr %32 to i64
-  %34 = xor i64 %33, 1
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %35, ptr %6, align 8
-  br label %43
-
-36:                                               ; preds = %17
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.cloudNode, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %5, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.cloudNode, ptr %40, i32 0, i32 3
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %6, align 8
-  br label %43
-
-43:                                               ; preds = %36, %23
-  %44 = load ptr, ptr %5, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.cloudManager, ptr %45, i32 0, i32 19
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %44, %47
-  br i1 %48, label %49, label %55
-
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.cloudNode, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 4
-  %53 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, i32 noundef %52)
-  %54 = load ptr, ptr %5, align 8
-  store ptr %54, ptr %4, align 8
-  br label %61
-
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.cloudNode, ptr %56, i32 0, i32 1
-  %58 = load i32, ptr %57, align 4
-  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %58)
-  %60 = load ptr, ptr %6, align 8
-  store ptr %60, ptr %4, align 8
-  br label %61
-
-61:                                               ; preds = %55, %49
+62:                                               ; preds = %56, %50
   br label %7
 
-62:                                               ; preds = %16
+63:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Cloud_PrintInfo(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -2518,41 +2658,41 @@ define void @Cloud_PrintInfo(ptr noundef %0) #0 {
   br label %43
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.cloudManager, ptr %7, i32 0, i32 5
-  %9 = load i32, ptr %8, align 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw %struct.cloudManager, ptr %7, i32 0, i32 5
+  %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, i32 noundef %9)
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.cloudManager, ptr %11, i32 0, i32 7
-  %13 = load i32, ptr %12, align 4
+  %11 = load ptr, ptr %2, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw %struct.cloudManager, ptr %11, i32 0, i32 7
+  %13 = load i32, ptr %12, align 4, !tbaa !33
   %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %13)
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.cloudManager, ptr %15, i32 0, i32 10
-  %17 = load i32, ptr %16, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.cloudManager, ptr %15, i32 0, i32 10
+  %17 = load i32, ptr %16, align 8, !tbaa !39
   %18 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %17)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.cloudManager, ptr %19, i32 0, i32 11
-  %21 = load i32, ptr %20, align 4
+  %19 = load ptr, ptr %2, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.cloudManager, ptr %19, i32 0, i32 11
+  %21 = load i32, ptr %20, align 4, !tbaa !42
   %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %21)
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.cloudManager, ptr %23, i32 0, i32 14
-  %25 = load i32, ptr %24, align 8
+  %23 = load ptr, ptr %2, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw %struct.cloudManager, ptr %23, i32 0, i32 14
+  %25 = load i32, ptr %24, align 8, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %25)
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.cloudManager, ptr %27, i32 0, i32 12
-  %29 = load i32, ptr %28, align 8
+  %27 = load ptr, ptr %2, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.cloudManager, ptr %27, i32 0, i32 12
+  %29 = load i32, ptr %28, align 8, !tbaa !53
   %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, i32 noundef %29)
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.cloudManager, ptr %31, i32 0, i32 13
-  %33 = load i32, ptr %32, align 4
+  %31 = load ptr, ptr %2, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.cloudManager, ptr %31, i32 0, i32 13
+  %33 = load i32, ptr %32, align 4, !tbaa !54
   %34 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %33)
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.cloudManager, ptr %35, i32 0, i32 8
-  %37 = load i32, ptr %36, align 8
+  %35 = load ptr, ptr %2, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.cloudManager, ptr %35, i32 0, i32 8
+  %37 = load i32, ptr %36, align 8, !tbaa !25
   %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, i32 noundef %37)
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds %struct.cloudManager, ptr %39, i32 0, i32 9
-  %41 = load i32, ptr %40, align 4
+  %39 = load ptr, ptr %2, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.cloudManager, ptr %39, i32 0, i32 9
+  %41 = load i32, ptr %40, align 4, !tbaa !10
   %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.14, i32 noundef %41)
   br label %43
 
@@ -2564,27 +2704,28 @@ define void @Cloud_PrintInfo(ptr noundef %0) #0 {
 define void @Cloud_PrintHashTable(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 0, ptr %3, align 4, !tbaa !3
   br label %4
 
 4:                                                ; preds = %25, %1
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.cloudManager, ptr %6, i32 0, i32 5
-  %8 = load i32, ptr %7, align 4
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.cloudManager, ptr %6, i32 0, i32 5
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = icmp slt i32 %5, %8
   br i1 %9, label %10, label %28
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.cloudManager, ptr %11, i32 0, i32 15
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %3, align 4
+  %11 = load ptr, ptr %2, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw %struct.cloudManager, ptr %11, i32 0, i32 15
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load i32, ptr %3, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.cloudNode, ptr %13, i64 %15
-  %17 = getelementptr inbounds %struct.cloudNode, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 4
+  %17 = getelementptr inbounds nuw %struct.cloudNode, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !28
   %19 = icmp eq i32 %18, 268435455
   br i1 %19, label %20, label %22
 
@@ -2600,77 +2741,137 @@ define void @Cloud_PrintHashTable(ptr noundef %0) #0 {
   br label %25
 
 25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
+  %26 = load i32, ptr %3, align 4, !tbaa !3
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %3, align 4
-  br label %4, !llvm.loop !15
+  store i32 %27, ptr %3, align 4, !tbaa !3
+  br label %4, !llvm.loop !62
 
 28:                                               ; preds = %4
   %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @Abc_Clock() #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @Abc_Clock() #5 {
   %1 = alloca i64, align 8
   %2 = alloca %struct.timespec, align 8
-  %3 = alloca i64, align 8
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #7
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store i64 -1, ptr %1, align 8
-  br label %18
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %2) #7
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %2) #7
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 0
-  %9 = load i64, ptr %8, align 8
-  %10 = mul nsw i64 %9, 1000000
-  store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.timespec, ptr %2, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = sdiv i64 %13, 1000000000
-  %15 = load i64, ptr %3, align 8
-  %16 = add nsw i64 %15, %14
-  store i64 %16, ptr %3, align 8
-  %17 = load i64, ptr %3, align 8
-  store i64 %17, ptr %1, align 8
-  br label %18
+  store i64 -1, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %19
 
-18:                                               ; preds = %7, %6
-  %19 = load i64, ptr %1, align 8
-  ret i64 %19
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %9 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !63
+  %11 = mul nsw i64 %10, 1000000
+  store i64 %11, ptr %4, align 8, !tbaa !22
+  %12 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !65
+  %14 = mul nsw i64 %13, 1000000
+  %15 = sdiv i64 %14, 1000000000
+  %16 = load i64, ptr %4, align 8, !tbaa !22
+  %17 = add nsw i64 %16, %15
+  store i64 %17, ptr %4, align 8, !tbaa !22
+  %18 = load i64, ptr %4, align 8, !tbaa !22
+  store i64 %18, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %19
+
+19:                                               ; preds = %8, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %2) #7
+  %20 = load i64, ptr %1, align 8
+  ret i64 %20
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0,1) }
-attributes #6 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS12cloudManager", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !4, i64 60}
+!11 = !{!"cloudManager", !4, i64 0, !4, i64 4, !5, i64 8, !4, i64 24, !5, i64 28, !4, i64 44, !4, i64 48, !4, i64 52, !4, i64 56, !4, i64 60, !4, i64 64, !4, i64 68, !4, i64 72, !4, i64 76, !4, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !13, i64 128, !13, i64 136, !5, i64 144}
+!12 = !{!"p1 _ZTS9cloudNode", !9, i64 0}
+!13 = !{!"p2 _ZTS9cloudNode", !9, i64 0}
+!14 = !{!11, !4, i64 0}
+!15 = !{!11, !4, i64 4}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!11, !4, i64 24}
+!19 = distinct !{!19, !17}
+!20 = !{!11, !4, i64 44}
+!21 = !{!11, !4, i64 48}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = !{!11, !12, i64 88}
+!25 = !{!11, !4, i64 56}
+!26 = !{!27, !4, i64 0}
+!27 = !{!"cloudNode", !4, i64 0, !4, i64 4, !12, i64 8, !12, i64 16}
+!28 = !{!27, !4, i64 4}
+!29 = !{!27, !12, i64 8}
+!30 = !{!27, !12, i64 16}
+!31 = !{!11, !12, i64 112}
+!32 = !{!11, !12, i64 120}
+!33 = !{!11, !4, i64 52}
+!34 = !{!11, !12, i64 96}
+!35 = !{!11, !12, i64 104}
+!36 = !{!11, !13, i64 128}
+!37 = !{!12, !12, i64 0}
+!38 = distinct !{!38, !17}
+!39 = !{!11, !4, i64 64}
+!40 = !{!11, !4, i64 80}
+!41 = distinct !{!41, !17}
+!42 = !{!11, !4, i64 68}
+!43 = !{!11, !13, i64 136}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS16cloudCacheEntry2", !9, i64 0}
+!46 = distinct !{!46, !17}
+!47 = distinct !{!47, !17}
+!48 = !{!49, !4, i64 0}
+!49 = !{!"cloudCacheEntry2", !4, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!50 = !{!49, !12, i64 8}
+!51 = !{!49, !12, i64 16}
+!52 = !{!49, !12, i64 24}
+!53 = !{!11, !4, i64 72}
+!54 = !{!11, !4, i64 76}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 int", !9, i64 0}
+!57 = distinct !{!57, !17}
+!58 = distinct !{!58, !17}
+!59 = !{!13, !13, i64 0}
+!60 = distinct !{!60, !17}
+!61 = distinct !{!61, !17}
+!62 = distinct !{!62, !17}
+!63 = !{!64, !23, i64 0}
+!64 = !{!"timespec", !23, i64 0, !23, i64 8}
+!65 = !{!64, !23, i64 8}
