@@ -7617,10 +7617,10 @@ default.unreachable610:                           ; preds = %182
           to label %622 unwind label %224
 
 153:                                              ; preds = %141
-  %154 = extractvalue { i64, i64 } %145, 1
   br i1 %.not373, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153
+  %154 = extractvalue { i64, i64 } %145, 1
   %155 = extractvalue { i64, i64 } %145, 0
   %156 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %157 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -7651,14 +7651,15 @@ default.unreachable610:                           ; preds = %182
   %176 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %178 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %umax = call i64 @llvm.umax.i64(i64 %155, i64 %154)
   br label %179
 
 179:                                              ; preds = %.lr.ph, %340
   %.sroa.0304.0478 = phi ptr [ %143, %.lr.ph ], [ %180, %340 ]
   %.sroa.7305.0477 = phi i64 [ %155, %.lr.ph ], [ %183, %340 ]
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.0304.0478, i64 32
-  %.not.i.i.not.i = icmp ult i64 %.sroa.7305.0477, %154
-  br i1 %.not.i.i.not.i, label %182, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i"
+  %exitcond.not = icmp eq i64 %.sroa.7305.0477, %umax
+  br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %182
 
 "_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %179
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.135.llvm.11684209855903828990) #24
@@ -7673,7 +7674,7 @@ default.unreachable610:                           ; preds = %182
           to label %186 unwind label %.loopexit.split-lp
 
 182:                                              ; preds = %179
-  %183 = add nuw i64 %.sroa.7305.0477, 1
+  %183 = add i64 %.sroa.7305.0477, 1
   %184 = trunc i64 %.sroa.7305.0477 to i32
   %185 = load i32, ptr %.sroa.0304.0478, align 8, !range !37, !noundef !4
   switch i32 %185, label %default.unreachable610 [
@@ -12222,6 +12223,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

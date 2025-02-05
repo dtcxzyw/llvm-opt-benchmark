@@ -72035,8 +72035,8 @@ define internal fastcc noundef zeroext i1 @"_ZN149_$LT$$LT$T$u20$as$u20$chalk_ir
 
 23:                                               ; preds = %25, %0
   %24 = phi i64 [ %26, %25 ], [ 0, %0 ]
-  %exitcond = icmp eq i64 %24, %.0.sroa.speculated.i.i.i
-  br i1 %exitcond, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.exit", label %25
+  %exitcond.not.i = icmp eq i64 %24, %.0.sroa.speculated.i.i.i
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf66173ab1310110cE.exit, label %25
 
 25:                                               ; preds = %23
   %26 = add i64 %24, 1
@@ -72049,11 +72049,12 @@ define internal fastcc noundef zeroext i1 @"_ZN149_$LT$$LT$T$u20$as$u20$chalk_ir
   store ptr %30, ptr %22, align 8, !noalias !12039
   %31 = call noundef zeroext i1 @"_ZN8chalk_ir1_91_$LT$impl$u20$chalk_ir..zip..Zip$LT$I$GT$$u20$for$u20$chalk_ir..GenericArgData$LT$I$GT$$GT$8zip_with17hee6dc9b8d69cbfdbE.llvm.6150282900714191917"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %28), !noalias !12044
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !12039
-  br i1 %31, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.exit", label %23
+  br i1 %31, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf66173ab1310110cE.exit, label %23
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.exit": ; preds = %23, %25
-  %.not = icmp uge i64 %24, %.0.sroa.speculated.i.i.i
-  ret i1 %.not
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hf66173ab1310110cE.exit: ; preds = %23, %25
+  %.lcssa = phi i64 [ %.0.sroa.speculated.i.i.i, %23 ], [ %24, %25 ]
+  %32 = icmp uge i64 %.lcssa, %.0.sroa.speculated.i.i.i
+  ret i1 %32
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1306,11 +1306,12 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %247, label %.thread45, label %.preheader134
 
 248:                                              ; preds = %.loopexit56, %.thread112
-  %249 = phi i32 [ 0, %.thread112 ], [ %291, %.loopexit56 ]
-  %250 = phi i32 [ -1, %.thread112 ], [ %290, %.loopexit56 ]
-  %251 = phi i32 [ -1, %.thread112 ], [ %289, %.loopexit56 ]
-  %252 = phi i32 [ 0, %.thread112 ], [ %288, %.loopexit56 ]
-  %253 = phi i32 [ 0, %.thread112 ], [ %292, %.loopexit56 ]
+  %indvars.iv = phi i32 [ %indvars.iv.next, %.loopexit56 ], [ 1, %.thread112 ]
+  %249 = phi i32 [ %291, %.loopexit56 ], [ 0, %.thread112 ]
+  %250 = phi i32 [ %290, %.loopexit56 ], [ -1, %.thread112 ]
+  %251 = phi i32 [ %289, %.loopexit56 ], [ -1, %.thread112 ]
+  %252 = phi i32 [ %288, %.loopexit56 ], [ 0, %.thread112 ]
+  %253 = phi i32 [ %292, %.loopexit56 ], [ 0, %.thread112 ]
   %254 = sext i32 %253 to i64
   %255 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %254
   %256 = load ptr, ptr %255, align 8
@@ -1350,18 +1351,23 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 278:                                              ; preds = %.preheader57
   %279 = add i32 %249, 1
   %280 = icmp sgt i32 %266, %253
-  br i1 %280, label %.loopexit56, label %.preheader55
+  br i1 %280, label %.loopexit56, label %.preheader55.preheader
 
-.preheader55:                                     ; preds = %278, %.preheader55
-  %281 = phi i32 [ %286, %.preheader55 ], [ %266, %278 ]
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %282
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 132
-  store i32 %279, ptr %285, align 4
-  %286 = add i32 %281, 1
-  %287 = icmp sgt i32 %286, %253
-  br i1 %287, label %.loopexit56, label %.preheader55, !llvm.loop !28
+.preheader55.preheader:                           ; preds = %278
+  %281 = add i32 %266, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 %281)
+  br label %.preheader55
+
+.preheader55:                                     ; preds = %.preheader55.preheader, %.preheader55
+  %282 = phi i32 [ %287, %.preheader55 ], [ %266, %.preheader55.preheader ]
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %283
+  %285 = load ptr, ptr %284, align 8
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 132
+  store i32 %279, ptr %286, align 4
+  %287 = add i32 %282, 1
+  %exitcond = icmp eq i32 %287, %smax
+  br i1 %exitcond, label %.loopexit56, label %.preheader55, !llvm.loop !28
 
 .loopexit56:                                      ; preds = %270, %.preheader55, %278, %268, %248
   %288 = phi i32 [ %252, %248 ], [ %266, %268 ], [ %266, %278 ], [ %266, %.preheader55 ], [ %266, %270 ]
@@ -1371,6 +1377,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %292 = add nuw i32 %253, 1
   %293 = load i32, ptr %114, align 8
   %294 = icmp ult i32 %292, %293
+  %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %294, label %248, label %246, !llvm.loop !29
 
 .preheader134:                                    ; preds = %246, %.loopexit54

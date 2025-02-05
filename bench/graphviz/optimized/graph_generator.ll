@@ -1229,18 +1229,20 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = mul nsw i32 %1, %0
+  %23 = mul i32 %1, %0
   %24 = add nsw i32 %23, 1
-  %25 = add nsw i32 %0, -1
-  %26 = mul nsw i32 %25, %1
+  %25 = add i32 %0, -1
+  %26 = mul i32 %25, %1
+  %27 = add i32 %26, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %23, i32 %27)
   br label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %._crit_edge, %.lr.ph28
   %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.1 = add nsw i32 %.1.in26, 1
   tail call void %2(i32 noundef %.1, i32 noundef %24) #14
-  %.not19.not = icmp slt i32 %.1, %23
-  br i1 %.not19.not, label %.lr.ph28, label %._crit_edge29
+  %exitcond31.not = icmp eq i32 %.1, %smax
+  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %makeCylinder.exit
   ret void
@@ -1868,9 +1870,10 @@ addTree.exit.i:                                   ; preds = %109, %._crit_edge.i
   br i1 %.not.not30.i.i, label %.lr.ph.preheader.i.i, label %treeDup.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %126
-  %134 = add nsw i32 %133, %.val26.i.i
+  %134 = add i32 %133, %.val26.i.i
   %135 = sext i32 %128 to i64
-  %136 = sext i32 %134 to i64
+  %136 = add i32 %.val26.i.i, 1
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %134, i32 %136)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %146, %.lr.ph.preheader.i.i
@@ -1894,8 +1897,9 @@ addTree.exit.i:                                   ; preds = %109, %._crit_edge.i
   %148 = getelementptr i32, ptr %147, i64 %135
   store i32 %.sink.i.i, ptr %148, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %.not.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %136
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %treeDup.exit.i
+  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
+  %exitcond.not.i.i = icmp eq i32 %smax.i.i, %lftr.wideiv.i.i
+  br i1 %exitcond.not.i.i, label %treeDup.exit.i, label %.lr.ph.i.i
 
 treeDup.exit.i:                                   ; preds = %146, %126
   %149 = add i32 %133, %.val.pre.i

@@ -24415,7 +24415,7 @@ for.body.i:                                       ; preds = %if.end18.i, %if.the
   %s.sroa.3.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %s.sroa.3.0.copyload.i = load i8, ptr %s.sroa.3.0.arrayidx.sroa_idx.i, align 1
   %conv1.i = zext i8 %s.sroa.3.0.copyload.i to i32
-  %add.i = add nuw nsw i32 %lower_start.024.i, %conv1.i
+  %add.i = add i32 %lower_start.024.i, %conv1.i
   %conv3.i = zext i8 %s.sroa.0.0.copyload.i to i32
   %cmp4.i = icmp samesign ult i32 %shr.i, %conv3.i
   br i1 %cmp4.i, label %for.body26.i.preheader, label %if.end.i
@@ -24428,13 +24428,15 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.body11.preheader.i:                           ; preds = %if.end.i
   %1 = zext nneg i32 %lower_start.024.i to i64
-  %2 = zext nneg i32 %add.i to i64
+  %2 = add nuw i32 %lower_start.024.i, 1
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %add.i, i32 %2)
+  %wide.trip.count.i = zext i32 %umax.i to i64
   br label %for.body11.i
 
 for.cond9.i:                                      ; preds = %for.body11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp10.i = icmp samesign ult i64 %indvars.iv.next.i, %2
-  br i1 %cmp10.i, label %for.body11.i, label %if.end18.i, !llvm.loop !271
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %if.end18.i, label %for.body11.i, !llvm.loop !271
 
 for.body11.i:                                     ; preds = %for.cond9.i, %for.body11.preheader.i
   %indvars.iv.i = phi i64 [ %1, %for.body11.preheader.i ], [ %indvars.iv.next.i, %for.cond9.i ]
@@ -24445,8 +24447,8 @@ for.body11.i:                                     ; preds = %for.cond9.i, %for.b
 
 if.end18.i:                                       ; preds = %for.cond9.i, %if.end.i
   %inc20.i = add nuw nsw i64 %i.023.i, 1
-  %exitcond.not.i = icmp eq i64 %inc20.i, 41
-  br i1 %exitcond.not.i, label %for.body26.i.preheader, label %for.body.i, !llvm.loop !272
+  %exitcond32.not.i = icmp eq i64 %inc20.i, 41
+  br i1 %exitcond32.not.i, label %for.body26.i.preheader, label %for.body.i, !llvm.loop !272
 
 for.body26.i.preheader:                           ; preds = %if.end18.i, %for.body.i
   br label %for.body26.i
@@ -24502,7 +24504,7 @@ for.body.i37:                                     ; preds = %if.end18.i52, %if.t
   %s.sroa.3.0.arrayidx.sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %arrayidx.i40, i64 1
   %s.sroa.3.0.copyload.i43 = load i8, ptr %s.sroa.3.0.arrayidx.sroa_idx.i42, align 1
   %conv1.i44 = zext i8 %s.sroa.3.0.copyload.i43 to i32
-  %add.i45 = add nuw nsw i32 %lower_start.024.i38, %conv1.i44
+  %add.i45 = add i32 %lower_start.024.i38, %conv1.i44
   %conv3.i46 = zext i8 %s.sroa.0.0.copyload.i41 to i32
   %cmp4.i47 = icmp samesign ult i32 %shr.i36, %conv3.i46
   br i1 %cmp4.i47, label %for.body26.i56.preheader, label %if.end.i48
@@ -24515,25 +24517,27 @@ if.end.i48:                                       ; preds = %for.body.i37
 
 for.body11.preheader.i80:                         ; preds = %if.end.i48
   %7 = zext nneg i32 %lower_start.024.i38 to i64
-  %8 = zext nneg i32 %add.i45 to i64
-  br label %for.body11.i81
+  %8 = add nuw i32 %lower_start.024.i38, 1
+  %umax.i81 = tail call i32 @llvm.umax.i32(i32 %add.i45, i32 %8)
+  %wide.trip.count.i82 = zext i32 %umax.i81 to i64
+  br label %for.body11.i83
 
-for.cond9.i85:                                    ; preds = %for.body11.i81
-  %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i82, 1
-  %cmp10.i87 = icmp samesign ult i64 %indvars.iv.next.i86, %8
-  br i1 %cmp10.i87, label %for.body11.i81, label %if.end18.i52, !llvm.loop !271
+for.cond9.i87:                                    ; preds = %for.body11.i83
+  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i84, 1
+  %exitcond.not.i89 = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i82
+  br i1 %exitcond.not.i89, label %if.end18.i52, label %for.body11.i83, !llvm.loop !271
 
-for.body11.i81:                                   ; preds = %for.cond9.i85, %for.body11.preheader.i80
-  %indvars.iv.i82 = phi i64 [ %7, %for.body11.preheader.i80 ], [ %indvars.iv.next.i86, %for.cond9.i85 ]
-  %arrayidx12.i83 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v106detail12is_printableEjE17singletons1_lower, i64 %indvars.iv.i82
-  %9 = load i8, ptr %arrayidx12.i83, align 1
-  %cmp15.i84 = icmp eq i8 %9, %6
-  br i1 %cmp15.i84, label %return, label %for.cond9.i85
+for.body11.i83:                                   ; preds = %for.cond9.i87, %for.body11.preheader.i80
+  %indvars.iv.i84 = phi i64 [ %7, %for.body11.preheader.i80 ], [ %indvars.iv.next.i88, %for.cond9.i87 ]
+  %arrayidx12.i85 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v106detail12is_printableEjE17singletons1_lower, i64 %indvars.iv.i84
+  %9 = load i8, ptr %arrayidx12.i85, align 1
+  %cmp15.i86 = icmp eq i8 %9, %6
+  br i1 %cmp15.i86, label %return, label %for.cond9.i87
 
-if.end18.i52:                                     ; preds = %for.cond9.i85, %if.end.i48
+if.end18.i52:                                     ; preds = %for.cond9.i87, %if.end.i48
   %inc20.i53 = add nuw nsw i64 %i.023.i39, 1
-  %exitcond.not.i54 = icmp eq i64 %inc20.i53, 38
-  br i1 %exitcond.not.i54, label %for.body26.i56.preheader, label %for.body.i37, !llvm.loop !272
+  %exitcond32.not.i54 = icmp eq i64 %inc20.i53, 38
+  br i1 %exitcond32.not.i54, label %for.body26.i56.preheader, label %for.body.i37, !llvm.loop !272
 
 for.body26.i56.preheader:                         ; preds = %if.end18.i52, %for.body.i37
   br label %for.body26.i56
@@ -24600,8 +24604,8 @@ if.end4:                                          ; preds = %if.end
   %spec.select = and i1 %cmp41, %not.or.cond34
   br label %return
 
-return:                                           ; preds = %for.body11.i81, %if.end37.i75, %cond.end.i70, %for.body11.i, %if.end37.i, %cond.end.i, %if.end4
-  %retval.0 = phi i1 [ %spec.select, %if.end4 ], [ %lnot.i, %if.end37.i ], [ %current.027.i, %cond.end.i ], [ false, %for.body11.i ], [ %lnot.i76, %if.end37.i75 ], [ %current.027.i58, %cond.end.i70 ], [ false, %for.body11.i81 ]
+return:                                           ; preds = %for.body11.i83, %if.end37.i75, %cond.end.i70, %for.body11.i, %if.end37.i, %cond.end.i, %if.end4
+  %retval.0 = phi i1 [ %spec.select, %if.end4 ], [ %lnot.i, %if.end37.i ], [ %current.027.i, %cond.end.i ], [ false, %for.body11.i ], [ %lnot.i76, %if.end37.i75 ], [ %current.027.i58, %cond.end.i70 ], [ false, %for.body11.i83 ]
   ret i1 %retval.0
 }
 

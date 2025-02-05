@@ -48,7 +48,7 @@ while.cond.loopexit.i:                            ; preds = %if.end13.i, %while.
 
 while.body.i:                                     ; preds = %entry, %while.cond.loopexit.i
   %index.019.i = phi i64 [ %index.1.lcssa.i, %while.cond.loopexit.i ], [ 0, %entry ]
-  %sub.i = sub i64 %count, %index.019.i
+  %sub.i = sub nuw i64 %count, %index.019.i
   %conv.i = trunc i64 %sub.i to i32
   %call.i = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add) #3
   %cmp414.i = icmp sgt i32 %conv.i, 0
@@ -56,11 +56,10 @@ while.body.i:                                     ; preds = %entry, %while.cond.
 
 while.body6.preheader.i:                          ; preds = %while.body.i
   %0 = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 4)
-  %1 = trunc i64 %index.019.i to i32
-  %2 = add i32 %0, %1
   br label %while.body6.i
 
 while.body6.i:                                    ; preds = %if.end13.i, %while.body6.preheader.i
+  %size.017.i = phi i32 [ %dec.i, %if.end13.i ], [ %0, %while.body6.preheader.i ]
   %msg_frag.016.i = phi i32 [ %shr.i, %if.end13.i ], [ %call.i, %while.body6.preheader.i ]
   %index.115.i = phi i64 [ %inc.i, %if.end13.i ], [ %index.019.i, %while.body6.preheader.i ]
   %conv7.i = trunc i32 %msg_frag.016.i to i8
@@ -73,9 +72,9 @@ while.body6.i:                                    ; preds = %if.end13.i, %while.
 
 if.end13.i:                                       ; preds = %while.body6.i
   %shr.i = lshr i32 %msg_frag.016.i, 8
-  %lftr.wideiv = trunc i64 %inc.i to i32
-  %exitcond = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond, label %while.cond.loopexit.i, label %while.body6.i, !llvm.loop !7
+  %dec.i = add nsw i32 %size.017.i, -1
+  %cmp4.i = icmp sgt i32 %size.017.i, 1
+  br i1 %cmp4.i, label %while.body6.i, label %while.cond.loopexit.i, !llvm.loop !7
 
 read_fifo.exit:                                   ; preds = %while.cond.loopexit.i, %while.body6.i, %entry
   %retval.0.i = phi i64 [ 0, %entry ], [ %inc.i, %while.body6.i ], [ %index.1.lcssa.i, %while.cond.loopexit.i ]

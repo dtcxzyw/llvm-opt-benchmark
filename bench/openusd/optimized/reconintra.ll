@@ -1217,7 +1217,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %55 = mul i32 %54, %2
   %56 = add i32 %55, %32
   %57 = mul nsw i64 %indvars.iv393, %52
-  %invariant.gep416 = getelementptr i8, ptr %11, i64 %57
+  %invariant.gep420 = getelementptr i8, ptr %11, i64 %57
   br label %58
 
 58:                                               ; preds = %.preheader.us, %58
@@ -1231,8 +1231,8 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %65 = getelementptr inbounds nuw i16, ptr %48, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = trunc i16 %66 to i8
-  %gep417 = getelementptr i8, ptr %invariant.gep416, i64 %indvars.iv387
-  store i8 %67, ptr %gep417, align 1
+  %gep421 = getelementptr i8, ptr %invariant.gep420, i64 %indvars.iv387
+  store i8 %67, ptr %gep421, align 1
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count391
   br i1 %exitcond392.not, label %._crit_edge.us360, label %58, !llvm.loop !32
@@ -1435,8 +1435,8 @@ scale_chroma_bsize.exit:                          ; preds = %158, %156, %154, %1
   %173 = icmp eq i32 %14, %172
   %174 = lshr i32 16, %94
   %175 = icmp eq i32 %127, %174
-  %or.cond418 = select i1 %173, i1 %175, i1 false
-  br i1 %or.cond418, label %has_top_right.exit, label %._crit_edge.i
+  %or.cond422 = select i1 %173, i1 %175, i1 false
+  br i1 %or.cond422, label %has_top_right.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %171
   %176 = srem i32 %13, %174
@@ -1763,21 +1763,23 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %382 = sext i32 %380 to i64
+  %383 = add nuw nsw i64 %wide.trip.count.i, 1
+  %smax399 = call i64 @llvm.smax.i64(i64 %383, i64 %382)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv325.i = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i ], [ %indvars.iv.next326.i, %.lr.ph.i ]
-  %383 = mul nsw i64 %indvars.iv325.i, %322
-  %384 = getelementptr inbounds i16, ptr %325, i64 %383
-  %385 = load i16, ptr %384, align 2
-  %386 = getelementptr inbounds nuw i16, ptr %314, i64 %indvars.iv325.i
-  store i16 %385, ptr %386, align 2
+  %384 = mul nsw i64 %indvars.iv325.i, %322
+  %385 = getelementptr inbounds i16, ptr %325, i64 %384
+  %386 = load i16, ptr %385, align 2
+  %387 = getelementptr inbounds nuw i16, ptr %314, i64 %indvars.iv325.i
+  store i16 %386, ptr %387, align 2
   %indvars.iv.next326.i = add nuw nsw i64 %indvars.iv325.i, 1
-  %387 = icmp slt i64 %indvars.iv.next326.i, %382
-  br i1 %387, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !38
+  %exitcond400.not = icmp eq i64 %indvars.iv.next326.i, %smax399
+  br i1 %exitcond400.not, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
-  %388 = trunc nsw i64 %indvars.iv.next326.i to i32
+  %388 = trunc nsw i64 %smax399 to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %378
@@ -2745,21 +2747,23 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
 
 .lr.ph.preheader.i326:                            ; preds = %.preheader.i325
   %901 = sext i32 %899 to i64
+  %902 = add nuw nsw i64 %wide.trip.count.i318, 1
+  %smax401 = tail call i64 @llvm.smax.i64(i64 %902, i64 %901)
   br label %.lr.ph.i327
 
 .lr.ph.i327:                                      ; preds = %.lr.ph.i327, %.lr.ph.preheader.i326
   %indvars.iv328.i = phi i64 [ %wide.trip.count.i318, %.lr.ph.preheader.i326 ], [ %indvars.iv.next329.i, %.lr.ph.i327 ]
-  %902 = mul nsw i64 %indvars.iv328.i, %842
-  %903 = getelementptr inbounds i8, ptr %845, i64 %902
-  %904 = load i8, ptr %903, align 1
-  %905 = getelementptr inbounds nuw i8, ptr %847, i64 %indvars.iv328.i
-  store i8 %904, ptr %905, align 1
+  %903 = mul nsw i64 %indvars.iv328.i, %842
+  %904 = getelementptr inbounds i8, ptr %845, i64 %903
+  %905 = load i8, ptr %904, align 1
+  %906 = getelementptr inbounds nuw i8, ptr %847, i64 %indvars.iv328.i
+  store i8 %905, ptr %906, align 1
   %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i, 1
-  %906 = icmp slt i64 %indvars.iv.next329.i, %901
-  br i1 %906, label %.lr.ph.i327, label %.loopexit.loopexit.i328, !llvm.loop !46
+  %exitcond402.not = icmp eq i64 %indvars.iv.next329.i, %smax401
+  br i1 %exitcond402.not, label %.loopexit.loopexit.i328, label %.lr.ph.i327, !llvm.loop !46
 
 .loopexit.loopexit.i328:                          ; preds = %.lr.ph.i327
-  %907 = trunc nsw i64 %indvars.iv.next329.i to i32
+  %907 = trunc nsw i64 %smax401 to i32
   br label %.loopexit.i323
 
 .loopexit.i323:                                   ; preds = %.loopexit.loopexit.i328, %.preheader.i325, %897
@@ -4961,6 +4965,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

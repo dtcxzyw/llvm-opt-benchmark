@@ -38,16 +38,20 @@ define dso_local i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr nound
   br i1 %18, label %.lr.ph, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
+  %indvars.iv37 = phi i32 [ %indvars.iv.next38, %.preheader ], [ %7, %.lr.ph ]
   %.027 = phi i32 [ %22, %.preheader ], [ %6, %.lr.ph ]
   %19 = zext i32 %.027 to i64
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not = icmp eq i32 %21, 0
   %22 = add i32 %.027, -1
+  %indvars.iv.next38 = add i32 %indvars.iv37, -1
   br i1 %.not, label %.preheader, label %23, !llvm.loop !11
 
 23:                                               ; preds = %.preheader
   store i32 %.027, ptr %1, align 4, !tbaa !4
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv37, i32 1)
+  %wide.trip.count = zext i32 %umax to i64
   br label %24
 
 24:                                               ; preds = %23, %24
@@ -57,8 +61,8 @@ define dso_local i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr nound
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %26, i32 %.02634)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not31.not = icmp samesign ult i64 %indvars.iv, %19
-  br i1 %.not31.not, label %24, label %.loopexit, !llvm.loop !12
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond, label %.loopexit, label %24, !llvm.loop !12
 
 .loopexit:                                        ; preds = %24, %11
   %.028 = phi i32 [ 0, %11 ], [ %spec.select, %24 ]
@@ -106,16 +110,20 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef
   br i1 %22, label %.lr.ph.i, label %.preheader.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
+  %indvars.iv37.i = phi i32 [ %indvars.iv.next38.i, %.preheader.i ], [ %11, %.lr.ph.i ]
   %.027.i = phi i32 [ %26, %.preheader.i ], [ %10, %.lr.ph.i ]
   %23 = zext i32 %.027.i to i64
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %.not.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i, -1
+  %indvars.iv.next38.i = add i32 %indvars.iv37.i, -1
   br i1 %.not.i, label %.preheader.i, label %27, !llvm.loop !11
 
 27:                                               ; preds = %.preheader.i
   store i32 %.027.i, ptr %1, align 4, !tbaa !4
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %indvars.iv37.i, i32 1)
+  %wide.trip.count.i = zext i32 %umax.i to i64
   br label %28
 
 28:                                               ; preds = %28, %27
@@ -125,8 +133,8 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %23
-  br i1 %exitcond.not, label %HIST_count_simple.exit.loopexit, label %28, !llvm.loop !12
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.i, label %HIST_count_simple.exit.loopexit, label %28, !llvm.loop !12
 
 HIST_count_simple.exit.loopexit:                  ; preds = %28
   %31 = zext i32 %spec.select.i to i64
@@ -416,16 +424,20 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef cap
   br i1 %28, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
+  %indvars.iv37.i.i = phi i32 [ %indvars.iv.next38.i.i, %.preheader.i.i ], [ 256, %.lr.ph.i.i ]
   %.027.i.i = phi i32 [ %32, %.preheader.i.i ], [ 255, %.lr.ph.i.i ]
   %29 = zext i32 %.027.i.i to i64
   %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %.not.i.i = icmp eq i32 %31, 0
   %32 = add i32 %.027.i.i, -1
+  %indvars.iv.next38.i.i = add i32 %indvars.iv37.i.i, -1
   br i1 %.not.i.i, label %.preheader.i.i, label %33, !llvm.loop !11
 
 33:                                               ; preds = %.preheader.i.i
   store i32 %.027.i.i, ptr %1, align 4, !tbaa !4
+  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %indvars.iv37.i.i, i32 1)
+  %wide.trip.count.i.i = zext i32 %umax.i.i to i64
   br label %34
 
 34:                                               ; preds = %34, %33
@@ -435,8 +447,8 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef cap
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %36, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %29
-  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %34, !llvm.loop !12
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.i.i, label %HIST_count_simple.exit.loopexit.i, label %34, !llvm.loop !12
 
 HIST_count_simple.exit.loopexit.i:                ; preds = %34
   %37 = zext i32 %spec.select.i.i to i64
@@ -485,16 +497,20 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef capt
   br i1 %21, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
+  %indvars.iv37.i.i = phi i32 [ %indvars.iv.next38.i.i, %.preheader.i.i ], [ %10, %.lr.ph.i.i ]
   %.027.i.i = phi i32 [ %25, %.preheader.i.i ], [ %9, %.lr.ph.i.i ]
   %22 = zext i32 %.027.i.i to i64
   %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !4
   %.not.i.i = icmp eq i32 %24, 0
   %25 = add i32 %.027.i.i, -1
+  %indvars.iv.next38.i.i = add i32 %indvars.iv37.i.i, -1
   br i1 %.not.i.i, label %.preheader.i.i, label %26, !llvm.loop !11
 
 26:                                               ; preds = %.preheader.i.i
   store i32 %.027.i.i, ptr %1, align 4, !tbaa !4
+  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %indvars.iv37.i.i, i32 1)
+  %wide.trip.count.i.i = zext i32 %umax.i.i to i64
   br label %27
 
 27:                                               ; preds = %27, %26
@@ -504,8 +520,8 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef capt
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, %22
-  br i1 %exitcond.not.i, label %HIST_count_simple.exit.loopexit.i, label %27, !llvm.loop !12
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.i.i, label %HIST_count_simple.exit.loopexit.i, label %27, !llvm.loop !12
 
 HIST_count_simple.exit.loopexit.i:                ; preds = %27
   %30 = zext i32 %spec.select.i.i to i64
@@ -561,16 +577,20 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures
   br i1 %22, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !9
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
+  %indvars.iv37.i.i.i = phi i32 [ %indvars.iv.next38.i.i.i, %.preheader.i.i.i ], [ 256, %.lr.ph.i.i.i ]
   %.027.i.i.i = phi i32 [ %26, %.preheader.i.i.i ], [ 255, %.lr.ph.i.i.i ]
   %23 = zext i32 %.027.i.i.i to i64
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %.not.i.i.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i.i.i, -1
+  %indvars.iv.next38.i.i.i = add i32 %indvars.iv37.i.i.i, -1
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %27, !llvm.loop !11
 
 27:                                               ; preds = %.preheader.i.i.i
   store i32 %.027.i.i.i, ptr %1, align 4, !tbaa !4
+  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %indvars.iv37.i.i.i, i32 1)
+  %wide.trip.count.i.i.i = zext i32 %umax.i.i.i to i64
   br label %28
 
 28:                                               ; preds = %28, %27
@@ -580,8 +600,8 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i.i, %23
-  br i1 %exitcond.not.i.i, label %HIST_count_simple.exit.loopexit.i.i, label %28, !llvm.loop !12
+  %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.i.i.i, label %HIST_count_simple.exit.loopexit.i.i, label %28, !llvm.loop !12
 
 HIST_count_simple.exit.loopexit.i.i:              ; preds = %28
   %31 = zext i32 %spec.select.i.i.i to i64

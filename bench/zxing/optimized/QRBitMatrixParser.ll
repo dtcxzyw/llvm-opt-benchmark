@@ -248,25 +248,30 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
   %118 = shl i32 %114, 1
   %119 = or disjoint i32 %118, %117
   %120 = icmp sgt i32 %115, %103
-  br i1 %120, label %112, label %.preheader7, !llvm.loop !25
+  br i1 %120, label %112, label %.preheader7.preheader, !llvm.loop !25
 
-121:                                              ; preds = %.preheader7
-  %122 = tail call { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef %110, i32 noundef %128) #13
+.preheader7.preheader:                            ; preds = %112
+  %121 = add i32 %102, -7
+  %smax = tail call i32 @llvm.smax.i32(i32 %102, i32 %121)
+  br label %.preheader7
+
+122:                                              ; preds = %.preheader7
+  %123 = tail call { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef %110, i32 noundef %129) #13
   br label %131
 
-.preheader7:                                      ; preds = %112, %.preheader7
-  %123 = phi i32 [ %129, %.preheader7 ], [ %103, %112 ]
-  %124 = phi i32 [ %128, %.preheader7 ], [ %119, %112 ]
-  %125 = tail call noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %123, i32 noundef 8) #13
-  %126 = zext i1 %125 to i32
-  %127 = shl i32 %124, 1
-  %128 = or disjoint i32 %127, %126
-  %129 = add nsw i32 %123, 1
-  %130 = icmp slt i32 %129, %102
-  br i1 %130, label %.preheader7, label %121, !llvm.loop !26
+.preheader7:                                      ; preds = %.preheader7.preheader, %.preheader7
+  %124 = phi i32 [ %130, %.preheader7 ], [ %103, %.preheader7.preheader ]
+  %125 = phi i32 [ %129, %.preheader7 ], [ %119, %.preheader7.preheader ]
+  %126 = tail call noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %124, i32 noundef 8) #13
+  %127 = zext i1 %126 to i32
+  %128 = shl i32 %125, 1
+  %129 = or disjoint i32 %128, %127
+  %130 = add i32 %124, 1
+  %exitcond.not = icmp eq i32 %130, %smax
+  br i1 %exitcond.not, label %122, label %.preheader7, !llvm.loop !26
 
-131:                                              ; preds = %121, %63, %11
-  %132 = phi { i64, i64 } [ %12, %11 ], [ %64, %63 ], [ %122, %121 ]
+131:                                              ; preds = %122, %63, %11
+  %132 = phi { i64, i64 } [ %12, %11 ], [ %64, %63 ], [ %123, %122 ]
   ret { i64, i64 } %132
 }
 

@@ -3294,9 +3294,10 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
   %80 = load i32, ptr %30, align 8
   %81 = add nsw i32 %79, %80
   %82 = load i32, ptr %28, align 8
-  %83 = add nsw i32 %77, %82
+  %83 = add i32 %77, %82
   %84 = sext i32 %82 to i64
-  %85 = sext i32 %83 to i64
+  %85 = add i32 %82, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %83, i32 %85)
   %86 = sext i32 %81 to i64
   br label %.lr.ph
 
@@ -3340,14 +3341,15 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
 
 109:                                              ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %110 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %109, %36
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next55 to i32
-  %exitcond.not = icmp eq i32 %35, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge52, label %36, !llvm.loop !39
+  %lftr.wideiv56 = trunc i64 %indvars.iv.next55 to i32
+  %exitcond57.not = icmp eq i32 %35, %lftr.wideiv56
+  br i1 %exitcond57.not, label %._crit_edge52, label %36, !llvm.loop !39
 
 ._crit_edge52:                                    ; preds = %._crit_edge, %2
   ret void
@@ -6681,6 +6683,9 @@ define internal void @_GLOBAL__sub_I_disparity_filters.cpp() #16 section ".text.
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
@@ -6689,9 +6694,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

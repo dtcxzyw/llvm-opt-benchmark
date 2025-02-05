@@ -5174,34 +5174,35 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
+  %umax = call i64 @llvm.umax.i64(i64 %.pre.i.i.i.i.i.i.i.i, i64 %2)
   br label %17
 
 17:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i.i.i ], [ %24, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
-  %.0411.i.i.i.i.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i.i.i.i.i ], [ %25, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.3.010.i.i.i.i.i.i.i.i = phi i64 [ %2, %.lr.ph.i.i.i.i.i.i.i.i ], [ %23, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
-  %18 = icmp ult i64 %.sroa.3.010.i.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i.i
-  br i1 %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i, label %19
+  %.012.i.i.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i.i.i ], [ %23, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
+  %.0411.i.i.i.i.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i.i.i.i.i ], [ %24, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.3.010.i.i.i.i.i.i.i.i = phi i64 [ %2, %.lr.ph.i.i.i.i.i.i.i.i ], [ %22, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
+  %exitcond.not = icmp eq i64 %.sroa.3.010.i.i.i.i.i.i.i.i, %umax
+  br i1 %exitcond.not, label %18, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i
 
-19:                                               ; preds = %17
+18:                                               ; preds = %17
   call void @_ZSt9terminatev() #26
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i: ; preds = %17
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.sroa.3.010.i.i.i.i.i.i.i.i
-  %22 = load i8, ptr %21, align 1
-  store i8 %22, ptr %.012.i.i.i.i.i.i.i.i, align 1
-  %23 = add nuw i64 %.sroa.3.010.i.i.i.i.i.i.i.i, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 1
-  %25 = add nsw i64 %.0411.i.i.i.i.i.i.i.i, -1
-  %26 = icmp sgt i64 %.0411.i.i.i.i.i.i.i.i, 1
-  br i1 %26, label %17, label %_ZSt22__uninitialized_copy_aIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKcLm18446744073709551615EEELb1EEEPccET0_T_SA_S9_RSaIT1_E.exit, !llvm.loop !135
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.sroa.3.010.i.i.i.i.i.i.i.i
+  %21 = load i8, ptr %20, align 1
+  store i8 %21, ptr %.012.i.i.i.i.i.i.i.i, align 1
+  %22 = add i64 %.sroa.3.010.i.i.i.i.i.i.i.i, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 1
+  %24 = add nsw i64 %.0411.i.i.i.i.i.i.i.i, -1
+  %25 = icmp sgt i64 %.0411.i.i.i.i.i.i.i.i, 1
+  br i1 %25, label %17, label %_ZSt22__uninitialized_copy_aIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKcLm18446744073709551615EEELb1EEEPccET0_T_SA_S9_RSaIT1_E.exit, !llvm.loop !135
 
 _ZSt22__uninitialized_copy_aIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKcLm18446744073709551615EEELb1EEEPccET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEmiES6_.exit.i.i.i.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEmiES6_.exit.i.i.i.i.i.i.i.i ], [ %24, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i.i, ptr %27, align 8
+  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEmiES6_.exit.i.i.i.i.i.i.i.i ], [ %23, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb1EEdeEv.exit.i.i.i.i.i.i.i.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i.i.i, ptr %26, align 8
   ret void
 }
 

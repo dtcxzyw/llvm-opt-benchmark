@@ -2344,9 +2344,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %109, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %105
-  %110 = add nsw i32 %108, %103
+  %110 = add i32 %108, %103
   %111 = sext i32 %103 to i64
-  %112 = sext i32 %110 to i64
+  %112 = add nuw i32 %103, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %110, i32 %112)
   br label %113
 
 113:                                              ; preds = %.lr.ph151, %168
@@ -2464,8 +2465,9 @@ Vec_IntPush.exit136:                              ; preds = %Vec_IntPush.exit136
   br label %168
 
 168:                                              ; preds = %164, %165
-  %169 = icmp slt i64 %indvars.iv.next166, %112
-  br i1 %169, label %113, label %..loopexit_crit_edge, !llvm.loop !134
+  %lftr.wideiv = trunc i64 %indvars.iv.next166 to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %113, !llvm.loop !134
 
 ..loopexit_crit_edge:                             ; preds = %168
   store ptr %.val122152, ptr %12, align 8
@@ -2476,23 +2478,23 @@ Vec_IntPush.exit136:                              ; preds = %Vec_IntPush.exit136
   %.val112 = phi i32 [ %.val112176, %105 ], [ %.val112.pre, %..loopexit_crit_edge ], [ %.val112176, %97 ]
   %.promoted174 = phi ptr [ %.promoted, %105 ], [ %.val122152, %..loopexit_crit_edge ], [ %.promoted, %97 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %170 = sext i32 %.val112 to i64
-  %171 = icmp slt i64 %indvars.iv.next169, %170
-  br i1 %171, label %97, label %.critedge4, !llvm.loop !135
+  %169 = sext i32 %.val112 to i64
+  %170 = icmp slt i64 %indvars.iv.next169, %169
+  br i1 %170, label %97, label %.critedge4, !llvm.loop !135
 
 .critedge4:                                       ; preds = %.loopexit, %Vec_IntPush.exit
-  %172 = phi ptr [ %11, %Vec_IntPush.exit ], [ %.promoted174, %.loopexit ]
+  %171 = phi ptr [ %11, %Vec_IntPush.exit ], [ %.promoted174, %.loopexit ]
   %.val112.lcssa = phi i32 [ %.val112156, %Vec_IntPush.exit ], [ %.val112, %.loopexit ]
-  %173 = add nsw i32 %.val112.lcssa, -1
-  store i32 %173, ptr %29, align 4, !tbaa !23
-  %.not.i = icmp eq ptr %172, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %174
+  %172 = add nsw i32 %.val112.lcssa, -1
+  store i32 %172, ptr %29, align 4, !tbaa !23
+  %.not.i = icmp eq ptr %171, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %173
 
-174:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %172) #18
+173:                                              ; preds = %.critedge4
+  tail call void @free(ptr noundef nonnull %171) #18
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge4, %174
+Vec_IntFree.exit:                                 ; preds = %.critedge4, %173
   tail call void @free(ptr noundef nonnull %9) #18
   ret ptr %13
 }

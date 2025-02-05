@@ -5335,7 +5335,7 @@ define internal fastcc void @_ZN6rustls6crypto9aws_lc_rs4quic19HeaderProtectionK
   store <5 x i8> %.sroa.0.0.vec.extract.i.i, ptr %14, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %26 = icmp ugt i64 %6, 4
-  br i1 %26, label %40, label %31
+  br i1 %26, label %39, label %31
 
 _ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit: ; preds = %8
   %27 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef 24, i1 noundef zeroext false), !noalias !1299
@@ -5351,7 +5351,7 @@ _ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit: 
   store ptr %29, ptr %.sroa.329.sroa.3.0..sroa.329.0..sroa_idx.sroa_idx, align 8
   %.sroa.329.sroa.4.0..sroa.329.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 24, ptr %.sroa.329.sroa.4.0..sroa.329.0..sroa_idx.sroa_idx, align 8
-  br label %51
+  br label %53
 
 31:                                               ; preds = %24
   %32 = extractelement <16 x i8> %.sroa.0.0.i.i, i64 0
@@ -5367,34 +5367,35 @@ _ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit: 
 .lr.ph.preheader:                                 ; preds = %31
   %36 = select i1 %7, i8 %32, i8 0
   %.031 = xor i8 %36, %33
-  %37 = add nsw i64 %6, -1
-  %38 = and i8 %.031, 3
-  %39 = zext nneg i8 %38 to i64
-  %umin = call i64 @llvm.umin.i64(i64 %37, i64 %39)
+  %37 = and i8 %.031, 3
+  %narrow = add nuw nsw i8 %37, 1
+  %38 = zext nneg i8 %narrow to i64
   br label %.lr.ph
 
-40:                                               ; preds = %24
-  %41 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef 22, i1 noundef zeroext false), !noalias !1307
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = extractvalue { i64, ptr } %41, 1
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %43, ptr noundef nonnull align 1 dereferenceable(22) @anon.ef2cb31d04e324dd9619959f34c788f4.80, i64 22, i1 false)
+39:                                               ; preds = %24
+  %40 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef 22, i1 noundef zeroext false), !noalias !1307
+  %41 = extractvalue { i64, ptr } %40, 0
+  %42 = extractvalue { i64, ptr } %40, 1
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %42, ptr noundef nonnull align 1 dereferenceable(22) @anon.ef2cb31d04e324dd9619959f34c788f4.80, i64 22, i1 false)
   store i8 12, ptr %0, align 8
   %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %42, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
+  store i64 %41, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx, align 8
+  store ptr %42, ptr %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   %.sroa.48.sroa.5.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 22, ptr %.sroa.48.sroa.5.0..sroa.48.0..sroa_idx.sroa_idx, align 8
-  br label %51
+  br label %53
 
 .thread65:                                        ; preds = %.lr.ph, %31
   store i8 20, ptr %0, align 8
-  br label %51
+  br label %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.sroa.14.075 = phi i64 [ %44, %.lr.ph ], [ %38, %.lr.ph.preheader ]
   %.sroa.849.074 = phi i64 [ %45, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %44 = add nsw i64 %.sroa.14.075, -1
   %45 = add nuw nsw i64 %.sroa.849.074, 1
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.849.074
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.849.074
@@ -5402,10 +5403,12 @@ _ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit: 
   %49 = load i8, ptr %46, align 1, !noundef !14
   %50 = xor i8 %49, %48
   store i8 %50, ptr %46, align 1
-  %exitcond.not = icmp eq i64 %.sroa.849.074, %umin
-  br i1 %exitcond.not, label %.thread65, label %.lr.ph
+  %51 = icmp ne i64 %44, 0
+  %52 = icmp ult i64 %45, %6
+  %or.cond = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.thread65
 
-51:                                               ; preds = %_ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit, %40, %.thread65
+53:                                               ; preds = %_ZN9aws_lc_rs4aead4quic19HeaderProtectionKey8new_mask17h408478ba2bbbe363E.exit, %39, %.thread65
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %14)
   ret void
 }

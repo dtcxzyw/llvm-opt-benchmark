@@ -2618,19 +2618,21 @@ _ZN5faiss13ivec_checksumEmPKi.exit:               ; preds = %.lr.ph.i, %2
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
   %15 = mul nuw nsw i64 %14, 1686049
-  br label %16
+  %16 = or disjoint i64 %11, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 %16)
+  br label %17
 
-16:                                               ; preds = %.lr.ph, %16
-  %.012 = phi i64 [ %11, %.lr.ph ], [ %19, %16 ]
-  %.0911 = phi i64 [ %.0.lcssa.i, %.lr.ph ], [ %18, %16 ]
-  %17 = mul i64 %.0911, 65713
-  %18 = add i64 %15, %17
-  %19 = add nuw i64 %.012, 1
-  %20 = icmp ult i64 %19, %0
-  br i1 %20, label %16, label %._crit_edge, !llvm.loop !54
+17:                                               ; preds = %.lr.ph, %17
+  %.012 = phi i64 [ %11, %.lr.ph ], [ %20, %17 ]
+  %.0911 = phi i64 [ %.0.lcssa.i, %.lr.ph ], [ %19, %17 ]
+  %18 = mul i64 %.0911, 65713
+  %19 = add i64 %15, %18
+  %20 = add nuw i64 %.012, 1
+  %exitcond.not = icmp eq i64 %20, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %16, %_ZN5faiss13ivec_checksumEmPKi.exit
-  %.09.lcssa = phi i64 [ %.0.lcssa.i, %_ZN5faiss13ivec_checksumEmPKi.exit ], [ %18, %16 ]
+._crit_edge:                                      ; preds = %17, %_ZN5faiss13ivec_checksumEmPKi.exit
+  %.09.lcssa = phi i64 [ %.0.lcssa.i, %_ZN5faiss13ivec_checksumEmPKi.exit ], [ %19, %17 ]
   ret i64 %.09.lcssa
 }
 
@@ -2726,19 +2728,21 @@ _ZN5faiss13ivec_checksumEmPKi.exit.i:             ; preds = %.lr.ph.i.i, %.lr.ph
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
   %35 = mul nuw nsw i64 %34, 1686049
-  br label %36
+  %36 = or disjoint i64 %31, 1
+  %umax.i = call i64 @llvm.umax.i64(i64 %19, i64 %36)
+  br label %37
 
-36:                                               ; preds = %36, %.lr.ph.i
-  %.012.i = phi i64 [ %31, %.lr.ph.i ], [ %39, %36 ]
-  %.0911.i = phi i64 [ %.0.lcssa.i.i, %.lr.ph.i ], [ %38, %36 ]
-  %37 = mul i64 %.0911.i, 65713
-  %38 = add i64 %37, %35
-  %39 = add nuw i64 %.012.i, 1
-  %40 = icmp ult i64 %39, %19
-  br i1 %40, label %36, label %_ZN5faiss13bvec_checksumEmPKh.exit, !llvm.loop !54
+37:                                               ; preds = %37, %.lr.ph.i
+  %.012.i = phi i64 [ %31, %.lr.ph.i ], [ %40, %37 ]
+  %.0911.i = phi i64 [ %.0.lcssa.i.i, %.lr.ph.i ], [ %39, %37 ]
+  %38 = mul i64 %.0911.i, 65713
+  %39 = add i64 %38, %35
+  %40 = add nuw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %40, %umax.i
+  br i1 %exitcond.not.i, label %_ZN5faiss13bvec_checksumEmPKh.exit, label %37, !llvm.loop !54
 
-_ZN5faiss13bvec_checksumEmPKh.exit:               ; preds = %36, %_ZN5faiss13ivec_checksumEmPKi.exit.i
-  %.09.lcssa.i = phi i64 [ %.0.lcssa.i.i, %_ZN5faiss13ivec_checksumEmPKi.exit.i ], [ %38, %36 ]
+_ZN5faiss13bvec_checksumEmPKh.exit:               ; preds = %37, %_ZN5faiss13ivec_checksumEmPKi.exit.i
+  %.09.lcssa.i = phi i64 [ %.0.lcssa.i.i, %_ZN5faiss13ivec_checksumEmPKi.exit.i ], [ %39, %37 ]
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %.018
   store i64 %.09.lcssa.i, ptr %42, align 8

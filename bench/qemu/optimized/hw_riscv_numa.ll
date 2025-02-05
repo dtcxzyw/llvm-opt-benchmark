@@ -364,30 +364,27 @@ for.cond.preheader:                               ; preds = %numa_enabled.exit
 if.end3.lr.ph:                                    ; preds = %for.cond.preheader
   %nodes = getelementptr inbounds nuw i8, ptr %ms.val, i64 8
   %2 = zext i32 %socket_id to i64
-  %3 = add nsw i32 %1, -1
-  %4 = add i32 %socket_id, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
-  %5 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %5 to i64
+  %3 = zext nneg i32 %1 to i64
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.lr.ph, %if.end3
   %indvars.iv = phi i64 [ 0, %if.end3.lr.ph ], [ %indvars.iv.next, %if.end3 ]
   %mem_offset.013 = phi i64 [ 0, %if.end3.lr.ph ], [ %add, %if.end3 ]
   %arrayidx = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %indvars.iv
-  %6 = load i64, ptr %arrayidx, align 8
-  %add = add i64 %6, %mem_offset.013
+  %4 = load i64, ptr %arrayidx, align 8
+  %add = add i64 %4, %mem_offset.013
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %for.end.loopexit, label %if.end3, !llvm.loop !9
+  %cmp = icmp samesign uge i64 %indvars.iv.next, %3
+  %cmp1 = icmp eq i64 %indvars.iv.next, %2
+  %or.cond = or i1 %cmp1, %cmp
+  br i1 %or.cond, label %for.end.loopexit, label %if.end3, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %if.end3
-  %cmp1 = icmp eq i64 %indvars.iv.next, %2
-  %7 = select i1 %cmp1, i64 %add, i64 0
+  %5 = select i1 %cmp1, i64 %add, i64 0
   br label %return
 
 return:                                           ; preds = %for.cond.preheader, %for.end.loopexit, %entry, %numa_enabled.exit
-  %retval.0 = phi i64 [ 0, %numa_enabled.exit ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %7, %for.end.loopexit ]
+  %retval.0 = phi i64 [ 0, %numa_enabled.exit ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %5, %for.end.loopexit ]
   ret i64 %retval.0
 }
 
@@ -736,9 +733,6 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

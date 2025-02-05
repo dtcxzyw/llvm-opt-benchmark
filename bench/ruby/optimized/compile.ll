@@ -73727,6 +73727,7 @@ define internal fastcc void @compile_builtin_mandatory_only_method(ptr noundef %
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 144
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %42 = zext nneg i32 %.0.lcssa to i64
+  %wide.trip.count = zext i32 %21 to i64
   %.pre46 = load ptr, ptr %40, align 8
   br label %48
 
@@ -73750,68 +73751,68 @@ define internal fastcc void @compile_builtin_mandatory_only_method(ptr noundef %
   %54 = getelementptr [0 x i64], ptr %41, i64 0, i64 %indvars.iv41
   store i64 %53, ptr %54, align 8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %55 = icmp slt i64 %indvars.iv.next42, %22
-  br i1 %55, label %48, label %._crit_edge, !llvm.loop !241
+  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %48, %.preheader
   call void @rb_node_init(ptr noundef nonnull %6, i32 noundef 0) #37
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %33, ptr %56, align 8
-  %57 = load i64, ptr %0, align 8
-  %58 = and i64 %57, 262144
-  %.not.i.i = icmp ne i64 %58, 0
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %33, ptr %55, align 8
+  %56 = load i64, ptr %0, align 8
+  %57 = and i64 %56, 262144
+  %.not.i.i = icmp ne i64 %57, 0
   call void @llvm.assume(i1 %.not.i.i)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, 32512
-  %65 = icmp eq i64 %64, 512
-  br i1 %65, label %66, label %70
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i64, ptr %61, align 8
+  %63 = and i64 %62, 32512
+  %64 = icmp eq i64 %63, 512
+  br i1 %64, label %65, label %69
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, %1
-  br i1 %69, label %mandatory_node.exit, label %70
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, %1
+  br i1 %68, label %mandatory_node.exit, label %69
 
-70:                                               ; preds = %66, %._crit_edge
+69:                                               ; preds = %65, %._crit_edge
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.175) #38
   unreachable
 
-mandatory_node.exit:                              ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %4, ptr %74, align 8
+mandatory_node.exit:                              ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %4, ptr %73, align 8
   store ptr %6, ptr %7, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 200
-  %78 = load i64, ptr %77, align 8
-  store i64 %78, ptr %75, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 -1, ptr %79, align 8
-  %80 = call i64 @rb_iseq_base_label(ptr noundef nonnull %0) #37
-  %81 = call i64 @rb_iseq_path(ptr noundef nonnull %0) #37
-  %82 = call i64 @rb_iseq_realpath(ptr noundef nonnull %0) #37
-  %83 = load i64, ptr %2, align 8
-  %84 = lshr i64 %83, 15
-  %85 = trunc i64 %84 to i32
-  %86 = load i64, ptr %0, align 8
-  %87 = and i64 %86, 262144
-  %.not.i = icmp ne i64 %87, 0
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 200
+  %77 = load i64, ptr %76, align 8
+  store i64 %77, ptr %74, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i8 -1, ptr %78, align 8
+  %79 = call i64 @rb_iseq_base_label(ptr noundef nonnull %0) #37
+  %80 = call i64 @rb_iseq_path(ptr noundef nonnull %0) #37
+  %81 = call i64 @rb_iseq_realpath(ptr noundef nonnull %0) #37
+  %82 = load i64, ptr %2, align 8
+  %83 = lshr i64 %82, 15
+  %84 = trunc i64 %83 to i32
+  %85 = load i64, ptr %0, align 8
+  %86 = and i64 %85, 262144
+  %.not.i = icmp ne i64 %86, 0
   call void @llvm.assume(i1 %.not.i)
-  %88 = load ptr, ptr %59, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 120
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @rb_iseq_new_with_opt(ptr noundef nonnull %7, i64 noundef %80, i64 noundef %81, i64 noundef %82, i32 noundef %85, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef %90) #37
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 288
-  store ptr %91, ptr %93, align 8
+  %87 = load ptr, ptr %58, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 120
+  %89 = load ptr, ptr %88, align 8
+  %90 = call ptr @rb_iseq_new_with_opt(ptr noundef nonnull %7, i64 noundef %79, i64 noundef %80, i64 noundef %81, i32 noundef %84, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef %89) #37
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 288
+  store ptr %90, ptr %92, align 8
   call void @rb_free_tmp_buffer(ptr noundef nonnull %5) #37
   ret void
 }

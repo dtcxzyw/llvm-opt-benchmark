@@ -140701,11 +140701,13 @@ define void @"_ZN14deltalake_core8protocol12parquet_read56_$LT$impl$u20$deltalak
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit"
-  %.sroa.01.0.ph327 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %19, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
+  %.sroa.01.0.ph327 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %20, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
   %17 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
   %.sroa.3.0.ph325 = phi i64 [ undef, %.lr.ph.lr.ph ], [ %.sroa.01.0318, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
   %.0.ph324 = phi ptr [ null, %.lr.ph.lr.ph ], [ %100, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
-  br label %18
+  %18 = add nuw i64 %.sroa.01.0.ph327, 1
+  %umax = call i64 @llvm.umax.i64(i64 %15, i64 %18)
+  br label %19
 
 .outer._crit_edge:                                ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit", %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"
   %.0.ph.lcssa = phi ptr [ %.0.ph324, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248" ], [ %100, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
@@ -140715,15 +140717,14 @@ define void @"_ZN14deltalake_core8protocol12parquet_read56_$LT$impl$u20$deltalak
   %or.cond = or i1 %.sroa.04.0.ph.lcssa, %.not219
   br i1 %or.cond, label %.outer._crit_edge.thread, label %28
 
-18:                                               ; preds = %.lr.ph, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"
-  %.sroa.01.0318 = phi i64 [ %.sroa.01.0.ph327, %.lr.ph ], [ %19, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248" ]
-  %19 = add nuw i64 %.sroa.01.0318, 1
+19:                                               ; preds = %.lr.ph, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"
+  %.sroa.01.0318 = phi i64 [ %.sroa.01.0.ph327, %.lr.ph ], [ %20, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248" ]
+  %20 = add i64 %.sroa.01.0318, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @"_ZN79_$LT$parquet..record..api..Row$u20$as$u20$parquet..record..api..RowAccessor$GT$9get_group17h12c52298a53a2fefE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %.sroa.01.0318)
-  %20 = load i64, ptr %13, align 8, !range !24895, !noundef !12
-  %21 = icmp eq i64 %20, 6
-  %22 = icmp ult i64 %19, %15
-  br i1 %21, label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit", label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"
+  %21 = load i64, ptr %13, align 8, !range !24895, !noundef !12
+  %22 = icmp eq i64 %21, 6
+  br i1 %22, label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit", label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"
 
 .outer._crit_edge.thread:                         ; preds = %3, %.outer._crit_edge
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.5)
@@ -141053,15 +141054,17 @@ define void @"_ZN14deltalake_core8protocol12parquet_read56_$LT$impl$u20$deltalak
 99:                                               ; preds = %83, %79, %.outer._crit_edge.thread
   ret void
 
-"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit": ; preds = %18
+"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit": ; preds = %19
   %100 = load ptr, ptr %16, align 8, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br i1 %22, label %.lr.ph, label %.outer._crit_edge
+  %101 = icmp ult i64 %20, %15
+  br i1 %101, label %.lr.ph, label %.outer._crit_edge
 
-"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248": ; preds = %18
+"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248": ; preds = %19
   call fastcc void @"_ZN4core3ptr50drop_in_place$LT$parquet..errors..ParquetError$GT$17h535271b8dfeb4e3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br i1 %22, label %18, label %.outer._crit_edge
+  %exitcond.not = icmp eq i64 %20, %umax
+  br i1 %exitcond.not, label %.outer._crit_edge, label %19
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

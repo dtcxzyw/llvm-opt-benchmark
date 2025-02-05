@@ -188,7 +188,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 4
+  %sub.ptr.div = lshr i64 %sub.ptr.sub, 4
   %conv = trunc i64 %sub.ptr.div to i32
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   %2 = load ptr, ptr %l_G, align 8
@@ -254,10 +254,10 @@ relstack.exit:                                    ; preds = %for.body15.i, %for.
   %gcstopem3 = getelementptr inbounds nuw i8, ptr %12, i64 103
   store i8 1, ptr %gcstopem3, align 1
   %13 = load ptr, ptr %stack, align 8
-  %add = shl i64 %sub.ptr.sub, 28
+  %add = shl i64 %sub.ptr.div, 32
   %sext = add i64 %add, 21474836480
-  %conv5 = ashr i64 %sext, 32
-  %mul = shl nsw i64 %conv5, 4
+  %conv5 = ashr exact i64 %sext, 32
+  %mul = ashr exact i64 %sext, 28
   %add6 = add nsw i32 %newsize, 5
   %conv7 = sext i32 %add6 to i64
   %mul8 = shl nsw i64 %conv7, 4
@@ -396,15 +396,21 @@ correctstack.exit67:                              ; preds = %for.inc20.i61, %for
   %add.ptr = getelementptr inbounds %union.StackValue, ptr %36, i64 %idx.ext
   store ptr %add.ptr, ptr %stack_last, align 8
   %cmp2368 = icmp sgt i32 %newsize, %conv
-  br i1 %cmp2368, label %for.body, label %return
+  br i1 %cmp2368, label %for.body.preheader, label %return
 
-for.body:                                         ; preds = %correctstack.exit67, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %conv5, %correctstack.exit67 ]
+for.body.preheader:                               ; preds = %correctstack.exit67
+  %37 = add i32 %conv, 6
+  %smax = tail call i32 @llvm.smax.i32(i32 %37, i32 %add6)
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ %conv5, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %tt_ = getelementptr inbounds %union.StackValue, ptr %call, i64 %indvars.iv, i32 0, i32 1
   store i8 0, ptr %tt_, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp23 = icmp slt i64 %indvars.iv.next, %conv7
-  br i1 %cmp23, label %for.body, label %return, !llvm.loop !10
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 return:                                           ; preds = %for.body, %correctstack.exit67, %correctstack.exit
   %retval.0 = phi i32 [ 0, %correctstack.exit ], [ 1, %correctstack.exit67 ], [ 1, %for.body ]

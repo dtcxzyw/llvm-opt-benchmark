@@ -1572,56 +1572,58 @@ entry:
   %arrayidx.i.i13 = getelementptr inbounds nuw i8, ptr %array, i64 80
   %2 = load ptr, ptr %arrayidx.i.i13, align 8
   %add.ptr.i.i14 = getelementptr inbounds i32, ptr %2, i64 %0
-  %add = add nsw i64 %length, %offset
   %cmp126 = icmp sgt i64 %length, 0
   br i1 %cmp126, label %_ZN5arrow6StatusD2Ev.exit.lr.ph, label %for.end
 
 _ZN5arrow6StatusD2Ev.exit.lr.ph:                  ; preds = %entry
+  %add = add i64 %length, %offset
   %type_id_to_child_id_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %type_id_to_children_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %child_data = getelementptr inbounds nuw i8, ptr %array, i64 104
+  %3 = add i64 %offset, 1
+  %smax = tail call i64 @llvm.smax.i64(i64 %add, i64 %3)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 for.cond:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit88
-  %inc = add nsw i64 %row.0127, 1
-  %cmp = icmp slt i64 %inc, %add
-  br i1 %cmp, label %_ZN5arrow6StatusD2Ev.exit, label %for.end, !llvm.loop !18
+  %inc = add i64 %row.0127, 1
+  %exitcond.not = icmp eq i64 %inc, %smax
+  br i1 %exitcond.not, label %for.end, label %_ZN5arrow6StatusD2Ev.exit, !llvm.loop !18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.lr.ph, %for.cond
   %row.0127 = phi i64 [ %offset, %_ZN5arrow6StatusD2Ev.exit.lr.ph ], [ %inc, %for.cond ]
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %row.0127
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %3 to i64
-  %4 = load ptr, ptr %type_id_to_child_id_, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %conv
-  %5 = load i32, ptr %add.ptr.i, align 4
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %4 to i64
+  %5 = load ptr, ptr %type_id_to_child_id_, align 8
+  %add.ptr.i = getelementptr inbounds i32, ptr %5, i64 %conv
+  %6 = load i32, ptr %add.ptr.i, align 4
   %arrayidx4 = getelementptr inbounds i32, ptr %add.ptr.i.i14, i64 %row.0127
-  %6 = load i32, ptr %arrayidx4, align 4
-  call void @_ZN5arrow17DenseUnionBuilder6AppendEa(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(368) %this, i8 noundef signext %3)
+  %7 = load i32, ptr %arrayidx4, align 4
+  call void @_ZN5arrow17DenseUnionBuilder6AppendEa(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(368) %this, i8 noundef signext %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %7 = load ptr, ptr %ref.tmp, align 8, !noalias !19
-  store ptr %7, ptr %agg.result, align 8, !alias.scope !19
+  %8 = load ptr, ptr %ref.tmp, align 8, !noalias !19
+  store ptr %8, ptr %agg.result, align 8, !alias.scope !19
   store ptr null, ptr %ref.tmp, align 8, !noalias !19
-  %cmp.i = icmp eq ptr %7, null
+  %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %_ZN5arrow6StatusD2Ev.exit88, label %return
 
 _ZN5arrow6StatusD2Ev.exit88:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
-  %8 = load ptr, ptr %type_id_to_children_, align 8
-  %add.ptr.i51 = getelementptr inbounds ptr, ptr %8, i64 %conv
-  %9 = load ptr, ptr %add.ptr.i51, align 8
-  %conv19 = sext i32 %5 to i64
-  %10 = load ptr, ptr %child_data, align 8
-  %add.ptr.i52 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %10, i64 %conv19
-  %conv21 = sext i32 %6 to i64
-  %vtable = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %type_id_to_children_, align 8
+  %add.ptr.i51 = getelementptr inbounds ptr, ptr %9, i64 %conv
+  %10 = load ptr, ptr %add.ptr.i51, align 8
+  %conv19 = sext i32 %6 to i64
+  %11 = load ptr, ptr %child_data, align 8
+  %add.ptr.i52 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %11, i64 %conv19
+  %conv21 = sext i32 %7 to i64
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
-  %11 = load ptr, ptr %vfn, align 8
-  call void %11(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i52, i64 noundef %conv21, i64 noundef 1)
+  %12 = load ptr, ptr %vfn, align 8
+  call void %12(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i52, i64 noundef %conv21, i64 noundef 1)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %12 = load ptr, ptr %ref.tmp16, align 8, !noalias !22
-  store ptr %12, ptr %agg.result, align 8, !alias.scope !22
+  %13 = load ptr, ptr %ref.tmp16, align 8, !noalias !22
+  store ptr %13, ptr %agg.result, align 8, !alias.scope !22
   store ptr null, ptr %ref.tmp16, align 8, !noalias !22
-  %cmp.i89 = icmp eq ptr %12, null
+  %cmp.i89 = icmp eq ptr %13, null
   br i1 %cmp.i89, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %entry

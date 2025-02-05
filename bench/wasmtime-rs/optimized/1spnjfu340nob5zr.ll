@@ -2850,7 +2850,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
   %25 = ptrtoint ptr %23 to i64
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = zext i32 %0 to i64
-  %28 = zext i32 %1 to i64
+  %28 = add nuw i32 %0, 1
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %28)
   br label %29
 
 29:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -3014,13 +3015,14 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i: ; pr
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd5cbdf498688588cE.exit.i", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h308960b337a34744E.exit21.i"
-  %110 = icmp samesign ult i64 %indvars.iv.next.i, %28
-  br i1 %110, label %29, label %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i.loopexit
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not.i = icmp eq i32 %umax.i, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i.loopexit, label %29
 
 _ZN16wasmtime_runtime8instance8Instance32get_defined_table_with_lazy_init17h04ec6366a60ba4f9E.exit: ; preds = %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i
-  %111 = load ptr, ptr %13, align 16, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %111, i64 0, i64 %8, i32 2
-  ret ptr %112
+  %110 = load ptr, ptr %13, align 16, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
+  %111 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %110, i64 0, i64 %8, i32 2
+  ret ptr %111
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -8027,6 +8029,9 @@ declare void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.uadd.sat.i32(i32, i32) #21

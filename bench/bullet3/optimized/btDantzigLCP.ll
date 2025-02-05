@@ -2756,17 +2756,18 @@ if.then6:                                         ; preds = %for.body
   br i1 %cmp7, label %for.cond9.preheader, label %if.end18
 
 for.cond9.preheader:                              ; preds = %if.then6
-  %8 = zext nneg i32 %1 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 %indvars.iv43)
+  %8 = add nsw i32 %smax, -1
+  %wide.trip.count47 = zext i32 %8 to i64
   br label %for.cond9
 
 for.cond9:                                        ; preds = %for.cond9.preheader, %for.body11
   %indvars.iv41 = phi i64 [ %indvars.iv, %for.cond9.preheader ], [ %indvars.iv.next42, %for.body11 ]
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %cmp10 = icmp samesign ult i64 %indvars.iv.next42, %8
-  br i1 %cmp10, label %for.body11, label %if.end18
+  %exitcond48.not = icmp eq i64 %indvars.iv41, %wide.trip.count47
+  br i1 %exitcond48.not, label %if.end18, label %for.body11
 
 for.body11:                                       ; preds = %for.cond9
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %arrayidx13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next42
   %9 = load i32, ptr %arrayidx13, align 4
   %cmp15 = icmp eq i32 %9, %sub

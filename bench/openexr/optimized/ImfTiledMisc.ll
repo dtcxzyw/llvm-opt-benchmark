@@ -267,11 +267,12 @@ for.body12.preheader:                             ; preds = %for.body12.lr.ph
   %2 = load ptr, ptr %xOffsets, align 8
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
   %3 = load i32, ptr %add.ptr.i, align 4
-  %sub15 = sub nsw i32 %maxX, %3
+  %sub15 = sub i32 %maxX, %3
   %sub13 = sub i32 %minX, %3
   %sub = sub i32 %minY, %1
   %4 = sext i32 %sub13 to i64
-  %5 = sext i32 %sub15 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %sub15, i32 %sub13)
+  %5 = add i32 %smax, 1
   %6 = sext i32 %sub to i64
   %7 = sext i32 %sub11 to i64
   br label %for.body12
@@ -298,8 +299,9 @@ for.body17:                                       ; preds = %for.body12, %for.bo
   %add = add i64 %11, %conv21
   store i64 %add, ptr %add.ptr.i13, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp16.not.not = icmp slt i64 %indvars.iv, %5
-  br i1 %cmp16.not.not, label %for.body17, label %for.cond14.for.inc24_crit_edge, !llvm.loop !6
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
+  br i1 %exitcond.not, label %for.cond14.for.inc24_crit_edge, label %for.body17, !llvm.loop !6
 
 for.cond14.for.inc24_crit_edge:                   ; preds = %for.body17
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, 1

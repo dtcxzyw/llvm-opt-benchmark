@@ -10182,15 +10182,16 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %89
   %129 = sext i32 %115 to i64
   %130 = add nsw i64 %120, 1
   %smax = call i64 @llvm.smax.i64(i64 %130, i64 %129)
+  %131 = add nsw i64 %smax, -1
   br label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %132, %.lr.ph.split.us
   %indvars.iv.i309.us = phi i64 [ %120, %.lr.ph.split.us ], [ %.pre55.i.us, %132 ]
-  %.pre55.i.us = add nsw i64 %indvars.iv.i309.us, 1
-  %131 = icmp slt i64 %.pre55.i.us, %129
-  br i1 %131, label %132, label %.critedge3.loopexit.split.loop.exit57.i.loopexit, !llvm.loop !135
+  %exitcond.not = icmp eq i64 %indvars.iv.i309.us, %131
+  br i1 %exitcond.not, label %.critedge3.loopexit.split.loop.exit57.i.loopexit, label %132, !llvm.loop !135
 
 132:                                              ; preds = %._crit_edge.i.us
+  %.pre55.i.us = add nsw i64 %indvars.iv.i309.us, 1
   %133 = getelementptr inbounds %struct.t_atom, ptr %121, i64 %.pre55.i.us, i32 7
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64

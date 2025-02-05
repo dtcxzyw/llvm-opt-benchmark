@@ -3749,12 +3749,13 @@ if.end100:                                        ; preds = %invoke.cont57
   br i1 %cmp.i.i.i, label %if.then.i.i.i81, label %for.cond103.preheader
 
 for.cond103.preheader:                            ; preds = %if.end100
-  %add104 = add nsw i32 %numWritten.0.lcssa, %storeIndex.0
+  %add104 = add i32 %numWritten.0.lcssa, %storeIndex.0
   %cmp105258 = icmp sgt i32 %numWritten.0.lcssa, 0
   br i1 %cmp105258, label %for.body106.preheader, label %for.end149
 
 for.body106.preheader:                            ; preds = %for.cond103.preheader
-  %49 = sext i32 %add104 to i64
+  %49 = add i32 %storeIndex.0, 1
+  %smax = call i32 @llvm.smax.i32(i32 %add104, i32 %49)
   br label %for.body106
 
 if.then.i.i.i81:                                  ; preds = %if.end100
@@ -4131,8 +4132,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i107
 
 _ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit:  ; preds = %if.end136, %.noexc.i.i
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
-  %cmp105 = icmp slt i64 %indvars.iv.next287, %49
-  br i1 %cmp105, label %for.body106, label %for.end149, !llvm.loop !37
+  %lftr.wideiv = trunc i64 %indvars.iv.next287 to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %for.end149, label %for.body106, !llvm.loop !37
 
 for.end149:                                       ; preds = %_ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit, %for.cond103.preheader
   %call1.i.i.i.i108 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #35
@@ -14500,6 +14502,9 @@ declare i16 @llvm.cttz.i16(i16, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #33
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

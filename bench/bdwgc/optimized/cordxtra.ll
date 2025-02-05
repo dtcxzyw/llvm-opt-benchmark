@@ -1477,26 +1477,28 @@ define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr noundef readonly
   %5 = load i64, ptr %1, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !24
-  br label %8
+  %8 = add i64 %4, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 %8)
+  br label %9
 
-8:                                                ; preds = %11, %2
-  %.016 = phi i64 [ %4, %2 ], [ %13, %11 ]
-  %.0 = phi ptr [ %0, %2 ], [ %12, %11 ]
-  %9 = load i8, ptr %.0, align 1, !tbaa !8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.016
-  store i8 %9, ptr %10, align 1, !tbaa !8
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %14, label %11
+9:                                                ; preds = %12, %2
+  %.016 = phi i64 [ %4, %2 ], [ %14, %12 ]
+  %.0 = phi ptr [ %0, %2 ], [ %13, %12 ]
+  %10 = load i8, ptr %.0, align 1, !tbaa !8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.016
+  store i8 %10, ptr %11, align 1, !tbaa !8
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %15, label %12
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %13 = add i64 %.016, 1
-  %.not18 = icmp ult i64 %13, %5
-  br i1 %.not18, label %8, label %14, !llvm.loop !39
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %14 = add i64 %.016, 1
+  %exitcond.not = icmp eq i64 %14, %umax
+  br i1 %exitcond.not, label %15, label %9, !llvm.loop !39
 
-14:                                               ; preds = %8, %11
-  %storemerge = phi i64 [ %13, %11 ], [ %.016, %8 ]
-  %.015 = phi i32 [ 1, %11 ], [ 0, %8 ]
+15:                                               ; preds = %9, %12
+  %storemerge = phi i64 [ %umax, %12 ], [ %.016, %9 ]
+  %.015 = phi i32 [ 1, %12 ], [ 0, %9 ]
   store i64 %storemerge, ptr %3, align 8, !tbaa !25
   ret i32 %.015
 }
@@ -1657,6 +1659,9 @@ declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

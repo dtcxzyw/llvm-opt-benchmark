@@ -137,25 +137,27 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %5, align 8, !nonnull !4
+  %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %4)
   br label %6
 
-6:                                                ; preds = %9, %1
-  %7 = phi i64 [ %10, %9 ], [ %.promoted, %1 ]
-  %8 = icmp ult i64 %7, %4
-  br i1 %8, label %9, label %13
+6:                                                ; preds = %8, %1
+  %7 = phi i64 [ %9, %8 ], [ %.promoted, %1 ]
+  %exitcond.not = icmp eq i64 %7, %umax
+  br i1 %exitcond.not, label %12, label %8
 
-9:                                                ; preds = %6
-  %10 = add nuw i64 %7, 1
-  store i64 %10, ptr %2, align 8, !alias.scope !34
-  %11 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %7
-  %12 = getelementptr inbounds i8, ptr %.val.i.i, i64 %7
-  %.fca.0.extract.val = load i8, ptr %11, align 1, !range !20, !noundef !4
-  %.fca.1.extract.val = load i8, ptr %12, align 1, !range !20, !noundef !4
+8:                                                ; preds = %6
+  %9 = add i64 %7, 1
+  store i64 %9, ptr %2, align 8, !alias.scope !34
+  %10 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %7
+  %11 = getelementptr inbounds i8, ptr %.val.i.i, i64 %7
+  %.fca.0.extract.val = load i8, ptr %10, align 1, !range !20, !noundef !4
+  %.fca.1.extract.val = load i8, ptr %11, align 1, !range !20, !noundef !4
   %.not = icmp eq i8 %.fca.0.extract.val, %.fca.1.extract.val
-  br i1 %.not, label %6, label %13
+  br i1 %.not, label %6, label %12
 
-13:                                               ; preds = %6, %9
-  ret i1 %8
+12:                                               ; preds = %6, %8
+  %13 = icmp ult i64 %7, %4
+  ret i1 %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -404,8 +406,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 .preheader:                                       ; preds = %4, %6
   %5 = phi i64 [ %7, %6 ], [ 0, %4 ]
-  %exitcond.not = icmp eq i64 %5, %1
-  br i1 %exitcond.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit", label %6
+  %exitcond.not.i = icmp eq i64 %5, %1
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit, label %6
 
 6:                                                ; preds = %.preheader
   %7 = add i64 %5, 1
@@ -414,10 +416,15 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.fca.0.extract.val.i = load i8, ptr %8, align 1, !range !20, !noalias !56, !noundef !4
   %.fca.1.extract.val.i = load i8, ptr %9, align 1, !range !20, !noalias !56, !noundef !4
   %.not.i = icmp eq i8 %.fca.0.extract.val.i, %.fca.1.extract.val.i
-  br i1 %.not.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
+  br i1 %.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit": ; preds = %.preheader, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %6 ], [ %exitcond.not, %.preheader ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit: ; preds = %.preheader, %6
+  %.lcssa = phi i64 [ %1, %.preheader ], [ %5, %6 ]
+  %10 = icmp uge i64 %.lcssa, %1
+  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
+
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit, %4
+  %.0 = phi i1 [ false, %4 ], [ %10, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit ]
   ret i1 %.0
 }
 
@@ -493,6 +500,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

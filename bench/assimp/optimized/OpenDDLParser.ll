@@ -1090,7 +1090,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %6 = phi ptr [ null, %for.body.lr.ph ], [ %25, %for.inc ]
+  %6 = phi ptr [ null, %for.body.lr.ph ], [ %26, %for.inc ]
   %readIdx.084 = phi i64 [ 0, %for.body.lr.ph ], [ %inc38, %for.inc ]
   %7 = load ptr, ptr %buffer, align 8
   %add.ptr.i29 = getelementptr inbounds i8, ptr %7, i64 %readIdx.084
@@ -1135,9 +1135,9 @@ if.then2.i38:                                     ; preds = %if.then.i35
   br i1 %cmp5.i39, label %while.end, label %_ZN10ODDLParser17isCommentCloseTagIcEEbPT_S2_.exit
 
 _ZN10ODDLParser17isCommentCloseTagIcEEbPT_S2_.exit: ; preds = %land.rhs, %if.then.i35, %if.then2.i38
-  %readIdx.1 = add nuw i64 %readIdx.181, 1
-  %cmp6 = icmp ult i64 %readIdx.1, %sub.ptr.sub.i
-  br i1 %cmp6, label %land.rhs, label %while.end, !llvm.loop !9
+  %readIdx.1 = add i64 %readIdx.181, 1
+  %exitcond.not = icmp eq i64 %readIdx.1, %sub.ptr.sub.i
+  br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !9
 
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i
   %lpad.loopexit76 = landingpad { ptr, i32 }
@@ -1259,22 +1259,23 @@ land.lhs.true.i64:                                ; preds = %land.lhs.true.i
 invoke.cont20:                                    ; preds = %if.then6.i, %land.lhs.true.i64
   %23 = add nuw i64 %readIdx.084, 1
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %23)
+  %24 = add i64 %umax, -1
   br label %while.cond24
 
 while.cond24:                                     ; preds = %invoke.cont20, %land.rhs26
   %readIdx.2.in = phi i64 [ %readIdx.084, %invoke.cont20 ], [ %readIdx.2, %land.rhs26 ]
-  %readIdx.2 = add nuw i64 %readIdx.2.in, 1
-  %cmp25 = icmp ult i64 %readIdx.2, %sub.ptr.sub.i
-  br i1 %cmp25, label %land.rhs26, label %for.inc
+  %exitcond85.not = icmp eq i64 %readIdx.2.in, %24
+  br i1 %exitcond85.not, label %for.inc, label %land.rhs26
 
 land.rhs26:                                       ; preds = %while.cond24
+  %readIdx.2 = add i64 %readIdx.2.in, 1
   %add.ptr.i68 = getelementptr inbounds i8, ptr %7, i64 %readIdx.2
-  %24 = load i8, ptr %add.ptr.i68, align 1
-  %cmp.i69 = icmp eq i8 %24, 10
+  %25 = load i8, ptr %add.ptr.i68, align 1
+  %cmp.i69 = icmp eq i8 %25, 10
   br i1 %cmp.i69, label %for.inc, label %while.cond24, !llvm.loop !10
 
 for.inc:                                          ; preds = %while.cond24, %land.rhs26, %for.body, %for.body, %land.lhs.true.i64, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, %if.then.i50, %while.end
-  %25 = phi ptr [ %6, %while.end ], [ %incdec.ptr.i, %if.then.i50 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %6, %land.lhs.true.i64 ], [ %6, %for.body ], [ %6, %for.body ], [ %6, %land.rhs26 ], [ %6, %while.cond24 ]
+  %26 = phi ptr [ %6, %while.end ], [ %incdec.ptr.i, %if.then.i50 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %6, %land.lhs.true.i64 ], [ %6, %for.body ], [ %6, %for.body ], [ %6, %land.rhs26 ], [ %6, %while.cond24 ]
   %readIdx.3 = phi i64 [ %inc11, %while.end ], [ %readIdx.084, %if.then.i50 ], [ %readIdx.084, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i ], [ %readIdx.084, %land.lhs.true.i64 ], [ %readIdx.084, %for.body ], [ %readIdx.084, %for.body ], [ %umax, %while.cond24 ], [ %readIdx.2, %land.rhs26 ]
   %inc38 = add i64 %readIdx.3, 1
   %cmp = icmp ult i64 %inc38, %sub.ptr.sub.i
@@ -1285,12 +1286,12 @@ for.end:                                          ; preds = %for.inc, %if.end
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp
 
 invoke.cont39:                                    ; preds = %for.end
-  %26 = load ptr, ptr %newBuffer, align 8
-  %tobool.not.i.i.i70 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %newBuffer, align 8
+  %tobool.not.i.i.i70 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i70, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %invoke.cont39
-  call void @_ZdlPv(ptr noundef nonnull %26) #27
+  call void @_ZdlPv(ptr noundef nonnull %27) #27
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont39, %if.then.i.i.i71

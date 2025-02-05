@@ -10463,7 +10463,11 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr readnone captures(none)
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %35
   %.not76.i = icmp eq i32 %66, 0
-  br i1 %.not76.i, label %.thread.i, label %.lr.ph72.i
+  br i1 %.not76.i, label %.thread.i, label %.lr.ph72.i.preheader
+
+.lr.ph72.i.preheader:                             ; preds = %.preheader.i
+  %umax = call i64 @llvm.umax.i64(i64 %17, i64 %.041)
+  br label %.lr.ph72.i
 
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %35 ]
@@ -10483,11 +10487,11 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr readnone captures(none)
   %84 = icmp samesign ult i64 %indvars.iv.next.i, %83
   br i1 %84, label %.lr.ph.i, label %.preheader.i, !llvm.loop !32
 
-.lr.ph72.i:                                       ; preds = %.preheader.i, %110
-  %.1 = phi i64 [ %111, %110 ], [ %.041, %.preheader.i ]
-  %.06271.i = phi i32 [ %112, %110 ], [ 0, %.preheader.i ]
-  %.not.i = icmp ult i64 %.1, %17
-  br i1 %.not.i, label %85, label %113
+.lr.ph72.i:                                       ; preds = %.lr.ph72.i.preheader, %110
+  %.1 = phi i64 [ %111, %110 ], [ %.041, %.lr.ph72.i.preheader ]
+  %.06271.i = phi i32 [ %112, %110 ], [ 0, %.lr.ph72.i.preheader ]
+  %exitcond.not = icmp eq i64 %.1, %umax
+  br i1 %exitcond.not, label %113, label %85
 
 85:                                               ; preds = %.lr.ph72.i
   %86 = load ptr, ptr %28, align 8
@@ -10531,18 +10535,18 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr readnone captures(none)
   br label %110
 
 110:                                              ; preds = %.sink.split.i, %102
-  %111 = add nuw i64 %.1, 1
+  %111 = add i64 %.1, 1
   %112 = add nuw i32 %.06271.i, 1
   %exitcond.not.i = icmp eq i32 %112, %66
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph72.i, !llvm.loop !33
 
 113:                                              ; preds = %.lr.ph72.i
-  %114 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 44718, i32 noundef 332, ptr noundef %3, i32 noundef 2025, ptr noundef nonnull @.str.323, ptr noundef nonnull @__func__._dump_node_res, ptr noundef nonnull @.str.906, i64 noundef %.1, i64 noundef %17) #18
+  %114 = call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 44718, i32 noundef 332, ptr noundef %3, i32 noundef 2025, ptr noundef nonnull @.str.323, ptr noundef nonnull @__func__._dump_node_res, ptr noundef nonnull @.str.906, i64 noundef %umax, i64 noundef %17) #18
   %.not67.i = icmp eq i32 %114, 0
   br i1 %.not67.i, label %.thread.i, label %123
 
 .thread.i:                                        ; preds = %110, %113, %.preheader.i
-  %.3 = phi i64 [ %.041, %.preheader.i ], [ %.1, %113 ], [ %111, %110 ]
+  %.3 = phi i64 [ %.041, %.preheader.i ], [ %umax, %113 ], [ %111, %110 ]
   br label %116
 
 115:                                              ; preds = %116
@@ -10565,7 +10569,7 @@ find_parser_by_type.exit.i:                       ; preds = %116, %115
   br label %123
 
 123:                                              ; preds = %find_parser_by_type.exit.i, %113
-  %.2 = phi i64 [ %.3, %find_parser_by_type.exit.i ], [ %.1, %113 ]
+  %.2 = phi i64 [ %.3, %find_parser_by_type.exit.i ], [ %umax, %113 ]
   %.1.i = phi i1 [ %122, %find_parser_by_type.exit.i ], [ false, %113 ]
   %124 = load ptr, ptr %29, align 8
   %125 = getelementptr inbounds i16, ptr %124, i64 %spec.select
@@ -13909,6 +13913,9 @@ declare i16 @llvm.smin.i16(i16, i16) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -521,6 +521,9 @@ for.cond:                                         ; preds = %while.end35, %if.en
   %i.0 = phi i32 [ %l.addr.094, %if.end17 ], [ %inc, %while.end35 ]
   tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %inc.lcssa.sink) #4
   tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %dec.lcssa.sink) #4
+  %0 = add nsw i32 %i.0, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %u.addr.095, i32 %0)
+  %1 = add nsw i32 %smax, -1
   br label %while.cond21
 
 while.cond21:                                     ; preds = %if.end27, %for.cond
@@ -550,8 +553,8 @@ sort_comp.exit:                                   ; preds = %if.then.i, %if.else
   br i1 %tobool23.not, label %while.cond28, label %while.body24
 
 while.body24:                                     ; preds = %sort_comp.exit
-  %cmp25.not = icmp slt i32 %inc, %u.addr.095
-  br i1 %cmp25.not, label %if.end27, label %if.then26
+  %exitcond.not = icmp eq i32 %i.1, %1
+  br i1 %exitcond.not, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %while.body24
   tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #5
@@ -688,6 +691,9 @@ entry:
 }
 
 declare hidden void @lj_tab_clear(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3

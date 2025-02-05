@@ -7207,38 +7207,39 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h17a15781c017a
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8
   %.sroa.6.0..sroa_idx.promoted = load i64, ptr %.sroa.6.0..sroa_idx, align 8
+  %umax = tail call i64 @llvm.umax.i64(i64 %.sroa.6.0..sroa_idx.promoted, i64 %.sroa.57.0.copyload)
   br label %8
 
-8:                                                ; preds = %.lr.ph, %15
-  %9 = phi i64 [ %.sroa.6.0..sroa_idx.promoted, %.lr.ph ], [ %18, %15 ]
-  %.sroa.0.022 = phi ptr [ %2, %.lr.ph ], [ %16, %15 ]
-  %10 = icmp ult i64 %9, %.sroa.57.0.copyload
-  br i1 %10, label %15, label %.noexc
+8:                                                ; preds = %.lr.ph, %14
+  %9 = phi i64 [ %.sroa.6.0..sroa_idx.promoted, %.lr.ph ], [ %17, %14 ]
+  %.sroa.0.022 = phi ptr [ %2, %.lr.ph ], [ %15, %14 ]
+  %exitcond.not = icmp eq i64 %9, %umax
+  br i1 %exitcond.not, label %.noexc, label %14
 
 .noexc:                                           ; preds = %8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1550
   store ptr @anon.806dfa1f2f77ffc29d92f99ab59e7d48.4.llvm.13080012565599917794, ptr %5, align 8, !noalias !1550
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %11, align 8, !noalias !1550
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %12, align 8, !noalias !1550
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.806dfa1f2f77ffc29d92f99ab59e7d48.5.llvm.13080012565599917794, ptr %13, align 8, !noalias !1550
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %14, align 8, !noalias !1550
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %10, align 8, !noalias !1550
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %11, align 8, !noalias !1550
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.806dfa1f2f77ffc29d92f99ab59e7d48.5.llvm.13080012565599917794, ptr %12, align 8, !noalias !1550
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %13, align 8, !noalias !1550
   call void @_ZN4core9panicking9panic_fmt17h940d4fd01a4b4fd1E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.806dfa1f2f77ffc29d92f99ab59e7d48.7.llvm.13080012565599917794) #53
   unreachable
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 24
-  %17 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %.sroa.05.0.copyload, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.022, i64 24, i1 false)
-  %18 = add nuw i64 %9, 1
-  store i64 %18, ptr %.sroa.6.0..sroa_idx, align 8
-  %19 = icmp eq ptr %16, %3
-  br i1 %19, label %._crit_edge, label %8
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 24
+  %16 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %.sroa.05.0.copyload, i64 %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.022, i64 24, i1 false)
+  %17 = add i64 %9, 1
+  store i64 %17, ptr %.sroa.6.0..sroa_idx, align 8
+  %18 = icmp eq ptr %15, %3
+  br i1 %18, label %._crit_edge, label %8
 
-._crit_edge:                                      ; preds = %15, %4
+._crit_edge:                                      ; preds = %14, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -30381,6 +30382,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #49
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #49

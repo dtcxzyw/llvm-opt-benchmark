@@ -25549,22 +25549,25 @@ for.body.lr.ph:                                   ; preds = %entry
   %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %Data.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %2 = sext i32 %spec.select.i to i64
-  %3 = sext i32 %spec.select.i4 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %6, %for.inc ]
-  %4 = load ptr, ptr %Data.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %cmp9 = icmp eq i8 %5, 10
-  %6 = add nsw i64 %indvars.iv, 1
-  br i1 %cmp9, label %if.then, label %for.inc
+  %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %5, %for.inc ]
+  %3 = load ptr, ptr %Data.i, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %cmp9 = icmp eq i8 %4, 10
+  %5 = add nsw i64 %indvars.iv, 1
+  br i1 %cmp9, label %if.then, label %for.body.for.inc_crit_edge
+
+for.body.for.inc_crit_edge:                       ; preds = %for.body
+  %.pre11 = trunc i64 %5 to i32
+  br label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %7 = load i32, ptr %LineOffsets, align 8
-  %8 = load i32, ptr %Capacity.i, align 4
-  %cmp.i = icmp eq i32 %7, %8
+  %6 = load i32, ptr %LineOffsets, align 8
+  %7 = load i32, ptr %Capacity.i, align 4
+  %cmp.i = icmp eq i32 %6, %7
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %if.then
@@ -25572,13 +25575,13 @@ entry.if.end_crit_edge.i:                         ; preds = %if.then
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
 if.then.i:                                        ; preds = %if.then
-  %add.i = add nsw i32 %7, 1
-  %tobool.not.i.i = icmp eq i32 %7, 0
+  %add.i = add nsw i32 %6, 1
+  %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %div.i.i = sdiv i32 %7, 2
-  %add.i.i = add nsw i32 %div.i.i, %7
+  %div.i.i = sdiv i32 %6, 2
+  %add.i.i = add nsw i32 %div.i.i, %6
   br label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i
 
 _ZNK8ImVectorIiE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.then.i
@@ -25587,17 +25590,17 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.
   %conv.i.i = sext i32 %cond7.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
   %call.i.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
-  %9 = load ptr, ptr %Data.phi.trans.insert.i, align 8
-  %tobool.not.i2.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %Data.phi.trans.insert.i, align 8
+  %tobool.not.i2.i = icmp eq ptr %8, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i
-  %10 = load i32, ptr %LineOffsets, align 8
-  %conv4.i.i = sext i32 %10 to i64
+  %9 = load i32, ptr %LineOffsets, align 8
+  %conv4.i.i = sext i32 %9 to i64
   %mul5.i.i = shl nsw i64 %conv4.i.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr nonnull align 4 %9, i64 %mul5.i.i, i1 false)
-  %11 = load ptr, ptr %Data.phi.trans.insert.i, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr nonnull align 4 %8, i64 %mul5.i.i, i1 false)
+  %10 = load ptr, ptr %Data.phi.trans.insert.i, align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %10)
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i
@@ -25607,20 +25610,21 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK
   br label %_ZN8ImVectorIiE9push_backERKi.exit
 
 _ZN8ImVectorIiE9push_backERKi.exit:               ; preds = %entry.if.end_crit_edge.i, %if.end7.i.i
-  %12 = phi i32 [ %7, %entry.if.end_crit_edge.i ], [ %.pre3.i, %if.end7.i.i ]
-  %13 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i.i, %if.end7.i.i ]
-  %idxprom.i5 = sext i32 %12 to i64
-  %arrayidx.i6 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i5
-  %14 = trunc nsw i64 %6 to i32
-  store i32 %14, ptr %arrayidx.i6, align 4
-  %15 = load i32, ptr %LineOffsets, align 8
-  %inc.i = add nsw i32 %15, 1
+  %11 = phi i32 [ %6, %entry.if.end_crit_edge.i ], [ %.pre3.i, %if.end7.i.i ]
+  %12 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i.i, %if.end7.i.i ]
+  %idxprom.i5 = sext i32 %11 to i64
+  %arrayidx.i6 = getelementptr inbounds i32, ptr %12, i64 %idxprom.i5
+  %13 = trunc i64 %5 to i32
+  store i32 %13, ptr %arrayidx.i6, align 4
+  %14 = load i32, ptr %LineOffsets, align 8
+  %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %LineOffsets, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %_ZN8ImVectorIiE9push_backERKi.exit
-  %cmp = icmp slt i64 %6, %3
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !190
+for.inc:                                          ; preds = %for.body.for.inc_crit_edge, %_ZN8ImVectorIiE9push_backERKi.exit
+  %lftr.wideiv.pre-phi = phi i32 [ %.pre11, %for.body.for.inc_crit_edge ], [ %13, %_ZN8ImVectorIiE9push_backERKi.exit ]
+  %exitcond.not = icmp eq i32 %lftr.wideiv.pre-phi, %spec.select.i4
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !190
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void

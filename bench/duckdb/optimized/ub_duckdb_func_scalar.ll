@@ -6415,13 +6415,13 @@ land.rhs:                                         ; preds = %while.cond43.prehea
   ]
 
 while.body47:                                     ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
-  %inc = add nuw i64 %inc18291831, 1
+  %inc = add i64 %inc18291831, 1
   store i64 %inc, ptr %pos, align 8, !tbaa !10
-  %cmp44 = icmp ult i64 %inc, %size.0
-  br i1 %cmp44, label %land.rhs, label %while.end48, !llvm.loop !163
+  %exitcond984.not = icmp eq i64 %inc, %size.0
+  br i1 %exitcond984.not, label %cleanup614, label %land.rhs, !llvm.loop !163
 
-while.end48:                                      ; preds = %while.body47, %land.rhs, %while.cond43.preheader
-  %.lcssa1828 = phi i64 [ %pos.promoted, %while.cond43.preheader ], [ %inc, %while.body47 ], [ %inc18291831, %land.rhs ]
+while.end48:                                      ; preds = %land.rhs, %while.cond43.preheader
+  %.lcssa1828 = phi i64 [ %pos.promoted, %while.cond43.preheader ], [ %inc18291831, %land.rhs ]
   %cmp49.not = icmp eq i64 %.lcssa1828, %size.0
   br i1 %cmp49.not, label %cleanup614, label %if.then50
 
@@ -6614,9 +6614,9 @@ land.rhs72:                                       ; preds = %_ZN6duckdb10StringU
   ]
 
 _ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944: ; preds = %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72
-  %storemerge = add nuw i64 %storemerge1837, 1
-  %cmp71 = icmp ult i64 %storemerge, %size.0
-  br i1 %cmp71, label %land.rhs72, label %for.end, !llvm.loop !164
+  %storemerge = add i64 %storemerge1837, 1
+  %exitcond.not985 = icmp eq i64 %storemerge, %size.0
+  br i1 %exitcond.not985, label %for.end, label %land.rhs72, !llvm.loop !164
 
 for.end:                                          ; preds = %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944, %land.rhs72, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit940
   %storemerge.lcssa = phi i64 [ %storemerge1835, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit940 ], [ %size.0, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944 ], [ %storemerge1837, %land.rhs72 ]
@@ -8063,13 +8063,13 @@ land.rhs400:                                      ; preds = %while.cond398.prehe
   ]
 
 while.body404:                                    ; preds = %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400
-  %inc405 = add nuw i64 %inc40518521854, 1
+  %inc405 = add i64 %inc40518521854, 1
   store i64 %inc405, ptr %pos, align 8, !tbaa !10
-  %cmp399 = icmp ult i64 %inc405, %size.0
-  br i1 %cmp399, label %land.rhs400, label %while.end406, !llvm.loop !168
+  %exitcond978.not = icmp eq i64 %inc405, %size.0
+  br i1 %exitcond978.not, label %cleanup422.thread, label %land.rhs400, !llvm.loop !168
 
-while.end406:                                     ; preds = %while.body404, %land.rhs400, %while.cond398.preheader
-  %pos.promoted1857 = phi i64 [ %pos.promoted1851, %while.cond398.preheader ], [ %inc405, %while.body404 ], [ %inc40518521854, %land.rhs400 ]
+while.end406:                                     ; preds = %land.rhs400, %while.cond398.preheader
+  %pos.promoted1857 = phi i64 [ %pos.promoted1851, %while.cond398.preheader ], [ %inc40518521854, %land.rhs400 ]
   %add.ptr = getelementptr inbounds i8, ptr %data11.0, i64 %pos.promoted1857
   %cmp4081859 = icmp ult i64 %pos.promoted1857, %size.0
   br i1 %cmp4081859, label %land.rhs409, label %cleanup422.thread
@@ -8095,21 +8095,22 @@ switch.early.test.i:                              ; preds = %land.rhs409
   ]
 
 while.body413:                                    ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %land.rhs409
-  %inc414 = add nuw i64 %inc41418581860, 1
+  %inc414 = add i64 %inc41418581860, 1
   store i64 %inc414, ptr %pos, align 8, !tbaa !10
-  %cmp408 = icmp ult i64 %inc414, %size.0
-  br i1 %cmp408, label %land.rhs409, label %while.end415, !llvm.loop !169
+  %exitcond980.not = icmp eq i64 %inc414, %size.0
+  br i1 %exitcond980.not, label %while.end415, label %land.rhs409, !llvm.loop !169
 
 while.end415:                                     ; preds = %while.body413, %switch.early.test.i
-  %.lcssa1320 = phi i64 [ %inc414, %while.body413 ], [ %inc41418581860, %switch.early.test.i ]
+  %.lcssa1320 = phi i64 [ %size.0, %while.body413 ], [ %inc41418581860, %switch.early.test.i ]
   %cmp417.not = icmp eq i64 %.lcssa1320, %pos.promoted1857
   br i1 %cmp417.not, label %cleanup422.thread, label %cleanup422
 
-cleanup422.thread:                                ; preds = %while.end415, %while.end406
+cleanup422.thread:                                ; preds = %while.end415, %while.end406, %while.body404
+  %pos.promoted1857991 = phi i64 [ %size.0, %while.body404 ], [ %pos.promoted1857, %while.end406 ], [ %pos.promoted1857, %while.end415 ]
   %_M_string_length.i.i.i1124 = getelementptr inbounds nuw i8, ptr %result, i64 72
   %194 = load i64, ptr %_M_string_length.i.i.i1124, align 8, !tbaa !15
   %call3.i.i1126 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %error_message2, i64 noundef 0, i64 noundef %194, ptr noundef nonnull @.str.44, i64 noundef 20)
-  store i64 %pos.promoted1857, ptr %error_position3, align 8, !tbaa !10
+  store i64 %pos.promoted1857991, ptr %error_position3, align 8, !tbaa !10
   br label %cleanup614
 
 cleanup422:                                       ; preds = %while.end415
@@ -8196,13 +8197,13 @@ land.rhs456:                                      ; preds = %while.cond454.prehe
   ]
 
 while.body460:                                    ; preds = %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456
-  %inc461 = add nuw i64 %inc46118731875, 1
+  %inc461 = add i64 %inc46118731875, 1
   store i64 %inc461, ptr %pos, align 8, !tbaa !10
-  %cmp455 = icmp ult i64 %inc461, %size.0
-  br i1 %cmp455, label %land.rhs456, label %while.end462, !llvm.loop !171
+  %exitcond982.not = icmp eq i64 %inc461, %size.0
+  br i1 %exitcond982.not, label %if.end466, label %land.rhs456, !llvm.loop !171
 
-while.end462:                                     ; preds = %while.body460, %land.rhs456, %while.cond454.preheader
-  %.lcssa = phi i64 [ %pos.promoted1872, %while.cond454.preheader ], [ %inc461, %while.body460 ], [ %inc46118731875, %land.rhs456 ]
+while.end462:                                     ; preds = %land.rhs456, %while.cond454.preheader
+  %.lcssa = phi i64 [ %pos.promoted1872, %while.cond454.preheader ], [ %inc46118731875, %land.rhs456 ]
   %cmp463.not = icmp eq i64 %.lcssa, %size.0
   br i1 %cmp463.not, label %if.end466, label %if.then464
 
@@ -8214,7 +8215,7 @@ if.then464:                                       ; preds = %while.end462
   store i64 %203, ptr %error_position3, align 8, !tbaa !10
   br label %cleanup614
 
-if.end466:                                        ; preds = %while.end462
+if.end466:                                        ; preds = %while.body460, %while.end462
   %cmp467.not = icmp eq i8 %ampm.0, 0
   br i1 %cmp467.not, label %if.end502, label %if.then468
 
@@ -8692,8 +8693,8 @@ ehcleanup597:                                     ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos) #29
   resume { ptr, i32 } %.pn931.pn
 
-cleanup614:                                       ; preds = %sw.bb578, %if.end549, %sw.bb503, %if.end502, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1215, %if.then464, %cleanup422.thread, %cleanup394, %cleanup384, %cleanup373, %if.then362, %if.then356, %if.else345, %if.then335, %if.then321, %if.then296, %sw.default290, %if.then281, %if.then275, %if.then270, %sw.default264, %if.then261, %if.then251, %if.then246, %sw.default242, %if.then221, %if.then214, %if.then207, %if.then198, %if.then193, %sw.default189, %if.then186, %if.then158, %if.then146, %if.then135, %if.then128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit985, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then50, %while.end48
-  %retval.11 = phi i1 [ false, %if.then50 ], [ true, %while.end48 ], [ false, %if.then464 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1215 ], [ true, %if.end502 ], [ true, %sw.bb578 ], [ true, %if.end549 ], [ true, %sw.bb503 ], [ false, %cleanup394 ], [ false, %cleanup384 ], [ false, %cleanup373 ], [ false, %if.then362 ], [ false, %if.then356 ], [ false, %if.then321 ], [ false, %cleanup422.thread ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit985 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %if.then128 ], [ false, %sw.default290 ], [ false, %if.then296 ], [ false, %if.then275 ], [ false, %if.then281 ], [ false, %sw.default264 ], [ false, %if.then261 ], [ false, %if.then270 ], [ false, %if.then251 ], [ false, %sw.default242 ], [ false, %if.then246 ], [ false, %if.then221 ], [ false, %if.then214 ], [ false, %if.then207 ], [ false, %if.then198 ], [ false, %sw.default189 ], [ false, %if.then186 ], [ false, %if.then193 ], [ false, %if.then158 ], [ false, %if.then146 ], [ false, %if.then135 ], [ false, %if.then335 ], [ false, %if.else345 ]
+cleanup614:                                       ; preds = %while.body47, %sw.bb578, %if.end549, %sw.bb503, %if.end502, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1215, %if.then464, %cleanup422.thread, %cleanup394, %cleanup384, %cleanup373, %if.then362, %if.then356, %if.else345, %if.then335, %if.then321, %if.then296, %sw.default290, %if.then281, %if.then275, %if.then270, %sw.default264, %if.then261, %if.then251, %if.then246, %sw.default242, %if.then221, %if.then214, %if.then207, %if.then198, %if.then193, %sw.default189, %if.then186, %if.then158, %if.then146, %if.then135, %if.then128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit985, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then50, %while.end48
+  %retval.11 = phi i1 [ false, %if.then50 ], [ true, %while.end48 ], [ false, %if.then464 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1215 ], [ true, %if.end502 ], [ true, %sw.bb578 ], [ true, %if.end549 ], [ true, %sw.bb503 ], [ false, %cleanup394 ], [ false, %cleanup384 ], [ false, %cleanup373 ], [ false, %if.then362 ], [ false, %if.then356 ], [ false, %if.then321 ], [ false, %cleanup422.thread ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit985 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %if.then128 ], [ false, %sw.default290 ], [ false, %if.then296 ], [ false, %if.then275 ], [ false, %if.then281 ], [ false, %sw.default264 ], [ false, %if.then261 ], [ false, %if.then270 ], [ false, %if.then251 ], [ false, %sw.default242 ], [ false, %if.then246 ], [ false, %if.then221 ], [ false, %if.then214 ], [ false, %if.then207 ], [ false, %if.then198 ], [ false, %sw.default189 ], [ false, %if.then186 ], [ false, %if.then193 ], [ false, %if.then158 ], [ false, %if.then146 ], [ false, %if.then135 ], [ false, %if.then335 ], [ false, %if.else345 ], [ true, %while.body47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos) #29
   ret i1 %retval.11
 

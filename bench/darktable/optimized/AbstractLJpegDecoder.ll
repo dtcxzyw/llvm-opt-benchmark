@@ -731,6 +731,10 @@ define hidden noundef zeroext range(i8 1, -1) i8 @_ZN8rawspeed20AbstractLJpegDec
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
   %10 = zext nneg i32 %.sroa.413.0.copyload to i64
   %11 = zext nneg i32 %.sroa.2.0.copyload to i64
+  %12 = add nuw i32 %.sroa.413.0.copyload, 1
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %.sroa.2.0.copyload, i32 %12)
+  %13 = add i32 %umax.i, -1
+  %wide.trip.count30.i = zext nneg i32 %13 to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i, %.lr.ph.split.us.preheader.i
@@ -741,25 +745,25 @@ define hidden noundef zeroext range(i8 1, -1) i8 @_ZN8rawspeed20AbstractLJpegDec
 _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i: ; preds = %.lr.ph.split.us.i
   tail call void @llvm.assume(i1 %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i.not.i.i.i.i9.i.us.i = icmp samesign ult i64 %indvars.iv.next.i, %11
-  br i1 %.not.i.not.i.i.i.i9.i.us.i, label %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.us.i, label %.split17.us.i
+  %exitcond31.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count30.i
+  br i1 %exitcond31.not.i, label %.split17.us.i, label %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.us.i
 
 _ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.us.i: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %indvars.iv.i
-  %.0.copyload.i.i.i.i.i.i.us.i = load i8, ptr %12, align 1, !noalias !86
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %indvars.iv.next.i
-  %.0.copyload.i.i.i.i.i10.i.us.i = load i8, ptr %13, align 1, !noalias !86
-  %14 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.us.i, -1
-  %15 = add i8 %.0.copyload.i.i.i.i.i10.i.us.i, -1
-  %16 = icmp ult i8 %15, -2
-  %or.cond5.i.us.i = and i1 %14, %16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %indvars.iv.i
+  %.0.copyload.i.i.i.i.i.i.us.i = load i8, ptr %14, align 1, !noalias !86
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %indvars.iv.next.i
+  %.0.copyload.i.i.i.i.i10.i.us.i = load i8, ptr %15, align 1, !noalias !86
+  %16 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.us.i, -1
+  %17 = add i8 %.0.copyload.i.i.i.i.i10.i.us.i, -1
+  %18 = icmp ult i8 %17, -2
+  %or.cond5.i.us.i = and i1 %16, %18
   br i1 %or.cond5.i.us.i, label %.split20.us.loopexit.i, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i:   ; preds = %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.us.i
-  %17 = trunc i64 %indvars.iv.next.i to i32
-  %18 = sub i32 %.sroa.2.0.copyload, %17
-  %19 = icmp ugt i32 %18, 1
-  br i1 %19, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !89
+  %19 = trunc i64 %indvars.iv.next.i to i32
+  %20 = sub i32 %.sroa.2.0.copyload, %19
+  %21 = icmp ugt i32 %20, 1
+  br i1 %21, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !89
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %.not.i.not.i.i.i.i.i.i = icmp samesign ult i32 %.sroa.413.0.copyload, %.sroa.2.0.copyload
@@ -771,8 +775,8 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i:   ; preds = %_ZN8rawspeed10peekM
 
 _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i:    ; preds = %.lr.ph.split.i
   tail call void @llvm.assume(i1 %9)
-  %20 = add nuw nsw i32 %.sroa.413.0.copyload, 1
-  %.not.i.not.i.i.i.i9.i.i = icmp samesign ult i32 %20, %.sroa.2.0.copyload
+  %22 = add nuw nsw i32 %.sroa.413.0.copyload, 1
+  %.not.i.not.i.i.i.i9.i.i = icmp samesign ult i32 %22, %.sroa.2.0.copyload
   br i1 %.not.i.not.i.i.i.i9.i.i, label %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i, label %.split17.us.i
 
 .split17.us.i:                                    ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i
@@ -780,57 +784,57 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i:    ; preds = %.lr.ph.split.i
   unreachable
 
 _ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i
-  %21 = zext nneg i32 %.sroa.413.0.copyload to i64
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %21
-  %.0.copyload.i.i.i.i.i.i.i = load i8, ptr %22, align 1, !noalias !86
-  %23 = zext nneg i32 %20 to i64
+  %23 = zext nneg i32 %.sroa.413.0.copyload to i64
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %23
-  %.0.copyload.i.i.i.i.i10.i.i = load i8, ptr %24, align 1, !noalias !86
-  %25 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.i, -1
-  %26 = add i8 %.0.copyload.i.i.i.i.i10.i.i, -1
-  %27 = icmp ult i8 %26, -2
-  %or.cond5.i.i = and i1 %25, %27
+  %.0.copyload.i.i.i.i.i.i.i = load i8, ptr %24, align 1, !noalias !86
+  %25 = zext nneg i32 %22 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %25
+  %.0.copyload.i.i.i.i.i10.i.i = load i8, ptr %26, align 1, !noalias !86
+  %27 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.i, -1
+  %28 = add i8 %.0.copyload.i.i.i.i.i10.i.i, -1
+  %29 = icmp ult i8 %28, -2
+  %or.cond5.i.i = and i1 %27, %29
   br i1 %or.cond5.i.i, label %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit, label %.loopexit
 
 .split20.us.loopexit.i:                           ; preds = %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.us.i
-  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit
 
 _ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit: ; preds = %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i, %.split20.us.loopexit.i
-  %.sroa.02.sroa.6.0 = phi i32 [ %28, %.split20.us.loopexit.i ], [ %.sroa.413.0.copyload, %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i ]
+  %.sroa.02.sroa.6.0 = phi i32 [ %30, %.split20.us.loopexit.i ], [ %.sroa.413.0.copyload, %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i ]
   store i32 %.sroa.02.sroa.6.0, ptr %.sroa.413.0..sroa_idx, align 8
   %.not.i.not.i.i.i.i.i = icmp ult i32 %.sroa.02.sroa.6.0, %.sroa.2.0.copyload
-  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i, label %29
+  br i1 %.not.i.not.i.i.i.i.i, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i, label %31
 
-29:                                               ; preds = %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit
+31:                                               ; preds = %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
 _ZNK8rawspeed10ByteStream8peekByteEj.exit.i:      ; preds = %_ZN8rawspeed19advanceToNextMarkerENS_10ByteStreamEb.exit
-  %30 = add nuw nsw i32 %.sroa.02.sroa.6.0, 1
-  %.not.i.not.i.i.i.i9.i = icmp samesign ult i32 %30, %.sroa.2.0.copyload
-  br i1 %.not.i.not.i.i.i.i9.i, label %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit, label %31
+  %32 = add nuw nsw i32 %.sroa.02.sroa.6.0, 1
+  %.not.i.not.i.i.i.i9.i = icmp samesign ult i32 %32, %.sroa.2.0.copyload
+  br i1 %.not.i.not.i.i.i.i9.i, label %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit, label %33
 
-31:                                               ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i
+33:                                               ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
 _ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit:   ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i
-  %32 = zext nneg i32 %.sroa.02.sroa.6.0 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %32
-  %.0.copyload.i.i.i.i.i.i = load i8, ptr %33, align 1
-  %34 = zext nneg i32 %30 to i64
+  %34 = zext nneg i32 %.sroa.02.sroa.6.0 to i64
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %34
-  %.0.copyload.i.i.i.i.i10.i = load i8, ptr %35, align 1
-  %36 = icmp eq i8 %.0.copyload.i.i.i.i.i.i, -1
-  %37 = add i8 %.0.copyload.i.i.i.i.i10.i, -1
-  %38 = icmp ult i8 %37, -2
-  tail call void @llvm.assume(i1 %36)
+  %.0.copyload.i.i.i.i.i.i = load i8, ptr %35, align 1
+  %36 = zext nneg i32 %32 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 %36
+  %.0.copyload.i.i.i.i.i10.i = load i8, ptr %37, align 1
+  %38 = icmp eq i8 %.0.copyload.i.i.i.i.i.i, -1
+  %39 = add i8 %.0.copyload.i.i.i.i.i10.i, -1
+  %40 = icmp ult i8 %39, -2
   tail call void @llvm.assume(i1 %38)
-  %39 = add nuw nsw i32 %.sroa.02.sroa.6.0, 2
-  %40 = icmp samesign ule i32 %39, %.sroa.2.0.copyload
   tail call void @llvm.assume(i1 %40)
-  store i32 %39, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !73
+  %41 = add nuw nsw i32 %.sroa.02.sroa.6.0, 2
+  %42 = icmp samesign ule i32 %41, %.sroa.2.0.copyload
+  tail call void @llvm.assume(i1 %42)
+  store i32 %41, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !73
   ret i8 %.0.copyload.i.i.i.i.i10.i
 
 .loopexit:                                        ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i, %_ZN8rawspeed10peekMarkerENS_10ByteStreamE.exit.i, %2
@@ -4480,6 +4484,9 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

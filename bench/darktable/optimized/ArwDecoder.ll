@@ -1657,9 +1657,9 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 16385
   br i1 %exitcond41.not, label %.preheader, label %.preheader29, !llvm.loop !62
 
-.loopexit:                                        ; preds = %31, %.preheader
-  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 5
-  br i1 %exitcond45.not, label %24, label %.preheader, !llvm.loop !63
+.loopexit:                                        ; preds = %33, %.preheader
+  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 5
+  br i1 %exitcond46.not, label %24, label %.preheader, !llvm.loop !63
 
 24:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
@@ -1667,33 +1667,36 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 
 .preheader:                                       ; preds = %.preheader29, %.loopexit
   %25 = phi i32 [ %27, %.loopexit ], [ 0, %.preheader29 ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.loopexit ], [ 0, %.preheader29 ]
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %26 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next43
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.loopexit ], [ 0, %.preheader29 ]
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %26 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next44
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %.032 = add i32 %25, 1
   %.not33 = icmp ugt i32 %.032, %27
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv43 to i32
   %29 = shl nuw nsw i32 1, %28
   %30 = trunc nuw i32 %29 to i16
+  %31 = add i32 %25, 2
+  %32 = add i32 %27, 1
+  %umax = tail call i32 @llvm.umax.i32(i32 %31, i32 %32)
   %.phi.trans.insert = zext i32 %25 to i64
-  %.phi.trans.insert46 = getelementptr inbounds nuw i16, ptr %4, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert46, align 2, !tbaa !60
-  br label %31
+  %.phi.trans.insert47 = getelementptr inbounds nuw i16, ptr %4, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert47, align 2, !tbaa !60
+  br label %33
 
-31:                                               ; preds = %.lr.ph, %31
-  %32 = phi i16 [ %.pre, %.lr.ph ], [ %33, %31 ]
-  %.035 = phi i32 [ %.032, %.lr.ph ], [ %.0, %31 ]
-  %33 = add i16 %32, %30
-  %34 = zext i32 %.035 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %34
-  store i16 %33, ptr %35, align 2, !tbaa !60
+33:                                               ; preds = %.lr.ph, %33
+  %34 = phi i16 [ %.pre, %.lr.ph ], [ %35, %33 ]
+  %.035 = phi i32 [ %.032, %.lr.ph ], [ %.0, %33 ]
+  %35 = add i16 %34, %30
+  %36 = zext i32 %.035 to i64
+  %37 = getelementptr inbounds nuw i16, ptr %4, i64 %36
+  store i16 %35, ptr %37, align 2, !tbaa !60
   %.0 = add i32 %.035, 1
-  %.not = icmp ugt i32 %.0, %27
-  br i1 %.not, label %.loopexit, label %31, !llvm.loop !64
+  %exitcond42 = icmp eq i32 %.0, %umax
+  br i1 %exitcond42, label %.loopexit, label %33, !llvm.loop !64
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %20, %10
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %11, %10 ]
@@ -6926,6 +6929,9 @@ declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #26
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

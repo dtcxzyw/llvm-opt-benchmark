@@ -869,25 +869,26 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
   %130 = load i64, ptr @vmemmap_base, align 8
   %131 = add i32 %129, 1
   %132 = tail call i32 @llvm.umax.i32(i32 %73, i32 %131)
-  br label %133
+  %133 = add i32 %132, -1
+  br label %134
 
-133:                                              ; preds = %141, %124
-  %134 = phi i32 [ %139, %141 ], [ 0, %124 ]
-  %135 = phi i32 [ %136, %141 ], [ %129, %124 ]
-  %136 = add i32 %135, 1
-  %137 = icmp ult i32 %136, %73
-  br i1 %137, label %138, label %156
+134:                                              ; preds = %141, %124
+  %135 = phi i32 [ %139, %141 ], [ 0, %124 ]
+  %136 = phi i32 [ %137, %141 ], [ %129, %124 ]
+  %137 = add i32 %136, 1
+  %exitcond.not = icmp eq i32 %136, %133
+  br i1 %exitcond.not, label %156, label %138
 
-138:                                              ; preds = %133
-  %139 = add nuw i32 %134, 4096
+138:                                              ; preds = %134
+  %139 = add nuw i32 %135, 4096
   %140 = icmp ugt i32 %11, %139
   br i1 %140, label %141, label %156
 
 141:                                              ; preds = %138
-  %142 = zext i32 %136 to i64
+  %142 = zext i32 %137 to i64
   %143 = getelementptr ptr, ptr %74, i64 %142
   %144 = load ptr, ptr %143, align 8
-  %145 = zext i32 %135 to i64
+  %145 = zext i32 %136 to i64
   %146 = getelementptr ptr, ptr %74, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = ptrtoint ptr %144 to i64
@@ -898,10 +899,10 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
   %153 = ashr exact i64 %152, 6
   %154 = add nsw i64 %153, 1
   %155 = icmp eq i64 %150, %154
-  br i1 %155, label %133, label %156, !llvm.loop !30
+  br i1 %155, label %134, label %156, !llvm.loop !30
 
-156:                                              ; preds = %141, %138, %133
-  %157 = phi i32 [ %136, %138 ], [ %136, %141 ], [ %132, %133 ]
+156:                                              ; preds = %141, %138, %134
+  %157 = phi i32 [ %137, %138 ], [ %137, %141 ], [ %132, %134 ]
   %158 = sub i32 %81, %128
   %159 = add i32 %158, %6
   %160 = icmp eq ptr %127, null

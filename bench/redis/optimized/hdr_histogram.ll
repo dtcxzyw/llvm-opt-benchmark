@@ -1815,31 +1815,33 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load i64, ptr %count.i, align 8
   %add = add nsw i64 %5, %total.027
   %6 = load i64, ptr %value, align 8
+  %7 = add nuw i64 %at_pos.028, 1
+  %umax = call i64 @llvm.umax.i64(i64 %length, i64 %7)
   br label %land.rhs20
 
 land.rhs20:                                       ; preds = %while.body, %while.body25
   %at_pos.124 = phi i64 [ %at_pos.028, %while.body ], [ %inc28, %while.body25 ]
   %arrayidx21 = getelementptr inbounds i64, ptr %values, i64 %at_pos.124
-  %7 = load i64, ptr %arrayidx21, align 8
-  %cmp22.not = icmp slt i64 %add, %7
+  %8 = load i64, ptr %arrayidx21, align 8
+  %cmp22.not = icmp slt i64 %add, %8
   br i1 %cmp22.not, label %while.end, label %while.body25
 
 while.body25:                                     ; preds = %land.rhs20
-  %8 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
-  %or.i.i.i.i = or i64 %8, %6
-  %9 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i = trunc nuw nsw i64 %9 to i32
-  %10 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
-  %11 = add i32 %10, %cast.i.i.i.i.i
-  %add.i.i.i.i = sub i32 63, %11
+  %9 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
+  %or.i.i.i.i = or i64 %9, %6
+  %10 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
+  %11 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i.i, align 8
+  %12 = add i32 %11, %cast.i.i.i.i.i
+  %add.i.i.i.i = sub i32 63, %12
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
   %shr.i.i.i.i = ashr i64 %6, %sh_prom.i.i.i.i
   %sext.i.i.i = shl i64 %shr.i.i.i.i, 32
   %conv.i5.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %shl.i.i.i.i = shl i64 %conv.i5.i.i.i, %sh_prom.i.i.i.i
   %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
-  %12 = load i32, ptr %sub_bucket_count.i.i.i, align 8
-  %cmp.not.i.i.i = icmp sle i32 %12, %conv.i.i.i.i
+  %13 = load i32, ptr %sub_bucket_count.i.i.i, align 8
+  %cmp.not.i.i.i = icmp sle i32 %13, %conv.i.i.i.i
   %add.i.i.i = zext i1 %cmp.not.i.i.i to i32
   %add3.i.i.i = add i32 %add.i.i.i.i, %add.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %add3.i.i.i to i64
@@ -1847,17 +1849,17 @@ while.body25:                                     ; preds = %land.rhs20
   %add.i.i = add i64 %shl.i.i.i.i, -1
   %sub.i = add i64 %add.i.i, %shl.i.i.i
   store i64 %sub.i, ptr %arrayidx21, align 8
-  %inc28 = add nuw i64 %at_pos.124, 1
-  %cmp18 = icmp ult i64 %inc28, %length
-  br i1 %cmp18, label %land.rhs20, label %while.end
+  %inc28 = add i64 %at_pos.124, 1
+  %exitcond29.not = icmp eq i64 %inc28, %umax
+  br i1 %exitcond29.not, label %while.end, label %land.rhs20
 
 while.end:                                        ; preds = %while.body25, %land.rhs20
-  %at_pos.1.lcssa = phi i64 [ %inc28, %while.body25 ], [ %at_pos.124, %land.rhs20 ]
-  %13 = load ptr, ptr %_next_fp.i, align 8
-  %call.i = call zeroext i1 %13(ptr noundef nonnull %iter) #21
+  %at_pos.1.lcssa = phi i64 [ %umax, %while.body25 ], [ %at_pos.124, %land.rhs20 ]
+  %14 = load ptr, ptr %_next_fp.i, align 8
+  %call.i = call zeroext i1 %14(ptr noundef nonnull %iter) #21
   %cmp15 = icmp ult i64 %at_pos.1.lcssa, %length
-  %14 = and i1 %cmp15, %call.i
-  br i1 %14, label %while.body, label %return
+  %15 = and i1 %cmp15, %call.i
+  br i1 %15, label %while.body, label %return
 
 return:                                           ; preds = %while.end, %for.end, %entry
   %retval.0 = phi i32 [ 22, %entry ], [ 0, %for.end ], [ 0, %while.end ]
@@ -3191,6 +3193,9 @@ declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20

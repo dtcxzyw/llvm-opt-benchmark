@@ -4535,10 +4535,11 @@ if.then:                                          ; preds = %for.body
 
 for.body13.lr.ph:                                 ; preds = %if.then
   %mul = mul i32 %9, %2
-  %add = add nsw i32 %mul, %9
+  %add = add i32 %mul, %9
   %10 = fneg float %8
   %11 = sext i32 %mul to i64
-  %12 = sext i32 %add to i64
+  %12 = add i32 %mul, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %add, i32 %12)
   br label %for.body13
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.body13
@@ -4566,8 +4567,9 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %call26 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i58, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i61, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i55)
   %18 = tail call float @llvm.fmuladd.f32(float %call26, float %call26, float %leastSquaresResidual.282)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp12 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %cmp12, label %for.body13, label %if.end, !llvm.loop !37
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %if.end, label %for.body13, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body13, %if.then
   %leastSquaresResidual.2.lcssa = phi float [ %7, %if.then ], [ %18, %for.body13 ]
@@ -4622,9 +4624,9 @@ if.end41:                                         ; preds = %for.body37
 for.inc65:                                        ; preds = %for.body37, %if.end41, %for.body, %if.end
   %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.2.lcssa, %if.end ], [ %7, %for.body ], [ %29, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next94 to i32
-  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
-  br i1 %exitcond.not, label %for.end67, label %for.body, !llvm.loop !39
+  %lftr.wideiv96 = trunc i64 %indvars.iv.next94 to i32
+  %exitcond97.not = icmp eq i32 %batchEnd, %lftr.wideiv96
+  br i1 %exitcond97.not, label %for.end67, label %for.body, !llvm.loop !39
 
 for.end67:                                        ; preds = %for.inc65, %entry
   %leastSquaresResidual.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %leastSquaresResidual.4, %for.inc65 ]
@@ -6702,14 +6704,17 @@ declare float @llvm.fabs.f32(float) #7
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #12
+declare float @llvm.sqrt.f32(float) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6722,8 +6727,8 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }

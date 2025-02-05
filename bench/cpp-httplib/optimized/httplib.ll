@@ -3717,25 +3717,27 @@ entry:
   br i1 %cmp10.i, label %land.rhs.preheader.i, label %while.end.i
 
 land.rhs.preheader.i:                             ; preds = %entry
+  %call16 = ptrtoint ptr %call1 to i64
+  %call7 = ptrtoint ptr %call to i64
   %e18.i = ptrtoint ptr %add.ptr to i64
-  %b19.i = ptrtoint ptr %call to i64
-  %0 = sub i64 %e18.i, %b19.i
+  %0 = sub i64 %e18.i, %call7
+  %1 = add i64 %call2, %call16
+  %2 = sub i64 %1, %call7
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
   %left.addr.011.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %land.rhs.preheader.i ]
   %add.ptr12.i = getelementptr inbounds i8, ptr %call, i64 %left.addr.011.i
-  %1 = load i8, ptr %add.ptr12.i, align 1
-  switch i8 %1, label %while.end.i [
+  %3 = load i8, ptr %add.ptr12.i, align 1
+  switch i8 %3, label %while.end.i [
     i8 32, label %while.body.i
     i8 9, label %while.body.i
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i
   %inc.i = add i64 %left.addr.011.i, 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %inc.i
-  %cmp.i = icmp ult ptr %add.ptr.i, %add.ptr
-  br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !16
+  %exitcond.not = icmp eq i64 %inc.i, %2
+  br i1 %exitcond.not, label %while.end.i, label %land.rhs.i, !llvm.loop !16
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %entry
   %left.addr.0.lcssa.i = phi i64 [ 0, %entry ], [ %0, %while.body.i ], [ %left.addr.011.i, %land.rhs.i ]
@@ -3746,8 +3748,8 @@ while.end.i:                                      ; preds = %while.body.i, %land
 land.rhs3.i:                                      ; preds = %while.end.i, %while.body7.i
   %right.addr.015.i = phi i64 [ %dec.i, %while.body7.i ], [ %call3, %while.end.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %right.addr.015.i
-  %2 = load i8, ptr %gep.i, align 1
-  switch i8 %2, label %_ZN7httplib6detail4trimEPKcS2_mm.exit [
+  %4 = load i8, ptr %gep.i, align 1
+  switch i8 %4, label %_ZN7httplib6detail4trimEPKcS2_mm.exit [
     i8 32, label %while.body7.i
     i8 9, label %while.body7.i
   ]
@@ -3904,14 +3906,14 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail5splitEPKcS2_cmSt8functionIFvS2_S2_EE(ptr noundef %b, ptr noundef %e, i8 noundef signext %d, i64 noundef %m, ptr noundef %fn) local_unnamed_addr #5 {
 entry:
-  %b81 = ptrtoint ptr %b to i64
-  %e80 = ptrtoint ptr %e to i64
+  %b86 = ptrtoint ptr %b to i64
+  %e85 = ptrtoint ptr %e to i64
   %__args.addr.i54 = alloca ptr, align 8
   %__args.addr2.i55 = alloca ptr, align 8
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8
   %tobool.not = icmp eq ptr %e, null
-  %0 = sub i64 %e80, %b81
+  %0 = sub i64 %e85, %b86
   %invariant.gep.i = getelementptr i8, ptr %b, i64 -1
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
@@ -4007,7 +4009,7 @@ while.body:                                       ; preds = %entry.split, %if.en
   br i1 %or.cond, label %if.then, label %while.body.if.end13_crit_edge
 
 while.body.if.end13_crit_edge:                    ; preds = %while.body
-  %.pre82 = add i64 %i.069, 1
+  %.pre88 = add i64 %i.069, 1
   br label %if.end13
 
 if.then:                                          ; preds = %while.body
@@ -4027,8 +4029,8 @@ land.rhs.i:                                       ; preds = %if.then, %while.bod
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i
   %inc.i = add i64 %left.addr.011.i, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %b, i64 %inc.i
-  %cmp.i = icmp ult ptr %add.ptr.i, %e
-  br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !16
+  %exitcond.not = icmp eq i64 %inc.i, %0
+  br i1 %exitcond.not, label %while.end.i, label %land.rhs.i, !llvm.loop !16
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %if.then
   %left.addr.0.lcssa.i = phi i64 [ %beg.068, %if.then ], [ %0, %while.body.i ], [ %left.addr.011.i, %land.rhs.i ]
@@ -4082,11 +4084,11 @@ if.end:                                           ; preds = %_ZNKSt8functionIFvP
   br label %if.end13
 
 if.end13:                                         ; preds = %while.body.if.end13_crit_edge, %if.end
-  %inc14.pre-phi = phi i64 [ %.pre82, %while.body.if.end13_crit_edge ], [ %add, %if.end ]
+  %inc14.pre-phi = phi i64 [ %.pre88, %while.body.if.end13_crit_edge ], [ %add, %if.end ]
   %count.1 = phi i64 [ %count.067, %while.body.if.end13_crit_edge ], [ %inc, %if.end ]
   %beg.1 = phi i64 [ %beg.068, %while.body.if.end13_crit_edge ], [ %add, %if.end ]
-  %exitcond.not = icmp eq i64 %inc14.pre-phi, %0
-  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !18
+  %exitcond84.not = icmp eq i64 %inc14.pre-phi, %0
+  br i1 %exitcond84.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end13, %if.end13.us
   %.us-phi = phi i64 [ %beg.1.us, %if.end13.us ], [ %beg.1, %if.end13 ]

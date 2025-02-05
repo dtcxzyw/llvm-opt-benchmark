@@ -436,8 +436,8 @@ define range(i32 -27, 1) i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, p
 
 pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph55, !llvm.loop !12
+  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph55, !llvm.loop !12
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %0, align 8
@@ -450,7 +450,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %29 = xor i32 %1, -1
   %30 = add nsw i32 %12, %29
   %31 = icmp sgt i32 %30, -1
-  %32 = add nsw i32 %13, %1
+  %32 = add i32 %13, %1
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
@@ -486,7 +486,8 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
 
 .lr.ph53.preheader:                               ; preds = %._crit_edge
   %47 = zext nneg i32 %1 to i64
-  %48 = zext nneg i32 %32 to i64
+  %48 = add nuw i32 %1, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %32, i32 %48)
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
@@ -499,8 +500,9 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv58
   store ptr %52, ptr %54, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %55 = icmp samesign ult i64 %indvars.iv.next59, %48
-  br i1 %55, label %.lr.ph53, label %.loopexit, !llvm.loop !14
+  %lftr.wideiv = trunc i64 %indvars.iv.next59 to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph53, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5
   %.0 = phi i32 [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]

@@ -469,27 +469,33 @@ if.end31:                                         ; preds = %cond.end
   %sub22 = xor i64 %notmask, -1
   %or = or i64 %2, %sub22
   %cmp32 = icmp eq i64 %or, -1
-  br i1 %cmp32, label %do.body, label %if.end45
+  br i1 %cmp32, label %do.body.preheader, label %if.end45
 
-do.body:                                          ; preds = %if.end31, %land.rhs
-  %pos.1 = phi i64 [ %inc, %land.rhs ], [ %shr1, %if.end31 ]
-  %inc = add nsw i64 %pos.1, 1
-  %cmp35 = icmp ult i64 %inc, %shr17
-  br i1 %cmp35, label %land.rhs, label %return
+do.body.preheader:                                ; preds = %if.end31
+  %7 = add nsw i64 %shr1, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %shr17, i64 %7)
+  %8 = add nsw i64 %umax, -1
+  br label %do.body
+
+do.body:                                          ; preds = %do.body.preheader, %land.rhs
+  %pos.1 = phi i64 [ %inc, %land.rhs ], [ %shr1, %do.body.preheader ]
+  %exitcond.not = icmp eq i64 %pos.1, %8
+  br i1 %exitcond.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
+  %inc = add nsw i64 %pos.1, 1
   %arrayidx37 = getelementptr i64, ptr %1, i64 %inc
-  %7 = load i64, ptr %arrayidx37, align 8
-  %cmp38 = icmp eq i64 %7, -1
+  %9 = load i64, ptr %arrayidx37, align 8
+  %cmp38 = icmp eq i64 %9, -1
   br i1 %cmp38, label %do.body, label %if.end45, !llvm.loop !9
 
 if.end45:                                         ; preds = %land.rhs, %if.end31
-  %cur.0 = phi i64 [ %or, %if.end31 ], [ %7, %land.rhs ]
+  %cur.0 = phi i64 [ %or, %if.end31 ], [ %9, %land.rhs ]
   %pos.0 = phi i64 [ %shr1, %if.end31 ], [ %inc, %land.rhs ]
   %shl46 = shl i64 %pos.0, 6
   %not.i = xor i64 %cur.0, -1
-  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
-  %add48 = add nuw i64 %shl46, %8
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
+  %add48 = add nuw i64 %shl46, %10
   %cmp49.not = icmp ult i64 %add48, %cond
   br i1 %cmp49.not, label %if.end52, label %return
 

@@ -2197,22 +2197,27 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 35:                                               ; preds = %25
   %36 = and i64 %1, -16
   %.not = icmp eq i64 %36, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph47.preheader
 
-.lr.ph47:                                         ; preds = %35, %.lr.ph47
-  %.046 = phi i64 [ %44, %.lr.ph47 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i16, ptr %0, i64 %.046
-  %38 = load i16, ptr %37, align 2
-  %39 = load i16, ptr %2, align 2
-  %40 = tail call i16 @llvm.umin.i16(i16 %38, i16 %39)
-  store i16 %40, ptr %2, align 2
-  %41 = load i16, ptr %3, align 2
-  %42 = load i16, ptr %37, align 2
-  %43 = tail call i16 @llvm.umax.i16(i16 %41, i16 %42)
-  store i16 %43, ptr %3, align 2
-  %44 = add nuw i64 %.046, 1
-  %45 = icmp ult i64 %44, %1
-  br i1 %45, label %.lr.ph47, label %._crit_edge, !llvm.loop !34
+.lr.ph47.preheader:                               ; preds = %35
+  %37 = or disjoint i64 %36, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 %37)
+  br label %.lr.ph47
+
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
+  %.046 = phi i64 [ %45, %.lr.ph47 ], [ %36, %.lr.ph47.preheader ]
+  %38 = getelementptr inbounds i16, ptr %0, i64 %.046
+  %39 = load i16, ptr %38, align 2
+  %40 = load i16, ptr %2, align 2
+  %41 = tail call i16 @llvm.umin.i16(i16 %39, i16 %40)
+  store i16 %41, ptr %2, align 2
+  %42 = load i16, ptr %3, align 2
+  %43 = load i16, ptr %38, align 2
+  %44 = tail call i16 @llvm.umax.i16(i16 %42, i16 %43)
+  store i16 %44, ptr %3, align 2
+  %45 = add nuw i64 %.046, 1
+  %exitcond49.not = icmp eq i64 %45, %umax
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph47, %35
   ret void
@@ -2363,6 +2368,9 @@ declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

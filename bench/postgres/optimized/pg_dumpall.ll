@@ -2409,22 +2409,24 @@ define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_
 .lr.ph:                                           ; preds = %19, %._crit_edge
   %.0186 = phi i32 [ %.091.lcssa, %._crit_edge ], [ 0, %19 ]
   %22 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.0186, i32 noundef 0) #14
-  br label %23
+  %23 = add nsw i32 %.0186, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 %23)
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %26
-  %.091153 = phi i32 [ %.0186, %.lr.ph ], [ %27, %26 ]
-  %24 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.091153, i32 noundef 0) #14
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #15
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %29
+24:                                               ; preds = %.lr.ph, %27
+  %.091153 = phi i32 [ %.0186, %.lr.ph ], [ %28, %27 ]
+  %25 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.091153, i32 noundef 0) #14
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %25) #15
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %27, label %29
 
-26:                                               ; preds = %23
-  %27 = add i32 %.091153, 1
-  %28 = icmp slt i32 %27, %20
-  br i1 %28, label %23, label %29, !llvm.loop !19
+27:                                               ; preds = %24
+  %28 = add i32 %.091153, 1
+  %exitcond.not = icmp eq i32 %28, %smax
+  br i1 %exitcond.not, label %29, label %24, !llvm.loop !19
 
-29:                                               ; preds = %23, %26
-  %.091.lcssa = phi i32 [ %.091153, %23 ], [ %27, %26 ]
+29:                                               ; preds = %24, %27
+  %.091.lcssa = phi i32 [ %.091153, %24 ], [ %smax, %27 ]
   %30 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.0186, i32 noundef 0) #14
   %31 = sub i32 %.091.lcssa, %.0186
   %32 = sext i32 %31 to i64
@@ -2940,8 +2942,8 @@ rolename_insert.exit.us:                          ; preds = %192, %.sink.split.i
 rolename_lookup.exit.thread.us:                   ; preds = %108, %292, %90, %.preheader.us
   %.2.us = phi i32 [ %.1156.us, %.preheader.us ], [ %114, %292 ], [ %.1156.us, %90 ], [ %.1156.us, %108 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
+  %exitcond239.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond239.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
 
 ..loopexit_crit_edge.us:                          ; preds = %rolename_lookup.exit.thread.us
   %295 = icmp sgt i32 %.2.us, 0
@@ -3447,6 +3449,9 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13

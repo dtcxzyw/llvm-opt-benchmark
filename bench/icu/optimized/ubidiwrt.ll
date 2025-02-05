@@ -131,7 +131,9 @@ land.lhs.true6:                                   ; preds = %do.body
 do.end:                                           ; preds = %land.lhs.true6, %do.body
   %.pre-phi = phi i64 [ %.pre, %land.lhs.true6 ], [ %idxprom, %do.body ]
   %srcLength.addr.1 = phi i32 [ %spec.select, %land.lhs.true6 ], [ %dec, %do.body ]
-  %5 = sext i32 %srcLength.addr.0 to i64
+  %5 = add nsw i32 %srcLength.addr.1, 1
+  %smax132 = tail call i32 @llvm.smax.i32(i32 %srcLength.addr.0, i32 %5)
+  %wide.trip.count133 = sext i32 %smax132 to i64
   br label %do.body15
 
 do.body15:                                        ; preds = %do.body15, %do.end
@@ -142,8 +144,8 @@ do.body15:                                        ; preds = %do.body15, %do.end
   %6 = load i16, ptr %arrayidx17, align 2
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %dest.addr.1, i64 2
   store i16 %6, ptr %dest.addr.1, align 2
-  %cmp18 = icmp slt i64 %indvars.iv.next130, %5
-  br i1 %cmp18, label %do.body15, label %do.cond20, !llvm.loop !4
+  %exitcond134.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count133
+  br i1 %exitcond134.not, label %do.cond20, label %do.body15, !llvm.loop !4
 
 do.cond20:                                        ; preds = %do.body15
   %cmp21 = icmp sgt i32 %srcLength.addr.1, 0
@@ -212,7 +214,9 @@ do.end58:                                         ; preds = %do.cond53, %land.rh
   %cmp54112 = phi i1 [ false, %do.cond53 ], [ true, %land.rhs ]
   %srcLength.addr.4110 = phi i32 [ %srcLength.addr.4, %do.cond53 ], [ %srcLength.addr.4111, %land.rhs ]
   %10 = sext i32 %srcLength.addr.4110 to i64
-  %11 = sext i32 %srcLength.addr.2 to i64
+  %11 = add nsw i32 %srcLength.addr.4110, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %srcLength.addr.2, i32 %11)
+  %wide.trip.count = sext i32 %smax to i64
   br label %do.body59
 
 do.body59:                                        ; preds = %do.body59, %do.end58
@@ -223,8 +227,8 @@ do.body59:                                        ; preds = %do.body59, %do.end5
   %12 = load i16, ptr %arrayidx62, align 2
   %incdec.ptr63 = getelementptr inbounds nuw i8, ptr %dest.addr.3, i64 2
   store i16 %12, ptr %dest.addr.3, align 2
-  %cmp65 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp65, label %do.body59, label %do.cond67, !llvm.loop !8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %do.cond67, label %do.body59, !llvm.loop !8
 
 do.cond67:                                        ; preds = %do.body59
   br i1 %cmp54112, label %do.body27, label %return, !llvm.loop !9
@@ -412,19 +416,19 @@ if.end209:                                        ; preds = %do.end205, %if.end1
 
 while.body212.preheader:                          ; preds = %if.end209
   %26 = sext i32 %j.2 to i64
-  %wide.trip.count = sext i32 %srcLength.addr.5 to i64
+  %wide.trip.count138 = sext i32 %srcLength.addr.5 to i64
   br label %while.body212
 
 while.body212:                                    ; preds = %while.body212.preheader, %while.body212
-  %indvars.iv132 = phi i64 [ %26, %while.body212.preheader ], [ %indvars.iv.next133, %while.body212 ]
+  %indvars.iv135 = phi i64 [ %26, %while.body212.preheader ], [ %indvars.iv.next136, %while.body212 ]
   %dest.addr.7123 = phi ptr [ %dest.addr.6, %while.body212.preheader ], [ %incdec.ptr216, %while.body212 ]
-  %indvars.iv.next133 = add nsw i64 %indvars.iv132, 1
-  %arrayidx215 = getelementptr inbounds i16, ptr %src.addr.0, i64 %indvars.iv132
+  %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
+  %arrayidx215 = getelementptr inbounds i16, ptr %src.addr.0, i64 %indvars.iv135
   %27 = load i16, ptr %arrayidx215, align 2
   %incdec.ptr216 = getelementptr inbounds nuw i8, ptr %dest.addr.7123, i64 2
   store i16 %27, ptr %dest.addr.7123, align 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count
-  br i1 %exitcond.not, label %do.cond218, label %while.body212, !llvm.loop !11
+  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
+  br i1 %exitcond139.not, label %do.cond218, label %while.body212, !llvm.loop !11
 
 do.cond218:                                       ; preds = %while.body212, %if.end209, %land.lhs.true169
   %dest.addr.5 = phi ptr [ %dest.addr.4, %land.lhs.true169 ], [ %dest.addr.6, %if.end209 ], [ %incdec.ptr216, %while.body212 ]

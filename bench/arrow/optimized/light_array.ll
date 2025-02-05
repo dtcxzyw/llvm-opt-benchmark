@@ -8611,7 +8611,7 @@ entry:
   %ref.tmp12 = alloca %"class.arrow::Result", align 8
   %num_rows_.i = getelementptr inbounds nuw i8, ptr %target, i64 32
   %0 = load i32, ptr %num_rows_.i, align 8
-  %add = add nsw i32 %0, %num_rows_to_append
+  %add = add i32 %0, %num_rows_to_append
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %_ZN5arrow6StatusD2Ev.exit
 
@@ -8922,17 +8922,21 @@ cond.false:                                       ; preds = %if.else41
 cond.end:                                         ; preds = %if.else41, %cond.false
   %conv47.pre-phi = phi i64 [ %idxprom45, %cond.false ], [ 0, %if.else41 ]
   %cond = phi i32 [ %42, %cond.false ], [ 0, %if.else41 ]
-  %conv48 = sext i32 %add to i64
   %cmp49.not118 = icmp slt i32 %num_rows_to_append, 0
-  br i1 %cmp49.not118, label %if.end51, label %for.body
+  br i1 %cmp49.not118, label %if.end51, label %for.body.preheader
 
-for.body:                                         ; preds = %cond.end, %for.body
-  %i.0119 = phi i64 [ %inc, %for.body ], [ %conv47.pre-phi, %cond.end ]
+for.body.preheader:                               ; preds = %cond.end
+  %conv48 = sext i32 %add to i64
+  %smax = call i64 @llvm.smax.i64(i64 %conv47.pre-phi, i64 %conv48)
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %i.0119 = phi i64 [ %inc, %for.body ], [ %conv47.pre-phi, %for.body.preheader ]
   %arrayidx50 = getelementptr inbounds i32, ptr %cond.i.i, i64 %i.0119
   store i32 %cond, ptr %arrayidx50, align 4
   %inc = add nsw i64 %i.0119, 1
-  %cmp49.not.not = icmp slt i64 %i.0119, %conv48
-  br i1 %cmp49.not.not, label %for.body, label %if.end51, !llvm.loop !149
+  %exitcond.not = icmp eq i64 %i.0119, %smax
+  br i1 %exitcond.not, label %if.end51, label %for.body, !llvm.loop !149
 
 if.end51:                                         ; preds = %for.body, %cond.end, %if.else, %if.then29, %if.then19
   %buffers_.i99 = getelementptr inbounds nuw i8, ptr %target, i64 48
@@ -12548,6 +12552,9 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -4814,25 +4814,28 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeG
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
   %12 = load ptr, ptr %0, align 8
-  br label %13
+  %13 = add i64 %3, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 %13)
+  %14 = add i64 %umax, -1
+  br label %15
 
-13:                                               ; preds = %15, %4
-  %.010.in = phi i64 [ %3, %4 ], [ %.010, %15 ]
+15:                                               ; preds = %16, %4
+  %.010.in = phi i64 [ %3, %4 ], [ %.010, %16 ]
+  %exitcond.not = icmp eq i64 %.010.in, %14
+  br i1 %exitcond.not, label %22, label %16
+
+16:                                               ; preds = %15
   %.010 = add i64 %.010.in, 1
-  %14 = icmp ult i64 %.010, %11
-  br i1 %14, label %15, label %21
+  %17 = getelementptr inbounds i32, ptr %7, i64 %.010
+  %18 = load i32, ptr %17, align 4
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %19
+  %21 = load i8, ptr %20, align 4
+  %.not = icmp eq i8 %21, 4
+  br i1 %.not, label %15, label %22, !llvm.loop !12
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i32, ptr %7, i64 %.010
-  %17 = load i32, ptr %16, align 4
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %18
-  %20 = load i8, ptr %19, align 4
-  %.not = icmp eq i8 %20, 4
-  br i1 %.not, label %13, label %21, !llvm.loop !12
-
-21:                                               ; preds = %13, %15
-  %.0 = phi ptr [ %19, %15 ], [ %2, %13 ]
+22:                                               ; preds = %15, %16
+  %.0 = phi ptr [ %20, %16 ], [ %2, %15 ]
   ret ptr %.0
 }
 

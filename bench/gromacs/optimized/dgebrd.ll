@@ -169,7 +169,7 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %115 = load i32, ptr %1, align 4
   %.not161 = icmp slt i32 %114, %115
   %116 = load i32, ptr %16, align 4
-  %117 = add nsw i32 %116, %.0151176
+  %117 = add i32 %116, %.0151176
   %118 = add nsw i32 %117, -1
   store i32 %118, ptr %14, align 4
   %.not162.not169 = icmp sgt i32 %116, 0
@@ -179,7 +179,8 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not162.not169, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %119
-  %120 = sext i32 %117 to i64
+  %120 = add i32 %.0151176, 1
+  %smax = call i32 @llvm.smax.i32(i32 %117, i32 %120)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -200,14 +201,15 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %131 = getelementptr double, ptr %24, i64 %indvars.iv
   %132 = getelementptr double, ptr %131, i64 %130
   store double %128, ptr %132, align 8
-  %.not163.not = icmp slt i64 %indvars.iv.next, %120
-  br i1 %.not163.not, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  %exitcond.not = icmp eq i32 %smax, %indvars
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 133:                                              ; preds = %63
   br i1 %.not162.not169, label %.lr.ph171.preheader, label %.loopexit
 
 .lr.ph171.preheader:                              ; preds = %133
-  %134 = sext i32 %117 to i64
+  %134 = add i32 %.0151176, 1
+  %smax189 = call i32 @llvm.smax.i32(i32 %117, i32 %134)
   br label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
@@ -227,8 +229,9 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %144 = getelementptr double, ptr %24, i64 %indvars.iv.next186
   %145 = getelementptr double, ptr %144, i64 %137
   store double %143, ptr %145, align 8
-  %.not162.not = icmp slt i64 %indvars.iv.next186, %134
-  br i1 %.not162.not, label %.lr.ph171, label %.loopexit, !llvm.loop !6
+  %lftr.wideiv190 = trunc i64 %indvars.iv.next186 to i32
+  %exitcond191.not = icmp eq i32 %smax189, %lftr.wideiv190
+  br i1 %exitcond191.not, label %.loopexit, label %.lr.ph171, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph171, %119, %133
   %146 = add nsw i32 %55, %.0151176
@@ -240,12 +243,12 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %0, align 4
-  %.pre189 = load i32, ptr %1, align 4
+  %.pre192 = load i32, ptr %1, align 4
   %150 = sub i32 1, %146
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %54, %._crit_edge.loopexit
-  %151 = phi i32 [ %.pre189, %._crit_edge.loopexit ], [ %32, %54 ]
+  %151 = phi i32 [ %.pre192, %._crit_edge.loopexit ], [ %32, %54 ]
   %152 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %31, %54 ]
   %.0151.lcssa = phi i32 [ %146, %._crit_edge.loopexit ], [ 1, %54 ]
   %.0151.neg.lcssa = phi i32 [ %150, %._crit_edge.loopexit ], [ 0, %54 ]

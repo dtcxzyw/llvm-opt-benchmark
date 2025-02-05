@@ -327,7 +327,8 @@ if.else:                                          ; preds = %if.end
   %add21 = add i32 %valueMapIndex, -14
   %sub22 = add i32 %add21, %0
   %3 = sext i32 %inc1 to i64
-  %4 = sext i32 %sub22 to i64
+  %4 = add i32 %valueMapIndex, 3
+  %smax = tail call i32 @llvm.smax.i32(i32 %sub22, i32 %4)
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.else
@@ -349,8 +350,9 @@ if.then29:                                        ; preds = %if.end27
 
 do.cond:                                          ; preds = %if.end27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp36 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %cmp36, label %do.body, label %return, !llvm.loop !10
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !10
 
 return.sink.split:                                ; preds = %if.then14, %if.then29
   %sub31.sink = phi i32 [ %sub31, %if.then29 ], [ %sub, %if.then14 ]
@@ -641,7 +643,8 @@ if.else.i:                                        ; preds = %if.end.i4
   %add21.i = add i32 %2, -14
   %sub22.i = add i32 %add21.i, %3
   %6 = sext i32 %inc1.i to i64
-  %7 = sext i32 %sub22.i to i64
+  %7 = add i32 %2, 3
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %sub22.i, i32 %7)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.else.i
@@ -663,8 +666,9 @@ if.then29.i:                                      ; preds = %if.end27.i
 
 do.cond.i:                                        ; preds = %if.end27.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp36.i = icmp slt i64 %indvars.iv.next.i, %7
-  br i1 %cmp36.i, label %do.body.i, label %return, !llvm.loop !10
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not.i = icmp eq i32 %smax.i, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %return, label %do.body.i, !llvm.loop !10
 
 _ZN6icu_7512PropNameData26findPropertyValueNameGroupEii.exit: ; preds = %if.then14.i, %if.then29.i
   %sub31.sink.i = phi i32 [ %sub31.i, %if.then29.i ], [ %sub.i12, %if.then14.i ]
@@ -810,12 +814,12 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #7
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
   resume { ptr, i32 } %lpad.phi
 
 cleanup:                                          ; preds = %if.end15.i, %entry, %while.cond.preheader.i, %if.then, %invoke.cont
   %retval.0 = phi i32 [ -1, %invoke.cont ], [ %call.i5, %if.then ], [ -1, %while.cond.preheader.i ], [ -1, %entry ], [ -1, %if.end15.i ]
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #7
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
   ret i32 %retval.0
 }
 
@@ -1062,6 +1066,9 @@ declare noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef, i32 nounde
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1069,7 +1076,8 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

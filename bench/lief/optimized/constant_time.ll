@@ -240,28 +240,34 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef writeonly captures(none
   %.not9 = icmp ugt i64 %3, %4
   %.not14.i.not = icmp eq i64 %5, 0
   %or.cond = or i1 %.not9, %.not14.i.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split.preheader
 
-.lr.ph.split:                                     ; preds = %6, %mbedtls_ct_memcpy_if_eq.exit
-  %.010 = phi i64 [ %12, %mbedtls_ct_memcpy_if_eq.exit ], [ %3, %6 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.010
+.lr.ph.split.preheader:                           ; preds = %6
+  %7 = add i64 %4, 1
+  %8 = add i64 %3, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 %8)
+  br label %.lr.ph.split
+
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %mbedtls_ct_memcpy_if_eq.exit
+  %.010 = phi i64 [ %14, %mbedtls_ct_memcpy_if_eq.exit ], [ %3, %.lr.ph.split.preheader ]
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.010
   %.not.i = icmp eq i64 %.010, %2
   br i1 %.not.i, label %.lr.ph.split.us.i, label %mbedtls_ct_memcpy_if_eq.exit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split, %.lr.ph.split.us.i
-  %.013.us.i = phi i64 [ %11, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.013.us.i
-  %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.013.us.i
-  store i8 %9, ptr %10, align 1
-  %11 = add nuw i64 %.013.us.i, 1
-  %exitcond.not.i = icmp eq i64 %11, %5
+  %.013.us.i = phi i64 [ %13, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split ]
+  %10 = getelementptr inbounds i8, ptr %9, i64 %.013.us.i
+  %11 = load i8, ptr %10, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.013.us.i
+  store i8 %11, ptr %12, align 1
+  %13 = add nuw i64 %.013.us.i, 1
+  %exitcond.not.i = icmp eq i64 %13, %5
   br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if_eq.exit, label %.lr.ph.split.us.i, !llvm.loop !7
 
 mbedtls_ct_memcpy_if_eq.exit:                     ; preds = %.lr.ph.split.us.i, %.lr.ph.split
-  %12 = add i64 %.010, 1
-  %.not = icmp ugt i64 %12, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  %14 = add i64 %.010, 1
+  %exitcond = icmp eq i64 %14, %umax
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %mbedtls_ct_memcpy_if_eq.exit, %6
   ret void
@@ -807,6 +813,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

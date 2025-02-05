@@ -9622,11 +9622,11 @@ define noundef zeroext i1 @"_ZN93_$LT$regex_automata..nfa..thompson..literal_tri
   %19 = load i64, ptr %18, align 8, !noundef !4
   %20 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 } }, ptr %17, i64 %19
   %21 = tail call { i64, i64 } @_ZN14regex_automata4util10primitives11StateIDIter3new17h14927c469463670bE.llvm.4452766663292099101(i64 noundef %19), !noalias !1915
-  %22 = extractvalue { i64, i64 } %21, 1
-  %23 = icmp eq i64 %19, 0
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  %22 = icmp eq i64 %19, 0
+  br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
+  %23 = extractvalue { i64, i64 } %21, 1
   %24 = extractvalue { i64, i64 } %21, 0
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9648,14 +9648,15 @@ define noundef zeroext i1 @"_ZN93_$LT$regex_automata..nfa..thompson..literal_tri
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 %23)
   br label %34
 
 34:                                               ; preds = %.lr.ph, %45
   %.sroa.8.061 = phi i64 [ %24, %.lr.ph ], [ %46, %45 ]
   %.sroa.054.060 = phi ptr [ %17, %.lr.ph ], [ %35, %45 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.054.060, i64 48
-  %.not.i.i.not.i = icmp ult i64 %.sroa.8.061, %22
-  br i1 %.not.i.i.not.i, label %41, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i"
+  %exitcond.not = icmp eq i64 %.sroa.8.061, %umax
+  br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %41
 
 "_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %34
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.135.llvm.11684209855903828990) #21, !noalias !1918
@@ -9717,7 +9718,7 @@ define noundef zeroext i1 @"_ZN93_$LT$regex_automata..nfa..thompson..literal_tri
   ret i1 %.0
 
 45:                                               ; preds = %41
-  %46 = add nuw i64 %.sroa.8.061, 1
+  %46 = add i64 %.sroa.8.061, 1
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -11055,6 +11056,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -68,7 +68,7 @@ define noalias noundef ptr @Abc_NtkDontCareAlloc(i32 noundef %0, i32 noundef %1,
   %20 = tail call noalias dereferenceable_or_null(8388608) ptr @malloc(i64 noundef 8388608) #20
   %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %20, ptr %21, align 8, !tbaa !28
-  %22 = add nsw i32 %0, 32
+  %22 = add i32 %0, 32
   %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store i32 %22, ptr %23, align 8, !tbaa !29
   %24 = add nsw i32 %0, 33
@@ -223,10 +223,14 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
 .preheader:                                       ; preds = %.lr.ph91.split, %._crit_edge.us, %Vec_PtrAllocSimInfo.exit83
   %93 = icmp sgt i32 %46, 0
   %94 = zext nneg i32 %46 to i64
-  br i1 %93, label %.lr.ph.preheader.i84.us, label %.split.us
+  br i1 %93, label %.lr.ph.preheader.i84.us.preheader, label %.split.us
 
-.lr.ph.preheader.i84.us:                          ; preds = %.preheader, %Abc_InfoRandom.exit.loopexit.us
-  %.192.us = phi i32 [ %95, %Abc_InfoRandom.exit.loopexit.us ], [ %0, %.preheader ]
+.lr.ph.preheader.i84.us.preheader:                ; preds = %.preheader
+  %smax = tail call i32 @llvm.smax.i32(i32 %22, i32 %28)
+  br label %.lr.ph.preheader.i84.us
+
+.lr.ph.preheader.i84.us:                          ; preds = %.lr.ph.preheader.i84.us.preheader, %Abc_InfoRandom.exit.loopexit.us
+  %.192.us = phi i32 [ %95, %Abc_InfoRandom.exit.loopexit.us ], [ %0, %.lr.ph.preheader.i84.us.preheader ]
   %.val76.val.us = load ptr, ptr %61, align 8, !tbaa !24
   %95 = add i32 %.192.us, 1
   %96 = and i32 %95, 32767
@@ -251,22 +255,22 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   br i1 %108, label %.lr.ph.i85.us, label %Abc_InfoRandom.exit.loopexit.us, !llvm.loop !51
 
 Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
-  %109 = icmp slt i32 %95, %22
-  br i1 %109, label %.lr.ph.preheader.i84.us, label %.split.us, !llvm.loop !52
+  %exitcond106.not = icmp eq i32 %95, %smax
+  br i1 %exitcond106.not, label %.split.us, label %.lr.ph.preheader.i84.us, !llvm.loop !52
 
 .lr.ph91.split:                                   ; preds = %.lr.ph91, %.lr.ph91.split
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph91.split ], [ 0, %.lr.ph91 ]
   %.val75 = load ptr, ptr %73, align 8, !tbaa !24
-  %110 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
-  %111 = load ptr, ptr %110, align 8, !tbaa !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %111, i8 0, i64 %51, i1 false)
+  %109 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
+  %110 = load ptr, ptr %109, align 8, !tbaa !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %110, i8 0, i64 %51, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count104
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph91.split, !llvm.loop !50
 
 .split.us:                                        ; preds = %Abc_InfoRandom.exit.loopexit.us, %.preheader
-  %112 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store i16 -1, ptr %112, align 8, !tbaa !53
+  %111 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store i16 -1, ptr %111, align 8, !tbaa !53
   ret ptr %calloc
 }
 
@@ -4090,14 +4094,17 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
+
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #18
+declare i16 @llvm.umax.i16(i16, i16) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #18
+declare i16 @llvm.umin.i16(i16, i16) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4116,8 +4123,8 @@ attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind }
-attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(0) }
 attributes #21 = { nounwind willreturn memory(read) }

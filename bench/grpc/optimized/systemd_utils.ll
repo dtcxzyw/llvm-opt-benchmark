@@ -45,31 +45,33 @@ entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %addr_name = alloca %"class.absl::lts_20230802::StatusOr", align 8
   call void @_Z23grpc_sockaddr_to_stringB5cxx11PK21grpc_resolved_addressb(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %addr_name, ptr noundef %addr, i1 noundef zeroext true)
-  %add = add nsw i32 %n, %fd_start
   %cmp17 = icmp sgt i32 %n, 0
   br i1 %cmp17, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %entry
+  %add = add i32 %n, %fd_start
   %0 = getelementptr inbounds nuw i8, ptr %addr_name, i64 8
+  %1 = add i32 %fd_start, 1
+  %smax = call i32 @llvm.smax.i32(i32 %add, i32 %1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.018 = phi i32 [ %fd_start, %for.body.lr.ph ], [ %inc, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %1 = load i64, ptr %addr_name, align 8
-  %cmp.i.i.i = icmp eq i64 %1, 0
+  %2 = load i64, ptr %addr_name, align 8
+  %cmp.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  store i64 %1, ptr %agg.tmp.i, align 8
-  %and.i.i.i.i = and i64 %1, 1
+  store i64 %2, ptr %agg.tmp.i, align 8
+  %and.i.i.i.i = and i64 %2, 1
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %sub.i.i.i.i = add nsw i64 %1, -1
-  %2 = inttoptr i64 %sub.i.i.i.i to ptr
-  %3 = atomicrmw add ptr %2, i32 1 monotonic, align 4
+  %sub.i.i.i.i = add nsw i64 %2, -1
+  %3 = inttoptr i64 %sub.i.i.i.i to ptr
+  %4 = atomicrmw add ptr %3, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i.i.i, %if.then.i
@@ -80,7 +82,7 @@ invoke.cont.i:                                    ; preds = %_ZN4absl12lts_20230
   unreachable
 
 lpad.i:                                           ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i) #14
   br label %lpad.body
@@ -110,40 +112,40 @@ lpad.loopexit.split-lp:                           ; preds = %if.then
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad.i ], [ %lpad.loopexit6, %lpad.loopexit ], [ %lpad.loopexit.split-lp7, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad.i ], [ %lpad.loopexit6, %lpad.loopexit ], [ %lpad.loopexit.split-lp7, %lpad.loopexit.split-lp ]
   call void @_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %addr_name) #14
   resume { ptr, i32 } %eh.lpad-body
 
 for.inc:                                          ; preds = %invoke.cont2
   %inc = add nsw i32 %i.018, 1
-  %cmp = icmp slt i32 %inc, %add
-  br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !4
+  %exitcond.not = icmp eq i32 %inc, %smax
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !4
 
 cleanup:                                          ; preds = %for.inc, %entry, %if.then
   %cmp11 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.inc ]
-  %5 = load i64, ptr %addr_name, align 8
-  %cmp.i.i.i.i5 = icmp eq i64 %5, 0
+  %6 = load i64, ptr %addr_name, align 8
+  %cmp.i.i.i.i5 = icmp eq i64 %6, 0
   br i1 %cmp.i.i.i.i5, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
-  %6 = getelementptr inbounds nuw i8, ptr %addr_name, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  %7 = getelementptr inbounds nuw i8, ptr %addr_name, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   br label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %cleanup
-  %and.i.i.i1.i.i = and i64 %5, 1
+  %and.i.i.i1.i.i = and i64 %6, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
   br i1 %cmp.i.i.i2.i.i, label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %if.else.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %5)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %6)
           to label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i3.i.i
@@ -196,20 +198,22 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii(ptr noundef %s, ptr noundef %addr, i32 noundef %family, i32 noundef %port, i32 noundef %fd_start, i32 noundef %n) local_unnamed_addr #3 {
 entry:
-  %add = add nsw i32 %n, %fd_start
   %cmp10 = icmp sgt i32 %n, 0
   br i1 %cmp10, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
+  %add = add i32 %n, %fd_start
   %conv = trunc i32 %port to i16
   %len = getelementptr inbounds nuw i8, ptr %addr, i64 128
+  %0 = add i32 %fd_start, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %add, i32 %0)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.011 = phi i32 [ %fd_start, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call = tail call i32 @sd_is_socket_inet(i32 noundef %i.011, i32 noundef %family, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %conv)
-  %0 = load i32, ptr %len, align 4
-  %call2 = tail call i32 @sd_is_socket_sockaddr(i32 noundef %i.011, i32 noundef 1, ptr noundef %addr, i32 noundef %0, i32 noundef 1)
+  %1 = load i32, ptr %len, align 4
+  %call2 = tail call i32 @sd_is_socket_sockaddr(i32 noundef %i.011, i32 noundef 1, ptr noundef %addr, i32 noundef %1, i32 noundef 1)
   %cmp3 = icmp sgt i32 %call, 0
   %cmp4 = icmp sgt i32 %call2, 0
   %or.cond = select i1 %cmp3, i1 %cmp4, i1 false
@@ -220,9 +224,9 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nsw i32 %i.011, 1
-  %cmp = icmp slt i32 %inc, %add
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !6
+  %inc = add i32 %i.011, 1
+  %exitcond.not = icmp eq i32 %inc, %smax
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %for.inc, %entry, %if.then
   %cmp8 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.inc ]
@@ -263,7 +267,7 @@ if.then7:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %call9 = call noundef i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolved_addressPi(ptr noundef %spec.select, ptr noundef nonnull %requested_port.addr)
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %for.body.lr.ph.i20, label %if.then11
+  br i1 %tobool10.not, label %for.body.lr.ph.i19, label %if.then11
 
 if.then11:                                        ; preds = %if.else
   %0 = load i32, ptr %requested_port.addr, align 4
@@ -271,14 +275,14 @@ if.then11:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %wildcard_addrs, ptr noundef nonnull align 4 dereferenceable(132) %wild4, i64 132, i1 false)
   %arrayidx12 = getelementptr inbounds nuw i8, ptr %wildcard_addrs, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %arrayidx12, ptr noundef nonnull align 4 dereferenceable(132) %wild6, i64 132, i1 false)
+  %add.i = add nuw i32 %call, 3
   %len.i = getelementptr inbounds nuw i8, ptr %addr_w, i64 128
-  %1 = add nuw i32 %call, 2
-  %smax = call i32 @llvm.smax.i32(i32 %1, i32 3)
+  %smax.i = call i32 @llvm.smax.i32(i32 %add.i, i32 4)
   br label %for.body
 
 for.body:                                         ; preds = %if.then11, %for.inc
-  %__begin3.0.idx39 = phi i64 [ 0, %if.then11 ], [ %__begin3.0.add, %for.inc ]
-  %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %wildcard_addrs, i64 %__begin3.0.idx39
+  %__begin3.0.idx40 = phi i64 [ 0, %if.then11 ], [ %__begin3.0.add, %for.inc ]
+  %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %wildcard_addrs, i64 %__begin3.0.idx40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr_w, ptr noundef nonnull align 4 dereferenceable(132) %__begin3.0.ptr, i64 132, i1 false)
   %call15 = call noundef i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr noundef nonnull %addr_w)
   %call16 = call noundef i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr noundef nonnull %addr_w)
@@ -288,55 +292,55 @@ for.body:                                         ; preds = %if.then11, %for.inc
 for.body.i:                                       ; preds = %for.inc.i, %for.body
   %i.011.i = phi i32 [ 3, %for.body ], [ %inc.i, %for.inc.i ]
   %call.i = call i32 @sd_is_socket_inet(i32 noundef %i.011.i, i32 noundef %call15, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %conv.i)
-  %2 = load i32, ptr %len.i, align 4
-  %call2.i = call i32 @sd_is_socket_sockaddr(i32 noundef %i.011.i, i32 noundef 1, ptr noundef nonnull %addr_w, i32 noundef %2, i32 noundef 1)
+  %1 = load i32, ptr %len.i, align 4
+  %call2.i = call i32 @sd_is_socket_sockaddr(i32 noundef %i.011.i, i32 noundef 1, ptr noundef nonnull %addr_w, i32 noundef %1, i32 noundef 1)
   %cmp3.i = icmp sgt i32 %call.i, 0
   %cmp4.i = icmp sgt i32 %call2.i, 0
   %or.cond.i = select i1 %cmp3.i, i1 %cmp4.i, i1 false
   br i1 %or.cond.i, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw i32 %i.011.i, 1
-  %exitcond.not = icmp eq i32 %i.011.i, %smax
-  br i1 %exitcond.not, label %for.inc, label %for.body.i, !llvm.loop !6
+  %inc.i = add nuw nsw i32 %i.011.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, %smax.i
+  br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !6
 
 _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit: ; preds = %for.body.i
   call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %s, i32 noundef %i.011.i)
   br label %if.end22
 
 for.inc:                                          ; preds = %for.inc.i
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx39, 132
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx40, 132
   %cmp14.not = icmp eq i64 %__begin3.0.add, 264
   br i1 %cmp14.not, label %if.end22, label %for.body
 
-for.body.lr.ph.i20:                               ; preds = %if.else
+for.body.lr.ph.i19:                               ; preds = %if.else
+  %add.i20 = add nuw i32 %call, 3
   %conv.i21 = trunc i32 %call5 to i16
   %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %addr, ptr %addr6_v4mapped
   %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 128
-  %3 = add nuw i32 %call, 2
-  %smax43 = call i32 @llvm.smax.i32(i32 %3, i32 3)
-  br label %for.body.i23
+  %smax.i23 = call i32 @llvm.smax.i32(i32 %add.i20, i32 4)
+  br label %for.body.i24
 
-for.body.i23:                                     ; preds = %for.inc.i30, %for.body.lr.ph.i20
-  %i.011.i24 = phi i32 [ 3, %for.body.lr.ph.i20 ], [ %inc.i31, %for.inc.i30 ]
-  %call.i25 = call i32 @sd_is_socket_inet(i32 noundef %i.011.i24, i32 noundef %call4, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %conv.i21)
-  %4 = load i32, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %call2.i26 = call i32 @sd_is_socket_sockaddr(i32 noundef %i.011.i24, i32 noundef 1, ptr noundef %spec.select, i32 noundef %4, i32 noundef 1)
-  %cmp3.i27 = icmp sgt i32 %call.i25, 0
-  %cmp4.i28 = icmp sgt i32 %call2.i26, 0
-  %or.cond.i29 = select i1 %cmp3.i27, i1 %cmp4.i28, i1 false
-  br i1 %or.cond.i29, label %if.then.i33, label %for.inc.i30
+for.body.i24:                                     ; preds = %for.inc.i31, %for.body.lr.ph.i19
+  %i.011.i25 = phi i32 [ 3, %for.body.lr.ph.i19 ], [ %inc.i32, %for.inc.i31 ]
+  %call.i26 = call i32 @sd_is_socket_inet(i32 noundef %i.011.i25, i32 noundef %call4, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %conv.i21)
+  %2 = load i32, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %call2.i27 = call i32 @sd_is_socket_sockaddr(i32 noundef %i.011.i25, i32 noundef 1, ptr noundef %spec.select, i32 noundef %2, i32 noundef 1)
+  %cmp3.i28 = icmp sgt i32 %call.i26, 0
+  %cmp4.i29 = icmp sgt i32 %call2.i27, 0
+  %or.cond.i30 = select i1 %cmp3.i28, i1 %cmp4.i29, i1 false
+  br i1 %or.cond.i30, label %if.then.i34, label %for.inc.i31
 
-if.then.i33:                                      ; preds = %for.body.i23
-  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %s, i32 noundef %i.011.i24)
+if.then.i34:                                      ; preds = %for.body.i24
+  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %s, i32 noundef %i.011.i25)
   br label %if.end22
 
-for.inc.i30:                                      ; preds = %for.body.i23
-  %inc.i31 = add nuw i32 %i.011.i24, 1
-  %exitcond44.not = icmp eq i32 %i.011.i24, %smax43
-  br i1 %exitcond44.not, label %if.end22, label %for.body.i23, !llvm.loop !6
+for.inc.i31:                                      ; preds = %for.body.i24
+  %inc.i32 = add nuw nsw i32 %i.011.i25, 1
+  %exitcond.not.i33 = icmp eq i32 %inc.i32, %smax.i23
+  br i1 %exitcond.not.i33, label %if.end22, label %for.body.i24, !llvm.loop !6
 
-if.end22:                                         ; preds = %for.inc, %for.inc.i30, %if.then.i33, %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit, %entry, %if.then7
+if.end22:                                         ; preds = %for.inc, %for.inc.i31, %if.then.i34, %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit, %entry, %if.then7
   ret void
 }
 

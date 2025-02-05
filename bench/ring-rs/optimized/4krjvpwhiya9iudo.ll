@@ -490,7 +490,7 @@ _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i: ; preds = %8, %_ZN9
   %11 = phi i64 [ %13, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i ], [ 0, %8 ]
   %.0.i = phi i64 [ %16, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i ], [ 0, %8 ]
   %12 = getelementptr inbounds i8, ptr %5, i64 %11
-  %13 = add nuw i64 %11, 1
+  %13 = add i64 %11, 1
   %14 = load i8, ptr %12, align 1, !noalias !72, !noundef !4
   %.sroa.7.8.insert.ext13.i = zext i8 %14 to i64
   %15 = shl i64 %.0.i, 8
@@ -815,8 +815,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
 19:                                               ; preds = %21, %.lr.ph.i
   %.sroa.0.033.i = phi ptr [ %.sroa.0.032.i, %.lr.ph.i ], [ %.sroa.0.0.i, %21 ]
   %20 = phi i64 [ 1, %.lr.ph.i ], [ %23, %21 ]
-  %exitcond.not = icmp eq i64 %20, %5
-  br i1 %exitcond.not, label %.loopexit, label %21
+  %exitcond.not.i = icmp eq i64 %20, %5
+  br i1 %exitcond.not.i, label %.loopexit, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %3, i64 %20
@@ -1444,6 +1444,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit"
   %.sroa.0.032 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 %6)
   br label %27
 
 26:                                               ; preds = %17
@@ -1454,16 +1455,16 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %.sroa.0.033 = phi ptr [ %.sroa.0.032, %.lr.ph ], [ %.sroa.0.0, %29 ]
   %28 = phi i64 [ %10, %.lr.ph ], [ %31, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %.not31.not.not = icmp uge i64 %28, %6
-  br i1 %.not31.not.not, label %.loopexit, label %29
+  %exitcond.not = icmp eq i64 %28, %umax
+  br i1 %exitcond.not, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %29, %27, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit", %2, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %.not31.not.not, %27 ], [ %.not31.not.not, %29 ]
+  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %exitcond.not, %27 ], [ %exitcond.not, %29 ]
   ret i1 %.0
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %8, i64 %28
-  %31 = add nuw i64 %28, 1
+  %31 = add i64 %28, 1
   store i64 %31, ptr %3, align 8, !alias.scope !219
   %32 = load i8, ptr %30, align 1, !noalias !219, !noundef !4
   %33 = load i8, ptr %.sroa.0.033, align 1, !noundef !4
@@ -1557,6 +1558,9 @@ declare hidden { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h2457
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #12

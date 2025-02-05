@@ -2788,22 +2788,28 @@ for.cond.preheader.i:                             ; preds = %_ZN4absl12lts_20230
   %14 = trunc i32 %add.i to i8
   %j18.030.i = add i8 %14, 1
   %cmp27.not31.i = icmp ugt i8 %j18.030.i, %11
-  br i1 %cmp27.not31.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13remove_valuesEhhPSG_.exit, label %for.body28.i
+  br i1 %cmp27.not31.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13remove_valuesEhhPSG_.exit, label %for.body28.i.preheader
 
-for.body28.i:                                     ; preds = %for.cond.preheader.i, %for.body28.i
-  %j18.032.i = phi i8 [ %j18.0.i, %for.body28.i ], [ %j18.030.i, %for.cond.preheader.i ]
+for.body28.i.preheader:                           ; preds = %for.cond.preheader.i
+  %15 = add i8 %10, 3
+  %16 = add i8 %11, 1
+  %umax = tail call i8 @llvm.umax.i8(i8 %15, i8 %16)
+  br label %for.body28.i
+
+for.body28.i:                                     ; preds = %for.body28.i.preheader, %for.body28.i
+  %j18.032.i = phi i8 [ %j18.0.i, %for.body28.i ], [ %j18.030.i, %for.body28.i.preheader ]
   %sub31.i = add i8 %j18.032.i, -1
   %idxprom.i24.i = zext i8 %j18.032.i to i64
   %arrayidx.i25.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i.i34, i64 %idxprom.i24.i
-  %15 = load ptr, ptr %arrayidx.i25.i, align 8
+  %17 = load ptr, ptr %arrayidx.i25.i, align 8
   %idxprom.i.i.i.i36 = zext i8 %sub31.i to i64
   %arrayidx.i4.i.i.i37 = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i.i34, i64 %idxprom.i.i.i.i36
-  store ptr %15, ptr %arrayidx.i4.i.i.i37, align 8
-  %add.ptr.i.i.i.i26.i = getelementptr i8, ptr %15, i64 8
+  store ptr %17, ptr %arrayidx.i4.i.i.i37, align 8
+  %add.ptr.i.i.i.i26.i = getelementptr i8, ptr %17, i64 8
   store i8 %sub31.i, ptr %add.ptr.i.i.i.i26.i, align 1
   %j18.0.i = add i8 %j18.032.i, 1
-  %cmp27.not.i = icmp ugt i8 %j18.0.i, %11
-  br i1 %cmp27.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13remove_valuesEhhPSG_.exit, label %for.body28.i, !llvm.loop !66
+  %exitcond = icmp eq i8 %j18.0.i, %umax
+  br i1 %exitcond, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13remove_valuesEhhPSG_.exit, label %for.body28.i, !llvm.loop !66
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13remove_valuesEhhPSG_.exit: ; preds = %for.body28.i, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.i, %for.cond.preheader.i
   %sub39.i = add i8 %11, -1

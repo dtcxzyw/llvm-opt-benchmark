@@ -22051,50 +22051,53 @@ define internal fastcc { i32, i32 } @_ZN3vim6object16end_of_paragraph17h5a35035e
   %6 = extractvalue { i32, i32 } %5, 0
   %7 = tail call noundef i32 @_ZN6editor11display_map15DisplaySnapshot14max_buffer_row17h617263221211b5bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %14, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %11 = tail call noundef zeroext i1 @_ZN12multi_buffer19MultiBufferSnapshot13is_line_blank17h2153b8c228e95381E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %6)
   %12 = tail call noundef i32 @_ZN6editor11display_map15DisplaySnapshot14max_buffer_row17h617263221211b5bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
   %13 = add i32 %12, 1
-  br label %16
+  %14 = add i32 %6, 1
+  %umax = tail call i32 @llvm.umax.i32(i32 %14, i32 %13)
+  %15 = add i32 %umax, -1
+  br label %18
 
-14:                                               ; preds = %3
-  %15 = tail call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
-  br label %23
+16:                                               ; preds = %3
+  %17 = tail call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
+  br label %24
 
-16:                                               ; preds = %20, %9
-  %.sroa.02.0.in = phi i32 [ %6, %9 ], [ %.sroa.02.0, %20 ]
+18:                                               ; preds = %21, %9
+  %.sroa.02.0.in = phi i32 [ %6, %9 ], [ %.sroa.02.0, %21 ]
+  %exitcond.not = icmp eq i32 %.sroa.02.0.in, %15
+  br i1 %exitcond.not, label %19, label %21
+
+19:                                               ; preds = %18
+  %20 = tail call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
+  br label %24
+
+21:                                               ; preds = %18
   %.sroa.02.0 = add i32 %.sroa.02.0.in, 1
-  %17 = icmp ult i32 %.sroa.02.0, %13
-  br i1 %17, label %20, label %18
+  %22 = tail call noundef zeroext i1 @_ZN12multi_buffer19MultiBufferSnapshot13is_line_blank17h2153b8c228e95381E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %.sroa.02.0)
+  %23 = xor i1 %11, %22
+  br i1 %23, label %25, label %18
 
-18:                                               ; preds = %16
-  %19 = tail call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
-  br label %23
-
-20:                                               ; preds = %16
-  %21 = tail call noundef zeroext i1 @_ZN12multi_buffer19MultiBufferSnapshot13is_line_blank17h2153b8c228e95381E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %.sroa.02.0)
-  %22 = xor i1 %11, %21
-  br i1 %22, label %24, label %16
-
-23:                                               ; preds = %14, %24, %18
-  %.pn = phi { i32, i32 } [ %15, %14 ], [ %30, %24 ], [ %19, %18 ]
+24:                                               ; preds = %16, %25, %19
+  %.pn = phi { i32, i32 } [ %17, %16 ], [ %31, %25 ], [ %20, %19 ]
   ret { i32, i32 } %.pn
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %25 = tail call noundef i32 @_ZN12multi_buffer19MultiBufferSnapshot8line_len17h3323170abd5af5e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %.sroa.02.0.in)
-  %26 = tail call { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %.sroa.02.0.in, i32 noundef %25)
-  %27 = extractvalue { i32, i32 } %26, 0
-  %28 = extractvalue { i32, i32 } %26, 1
-  store i32 %27, ptr %4, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %28, ptr %29, align 4
-  %30 = call { i32, i32 } @"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
+  %26 = tail call noundef i32 @_ZN12multi_buffer19MultiBufferSnapshot8line_len17h3323170abd5af5e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i32 noundef %.sroa.02.0.in)
+  %27 = tail call { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %.sroa.02.0.in, i32 noundef %26)
+  %28 = extractvalue { i32, i32 } %27, 0
+  %29 = extractvalue { i32, i32 } %27, 1
+  store i32 %28, ptr %4, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %29, ptr %30, align 4
+  %31 = call { i32, i32 } @"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %23
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -32266,6 +32269,9 @@ declare i64 @llvm.smax.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #36
 
 attributes #0 = { inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

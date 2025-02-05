@@ -3458,7 +3458,7 @@ sub_1:                                            ; preds = %sub_0
   br label %240
 
 .loopexit289:                                     ; preds = %.lr.ph
-  store i32 %269, ptr %14, align 4
+  store i32 %umax, ptr %14, align 4
   br label %240, !llvm.loop !28
 
 240:                                              ; preds = %.loopexit289, %239
@@ -3477,11 +3477,11 @@ sub_1:                                            ; preds = %sub_0
   %.1207 = phi ptr [ %243, %242 ], [ %.0206, %240 ]
   %245 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1207, ptr noundef nonnull @.str.211, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13) #18
   %246 = icmp eq i32 %245, 2
-  br i1 %246, label %._crit_edge411, label %247
+  br i1 %246, label %._crit_edge412, label %247
 
-._crit_edge411:                                   ; preds = %244
+._crit_edge412:                                   ; preds = %244
   %.pre = load i32, ptr %14, align 4
-  %.pre412 = load i32, ptr %15, align 4
+  %.pre413 = load i32, ptr %15, align 4
   br label %254
 
 247:                                              ; preds = %244
@@ -3499,9 +3499,9 @@ sub_1:                                            ; preds = %sub_0
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %253, i32 noundef -11014, ptr poison, ptr noundef nonnull @.str.213, ptr noundef nonnull %47)
   br label %.loopexit
 
-254:                                              ; preds = %._crit_edge411, %250
-  %255 = phi i32 [ %.pre412, %._crit_edge411 ], [ %251, %250 ]
-  %.promoted = phi i32 [ %.pre, %._crit_edge411 ], [ %251, %250 ]
+254:                                              ; preds = %._crit_edge412, %250
+  %255 = phi i32 [ %.pre413, %._crit_edge412 ], [ %251, %250 ]
+  %.promoted = phi i32 [ %.pre, %._crit_edge412 ], [ %251, %250 ]
   %.pn.in = load i32, ptr %13, align 4
   %.pn = sext i32 %.pn.in to i64
   %.2208 = getelementptr i8, ptr %.1207, i64 %.pn
@@ -3509,15 +3509,19 @@ sub_1:                                            ; preds = %sub_0
   %257 = or i32 %255, %.promoted
   %258 = icmp ugt i32 %257, 65535
   %or.cond5 = or i1 %256, %258
-  br i1 %or.cond5, label %259, label %.lr.ph
+  br i1 %or.cond5, label %259, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %254
+  %umax = add nuw nsw i32 %255, 1
+  br label %.lr.ph
 
 259:                                              ; preds = %254
   %260 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %260, i32 noundef -11012, ptr poison, ptr noundef nonnull @.str.214, ptr noundef nonnull %47)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %254, %.lr.ph
-  %261 = phi i32 [ %269, %.lr.ph ], [ %.promoted, %254 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %261 = phi i32 [ %269, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
   %262 = and i32 %261, 31
   %263 = shl nuw i32 1, %262
   %264 = lshr i32 %261, 5
@@ -3527,8 +3531,8 @@ sub_1:                                            ; preds = %sub_0
   %268 = or i32 %267, %263
   store i32 %268, ptr %266, align 4
   %269 = add i32 %261, 1
-  %.not266 = icmp ugt i32 %269, %255
-  br i1 %.not266, label %.loopexit289, label %.lr.ph, !llvm.loop !29
+  %exitcond = icmp eq i32 %261, %255
+  br i1 %exitcond, label %.loopexit289, label %.lr.ph, !llvm.loop !29
 
 .loopexit290:                                     ; preds = %240, %238
   call void @voip_stat_init_tapinfo() #18
@@ -3678,8 +3682,8 @@ sub_2287:                                         ; preds = %sub_1286
 330:                                              ; preds = %323, %206
   %.1 = phi i32 [ %329, %323 ], [ %.0197350, %206 ]
   %331 = add nuw nsw i32 %.0198349, 1
-  %exitcond.not = icmp eq i32 %331, 16
-  br i1 %exitcond.not, label %json_find_attr.exit281.thread, label %.lr.ph.preheader.i275, !llvm.loop !31
+  %exitcond409.not = icmp eq i32 %331, 16
+  br i1 %exitcond409.not, label %json_find_attr.exit281.thread, label %.lr.ph.preheader.i275, !llvm.loop !31
 
 json_find_attr.exit281.thread:                    ; preds = %330, %json_find_attr.exit281, %40
   %.0197324 = phi i32 [ %.0197350, %40 ], [ %.1, %330 ], [ %.0197350, %json_find_attr.exit281 ]
@@ -3753,8 +3757,8 @@ json_find_attr.exit281.thread:                    ; preds = %330, %json_find_att
 
 354:                                              ; preds = %350, %353
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond410.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond410.not, label %.loopexit, label %.lr.ph354, !llvm.loop !32
+  %exitcond411.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond411.not, label %.loopexit, label %.lr.ph354, !llvm.loop !32
 
 .loopexit:                                        ; preds = %354, %340, %316, %321, %335, %313, %300, %259, %252, %190, %170, %166, %151, %147, %129, %112, %104, %84, %53
   ret void

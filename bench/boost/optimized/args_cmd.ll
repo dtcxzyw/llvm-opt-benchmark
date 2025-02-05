@@ -147861,31 +147861,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__norm
   br i1 %.not2835.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit, %.critedge15.i.i.i
-  %indvars.iv.in = phi i64 [ %indvars.iv, %.critedge15.i.i.i ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit ]
   %.sroa.018.036.i.i.i = phi ptr [ %37, %.critedge15.i.i.i ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit ]
-  %indvars.iv = add i64 %indvars.iv.in, -1
-  %.not = icmp eq i64 %indvars.iv, 0
-  %31 = select i1 %.not, i64 1, i64 2
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.preheader.i.i.i
-  %.01230.i.i.i.idx = phi i64 [ %.01230.i.i.i.add, %35 ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.sroa.0.029.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.018.036.i.i.i, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %34, %.lr.ph.preheader.i.i.i
+  %.01230.i.i.i.idx = phi i64 [ %.01230.i.i.i.add, %34 ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.sroa.0.029.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.018.036.i.i.i, %.lr.ph.preheader.i.i.i ]
   %.01230.i.i.i.ptr.ptr = getelementptr inbounds nuw i8, ptr @.str.780, i64 %.01230.i.i.i.idx
-  %32 = load i8, ptr %.sroa.0.029.i.i.i, align 1, !tbaa !24
-  %33 = load i8, ptr %.01230.i.i.i.ptr.ptr, align 1, !tbaa !24
-  %34 = icmp eq i8 %32, %33
-  br i1 %34, label %35, label %.critedge.i.i.i
+  %31 = load i8, ptr %.sroa.0.029.i.i.i, align 1, !tbaa !24
+  %32 = load i8, ptr %.01230.i.i.i.ptr.ptr, align 1, !tbaa !24
+  %33 = icmp eq i8 %31, %32
+  br i1 %33, label %34, label %.critedge.i.i.i
 
-35:                                               ; preds = %.lr.ph.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i.i.i, i64 1
+34:                                               ; preds = %.lr.ph.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i.i.i, i64 1
   %.01230.i.i.i.add = add nuw nsw i64 %.01230.i.i.i.idx, 1
-  %exitcond = icmp eq i64 %.01230.i.i.i.add, %31
-  br i1 %exitcond, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !2555
+  %36 = icmp eq ptr %35, %30
+  %.not.i.i.i = icmp eq i64 %.01230.i.i.i.add, 2
+  %or.cond.i.i.i = select i1 %36, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !2555
 
-.critedge.i.i.i:                                  ; preds = %35, %.lr.ph.i.i.i
-  %.sroa.0.0.lcssa.ph.i.i.i = phi ptr [ %.sroa.0.029.i.i.i, %.lr.ph.i.i.i ], [ %36, %35 ]
-  %.012.lcssa.ph.i.i.i.idx = phi i64 [ %.01230.i.i.i.idx, %.lr.ph.i.i.i ], [ %31, %35 ]
+.critedge.i.i.i:                                  ; preds = %34, %.lr.ph.i.i.i
+  %.sroa.0.0.lcssa.ph.i.i.i = phi ptr [ %.sroa.0.029.i.i.i, %.lr.ph.i.i.i ], [ %35, %34 ]
+  %.012.lcssa.ph.i.i.i.idx = phi i64 [ %.01230.i.i.i.idx, %.lr.ph.i.i.i ], [ %.01230.i.i.i.add, %34 ]
   %.not13.i.i.i = icmp eq i64 %.012.lcssa.ph.i.i.i.idx, 2
   br i1 %.not13.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.i.i, label %.critedge15.i.i.i
 

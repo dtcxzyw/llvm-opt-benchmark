@@ -235,70 +235,74 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef captures(none
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %.lr.ph
+  br i1 %43, label %45, label %.lr.ph.preheader
 
-44:                                               ; preds = %40
-  %45 = load i64, ptr @H5E_ARGS_g, align 8
-  %46 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_history_decode, i32 noundef 197, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.17) #5
+.lr.ph.preheader:                                 ; preds = %40
+  %44 = or disjoint i64 %21, %24
+  br label %.lr.ph
+
+45:                                               ; preds = %40
+  %46 = load i64, ptr @H5E_ARGS_g, align 8
+  %47 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_history_decode, i32 noundef 197, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.17) #5
   br label %95
 
-.lr.ph:                                           ; preds = %40, %68
-  %.087116 = phi i64 [ %73, %68 ], [ 0, %40 ]
-  %.1115 = phi ptr [ %72, %68 ], [ %28, %40 ]
-  %48 = load ptr, ptr %41, align 8
-  %49 = load i64, ptr %.1115, align 1
-  store i64 %49, ptr %3, align 8
-  br label %50
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
+  %.087116 = phi i64 [ %74, %69 ], [ 0, %.lr.ph.preheader ]
+  %.1115 = phi ptr [ %73, %69 ], [ %28, %.lr.ph.preheader ]
+  %49 = load ptr, ptr %41, align 8
+  %50 = load i64, ptr %.1115, align 1
+  store i64 %50, ptr %3, align 8
+  br label %51
 
-50:                                               ; preds = %.lr.ph, %50
-  %.084111 = phi i64 [ 0, %.lr.ph ], [ %56, %50 ]
-  %.085110 = phi i64 [ 0, %.lr.ph ], [ %55, %50 ]
-  %.192109 = phi ptr [ %19, %.lr.ph ], [ %52, %50 ]
-  %51 = shl i64 %.085110, 8
-  %52 = getelementptr inbounds i8, ptr %.192109, i64 -1
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i64
-  %55 = or disjoint i64 %51, %54
-  %56 = add nuw nsw i64 %.084111, 1
-  %exitcond121.not = icmp eq i64 %56, 8
-  br i1 %exitcond121.not, label %57, label %50
+51:                                               ; preds = %.lr.ph, %51
+  %.084111 = phi i64 [ 0, %.lr.ph ], [ %57, %51 ]
+  %.085110 = phi i64 [ 0, %.lr.ph ], [ %56, %51 ]
+  %.192109 = phi ptr [ %19, %.lr.ph ], [ %53, %51 ]
+  %52 = shl i64 %.085110, 8
+  %53 = getelementptr inbounds i8, ptr %.192109, i64 -1
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i64
+  %56 = or disjoint i64 %52, %55
+  %57 = add nuw nsw i64 %.084111, 1
+  %exitcond121.not = icmp eq i64 %57, 8
+  br i1 %exitcond121.not, label %58, label %51
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %48, i64 %.087116
-  store i64 %55, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %.1115, i64 8
-  %60 = load i64, ptr %59, align 1
-  store i64 %60, ptr %3, align 8
-  br label %61
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %49, i64 %.087116
+  store i64 %56, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.1115, i64 8
+  %61 = load i64, ptr %60, align 1
+  store i64 %61, ptr %3, align 8
+  br label %62
 
-61:                                               ; preds = %57, %61
-  %.0114 = phi i64 [ 0, %57 ], [ %67, %61 ]
-  %.086113 = phi i64 [ 0, %57 ], [ %66, %61 ]
-  %.2112 = phi ptr [ %19, %57 ], [ %63, %61 ]
-  %62 = shl i64 %.086113, 8
-  %63 = getelementptr inbounds i8, ptr %.2112, i64 -1
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i64
-  %66 = or disjoint i64 %62, %65
-  %67 = add nuw nsw i64 %.0114, 1
-  %exitcond122.not = icmp eq i64 %67, 8
-  br i1 %exitcond122.not, label %68, label %61
+62:                                               ; preds = %58, %62
+  %.0114 = phi i64 [ 0, %58 ], [ %68, %62 ]
+  %.086113 = phi i64 [ 0, %58 ], [ %67, %62 ]
+  %.2112 = phi ptr [ %19, %58 ], [ %64, %62 ]
+  %63 = shl i64 %.086113, 8
+  %64 = getelementptr inbounds i8, ptr %.2112, i64 -1
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i64
+  %67 = or disjoint i64 %63, %66
+  %68 = add nuw nsw i64 %.0114, 1
+  %exitcond122.not = icmp eq i64 %68, 8
+  br i1 %exitcond122.not, label %69, label %62
 
-68:                                               ; preds = %61
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store i64 %66, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.1115, i64 16
-  %.sroa.0.0.copyload = load i32, ptr %70, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i32 %.sroa.0.0.copyload, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.1115, i64 20
-  %73 = add nuw i64 %.087116, 1
-  %74 = icmp ult i64 %73, %25
-  br i1 %74, label %.lr.ph, label %.loopexit
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i64 %67, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.1115, i64 16
+  %.sroa.0.0.copyload = load i32, ptr %71, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i32 %.sroa.0.0.copyload, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.1115, i64 20
+  %74 = add nuw i64 %.087116, 1
+  %exitcond124.not = icmp eq i64 %74, %44
+  br i1 %exitcond124.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %68, %32
-  %.090 = phi ptr [ %34, %32 ], [ %72, %68 ]
+.loopexit:                                        ; preds = %69, %32
+  %.090 = phi ptr [ %34, %32 ], [ %73, %69 ]
   %75 = ptrtoint ptr %.090 to i64
   %76 = ptrtoint ptr %0 to i64
   %77 = sub i64 %75, %76
@@ -332,8 +336,8 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr noundef captures(none
   %94 = sub i64 %93, %76
   br label %95
 
-95:                                               ; preds = %91, %87, %44, %36, %12, %5
-  %.089 = phi i64 [ 0, %5 ], [ 0, %12 ], [ 0, %87 ], [ %94, %91 ], [ 0, %36 ], [ 0, %44 ]
+95:                                               ; preds = %91, %87, %45, %36, %12, %5
+  %.089 = phi i64 [ 0, %5 ], [ 0, %12 ], [ 0, %87 ], [ %94, %91 ], [ 0, %36 ], [ 0, %45 ]
   ret i64 %.089
 }
 

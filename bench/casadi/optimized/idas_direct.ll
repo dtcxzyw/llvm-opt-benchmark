@@ -537,6 +537,7 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge193, %.lr.ph197
+  %indvars.iv = phi i64 [ %2, %.lr.ph197 ], [ %indvars.iv.next, %._crit_edge193 ]
   %.0171195 = phi i64 [ 1, %.lr.ph197 ], [ %202, %._crit_edge193 ]
   %43 = add nsw i64 %.0171195, -1
   br label %.lr.ph
@@ -583,8 +584,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %72
 
 72:                                               ; preds = %63, %69
-  %.sink203 = phi double [ %71, %69 ], [ %45, %63 ]
-  %73 = tail call double @SUNRabs(double noundef %.sink203) #7
+  %.sink206 = phi double [ %71, %69 ], [ %45, %63 ]
+  %73 = tail call double @SUNRabs(double noundef %.sink206) #7
   %74 = fmul double %31, %73
   br label %75
 
@@ -659,7 +660,9 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br i1 %.not181, label %.lr.ph192, label %._crit_edge198
 
 .lr.ph192:                                        ; preds = %._crit_edge, %._crit_edge190
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %._crit_edge190 ], [ %indvars.iv, %._crit_edge ]
   %.1169191 = phi i64 [ %200, %._crit_edge190 ], [ %43, %._crit_edge ]
+  %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv203, i64 %42)
   %119 = getelementptr inbounds double, ptr %20, i64 %.1169191
   %120 = load double, ptr %119, align 8
   %121 = getelementptr inbounds double, ptr %23, i64 %.1169191
@@ -688,8 +691,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %140
 
 140:                                              ; preds = %.lr.ph192, %137
-  %.sink204 = phi double [ %139, %137 ], [ %120, %.lr.ph192 ]
-  %141 = tail call double @SUNRabs(double noundef %.sink204) #7
+  %.sink207 = phi double [ %139, %137 ], [ %120, %.lr.ph192 ]
+  %141 = tail call double @SUNRabs(double noundef %.sink207) #7
   %142 = fmul double %31, %141
   %143 = fdiv double 1.000000e+00, %131
   %144 = fcmp ogt double %142, %143
@@ -709,8 +712,8 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br label %154
 
 154:                                              ; preds = %145, %151
-  %.sink205 = phi double [ %153, %151 ], [ %120, %145 ]
-  %155 = tail call double @SUNRabs(double noundef %.sink205) #7
+  %.sink208 = phi double [ %153, %151 ], [ %120, %145 ]
+  %155 = tail call double @SUNRabs(double noundef %.sink208) #7
   %156 = fmul double %31, %155
   br label %157
 
@@ -780,19 +783,21 @@ define i32 @idaDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %197 = sub nsw i64 %.0170187, %.1169191
   %198 = getelementptr inbounds double, ptr %129, i64 %197
   store double %196, ptr %198, align 8
-  %199 = add nuw nsw i64 %.0170187, 1
-  %.not183.not = icmp slt i64 %.0170187, %.
-  br i1 %.not183.not, label %.lr.ph189, label %._crit_edge190, !llvm.loop !7
+  %199 = add nuw i64 %.0170187, 1
+  %exitcond.not = icmp eq i64 %.0170187, %smin
+  br i1 %exitcond.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !7
 
 ._crit_edge190:                                   ; preds = %.lr.ph189, %186
   %200 = add nsw i64 %.1169191, %33
   %201 = icmp slt i64 %200, %0
+  %indvars.iv.next204 = add i64 %indvars.iv203, %33
   br i1 %201, label %.lr.ph192, label %._crit_edge193, !llvm.loop !8
 
 ._crit_edge193:                                   ; preds = %._crit_edge190
   %202 = add nuw i64 %.0171195, 1
-  %exitcond.not = icmp eq i64 %.0171195, %34
-  br i1 %exitcond.not, label %._crit_edge198, label %.lr.ph.preheader, !llvm.loop !9
+  %indvars.iv.next = add i64 %indvars.iv, 1
+  %exitcond205.not = icmp eq i64 %.0171195, %34
+  br i1 %exitcond205.not, label %._crit_edge198, label %.lr.ph.preheader, !llvm.loop !9
 
 ._crit_edge198:                                   ; preds = %._crit_edge193, %._crit_edge, %29
   %.1166 = phi i32 [ 0, %29 ], [ %116, %._crit_edge ], [ 0, %._crit_edge193 ]

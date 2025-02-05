@@ -25692,10 +25692,10 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13Inter
   %16 = getelementptr inbounds nuw i32, ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sink1.i9 = select i1 %11, ptr %16, ptr %17
-  %.not34 = icmp eq ptr %.sink1.i, %.sink1.i9
-  br i1 %.not34, label %._crit_edge38, label %.lr.ph37
+  %.not32 = icmp eq ptr %.sink1.i, %.sink1.i9
+  br i1 %.not32, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph37:                                         ; preds = %4
+.lr.ph35:                                         ; preds = %4
   %.idx.i = select i1 %11, i64 0, i64 32
   %18 = and i32 %2, 7
   %19 = icmp ne i32 %18, 0
@@ -25707,57 +25707,56 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13Inter
   %24 = ptrtoint ptr %5 to i64
   br label %25
 
-._crit_edge38:                                    ; preds = %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit, %4
+._crit_edge36:                                    ; preds = %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit, %4
   ret void
 
-25:                                               ; preds = %.lr.ph37, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
-  %.sroa.024.035 = phi ptr [ %.sink1.i, %.lr.ph37 ], [ %storemerge.i, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 %.idx.i
+25:                                               ; preds = %.lr.ph35, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
+  %.sroa.024.033 = phi ptr [ %.sink1.i, %.lr.ph35 ], [ %storemerge.i, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 %.idx.i
   %27 = load i32, ptr %26, align 4, !tbaa !148
   %28 = call noundef i32 @_ZN4llvm5MachO17mapToPlatformTypeENS0_12PlatformTypeEb(i32 noundef %27, i1 noundef zeroext %19) #20
   br i1 %.not5.i.i, label %.preheader.i.i.i, label %.lr.ph
 
 .preheader.i.i.i:                                 ; preds = %25, %29
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 0, %25 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i, 31
-  br i1 %exitcond.not.i, label %._crit_edge, label %29
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %25 ]
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i, 31
+  br i1 %exitcond.not.i.i.i, label %._crit_edge, label %29
 
 29:                                               ; preds = %.preheader.i.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = shl nuw nsw i64 2, %indvars.iv.i.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %30 = shl nuw nsw i64 2, %indvars.iv.i
   %31 = and i64 %30, %20
   %.not.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit, !llvm.loop !782
 
 _ZN4llvm5MachO15ArchitectureSet5beginEv.exit:     ; preds = %29
-  %32 = trunc nuw i64 %indvars.iv.next.i.i to i32
-  %.not2932 = icmp eq i64 %indvars.iv.next.i.i, 4294967295
-  br i1 %.not2932, label %._crit_edge, label %.lr.ph
+  %32 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %25, %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit
-  %.sroa.0.0.i45 = phi i32 [ %32, %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit ], [ 0, %25 ]
+.lr.ph:                                           ; preds = %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit, %25
+  %.sroa.0.0.i43 = phi i32 [ %32, %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit ], [ 0, %25 ]
   %33 = icmp eq i32 %28, 6
   br label %38
 
-._crit_edge:                                      ; preds = %.preheader.i.i.i, %71, %_ZN4llvm5MachO15ArchitectureSet5beginEv.exit
+._crit_edge:                                      ; preds = %.preheader.i.i.i, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit, %71
   br i1 %11, label %34, label %36
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.035, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 4
   br label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
 
 36:                                               ; preds = %._crit_edge
-  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.035) #25
+  %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.033) #25
   br label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
 
 _ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit: ; preds = %34, %36
   %storemerge.i = phi ptr [ %37, %36 ], [ %35, %34 ]
   %.not = icmp eq ptr %storemerge.i, %.sink1.i9
-  br i1 %.not, label %._crit_edge38, label %25
+  br i1 %.not, label %._crit_edge36, label %25
 
-38:                                               ; preds = %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit, %.lr.ph
-  %.sroa.014.033 = phi i32 [ %.sroa.0.0.i45, %.lr.ph ], [ %76, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit ]
-  %39 = trunc i32 %.sroa.014.033 to i8
+38:                                               ; preds = %.lr.ph, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit
+  %.sroa.014.031 = phi i32 [ %.sroa.0.0.i43, %.lr.ph ], [ %74, %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit ]
+  %39 = trunc i32 %.sroa.014.031 to i8
   %40 = icmp eq i8 %39, 0
   %or.cond = and i1 %33, %40
   br i1 %or.cond, label %.preheader.i.i, label %41
@@ -25823,24 +25822,25 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE18growAndEmplaceBackIJRK
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %38, %_ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE18growAndEmplaceBackIJRKNS1_12ArchitectureERNS1_12PlatformTypeEEEERS2_DpOT_.exit, %62
-  %70 = zext i32 %.sroa.014.033 to i64
+  %70 = call i32 @llvm.umax.i32(i32 %.sroa.014.031, i32 31)
   br label %71
 
 71:                                               ; preds = %73, %.preheader.i.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ %70, %.preheader.i.i ]
-  %72 = icmp samesign ult i64 %indvars.iv.i, 31
-  br i1 %72, label %73, label %._crit_edge
+  %72 = phi i32 [ %.sroa.014.031, %.preheader.i.i ], [ %74, %73 ]
+  %exitcond.not.i.i = icmp eq i32 %72, %70
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %73
 
 73:                                               ; preds = %71
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %74 = shl nuw nsw i64 2, %indvars.iv.i
-  %75 = and i64 %74, %20
-  %.not.i.i11 = icmp eq i64 %75, 0
+  %74 = add i32 %72, 1
+  %75 = zext nneg i32 %74 to i64
+  %76 = shl nuw nsw i64 1, %75
+  %77 = and i64 %76, %20
+  %.not.i.i11 = icmp eq i64 %77, 0
   br i1 %.not.i.i11, label %71, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit, !llvm.loop !782
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit: ; preds = %73
-  %76 = trunc nuw i64 %indvars.iv.next.i to i32
-  br label %38
+  %.not29 = icmp eq i32 %74, -1
+  br i1 %.not29, label %._crit_edge, label %38
 }
 
 declare void @_ZN4llvm5MachO15ArchitectureSetC1ERKSt6vectorINS0_12ArchitectureESaIS3_EE(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
@@ -26491,6 +26491,9 @@ declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

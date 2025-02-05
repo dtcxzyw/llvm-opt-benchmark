@@ -563,58 +563,60 @@ split:                                            ; preds = %170, %._crit_edge95
   %405 = sext i32 %67 to i64
   %406 = getelementptr double, ptr %32, i64 %405
   %407 = sext i32 %401 to i64
-  br label %408
+  %408 = add nsw i64 %404, 1
+  %smax = call i64 @llvm.smax.i64(i64 %408, i64 %407)
+  br label %409
 
-408:                                              ; preds = %439, %403
-  %409 = phi i64 [ %404, %403 ], [ %411, %439 ]
-  %410 = phi i32 [ 0, %403 ], [ %440, %439 ]
-  %411 = add nsw i64 %409, 1
-  %412 = getelementptr double, ptr %17, i64 %409
-  %413 = load double, ptr %412, align 8, !tbaa !7
-  %414 = fcmp une double %413, 0.000000e+00
-  br i1 %414, label %415, label %439
+409:                                              ; preds = %440, %403
+  %410 = phi i64 [ %404, %403 ], [ %412, %440 ]
+  %411 = phi i32 [ 0, %403 ], [ %441, %440 ]
+  %412 = add nsw i64 %410, 1
+  %413 = getelementptr double, ptr %17, i64 %410
+  %414 = load double, ptr %413, align 8, !tbaa !7
+  %415 = fcmp une double %414, 0.000000e+00
+  br i1 %415, label %416, label %440
 
-415:                                              ; preds = %408
-  %416 = mul nsw i64 %411, %62
-  %417 = getelementptr double, ptr %406, i64 %416
-  %418 = load double, ptr %417, align 8, !tbaa !7
-  %419 = fcmp oge double %418, 0.000000e+00
-  %420 = fneg double %418
-  %421 = select i1 %419, double %418, double %420
-  %422 = fdiv double %421, %413
-  %423 = fadd double %422, 1.000000e+00
-  %424 = fsub double 1.000000e+00, %422
-  %425 = fmul double %423, %424
-  %426 = fcmp ole double %425, 0.000000e+00
-  %427 = select i1 %426, double 0.000000e+00, double %425
-  %428 = getelementptr double, ptr %18, i64 %409
-  %429 = load double, ptr %428, align 8, !tbaa !7
-  %430 = fdiv double %413, %429
-  store double %430, ptr %27, align 8, !tbaa !7
-  %431 = fmul double %430, %430
-  %432 = fmul double %431, %427
-  %433 = fcmp ugt double %432, %53
-  br i1 %433, label %437, label %434
+416:                                              ; preds = %409
+  %417 = mul nsw i64 %412, %62
+  %418 = getelementptr double, ptr %406, i64 %417
+  %419 = load double, ptr %418, align 8, !tbaa !7
+  %420 = fcmp oge double %419, 0.000000e+00
+  %421 = fneg double %419
+  %422 = select i1 %420, double %419, double %421
+  %423 = fdiv double %422, %414
+  %424 = fadd double %423, 1.000000e+00
+  %425 = fsub double 1.000000e+00, %423
+  %426 = fmul double %424, %425
+  %427 = fcmp ole double %426, 0.000000e+00
+  %428 = select i1 %427, double 0.000000e+00, double %426
+  %429 = getelementptr double, ptr %18, i64 %410
+  %430 = load double, ptr %429, align 8, !tbaa !7
+  %431 = fdiv double %414, %430
+  store double %431, ptr %27, align 8, !tbaa !7
+  %432 = fmul double %431, %431
+  %433 = fmul double %432, %428
+  %434 = fcmp ugt double %433, %53
+  br i1 %434, label %438, label %435
 
-434:                                              ; preds = %415
-  %435 = getelementptr inbounds i32, ptr %41, i64 %409
-  store i32 %410, ptr %435, align 4, !tbaa !3
-  %436 = trunc i64 %411 to i32
-  br label %439
+435:                                              ; preds = %416
+  %436 = getelementptr inbounds i32, ptr %41, i64 %410
+  store i32 %411, ptr %436, align 4, !tbaa !3
+  %437 = trunc i64 %412 to i32
+  br label %440
 
-437:                                              ; preds = %415
-  %sqrt = call double @llvm.sqrt.f64(double %427)
-  %438 = fmul double %sqrt, %413
-  store double %438, ptr %412, align 8, !tbaa !7
-  br label %439
+438:                                              ; preds = %416
+  %sqrt = call double @llvm.sqrt.f64(double %428)
+  %439 = fmul double %sqrt, %414
+  store double %439, ptr %413, align 8, !tbaa !7
+  br label %440
 
-439:                                              ; preds = %437, %434, %408
-  %440 = phi i32 [ %436, %434 ], [ %410, %437 ], [ %410, %408 ]
-  %441 = icmp slt i64 %411, %407
-  br i1 %441, label %408, label %.loopexit31, !llvm.loop !9
+440:                                              ; preds = %438, %435, %409
+  %441 = phi i32 [ %437, %435 ], [ %411, %438 ], [ %411, %409 ]
+  %exitcond.not = icmp eq i64 %412, %smax
+  br i1 %exitcond.not, label %.loopexit31, label %409, !llvm.loop !9
 
-.loopexit31:                                      ; preds = %439, %400, %393
-  %442 = phi i32 [ 0, %393 ], [ 0, %400 ], [ %440, %439 ]
+.loopexit31:                                      ; preds = %440, %400, %393
+  %442 = phi i32 [ 0, %393 ], [ 0, %400 ], [ %441, %440 ]
   %443 = load i32, ptr %4, align 4, !tbaa !3
   %444 = icmp slt i32 %394, %443
   %445 = icmp eq i32 %442, 0
@@ -723,6 +725,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

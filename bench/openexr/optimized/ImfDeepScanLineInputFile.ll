@@ -7447,7 +7447,7 @@ if.then:                                          ; preds = %entry
   %6 = load i32, ptr %minY, align 8
   %minY7 = getelementptr inbounds nuw i8, ptr %2, i64 220
   %7 = load i32, ptr %minY7, align 4
-  %sub10 = sub nsw i32 %5, %7
+  %sub10 = sub i32 %5, %7
   %cmp11.not58 = icmp sgt i32 %6, %5
   br i1 %cmp11.not58, label %for.end, label %for.body.lr.ph
 
@@ -7456,7 +7456,8 @@ for.body.lr.ph:                                   ; preds = %if.then
   %bytesPerLine = getelementptr inbounds nuw i8, ptr %2, i64 264
   %8 = load ptr, ptr %bytesPerLine, align 8
   %9 = sext i32 %sub to i64
-  %10 = sext i32 %sub10 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %sub, i32 %sub10)
+  %10 = add i32 %smax, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -7468,8 +7469,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv15 = ashr exact i64 %sext, 32
   %add = add i64 %conv15, %uncompressedSize.060
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp11.not.not = icmp slt i64 %indvars.iv, %10
-  br i1 %cmp11.not.not, label %for.body, label %for.end, !llvm.loop !42
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %10, %lftr.wideiv
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body, %if.then
   %uncompressedSize.0.lcssa = phi i64 [ 0, %if.then ], [ %add, %for.body ]
@@ -7485,18 +7487,18 @@ delete.notnull:                                   ; preds = %for.end
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
   %.pre = load ptr, ptr %_lineBuffer, align 8
   %minY23.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre82 = load i32, ptr %minY23.phi.trans.insert, align 8
-  %.pre83 = load ptr, ptr %_ifd, align 8
-  %minY25.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre83, i64 220
-  %.pre84 = load i32, ptr %minY25.phi.trans.insert, align 4
-  %.pre86 = sub nsw i32 %5, %.pre84
+  %.pre85 = load i32, ptr %minY23.phi.trans.insert, align 8
+  %.pre86 = load ptr, ptr %_ifd, align 8
+  %minY25.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre86, i64 220
+  %.pre87 = load i32, ptr %minY25.phi.trans.insert, align 4
+  %.pre89 = sub i32 %5, %.pre87
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %for.end
-  %sub30.pre-phi = phi i32 [ %.pre86, %delete.notnull ], [ %sub10, %for.end ]
-  %14 = phi i32 [ %.pre84, %delete.notnull ], [ %7, %for.end ]
-  %15 = phi ptr [ %.pre83, %delete.notnull ], [ %2, %for.end ]
-  %16 = phi i32 [ %.pre82, %delete.notnull ], [ %6, %for.end ]
+  %sub30.pre-phi = phi i32 [ %.pre89, %delete.notnull ], [ %sub10, %for.end ]
+  %14 = phi i32 [ %.pre87, %delete.notnull ], [ %7, %for.end ]
+  %15 = phi ptr [ %.pre86, %delete.notnull ], [ %2, %for.end ]
+  %16 = phi i32 [ %.pre85, %delete.notnull ], [ %6, %for.end ]
   %cmp31.not61 = icmp sgt i32 %16, %5
   br i1 %cmp31.not61, label %for.end46, label %for.body32.lr.ph
 
@@ -7505,7 +7507,8 @@ for.body32.lr.ph:                                 ; preds = %if.end
   %bytesPerLine34 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %bytesPerLine34, align 8
   %18 = sext i32 %sub26 to i64
-  %19 = sext i32 %sub30.pre-phi to i64
+  %smax82 = tail call i32 @llvm.smax.i32(i32 %sub26, i32 %sub30.pre-phi)
+  %19 = add i32 %smax82, 1
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
@@ -7515,8 +7518,9 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %20 = load i64, ptr %add.ptr.i43, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %20, i64 %maxBytesPerLine.063)
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, 1
-  %cmp31.not.not = icmp slt i64 %indvars.iv79, %19
-  br i1 %cmp31.not.not, label %for.body32, label %for.end46, !llvm.loop !43
+  %lftr.wideiv83 = trunc i64 %indvars.iv.next80 to i32
+  %exitcond84.not = icmp eq i32 %19, %lftr.wideiv83
+  br i1 %exitcond84.not, label %for.end46, label %for.body32, !llvm.loop !43
 
 for.end46:                                        ; preds = %for.body32, %if.end
   %maxBytesPerLine.0.lcssa = phi i64 [ 0, %if.end ], [ %spec.select, %for.body32 ]
@@ -7921,12 +7925,12 @@ if.else216:                                       ; preds = %if.else193
   %reass.add = add nsw i64 %mul231.neg, %conv223
   %90 = shl i64 %reass.add, 2
   %sub232 = sub i64 %88, %90
-  %.pre85 = load ptr, ptr %_lineBuffer, align 8
+  %.pre88 = load ptr, ptr %_lineBuffer, align 8
   br label %if.end233
 
 if.end233:                                        ; preds = %if.else216, %if.then200
   %conv235.pre-phi = phi i64 [ %conv230, %if.else216 ], [ %conv213, %if.then200 ]
-  %91 = phi ptr [ %.pre85, %if.else216 ], [ %82, %if.then200 ]
+  %91 = phi ptr [ %.pre88, %if.else216 ], [ %82, %if.then200 ]
   %base.0 = phi i64 [ %sub232, %if.else216 ], [ %sub215, %if.then200 ]
   %base234 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %92 = load ptr, ptr %base234, align 8

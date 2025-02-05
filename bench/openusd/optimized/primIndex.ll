@@ -1755,23 +1755,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.ex
 
 .preheader:                                       ; preds = %.lr.ph
   %umax34 = tail call i64 @llvm.umax.i64(i64 %36, i64 %indvars.iv)
-  br label %41
+  %41 = add i64 %umax34, -1
+  br label %42
 
-41:                                               ; preds = %.preheader, %43
+42:                                               ; preds = %.preheader, %43
   %.017.in = phi i64 [ %.017, %43 ], [ %.030, %.preheader ]
-  %.017 = add nuw i64 %.017.in, 1
-  %42 = icmp ult i64 %.017, %36
-  br i1 %42, label %43, label %47
+  %exitcond35.not = icmp eq i64 %.017.in, %41
+  br i1 %exitcond35.not, label %47, label %43
 
-43:                                               ; preds = %41
+43:                                               ; preds = %42
+  %.017 = add nuw i64 %.017.in, 1
   %44 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_CompressedSdSite", ptr %32, i64 %.017
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i64
   %.not21 = icmp ugt i64 %28, %46
-  br i1 %.not21, label %41, label %47, !llvm.loop !10
+  br i1 %.not21, label %42, label %47, !llvm.loop !10
 
-47:                                               ; preds = %43, %41
-  %.017.lcssa = phi i64 [ %.017, %43 ], [ %umax34, %41 ]
+47:                                               ; preds = %43, %42
+  %.017.lcssa = phi i64 [ %.017, %43 ], [ %umax34, %42 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15PcpPrimIteratorC1EPKNS_12PcpPrimIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %1, i64 noundef %.030)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15PcpPrimIteratorC1EPKNS_12PcpPrimIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %1, i64 noundef %.017.lcssa)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)

@@ -4586,8 +4586,8 @@ define dso_local void @_ZN5vcpkg9CmdParser26consume_only_remaining_argB5cxx11ENS
 
 ._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge: ; preds = %4
   %.pre = ptrtoint ptr %14 to i64
-  %.pre46 = ptrtoint ptr %15 to i64
-  %.pre48 = sub i64 %.pre, %.pre46
+  %.pre49 = ptrtoint ptr %15 to i64
+  %.pre51 = sub i64 %.pre, %.pre49
   br label %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
 
 .lr.ph.i:                                         ; preds = %4
@@ -4634,7 +4634,7 @@ define dso_local void @_ZN5vcpkg9CmdParser26consume_only_remaining_argB5cxx11ENS
   br i1 %38, label %17, label %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit, !llvm.loop !77
 
 _ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit: ; preds = %31, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge
-  %.pre-phi49 = phi i64 [ %.pre48, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %37, %31 ]
+  %.pre-phi52 = phi i64 [ %.pre51, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %37, %31 ]
   %39 = phi ptr [ %15, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %32, %31 ]
   %40 = phi ptr [ %14, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %34, %31 ]
   %.07.lcssa.i = phi i1 [ false, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %.1.i, %31 ]
@@ -4643,10 +4643,10 @@ _ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit: ; preds = %31, %._ZN5v
   br i1 %.not42.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi49, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi52, i64 1)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %70, %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
+._crit_edge:                                      ; preds = %71, %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.04.0.copyload = load i64, ptr @_ZN5vcpkg22msgNonOneRemainingArgsE, align 8
   call void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %10)
@@ -4713,12 +4713,13 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.ex
           cleanup
   br label %common.resume
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %.043 = phi i64 [ %71, %70 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
+  %.043 = phi i64 [ 0, %.lr.ph.preheader ], [ %72, %71 ]
   %60 = getelementptr inbounds i8, ptr %39, i64 %.043
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %63, label %70
+  br i1 %62, label %63, label %71
 
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds i8, ptr %39, i64 %.043
@@ -4728,26 +4729,29 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.ex
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
-  br label %72
+  %umax47 = call i64 @llvm.umax.i64(i64 %indvars.iv, i64 %69)
+  %70 = add i64 %umax47, -1
+  br label %73
 
-70:                                               ; preds = %.lr.ph
-  %71 = add nuw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %71, %umax
+71:                                               ; preds = %.lr.ph
+  %72 = add nuw i64 %.043, 1
+  %exitcond.not = icmp eq i64 %72, %umax
+  %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
-72:                                               ; preds = %75, %63
-  %.1 = phi i64 [ %.043, %63 ], [ %73, %75 ]
-  %73 = add nuw i64 %.1, 1
-  %74 = icmp ult i64 %73, %69
-  br i1 %74, label %75, label %120
+73:                                               ; preds = %74, %63
+  %.1 = phi i64 [ %.043, %63 ], [ %75, %74 ]
+  %exitcond48.not = icmp eq i64 %.1, %70
+  br i1 %exitcond48.not, label %120, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %66, i64 %73
+74:                                               ; preds = %73
+  %75 = add nuw i64 %.1, 1
+  %76 = getelementptr inbounds i8, ptr %66, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 0
-  br i1 %78, label %79, label %72, !llvm.loop !107
+  br i1 %78, label %79, label %73, !llvm.loop !107
 
-79:                                               ; preds = %75
+79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.01.0.copyload = load i64, ptr @_ZN5vcpkg22msgNonOneRemainingArgsE, align 8
   call void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %11)
@@ -4805,13 +4809,13 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.ex
   %99 = ptrtoint ptr %97 to i64
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
-  %102 = icmp ult i64 %73, %101
+  %102 = icmp ult i64 %75, %101
   br i1 %102, label %.lr.ph.i34, label %_ZN5vcpkg9CmdParser36add_unexpected_argument_errors_afterEm.exit
 
 .lr.ph.i34:                                       ; preds = %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit33, %110
   %103 = phi ptr [ %111, %110 ], [ %98, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit33 ]
   %104 = phi ptr [ %112, %110 ], [ %97, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit33 ]
-  %.05.i = phi i64 [ %113, %110 ], [ %73, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit33 ]
+  %.05.i = phi i64 [ %113, %110 ], [ %75, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit33 ]
   %105 = getelementptr inbounds i8, ptr %103, i64 %.05.i
   %106 = load i8, ptr %105, align 1
   %.not.i35 = icmp eq i8 %106, 0
@@ -4845,7 +4849,7 @@ _ZN5vcpkg9CmdParser36add_unexpected_argument_errors_afterEm.exit: ; preds = %110
           cleanup
   br label %common.resume
 
-120:                                              ; preds = %72
+120:                                              ; preds = %73
   br i1 %.07.lcssa.i, label %121, label %122
 
 121:                                              ; preds = %120
@@ -4880,8 +4884,8 @@ define dso_local void @_ZN5vcpkg9CmdParser35consume_only_remaining_arg_optionalB
 
 ._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge: ; preds = %4
   %.pre = ptrtoint ptr %11 to i64
-  %.pre27 = ptrtoint ptr %12 to i64
-  %.pre29 = sub i64 %.pre, %.pre27
+  %.pre30 = ptrtoint ptr %12 to i64
+  %.pre32 = sub i64 %.pre, %.pre30
   br label %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
 
 .lr.ph.i:                                         ; preds = %4
@@ -4928,7 +4932,7 @@ define dso_local void @_ZN5vcpkg9CmdParser35consume_only_remaining_arg_optionalB
   br i1 %35, label %14, label %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit, !llvm.loop !77
 
 _ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit: ; preds = %28, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge
-  %.pre-phi30 = phi i64 [ %.pre29, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %34, %28 ]
+  %.pre-phi33 = phi i64 [ %.pre32, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %34, %28 ]
   %36 = phi ptr [ %12, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %29, %28 ]
   %37 = phi ptr [ %11, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %31, %28 ]
   %.07.lcssa.i = phi i1 [ false, %._ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit_crit_edge ], [ %.1.i, %28 ]
@@ -4937,21 +4941,22 @@ _ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit: ; preds = %28, %._ZN5v
   br i1 %.not23.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi30, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi33, i64 1)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %49, %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
+._crit_edge:                                      ; preds = %50, %_ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit
   store i8 0, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %38, align 8
   br label %107
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %.024 = phi i64 [ %50, %49 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
+  %.024 = phi i64 [ 0, %.lr.ph.preheader ], [ %51, %50 ]
   %39 = getelementptr inbounds i8, ptr %36, i64 %.024
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %49
+  br i1 %41, label %42, label %50
 
 42:                                               ; preds = %.lr.ph
   %43 = getelementptr inbounds i8, ptr %36, i64 %.024
@@ -4961,26 +4966,29 @@ _ZN5vcpkg9CmdParser28add_unexpected_switch_errorsEv.exit: ; preds = %28, %._ZN5v
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
-  br label %51
+  %umax28 = call i64 @llvm.umax.i64(i64 %indvars.iv, i64 %48)
+  %49 = add i64 %umax28, -1
+  br label %52
 
-49:                                               ; preds = %.lr.ph
-  %50 = add nuw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %50, %umax
+50:                                               ; preds = %.lr.ph
+  %51 = add nuw i64 %.024, 1
+  %exitcond.not = icmp eq i64 %51, %umax
+  %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
-51:                                               ; preds = %54, %42
-  %.1 = phi i64 [ %.024, %42 ], [ %52, %54 ]
-  %52 = add nuw i64 %.1, 1
-  %53 = icmp ult i64 %52, %48
-  br i1 %53, label %54, label %100
+52:                                               ; preds = %53, %42
+  %.1 = phi i64 [ %.024, %42 ], [ %54, %53 ]
+  %exitcond29.not = icmp eq i64 %.1, %49
+  br i1 %exitcond29.not, label %100, label %53
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %45, i64 %52
+53:                                               ; preds = %52
+  %54 = add nuw i64 %.1, 1
+  %55 = getelementptr inbounds i8, ptr %45, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %51, !llvm.loop !115
+  br i1 %57, label %58, label %52, !llvm.loop !115
 
-58:                                               ; preds = %54
+58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.01.0.copyload = load i64, ptr @_ZN5vcpkg28msgNonZeroOrOneRemainingArgsE, align 8
   call void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %8)
@@ -5043,13 +5051,13 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.ex
   %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
-  %81 = icmp ult i64 %52, %80
+  %81 = icmp ult i64 %54, %80
   br i1 %81, label %.lr.ph.i16, label %_ZN5vcpkg9CmdParser36add_unexpected_argument_errors_afterEm.exit
 
 .lr.ph.i16:                                       ; preds = %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit, %89
   %82 = phi ptr [ %90, %89 ], [ %77, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
   %83 = phi ptr [ %91, %89 ], [ %76, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
-  %.05.i = phi i64 [ %92, %89 ], [ %52, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
+  %.05.i = phi i64 [ %92, %89 ], [ %54, %_ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
   %84 = getelementptr inbounds i8, ptr %82, i64 %.05.i
   %85 = load i8, ptr %84, align 1
   %.not.i17 = icmp eq i8 %85, 0
@@ -5085,7 +5093,7 @@ _ZN5vcpkg9CmdParser36add_unexpected_argument_errors_afterEm.exit: ; preds = %89,
           cleanup
   br label %common.resume
 
-100:                                              ; preds = %51
+100:                                              ; preds = %52
   br i1 %.07.lcssa.i, label %101, label %103
 
 101:                                              ; preds = %100
