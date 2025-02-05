@@ -9346,10 +9346,10 @@ if.then11:                                        ; preds = %if.end
 
 while.cond.preheader:                             ; preds = %if.then11
   %cmp1531 = icmp ult ptr %add.ptr12, %add.ptr4
-  br i1 %cmp1531, label %land.rhs, label %while.endthread-pre-split
+  br i1 %cmp1531, label %land.rhs.preheader, label %while.endthread-pre-split
 
-land.rhs:                                         ; preds = %while.cond.preheader, %if.then22
-  %s.addr.032 = phi ptr [ %incdec.ptr23, %if.then22 ], [ %add.ptr12, %while.cond.preheader ]
+land.rhs.preheader:                               ; preds = %while.cond.preheader, %if.then22
+  %scevgep = phi ptr [ %incdec.ptr23, %if.then22 ], [ %add.ptr12, %while.cond.preheader ]
   %4 = load i8, ptr %s.addr.032, align 1
   %cmp18.not = icmp eq i8 %4, 46
   br i1 %cmp18.not, label %while.cond31.preheader, label %while.body
@@ -9361,8 +9361,8 @@ while.body:                                       ; preds = %land.rhs
 
 if.then22:                                        ; preds = %while.body
   %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %s.addr.032, i64 1
-  %cmp15 = icmp ult ptr %incdec.ptr23, %add.ptr4
-  br i1 %cmp15, label %land.rhs, label %while.endthread-pre-split, !llvm.loop !43
+  %exitcond.not = icmp ult ptr %incdec.ptr23, %add.ptr4
+  br i1 %exitcond.not, label %land.rhs, label %while.endthread-pre-split, !llvm.loop !43
 
 while.endthread-pre-split:                        ; preds = %if.then22, %while.cond.preheader
   %s.addr.0.lcssa = phi ptr [ %add.ptr12, %while.cond.preheader ], [ %incdec.ptr23, %if.then22 ]
@@ -9374,10 +9374,10 @@ while.cond31.preheader:                           ; preds = %land.rhs, %while.en
   %s.addr.030 = phi ptr [ %s.addr.0.lcssa, %while.endthread-pre-split ], [ %s.addr.032, %land.rhs ]
   %s.addr.133 = getelementptr inbounds nuw i8, ptr %s.addr.030, i64 1
   %cmp3234 = icmp ult ptr %s.addr.133, %add.ptr4
-  br i1 %cmp3234, label %while.body34, label %return
+  br i1 %cmp3234, label %while.body34.preheader, label %return
 
-while.body34:                                     ; preds = %while.cond31.preheader, %if.then46
-  %s.addr.135 = phi ptr [ %s.addr.1, %if.then46 ], [ %s.addr.133, %while.cond31.preheader ]
+while.body34.preheader:                           ; preds = %while.cond31.preheader, %if.then46
+  %scevgep45 = phi ptr [ %s.addr.1, %if.then46 ], [ %s.addr.133, %while.cond31.preheader ]
   %6 = load i8, ptr %s.addr.135, align 1
   %idxprom = zext i8 %6 to i64
   %arrayidx35 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %idxprom
@@ -9397,11 +9397,11 @@ lor.lhs.false38:                                  ; preds = %while.body34
 
 if.then46:                                        ; preds = %lor.lhs.false38, %while.body34
   %s.addr.1 = getelementptr inbounds nuw i8, ptr %s.addr.135, i64 1
-  %cmp32 = icmp ult ptr %s.addr.1, %add.ptr4
-  br i1 %cmp32, label %while.body34, label %return, !llvm.loop !44
+  %exitcond46.not = icmp ult ptr %s.addr.1, %add.ptr4
+  br i1 %exitcond46.not, label %while.body34, label %return, !llvm.loop !44
 
 if.else51:                                        ; preds = %if.end
-  %sub.ptr.lhs.cast = ptrtoint ptr %eos to i64
+  %sub.ptr.sub = ptrtoint ptr %eos to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %s to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp52 = icmp sgt i64 %sub.ptr.sub, 65

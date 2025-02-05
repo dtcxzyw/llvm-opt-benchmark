@@ -4104,85 +4104,85 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
 
 .lr.ph47:                                         ; preds = %5
   %8 = load ptr, ptr @g_ascii_table, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %.lr.ph47, %._crit_edge44
-  %.045 = phi i64 [ 0, %.lr.ph47 ], [ %52, %._crit_edge44 ]
-  %10 = load ptr, ptr @ssl_debug_file, align 8
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.688, i64 2, i64 1, ptr %10)
+10:                                               ; preds = %.lr.ph47, %._crit_edge44
+  %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %52, %._crit_edge44 ]
+  %.045 = load ptr, ptr @ssl_debug_file, align 8
+  %umin = tail call i64 @fwrite(ptr nonnull @.str.688, i64 2, i64 1, ptr %indvars.iv)
   br label %12
 
-.preheader34:                                     ; preds = %12
-  br i1 %20, label %.lr.ph, label %.lr.ph41.preheader
+.preheader34:                                     ; preds = %14
+  br i1 %22, label %.lr.ph, label %.lr.ph41.preheader
 
-12:                                               ; preds = %9, %12
-  %.02936 = phi i64 [ 0, %9 ], [ %19, %12 ]
-  %.03035 = phi i64 [ %.045, %9 ], [ %18, %12 ]
-  %13 = load ptr, ptr @ssl_debug_file, align 8
-  %14 = getelementptr i8, ptr %1, i64 %.03035
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.689, i32 noundef %16) #23
-  %18 = add nuw i64 %.03035, 1
-  %19 = add nuw nsw i64 %.02936, 1
-  %20 = icmp samesign ult i64 %.02936, 15
-  %21 = icmp ult i64 %18, %2
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %12, label %.preheader34, !llvm.loop !10
+14:                                               ; preds = %10, %14
+  %.02936 = phi i64 [ 0, %10 ], [ %21, %14 ]
+  %.03035 = phi i64 [ %.045, %10 ], [ %20, %14 ]
+  %15 = load ptr, ptr @ssl_debug_file, align 8
+  %16 = getelementptr i8, ptr %1, i64 %.03035
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.689, i32 noundef %18) #23
+  %20 = add nuw i64 %.03035, 1
+  %21 = add nuw nsw i64 %.02936, 1
+  %22 = icmp samesign ult i64 %.02936, 15
+  %23 = icmp ult i64 %20, %2
+  %24 = select i1 %22, i1 %23, i1 false
+  br i1 %24, label %14, label %.preheader34, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader34, %.lr.ph
-  %.137 = phi i64 [ %25, %.lr.ph ], [ %19, %.preheader34 ]
-  %23 = load ptr, ptr @ssl_debug_file, align 8
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.690, i64 3, i64 1, ptr %23)
-  %25 = add nuw nsw i64 %.137, 1
-  %26 = icmp samesign ult i64 %.137, 15
-  br i1 %26, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !11
+  %.137 = phi i64 [ %27, %.lr.ph ], [ %21, %.preheader34 ]
+  %25 = load ptr, ptr @ssl_debug_file, align 8
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.690, i64 3, i64 1, ptr %25)
+  %27 = add nuw nsw i64 %.137, 1
+  %28 = icmp samesign ult i64 %.137, 15
+  br i1 %28, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !11
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph, %.preheader34
-  %27 = load ptr, ptr @ssl_debug_file, align 8
-  %28 = tail call i32 @fputc(i32 noundef 124, ptr noundef %27)
+  %29 = load ptr, ptr @ssl_debug_file, align 8
+  %30 = tail call i32 @fputc(i32 noundef 124, ptr noundef %29)
   br label %.lr.ph41
 
 .preheader:                                       ; preds = %.lr.ph41
-  %29 = icmp samesign ult i64 %.239, 15
-  br i1 %29, label %.lr.ph43, label %._crit_edge44
+  %210 = icmp samesign ult i64 %.239, 15
+  br i1 %.not51, label %.lr.ph43, label %._crit_edge44
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
-  %.239 = phi i64 [ %43, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.13138 = phi i64 [ %42, %.lr.ph41 ], [ %.045, %.lr.ph41.preheader ]
-  %30 = getelementptr i8, ptr %1, i64 %.13138
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr i16, ptr %8, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %35 = and i16 %34, 64
-  %36 = icmp eq i16 %35, 0
-  %37 = icmp eq i8 %31, 9
-  %or.cond = or i1 %37, %36
-  %38 = zext i8 %31 to i32
-  %39 = select i1 %or.cond, i32 46, i32 %38
-  %40 = load ptr, ptr @ssl_debug_file, align 8
-  %41 = tail call i32 @fputc(i32 noundef %39, ptr noundef %40)
-  %42 = add nuw i64 %.13138, 1
-  %43 = add nuw nsw i64 %.239, 1
-  %44 = icmp samesign ult i64 %.239, 15
+  %.239 = phi i64 [ %44, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
+  %.13138 = phi i64 [ %43, %.lr.ph41 ], [ %.045, %.lr.ph41.preheader ]
+  %31 = getelementptr i8, ptr %1, i64 %.13138
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr i16, ptr %8, i64 %33
+  %35 = load i16, ptr %34, align 2
+  %36 = and i16 %35, 64
+  %37 = icmp eq i16 %36, 0
+  %38 = icmp eq i8 %32, 9
+  %or.cond = or i1 %38, %37
+  %39 = zext i8 %32 to i32
+  %310 = select i1 %or.cond, i32 46, i32 %39
+  %41 = load ptr, ptr @ssl_debug_file, align 8
+  %42 = tail call i32 @fputc(i32 noundef %310, ptr noundef %41)
+  %43 = add nuw i64 %.13138, 1
+  %44 = add nuw nsw i64 %.239, 1
+  %exitcond.not = icmp samesign ult i64 %.239, 15
   %45 = icmp ult i64 %42, %2
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %.lr.ph41, label %.preheader, !llvm.loop !12
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
-  %.342 = phi i64 [ %49, %.lr.ph43 ], [ %43, %.preheader ]
-  %47 = load ptr, ptr @ssl_debug_file, align 8
-  %48 = tail call i32 @fputc(i32 noundef 32, ptr noundef %47)
-  %49 = add nuw nsw i64 %.342, 1
-  %exitcond.not = icmp eq i64 %49, 16
-  br i1 %exitcond.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !13
+  %.342 = phi i64 [ %47, %.lr.ph43 ], [ %43, %.preheader ]
+  %45 = load ptr, ptr @ssl_debug_file, align 8
+  %46 = tail call i32 @fputc(i32 noundef 32, ptr noundef %45)
+  %47 = add nuw nsw i64 %.342, 1
+  %exitcond50.not = icmp eq i64 %47, 16
+  br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !13
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %.preheader
-  %50 = load ptr, ptr @ssl_debug_file, align 8
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.691, i64 2, i64 1, ptr %50)
-  %52 = add i64 %.045, 16
-  %53 = icmp ult i64 %52, %2
+  %48 = load ptr, ptr @ssl_debug_file, align 8
+  %49 = tail call i64 @fwrite(ptr nonnull @.str.691, i64 2, i64 1, ptr %48)
+  %50 = add i64 %.045, 16
+  %51 = icmp ult i64 %50, %2
   br i1 %53, label %9, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge44, %5, %3

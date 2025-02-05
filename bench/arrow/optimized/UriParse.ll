@@ -5400,8 +5400,8 @@ if.end.i46:                                       ; preds = %if.end.i46.backedge
 
 sw.bb.i47:                                        ; preds = %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46, %if.end.i46
   %add.ptr.i48 = getelementptr inbounds nuw i8, ptr %first.tr17.i, i64 1
-  %cmp.not.i.i = icmp ult ptr %add.ptr.i48, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end26
+  %exitcond.not.i49 = icmp ult ptr %add.ptr.i48, %afterLast
+  br i1 %exitcond.not.i49, label %if.end.i.i, label %if.end26
 
 if.end.i.i:                                       ; preds = %sw.bb.i47
   %8 = load i8, ptr %add.ptr.i48, align 1
@@ -5511,11 +5511,11 @@ if.end26:                                         ; preds = %if.end.i.i, %sw.bb.
 
 sw.default:                                       ; preds = %if.end3
   %12 = load ptr, ptr %state, align 8
-  %call.i49 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory)
-  %errorPos1.i50 = getelementptr inbounds nuw i8, ptr %state, i64 16
-  store ptr %add.ptr, ptr %errorPos1.i50, align 8
-  %errorCode.i51 = getelementptr inbounds nuw i8, ptr %state, i64 8
-  store i32 1, ptr %errorCode.i51, align 8
+  %call.i50 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory)
+  %errorPos1.i51 = getelementptr inbounds nuw i8, ptr %state, i64 16
+  store ptr %add.ptr, ptr %errorPos1.i51, align 8
+  %errorCode.i52 = getelementptr inbounds nuw i8, ptr %state, i64 8
+  store i32 1, ptr %errorCode.i52, align 8
   br label %return
 
 return:                                           ; preds = %uriParseIpFutLoopA.exit, %sw.default, %if.end26, %if.then16, %if.then11, %if.then2, %if.then

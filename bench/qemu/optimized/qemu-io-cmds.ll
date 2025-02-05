@@ -1587,10 +1587,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %buffer, i64 noundef %offset, i64 noundef %len) unnamed_addr #6 {
 entry:
   %cmp25.not = icmp eq i64 %len, 0
-  br i1 %cmp25.not, label %for.end33, label %for.body
+  br i1 %cmp25.not, label %for.end33, label %for.body.preheader
 
-for.body:                                         ; preds = %entry, %for.end29
-  %p.027 = phi ptr [ %incdec.ptr, %for.end29 ], [ %buffer, %entry ]
+for.body.preheader:                               ; preds = %entry, %for.end29
+  %0 = phi ptr [ %incdec.ptr, %for.end29 ], [ %buffer, %entry ]
   %i.026 = phi i64 [ %add32, %for.end29 ], [ 0, %entry ]
   %add = add i64 %i.026, %offset
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %add)
@@ -1599,8 +1599,8 @@ for.body:                                         ; preds = %entry, %for.end29
 for.body6:                                        ; preds = %for.body, %for.body6
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body6 ]
   %p.121 = phi ptr [ %p.027, %for.body ], [ %incdec.ptr, %for.body6 ]
-  %0 = load i8, ptr %p.121, align 1
-  %conv7 = zext i8 %0 to i32
+  %1 = load i8, ptr %p.121, align 1
+  %conv7 = zext i8 %1 to i32
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %conv7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr i8, ptr %p.121, i64 1
@@ -1618,19 +1618,19 @@ for.body19.lr.ph:                                 ; preds = %for.body6
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.body19
   %indvars.iv29 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next30, %for.body19 ]
   %s.024 = phi ptr [ %p.027, %for.body19.lr.ph ], [ %incdec.ptr28, %for.body19 ]
-  %1 = load ptr, ptr %call20, align 8
-  %2 = load i8, ptr %s.024, align 1
-  %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr i16, ptr %1, i64 %idxprom
-  %3 = load i16, ptr %arrayidx, align 2
-  %4 = and i16 %3, 8
-  %tobool.not = icmp eq i16 %4, 0
-  %conv21 = zext i8 %2 to i32
+  %2 = load ptr, ptr %call20, align 8
+  %3 = load i8, ptr %s.024, align 1
+  %idxprom = zext i8 %3 to i64
+  %arrayidx = getelementptr i16, ptr %2, i64 %idxprom
+  %4 = load i16, ptr %arrayidx, align 2
+  %5 = and i16 %4, 8
+  %tobool.not = icmp eq i16 %5, 0
+  %conv21 = zext i8 %3 to i32
   %conv21.sink = select i1 %tobool.not, i32 46, i32 %conv21
   %putchar18 = tail call i32 @putchar(i32 %conv21.sink)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %incdec.ptr28 = getelementptr i8, ptr %s.024, i64 1
-  %cmp11 = icmp samesign ult i64 %indvars.iv29, 15
+  %exitcond.not = icmp samesign ult i64 %indvars.iv29, 15
   %add15 = or disjoint i64 %i.026, %indvars.iv.next30
   %cmp16 = icmp ult i64 %add15, %len
   %or.cond19 = select i1 %cmp11, i1 %cmp16, i1 false

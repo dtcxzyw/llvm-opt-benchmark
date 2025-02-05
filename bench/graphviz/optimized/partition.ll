@@ -349,8 +349,8 @@ define internal fastcc void @genSegments(ptr noundef readonly captures(none) %0,
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
   store double %.sroa.0.0.copyload, ptr %6, align 16
-  %.sroa.5.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx30, align 8
+  %.sroa.5.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %.sroa.6.0.copyload, ptr %7, align 16
   %.sroa.8.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -428,8 +428,8 @@ convert.exit:                                     ; preds = %.preheader.i, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 16 dereferenceable(16) %38, i64 16, i1 false)
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i12, 4
-  br i1 %exitcond.not, label %store.exit.preheader, label %21
+  %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 4
+  br i1 %exitcond.not.i13, label %store.exit.preheader, label %21
 
 store.exit.preheader:                             ; preds = %31
   %39 = icmp sgt i32 %1, 0
@@ -443,42 +443,42 @@ store.exit.preheader:                             ; preds = %31
   %indvars.iv42 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next43, %store.exit28 ]
   %indvars.iv = phi i64 [ 5, %.lr.ph.preheader ], [ %indvars.iv.next, %store.exit28 ]
   %40 = getelementptr inbounds nuw %struct.cell, ptr %0, i64 %indvars.iv42, i32 5
-  %.sroa.032.0.copyload = load double, ptr %40, align 1
-  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.534.0.copyload = load double, ptr %.sroa.534.0..sroa_idx, align 1
-  %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.sroa.637.0.copyload = load double, ptr %.sroa.637.0..sroa_idx, align 1
-  %.sroa.838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %.sroa.838.0.copyload = load double, ptr %.sroa.838.0..sroa_idx, align 1
-  store double %.sroa.032.0.copyload, ptr %6, align 16
-  store double %.sroa.534.0.copyload, ptr %.sroa.5.0..sroa_idx30, align 8
-  store double %.sroa.637.0.copyload, ptr %7, align 16
-  store double %.sroa.838.0.copyload, ptr %.sroa.8.16..sroa_idx, align 8
-  store double %.sroa.032.0.copyload, ptr %8, align 16
-  store double %.sroa.838.0.copyload, ptr %9, align 8
-  store double %.sroa.637.0.copyload, ptr %10, align 16
-  store double %.sroa.534.0.copyload, ptr %11, align 8
-  br i1 %.not22.i, label %convert.exit22, label %.preheader.i18
+  %.sroa.033.0.copyload = load double, ptr %40, align 1
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sroa.535.0.copyload = load double, ptr %.sroa.535.0..sroa_idx, align 1
+  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %.sroa.638.0.copyload = load double, ptr %.sroa.638.0..sroa_idx, align 1
+  %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %.sroa.839.0.copyload = load double, ptr %.sroa.839.0..sroa_idx, align 1
+  store double %.sroa.033.0.copyload, ptr %6, align 16
+  store double %.sroa.535.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8
+  store double %.sroa.638.0.copyload, ptr %7, align 16
+  store double %.sroa.839.0.copyload, ptr %.sroa.8.16..sroa_idx, align 8
+  store double %.sroa.033.0.copyload, ptr %8, align 16
+  store double %.sroa.839.0.copyload, ptr %9, align 8
+  store double %.sroa.638.0.copyload, ptr %10, align 16
+  store double %.sroa.535.0.copyload, ptr %11, align 8
+  br i1 %.not22.i, label %convert.exit23, label %.preheader.i19
 
-.preheader.i18:                                   ; preds = %.lr.ph, %.preheader.i18
-  %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %.preheader.i18 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i19
+.preheader.i19:                                   ; preds = %.lr.ph, %.preheader.i19
+  %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.preheader.i19 ], [ 0, %.lr.ph ]
+  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i20
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load double, ptr %42, align 8
   %44 = load double, ptr %41, align 16
   store double %44, ptr %42, align 8
   %45 = fneg double %43
   store double %45, ptr %41, align 16
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
-  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 4
-  br i1 %exitcond.not.i21, label %convert.exit22, label %.preheader.i18
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 4
+  br i1 %exitcond.not.i22, label %convert.exit23, label %.preheader.i19
 
-convert.exit22:                                   ; preds = %.preheader.i18, %.lr.ph
+convert.exit23:                                   ; preds = %.preheader.i19, %.lr.ph
   %46 = add nuw nsw i64 %indvars.iv, 3
   %47 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %50 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv
+  %sext.i = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %smax.i = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %53 = trunc nuw nsw i64 %indvars.iv to i32
@@ -491,9 +491,9 @@ convert.exit22:                                   ; preds = %.preheader.i18, %.l
 
 59:                                               ; preds = %72, %convert.exit22
   %indvars.iv42.i23 = phi i64 [ %indvars.iv, %convert.exit22 ], [ %indvars.iv.next43.i25, %72 ]
-  %indvars.iv.i24 = phi i64 [ 0, %convert.exit22 ], [ %indvars.iv.next.i26, %72 ]
-  %60 = icmp eq i64 %indvars.iv42.i23, %indvars.iv
-  br i1 %60, label %61, label %62
+  %indvars.iv42.i24 = phi i64 [ 0, %convert.exit23 ], [ %indvars.iv.next43.i26, %72 ]
+  %indvars.iv.i25 = icmp eq i64 %indvars.iv42.i23, %indvars.iv
+  br i1 %indvars.iv.i25, label %61, label %62
 
 61:                                               ; preds = %59
   store i32 %57, ptr %51, align 4
@@ -532,15 +532,15 @@ convert.exit22:                                   ; preds = %.preheader.i18, %.l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull readonly align 16 dereferenceable(16) %79, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull readonly align 16 dereferenceable(16) %79, i64 16, i1 false)
   %indvars.iv.next43.i25 = add nuw nsw i64 %indvars.iv42.i23, 1
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next.i26, 4
-  br i1 %exitcond41.not, label %store.exit28, label %59
+  %indvars.iv.next43.i26 = add nuw nsw i64 %indvars.iv42.i24, 1
+  %indvars.iv.next.i27 = icmp eq i64 %indvars.iv.next43.i26, 4
+  br i1 %indvars.iv.next.i27, label %store.exit28, label %59
 
 store.exit28:                                     ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
-  br i1 %exitcond47.not, label %store.exit._crit_edge, label %.lr.ph
+  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
+  br i1 %exitcond.not, label %store.exit._crit_edge, label %.lr.ph
 
 store.exit._crit_edge:                            ; preds = %store.exit28, %store.exit.preheader
   ret void

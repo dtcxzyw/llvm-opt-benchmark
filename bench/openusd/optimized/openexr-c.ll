@@ -23917,7 +23917,7 @@ define internal fastcc i32 @internal_exr_apply_rle(ptr noundef captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = tail call fastcc i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %3)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %80
+  br i1 %.not, label %7, label %81
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %4, align 8
@@ -24025,19 +24025,19 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   br i1 %49, label %52, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %.preheader71.i
-  %.158.lcssa102.i = phi ptr [ %.158.lcssa.i, %.critedge.i ], [ %.15872.i, %.preheader71.i ]
-  %.0.lcssa101.i = phi i8 [ %.0.lcssa.i, %.critedge.i ], [ 0, %.preheader71.i ]
-  %50 = icmp ult ptr %.158.lcssa102.i, %37
+  %.158.lcssa104.i = phi ptr [ %.158.lcssa.i, %.critedge.i ], [ %.15872.i, %.preheader71.i ]
+  %.0.lcssa103.i = phi i8 [ %.0.lcssa.i, %.critedge.i ], [ 0, %.preheader71.i ]
+  %50 = icmp ult ptr %.158.lcssa104.i, %37
   br i1 %50, label %.lr.ph83.i.preheader, label %.critedge2.i
 
 .lr.ph83.i.preheader:                             ; preds = %.preheader.i
-  %.182.i44 = add nuw nsw i8 %.0.lcssa101.i, 1
-  %51 = getelementptr inbounds nuw i8, ptr %.158.lcssa102.i, i64 1
+  %.182.i44 = add nuw nsw i8 %.0.lcssa103.i, 1
+  %51 = getelementptr inbounds nuw i8, ptr %.158.lcssa104.i, i64 1
   %.not.i27.not45 = icmp ult ptr %51, %37
   br i1 %.not.i27.not45, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph83.i.preheader
-  %.pre = load i8, ptr %.158.lcssa102.i, align 1
+  %.pre = load i8, ptr %.158.lcssa104.i, align 1
   br label %.lr.ph
 
 52:                                               ; preds = %.critedge.i
@@ -24050,11 +24050,11 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   br label %.loopexit.i
 
 .thread:                                          ; preds = %.lr.ph83.i.backedge, %.lr.ph83.i.preheader
-  %.36080.i.lcssa = phi ptr [ %.158.lcssa102.i, %.lr.ph83.i.preheader ], [ %58, %.lr.ph83.i.backedge ]
+  %.36080.i.lcssa = phi ptr [ %.158.lcssa104.i, %.lr.ph83.i.preheader ], [ %58, %.lr.ph83.i.backedge ]
   %.182.i.lcssa = phi i8 [ %.182.i44, %.lr.ph83.i.preheader ], [ %.182.i, %.lr.ph83.i.backedge ]
   %.lcssa = phi ptr [ %51, %.lr.ph83.i.preheader ], [ %66, %.lr.ph83.i.backedge ]
   %.old6.not.i29 = icmp eq i8 %.182.i.lcssa, 127
-  %.36080.mux105.i31 = select i1 %.old6.not.i29, ptr %.36080.i.lcssa, ptr %.lcssa
+  %.36080.mux107.i31 = select i1 %.old6.not.i29, ptr %.36080.i.lcssa, ptr %.lcssa
   %.mux.i32 = tail call i8 @llvm.smin.i8(i8 %.182.i.lcssa, i8 126)
   br label %.critedge2.i
 
@@ -24062,8 +24062,8 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   %57 = phi i8 [ %59, %.lr.ph83.i.backedge ], [ %.pre, %.lr.ph.preheader ]
   %58 = phi ptr [ %66, %.lr.ph83.i.backedge ], [ %51, %.lr.ph.preheader ]
   %.182.i48 = phi i8 [ %.182.i, %.lr.ph83.i.backedge ], [ %.182.i44, %.lr.ph.preheader ]
-  %.36080.i47 = phi ptr [ %58, %.lr.ph83.i.backedge ], [ %.158.lcssa102.i, %.lr.ph.preheader ]
-  %.1.in81.i46 = phi i8 [ %.182.i48, %.lr.ph83.i.backedge ], [ %.0.lcssa101.i, %.lr.ph.preheader ]
+  %.36080.i47 = phi ptr [ %58, %.lr.ph83.i.backedge ], [ %.158.lcssa104.i, %.lr.ph.preheader ]
+  %.1.in81.i46 = phi i8 [ %.182.i48, %.lr.ph83.i.backedge ], [ %.0.lcssa103.i, %.lr.ph.preheader ]
   %59 = load i8, ptr %58, align 1
   %.not68.i = icmp eq i8 %57, %59
   br i1 %.not68.i, label %60, label %67
@@ -24077,8 +24077,8 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   %63 = load i8, ptr %61, align 1
   %64 = icmp eq i8 %57, %63
   %65 = icmp eq i8 %.182.i48, 127
-  %or.cond7.not108.i = select i1 %64, i1 true, i1 %65
-  br i1 %or.cond7.not108.i, label %.critedge2.i, label %.lr.ph83.i.backedge
+  %or.cond7.not110.i = select i1 %64, i1 true, i1 %65
+  br i1 %or.cond7.not110.i, label %.critedge2.i, label %.lr.ph83.i.backedge
 
 .lr.ph83.i.backedge:                              ; preds = %62, %67
   %.182.i = add nuw nsw i8 %.182.i48, 1
@@ -24091,25 +24091,25 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   br i1 %.old6.not.i, label %.critedge2.i, label %.lr.ph83.i.backedge
 
 .critedge2.i:                                     ; preds = %62, %67, %.thread, %.preheader.i
-  %.360.lcssa.i = phi ptr [ %.158.lcssa102.i, %.preheader.i ], [ %.36080.mux105.i31, %.thread ], [ %.36080.i47, %67 ], [ %.36080.i47, %62 ]
-  %.1.in.lcssa.i = phi i8 [ %.0.lcssa101.i, %.preheader.i ], [ %.mux.i32, %.thread ], [ %.1.in81.i46, %62 ], [ 126, %67 ]
+  %.360.lcssa.i = phi ptr [ %.158.lcssa104.i, %.preheader.i ], [ %.36080.mux107.i31, %.thread ], [ %.36080.i47, %67 ], [ %.36080.i47, %62 ]
+  %.1.in.lcssa.i = phi i8 [ %.0.lcssa103.i, %.preheader.i ], [ %.mux.i32, %.thread ], [ %.1.in81.i46, %62 ], [ 126, %67 ]
   %68 = xor i8 %.1.in.lcssa.i, -1
   %69 = getelementptr inbounds i8, ptr %33, i64 %.055.i
   store i8 %68, ptr %69, align 1
   %.392.i = add i64 %.055.i, 1
   %70 = icmp ult ptr %.061.i, %.360.lcssa.i
-  br i1 %70, label %.lr.ph95.i, label %.loopexit.i
+  br i1 %70, label %.lr.ph95.preheader.i, label %.loopexit.i
 
-.lr.ph95.i:                                       ; preds = %.critedge2.i, %.lr.ph95.i
-  %.394.i = phi i64 [ %.3.i, %.lr.ph95.i ], [ %.392.i, %.critedge2.i ]
-  %.26393.i = phi ptr [ %71, %.lr.ph95.i ], [ %.061.i, %.critedge2.i ]
-  %71 = getelementptr inbounds nuw i8, ptr %.26393.i, i64 1
+.lr.ph95.preheader.i:                             ; preds = %.critedge2.i, %.lr.ph95.i
+  %.360.lcssa99.i = phi i64 [ %.3.i, %.lr.ph95.i ], [ %.392.i, %.critedge2.i ]
+  %71 = phi ptr [ %71, %.lr.ph95.i ], [ %.061.i, %.critedge2.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %72 = load i8, ptr %.26393.i, align 1
   %73 = getelementptr inbounds i8, ptr %33, i64 %.394.i
   store i8 %72, ptr %73, align 1
   %.3.i = add i64 %.394.i, 1
-  %74 = icmp ult ptr %71, %.360.lcssa.i
-  br i1 %74, label %.lr.ph95.i, label %.loopexit.i, !llvm.loop !122
+  %exitcond.not.i = icmp ult ptr %71, %.360.lcssa.i
+  br i1 %exitcond.not.i, label %.lr.ph95.i, label %.loopexit.i, !llvm.loop !122
 
 .loopexit.i:                                      ; preds = %.lr.ph95.i, %.critedge2.i, %52
   %.162.i = phi ptr [ %.158.lcssa.i, %52 ], [ %.061.i, %.critedge2.i ], [ %71, %.lr.ph95.i ]
@@ -24121,22 +24121,22 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
 internal_rle_compress.exit:                       ; preds = %38, %.loopexit.i
   %.156.i = phi i64 [ %.2.i, %.loopexit.i ], [ %.055.i, %38 ]
   %.not26 = icmp ult i64 %.156.i, %3
-  br i1 %.not26, label %78, label %75
+  br i1 %.not26, label %79, label %76
 
-75:                                               ; preds = %internal_rle_compress.exit
-  %76 = load ptr, ptr %32, align 8
-  %77 = load ptr, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %3, i1 false)
-  br label %78
+76:                                               ; preds = %internal_rle_compress.exit
+  %77 = load ptr, ptr %32, align 8
+  %78 = load ptr, ptr %9, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %78, i64 %3, i1 false)
+  br label %79
 
-78:                                               ; preds = %75, %internal_rle_compress.exit
-  %.022 = phi i64 [ %3, %75 ], [ %.156.i, %internal_rle_compress.exit ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %.022, ptr %79, align 8
-  br label %80
+79:                                               ; preds = %76, %internal_rle_compress.exit
+  %.022 = phi i64 [ %3, %76 ], [ %.156.i, %internal_rle_compress.exit ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %.022, ptr %80, align 8
+  br label %81
 
-80:                                               ; preds = %1, %78
-  %.0 = phi i32 [ 0, %78 ], [ %6, %1 ]
+81:                                               ; preds = %1, %79
+  %.0 = phi i32 [ 0, %79 ], [ %6, %1 ]
   ret i32 %.0
 }
 
@@ -25385,7 +25385,7 @@ define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures
   %.pn = phi ptr [ %2, %4 ], [ %.259, %.loopexit ]
   %.055 = phi i64 [ 0, %4 ], [ %.2, %.loopexit ]
   %7 = icmp ult ptr %.061, %5
-  br i1 %7, label %.preheader71, label %42
+  br i1 %7, label %.preheader71, label %43
 
 .preheader71:                                     ; preds = %6
   %.15872 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
@@ -25418,9 +25418,9 @@ define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures
   br i1 %17, label %19, label %.preheader
 
 .preheader:                                       ; preds = %.preheader71, %.critedge
-  %.158.lcssa102 = phi ptr [ %.158.lcssa, %.critedge ], [ %.15872, %.preheader71 ]
-  %.0.lcssa101 = phi i8 [ %.0.lcssa, %.critedge ], [ 0, %.preheader71 ]
-  %18 = icmp ult ptr %.158.lcssa102, %5
+  %.158.lcssa104 = phi ptr [ %.158.lcssa, %.critedge ], [ %.15872, %.preheader71 ]
+  %.0.lcssa103 = phi i8 [ %.0.lcssa, %.critedge ], [ 0, %.preheader71 ]
+  %18 = icmp ult ptr %.158.lcssa104, %5
   br i1 %18, label %.lr.ph83, label %.critedge2
 
 19:                                               ; preds = %.critedge
@@ -25433,8 +25433,8 @@ define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures
   br label %.loopexit
 
 .lr.ph83:                                         ; preds = %.preheader, %.lr.ph83.backedge
-  %.1.in81 = phi i8 [ %.182, %.lr.ph83.backedge ], [ %.0.lcssa101, %.preheader ]
-  %.36080 = phi ptr [ %24, %.lr.ph83.backedge ], [ %.158.lcssa102, %.preheader ]
+  %.1.in81 = phi i8 [ %.182, %.lr.ph83.backedge ], [ %.0.lcssa103, %.preheader ]
+  %.36080 = phi ptr [ %24, %.lr.ph83.backedge ], [ %.158.lcssa104, %.preheader ]
   %.182 = add nuw nsw i8 %.1.in81, 1
   %24 = getelementptr inbounds nuw i8, ptr %.36080, i64 1
   %.not = icmp uge ptr %24, %5
@@ -25455,51 +25455,51 @@ define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures
   %31 = load i8, ptr %29, align 1
   %32 = icmp eq i8 %26, %31
   %33 = icmp eq i8 %.182, 127
-  %or.cond7.not108 = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond7.not108, label %.critedge2, label %.lr.ph83.backedge
+  %or.cond7.not110 = select i1 %32, i1 true, i1 %33
+  br i1 %or.cond7.not110, label %.critedge2, label %.lr.ph83.backedge
 
 .lr.ph83.backedge:                                ; preds = %30, %34
   br label %.lr.ph83
 
 34:                                               ; preds = %28, %25, %.lr.ph83
   %.old6.not = icmp eq i8 %.182, 127
-  %brmerge104 = or i1 %.old6.not, %.not
-  br i1 %brmerge104, label %.critedge2.loopexit.split.loop.exit, label %.lr.ph83.backedge
+  %brmerge106 = or i1 %.old6.not, %.not
+  br i1 %brmerge106, label %.critedge2.loopexit.split.loop.exit, label %.lr.ph83.backedge
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %34
-  %.36080.mux105.le = select i1 %.old6.not, ptr %.36080, ptr %24
+  %.36080.mux107.le = select i1 %.old6.not, ptr %.36080, ptr %24
   %.mux.le = tail call i8 @llvm.smin.i8(i8 %.182, i8 126)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit.split.loop.exit, %30, %.preheader
-  %.360.lcssa = phi ptr [ %.158.lcssa102, %.preheader ], [ %.36080.mux105.le, %.critedge2.loopexit.split.loop.exit ], [ %.36080, %30 ]
-  %.1.in.lcssa = phi i8 [ %.0.lcssa101, %.preheader ], [ %.mux.le, %.critedge2.loopexit.split.loop.exit ], [ %.1.in81, %30 ]
+  %.360.lcssa = phi ptr [ %.158.lcssa104, %.preheader ], [ %.36080.mux107.le, %.critedge2.loopexit.split.loop.exit ], [ %.36080, %30 ]
+  %.1.in.lcssa = phi i8 [ %.0.lcssa103, %.preheader ], [ %.mux.le, %.critedge2.loopexit.split.loop.exit ], [ %.1.in81, %30 ]
   %35 = xor i8 %.1.in.lcssa, -1
   %36 = getelementptr inbounds i8, ptr %0, i64 %.055
   store i8 %35, ptr %36, align 1
   %.392 = add i64 %.055, 1
   %37 = icmp ult ptr %.061, %.360.lcssa
-  br i1 %37, label %.lr.ph95, label %.loopexit
+  br i1 %37, label %.lr.ph95.preheader, label %.loopexit
 
-.lr.ph95:                                         ; preds = %.critedge2, %.lr.ph95
-  %.394 = phi i64 [ %.3, %.lr.ph95 ], [ %.392, %.critedge2 ]
-  %.26393 = phi ptr [ %38, %.lr.ph95 ], [ %.061, %.critedge2 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.26393, i64 1
+.lr.ph95.preheader:                               ; preds = %.critedge2, %.lr.ph95
+  %.360.lcssa99 = phi i64 [ %.3, %.lr.ph95 ], [ %.392, %.critedge2 ]
+  %38 = phi ptr [ %39, %.lr.ph95 ], [ %.061, %.critedge2 ]
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %39 = load i8, ptr %.26393, align 1
   %40 = getelementptr inbounds i8, ptr %0, i64 %.394
   store i8 %39, ptr %40, align 1
   %.3 = add i64 %.394, 1
-  %41 = icmp ult ptr %38, %.360.lcssa
-  br i1 %41, label %.lr.ph95, label %.loopexit, !llvm.loop !122
+  %exitcond.not = icmp ult ptr %38, %.360.lcssa
+  br i1 %exitcond.not, label %.lr.ph95, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.lr.ph95, %.critedge2, %19
   %.162 = phi ptr [ %.158.lcssa, %19 ], [ %.061, %.critedge2 ], [ %38, %.lr.ph95 ]
   %.259 = phi ptr [ %.158.lcssa, %19 ], [ %.360.lcssa, %.critedge2 ], [ %.360.lcssa, %.lr.ph95 ]
   %.2 = phi i64 [ %22, %19 ], [ %.392, %.critedge2 ], [ %.3, %.lr.ph95 ]
   %.not70 = icmp ult i64 %.2, %1
-  br i1 %.not70, label %6, label %42, !llvm.loop !123
+  br i1 %.not70, label %6, label %43, !llvm.loop !123
 
-42:                                               ; preds = %.loopexit, %6
+43:                                               ; preds = %.loopexit, %6
   %.156 = phi i64 [ %.2, %.loopexit ], [ %.055, %6 ]
   ret i64 %.156
 }

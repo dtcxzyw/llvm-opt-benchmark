@@ -37597,10 +37597,10 @@ define internal range(i32 3, 2) i32 @dissect_wfa_wnm_non_pref_chan(ptr noundef %
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.029 = phi i32 [ %16, %.lr.ph ], [ 1, %11 ]
-  %.025.in28 = phi i32 [ %.025, %.lr.ph ], [ %5, %11 ]
-  %.025 = add nsw i32 %.025.in28, -1
-  %14 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_chan, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.029, i32 noundef 1, i32 noundef 0) #22
+  %15 = phi i32 [ %16, %.lr.ph ], [ %5, %11 ]
+  %16 = add nsw i32 %exitcond.not, -1
+  %17 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_chan, align 4
+  %exitcond.not = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.029, i32 noundef 1, i32 noundef 0) #22
   %16 = add nuw nsw i32 %.029, 1
   %17 = icmp samesign ugt i32 %.025.in28, 4
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !161

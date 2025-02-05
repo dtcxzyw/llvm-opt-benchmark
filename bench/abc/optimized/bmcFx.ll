@@ -1010,90 +1010,90 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.si
 .lr.ph44.preheader.i:                             ; preds = %._crit_edge.i
   %217 = zext i32 %2 to i64
   %218 = zext nneg i32 %.val37.i to i64
-  %219 = load ptr, ptr %16, align 8, !tbaa !32
+  %umin.i = load ptr, ptr %16, align 8, !tbaa !32
   br label %.lr.ph44.i
 
-.lr.ph44.i:                                       ; preds = %228, %.lr.ph44.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next.i, %228 ]
-  %220 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv.i
-  %221 = load i32, ptr %220, align 4, !tbaa !11
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %219, i64 %222, i32 2
-  %224 = load i64, ptr %223, align 4
-  %225 = trunc i64 %224 to i32
-  %226 = and i32 %225, 131071
-  %227 = icmp eq i32 %226, 1
-  br i1 %227, label %._crit_edge45.i, label %228
+.lr.ph44.i:                                       ; preds = %229, %.lr.ph44.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next.i, %229 ]
+  %221 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv.i
+  %222 = load i32, ptr %221, align 4, !tbaa !11
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %219, i64 %223, i32 2
+  %225 = load i64, ptr %224, align 4
+  %226 = trunc i64 %225 to i32
+  %227 = and i32 %226, 131071
+  %228 = icmp eq i32 %227, 1
+  br i1 %228, label %._crit_edge45.i, label %229
 
-228:                                              ; preds = %.lr.ph44.i
-  %229 = lshr i32 %225, 17
-  %230 = lshr i64 %224, 32
-  %231 = trunc nuw i64 %230 to i32
-  %232 = and i32 %231, 32767
-  %233 = lshr i64 %224, 47
-  %234 = trunc nuw nsw i64 %233 to i32
-  %235 = and i32 %234, 32767
-  %236 = lshr i64 %224, 62
-  %237 = getelementptr inbounds nuw [5 x ptr], ptr @__const.Tab_TabFindBest.pNames, i64 0, i64 %236
-  %238 = load ptr, ptr %237, align 8, !tbaa !40
-  %239 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %229, i32 noundef %232, i32 noundef %235, ptr noundef %238, i32 noundef %226)
-  %240 = load i64, ptr %223, align 4
-  %241 = lshr i64 %240, 62
-  %242 = trunc nuw nsw i64 %241 to i32
-  %243 = trunc i64 %240 to i32
-  %244 = lshr i32 %243, 17
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %168, i32 noundef %242, i32 noundef %244)
-  %245 = load i64, ptr %223, align 4
-  %246 = lshr i64 %245, 32
-  %247 = trunc nuw i64 %246 to i32
-  %248 = and i32 %247, 32767
-  %249 = lshr i64 %245, 47
-  %250 = trunc nuw nsw i64 %249 to i32
-  %251 = and i32 %250, 32767
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %168, i32 noundef %248, i32 noundef %251)
+229:                                              ; preds = %.lr.ph44.i
+  %230 = lshr i32 %226, 17
+  %231 = lshr i64 %225, 32
+  %232 = trunc nuw i64 %231 to i32
+  %233 = and i32 %232, 32767
+  %234 = lshr i64 %225, 47
+  %235 = trunc nuw nsw i64 %234 to i32
+  %236 = and i32 %235, 32767
+  %237 = lshr i64 %225, 62
+  %238 = getelementptr inbounds nuw [5 x ptr], ptr @__const.Tab_TabFindBest.pNames, i64 0, i64 %237
+  %239 = load ptr, ptr %238, align 8, !tbaa !40
+  %240 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %230, i32 noundef %233, i32 noundef %236, ptr noundef %239, i32 noundef %227)
+  %241 = load i64, ptr %224, align 4
+  %242 = lshr i64 %241, 62
+  %243 = trunc nuw nsw i64 %242 to i32
+  %244 = trunc i64 %241 to i32
+  %245 = lshr i32 %244, 17
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %168, i32 noundef %243, i32 noundef %245)
+  %246 = load i64, ptr %224, align 4
+  %247 = lshr i64 %246, 32
+  %248 = trunc nuw i64 %247 to i32
+  %249 = and i32 %248, 32767
+  %250 = lshr i64 %246, 47
+  %251 = trunc nuw nsw i64 %250 to i32
+  %252 = and i32 %251, 32767
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %168, i32 noundef %249, i32 noundef %252)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %252 = icmp samesign uge i64 %indvars.iv.next.i, %218
+  %exitcond.i = icmp samesign uge i64 %indvars.iv.next.i, %218
   %253 = icmp eq i64 %indvars.iv.next.i, %217
   %or.cond.i = or i1 %252, %253
   br i1 %or.cond.i, label %._crit_edge45.i, label %.lr.ph44.i, !llvm.loop !41
 
-._crit_edge45.i:                                  ; preds = %228, %.lr.ph44.i, %._crit_edge.i
+._crit_edge45.i:                                  ; preds = %229, %.lr.ph44.i, %._crit_edge.i
   %.not.i39.i = icmp eq ptr %.val38.i, null
-  br i1 %.not.i39.i, label %Vec_IntFree.exit.i, label %254
+  br i1 %.not.i39.i, label %Vec_IntFree.exit.i, label %253
 
-254:                                              ; preds = %._crit_edge45.i
+253:                                              ; preds = %._crit_edge45.i
   tail call void @free(ptr noundef nonnull %.val38.i) #18
   br label %Vec_IntFree.exit.i
 
-Vec_IntFree.exit.i:                               ; preds = %254, %._crit_edge45.i
+Vec_IntFree.exit.i:                               ; preds = %253, %._crit_edge45.i
   tail call void @free(ptr noundef nonnull %172) #18
   %.not.i = icmp eq ptr %214, null
-  br i1 %.not.i, label %Tab_TabFindBest.exit, label %255
+  br i1 %.not.i, label %Tab_TabFindBest.exit, label %254
 
-255:                                              ; preds = %Vec_IntFree.exit.i
+254:                                              ; preds = %Vec_IntFree.exit.i
   tail call void @free(ptr noundef nonnull %214) #18
   br label %Tab_TabFindBest.exit
 
-Tab_TabFindBest.exit:                             ; preds = %Vec_IntFree.exit.i, %255
-  %256 = load ptr, ptr %12, align 8, !tbaa !19
-  %.not.i73 = icmp eq ptr %256, null
-  br i1 %.not.i73, label %Vec_StrFree.exit, label %257
+Tab_TabFindBest.exit:                             ; preds = %Vec_IntFree.exit.i, %254
+  %255 = load ptr, ptr %12, align 8, !tbaa !19
+  %.not.i73 = icmp eq ptr %255, null
+  br i1 %.not.i73, label %Vec_StrFree.exit, label %256
 
-257:                                              ; preds = %Tab_TabFindBest.exit
-  tail call void @free(ptr noundef nonnull %256) #18
+256:                                              ; preds = %Tab_TabFindBest.exit
+  tail call void @free(ptr noundef nonnull %255) #18
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %Tab_TabFindBest.exit, %257
+Vec_StrFree.exit:                                 ; preds = %Tab_TabFindBest.exit, %256
   tail call void @free(ptr noundef nonnull %6) #18
-  %258 = load ptr, ptr %16, align 8, !tbaa !32
-  %.not.i74 = icmp eq ptr %258, null
-  br i1 %.not.i74, label %Tab_TabFree.exit, label %259
+  %257 = load ptr, ptr %16, align 8, !tbaa !32
+  %.not.i74 = icmp eq ptr %257, null
+  br i1 %.not.i74, label %Tab_TabFree.exit, label %258
 
-259:                                              ; preds = %Vec_StrFree.exit
-  tail call void @free(ptr noundef nonnull %258) #18
+258:                                              ; preds = %Vec_StrFree.exit
+  tail call void @free(ptr noundef nonnull %257) #18
   br label %Tab_TabFree.exit
 
-Tab_TabFree.exit:                                 ; preds = %Vec_StrFree.exit, %259
+Tab_TabFree.exit:                                 ; preds = %Vec_StrFree.exit, %258
   tail call void @free(ptr noundef nonnull %14) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret ptr %168

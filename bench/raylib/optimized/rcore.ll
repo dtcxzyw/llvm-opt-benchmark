@@ -21034,119 +21034,119 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias writable writeonly sre
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %smax110 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
   %smax116 = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
-  %wide.trip.count125 = zext nneg i32 %1 to i64
+  %smax122 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count111 = zext nneg i32 %smax110 to i64
   %wide.trip.count117 = zext nneg i32 %smax116 to i64
-  br label %21
+  br label %23
 
-21:                                               ; preds = %.lr.ph99, %._crit_edge
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next123, %._crit_edge ]
-  %22 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv122
-  store i32 %2, ptr %22, align 8
-  %23 = tail call noalias ptr @malloc(i64 noundef %11) #56
-  %24 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv122, i32 1
+23:                                               ; preds = %.lr.ph99, %._crit_edge
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next125, %._crit_edge ]
+  %24 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124
+  store i32 %2, ptr %24, align 8
+  %25 = tail call noalias ptr @malloc(i64 noundef %11) #56
+  %26 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 1
   store ptr %23, ptr %24, align 8
   %25 = tail call noalias ptr @malloc(i64 noundef %14) #56
   %26 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv122, i32 2
   store ptr %25, ptr %26, align 8
   %27 = tail call noalias ptr @malloc(i64 noundef %16) #56
-  %28 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv122, i32 3
+  %28 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 3
   store ptr %27, ptr %28, align 8
   %29 = tail call noalias ptr @malloc(i64 noundef %19) #56
-  %30 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv122, i32 4
+  %30 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv124, i32 4
   store ptr %29, ptr %30, align 8
   br i1 %20, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %21, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %21 ]
-  %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
-  store float 0.000000e+00, ptr %32, align 4
+.lr.ph:                                           ; preds = %23, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
+  %33 = load ptr, ptr %26, align 8
+  %34 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  store float 0.000000e+00, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph91, label %.lr.ph
 
 .lr.ph91:                                         ; preds = %.lr.ph, %.lr.ph91
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph91 ], [ 0, %.lr.ph ]
-  %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv107
-  store float 0.000000e+00, ptr %34, align 4
+  %35 = load ptr, ptr %26, align 8
+  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv107
+  store float 0.000000e+00, ptr %36, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
   br i1 %exitcond112.not, label %.lr.ph93, label %.lr.ph91
 
 .lr.ph93:                                         ; preds = %.lr.ph91, %.lr.ph93
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph93 ], [ 0, %.lr.ph91 ]
-  %35 = load ptr, ptr %28, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv113
-  store i8 0, ptr %36, align 1
+  %37 = load ptr, ptr %28, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv113
+  store i8 0, ptr %38, align 1
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
   br i1 %exitcond118.not, label %.lr.ph96, label %.lr.ph93
 
 .lr.ph96:                                         ; preds = %.lr.ph93, %.lr.ph96
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph96 ], [ 0, %.lr.ph93 ]
-  %.08194 = phi i32 [ %58, %.lr.ph96 ], [ 0, %.lr.ph93 ]
-  %37 = shl nsw i32 %.08194, 2
-  %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv119
-  store i32 %37, ptr %39, align 4
-  %40 = or disjoint i32 %37, 1
-  %41 = load ptr, ptr %30, align 8
-  %42 = or disjoint i64 %indvars.iv119, 1
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
-  store i32 %40, ptr %43, align 4
-  %44 = or disjoint i32 %37, 2
-  %45 = load ptr, ptr %30, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv119
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 %44, ptr %47, align 4
-  %48 = load ptr, ptr %30, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv119
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 %37, ptr %50, align 4
-  %51 = load ptr, ptr %30, align 8
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv119
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i32 %44, ptr %53, align 4
-  %54 = or disjoint i32 %37, 3
-  %55 = load ptr, ptr %30, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv119
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  store i32 %54, ptr %57, align 4
-  %58 = add nuw nsw i32 %.08194, 1
+  %.08194 = phi i32 [ %60, %.lr.ph96 ], [ 0, %.lr.ph93 ]
+  %39 = shl nsw i32 %.08194, 2
+  %40 = load ptr, ptr %30, align 8
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv119
+  store i32 %39, ptr %41, align 4
+  %42 = or disjoint i32 %39, 1
+  %43 = load ptr, ptr %30, align 8
+  %44 = or disjoint i64 %indvars.iv119, 1
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  store i32 %42, ptr %45, align 4
+  %46 = or disjoint i32 %39, 2
+  %47 = load ptr, ptr %30, align 8
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv119
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %46, ptr %49, align 4
+  %50 = load ptr, ptr %30, align 8
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv119
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 %39, ptr %52, align 4
+  %53 = load ptr, ptr %30, align 8
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv119
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i32 %46, ptr %55, align 4
+  %56 = or disjoint i32 %39, 3
+  %57 = load ptr, ptr %30, align 8
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv119
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 %56, ptr %59, align 4
+  %60 = add nuw nsw i32 %.08194, 1
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 6
-  %59 = icmp slt i64 %indvars.iv.next120, %18
-  br i1 %59, label %.lr.ph96, label %._crit_edge
+  %exitcond123.not = icmp slt i64 %indvars.iv.next120, %18
+  br i1 %exitcond123.not, label %.lr.ph96, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph96, %21
+._crit_edge:                                      ; preds = %.lr.ph96, %23
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge100, label %21
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count125
+  br i1 %exitcond128.not, label %._crit_edge100, label %23
 
 ._crit_edge100:                                   ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.38) #54
-  %60 = mul nsw i32 %2, 12
-  %61 = sext i32 %60 to i64
-  %62 = shl nsw i64 %61, 2
-  %63 = shl nsw i32 %2, 3
-  %64 = sext i32 %63 to i64
-  %65 = shl nsw i64 %64, 2
-  %66 = shl nsw i32 %2, 4
-  %67 = sext i32 %66 to i64
-  %68 = mul nsw i32 %2, 6
-  %69 = sext i32 %68 to i64
-  %70 = shl nsw i64 %69, 2
-  %wide.trip.count130 = zext nneg i32 %1 to i64
-  br label %71
+  %61 = mul nsw i32 %2, 12
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 2
+  %64 = shl nsw i32 %2, 3
+  %65 = sext i32 %64 to i64
+  %66 = shl nsw i64 %65, 2
+  %67 = shl nsw i32 %2, 4
+  %68 = sext i32 %67 to i64
+  %69 = mul nsw i32 %2, 6
+  %70 = sext i32 %69 to i64
+  %71 = shl nsw i64 %70, 2
+  %wide.trip.count132 = zext nneg i32 %1 to i64
+  br label %72
 
-71:                                               ; preds = %._crit_edge100, %79
-  %indvars.iv127 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next128, %79 ]
-  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %79
+72:                                               ; preds = %._crit_edge100, %79
+  %indvars.iv129 = phi i64 [ 0, %._crit_edge100 ], [ %indvars.iv.next128, %79 ]
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %74, label %79
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr @glad_glGenVertexArrays, align 8
@@ -21157,13 +21157,13 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias writable writeonly sre
   tail call void %77(i32 noundef %78) #54
   br label %79
 
-79:                                               ; preds = %74, %71
-  %80 = load ptr, ptr @glad_glGenBuffers, align 8
-  %81 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv127, i32 6
-  tail call void %80(i32 noundef 1, ptr noundef nonnull %81) #54
-  %82 = load ptr, ptr @glad_glBindBuffer, align 8
-  %83 = load i32, ptr %81, align 4
-  tail call void %82(i32 noundef 34962, i32 noundef %83) #54
+75:                                               ; preds = %74, %72
+  %76 = load ptr, ptr @glad_glGenBuffers, align 8
+  %77 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv129, i32 6
+  tail call void %80(i32 noundef 1, ptr noundef nonnull %77) #54
+  %78 = load ptr, ptr @glad_glBindBuffer, align 8
+  %79 = load i32, ptr %77, align 4
+  tail call void %82(i32 noundef 34962, i32 noundef %79) #54
   %84 = load ptr, ptr @glad_glBufferData, align 8
   %85 = getelementptr inbounds nuw %struct.rlVertexBuffer, ptr %6, i64 %indvars.iv127, i32 1
   %86 = load ptr, ptr %85, align 8
@@ -21230,44 +21230,44 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias writable writeonly sre
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge104, label %71
 
-._crit_edge104:                                   ; preds = %79, %._crit_edge100.thread
+80:                                               ; preds = %75, %._crit_edge100.thread
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.39) #54
-  %130 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %134
+  %131 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %135
 
-132:                                              ; preds = %._crit_edge104
-  %133 = load ptr, ptr @glad_glBindVertexArray, align 8
+133:                                              ; preds = %._crit_edge104
+  %134 = load ptr, ptr @glad_glBindVertexArray, align 8
   tail call void %133(i32 noundef 0) #54
-  br label %134
+  br label %135
 
-134:                                              ; preds = %132, %._crit_edge104
-  %135 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #56
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %135, ptr %136, align 8
-  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
-  br label %138
+135:                                              ; preds = %133, %._crit_edge104
+  %136 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #56
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %136, ptr %137, align 8
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2328), align 8
+  br label %139
 
-138:                                              ; preds = %134, %138
-  %indvars.iv132 = phi i64 [ 0, %134 ], [ %indvars.iv.next133, %138 ]
-  %139 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %135, i64 %indvars.iv132
-  store i32 7, ptr %139, align 4
-  %140 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %135, i64 %indvars.iv132, i32 1
+139:                                              ; preds = %135, %139
+  %indvars.iv134 = phi i64 [ 0, %135 ], [ %indvars.iv.next133, %139 ]
+  %140 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134
+  store i32 7, ptr %140, align 4
+  %141 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134, i32 1
   store i32 0, ptr %140, align 4
   %141 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %135, i64 %indvars.iv132, i32 2
   store i32 0, ptr %141, align 4
-  %142 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %135, i64 %indvars.iv132, i32 3
+  %142 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %136, i64 %indvars.iv134, i32 3
   store i32 %137, ptr %142, align 4
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next133, 256
+  %143 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond135.not = icmp eq i64 %143, 256
   br i1 %exitcond135.not, label %143, label %138
 
-143:                                              ; preds = %138
+143:; preds = %139
   store i32 %1, ptr %0, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float -1.000000e+00, ptr %145, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 1, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float -1.000000e+00, ptr %146, align 4
   ret void
 }
 

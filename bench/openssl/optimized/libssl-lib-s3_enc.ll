@@ -37,15 +37,15 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %new_compression, align 8
   %key_block = getelementptr inbounds nuw i8, ptr %s, i64 752
   %3 = load ptr, ptr %key_block, align 8
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %1) #7
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %1) #8
   %cmp12 = icmp slt i32 %call, 0
   br i1 %cmp12, label %err.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %if.end
   %conv16 = zext nneg i32 %call to i64
-  %call17 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef %0) #7
+  %call17 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef %0) #8
   %conv18 = sext i32 %call17 to i64
-  %call19 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %0) #7
+  %call19 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %0) #8
   %conv20 = sext i32 %call19 to i64
   switch i32 %which, label %if.else [
     i32 33, label %if.then25
@@ -82,15 +82,15 @@ if.end40:                                         ; preds = %if.else, %if.then25
 if.end46:                                         ; preds = %if.end40
   %key.0 = getelementptr inbounds i8, ptr %3, i64 %add.pn
   %iv.0 = getelementptr inbounds i8, ptr %3, i64 %add28.pn
-  %call47 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef 768, i32 noundef %cond, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv18, ptr noundef %iv.0, i64 noundef %conv20, ptr noundef %mac_secret.0, i64 noundef %conv16, ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #7
+  %call47 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef 768, i32 noundef %cond, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv18, ptr noundef %iv.0, i64 noundef %conv20, ptr noundef %mac_secret.0, i64 noundef %conv16, ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #8
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %err, label %return
 
 err.sink.split:                                   ; preds = %if.end40, %if.end, %entry
   %.sink = phi i32 [ 107, %entry ], [ 117, %if.end ], [ 142, %if.end40 ]
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end46
@@ -133,54 +133,54 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
   %session = getelementptr inbounds nuw i8, ptr %s, i64 2176
   %2 = load ptr, ptr %session, align 8
-  %call = call i32 @ssl_cipher_get_evp(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %c, ptr noundef nonnull %hash, ptr noundef null, ptr noundef null, ptr noundef nonnull %comp, i32 noundef 0) #7
+  %call = call i32 @ssl_cipher_get_evp(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %c, ptr noundef nonnull %hash, ptr noundef null, ptr noundef null, ptr noundef nonnull %comp, i32 noundef 0) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  call void @ossl_statem_send_fatal(ptr noundef nonnull %s, i32 noundef 80) #7
+  call void @ossl_statem_send_fatal(ptr noundef nonnull %s, i32 noundef 80) #8
   br label %return
 
 if.end2:                                          ; preds = %if.end
   %new_sym_enc = getelementptr inbounds nuw i8, ptr %s, i64 760
   %3 = load ptr, ptr %new_sym_enc, align 8
-  call void @ssl_evp_cipher_free(ptr noundef %3) #7
+  call void @ssl_evp_cipher_free(ptr noundef %3) #8
   %4 = load ptr, ptr %c, align 8
   store ptr %4, ptr %new_sym_enc, align 8
   %new_hash = getelementptr inbounds nuw i8, ptr %s, i64 768
   %5 = load ptr, ptr %new_hash, align 8
-  call void @ssl_evp_md_free(ptr noundef %5) #7
+  call void @ssl_evp_md_free(ptr noundef %5) #8
   %6 = load ptr, ptr %hash, align 8
   store ptr %6, ptr %new_hash, align 8
   %7 = load ptr, ptr %comp, align 8
   %new_compression = getelementptr inbounds nuw i8, ptr %s, i64 792
   store ptr %7, ptr %new_compression, align 8
-  %call15 = call i32 @EVP_MD_get_size(ptr noundef %6) #7
+  %call15 = call i32 @EVP_MD_get_size(ptr noundef %6) #8
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end2
   %8 = load ptr, ptr %c, align 8
-  %call19 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %8) #7
+  %call19 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %8) #8
   %add = add nsw i32 %call19, %call15
   %9 = load ptr, ptr %c, align 8
-  %call20 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %9) #7
+  %call20 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %9) #8
   %add21 = add nsw i32 %add, %call20
   %mul = shl nsw i32 %add21, 1
   %key_block.i = getelementptr inbounds nuw i8, ptr %s, i64 752
   %10 = load ptr, ptr %key_block.i, align 8
   %11 = load i64, ptr %key_block_length, align 8
-  call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 214) #7
+  call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 214) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_block_length, i8 0, i64 16, i1 false)
   %conv = sext i32 %mul to i64
-  %call22 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 198) #7
+  %call22 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 198) #8
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end18
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 199, ptr noundef nonnull @__func__.ssl3_setup_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 199, ptr noundef nonnull @__func__.ssl3_setup_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #8
   br label %return
 
 if.end26:                                         ; preds = %if.end18
@@ -192,12 +192,12 @@ if.end26:                                         ; preds = %if.end18
   %13 = load ptr, ptr %12, align 8
   %propq.i = getelementptr inbounds nuw i8, ptr %12, i64 1096
   %14 = load ptr, ptr %propq.i, align 8
-  %call.i = call ptr @ssl_evp_md_fetch(ptr noundef %13, i32 noundef 4, ptr noundef %14) #7
+  %call.i = call ptr @ssl_evp_md_fetch(ptr noundef %13, i32 noundef 4, ptr noundef %14) #8
   %15 = load ptr, ptr %12, align 8
   %16 = load ptr, ptr %propq.i, align 8
-  %call3.i = call ptr @ssl_evp_md_fetch(ptr noundef %15, i32 noundef 64, ptr noundef %16) #7
-  %call4.i = call ptr @EVP_MD_CTX_new() #7
-  %call5.i = call ptr @EVP_MD_CTX_new() #7
+  %call3.i = call ptr @ssl_evp_md_fetch(ptr noundef %15, i32 noundef 64, ptr noundef %16) #8
+  %call4.i = call ptr @EVP_MD_CTX_new() #8
+  %call5.i = call ptr @EVP_MD_CTX_new() #8
   %cmp.i = icmp eq ptr %call.i, null
   %cmp6.i = icmp eq ptr %call3.i, null
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
@@ -218,9 +218,9 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end26
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 38, ptr noundef nonnull @__func__.ssl3_generate_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 38, ptr noundef nonnull @__func__.ssl3_generate_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #8
   br label %ssl3_generate_key_block.exit
 
 for.body.i:                                       ; preds = %if.end74.i, %for.body.lr.ph.i
@@ -233,70 +233,70 @@ for.body.i:                                       ; preds = %if.end74.i, %for.bo
   br i1 %exitcond.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %for.body.i
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @__func__.ssl3_generate_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @__func__.ssl3_generate_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %ssl3_generate_key_block.exit
 
 if.end15.i:                                       ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %buf.i, i8 %c.046.i, i64 %indvars.iv.next.i, i1 false)
   %inc18.i = add nuw nsw i8 %c.046.i, 1
-  %call19.i = call i32 @EVP_DigestInit_ex(ptr noundef %call5.i, ptr noundef %call3.i, ptr noundef null) #7
+  %call19.i = call i32 @EVP_DigestInit_ex(ptr noundef %call5.i, ptr noundef %call3.i, ptr noundef null) #8
   %tobool.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool.not.i, label %if.then58.i, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %if.end15.i
-  %call23.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %buf.i, i64 noundef %indvars.iv.next.i) #7
+  %call23.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %buf.i, i64 noundef %indvars.iv.next.i) #8
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %if.then58.i, label %lor.lhs.false25.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
-  %18 = load ptr, ptr %session, align 8
-  %master_key.i = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %master_key_length.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load i64, ptr %master_key_length.i, align 8
-  %call28.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %master_key.i, i64 noundef %19) #7
+  %20 = load ptr, ptr %session, align 8
+  %master_key.i = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %master_key_length.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %21 = load i64, ptr %master_key_length.i, align 8
+  %call28.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %master_key.i, i64 noundef %21) #8
   %tobool29.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool29.not.i, label %if.then58.i, label %lor.lhs.false30.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
-  %call32.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %server_random.i, i64 noundef 32) #7
+  %call32.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %server_random.i, i64 noundef 32) #8
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %if.then58.i, label %lor.lhs.false34.i
 
 lor.lhs.false34.i:                                ; preds = %lor.lhs.false30.i
-  %call37.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %client_random.i, i64 noundef 32) #7
+  %call37.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %client_random.i, i64 noundef 32) #8
   %tobool38.not.i = icmp eq i32 %call37.i, 0
   br i1 %tobool38.not.i, label %if.then58.i, label %lor.lhs.false39.i
 
 lor.lhs.false39.i:                                ; preds = %lor.lhs.false34.i
-  %call41.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call5.i, ptr noundef nonnull %smd.i, ptr noundef null) #7
+  %call41.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call5.i, ptr noundef nonnull %smd.i, ptr noundef null) #8
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %if.then58.i, label %lor.lhs.false43.i
 
 lor.lhs.false43.i:                                ; preds = %lor.lhs.false39.i
-  %call44.i = call i32 @EVP_DigestInit_ex(ptr noundef %call4.i, ptr noundef %call.i, ptr noundef null) #7
+  %call44.i = call i32 @EVP_DigestInit_ex(ptr noundef %call4.i, ptr noundef %call.i, ptr noundef null) #8
   %tobool45.not.i = icmp eq i32 %call44.i, 0
   br i1 %tobool45.not.i, label %if.then58.i, label %lor.lhs.false46.i
 
 lor.lhs.false46.i:                                ; preds = %lor.lhs.false43.i
-  %20 = load ptr, ptr %session, align 8
-  %master_key48.i = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %master_key_length51.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %21 = load i64, ptr %master_key_length51.i, align 8
-  %call52.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %master_key48.i, i64 noundef %21) #7
+  %22 = load ptr, ptr %session, align 8
+  %master_key48.i = getelementptr inbounds nuw i8, ptr %22, i64 80
+  %master_key_length51.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %23 = load i64, ptr %master_key_length51.i, align 8
+  %call52.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %master_key48.i, i64 noundef %23) #8
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %if.then58.i, label %lor.lhs.false54.i
 
 lor.lhs.false54.i:                                ; preds = %lor.lhs.false46.i
-  %call56.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %smd.i, i64 noundef 20) #7
+  %call56.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %smd.i, i64 noundef 20) #8
   %tobool57.not.i = icmp eq i32 %call56.i, 0
   br i1 %tobool57.not.i, label %if.then58.i, label %if.end59.i
 
 if.then58.i:                                      ; preds = %lor.lhs.false54.i, %lor.lhs.false46.i, %lor.lhs.false43.i, %lor.lhs.false39.i, %lor.lhs.false34.i, %lor.lhs.false30.i, %lor.lhs.false25.i, %lor.lhs.false20.i, %if.end15.i
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 62, ptr noundef nonnull @__func__.ssl3_generate_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 62, ptr noundef nonnull @__func__.ssl3_generate_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %ssl3_generate_key_block.exit
 
 if.end59.i:                                       ; preds = %lor.lhs.false54.i
@@ -305,49 +305,49 @@ if.end59.i:                                       ; preds = %lor.lhs.false54.i
   br i1 %cmp60.i, label %if.then62.i, label %if.else.i
 
 if.then62.i:                                      ; preds = %if.end59.i
-  %call64.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call4.i, ptr noundef nonnull %smd.i, ptr noundef null) #7
+  %call64.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call4.i, ptr noundef nonnull %smd.i, ptr noundef null) #8
   %tobool65.not.i = icmp eq i32 %call64.i, 0
   br i1 %tobool65.not.i, label %if.then66.i, label %if.end67.i
 
 if.then66.i:                                      ; preds = %if.then62.i
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.ssl3_generate_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.ssl3_generate_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %ssl3_generate_key_block.exit
 
 if.end67.i:                                       ; preds = %if.then62.i
-  %22 = trunc nuw nsw i64 %indvars.iv50.i to i32
-  %sub.i = sub i32 %mul, %22
+  %24 = trunc nuw nsw i64 %indvars.iv50.i to i32
+  %sub.i = sub i32 %mul, %24
   %conv69.i = zext i32 %sub.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %km.addr.049.i, ptr nonnull align 16 %smd.i, i64 %conv69.i, i1 false)
   br label %if.end74.i
 
 if.else.i:                                        ; preds = %if.end59.i
-  %call70.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call4.i, ptr noundef nonnull %km.addr.049.i, ptr noundef null) #7
+  %call70.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call4.i, ptr noundef nonnull %km.addr.049.i, ptr noundef null) #8
   %tobool71.not.i = icmp eq i32 %call70.i, 0
   br i1 %tobool71.not.i, label %if.then72.i, label %if.end74.i
 
 if.then72.i:                                      ; preds = %if.else.i
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @__func__.ssl3_generate_key_block) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @__func__.ssl3_generate_key_block) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %ssl3_generate_key_block.exit
 
 if.end74.i:                                       ; preds = %if.else.i, %if.end67.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %km.addr.049.i, i64 16
-  %cmp11.i = icmp samesign ult i64 %indvars.iv.next51.i, %17
-  br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !4
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next51.i, %17
+  br i1 %exitcond.not, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %if.end74.i, %for.cond.preheader.i
-  call void @OPENSSL_cleanse(ptr noundef nonnull %smd.i, i64 noundef 20) #7
+  call void @OPENSSL_cleanse(ptr noundef nonnull %smd.i, i64 noundef 20) #8
   br label %ssl3_generate_key_block.exit
 
 ssl3_generate_key_block.exit:                     ; preds = %if.then.i, %if.then14.i, %if.then58.i, %if.then66.i, %if.then72.i, %for.end.i
   %ret.0.i = phi i32 [ 0, %if.then.i ], [ 0, %if.then14.i ], [ 0, %if.then66.i ], [ 0, %if.then72.i ], [ 0, %if.then58.i ], [ 1, %for.end.i ]
-  call void @EVP_MD_CTX_free(ptr noundef %call4.i) #7
-  call void @EVP_MD_CTX_free(ptr noundef %call5.i) #7
-  call void @ssl_evp_md_free(ptr noundef %call.i) #7
-  call void @ssl_evp_md_free(ptr noundef %call3.i) #7
+  call void @EVP_MD_CTX_free(ptr noundef %call4.i) #8
+  call void @EVP_MD_CTX_free(ptr noundef %call5.i) #8
+  call void @ssl_evp_md_free(ptr noundef %call.i) #8
+  call void @ssl_evp_md_free(ptr noundef %call3.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %smd.i)
   br label %return
@@ -372,7 +372,7 @@ entry:
   %0 = load ptr, ptr %key_block, align 8
   %key_block_length = getelementptr inbounds nuw i8, ptr %s, i64 744
   %1 = load i64, ptr %key_block_length, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 214) #7
+  tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 214) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_block_length, i8 0, i64 16, i1 false)
   ret void
 }
@@ -384,28 +384,28 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl3_init_finished_mac(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @BIO_s_mem() #7
-  %call1 = tail call ptr @BIO_new(ptr noundef %call) #7
+  %call = tail call ptr @BIO_s_mem() #8
+  %call1 = tail call ptr @BIO_new(ptr noundef %call) #8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @__func__.ssl3_init_finished_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524320, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @__func__.ssl3_init_finished_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524320, ptr noundef null) #8
   br label %return
 
 if.end:                                           ; preds = %entry
   %handshake_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 352
   %0 = load ptr, ptr %handshake_buffer.i, align 8
-  %call.i = tail call i32 @BIO_free(ptr noundef %0) #7
+  %call.i = tail call i32 @BIO_free(ptr noundef %0) #8
   store ptr null, ptr %handshake_buffer.i, align 8
   %handshake_dgst.i = getelementptr inbounds nuw i8, ptr %s, i64 360
   %1 = load ptr, ptr %handshake_dgst.i, align 8
-  tail call void @EVP_MD_CTX_free(ptr noundef %1) #7
+  tail call void @EVP_MD_CTX_free(ptr noundef %1) #8
   store ptr null, ptr %handshake_dgst.i, align 8
   store ptr %call1, ptr %handshake_buffer.i, align 8
-  %call4 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 9, i64 noundef 1, ptr noundef null) #7
+  %call4 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 9, i64 noundef 1, ptr noundef null) #8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -422,11 +422,11 @@ define void @ssl3_free_digest_list(ptr noundef captures(none) %s) local_unnamed_
 entry:
   %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %0 = load ptr, ptr %handshake_buffer, align 8
-  %call = tail call i32 @BIO_free(ptr noundef %0) #7
+  %call = tail call i32 @BIO_free(ptr noundef %0) #8
   store ptr null, ptr %handshake_buffer, align 8
   %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %1 = load ptr, ptr %handshake_dgst, align 8
-  tail call void @EVP_MD_CTX_free(ptr noundef %1) #7
+  tail call void @EVP_MD_CTX_free(ptr noundef %1) #8
   store ptr null, ptr %handshake_dgst, align 8
   ret void
 }
@@ -453,23 +453,23 @@ if.end:                                           ; preds = %if.then
   %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %1 = load ptr, ptr %handshake_buffer, align 8
   %conv = trunc nuw nsw i64 %len to i32
-  %call = tail call i32 @BIO_write(ptr noundef %1, ptr noundef %buf, i32 noundef %conv) #7
+  %call = tail call i32 @BIO_write(ptr noundef %1, ptr noundef %buf, i32 noundef %conv) #8
   %cmp4 = icmp sgt i32 %call, 0
   %cmp7.not = icmp eq i32 %call, %conv
   %or.cond = and i1 %cmp4, %cmp7.not
   br i1 %or.cond, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %call13 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %len) #7
+  %call13 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %len) #8
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.else, %if.end, %if.then
   %.sink12 = phi i32 [ 253, %if.then ], [ 258, %if.end ], [ 264, %if.else ]
   %.sink = phi i32 [ 237, %if.then ], [ 786691, %if.end ], [ 786691, %if.else ]
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.ssl3_finish_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.ssl3_finish_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else, %if.end
@@ -493,56 +493,56 @@ entry:
 if.then:                                          ; preds = %entry
   %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %1 = load ptr, ptr %handshake_buffer, align 8
-  %call = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #7
+  %call = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #8
   %cmp2 = icmp slt i64 %call, 1
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 280, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 332, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 280, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 332, ptr noundef null) #8
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call4 = call ptr @EVP_MD_CTX_new() #7
+  %call4 = call ptr @EVP_MD_CTX_new() #8
   store ptr %call4, ptr %handshake_dgst, align 8
   %cmp9 = icmp eq ptr %call4, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 286, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #8
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %call12 = call ptr @ssl_handshake_md(ptr noundef nonnull %s) #7
+  %call12 = call ptr @ssl_handshake_md(ptr noundef nonnull %s) #8
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 297, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 297, ptr noundef null) #8
   br label %return
 
 if.end15:                                         ; preds = %if.end11
   %2 = load ptr, ptr %handshake_dgst, align 8
-  %call18 = call i32 @EVP_DigestInit_ex(ptr noundef %2, ptr noundef nonnull %call12, ptr noundef null) #7
+  %call18 = call i32 @EVP_DigestInit_ex(ptr noundef %2, ptr noundef nonnull %call12, ptr noundef null) #8
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
   %3 = load ptr, ptr %handshake_dgst, align 8
   %4 = load ptr, ptr %hdata, align 8
-  %call21 = call i32 @EVP_DigestUpdate(ptr noundef %3, ptr noundef %4, i64 noundef %call) #7
+  %call21 = call i32 @EVP_DigestUpdate(ptr noundef %3, ptr noundef %4, i64 noundef %call) #8
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %lor.lhs.false, %if.end15
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.ssl3_digest_cached_records) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %return
 
 if.end25:                                         ; preds = %lor.lhs.false, %entry
@@ -552,7 +552,7 @@ if.end25:                                         ; preds = %lor.lhs.false, %ent
 if.then27:                                        ; preds = %if.end25
   %handshake_buffer29 = getelementptr inbounds nuw i8, ptr %s, i64 352
   %5 = load ptr, ptr %handshake_buffer29, align 8
-  %call30 = call i32 @BIO_free(ptr noundef %5) #7
+  %call30 = call i32 @BIO_free(ptr noundef %5) #8
   store ptr null, ptr %handshake_buffer29, align 8
   br label %return
 
@@ -575,10 +575,10 @@ entry:
   %master_key = getelementptr inbounds nuw i8, ptr %session, i64 80
   %master_key_length = getelementptr inbounds nuw i8, ptr %session, i64 8
   %0 = load i64, ptr %master_key_length, align 8
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key, i64 noundef %0) #7
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key, i64 noundef %0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %params, i64 40
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4) #7
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
   ret void
 }
@@ -602,50 +602,50 @@ entry:
 if.end:                                           ; preds = %entry
   %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %0 = load ptr, ptr %handshake_dgst, align 8
-  %call1 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #7
-  %call2 = tail call i32 @EVP_MD_get_type(ptr noundef %call1) #7
+  %call1 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #8
+  %call2 = tail call i32 @EVP_MD_get_type(ptr noundef %call1) #8
   %cmp.not = icmp eq i32 %call2, 114
   br i1 %cmp.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 324, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 324, ptr noundef null) #8
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @EVP_MD_CTX_new() #7
+  %call5 = tail call ptr @EVP_MD_CTX_new() #8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 338, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 338, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #8
   br label %return
 
 if.end8:                                          ; preds = %if.end4
   %1 = load ptr, ptr %handshake_dgst, align 8
-  %call11 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call5, ptr noundef %1) #7
+  %call11 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call5, ptr noundef %1) #8
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end8
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %err
 
 if.end14:                                         ; preds = %if.end8
-  %call15 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef nonnull %call5) #7
-  %call16 = tail call i32 @EVP_MD_get_size(ptr noundef %call15) #7
+  %call15 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef nonnull %call5) #8
+  %call16 = tail call i32 @EVP_MD_get_size(ptr noundef %call15) #8
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 349, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 349, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %err
 
 if.end19:                                         ; preds = %if.end14
@@ -659,34 +659,34 @@ if.then21:                                        ; preds = %if.end19
   %master_key.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %master_key_length.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %master_key_length.i, align 8
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key.i, i64 noundef %3) #7
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key.i, i64 noundef %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %digest_cmd_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %digest_cmd_params, i64 40
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %arrayidx3.i) #7
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %arrayidx3.i) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
-  %call22 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call5, ptr noundef nonnull %sender, i64 noundef %len) #7
+  %call22 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call5, ptr noundef nonnull %sender, i64 noundef %len) #8
   %cmp23 = icmp slt i32 %call22, 1
   br i1 %cmp23, label %if.then30, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then21
-  %call25 = call i32 @EVP_MD_CTX_set_params(ptr noundef nonnull %call5, ptr noundef nonnull %digest_cmd_params) #7
+  %call25 = call i32 @EVP_MD_CTX_set_params(ptr noundef nonnull %call5, ptr noundef nonnull %digest_cmd_params) #8
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %if.then30, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false
-  %call28 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call5, ptr noundef %p, ptr noundef null) #7
+  %call28 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call5, ptr noundef %p, ptr noundef null) #8
   %cmp29 = icmp slt i32 %call28, 1
   br i1 %cmp29, label %if.then30, label %err
 
 if.then30:                                        ; preds = %lor.lhs.false27, %lor.lhs.false, %if.then21
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.ssl3_final_finish_mac) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %err
 
 err:                                              ; preds = %if.end19, %if.then30, %lor.lhs.false27, %if.then18, %if.then13
   %ret.0 = phi i32 [ 0, %if.then18 ], [ 0, %if.then30 ], [ %call16, %lor.lhs.false27 ], [ %call16, %if.end19 ], [ 0, %if.then13 ]
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %call5) #7
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call5) #8
   %conv = zext nneg i32 %ret.0 to i64
   br label %return
 
@@ -710,7 +710,7 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %s, ptr noun
 entry:
   %buf = alloca [64 x i8], align 16
   %n = alloca i32, align 4
-  %call = tail call ptr @EVP_MD_CTX_new() #7
+  %call = tail call ptr @EVP_MD_CTX_new() #8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -721,9 +721,9 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.ssl3_generate_master_secret) #7
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.ssl3_generate_master_secret) #8
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #8
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end43
@@ -733,35 +733,35 @@ for.body:                                         ; preds = %for.cond.preheader,
   %0 = load ptr, ptr %ctx2, align 8
   %sha1 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %1 = load ptr, ptr %sha1, align 8
-  %call3 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %1, ptr noundef null) #7
+  %call3 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %1, ptr noundef null) #8
   %cmp4 = icmp slt i32 %call3, 1
   br i1 %cmp4, label %if.then42, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
-  %call8 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %2, i64 noundef %call7) #7
+  %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
+  %call8 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %2, i64 noundef %call7) #8
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %if.then42, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %call11 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %p, i64 noundef %len) #7
+  %call11 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %p, i64 noundef %len) #8
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %if.then42, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %call15 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %client_random, i64 noundef 32) #7
+  %call15 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %client_random, i64 noundef 32) #8
   %cmp16 = icmp slt i32 %call15, 1
   br i1 %cmp16, label %if.then42, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false13
-  %call20 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %server_random, i64 noundef 32) #7
+  %call20 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %server_random, i64 noundef 32) #8
   %cmp21 = icmp slt i32 %call20, 1
   br i1 %cmp21, label %if.then42, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false17
-  %call23 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %buf, ptr noundef nonnull %n) #7
+  %call23 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef nonnull %buf, ptr noundef nonnull %n) #8
   %cmp24 = icmp slt i32 %call23, 1
   br i1 %cmp24, label %if.then42, label %lor.lhs.false25
 
@@ -769,31 +769,31 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false22
   %3 = load ptr, ptr %ctx2, align 8
   %md5 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %md5, align 8
-  %call28 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %4, ptr noundef null) #7
+  %call28 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %4, ptr noundef null) #8
   %cmp29 = icmp slt i32 %call28, 1
   br i1 %cmp29, label %if.then42, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false25
-  %call31 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %p, i64 noundef %len) #7
+  %call31 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %p, i64 noundef %len) #8
   %cmp32 = icmp slt i32 %call31, 1
   br i1 %cmp32, label %if.then42, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
   %5 = load i32, ptr %n, align 4
   %conv = zext i32 %5 to i64
-  %call35 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %buf, i64 noundef %conv) #7
+  %call35 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %buf, i64 noundef %conv) #8
   %cmp36 = icmp slt i32 %call35, 1
   br i1 %cmp36, label %if.then42, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false33
-  %call39 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef %out.addr.029, ptr noundef nonnull %n) #7
+  %call39 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call, ptr noundef %out.addr.029, ptr noundef nonnull %n) #8
   %cmp40 = icmp slt i32 %call39, 1
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %lor.lhs.false38, %lor.lhs.false33, %lor.lhs.false30, %lor.lhs.false25, %lor.lhs.false22, %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false10, %lor.lhs.false, %for.body
-  call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 412, ptr noundef nonnull @__func__.ssl3_generate_master_secret) #7
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
+  call void @ERR_new() #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 412, ptr noundef nonnull @__func__.ssl3_generate_master_secret) #8
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %for.end
 
 if.end43:                                         ; preds = %lor.lhs.false38
@@ -809,8 +809,8 @@ for.end:                                          ; preds = %if.end43, %if.then4
   %ret_secret_size.028 = phi i64 [ %ret_secret_size.031, %if.then42 ], [ %add, %if.end43 ]
   %cmp126 = phi i1 [ true, %if.then42 ], [ false, %if.end43 ]
   %ret.0 = phi i32 [ 0, %if.then42 ], [ 1, %if.end43 ]
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %call) #7
-  call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 64) #7
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call) #8
+  call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 64) #8
   br i1 %cmp126, label %return, label %if.then46
 
 if.then46:                                        ; preds = %for.end

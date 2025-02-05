@@ -1000,11 +1000,11 @@ LoadFontEx.exit:                                  ; preds = %38, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
-  br label %234
+  br label %235
 
 42:                                               ; preds = %34
   %43 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.3) #41
-  br i1 %43, label %44, label %222
+  br i1 %43, label %44, label %223
 
 44:                                               ; preds = %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -1217,8 +1217,8 @@ GetLine.exit134.i:                                ; preds = %99, %.split.loop.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false), !noalias !7
   br label %.loopexit.i
 
-.lr.ph162.i:                                      ; preds = %109, %140
-  %indvars.iv193.i = phi i64 [ %indvars.iv.next194.i, %140 ], [ 0, %109 ]
+.lr.ph162.i:                                      ; preds = %109, %141
+  %indvars.iv193.i = phi i64 [ %indvars.iv.next194.i, %141 ], [ 0, %109 ]
   %114 = getelementptr inbounds nuw %struct.Image, ptr %112, i64 %indvars.iv193.i
   %115 = call ptr @GetDirectoryPath(ptr noundef %1) #41, !noalias !7
   %116 = getelementptr inbounds nuw [8 x [129 x i8]], ptr %12, i64 0, i64 %indvars.iv193.i
@@ -1228,7 +1228,7 @@ GetLine.exit134.i:                                ; preds = %99, %.split.loop.ex
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 20
   %119 = load i32, ptr %118, align 4, !noalias !7
   %120 = icmp eq i32 %119, 1
-  br i1 %120, label %121, label %140
+  br i1 %120, label %121, label %141
 
 121:                                              ; preds = %.lr.ph162.i
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -1244,235 +1244,235 @@ GetLine.exit134.i:                                ; preds = %99, %.split.loop.ex
 .lr.ph.i:                                         ; preds = %121
   %130 = shl nuw nsw i32 %126, 1
   %131 = load ptr, ptr %114, align 8, !noalias !7
-  %132 = zext nneg i32 %130 to i64
+  %smax.i = zext nneg i32 %130 to i64
   br label %133
 
-133:                                              ; preds = %133, %.lr.ph.i
-  %indvars.iv188.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next189.i, %133 ]
-  %indvars.iv186.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next187.i, %133 ]
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv186.i
-  store i8 -1, ptr %134, align 1, !noalias !7
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv188.i
-  %136 = load i8, ptr %135, align 1, !noalias !7
-  %137 = or disjoint i64 %indvars.iv186.i, 1
-  %138 = getelementptr inbounds nuw i8, ptr %128, i64 %137
-  store i8 %136, ptr %138, align 1, !noalias !7
+135:                                              ; preds = %135, %.lr.ph.i
+  %indvars.iv188.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next189.i, %135 ]
+  %indvars.iv186.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next187.i, %135 ]
+  %136 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv186.i
+  store i8 -1, ptr %136, align 1, !noalias !7
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv188.i
+  %138 = load i8, ptr %137, align 1, !noalias !7
+  %139 = or disjoint i64 %indvars.iv186.i, 1
+  %140 = getelementptr inbounds nuw i8, ptr %128, i64 %139
+  store i8 %138, ptr %140, align 1, !noalias !7
   %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 2
   %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
-  %139 = icmp samesign ult i64 %indvars.iv.next187.i, %132
-  br i1 %139, label %133, label %._crit_edge.i
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.next187.i, %smax.i
+  br i1 %exitcond.not.i, label %133, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %133, %121
+._crit_edge.i:                                    ; preds = %135, %121
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %14) #41, !noalias !7
   store ptr %128, ptr %114, align 8, !noalias !7
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i32 1, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !7
   store i32 2, ptr %118, align 4, !noalias !7
-  br label %140
+  br label %141
 
-140:                                              ; preds = %._crit_edge.i, %.lr.ph162.i
+141:                                              ; preds = %._crit_edge.i, %.lr.ph162.i
   %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
-  %141 = load i32, ptr %11, align 4, !noalias !7
-  %142 = sext i32 %141 to i64
-  %143 = icmp slt i64 %indvars.iv.next194.i, %142
-  br i1 %143, label %.lr.ph162.i, label %._crit_edge163.i
+  %142 = load i32, ptr %11, align 4, !noalias !7
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %indvars.iv.next194.i, %143
+  br i1 %144, label %.lr.ph162.i, label %._crit_edge163.i
 
-._crit_edge163.i:                                 ; preds = %140
+._crit_edge163.i:                                 ; preds = %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false), !noalias !7
-  %144 = icmp sgt i32 %141, 1
-  br i1 %144, label %.lr.ph167.i, label %.loopexit.i
+  %145 = icmp sgt i32 %142, 1
+  br i1 %145, label %.lr.ph167.i, label %.loopexit.i
 
 .lr.ph167.i:                                      ; preds = %._crit_edge163.i, %.lr.ph167.i
   %indvars.iv196.i = phi i64 [ %indvars.iv.next197.i, %.lr.ph167.i ], [ 1, %._crit_edge163.i ]
-  %145 = getelementptr inbounds nuw %struct.Image, ptr %112, i64 %indvars.iv196.i
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %145) #41, !noalias !7
+  %146 = getelementptr inbounds nuw %struct.Image, ptr %112, i64 %indvars.iv196.i
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %146) #41, !noalias !7
   %indvars.iv.next197.i = add nuw nsw i64 %indvars.iv196.i, 1
   %.pr.i = load i32, ptr %11, align 4, !noalias !7
-  %146 = sext i32 %.pr.i to i64
-  %147 = icmp slt i64 %indvars.iv.next197.i, %146
-  br i1 %147, label %.lr.ph167.i, label %._crit_edge168.i
+  %147 = sext i32 %.pr.i to i64
+  %148 = icmp slt i64 %indvars.iv.next197.i, %147
+  br i1 %148, label %.lr.ph167.i, label %._crit_edge168.i
 
 ._crit_edge168.i:                                 ; preds = %.lr.ph167.i
-  %148 = icmp sgt i32 %.pr.i, 1
-  br i1 %148, label %149, label %.loopexit.i
+  %149 = icmp sgt i32 %.pr.i, 1
+  br i1 %149, label %150, label %.loopexit.i
 
-149:                                              ; preds = %._crit_edge168.i
-  %150 = load i32, ptr %9, align 4, !noalias !7
-  %151 = load i32, ptr %10, align 4, !noalias !7
-  %152 = mul nsw i32 %151, %.pr.i
-  call void @ImageResizeCanvas(ptr noundef nonnull %15, i32 noundef %150, i32 noundef %152, i32 noundef 0, i32 noundef 0, i32 -16777216) #41, !noalias !7
-  %153 = load i32, ptr %11, align 4, !noalias !7
-  %154 = icmp sgt i32 %153, 1
-  br i1 %154, label %.lr.ph172.i, label %.loopexit.i
+150:                                              ; preds = %._crit_edge168.i
+  %151 = load i32, ptr %9, align 4, !noalias !7
+  %152 = load i32, ptr %10, align 4, !noalias !7
+  %153 = mul nsw i32 %152, %.pr.i
+  call void @ImageResizeCanvas(ptr noundef nonnull %15, i32 noundef %151, i32 noundef %153, i32 noundef 0, i32 noundef 0, i32 -16777216) #41, !noalias !7
+  %154 = load i32, ptr %11, align 4, !noalias !7
+  %155 = icmp sgt i32 %154, 1
+  br i1 %155, label %.lr.ph172.i, label %.loopexit.i
 
-.lr.ph172.i:                                      ; preds = %149, %.lr.ph172.i
-  %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %.lr.ph172.i ], [ 1, %149 ]
-  %155 = load i32, ptr %9, align 4, !noalias !7
-  %156 = sitofp i32 %155 to float
-  %.sroa.319.8.vec.insert.i = insertelement <2 x float> poison, float %156, i64 0
-  %157 = load i32, ptr %10, align 4, !noalias !7
-  %158 = sitofp i32 %157 to float
-  %.sroa.319.12.vec.insert.i = insertelement <2 x float> %.sroa.319.8.vec.insert.i, float %158, i64 1
-  %159 = trunc nuw nsw i64 %indvars.iv199.i to i32
-  %160 = uitofp nneg i32 %159 to float
-  %161 = fmul float %160, %158
-  %.sroa.013.4.vec.insert.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %161, i64 1
-  %162 = getelementptr inbounds nuw %struct.Image, ptr %112, i64 %indvars.iv199.i
-  call void @ImageDraw(ptr noundef nonnull %15, ptr noundef nonnull byval(%struct.Image) align 8 %162, <2 x float> zeroinitializer, <2 x float> %.sroa.319.12.vec.insert.i, <2 x float> %.sroa.013.4.vec.insert.i, <2 x float> %.sroa.319.12.vec.insert.i, i32 -1) #41, !noalias !7
+.lr.ph172.i:                                      ; preds = %150, %.lr.ph172.i
+  %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %.lr.ph172.i ], [ 1, %150 ]
+  %156 = load i32, ptr %9, align 4, !noalias !7
+  %157 = sitofp i32 %156 to float
+  %.sroa.319.8.vec.insert.i = insertelement <2 x float> poison, float %157, i64 0
+  %158 = load i32, ptr %10, align 4, !noalias !7
+  %159 = sitofp i32 %158 to float
+  %.sroa.319.12.vec.insert.i = insertelement <2 x float> %.sroa.319.8.vec.insert.i, float %159, i64 1
+  %160 = trunc nuw nsw i64 %indvars.iv199.i to i32
+  %161 = uitofp nneg i32 %160 to float
+  %162 = fmul float %161, %159
+  %.sroa.013.4.vec.insert.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %162, i64 1
+  %163 = getelementptr inbounds nuw %struct.Image, ptr %112, i64 %indvars.iv199.i
+  call void @ImageDraw(ptr noundef nonnull %15, ptr noundef nonnull byval(%struct.Image) align 8 %163, <2 x float> zeroinitializer, <2 x float> %.sroa.319.12.vec.insert.i, <2 x float> %.sroa.013.4.vec.insert.i, <2 x float> %.sroa.319.12.vec.insert.i, i32 -1) #41, !noalias !7
   %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
-  %163 = load i32, ptr %11, align 4, !noalias !7
-  %164 = sext i32 %163 to i64
-  %165 = icmp slt i64 %indvars.iv.next200.i, %164
-  br i1 %165, label %.lr.ph172.i, label %.loopexit.i
+  %164 = load i32, ptr %11, align 4, !noalias !7
+  %165 = sext i32 %164 to i64
+  %166 = icmp slt i64 %indvars.iv.next200.i, %165
+  br i1 %166, label %.lr.ph172.i, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph172.i, %149, %._crit_edge168.i, %._crit_edge163.i, %._crit_edge163.thread.i
+.loopexit.i:                                      ; preds = %.lr.ph172.i, %150, %._crit_edge168.i, %._crit_edge163.i, %._crit_edge163.thread.i
   call void @free(ptr noundef nonnull %112) #41, !noalias !7
   call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %16, ptr noundef nonnull byval(%struct.Image) align 8 %15) #41, !noalias !7
   %.sroa.6.12.copyload = load i32, ptr %16, align 4
   %.sroa.8.12..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.12..sroa_idx, i64 16, i1 false)
-  %166 = load i32, ptr %7, align 4, !noalias !7
-  %167 = load i32, ptr %8, align 4, !noalias !7
-  %168 = sext i32 %167 to i64
-  %169 = mul nsw i64 %168, 40
-  %170 = call noalias ptr @malloc(i64 noundef %169) #43
-  %171 = shl nsw i64 %168, 4
-  %172 = call noalias ptr @malloc(i64 noundef %171) #43
-  %173 = icmp sgt i32 %167, 0
-  br i1 %173, label %.lr.ph176.i, label %._crit_edge177.i
+  %167 = load i32, ptr %7, align 4, !noalias !7
+  %168 = load i32, ptr %8, align 4, !noalias !7
+  %169 = sext i32 %168 to i64
+  %170 = mul nsw i64 %169, 40
+  %171 = call noalias ptr @malloc(i64 noundef %170) #43
+  %172 = shl nsw i64 %169, 4
+  %173 = call noalias ptr @malloc(i64 noundef %172) #43
+  %174 = icmp sgt i32 %168, 0
+  br i1 %174, label %.lr.ph176.i, label %._crit_edge177.i
 
-.lr.ph176.i:                                      ; preds = %.loopexit.i, %213
-  %indvars.iv202.i = phi i64 [ %indvars.iv.next203.i, %213 ], [ 0, %.loopexit.i ]
-  %.pn174.i = phi ptr [ %184, %213 ], [ %106, %.loopexit.i ]
+.lr.ph176.i:                                      ; preds = %.loopexit.i, %214
+  %indvars.iv202.i = phi i64 [ %indvars.iv.next203.i, %214 ], [ 0, %.loopexit.i ]
+  %.pn174.i = phi ptr [ %185, %214 ], [ %106, %.loopexit.i ]
   %.1.i = getelementptr i8, ptr %.pn174.i, i64 1
-  br label %174
+  br label %175
 
-174:                                              ; preds = %178, %.lr.ph176.i
-  %indvars.iv.i135.i = phi i64 [ 0, %.lr.ph176.i ], [ %indvars.iv.next.i136.i, %178 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %indvars.iv.i135.i
-  %176 = load i8, ptr %175, align 1, !noalias !7
-  %177 = icmp eq i8 %176, 10
-  br i1 %177, label %.split.loop.exit.i139.i, label %178
+175:                                              ; preds = %179, %.lr.ph176.i
+  %indvars.iv.i135.i = phi i64 [ 0, %.lr.ph176.i ], [ %indvars.iv.next.i136.i, %179 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %indvars.iv.i135.i
+  %177 = load i8, ptr %176, align 1, !noalias !7
+  %178 = icmp eq i8 %177, 10
+  br i1 %178, label %.split.loop.exit.i139.i, label %179
 
-178:                                              ; preds = %174
+179:                                              ; preds = %175
   %indvars.iv.next.i136.i = add nuw nsw i64 %indvars.iv.i135.i, 1
   %exitcond.not.i137.i = icmp eq i64 %indvars.iv.next.i136.i, 255
-  br i1 %exitcond.not.i137.i, label %GetLine.exit140.i, label %174
+  br i1 %exitcond.not.i137.i, label %GetLine.exit140.i, label %175
 
-.split.loop.exit.i139.i:                          ; preds = %174
-  %179 = trunc nuw nsw i64 %indvars.iv.i135.i to i32
+.split.loop.exit.i139.i:                          ; preds = %175
+  %180 = trunc nuw nsw i64 %indvars.iv.i135.i to i32
   br label %GetLine.exit140.i
 
-GetLine.exit140.i:                                ; preds = %178, %.split.loop.exit.i139.i
-  %.0.lcssa.i138.i = phi i32 [ %179, %.split.loop.exit.i139.i ], [ 255, %178 ]
-  %180 = zext nneg i32 %.0.lcssa.i138.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull readonly align 1 %.1.i, i64 %180, i1 false), !noalias !7
-  %181 = getelementptr inbounds nuw i8, ptr %6, i64 %180
-  store i8 0, ptr %181, align 1, !noalias !7
-  %182 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #41, !noalias !7
-  %183 = sext i32 %.0.lcssa.i138.i to i64
-  %184 = getelementptr i8, ptr %.1.i, i64 %183
-  %185 = icmp eq i32 %182, 9
-  br i1 %185, label %186, label %212
+GetLine.exit140.i:                                ; preds = %179, %.split.loop.exit.i139.i
+  %.0.lcssa.i138.i = phi i32 [ %180, %.split.loop.exit.i139.i ], [ 255, %179 ]
+  %181 = zext nneg i32 %.0.lcssa.i138.i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull readonly align 1 %.1.i, i64 %181, i1 false), !noalias !7
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 %181
+  store i8 0, ptr %182, align 1, !noalias !7
+  %183 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #41, !noalias !7
+  %184 = sext i32 %.0.lcssa.i138.i to i64
+  %185 = getelementptr i8, ptr %.1.i, i64 %184
+  %186 = icmp eq i32 %183, 9
+  br i1 %186, label %187, label %213
 
-186:                                              ; preds = %GetLine.exit140.i
-  %187 = getelementptr inbounds nuw %struct.Rectangle, ptr %172, i64 %indvars.iv202.i
-  %188 = load i32, ptr %18, align 4, !noalias !7
-  %189 = sitofp i32 %188 to float
-  %190 = load i32, ptr %19, align 4, !noalias !7
-  %191 = sitofp i32 %190 to float
-  %192 = load i32, ptr %10, align 4, !noalias !7
-  %193 = sitofp i32 %192 to float
-  %194 = load i32, ptr %25, align 4, !noalias !7
-  %195 = sitofp i32 %194 to float
-  %196 = call float @llvm.fmuladd.f32(float %193, float %195, float %191)
-  %197 = load i32, ptr %20, align 4, !noalias !7
-  %198 = sitofp i32 %197 to float
-  %199 = load i32, ptr %21, align 4, !noalias !7
-  %200 = sitofp i32 %199 to float
-  store float %189, ptr %187, align 4, !noalias !7
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %187, i64 4
-  store float %196, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !7
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store float %198, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !7
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %187, i64 12
-  store float %200, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !7
-  %201 = load i32, ptr %17, align 4, !noalias !7
-  %202 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv202.i
-  store i32 %201, ptr %202, align 8, !noalias !7
-  %203 = load i32, ptr %22, align 4, !noalias !7
-  %204 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv202.i, i32 1
-  store i32 %203, ptr %204, align 4, !noalias !7
-  %205 = load i32, ptr %23, align 4, !noalias !7
-  %206 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv202.i, i32 2
-  store i32 %205, ptr %206, align 8, !noalias !7
-  %207 = load i32, ptr %24, align 4, !noalias !7
-  %208 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv202.i, i32 3
-  store i32 %207, ptr %208, align 4, !noalias !7
-  %209 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv202.i, i32 4
-  %210 = load <2 x float>, ptr %187, align 4, !noalias !7
-  %211 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !7
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %26, ptr noundef nonnull byval(%struct.Image) align 8 %15, <2 x float> %210, <2 x float> %211) #41, !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !7
-  br label %213
+187:                                              ; preds = %GetLine.exit140.i
+  %188 = getelementptr inbounds nuw %struct.Rectangle, ptr %173, i64 %indvars.iv202.i
+  %189 = load i32, ptr %18, align 4, !noalias !7
+  %190 = sitofp i32 %189 to float
+  %191 = load i32, ptr %19, align 4, !noalias !7
+  %192 = sitofp i32 %191 to float
+  %193 = load i32, ptr %10, align 4, !noalias !7
+  %194 = sitofp i32 %193 to float
+  %195 = load i32, ptr %25, align 4, !noalias !7
+  %196 = sitofp i32 %195 to float
+  %197 = call float @llvm.fmuladd.f32(float %194, float %196, float %192)
+  %198 = load i32, ptr %20, align 4, !noalias !7
+  %199 = sitofp i32 %198 to float
+  %200 = load i32, ptr %21, align 4, !noalias !7
+  %201 = sitofp i32 %200 to float
+  store float %190, ptr %188, align 4, !noalias !7
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %188, i64 4
+  store float %197, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %188, i64 8
+  store float %199, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !7
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %188, i64 12
+  store float %201, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !7
+  %202 = load i32, ptr %17, align 4, !noalias !7
+  %203 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv202.i
+  store i32 %202, ptr %203, align 8, !noalias !7
+  %204 = load i32, ptr %22, align 4, !noalias !7
+  %205 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv202.i, i32 1
+  store i32 %204, ptr %205, align 4, !noalias !7
+  %206 = load i32, ptr %23, align 4, !noalias !7
+  %207 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv202.i, i32 2
+  store i32 %206, ptr %207, align 8, !noalias !7
+  %208 = load i32, ptr %24, align 4, !noalias !7
+  %209 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv202.i, i32 3
+  store i32 %208, ptr %209, align 4, !noalias !7
+  %210 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv202.i, i32 4
+  %211 = load <2 x float>, ptr %188, align 4, !noalias !7
+  %212 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !7
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %26, ptr noundef nonnull byval(%struct.Image) align 8 %15, <2 x float> %211, <2 x float> %212) #41, !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !7
+  br label %214
 
-212:                                              ; preds = %GetLine.exit140.i
+213:                                              ; preds = %GetLine.exit140.i
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef %1) #41, !noalias !7
-  br label %213
+  br label %214
 
-213:                                              ; preds = %212, %186
+214:                                              ; preds = %213, %187
   %indvars.iv.next203.i = add nuw nsw i64 %indvars.iv202.i, 1
-  %214 = load i32, ptr %8, align 4, !noalias !7
-  %215 = sext i32 %214 to i64
-  %216 = icmp slt i64 %indvars.iv.next203.i, %215
-  br i1 %216, label %.lr.ph176.i, label %._crit_edge177.i
+  %215 = load i32, ptr %8, align 4, !noalias !7
+  %216 = sext i32 %215 to i64
+  %217 = icmp slt i64 %indvars.iv.next203.i, %216
+  br i1 %217, label %.lr.ph176.i, label %._crit_edge177.i
 
-._crit_edge177.i:                                 ; preds = %213, %.loopexit.i
+._crit_edge177.i:                                 ; preds = %214, %.loopexit.i
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %15) #41, !noalias !7
   call void @UnloadFileText(ptr noundef nonnull %45) #41, !noalias !7
-  %217 = icmp eq i32 %.sroa.6.12.copyload, 0
-  br i1 %217, label %218, label %221
+  %218 = icmp eq i32 %.sroa.6.12.copyload, 0
+  br i1 %218, label %219, label %222
 
-218:                                              ; preds = %._crit_edge177.i
+219:                                              ; preds = %._crit_edge177.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5), !noalias !7
   %.sroa.1.0.copyload.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4, !noalias !7
   %.not.i.i = icmp eq i32 %.sroa.1.0.copyload.i.i, 0
-  br i1 %.not.i.i, label %UnloadFont.exit.i, label %219
+  br i1 %.not.i.i, label %UnloadFont.exit.i, label %220
 
-219:                                              ; preds = %218
-  %.not.i.i.i = icmp eq ptr %170, null
+220:                                              ; preds = %219
+  %.not.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i.i, label %UnloadFontData.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %219
-  br i1 %173, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
+.preheader.i.i.i:                                 ; preds = %220
+  br i1 %174, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
-  %wide.trip.count.i.i.i = zext nneg i32 %167 to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %168 to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %220 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %170, i64 %indvars.iv.i.i.i, i32 4
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %220) #41, !noalias !7
+  %221 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %171, i64 %indvars.iv.i.i.i, i32 4
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %221) #41, !noalias !7
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  call void @free(ptr noundef nonnull %170) #41, !noalias !7
+  call void @free(ptr noundef nonnull %171) #41, !noalias !7
   br label %UnloadFontData.exit.i.i
 
-UnloadFontData.exit.i.i:                          ; preds = %._crit_edge.i.i.i, %219
+UnloadFontData.exit.i.i:                          ; preds = %._crit_edge.i.i.i, %220
   store i32 0, ptr %5, align 8, !noalias !7
   %.sroa.6.12..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.12..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %5) #41, !noalias !7
-  call void @free(ptr noundef %172) #41, !noalias !7
+  call void @free(ptr noundef %173) #41, !noalias !7
   %.sroa.6.0.copyload14.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   br label %UnloadFont.exit.i
 
-UnloadFont.exit.i:                                ; preds = %UnloadFontData.exit.i.i, %218
-  %.sroa.6.0.copyload14 = phi i32 [ %.sroa.6.0.copyload14.pre, %UnloadFontData.exit.i.i ], [ 0, %218 ]
+UnloadFont.exit.i:                                ; preds = %UnloadFontData.exit.i.i, %219
+  %.sroa.6.0.copyload14 = phi i32 [ %.sroa.6.0.copyload14.pre, %UnloadFontData.exit.i.i ], [ 0, %219 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5), !noalias !7
   %.sroa.0.0.copyload11 = load i32, ptr @defaultFont, align 8
   %.sroa.4.0.copyload12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
@@ -1483,17 +1483,17 @@ UnloadFont.exit.i:                                ; preds = %UnloadFontData.exit
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #41, !noalias !7
   br label %LoadBMFont.exit
 
-221:                                              ; preds = %._crit_edge177.i
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %167) #41, !noalias !7
+222:                                              ; preds = %._crit_edge177.i
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %168) #41, !noalias !7
   br label %LoadBMFont.exit
 
-LoadBMFont.exit:                                  ; preds = %44, %70, %88, %108, %UnloadFont.exit.i, %221
-  %.sroa.0.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.0.0.copyload11, %UnloadFont.exit.i ], [ %166, %221 ]
-  %.sroa.4.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.4.0.copyload12, %UnloadFont.exit.i ], [ %167, %221 ]
-  %.sroa.5.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.5.0.copyload13, %UnloadFont.exit.i ], [ 0, %221 ]
-  %.sroa.6.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.6.0.copyload14, %UnloadFont.exit.i ], [ %.sroa.6.12.copyload, %221 ]
-  %.sroa.9.0 = phi ptr [ null, %44 ], [ null, %70 ], [ null, %88 ], [ null, %108 ], [ %.sroa.9.0.copyload15, %UnloadFont.exit.i ], [ %172, %221 ]
-  %.sroa.10.0 = phi ptr [ null, %44 ], [ null, %70 ], [ null, %88 ], [ null, %108 ], [ %.sroa.10.0.copyload16, %UnloadFont.exit.i ], [ %170, %221 ]
+LoadBMFont.exit:                                  ; preds = %44, %70, %88, %108, %UnloadFont.exit.i, %222
+  %.sroa.0.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.0.0.copyload11, %UnloadFont.exit.i ], [ %167, %222 ]
+  %.sroa.4.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.4.0.copyload12, %UnloadFont.exit.i ], [ %168, %222 ]
+  %.sroa.5.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.5.0.copyload13, %UnloadFont.exit.i ], [ 0, %222 ]
+  %.sroa.6.0 = phi i32 [ 0, %44 ], [ 0, %70 ], [ 0, %88 ], [ 0, %108 ], [ %.sroa.6.0.copyload14, %UnloadFont.exit.i ], [ %.sroa.6.12.copyload, %222 ]
+  %.sroa.9.0 = phi ptr [ null, %44 ], [ null, %70 ], [ null, %88 ], [ null, %108 ], [ %.sroa.9.0.copyload15, %UnloadFont.exit.i ], [ %173, %222 ]
+  %.sroa.10.0 = phi ptr [ null, %44 ], [ null, %70 ], [ null, %88 ], [ null, %108 ], [ %.sroa.10.0.copyload16, %UnloadFont.exit.i ], [ %171, %222 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -1528,70 +1528,70 @@ LoadBMFont.exit:                                  ; preds = %44, %70, %88, %108,
   store ptr %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
-  br label %234
+  br label %235
 
-222:                                              ; preds = %42
-  %223 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.4) #41
-  br i1 %223, label %224, label %230
+223:                                              ; preds = %42
+  %224 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.4) #41
+  br i1 %224, label %225, label %231
 
-224:                                              ; preds = %222
+225:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store i32 0, ptr %3, align 4, !noalias !10
-  %225 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #41, !noalias !10
-  %.not.i9 = icmp eq ptr %225, null
-  br i1 %.not.i9, label %229, label %226
+  %226 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #41, !noalias !10
+  %.not.i9 = icmp eq ptr %226, null
+  br i1 %.not.i9, label %230, label %227
 
-226:                                              ; preds = %224
-  %227 = call ptr @GetFileExtension(ptr noundef %1) #41, !noalias !10
-  %228 = load i32, ptr %3, align 4, !noalias !10
-  call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %4, ptr noundef %227, ptr noundef nonnull %225, i32 noundef %228, i32 noundef 32, ptr noundef null, i32 noundef 95), !noalias !10
+227:                                              ; preds = %225
+  %228 = call ptr @GetFileExtension(ptr noundef %1) #41, !noalias !10
+  %229 = load i32, ptr %3, align 4, !noalias !10
+  call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %4, ptr noundef %228, ptr noundef nonnull %226, i32 noundef %229, i32 noundef 32, ptr noundef null, i32 noundef 95), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  call void @UnloadFileData(ptr noundef nonnull %225) #41, !noalias !10
+  call void @UnloadFileData(ptr noundef nonnull %226) #41, !noalias !10
   br label %LoadFontEx.exit10
 
-229:                                              ; preds = %224
+230:                                              ; preds = %225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   br label %LoadFontEx.exit10
 
-LoadFontEx.exit10:                                ; preds = %226, %229
+LoadFontEx.exit10:                                ; preds = %227, %230
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false)
-  br label %234
+  br label %235
 
-230:                                              ; preds = %222
+231:                                              ; preds = %223
   call void @LoadImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %31, ptr noundef %1) #41
-  %231 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %231, null
-  br i1 %.not, label %233, label %232
+  %232 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %232, null
+  br i1 %.not, label %234, label %233
 
-232:                                              ; preds = %230
+233:                                              ; preds = %231
   call void @LoadFontFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %0, ptr noundef nonnull byval(%struct.Image) align 8 %31, i32 -65281, i32 noundef 32)
-  br label %233
-
-233:                                              ; preds = %232, %230
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %31) #41
   br label %234
 
-234:                                              ; preds = %LoadBMFont.exit, %233, %LoadFontEx.exit10, %LoadFontEx.exit
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %236 = load i32, ptr %235, align 4
-  %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %239
+234:                                              ; preds = %233, %231
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %31) #41
+  br label %235
 
-238:                                              ; preds = %234
+235:                                              ; preds = %LoadBMFont.exit, %234, %LoadFontEx.exit10, %LoadFontEx.exit
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %237 = load i32, ptr %236, align 4
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %240
+
+239:                                              ; preds = %235
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %1) #41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
-  br label %240
+  br label %241
 
-239:                                              ; preds = %234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 4 dereferenceable(20) %235, i64 20, i1 false)
+240:                                              ; preds = %235
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 4 dereferenceable(20) %236, i64 20, i1 false)
   call void @SetTextureFilter(ptr noundef nonnull byval(%struct.Texture) align 8 %32, i32 noundef 0) #41
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef 32, i32 noundef 95) #41
-  br label %240
+  br label %241
 
-240:                                              ; preds = %239, %238
+241:                                              ; preds = %240, %239
   ret void
 }
 
