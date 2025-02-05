@@ -13145,46 +13145,48 @@ _ZNK4llvm14SmallBitVector4sizeEv.exit21:          ; preds = %52, %54
   br label %_ZNK4llvm14SmallBitVectorixEj.exit.us.us
 
 _ZNK4llvm14SmallBitVectorixEj.exit.us.us:         ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.us, %.lr.ph.split.us.split.us
-  %.01433.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ %84, %_ZNK4llvm14SmallBitVectorixEj.exit.us.us ]
+  %.01433.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ %83, %_ZNK4llvm14SmallBitVectorixEj.exit.us.us ]
   %73 = lshr i64 %.01433.us.us, 6
   %74 = and i64 %73, 67108863
   %75 = getelementptr inbounds nuw i64, ptr %71, i64 %74
   %76 = and i64 %.01433.us.us, 63
   %77 = load i64, ptr %75, align 8, !tbaa !121
   %78 = shl nuw i64 1, %76
-  %79 = and i64 %77, %78
-  %.0.i23.us.us = icmp ne i64 %79, 0
-  %80 = getelementptr inbounds nuw i64, ptr %72, i64 %74
-  %81 = load i64, ptr %80, align 8, !tbaa !121
+  %79 = getelementptr inbounds nuw i64, ptr %72, i64 %74
+  %80 = load i64, ptr %79, align 8, !tbaa !121
+  %81 = xor i64 %77, %80
   %82 = and i64 %81, %78
-  %.0.i26.us.us = icmp ne i64 %82, 0
-  %83 = xor i1 %.0.i23.us.us, %.0.i26.us.us
-  %84 = add nuw nsw i64 %.01433.us.us, 1
-  %.not15.us.us = icmp eq i64 %84, %58
-  %or.cond = select i1 %83, i1 true, i1 %.not15.us.us
-  br i1 %or.cond, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit.us.us, !llvm.loop !338
+  %.not56 = icmp eq i64 %82, 0
+  %83 = add nuw nsw i64 %.01433.us.us, 1
+  %.not15.us.us = icmp ne i64 %83, %58
+  %or.cond64.not = select i1 %.not56, i1 %.not15.us.us, i1 false
+  br i1 %or.cond64.not, label %_ZNK4llvm14SmallBitVectorixEj.exit.us.us, label %_ZNK4llvm9BitVectoreqERKS0_.exit, !llvm.loop !338
 
 _ZNK4llvm14SmallBitVectorixEj.exit.us:            ; preds = %.lr.ph.split.us, %_ZNK4llvm14SmallBitVectorixEj.exit.us
-  %.01433.us = phi i64 [ %95, %_ZNK4llvm14SmallBitVectorixEj.exit.us ], [ 0, %.lr.ph.split.us ]
-  %85 = lshr i64 %.01433.us, 6
-  %86 = and i64 %85, 67108863
-  %87 = getelementptr inbounds nuw i64, ptr %71, i64 %86
-  %88 = and i64 %.01433.us, 63
-  %89 = load i64, ptr %87, align 8, !tbaa !121
-  %90 = shl nuw i64 1, %88
-  %91 = and i64 %89, %90
-  %.0.i23.us = icmp ne i64 %91, 0
-  %92 = shl nuw i64 1, %.01433.us
-  %93 = and i64 %68, %92
-  %.0.i26.us = icmp ne i64 %93, 0
-  %94 = xor i1 %.0.i23.us, %.0.i26.us
-  %95 = add nuw nsw i64 %.01433.us, 1
-  %.not15.us = icmp eq i64 %95, %58
-  %or.cond58 = select i1 %94, i1 true, i1 %.not15.us
-  br i1 %or.cond58, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49, label %_ZNK4llvm14SmallBitVectorixEj.exit.us, !llvm.loop !338
+  %.01433.us = phi i64 [ %94, %_ZNK4llvm14SmallBitVectorixEj.exit.us ], [ 0, %.lr.ph.split.us ]
+  %84 = lshr i64 %.01433.us, 6
+  %85 = and i64 %84, 67108863
+  %86 = getelementptr inbounds nuw i64, ptr %71, i64 %85
+  %87 = and i64 %.01433.us, 63
+  %88 = load i64, ptr %86, align 8, !tbaa !121
+  %89 = shl nuw i64 1, %87
+  %90 = and i64 %88, %89
+  %.0.i23.us = icmp ne i64 %90, 0
+  %91 = shl nuw i64 1, %.01433.us
+  %92 = and i64 %68, %91
+  %.0.i26.us = icmp ne i64 %92, 0
+  %93 = xor i1 %.0.i23.us, %.0.i26.us
+  %94 = add nuw nsw i64 %.01433.us, 1
+  %.not15.us = icmp eq i64 %94, %58
+  %or.cond = select i1 %93, i1 true, i1 %.not15.us
+  br i1 %or.cond, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49, label %_ZNK4llvm14SmallBitVectorixEj.exit.us, !llvm.loop !338
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not.i17, label %.lr.ph.split.split.us, label %_ZNK4llvm14SmallBitVectorixEj.exit
+  br i1 %.not.i17, label %.lr.ph.split.split.us, label %_ZNK4llvm14SmallBitVectorixEj.exit.preheader
+
+_ZNK4llvm14SmallBitVectorixEj.exit.preheader:     ; preds = %.lr.ph.split
+  %95 = xor i64 %63, %68
+  br label %_ZNK4llvm14SmallBitVectorixEj.exit
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %96 = load ptr, ptr %69, align 8, !tbaa !8
@@ -13206,40 +13208,29 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us36:          ; preds = %_ZNK4llvm14SmallBit
   %106 = xor i1 %.0.i23.us38, %.0.i26.us42
   %107 = add nuw nsw i64 %.01433.us37, 1
   %.not15.us39 = icmp eq i64 %107, %58
-  %or.cond59 = select i1 %106, i1 true, i1 %.not15.us39
-  br i1 %or.cond59, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51, label %_ZNK4llvm14SmallBitVectorixEj.exit.us36, !llvm.loop !338
+  %or.cond60 = select i1 %106, i1 true, i1 %.not15.us39
+  br i1 %or.cond60, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51, label %_ZNK4llvm14SmallBitVectorixEj.exit.us36, !llvm.loop !338
 
-_ZNK4llvm14SmallBitVectorixEj.exit:               ; preds = %.lr.ph.split, %_ZNK4llvm14SmallBitVectorixEj.exit
-  %.01433 = phi i64 [ %112, %_ZNK4llvm14SmallBitVectorixEj.exit ], [ 0, %.lr.ph.split ]
+_ZNK4llvm14SmallBitVectorixEj.exit:               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit, %_ZNK4llvm14SmallBitVectorixEj.exit.preheader
+  %.01433 = phi i64 [ 0, %_ZNK4llvm14SmallBitVectorixEj.exit.preheader ], [ %110, %_ZNK4llvm14SmallBitVectorixEj.exit ]
   %108 = shl nuw i64 1, %.01433
-  %109 = and i64 %63, %108
-  %.0.i23 = icmp ne i64 %109, 0
-  %110 = and i64 %68, %108
-  %.0.i26 = icmp ne i64 %110, 0
-  %111 = xor i1 %.0.i23, %.0.i26
-  %112 = add nuw nsw i64 %.01433, 1
-  %.not15 = icmp eq i64 %112, %58
-  %or.cond60 = select i1 %111, i1 true, i1 %.not15
-  br i1 %or.cond60, label %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit53, label %_ZNK4llvm14SmallBitVectorixEj.exit, !llvm.loop !338
-
-_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit:        ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.us
-  %.013.ph = xor i1 %83, true
-  br label %_ZNK4llvm9BitVectoreqERKS0_.exit
+  %109 = and i64 %95, %108
+  %.not55 = icmp eq i64 %109, 0
+  %110 = add nuw nsw i64 %.01433, 1
+  %.not15 = icmp ne i64 %110, %58
+  %or.cond65.not = select i1 %.not55, i1 %.not15, i1 false
+  br i1 %or.cond65.not, label %_ZNK4llvm14SmallBitVectorixEj.exit, label %_ZNK4llvm9BitVectoreqERKS0_.exit, !llvm.loop !338
 
 _ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49:      ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us
-  %.013.ph50 = xor i1 %94, true
+  %.013.ph50 = xor i1 %93, true
   br label %_ZNK4llvm9BitVectoreqERKS0_.exit
 
 _ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51:      ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us36
   %.013.ph52 = xor i1 %106, true
   br label %_ZNK4llvm9BitVectoreqERKS0_.exit
 
-_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit53:      ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit
-  %.013.ph54 = xor i1 %111, true
-  br label %_ZNK4llvm9BitVectoreqERKS0_.exit
-
-_ZNK4llvm9BitVectoreqERKS0_.exit:                 ; preds = %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit53, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit, %_ZNK4llvm14SmallBitVector4sizeEv.exit21, %48, %45, %39, %_ZNK4llvm14SmallBitVector4sizeEv.exit18, %25
-  %.013 = phi i1 [ %36, %25 ], [ false, %_ZNK4llvm14SmallBitVector4sizeEv.exit18 ], [ false, %39 ], [ %.not9.i.i.i.i.i, %48 ], [ true, %45 ], [ true, %_ZNK4llvm14SmallBitVector4sizeEv.exit21 ], [ %.013.ph, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit ], [ %.013.ph50, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49 ], [ %.013.ph52, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51 ], [ %.013.ph54, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit53 ]
+_ZNK4llvm9BitVectoreqERKS0_.exit:                 ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit, %_ZNK4llvm14SmallBitVectorixEj.exit.us.us, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49, %_ZNK4llvm14SmallBitVector4sizeEv.exit21, %48, %45, %39, %_ZNK4llvm14SmallBitVector4sizeEv.exit18, %25
+  %.013 = phi i1 [ %36, %25 ], [ false, %_ZNK4llvm14SmallBitVector4sizeEv.exit18 ], [ false, %39 ], [ %.not9.i.i.i.i.i, %48 ], [ true, %45 ], [ true, %_ZNK4llvm14SmallBitVector4sizeEv.exit21 ], [ %.013.ph50, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit49 ], [ %.013.ph52, %_ZNK4llvm9BitVectoreqERKS0_.exit.loopexit51 ], [ %.not56, %_ZNK4llvm14SmallBitVectorixEj.exit.us.us ], [ %.not55, %_ZNK4llvm14SmallBitVectorixEj.exit ]
   ret i1 %.013
 }
 

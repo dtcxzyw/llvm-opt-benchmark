@@ -9188,25 +9188,19 @@ _ZNKSt6vectorIbSaIbEE2atEm.exit44:                ; preds = %_ZNKSt6vectorIbSaIb
   %22 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8
   %conv4.i.i.i.i.i.i = and i64 %i.047, 63
   %shl.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i
-  %and.i.i.i.i.i = and i64 %22, %shl.i.i.i.i
-  %tobool.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %add.ptr.i.i.i.i.i.i36 = getelementptr inbounds i64, ptr %20, i64 %div.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i36, i64 %storemerge.idx.i.i.i.i.i.i
   %23 = load i64, ptr %storemerge.i.i.i.i.i.i39, align 8
-  %and.i.i.i.i.i42 = and i64 %23, %shl.i.i.i.i
-  %tobool.i.i.i.i.i43 = icmp ne i64 %and.i.i.i.i.i42, 0
-  %24 = xor i1 %tobool.i.i.i.i.i, %tobool.i.i.i.i.i43
+  %24 = xor i64 %23, %22
+  %25 = and i64 %24, %shl.i.i.i.i
+  %.not = icmp eq i64 %25, 0
   %inc = add nuw i64 %i.047, 1
-  %cmp14 = icmp uge i64 %inc, %add.i.i
-  %or.cond.not = select i1 %24, i1 true, i1 %cmp14
-  br i1 %or.cond.not, label %return.loopexit, label %_ZNKSt6vectorIbSaIbEE2atEm.exit, !llvm.loop !117
+  %cmp14 = icmp ult i64 %inc, %add.i.i
+  %or.cond = select i1 %.not, i1 %cmp14, i1 false
+  br i1 %or.cond, label %_ZNKSt6vectorIbSaIbEE2atEm.exit, label %return, !llvm.loop !117
 
-return.loopexit:                                  ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit44
-  %retval.0.ph = xor i1 %24, true
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %for.cond.preheader, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
-  %retval.0 = phi i1 [ false, %land.rhs ], [ false, %entry ], [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ], [ true, %for.cond.preheader ], [ %retval.0.ph, %return.loopexit ]
+return:                                           ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit44, %for.cond.preheader, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
+  %retval.0 = phi i1 [ false, %land.rhs ], [ false, %entry ], [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ], [ true, %for.cond.preheader ], [ %.not, %_ZNKSt6vectorIbSaIbEE2atEm.exit44 ]
   ret i1 %retval.0
 }
 

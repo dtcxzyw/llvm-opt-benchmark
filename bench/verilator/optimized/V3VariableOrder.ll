@@ -6988,8 +6988,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK12VarTspSorter4costEPKN5V3TSP12Ts
   br label %19
 
 19:                                               ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i, %.lr.ph.i
-  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
-  %.0819.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
+  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %45, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
+  %.0819.i = phi i32 [ 0, %.lr.ph.i ], [ %44, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
   %exitcond.not.i = icmp eq i64 %.020.i, %17
   br i1 %exitcond.not.i, label %20, label %_ZNKSt6vectorIbSaIbEE2atEm.exit.i
 
@@ -7022,22 +7022,19 @@ _ZNKSt6vectorIbSaIbEE2atEm.exit12.i:              ; preds = %_ZNKSt6vectorIbSaIb
   %35 = getelementptr inbounds nuw i64, ptr %11, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %.020.i, 63
-  %38 = shl nuw i64 1, %37
-  %39 = and i64 %36, %38
-  %40 = icmp ne i64 %39, 0
-  %41 = getelementptr inbounds nuw i64, ptr %26, i64 %34
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, %38
-  %44 = icmp ne i64 %43, 0
-  %45 = xor i1 %40, %44
-  %46 = zext i1 %45 to i32
-  %47 = add nuw nsw i32 %.0819.i, %46
-  %48 = add nuw nsw i64 %.020.i, 1
-  %exitcond25.not.i = icmp eq i64 %48, %4
+  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %34
+  %39 = load i64, ptr %38, align 8
+  %40 = xor i64 %39, %36
+  %41 = lshr i64 %40, %37
+  %42 = trunc i64 %41 to i32
+  %43 = and i32 %42, 1
+  %44 = add nuw nsw i32 %43, %.0819.i
+  %45 = add nuw nsw i64 %.020.i, 1
+  %exitcond25.not.i = icmp eq i64 %45, %4
   br i1 %exitcond25.not.i, label %_ZNK12VarTspSorter4costEPKS_.exit, label %19, !llvm.loop !52
 
 _ZNK12VarTspSorter4costEPKS_.exit:                ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i, %2
-  %.08.lcssa.i = phi i32 [ 0, %2 ], [ %47, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
+  %.08.lcssa.i = phi i32 [ 0, %2 ], [ %44, %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i ]
   ret i32 %.08.lcssa.i
 }
 
