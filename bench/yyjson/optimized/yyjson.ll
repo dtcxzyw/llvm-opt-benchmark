@@ -120,7 +120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @yyjson_alc_pool_init(ptr noundef writeonly %alc, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @yyjson_alc_pool_init(ptr noundef writeonly captures(address_is_null) %alc, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -741,7 +741,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @dyn_free(ptr noundef %ctx_ptr, ptr noundef %ptr) #3 {
+define internal void @dyn_free(ptr noundef captures(address_is_null) %ctx_ptr, ptr noundef %ptr) #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 -16
   %next.i = getelementptr inbounds nuw i8, ptr %ctx_ptr, i64 24
@@ -810,7 +810,7 @@ for.end:                                          ; preds = %for.cond, %if.then
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @yyjson_alc_dyn_free(ptr noundef %alc) local_unnamed_addr #7 {
+define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -943,7 +943,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly %doc, i64 noundef %len) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly captures(address_is_null) %doc, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %0 = add i64 %len, -1
@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly %doc, i64 noundef %count) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly captures(address_is_null) %doc, i64 noundef %count) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %0 = add i64 %count, -1
@@ -1026,7 +1026,7 @@ if.end:                                           ; preds = %unsafe_yyjson_val_p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly %alc) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %alc, null
   %spec.store.select = select i1 %tobool.not, ptr @YYJSON_DEFAULT_ALC, ptr %alc
@@ -1056,7 +1056,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_is_null) %doc, ptr noundef readonly captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1137,7 +1137,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_mut_copy(ptr noundef %m_doc, ptr noundef %i_vals) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_val_mut_copy(ptr noundef captures(address_is_null) %m_doc, ptr noundef %i_vals) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %m_doc, null
   %tobool1 = icmp ne ptr %i_vals, null
@@ -1413,7 +1413,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly %doc, ptr noundef readonly %alc) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly captures(address_is_null) %doc, ptr noundef readonly captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end3, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
+define dso_local noundef ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly captures(address_is_null) %val) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %tobool1 = icmp ne ptr %val, null
@@ -1731,7 +1731,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly %mdoc, ptr noundef %alc) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly captures(address_is_null) %mdoc, ptr noundef captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %mdoc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1747,7 +1747,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly %mval, ptr noundef readonly %alc) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly captures(address_is_null) %mval, ptr noundef readonly captures(address_is_null) %alc) local_unnamed_addr #7 {
 entry:
   %val_num = alloca i64, align 8
   %str_sum = alloca i64, align 8
@@ -2474,7 +2474,7 @@ return:                                           ; preds = %while.body45, %yyjs
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_ptr_getx(ptr noundef readonly %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef writeonly %err) local_unnamed_addr #12 {
+define dso_local ptr @unsafe_yyjson_ptr_getx(ptr noundef readonly captures(ret: address, provenance) %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #12 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %ptr_len
   br label %while.body
@@ -2780,7 +2780,7 @@ return:                                           ; preds = %if.end33, %return.s
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef writeonly %ctx, ptr noundef writeonly %err) local_unnamed_addr #12 {
+define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #12 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %ptr_len
   %tobool20.not = icmp ne ptr %ctx, null
@@ -3126,7 +3126,7 @@ return:                                           ; preds = %if.end53, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef %new_val, ptr noundef %doc, i1 noundef zeroext %create_parent, i1 noundef zeroext %insert_new, ptr noundef writeonly %ctx, ptr noundef writeonly %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %val, ptr noundef %ptr, i64 noundef %ptr_len, ptr noundef %new_val, ptr noundef %doc, i1 noundef zeroext %create_parent, i1 noundef zeroext %insert_new, ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %ptr_len
   br label %while.body
@@ -4793,7 +4793,7 @@ return:                                           ; preds = %if.end311, %if.end.
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef %val, ptr noundef %ptr, i64 noundef %len, ptr noundef %new_val, ptr noundef %ctx, ptr noundef %err) local_unnamed_addr #13 {
+define dso_local ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef %val, ptr noundef %ptr, i64 noundef %len, ptr noundef %new_val, ptr noundef captures(address_is_null) %ctx, ptr noundef captures(address_is_null) %err) local_unnamed_addr #13 {
 entry:
   %cur_ctx = alloca %struct.yyjson_ptr_ctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cur_ctx, i8 0, i64 24, i1 false)
@@ -5060,7 +5060,7 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef %val, ptr noundef %ptr, i64 noundef %len, ptr noundef %ctx, ptr noundef %err) local_unnamed_addr #13 {
+define dso_local ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef %val, ptr noundef %ptr, i64 noundef %len, ptr noundef captures(address_is_null) %ctx, ptr noundef captures(address_is_null) %err) local_unnamed_addr #13 {
 entry:
   %cur_ctx = alloca %struct.yyjson_ptr_ctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cur_ctx, i8 0, i64 24, i1 false)
@@ -6199,7 +6199,7 @@ return:                                           ; preds = %entry, %sw.bb20, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_patch(ptr noundef %doc, ptr noundef readonly captures(address_is_null) %orig, ptr noundef readonly captures(address_is_null) %patch, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %err_tmp = alloca %struct.yyjson_patch_err, align 8
   %tobool.not = icmp eq ptr %err, null
@@ -7143,7 +7143,7 @@ return:                                           ; preds = %yyjson_mut_arr_iter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_merge_patch(ptr noundef %doc, ptr noundef %orig, ptr noundef %patch) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_merge_patch(ptr noundef captures(address_is_null) %doc, ptr noundef %orig, ptr noundef %patch) local_unnamed_addr #7 {
 entry:
   %local_orig = alloca %struct.yyjson_val, align 8
   %tobool.i218.not = icmp eq ptr %patch, null
@@ -7501,7 +7501,7 @@ return:                                           ; preds = %if.then32, %yyjson_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %doc, ptr noundef readonly %orig, ptr noundef readonly %patch) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %doc, ptr noundef readonly captures(address_is_null) %orig, ptr noundef readonly captures(address_is_null) %patch) local_unnamed_addr #7 {
 entry:
   %local_orig.sroa.0 = alloca i64, align 8
   %local_orig.sroa.3 = alloca i64, align 8
@@ -7899,7 +7899,7 @@ return:                                           ; preds = %yyjson_mut_val_mut_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_opts(ptr noundef %dat, i64 noundef %len, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_opts(ptr noundef %dat, i64 noundef %len, i32 noundef %flg, ptr noundef readonly captures(address_is_null) %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %exp.i.i = alloca i32, align 4
   %big_full.i.i = alloca %struct.bigint, align 8
@@ -33741,7 +33741,7 @@ return:                                           ; preds = %while.end28, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_file(ptr noundef readonly %path, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_file(ptr noundef readonly captures(address_is_null) %path, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_read_err, align 8
   %tobool.not = icmp eq ptr %err, null
@@ -33781,7 +33781,7 @@ return:                                           ; preds = %if.end22, %do.body1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_fp(ptr noundef %file, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %file, i32 noundef %flg, ptr noundef readonly captures(address_is_null) %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_read_err, align 8
   %alc = alloca %struct.yyjson_alc, align 8
@@ -33994,7 +33994,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #16
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @yyjson_read_number(ptr noundef %dat, ptr noundef writeonly %val, i32 noundef %flg, ptr noundef readnone captures(none) %alc, ptr noundef writeonly %err) local_unnamed_addr #3 {
+define dso_local ptr @yyjson_read_number(ptr noundef %dat, ptr noundef writeonly %val, i32 noundef %flg, ptr noundef readnone captures(none) %alc, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #3 {
 entry:
   %exp.i = alloca i32, align 4
   %big_full.i = alloca %struct.bigint, align 8
@@ -36605,7 +36605,7 @@ return:                                           ; preds = %if.end.i.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly %val, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly captures(address_is_null) %val, i32 noundef %flg, ptr noundef readonly captures(address_is_null) %alc_ptr, ptr noundef writeonly captures(address_is_null) %dat_len, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %tobool.not = icmp eq ptr %alc_ptr, null
@@ -46954,7 +46954,7 @@ return:                                           ; preds = %if.end590.i.cont, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_write_opts(ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %dat_len, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -46970,7 +46970,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_val_write_file(ptr noundef readonly captures(address_is_null) %path, ptr noundef captures(address_is_null) %val, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -47052,7 +47052,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_val_write_fp(ptr noundef captures(address_is_null) %fp, ptr noundef captures(address_is_null) %val, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -47103,7 +47103,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_write_file(ptr noundef captures(address_is_null) %path, ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -47119,7 +47119,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_write_fp(ptr noundef captures(address_is_null) %fp, ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err.i = alloca %struct.yyjson_write_err, align 8
   %dat_len.i = alloca i64, align 8
@@ -47183,14 +47183,14 @@ yyjson_val_write_fp.exit:                         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %val, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %dat_len, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %call = tail call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef 0, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef %estimated_val_num, i32 noundef %flg, ptr noundef readonly %alc_ptr, ptr noundef writeonly %dat_len, ptr noundef writeonly %err) unnamed_addr #7 {
+define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %val, i64 noundef %estimated_val_num, i32 noundef %flg, ptr noundef readonly captures(address_is_null) %alc_ptr, ptr noundef writeonly captures(address_is_null) %dat_len, ptr noundef writeonly captures(address_is_null) %err) unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %tobool.not = icmp eq ptr %alc_ptr, null
@@ -57599,7 +57599,7 @@ return:                                           ; preds = %if.end606.i.cont, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %dat_len, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %dat_len, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -57651,7 +57651,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly %path, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly captures(address_is_null) %path, ptr noundef %val, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -57733,7 +57733,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_val_write_fp(ptr noundef %fp, ptr noundef %val, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_val_write_fp(ptr noundef captures(address_is_null) %fp, ptr noundef %val, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err = alloca %struct.yyjson_write_err, align 8
   %dat_len = alloca i64, align 8
@@ -57784,7 +57784,7 @@ return:                                           ; preds = %if.end, %write_dat_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_write_file(ptr noundef %path, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_write_file(ptr noundef captures(address_is_null) %path, ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %doc, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -57800,7 +57800,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_write_fp(ptr noundef %fp, ptr noundef readonly %doc, i32 noundef %flg, ptr noundef %alc_ptr, ptr noundef %err) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_write_fp(ptr noundef captures(address_is_null) %fp, ptr noundef readonly captures(address_is_null) %doc, i32 noundef %flg, ptr noundef captures(address_is_null) %alc_ptr, ptr noundef captures(address_is_null) %err) local_unnamed_addr #7 {
 entry:
   %dummy_err.i = alloca %struct.yyjson_write_err, align 8
   %dat_len.i = alloca i64, align 8
@@ -57891,7 +57891,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef range(i32 2, 12) %code, i32 noundef %flg) unnamed_addr #20 {
+define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone captures(address) %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef range(i32 2, 12) %code, i32 noundef %flg) unnamed_addr #20 {
 entry:
   %end189 = ptrtoint ptr %end to i64
   %cmp.not = icmp ult ptr %cur, %end
@@ -58497,7 +58497,7 @@ do.end111:                                        ; preds = %do.body103, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @bigint_set_buf(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %big, i64 noundef %sig, ptr noundef nonnull captures(none) %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
+define internal fastcc void @bigint_set_buf(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %big, i64 noundef %sig, ptr noundef nonnull captures(none) %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone captures(address) %dot_pos) unnamed_addr #21 {
 entry:
   %tobool.not = icmp eq ptr %sig_cut, null
   br i1 %tobool.not, label %if.then, label %if.else

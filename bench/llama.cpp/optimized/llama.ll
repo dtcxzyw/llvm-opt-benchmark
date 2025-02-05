@@ -7335,7 +7335,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 declare i64 @time(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_softmax(ptr noundef %ctx, ptr noundef captures(none) %candidates) local_unnamed_addr #2 {
+define void @llama_sample_softmax(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates) local_unnamed_addr #2 {
 entry:
   %__val.i24.i.i.i = alloca %struct.llama_token_data, align 4
   %__val.i.i.i.i = alloca %struct.llama_token_data, align 4
@@ -7617,7 +7617,7 @@ declare i64 @ggml_time_us() local_unnamed_addr #9
 declare float @expf(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_top_k(ptr noundef %ctx, ptr noundef captures(none) %candidates, i32 noundef %k, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_top_k(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, i32 noundef %k, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %__val.i24.i.i.i = alloca %struct.llama_token_data, align 4
   %__val.i.i.i.i = alloca %struct.llama_token_data, align 4
@@ -7843,7 +7843,7 @@ if.end24:                                         ; preds = %if.then22, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_top_p(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_top_p(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %cmp = fcmp ult float %p, 1.000000e+00
   br i1 %cmp, label %if.end, label %if.end14
@@ -7892,7 +7892,7 @@ if.end14:                                         ; preds = %entry, %if.then11, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_min_p(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
+define void @llama_sample_min_p(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 {
 entry:
   %cmp = fcmp ugt float %p, 0.000000e+00
   br i1 %cmp, label %lor.lhs.false, label %if.end15
@@ -7951,7 +7951,7 @@ if.end15:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_tail_free(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %z, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_tail_free(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, float noundef %z, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = fcmp ult float %z, 1.000000e+00
   br i1 %cmp, label %lor.lhs.false, label %return
@@ -8184,7 +8184,7 @@ if.then.i.i.i88:                                  ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_typical(ptr noundef %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_typical(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, float noundef %p, i64 noundef %min_keep) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shifted_scores = alloca %"class.std::vector.107", align 8
   %cmp = fcmp ult float %p, 1.000000e+00
@@ -8760,7 +8760,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #12
 declare float @llvm.fabs.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_temp(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
+define void @llama_sample_temp(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %size = getelementptr inbounds nuw i8, ptr %candidates_p, i64 8
@@ -8798,7 +8798,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_temperature(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
+define void @llama_sample_temperature(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(none) %candidates_p, float noundef %temp) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @ggml_time_us()
   %size.i = getelementptr inbounds nuw i8, ptr %candidates_p, i64 8
@@ -8836,7 +8836,7 @@ llama_sample_temp.exit:                           ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_repetition_penalties(ptr noundef %ctx, ptr noundef captures(none) %candidates, ptr noundef readonly captures(none) %last_tokens, i64 noundef %penalty_last_n, float noundef %penalty_repeat, float noundef %penalty_freq, float noundef %penalty_present) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_repetition_penalties(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(none) %candidates, ptr noundef readonly captures(none) %last_tokens, i64 noundef %penalty_last_n, float noundef %penalty_repeat, float noundef %penalty_freq, float noundef %penalty_present) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %token_count = alloca %"class.std::unordered_map.132", align 8
   %cmp = icmp eq i64 %penalty_last_n, 0
@@ -9127,7 +9127,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_grammar(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_grammar(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %grammar) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %candidates_decoded = alloca %"class.std::vector.214", align 8
   %candidates_grammar = alloca %"class.std::vector.219", align 8
@@ -10429,7 +10429,7 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIjSaIjEE18llama_partial_utf8ESaIS5_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_sample_classifier_free_guidance(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %guidance_ctx, float noundef %scale) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @llama_sample_classifier_free_guidance(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(none) %candidates, ptr noundef readonly captures(none) %guidance_ctx, float noundef %scale) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %tobool.not = icmp eq ptr %ctx, null
@@ -11580,7 +11580,7 @@ if.end31:                                         ; preds = %for.body.i.i.i48, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @llama_sample_token_greedy(ptr noundef %ctx, ptr noundef readonly captures(none) %candidates) local_unnamed_addr #2 {
+define i32 @llama_sample_token_greedy(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(none) %candidates) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %0 = load ptr, ptr %candidates, align 8
@@ -77052,7 +77052,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_"(ptr noundef %__first, ptr noundef %__middle, ptr noundef readnone %__last) unnamed_addr #37 {
+define internal fastcc void @"_ZSt14__partial_sortIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_T0_"(ptr noundef %__first, ptr noundef %__middle, ptr noundef readnone captures(address) %__last) unnamed_addr #37 {
 entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__middle to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64

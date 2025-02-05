@@ -3150,7 +3150,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_set_default_settings(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @tiny_set_default_settings(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 
@@ -4172,7 +4172,7 @@ define i32 @tiny_solve(ptr noundef %0) local_unnamed_addr #3 {
 declare i32 @solve(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_update_settings(ptr noundef writeonly %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @tiny_update_settings(ptr noundef writeonly captures(address_is_null) %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -4201,7 +4201,7 @@ define range(i32 0, 2) i32 @tiny_update_settings(ptr noundef writeonly %0, doubl
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_set_x0(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @tiny_set_x0(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 
@@ -4299,7 +4299,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
 declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_set_x_ref(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @tiny_set_x_ref(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4485,7 +4485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_set_u_ref(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @tiny_set_u_ref(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1

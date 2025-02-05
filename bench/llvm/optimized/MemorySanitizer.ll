@@ -19024,7 +19024,7 @@ declare void @_ZN4llvm18ExtractElementInstC1EPNS_5ValueES2_RKNS_5TwineENS_14Inse
 declare void @_ZN4llvm17InsertElementInstC1EPNS_5ValueES2_S2_RKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef byval(%"class.llvm::InsertPosition") align 8) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor15ptrToIntPtrTypeEPN4llvm4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor15ptrToIntPtrTypeEPN4llvm4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -19062,7 +19062,7 @@ common.ret:                                       ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor13constToIntPtrEPN4llvm4TypeEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor13constToIntPtrEPN4llvm4TypeEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
@@ -19099,7 +19099,7 @@ common.ret:                                       ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor21getPtrToShadowPtrTypeEPN4llvm4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_122MemorySanitizerVisitor21getPtrToShadowPtrTypeEPN4llvm4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -25201,7 +25201,7 @@ declare void @_ZN4llvm7CmpInstC2EPNS_4TypeENS_11Instruction8OtherOpsENS0_9Predic
 declare noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal void @_ZN12_GLOBAL__N_116VarArgHelperBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(180) initializes((0, 8)) %0) unnamed_addr #18 align 2 {
+define internal void @_ZN12_GLOBAL__N_116VarArgHelperBaseD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(180) initializes((0, 8)) %0) unnamed_addr #18 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_116VarArgHelperBaseE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !32
@@ -26581,7 +26581,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor9getOriginEPN4llvm5ValueE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor16instrumentAllocaERN4llvm10AllocaInstEPNS1_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor16instrumentAllocaERN4llvm10AllocaInstEPNS1_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1632) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca [2 x ptr], align 8
@@ -30288,7 +30288,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb1EE3AddEPN4llvm5ValueE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb1EE3AddEPN4llvm5ValueE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !810
@@ -30424,7 +30424,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor9setOriginEPN4llvm5ValueES3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb1EE3AddEPN4llvm5ValueES5_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb1EE3AddEPN4llvm5ValueES5_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -31935,7 +31935,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE3AddEPN4llvm5ValueE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE3AddEPN4llvm5ValueE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
@@ -42184,12 +42184,16 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor9setShadowEPN4llvm5ValueES3_.exit: ; pr
   %wide.trip.count79 = zext nneg i32 %32 to i64
   br label %.lr.ph73
 
-._crit_edge74:                                    ; preds = %.lr.ph73, %141
-  %144 = load ptr, ptr %0, align 8, !tbaa !565
-  %145 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %144) #25
-  %146 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %145, ptr noundef %48)
-  %147 = load ptr, ptr %143, align 8, !tbaa !834
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+._crit_edge74.loopexit:                           ; preds = %.lr.ph73
+  %.pre = load ptr, ptr %143, align 8, !tbaa !834
+  br label %._crit_edge74
+
+._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %141
+  %144 = phi ptr [ %.pre, %._crit_edge74.loopexit ], [ %0, %141 ]
+  %145 = load ptr, ptr %0, align 8, !tbaa !565
+  %146 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %145) #25
+  %147 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %146, ptr noundef %48)
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !522
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4, !tbaa !135
@@ -42197,16 +42201,16 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor9setShadowEPN4llvm5ValueES3_.exit: ; pr
   br i1 %.not.i, label %_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4llvm8TypeSizeEPNS3_5ValueE.exit, label %152
 
 152:                                              ; preds = %._crit_edge74
-  %.fca.0.extract.i.i = extractvalue { i64, i8 } %146, 0
+  %.fca.0.extract.i.i = extractvalue { i64, i8 } %147, 0
   %153 = add i64 %.fca.0.extract.i.i, 7
   %154 = lshr i64 %153, 3
-  %.fca.1.extract.i.i = extractvalue { i64, i8 } %146, 1
+  %.fca.1.extract.i.i = extractvalue { i64, i8 } %147, 1
   %155 = and i8 %.fca.1.extract.i.i, 1
   %156 = load ptr, ptr %142, align 8, !tbaa !837
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !836
   %.sroa.0.0.copyload.i = load i8, ptr @_ZL19kMinOriginAlignment, align 1, !tbaa !13
-  call fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor11paintOriginERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueES8_NS1_8TypeSizeENS1_5AlignE(ptr noundef nonnull align 8 dereferenceable(1632) %147, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef %158, ptr noundef %96, i64 %154, i8 %155, i8 %.sroa.0.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor11paintOriginERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueES8_NS1_8TypeSizeENS1_5AlignE(ptr noundef nonnull align 8 dereferenceable(1632) %144, ptr noundef nonnull align 8 dereferenceable(144) %156, ptr noundef %158, ptr noundef %96, i64 %154, i8 %155, i8 %.sroa.0.0.copyload.i)
   br label %_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4llvm8TypeSizeEPNS3_5ValueE.exit
 
 _ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4llvm8TypeSizeEPNS3_5ValueE.exit: ; preds = %._crit_edge74, %152
@@ -42225,7 +42229,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4l
   %166 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE3AddEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %165)
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !871
+  br i1 %exitcond80.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !871
 
 167:                                              ; preds = %_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4llvm8TypeSizeEPNS3_5ValueE.exit, %_ZN12_GLOBAL__N_122MemorySanitizerVisitor9setShadowEPN4llvm5ValueES3_.exit
   %168 = load ptr, ptr %6, align 8, !tbaa !32

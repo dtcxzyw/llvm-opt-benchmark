@@ -44485,8 +44485,6 @@ invoke.cont28:                                    ; preds = %if.then.invoke.cont
   %idxprom11.i.i199 = zext i32 %121 to i64
   %value13.i.i200 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %120, i64 %idxprom11.i.i199, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i200, ptr noundef nonnull align 8 dereferenceable(16) %vTmpMax, i64 16, i1 false)
-  %flags.i10.i.i201 = getelementptr inbounds nuw i8, ptr %vTmpMax, i64 14
-  store i16 0, ptr %flags.i10.i.i201, align 2
   %122 = load i32, ptr %obj, align 8
   %inc.i.i202 = add i32 %122, 1
   store i32 %inc.i.i202, ptr %obj, align 8
@@ -44594,8 +44592,6 @@ invoke.cont43:                                    ; preds = %if.else.invoke.cont
   %idxprom11.i.i269 = zext i32 %147 to i64
   %value13.i.i270 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %146, i64 %idxprom11.i.i269, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i270, ptr noundef nonnull align 8 dereferenceable(16) %vTmpMax, i64 16, i1 false)
-  %flags.i10.i.i271 = getelementptr inbounds nuw i8, ptr %vTmpMax, i64 14
-  store i16 0, ptr %flags.i10.i.i271, align 2
   %148 = load i32, ptr %obj, align 8
   %inc.i.i272 = add i32 %148, 1
   store i32 %inc.i.i272, ptr %obj, align 8
@@ -44668,7 +44664,7 @@ if.end:                                           ; preds = %if.then.i.i.i308, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds nuw i8, ptr %val, i64 14
@@ -44790,7 +44786,7 @@ for.end:                                          ; preds = %_ZN9rapidjson12Gene
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds nuw i8, ptr %val, i64 14

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.SparseMatrix_multiply3 = private unnamed_addr constant [4 x i64] [i64 8, i64 16, i64 0, i64 4], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_sort(ptr noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_sort(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @SparseMatrix_transpose(ptr noundef %0)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SparseMatrix_delete.exit, label %3
@@ -59,7 +59,7 @@ SparseMatrix_delete.exit6:                        ; preds = %SparseMatrix_delete
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_transpose(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_transpose(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SparseMatrix_delete.exit, label %2
 
@@ -179,7 +179,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 ._crit_edge:                                      ; preds = %.lr.ph175, %.preheader161
   %51 = load i32, ptr %12, align 8
-  switch i32 %51, label %186 [
+  switch i32 %51, label %184 [
     i32 1, label %52
     i32 2, label %83
     i32 4, label %131
@@ -429,28 +429,24 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   br i1 %.not.i, label %SparseMatrix_delete.exit, label %181
 
 181:                                              ; preds = %180
-  %182 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %182) #16
-  %183 = load ptr, ptr %25, align 8
+  tail call void @free(ptr noundef %24) #16
+  tail call void @free(ptr noundef %26) #16
+  %182 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %183 = load ptr, ptr %182, align 8
   tail call void @free(ptr noundef %183) #16
-  %184 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %185 = load ptr, ptr %184, align 8
-  tail call void @free(ptr noundef %185) #16
   tail call void @free(ptr noundef nonnull %18) #16
   br label %SparseMatrix_delete.exit
 
-186:                                              ; preds = %._crit_edge
+184:                                              ; preds = %._crit_edge
   %.not.i152 = icmp eq ptr %18, null
-  br i1 %.not.i152, label %SparseMatrix_delete.exit, label %187
+  br i1 %.not.i152, label %SparseMatrix_delete.exit, label %185
 
-187:                                              ; preds = %186
-  %188 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %188) #16
-  %189 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %189) #16
-  %190 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %191 = load ptr, ptr %190, align 8
-  tail call void @free(ptr noundef %191) #16
+185:                                              ; preds = %184
+  tail call void @free(ptr noundef %24) #16
+  tail call void @free(ptr noundef %26) #16
+  %186 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %187 = load ptr, ptr %186, align 8
+  tail call void @free(ptr noundef %187) #16
   tail call void @free(ptr noundef nonnull %18) #16
   br label %SparseMatrix_delete.exit
 
@@ -458,30 +454,30 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   br i1 %32, label %.lr.ph201.preheader, label %._crit_edge202
 
 .lr.ph201.preheader:                              ; preds = %.loopexit154
-  %192 = zext nneg i32 %11 to i64
+  %188 = zext nneg i32 %11 to i64
   br label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
-  %indvars.iv248 = phi i64 [ %192, %.lr.ph201.preheader ], [ %indvars.iv.next249, %.lr.ph201 ]
+  %indvars.iv248 = phi i64 [ %188, %.lr.ph201.preheader ], [ %indvars.iv.next249, %.lr.ph201 ]
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, -1
-  %193 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next249
-  %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv248
-  store i32 %194, ptr %195, align 4
-  %196 = icmp samesign ugt i64 %indvars.iv248, 1
-  br i1 %196, label %.lr.ph201, label %._crit_edge202
+  %189 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next249
+  %190 = load i32, ptr %189, align 4
+  %191 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv248
+  store i32 %190, ptr %191, align 4
+  %192 = icmp samesign ugt i64 %indvars.iv248, 1
+  br i1 %192, label %.lr.ph201, label %._crit_edge202
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %.loopexit154
   store i32 0, ptr %24, align 4
   br label %SparseMatrix_delete.exit
 
-SparseMatrix_delete.exit:                         ; preds = %187, %186, %181, %180, %1, %._crit_edge202
-  %.0 = phi ptr [ %18, %._crit_edge202 ], [ null, %1 ], [ null, %180 ], [ null, %181 ], [ null, %186 ], [ null, %187 ]
+SparseMatrix_delete.exit:                         ; preds = %185, %184, %181, %180, %1, %._crit_edge202
+  %.0 = phi ptr [ %18, %._crit_edge202 ], [ null, %1 ], [ null, %180 ], [ null, %181 ], [ null, %184 ], [ null, %185 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SparseMatrix_delete(ptr noundef %0) local_unnamed_addr #1 {
+define void @SparseMatrix_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -503,7 +499,7 @@ define void @SparseMatrix_delete(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_make_undirected(ptr noundef %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_make_undirected(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @SparseMatrix_symmetrize(ptr noundef %0, i1 noundef zeroext false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %4 = load i32, ptr %3, align 4
@@ -514,7 +510,7 @@ define noundef ptr @SparseMatrix_make_undirected(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_symmetrize(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_symmetrize(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %3, label %4, label %6
 
@@ -551,7 +547,7 @@ SparseMatrix_delete.exit:                         ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @SparseMatrix_remove_upper(ptr noundef %0) local_unnamed_addr #2 {
+define noundef ptr @SparseMatrix_remove_upper(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %129, label %2
 
@@ -830,7 +826,7 @@ define noundef ptr @SparseMatrix_remove_upper(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define noalias noundef ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %switch.tableidx = add i32 %3, -1
   %6 = icmp ult i32 %switch.tableidx, 4
   br i1 %6, label %switch.lookup, label %size_of_matrix_type.exit
@@ -856,34 +852,34 @@ size_of_matrix_type.exit:                         ; preds = %5, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @SparseMatrix_is_symmetric(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %221, label %3
+  br i1 %.not, label %219, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
   %.not203 = icmp eq i32 %6, 0
-  br i1 %.not203, label %7, label %221
+  br i1 %.not203, label %7, label %219
 
 7:                                                ; preds = %3
   %8 = and i32 %5, 1
   %.not204 = icmp ne i32 %8, 0
   %or.cond.not = and i1 %1, %.not204
-  br i1 %or.cond.not, label %221, label %9
+  br i1 %or.cond.not, label %219, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not205 = icmp eq i32 %10, %12
-  br i1 %.not205, label %13, label %221
+  br i1 %.not205, label %13, label %219
 
 13:                                               ; preds = %9
   %14 = tail call ptr @SparseMatrix_transpose(ptr noundef nonnull %0)
   %.not206 = icmp eq ptr %14, null
-  br i1 %.not206, label %221, label %15
+  br i1 %.not206, label %219, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1361,23 +1357,21 @@ gv_calloc.exit:                                   ; preds = %15
 SparseMatrix_delete.exit:                         ; preds = %.lr.ph256, %.lr.ph266, %.lr.ph269, %.lr.ph276, %.lr.ph284, %141, %.lr.ph287, %.lr.ph293, %.lr.ph301, %.lr.ph304, %.loopexit217, %._crit_edge
   %.0190 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit217 ], [ false, %.lr.ph304 ], [ false, %.lr.ph301 ], [ false, %.lr.ph293 ], [ false, %.lr.ph287 ], [ false, %141 ], [ false, %.lr.ph284 ], [ false, %.lr.ph276 ], [ false, %.lr.ph269 ], [ false, %.lr.ph266 ], [ false, %.lr.ph256 ]
   tail call void @free(ptr noundef %40) #16
-  %217 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %217) #16
-  %218 = load ptr, ptr %22, align 8
+  tail call void @free(ptr noundef %21) #16
+  tail call void @free(ptr noundef %23) #16
+  %217 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %218 = load ptr, ptr %217, align 8
   tail call void @free(ptr noundef %218) #16
-  %219 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %220 = load ptr, ptr %219, align 8
-  tail call void @free(ptr noundef %220) #16
   tail call void @free(ptr noundef nonnull %14) #16
-  br label %221
+  br label %219
 
-221:                                              ; preds = %13, %9, %7, %3, %2, %SparseMatrix_delete.exit
+219:                                              ; preds = %13, %9, %7, %3, %2, %SparseMatrix_delete.exit
   %.0 = phi i1 [ %.0190, %SparseMatrix_delete.exit ], [ false, %2 ], [ true, %3 ], [ true, %7 ], [ false, %9 ], [ false, %13 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @SparseMatrix_copy(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @SparseMatrix_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %2
 
@@ -1461,7 +1455,7 @@ SparseMatrix_general_new.exit:                    ; preds = %2, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2143,7 +2137,7 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned initializes((40, 48)) %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned captures(ret: address, provenance) initializes((40, 48)) %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = zext nneg i32 %1 to i64
@@ -2260,7 +2254,7 @@ gv_calloc.exit30:                                 ; preds = %37
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @SparseMatrix_general_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define noalias noundef ptr @SparseMatrix_general_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = tail call fastcc ptr @SparseMatrix_init(i32 noundef %0, i32 noundef %1, i32 noundef %3, i64 noundef %4, i32 noundef %5)
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %9, label %11
@@ -3322,7 +3316,7 @@ define void @SparseMatrix_multiply_dense(ptr noundef readonly captures(none) %0,
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SparseMatrix_multiply_vector(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @SparseMatrix_multiply_vector(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4323,7 +4317,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_multiply3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_multiply3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4680,7 +4674,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_sum_repeat_entries(ptr noundef %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_sum_repeat_entries(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5079,7 +5073,7 @@ gv_calloc.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef returned %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef returned captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
@@ -5280,7 +5274,7 @@ SparseMatrix_realloc.exit:                        ; preds = %16, %30, %gv_calloc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef %0) local_unnamed_addr #2 {
+define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %122, label %2
 
@@ -5555,7 +5549,7 @@ define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %66, label %2
 
@@ -5700,7 +5694,7 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %2
 
@@ -5811,7 +5805,7 @@ gv_calloc.exit:                                   ; preds = %SparseMatrix_delete
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_apply_fun(ptr noundef readonly returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_apply_fun(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit25, label %3
 
@@ -5936,7 +5930,7 @@ define noundef zeroext i1 @SparseMatrix_has_diagonal(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @SparseMatrix_weakly_connected_components(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_weakly_connected_components(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6846,7 +6840,7 @@ gv_calloc.exit91:                                 ; preds = %37
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_to_square_matrix(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_to_square_matrix(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %23 [
     i32 0, label %3
     i32 1, label %8
@@ -6911,7 +6905,7 @@ SparseMatrix_delete.exit:                         ; preds = %25, %23, %20, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_get_submatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_get_submatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7682,7 +7676,7 @@ gv_calloc.exit304:                                ; preds = %.thread328, %299
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_set_entries_to_real_one(ptr noundef returned %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_set_entries_to_real_one(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
@@ -7741,7 +7735,7 @@ gv_calloc.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @SparseMatrix_from_dense(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define noalias noundef ptr @SparseMatrix_from_dense(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = mul nsw i32 %1, %0
   %5 = tail call fastcc ptr @SparseMatrix_init(i32 noundef %0, i32 noundef %1, i32 noundef 1, i64 noundef 8, i32 noundef 0)
   %6 = icmp sgt i32 %4, 0
@@ -7761,70 +7755,69 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
 .lr.ph.preheader:                                 ; preds = %SparseMatrix_new.exit
   %11 = add nuw i32 %0, 1
   %wide.trip.count = zext i32 %11 to i64
+  %load_initial = load i32, ptr %10, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr i32, ptr %12, i64 %indvars.iv
-  %14 = getelementptr i8, ptr %13, i64 -4
-  %15 = load i32, ptr %14, align 4
-  %16 = add nsw i32 %15, %1
-  store i32 %16, ptr %13, align 4
+  %12 = getelementptr i32, ptr %10, i64 %indvars.iv
+  %13 = add nsw i32 %store_forwarded, %1
+  store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.lr.ph, label %.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.lr.ph
-  %17 = icmp sgt i32 %1, 0
-  %18 = sext i32 %1 to i64
-  br i1 %17, label %.preheader.us.preheader, label %._crit_edge51
+  %14 = icmp sgt i32 %1, 0
+  %15 = sext i32 %1 to i64
+  br i1 %14, label %.preheader.us.preheader, label %._crit_edge51
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = zext nneg i32 %1 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = zext nneg i32 %1 to i64
   %wide.trip.count62 = zext nneg i32 %0 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge47.us
   %indvars.iv59 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next60, %._crit_edge47.us ]
-  %.03749.us = phi ptr [ %22, %.preheader.us.preheader ], [ %31, %._crit_edge47.us ]
-  %.03848.us = phi ptr [ %20, %.preheader.us.preheader ], [ %30, %._crit_edge47.us ]
-  %24 = mul nuw nsw i64 %indvars.iv59, %23
-  %invariant.gep = getelementptr inbounds nuw double, ptr %2, i64 %24
-  br label %25
+  %.03749.us = phi ptr [ %19, %.preheader.us.preheader ], [ %28, %._crit_edge47.us ]
+  %.03848.us = phi ptr [ %17, %.preheader.us.preheader ], [ %27, %._crit_edge47.us ]
+  %21 = mul nuw nsw i64 %indvars.iv59, %20
+  %invariant.gep = getelementptr inbounds nuw double, ptr %2, i64 %21
+  br label %22
 
-25:                                               ; preds = %.preheader.us, %25
-  %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %indvars.iv54
-  %27 = trunc nuw nsw i64 %indvars.iv54 to i32
-  store i32 %27, ptr %26, align 4
+22:                                               ; preds = %.preheader.us, %22
+  %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %22 ]
+  %23 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %indvars.iv54
+  %24 = trunc nuw nsw i64 %indvars.iv54 to i32
+  store i32 %24, ptr %23, align 4
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv54
-  %28 = load double, ptr %gep, align 8
-  %29 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %indvars.iv54
-  store double %28, ptr %29, align 8
+  %25 = load double, ptr %gep, align 8
+  %26 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %indvars.iv54
+  store double %25, ptr %26, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %23
-  br i1 %exitcond58.not, label %._crit_edge47.us, label %25
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %20
+  br i1 %exitcond58.not, label %._crit_edge47.us, label %22
 
-._crit_edge47.us:                                 ; preds = %25
-  %30 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %18
-  %31 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %23
+._crit_edge47.us:                                 ; preds = %22
+  %27 = getelementptr inbounds nuw i32, ptr %.03848.us, i64 %15
+  %28 = getelementptr inbounds nuw double, ptr %.03749.us, i64 %20
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge51, label %.preheader.us
 
 ._crit_edge51:                                    ; preds = %._crit_edge47.us, %SparseMatrix_new.exit, %.preheader.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %4, ptr %32, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %4, ptr %29, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SparseMatrix_distance_matrix(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define void @SparseMatrix_distance_matrix(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

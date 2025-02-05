@@ -94,7 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.96 = private unnamed_addr constant [6 x i8] c"slice\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [256 x ptr], align 16
   %7 = load i8, ptr %0, align 1
   %.not53 = icmp eq i8 %7, 0
@@ -4204,7 +4204,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nsvgDelete(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @nsvgDelete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -4280,7 +4280,7 @@ nsvg__deletePaint.exit12:                         ; preds = %nsvg__deletePaint.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noalias noundef ptr @nsvgDuplicatePath(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local noalias noundef ptr @nsvgDuplicatePath(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %23, label %3
 
@@ -4349,7 +4349,7 @@ define dso_local noalias noundef ptr @nsvgCreateRasterizer() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @nsvgDeleteRasterizer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 
@@ -10608,7 +10608,7 @@ nsvg__parseSkewY.exit:                            ; preds = %253, %.preheader37.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 42949672960) i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #14 {
+define internal fastcc range(i64 0, 42949672960) i64 @nsvg__parseCoordinateRaw(ptr noundef captures(none) %0) unnamed_addr #14 {
   %2 = alloca [64 x i8], align 16
   %3 = call fastcc ptr @nsvg__parseNumber(ptr noundef %0, ptr noundef %2)
   %4 = load i8, ptr %3, align 1
@@ -10798,7 +10798,7 @@ nsvg__parseColorName.exit:                        ; preds = %51, %57, %49, %nsvg
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc float @nsvg__parseCoordinate(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3) unnamed_addr #14 {
+define internal fastcc float @nsvg__parseCoordinate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3) unnamed_addr #14 {
   %5 = tail call fastcc i64 @nsvg__parseCoordinateRaw(ptr noundef %1)
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
   %6 = bitcast i32 %.sroa.0.0.extract.trunc.i to float
@@ -11036,16 +11036,16 @@ nsvg__getNextDashItem.exit:                       ; preds = %.critedge2.i, %10, 
 
 71:                                               ; preds = %37
   %72 = fmul float %.val21, %.val21
-  %73 = call float @llvm.fmuladd.f32(float %.val, float %.val, float %72)
-  %sqrt.i = call float @llvm.sqrt.f32(float %73)
+  %73 = tail call float @llvm.fmuladd.f32(float %.val, float %.val, float %72)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %73)
   %74 = fdiv float %sqrt.i, 0x3FF6A09E60000000
   %75 = fdiv float %39, 1.000000e+02
-  %76 = call float @llvm.fmuladd.f32(float %75, float %74, float 0.000000e+00)
+  %76 = tail call float @llvm.fmuladd.f32(float %75, float %74, float 0.000000e+00)
   br label %nsvg__parseCoordinate.exit
 
 nsvg__parseCoordinate.exit:                       ; preds = %37, %43, %47, %51, %55, %59, %62, %66, %71
   %.0.i.i = phi float [ %76, %71 ], [ %70, %66 ], [ %65, %62 ], [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %39, %37 ]
-  %77 = call float @llvm.fabs.f32(float %.0.i.i)
+  %77 = tail call float @llvm.fabs.f32(float %.0.i.i)
   %78 = add nsw i32 %.01727, 1
   %79 = sext i32 %.01727 to i64
   %80 = getelementptr inbounds float, ptr %2, i64 %79
@@ -11510,7 +11510,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #22
 declare float @llvm.fabs.f32(float) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #23 {
+define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #23 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %6 [
     i8 45, label %4

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZN17double_conversion6Bignum20MultiplyByPowerOfTenEiE12kFive1_to_12 = internal unnamed_addr constant [12 x i32] [i32 5, i32 25, i32 125, i32 625, i32 3125, i32 15625, i32 78125, i32 390625, i32 1953125, i32 9765625, i32 48828125, i32 244140625], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %bigits_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom = sext i32 %index to i64
@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %bigits_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom = sext i32 %index to i64

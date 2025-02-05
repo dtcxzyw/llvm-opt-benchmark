@@ -579,7 +579,7 @@ define dso_local void @_ZN4llvm25ComplexDeinterleavingPass3runERNS_8FunctionERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121ComplexDeinterleaving13runOnFunctionERN4llvm8FunctionE(ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121ComplexDeinterleaving13runOnFunctionERN4llvm8FunctionE(ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0) unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.475", align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::IRBuilder", align 8
@@ -8995,7 +8995,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !198
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !204
@@ -10300,22 +10300,23 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 
 98:                                               ; preds = %92
   %99 = atomicrmw volatile add ptr %93, i32 1 acq_rel, align 4
+  %.pre = load ptr, ptr %10, align 8, !tbaa !198
+  %.pre63 = load ptr, ptr %90, align 8, !tbaa !204
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39: ; preds = %87, %95, %98
+  %100 = phi ptr [ null, %87 ], [ %.val5, %95 ], [ %.pre63, %98 ]
+  %101 = phi ptr [ %.val11, %87 ], [ %.val11, %95 ], [ %.pre, %98 ]
   call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %17)
-  %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.val14 = load ptr, ptr %100, align 8, !tbaa !204
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.val14 = load ptr, ptr %102, align 8, !tbaa !204
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val14) #26
   %.val13 = load ptr, ptr %91, align 8, !tbaa !204
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val13) #26
-  %101 = load ptr, ptr %10, align 8, !tbaa !198
   store ptr %101, ptr %0, align 8, !tbaa !198
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %90, align 8, !tbaa !204
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %90, align 8, !tbaa !204
-  store ptr %103, ptr %102, align 8, !tbaa !204
-  store ptr null, ptr %10, align 8, !tbaa !198
+  store ptr %100, ptr %103, align 8, !tbaa !204
   br label %104
 
 104:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39, %86, %67
@@ -14062,7 +14063,7 @@ _ZN4llvm11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %3) unnamed_addr #1 align 2 {
   %.sroa.034.050 = load ptr, ptr %2, align 8, !tbaa !316
   %.not51 = icmp eq ptr %.sroa.034.050, %2
   br i1 %.not51, label %._crit_edge, label %.preheader.lr.ph
@@ -18203,7 +18204,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDei
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #19 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -18226,7 +18227,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5

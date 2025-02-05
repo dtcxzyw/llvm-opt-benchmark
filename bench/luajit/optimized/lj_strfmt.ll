@@ -220,7 +220,7 @@ return:                                           ; preds = %retlit, %if.end120,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @lj_strfmt_wint(ptr noundef writeonly %p, i32 noundef %k) local_unnamed_addr #1 {
+define hidden nonnull ptr @lj_strfmt_wint(ptr noundef writeonly captures(ret: address, provenance) %p, i32 noundef %k) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %k, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -393,7 +393,7 @@ dig1:                                             ; preds = %if.then2, %dig2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly initializes((0, 2)) %p, ptr noundef %v) local_unnamed_addr #2 {
+define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 2)) %p, ptr noundef %v) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %v to i64
   %cmp = icmp eq ptr %v, null
@@ -461,7 +461,7 @@ return:                                           ; preds = %for.end, %if.then
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly %p, i32 noundef %v) local_unnamed_addr #2 {
+define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly captures(ret: address, provenance) %p, i32 noundef %v) local_unnamed_addr #2 {
 entry:
   %cmp6 = icmp ugt i32 %v, 127
   br i1 %cmp6, label %for.body, label %for.end
@@ -2066,17 +2066,16 @@ land.lhs.true:                                    ; preds = %cond.end
 if.then59:                                        ; preds = %land.lhs.true
   store i64 2553093987521623394, ptr %incdec.ptr49, align 1
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i77, i64 10
-  %5 = load i8, ptr %ffid, align 2
-  %conv64 = zext i8 %5 to i32
+  %conv64 = zext i8 %4 to i32
   %call65 = call ptr @lj_strfmt_wint(ptr noundef nonnull %add.ptr.i, i32 noundef %conv64)
   br label %if.end
 
 if.else66:                                        ; preds = %land.lhs.true, %cond.end
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
-  %6 = load i64, ptr %glref, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %call67 = tail call ptr @lj_obj_ptr(ptr noundef %7, ptr noundef nonnull %o) #12
-  %8 = ptrtoint ptr %call67 to i64
+  %5 = load i64, ptr %glref, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %call67 = tail call ptr @lj_obj_ptr(ptr noundef %6, ptr noundef nonnull %o) #12
+  %7 = ptrtoint ptr %call67 to i64
   %cmp.i = icmp eq ptr %call67, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -2096,36 +2095,36 @@ if.end.i:                                         ; preds = %if.else66
   br i1 %tobool.not.i, label %for.body.preheader.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %shr.i = lshr i64 %8, 32
+  %shr.i = lshr i64 %7, 32
   %conv.i = trunc nuw i64 %shr.i to i32
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
-  %10 = lshr i32 %9, 2
-  %shr5.i = and i32 %10, 6
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
+  %9 = lshr i32 %8, 2
+  %shr5.i = and i32 %9, 6
   %mul.i = xor i32 %shr5.i, 6
-  %11 = add nuw nsw i32 %mul.i, 12
+  %10 = add nuw nsw i32 %mul.i, 12
   br label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %cond.true.i, %if.end.i
-  %cond.i = phi i32 [ %11, %cond.true.i ], [ 10, %if.end.i ]
+  %cond.i = phi i32 [ %10, %cond.true.i ], [ 10, %if.end.i ]
   store i8 48, ptr %incdec.ptr49, align 1
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i77, i64 3
   store i8 120, ptr %arrayidx7.i, align 1
   %i.016.i = add nsw i32 %cond.i, -1
-  %12 = zext nneg i32 %i.016.i to i64
+  %11 = zext nneg i32 %i.016.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %12, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %x.018.i = phi i64 [ %8, %for.body.preheader.i ], [ %shr12.i, %for.body.i ]
+  %indvars.iv.i = phi i64 [ %11, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %x.018.i = phi i64 [ %7, %for.body.preheader.i ], [ %shr12.i, %for.body.i ]
   %and.i = and i64 %x.018.i, 15
   %arrayidx10.i = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %and.i
-  %13 = load i8, ptr %arrayidx10.i, align 1
+  %12 = load i8, ptr %arrayidx10.i, align 1
   %arrayidx11.i = getelementptr inbounds nuw i8, ptr %incdec.ptr49, i64 %indvars.iv.i
-  store i8 %13, ptr %arrayidx11.i, align 1
+  store i8 %12, ptr %arrayidx11.i, align 1
   %shr12.i = ashr i64 %x.018.i, 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %14 = and i64 %indvars.iv.next.i, 4294967294
-  %cmp8.not.i = icmp eq i64 %14, 0
+  %13 = and i64 %indvars.iv.next.i, 4294967294
+  %cmp8.not.i = icmp eq i64 %13, 0
   br i1 %cmp8.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i

@@ -20629,8 +20629,6 @@ invoke.cont25:                                    ; preds = %if.then20.invoke.co
   %idxprom11.i.i = zext i32 %109 to i64
   %value13.i.i = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %108, i64 %idxprom11.i.i, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vTmpMax, i64 16, i1 false)
-  %flags.i10.i.i = getelementptr inbounds nuw i8, ptr %vTmpMax, i64 14
-  store i16 0, ptr %flags.i10.i.i, align 2
   %110 = load i32, ptr %obj, align 8
   %inc.i.i = add i32 %110, 1
   store i32 %inc.i.i, ptr %obj, align 8
@@ -20738,8 +20736,6 @@ invoke.cont40:                                    ; preds = %if.else.invoke.cont
   %idxprom11.i.i252 = zext i32 %135 to i64
   %value13.i.i253 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %134, i64 %idxprom11.i.i252, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i253, ptr noundef nonnull align 8 dereferenceable(16) %vTmpMax, i64 16, i1 false)
-  %flags.i10.i.i254 = getelementptr inbounds nuw i8, ptr %vTmpMax, i64 14
-  store i16 0, ptr %flags.i10.i.i254, align 2
   %136 = load i32, ptr %obj, align 8
   %inc.i.i255 = add i32 %136, 1
   store i32 %inc.i.i255, ptr %obj, align 8
@@ -20805,8 +20801,6 @@ if.end50:                                         ; preds = %if.then.i.i.i291, %
   %idxprom11.i.i287 = zext i32 %150 to i64
   %value13.i.i288 = getelementptr inbounds nuw %"class.rapidjson::GenericMember", ptr %149, i64 %idxprom11.i.i287, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i288, ptr noundef nonnull align 8 dereferenceable(16) %vTmpMin, i64 16, i1 false)
-  %flags.i10.i.i289 = getelementptr inbounds nuw i8, ptr %vTmpMin, i64 14
-  store i16 0, ptr %flags.i10.i.i289, align 2
   %storemerge.in = load i32, ptr %obj, align 8
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %obj, align 8
@@ -21218,7 +21212,7 @@ return:                                           ; preds = %if.end.i.i38, %_ZN9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds nuw i8, ptr %val, i64 14
@@ -21340,7 +21334,7 @@ for.end:                                          ; preds = %_ZN9rapidjson12Gene
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds nuw i8, ptr %val, i64 14

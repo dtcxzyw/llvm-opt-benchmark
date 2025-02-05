@@ -9364,7 +9364,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef readonly %font, float noundef %font_size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, ptr noundef readonly %cpu_fine_clip_rect) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef readonly captures(address_is_null) %font, float noundef %font_size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, ptr noundef readonly captures(address_is_null) %cpu_fine_clip_rect) local_unnamed_addr #7 align 2 {
 entry:
   %clip_rect = alloca %struct.ImVec4, align 4
   %cmp = icmp ult i32 %col, 16777216
@@ -12352,7 +12352,7 @@ _ZN8ImVectorIP6ImFontE12clear_deleteEv.exit:      ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %out_pixels, ptr noundef writeonly captures(address_is_null) %out_width, ptr noundef writeonly captures(address_is_null) %out_height, ptr noundef writeonly captures(address_is_null) %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i.i = alloca %struct.ImFontConfig, align 8
   %TexPixelsAlpha8 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -12546,7 +12546,7 @@ if.end5:                                          ; preds = %if.end.if.end5_crit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) %out_pixels, ptr noundef writeonly captures(address_is_null) %out_width, ptr noundef writeonly captures(address_is_null) %out_height, ptr noundef writeonly captures(address_is_null) %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i.i.i = alloca %struct.ImFontConfig, align 8
   %TexPixelsRGBA32 = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -12998,7 +12998,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly %font_cfg_template) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(address_is_null) %font_cfg_template) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg = alloca %struct.ImFontConfig, align 8
   %tobool.not = icmp eq ptr %font_cfg_template, null
@@ -13067,7 +13067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(none) %compressed_ttf_data_base85, float noundef %size_pixels, ptr noundef %font_cfg, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(none) %compressed_ttf_data_base85, float noundef %size_pixels, ptr noundef captures(address_is_null) %font_cfg, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compressed_ttf_data_base85) #41
   %conv = trunc i64 %call to i32
@@ -13147,7 +13147,7 @@ _ZL8Decode85PKhPh.exit:                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %filename, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %filename, float noundef %size_pixels, ptr noundef readonly captures(address_is_null) %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i = alloca %struct.ImFontConfig, align 8
   %data_size = alloca i64, align 8
@@ -13232,7 +13232,7 @@ return:                                           ; preds = %entry, %_ZN11ImFont
 declare noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %font_data, i32 noundef %font_data_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %font_data, i32 noundef %font_data_size, float noundef %size_pixels, ptr noundef readonly captures(address_is_null) %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg = alloca %struct.ImFontConfig, align 8
   %tobool.not = icmp eq ptr %font_cfg_template, null
@@ -13269,7 +13269,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %compressed_ttf_data, i32 %compressed_ttf_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %compressed_ttf_data, i32 %compressed_ttf_size, float noundef %size_pixels, ptr noundef readonly captures(address_is_null) %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i = alloca %struct.ImFontConfig, align 8
   %font_cfg = alloca %struct.ImFontConfig, align 8
@@ -21246,7 +21246,7 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %atlas, ptr noundef %stbrp_context_opaque) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %atlas, ptr noundef captures(address_is_null) %stbrp_context_opaque) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %pack_rects = alloca %struct.ImVector.12, align 8
   %CustomRects = getelementptr inbounds nuw i8, ptr %atlas, i64 104
@@ -21385,7 +21385,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #28 {
+define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef captures(address_is_null) %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #28 {
 entry:
   %cmp57 = icmp sgt i32 %num_rects, 0
   br i1 %cmp57, label %for.body.preheader, label %for.end
@@ -22756,7 +22756,7 @@ for.end28:                                        ; preds = %for.inc27, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((96, 97)) %this, ptr noundef readonly %cfg, i16 noundef zeroext %codepoint, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %u0, float noundef %v0, float noundef %u1, float noundef %v1, float noundef %advance_x) local_unnamed_addr #7 align 2 {
+define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((96, 97)) %this, ptr noundef readonly captures(address_is_null) %cfg, i16 noundef zeroext %codepoint, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %u0, float noundef %v0, float noundef %u1, float noundef %v1, float noundef %advance_x) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq ptr %cfg, null
   br i1 %cmp.not, label %if.end15, label %if.then
@@ -24622,7 +24622,7 @@ while.end:                                        ; preds = %while.cond.outer.ou
 }
 
 ; Function Attrs: mustprogress uwtable
-define <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, float noundef %size, float noundef %max_width, float noundef %wrap_width, ptr noundef %text_begin, ptr noundef %text_end, ptr noundef writeonly %remaining) local_unnamed_addr #0 align 2 {
+define <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, float noundef %size, float noundef %max_width, float noundef %wrap_width, ptr noundef %text_begin, ptr noundef %text_end, ptr noundef writeonly captures(address_is_null) %remaining) local_unnamed_addr #0 align 2 {
 entry:
   %c = alloca i32, align 4
   %tobool.not = icmp eq ptr %text_end, null
@@ -26965,7 +26965,7 @@ return:                                           ; preds = %if.end250, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %ix0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) unnamed_addr #18 {
+define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %ix0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %iy0, ptr noundef writeonly captures(address_is_null) %ix1, ptr noundef writeonly captures(address_is_null) %iy1) unnamed_addr #18 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
   %size.i = getelementptr inbounds nuw i8, ptr %font, i64 76
@@ -30744,7 +30744,7 @@ return:                                           ; preds = %_ZL22stbtt__GetGlyp
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef captures(address_is_null) %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -30817,7 +30817,7 @@ return:                                           ; preds = %if.then10, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef captures(address_is_null) %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
 entry:
   %smax = tail call i32 @llvm.smax.i32(i32 %n, i32 17)
   %exitcond62 = icmp sgt i32 %n, 16

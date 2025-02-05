@@ -2806,7 +2806,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4absl18container_internal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4absl18container_internal12_GLOBAL__N_110AllocStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #12 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4absl18container_internal12_GLOBAL__N_110AllocStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #12 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -23679,29 +23679,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmp.i)
-  %cmp.i = icmp eq ptr %u, %t1
-  br i1 %cmp.i, label %invoke.cont8, label %if.end.i
-
-if.end.i:                                         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i.i.i)
           to label %.noexc unwind label %lpad
 
-.noexc:                                           ; preds = %if.end.i
+.noexc:                                           ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
   %call2.i = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i) #28
-  br label %invoke.cont8
-
-lpad.i:                                           ; preds = %.noexc
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i) #28
-  br label %ehcleanup78
-
-invoke.cont8:                                     ; preds = %invoke.cont.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmp.i)
   store i64 8589934595, ptr %ref.tmp4, align 8, !alias.scope !698
   %a1.val = load ptr, ptr %state_3.i.i.i.i.i.i, align 8
@@ -23710,12 +23697,18 @@ invoke.cont8:                                     ; preds = %invoke.cont.i, %_ZN
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJiiEEEEclImEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp4, ptr noundef nonnull @.str.68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
           to label %invoke.cont12 unwind label %lpad
 
-invoke.cont12:                                    ; preds = %invoke.cont8
+lpad.i:                                           ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i) #28
+  br label %ehcleanup78
+
+invoke.cont12:                                    ; preds = %invoke.cont.i
   %13 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %13 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %if.end.i.i, %if.then.i.i, %if.end.i, %invoke.cont33, %invoke.cont8
+lpad:                                             ; preds = %if.end.i.i, %if.then.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, %invoke.cont33, %invoke.cont.i
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup78
@@ -24037,7 +24030,7 @@ ehcleanup78:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull returned align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %that) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %that) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -24652,7 +24645,7 @@ ehcleanup78:                                      ; preds = %ehcleanup77, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEEaSERKSB_(ptr noundef nonnull returned align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(56) %that) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEEaSERKSB_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %that) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.absl::container_internal::raw_hash_set.90", align 8
   %cmp = icmp eq ptr %this, %that
@@ -24897,45 +24890,38 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 
 _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIT_S9_ENSB_22SameAsElementReferenceISF_EEEE5valueEiE4typeELi0EiTnNSD_IXsr14IsDecomposableIT1_EE5valueEiE4typeELi0ETnPSF_LPi0EEESt4pairINSB_8iteratorEbEOSF_.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tmp.i)
-  %cmp.i = icmp eq ptr %u, %t1
-  br i1 %cmp.i, label %invoke.cont, label %if.end.i
-
-if.end.i:                                         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %t1, ptr noundef nonnull readonly align 8 dereferenceable(24) %add.ptr.i.i.i)
           to label %.noexc unwind label %lpad
 
-.noexc:                                           ; preds = %if.end.i
+.noexc:                                           ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
   %call2.i = invoke fastcc noundef nonnull align 8 dereferenceable(56) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE11assign_implILb1EEERSB_OSB_(ptr noundef nonnull align 8 dereferenceable(56) %u, ptr noundef nonnull align 8 dereferenceable(56) %tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i) #28
-  br label %invoke.cont
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmp.i)
+  %a1 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  call void @llvm.experimental.noalias.scope.decl(metadata !731)
+  %12 = load i64, ptr %5, align 8, !noalias !731
+  store i64 %12, ptr %ref.tmp4, align 8, !alias.scope !731
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
+  %13 = load ptr, ptr %state_.i.i.i.i.i.i, align 8, !noalias !731
+  store ptr %13, ptr %state_.i.i, align 8, !alias.scope !731
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
+  %14 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !731
+  store ptr %14, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !731
+  %cmp.not.i.i.i.i.i = icmp eq ptr %14, null
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont5, label %if.then.i.i.i.i.i21
 
 lpad.i:                                           ; preds = %.noexc
-  %12 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tmp.i) #28
   br label %ehcleanup123
 
-invoke.cont:                                      ; preds = %invoke.cont.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tmp.i)
-  %a1 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  %13 = load i64, ptr %5, align 8, !noalias !731
-  store i64 %13, ptr %ref.tmp4, align 8, !alias.scope !731
-  %state_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %14 = load ptr, ptr %state_.i.i.i.i.i.i, align 8, !noalias !731
-  store ptr %14, ptr %state_.i.i, align 8, !alias.scope !731
-  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  %15 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !731
-  store ptr %15, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !731
-  %cmp.not.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont5, label %if.then.i.i.i.i.i21
-
-if.then.i.i.i.i.i21:                              ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+if.then.i.i.i.i.i21:                              ; preds = %invoke.cont.i
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !731
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -24950,7 +24936,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i21
   %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !731
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont
+invoke.cont5:                                     ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont.i
   invoke fastcc void @_ZN7testing8internal8EqHelper7CompareIN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS4_7TrackedIiEELi7EEES9_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(24) %a1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -24958,7 +24944,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   br i1 %cmp.not.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont7
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %19, 4294967297
   %20 = trunc i64 %19 to i32
@@ -24966,12 +24952,12 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont7
 
 if.then.i.i.i.i.i22:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %15) #28
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -24994,11 +24980,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %15) #28
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 12
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -25019,10 +25005,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i22
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %15) #28
+  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
   br label %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
 
 _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
@@ -25030,7 +25016,7 @@ _ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad:                                             ; preds = %if.end.i.i98, %if.then.i.i99, %if.end.i.i, %if.then.i.i, %if.end.i, %invoke.cont78, %invoke.cont25
+lpad:                                             ; preds = %if.end.i.i98, %if.then.i.i99, %if.end.i.i, %if.then.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EmRKSA_.exit, %invoke.cont78, %invoke.cont25
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup123
@@ -25038,7 +25024,7 @@ lpad:                                             ; preds = %if.end.i.i98, %if.t
 lpad6:                                            ; preds = %invoke.cont5
   %31 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %15) #28
+  call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev(ptr %14) #28
   br label %ehcleanup123
 
 if.else:                                          ; preds = %_ZN4absl18container_internal12_GLOBAL__N_112CheckedAllocINS0_7TrackedIiEELi7EED2Ev.exit
@@ -25567,7 +25553,7 @@ ehcleanup122:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup123
 
 ehcleanup123:                                     ; preds = %lpad, %lpad.i, %ehcleanup122, %ehcleanup98, %ehcleanup69, %ehcleanup46, %ehcleanup19, %lpad6
-  %.pn12.pn.pn = phi { ptr, i32 } [ %.pn12.pn, %ehcleanup122 ], [ %.pn9.pn, %ehcleanup98 ], [ %.pn6.pn, %ehcleanup69 ], [ %.pn3.pn, %ehcleanup46 ], [ %.pn.pn, %ehcleanup19 ], [ %31, %lpad6 ], [ %30, %lpad ], [ %12, %lpad.i ]
+  %.pn12.pn.pn = phi { ptr, i32 } [ %.pn12.pn, %ehcleanup122 ], [ %.pn9.pn, %ehcleanup98 ], [ %.pn6.pn, %ehcleanup69 ], [ %.pn3.pn, %ehcleanup46 ], [ %.pn.pn, %ehcleanup19 ], [ %31, %lpad6 ], [ %30, %lpad ], [ %15, %lpad.i ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %u) #28
   br label %common.resume
 }

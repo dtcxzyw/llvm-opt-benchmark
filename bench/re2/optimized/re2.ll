@@ -1841,14 +1841,14 @@ if.then5.i.i:                                     ; preds = %release.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE210FullMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE210FullMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %re, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 2, ptr noundef null, ptr noundef %args, i32 noundef %n)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %re_anchor, ptr noundef writeonly %consumed, ptr noundef readonly %args, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %re_anchor, ptr noundef writeonly captures(address_is_null) %consumed, ptr noundef readonly captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %vec_storage = alloca %"class.absl::debian2::FixedArray", align 8
@@ -2057,14 +2057,14 @@ return:                                           ; preds = %invoke.cont11.i.i25
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3re23RE27DoMatchEN4absl7debian211string_viewENS0_6AnchorEPmPKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(148) %re, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 0, ptr noundef null, ptr noundef %args, i32 noundef %n)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE28ConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE28ConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %consumed = alloca i64, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %input, align 8
@@ -2096,7 +2096,7 @@ return:                                           ; preds = %entry, %_ZN4absl7de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23RE215FindAndConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3re23RE215FindAndConsumeNEPN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr noundef captures(none) %input, ptr noundef nonnull align 8 dereferenceable(148) %re, ptr noundef captures(address_is_null) %args, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %consumed = alloca i64, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %input, align 8
@@ -2227,7 +2227,7 @@ return:                                           ; preds = %_ZN4absl7debian211s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 80) i32 @_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE(ptr readonly %rewrite.coerce0, i64 %rewrite.coerce1) local_unnamed_addr #12 align 2 {
+define noundef range(i32 0, 80) i32 @_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE(ptr readonly captures(address) %rewrite.coerce0, i64 %rewrite.coerce1) local_unnamed_addr #12 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %rewrite.coerce0, i64 %rewrite.coerce1
   %cmp13 = icmp sgt i64 %rewrite.coerce1, 0
@@ -3860,7 +3860,7 @@ declare noundef zeroext i1 @_ZN3re24Prog14SearchBitStateEN4absl7debian211string_
 declare noundef zeroext i1 @_ZN3re24Prog9SearchNFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432), ptr, i64, ptr, i64, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK3re23RE218CheckRewriteStringEN4absl7debian211string_viewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this, ptr readonly %rewrite.coerce0, i64 %rewrite.coerce1, ptr noundef %error) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3re23RE218CheckRewriteStringEN4absl7debian211string_viewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this, ptr readonly captures(address) %rewrite.coerce0, i64 %rewrite.coerce1, ptr noundef %error) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3944,7 +3944,7 @@ return:                                           ; preds = %for.end, %_ZN4absl7
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIvEEbPKcmPT_(ptr noundef readnone captures(none) %str, i64 noundef %n, ptr noundef readnone %dest) local_unnamed_addr #14 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIvEEbPKcmPT_(ptr noundef readnone captures(none) %str, i64 noundef %n, ptr noundef readnone captures(address_is_null) %dest) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %dest, null
   ret i1 %cmp
@@ -3967,7 +3967,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIN4absl7debian211string_viewEEEbPKcmPT_(ptr noundef %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #15 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIN4absl7debian211string_viewEEEbPKcmPT_(ptr noundef %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #15 {
 entry:
   %cmp = icmp eq ptr %dest, null
   br i1 %cmp, label %return, label %if.end
@@ -3991,7 +3991,7 @@ return:                                           ; preds = %entry, %_ZN4absl7de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIcEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #16 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIcEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #16 {
 entry:
   %cmp.not = icmp eq i64 %n, 1
   %cmp1 = icmp ne ptr %dest, null
@@ -4008,7 +4008,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIaEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #16 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIaEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #16 {
 entry:
   %cmp.not = icmp eq i64 %n, 1
   %cmp1 = icmp ne ptr %dest, null
@@ -4025,7 +4025,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIhEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #16 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIhEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #16 {
 entry:
   %cmp.not = icmp eq i64 %n, 1
   %cmp1 = icmp ne ptr %dest, null
@@ -4042,7 +4042,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIfEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIfEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #17 {
 entry:
   %buf = alloca [201 x i8], align 16
   %end = alloca ptr, align 8
@@ -4176,7 +4176,7 @@ declare ptr @__errno_location() local_unnamed_addr #18
 declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIdEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIdEEbPKcmPT_(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #17 {
 entry:
   %buf = alloca [201 x i8], align 16
   %end = alloca ptr, align 8
@@ -4307,7 +4307,7 @@ return:                                           ; preds = %if.end8, %if.end5, 
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIlEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf = alloca [33 x i8], align 16
   %end = alloca ptr, align 8
@@ -4417,7 +4417,7 @@ return:                                           ; preds = %if.end8, %if.end5, 
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf = alloca [33 x i8], align 16
   %end = alloca ptr, align 8
@@ -4532,7 +4532,7 @@ return:                                           ; preds = %if.end11, %if.end8,
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIsEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIsEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf.i = alloca [33 x i8], align 16
   %end.i = alloca ptr, align 8
@@ -4654,7 +4654,7 @@ return:                                           ; preds = %_ZN3re212re2_intern
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseItEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseItEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %r = alloca i64, align 8
   %call = call noundef zeroext i1 @_ZN3re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef %str, i64 noundef %n, ptr noundef nonnull %r, i32 noundef %radix)
@@ -4680,7 +4680,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIiEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIiEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf.i = alloca [33 x i8], align 16
   %end.i = alloca ptr, align 8
@@ -4802,7 +4802,7 @@ return:                                           ; preds = %_ZN3re212re2_intern
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIjEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIjEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %r = alloca i64, align 8
   %call = call noundef zeroext i1 @_ZN3re212re2_internal5ParseImEEbPKcmPT_i(ptr noundef %str, i64 noundef %n, ptr noundef nonnull %r, i32 noundef %radix)
@@ -4828,7 +4828,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIxEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIxEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf = alloca [33 x i8], align 16
   %end = alloca ptr, align 8
@@ -4938,7 +4938,7 @@ return:                                           ; preds = %if.end8, %if.end5, 
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3re212re2_internal5ParseIyEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly %dest, i32 noundef %radix) local_unnamed_addr #17 {
+define noundef zeroext i1 @_ZN3re212re2_internal5ParseIyEEbPKcmPT_i(ptr noundef readonly captures(none) %str, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %radix) local_unnamed_addr #17 {
 entry:
   %buf = alloca [33 x i8], align 16
   %end = alloca ptr, align 8

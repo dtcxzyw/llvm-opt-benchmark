@@ -824,7 +824,7 @@ CORD__call_oom_fn.exit36:                         ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i64 @CORD_len(ptr noundef readonly %0) local_unnamed_addr #10 {
+define i64 @CORD_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -1416,7 +1416,7 @@ CORD_substr_closure.exit:                         ; preds = %79, %89, %162, %155
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.loopexit, label %.lr.ph
 
@@ -1573,7 +1573,7 @@ define i32 @CORD_iter(ptr noundef %0, ptr noundef readonly captures(none) %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CORD_riter4(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CORD_riter4(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %52, %4
@@ -1717,7 +1717,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CORD_riter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CORD_riter(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %CORD_len.exit.thread, label %5
 

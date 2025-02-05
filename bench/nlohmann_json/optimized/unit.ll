@@ -853,7 +853,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %in) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(40) initializes((0, 8)) %this, ptr noundef %in) local_unnamed_addr #2 align 2 {
 entry:
   store ptr %in, ptr %this, align 8
   ret ptr %this
@@ -1165,7 +1165,7 @@ entry:
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, i32 noundef %sz) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((23, 24)) %this, i32 noundef %sz) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %sz, 24
   br i1 %cmp, label %if.then, label %if.else
@@ -1524,7 +1524,7 @@ _ZN7doctest6String4copyERKS0_.exit:               ; preds = %if.then.i, %_ZN7doc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1597,7 +1597,7 @@ if.end3:                                          ; preds = %_ZN7doctest6String8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringpLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringpLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -1740,7 +1740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN7doctest6StringixEj(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %i) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN7doctest6StringixEj(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %this, i32 noundef %i) local_unnamed_addr #15 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -3220,14 +3220,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx7epsilonEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((0, 8)) %this, double noundef %newEpsilon) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx7epsilonEd(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((0, 8)) %this, double noundef %newEpsilon) local_unnamed_addr #2 align 2 {
 entry:
   store double %newEpsilon, ptr %this, align 8
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx5scaleEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((8, 16)) %this, double noundef %newScale) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx5scaleEd(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((8, 16)) %this, double noundef %newScale) local_unnamed_addr #2 align 2 {
 entry:
   %m_scale = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %newScale, ptr %m_scale, align 8
@@ -4391,7 +4391,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAnyEPKcRKSt6vectorINS_6StringESaIS4_EEbb(ptr noundef readonly captures(none) %name, ptr readonly %filters.0.val, ptr readnone %filters.8.val, i1 noundef zeroext %matchEmpty, i1 noundef zeroext %caseSensitive) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAnyEPKcRKSt6vectorINS_6StringESaIS4_EEbb(ptr noundef readonly captures(none) %name, ptr readonly captures(address) %filters.0.val, ptr readnone captures(address) %filters.8.val, i1 noundef zeroext %matchEmpty, i1 noundef zeroext %caseSensitive) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %filters.0.val, %filters.8.val
   %brmerge.not = and i1 %cmp.i.i, %matchEmpty
@@ -5806,7 +5806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail8TestCaseC2EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 1), (23, 24), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef %test, ptr noundef readonly captures(none) %file, i32 noundef %line, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %test_suite, ptr noundef nonnull readonly align 8 dereferenceable(24) %type, i32 noundef %template_id) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail8TestCaseC2EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 captures(address) dereferenceable(144) initializes((0, 1), (23, 24), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef %test, ptr noundef readonly captures(none) %file, i32 noundef %line, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %test_suite, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %type, i32 noundef %template_id) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   store i8 0, ptr %this, align 8
@@ -6000,7 +6000,7 @@ _ZN7doctest12TestCaseDataD2Ev.exit:               ; preds = %_ZN7doctest6StringD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef nonnull align 8 dereferenceable(144) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
@@ -6068,7 +6068,7 @@ _ZN7doctest12TestCaseDataD2Ev.exit:               ; preds = %_ZN7doctest6StringD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCaseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(144) %this, ptr noundef nonnull readonly align 8 dereferenceable(144) %other) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCaseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(144) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %other) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this, %other
   br i1 %cmp.not.i.i, label %_ZN7doctest6StringaSERKS0_.exit, label %if.then.i.i
@@ -7820,7 +7820,7 @@ _ZN7doctest8ContainsD2Ev.exit19:                  ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %res) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %res) local_unnamed_addr #7 align 2 {
 entry:
   %m_decomp = getelementptr inbounds nuw i8, ptr %res, i64 8
   %m_decomp2 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -8535,7 +8535,7 @@ if.end:                                           ; preds = %_ZNK7doctest6detail
 declare void @abort() local_unnamed_addr #31
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7doctest6detail13decomp_assertENS_10assertType4EnumEPKciS4_RKNS0_6ResultE(i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef nonnull readonly align 8 dereferenceable(32) %result) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN7doctest6detail13decomp_assertENS_10assertType4EnumEPKciS4_RKNS0_6ResultE(i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %result) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %rb = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %ref.tmp = alloca %"class.doctest::String", align 8
@@ -15628,7 +15628,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly captures(none) %pattern, ptr noundef %value) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly captures(none) %pattern, ptr noundef captures(address_is_null) %value) unnamed_addr #7 {
 entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %invariant.gep = getelementptr i8, ptr %argv, i64 -8
@@ -20789,17 +20789,19 @@ lpad18:                                           ; preds = %invoke.cont17
 ehcleanup:                                        ; preds = %lpad16, %lpad.i28, %lpad18
   %.pn = phi { ptr, i32 } [ %15, %lpad18 ], [ %14, %lpad16 ], [ %8, %lpad.i28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #44
+  %ref.tmp.val7.pre.pre = load ptr, ptr %ref.tmp, align 8
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad10
+  %ref.tmp.val7.pre = phi ptr [ %ref.tmp.val7.pre.pre, %ehcleanup ], [ %xml, %lpad10 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #44
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %lpad8, %lpad.i14, %ehcleanup21
+  %ref.tmp.val7 = phi ptr [ %ref.tmp.val7.pre, %ehcleanup21 ], [ %xml, %lpad8 ], [ %xml, %lpad.i14 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup21 ], [ %12, %lpad8 ], [ %4, %lpad.i14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #44
-  %ref.tmp.val7 = load ptr, ptr %ref.tmp, align 8
   call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr %ref.tmp.val7) #44
   br label %ehcleanup24
 
@@ -21383,17 +21385,12 @@ if.end.i:                                         ; preds = %.noexc113
 
 invoke.cont61:                                    ; preds = %if.end.i
   %call64 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement9writeTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58, i1 noundef zeroext true)
-          to label %invoke.cont63 unwind label %lpad62
+          to label %if.then.i116 unwind label %lpad62
 
-invoke.cont63:                                    ; preds = %invoke.cont61
+if.then.i116:                                     ; preds = %invoke.cont61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #44
-  %ref.tmp50.val = load ptr, ptr %ref.tmp50, align 8
-  %tobool.not.i = icmp eq ptr %ref.tmp50.val, null
-  br i1 %tobool.not.i, label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit, label %if.then.i116
-
-if.then.i116:                                     ; preds = %invoke.cont63
-  %call.i117 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp50.val)
+  %call.i117 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %xml)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i116
@@ -21403,7 +21400,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i116
   call void @__clang_call_terminate(ptr %24) #49
   unreachable
 
-_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit: ; preds = %invoke.cont63, %if.then.i116
+_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit: ; preds = %if.then.i116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53) #44
   %m_threw = getelementptr inbounds nuw i8, ptr %rb, i64 41
@@ -21629,8 +21626,7 @@ lpad62:                                           ; preds = %invoke.cont61
 ehcleanup66:                                      ; preds = %lpad60, %lpad.i110, %lpad62
   %.pn24 = phi { ptr, i32 } [ %47, %lpad62 ], [ %46, %lpad60 ], [ %22, %lpad.i110 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #44
-  %ref.tmp50.val49 = load ptr, ptr %ref.tmp50, align 8
-  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr %ref.tmp50.val49) #44
+  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr nonnull %xml) #44
   br label %ehcleanup68
 
 ehcleanup68:                                      ; preds = %lpad.i104, %ehcleanup66
@@ -21756,17 +21752,12 @@ if.end.i165:                                      ; preds = %.noexc172
 
 invoke.cont110:                                   ; preds = %if.end.i165
   %call113 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement9writeTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107, i1 noundef zeroext true)
-          to label %invoke.cont112 unwind label %lpad111
+          to label %if.then.i176 unwind label %lpad111
 
-invoke.cont112:                                   ; preds = %invoke.cont110
+if.then.i176:                                     ; preds = %invoke.cont110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108) #44
-  %ref.tmp99.val = load ptr, ptr %ref.tmp99, align 8
-  %tobool.not.i175 = icmp eq ptr %ref.tmp99.val, null
-  br i1 %tobool.not.i175, label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit180, label %if.then.i176
-
-if.then.i176:                                     ; preds = %invoke.cont112
-  %call.i177 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp99.val)
+  %call.i177 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %xml)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit180 unwind label %terminate.lpad.i178
 
 terminate.lpad.i178:                              ; preds = %if.then.i176
@@ -21776,7 +21767,7 @@ terminate.lpad.i178:                              ; preds = %if.then.i176
   call void @__clang_call_terminate(ptr %59) #49
   unreachable
 
-_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit180: ; preds = %invoke.cont112, %if.then.i176
+_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit180: ; preds = %if.then.i176
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101) #44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102) #44
   %.pre = load i32, ptr %m_at, align 8
@@ -21801,8 +21792,7 @@ lpad111:                                          ; preds = %invoke.cont110
 ehcleanup115:                                     ; preds = %lpad109, %lpad.i168, %lpad111
   %.pn33 = phi { ptr, i32 } [ %62, %lpad111 ], [ %61, %lpad109 ], [ %57, %lpad.i168 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108) #44
-  %ref.tmp99.val51 = load ptr, ptr %ref.tmp99, align 8
-  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr %ref.tmp99.val51) #44
+  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr nonnull %xml) #44
   br label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %lpad.i160, %ehcleanup115
@@ -22984,7 +22974,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIiEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIiEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23025,7 +23015,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::(anonymous namespace)::XmlEncode", align 8
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #44
@@ -23352,7 +23342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeINS_6StringEEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeINS_6StringEEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23397,7 +23387,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::(anonymous namespace)::XmlEncode", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23489,7 +23479,7 @@ if.end:                                           ; preds = %invoke.cont13, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIjEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIjEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24102,7 +24092,7 @@ eh.resume:                                        ; preds = %lpad114, %lpad.i107
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIdEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeIdEERS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attribute) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24143,7 +24133,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement9writeTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %text, i1 noundef zeroext %indent) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement9writeTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %text, i1 noundef zeroext %indent) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.doctest::(anonymous namespace)::XmlEncode", align 8
   %0 = load ptr, ptr %this, align 8
@@ -24230,8 +24220,8 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %2, 0
   %spec.select.i = select i1 %tobool.not.i, ptr null, ptr %1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %cmp35 = icmp sgt i32 %conv.i, 0
-  br i1 %cmp35, label %for.body.lr.ph, label %for.end
+  %cmp36 = icmp sgt i32 %conv.i, 0
+  br i1 %cmp36, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
   %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
@@ -24293,16 +24283,11 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   %call14 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement9writeTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i1 noundef zeroext true)
-          to label %invoke.cont13 unwind label %lpad12
+          to label %if.then.i unwind label %lpad12
 
-invoke.cont13:                                    ; preds = %invoke.cont11
+if.then.i:                                        ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #44
-  %ref.tmp.val10 = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i14 = icmp eq ptr %ref.tmp.val10, null
-  br i1 %tobool.not.i14, label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %invoke.cont13
-  %call.i15 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.val10)
+  %call.i15 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter10endElementEv(ptr noundef nonnull align 8 dereferenceable(72) %xml)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -24312,7 +24297,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   call void @__clang_call_terminate(ptr %10) #49
   unreachable
 
-_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit: ; preds = %invoke.cont13, %if.then.i
+_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev.exit: ; preds = %if.then.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #44
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #44
@@ -24367,8 +24352,7 @@ lpad12:                                           ; preds = %invoke.cont11
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
   %.pn = phi { ptr, i32 } [ %15, %lpad12 ], [ %14, %lpad10 ]
-  %ref.tmp.val = load ptr, ptr %ref.tmp, align 8
-  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr %ref.tmp.val) #44
+  call fastcc void @_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElementD2Ev(ptr nonnull %xml) #44
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %lpad.i12, %ehcleanup
@@ -28064,7 +28048,7 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData32appendSubcaseNamesToLastTestcaseESt6vectorINS_6StringESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %nameStack.0.val, ptr readnone %nameStack.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData32appendSubcaseNamesToLastTestcaseESt6vectorINS_6StringESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %nameStack.0.val, ptr readnone captures(address) %nameStack.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32149,7 +32133,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit:           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN7doctest12_GLOBAL__N_115ConsoleReporter24printRegisteredReportersEvENKUlRKSt3mapISt4pairIiNS_6StringEEPFPNS_9IReporterERKNS_14ContextOptionsEESt4lessIS5_ESaIS3_IKS5_SC_EEEPKcE_clESK_SM_(ptr readonly captures(none) %this.0.val, ptr noundef nonnull readonly align 8 dereferenceable(48) %reporters, ptr noundef %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN7doctest12_GLOBAL__N_115ConsoleReporter24printRegisteredReportersEvENKUlRKSt3mapISt4pairIiNS_6StringEEPFPNS_9IReporterERKNS_14ContextOptionsEESt4lessIS5_ESaIS3_IKS5_SC_EEEPKcE_clESK_SM_(ptr readonly captures(none) %this.0.val, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %reporters, ptr noundef %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %reporters, i64 40
   %0 = load i64, ptr %_M_node_count.i.i, align 8

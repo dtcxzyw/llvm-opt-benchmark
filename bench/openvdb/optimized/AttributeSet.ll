@@ -1274,7 +1274,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_06points14AttributeArrayELN9__gnu_cxx12_Lock_p
 declare void @_ZN7openvdb5v11_06points14AttributeArray18ScopedRegistryLockC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7openvdb5v11_06points12AttributeSet10Descriptor11getMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7openvdb5v11_06points12AttributeSet10Descriptor11getMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mMetadata = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %mMetadata
@@ -2589,7 +2589,7 @@ for.end:                                          ; preds = %for.body, %_ZNK7ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor8memUsageEv(ptr noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor8memUsageEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mTypes.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3622,7 +3622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor11groupOffsetERKSt4pairImhE(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor11groupOffsetERKSt4pairImhE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i11 = alloca ptr, align 8
   %ref.tmp2.i.i12 = alloca ptr, align 8
@@ -4003,7 +4003,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i8 } @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor10groupIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, i64 noundef %offset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor10groupIndexEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, i64 noundef %offset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
   %ref.tmp2.i.i = alloca ptr, align 8
@@ -11072,7 +11072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor11getMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor11getMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mMetadata = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %mMetadata
@@ -11776,7 +11776,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor8appendToERSt6vectorINS2_4Util11NameAndTypeESaIS6_EE(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(24) %attrs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor8appendToERSt6vectorINS2_4Util11NameAndTypeESaIS6_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(24) %attrs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.116", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.104", align 1
@@ -13038,7 +13038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17unusedGroupOffsetEm(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, i64 noundef %hint) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17unusedGroupOffsetEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, i64 noundef %hint) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor15availableGroupsEv(ptr noundef nonnull readonly align 8 dereferenceable(240) %this)
   %cmp.i = icmp eq i64 %call.i, 0
@@ -13324,7 +13324,7 @@ return:                                           ; preds = %if.then.i.i.i29, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17requiresGroupMoveERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmSB_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(32) %sourceName, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %sourceOffset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %targetOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17requiresGroupMoveERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmSB_(ptr noundef nonnull align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(32) %sourceName, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %sourceOffset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %targetOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2 = tail call noundef i64 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor17unusedGroupOffsetEm(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 noundef -1)
   store i64 %call2, ptr %targetOffset, align 8
@@ -13360,7 +13360,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor19groupIndexCollisionERKS3_(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef nonnull readonly align 8 dereferenceable(240) %rhs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_06points12AttributeSet10Descriptor19groupIndexCollisionERKS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %rhs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_left.i.i, align 8

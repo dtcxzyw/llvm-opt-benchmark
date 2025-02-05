@@ -4092,7 +4092,7 @@ declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef rea
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN6spdlog7details2os8filesizeEP8_IO_FILE(ptr noundef %f) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN6spdlog7details2os8filesizeEP8_IO_FILE(ptr noundef captures(address_is_null) %f) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -6339,7 +6339,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSEOS9_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6spdlog6logger4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6spdlog6logger4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %name_
@@ -8002,7 +8002,7 @@ _ZNSt12__shared_ptrIN6spdlog7details11thread_poolELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #0 align 2 {
 entry:
   %tp_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %tp_mutex_
@@ -8028,7 +8028,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog7details8registry10set_levelsESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5level10level_enumESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SA_EEEPSA_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %levels, ptr noundef readonly %global_level) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog7details8registry10set_levelsESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5level10level_enumESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SA_EEEPSA_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %levels, ptr noundef readonly captures(address_is_null) %global_level) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #35
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
@@ -9549,14 +9549,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6spdlog6logger5sinksEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6spdlog6logger5sinksEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
   %sinks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %sinks_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN6spdlog6logger5sinksEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN6spdlog6logger5sinksEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
   %sinks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %sinks_
@@ -11483,7 +11483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @_ZN6spdlog17pattern_formatter15handle_padspec_ERN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr readnone %end.coerce) local_unnamed_addr #25 align 2 {
+define dso_local { i64, i64 } @_ZN6spdlog17pattern_formatter15handle_padspec_ERN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr readnone captures(address) %end.coerce) local_unnamed_addr #25 align 2 {
 entry:
   %0 = load ptr, ptr %it, align 8
   %cmp.i = icmp eq ptr %0, %end.coerce

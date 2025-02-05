@@ -587,13 +587,13 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @tinyobj_parse_mtl_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -3, 1) i32 @tinyobj_parse_mtl_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @tinyobj_parse_and_index_mtl_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = icmp eq ptr %0, null
@@ -1877,7 +1877,7 @@ my_strdup.exit142:                                ; preds = %395, %387, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @tinyobj_parse_obj(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @tinyobj_parse_obj(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [4096 x i8], align 16
   %10 = alloca ptr, align 8
   %11 = alloca [16 x %struct.tinyobj_vertex_index_t], align 16
@@ -3664,7 +3664,7 @@ define hidden void @tinyobj_attrib_free(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tinyobj_shapes_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @tinyobj_shapes_free(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %.preheader
 
@@ -3701,7 +3701,7 @@ define hidden void @tinyobj_shapes_free(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tinyobj_materials_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @tinyobj_materials_free(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %36, label %.preheader
 
@@ -3808,7 +3808,7 @@ define hidden void @tinyobj_materials_free(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 10) i32 @cgltf_parse(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 10) i32 @cgltf_parse(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.cgltf_options, align 8
   %6 = icmp ult i64 %2, 12
   br i1 %6, label %63, label %7
@@ -5727,7 +5727,7 @@ define hidden i32 @cgltf_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @cgltf_default_file_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal range(i32 0, 9) i32 @cgltf_default_file_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   %spec.select = select i1 %.not, ptr @cgltf_default_alloc, ptr %6
@@ -7500,7 +7500,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @cgltf_calc_index_bound(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 6) i32 @cgltf_copy_extras_json(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #17 {
+define hidden range(i32 0, 6) i32 @cgltf_copy_extras_json(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #17 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
@@ -10108,7 +10108,7 @@ cgltf_component_read_float.exit221:               ; preds = %.thread439, %.threa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @cgltf_accessor_unpack_floats(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #23 {
+define hidden i64 @cgltf_accessor_unpack_floats(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #23 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %switch.tableidx = add i32 %5, -2
@@ -10803,7 +10803,7 @@ define hidden range(i64 -144115188075855872, 144115188075855872) i64 @cgltf_anim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @cgltf_accessor_unpack_indices(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #23 {
+define hidden i64 @cgltf_accessor_unpack_indices(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #23 {
   %4 = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -10912,7 +10912,7 @@ cgltf_buffer_view_data.exit.thread:               ; preds = %cgltf_component_rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @Vox_LoadFromMemory(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #25 {
+define hidden range(i32 -3, 1) i32 @Vox_LoadFromMemory(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #25 {
   %4 = alloca [8 x %struct.VoxVector3], align 16
   %5 = alloca [8 x i32], align 16
   %6 = alloca [5 x i8], align 4
@@ -12116,7 +12116,7 @@ define hidden void @Vox_FreeArrays(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._m3dstbi__zhuffman, align 4
   %7 = alloca [455 x i8], align 16
   %8 = alloca [19 x i8], align 16
@@ -13500,7 +13500,7 @@ _m3dstbi__do_zlib.exit:                           ; preds = %688
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -13750,7 +13750,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -15634,7 +15634,7 @@ define hidden void @_m3d_mat(ptr noundef writeonly captures(none) initializes((0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @m3d_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden noundef ptr @m3d_load(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 8
   %6 = alloca i32, align 4
   %7 = alloca [8 x i32], align 16
@@ -21811,7 +21811,7 @@ _m3d_getidx.exit2523:                             ; preds = %_m3d_getidx.exit251
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @m3d_frame(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #26 {
+define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %5
 
@@ -21984,7 +21984,7 @@ define hidden noundef ptr @m3d_frame(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @m3d_pose(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x float], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %5
@@ -22434,7 +22434,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @m3d_free(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %173, label %2
 
@@ -22969,7 +22969,7 @@ define hidden void @par_shapes__compute_welded_normals(ptr noundef captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @par_shapes_weld(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @par_shapes_weld(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i32], align 16
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
@@ -27580,7 +27580,7 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef ptr @par_shapes_clone(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
+define hidden noundef ptr @par_shapes_clone(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %._crit_edge
 
@@ -44453,7 +44453,7 @@ declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @my_strdup(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #26 {
+define internal fastcc noalias noundef ptr @my_strdup(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #26 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -44744,7 +44744,7 @@ declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef,
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @jsmn_parse(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #13 {
+define internal fastcc i32 @jsmn_parse(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -60639,7 +60639,7 @@ cgltf_parse_json_string.exit.thread:              ; preds = %28, %.lr.ph, %cgltf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = zext nneg i32 %2 to i64

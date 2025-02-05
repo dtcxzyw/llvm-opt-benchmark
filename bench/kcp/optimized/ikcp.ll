@@ -512,7 +512,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_recv(ptr noundef %kcp, ptr noundef writeonly %buffer, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local i32 @ikcp_recv(ptr noundef %kcp, ptr noundef writeonly captures(address_is_null) %buffer, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %rcv_queue = getelementptr inbounds nuw i8, ptr %kcp, i64 152
   %0 = load ptr, ptr %rcv_queue, align 8
@@ -784,7 +784,7 @@ return:                                           ; preds = %if.end6.i, %while.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ikcp_peeksize(ptr noundef readonly %kcp) local_unnamed_addr #5 {
+define dso_local i32 @ikcp_peeksize(ptr noundef readonly captures(address) %kcp) local_unnamed_addr #5 {
 entry:
   %rcv_queue = getelementptr inbounds nuw i8, ptr %kcp, i64 152
   %0 = load ptr, ptr %rcv_queue, align 8
@@ -834,7 +834,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_send(ptr noundef %kcp, ptr noundef readonly %buffer, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local i32 @ikcp_send(ptr noundef %kcp, ptr noundef readonly captures(address_is_null) %buffer, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -1250,7 +1250,7 @@ while.end:                                        ; preds = %if.then48, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @ikcp_input(ptr noundef %kcp, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #1 {
+define dso_local range(i32 -3, 1) i32 @ikcp_input(ptr noundef %kcp, ptr noundef readonly captures(address_is_null) %data, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %snd_una = getelementptr inbounds nuw i8, ptr %kcp, i64 16
   %0 = load i32, ptr %snd_una, align 8
@@ -2671,7 +2671,7 @@ if.end29:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ikcp_check(ptr noundef readonly %kcp, i32 noundef %current) local_unnamed_addr #5 {
+define dso_local i32 @ikcp_check(ptr noundef readonly captures(address) %kcp, i32 noundef %current) local_unnamed_addr #5 {
 entry:
   %updated = getelementptr inbounds nuw i8, ptr %kcp, i64 112
   %0 = load i32, ptr %updated, align 8
@@ -2840,7 +2840,7 @@ if.end21:                                         ; preds = %if.then20, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ikcp_wndsize(ptr noundef writeonly %kcp, i32 noundef %sndwnd, i32 noundef %rcvwnd) local_unnamed_addr #4 {
+define dso_local noundef i32 @ikcp_wndsize(ptr noundef writeonly captures(address_is_null) %kcp, i32 noundef %sndwnd, i32 noundef %rcvwnd) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %kcp, null
   br i1 %tobool.not, label %if.end5, label %if.then
