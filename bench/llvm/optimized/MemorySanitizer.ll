@@ -42184,12 +42184,12 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor9setShadowEPN4llvm5ValueES3_.exit: ; pr
   %wide.trip.count79 = zext nneg i32 %32 to i64
   br label %.lr.ph73
 
-._crit_edge74.loopexit:                           ; preds = %.lr.ph73
-  %.pre = load ptr, ptr %143, align 8, !tbaa !834
+._crit_edge74:                                    ; preds = %.lr.ph73
+  %144 = load ptr, ptr %143, align 8, !tbaa !834
   br label %._crit_edge74
 
-._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %141
-  %144 = phi ptr [ %.pre, %._crit_edge74.loopexit ], [ %0, %141 ]
+._crit_edge74:; preds = %._crit_edge74.loopexit, %141
+  %148 = phi ptr [ %144, %._crit_edge74 ], [ %0, %141 ]
   %145 = load ptr, ptr %0, align 8, !tbaa !565
   %146 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %145) #25
   %147 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %146, ptr noundef %48)
@@ -42229,7 +42229,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4l
   %166 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE3AddEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %165)
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !871
+  br i1 %exitcond80.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !871
 
 167:                                              ; preds = %_ZN12_GLOBAL__N_122MemorySanitizerVisitor8CombinerILb0EE18DoneAndStoreOriginEN4llvm8TypeSizeEPNS3_5ValueE.exit, %_ZN12_GLOBAL__N_122MemorySanitizerVisitor9setShadowEPN4llvm5ValueES3_.exit
   %168 = load ptr, ptr %6, align 8, !tbaa !32

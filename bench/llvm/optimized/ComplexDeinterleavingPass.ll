@@ -10308,15 +10308,15 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   %100 = phi ptr [ null, %87 ], [ %.val5, %95 ], [ %.pre63, %98 ]
   %101 = phi ptr [ %.val11, %87 ], [ %.val11, %95 ], [ %.pre, %98 ]
   call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %17)
-  %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.val14 = load ptr, ptr %102, align 8, !tbaa !204
+  %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.val14 = load ptr, ptr %100, align 8, !tbaa !204
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val14) #26
   %.val13 = load ptr, ptr %91, align 8, !tbaa !204
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val13) #26
   store ptr %101, ptr %0, align 8, !tbaa !198
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %90, align 8, !tbaa !204
-  store ptr %100, ptr %103, align 8, !tbaa !204
+  store ptr %100, ptr %102, align 8, !tbaa !204
   br label %104
 
 104:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39, %86, %67
