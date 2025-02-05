@@ -111,20 +111,19 @@ define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr nounde
   %26 = getelementptr inbounds i8, ptr %25, i64 -8
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
-  %.not6.i = icmp eq i32 %28, 0
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
-  %30 = sub nuw nsw i32 32, %29
-  %31 = shl nuw i32 1, %30
-  %32 = select i1 %.not6.i, i32 1, i32 %31
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %.noexc, label %_ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 false)
+  %30 = sub nsw i32 0, %29
+  %31 = and i32 %30, 31
+  %32 = icmp eq i32 %31, 31
+  br i1 %32, label %.noexc, label %_ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
 
 .noexc:                                           ; preds = %3
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #23
   unreachable
 
 _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
-  %34 = zext nneg i32 %32 to i64
+  %33 = shl nuw nsw i32 1, %31
+  %34 = zext nneg i32 %33 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %35 = shl nuw nsw i64 %34, 2
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #24
@@ -134,7 +133,7 @@ _ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pr
   store ptr %37, ptr %38, align 8
   store i32 0, ptr %36, align 1
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %40 = icmp eq i32 %32, 1
+  %40 = icmp eq i32 %31, 0
   br i1 %40, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt6vectorI18hart_debug_state_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i

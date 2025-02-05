@@ -754,55 +754,51 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %3 = add i64 %spec.store.select.i.i, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %3, i1 true)
-  %5 = sub nuw nsw i64 64, %4
-  %.inv.i = icmp ugt i64 %spec.store.select.i.i, 1
-  %notmask = shl nsw i64 -1, %5
-  %6 = xor i64 %notmask, -1
-  %7 = lshr i64 %6, 8
-  %8 = add nuw nsw i64 %7, 1
-  %9 = select i1 %.inv.i, i64 %8, i64 1
-  %10 = add nsw i64 %9, -1
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %10, i1 true)
-  %12 = sub nuw nsw i64 64, %11
-  %13 = shl nuw nsw i64 1, %12
-  %.inv.i20 = icmp samesign ugt i64 %9, 1
-  %14 = select i1 %.inv.i20, i64 %13, i64 1
-  br label %15
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %3, i1 false)
+  %5 = sub nsw i64 0, %4
+  %6 = and i64 %5, 63
+  %notmask = shl nsw i64 -1, %6
+  %7 = xor i64 %notmask, -1
+  %8 = lshr i64 %7, 8
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %8, i1 false)
+  %10 = sub nsw i64 0, %9
+  %11 = and i64 %10, 63
+  %12 = shl nuw i64 1, %11
+  br label %13
 
-15:                                               ; preds = %15, %2
-  %.0 = phi i64 [ 256, %2 ], [ %17, %15 ]
-  %16 = icmp slt i64 %.0, %14
-  %17 = shl i64 %.0, 1
-  br i1 %16, label %15, label %18, !llvm.loop !15
+13:                                               ; preds = %13, %2
+  %.0 = phi i64 [ 256, %2 ], [ %15, %13 ]
+  %14 = icmp slt i64 %.0, %12
+  %15 = shl i64 %.0, 1
+  br i1 %14, label %13, label %16, !llvm.loop !15
 
-18:                                               ; preds = %15
-  %19 = tail call i64 @mul_size(i64 noundef %.0, i64 noundef 8) #17
-  %20 = tail call i64 @add_size(i64 noundef 848, i64 noundef %19) #17
-  %21 = tail call i64 @mul_size(i64 noundef %14, i64 noundef 2048) #17
-  %22 = tail call i64 @add_size(i64 noundef %20, i64 noundef %21) #17
-  %23 = add i64 %1, 7
-  %24 = and i64 %23, -8
-  %25 = add i64 %24, 16
-  br label %26
+16:                                               ; preds = %13
+  %17 = tail call i64 @mul_size(i64 noundef %.0, i64 noundef 8) #17
+  %18 = tail call i64 @add_size(i64 noundef 848, i64 noundef %17) #17
+  %19 = tail call i64 @mul_size(i64 noundef %12, i64 noundef 2048) #17
+  %20 = tail call i64 @add_size(i64 noundef %18, i64 noundef %19) #17
+  %21 = add i64 %1, 7
+  %22 = and i64 %21, -8
+  %23 = add i64 %22, 16
+  br label %24
 
-26:                                               ; preds = %26, %18
-  %.0.i = phi i64 [ 128, %18 ], [ %27, %26 ]
-  %27 = shl i64 %.0.i, 1
-  %28 = udiv i64 %27, %25
-  %29 = trunc i64 %28 to i32
-  %30 = icmp slt i32 %29, 32
-  br i1 %30, label %26, label %choose_nelem_alloc.exit, !llvm.loop !10
+24:                                               ; preds = %24, %16
+  %.0.i = phi i64 [ 128, %16 ], [ %25, %24 ]
+  %25 = shl i64 %.0.i, 1
+  %26 = udiv i64 %25, %23
+  %27 = trunc i64 %26 to i32
+  %28 = icmp slt i32 %27, 32
+  br i1 %28, label %24, label %choose_nelem_alloc.exit, !llvm.loop !10
 
-choose_nelem_alloc.exit:                          ; preds = %26
-  %31 = and i64 %28, 2147483647
-  %32 = add i64 %0, -1
-  %33 = sdiv i64 %32, %31
-  %34 = add nsw i64 %33, 1
-  %35 = tail call i64 @mul_size(i64 noundef %31, i64 noundef %25) #17
-  %36 = tail call i64 @mul_size(i64 noundef %34, i64 noundef %35) #17
-  %37 = tail call i64 @add_size(i64 noundef %22, i64 noundef %36) #17
-  ret i64 %37
+choose_nelem_alloc.exit:                          ; preds = %24
+  %29 = and i64 %26, 2147483647
+  %30 = add i64 %0, -1
+  %31 = sdiv i64 %30, %29
+  %32 = add nsw i64 %31, 1
+  %33 = tail call i64 @mul_size(i64 noundef %29, i64 noundef %23) #17
+  %34 = tail call i64 @mul_size(i64 noundef %32, i64 noundef %33) #17
+  %35 = tail call i64 @add_size(i64 noundef %20, i64 noundef %34) #17
+  ret i64 %35
 }
 
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -810,32 +806,28 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash_select_dirsize(i64 noundef %0) local_unnamed_addr #9 {
+define dso_local i64 @hash_select_dirsize(i64 noundef %0) local_unnamed_addr #9 {
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %2 = add i64 %spec.store.select.i.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %2, i1 true)
-  %4 = sub nuw nsw i64 64, %3
-  %.inv.i = icmp ugt i64 %spec.store.select.i.i, 1
-  %notmask = shl nsw i64 -1, %4
-  %5 = xor i64 %notmask, -1
-  %6 = lshr i64 %5, 8
-  %7 = add nuw nsw i64 %6, 1
-  %8 = select i1 %.inv.i, i64 %7, i64 1
-  %9 = add nsw i64 %8, -1
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %9, i1 true)
-  %11 = sub nuw nsw i64 64, %10
-  %12 = shl nuw nsw i64 1, %11
-  %.inv.i7 = icmp samesign ugt i64 %8, 1
-  %13 = select i1 %.inv.i7, i64 %12, i64 1
-  br label %14
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %2, i1 false)
+  %4 = sub nsw i64 0, %3
+  %5 = and i64 %4, 63
+  %notmask = shl nsw i64 -1, %5
+  %6 = xor i64 %notmask, -1
+  %7 = lshr i64 %6, 8
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %7, i1 false)
+  %9 = sub nsw i64 0, %8
+  %10 = and i64 %9, 63
+  %11 = shl nuw i64 1, %10
+  br label %12
 
-14:                                               ; preds = %14, %1
-  %.0 = phi i64 [ 256, %1 ], [ %16, %14 ]
-  %15 = icmp slt i64 %.0, %13
-  %16 = shl i64 %.0, 1
-  br i1 %15, label %14, label %17, !llvm.loop !16
+12:                                               ; preds = %12, %1
+  %.0 = phi i64 [ 256, %1 ], [ %14, %12 ]
+  %13 = icmp slt i64 %.0, %11
+  %14 = shl i64 %.0, 1
+  br i1 %13, label %12, label %15, !llvm.loop !16
 
-17:                                               ; preds = %14
+15:                                               ; preds = %12
   ret i64 %.0
 }
 

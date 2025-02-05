@@ -2274,11 +2274,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
-  %15 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
-  %16 = sub nuw nsw i32 32, %15
-  %17 = shl nuw i32 1, %16
-  %.inv.i = icmp ugt i32 %13, 1
-  %.0.i = select i1 %.inv.i, i32 %17, i32 1
+  %15 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 false)
+  %16 = sub nsw i32 0, %15
+  %17 = and i32 %16, 31
+  %.0.i = shl nuw i32 1, %17
   store i32 %.0.i, ptr %7, align 4
   %18 = and i32 %.0.i, %13
   %or.cond = icmp eq i32 %18, %13

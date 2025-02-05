@@ -389,11 +389,10 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr noundef readonl
   %12 = icmp slt i32 %8, 0
   %13 = select i1 %12, i32 %.val.val, i32 0
   %spec.select = add nsw i32 %13, %8
-  %14 = icmp eq i32 %spec.select, 0
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 true)
-  %narrow.i = sub nuw nsw i32 32, %15
-  %16 = shl nuw i32 1, %narrow.i
-  %.0.i = select i1 %14, i32 1, i32 %16
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 false)
+  %15 = sub nsw i32 0, %14
+  %16 = and i32 %15, 31
+  %.0.i = shl nuw i32 1, %16
   %17 = icmp eq i32 %1, %.val74
   br i1 %17, label %23, label %18
 

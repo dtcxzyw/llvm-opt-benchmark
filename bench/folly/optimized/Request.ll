@@ -7367,11 +7367,10 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %sub.i = add i64 %capacity, -1
-  %tobool.not.i.i = icmp eq i64 %sub.i, 0
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !84
-  %add.i.i = sub nuw nsw i64 64, %0
-  %1 = shl nuw i64 1, %add.i.i
-  %shl.i = select i1 %tobool.not.i.i, i64 1, i64 %1
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %1 = sub nsw i64 0, %0
+  %2 = and i64 %1, 63
+  %shl.i = shl nuw i64 1, %2
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.true.i, %entry
@@ -7382,24 +7381,24 @@ invoke.cont:                                      ; preds = %cond.true.i, %entry
   %elem_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %size_.i = getelementptr inbounds nuw i8, ptr %o, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %used_, i8 0, i64 24, i1 false)
-  %2 = load atomic i64, ptr %size_.i acquire, align 8
-  %cmp.i = icmp eq i64 %2, 0
+  %3 = load atomic i64, ptr %size_.i acquire, align 8
+  %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %for.end, label %if.end
 
 if.end:                                           ; preds = %invoke.cont
-  %3 = load i64, ptr %this, align 8, !tbaa !239
-  %4 = icmp ugt i64 %3, 1152921504606846975
-  %5 = shl i64 %3, 4
-  %6 = select i1 %4, i64 -1, i64 %5
-  %call.i6162 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #37
+  %4 = load i64, ptr %this, align 8, !tbaa !239
+  %5 = icmp ugt i64 %4, 1152921504606846975
+  %6 = shl i64 %4, 4
+  %7 = select i1 %5, i64 -1, i64 %6
+  %call.i6162 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %7) #37
           to label %call.i61.noexc unwind label %lpad4
 
 call.i61.noexc:                                   ; preds = %if.end
-  %isempty.i = icmp eq i64 %3, 0
+  %isempty.i = icmp eq i64 %4, 0
   br i1 %isempty.i, label %invoke.cont5, label %new.ctorloop.i
 
 new.ctorloop.i:                                   ; preds = %call.i61.noexc
-  %arrayctor.end.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %call.i6162, i64 %3
+  %arrayctor.end.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %call.i6162, i64 %4
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
@@ -7410,32 +7409,32 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont5, label %arrayctor.loop.i
 
 invoke.cont5:                                     ; preds = %arrayctor.loop.i, %call.i61.noexc
-  %7 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %8 = load ptr, ptr %elem_, align 8, !tbaa !59
   store ptr %call.i6162, ptr %elem_, align 8, !tbaa !59
-  %tobool.not.i.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i.i.i.i: ; preds = %invoke.cont5
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #38
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #38
   %.pre = load i64, ptr %this, align 8, !tbaa !239
   br label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i.i.i.i, %invoke.cont5
-  %8 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i.i.i.i ], [ %3, %invoke.cont5 ]
-  %9 = load i64, ptr %o, align 8, !tbaa !239
-  %cmp = icmp eq i64 %8, %9
+  %9 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i.i.i.i ], [ %4, %invoke.cont5 ]
+  %10 = load i64, ptr %o, align 8, !tbaa !239
+  %cmp = icmp eq i64 %9, %10
   br i1 %cmp, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit
   %used_10 = getelementptr inbounds nuw i8, ptr %o, i64 8
-  %10 = load i64, ptr %used_10, align 8, !tbaa !290
-  %cmp12 = icmp ult i64 %10, %8
+  %11 = load i64, ptr %used_10, align 8, !tbaa !290
+  %cmp12 = icmp ult i64 %11, %9
   br i1 %cmp12, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %11 = load atomic i64, ptr %size_.i acquire, align 8
-  %12 = load i64, ptr %o, align 8, !tbaa !239
-  %cmp15 = icmp eq i64 %11, %12
+  %12 = load atomic i64, ptr %size_.i acquire, align 8
+  %13 = load i64, ptr %o, align 8, !tbaa !239
+  %cmp15 = icmp eq i64 %12, %13
   br i1 %cmp15, label %lor.lhs.false.if.then16_crit_edge, label %if.end25
 
 lor.lhs.false.if.then16_crit_edge:                ; preds = %lor.lhs.false
@@ -7443,26 +7442,26 @@ lor.lhs.false.if.then16_crit_edge:                ; preds = %lor.lhs.false
   br label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false.if.then16_crit_edge, %land.lhs.true
-  %13 = phi i64 [ %.pre70, %lor.lhs.false.if.then16_crit_edge ], [ %8, %land.lhs.true ]
-  %14 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %14 = phi i64 [ %.pre70, %lor.lhs.false.if.then16_crit_edge ], [ %9, %land.lhs.true ]
+  %15 = load ptr, ptr %elem_, align 8, !tbaa !59
   %elem_19 = getelementptr inbounds nuw i8, ptr %o, i64 24
-  %15 = load ptr, ptr %elem_19, align 8, !tbaa !59
-  %mul = shl i64 %13, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %mul, i1 false)
-  %16 = load i64, ptr %used_10, align 8, !tbaa !290
-  store i64 %16, ptr %used_, align 8, !tbaa !290
-  %17 = load atomic i64, ptr %size_.i acquire, align 8
-  store atomic i64 %17, ptr %size_ release, align 8
+  %16 = load ptr, ptr %elem_19, align 8, !tbaa !59
+  %mul = shl i64 %14, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %mul, i1 false)
+  %17 = load i64, ptr %used_10, align 8, !tbaa !290
+  store i64 %17, ptr %used_, align 8, !tbaa !290
+  %18 = load atomic i64, ptr %size_.i acquire, align 8
+  store atomic i64 %18, ptr %size_ release, align 8
   br label %for.end
 
 lpad4:                                            ; preds = %if.end
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end25:                                         ; preds = %lor.lhs.false, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit
-  %19 = phi i64 [ %12, %lor.lhs.false ], [ %9, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit ]
-  %cmp2768.not = icmp eq i64 %19, 0
+  %20 = phi i64 [ %13, %lor.lhs.false ], [ %10, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit ]
+  %cmp2768.not = icmp eq i64 %20, 0
   br i1 %cmp2768.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end25
@@ -7471,43 +7470,43 @@ for.body.lr.ph:                                   ; preds = %if.end25
 
 for.body:                                         ; preds = %if.end38, %for.body.lr.ph
   %i.069 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end38 ]
-  %20 = load ptr, ptr %elem_28, align 8, !tbaa !59
-  %arrayidx.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %20, i64 %i.069
-  %21 = load atomic i8, ptr %arrayidx.i acquire, align 1
-  %cmp.i60 = icmp eq i8 %21, 1
+  %21 = load ptr, ptr %elem_28, align 8, !tbaa !59
+  %arrayidx.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestToken, folly::RequestData *>::Elem", ptr %21, i64 %i.069
+  %22 = load atomic i8, ptr %arrayidx.i acquire, align 1
+  %cmp.i60 = icmp eq i8 %22, 1
   br i1 %cmp.i60, label %if.then31, label %if.end38
 
 if.then31:                                        ; preds = %for.body
   %key_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %retval.sroa.0.0.copyload.i = load i32, ptr %key_.i, align 4, !tbaa !27
   %value_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %22 = load atomic i64, ptr %value_.i monotonic, align 8
-  %atomic-temp.0.i.i = inttoptr i64 %22 to ptr
+  %23 = load atomic i64, ptr %value_.i monotonic, align 8
+  %atomic-temp.0.i.i = inttoptr i64 %23 to ptr
   %call37 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE6insertES1_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %retval.sroa.0.0.copyload.i, ptr noundef %atomic-temp.0.i.i)
           to label %if.end38 unwind label %lpad35
 
 lpad35:                                           ; preds = %if.then31
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end38:                                         ; preds = %if.then31, %for.body
   %inc = add nuw i64 %i.069, 1
-  %24 = load i64, ptr %o, align 8, !tbaa !239
-  %cmp27 = icmp ult i64 %inc, %24
+  %25 = load i64, ptr %o, align 8, !tbaa !239
+  %cmp27 = icmp ult i64 %inc, %25
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !291
 
 for.end:                                          ; preds = %if.end38, %if.end25, %if.then16, %invoke.cont
   ret void
 
 ehcleanup:                                        ; preds = %lpad35, %lpad4
-  %.pn = phi { ptr, i32 } [ %23, %lpad35 ], [ %18, %lpad4 ]
-  %25 = load ptr, ptr %elem_, align 8, !tbaa !59
-  %cmp.not.i64 = icmp eq ptr %25, null
+  %.pn = phi { ptr, i32 } [ %24, %lpad35 ], [ %19, %lpad4 ]
+  %26 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %cmp.not.i64 = icmp eq ptr %26, null
   br i1 %cmp.not.i64, label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit66, label %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i65
 
 _ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i65: ; preds = %ehcleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #38
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #38
   br label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit66
 
 _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemESt14default_deleteIS7_EED2Ev.exit66: ; preds = %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11RequestDataEE4ElemEEclIS6_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS7_EE5valueEvE4typeEPSB_.exit.i65, %ehcleanup
@@ -7523,11 +7522,10 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %sub.i = add i64 %capacity, -1
-  %tobool.not.i.i = icmp eq i64 %sub.i, 0
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !84
-  %add.i.i = sub nuw nsw i64 64, %0
-  %1 = shl nuw i64 1, %add.i.i
-  %shl.i = select i1 %tobool.not.i.i, i64 1, i64 %1
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %1 = sub nsw i64 0, %0
+  %2 = and i64 %1, 63
+  %shl.i = shl nuw i64 1, %2
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.true.i, %entry
@@ -7538,25 +7536,25 @@ invoke.cont:                                      ; preds = %cond.true.i, %entry
   %elem_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %size_.i = getelementptr inbounds nuw i8, ptr %o, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %used_, i8 0, i64 24, i1 false)
-  %2 = load atomic i64, ptr %size_.i acquire, align 8
-  %cmp.i = icmp eq i64 %2, 0
+  %3 = load atomic i64, ptr %size_.i acquire, align 8
+  %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %for.end, label %if.end
 
 if.end:                                           ; preds = %invoke.cont
-  %3 = load i64, ptr %this, align 8, !tbaa !254
-  %4 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 24)
-  %5 = extractvalue { i64, i1 } %4, 1
-  %6 = extractvalue { i64, i1 } %4, 0
-  %7 = select i1 %5, i64 -1, i64 %6
-  %call.i6263 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %7) #37
+  %4 = load i64, ptr %this, align 8, !tbaa !254
+  %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 24)
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = extractvalue { i64, i1 } %5, 0
+  %8 = select i1 %6, i64 -1, i64 %7
+  %call.i6263 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %8) #37
           to label %call.i62.noexc unwind label %lpad4
 
 call.i62.noexc:                                   ; preds = %if.end
-  %isempty.i = icmp eq i64 %3, 0
+  %isempty.i = icmp eq i64 %4, 0
   br i1 %isempty.i, label %invoke.cont5, label %new.ctorloop.i
 
 new.ctorloop.i:                                   ; preds = %call.i62.noexc
-  %arrayctor.end.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestData *, bool>::Elem", ptr %call.i6263, i64 %3
+  %arrayctor.end.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestData *, bool>::Elem", ptr %call.i6263, i64 %4
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
@@ -7567,32 +7565,32 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont5, label %arrayctor.loop.i
 
 invoke.cont5:                                     ; preds = %arrayctor.loop.i, %call.i62.noexc
-  %8 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %9 = load ptr, ptr %elem_, align 8, !tbaa !59
   store ptr %call.i6263, ptr %elem_, align 8, !tbaa !59
-  %tobool.not.i.i.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i: ; preds = %invoke.cont5
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #38
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #38
   %.pre = load i64, ptr %this, align 8, !tbaa !254
   br label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, %invoke.cont5
-  %9 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i ], [ %3, %invoke.cont5 ]
-  %10 = load i64, ptr %o, align 8, !tbaa !254
-  %cmp = icmp eq i64 %9, %10
+  %10 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i ], [ %4, %invoke.cont5 ]
+  %11 = load i64, ptr %o, align 8, !tbaa !254
+  %cmp = icmp eq i64 %10, %11
   br i1 %cmp, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit
   %used_10 = getelementptr inbounds nuw i8, ptr %o, i64 8
-  %11 = load i64, ptr %used_10, align 8, !tbaa !296
-  %cmp12 = icmp ult i64 %11, %9
+  %12 = load i64, ptr %used_10, align 8, !tbaa !296
+  %cmp12 = icmp ult i64 %12, %10
   br i1 %cmp12, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %12 = load atomic i64, ptr %size_.i acquire, align 8
-  %13 = load i64, ptr %o, align 8, !tbaa !254
-  %cmp15 = icmp eq i64 %12, %13
+  %13 = load atomic i64, ptr %size_.i acquire, align 8
+  %14 = load i64, ptr %o, align 8, !tbaa !254
+  %cmp15 = icmp eq i64 %13, %14
   br i1 %cmp15, label %lor.lhs.false.if.then16_crit_edge, label %if.end25
 
 lor.lhs.false.if.then16_crit_edge:                ; preds = %lor.lhs.false
@@ -7600,26 +7598,26 @@ lor.lhs.false.if.then16_crit_edge:                ; preds = %lor.lhs.false
   br label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false.if.then16_crit_edge, %land.lhs.true
-  %14 = phi i64 [ %.pre71, %lor.lhs.false.if.then16_crit_edge ], [ %9, %land.lhs.true ]
-  %15 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %15 = phi i64 [ %.pre71, %lor.lhs.false.if.then16_crit_edge ], [ %10, %land.lhs.true ]
+  %16 = load ptr, ptr %elem_, align 8, !tbaa !59
   %elem_19 = getelementptr inbounds nuw i8, ptr %o, i64 24
-  %16 = load ptr, ptr %elem_19, align 8, !tbaa !59
-  %mul = mul i64 %14, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %mul, i1 false)
-  %17 = load i64, ptr %used_10, align 8, !tbaa !296
-  store i64 %17, ptr %used_, align 8, !tbaa !296
-  %18 = load atomic i64, ptr %size_.i acquire, align 8
-  store atomic i64 %18, ptr %size_ release, align 8
+  %17 = load ptr, ptr %elem_19, align 8, !tbaa !59
+  %mul = mul i64 %15, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %mul, i1 false)
+  %18 = load i64, ptr %used_10, align 8, !tbaa !296
+  store i64 %18, ptr %used_, align 8, !tbaa !296
+  %19 = load atomic i64, ptr %size_.i acquire, align 8
+  store atomic i64 %19, ptr %size_ release, align 8
   br label %for.end
 
 lpad4:                                            ; preds = %if.end
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end25:                                         ; preds = %lor.lhs.false, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit
-  %20 = phi i64 [ %13, %lor.lhs.false ], [ %10, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit ]
-  %cmp2769.not = icmp eq i64 %20, 0
+  %21 = phi i64 [ %14, %lor.lhs.false ], [ %11, %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit ]
+  %cmp2769.not = icmp eq i64 %21, 0
   br i1 %cmp2769.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end25
@@ -7628,44 +7626,44 @@ for.body.lr.ph:                                   ; preds = %if.end25
 
 for.body:                                         ; preds = %if.end39, %for.body.lr.ph
   %i.070 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end39 ]
-  %21 = load ptr, ptr %elem_28, align 8, !tbaa !59
-  %arrayidx.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestData *, bool>::Elem", ptr %21, i64 %i.070
-  %22 = load atomic i8, ptr %arrayidx.i acquire, align 1
-  %cmp.i61 = icmp eq i8 %22, 1
+  %22 = load ptr, ptr %elem_28, align 8, !tbaa !59
+  %arrayidx.i = getelementptr inbounds %"class.folly::SingleWriterFixedHashMap<folly::RequestData *, bool>::Elem", ptr %22, i64 %i.070
+  %23 = load atomic i8, ptr %arrayidx.i acquire, align 1
+  %cmp.i61 = icmp eq i8 %23, 1
   br i1 %cmp.i61, label %if.then33, label %if.end39
 
 if.then33:                                        ; preds = %for.body
   %key_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %23 = load ptr, ptr %key_.i, align 8, !tbaa !262
+  %24 = load ptr, ptr %key_.i, align 8, !tbaa !262
   %value_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %24 = load atomic i8, ptr %value_.i monotonic, align 1
-  %25 = and i8 %24, 1
-  %tobool.i.i = icmp ne i8 %25, 0
-  %call38 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEbE6insertES2_b(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %23, i1 noundef zeroext %tobool.i.i)
+  %25 = load atomic i8, ptr %value_.i monotonic, align 1
+  %26 = and i8 %25, 1
+  %tobool.i.i = icmp ne i8 %26, 0
+  %call38 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEbE6insertES2_b(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %24, i1 noundef zeroext %tobool.i.i)
           to label %if.end39 unwind label %lpad30
 
 lpad30:                                           ; preds = %if.then33
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end39:                                         ; preds = %if.then33, %for.body
   %inc = add nuw i64 %i.070, 1
-  %27 = load i64, ptr %o, align 8, !tbaa !254
-  %cmp27 = icmp ult i64 %inc, %27
+  %28 = load i64, ptr %o, align 8, !tbaa !254
+  %cmp27 = icmp ult i64 %inc, %28
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !297
 
 for.end:                                          ; preds = %if.end39, %if.end25, %if.then16, %invoke.cont
   ret void
 
 ehcleanup:                                        ; preds = %lpad30, %lpad4
-  %.pn = phi { ptr, i32 } [ %26, %lpad30 ], [ %19, %lpad4 ]
-  %28 = load ptr, ptr %elem_, align 8, !tbaa !59
-  %cmp.not.i65 = icmp eq ptr %28, null
+  %.pn = phi { ptr, i32 } [ %27, %lpad30 ], [ %20, %lpad4 ]
+  %29 = load ptr, ptr %elem_, align 8, !tbaa !59
+  %cmp.not.i65 = icmp eq ptr %29, null
   br i1 %cmp.not.i65, label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit67, label %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i66
 
 _ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i66: ; preds = %ehcleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %28) #38
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #38
   br label %_ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit67
 
 _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemESt14default_deleteIS6_EED2Ev.exit67: ; preds = %_ZNKSt14default_deleteIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEbE4ElemEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i66, %ehcleanup

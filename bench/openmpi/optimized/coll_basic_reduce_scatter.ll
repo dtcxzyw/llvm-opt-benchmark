@@ -112,11 +112,10 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %.not, label %64, label %.thread341
 
 64:                                               ; preds = %60
-  %65 = icmp eq i32 %.val327.val, 0
-  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val327.val, i1 true)
-  %narrow.i = sub nuw nsw i32 32, %66
-  %67 = shl nuw i32 1, %narrow.i
-  %.0.i330 = select i1 %65, i32 1, i32 %67
+  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val327.val, i1 false)
+  %66 = sub nsw i32 0, %65
+  %67 = and i32 %66, 31
+  %.0.i330 = shl nuw i32 1, %67
   %68 = ashr i32 %.0.i330, 1
   %69 = sub nsw i32 %.val327.val, %68
   %70 = shl nsw i32 %69, 1

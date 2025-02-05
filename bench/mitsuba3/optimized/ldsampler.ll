@@ -186,53 +186,50 @@ define weak_odr void @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8Spe
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.034 = phi i32 [ %.0.i, %.lr.ph ], [ 2, %2 ]
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.034, i1 true)
-  %7 = sub nuw nsw i32 32, %6
-  %8 = shl nuw i32 1, %7
-  %9 = add i32 %.034, -1
-  %.inv.i = icmp ult i32 %9, -2
-  %.0.i = select i1 %.inv.i, i32 %8, i32 1
-  %10 = select i1 %.inv.i, i32 %7, i32 0
-  %11 = shl i32 %.0.i, %10
-  %12 = icmp ult i32 %11, %1
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %7 = sub nsw i32 0, %6
+  %8 = and i32 %7, 31
+  %.0.i = shl nuw i32 1, %8
+  %9 = shl i32 %.0.i, %8
+  %10 = icmp ult i32 %9, %1
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa = phi i32 [ 4, %2 ], [ %11, %.lr.ph ]
+  %.lcssa = phi i32 [ 4, %2 ], [ %9, %.lr.ph ]
   %.not = icmp eq i32 %1, %.lcssa
-  br i1 %.not, label %25, label %13
+  br i1 %.not, label %23, label %11
 
-13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+11:                                               ; preds = %._crit_edge
+  %12 = load ptr, ptr @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   store i32 %.lcssa, ptr %4, align 4
-  %15 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %16 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
-  %.not33 = icmp eq ptr %16, null
-  br i1 %.not33, label %25, label %17
+  %13 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %14 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %.not33 = icmp eq ptr %14, null
+  br i1 %.not33, label %23, label %15
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp slt i32 %19, 301
-  br i1 %20, label %21, label %25
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp slt i32 %17, 301
+  br i1 %18, label %19, label %23
 
-21:                                               ; preds = %17
+19:                                               ; preds = %15
   call void @_ZN10tinyformat6formatIJjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 300, ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %22 unwind label %23
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 300, ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %20 unwind label %21
 
-22:                                               ; preds = %21
+20:                                               ; preds = %19
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  br label %25
+  br label %23
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %22
 
-25:                                               ; preds = %22, %17, %13, %._crit_edge
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.lcssa, ptr %26, align 8
+23:                                               ; preds = %20, %15, %11, %._crit_edge
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.lcssa, ptr %24, align 8
   ret void
 }
 

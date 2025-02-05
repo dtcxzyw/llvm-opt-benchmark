@@ -285,13 +285,12 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
   %.val.val = load i32, ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 220
   %.val80 = load i32, ptr %11, align 4
-  %12 = icmp eq i32 %.val.val, 0
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val.val, i1 true)
-  %narrow.i = sub nuw nsw i32 32, %13
-  %14 = shl nuw i32 1, %narrow.i
-  %15 = ashr i32 %14, 1
-  %.not84 = icmp eq i32 %15, %.val.val
-  %.not = select i1 %12, i1 true, i1 %.not84
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val.val, i1 false)
+  %13 = sub nsw i32 0, %12
+  %14 = and i32 %13, 31
+  %.0.i = shl nuw i32 1, %14
+  %15 = ashr i32 %.0.i, 1
+  %.not = icmp eq i32 %15, %.val.val
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %8
@@ -324,30 +323,30 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
 .lr.ph:                                           ; preds = %31
   %33 = sext i32 %4 to i64
   %factor.op.mul = mul i64 %23, %33
-  %factor.op.mul92 = mul i64 %23, %33
+  %factor.op.mul91 = mul i64 %23, %33
   br label %37
 
 34:                                               ; preds = %ompi_coll_base_sendrecv.exit
-  %35 = shl i32 %.06887, 1
+  %35 = shl i32 %.06886, 1
   %36 = icmp slt i32 %35, %.val.val
   br i1 %36, label %37, label %.loopexit, !llvm.loop !7
 
 37:                                               ; preds = %.lr.ph, %34
-  %.06788 = phi i32 [ %.val80, %.lr.ph ], [ %.1, %34 ]
-  %.06887 = phi i32 [ 1, %.lr.ph ], [ %35, %34 ]
-  %38 = xor i32 %.06887, %.val80
+  %.06787 = phi i32 [ %.val80, %.lr.ph ], [ %.1, %34 ]
+  %.06886 = phi i32 [ 1, %.lr.ph ], [ %35, %34 ]
+  %38 = xor i32 %.06886, %.val80
   %39 = icmp slt i32 %.val80, %38
-  %40 = add nsw i32 %.06788, %.06887
-  %41 = sub nsw i32 %.06788, %.06887
-  %.1 = select i1 %39, i32 %.06788, i32 %41
-  %.pn91.in = select i1 %39, i32 %40, i32 %41
-  %.pn91 = sext i32 %.pn91.in to i64
-  %.pn86.reass = mul i64 %factor.op.mul, %.pn91
-  %.pn90 = sext i32 %.06788 to i64
-  %.pn85.reass = mul i64 %factor.op.mul92, %.pn90
-  %.0 = getelementptr inbounds i8, ptr %3, i64 %.pn86.reass
-  %.066 = getelementptr inbounds i8, ptr %3, i64 %.pn85.reass
-  %42 = icmp eq i32 %.06887, 0
+  %40 = add nsw i32 %.06787, %.06886
+  %41 = sub nsw i32 %.06787, %.06886
+  %.1 = select i1 %39, i32 %.06787, i32 %41
+  %.pn90.in = select i1 %39, i32 %40, i32 %41
+  %.pn90 = sext i32 %.pn90.in to i64
+  %.pn85.reass = mul i64 %factor.op.mul, %.pn90
+  %.pn89 = sext i32 %.06787 to i64
+  %.pn84.reass = mul i64 %factor.op.mul91, %.pn89
+  %.0 = getelementptr inbounds i8, ptr %3, i64 %.pn85.reass
+  %.066 = getelementptr inbounds i8, ptr %3, i64 %.pn84.reass
+  %42 = icmp eq i32 %.06886, 0
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %37
@@ -355,7 +354,7 @@ define i32 @ompi_coll_base_allgather_intra_recursivedoubling(ptr noundef %0, i32
   br label %ompi_coll_base_sendrecv.exit
 
 45:                                               ; preds = %37
-  %46 = sext i32 %.06887 to i64
+  %46 = sext i32 %.06886 to i64
   %47 = mul nsw i64 %46, %33
   %48 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %.066, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %47, ptr noundef %5, i32 noundef %38, i32 noundef -10, ptr noundef %.0, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %47, ptr noundef %5, i32 noundef %38, i32 noundef -10, ptr noundef %6, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit

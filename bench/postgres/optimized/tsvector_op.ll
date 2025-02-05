@@ -4455,11 +4455,10 @@ define internal fastcc ptr @ts_stat_sql(ptr noundef %0, ptr noundef %1, ptr noun
 
 ._crit_edge.i:                                    ; preds = %101
   %107 = add i32 %103, -1
-  %.not36.i = icmp eq i32 %107, 0
-  %108 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
-  %109 = sub nuw nsw i32 32, %108
-  %110 = shl nuw i32 1, %109
-  %111 = select i1 %.not36.i, i32 1, i32 %110
+  %108 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 false)
+  %109 = sub nsw i32 0, %108
+  %110 = and i32 %109, 31
+  %111 = shl nuw i32 1, %110
   %112 = sub i32 %111, %103
   %113 = lshr i32 %112, 1
   %114 = lshr i32 %111, 1
