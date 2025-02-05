@@ -48,45 +48,37 @@ for.cond4:                                        ; preds = %for.cond4.preheader
   %limit.0 = phi i32 [ 68900, %if.end18 ], [ 2252, %for.cond4.preheader ]
   %jgArray.0 = phi ptr [ @_ZL20ubidi_props_jgArray2, %if.end18 ], [ @_ZL19ubidi_props_jgArray, %for.cond4.preheader ]
   %cmp517 = icmp samesign ult i32 %start.0, %limit.0
-  br i1 %cmp517, label %while.body.preheader, label %if.end18
+  br i1 %cmp517, label %while.body, label %if.end18
 
-while.body.preheader:                             ; preds = %for.cond4
-  %scevgep = getelementptr i8, ptr %jgArray.0, i64 3
-  %4 = add nsw i32 %limit.0, -4
-  %5 = sub nsw i32 %4, %start.0
-  %6 = zext i32 %5 to i64
-  %scevgep22 = getelementptr i8, ptr %scevgep, i64 %6
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end11
-  %prev.020 = phi i8 [ %prev.1, %if.end11 ], [ 0, %while.body.preheader ]
-  %jgArray.119 = phi ptr [ %incdec.ptr, %if.end11 ], [ %jgArray.0, %while.body.preheader ]
-  %start.118 = phi i32 [ %inc12, %if.end11 ], [ %start.0, %while.body.preheader ]
+while.body:                                       ; preds = %for.cond4, %if.end11
+  %prev.020 = phi i8 [ %prev.1, %if.end11 ], [ 0, %for.cond4 ]
+  %jgArray.119 = phi ptr [ %incdec.ptr, %if.end11 ], [ %jgArray.0, %for.cond4 ]
+  %start.118 = phi i32 [ %inc12, %if.end11 ], [ %start.0, %for.cond4 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %jgArray.119, i64 1
-  %7 = load i8, ptr %jgArray.119, align 1
-  %cmp7.not = icmp eq i8 %7, %prev.020
+  %4 = load i8, ptr %jgArray.119, align 1
+  %cmp7.not = icmp eq i8 %4, %prev.020
   br i1 %cmp7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %while.body
-  %8 = load ptr, ptr %add9, align 8
-  %9 = load ptr, ptr %sa, align 8
-  tail call void %8(ptr noundef %9, i32 noundef %start.118)
+  %5 = load ptr, ptr %add9, align 8
+  %6 = load ptr, ptr %sa, align 8
+  tail call void %5(ptr noundef %6, i32 noundef %start.118)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %while.body
-  %prev.1 = phi i8 [ %7, %if.then8 ], [ %prev.020, %while.body ]
+  %prev.1 = phi i8 [ %4, %if.then8 ], [ %prev.020, %while.body ]
   %inc12 = add nuw nsw i32 %start.118, 1
-  %exitcond23.not = icmp eq ptr %jgArray.119, %scevgep22
-  br i1 %exitcond23.not, label %while.end, label %while.body, !llvm.loop !6
+  %cmp5 = icmp samesign ult i32 %inc12, %limit.0
+  br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end11
-  %10 = icmp eq i8 %prev.1, 0
-  br i1 %10, label %if.end18, label %if.then15
+  %7 = icmp eq i8 %prev.1, 0
+  br i1 %7, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %while.end
-  %11 = load ptr, ptr %add9, align 8
-  %12 = load ptr, ptr %sa, align 8
-  tail call void %11(ptr noundef %12, i32 noundef %limit.0)
+  %8 = load ptr, ptr %add9, align 8
+  %9 = load ptr, ptr %sa, align 8
+  tail call void %8(ptr noundef %9, i32 noundef %limit.0)
   br label %if.end18
 
 if.end18:                                         ; preds = %for.cond4, %if.then15, %while.end

@@ -1530,8 +1530,8 @@ if.end38:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %if.end38
   %inc = add nuw nsw i32 %idx.023, 1
-  %exitcond.not = icmp eq i32 %inc, %call22
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  %cmp28 = icmp slt i32 %inc, %call22
+  br i1 %cmp28, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %if.end38, %for.inc, %if.end27, %if.end9, %if.end20, %if.end3, %lor.lhs.false, %if.end, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end3 ], [ %not.cmp14.not.not, %if.end9 ], [ false, %if.end20 ], [ true, %if.end27 ], [ false, %for.body ], [ false, %if.end38 ], [ true, %for.inc ]

@@ -1587,17 +1587,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %buffer, i64 noundef %offset, i64 noundef %len) unnamed_addr #6 {
 entry:
   %cmp25.not = icmp eq i64 %len, 0
-  br i1 %cmp25.not, label %for.end33, label %for.body.preheader
+  br i1 %cmp25.not, label %for.end33, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %0 = add i64 %len, -1
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.end29
-  %indvars.iv32 = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next33, %for.end29 ]
-  %p.027 = phi ptr [ %buffer, %for.body.preheader ], [ %incdec.ptr, %for.end29 ]
-  %i.026 = phi i64 [ 0, %for.body.preheader ], [ %add32, %for.end29 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv32, i64 15)
+for.body:                                         ; preds = %entry, %for.end29
+  %p.027 = phi ptr [ %incdec.ptr, %for.end29 ], [ %buffer, %entry ]
+  %i.026 = phi i64 [ %add32, %for.end29 ], [ 0, %entry ]
   %add = add i64 %i.026, %offset
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %add)
   br label %for.body6
@@ -1605,8 +1599,8 @@ for.body:                                         ; preds = %for.body.preheader,
 for.body6:                                        ; preds = %for.body, %for.body6
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body6 ]
   %p.121 = phi ptr [ %p.027, %for.body ], [ %incdec.ptr, %for.body6 ]
-  %1 = load i8, ptr %p.121, align 1
-  %conv7 = zext i8 %1 to i32
+  %0 = load i8, ptr %p.121, align 1
+  %conv7 = zext i8 %0 to i32
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %conv7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr i8, ptr %p.121, i64 1
@@ -1624,26 +1618,28 @@ for.body19.lr.ph:                                 ; preds = %for.body6
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.body19
   %indvars.iv29 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next30, %for.body19 ]
   %s.024 = phi ptr [ %p.027, %for.body19.lr.ph ], [ %incdec.ptr28, %for.body19 ]
-  %2 = load ptr, ptr %call20, align 8
-  %3 = load i8, ptr %s.024, align 1
-  %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %5 = and i16 %4, 8
-  %tobool.not = icmp eq i16 %5, 0
-  %conv21 = zext i8 %3 to i32
+  %1 = load ptr, ptr %call20, align 8
+  %2 = load i8, ptr %s.024, align 1
+  %idxprom = zext i8 %2 to i64
+  %arrayidx = getelementptr i16, ptr %1, i64 %idxprom
+  %3 = load i16, ptr %arrayidx, align 2
+  %4 = and i16 %3, 8
+  %tobool.not = icmp eq i16 %4, 0
+  %conv21 = zext i8 %2 to i32
   %conv21.sink = select i1 %tobool.not, i32 46, i32 %conv21
   %putchar18 = tail call i32 @putchar(i32 %conv21.sink)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %incdec.ptr28 = getelementptr i8, ptr %s.024, i64 1
-  %exitcond.not = icmp eq i64 %indvars.iv29, %umin
-  br i1 %exitcond.not, label %for.end29, label %for.body19, !llvm.loop !12
+  %cmp11 = icmp samesign ult i64 %indvars.iv29, 15
+  %add15 = or disjoint i64 %i.026, %indvars.iv.next30
+  %cmp16 = icmp ult i64 %add15, %len
+  %or.cond19 = select i1 %cmp11, i1 %cmp16, i1 false
+  br i1 %or.cond19, label %for.body19, label %for.end29, !llvm.loop !12
 
 for.end29:                                        ; preds = %for.body19
   %putchar16 = tail call i32 @putchar(i32 10)
   %add32 = add i64 %i.026, 16
   %cmp = icmp ult i64 %add32, %len
-  %indvars.iv.next33 = add i64 %indvars.iv32, -16
   br i1 %cmp, label %for.body, label %for.end33, !llvm.loop !13
 
 for.end33:                                        ; preds = %for.end29, %entry
@@ -5211,9 +5207,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
