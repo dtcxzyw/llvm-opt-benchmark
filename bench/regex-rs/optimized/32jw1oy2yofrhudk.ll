@@ -7658,8 +7658,8 @@ default.unreachable610:                           ; preds = %182
   %.sroa.0304.0478 = phi ptr [ %143, %.lr.ph ], [ %180, %340 ]
   %.sroa.7305.0477 = phi i64 [ %155, %.lr.ph ], [ %183, %340 ]
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.0304.0478, i64 32
-  %exitcond.not = icmp eq i64 %.sroa.7305.0477, %umax
-  br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %182
+  %.not.i.i.not.i = icmp eq i64 %.sroa.7305.0477, %umax
+  br i1 %.not.i.i.not.i, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %182
 
 "_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %179
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.135.llvm.11684209855903828990) #24

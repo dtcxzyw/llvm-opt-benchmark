@@ -8935,8 +8935,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx50 = getelementptr inbounds i32, ptr %cond.i.i, i64 %i.0119
   store i32 %cond, ptr %arrayidx50, align 4
   %inc = add nsw i64 %i.0119, 1
-  %exitcond.not = icmp eq i64 %i.0119, %smax
-  br i1 %exitcond.not, label %if.end51, label %for.body, !llvm.loop !149
+  %cmp49.not.not = icmp eq i64 %i.0119, %smax
+  br i1 %cmp49.not.not, label %if.end51, label %for.body, !llvm.loop !149
 
 if.end51:                                         ; preds = %for.body, %cond.end, %if.else, %if.then29, %if.then19
   %buffers_.i99 = getelementptr inbounds nuw i8, ptr %target, i64 48

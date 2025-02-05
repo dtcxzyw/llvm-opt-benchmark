@@ -1481,22 +1481,22 @@ define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr noundef readonly
   %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 %8)
   br label %9
 
-9:                                                ; preds = %12, %2
-  %.016 = phi i64 [ %4, %2 ], [ %14, %12 ]
-  %.0 = phi ptr [ %0, %2 ], [ %13, %12 ]
-  %10 = load i8, ptr %.0, align 1, !tbaa !8
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.016
-  store i8 %10, ptr %11, align 1, !tbaa !8
+9: ; preds = %12, %2
+  %9 = phi i64 [ %4, %2 ], [ %14, %12 ]
+  %10 = phi ptr [ %0, %2 ], [ %.not18, %12 ]
+  %10 = load i8, ptr %10, align 1, !tbaa !8
+  %.not = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  store i8 %10, ptr %.not, align 1, !tbaa !8
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %15, label %12
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %14 = add i64 %.016, 1
+12:; preds = %9
+  %.not18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %14 = add i64 %9, 1
   %exitcond.not = icmp eq i64 %14, %umax
   br i1 %exitcond.not, label %15, label %9, !llvm.loop !39
 
-15:                                               ; preds = %9, %12
+15:; preds = %9, %12
   %storemerge = phi i64 [ %umax, %12 ], [ %.016, %9 ]
   %.015 = phi i32 [ 1, %12 ], [ 0, %9 ]
   store i64 %storemerge, ptr %3, align 8, !tbaa !25

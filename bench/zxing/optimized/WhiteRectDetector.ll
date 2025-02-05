@@ -75,11 +75,11 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   %umax = zext i32 %34 to i64
   br label %35
 
-35:                                               ; preds = %.preheader, %.loopexit480
-  %.1178 = phi i32 [ %spec.select252, %.loopexit480 ], [ %.0177355, %.preheader ]
-  %.1168 = phi i8 [ %51, %.loopexit480 ], [ 0, %.preheader ]
-  %.1163 = phi i8 [ %52, %.loopexit480 ], [ %.0162359, %.preheader ]
-  %.0152 = phi i1 [ %.020.i253255259, %.loopexit480 ], [ true, %.preheader ]
+35:                                               ; preds = %.preheader, %.loopexit473
+  %.1178 = phi i32 [ %spec.select252, %.loopexit473 ], [ %.0177355, %.preheader ]
+  %.1168 = phi i8 [ %51, %.loopexit473 ], [ 0, %.preheader ]
+  %.1163 = phi i8 [ %52, %.loopexit473 ], [ %.0162359, %.preheader ]
+  %.0152 = phi i1 [ %.020.i253255259, %.loopexit473 ], [ true, %.preheader ]
   br i1 %.0152, label %39, label %36
 
 36:                                               ; preds = %35
@@ -105,8 +105,8 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
 
 43:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %umax
-  br i1 %exitcond.not, label %.loopexit305, label %44, !llvm.loop !4
+  %.not22.not.i = icmp eq i64 %indvars.iv.i, %umax
+  br i1 %.not22.not.i, label %.loopexit305, label %44, !llvm.loop !4
 
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
@@ -123,14 +123,14 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 %46
   %49 = load i8, ptr %48, align 1
   %.not49.not.i = icmp eq i8 %49, 0
-  br i1 %.not49.not.i, label %43, label %.loopexit480
+  br i1 %.not49.not.i, label %43, label %.loopexit473
 
 .loopexit305:                                     ; preds = %43, %40
   %50 = xor i8 %.1163, 1
   %not.302 = zext nneg i8 %50 to i32
-  br label %.loopexit480
+  br label %.loopexit473
 
-.loopexit480:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i, %.loopexit305
+.loopexit473:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i, %.loopexit305
   %not.302.sink = phi i32 [ %not.302, %.loopexit305 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit28.i ]
   %51 = phi i8 [ %.1168, %.loopexit305 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit28.i ]
   %.020.i253255259 = phi i1 [ false, %.loopexit305 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit28.i ]
@@ -147,11 +147,11 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
   %umax431 = tail call i64 @llvm.umax.i64(i64 %54, i64 %53)
   br label %55
 
-55:                                               ; preds = %.loopexit479, %.critedge
-  %.1172 = phi i32 [ %.0171357, %.critedge ], [ %spec.select208262, %.loopexit479 ]
-  %.3170 = phi i8 [ %.1168, %.critedge ], [ %72, %.loopexit479 ]
-  %.1160 = phi i8 [ %.0159360, %.critedge ], [ %73, %.loopexit479 ]
-  %.0151 = phi i1 [ true, %.critedge ], [ %.020.i222263266270, %.loopexit479 ]
+55:                                               ; preds = %.loopexit472, %.critedge
+  %.1172 = phi i32 [ %.0171357, %.critedge ], [ %spec.select208262, %.loopexit472 ]
+  %.3170 = phi i8 [ %.1168, %.critedge ], [ %72, %.loopexit472 ]
+  %.1160 = phi i8 [ %.0159360, %.critedge ], [ %73, %.loopexit472 ]
+  %.0151 = phi i1 [ true, %.critedge ], [ %.020.i222263266270, %.loopexit472 ]
   br i1 %.0151, label %59, label %56
 
 56:                                               ; preds = %55
@@ -178,8 +178,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
 
 64:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %exitcond432.not = icmp eq i64 %indvars.iv70.i, %umax431
-  br i1 %exitcond432.not, label %.loopexit304, label %65, !llvm.loop !7
+  %.not24.not.i = icmp eq i64 %indvars.iv70.i, %umax431
+  br i1 %.not24.not.i, label %.loopexit304, label %65, !llvm.loop !7
 
 65:                                               ; preds = %64, %.lr.ph61.i
   %indvars.iv70.i = phi i64 [ %53, %.lr.ph61.i ], [ %indvars.iv.next71.i, %64 ]
@@ -189,22 +189,22 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
 
 67:                                               ; preds = %65
   %68 = add nsw i64 %53, %63
-  %umax430 = tail call i64 @llvm.umax.i64(i64 %30, i64 %68)
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax430, i64 noundef %30) #10
+  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 %68)
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax, i64 noundef %30) #10
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %27, i64 %66
   %70 = load i8, ptr %69, align 1
   %.not50.not.i = icmp eq i8 %70, 0
-  br i1 %.not50.not.i, label %64, label %.loopexit479
+  br i1 %.not50.not.i, label %64, label %.loopexit472
 
 .loopexit304:                                     ; preds = %64, %60
   %71 = xor i8 %.1160, 1
   %not. = zext nneg i8 %71 to i32
-  br label %.loopexit479
+  br label %.loopexit472
 
-.loopexit479:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i, %.loopexit304
+.loopexit472:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i, %.loopexit304
   %not..sink = phi i32 [ %not., %.loopexit304 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
   %72 = phi i8 [ %.3170, %.loopexit304 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
   %.020.i222263266270 = phi i1 [ false, %.loopexit304 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
@@ -218,9 +218,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %65
   %74 = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated.i227, i32 %.sroa.speculated35.i)
   %umax433 = zext i32 %74 to i64
   %75 = trunc nuw i8 %.3170 to i1
-  br label %.outer523
+  br label %.outer516
 
-.outer523:                                        ; preds = %92, %.critedge3
+.outer516:                                        ; preds = %92, %.critedge3
   %.1181.ph = phi i32 [ %93, %92 ], [ %.0180354, %.critedge3 ]
   %.5.ph = phi i1 [ true, %92 ], [ %75, %.critedge3 ]
   %.1157.ph = phi i8 [ 1, %92 ], [ %.0156361, %.critedge3 ]
@@ -229,9 +229,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %65
   %78 = zext nneg i8 %77 to i32
   br label %79
 
-79:                                               ; preds = %.outer523, %.loopexit303
-  %.1181 = phi i32 [ %spec.select209273, %.loopexit303 ], [ %.1181.ph, %.outer523 ]
-  %.0150 = phi i1 [ false, %.loopexit303 ], [ true, %.outer523 ]
+79:                                               ; preds = %.outer516, %.loopexit303
+  %.1181 = phi i32 [ %spec.select209273, %.loopexit303 ], [ %.1181.ph, %.outer516 ]
+  %.0150 = phi i1 [ false, %.loopexit303 ], [ true, %.outer516 ]
   br i1 %.0150, label %82, label %80
 
 80:                                               ; preds = %79
@@ -254,8 +254,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %65
 
 85:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i232
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i230, 1
-  %exitcond434.not = icmp eq i64 %indvars.iv.i230, %umax433
-  br i1 %exitcond434.not, label %.loopexit303, label %86, !llvm.loop !4
+  %.not22.not.i235 = icmp eq i64 %indvars.iv.i230, %umax433
+  br i1 %.not22.not.i235, label %.loopexit303, label %86, !llvm.loop !4
 
 86:                                               ; preds = %85, %.lr.ph.i229
   %indvars.iv.i230 = phi i64 [ %33, %.lr.ph.i229 ], [ %indvars.iv.next.i234, %85 ]
@@ -280,7 +280,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %86
 
 92:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit28.i232
   %93 = add nsw i32 %.1181, -1
-  br label %.outer523, !llvm.loop !9
+  br label %.outer516, !llvm.loop !9
 
 .critedge5:                                       ; preds = %80, %82
   %.sroa.speculated35.i237 = tail call i32 @llvm.smax.i32(i32 %.1181, i32 0)
@@ -324,8 +324,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %86
 
 105:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i246
   %indvars.iv.next71.i248 = add nuw nsw i64 %indvars.iv70.i244, 1
-  %exitcond437.not = icmp eq i64 %indvars.iv70.i244, %umax436
-  br i1 %exitcond437.not, label %.loopexit, label %106, !llvm.loop !7
+  %.not24.not.i249 = icmp eq i64 %indvars.iv70.i244, %umax436
+  br i1 %.not24.not.i249, label %.loopexit, label %106, !llvm.loop !7
 
 106:                                              ; preds = %105, %.lr.ph61.i243
   %indvars.iv70.i244 = phi i64 [ %94, %.lr.ph61.i243 ], [ %indvars.iv.next71.i248, %105 ]
@@ -335,8 +335,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %86
 
 108:                                              ; preds = %106
   %109 = add nsw i64 %94, %104
-  %umax435 = tail call i64 @llvm.umax.i64(i64 %30, i64 %109)
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax435, i64 noundef %30) #10
+  %umax430 = tail call i64 @llvm.umax.i64(i64 %30, i64 %109)
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax430, i64 noundef %30) #10
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit.i246:            ; preds = %106

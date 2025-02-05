@@ -20,16 +20,16 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %12 = shl nsw i32 %11, 2
   %13 = add nsw i32 %12, 4
   %14 = sext i32 %13 to i64
-  %wide.trip.count151 = zext nneg i32 %2 to i64
+  %wide.trip.count150 = zext nneg i32 %2 to i64
   br label %.lr.ph.lr.ph.us
 
 .lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.us.preheader, %.loopexit.us
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph.lr.ph.us.preheader ], [ %indvars.iv.next149, %.loopexit.us ]
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph.lr.ph.us.preheader ], [ %indvars.iv.next148, %.loopexit.us ]
   %.0122.us = phi ptr [ null, %.lr.ph.lr.ph.us.preheader ], [ %.1.us, %.loopexit.us ]
   %.071119.us = phi ptr [ %4, %.lr.ph.lr.ph.us.preheader ], [ %.3.us, %.loopexit.us ]
-  %15 = mul nsw i64 %indvars.iv148, %14
+  %15 = mul nsw i64 %indvars.iv147, %14
   %16 = getelementptr inbounds i8, ptr %3, i64 %15
-  %17 = trunc i64 %indvars.iv148 to i16
+  %17 = trunc i64 %indvars.iv147 to i16
   br label %.lr.ph.us
 
 18:                                               ; preds = %.lr.ph.us, %68
@@ -105,26 +105,26 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   br label %.loopexit.us
 
 .lr.ph115.us:                                     ; preds = %.lr.ph115.us.preheader, %.lr.ph115.us
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph115.us.preheader ], [ %indvars.iv.next144, %.lr.ph115.us ]
-  %52 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv143, i32 3
+  %indvars.iv142 = phi i64 [ 0, %.lr.ph115.us.preheader ], [ %indvars.iv.next143, %.lr.ph115.us ]
+  %52 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv142, i32 3
   %53 = load i16, ptr %52, align 2
   %54 = add i16 %53, 1
   store i16 %54, ptr %52, align 2
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.loopexit.us, label %.lr.ph115.us, !llvm.loop !6
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
+  br i1 %exitcond146.not, label %.loopexit.us, label %.lr.ph115.us, !llvm.loop !6
 
 55:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond142.not, label %.critedge4.us, label %.lr.ph108.us, !llvm.loop !8
+  %exitcond141.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond141.not, label %.critedge4.us, label %.lr.ph108.us, !llvm.loop !8
 
 .loopexit.us:                                     ; preds = %.lr.ph115.us, %.critedge4.us.thread, %.critedge4.us, %33, %.critedge.thread.us
   %.3.us = phi ptr [ %.273.us.mux, %.critedge4.us ], [ %.273.us, %33 ], [ %.273.us, %.critedge.thread.us ], [ %spec.select, %.critedge4.us.thread ], [ %.071119.us, %.lr.ph115.us ]
   %.1.us = phi ptr [ %.071119.us.mux, %.critedge4.us ], [ %.071119.us, %33 ], [ %.071119.us, %.critedge.thread.us ], [ %.071119.us, %.critedge4.us.thread ], [ %.0122.us, %.lr.ph115.us ]
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !9
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
+  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !9
 
 .lr.ph96.us:                                      ; preds = %.critedge.preheader.us, %.critedge.us
   %.295.us = phi ptr [ %58, %.critedge.us ], [ %.17091.us, %.critedge.preheader.us ]
@@ -137,8 +137,8 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 .critedge.us:                                     ; preds = %.lr.ph96.us
   %58 = getelementptr inbounds nuw i8, ptr %.295.us, i64 4
   %59 = add i32 %.27694.us, 1
-  %exitcond140.not = icmp eq i32 %59, %1
-  br i1 %exitcond140.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !10
+  %exitcond.not = icmp eq i32 %59, %1
+  br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !10
 
 .critedge2.us:                                    ; preds = %.lr.ph96.us
   %60 = trunc i32 %.17590.us to i16
@@ -158,20 +158,20 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 68:                                               ; preds = %18
   %69 = getelementptr inbounds nuw i8, ptr %.17091.us, i64 4
   %70 = add i32 %.17590.us, 1
-  %exitcond.not = icmp eq i32 %70, %smax
-  br i1 %exitcond.not, label %.critedge.thread.us, label %18, !llvm.loop !11
+  %71 = icmp eq i32 %70, %smax
+  br i1 %71, label %.critedge.thread.us, label %18, !llvm.loop !11
 
 .critedge.preheader.us:                           ; preds = %18
-  %71 = icmp slt i32 %.17590.us, %1
-  br i1 %71, label %.lr.ph96.us, label %.critedge2.thread.us
+  %72 = icmp slt i32 %.17590.us, %1
+  br i1 %72, label %.lr.ph96.us, label %.critedge2.thread.us
 
 .lr.ph115.us.preheader:                           ; preds = %.critedge4.us
-  %wide.trip.count146 = and i64 %31, 2147483647
+  %wide.trip.count145 = and i64 %31, 2147483647
   br label %.lr.ph115.us
 
 .preheader84.us:                                  ; preds = %33
-  %72 = icmp sgt i32 %32, 0
-  br i1 %72, label %.lr.ph108.us.preheader, label %.critedge4.us.thread
+  %73 = icmp sgt i32 %32, 0
+  br i1 %73, label %.lr.ph108.us.preheader, label %.critedge4.us.thread
 
 .lr.ph108.us.preheader:                           ; preds = %.preheader84.us
   %wide.trip.count = and i64 %31, 2147483647

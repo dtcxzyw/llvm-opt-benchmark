@@ -1241,8 +1241,8 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
   %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.1 = add nsw i32 %.1.in26, 1
   tail call void %2(i32 noundef %.1, i32 noundef %24) #14
-  %exitcond31.not = icmp eq i32 %.1, %smax
-  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28
+  %.not19.not = icmp eq i32 %.1, %smax
+  br i1 %.not19.not, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %makeCylinder.exit
   ret void
@@ -1897,7 +1897,7 @@ addTree.exit.i:                                   ; preds = %109, %._crit_edge.i
   %148 = getelementptr i32, ptr %147, i64 %135
   store i32 %.sink.i.i, ptr %148, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
+  %.not.not.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %smax.i.i, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i, label %treeDup.exit.i, label %.lr.ph.i.i
 

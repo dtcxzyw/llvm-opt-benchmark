@@ -371,16 +371,16 @@ if.end3:                                          ; preds = %if.end3.lr.ph, %if.
   %indvars.iv = phi i64 [ 0, %if.end3.lr.ph ], [ %indvars.iv.next, %if.end3 ]
   %mem_offset.013 = phi i64 [ 0, %if.end3.lr.ph ], [ %add, %if.end3 ]
   %arrayidx = getelementptr [128 x %struct.NodeInfo], ptr %nodes, i64 0, i64 %indvars.iv
-  %4 = load i64, ptr %arrayidx, align 8
-  %add = add i64 %4, %mem_offset.013
+  %6 = load i64, ptr %arrayidx, align 8
+  %add = add i64 %6, %mem_offset.013
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp samesign uge i64 %indvars.iv.next, %3
+  %exitcond = icmp samesign uge i64 %indvars.iv.next, %3
   %cmp1 = icmp eq i64 %indvars.iv.next, %2
   %or.cond = or i1 %cmp1, %cmp
   br i1 %or.cond, label %for.end.loopexit, label %if.end3, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %if.end3
-  %5 = select i1 %cmp1, i64 %add, i64 0
+  %cmp1 = select i1 %cmp1, i64 %add, i64 0
   br label %return
 
 return:                                           ; preds = %for.cond.preheader, %for.end.loopexit, %entry, %numa_enabled.exit

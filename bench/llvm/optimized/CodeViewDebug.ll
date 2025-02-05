@@ -12227,10 +12227,10 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_8codeview9TypeIndexELj12EEEEEvOT_.exit: ; pre
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(296) %44, i64 noundef %.sroa.speculated, i32 noundef 4) #25
   %.not22 = icmp eq i64 %.019, %38
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %35
-  %48 = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
+.lr.ph:                                           ; preds = %35
+  %.118 = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 1)
   %umax = add nuw nsw i64 %48, %.019
   br label %.lr.ph
 
@@ -12257,36 +12257,36 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_8codeview9TypeIndexELj12EEEEEvOT_.exit: ; pre
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(296) %53, i64 noundef %56, i32 noundef 4) #25
   %60 = add i64 %.118, 1
-  %exitcond.not = icmp eq i64 %60, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1015
+  %61 = icmp eq i64 %60, %umax
+  br i1 %61, label %._crit_edge, label %.lr.ph, !llvm.loop !1015
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
   %.1.lcssa = phi i64 [ %.019, %35 ], [ %umax, %.lr.ph ]
-  %61 = load ptr, ptr %30, align 8, !tbaa !246
-  %62 = load ptr, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 664
-  %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(296) %61, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #25
-  %65 = load ptr, ptr %30, align 8, !tbaa !246
-  %66 = load ptr, ptr %65, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 208
-  %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(296) %65, ptr noundef %36, ptr null) #25
-  %69 = load i32, ptr %18, align 8, !tbaa !64
-  %70 = zext i32 %69 to i64
-  %71 = icmp ult i64 %.1.lcssa, %70
-  br i1 %71, label %35, label %._crit_edge21, !llvm.loop !1016
+  %62 = load ptr, ptr %30, align 8, !tbaa !246
+  %63 = load ptr, ptr %62, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 664
+  %65 = load ptr, ptr %64, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(296) %62, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #25
+  %66 = load ptr, ptr %30, align 8, !tbaa !246
+  %67 = load ptr, ptr %66, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 208
+  %69 = load ptr, ptr %68, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(296) %66, ptr noundef %36, ptr null) #25
+  %70 = load i32, ptr %18, align 8, !tbaa !64
+  %71 = zext i32 %70 to i64
+  %72 = icmp ult i64 %.1.lcssa, %71
+  br i1 %72, label %35, label %._crit_edge21, !llvm.loop !1016
 
 ._crit_edge21:                                    ; preds = %._crit_edge, %_ZN4llvm4sortIRNS_11SmallVectorINS_8codeview9TypeIndexELj12EEEEEvOT_.exit
-  %72 = load ptr, ptr %5, align 8, !tbaa !63
-  %73 = icmp eq ptr %72, %17
-  br i1 %73, label %_ZN4llvm11SmallVectorINS_8codeview9TypeIndexELj12EED2Ev.exit, label %74
+  %73 = load ptr, ptr %5, align 8, !tbaa !63
+  %74 = icmp eq ptr %73, %17
+  br i1 %74, label %_ZN4llvm11SmallVectorINS_8codeview9TypeIndexELj12EED2Ev.exit, label %75
 
-74:                                               ; preds = %._crit_edge21
-  call void @free(ptr noundef %72) #25
+75:                                               ; preds = %._crit_edge21
+  call void @free(ptr noundef %73) #25
   br label %_ZN4llvm11SmallVectorINS_8codeview9TypeIndexELj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_8codeview9TypeIndexELj12EED2Ev.exit: ; preds = %._crit_edge21, %74
+_ZN4llvm11SmallVectorINS_8codeview9TypeIndexELj12EED2Ev.exit: ; preds = %._crit_edge21, %75
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #25
   ret void
 }

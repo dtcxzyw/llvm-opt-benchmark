@@ -5881,8 +5881,8 @@ if.then14:                                        ; preds = %_ZN7rocksdb12_GLOBA
   %sub.ptr.sub10.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i, %sub.ptr.rhs.cast9.i.i.i
   %sub.ptr.div11.i.i.i = ashr exact i64 %sub.ptr.sub10.i.i.i, 3
   %add12.i.i.i = add nsw i64 %add.i.i.i, %sub.ptr.div11.i.i.i
-  %.not.i = icmp eq i64 %add12.i.i.i, 0
-  br i1 %.not.i, label %invoke.cont16, label %for.body.lr.ph.i
+  %invariant.umin.i = icmp eq i64 %add12.i.i.i, 0
+  br i1 %invariant.umin.i, label %invoke.cont16, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then14
   %invariant.umin.i = call i64 @llvm.umin.i64(i64 %add12.i.i.i, i64 8)
@@ -5891,8 +5891,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then14
   br label %for.body.i
 
 for.cond11.preheader.i:                           ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i
-  %cmp1289.i = icmp ugt i64 %add12.i.i.i, 8
-  %cmp4.i.i18 = icmp sgt i32 %retval.0.i.i, 0
+  %hash_entries_it.sroa.17.0.lcssa.i = icmp ugt i64 %add12.i.i.i, 8
+  %hash_entries_it.sroa.12.0.lcssa.i = icmp sgt i32 %retval.0.i.i, 0
   br i1 %cmp1289.i, label %for.body13.lr.ph.i, label %for.cond25.preheader.i
 
 for.body13.lr.ph.i:                               ; preds = %for.cond11.preheader.i
@@ -5941,8 +5941,8 @@ _ZNSt15_Deque_iteratorImRmPmEppEv.exit59.us.i:    ; preds = %_ZN7rocksdb18FastLo
   %hash_entries_it.sroa.12.3.us.i = phi ptr [ %add.ptr.i.i58.us.i, %if.then.i54.us.i ], [ %hash_entries_it.sroa.12.191.us.i, %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit.loopexit.us.i ]
   %hash_entries_it.sroa.0.3.us.i = phi ptr [ %27, %if.then.i54.us.i ], [ %incdec.ptr.i51.us.i, %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit.loopexit.us.i ]
   %inc23.us.i = add nuw i64 %i.193.us.i, 1
-  %exitcond100.not.i = icmp eq i64 %inc23.us.i, %add12.i.i.i
-  br i1 %exitcond100.not.i, label %for.body30.lr.ph.i, label %for.body13.us.i, !llvm.loop !63
+  %cmp12.us.i = icmp eq i64 %inc23.us.i, %add12.i.i.i
+  br i1 %cmp12.us.i, label %for.body30.lr.ph.i, label %for.body13.us.i, !llvm.loop !63
 
 _ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit.loopexit.us.i: ; preds = %for.body.i.us.i
   %28 = load i64, ptr %hash_entries_it.sroa.0.192.us.i, align 8
@@ -6007,14 +6007,14 @@ _ZNSt15_Deque_iteratorImRmPmEppEv.exit.i:         ; preds = %if.then.i.i, %for.b
 for.cond25.preheader.i:                           ; preds = %for.cond11.preheader.i
   br i1 %cmp4.i.i18, label %for.body30.us.i.preheader, label %invoke.cont16
 
-for.body30.lr.ph.i:                               ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.us.i
+for.body30.lr.ph.i:; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.us.i
   br i1 %cmp4.i.i18, label %for.body30.us.i.preheader, label %invoke.cont16
 
-for.body30.us.i.preheader:                        ; preds = %for.body30.lr.ph.i, %for.cond25.preheader.i
+for.body30.us.preheader.i:                        ; preds = %for.body30.lr.ph.i, %for.cond25.preheader.i
   br label %for.body30.us.i
 
 for.body30.us.i:                                  ; preds = %for.body30.us.i.preheader, %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit76.loopexit.us.i
-  %i.295.us.i = phi i64 [ %inc36.us.i, %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit76.loopexit.us.i ], [ 0, %for.body30.us.i.preheader ]
+  %i.295.us.i = phi i64 [ %inc36.us.i, %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit76.loopexit.us.i ], [ 0, %for.body30.us.preheader.i ]
   %arrayidx.i.i60.us.i = getelementptr inbounds nuw [8 x i32], ptr %hashes.i, i64 0, i64 %i.295.us.i
   %31 = load i32, ptr %arrayidx.i.i60.us.i, align 4
   %arrayidx.i.i61.us.i = getelementptr inbounds nuw [8 x i32], ptr %byte_offsets.i, i64 0, i64 %i.295.us.i
@@ -6043,8 +6043,8 @@ for.body.i63.us.i:                                ; preds = %for.body.i63.us.i, 
 
 _ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit76.loopexit.us.i: ; preds = %for.body.i63.us.i
   %inc36.us.i = add nuw nsw i64 %i.295.us.i, 1
-  %exitcond102.not.i = icmp eq i64 %inc36.us.i, %invariant.umin.i
-  br i1 %exitcond102.not.i, label %invoke.cont16, label %for.body30.us.i, !llvm.loop !65
+  %exitcond100.not.i = icmp eq i64 %inc36.us.i, %invariant.umin.i
+  br i1 %exitcond100.not.i, label %invoke.cont16, label %for.body30.us.i, !llvm.loop !65
 
 for.body13.i:                                     ; preds = %for.body13.lr.ph.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.i
   %i.193.i = phi i64 [ %inc23.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit59.i ], [ %invariant.umin.i, %for.body13.lr.ph.i ]
@@ -6084,8 +6084,8 @@ _ZNSt15_Deque_iteratorImRmPmEppEv.exit59.i:       ; preds = %if.then.i54.i, %for
   %hash_entries_it.sroa.12.3.i = phi ptr [ %add.ptr.i.i58.i, %if.then.i54.i ], [ %hash_entries_it.sroa.12.191.i, %for.body13.i ]
   %hash_entries_it.sroa.0.3.i = phi ptr [ %36, %if.then.i54.i ], [ %incdec.ptr.i51.i, %for.body13.i ]
   %inc23.i = add nuw i64 %i.193.i, 1
-  %exitcond99.not.i = icmp eq i64 %inc23.i, %add12.i.i.i
-  br i1 %exitcond99.not.i, label %for.body30.lr.ph.i, label %for.body13.i, !llvm.loop !63
+  %cmp12.i = icmp eq i64 %inc23.i, %add12.i.i.i
+  br i1 %cmp12.i, label %for.body30.lr.ph.i, label %for.body13.i, !llvm.loop !63
 
 invoke.cont16:                                    ; preds = %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit76.loopexit.us.i, %for.body30.lr.ph.i, %for.cond25.preheader.i, %if.then14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hashes.i)

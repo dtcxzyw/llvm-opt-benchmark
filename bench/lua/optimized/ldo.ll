@@ -408,7 +408,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tt_ = getelementptr inbounds %union.StackValue, ptr %call, i64 %indvars.iv, i32 0, i32 1
   store i8 0, ptr %tt_, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %cmp23 = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 

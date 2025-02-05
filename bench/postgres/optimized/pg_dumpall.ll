@@ -2413,15 +2413,15 @@ define internal fastcc void @dumpRoleMembership(ptr noundef nonnull %0) unnamed_
   %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 %23)
   br label %24
 
-24:                                               ; preds = %.lr.ph, %27
-  %.091153 = phi i32 [ %.0186, %.lr.ph ], [ %28, %27 ]
-  %25 = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %.091153, i32 noundef 0) #14
+24:; preds = %.lr.ph, %27
+  %25 = phi i32 [ %.0186, %.lr.ph ], [ %28, %27 ]
+  %.not = tail call ptr @PQgetvalue(ptr noundef nonnull %11, i32 noundef %25, i32 noundef 0) #14
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %25) #15
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %29
 
-27:                                               ; preds = %24
-  %28 = add i32 %.091153, 1
+27:; preds = %24
+  %28 = add i32 %25, 1
   %exitcond.not = icmp eq i32 %28, %smax
   br i1 %exitcond.not, label %29, label %24, !llvm.loop !19
 
@@ -2942,8 +2942,8 @@ rolename_insert.exit.us:                          ; preds = %192, %.sink.split.i
 rolename_lookup.exit.thread.us:                   ; preds = %108, %292, %90, %.preheader.us
   %.2.us = phi i32 [ %.1156.us, %.preheader.us ], [ %114, %292 ], [ %.1156.us, %90 ], [ %.1156.us, %108 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond239.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond239.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
 
 ..loopexit_crit_edge.us:                          ; preds = %rolename_lookup.exit.thread.us
   %295 = icmp sgt i32 %.2.us, 0

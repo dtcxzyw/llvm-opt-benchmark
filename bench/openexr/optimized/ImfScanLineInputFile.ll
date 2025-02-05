@@ -4606,7 +4606,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   %bytesPerLine = getelementptr inbounds nuw i8, ptr %2, i64 208
   %8 = load ptr, ptr %bytesPerLine, align 8
   %9 = sext i32 %sub to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %sub, i32 %sub10)
+  %10 = tail call i32 @llvm.smax.i32(i32 %sub, i32 %sub10)
   %10 = add i32 %smax, 1
   br label %for.body
 
@@ -4617,8 +4617,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load i64, ptr %add.ptr.i, align 8
   %add = add i64 %11, %uncompressedSize.037
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %10, %lftr.wideiv
+  %cmp11.not.not = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %10, %cmp11.not.not
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %for.body, %if.then
@@ -4831,8 +4831,8 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %arrayidx = getelementptr inbounds [8 x ptr], ptr %readPointers, i64 0, i64 %i84.039
   store ptr %add.ptr93, ptr %arrayidx, align 8
   %inc95 = add nuw i64 %i84.039, 1
-  %exitcond44.not = icmp eq i64 %inc95, %umax
-  br i1 %exitcond44.not, label %for.end96, label %for.body87, !llvm.loop !40
+  %exitcond.not = icmp eq i64 %inc95, %umax
+  br i1 %exitcond.not, label %for.end96, label %for.body87, !llvm.loop !40
 
 for.end96:                                        ; preds = %for.body87
   %cmp98 = icmp eq i64 %sub.ptr.sub.i, 336
@@ -6296,7 +6296,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   %bytesPerLine = getelementptr inbounds nuw i8, ptr %2, i64 208
   %8 = load ptr, ptr %bytesPerLine, align 8
   %9 = sext i32 %sub to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %sub, i32 %sub10)
+  %10 = tail call i32 @llvm.smax.i32(i32 %sub, i32 %sub10)
   %10 = add i32 %smax, 1
   br label %for.body
 
@@ -6307,8 +6307,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load i64, ptr %add.ptr.i, align 8
   %add = add i64 %11, %uncompressedSize.080
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %10, %lftr.wideiv
+  %cmp11.not.not = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %10, %cmp11.not.not
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
 
 for.end:                                          ; preds = %for.body, %if.then

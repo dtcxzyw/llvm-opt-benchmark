@@ -9655,8 +9655,8 @@ define noundef zeroext i1 @"_ZN93_$LT$regex_automata..nfa..thompson..literal_tri
   %.sroa.8.061 = phi i64 [ %24, %.lr.ph ], [ %46, %45 ]
   %.sroa.054.060 = phi ptr [ %17, %.lr.ph ], [ %35, %45 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.054.060, i64 48
-  %exitcond.not = icmp eq i64 %.sroa.8.061, %umax
-  br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %41
+  %.not.i.i.not.i = icmp eq i64 %.sroa.8.061, %umax
+  br i1 %.not.i.i.not.i, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %41
 
 "_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %34
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.135.llvm.11684209855903828990) #21, !noalias !1918

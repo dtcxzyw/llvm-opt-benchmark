@@ -350,7 +350,7 @@ if.then29:                                        ; preds = %if.end27
 
 do.cond:                                          ; preds = %if.end27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %cmp36 = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %return, label %do.body, !llvm.loop !10
 
@@ -666,7 +666,7 @@ if.then29.i:                                      ; preds = %if.end27.i
 
 do.cond.i:                                        ; preds = %if.end27.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %cmp36.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %smax.i, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %return, label %do.body.i, !llvm.loop !10
 
@@ -814,12 +814,12 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #7
   resume { ptr, i32 } %lpad.phi
 
 cleanup:                                          ; preds = %if.end15.i, %entry, %while.cond.preheader.i, %if.then, %invoke.cont
   %retval.0 = phi i32 [ -1, %invoke.cont ], [ %call.i5, %if.then ], [ -1, %while.cond.preheader.i ], [ -1, %entry ], [ -1, %if.end15.i ]
-  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #8
+  call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %trie) #7
   ret i32 %retval.0
 }
 

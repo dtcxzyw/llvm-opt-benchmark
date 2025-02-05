@@ -1380,15 +1380,15 @@ for.body33.preheader:                             ; preds = %for.body33.lr.ph
   %4 = sext i32 %ncomp to i64
   %wide.trip.count = zext nneg i32 %width to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %scratch, i64 %1
-  %invariant.gep208 = getelementptr inbounds nuw i8, ptr %scratch, i64 %2
-  %invariant.gep210 = getelementptr inbounds nuw i8, ptr %scratch, i64 %3
+  %invariant.gep206 = getelementptr inbounds nuw i8, ptr %scratch, i64 %2
+  %invariant.gep208 = getelementptr inbounds nuw i8, ptr %scratch, i64 %3
   br label %for.body33
 
 for.body33.us.preheader:                          ; preds = %for.body33.lr.ph
   %5 = zext nneg i32 %ncomp to i64
-  %invariant.gep212 = getelementptr inbounds nuw i8, ptr %scratch, i64 %1
-  %invariant.gep214 = getelementptr inbounds nuw i8, ptr %scratch, i64 %2
-  %invariant.gep216 = getelementptr inbounds nuw i8, ptr %scratch, i64 %3
+  %invariant.gep210 = getelementptr inbounds nuw i8, ptr %scratch, i64 %1
+  %invariant.gep212 = getelementptr inbounds nuw i8, ptr %scratch, i64 %2
+  %invariant.gep214 = getelementptr inbounds nuw i8, ptr %scratch, i64 %3
   br label %for.body33.us
 
 for.body33.us:                                    ; preds = %for.body33.us.preheader, %stbiw__linear_to_rgbe.exit125.us
@@ -1455,12 +1455,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %15 = getelementptr inbounds nuw i8, ptr %rgbe, i64 2
   %context = getelementptr inbounds nuw i8, ptr %s, i64 8
   %16 = sext i32 %ncomp to i64
-  %wide.trip.count204 = zext nneg i32 %width to i64
+  %wide.trip.count202 = zext nneg i32 %width to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %stbiw__linear_to_rgbe.exit
-  %indvars.iv199 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next200, %stbiw__linear_to_rgbe.exit ]
-  %17 = mul nsw i64 %indvars.iv199, %16
+  %indvars.iv197 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next198, %stbiw__linear_to_rgbe.exit ]
+  %17 = mul nsw i64 %indvars.iv197, %16
   %18 = getelementptr float, ptr %scanline, i64 %17
   br i1 %switch, label %sw.bb, label %sw.default
 
@@ -1521,9 +1521,9 @@ stbiw__linear_to_rgbe.exit:                       ; preds = %if.then.i, %if.else
   %25 = load ptr, ptr %s, align 8
   %26 = load ptr, ptr %context, align 8
   call void %25(ptr noundef %26, ptr noundef nonnull %rgbe, i32 noundef 4) #26
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count204
-  br i1 %exitcond205.not, label %if.end175, label %for.body, !llvm.loop !15
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count202
+  br i1 %exitcond203.not, label %if.end175, label %for.body, !llvm.loop !15
 
 for.body33:                                       ; preds = %for.body33.preheader, %stbiw__linear_to_rgbe.exit125
   %indvars.iv = phi i64 [ 0, %for.body33.preheader ], [ %indvars.iv.next, %stbiw__linear_to_rgbe.exit125 ]
@@ -1574,15 +1574,15 @@ for.body90.us.preheader:                          ; preds = %stbiw__linear_to_rg
   br label %for.body90.us
 
 for.body90.us:                                    ; preds = %for.body90.us.preheader, %while.cond.for.inc172_crit_edge.us
-  %indvars.iv194 = phi i64 [ 0, %for.body90.us.preheader ], [ %indvars.iv.next195, %while.cond.for.inc172_crit_edge.us ]
-  %35 = mul nuw nsw i64 %indvars.iv194, %34
+  %indvars.iv192 = phi i64 [ 0, %for.body90.us.preheader ], [ %indvars.iv.next193, %while.cond.for.inc172_crit_edge.us ]
+  %35 = mul nuw nsw i64 %indvars.iv192, %34
   %arrayidx93.us = getelementptr inbounds nuw i8, ptr %scratch, i64 %35
   br label %while.cond96.preheader.us
 
 while.body100.us:                                 ; preds = %while.body100.us.preheader, %if.end.us
   %36 = phi i8 [ %.pre, %while.body100.us.preheader ], [ %37, %if.end.us ]
-  %indvars.iv183 = phi i64 [ %56, %while.body100.us.preheader ], [ %indvars.iv.next184, %if.end.us ]
-  %indvars.iv181 = phi i64 [ %57, %while.body100.us.preheader ], [ %indvars.iv.next182, %if.end.us ]
+  %indvars.iv183 = phi i64 [ %55, %while.body100.us.preheader ], [ %indvars.iv.next184, %if.end.us ]
+  %indvars.iv181 = phi i64 [ %56, %while.body100.us.preheader ], [ %indvars.iv.next182, %if.end.us ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %arrayidx106.us = getelementptr inbounds i8, ptr %arrayidx93.us, i64 %indvars.iv.next184
   %37 = load i8, ptr %arrayidx106.us, align 1
@@ -1620,14 +1620,14 @@ land.rhs.us:                                      ; preds = %while.cond142.prehe
   %arrayidx146.us = getelementptr inbounds i8, ptr %arrayidx93.us, i64 %indvars.iv189
   %40 = load i8, ptr %arrayidx146.us, align 1
   %cmp151.us = icmp eq i8 %40, %52
-  br i1 %cmp151.us, label %while.body153.us, label %while.end155.us.split.loop.exit220
+  br i1 %cmp151.us, label %while.body153.us, label %while.end155.us.split.loop.exit218
 
-while.end155.us.split.loop.exit220:               ; preds = %land.rhs.us
+while.end155.us.split.loop.exit218:               ; preds = %land.rhs.us
   %41 = trunc nsw i64 %indvars.iv189 to i32
   br label %while.end155.us
 
-while.end155.us:                                  ; preds = %while.body153.us, %while.end155.us.split.loop.exit220
-  %r.2.lcssa.us = phi i32 [ %41, %while.end155.us.split.loop.exit220 ], [ %smax, %while.body153.us ]
+while.end155.us:                                  ; preds = %while.body153.us, %while.end155.us.split.loop.exit218
+  %r.2.lcssa.us = phi i32 [ %41, %while.end155.us.split.loop.exit218 ], [ %smax, %while.body153.us ]
   %cmp157154.us = icmp slt i32 %x.3.lcssa.us, %r.2.lcssa.us
   br i1 %cmp157154.us, label %while.body159.us, label %if.end170.us
 
@@ -1663,8 +1663,8 @@ while.body159.us:                                 ; preds = %while.end155.us, %w
 
 while.body153.us:                                 ; preds = %land.rhs.us
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
-  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %smax192
-  br i1 %exitcond193.not, label %while.end155.us, label %land.rhs.us, !llvm.loop !19
+  %cmp143.us = icmp eq i64 %indvars.iv.next190, %smax192
+  br i1 %cmp143.us, label %while.end155.us, label %land.rhs.us, !llvm.loop !19
 
 while.body129.us:                                 ; preds = %while.end.us, %while.body129.us
   %x.3151.us = phi i32 [ %add136.us, %while.body129.us ], [ %x.2158.us, %while.end.us ]
@@ -1704,16 +1704,16 @@ while.cond96.preheader.us:                        ; preds = %for.body90.us, %if.
   br i1 %cmp98145.us, label %while.body100.us.preheader, label %while.end.us
 
 while.body100.us.preheader:                       ; preds = %while.cond96.preheader.us
-  %56 = sext i32 %x.2158.us to i64
-  %57 = add nsw i64 %56, 2
-  %arrayidx102.us.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx93.us, i64 %56
+  %55 = sext i32 %x.2158.us to i64
+  %56 = add nsw i64 %55, 2
+  %arrayidx102.us.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx93.us, i64 %55
   %.pre = load i8, ptr %arrayidx102.us.phi.trans.insert, align 1
   br label %while.body100.us
 
 while.cond.for.inc172_crit_edge.us:               ; preds = %if.end170.us
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next195, 4
-  br i1 %exitcond198.not, label %if.end175, label %for.body90.us, !llvm.loop !21
+  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
+  %exitcond196.not = icmp eq i64 %indvars.iv.next193, 4
+  br i1 %exitcond196.not, label %if.end175, label %for.body90.us, !llvm.loop !21
 
 if.end175:                                        ; preds = %while.cond.for.inc172_crit_edge.us, %stbiw__linear_to_rgbe.exit, %for.cond.preheader
   ret void

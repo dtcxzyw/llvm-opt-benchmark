@@ -1254,7 +1254,7 @@ define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef r
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %0, %5
-  br i1 %.not, label %6, label %77
+  br i1 %.not, label %6, label %78
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1307,21 +1307,21 @@ define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef r
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %wide.trip.count87 = zext nneg i32 %26 to i64
-  br label %67
+  %wide.trip.count = zext nneg i32 %26 to i64
+  br label %68
 
 .lr.ph69:                                         ; preds = %._crit_edge, %._crit_edge65
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %._crit_edge65 ], [ %24, %._crit_edge ]
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %._crit_edge65 ], [ %24, %._crit_edge ]
   %indvars.iv79.in = phi i32 [ %indvars.iv79, %._crit_edge65 ], [ %23, %._crit_edge ]
   %.05166 = phi ptr [ %31, %._crit_edge65 ], [ %11, %._crit_edge ]
   %indvars.iv79 = add nsw i32 %indvars.iv79.in, -1
   %31 = getelementptr inbounds nuw i8, ptr %.05166, i64 16
-  %indvars.iv.next82 = add nsw i64 %indvars.iv81, -1
-  %32 = icmp samesign ugt i64 %indvars.iv81, 1
+  %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
+  %32 = icmp samesign ugt i64 %indvars.iv79, 1
   br i1 %32, label %.lr.ph64, label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %.lr.ph69
-  tail call void @qsort(ptr noundef nonnull %31, i64 noundef %indvars.iv.next82, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
+  tail call void @qsort(ptr noundef nonnull %31, i64 noundef %indvars.iv.next80, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
   br label %.preheader
 
 .lr.ph64:                                         ; preds = %.lr.ph69
@@ -1394,41 +1394,41 @@ opal_graph_adjacent.exit:                         ; preds = %57, %36, %40, %43, 
 
 65:                                               ; preds = %opal_graph_adjacent.exit, %64
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge65, label %36, !llvm.loop !20
+  %66 = icmp eq i64 %indvars.iv.next77, %wide.trip.count
+  br i1 %66, label %._crit_edge65, label %36, !llvm.loop !20
 
 ._crit_edge65:                                    ; preds = %65
-  tail call void @qsort(ptr noundef nonnull %31, i64 noundef %indvars.iv.next82, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
-  %66 = icmp sgt i64 %indvars.iv81, 1
-  br i1 %66, label %.lr.ph69, label %.preheader, !llvm.loop !21
+  tail call void @qsort(ptr noundef nonnull %31, i64 noundef %indvars.iv.next80, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #13
+  %67 = icmp sgt i64 %indvars.iv79, 1
+  br i1 %67, label %.lr.ph69, label %.preheader, !llvm.loop !21
 
-67:                                               ; preds = %.lr.ph71, %opal_value_array_append_item.exit
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next85, %opal_value_array_append_item.exit ]
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %68 = load i64, ptr %28, align 8
-  %69 = add i64 %68, 1
-  %70 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %69) #13
-  %.not12.i.i = icmp eq i32 %70, 0
-  br i1 %.not12.i.i, label %71, label %opal_value_array_append_item.exit
+68:                                               ; preds = %.lr.ph71, %opal_value_array_append_item.exit
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next83, %opal_value_array_append_item.exit ]
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %69 = load i64, ptr %28, align 8
+  %70 = add i64 %69, 1
+  %71 = tail call i32 @opal_value_array_set_size(ptr noundef nonnull %2, i64 noundef %70) #13
+  %.not12.i.i = icmp eq i32 %71, 0
+  br i1 %.not12.i.i, label %72, label %opal_value_array_append_item.exit
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw %struct.vertex_distance_from_t, ptr %11, i64 %indvars.iv.next85
-  %73 = load ptr, ptr %29, align 8
-  %74 = load i64, ptr %30, align 8
-  %75 = mul i64 %74, %68
-  %76 = getelementptr inbounds i8, ptr %73, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull readonly align 1 %72, i64 %74, i1 false)
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw %struct.vertex_distance_from_t, ptr %11, i64 %indvars.iv.next83
+  %74 = load ptr, ptr %29, align 8
+  %75 = load i64, ptr %30, align 8
+  %76 = mul i64 %75, %69
+  %77 = getelementptr inbounds i8, ptr %74, i64 %76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull readonly align 1 %73, i64 %75, i1 false)
   br label %opal_value_array_append_item.exit
 
-opal_value_array_append_item.exit:                ; preds = %67, %71
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge72, label %67, !llvm.loop !22
+opal_value_array_append_item.exit:                ; preds = %68, %72
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge72, label %68, !llvm.loop !22
 
 ._crit_edge72:                                    ; preds = %opal_value_array_append_item.exit, %.preheader
   tail call void @free(ptr noundef %11) #13
-  br label %77
+  br label %78
 
-77:                                               ; preds = %3, %._crit_edge72
+78:                                               ; preds = %3, %._crit_edge72
   %.0 = phi i32 [ %26, %._crit_edge72 ], [ 0, %3 ]
   ret i32 %.0
 }

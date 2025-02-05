@@ -1306,11 +1306,11 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %247, label %.thread45, label %.preheader134
 
 248:                                              ; preds = %.loopexit56, %.thread112
-  %indvars.iv = phi i32 [ %indvars.iv.next, %.loopexit56 ], [ 1, %.thread112 ]
-  %249 = phi i32 [ %291, %.loopexit56 ], [ 0, %.thread112 ]
-  %250 = phi i32 [ %290, %.loopexit56 ], [ -1, %.thread112 ]
-  %251 = phi i32 [ %289, %.loopexit56 ], [ -1, %.thread112 ]
-  %252 = phi i32 [ %288, %.loopexit56 ], [ 0, %.thread112 ]
+  %249 = phi i32 [ %indvars.iv.next, %.loopexit56 ], [ 1, %.thread112 ]
+  %250 = phi i32 [ %291, %.loopexit56 ], [ 0, %.thread112 ]
+  %251 = phi i32 [ %290, %.loopexit56 ], [ -1, %.thread112 ]
+  %252 = phi i32 [ %289, %.loopexit56 ], [ -1, %.thread112 ]
+  %253 = phi i32 [ %288, %.loopexit56 ], [ 0, %.thread112 ]
   %253 = phi i32 [ %292, %.loopexit56 ], [ 0, %.thread112 ]
   %254 = sext i32 %253 to i64
   %255 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %254
@@ -1351,17 +1351,17 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 278:                                              ; preds = %.preheader57
   %279 = add i32 %249, 1
   %280 = icmp sgt i32 %266, %253
-  br i1 %280, label %.loopexit56, label %.preheader55.preheader
+  br i1 %280, label %.loopexit56, label %.preheader55
 
-.preheader55.preheader:                           ; preds = %278
+.preheader55:                                     ; preds = %278
   %281 = add i32 %266, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 %281)
+  %282 = tail call i32 @llvm.smax.i32(i32 %249, i32 %281)
   br label %.preheader55
 
-.preheader55:                                     ; preds = %.preheader55.preheader, %.preheader55
-  %282 = phi i32 [ %287, %.preheader55 ], [ %266, %.preheader55.preheader ]
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %283
+.preheader55:; preds = %.preheader55, %.preheader55
+  %282 = phi i32 [ %287, %.preheader55 ], [ %266, %.preheader55 ]
+  %286 = sext i32 %282 to i64
+  %287 = getelementptr [256 x ptr], ptr %245, i64 0, i64 %286
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 132
   store i32 %279, ptr %286, align 4

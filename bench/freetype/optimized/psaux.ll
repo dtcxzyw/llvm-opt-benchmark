@@ -6982,30 +6982,30 @@ define internal i32 @t1_cmap_std_char_next(ptr noundef readonly captures(none) %
   %9 = add i32 %umax, -1
   br label %10
 
-10:                                               ; preds = %t1_cmap_std_char_index.exit, %2
+8:                                                ; preds = %t1_cmap_std_char_index.exit, %2
   %.0.in = phi i32 [ %3, %2 ], [ %.0, %t1_cmap_std_char_index.exit ]
   %.0 = add i32 %.0.in, 1
-  %exitcond.not = icmp eq i32 %.0.in, %9
-  br i1 %exitcond.not, label %33, label %11
+  %9 = icmp eq i32 %.0.in, %9
+  br i1 %9, label %33, label %11
 
-11:                                               ; preds = %10
-  %12 = load ptr, ptr %4, align 8, !tbaa !471
-  %13 = zext nneg i32 %.0 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %12, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !43
-  %16 = zext i16 %15 to i32
-  %17 = load ptr, ptr %5, align 8, !tbaa !470
-  %18 = tail call ptr %17(i32 noundef %16) #20
-  %19 = load i32, ptr %6, align 8, !tbaa !464
-  %.not29.i = icmp eq i32 %19, 0
+10:                                               ; preds = %8
+  %11 = load ptr, ptr %4, align 8, !tbaa !471
+  %12 = zext nneg i32 %.0 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %14 = load i16, ptr %13, align 2, !tbaa !43
+  %15 = zext i16 %14 to i32
+  %16 = load ptr, ptr %5, align 8, !tbaa !470
+  %17 = tail call ptr %17(i32 noundef %15) #20
+  %18 = load i32, ptr %6, align 8, !tbaa !464
+  %.not29.i = icmp eq i32 %18, 0
   br i1 %.not29.i, label %t1_cmap_std_char_index.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %11
-  %20 = load ptr, ptr %7, align 8, !tbaa !467
-  %wide.trip.count.i = zext i32 %19 to i64
+.lr.ph.i:                                         ; preds = %10
+  %19 = load ptr, ptr %7, align 8, !tbaa !467
+  %wide.trip.count.i = zext i32 %18 to i64
   br label %21
 
-21:                                               ; preds = %31, %.lr.ph.i
+30:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !25
@@ -7029,17 +7029,17 @@ define internal i32 @t1_cmap_std_char_next(ptr noundef readonly captures(none) %
   br i1 %exitcond.not.i, label %t1_cmap_std_char_index.exit, label %21, !llvm.loop !472
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %28
-  %32 = trunc nuw i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   br label %t1_cmap_std_char_index.exit
 
-t1_cmap_std_char_index.exit:                      ; preds = %31, %11, %.loopexit.loopexit.split.loop.exit.i
-  %.018.i = phi i32 [ 0, %11 ], [ %32, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %31 ]
+t1_cmap_std_char_index.exit:                      ; preds = %31, %10, %.loopexit.loopexit.split.loop.exit.i
+  %.018.i = phi i32 [ 0, %10 ], [ %31, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %31 ]
   %.not = icmp eq i32 %.018.i, 0
-  br i1 %.not, label %10, label %33, !llvm.loop !473
+  br i1 %.not, label %8, label %32, !llvm.loop !473
 
-33:                                               ; preds = %10, %t1_cmap_std_char_index.exit
-  %.19 = phi i32 [ %.018.i, %t1_cmap_std_char_index.exit ], [ 0, %10 ]
-  %.1 = phi i32 [ %.0, %t1_cmap_std_char_index.exit ], [ 0, %10 ]
+32:                                               ; preds = %8, %t1_cmap_std_char_index.exit
+  %.19 = phi i32 [ %.018.i, %t1_cmap_std_char_index.exit ], [ 0, %8 ]
+  %.1 = phi i32 [ %.0, %t1_cmap_std_char_index.exit ], [ 0, %8 ]
   store i32 %.1, ptr %1, align 4, !tbaa !16
   ret i32 %.19
 }

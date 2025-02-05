@@ -456,9 +456,9 @@ get_month_length.exit75:                          ; preds = %80, %82, %85, %90
   %106 = add nsw i32 %101, %15
   %107 = add nsw i32 %106, 1
   %108 = sub nsw i32 %107, %46
-  %.fr102 = freeze i32 %108
-  %109 = urem i32 %.fr102, 7
-  %.neg = sub i32 %109, %.fr102
+  %.fr101 = freeze i32 %108
+  %109 = urem i32 %.fr101, 7
+  %.neg = sub i32 %109, %.fr101
   %110 = add i32 %.neg, %105
   %111 = zext i32 %110 to i64
   br label %120
@@ -525,8 +525,8 @@ get_month_length.exit75:                          ; preds = %80, %82, %85, %90
 
 139:                                              ; preds = %.lr.ph88, %137
   %140 = add nuw i32 %.486, 1
-  %exitcond101.not = icmp eq i32 %140, %133
-  br i1 %exitcond101.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !36
+  %exitcond100.not = icmp eq i32 %140, %133
+  br i1 %exitcond100.not, label %._crit_edge89, label %.lr.ph88, !llvm.loop !36
 
 ._crit_edge89:                                    ; preds = %139, %132
   ret void

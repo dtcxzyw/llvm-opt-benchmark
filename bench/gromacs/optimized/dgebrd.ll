@@ -201,8 +201,8 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %131 = getelementptr double, ptr %24, i64 %indvars.iv
   %132 = getelementptr double, ptr %131, i64 %130
   store double %128, ptr %132, align 8
-  %exitcond.not = icmp eq i32 %smax, %indvars
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  %.not163.not = icmp eq i32 %smax, %indvars
+  br i1 %.not163.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 133:                                              ; preds = %63
   br i1 %.not162.not169, label %.lr.ph171.preheader, label %.loopexit
@@ -229,8 +229,8 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %144 = getelementptr double, ptr %24, i64 %indvars.iv.next186
   %145 = getelementptr double, ptr %144, i64 %137
   store double %143, ptr %145, align 8
-  %lftr.wideiv190 = trunc i64 %indvars.iv.next186 to i32
-  %exitcond191.not = icmp eq i32 %smax189, %lftr.wideiv190
+  %.not162.not = trunc i64 %indvars.iv.next186 to i32
+  %exitcond191.not = icmp eq i32 %smax189, %.not162.not
   br i1 %exitcond191.not, label %.loopexit, label %.lr.ph171, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph171, %119, %133
@@ -243,12 +243,12 @@ define void @dgebrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %0, align 4
-  %.pre192 = load i32, ptr %1, align 4
+  %.pre189 = load i32, ptr %1, align 4
   %150 = sub i32 1, %146
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %54, %._crit_edge.loopexit
-  %151 = phi i32 [ %.pre192, %._crit_edge.loopexit ], [ %32, %54 ]
+  %151 = phi i32 [ %.pre189, %._crit_edge.loopexit ], [ %32, %54 ]
   %152 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %31, %54 ]
   %.0151.lcssa = phi i32 [ %146, %._crit_edge.loopexit ], [ 1, %54 ]
   %.0151.neg.lcssa = phi i32 [ %150, %._crit_edge.loopexit ], [ 0, %54 ]

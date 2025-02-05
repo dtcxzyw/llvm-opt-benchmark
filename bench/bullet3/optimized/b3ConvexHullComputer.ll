@@ -1635,49 +1635,49 @@ sw.epilog:                                        ; preds = %entry
   %p.sroa.3.0.point69.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 112
   %p.sroa.3.0.copyload = load i32, ptr %p.sroa.3.0.point69.sroa_idx, align 8
   %cmp70118 = icmp slt i32 %add, %end
-  br i1 %cmp70118, label %land.rhs, label %while.end
+  br i1 %cmp70118, label %land.rhs.preheader, label %while.end
 
-land.rhs:                                         ; preds = %sw.epilog, %while.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ %15, %sw.epilog ]
+land.rhs.preheader:                               ; preds = %sw.epilog, %while.body
+  %18 = phi i64 [ %indvars.iv.next, %while.body ], [ %15, %sw.epilog ]
   %arrayidx.i105 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
-  %18 = load ptr, ptr %arrayidx.i105, align 8
-  %point73 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %19 = load i32, ptr %point73, align 4
-  %cmp.i = icmp eq i32 %19, %p.sroa.0.0.copyload
+  %19 = load ptr, ptr %arrayidx.i105, align 8
+  %point73 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  %20 = load i32, ptr %point73, align 4
+  %cmp.i = icmp eq i32 %20, %p.sroa.0.0.copyload
   br i1 %cmp.i, label %land.lhs.true.i, label %while.end.loopexit.split.loop.exit
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  %y.i106 = getelementptr inbounds nuw i8, ptr %18, i64 108
-  %20 = load i32, ptr %y.i106, align 4
-  %cmp4.i = icmp eq i32 %20, %p.sroa.2.0.copyload
+  %y.i106 = getelementptr inbounds nuw i8, ptr %19, i64 108
+  %21 = load i32, ptr %y.i106, align 4
+  %cmp4.i = icmp eq i32 %21, %p.sroa.2.0.copyload
   br i1 %cmp4.i, label %_ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit, label %while.end.loopexit.split.loop.exit128
 
 _ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %land.lhs.true.i
-  %z.i108 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %21 = load i32, ptr %z.i108, align 4
-  %cmp6.i110 = icmp eq i32 %21, %p.sroa.3.0.copyload
+  %z.i108 = getelementptr inbounds nuw i8, ptr %19, i64 112
+  %22 = load i32, ptr %z.i108, align 4
+  %cmp6.i110 = icmp eq i32 %22, %p.sroa.3.0.copyload
   br i1 %cmp6.i110, label %while.body, label %while.end.loopexit.split.loop.exit132
 
 while.body:                                       ; preds = %_ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %cmp70 = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %end, %lftr.wideiv
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !12
 
 while.end.loopexit.split.loop.exit:               ; preds = %land.rhs
-  %22 = trunc nsw i64 %indvars.iv to i32
-  br label %while.end
-
-while.end.loopexit.split.loop.exit128:            ; preds = %land.lhs.true.i
   %23 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end.loopexit.split.loop.exit132:            ; preds = %_ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit
+while.end.loopexit.split.loop.exit128:            ; preds = %land.lhs.true.i
   %24 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
+while.end.loopexit.split.loop.exit132:            ; preds = %_ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit
+  %25 = trunc nsw i64 %indvars.iv to i32
+  br label %while.end
+
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit128, %while.end.loopexit.split.loop.exit132, %sw.epilog
-  %split1.0.lcssa = phi i32 [ %add, %sw.epilog ], [ %22, %while.end.loopexit.split.loop.exit ], [ %23, %while.end.loopexit.split.loop.exit128 ], [ %24, %while.end.loopexit.split.loop.exit132 ], [ %end, %while.body ]
+  %split1.0.lcssa = phi i32 [ %add, %sw.epilog ], [ %23, %while.end.loopexit.split.loop.exit ], [ %24, %while.end.loopexit.split.loop.exit128 ], [ %25, %while.end.loopexit.split.loop.exit132 ], [ %end, %while.body ]
   tail call void @_ZN20b3ConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 16 dereferenceable(192) %this, i32 noundef %start, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(32) %result)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hull1, i8 0, i64 32, i1 false)
   call void @_ZN20b3ConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 16 dereferenceable(192) %this, i32 noundef %split1.0.lcssa, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %hull1)

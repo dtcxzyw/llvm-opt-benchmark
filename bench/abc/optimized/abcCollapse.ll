@@ -2465,7 +2465,7 @@ Vec_IntPush.exit136:                              ; preds = %Vec_IntPush.exit136
   br label %168
 
 168:                                              ; preds = %164, %165
-  %lftr.wideiv = trunc i64 %indvars.iv.next166 to i32
+  %169 = trunc i64 %indvars.iv.next166 to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %113, !llvm.loop !134
 
@@ -2478,23 +2478,23 @@ Vec_IntPush.exit136:                              ; preds = %Vec_IntPush.exit136
   %.val112 = phi i32 [ %.val112176, %105 ], [ %.val112.pre, %..loopexit_crit_edge ], [ %.val112176, %97 ]
   %.promoted174 = phi ptr [ %.promoted, %105 ], [ %.val122152, %..loopexit_crit_edge ], [ %.promoted, %97 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %169 = sext i32 %.val112 to i64
-  %170 = icmp slt i64 %indvars.iv.next169, %169
-  br i1 %170, label %97, label %.critedge4, !llvm.loop !135
+  %170 = sext i32 %.val112 to i64
+  %171 = icmp slt i64 %indvars.iv.next169, %170
+  br i1 %171, label %97, label %.critedge4, !llvm.loop !135
 
 .critedge4:                                       ; preds = %.loopexit, %Vec_IntPush.exit
-  %171 = phi ptr [ %11, %Vec_IntPush.exit ], [ %.promoted174, %.loopexit ]
+  %172 = phi ptr [ %11, %Vec_IntPush.exit ], [ %.promoted174, %.loopexit ]
   %.val112.lcssa = phi i32 [ %.val112156, %Vec_IntPush.exit ], [ %.val112, %.loopexit ]
-  %172 = add nsw i32 %.val112.lcssa, -1
-  store i32 %172, ptr %29, align 4, !tbaa !23
-  %.not.i = icmp eq ptr %171, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %173
+  %173 = add nsw i32 %.val112.lcssa, -1
+  store i32 %173, ptr %29, align 4, !tbaa !23
+  %.not.i = icmp eq ptr %172, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %174
 
-173:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %171) #18
+174:                                              ; preds = %.critedge4
+  tail call void @free(ptr noundef nonnull %172) #18
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge4, %173
+Vec_IntFree.exit:                                 ; preds = %.critedge4, %174
   tail call void @free(ptr noundef nonnull %9) #18
   ret ptr %13
 }

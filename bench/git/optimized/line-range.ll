@@ -620,12 +620,12 @@ thread-pre-split:                                 ; preds = %42, %48
   %65 = tail call ptr %1(ptr noundef %2, i64 noundef %64) #8
   %66 = call i32 @regcomp(ptr noundef nonnull %8, ptr noundef nonnull %53, i32 noundef 4) #8
   %.not86 = icmp eq i32 %66, 0
-  br i1 %.not86, label %67, label %81
+  br i1 %.not86, label %67, label %82
 
 67:                                               ; preds = %63
   %68 = call i32 @regexec(ptr noundef nonnull %8, ptr noundef %65, i64 noundef 1, ptr noundef nonnull %9, i32 noundef 0) #8
   %.not87 = icmp eq i32 %68, 0
-  br i1 %.not87, label %69, label %81
+  br i1 %.not87, label %69, label %82
 
 69:                                               ; preds = %67
   %70 = load i32, ptr %9, align 4, !tbaa !21
@@ -634,37 +634,37 @@ thread-pre-split:                                 ; preds = %42, %48
   %smax = call i64 @llvm.smax.i64(i64 %3, i64 %64)
   br label %73
 
-73:                                               ; preds = %75, %69
-  %.1 = phi i64 [ %64, %69 ], [ %74, %75 ]
-  %.063 = phi ptr [ %65, %69 ], [ %76, %75 ]
+73:                                               ; preds = %76, %69
+  %.1 = phi i64 [ %64, %69 ], [ %74, %76 ]
+  %.063 = phi ptr [ %65, %69 ], [ %77, %76 ]
   %74 = add i64 %.1, 1
-  %exitcond.not = icmp eq i64 %.1, %smax
-  br i1 %exitcond.not, label %78, label %75
+  %75 = icmp eq i64 %.1, %smax
+  br i1 %75, label %78, label %75
 
-75:                                               ; preds = %73
-  %76 = call ptr %1(ptr noundef %2, i64 noundef %74) #8
+76:                                               ; preds = %73
+  %77 = call ptr %1(ptr noundef %2, i64 noundef %74) #8
   %.not88 = icmp ule ptr %.063, %72
-  %77 = icmp ult ptr %72, %76
-  %or.cond = select i1 %.not88, i1 %77, i1 false
-  br i1 %or.cond, label %78, label %73, !llvm.loop !33
+  %78 = icmp ult ptr %72, %77
+  %or.cond = select i1 %.not88, i1 %78, i1 false
+  br i1 %or.cond, label %79, label %73, !llvm.loop !33
 
-78:                                               ; preds = %75, %73
+79:                                               ; preds = %76, %73
   store i64 %74, ptr %5, align 8, !tbaa !4
   call void @regfree(ptr noundef nonnull %8) #8
-  %79 = load ptr, ptr %7, align 8, !tbaa !31
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store i8 47, ptr %79, align 1, !tbaa !8
+  %80 = load ptr, ptr %7, align 8, !tbaa !31
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store i8 47, ptr %80, align 1, !tbaa !8
   br label %.loopexit
 
-81:                                               ; preds = %67, %63
+82:                                               ; preds = %67, %63
   %.061 = phi i32 [ %66, %63 ], [ %68, %67 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #8
-  %82 = call i64 @regerror(i32 noundef %.061, ptr noundef nonnull %8, ptr noundef nonnull %10, i64 noundef 1024) #8
+  %83 = call i64 @regerror(i32 noundef %.061, ptr noundef nonnull %8, ptr noundef nonnull %10, i64 noundef 1024) #8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.6, ptr noundef nonnull %53, i64 noundef %.064, ptr noundef nonnull %10) #9
   unreachable
 
-.loopexit:                                        ; preds = %54, %37, %41, %50, %14, %18, %78, %61, %33
-  %.0 = phi ptr [ %17, %33 ], [ %80, %78 ], [ %62, %61 ], [ %17, %18 ], [ %0, %14 ], [ %.060, %50 ], [ %36, %41 ], [ %36, %37 ], [ %.060, %54 ]
+.loopexit:                                        ; preds = %54, %37, %41, %50, %14, %18, %79, %61, %33
+  %.0 = phi ptr [ %17, %33 ], [ %81, %79 ], [ %62, %61 ], [ %17, %18 ], [ %0, %14 ], [ %.060, %50 ], [ %36, %41 ], [ %36, %37 ], [ %.060, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8

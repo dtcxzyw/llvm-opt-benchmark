@@ -815,8 +815,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
 19:                                               ; preds = %21, %.lr.ph.i
   %.sroa.0.033.i = phi ptr [ %.sroa.0.032.i, %.lr.ph.i ], [ %.sroa.0.0.i, %21 ]
   %20 = phi i64 [ 1, %.lr.ph.i ], [ %23, %21 ]
-  %exitcond.not.i = icmp eq i64 %20, %5
-  br i1 %exitcond.not.i, label %.loopexit, label %21
+  %exitcond.not = icmp eq i64 %20, %5
+  br i1 %exitcond.not, label %.loopexit, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %3, i64 %20
@@ -1455,11 +1455,11 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as
   %.sroa.0.033 = phi ptr [ %.sroa.0.032, %.lr.ph ], [ %.sroa.0.0, %29 ]
   %28 = phi i64 [ %10, %.lr.ph ], [ %31, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %exitcond.not = icmp eq i64 %28, %umax
-  br i1 %exitcond.not, label %.loopexit, label %29
+  %.not31.not.not = icmp eq i64 %28, %umax
+  br i1 %.not31.not.not, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %29, %27, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit", %2, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %exitcond.not, %27 ], [ %exitcond.not, %29 ]
+  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %.not31.not.not, %27 ], [ %.not31.not.not, %29 ]
   ret i1 %.0
 
 29:                                               ; preds = %27

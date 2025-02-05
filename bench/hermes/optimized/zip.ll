@@ -19708,76 +19708,76 @@ zip_central_dir_move.exit:                        ; preds = %while.end13, %if.en
 while.cond18.preheader:                           ; preds = %for.end, %while.cond18.preheader.lr.ph
   %d_num.051 = phi i32 [ 0, %while.cond18.preheader.lr.ph ], [ %add48, %for.end ]
   %i.350 = phi i32 [ 0, %while.cond18.preheader.lr.ph ], [ %26, %for.end ]
-  %19 = sext i32 %i.350 to i64
-  %20 = sub i32 %entry_num, %i.350
+  %sext71 = sext i32 %i.350 to i64
+  %sext71 = sub i32 %entry_num, %i.350
   br label %while.cond18
 
 while.cond18:                                     ; preds = %while.cond18, %while.cond18.preheader
   %indvars.iv71 = phi i32 [ %indvars.iv.next72, %while.cond18 ], [ %20, %while.cond18.preheader ]
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %while.cond18 ], [ %19, %while.cond18.preheader ]
   %arrayidx20 = getelementptr inbounds i32, ptr %deleted_entry_index_array, i64 %indvars.iv57
-  %21 = load i32, ptr %arrayidx20, align 4
-  %tobool21.not = icmp eq i32 %21, 0
+  %20 = load i32, ptr %arrayidx20, align 4
+  %tobool21.not = icmp eq i32 %20, 0
   %cmp23 = icmp slt i64 %indvars.iv57, %2
-  %22 = and i1 %cmp23, %tobool21.not
+  %21 = and i1 %cmp23, %tobool21.not
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %indvars.iv.next72 = add i32 %indvars.iv71, -1
   br i1 %22, label %while.cond18, label %while.end27, !llvm.loop !188
 
 while.end27:                                      ; preds = %while.cond18
-  %23 = trunc nsw i64 %indvars.iv57 to i32
-  %cmp28 = icmp eq i32 %entry_num, %23
+  %22 = trunc nsw i64 %indvars.iv57 to i32
+  %cmp28 = icmp eq i32 %entry_num, %22
   br i1 %cmp28, label %while.end49, label %while.cond29
 
 while.cond29:                                     ; preds = %while.end27, %while.cond29
   %indvars.iv73 = phi i32 [ %indvars.iv.next74, %while.cond29 ], [ %indvars.iv71, %while.end27 ]
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %while.cond29 ], [ %indvars.iv57, %while.end27 ]
   %arrayidx31 = getelementptr inbounds i32, ptr %deleted_entry_index_array, i64 %indvars.iv60
-  %24 = load i32, ptr %arrayidx31, align 4
-  %tobool32 = icmp ne i32 %24, 0
+  %23 = load i32, ptr %arrayidx31, align 4
+  %tobool32 = icmp ne i32 %23, 0
   %cmp34 = icmp slt i64 %indvars.iv60, %2
-  %25 = and i1 %cmp34, %tobool32
+  %24 = and i1 %cmp34, %tobool32
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
   %indvars.iv.next74 = add i32 %indvars.iv73, -1
   br i1 %25, label %while.cond29, label %for.cond.preheader, !llvm.loop !189
 
 for.cond.preheader:                               ; preds = %while.cond29
-  %26 = trunc nsw i64 %indvars.iv60 to i32
-  %cmp3946 = icmp sgt i32 %entry_num, %26
+  %25 = trunc nsw i64 %indvars.iv60 to i32
+  %cmp3946 = icmp sgt i32 %entry_num, %25
   br i1 %cmp3946, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %for.cond.preheader
-  %sub76 = sub i32 %d_num.051, %23
-  %add4877 = add i32 %sub76, %26
+  %sub73 = sub i32 %d_num.051, %22
+  %add4874 = add i32 %sub73, %25
   br label %while.end49
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %sext75 = shl i64 %indvars.iv57, 32
-  %wide.trip.count = zext i32 %indvars.iv73 to i64
+  %sext72 = shl i64 %indvars.iv57, 32
+  %26 = zext i32 %indvars.iv73 to i64
   %27 = ashr exact i64 %sext75, 30
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv65 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next66, %for.body ]
   %indvars.iv63 = phi i64 [ %indvars.iv60, %for.body.preheader ], [ %indvars.iv.next64, %for.body ]
-  %28 = load ptr, ptr %m_central_dir_offsets, align 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv63
-  %29 = load i32, ptr %arrayidx41, align 4
-  %30 = getelementptr i32, ptr %28, i64 %indvars.iv65
-  %arrayidx45 = getelementptr i8, ptr %30, i64 %27
-  store i32 %29, ptr %arrayidx45, align 4
+  %27 = load ptr, ptr %m_central_dir_offsets, align 8
+  %arrayidx41 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv63
+  %28 = load i32, ptr %arrayidx41, align 4
+  %29 = getelementptr i32, ptr %27, i64 %indvars.iv65
+  %arrayidx45 = getelementptr i8, ptr %29, i64 %27
+  store i32 %28, ptr %arrayidx45, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !190
+  %cmp39 = icmp eq i64 %indvars.iv.next66, %26
+  br i1 %cmp39, label %for.end, label %for.body, !llvm.loop !190
 
 for.end:                                          ; preds = %for.body
-  %sub = sub i32 %d_num.051, %23
-  %add48 = add i32 %sub, %26
+  %sub = sub i32 %d_num.051, %22
+  %add48 = add i32 %sub, %25
   br label %while.cond18.preheader, !llvm.loop !191
 
 while.end49:                                      ; preds = %while.end27, %entry, %for.end.thread
-  %d_num.0.lcssa = phi i32 [ %add4877, %for.end.thread ], [ 0, %entry ], [ %d_num.051, %while.end27 ]
+  %d_num.0.lcssa = phi i32 [ %add4874, %for.end.thread ], [ 0, %entry ], [ %d_num.051, %while.end27 ]
   %sub50 = sub nsw i32 %entry_num, %d_num.0.lcssa
   %conv = sext i32 %sub50 to i64
   %mul = shl nsw i64 %conv, 2

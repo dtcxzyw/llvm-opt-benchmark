@@ -872,14 +872,14 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none
   %133 = add i32 %132, -1
   br label %134
 
-134:                                              ; preds = %141, %124
+134: ; preds = %141, %124
   %135 = phi i32 [ %139, %141 ], [ 0, %124 ]
   %136 = phi i32 [ %137, %141 ], [ %129, %124 ]
   %137 = add i32 %136, 1
   %exitcond.not = icmp eq i32 %136, %133
   br i1 %exitcond.not, label %156, label %138
 
-138:                                              ; preds = %134
+138:; preds = %134
   %139 = add nuw i32 %135, 4096
   %140 = icmp ugt i32 %11, %139
   br i1 %140, label %141, label %156

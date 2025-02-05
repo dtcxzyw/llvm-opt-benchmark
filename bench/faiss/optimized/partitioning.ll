@@ -2197,21 +2197,21 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 35:                                               ; preds = %25
   %36 = and i64 %1, -16
   %.not = icmp eq i64 %36, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph47.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph47
 
-.lr.ph47.preheader:                               ; preds = %35
-  %37 = or disjoint i64 %36, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 %37)
+.lr.ph47:                                         ; preds = %35
+  %.046 = or disjoint i64 %36, 1
+  %37 = tail call i64 @llvm.umax.i64(i64 %1, i64 %.046)
   br label %.lr.ph47
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
-  %.046 = phi i64 [ %45, %.lr.ph47 ], [ %36, %.lr.ph47.preheader ]
-  %38 = getelementptr inbounds i16, ptr %0, i64 %.046
-  %39 = load i16, ptr %38, align 2
-  %40 = load i16, ptr %2, align 2
-  %41 = tail call i16 @llvm.umin.i16(i16 %39, i16 %40)
+.lr.ph47:; preds = %.lr.ph47, %.lr.ph47
+  %.046 = phi i64 [ %45, %.lr.ph47 ], [ %36, %.lr.ph47 ]
+  %41 = getelementptr inbounds i16, ptr %0, i64 %.046
+  %42 = load i16, ptr %38, align 2
+  %43 = load i16, ptr %2, align 2
+  %41 = tail call i16 @llvm.umin.i16(i16 %39, i16 %43)
   store i16 %41, ptr %2, align 2
-  %42 = load i16, ptr %3, align 2
+  %45 = load i16, ptr %3, align 2
   %43 = load i16, ptr %38, align 2
   %44 = tail call i16 @llvm.umax.i16(i16 %42, i16 %43)
   store i16 %44, ptr %3, align 2

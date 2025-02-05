@@ -10187,8 +10187,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %89
 
 ._crit_edge.i.us:                                 ; preds = %132, %.lr.ph.split.us
   %indvars.iv.i309.us = phi i64 [ %120, %.lr.ph.split.us ], [ %.pre55.i.us, %132 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i309.us, %131
-  br i1 %exitcond.not, label %.critedge3.loopexit.split.loop.exit57.i.loopexit, label %132, !llvm.loop !135
+  %.pre55.i.us = icmp eq i64 %indvars.iv.i309.us, %131
+  br i1 %.pre55.i.us, label %.critedge3.loopexit.split.loop.exit57.i.loopexit, label %132, !llvm.loop !135
 
 132:                                              ; preds = %._crit_edge.i.us
   %.pre55.i.us = add nsw i64 %indvars.iv.i309.us, 1

@@ -4824,18 +4824,18 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeG
   %exitcond.not = icmp eq i64 %.010.in, %14
   br i1 %exitcond.not, label %22, label %16
 
-16:                                               ; preds = %15
+13:                                               ; preds = %15
   %.010 = add i64 %.010.in, 1
-  %17 = getelementptr inbounds i32, ptr %7, i64 %.010
+  %14 = getelementptr inbounds i32, ptr %7, i64 %.010
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %19
-  %21 = load i8, ptr %20, align 4
-  %.not = icmp eq i8 %21, 4
-  br i1 %.not, label %15, label %22, !llvm.loop !12
+  %16 = load i8, ptr %20, align 4
+  %17 = icmp eq i8 %16, 4
+  br i1 %17, label %15, label %22, !llvm.loop !12
 
-22:                                               ; preds = %15, %16
-  %.0 = phi ptr [ %20, %16 ], [ %2, %15 ]
+22:; preds = %15, %16
+  %.not = phi ptr [ %20, %16 ], [ %2, %15 ]
   ret ptr %.0
 }
 

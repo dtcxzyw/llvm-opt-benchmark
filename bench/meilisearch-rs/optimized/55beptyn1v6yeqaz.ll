@@ -26029,7 +26029,7 @@ define hidden void @_ZN5arroy8distance9two_means17h89e3fb097eb0dc85E(ptr dead_on
   %31 = icmp ne ptr %.sroa.071.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %31)
   invoke void @"_ZN73_$LT$arroy..node..UnalignedF32Slice$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned17h07fd9f1f41b54647E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.071.sroa.0.0.copyload, i64 noundef %.sroa.071.sroa.5.0.copyload)
-          to label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17hfbcb8d739d88db56E.exit" unwind label %154
+          to label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17hfbcb8d739d88db56E.exit" unwind label %155
 
 32:                                               ; preds = %27
   store i64 %19, ptr %11, align 8, !alias.scope !3950
@@ -26071,7 +26071,7 @@ define hidden void @_ZN5arroy8distance9two_means17h89e3fb097eb0dc85E(ptr dead_on
 38:                                               ; preds = %.loopexit, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #32
-          to label %.thread unwind label %141
+          to label %.thread unwind label %142
 
 39:                                               ; preds = %76, %35
   %40 = landingpad { ptr, i32 }
@@ -26096,7 +26096,7 @@ define hidden void @_ZN5arroy8distance9two_means17h89e3fb097eb0dc85E(ptr dead_on
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %90
   %.pn = phi { ptr, i32 } [ %lpad.phi133, %90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit127, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #32
-          to label %38 unwind label %141
+          to label %38 unwind label %142
 
 .loopexit.loopexit:                               ; preds = %109, %68, %.noexc89, %.noexc88, %_ZN4rand3rng3Rng9gen_range17h9248777015a89ff9E.llvm.331090089658796353.exit.i
   %lpad.loopexit127 = landingpad { ptr, i32 }
@@ -26285,7 +26285,7 @@ _ZN4rand3rng3Rng9gen_range17h9248777015a89ff9E.llvm.331090089658796353.exit.i: ;
 90:                                               ; preds = %.loopexit.split-lp131, %.loopexit130
   %lpad.phi133 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit130 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp131 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
-          to label %.loopexit unwind label %141
+          to label %.loopexit unwind label %142
 
 _ZN5arroy8distance8Distance18non_built_distance17h320933a90a386cc7E.exit: ; preds = %87
   %91 = invoke noundef float @"_ZN79_$LT$arroy..distance..angular..Angular$u20$as$u20$arroy..distance..Distance$GT$14built_distance17he489459c14488518E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14)
@@ -26432,11 +26432,11 @@ _ZN5arroy8distance8Distance18non_built_distance17h320933a90a386cc7E.exit95: ; pr
 
 "_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E.exit100": ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i98", %106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %exitcond.not = icmp eq i64 %.sroa.077.0150, %umax
-  br i1 %exitcond.not, label %.outer._crit_edge, label %58
+  %141 = icmp eq i64 %.sroa.077.0150, %umax
+  br i1 %141, label %.outer._crit_edge, label %58
 
-141:                                              ; preds = %154, %90, %.loopexit, %38
-  %142 = landingpad { ptr, i32 }
+142:                                              ; preds = %155, %90, %.loopexit, %38
+  %143 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #33
   unreachable
@@ -26445,30 +26445,30 @@ _ZN5arroy8distance8Distance18non_built_distance17h320933a90a386cc7E.exit95: ; pr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !4018)
   call void @llvm.experimental.noalias.scope.decl(metadata !4021)
-  %143 = load i64, ptr %16, align 8, !range !11, !alias.scope !4024, !noundef !12
-  %144 = icmp eq i64 %143, -9223372036854775808
-  br i1 %144, label %"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E.exit106", label %.noexc105
+  %144 = load i64, ptr %16, align 8, !range !11, !alias.scope !4024, !noundef !12
+  %145 = icmp eq i64 %144, -9223372036854775808
+  br i1 %145, label %"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E.exit106", label %.noexc105
 
 .noexc105:                                        ; preds = %"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !4025
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6cbbca05c94a2cd5E.llvm.4616129397091597767"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16)
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %146 = load i64, ptr %145, align 8, !range !11, !noalias !4025, !noundef !12
-  %147 = icmp eq i64 %146, 0
-  br i1 %147, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104", label %148
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %147 = load i64, ptr %146, align 8, !range !11, !noalias !4025, !noundef !12
+  %148 = icmp eq i64 %147, 0
+  br i1 %148, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104", label %149
 
-148:                                              ; preds = %.noexc105
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %150 = load i64, ptr %149, align 8, !noalias !4025, !noundef !12
-  %151 = icmp eq i64 %150, 0
-  br i1 %151, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104", label %152
+149:                                              ; preds = %.noexc105
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %151 = load i64, ptr %150, align 8, !noalias !4025, !noundef !12
+  %152 = icmp eq i64 %151, 0
+  br i1 %152, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104", label %153
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr %5, align 8, !noalias !4025, !nonnull !12, !noundef !12
-  call void @__rust_dealloc(ptr noundef nonnull %153, i64 noundef %150, i64 noundef %146) #31
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %5, align 8, !noalias !4025, !nonnull !12, !noundef !12
+  call void @__rust_dealloc(ptr noundef nonnull %154, i64 noundef %151, i64 noundef %147) #31
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104": ; preds = %152, %148, %.noexc105
+"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h352f1b51ff7db77bE.exit.i.i104": ; preds = %153, %149, %.noexc105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4025
   br label %"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E.exit106"
 
@@ -26477,15 +26477,15 @@ _ZN5arroy8distance8Distance18non_built_distance17h320933a90a386cc7E.exit95: ; pr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   br label %57
 
-.thread:                                          ; preds = %38, %154
-  %.pn.pn.pn120 = phi { ptr, i32 } [ %155, %154 ], [ %.pn.pn, %38 ]
+.thread:                                          ; preds = %38, %155
+  %.pn.pn.pn120 = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn, %38 ]
   resume { ptr, i32 } %.pn.pn.pn120
 
-154:                                              ; preds = %30
-  %155 = landingpad { ptr, i32 }
+155:                                              ; preds = %30
+  %156 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$arroy..node..Leaf$LT$arroy..distance..angular..Angular$GT$$GT$17h7527b91b1520d924E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #32
-          to label %.thread unwind label %141
+          to label %.thread unwind label %142
 }
 
 ; Function Attrs: nonlazybind uwtable

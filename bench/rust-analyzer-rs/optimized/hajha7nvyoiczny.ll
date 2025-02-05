@@ -16835,32 +16835,32 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd6
   %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %6)
   br label %8
 
-8:                                                ; preds = %10, %3
-  %9 = phi i64 [ %11, %10 ], [ %.promoted, %3 ]
-  %exitcond.not = icmp eq i64 %9, %umax
-  br i1 %exitcond.not, label %.loopexit, label %10
+8:                                                ; preds = %11, %3
+  %9 = phi i64 [ %12, %11 ], [ %.promoted, %3 ]
+  %10 = icmp eq i64 %9, %umax
+  br i1 %10, label %.loopexit, label %10
 
-10:                                               ; preds = %8
-  %11 = add i64 %9, 1
-  store i64 %11, ptr %4, align 8, !alias.scope !4840
-  %12 = getelementptr inbounds i128, ptr %.val.i.i, i64 %9
-  %.val8 = load i128, ptr %12, align 16, !alias.scope !4845, !noalias !4848, !noundef !9
-  %13 = icmp eq i128 %.val8, %7
-  br i1 %13, label %14, label %8
+11:                                               ; preds = %8
+  %12 = add i64 %9, 1
+  store i64 %12, ptr %4, align 8, !alias.scope !4840
+  %13 = getelementptr inbounds i128, ptr %.val.i.i, i64 %9
+  %.val8 = load i128, ptr %13, align 16, !alias.scope !4845, !noalias !4848, !noundef !9
+  %14 = icmp eq i128 %.val8, %7
+  br i1 %14, label %15, label %8
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val4.i.i = load ptr, ptr %15, align 8, !alias.scope !4840, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %9
-  %.val9 = load i32, ptr %16, align 4, !alias.scope !4848, !noalias !4845, !noundef !9
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val4.i.i = load ptr, ptr %16, align 8, !alias.scope !4840, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %9
+  %.val9 = load i32, ptr %17, align 4, !alias.scope !4848, !noalias !4845, !noundef !9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %14
-  %.sroa.3.0 = phi i32 [ %.val9, %14 ], [ undef, %8 ]
-  %.sroa.0.0 = phi i32 [ 1, %14 ], [ 0, %8 ]
-  %17 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %18 = insertvalue { i32, i32 } %17, i32 %.sroa.3.0, 1
-  ret { i32, i32 } %18
+.loopexit:                                        ; preds = %8, %15
+  %.sroa.3.0 = phi i32 [ %.val9, %15 ], [ undef, %8 ]
+  %.sroa.0.0 = phi i32 [ 1, %15 ], [ 0, %8 ]
+  %18 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %19 = insertvalue { i32, i32 } %18, i32 %.sroa.3.0, 1
+  ret { i32, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -130224,8 +130224,8 @@ define noundef i32 @_ZN6hir_ty3mir13SwitchTargets16target_for_value17h7935ac81ae
 
 27:                                               ; preds = %29, %2
   %28 = phi i64 [ %30, %29 ], [ 0, %2 ]
-  %exitcond.not.i = icmp eq i64 %28, %.0.sroa.speculated.i.i.i.i
-  br i1 %exitcond.not.i, label %34, label %29
+  %exitcond.not = icmp eq i64 %28, %.0.sroa.speculated.i.i.i.i
+  br i1 %exitcond.not, label %34, label %29
 
 29:                                               ; preds = %27
   %30 = add i64 %28, 1

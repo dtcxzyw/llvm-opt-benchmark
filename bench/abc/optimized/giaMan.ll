@@ -2842,7 +2842,7 @@ Vec_IntPush.exit:
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge2
   %.val5286 = phi i32 [ %.val5283, %.preheader.lr.ph ], [ %.val52, %.critedge2 ]
-  %.04485 = phi i32 [ 1, %.preheader.lr.ph ], [ %54, %.critedge2 ]
+  %.04485 = phi i32 [ 1, %.preheader.lr.ph ], [ %55, %.critedge2 ]
   %.04584 = phi i32 [ 1, %.preheader.lr.ph ], [ %.val5286, %.critedge2 ]
   %26 = sext i32 %.04584 to i64
   %27 = add nsw i32 %.04584, 1
@@ -2896,33 +2896,33 @@ Gia_ObjIsRo.exit:                                 ; preds = %28
 Gia_ObjIsRo.exit.thread:                          ; preds = %28, %Gia_ObjIsRo.exit, %42
   %52 = phi i32 [ %41, %Gia_ObjIsRo.exit ], [ %41, %42 ], [ %.082, %28 ]
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next90 to i32
+  %53 = trunc i64 %indvars.iv.next90 to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge2, label %28, !llvm.loop !108
 
 .critedge2:                                       ; preds = %Gia_ObjIsRo.exit.thread
-  %53 = sub nsw i32 %.val5286, %.04584
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.04485, i32 noundef %53, i32 noundef %52)
-  %54 = add nuw nsw i32 %.04485, 1
+  %54 = sub nsw i32 %.val5286, %.04584
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.04485, i32 noundef %54, i32 noundef %52)
+  %55 = add nuw nsw i32 %.04485, 1
   %.val52 = load i32, ptr %2, align 4, !tbaa !30
-  %55 = icmp slt i32 %.val5286, %.val52
-  br i1 %55, label %.preheader, label %._crit_edge, !llvm.loop !109
+  %56 = icmp slt i32 %.val5286, %.val52
+  br i1 %56, label %.preheader, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.critedge2, %.critedge
   %.val52.lcssa = phi i32 [ %.val5283, %.critedge ], [ %.val52, %.critedge2 ]
-  %56 = getelementptr i8, ptr %0, i64 24
-  %.val = load i32, ptr %56, align 8, !tbaa !29
-  %57 = sub nsw i32 %.val, %.val52.lcssa
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %57)
-  %58 = load ptr, ptr %4, align 8, !tbaa !32
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %59
+  %57 = getelementptr i8, ptr %0, i64 24
+  %.val = load i32, ptr %57, align 8, !tbaa !29
+  %58 = sub nsw i32 %.val, %.val52.lcssa
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %58)
+  %59 = load ptr, ptr %4, align 8, !tbaa !32
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %60
 
-59:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %58) #30
+60:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %59) #30
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %._crit_edge, %59
+Vec_IntFree.exit:                                 ; preds = %._crit_edge, %60
   tail call void @free(ptr noundef nonnull %1) #30
   ret void
 }

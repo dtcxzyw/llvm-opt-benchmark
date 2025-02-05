@@ -6417,8 +6417,8 @@ land.rhs:                                         ; preds = %while.cond43.prehea
 while.body47:                                     ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
   %inc = add i64 %inc18291831, 1
   store i64 %inc, ptr %pos, align 8, !tbaa !10
-  %exitcond984.not = icmp eq i64 %inc, %size.0
-  br i1 %exitcond984.not, label %cleanup614, label %land.rhs, !llvm.loop !163
+  %cmp44 = icmp eq i64 %inc, %size.0
+  br i1 %cmp44, label %cleanup614, label %land.rhs, !llvm.loop !163
 
 while.end48:                                      ; preds = %land.rhs, %while.cond43.preheader
   %.lcssa1828 = phi i64 [ %pos.promoted, %while.cond43.preheader ], [ %inc18291831, %land.rhs ]
@@ -6615,8 +6615,8 @@ land.rhs72:                                       ; preds = %_ZN6duckdb10StringU
 
 _ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944: ; preds = %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72, %land.rhs72
   %storemerge = add i64 %storemerge1837, 1
-  %exitcond.not985 = icmp eq i64 %storemerge, %size.0
-  br i1 %exitcond.not985, label %for.end, label %land.rhs72, !llvm.loop !164
+  %cmp71 = icmp eq i64 %storemerge, %size.0
+  br i1 %cmp71, label %for.end, label %land.rhs72, !llvm.loop !164
 
 for.end:                                          ; preds = %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944, %land.rhs72, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit940
   %storemerge.lcssa = phi i64 [ %storemerge1835, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit940 ], [ %size.0, %_ZN6duckdb10StringUtil16CharacterIsSpaceEc.exit944 ], [ %storemerge1837, %land.rhs72 ]
@@ -8065,8 +8065,8 @@ land.rhs400:                                      ; preds = %while.cond398.prehe
 while.body404:                                    ; preds = %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400, %land.rhs400
   %inc405 = add i64 %inc40518521854, 1
   store i64 %inc405, ptr %pos, align 8, !tbaa !10
-  %exitcond978.not = icmp eq i64 %inc405, %size.0
-  br i1 %exitcond978.not, label %cleanup422.thread, label %land.rhs400, !llvm.loop !168
+  %cmp399 = icmp eq i64 %inc405, %size.0
+  br i1 %cmp399, label %cleanup422.thread, label %land.rhs400, !llvm.loop !168
 
 while.end406:                                     ; preds = %land.rhs400, %while.cond398.preheader
   %pos.promoted1857 = phi i64 [ %pos.promoted1851, %while.cond398.preheader ], [ %inc40518521854, %land.rhs400 ]
@@ -8097,8 +8097,8 @@ switch.early.test.i:                              ; preds = %land.rhs409
 while.body413:                                    ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %land.rhs409
   %inc414 = add i64 %inc41418581860, 1
   store i64 %inc414, ptr %pos, align 8, !tbaa !10
-  %exitcond980.not = icmp eq i64 %inc414, %size.0
-  br i1 %exitcond980.not, label %while.end415, label %land.rhs409, !llvm.loop !169
+  %cmp408 = icmp eq i64 %inc414, %size.0
+  br i1 %cmp408, label %while.end415, label %land.rhs409, !llvm.loop !169
 
 while.end415:                                     ; preds = %while.body413, %switch.early.test.i
   %.lcssa1320 = phi i64 [ %size.0, %while.body413 ], [ %inc41418581860, %switch.early.test.i ]
@@ -8199,8 +8199,8 @@ land.rhs456:                                      ; preds = %while.cond454.prehe
 while.body460:                                    ; preds = %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456, %land.rhs456
   %inc461 = add i64 %inc46118731875, 1
   store i64 %inc461, ptr %pos, align 8, !tbaa !10
-  %exitcond982.not = icmp eq i64 %inc461, %size.0
-  br i1 %exitcond982.not, label %if.end466, label %land.rhs456, !llvm.loop !171
+  %cmp455 = icmp eq i64 %inc461, %size.0
+  br i1 %cmp455, label %if.end466, label %land.rhs456, !llvm.loop !171
 
 while.end462:                                     ; preds = %land.rhs456, %while.cond454.preheader
   %.lcssa = phi i64 [ %pos.promoted1872, %while.cond454.preheader ], [ %inc46118731875, %land.rhs456 ]

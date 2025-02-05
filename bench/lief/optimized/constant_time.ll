@@ -240,11 +240,11 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef writeonly captures(none
   %.not9 = icmp ugt i64 %3, %4
   %.not14.i.not = icmp eq i64 %5, 0
   %or.cond = or i1 %.not9, %.not14.i.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split.preheader
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %6
-  %7 = add i64 %4, 1
-  %8 = add i64 %3, 1
+.lr.ph.split:                                     ; preds = %6
+  %.010 = add i64 %4, 1
+  %7 = add i64 %3, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 %8)
   br label %.lr.ph.split
 
@@ -255,19 +255,19 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef writeonly captures(none
   br i1 %.not.i, label %.lr.ph.split.us.i, label %mbedtls_ct_memcpy_if_eq.exit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split, %.lr.ph.split.us.i
-  %.013.us.i = phi i64 [ %13, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 %.013.us.i
-  %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.013.us.i
-  store i8 %11, ptr %12, align 1
-  %13 = add nuw i64 %.013.us.i, 1
-  %exitcond.not.i = icmp eq i64 %13, %5
+  %.013.us.i = phi i64 [ %11, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split ]
+  %8 = getelementptr inbounds i8, ptr %9, i64 %.013.us.i
+  %9 = load i8, ptr %8, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.013.us.i
+  store i8 %9, ptr %10, align 1
+  %11 = add nuw i64 %.013.us.i, 1
+  %exitcond.not.i = icmp eq i64 %11, %5
   br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if_eq.exit, label %.lr.ph.split.us.i, !llvm.loop !7
 
 mbedtls_ct_memcpy_if_eq.exit:                     ; preds = %.lr.ph.split.us.i, %.lr.ph.split
-  %14 = add i64 %.010, 1
-  %exitcond = icmp eq i64 %14, %umax
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  %12 = add i64 %.010, 1
+  %.not = icmp eq i64 %12, %umax
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %mbedtls_ct_memcpy_if_eq.exit, %6
   ret void

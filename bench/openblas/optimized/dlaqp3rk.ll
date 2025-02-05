@@ -567,50 +567,50 @@ split:                                            ; preds = %170, %._crit_edge95
   %smax = call i64 @llvm.smax.i64(i64 %408, i64 %407)
   br label %409
 
-409:                                              ; preds = %440, %403
-  %410 = phi i64 [ %404, %403 ], [ %412, %440 ]
-  %411 = phi i32 [ 0, %403 ], [ %441, %440 ]
-  %412 = add nsw i64 %410, 1
-  %413 = getelementptr double, ptr %17, i64 %410
+409:; preds = %440, %403
+  %411 = phi i64 [ %404, %403 ], [ %412, %440 ]
+  %412 = phi i32 [ 0, %403 ], [ %441, %440 ]
+  %413 = add nsw i64 %410, 1
+  %414 = getelementptr double, ptr %17, i64 %410
   %414 = load double, ptr %413, align 8, !tbaa !7
   %415 = fcmp une double %414, 0.000000e+00
   br i1 %415, label %416, label %440
 
-416:                                              ; preds = %409
-  %417 = mul nsw i64 %412, %62
-  %418 = getelementptr double, ptr %406, i64 %417
-  %419 = load double, ptr %418, align 8, !tbaa !7
-  %420 = fcmp oge double %419, 0.000000e+00
-  %421 = fneg double %419
-  %422 = select i1 %420, double %419, double %421
-  %423 = fdiv double %422, %414
-  %424 = fadd double %423, 1.000000e+00
-  %425 = fsub double 1.000000e+00, %423
-  %426 = fmul double %424, %425
-  %427 = fcmp ole double %426, 0.000000e+00
-  %428 = select i1 %427, double 0.000000e+00, double %426
-  %429 = getelementptr double, ptr %18, i64 %410
+416:   ; preds = %409
+  %418 = mul nsw i64 %412, %62
+  %419 = getelementptr double, ptr %406, i64 %418
+  %420 = load double, ptr %418, align 8, !tbaa !7
+  %421 = fcmp oge double %419, 0.000000e+00
+  %422 = fneg double %419
+  %423 = select i1 %420, double %420, double %421
+  %424 = fdiv double %422, %414
+  %425 = fadd double %423, 1.000000e+00
+  %426 = fsub double 1.000000e+00, %423
+  %427 = fmul double %424, %425
+  %428 = fcmp ole double %426, 0.000000e+00
+  %429 = select i1 %428, double 0.000000e+00, double %427
+  %430 = getelementptr double, ptr %18, i64 %410
   %430 = load double, ptr %429, align 8, !tbaa !7
   %431 = fdiv double %414, %430
   store double %431, ptr %27, align 8, !tbaa !7
-  %432 = fmul double %431, %431
+  %433 = fmul double %431, %431
   %433 = fmul double %432, %428
   %434 = fcmp ugt double %433, %53
   br i1 %434, label %438, label %435
 
-435:                                              ; preds = %416
-  %436 = getelementptr inbounds i32, ptr %41, i64 %410
+435:; preds = %416
+  %436 = getelementptr inbounds i32, ptr %41, i64 %411
   store i32 %411, ptr %436, align 4, !tbaa !3
   %437 = trunc i64 %412 to i32
   br label %440
 
-438:                                              ; preds = %416
+438:; preds = %416
   %sqrt = call double @llvm.sqrt.f64(double %428)
   %439 = fmul double %sqrt, %414
   store double %439, ptr %413, align 8, !tbaa !7
   br label %440
 
-440:                                              ; preds = %438, %435, %409
+440:; preds = %438, %435, %409
   %441 = phi i32 [ %437, %435 ], [ %411, %438 ], [ %411, %409 ]
   %exitcond.not = icmp eq i64 %412, %smax
   br i1 %exitcond.not, label %.loopexit31, label %409, !llvm.loop !9

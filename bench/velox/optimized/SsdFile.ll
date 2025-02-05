@@ -4132,7 +4132,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i107
 
 _ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit:  ; preds = %if.end136, %.noexc.i.i
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next287 to i32
+  %cmp105 = trunc i64 %indvars.iv.next287 to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %for.end149, label %for.body106, !llvm.loop !37
 

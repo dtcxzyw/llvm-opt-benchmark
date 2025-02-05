@@ -10497,28 +10497,28 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %5)
   br label %7
 
-7:                                                ; preds = %9, %2
-  %8 = phi i64 [ %10, %9 ], [ %.promoted, %2 ]
-  %exitcond.not = icmp eq i64 %8, %umax
-  br i1 %exitcond.not, label %20, label %9
+7:                                                ; preds = %10, %2
+  %8 = phi i64 [ %11, %10 ], [ %.promoted, %2 ]
+  %9 = icmp eq i64 %8, %umax
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %7
-  %10 = add i64 %8, 1
-  store i64 %10, ptr %3, align 8, !alias.scope !1500
-  %11 = getelementptr inbounds { i32, [1 x i32] }, ptr %.val4.i.i, i64 %8
-  %12 = getelementptr inbounds { i32, [1 x i32] }, ptr %.val.i.i, i64 %8
+10:                                               ; preds = %7
+  %11 = add i64 %8, 1
+  store i64 %11, ptr %3, align 8, !alias.scope !1500
+  %12 = getelementptr inbounds { i32, [1 x i32] }, ptr %.val4.i.i, i64 %8
+  %13 = getelementptr inbounds { i32, [1 x i32] }, ptr %.val.i.i, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1508)
-  %13 = load i32, ptr %11, align 4, !range !1510, !alias.scope !1505, !noalias !1511, !noundef !9
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %15 = load i32, ptr %14, align 4, !alias.scope !1505, !noalias !1511
-  %16 = load i32, ptr %12, align 4, !range !1510, !alias.scope !1508, !noalias !1513, !noundef !9
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %18 = load i32, ptr %17, align 4, !alias.scope !1508, !noalias !1513
-  %19 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %13, i32 %15, i32 noundef %16, i32 %18), !noalias !1514
-  br i1 %19, label %7, label %20
+  %14 = load i32, ptr %12, align 4, !range !1510, !alias.scope !1505, !noalias !1511, !noundef !9
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %16 = load i32, ptr %15, align 4, !alias.scope !1505, !noalias !1511
+  %17 = load i32, ptr %13, align 4, !range !1510, !alias.scope !1508, !noalias !1513, !noundef !9
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %19 = load i32, ptr %18, align 4, !alias.scope !1508, !noalias !1513
+  %110 = tail call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef readonly align 8 dereferenceable(32) %1, i32 noundef %14, i32 %16, i32 noundef %17, i32 %19), !noalias !1514
+  br i1 %110, label %7, label %21
 
-20:                                               ; preds = %7, %9
+21:                                               ; preds = %7, %10
   %21 = icmp ult i64 %8, %5
   ret i1 %21
 }
@@ -42555,8 +42555,8 @@ define noundef zeroext i1 @"_ZN83_$LT$wasmtime..runtime..component..types..Tuple
 
 45:                                               ; preds = %47, %42
   %46 = phi i64 [ %48, %47 ], [ 0, %42 ]
-  %exitcond.not.i.i = icmp eq i64 %46, %39
-  br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E.exit.i, label %47
+  %exitcond.not.i = icmp eq i64 %46, %39
+  br i1 %exitcond.not.i, label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit, label %47
 
 47:                                               ; preds = %45
   %48 = add i64 %46, 1
@@ -42571,10 +42571,10 @@ define noundef zeroext i1 @"_ZN83_$LT$wasmtime..runtime..component..types..Tuple
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %56 = load i32, ptr %55, align 4, !alias.scope !5874, !noalias !5881
   %57 = call fastcc noundef zeroext i1 @_ZN8wasmtime7runtime9component5types11TypeChecker21interface_types_equal17hddc65dd733a6fe7aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, i32 noundef %51, i32 %53, i32 noundef %54, i32 %56) #45, !noalias !5882
-  br i1 %57, label %45, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E.exit.i
+  br i1 %57, label %45, label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h39e3278bedfb80a3E.exit.i: ; preds = %47, %45
-  %.lcssa.i = phi i64 [ %39, %45 ], [ %46, %47 ]
+_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit: ; preds = %47, %45
+  %.0.i1 = phi i64 [ %39, %45 ], [ %46, %47 ]
   %58 = icmp uge i64 %.lcssa.i, %39
   br label %_ZN8wasmtime7runtime9component5types11TypeChecker12tuples_equal17h82570edc8aedd730E.exit
 

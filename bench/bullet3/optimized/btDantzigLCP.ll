@@ -2763,8 +2763,8 @@ for.cond9.preheader:                              ; preds = %if.then6
 
 for.cond9:                                        ; preds = %for.cond9.preheader, %for.body11
   %indvars.iv41 = phi i64 [ %indvars.iv, %for.cond9.preheader ], [ %indvars.iv.next42, %for.body11 ]
-  %exitcond48.not = icmp eq i64 %indvars.iv41, %wide.trip.count47
-  br i1 %exitcond48.not, label %if.end18, label %for.body11
+  %indvars.iv.next42 = icmp eq i64 %indvars.iv41, %wide.trip.count47
+  br i1 %indvars.iv.next42, label %if.end18, label %for.body11
 
 for.body11:                                       ; preds = %for.cond9
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1

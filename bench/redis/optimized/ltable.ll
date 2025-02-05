@@ -207,78 +207,78 @@ findindex.exit:                                   ; preds = %do.end.i, %if.then1
 for.cond:                                         ; preds = %for.body, %findindex.exit
   %indvars.iv89 = phi i32 [ %indvars.iv.next90, %for.body ], [ %33, %findindex.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %30, %findindex.exit ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %35
-  br i1 %exitcond.not, label %for.end, label %for.body
+  %indvars.iv.next = icmp eq i64 %indvars.iv, %35
+  br i1 %indvars.iv.next, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %36 = load ptr, ptr %array, align 8, !tbaa !17
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %36, i64 %indvars.iv.next, i32 1
-  %37 = load i32, ptr %tt, align 8, !tbaa !4
+  %35 = add nsw i64 %indvars.iv, 1
+  %tt = load ptr, ptr %array, align 8, !tbaa !17
+  %36 = getelementptr inbounds %struct.lua_TValue, ptr %tt, i64 %35, i32 1
+  %cmp1 = load i32, ptr %36, align 8, !tbaa !4
   %cmp1 = icmp eq i32 %37, 0
   %indvars.iv.next90 = add i32 %indvars.iv89, 1
   br i1 %cmp1, label %for.cond, label %if.then, !llvm.loop !18
 
 if.then:                                          ; preds = %for.body
-  %38 = trunc nsw i64 %indvars.iv to i32
-  %add = add nsw i32 %38, 2
+  %37 = trunc nsw i64 %indvars.iv to i32
+  %add = add nsw i32 %37, 2
   %conv = sitofp i32 %add to double
   store double %conv, ptr %key, align 8, !tbaa !9
   store i32 3, ptr %tt.i, align 8, !tbaa !4
-  %39 = load ptr, ptr %array, align 8, !tbaa !17
-  %arrayidx5 = getelementptr inbounds %struct.lua_TValue, ptr %39, i64 %indvars.iv.next
+  %38 = load ptr, ptr %array, align 8, !tbaa !17
+  %arrayidx5 = getelementptr inbounds %struct.lua_TValue, ptr %38, i64 %indvars.iv.next
   br label %cleanup.sink.split
 
 for.end:                                          ; preds = %for.cond
-  %40 = trunc i64 %smax to i32
-  %sub = sub nsw i32 %40, %29
+  %39 = trunc i64 %smax to i32
+  %sub = sub nsw i32 %39, %29
   %lsizenode = getelementptr inbounds nuw i8, ptr %t, i64 16
-  %41 = load i8, ptr %lsizenode, align 8, !tbaa !14
-  %conv13 = zext nneg i8 %41 to i32
+  %40 = load i8, ptr %lsizenode, align 8, !tbaa !14
+  %conv13 = zext nneg i8 %40 to i32
   %shl = shl nuw i32 1, %conv13
   %cmp1481 = icmp slt i32 %sub, %shl
   br i1 %cmp1481, label %for.body16.lr.ph, label %cleanup
 
 for.body16.lr.ph:                                 ; preds = %for.end
   %node = getelementptr inbounds nuw i8, ptr %t, i64 40
-  %42 = load ptr, ptr %node, align 8, !tbaa !13
-  %43 = sext i32 %indvars.iv89 to i64
-  %44 = zext nneg i32 %shl to i64
+  %41 = load ptr, ptr %node, align 8, !tbaa !13
+  %42 = sext i32 %indvars.iv89 to i64
+  %43 = zext nneg i32 %shl to i64
   br label %for.body16
 
 for.cond12:                                       ; preds = %for.body16
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
-  %cmp14 = icmp slt i64 %indvars.iv.next93, %44
+  %cmp14 = icmp slt i64 %indvars.iv.next93, %43
   br i1 %cmp14, label %for.body16, label %cleanup, !llvm.loop !19
 
 for.body16:                                       ; preds = %for.cond12, %for.body16.lr.ph
-  %indvars.iv92 = phi i64 [ %43, %for.body16.lr.ph ], [ %indvars.iv.next93, %for.cond12 ]
-  %arrayidx18 = getelementptr inbounds %struct.Node, ptr %42, i64 %indvars.iv92
+  %indvars.iv92 = phi i64 [ %42, %for.body16.lr.ph ], [ %indvars.iv.next93, %for.cond12 ]
+  %arrayidx18 = getelementptr inbounds %struct.Node, ptr %41, i64 %indvars.iv92
   %tt19 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
-  %45 = load i32, ptr %tt19, align 8, !tbaa !20
-  %cmp20 = icmp eq i32 %45, 0
+  %44 = load i32, ptr %tt19, align 8, !tbaa !20
+  %cmp20 = icmp eq i32 %44, 0
   br i1 %cmp20, label %for.cond12, label %if.then22
 
 if.then22:                                        ; preds = %for.body16
   %i_key = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 16
-  %46 = load i64, ptr %i_key, align 8, !tbaa !9
-  store i64 %46, ptr %key, align 8, !tbaa !9
+  %45 = load i64, ptr %i_key, align 8, !tbaa !9
+  store i64 %45, ptr %key, align 8, !tbaa !9
   %tt30 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 24
-  %47 = load i32, ptr %tt30, align 8, !tbaa !4
-  store i32 %47, ptr %tt.i, align 8, !tbaa !4
-  %48 = load ptr, ptr %node, align 8, !tbaa !13
-  %arrayidx35 = getelementptr inbounds %struct.Node, ptr %48, i64 %indvars.iv92
+  %46 = load i32, ptr %tt30, align 8, !tbaa !4
+  store i32 %46, ptr %tt.i, align 8, !tbaa !4
+  %47 = load ptr, ptr %node, align 8, !tbaa !13
+  %arrayidx35 = getelementptr inbounds %struct.Node, ptr %47, i64 %indvars.iv92
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %if.then22, %if.then
   %arrayidx35.sink101 = phi ptr [ %arrayidx35, %if.then22 ], [ %arrayidx5, %if.then ]
   %add.ptr38 = getelementptr inbounds nuw i8, ptr %key, i64 16
-  %49 = load i64, ptr %arrayidx35.sink101, align 8, !tbaa !9
-  store i64 %49, ptr %add.ptr38, align 8, !tbaa !9
+  %48 = load i64, ptr %arrayidx35.sink101, align 8, !tbaa !9
+  store i64 %48, ptr %add.ptr38, align 8, !tbaa !9
   %tt41 = getelementptr inbounds nuw i8, ptr %arrayidx35.sink101, i64 8
-  %50 = load i32, ptr %tt41, align 8, !tbaa !4
+  %49 = load i32, ptr %tt41, align 8, !tbaa !4
   %tt42 = getelementptr inbounds nuw i8, ptr %key, i64 24
-  store i32 %50, ptr %tt42, align 8, !tbaa !4
+  store i32 %49, ptr %tt42, align 8, !tbaa !4
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond12, %cleanup.sink.split, %for.end
@@ -1469,8 +1469,8 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   %inc.i180 = zext i1 %cmp9.i to i32
   %spec.select.i = add nuw nsw i32 %lc.045.i, %inc.i180
   %indvars.iv.next.i181 = add nsw i64 %indvars.iv.i178, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.i178, %smax
-  br i1 %exitcond.not, label %for.inc17.loopexit.i, label %for.body8.i, !llvm.loop !42
+  %cmp7.not.not.i = icmp eq i64 %indvars.iv.i178, %smax
+  br i1 %cmp7.not.not.i, label %for.inc17.loopexit.i, label %for.body8.i, !llvm.loop !42
 
 for.inc17.loopexit.i:                             ; preds = %for.body8.i
   %58 = add i32 %lim.0.i, 1

@@ -214,23 +214,23 @@ if.end.i:                                         ; preds = %if.end
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ %smax.i, %if.end.i ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %4
-  br i1 %exitcond.not, label %return, label %for.body.i
+  %indvars.iv.next.i = icmp eq i64 %indvars.iv.i, %4
+  br i1 %indvars.iv.next.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %call7.i = tail call ptr @sk_value(ptr noundef %0, i64 noundef %indvars.iv.next.i) #7
-  %5 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %5, ptr noundef nonnull %call) #7
+  %3 = load ptr, ptr %call7.i, align 8
+  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef nonnull %call) #7
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %return.loopexit.split.loop.exit.i, label %for.cond.i, !llvm.loop !7
 
 return.loopexit.split.loop.exit.i:                ; preds = %for.body.i
-  %6 = trunc nsw i64 %indvars.iv.next.i to i32
+  %4 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %return
 
 return:                                           ; preds = %for.cond.i, %return.loopexit.split.loop.exit.i, %if.end, %entry
-  %retval.0 = phi i32 [ -2, %entry ], [ -1, %if.end ], [ %6, %return.loopexit.split.loop.exit.i ], [ -1, %for.cond.i ]
+  %retval.0 = phi i32 [ -2, %entry ], [ -1, %if.end ], [ %4, %return.loopexit.split.loop.exit.i ], [ -1, %for.cond.i ]
   ret i32 %retval.0
 }
 

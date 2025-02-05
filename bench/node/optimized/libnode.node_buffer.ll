@@ -16003,12 +16003,12 @@ entry:
   br i1 %cmp86, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %entry
-  %arrayidx7102 = getelementptr inbounds i32, ptr %add.ptr, i64 %0
-  store i32 1, ptr %arrayidx7102, align 4
+  %arrayidx7101 = getelementptr inbounds i32, ptr %add.ptr, i64 %0
+  store i32 1, ptr %arrayidx7101, align 4
   %2 = trunc i64 %0 to i32
-  %conv8104 = add i32 %2, 1
-  %arrayidx9105 = getelementptr inbounds i32, ptr %add.ptr6, i64 %0
-  store i32 %conv8104, ptr %arrayidx9105, align 4
+  %conv8103 = add i32 %2, 1
+  %arrayidx9104 = getelementptr inbounds i32, ptr %add.ptr6, i64 %0
+  store i32 %conv8103, ptr %arrayidx9104, align 4
   br label %if.end98
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -16152,19 +16152,19 @@ while.end75:                                      ; preds = %if.end74
   %cmp76 = icmp uge i64 %suffix.2, %0
   %cmp80.not96 = icmp ugt i64 %1, %0
   %or.cond99 = or i1 %cmp76, %cmp80.not96
-  br i1 %or.cond99, label %if.end98, label %for.body81.preheader
+  br i1 %or.cond99, label %if.end98, label %for.body81
 
-for.body81.preheader:                             ; preds = %while.end75
-  %22 = add i64 %1, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 %add)
+for.body81:                                       ; preds = %while.end75
+  %i78.098 = add i64 %1, 1
+  %suffix.397 = tail call i64 @llvm.umax.i64(i64 %i78.098, i64 %add)
   br label %for.body81
 
 for.body81:                                       ; preds = %for.body81.preheader, %for.inc95
   %i78.098 = phi i64 [ %inc96, %for.inc95 ], [ %1, %for.body81.preheader ]
   %suffix.397 = phi i64 [ %suffix.4, %for.inc95 ], [ %suffix.2, %for.body81.preheader ]
   %arrayidx82 = getelementptr inbounds i32, ptr %add.ptr, i64 %i78.098
-  %23 = load i32, ptr %arrayidx82, align 4
-  %conv83 = sext i32 %23 to i64
+  %22 = load i32, ptr %arrayidx82, align 4
+  %conv83 = sext i32 %22 to i64
   %cmp84 = icmp eq i64 %sub, %conv83
   br i1 %cmp84, label %if.then85, label %if.end89
 
@@ -16180,15 +16180,15 @@ if.end89:                                         ; preds = %if.then85, %for.bod
 
 if.then91:                                        ; preds = %if.end89
   %arrayidx92 = getelementptr inbounds i32, ptr %add.ptr6, i64 %i78.098
-  %24 = load i32, ptr %arrayidx92, align 4
-  %conv93 = sext i32 %24 to i64
+  %23 = load i32, ptr %arrayidx92, align 4
+  %conv93 = sext i32 %23 to i64
   br label %for.inc95
 
 for.inc95:                                        ; preds = %if.end89, %if.then91
   %suffix.4 = phi i64 [ %conv93, %if.then91 ], [ %suffix.397, %if.end89 ]
   %inc96 = add i64 %i78.098, 1
-  %exitcond101 = icmp eq i64 %inc96, %umax
-  br i1 %exitcond101, label %if.end98, label %for.body81, !llvm.loop !39
+  %cmp80.not = icmp eq i64 %inc96, %umax
+  br i1 %cmp80.not, label %if.end98, label %for.body81, !llvm.loop !39
 
 if.end98:                                         ; preds = %if.end62, %for.inc95, %for.end.thread, %while.end75
   ret void
@@ -17279,12 +17279,12 @@ entry:
   br i1 %cmp86, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %entry
-  %arrayidx7102 = getelementptr inbounds i32, ptr %add.ptr, i64 %0
-  store i32 1, ptr %arrayidx7102, align 4
+  %arrayidx7101 = getelementptr inbounds i32, ptr %add.ptr, i64 %0
+  store i32 1, ptr %arrayidx7101, align 4
   %2 = trunc i64 %0 to i32
-  %conv8104 = add i32 %2, 1
-  %arrayidx9105 = getelementptr inbounds i32, ptr %add.ptr6, i64 %0
-  store i32 %conv8104, ptr %arrayidx9105, align 4
+  %conv8103 = add i32 %2, 1
+  %arrayidx9104 = getelementptr inbounds i32, ptr %add.ptr6, i64 %0
+  store i32 %conv8103, ptr %arrayidx9104, align 4
   br label %if.end98
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -17428,19 +17428,19 @@ while.end75:                                      ; preds = %if.end74
   %cmp76 = icmp uge i64 %suffix.2, %0
   %cmp80.not96 = icmp ugt i64 %1, %0
   %or.cond99 = or i1 %cmp76, %cmp80.not96
-  br i1 %or.cond99, label %if.end98, label %for.body81.preheader
+  br i1 %or.cond99, label %if.end98, label %for.body81
 
 for.body81.preheader:                             ; preds = %while.end75
   %22 = add i64 %1, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 %add)
   br label %for.body81
 
-for.body81:                                       ; preds = %for.body81.preheader, %for.inc95
-  %i78.098 = phi i64 [ %inc96, %for.inc95 ], [ %1, %for.body81.preheader ]
-  %suffix.397 = phi i64 [ %suffix.4, %for.inc95 ], [ %suffix.2, %for.body81.preheader ]
+for.body81:                                       ; preds = %for.body81, %for.inc95
+  %i78.098 = phi i64 [ %inc96, %for.inc95 ], [ %1, %for.body81 ]
+  %suffix.397 = phi i64 [ %suffix.4, %for.inc95 ], [ %suffix.2, %for.body81 ]
   %arrayidx82 = getelementptr inbounds i32, ptr %add.ptr, i64 %i78.098
-  %23 = load i32, ptr %arrayidx82, align 4
-  %conv83 = sext i32 %23 to i64
+  %22 = load i32, ptr %arrayidx82, align 4
+  %conv83 = sext i32 %22 to i64
   %cmp84 = icmp eq i64 %sub, %conv83
   br i1 %cmp84, label %if.then85, label %if.end89
 
@@ -17456,15 +17456,15 @@ if.end89:                                         ; preds = %if.then85, %for.bod
 
 if.then91:                                        ; preds = %if.end89
   %arrayidx92 = getelementptr inbounds i32, ptr %add.ptr6, i64 %i78.098
-  %24 = load i32, ptr %arrayidx92, align 4
-  %conv93 = sext i32 %24 to i64
+  %23 = load i32, ptr %arrayidx92, align 4
+  %conv93 = sext i32 %23 to i64
   br label %for.inc95
 
 for.inc95:                                        ; preds = %if.end89, %if.then91
   %suffix.4 = phi i64 [ %conv93, %if.then91 ], [ %suffix.397, %if.end89 ]
   %inc96 = add i64 %i78.098, 1
-  %exitcond101 = icmp eq i64 %inc96, %umax
-  br i1 %exitcond101, label %if.end98, label %for.body81, !llvm.loop !57
+  %cmp80.not = icmp eq i64 %inc96, %umax
+  br i1 %cmp80.not, label %if.end98, label %for.body81, !llvm.loop !57
 
 if.end98:                                         ; preds = %if.end62, %for.inc95, %for.end.thread, %while.end75
   ret void

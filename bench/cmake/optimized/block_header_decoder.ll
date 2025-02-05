@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %70, label %6
+  br i1 %5, label %71, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17,7 +17,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   %9 = icmp eq ptr %8, null
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
-  br i1 %or.cond, label %70, label %.preheader86
+  br i1 %or.cond, label %71, label %.preheader86
 
 11:                                               ; preds = %.preheader86
   %12 = load i32, ptr %0, align 8, !tbaa !11
@@ -48,31 +48,31 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %.not = icmp eq i32 %23, %25
-  br i1 %.not, label %26, label %70
+  br i1 %.not, label %26, label %71
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !20
   %29 = icmp ugt i32 %28, 15
-  br i1 %29, label %70, label %30
+  br i1 %29, label %71, label %30
 
 30:                                               ; preds = %26
   %31 = zext nneg i32 %22 to i64
-  %32 = tail call i32 @lzma_crc32(ptr noundef nonnull %2, i64 noundef %31, i32 noundef 0) #5
+  %32 = tail call i32 @lzma_crc32(ptr noundef nonnull %2, i64 noundef %31, i32 noundef 0) #4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %31
   %.val = load i32, ptr %33, align 1
   %.not73 = icmp eq i32 %32, %.val
-  br i1 %.not73, label %34, label %70
+  br i1 %.not73, label %34, label %71
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !18
   %37 = and i8 %36, 60
   %.not74 = icmp eq i8 %37, 0
-  br i1 %.not74, label %38, label %70
+  br i1 %.not74, label %38, label %71
 
 38:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 2, ptr %4, align 8, !tbaa !21
   %39 = and i8 %36, 64
   %.not75 = icmp eq i8 %39, 0
@@ -80,12 +80,12 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br i1 %.not75, label %46, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 @lzma_vli_decode(ptr noundef nonnull %40, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #6
+  %42 = call i32 @lzma_vli_decode(ptr noundef nonnull %40, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
   %.not76 = icmp eq i32 %42, 0
   br i1 %.not76, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %0) #5
+  %44 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %0) #4
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %47
 
@@ -100,7 +100,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br i1 %.not77, label %52, label %50
 
 50:                                               ; preds = %47
-  %51 = call i32 @lzma_vli_decode(ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #6
+  %51 = call i32 @lzma_vli_decode(ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
   %.not78 = icmp eq i32 %51, 0
   br i1 %.not78, label %53, label %.loopexit
 
@@ -129,35 +129,35 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   %.06188 = phi i64 [ 0, %53 ], [ %58, %57 ]
   %60 = load ptr, ptr %7, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw %struct.lzma_filter, ptr %60, i64 %.06188
-  %62 = call i32 @lzma_filter_flags_decode(ptr noundef %61, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #6
+  %62 = call i32 @lzma_filter_flags_decode(ptr noundef %61, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %31) #5
   %.not79 = icmp eq i32 %62, 0
   br i1 %.not79, label %57, label %.loopexit.sink.split
 
-63:                                               ; preds = %.preheader, %65
-  %64 = phi i64 [ %.promoted, %.preheader ], [ %66, %65 ]
-  %exitcond91.not = icmp eq i64 %64, %umax
-  br i1 %exitcond91.not, label %.loopexit, label %65
+63:                                               ; preds = %.preheader, %66
+  %64 = phi i64 [ %.promoted, %.preheader ], [ %67, %66 ]
+  %65 = icmp eq i64 %64, %umax
+  br i1 %65, label %.loopexit, label %65
 
-65:                                               ; preds = %63
-  %66 = add i64 %64, 1
-  store i64 %66, ptr %4, align 8, !tbaa !21
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %64
-  %68 = load i8, ptr %67, align 1, !tbaa !18
-  %.not81 = icmp eq i8 %68, 0
+66:                                               ; preds = %63
+  %67 = add i64 %64, 1
+  store i64 %67, ptr %4, align 8, !tbaa !21
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %64
+  %69 = load i8, ptr %68, align 1, !tbaa !18
+  %.not81 = icmp eq i8 %69, 0
   br i1 %.not81, label %63, label %.loopexit.sink.split, !llvm.loop !25
 
-.loopexit.sink.split:                             ; preds = %59, %65
-  %.3.ph = phi i32 [ 8, %65 ], [ %62, %59 ]
-  %69 = load ptr, ptr %7, align 8, !tbaa !4
-  call void @lzma_filters_free(ptr noundef %69, ptr noundef %1) #6
+.loopexit.sink.split:                             ; preds = %59, %66
+  %.3.ph = phi i32 [ 8, %66 ], [ %62, %59 ]
+  %70 = load ptr, ptr %7, align 8, !tbaa !4
+  call void @lzma_filters_free(ptr noundef %70, ptr noundef %1) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %.loopexit.sink.split, %43, %41, %50
   %.3 = phi i32 [ %51, %50 ], [ %42, %41 ], [ 9, %43 ], [ %.3.ph, %.loopexit.sink.split ], [ 0, %63 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  br label %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  br label %71
 
-70:                                               ; preds = %.loopexit, %30, %34, %18, %26, %3, %6
+71:                                               ; preds = %.loopexit, %30, %34, %18, %26, %3, %6
   %.0 = phi i32 [ 11, %6 ], [ 11, %3 ], [ 11, %26 ], [ 11, %18 ], [ %.3, %.loopexit ], [ 9, %30 ], [ 8, %34 ]
   ret i32 %.0
 }

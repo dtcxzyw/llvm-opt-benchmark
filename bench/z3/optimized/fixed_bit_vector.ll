@@ -66,10 +66,10 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.then
   %mul = and i32 %add, -32
   %cmp1250.not = icmp eq i32 %mul, %add
-  br i1 %cmp1250.not, label %for.end28, label %for.body13.preheader
+  br i1 %cmp1250.not, label %for.end28, label %for.body13
 
-for.body13.preheader:                             ; preds = %for.end
-  %3 = or disjoint i32 %mul, 1
+for.body13:                                       ; preds = %for.end
+  %i8.051 = or disjoint i32 %mul, 1
   %umax57 = tail call i32 @llvm.umax.i32(i32 %add, i32 %3)
   br label %for.body13
 
@@ -79,23 +79,23 @@ for.body13:                                       ; preds = %for.body13.preheade
   %div1.i.i = lshr i32 %i8.051, 5
   %idxprom.i.i = zext nneg i32 %div1.i.i to i64
   %arrayidx.i.i = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i
-  %4 = load i32, ptr %arrayidx.i.i, align 4
+  %3 = load i32, ptr %arrayidx.i.i, align 4
   %rem.i.i = and i32 %i8.051, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i
-  %and.i = and i32 %4, %shl.i.i
+  %and.i = and i32 %3, %shl.i.i
   %cmp.i = icmp ne i32 %and.i, 0
   %conv.neg.i = sext i1 %cmp.i to i32
   %div1.i.i23 = lshr i32 %add14, 5
   %idxprom.i.i24 = zext nneg i32 %div1.i.i23 to i64
   %arrayidx.i.i25 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i24
-  %5 = load i32, ptr %arrayidx.i.i25, align 4
-  %xor.i = xor i32 %5, %conv.neg.i
+  %4 = load i32, ptr %arrayidx.i.i25, align 4
+  %xor.i = xor i32 %4, %conv.neg.i
   %and.i28 = and i32 %xor.i, %shl.i.i
-  %xor4.i = xor i32 %and.i28, %5
+  %xor4.i = xor i32 %and.i28, %4
   store i32 %xor4.i, ptr %arrayidx.i.i25, align 4
   %inc16 = add nuw i32 %i8.051, 1
-  %exitcond58.not = icmp eq i32 %inc16, %umax57
-  br i1 %exitcond58.not, label %for.end28, label %for.body13, !llvm.loop !6
+  %cmp12 = icmp eq i32 %inc16, %umax57
+  br i1 %cmp12, label %for.end28, label %for.body13, !llvm.loop !6
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.body23
   %i18.047 = phi i32 [ %inc27, %for.body23 ], [ 0, %for.body23.preheader ]
@@ -103,21 +103,21 @@ for.body23:                                       ; preds = %for.body23.preheade
   %div1.i.i29 = lshr i32 %i18.047, 5
   %idxprom.i.i30 = zext nneg i32 %div1.i.i29 to i64
   %arrayidx.i.i31 = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i30
-  %6 = load i32, ptr %arrayidx.i.i31, align 4
+  %5 = load i32, ptr %arrayidx.i.i31, align 4
   %rem.i.i32 = and i32 %i18.047, 31
   %shl.i.i33 = shl nuw i32 1, %rem.i.i32
-  %and.i34 = and i32 %6, %shl.i.i33
+  %and.i34 = and i32 %5, %shl.i.i33
   %cmp.i35 = icmp ne i32 %and.i34, 0
   %conv.neg.i36 = sext i1 %cmp.i35 to i32
   %div1.i.i37 = lshr i32 %add24, 5
   %idxprom.i.i38 = zext nneg i32 %div1.i.i37 to i64
   %arrayidx.i.i39 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i38
-  %7 = load i32, ptr %arrayidx.i.i39, align 4
-  %xor.i40 = xor i32 %7, %conv.neg.i36
+  %6 = load i32, ptr %arrayidx.i.i39, align 4
+  %xor.i40 = xor i32 %6, %conv.neg.i36
   %rem.i.i41 = and i32 %add24, 31
   %shl.i.i42 = shl nuw i32 1, %rem.i.i41
   %and.i43 = and i32 %xor.i40, %shl.i.i42
-  %xor4.i44 = xor i32 %and.i43, %7
+  %xor4.i44 = xor i32 %and.i43, %6
   store i32 %xor4.i44, ptr %arrayidx.i.i39, align 4
   %inc27 = add nuw i32 %i18.047, 1
   %exitcond.not = icmp eq i32 %inc27, %umax

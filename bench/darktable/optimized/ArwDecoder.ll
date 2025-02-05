@@ -1657,9 +1657,9 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 16385
   br i1 %exitcond41.not, label %.preheader, label %.preheader29, !llvm.loop !62
 
-.loopexit:                                        ; preds = %33, %.preheader
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 5
-  br i1 %exitcond46.not, label %24, label %.preheader, !llvm.loop !63
+.loopexit:                                        ; preds = %31, %.preheader
+  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 5
+  br i1 %exitcond45.not, label %24, label %.preheader, !llvm.loop !63
 
 24:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
@@ -1667,36 +1667,36 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 
 .preheader:                                       ; preds = %.preheader29, %.loopexit
   %25 = phi i32 [ %27, %.loopexit ], [ 0, %.preheader29 ]
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.loopexit ], [ 0, %.preheader29 ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %26 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next44
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.loopexit ], [ 0, %.preheader29 ]
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %26 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next43
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %.032 = add i32 %25, 1
   %.not33 = icmp ugt i32 %.032, %27
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = trunc nuw nsw i64 %indvars.iv43 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv42 to i32
   %29 = shl nuw nsw i32 1, %28
   %30 = trunc nuw i32 %29 to i16
   %31 = add i32 %25, 2
   %32 = add i32 %27, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %31, i32 %32)
   %.phi.trans.insert = zext i32 %25 to i64
-  %.phi.trans.insert47 = getelementptr inbounds nuw i16, ptr %4, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert47, align 2, !tbaa !60
-  br label %33
+  %.phi.trans.insert46 = getelementptr inbounds nuw i16, ptr %4, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert46, align 2, !tbaa !60
+  br label %31
 
-33:                                               ; preds = %.lr.ph, %33
-  %34 = phi i16 [ %.pre, %.lr.ph ], [ %35, %33 ]
-  %.035 = phi i32 [ %.032, %.lr.ph ], [ %.0, %33 ]
-  %35 = add i16 %34, %30
-  %36 = zext i32 %.035 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %4, i64 %36
-  store i16 %35, ptr %37, align 2, !tbaa !60
+31:                                               ; preds = %.lr.ph, %31
+  %32 = phi i16 [ %.pre, %.lr.ph ], [ %33, %31 ]
+  %.035 = phi i32 [ %.032, %.lr.ph ], [ %.0, %31 ]
+  %33 = add i16 %32, %30
+  %34 = zext i32 %.035 to i64
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %34
+  store i16 %33, ptr %35, align 2, !tbaa !60
   %.0 = add i32 %.035, 1
-  %exitcond42 = icmp eq i32 %.0, %umax
-  br i1 %exitcond42, label %.loopexit, label %33, !llvm.loop !64
+  %.not = icmp eq i32 %.0, %umax
+  br i1 %.not, label %.loopexit, label %31, !llvm.loop !64
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %20, %10
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %11, %10 ]

@@ -1092,10 +1092,10 @@ entry:
   %properties1 = getelementptr inbounds nuw i8, ptr %defn, i64 8
   %0 = load i32, ptr %query, align 8
   %cmp677075 = icmp sgt i32 %0, 0
-  br i1 %cmp677075, label %while.body.lr.ph.lr.ph, label %return
+  br i1 %cmp677075, label %while.body.lr.ph.lr.ph.preheader, label %return
 
-while.body.lr.ph.lr.ph:                           ; preds = %entry, %while.cond.outer.backedge
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %while.cond.outer.backedge ], [ 0, %entry ]
+while.body.lr.ph.lr.ph.preheader:                 ; preds = %entry, %while.cond.outer.backedge
+  %1 = phi i64 [ %indvars.iv.next97, %while.cond.outer.backedge ], [ 0, %entry ]
   %i.0.ph78 = phi i32 [ %i.0.ph.be, %while.cond.outer.backedge ], [ 0, %entry ]
   %matches.0.ph77 = phi i32 [ %matches.0.ph.be, %while.cond.outer.backedge ], [ 0, %entry ]
   %arrayidx11 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %properties1, i64 %indvars.iv96
@@ -1104,13 +1104,13 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry, %while.cond.
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end104
   %i.0.ph5372 = phi i32 [ %i.0.ph78, %while.body.lr.ph.lr.ph ], [ %inc105, %if.end104 ]
   %matches.0.ph5271 = phi i32 [ %matches.0.ph77, %while.body.lr.ph.lr.ph ], [ %matches.2, %if.end104 ]
-  %1 = sext i32 %i.0.ph5372 to i64
+  %2 = sext i32 %i.0.ph5372 to i64
   %2 = add nsw i32 %i.0.ph5372, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 %2)
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then
-  %indvars.iv = phi i64 [ %1, %while.body.lr.ph ], [ %indvars.iv.next, %if.then ]
+  %indvars.iv = phi i64 [ %2, %while.body.lr.ph ], [ %indvars.iv.next, %if.then ]
   %arrayidx = getelementptr inbounds %struct.ossl_property_definition_st, ptr %properties, i64 %indvars.iv
   %oper3 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %oper3, align 8
@@ -1119,7 +1119,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %cmp = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !11
 

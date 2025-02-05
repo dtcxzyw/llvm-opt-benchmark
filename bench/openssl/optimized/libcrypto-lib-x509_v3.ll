@@ -47,14 +47,14 @@ if.end.i:                                         ; preds = %if.end
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end.i
   %lastpos.addr.0.in.i = phi i32 [ %0, %if.end.i ], [ %lastpos.addr.0.i, %for.body.i ]
-  %exitcond.not.i = icmp eq i32 %lastpos.addr.0.in.i, %2
-  br i1 %exitcond.not.i, label %return, label %for.body.i
+  %lastpos.addr.0.i = icmp eq i32 %lastpos.addr.0.in.i, %2
+  br i1 %lastpos.addr.0.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %lastpos.addr.0.i = add nsw i32 %lastpos.addr.0.in.i, 1
   %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %x, i32 noundef %lastpos.addr.0.i) #6
-  %3 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef nonnull %call) #6
+  %1 = load ptr, ptr %call7.i, align 8
+  %call8.i = tail call i32 @OBJ_cmp(ptr noundef %1, ptr noundef nonnull %call) #6
   %cmp9.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.i, label %return, label %for.cond.i, !llvm.loop !4
 
@@ -81,14 +81,14 @@ if.end:                                           ; preds = %entry
 
 for.cond:                                         ; preds = %for.body, %if.end
   %lastpos.addr.0.in = phi i32 [ %0, %if.end ], [ %lastpos.addr.0, %for.body ]
-  %exitcond.not = icmp eq i32 %lastpos.addr.0.in, %2
-  br i1 %exitcond.not, label %return, label %for.body
+  %lastpos.addr.0 = icmp eq i32 %lastpos.addr.0.in, %2
+  br i1 %lastpos.addr.0, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %lastpos.addr.0 = add nsw i32 %lastpos.addr.0.in, 1
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %lastpos.addr.0) #6
-  %3 = load ptr, ptr %call7, align 8
-  %call8 = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #6
+  %1 = load ptr, ptr %call7, align 8
+  %call8 = tail call i32 @OBJ_cmp(ptr noundef %1, ptr noundef %obj) #6
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %return, label %for.cond, !llvm.loop !4
 
@@ -118,15 +118,15 @@ if.end:                                           ; preds = %entry
 
 for.cond:                                         ; preds = %for.body, %if.end
   %lastpos.addr.0.in = phi i32 [ %0, %if.end ], [ %lastpos.addr.0, %for.body ]
-  %exitcond.not = icmp eq i32 %lastpos.addr.0.in, %2
-  br i1 %exitcond.not, label %return, label %for.body
+  %lastpos.addr.0 = icmp eq i32 %lastpos.addr.0.in, %2
+  br i1 %lastpos.addr.0, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %lastpos.addr.0 = add nsw i32 %lastpos.addr.0.in, 1
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %lastpos.addr.0) #6
   %critical = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  %3 = load i32, ptr %critical, align 8
-  %cmp8 = icmp sgt i32 %3, 0
+  %1 = load i32, ptr %critical, align 8
+  %cmp8 = icmp sgt i32 %1, 0
   %or.cond11 = xor i1 %tobool, %cmp8
   br i1 %or.cond11, label %for.cond, label %return, !llvm.loop !6
 

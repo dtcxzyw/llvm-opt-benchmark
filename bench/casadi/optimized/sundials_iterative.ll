@@ -531,13 +531,13 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph52
-  %22 = icmp sgt i64 %indvars.iv67, 1
+  %22 = icmp sgt i64 %indvars.iv63, 1
   br i1 %22, label %.lr.ph56, label %._crit_edge, !llvm.loop !15
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.loopexit
-  %indvars.iv67 = phi i64 [ %6, %.lr.ph56.preheader ], [ %indvars.iv.next68, %.loopexit ]
-  %indvars.iv63.in = phi i32 [ %0, %.lr.ph56.preheader ], [ %indvars.iv63, %.loopexit ]
-  %indvars.iv63 = add nsw i32 %indvars.iv63.in, -1
+  %indvars.iv63 = phi i64 [ %6, %.lr.ph56.preheader ], [ %indvars.iv.next68, %.loopexit ]
+  %indvars.iv.next64 = phi i32 [ %0, %.lr.ph56.preheader ], [ %indvars.iv63, %.loopexit ]
+  %23 = add nsw i32 %indvars.iv.next64, -1
   %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv63, i32 1)
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
   %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next68
@@ -545,18 +545,18 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.next68
   %26 = load double, ptr %25, align 8
   %27 = fcmp oeq double %26, 0.000000e+00
-  br i1 %27, label %._crit_edge.loopexit.split.loop.exit70, label %28
+  br i1 %27, label %._crit_edge.loopexit.split.loop.exit66, label %28
 
 28:                                               ; preds = %.lr.ph56
   %29 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next68
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %30, %26
   store double %31, ptr %29, align 8
-  %32 = icmp samesign ugt i64 %indvars.iv67, 1
-  br i1 %32, label %.lr.ph52.preheader, label %._crit_edge
+  %32 = icmp samesign ugt i64 %indvars.iv63, 1
+  br i1 %32, label %.lr.ph52, label %._crit_edge
 
-.lr.ph52.preheader:                               ; preds = %28
-  %wide.trip.count65 = zext nneg i32 %smax to i64
+.lr.ph52:                                         ; preds = %28
+  %indvars.iv60 = zext nneg i32 %smax to i64
   br label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
@@ -572,15 +572,15 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %41 = tail call double @llvm.fmuladd.f64(double %40, double %37, double %39)
   store double %41, ptr %38, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !16
+  %42 = icmp eq i64 %indvars.iv.next61, %indvars.iv60
+  br i1 %42, label %.loopexit, label %.lr.ph52, !llvm.loop !16
 
-._crit_edge.loopexit.split.loop.exit70:           ; preds = %.lr.ph56
-  %42 = trunc nuw nsw i64 %indvars.iv67 to i32
+._crit_edge.loopexit.split.loop.exit66:           ; preds = %.lr.ph56
+  %43 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %28, %.loopexit, %._crit_edge.loopexit.split.loop.exit70, %4
-  %.0 = phi i32 [ 0, %4 ], [ %42, %._crit_edge.loopexit.split.loop.exit70 ], [ 0, %.loopexit ], [ 0, %28 ]
+._crit_edge:                                      ; preds = %28, %.loopexit, %._crit_edge.loopexit.split.loop.exit66, %4
+  %.0 = phi i32 [ 0, %4 ], [ %43, %._crit_edge.loopexit.split.loop.exit66 ], [ 0, %.loopexit ], [ 0, %28 ]
   ret i32 %.0
 }
 

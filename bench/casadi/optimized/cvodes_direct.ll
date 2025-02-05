@@ -565,8 +565,8 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
   %105 = getelementptr inbounds double, ptr %81, i64 %104
   store double %103, ptr %105, align 8
   %106 = add nuw i64 %.0103118, 1
-  %exitcond.not = icmp eq i64 %.0103118, %smin
-  br i1 %exitcond.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !7
+  %.not115.not = icmp eq i64 %.0103118, %smin
+  br i1 %.not115.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !7
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %92
   %107 = add nsw i64 %.1105122, %39
@@ -576,7 +576,7 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
 
 ._crit_edge124:                                   ; preds = %._crit_edge121
   %109 = add nuw i64 %.0126, 1
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %exitcond.not = add i64 %indvars.iv, 1
   %exitcond136.not = icmp eq i64 %.0126, %40
   br i1 %exitcond136.not, label %._crit_edge129, label %.lr.ph.preheader, !llvm.loop !9
 

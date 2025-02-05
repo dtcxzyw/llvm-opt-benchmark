@@ -316,12 +316,12 @@ define dso_local zeroext i1 @CheckRelationLockedByMe(ptr noundef readonly captur
   %14 = call zeroext i1 @LockHeldByMe(ptr noundef nonnull %4, i32 noundef %1) #7
   %.not = xor i1 %2, true
   %brmerge = or i1 %14, %.not
-  br i1 %brmerge, label %.loopexit, label %.preheader.preheader
+  br i1 %brmerge, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %3
-  %15 = add i32 %1, 1
-  %smax = call i32 @llvm.smax.i32(i32 %15, i32 9)
-  %16 = add nsw i32 %smax, -1
+.preheader:                                       ; preds = %3
+  %.0.in = add i32 %1, 1
+  %.0 = call i32 @llvm.smax.i32(i32 %.0.in, i32 9)
+  %15 = add nsw i32 %.0, -1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
@@ -329,13 +329,13 @@ define dso_local zeroext i1 @CheckRelationLockedByMe(ptr noundef readonly captur
   %exitcond.not.not.not = icmp ne i32 %.0.in, %16
   br i1 %exitcond.not.not.not, label %17, label %.loopexit
 
-17:                                               ; preds = %.preheader
-  %.0 = add i32 %.0.in, 1
+16:                                               ; preds = %.preheader
+  %17 = add i32 %.0.in, 1
   %18 = call zeroext i1 @LockHeldByMe(ptr noundef nonnull %4, i32 noundef %.0) #7
   br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.preheader, %17, %3
-  %.08 = phi i1 [ %14, %3 ], [ %exitcond.not.not.not, %17 ], [ %exitcond.not.not.not, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %16, %3
+  %.08 = phi i1 [ %14, %3 ], [ %exitcond.not.not.not, %16 ], [ %exitcond.not.not.not, %.preheader ]
   ret i1 %.08
 }
 

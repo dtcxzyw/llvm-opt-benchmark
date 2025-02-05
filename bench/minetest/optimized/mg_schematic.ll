@@ -5364,24 +5364,24 @@ for.cond42.preheader.preheader:                   ; preds = %for.cond42.preheade
   br label %for.cond42.preheader
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #27
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %9
 
 for.body:                                         ; preds = %invoke.cont, %for.body
   %y.0140 = phi i16 [ %inc, %for.body ], [ 0, %invoke.cont ]
-  %14 = load ptr, ptr %slice_probs, align 8, !tbaa !57
+  %10 = load ptr, ptr %slice_probs, align 8, !tbaa !57
   %idxprom = sext i16 %y.0140 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %14, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %idxprom
   store i8 127, ptr %arrayidx, align 1, !tbaa !92
   %inc = add i16 %y.0140, 1
-  %15 = load i16, ptr %Y, align 2, !tbaa !64
-  %cmp.not = icmp eq i16 %inc, %15
+  %11 = load i16, ptr %Y, align 2, !tbaa !64
+  %cmp.not = icmp eq i16 %inc, %11
   br i1 %cmp.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !200
 
 for.cond42.preheader:                             ; preds = %for.cond42.preheader.preheader, %for.cond42.for.cond.cleanup47_crit_edge.split
-  %16 = phi ptr [ %26, %for.cond42.for.cond.cleanup47_crit_edge.split ], [ %call31, %for.cond42.preheader.preheader ]
+  %12 = phi ptr [ %22, %for.cond42.for.cond.cleanup47_crit_edge.split ], [ %call31, %for.cond42.preheader.preheader ]
   %z.0152 = phi i16 [ %inc76, %for.cond42.for.cond.cleanup47_crit_edge.split ], [ %p1.sroa.7.0.extract.trunc, %for.cond42.preheader.preheader ]
   %i.0151 = phi i32 [ %inc69, %for.cond42.for.cond.cleanup47_crit_edge.split ], [ 0, %for.cond42.preheader.preheader ]
   %conv.i = sext i16 %z.0152 to i32
@@ -5389,52 +5389,52 @@ for.cond42.preheader:                             ; preds = %for.cond42.preheade
 
 for.cond42.for.cond.cleanup47_crit_edge.split:    ; preds = %for.cond52.for.cond.cleanup57_crit_edge
   %inc76 = add i16 %z.0152, 1
-  %exitcond4 = icmp eq i16 %inc76, %smax3
-  br i1 %exitcond4, label %delete.notnull, label %for.cond42.preheader, !llvm.loop !201
+  %cmp37.not = icmp eq i16 %inc76, %smax3
+  br i1 %cmp37.not, label %delete.notnull, label %for.cond42.preheader, !llvm.loop !201
 
 for.body48:                                       ; preds = %for.cond52.for.cond.cleanup57_crit_edge, %for.cond42.preheader
-  %17 = phi ptr [ %16, %for.cond42.preheader ], [ %26, %for.cond52.for.cond.cleanup57_crit_edge ]
+  %13 = phi ptr [ %12, %for.cond42.preheader ], [ %22, %for.cond52.for.cond.cleanup57_crit_edge ]
   %y40.0148 = phi i16 [ %p1.sroa.5.0.extract.trunc, %for.cond42.preheader ], [ %inc73, %for.cond52.for.cond.cleanup57_crit_edge ]
   %i.1147 = phi i32 [ %i.0151, %for.cond42.preheader ], [ %inc69, %for.cond52.for.cond.cleanup57_crit_edge ]
-  %18 = load i16, ptr %Z.i128, align 2, !tbaa !100
-  %conv2.i = sext i16 %18 to i32
+  %14 = load i16, ptr %Z.i128, align 2, !tbaa !100
+  %conv2.i = sext i16 %14 to i32
   %sub.i129 = sub nsw i32 %conv.i, %conv2.i
-  %19 = load i16, ptr %Y.i130, align 2, !tbaa !103
-  %conv3.i = sext i16 %19 to i32
+  %15 = load i16, ptr %Y.i130, align 2, !tbaa !103
+  %conv3.i = sext i16 %15 to i32
   %mul.i = mul nsw i32 %sub.i129, %conv3.i
-  %20 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
-  %conv5.i = sext i16 %20 to i32
+  %16 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !104
+  %conv5.i = sext i16 %16 to i32
   %conv7.i = sext i16 %y40.0148 to i32
-  %21 = load i16, ptr %Y9.i, align 2, !tbaa !99
-  %conv10.i = sext i16 %21 to i32
+  %17 = load i16, ptr %Y9.i, align 2, !tbaa !99
+  %conv10.i = sext i16 %17 to i32
   %sub11.i = add nsw i32 %mul.i, %conv7.i
   %mul622.i = sub i32 %sub11.i, %conv10.i
   %add.i131 = mul i32 %mul622.i, %conv5.i
-  %22 = load i16, ptr %m_area, align 2, !tbaa !97
-  %conv19.i = sext i16 %22 to i32
+  %18 = load i16, ptr %m_area, align 2, !tbaa !97
+  %conv19.i = sext i16 %18 to i32
   %sub20.i = sub nsw i32 %conv.i.i.i, %conv19.i
   %add21.i = add nsw i32 %sub20.i, %add.i131
   br label %for.body58
 
 for.cond52.for.cond.cleanup57_crit_edge:          ; preds = %for.body58
   %inc73 = add i16 %y40.0148, 1
-  %exitcond = icmp eq i16 %inc73, %smax
-  br i1 %exitcond, label %for.cond42.for.cond.cleanup47_crit_edge.split, label %for.body48, !llvm.loop !202
+  %cmp46.not = icmp eq i16 %inc73, %smax
+  br i1 %cmp46.not, label %for.cond42.for.cond.cleanup47_crit_edge.split, label %for.body48, !llvm.loop !202
 
 for.body58:                                       ; preds = %for.body58, %for.body48
-  %23 = phi ptr [ %17, %for.body48 ], [ %26, %for.body58 ]
+  %19 = phi ptr [ %13, %for.body48 ], [ %22, %for.body58 ]
   %x.0144 = phi i16 [ %p1.sroa.0.0.extract.trunc, %for.body48 ], [ %inc68, %for.body58 ]
   %vi.0143 = phi i32 [ %add21.i, %for.body48 ], [ %inc70, %for.body58 ]
   %i.2142 = phi i32 [ %i.1147, %for.body48 ], [ %inc69, %for.body58 ]
-  %24 = load ptr, ptr %m_data, align 8, !tbaa !105
+  %20 = load ptr, ptr %m_data, align 8, !tbaa !105
   %idxprom59 = zext i32 %vi.0143 to i64
-  %arrayidx60 = getelementptr inbounds nuw %struct.MapNode, ptr %24, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds nuw %struct.MapNode, ptr %20, i64 %idxprom59
   %idxprom62 = zext i32 %i.2142 to i64
-  %arrayidx63 = getelementptr inbounds nuw %struct.MapNode, ptr %23, i64 %idxprom62
-  %25 = load i32, ptr %arrayidx60, align 4, !tbaa.struct !107
-  store i32 %25, ptr %arrayidx63, align 4, !tbaa.struct !107
-  %26 = load ptr, ptr %schemdata, align 8, !tbaa !54
-  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %26, i64 %idxprom62, i32 1
+  %arrayidx63 = getelementptr inbounds nuw %struct.MapNode, ptr %19, i64 %idxprom62
+  %21 = load i32, ptr %arrayidx60, align 4, !tbaa.struct !107
+  store i32 %21, ptr %arrayidx63, align 4, !tbaa.struct !107
+  %22 = load ptr, ptr %schemdata, align 8, !tbaa !54
+  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %22, i64 %idxprom62, i32 1
   store i8 127, ptr %param1, align 2, !tbaa !102
   %inc68 = add i16 %x.0144, 1
   %inc69 = add i32 %i.2142, 1
@@ -5445,7 +5445,7 @@ for.body58:                                       ; preds = %for.body58, %for.bo
 delete.notnull:                                   ; preds = %for.cond42.for.cond.cleanup47_crit_edge.split, %for.cond42.preheader.lr.ph, %for.cond.cleanup
   %vtable = load ptr, ptr %call, align 8, !tbaa !12
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
-  %27 = load ptr, ptr %vfn, align 8
+  %23 = load ptr, ptr %vfn, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(112) %call) #29
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN12NodeResolver5resetEb(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr, i1 noundef zeroext true)

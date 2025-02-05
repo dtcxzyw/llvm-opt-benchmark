@@ -3015,14 +3015,14 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i: ; pr
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd5cbdf498688588cE.exit.i", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h308960b337a34744E.exit21.i"
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %110 = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %umax.i, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i.loopexit, label %29
 
 _ZN16wasmtime_runtime8instance8Instance32get_defined_table_with_lazy_init17h04ec6366a60ba4f9E.exit: ; preds = %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit.i
-  %110 = load ptr, ptr %13, align 16, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
-  %111 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %110, i64 0, i64 %8, i32 2
-  ret ptr %111
+  %111 = load ptr, ptr %13, align 16, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
+  %112 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %111, i64 0, i64 %8, i32 2
+  ret ptr %112
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

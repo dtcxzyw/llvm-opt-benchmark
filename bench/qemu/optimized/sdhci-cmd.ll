@@ -72,9 +72,9 @@ while.body6.i:                                    ; preds = %if.end13.i, %while.
 
 if.end13.i:                                       ; preds = %while.body6.i
   %shr.i = lshr i32 %msg_frag.016.i, 8
-  %dec.i = add nsw i32 %size.017.i, -1
-  %cmp4.i = icmp sgt i32 %size.017.i, 1
-  br i1 %cmp4.i, label %while.body6.i, label %while.cond.loopexit.i, !llvm.loop !7
+  %lftr.wideiv = add nsw i32 %size.017.i, -1
+  %exitcond = icmp sgt i32 %size.017.i, 1
+  br i1 %exitcond, label %while.body6.i, label %while.cond.loopexit.i, !llvm.loop !7
 
 read_fifo.exit:                                   ; preds = %while.cond.loopexit.i, %while.body6.i, %entry
   %retval.0.i = phi i64 [ 0, %entry ], [ %inc.i, %while.body6.i ], [ %index.1.lcssa.i, %while.cond.loopexit.i ]

@@ -29,14 +29,14 @@ if.then7:                                         ; preds = %for.body, %for.body
 
 while.cond:                                       ; preds = %land.lhs.true, %if.then7
   %i.2 = phi i64 [ %i.037, %if.then7 ], [ %inc, %land.lhs.true ]
-  %exitcond.not = icmp eq i64 %i.2, %2
-  br i1 %exitcond.not, label %if.end15, label %land.lhs.true
+  %inc = icmp eq i64 %i.2, %2
+  br i1 %inc, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.cond
   %inc = add i64 %i.2, 1
   %arrayidx9 = getelementptr inbounds i8, ptr %szBuffer, i64 %inc
-  %3 = load i8, ptr %arrayidx9, align 1
-  switch i8 %3, label %while.cond [
+  %2 = load i8, ptr %arrayidx9, align 1
+  switch i8 %2, label %while.cond [
     i8 34, label %if.end15
     i8 39, label %if.end15
   ]
@@ -58,8 +58,8 @@ if.end18:                                         ; preds = %if.end15
 land.rhs23:                                       ; preds = %if.end18, %while.body27
   %i.328 = phi i64 [ %inc28, %while.body27 ], [ %i.1, %if.end18 ]
   %arrayidx24 = getelementptr inbounds i8, ptr %szBuffer, i64 %i.328
-  %4 = load i8, ptr %arrayidx24, align 1
-  switch i8 %4, label %while.body27 [
+  %3 = load i8, ptr %arrayidx24, align 1
+  switch i8 %3, label %while.body27 [
     i8 13, label %for.inc
     i8 10, label %for.inc
     i8 0, label %for.inc
@@ -69,8 +69,8 @@ land.rhs23:                                       ; preds = %if.end18, %while.bo
 while.body27:                                     ; preds = %land.rhs23
   %inc28 = add i64 %i.328, 1
   store i8 %chReplacement, ptr %arrayidx24, align 1
-  %exitcond38.not = icmp eq i64 %inc28, %call1
-  br i1 %exitcond38.not, label %for.inc, label %land.rhs23, !llvm.loop !4
+  %exitcond.not = icmp eq i64 %inc28, %call1
+  br i1 %exitcond.not, label %for.inc, label %land.rhs23, !llvm.loop !4
 
 for.inc:                                          ; preds = %while.body27, %land.rhs23, %land.rhs23, %land.rhs23, %land.rhs23, %if.end18
   %i.4 = phi i64 [ %i.1, %if.end18 ], [ %call1, %while.body27 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ]

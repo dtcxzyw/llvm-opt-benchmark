@@ -436,8 +436,8 @@ define range(i32 -27, 1) i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, p
 
 pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph55, !llvm.loop !12
+  %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph55, !llvm.loop !12
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %0, align 8
@@ -500,8 +500,8 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv58
   store ptr %52, ptr %54, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next59 to i32
-  %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
+  %55 = trunc i64 %indvars.iv.next59 to i32
+  %exitcond.not = icmp eq i32 %smax, %55
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph53, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5

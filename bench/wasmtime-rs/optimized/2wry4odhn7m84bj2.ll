@@ -6762,34 +6762,34 @@ define hidden void @"_ZN123_$LT$object..read..macho..symbol..MachOSymbolIterator
   %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %6)
   br label %8
 
-8:                                                ; preds = %10, %2
-  %9 = phi i64 [ %13, %10 ], [ %.promoted, %2 ]
-  %exitcond.not = icmp eq i64 %9, %umax
-  br i1 %exitcond.not, label %17, label %10
+8:                                                ; preds = %11, %2
+  %9 = phi i64 [ %14, %11 ], [ %.promoted, %2 ]
+  %10 = icmp eq i64 %9, %umax
+  br i1 %10, label %17, label %10
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %7, align 8, !nonnull !4, !align !915, !noundef !4
-  %12 = getelementptr inbounds { i32, i8, i8, i16, i32 }, ptr %11, i64 %9
-  %13 = add i64 %9, 1
-  store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %15 = load i8, ptr %14, align 4, !alias.scope !1053, !noalias !1058, !noundef !4
-  %16 = icmp ult i8 %15, 32
-  br i1 %16, label %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit", label %8
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %7, align 8, !nonnull !4, !align !915, !noundef !4
+  %13 = getelementptr inbounds { i32, i8, i8, i16, i32 }, ptr %12, i64 %9
+  %14 = add i64 %9, 1
+  store i64 %14, ptr %3, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %16 = load i8, ptr %15, align 4, !alias.scope !1053, !noalias !1058, !noundef !4
+  %17 = icmp ult i8 %16, 32
+  br i1 %17, label %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit", label %8
 
-17:                                               ; preds = %8
+18:                                               ; preds = %8
   store ptr null, ptr %0, align 8
-  br label %18
+  br label %19
 
-"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit": ; preds = %10
+"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit": ; preds = %11
   store ptr %4, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit", %17
+19:                                               ; preds = %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17hcc82c8451ac43c9dE.exit", %18
   ret void
 }
 
@@ -6804,34 +6804,34 @@ define hidden void @"_ZN123_$LT$object..read..macho..symbol..MachOSymbolIterator
   %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %6)
   br label %8
 
-8:                                                ; preds = %10, %2
-  %9 = phi i64 [ %13, %10 ], [ %.promoted, %2 ]
-  %exitcond.not = icmp eq i64 %9, %umax
-  br i1 %exitcond.not, label %17, label %10
+8:                                                ; preds = %11, %2
+  %9 = phi i64 [ %14, %11 ], [ %.promoted, %2 ]
+  %10 = icmp eq i64 %9, %umax
+  br i1 %10, label %17, label %10
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %7, align 8, !nonnull !4, !align !915, !noundef !4
-  %12 = getelementptr inbounds { i32, i8, i8, i16, { [8 x i8], {} } }, ptr %11, i64 %9
-  %13 = add i64 %9, 1
-  store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %15 = load i8, ptr %14, align 4, !alias.scope !1061, !noalias !1066, !noundef !4
-  %16 = icmp ult i8 %15, 32
-  br i1 %16, label %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit", label %8
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %7, align 8, !nonnull !4, !align !915, !noundef !4
+  %13 = getelementptr inbounds { i32, i8, i8, i16, { [8 x i8], {} } }, ptr %12, i64 %9
+  %14 = add i64 %9, 1
+  store i64 %14, ptr %3, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %16 = load i8, ptr %15, align 4, !alias.scope !1061, !noalias !1066, !noundef !4
+  %17 = icmp ult i8 %16, 32
+  br i1 %17, label %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit", label %8
 
-17:                                               ; preds = %8
+18:                                               ; preds = %8
   store ptr null, ptr %0, align 8
-  br label %18
+  br label %19
 
-"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit": ; preds = %10
+"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit": ; preds = %11
   store ptr %4, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit", %17
+19:                                               ; preds = %"_ZN6object4read5macho6symbol27MachOSymbol$LT$Mach$C$R$GT$3new17h14fb04578c392db2E.exit", %18
   ret void
 }
 

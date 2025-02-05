@@ -5053,63 +5053,63 @@ define dso_local void @_ZN4Tree10InsertPathERKSt6vectorINSt7__cxx1112basic_strin
 
 tailrecurse:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %4
   %.tr = phi ptr [ %0, %4 ], [ %.sroa.041.064, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
-  %.tr49 = phi i64 [ %2, %4 ], [ %35, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
-  %14 = icmp eq i64 %.tr49, %12
-  br i1 %14, label %15, label %18
+  %.tr49 = phi i64 [ %2, %4 ], [ %34, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
+  %13 = icmp eq i64 %.tr49, %12
+  br i1 %13, label %14, label %17
 
-15:                                               ; preds = %tailrecurse
-  %16 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %17 = tail call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(32) %3)
+14:                                               ; preds = %tailrecurse
+  %15 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
+  %16 = tail call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %.thread
 
-18:                                               ; preds = %tailrecurse
-  %19 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !319
-  %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !319
-  %.not63 = icmp eq ptr %20, %22
+17:                                               ; preds = %tailrecurse
+  %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !319
+  %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !319
+  %.not63 = icmp eq ptr %19, %21
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.tr49
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !10
-  %26 = icmp eq i64 %25, 0
-  br label %27
+.lr.ph:                                           ; preds = %17
+  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.tr49
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !10
+  %25 = icmp eq i64 %24, 0
+  br label %26
 
-27:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.041.064 = phi ptr [ %20, %.lr.ph ], [ %39, %.critedge ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.041.064, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !10
-  %30 = icmp eq i64 %29, %25
-  br i1 %30, label %31, label %.critedge
+26:                                               ; preds = %.lr.ph, %.critedge
+  %.sroa.041.064 = phi ptr [ %19, %.lr.ph ], [ %39, %.critedge ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.041.064, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !10
+  %29 = icmp eq i64 %28, %24
+  br i1 %29, label %30, label %.critedge
 
-31:                                               ; preds = %27
-  br i1 %26, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+30:                                               ; preds = %26
+  br i1 %25, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %31
-  %32 = load ptr, ptr %23, align 8, !tbaa !17
-  %33 = load ptr, ptr %.sroa.041.064, align 8, !tbaa !17
-  %bcmp.i = tail call i32 @bcmp(ptr %33, ptr %32, i64 %25)
-  %34 = icmp eq i32 %bcmp.i, 0
-  br i1 %34, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.critedge
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %30
+  %31 = load ptr, ptr %22, align 8, !tbaa !17
+  %32 = load ptr, ptr %.sroa.041.064, align 8, !tbaa !17
+  %bcmp.i = tail call i32 @bcmp(ptr %32, ptr %31, i64 %24)
+  %33 = icmp eq i32 %bcmp.i, 0
+  br i1 %33, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.critedge
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %31, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %35 = add i64 %.tr49, 1
-  %exitcond.not = icmp eq i64 %35, %umax
-  br i1 %exitcond.not, label %36, label %tailrecurse
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %30, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %34 = add i64 %.tr49, 1
+  %35 = icmp eq i64 %34, %umax
+  br i1 %35, label %36, label %tailrecurse
 
 36:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.064, i64 56
   %38 = tail call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %.thread
 
-.critedge:                                        ; preds = %27, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+.critedge:                                        ; preds = %26, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.041.064, i64 104
-  %.not = icmp eq ptr %39, %22
-  br i1 %.not, label %._crit_edge, label %27
+  %.not = icmp eq ptr %39, %21
+  br i1 %.not, label %._crit_edge, label %26
 
-._crit_edge:                                      ; preds = %18, %.critedge
+._crit_edge:                                      ; preds = %17, %.critedge
   %40 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #23
@@ -5226,7 +5226,7 @@ _ZN4TreeD2Ev.exit:                                ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #23
   br label %.thread
 
-.thread:                                          ; preds = %36, %_ZN4TreeD2Ev.exit, %15
+.thread:                                          ; preds = %36, %_ZN4TreeD2Ev.exit, %14
   ret void
 }
 

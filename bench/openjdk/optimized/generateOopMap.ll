@@ -2293,8 +2293,8 @@ define hidden void @_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_(ptr noun
   %34 = load i32, ptr %32, align 4
   store i32 %34, ptr %33, align 4
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next30 to i32
-  %exitcond32.not = icmp eq i32 %smax, %lftr.wideiv
+  %35 = trunc i64 %indvars.iv.next30 to i32
+  %exitcond32.not = icmp eq i32 %smax, %35
   br i1 %exitcond32.not, label %.loopexit, label %.lr.ph26, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph26, %21, %._crit_edge
@@ -2471,7 +2471,7 @@ _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; pre
 
 82:                                               ; preds = %5
   %83 = icmp sgt i32 %9, -1
-  br i1 %83, label %122, label %84
+  br i1 %83, label %123, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2534,25 +2534,25 @@ _ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit: ; pre
   %117 = load i32, ptr %115, align 4
   store i32 %117, ptr %116, align 4
   %indvars.iv.next30.i = add nsw i64 %indvars.iv29.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next30.i to i32
+  %118 = trunc i64 %indvars.iv.next30.i to i32
   %exitcond32.not.i = icmp eq i32 %smax.i, %lftr.wideiv.i
   br i1 %exitcond32.not.i, label %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, label %.lr.ph26.i, !llvm.loop !25
 
 _ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit: ; preds = %.lr.ph26.i, %._crit_edge.i, %104
-  %118 = load i32, ptr %6, align 8
-  store i32 %118, ptr %8, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %120, ptr %121, align 4
+  %119 = load i32, ptr %6, align 8
+  store i32 %119, ptr %8, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 %121, ptr %122, align 4
   store i8 1, ptr %1, align 8
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-122:                                              ; preds = %82
+123:                                              ; preds = %82
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread
 
-_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %46, %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, %122, %80, %76, %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
+_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit.thread: ; preds = %46, %_ZN14GenerateOopMap10copy_stateEP13CellTypeStateS1_.exit, %123, %80, %76, %_ZN14GenerateOopMap27merge_monitor_state_vectorsEP13CellTypeStateS1_.exit
   ret void
 }
 

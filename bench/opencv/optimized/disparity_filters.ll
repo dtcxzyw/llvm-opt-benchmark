@@ -3341,15 +3341,15 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
 
 109:                                              ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %110 = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %smax, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %109, %36
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
-  %lftr.wideiv56 = trunc i64 %indvars.iv.next55 to i32
-  %exitcond57.not = icmp eq i32 %35, %lftr.wideiv56
-  br i1 %exitcond57.not, label %._crit_edge52, label %36, !llvm.loop !39
+  %lftr.wideiv = trunc i64 %indvars.iv.next55 to i32
+  %exitcond.not = icmp eq i32 %35, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge52, label %36, !llvm.loop !39
 
 ._crit_edge52:                                    ; preds = %._crit_edge, %2
   ret void

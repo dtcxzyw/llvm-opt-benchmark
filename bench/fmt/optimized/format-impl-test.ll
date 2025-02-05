@@ -24435,8 +24435,8 @@ for.body11.preheader.i:                           ; preds = %if.end.i
 
 for.cond9.i:                                      ; preds = %for.body11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end18.i, label %for.body11.i, !llvm.loop !271
+  %cmp10.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %cmp10.i, label %if.end18.i, label %for.body11.i, !llvm.loop !271
 
 for.body11.i:                                     ; preds = %for.cond9.i, %for.body11.preheader.i
   %indvars.iv.i = phi i64 [ %1, %for.body11.preheader.i ], [ %indvars.iv.next.i, %for.cond9.i ]
@@ -24447,8 +24447,8 @@ for.body11.i:                                     ; preds = %for.cond9.i, %for.b
 
 if.end18.i:                                       ; preds = %for.cond9.i, %if.end.i
   %inc20.i = add nuw nsw i64 %i.023.i, 1
-  %exitcond32.not.i = icmp eq i64 %inc20.i, 41
-  br i1 %exitcond32.not.i, label %for.body26.i.preheader, label %for.body.i, !llvm.loop !272
+  %exitcond.not.i = icmp eq i64 %inc20.i, 41
+  br i1 %exitcond.not.i, label %for.body26.i.preheader, label %for.body.i, !llvm.loop !272
 
 for.body26.i.preheader:                           ; preds = %if.end18.i, %for.body.i
   br label %for.body26.i
@@ -24522,22 +24522,22 @@ for.body11.preheader.i80:                         ; preds = %if.end.i48
   %wide.trip.count.i82 = zext i32 %umax.i81 to i64
   br label %for.body11.i83
 
-for.cond9.i87:                                    ; preds = %for.body11.i83
-  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i84, 1
+for.cond9.i87:; preds = %for.body11.i83
+  %indvars.iv.next.i88 = add nuw nsw i64 %9, 1
   %exitcond.not.i89 = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i82
   br i1 %exitcond.not.i89, label %if.end18.i52, label %for.body11.i83, !llvm.loop !271
 
-for.body11.i83:                                   ; preds = %for.cond9.i87, %for.body11.preheader.i80
-  %indvars.iv.i84 = phi i64 [ %7, %for.body11.preheader.i80 ], [ %indvars.iv.next.i88, %for.cond9.i87 ]
-  %arrayidx12.i85 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v106detail12is_printableEjE17singletons1_lower, i64 %indvars.iv.i84
-  %9 = load i8, ptr %arrayidx12.i85, align 1
+for.body11.i83: ; preds = %for.cond9.i87, %for.body11.preheader.i80
+  %9 = phi i64 [ %7, %for.body11.preheader.i80 ], [ %indvars.iv.next.i88, %for.cond9.i87 ]
+  %cmp15.i84 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v106detail12is_printableEjE17singletons1_lower, i64 %9
+  %9 = load i8, ptr %cmp15.i84, align 1
   %cmp15.i86 = icmp eq i8 %9, %6
   br i1 %cmp15.i86, label %return, label %for.cond9.i87
 
 if.end18.i52:                                     ; preds = %for.cond9.i87, %if.end.i48
   %inc20.i53 = add nuw nsw i64 %i.023.i39, 1
-  %exitcond32.not.i54 = icmp eq i64 %inc20.i53, 38
-  br i1 %exitcond32.not.i54, label %for.body26.i56.preheader, label %for.body.i37, !llvm.loop !272
+  %exitcond.not.i54 = icmp eq i64 %inc20.i53, 38
+  br i1 %exitcond.not.i54, label %for.body26.i56.preheader, label %for.body.i37, !llvm.loop !272
 
 for.body26.i56.preheader:                         ; preds = %if.end18.i52, %for.body.i37
   br label %for.body26.i56

@@ -10490,8 +10490,8 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr readnone captures(none)
 .lr.ph72.i:                                       ; preds = %.lr.ph72.i.preheader, %110
   %.1 = phi i64 [ %111, %110 ], [ %.041, %.lr.ph72.i.preheader ]
   %.06271.i = phi i32 [ %112, %110 ], [ 0, %.lr.ph72.i.preheader ]
-  %exitcond.not = icmp eq i64 %.1, %umax
-  br i1 %exitcond.not, label %113, label %85
+  %.not.i = icmp eq i64 %.1, %umax
+  br i1 %.not.i, label %113, label %85
 
 85:                                               ; preds = %.lr.ph72.i
   %86 = load ptr, ptr %28, align 8

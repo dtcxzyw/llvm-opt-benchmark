@@ -223,10 +223,10 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
 .preheader:                                       ; preds = %.lr.ph91.split, %._crit_edge.us, %Vec_PtrAllocSimInfo.exit83
   %93 = icmp sgt i32 %46, 0
   %94 = zext nneg i32 %46 to i64
-  br i1 %93, label %.lr.ph.preheader.i84.us.preheader, label %.split.us
+  br i1 %93, label %.lr.ph.preheader.i84.us, label %.split.us
 
-.lr.ph.preheader.i84.us.preheader:                ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %22, i32 %28)
+.lr.ph.preheader.i84.us:                          ; preds = %.preheader
+  %.192.us = tail call i32 @llvm.smax.i32(i32 %22, i32 %28)
   br label %.lr.ph.preheader.i84.us
 
 .lr.ph.preheader.i84.us:                          ; preds = %.lr.ph.preheader.i84.us.preheader, %Abc_InfoRandom.exit.loopexit.us
@@ -255,22 +255,22 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   br i1 %108, label %.lr.ph.i85.us, label %Abc_InfoRandom.exit.loopexit.us, !llvm.loop !51
 
 Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
-  %exitcond106.not = icmp eq i32 %95, %smax
-  br i1 %exitcond106.not, label %.split.us, label %.lr.ph.preheader.i84.us, !llvm.loop !52
+  %109 = icmp eq i32 %95, %.192.us
+  br i1 %109, label %.split.us, label %.lr.ph.preheader.i84.us, !llvm.loop !52
 
 .lr.ph91.split:                                   ; preds = %.lr.ph91, %.lr.ph91.split
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph91.split ], [ 0, %.lr.ph91 ]
   %.val75 = load ptr, ptr %73, align 8, !tbaa !24
-  %109 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
-  %110 = load ptr, ptr %109, align 8, !tbaa !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %110, i8 0, i64 %51, i1 false)
+  %110 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv96
+  %111 = load ptr, ptr %110, align 8, !tbaa !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %111, i8 0, i64 %51, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count104
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph91.split, !llvm.loop !50
 
 .split.us:                                        ; preds = %Abc_InfoRandom.exit.loopexit.us, %.preheader
-  %111 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store i16 -1, ptr %111, align 8, !tbaa !53
+  %112 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store i16 -1, ptr %112, align 8, !tbaa !53
   ret ptr %calloc
 }
 
@@ -4098,13 +4098,13 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #17
+declare i16 @llvm.umax.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #17
+declare i16 @llvm.umin.i16(i16, i16) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

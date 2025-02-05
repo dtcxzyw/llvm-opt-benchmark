@@ -3466,7 +3466,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5d326e1742eb038
 8:                                                ; preds = %15
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = invoke { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17hfa757585648ccb81E"(ptr noundef nonnull %14, ptr noundef nonnull %6)
+  %10 = invoke { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17hfa757585648ccb81E"(ptr noundef nonnull %13, ptr noundef nonnull %6)
           to label %.body unwind label %24, !noalias !540
 
 "_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e0d901aba1e4784E.exit.thread.i": ; preds = %20, %4
@@ -3480,14 +3480,14 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5d326e1742eb038
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx4, align 8, !alias.scope !540
   ret void
 
-12:                                               ; preds = %20, %.lr.ph.i
-  %13 = phi i64 [ %.sroa.6.0.copyload, %.lr.ph.i ], [ %22, %20 ]
+.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
+  %12 = phi i64 [ %.sroa.6.0.copyload, %.lr.ph.i ], [ %22, %20 ]
   %.sroa.0.027.i = phi ptr [ %1, %.lr.ph.i ], [ %14, %20 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 24
-  %exitcond.not.i = icmp eq i64 %13, %umax.i
-  br i1 %exitcond.not.i, label %15, label %20
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 24
+  %14 = icmp eq i64 %12, %umax.i
+  br i1 %14, label %15, label %20
 
-15:                                               ; preds = %12
+15:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !541
   store ptr @anon.806dfa1f2f77ffc29d92f99ab59e7d48.4.llvm.13080012565599917794, ptr %5, align 8, !noalias !541
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3504,12 +3504,12 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5d326e1742eb038
 .noexc.i:                                         ; preds = %15
   unreachable
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %.sroa.0.0.copyload, i64 %13
+20:                                               ; preds = %.lr.ph.i
+  %21 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %.sroa.0.0.copyload, i64 %12
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.027.i, i64 24, i1 false), !noalias !540
-  %22 = add i64 %13, 1
-  %23 = icmp eq ptr %14, %6
-  br i1 %23, label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e0d901aba1e4784E.exit.thread.i", label %12
+  %22 = add i64 %12, 1
+  %23 = icmp eq ptr %13, %6
+  br i1 %23, label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e0d901aba1e4784E.exit.thread.i", label %.lr.ph.i
 
 24:                                               ; preds = %8
   %25 = landingpad { ptr, i32 }

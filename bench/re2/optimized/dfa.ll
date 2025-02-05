@@ -10406,42 +10406,42 @@ for.body:                                         ; preds = %invoke.cont25, %whi
 
 while.cond:                                       ; preds = %land.rhs, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs ], [ %idxprom, %for.body ]
-  %exitcond.not = icmp eq i64 %indvars.iv, 255
-  br i1 %exitcond.not, label %while.end.thread, label %land.rhs
+  %cmp32 = icmp eq i64 %indvars.iv, 255
+  br i1 %cmp32, label %while.end.thread, label %land.rhs
 
 while.end.thread:                                 ; preds = %while.cond
-  %conv41278 = zext i8 %26 to i64
-  %add.ptr.i27279 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41278
-  store i32 255, ptr %add.ptr.i27279, align 4
+  %conv41277 = zext i8 %26 to i64
+  %add.ptr.i27278 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41277
+  store i32 255, ptr %add.ptr.i27278, align 4
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i31
 
 land.rhs:                                         ; preds = %while.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx38 = getelementptr inbounds i8, ptr %bytemap_.i, i64 %indvars.iv.next
-  %27 = load i8, ptr %arrayidx38, align 1
-  %cmp40 = icmp eq i8 %27, %26
+  %28 = load i8, ptr %arrayidx38, align 1
+  %cmp40 = icmp eq i8 %28, %26
   br i1 %cmp40, label %while.cond, label %while.end, !llvm.loop !83
 
 lpad11:                                           ; preds = %invoke.cont10
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup120
 
 lpad14:                                           ; preds = %if.then.i156, %if.else.i
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup119
-
-lpad24:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup119
 
+lpad24:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup119
+
 while.end:                                        ; preds = %land.rhs
-  %31 = trunc nsw i64 %indvars.iv to i32
+  %32 = trunc nsw i64 %indvars.iv to i32
   %conv41 = zext i8 %26 to i64
   %add.ptr.i27 = getelementptr inbounds nuw i32, ptr %input.sroa.0.0, i64 %conv41
-  store i32 %31, ptr %add.ptr.i27, align 4
+  store i32 %32, ptr %add.ptr.i27, align 4
   %inc43 = add i64 %indvars.iv, 1
   %cmp26 = icmp slt i64 %indvars.iv, 255
   br i1 %cmp26, label %for.body, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i31, !llvm.loop !84
@@ -10902,12 +10902,12 @@ if.then.i.i.i119:                                 ; preds = %ehcleanup.thread, %
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %if.then.i.i.i119, %ehcleanup, %lpad24, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %30, %lpad24 ], [ %29, %lpad14 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn243, %if.then.i.i.i119 ]
+  %.pn.pn = phi { ptr, i32 } [ %31, %lpad24 ], [ %30, %lpad14 ], [ %eh.lpad-body, %ehcleanup ], [ %.pn243, %if.then.i.i.i119 ]
   call void @_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %q) #24
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %ehcleanup119, %lpad11
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup119 ], [ %28, %lpad11 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup119 ], [ %29, %lpad11 ]
   %capacity_.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %m, i64 24
   %93 = load i64, ptr %capacity_.i.i.i.i121, align 8
   %tobool.not.i.i.i.i122 = icmp eq i64 %93, 0

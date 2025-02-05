@@ -553,8 +553,8 @@ sort_comp.exit:                                   ; preds = %if.then.i, %if.else
   br i1 %tobool23.not, label %while.cond28, label %while.body24
 
 while.body24:                                     ; preds = %sort_comp.exit
-  %exitcond.not = icmp eq i32 %i.1, %1
-  br i1 %exitcond.not, label %if.then26, label %if.end27
+  %cmp25.not = icmp eq i32 %i.1, %1
+  br i1 %cmp25.not, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %while.body24
   tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #5
