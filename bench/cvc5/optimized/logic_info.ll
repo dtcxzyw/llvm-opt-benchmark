@@ -1929,10 +1929,10 @@ for.body:                                         ; preds = %do.end, %for.inc
   %10 = load ptr, ptr %d_theories8, align 8
   %add.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i64, ptr %10, i64 %div.i.i.i.i.i35.zext
   %11 = load i64, ptr %add.ptr.i.i.i.i.i17, align 8
-  %12 = xor i64 %11, %9
-  %13 = and i64 %12, %shl.i.i.i
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %for.inc, label %return
+  %and.i.i.i.i23 = xor i64 %11, %9
+  %tobool.i.i.i.i24 = and i64 %and.i.i.i.i23, %shl.i.i.i
+  %12 = icmp eq i64 %tobool.i.i.i.i24, 0
+  br i1 %12, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body
   %call15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %id)
@@ -1942,10 +1942,10 @@ for.inc:                                          ; preds = %for.body
 
 do.body16:                                        ; preds = %for.inc
   %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %14 = load i64, ptr %d_sharingTheories, align 8
+  %13 = load i64, ptr %d_sharingTheories, align 8
   %d_sharingTheories17 = getelementptr inbounds nuw i8, ptr %other, i64 72
-  %15 = load i64, ptr %d_sharingTheories17, align 8
-  %cmp18.not = icmp eq i64 %14, %15
+  %14 = load i64, ptr %d_sharingTheories17, align 8
+  %cmp18.not = icmp eq i64 %13, %14
   br i1 %cmp18.not, label %do.end36, label %if.then21
 
 if.then21:                                        ; preds = %do.body16
@@ -1959,7 +1959,7 @@ invoke.cont25:                                    ; preds = %if.then21
           to label %invoke.cont28 unwind label %ehcleanup31.thread33
 
 ehcleanup31.thread33:                             ; preds = %invoke.cont25
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #16
   br label %cleanup.action33
@@ -1969,39 +1969,39 @@ invoke.cont28:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup31
 
 ehcleanup31.thread:                               ; preds = %if.then21
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action33
 
 ehcleanup31:                                      ; preds = %invoke.cont28
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #16
   br label %eh.resume
 
 cleanup.action33:                                 ; preds = %ehcleanup31.thread33, %ehcleanup31.thread
-  %.pn32 = phi { ptr, i32 } [ %17, %ehcleanup31.thread ], [ %16, %ehcleanup31.thread33 ]
+  %.pn32 = phi { ptr, i32 } [ %16, %ehcleanup31.thread ], [ %15, %ehcleanup31.thread33 ]
   call void @__cxa_free_exception(ptr %exception22) #16
   br label %eh.resume
 
 do.end36:                                         ; preds = %do.body16
   %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
-  %19 = load i8, ptr %d_cardinalityConstraints, align 1
+  %18 = load i8, ptr %d_cardinalityConstraints, align 1
   %d_cardinalityConstraints38 = getelementptr inbounds nuw i8, ptr %other, i64 85
-  %20 = load i8, ptr %d_cardinalityConstraints38, align 1
-  %21 = xor i8 %20, %19
-  %22 = and i8 %21, 1
-  %cmp41.not = icmp eq i8 %22, 0
+  %19 = load i8, ptr %d_cardinalityConstraints38, align 1
+  %20 = xor i8 %19, %18
+  %21 = and i8 %20, 1
+  %cmp41.not = icmp eq i8 %21, 0
   br i1 %cmp41.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %do.end36
   %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
-  %23 = load i8, ptr %d_higherOrder, align 2
+  %22 = load i8, ptr %d_higherOrder, align 2
   %d_higherOrder44 = getelementptr inbounds nuw i8, ptr %other, i64 86
-  %24 = load i8, ptr %d_higherOrder44, align 2
-  %25 = xor i8 %24, %23
-  %26 = and i8 %25, 1
-  %cmp47.not = icmp eq i8 %26, 0
+  %23 = load i8, ptr %d_higherOrder44, align 2
+  %24 = xor i8 %23, %22
+  %25 = and i8 %24, 1
+  %cmp47.not = icmp eq i8 %25, 0
   br i1 %cmp47.not, label %if.end49, label %return
 
 if.end49:                                         ; preds = %lor.lhs.false
@@ -2010,52 +2010,52 @@ if.end49:                                         ; preds = %lor.lhs.false
 
 if.then51:                                        ; preds = %if.end49
   %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %27 = load i8, ptr %d_integers, align 8
+  %26 = load i8, ptr %d_integers, align 8
   %d_integers54 = getelementptr inbounds nuw i8, ptr %other, i64 80
-  %28 = load i8, ptr %d_integers54, align 8
-  %29 = xor i8 %28, %27
-  %30 = and i8 %29, 1
-  %cmp57 = icmp eq i8 %30, 0
+  %27 = load i8, ptr %d_integers54, align 8
+  %28 = xor i8 %27, %26
+  %29 = and i8 %28, 1
+  %cmp57 = icmp eq i8 %29, 0
   br i1 %cmp57, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then51
   %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
-  %31 = load i8, ptr %d_reals, align 1
+  %30 = load i8, ptr %d_reals, align 1
   %d_reals60 = getelementptr inbounds nuw i8, ptr %other, i64 81
-  %32 = load i8, ptr %d_reals60, align 1
-  %33 = xor i8 %32, %31
-  %34 = and i8 %33, 1
-  %cmp63 = icmp eq i8 %34, 0
+  %31 = load i8, ptr %d_reals60, align 1
+  %32 = xor i8 %31, %30
+  %33 = and i8 %32, 1
+  %cmp63 = icmp eq i8 %33, 0
   br i1 %cmp63, label %land.lhs.true64, label %return
 
 land.lhs.true64:                                  ; preds = %land.lhs.true
   %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
-  %35 = load i8, ptr %d_transcendentals, align 2
+  %34 = load i8, ptr %d_transcendentals, align 2
   %d_transcendentals67 = getelementptr inbounds nuw i8, ptr %other, i64 82
-  %36 = load i8, ptr %d_transcendentals67, align 2
-  %37 = xor i8 %36, %35
-  %38 = and i8 %37, 1
-  %cmp70 = icmp eq i8 %38, 0
+  %35 = load i8, ptr %d_transcendentals67, align 2
+  %36 = xor i8 %35, %34
+  %37 = and i8 %36, 1
+  %cmp70 = icmp eq i8 %37, 0
   br i1 %cmp70, label %land.lhs.true71, label %return
 
 land.lhs.true71:                                  ; preds = %land.lhs.true64
   %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
-  %39 = load i8, ptr %d_linear, align 1
+  %38 = load i8, ptr %d_linear, align 1
   %d_linear74 = getelementptr inbounds nuw i8, ptr %other, i64 83
-  %40 = load i8, ptr %d_linear74, align 1
-  %41 = xor i8 %40, %39
-  %42 = and i8 %41, 1
-  %cmp77 = icmp eq i8 %42, 0
+  %39 = load i8, ptr %d_linear74, align 1
+  %40 = xor i8 %39, %38
+  %41 = and i8 %40, 1
+  %cmp77 = icmp eq i8 %41, 0
   br i1 %cmp77, label %land.rhs78, label %return
 
 land.rhs78:                                       ; preds = %land.lhs.true71
   %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %43 = load i8, ptr %d_differenceLogic, align 4
+  %42 = load i8, ptr %d_differenceLogic, align 4
   %d_differenceLogic81 = getelementptr inbounds nuw i8, ptr %other, i64 84
-  %44 = load i8, ptr %d_differenceLogic81, align 4
-  %45 = xor i8 %44, %43
-  %46 = and i8 %45, 1
-  %cmp84 = icmp eq i8 %46, 0
+  %43 = load i8, ptr %d_differenceLogic81, align 4
+  %44 = xor i8 %43, %42
+  %45 = and i8 %44, 1
+  %cmp84 = icmp eq i8 %45, 0
   br label %return
 
 return:                                           ; preds = %for.body, %if.end49, %if.then51, %land.lhs.true, %land.lhs.true64, %land.lhs.true71, %land.rhs78, %do.end36, %lor.lhs.false
@@ -2063,7 +2063,7 @@ return:                                           ; preds = %for.body, %if.end49
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup31, %ehcleanup, %cleanup.action33, %cleanup.action
-  %.pn11.pn = phi { ptr, i32 } [ %.pn1127, %cleanup.action ], [ %5, %ehcleanup ], [ %.pn32, %cleanup.action33 ], [ %18, %ehcleanup31 ]
+  %.pn11.pn = phi { ptr, i32 } [ %.pn1127, %cleanup.action ], [ %5, %ehcleanup ], [ %.pn32, %cleanup.action33 ], [ %17, %ehcleanup31 ]
   resume { ptr, i32 } %.pn11.pn
 
 unreachable:                                      ; preds = %invoke.cont28, %invoke.cont5

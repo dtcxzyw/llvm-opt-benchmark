@@ -2175,36 +2175,36 @@ define linkonce_odr dso_local noundef i32 @_ZNK8FileLine15operatorCompareERKS_(p
   %42 = select i1 %41, i32 -1, i32 1
   br label %.loopexit
 
-_ZNKSt6bitsetILm119EE4testEm.exit34:              ; preds = %.preheader, %58
-  %.037 = phi i64 [ 0, %.preheader ], [ %59, %58 ]
+_ZNKSt6bitsetILm119EE4testEm.exit34:              ; preds = %.preheader, %61
+  %.036 = phi i64 [ 0, %.preheader ], [ %62, %61 ]
   %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %44 = lshr i64 %.037, 6
+  %44 = lshr i64 %.036, 6
   %45 = getelementptr inbounds nuw [2 x i64], ptr %43, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
-  %47 = and i64 %.037, 63
+  %47 = and i64 %.036, 63
   %48 = shl nuw i64 1, %47
   %49 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %50 = getelementptr inbounds nuw [2 x i64], ptr %49, i64 0, i64 %44
   %51 = load i64, ptr %50, align 8
   %52 = xor i64 %51, %46
   %53 = and i64 %52, %48
-  %.not35 = icmp eq i64 %53, 0
-  br i1 %.not35, label %58, label %54
+  %54 = icmp eq i64 %53, 0
+  br i1 %.not35, label %61, label %54
 
-54:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34
+54:; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34
   %55 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %56 = tail call noundef zeroext i1 @_ZNKSt6bitsetILm119EE4testEm(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %.037)
-  %57 = select i1 %56, i32 -1, i32 1
+  %58 = select i1 %56, i32 -1, i32 1
   br label %.loopexit
 
-58:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34
-  %59 = add nuw nsw i64 %.037, 1
-  %60 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %exitcond.not = icmp eq i64 %59, 119
+61:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34
+  %62 = add nuw nsw i64 %.036, 1
+  %63 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %exitcond.not = icmp eq i64 %62, 119
   br i1 %exitcond.not, label %.loopexit, label %_ZNKSt6bitsetILm119EE4testEm.exit34, !llvm.loop !23
 
-.loopexit:                                        ; preds = %58, %54, %40, %31, %23, %15, %7
-  %.018 = phi i32 [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ %33, %31 ], [ %42, %40 ], [ %57, %54 ], [ 0, %58 ]
+.loopexit:                                        ; preds = %61, %54, %40, %31, %23, %15, %7
+  %.018 = phi i32 [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ %33, %31 ], [ %42, %40 ], [ %57, %54 ], [ 0, %61 ]
   ret i32 %.018
 }
 

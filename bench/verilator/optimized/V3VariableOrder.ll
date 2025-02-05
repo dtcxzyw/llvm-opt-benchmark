@@ -7030,7 +7030,7 @@ _ZNKSt6vectorIbSaIbEE2atEm.exit12.i:              ; preds = %_ZNKSt6vectorIbSaIb
   %43 = and i32 %42, 1
   %44 = add nuw nsw i32 %43, %.0819.i
   %45 = add nuw nsw i64 %.020.i, 1
-  %exitcond25.not.i = icmp eq i64 %45, %4
+  %46 = icmp eq i64 %45, %4
   br i1 %exitcond25.not.i, label %_ZNK12VarTspSorter4costEPKS_.exit, label %19, !llvm.loop !52
 
 _ZNK12VarTspSorter4costEPKS_.exit:                ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit12.i, %2
