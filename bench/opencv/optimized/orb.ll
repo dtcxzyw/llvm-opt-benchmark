@@ -2927,6 +2927,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %813 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %814 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %815 = sub nsw i32 0, %399
+  %.not62.i.i = icmp slt i32 %362, -1
   %.not6072.i.i = icmp slt i32 %362, 2
   br i1 %.not6072.i.i, label %.lr.ph82.split.us.i.i, label %.lr.ph82.split.preheader.i.i
 
@@ -2940,7 +2941,6 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   br label %.lr.ph82.split.i.i
 
 .lr.ph82.split.us.i.i:                            ; preds = %.lr.ph82.i.i
-  %.not62.i.i = icmp slt i32 %362, -1
   br i1 %.not62.i.i, label %.preheader.us.us.preheader.i.i, label %.lr.ph.us.preheader.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph82.split.us.i.i
@@ -3051,9 +3051,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %886 = getelementptr inbounds i8, ptr %881, i64 %885
   %887 = sext i32 %880 to i64
   %888 = getelementptr inbounds i8, ptr %886, i64 %887
-  br label %.lr.ph.i235.i
+  br i1 %.not62.i.i, label %.preheader.i239.i.preheader, label %.lr.ph.i235.i
 
-.lr.ph.i235.i:                                    ; preds = %.lr.ph.i235.i, %.lr.ph82.split.i.i
+.lr.ph.i235.i:                                    ; preds = %.lr.ph82.split.i.i, %.lr.ph.i235.i
   %indvars.iv.i236.i = phi i64 [ %indvars.iv.next.i237.i, %.lr.ph.i235.i ], [ %816, %.lr.ph82.split.i.i ]
   %.05564.i.i = phi i32 [ %894, %.lr.ph.i235.i ], [ 0, %.lr.ph82.split.i.i ]
   %889 = getelementptr inbounds i8, ptr %888, i64 %indvars.iv.i236.i
@@ -3065,18 +3065,22 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %indvars.iv.next.i237.i = add nsw i64 %indvars.iv.i236.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i237.i to i32
   %exitcond.not.i238.i = icmp eq i32 %817, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i238.i, label %.preheader.i239.loopexit.i, label %.lr.ph.i235.i, !llvm.loop !39
+  br i1 %exitcond.not.i238.i, label %.preheader.i239.i.preheader, label %.lr.ph.i235.i, !llvm.loop !39
 
-.preheader.i239.loopexit.i:                       ; preds = %.lr.ph.i235.i, %._crit_edge.i242.i
-  %indvars.iv97.i.i = phi i64 [ %indvars.iv.next98.i.i, %._crit_edge.i242.i ], [ 1, %.lr.ph.i235.i ]
-  %.05375.i.i = phi i32 [ %916, %._crit_edge.i242.i ], [ 0, %.lr.ph.i235.i ]
-  %.174.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge.i242.i ], [ %894, %.lr.ph.i235.i ]
+.preheader.i239.i.preheader:                      ; preds = %.lr.ph.i235.i, %.lr.ph82.split.i.i
+  %.174.i.i.ph = phi i32 [ 0, %.lr.ph82.split.i.i ], [ %894, %.lr.ph.i235.i ]
+  br label %.preheader.i239.i
+
+.preheader.i239.i:                                ; preds = %.preheader.i239.i.preheader, %._crit_edge.i242.i
+  %indvars.iv97.i.i = phi i64 [ %indvars.iv.next98.i.i, %._crit_edge.i242.i ], [ 1, %.preheader.i239.i.preheader ]
+  %.05375.i.i = phi i32 [ %916, %._crit_edge.i242.i ], [ 0, %.preheader.i239.i.preheader ]
+  %.174.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge.i242.i ], [ %.174.i.i.ph, %.preheader.i239.i.preheader ]
   %895 = getelementptr inbounds nuw i32, ptr %.sroa.021.0.i, i64 %indvars.iv97.i.i
   %896 = load i32, ptr %895, align 4
   %.not6165.i.i = icmp slt i32 %896, 0
   br i1 %.not6165.i.i, label %._crit_edge.i242.i, label %.lr.ph69.i.i
 
-.lr.ph69.i.i:                                     ; preds = %.preheader.i239.loopexit.i
+.lr.ph69.i.i:                                     ; preds = %.preheader.i239.i
   %897 = sub nsw i32 0, %896
   %898 = mul nsw i64 %indvars.iv97.i.i, %818
   %899 = sext i32 %897 to i64
@@ -3106,15 +3110,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %exitcond96.not.i.i = icmp eq i32 %900, %lftr.wideiv95.i.i
   br i1 %exitcond96.not.i.i, label %._crit_edge.i242.i, label %901, !llvm.loop !40
 
-._crit_edge.i242.i:                               ; preds = %901, %.preheader.i239.loopexit.i
-  %.056.lcssa.i.i = phi i32 [ 0, %.preheader.i239.loopexit.i ], [ %909, %901 ]
-  %.2.lcssa.i.i = phi i32 [ %.174.i.i, %.preheader.i239.loopexit.i ], [ %913, %901 ]
+._crit_edge.i242.i:                               ; preds = %901, %.preheader.i239.i
+  %.056.lcssa.i.i = phi i32 [ 0, %.preheader.i239.i ], [ %909, %901 ]
+  %.2.lcssa.i.i = phi i32 [ %.174.i.i, %.preheader.i239.i ], [ %913, %901 ]
   %914 = trunc nuw nsw i64 %indvars.iv97.i.i to i32
   %915 = mul nsw i32 %.056.lcssa.i.i, %914
   %916 = add nsw i32 %915, %.05375.i.i
   %indvars.iv.next98.i.i = add nuw nsw i64 %indvars.iv97.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %indvars.iv.next98.i.i, %wide.trip.count.i.i
-  br i1 %exitcond100.not.i.i, label %._crit_edge77.i.i, label %.preheader.i239.loopexit.i, !llvm.loop !41
+  br i1 %exitcond100.not.i.i, label %._crit_edge77.i.i, label %.preheader.i239.i, !llvm.loop !41
 
 ._crit_edge77.i.i:                                ; preds = %._crit_edge.i242.i
   %917 = sitofp i32 %916 to float

@@ -10509,8 +10509,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17he3dc
   %20 = load i64, ptr %10, align 8, !alias.scope !2598, !noalias !2592, !noundef !9
   %21 = add i64 %20, 1
   store i64 %21, ptr %10, align 8, !alias.scope !2598, !noalias !2592
-  %cond = icmp eq i64 %.val6, 0
-  br i1 %cond, label %_ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i, label %.lr.ph.i.i
+  %.not = icmp eq i64 %.val6, 0
+  br i1 %.not, label %_ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i, label %.lr.ph.i.i
 
 _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i: ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2600)
@@ -26199,8 +26199,8 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate37generate_parser_for_
   %70 = load i64, ptr %60, align 8, !alias.scope !6037, !noalias !6044, !noundef !9
   %71 = add i64 %70, 1
   store i64 %71, ptr %60, align 8, !alias.scope !6037, !noalias !6044
-  %cond.i.i.i.i = icmp eq i64 %.val69, 0
-  br i1 %cond.i.i.i.i, label %_ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %.val69, 0
+  br i1 %.not.i.i.i.i, label %_ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i.i.i.i.i: ; preds = %66
   %.pre.i.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !6051, !noalias !6060
@@ -26453,8 +26453,8 @@ _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i8.i.i.i.i: ; preds = %"_Z
 .noexc70:                                         ; preds = %157
   %158 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %159 = load i64, ptr %158, align 8, !range !101, !noalias !6203, !noundef !9
-  %.not.i.i.i.i = icmp eq i64 %159, 0
-  br i1 %.not.i.i.i.i, label %.thread101, label %160
+  %.not.i.i.i11.i = icmp eq i64 %159, 0
+  br i1 %.not.i.i.i11.i, label %.thread101, label %160
 
 160:                                              ; preds = %.noexc70
   %161 = load ptr, ptr %12, align 8, !noalias !6203, !nonnull !9, !noundef !9

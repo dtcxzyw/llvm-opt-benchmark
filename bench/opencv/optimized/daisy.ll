@@ -5977,7 +5977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv11xfeatures2d10DAISY_Impl1
 define internal fastcc void @_ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5DAISY17NormalizationTypeEiii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.10", align 1
-  switch i32 %1, label %58 [
+  switch i32 %1, label %59 [
     i32 100, label %_ZN2cv11xfeatures2dL17normalize_partialEPfii.exit
     i32 101, label %8
     i32 102, label %23
@@ -6078,6 +6078,7 @@ define internal fastcc void @_ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5D
 
 36:                                               ; preds = %5
   %37 = icmp sgt i32 %4, 0
+  %38 = icmp slt i32 %4, 1
   br i1 %37, label %.split.us.preheader.i, label %_ZN2cv11xfeatures2dL17normalize_partialEPfii.exit
 
 .split.us.preheader.i:                            ; preds = %36
@@ -6085,90 +6086,91 @@ define internal fastcc void @_ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5D
   br label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %..loopexit_crit_edge.us.i, %.split.us.preheader.i
-  %.02941.us.i = phi i32 [ %38, %..loopexit_crit_edge.us.i ], [ 0, %.split.us.preheader.i ]
+  %.02941.us.i = phi i32 [ %39, %..loopexit_crit_edge.us.i ], [ 0, %.split.us.preheader.i ]
   br label %.lr.ph.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph.us.i
-  %38 = add nuw nsw i32 %.02941.us.i, 1
-  %39 = tail call double @sqrt(double noundef %55) #24
-  %40 = fptrunc double %39 to float
-  %41 = fpext float %40 to double
-  %42 = fcmp ule double %41, 1.000000e-05
-  br i1 %42, label %.lr.ph39.us.i.preheader, label %.lr.ph35.us.i
+  %39 = add nuw nsw i32 %.02941.us.i, 1
+  %40 = tail call double @sqrt(double noundef %56) #24
+  %41 = fptrunc double %40 to float
+  %42 = fpext float %41 to double
+  %43 = fcmp ule double %42, 1.000000e-05
+  %brmerge.i = or i1 %38, %43
+  br i1 %brmerge.i, label %.lr.ph39.us.i.preheader, label %.lr.ph35.us.i
 
 .lr.ph39.us.i.preheader:                          ; preds = %.lr.ph35.us.i, %._crit_edge.us.i
   br label %.lr.ph39.us.i
 
-.lr.ph39.us.i:                                    ; preds = %.lr.ph39.us.i.preheader, %47
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %47 ], [ 0, %.lr.ph39.us.i.preheader ]
-  %.136.us.i = phi i1 [ %.2.us.i, %47 ], [ false, %.lr.ph39.us.i.preheader ]
-  %43 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv71.i
-  %44 = load float, ptr %43, align 4
-  %45 = fcmp ogt float %44, 0x3FC3B645A0000000
-  br i1 %45, label %46, label %47
+.lr.ph39.us.i:                                    ; preds = %.lr.ph39.us.i.preheader, %48
+  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %48 ], [ 0, %.lr.ph39.us.i.preheader ]
+  %.136.us.i = phi i1 [ %.2.us.i, %48 ], [ false, %.lr.ph39.us.i.preheader ]
+  %44 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv71.i
+  %45 = load float, ptr %44, align 4
+  %46 = fcmp ogt float %45, 0x3FC3B645A0000000
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %.lr.ph39.us.i
-  store float 0x3FC3B645A0000000, ptr %43, align 4
-  br label %47
+47:                                               ; preds = %.lr.ph39.us.i
+  store float 0x3FC3B645A0000000, ptr %44, align 4
+  br label %48
 
-47:                                               ; preds = %46, %.lr.ph39.us.i
-  %.2.us.i = phi i1 [ true, %46 ], [ %.136.us.i, %.lr.ph39.us.i ]
+48:                                               ; preds = %47, %.lr.ph39.us.i
+  %.2.us.i = phi i1 [ true, %47 ], [ %.136.us.i, %.lr.ph39.us.i ]
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count.i19
   br i1 %exitcond74.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph39.us.i, !llvm.loop !76
 
 .lr.ph35.us.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph35.us.i
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.lr.ph35.us.i ], [ 0, %._crit_edge.us.i ]
-  %48 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv66.i
-  %49 = load float, ptr %48, align 4
-  %50 = fdiv float %49, %40
-  store float %50, ptr %48, align 4
+  %49 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv66.i
+  %50 = load float, ptr %49, align 4
+  %51 = fdiv float %50, %41
+  store float %51, ptr %49, align 4
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i19
   br i1 %exitcond70.not.i, label %.lr.ph39.us.i.preheader, label %.lr.ph35.us.i, !llvm.loop !77
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph.us.preheader.i
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i21, %.lr.ph.us.i ]
-  %.02732.us.i = phi double [ 0.000000e+00, %.lr.ph.us.preheader.i ], [ %55, %.lr.ph.us.i ]
-  %51 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i20
-  %52 = load float, ptr %51, align 4
-  %53 = fmul float %52, %52
-  %54 = fpext float %53 to double
-  %55 = fadd double %.02732.us.i, %54
+  %.02732.us.i = phi double [ 0.000000e+00, %.lr.ph.us.preheader.i ], [ %56, %.lr.ph.us.i ]
+  %52 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i20
+  %53 = load float, ptr %52, align 4
+  %54 = fmul float %53, %53
+  %55 = fpext float %54 to double
+  %56 = fadd double %.02732.us.i, %55
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i19
   br i1 %exitcond.not.i22, label %._crit_edge.us.i, label %.lr.ph.us.i, !llvm.loop !78
 
-..loopexit_crit_edge.us.i:                        ; preds = %47
-  %56 = icmp samesign ult i32 %.02941.us.i, 4
-  %57 = select i1 %.2.us.i, i1 %56, i1 false
-  br i1 %57, label %.lr.ph.us.preheader.i, label %_ZN2cv11xfeatures2dL17normalize_partialEPfii.exit, !llvm.loop !79
+..loopexit_crit_edge.us.i:                        ; preds = %48
+  %57 = icmp samesign ult i32 %.02941.us.i, 4
+  %58 = select i1 %.2.us.i, i1 %57, i1 false
+  br i1 %58, label %.lr.ph.us.preheader.i, label %_ZN2cv11xfeatures2dL17normalize_partialEPfii.exit, !llvm.loop !79
 
-58:                                               ; preds = %5
+59:                                               ; preds = %5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %59 unwind label %61
-
-59:                                               ; preds = %58
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5DAISY17NormalizationTypeEiii, ptr noundef nonnull @.str.3, i32 noundef 612) #23
-          to label %60 unwind label %63
+          to label %60 unwind label %62
 
 60:                                               ; preds = %59
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv11xfeatures2dL20normalize_descriptorEPfNS0_5DAISY17NormalizationTypeEiii, ptr noundef nonnull @.str.3, i32 noundef 612) #23
+          to label %61 unwind label %64
+
+61:                                               ; preds = %60
   unreachable
 
-61:                                               ; preds = %58
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %59
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %66
 
-63:                                               ; preds = %59
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %60
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  br label %65
+  br label %66
 
-65:                                               ; preds = %63, %61
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+66:                                               ; preds = %64, %62
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   resume { ptr, i32 } %.pn
 

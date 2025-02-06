@@ -154,8 +154,9 @@ for.body70.i.us:                                  ; preds = %for.body70.preheade
   %indvars.iv101.i.us = phi i64 [ %indvars.iv.next102.i.us, %for.inc138.i.us ], [ 0, %for.body70.preheader.i ]
   %tp.082.i.us = phi ptr [ %tp.2.i.us, %for.inc138.i.us ], [ %tmp.i4, %for.body70.preheader.i ]
   %cmp81.i.us = icmp slt i64 %indvars.iv101.i.us, %9
+  %or.cond61.i.us = select i1 %cmp72.not.i, i1 %cmp81.i.us, i1 false
   %cmp85.i.us = icmp eq i64 %indvars.iv101.i.us, 0
-  br i1 %cmp81.i.us, label %if.then83.i.us, label %if.end89.i.us
+  br i1 %or.cond61.i.us, label %if.then83.i.us, label %if.end89.i.us
 
 if.end89.i.us:                                    ; preds = %for.body70.i.us
   br i1 %cmp85.i.us, label %if.end128.i.us, label %if.end94.i.us
@@ -271,8 +272,9 @@ for.body70.i:                                     ; preds = %for.body70.preheade
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %for.inc138.i ], [ 0, %for.body70.preheader.i ]
   %tp.082.i = phi ptr [ %tp.2.i, %for.inc138.i ], [ %tmp.i4, %for.body70.preheader.i ]
   %cmp81.i = icmp slt i64 %indvars.iv101.i, %9
+  %or.cond61.i = select i1 %cmp72.not.i, i1 %cmp81.i, i1 false
   %cmp85.i = icmp eq i64 %indvars.iv101.i, 0
-  br i1 %cmp81.i, label %if.then83.i, label %if.end89.i
+  br i1 %or.cond61.i, label %if.then83.i, label %if.end89.i
 
 if.then83.i:                                      ; preds = %for.body70.i
   br i1 %cmp85.i, label %if.then87.i, label %for.inc138.i

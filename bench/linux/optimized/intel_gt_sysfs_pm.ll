@@ -2262,57 +2262,53 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr noundef readonl
   store i32 0, ptr %5, align 4, !annotation !11
   %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #6
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %5, align 4
-  %13 = icmp eq i32 %12, 0
-  br label %16
+  br label %15
 
-14:                                               ; preds = %4
-  %15 = sext i32 %9 to i64
+13:                                               ; preds = %4
+  %14 = sext i32 %9 to i64
   br label %.thread
 
-16:                                               ; preds = %22, %11
-  %17 = phi i32 [ 0, %11 ], [ %23, %22 ]
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread6, label %19
+15:                                               ; preds = %23, %11
+  %16 = phi i32 [ 0, %11 ], [ %24, %23 ]
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %20, label %18
 
-19:                                               ; preds = %16
-  %20 = udiv i32 256, %17
-  %21 = icmp eq i32 %12, %20
-  br i1 %21, label %25, label %22
+18:                                               ; preds = %15
+  %19 = udiv i32 256, %16
+  br label %20
 
-.thread6:                                         ; preds = %16
-  br i1 %13, label %.thread7, label %22
+20:                                               ; preds = %18, %15
+  %21 = phi i32 [ %19, %18 ], [ 0, %15 ]
+  %22 = icmp eq i32 %12, %21
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %.thread6, %19
-  %23 = add nuw nsw i32 %17, 1
-  %24 = icmp eq i32 %23, 3
-  br i1 %24, label %.thread, label %16, !llvm.loop !13
+23:                                               ; preds = %20
+  %24 = add nuw nsw i32 %16, 1
+  %25 = icmp eq i32 %24, 3
+  br i1 %25, label %.thread, label %15, !llvm.loop !13
 
-25:                                               ; preds = %19
-  %26 = icmp samesign ugt i32 %17, 2
-  br i1 %26, label %.thread, label %.thread7
-
-.thread7:                                         ; preds = %.thread6, %25
-  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef nonnull %8, i32 noundef %17) #6
+26:                                               ; preds = %20
+  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef nonnull %8, i32 noundef %16) #6
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %.thread7
+29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1552
-  store i32 %17, ptr %30, align 8
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.48, i32 noundef %17) #6
+  store i32 %16, ptr %30, align 8
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.48, i32 noundef %16) #6
   br label %31
 
-31:                                               ; preds = %29, %.thread7
+31:                                               ; preds = %29, %26
   %32 = sext i32 %27 to i64
   %33 = select i1 %28, i64 %3, i64 %32
   br label %.thread
 
-.thread:                                          ; preds = %22, %31, %25, %14
-  %34 = phi i64 [ %15, %14 ], [ %33, %31 ], [ -22, %25 ], [ -22, %22 ]
+.thread:                                          ; preds = %23, %31, %13
+  %34 = phi i64 [ %14, %13 ], [ %33, %31 ], [ -22, %23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i64 %34
 }

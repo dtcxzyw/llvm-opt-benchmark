@@ -57310,16 +57310,17 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   %109 = mul i64 %108, %103
   %110 = getelementptr inbounds i8, ptr %105, i64 %109
   %111 = load i32, ptr %37, align 8
+  %.fr27.i.us = freeze i32 %111
   %112 = icmp sgt i32 %.sroa.speculated629.us, 15
   br i1 %112, label %.lr.ph34.i.i.us, label %.preheader13.i.i.us
 
 .lr.ph34.i.i.us:                                  ; preds = %.lr.ph.split.us
-  %113 = icmp eq i32 %111, 8
+  %113 = icmp eq i32 %.fr27.i.us, 8
   %114 = sdiv i32 %95, 8
   %115 = sext i32 %114 to i64
   %116 = sdiv i32 %.sroa.speculated625.us, 8
   %117 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %118 = icmp eq i32 %111, 1
+  %118 = icmp eq i32 %.fr27.i.us, 1
   %119 = sext i32 %95 to i64
   %120 = icmp sgt i32 %.sroa.speculated625.us, 1
   %121 = and i32 %.sroa.speculated625.us, -2
@@ -57489,12 +57490,12 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %219, label %.lr.ph56.i.i.us, label %.preheader9.i.i.us
 
 .lr.ph56.i.i.us:                                  ; preds = %.preheader13.i.i.us
-  %220 = icmp eq i32 %111, 8
+  %220 = icmp eq i32 %.fr27.i.us, 8
   %221 = sdiv i32 %95, 8
   %222 = sext i32 %221 to i64
   %223 = sdiv i32 %.sroa.speculated625.us, 8
   %224 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %225 = icmp eq i32 %111, 1
+  %225 = icmp eq i32 %.fr27.i.us, 1
   %226 = sext i32 %95 to i64
   %227 = icmp sgt i32 %.sroa.speculated625.us, 1
   %228 = and i32 %.sroa.speculated625.us, -2
@@ -57638,12 +57639,12 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %305, label %.lr.ph78.i.i.us, label %.preheader5.i.i.us
 
 .lr.ph78.i.i.us:                                  ; preds = %.preheader9.i.i.us
-  %306 = icmp eq i32 %111, 8
+  %306 = icmp eq i32 %.fr27.i.us, 8
   %307 = sdiv i32 %95, 8
   %308 = sext i32 %307 to i64
   %309 = sdiv i32 %.sroa.speculated625.us, 8
   %310 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %311 = icmp eq i32 %111, 1
+  %311 = icmp eq i32 %.fr27.i.us, 1
   %312 = sext i32 %95 to i64
   %313 = icmp sgt i32 %.sroa.speculated625.us, 1
   %314 = and i32 %.sroa.speculated625.us, -2
@@ -57808,12 +57809,12 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %404, label %.lr.ph100.i.i.us, label %.preheader.i.i.us
 
 .lr.ph100.i.i.us:                                 ; preds = %.preheader5.i.i.us
-  %405 = icmp eq i32 %111, 8
+  %405 = icmp eq i32 %.fr27.i.us, 8
   %406 = sdiv i32 %95, 8
   %407 = sext i32 %406 to i64
   %408 = sdiv i32 %.sroa.speculated625.us, 8
   %409 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %410 = icmp eq i32 %111, 1
+  %410 = icmp eq i32 %.fr27.i.us, 1
   %411 = sext i32 %95 to i64
   %412 = icmp sgt i32 %.sroa.speculated625.us, 1
   %413 = and i32 %.sroa.speculated625.us, -2
@@ -57950,7 +57951,7 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %482, label %.lr.ph115.i.i.us, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us
 
 .lr.ph115.i.i.us:                                 ; preds = %.preheader.i.i.us
-  %483 = icmp eq i32 %111, 8
+  %483 = icmp eq i32 %.fr27.i.us, 8
   %484 = sdiv i32 %95, 8
   %485 = sext i32 %484 to i64
   %486 = sdiv i32 %.sroa.speculated625.us, 8
@@ -57958,9 +57959,9 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %483, label %.lr.ph115.split.us.preheader.i.i.us, label %.lr.ph115.split.i.i.us
 
 .lr.ph115.split.i.i.us:                           ; preds = %.lr.ph115.i.i.us
-  %488 = icmp slt i32 %.sroa.speculated625.us, 1
-  %489 = icmp ne i32 %111, 1
-  %brmerge215.i.i.us = or i1 %488, %489
+  %488 = icmp ne i32 %.fr27.i.us, 1
+  %489 = icmp slt i32 %.sroa.speculated625.us, 1
+  %brmerge215.i.i.us = or i1 %489, %488
   br i1 %brmerge215.i.i.us, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us, label %.lr.ph111.us124.us.preheader.i.i.us
 
 .lr.ph111.us124.us.preheader.i.i.us:              ; preds = %.lr.ph115.split.i.i.us

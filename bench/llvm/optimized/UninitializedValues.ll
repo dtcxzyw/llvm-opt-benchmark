@@ -11487,7 +11487,7 @@ _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46: ; preds = %.lr.ph
   %.sroa.03.0.i.i42 = phi i64 [ %134, %130 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i40 ], [ 0, %108 ], [ 0, %.lr.ph.i.i.i.i.i36 ]
   br label %135
 
-135:                                              ; preds = %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46, %_ZN4llvm14SmallBitVector9referenceaSEb.exit.i.i
+135:                                              ; preds = %_ZN4llvm14SmallBitVector9referenceaSEb.exit.i.i, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46
   %indvars.iv.i.i47 = phi i64 [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46 ], [ %indvars.iv.next.i.i48, %_ZN4llvm14SmallBitVector9referenceaSEb.exit.i.i ]
   %136 = add nuw nsw i64 %indvars.iv.i.i47, %.sroa.03.0.i.i42
   %137 = load i64, ptr %82, align 8, !tbaa !13

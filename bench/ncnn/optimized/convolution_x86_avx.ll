@@ -45474,16 +45474,17 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   %109 = mul i64 %108, %103
   %110 = getelementptr inbounds i8, ptr %105, i64 %109
   %111 = load i32, ptr %37, align 8
+  %.fr23.i.us = freeze i32 %111
   %112 = icmp sgt i32 %.sroa.speculated629.us, 7
   br i1 %112, label %.lr.ph30.i.i.us, label %.preheader9.i.i.us
 
 .lr.ph30.i.i.us:                                  ; preds = %.lr.ph.split.us
-  %113 = icmp eq i32 %111, 8
+  %113 = icmp eq i32 %.fr23.i.us, 8
   %114 = sdiv i32 %95, 8
   %115 = sext i32 %114 to i64
   %116 = sdiv i32 %.sroa.speculated625.us, 8
   %117 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %118 = icmp eq i32 %111, 1
+  %118 = icmp eq i32 %.fr23.i.us, 1
   %119 = sext i32 %95 to i64
   %120 = icmp sgt i32 %.sroa.speculated625.us, 1
   %121 = and i32 %.sroa.speculated625.us, -2
@@ -45626,12 +45627,12 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %197, label %.lr.ph52.i.i.us, label %.preheader5.i.i.us
 
 .lr.ph52.i.i.us:                                  ; preds = %.preheader9.i.i.us
-  %198 = icmp eq i32 %111, 8
+  %198 = icmp eq i32 %.fr23.i.us, 8
   %199 = sdiv i32 %95, 8
   %200 = sext i32 %199 to i64
   %201 = sdiv i32 %.sroa.speculated625.us, 8
   %202 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %203 = icmp eq i32 %111, 1
+  %203 = icmp eq i32 %.fr23.i.us, 1
   %204 = sext i32 %95 to i64
   %205 = icmp sgt i32 %.sroa.speculated625.us, 1
   %206 = and i32 %.sroa.speculated625.us, -2
@@ -45796,12 +45797,12 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %296, label %.lr.ph74.i.i.us, label %.preheader.i.i.us
 
 .lr.ph74.i.i.us:                                  ; preds = %.preheader5.i.i.us
-  %297 = icmp eq i32 %111, 8
+  %297 = icmp eq i32 %.fr23.i.us, 8
   %298 = sdiv i32 %95, 8
   %299 = sext i32 %298 to i64
   %300 = sdiv i32 %.sroa.speculated625.us, 8
   %301 = icmp sgt i32 %.sroa.speculated625.us, 7
-  %302 = icmp eq i32 %111, 1
+  %302 = icmp eq i32 %.fr23.i.us, 1
   %303 = sext i32 %95 to i64
   %304 = icmp sgt i32 %.sroa.speculated625.us, 1
   %305 = and i32 %.sroa.speculated625.us, -2
@@ -45938,7 +45939,7 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %374, label %.lr.ph89.i.i.us, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us
 
 .lr.ph89.i.i.us:                                  ; preds = %.preheader.i.i.us
-  %375 = icmp eq i32 %111, 8
+  %375 = icmp eq i32 %.fr23.i.us, 8
   %376 = sdiv i32 %95, 8
   %377 = sext i32 %376 to i64
   %378 = sdiv i32 %.sroa.speculated625.us, 8
@@ -45946,9 +45947,9 @@ define internal fastcc noundef i32 @_ZN4ncnnL28convolution_im2col_gemm_int8ERKNS
   br i1 %375, label %.lr.ph89.split.us.preheader.i.i.us, label %.lr.ph89.split.i.i.us
 
 .lr.ph89.split.i.i.us:                            ; preds = %.lr.ph89.i.i.us
-  %380 = icmp slt i32 %.sroa.speculated625.us, 1
-  %381 = icmp ne i32 %111, 1
-  %brmerge173.i.i.us = or i1 %380, %381
+  %380 = icmp ne i32 %.fr23.i.us, 1
+  %381 = icmp slt i32 %.sroa.speculated625.us, 1
+  %brmerge173.i.i.us = or i1 %381, %380
   br i1 %brmerge173.i.i.us, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit.us, label %.lr.ph85.us98.us.preheader.i.i.us
 
 .lr.ph85.us98.us.preheader.i.i.us:                ; preds = %.lr.ph89.split.i.i.us

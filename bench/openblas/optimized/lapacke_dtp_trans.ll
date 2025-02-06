@@ -101,44 +101,39 @@ define void @LAPACKE_dtp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   br i1 %71, label %45, label %56, !llvm.loop !10
 
 72:                                               ; preds = %.loopexit, %40
-  %73 = phi i64 [ %43, %40 ], [ %99, %.loopexit ]
-  %74 = phi i32 [ 0, %40 ], [ %98, %.loopexit ]
-  %75 = phi i32 [ 0, %40 ], [ %97, %.loopexit ]
-  %76 = add nuw nsw i32 %75, %27
-  %77 = icmp slt i32 %76, %3
-  br i1 %77, label %78, label %.loopexit
+  %73 = phi i64 [ %43, %40 ], [ %97, %.loopexit ]
+  %74 = phi i32 [ 0, %40 ], [ %96, %.loopexit ]
+  %75 = phi i32 [ 0, %40 ], [ %95, %.loopexit ]
+  %76 = add i32 %42, %74
+  %77 = mul nsw i32 %76, %75
+  %78 = sdiv i32 %77, 2
+  %79 = add i32 %78, %74
+  br label %80
 
-78:                                               ; preds = %72
-  %79 = add i32 %42, %74
-  %80 = mul nsw i32 %79, %75
-  %81 = sdiv i32 %80, 2
-  %82 = add i32 %81, %74
-  br label %83
+80:                                               ; preds = %80, %72
+  %81 = phi i64 [ %73, %72 ], [ %87, %80 ]
+  %82 = trunc i64 %81 to i32
+  %83 = add i32 %79, %82
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds double, ptr %4, i64 %84
+  %86 = load double, ptr %85, align 8, !tbaa !6
+  %87 = add nuw nsw i64 %81, 1
+  %88 = mul i64 %87, %81
+  %89 = trunc i64 %88 to i32
+  %90 = lshr i32 %89, 1
+  %91 = add nuw nsw i32 %90, %75
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds nuw double, ptr %5, i64 %92
+  store double %86, ptr %93, align 8, !tbaa !6
+  %94 = icmp slt i64 %87, %44
+  br i1 %94, label %80, label %.loopexit, !llvm.loop !11
 
-83:                                               ; preds = %83, %78
-  %84 = phi i64 [ %73, %78 ], [ %90, %83 ]
-  %85 = trunc i64 %84 to i32
-  %86 = add i32 %82, %85
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds double, ptr %4, i64 %87
-  %89 = load double, ptr %88, align 8, !tbaa !6
-  %90 = add nuw nsw i64 %84, 1
-  %91 = mul i64 %90, %84
-  %92 = trunc i64 %91 to i32
-  %93 = lshr i32 %92, 1
-  %94 = add nuw nsw i32 %93, %75
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw double, ptr %5, i64 %95
-  store double %89, ptr %96, align 8, !tbaa !6
-  %exitcond.not = icmp eq i64 %90, %44
-  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !11
-
-.loopexit:                                        ; preds = %83, %72
-  %97 = add nuw nsw i32 %75, 1
-  %98 = xor i32 %75, -1
-  %99 = add nuw nsw i64 %73, 1
-  %100 = icmp eq i32 %97, %38
-  br i1 %100, label %.loopexit8, label %72, !llvm.loop !12
+.loopexit:                                        ; preds = %80
+  %95 = add nuw nsw i32 %75, 1
+  %96 = xor i32 %75, -1
+  %97 = add nuw nsw i64 %73, 1
+  %98 = icmp eq i32 %95, %38
+  br i1 %98, label %.loopexit8, label %72, !llvm.loop !12
 
 .loopexit8:                                       ; preds = %45, %.loopexit, %37, %29, %23, %18, %10, %6
   ret void

@@ -262,8 +262,9 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %indvars.iv155.i = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next156.i, %147 ]
   %.074116.i = phi ptr [ %6, %.split.split.preheader.i ], [ %.276.i, %147 ]
   %105 = icmp slt i64 %indvars.iv155.i, %89
+  %or.cond88.i = select i1 %.not78.i, i1 %105, i1 false
   %106 = icmp eq i64 %indvars.iv155.i, 0
-  br i1 %105, label %107, label %110
+  br i1 %or.cond88.i, label %107, label %110
 
 107:                                              ; preds = %.split.split.i
   br i1 %106, label %108, label %147

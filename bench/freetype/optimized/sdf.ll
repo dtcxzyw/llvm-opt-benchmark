@@ -1577,195 +1577,198 @@ define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull readonly ca
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = add i32 %15, -2
+  %26 = icmp sgt i32 %15, 1
   br i1 %19, label %.preheader.us.preheader.i, label %.preheader.lr.ph.split.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %26 = add nsw i32 %15, -1
-  %27 = zext nneg i32 %25 to i64
-  %28 = zext nneg i32 %15 to i64
+  %27 = add nsw i32 %15, -1
+  %28 = zext nneg i32 %25 to i64
+  %29 = zext nneg i32 %15 to i64
   %wide.trip.count66.i = zext nneg i32 %17 to i64
-  %wide.trip.count58.i = zext nneg i32 %26 to i64
+  %wide.trip.count58.i = zext nneg i32 %27 to i64
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge40.us.i.loopexit, %.preheader.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next64.i, %._crit_edge40.us.i.loopexit ]
-  %29 = mul nuw nsw i64 %indvars.iv63.i, %28
-  %30 = and i64 %29, 4294967295
-  %invariant.gep69.i = getelementptr inbounds nuw %struct.ED_, ptr %12, i64 %30
-  br label %48
+.preheader.us.i:                                  ; preds = %._crit_edge40.us.i, %.preheader.us.preheader.i
+  %indvars.iv63.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next64.i, %._crit_edge40.us.i ]
+  %30 = mul nuw nsw i64 %indvars.iv63.i, %29
+  %31 = and i64 %30, 4294967295
+  %invariant.gep69.i = getelementptr inbounds nuw %struct.ED_, ptr %12, i64 %31
+  br label %49
 
-._crit_edge40.us.i.loopexit:                      ; preds = %compare_neighbor.exit35.us.i
+._crit_edge40.us.i:                               ; preds = %compare_neighbor.exit35.us.i, %._crit_edge.us.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
   br i1 %exitcond67.not.i, label %first_pass.exit, label %.preheader.us.i, !llvm.loop !118
 
-31:                                               ; preds = %._crit_edge.us.i, %compare_neighbor.exit35.us.i
-  %indvars.iv60.i = phi i64 [ %27, %._crit_edge.us.i ], [ %indvars.iv.next61.i, %compare_neighbor.exit35.us.i ]
+32:                                               ; preds = %.lr.ph39.us.i, %compare_neighbor.exit35.us.i
+  %indvars.iv60.i = phi i64 [ %28, %.lr.ph39.us.i ], [ %indvars.iv.next61.i, %compare_neighbor.exit35.us.i ]
   %gep72.i = getelementptr %struct.ED_, ptr %invariant.gep71.i, i64 %indvars.iv60.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  %32 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !112
-  %34 = add nsw i32 %33, -65536
-  %35 = load i32, ptr %gep72.i, align 8, !tbaa !112
-  %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %compare_neighbor.exit35.us.i
+  %33 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 32
+  %34 = load i32, ptr %33, align 8, !tbaa !112
+  %35 = add nsw i32 %34, -65536
+  %36 = load i32, ptr %gep72.i, align 8, !tbaa !112
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %38, label %compare_neighbor.exit35.us.i
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !119
-  %39 = load i64, ptr %7, align 8, !tbaa !52
-  %40 = add nsw i64 %39, 65536
-  store i64 %40, ptr %7, align 8, !tbaa !52
-  %41 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #11
-  %42 = trunc i64 %41 to i32
-  %43 = load i32, ptr %gep72.i, align 8, !tbaa !112
-  %44 = icmp sgt i32 %43, %42
-  br i1 %44, label %45, label %compare_neighbor.exit35.us.i
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !119
+  %40 = load i64, ptr %7, align 8, !tbaa !52
+  %41 = add nsw i64 %40, 65536
+  store i64 %41, ptr %7, align 8, !tbaa !52
+  %42 = call i64 @FT_Vector_Length(ptr noundef nonnull %7) #11
+  %43 = trunc i64 %42 to i32
+  %44 = load i32, ptr %gep72.i, align 8, !tbaa !112
+  %45 = icmp sgt i32 %44, %43
+  br i1 %45, label %46, label %compare_neighbor.exit35.us.i
 
-45:                                               ; preds = %37
-  store i32 %42, ptr %gep72.i, align 8, !tbaa !112
-  %46 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !119
+46:                                               ; preds = %38
+  store i32 %43, ptr %gep72.i, align 8, !tbaa !112
+  %47 = getelementptr inbounds nuw i8, ptr %gep72.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit35.us.i
 
-compare_neighbor.exit35.us.i:                     ; preds = %45, %37, %31
+compare_neighbor.exit35.us.i:                     ; preds = %46, %38, %32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, -1
-  %47 = icmp sgt i64 %indvars.iv60.i, 0
-  br i1 %47, label %31, label %._crit_edge40.us.i.loopexit, !llvm.loop !120
+  %48 = icmp sgt i64 %indvars.iv60.i, 0
+  br i1 %48, label %32, label %._crit_edge40.us.i, !llvm.loop !120
 
-48:                                               ; preds = %compare_neighbor.exit34.us.i, %.preheader.us.i
+49:                                               ; preds = %compare_neighbor.exit34.us.i, %.preheader.us.i
   %indvars.iv55.i = phi i64 [ 1, %.preheader.us.i ], [ %indvars.iv.next56.i, %compare_neighbor.exit34.us.i ]
   %gep70.i = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep69.i, i64 %indvars.iv55.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
-  %49 = getelementptr inbounds %struct.ED_, ptr %gep70.i, i64 %21
-  %50 = getelementptr inbounds i8, ptr %49, i64 -32
-  %51 = load i32, ptr %50, align 8, !tbaa !112
-  %52 = add nsw i32 %51, -65536
-  %53 = load i32, ptr %gep70.i, align 8, !tbaa !112
-  %54 = icmp slt i32 %52, %53
-  br i1 %54, label %55, label %compare_neighbor.exit.us.i
+  %50 = getelementptr inbounds %struct.ED_, ptr %gep70.i, i64 %21
+  %51 = getelementptr inbounds i8, ptr %50, i64 -32
+  %52 = load i32, ptr %51, align 8, !tbaa !112
+  %53 = add nsw i32 %52, -65536
+  %54 = load i32, ptr %gep70.i, align 8, !tbaa !112
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %56, label %compare_neighbor.exit.us.i
 
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %49, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !119
-  %57 = load i64, ptr %11, align 8, !tbaa !52
-  %58 = add nsw i64 %57, -65536
-  store i64 %58, ptr %11, align 8, !tbaa !52
-  %59 = load i64, ptr %22, align 8, !tbaa !53
-  %60 = add nsw i64 %59, -65536
-  store i64 %60, ptr %22, align 8, !tbaa !53
-  %61 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #11
-  %62 = trunc i64 %61 to i32
-  %63 = load i32, ptr %gep70.i, align 8, !tbaa !112
-  %64 = icmp sgt i32 %63, %62
-  br i1 %64, label %65, label %compare_neighbor.exit.us.i
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds i8, ptr %50, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !119
+  %58 = load i64, ptr %11, align 8, !tbaa !52
+  %59 = add nsw i64 %58, -65536
+  store i64 %59, ptr %11, align 8, !tbaa !52
+  %60 = load i64, ptr %22, align 8, !tbaa !53
+  %61 = add nsw i64 %60, -65536
+  store i64 %61, ptr %22, align 8, !tbaa !53
+  %62 = call i64 @FT_Vector_Length(ptr noundef nonnull %11) #11
+  %63 = trunc i64 %62 to i32
+  %64 = load i32, ptr %gep70.i, align 8, !tbaa !112
+  %65 = icmp sgt i32 %64, %63
+  br i1 %65, label %66, label %compare_neighbor.exit.us.i
 
-65:                                               ; preds = %55
-  store i32 %62, ptr %gep70.i, align 8, !tbaa !112
-  %66 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !119
+66:                                               ; preds = %56
+  store i32 %63, ptr %gep70.i, align 8, !tbaa !112
+  %67 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit.us.i
 
-compare_neighbor.exit.us.i:                       ; preds = %65, %55, %48
-  %67 = phi i32 [ %62, %65 ], [ %63, %55 ], [ %53, %48 ]
+compare_neighbor.exit.us.i:                       ; preds = %66, %56, %49
+  %68 = phi i32 [ %63, %66 ], [ %64, %56 ], [ %54, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
-  %68 = load i32, ptr %49, align 8, !tbaa !112
-  %69 = add nsw i32 %68, -65536
-  %70 = icmp slt i32 %69, %67
-  br i1 %70, label %71, label %compare_neighbor.exit32.us.i
+  %69 = load i32, ptr %50, align 8, !tbaa !112
+  %70 = add nsw i32 %69, -65536
+  %71 = icmp slt i32 %70, %68
+  br i1 %71, label %72, label %compare_neighbor.exit32.us.i
 
-71:                                               ; preds = %compare_neighbor.exit.us.i
-  %72 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !119
-  %73 = load i64, ptr %23, align 8, !tbaa !53
-  %74 = add nsw i64 %73, -65536
-  store i64 %74, ptr %23, align 8, !tbaa !53
-  %75 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #11
-  %76 = trunc i64 %75 to i32
-  %77 = load i32, ptr %gep70.i, align 8, !tbaa !112
-  %78 = icmp sgt i32 %77, %76
-  br i1 %78, label %79, label %compare_neighbor.exit32.us.i
+72:                                               ; preds = %compare_neighbor.exit.us.i
+  %73 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !119
+  %74 = load i64, ptr %23, align 8, !tbaa !53
+  %75 = add nsw i64 %74, -65536
+  store i64 %75, ptr %23, align 8, !tbaa !53
+  %76 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #11
+  %77 = trunc i64 %76 to i32
+  %78 = load i32, ptr %gep70.i, align 8, !tbaa !112
+  %79 = icmp sgt i32 %78, %77
+  br i1 %79, label %80, label %compare_neighbor.exit32.us.i
 
-79:                                               ; preds = %71
-  store i32 %76, ptr %gep70.i, align 8, !tbaa !112
-  %80 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !119
+80:                                               ; preds = %72
+  store i32 %77, ptr %gep70.i, align 8, !tbaa !112
+  %81 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit32.us.i
 
-compare_neighbor.exit32.us.i:                     ; preds = %79, %71, %compare_neighbor.exit.us.i
-  %81 = phi i32 [ %76, %79 ], [ %77, %71 ], [ %67, %compare_neighbor.exit.us.i ]
+compare_neighbor.exit32.us.i:                     ; preds = %80, %72, %compare_neighbor.exit.us.i
+  %82 = phi i32 [ %77, %80 ], [ %78, %72 ], [ %68, %compare_neighbor.exit.us.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  %82 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %83 = load i32, ptr %82, align 8, !tbaa !112
-  %84 = add nsw i32 %83, -65536
-  %85 = icmp slt i32 %84, %81
-  br i1 %85, label %86, label %compare_neighbor.exit33.us.i
+  %83 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %84 = load i32, ptr %83, align 8, !tbaa !112
+  %85 = add nsw i32 %84, -65536
+  %86 = icmp slt i32 %85, %82
+  br i1 %86, label %87, label %compare_neighbor.exit33.us.i
 
-86:                                               ; preds = %compare_neighbor.exit32.us.i
-  %87 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !119
-  %88 = load i64, ptr %9, align 8, !tbaa !52
-  %89 = add nsw i64 %88, 65536
-  store i64 %89, ptr %9, align 8, !tbaa !52
-  %90 = load i64, ptr %24, align 8, !tbaa !53
-  %91 = add nsw i64 %90, -65536
-  store i64 %91, ptr %24, align 8, !tbaa !53
-  %92 = call i64 @FT_Vector_Length(ptr noundef nonnull %9) #11
-  %93 = trunc i64 %92 to i32
-  %94 = load i32, ptr %gep70.i, align 8, !tbaa !112
-  %95 = icmp sgt i32 %94, %93
-  br i1 %95, label %96, label %compare_neighbor.exit33.us.i
+87:                                               ; preds = %compare_neighbor.exit32.us.i
+  %88 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !119
+  %89 = load i64, ptr %9, align 8, !tbaa !52
+  %90 = add nsw i64 %89, 65536
+  store i64 %90, ptr %9, align 8, !tbaa !52
+  %91 = load i64, ptr %24, align 8, !tbaa !53
+  %92 = add nsw i64 %91, -65536
+  store i64 %92, ptr %24, align 8, !tbaa !53
+  %93 = call i64 @FT_Vector_Length(ptr noundef nonnull %9) #11
+  %94 = trunc i64 %93 to i32
+  %95 = load i32, ptr %gep70.i, align 8, !tbaa !112
+  %96 = icmp sgt i32 %95, %94
+  br i1 %96, label %97, label %compare_neighbor.exit33.us.i
 
-96:                                               ; preds = %86
-  store i32 %93, ptr %gep70.i, align 8, !tbaa !112
-  %97 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !119
+97:                                               ; preds = %87
+  store i32 %94, ptr %gep70.i, align 8, !tbaa !112
+  %98 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit33.us.i
 
-compare_neighbor.exit33.us.i:                     ; preds = %96, %86, %compare_neighbor.exit32.us.i
-  %98 = phi i32 [ %93, %96 ], [ %94, %86 ], [ %81, %compare_neighbor.exit32.us.i ]
+compare_neighbor.exit33.us.i:                     ; preds = %97, %87, %compare_neighbor.exit32.us.i
+  %99 = phi i32 [ %94, %97 ], [ %95, %87 ], [ %82, %compare_neighbor.exit32.us.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  %99 = getelementptr inbounds i8, ptr %gep70.i, i64 -32
-  %100 = load i32, ptr %99, align 8, !tbaa !112
-  %101 = add nsw i32 %100, -65536
-  %102 = icmp slt i32 %101, %98
-  br i1 %102, label %103, label %compare_neighbor.exit34.us.i
+  %100 = getelementptr inbounds i8, ptr %gep70.i, i64 -32
+  %101 = load i32, ptr %100, align 8, !tbaa !112
+  %102 = add nsw i32 %101, -65536
+  %103 = icmp slt i32 %102, %99
+  br i1 %103, label %104, label %compare_neighbor.exit34.us.i
 
-103:                                              ; preds = %compare_neighbor.exit33.us.i
-  %104 = getelementptr inbounds i8, ptr %gep70.i, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !119
-  %105 = load i64, ptr %8, align 8, !tbaa !52
-  %106 = add nsw i64 %105, -65536
-  store i64 %106, ptr %8, align 8, !tbaa !52
-  %107 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
-  %108 = trunc i64 %107 to i32
-  %109 = load i32, ptr %gep70.i, align 8, !tbaa !112
-  %110 = icmp sgt i32 %109, %108
-  br i1 %110, label %111, label %compare_neighbor.exit34.us.i
+104:                                              ; preds = %compare_neighbor.exit33.us.i
+  %105 = getelementptr inbounds i8, ptr %gep70.i, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false), !tbaa.struct !119
+  %106 = load i64, ptr %8, align 8, !tbaa !52
+  %107 = add nsw i64 %106, -65536
+  store i64 %107, ptr %8, align 8, !tbaa !52
+  %108 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
+  %109 = trunc i64 %108 to i32
+  %110 = load i32, ptr %gep70.i, align 8, !tbaa !112
+  %111 = icmp sgt i32 %110, %109
+  br i1 %111, label %112, label %compare_neighbor.exit34.us.i
 
-111:                                              ; preds = %103
-  store i32 %108, ptr %gep70.i, align 8, !tbaa !112
-  %112 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !119
+112:                                              ; preds = %104
+  store i32 %109, ptr %gep70.i, align 8, !tbaa !112
+  %113 = getelementptr inbounds nuw i8, ptr %gep70.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit34.us.i
 
-compare_neighbor.exit34.us.i:                     ; preds = %111, %103, %compare_neighbor.exit33.us.i
+compare_neighbor.exit34.us.i:                     ; preds = %112, %104, %compare_neighbor.exit33.us.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %._crit_edge.us.i, label %48, !llvm.loop !121
+  br i1 %exitcond59.not.i, label %._crit_edge.us.i, label %49, !llvm.loop !121
 
 ._crit_edge.us.i:                                 ; preds = %compare_neighbor.exit34.us.i
-  %invariant.gep71.i = getelementptr %struct.ED_, ptr %12, i64 %29
-  br label %31
+  br i1 %26, label %.lr.ph39.us.i, label %._crit_edge40.us.i
+
+.lr.ph39.us.i:                                    ; preds = %._crit_edge.us.i
+  %invariant.gep71.i = getelementptr %struct.ED_, ptr %12, i64 %30
+  br label %32
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i
-  %113 = icmp eq i32 %15, 2
-  br i1 %113, label %.preheader.us43.preheader.i, label %first_pass.exit
+  br i1 %26, label %.preheader.us43.preheader.i, label %first_pass.exit
 
 .preheader.us43.preheader.i:                      ; preds = %.preheader.lr.ph.split.i
   %114 = zext nneg i32 %25 to i64
@@ -1819,7 +1822,7 @@ compare_neighbor.exit35.us46.i:                   ; preds = %131, %123, %117
   %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %first_pass.exit, label %.preheader.us43.i, !llvm.loop !118
 
-first_pass.exit:                                  ; preds = %._crit_edge40.us48.i, %._crit_edge40.us.i.loopexit, %.preheader.lr.ph.split.i
+first_pass.exit:                                  ; preds = %._crit_edge40.us48.i, %._crit_edge40.us.i, %.preheader.lr.ph.split.i
   %.pr = load i32, ptr %16, align 4, !tbaa !87
   %134 = load ptr, ptr %0, align 8, !tbaa !83
   %135 = add i32 %.pr, -2
@@ -1834,189 +1837,192 @@ first_pass.exit:                                  ; preds = %._crit_edge40.us48.
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %143 = add i32 %137, -2
+  %144 = icmp sgt i32 %137, 1
   br i1 %138, label %.preheader.us.preheader.i17, label %.preheader.lr.ph.split.i6
 
 .preheader.us.preheader.i17:                      ; preds = %.preheader.lr.ph.i5
-  %144 = add nsw i32 %137, -1
-  %145 = zext nneg i32 %143 to i64
-  %146 = zext nneg i32 %135 to i64
-  %wide.trip.count.i18 = zext nneg i32 %144 to i64
+  %145 = add nsw i32 %137, -1
+  %146 = zext nneg i32 %143 to i64
+  %147 = zext nneg i32 %135 to i64
+  %wide.trip.count.i18 = zext nneg i32 %145 to i64
   br label %.preheader.us.i19
 
-.preheader.us.i19:                                ; preds = %._crit_edge40.us.i28.loopexit, %.preheader.us.preheader.i17
-  %indvars.iv61.i = phi i64 [ %146, %.preheader.us.preheader.i17 ], [ %indvars.iv.next62.i, %._crit_edge40.us.i28.loopexit ]
-  %147 = mul nsw i64 %indvars.iv61.i, %139
-  %invariant.gep65.i = getelementptr %struct.ED_, ptr %134, i64 %147
-  br label %165
+.preheader.us.i19:                                ; preds = %._crit_edge40.us.i28, %.preheader.us.preheader.i17
+  %indvars.iv61.i = phi i64 [ %147, %.preheader.us.preheader.i17 ], [ %indvars.iv.next62.i, %._crit_edge40.us.i28 ]
+  %148 = mul nsw i64 %indvars.iv61.i, %139
+  %invariant.gep65.i = getelementptr %struct.ED_, ptr %134, i64 %148
+  br label %166
 
-._crit_edge40.us.i28.loopexit:                    ; preds = %compare_neighbor.exit35.us.i30
+._crit_edge40.us.i28:                             ; preds = %compare_neighbor.exit35.us.i30, %._crit_edge.us.i27
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, -1
-  %148 = icmp sgt i64 %indvars.iv61.i, 0
-  br i1 %148, label %.preheader.us.i19, label %second_pass.exit, !llvm.loop !122
+  %149 = icmp sgt i64 %indvars.iv61.i, 0
+  br i1 %149, label %.preheader.us.i19, label %second_pass.exit, !llvm.loop !122
 
-.lr.ph39.us.i29:                                  ; preds = %compare_neighbor.exit34.us.i24, %compare_neighbor.exit35.us.i30
-  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %compare_neighbor.exit35.us.i30 ], [ %145, %compare_neighbor.exit34.us.i24 ]
+.lr.ph39.us.i29:                                  ; preds = %._crit_edge.us.i27, %compare_neighbor.exit35.us.i30
+  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %compare_neighbor.exit35.us.i30 ], [ %146, %._crit_edge.us.i27 ]
   %gep68.i = getelementptr %struct.ED_, ptr %invariant.gep65.i, i64 %indvars.iv58.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
-  %149 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 32
-  %150 = load i32, ptr %149, align 8, !tbaa !112
-  %151 = add nsw i32 %150, -65536
-  %152 = load i32, ptr %gep68.i, align 8, !tbaa !112
-  %153 = icmp slt i32 %151, %152
-  br i1 %153, label %154, label %compare_neighbor.exit35.us.i30
+  %150 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 32
+  %151 = load i32, ptr %150, align 8, !tbaa !112
+  %152 = add nsw i32 %151, -65536
+  %153 = load i32, ptr %gep68.i, align 8, !tbaa !112
+  %154 = icmp slt i32 %152, %153
+  br i1 %154, label %155, label %compare_neighbor.exit35.us.i30
 
-154:                                              ; preds = %.lr.ph39.us.i29
-  %155 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false), !tbaa.struct !119
-  %156 = load i64, ptr %2, align 8, !tbaa !52
-  %157 = add nsw i64 %156, 65536
-  store i64 %157, ptr %2, align 8, !tbaa !52
-  %158 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #11
-  %159 = trunc i64 %158 to i32
-  %160 = load i32, ptr %gep68.i, align 8, !tbaa !112
-  %161 = icmp sgt i32 %160, %159
-  br i1 %161, label %162, label %compare_neighbor.exit35.us.i30
+155:                                              ; preds = %.lr.ph39.us.i29
+  %156 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !tbaa.struct !119
+  %157 = load i64, ptr %2, align 8, !tbaa !52
+  %158 = add nsw i64 %157, 65536
+  store i64 %158, ptr %2, align 8, !tbaa !52
+  %159 = call i64 @FT_Vector_Length(ptr noundef nonnull %2) #11
+  %160 = trunc i64 %159 to i32
+  %161 = load i32, ptr %gep68.i, align 8, !tbaa !112
+  %162 = icmp sgt i32 %161, %160
+  br i1 %162, label %163, label %compare_neighbor.exit35.us.i30
 
-162:                                              ; preds = %154
-  store i32 %159, ptr %gep68.i, align 8, !tbaa !112
-  %163 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !119
+163:                                              ; preds = %155
+  store i32 %160, ptr %gep68.i, align 8, !tbaa !112
+  %164 = getelementptr inbounds nuw i8, ptr %gep68.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit35.us.i30
 
-compare_neighbor.exit35.us.i30:                   ; preds = %162, %154, %.lr.ph39.us.i29
+compare_neighbor.exit35.us.i30:                   ; preds = %163, %155, %.lr.ph39.us.i29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %indvars.iv.next59.i = add nsw i64 %indvars.iv58.i, -1
-  %164 = icmp sgt i64 %indvars.iv58.i, 0
-  br i1 %164, label %.lr.ph39.us.i29, label %._crit_edge40.us.i28.loopexit, !llvm.loop !123
+  %165 = icmp sgt i64 %indvars.iv58.i, 0
+  br i1 %165, label %.lr.ph39.us.i29, label %._crit_edge40.us.i28, !llvm.loop !123
 
-165:                                              ; preds = %compare_neighbor.exit34.us.i24, %.preheader.us.i19
+166:                                              ; preds = %compare_neighbor.exit34.us.i24, %.preheader.us.i19
   %indvars.iv55.i20 = phi i64 [ 1, %.preheader.us.i19 ], [ %indvars.iv.next56.i25, %compare_neighbor.exit34.us.i24 ]
   %gep66.i = getelementptr %struct.ED_, ptr %invariant.gep65.i, i64 %indvars.iv55.i20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  %166 = getelementptr inbounds nuw %struct.ED_, ptr %gep66.i, i64 %139
-  %167 = getelementptr inbounds i8, ptr %166, i64 -32
-  %168 = load i32, ptr %167, align 8, !tbaa !112
-  %169 = add nsw i32 %168, -65536
-  %170 = load i32, ptr %gep66.i, align 8, !tbaa !112
-  %171 = icmp slt i32 %169, %170
-  br i1 %171, label %172, label %compare_neighbor.exit.us.i21
+  %167 = getelementptr inbounds nuw %struct.ED_, ptr %gep66.i, i64 %139
+  %168 = getelementptr inbounds i8, ptr %167, i64 -32
+  %169 = load i32, ptr %168, align 8, !tbaa !112
+  %170 = add nsw i32 %169, -65536
+  %171 = load i32, ptr %gep66.i, align 8, !tbaa !112
+  %172 = icmp slt i32 %170, %171
+  br i1 %172, label %173, label %compare_neighbor.exit.us.i21
 
-172:                                              ; preds = %165
-  %173 = getelementptr inbounds i8, ptr %166, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !119
-  %174 = load i64, ptr %6, align 8, !tbaa !52
-  %175 = add nsw i64 %174, -65536
-  store i64 %175, ptr %6, align 8, !tbaa !52
-  %176 = load i64, ptr %140, align 8, !tbaa !53
-  %177 = add nsw i64 %176, 65536
-  store i64 %177, ptr %140, align 8, !tbaa !53
-  %178 = call i64 @FT_Vector_Length(ptr noundef nonnull %6) #11
-  %179 = trunc i64 %178 to i32
-  %180 = load i32, ptr %gep66.i, align 8, !tbaa !112
-  %181 = icmp sgt i32 %180, %179
-  br i1 %181, label %182, label %compare_neighbor.exit.us.i21
+173:                                              ; preds = %166
+  %174 = getelementptr inbounds i8, ptr %167, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false), !tbaa.struct !119
+  %175 = load i64, ptr %6, align 8, !tbaa !52
+  %176 = add nsw i64 %175, -65536
+  store i64 %176, ptr %6, align 8, !tbaa !52
+  %177 = load i64, ptr %140, align 8, !tbaa !53
+  %178 = add nsw i64 %177, 65536
+  store i64 %178, ptr %140, align 8, !tbaa !53
+  %179 = call i64 @FT_Vector_Length(ptr noundef nonnull %6) #11
+  %180 = trunc i64 %179 to i32
+  %181 = load i32, ptr %gep66.i, align 8, !tbaa !112
+  %182 = icmp sgt i32 %181, %180
+  br i1 %182, label %183, label %compare_neighbor.exit.us.i21
 
-182:                                              ; preds = %172
-  store i32 %179, ptr %gep66.i, align 8, !tbaa !112
-  %183 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !119
+183:                                              ; preds = %173
+  store i32 %180, ptr %gep66.i, align 8, !tbaa !112
+  %184 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit.us.i21
 
-compare_neighbor.exit.us.i21:                     ; preds = %182, %172, %165
-  %184 = phi i32 [ %179, %182 ], [ %180, %172 ], [ %170, %165 ]
+compare_neighbor.exit.us.i21:                     ; preds = %183, %173, %166
+  %185 = phi i32 [ %180, %183 ], [ %181, %173 ], [ %171, %166 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  %185 = load i32, ptr %166, align 8, !tbaa !112
-  %186 = add nsw i32 %185, -65536
-  %187 = icmp slt i32 %186, %184
-  br i1 %187, label %188, label %compare_neighbor.exit32.us.i22
+  %186 = load i32, ptr %167, align 8, !tbaa !112
+  %187 = add nsw i32 %186, -65536
+  %188 = icmp slt i32 %187, %185
+  br i1 %188, label %189, label %compare_neighbor.exit32.us.i22
 
-188:                                              ; preds = %compare_neighbor.exit.us.i21
-  %189 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %189, i64 16, i1 false), !tbaa.struct !119
-  %190 = load i64, ptr %141, align 8, !tbaa !53
-  %191 = add nsw i64 %190, 65536
-  store i64 %191, ptr %141, align 8, !tbaa !53
-  %192 = call i64 @FT_Vector_Length(ptr noundef nonnull %5) #11
-  %193 = trunc i64 %192 to i32
-  %194 = load i32, ptr %gep66.i, align 8, !tbaa !112
-  %195 = icmp sgt i32 %194, %193
-  br i1 %195, label %196, label %compare_neighbor.exit32.us.i22
+189:                                              ; preds = %compare_neighbor.exit.us.i21
+  %190 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %190, i64 16, i1 false), !tbaa.struct !119
+  %191 = load i64, ptr %141, align 8, !tbaa !53
+  %192 = add nsw i64 %191, 65536
+  store i64 %192, ptr %141, align 8, !tbaa !53
+  %193 = call i64 @FT_Vector_Length(ptr noundef nonnull %5) #11
+  %194 = trunc i64 %193 to i32
+  %195 = load i32, ptr %gep66.i, align 8, !tbaa !112
+  %196 = icmp sgt i32 %195, %194
+  br i1 %196, label %197, label %compare_neighbor.exit32.us.i22
 
-196:                                              ; preds = %188
-  store i32 %193, ptr %gep66.i, align 8, !tbaa !112
-  %197 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !119
+197:                                              ; preds = %189
+  store i32 %194, ptr %gep66.i, align 8, !tbaa !112
+  %198 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit32.us.i22
 
-compare_neighbor.exit32.us.i22:                   ; preds = %196, %188, %compare_neighbor.exit.us.i21
-  %198 = phi i32 [ %193, %196 ], [ %194, %188 ], [ %184, %compare_neighbor.exit.us.i21 ]
+compare_neighbor.exit32.us.i22:                   ; preds = %197, %189, %compare_neighbor.exit.us.i21
+  %199 = phi i32 [ %194, %197 ], [ %195, %189 ], [ %185, %compare_neighbor.exit.us.i21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  %199 = getelementptr inbounds nuw i8, ptr %166, i64 32
-  %200 = load i32, ptr %199, align 8, !tbaa !112
-  %201 = add nsw i32 %200, -65536
-  %202 = icmp slt i32 %201, %198
-  br i1 %202, label %203, label %compare_neighbor.exit33.us.i23
+  %200 = getelementptr inbounds nuw i8, ptr %167, i64 32
+  %201 = load i32, ptr %200, align 8, !tbaa !112
+  %202 = add nsw i32 %201, -65536
+  %203 = icmp slt i32 %202, %199
+  br i1 %203, label %204, label %compare_neighbor.exit33.us.i23
 
-203:                                              ; preds = %compare_neighbor.exit32.us.i22
-  %204 = getelementptr inbounds nuw i8, ptr %166, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false), !tbaa.struct !119
-  %205 = load i64, ptr %4, align 8, !tbaa !52
-  %206 = add nsw i64 %205, 65536
-  store i64 %206, ptr %4, align 8, !tbaa !52
-  %207 = load i64, ptr %142, align 8, !tbaa !53
-  %208 = add nsw i64 %207, 65536
-  store i64 %208, ptr %142, align 8, !tbaa !53
-  %209 = call i64 @FT_Vector_Length(ptr noundef nonnull %4) #11
-  %210 = trunc i64 %209 to i32
-  %211 = load i32, ptr %gep66.i, align 8, !tbaa !112
-  %212 = icmp sgt i32 %211, %210
-  br i1 %212, label %213, label %compare_neighbor.exit33.us.i23
+204:                                              ; preds = %compare_neighbor.exit32.us.i22
+  %205 = getelementptr inbounds nuw i8, ptr %167, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !119
+  %206 = load i64, ptr %4, align 8, !tbaa !52
+  %207 = add nsw i64 %206, 65536
+  store i64 %207, ptr %4, align 8, !tbaa !52
+  %208 = load i64, ptr %142, align 8, !tbaa !53
+  %209 = add nsw i64 %208, 65536
+  store i64 %209, ptr %142, align 8, !tbaa !53
+  %210 = call i64 @FT_Vector_Length(ptr noundef nonnull %4) #11
+  %211 = trunc i64 %210 to i32
+  %212 = load i32, ptr %gep66.i, align 8, !tbaa !112
+  %213 = icmp sgt i32 %212, %211
+  br i1 %213, label %214, label %compare_neighbor.exit33.us.i23
 
-213:                                              ; preds = %203
-  store i32 %210, ptr %gep66.i, align 8, !tbaa !112
-  %214 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !119
+214:                                              ; preds = %204
+  store i32 %211, ptr %gep66.i, align 8, !tbaa !112
+  %215 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit33.us.i23
 
-compare_neighbor.exit33.us.i23:                   ; preds = %213, %203, %compare_neighbor.exit32.us.i22
-  %215 = phi i32 [ %210, %213 ], [ %211, %203 ], [ %198, %compare_neighbor.exit32.us.i22 ]
+compare_neighbor.exit33.us.i23:                   ; preds = %214, %204, %compare_neighbor.exit32.us.i22
+  %216 = phi i32 [ %211, %214 ], [ %212, %204 ], [ %199, %compare_neighbor.exit32.us.i22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  %216 = getelementptr inbounds i8, ptr %gep66.i, i64 -32
-  %217 = load i32, ptr %216, align 8, !tbaa !112
-  %218 = add nsw i32 %217, -65536
-  %219 = icmp slt i32 %218, %215
-  br i1 %219, label %220, label %compare_neighbor.exit34.us.i24
+  %217 = getelementptr inbounds i8, ptr %gep66.i, i64 -32
+  %218 = load i32, ptr %217, align 8, !tbaa !112
+  %219 = add nsw i32 %218, -65536
+  %220 = icmp slt i32 %219, %216
+  br i1 %220, label %221, label %compare_neighbor.exit34.us.i24
 
-220:                                              ; preds = %compare_neighbor.exit33.us.i23
-  %221 = getelementptr inbounds i8, ptr %gep66.i, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false), !tbaa.struct !119
-  %222 = load i64, ptr %3, align 8, !tbaa !52
-  %223 = add nsw i64 %222, -65536
-  store i64 %223, ptr %3, align 8, !tbaa !52
-  %224 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #11
-  %225 = trunc i64 %224 to i32
-  %226 = load i32, ptr %gep66.i, align 8, !tbaa !112
-  %227 = icmp sgt i32 %226, %225
-  br i1 %227, label %228, label %compare_neighbor.exit34.us.i24
+221:                                              ; preds = %compare_neighbor.exit33.us.i23
+  %222 = getelementptr inbounds i8, ptr %gep66.i, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %222, i64 16, i1 false), !tbaa.struct !119
+  %223 = load i64, ptr %3, align 8, !tbaa !52
+  %224 = add nsw i64 %223, -65536
+  store i64 %224, ptr %3, align 8, !tbaa !52
+  %225 = call i64 @FT_Vector_Length(ptr noundef nonnull %3) #11
+  %226 = trunc i64 %225 to i32
+  %227 = load i32, ptr %gep66.i, align 8, !tbaa !112
+  %228 = icmp sgt i32 %227, %226
+  br i1 %228, label %229, label %compare_neighbor.exit34.us.i24
 
-228:                                              ; preds = %220
-  store i32 %225, ptr %gep66.i, align 8, !tbaa !112
-  %229 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !119
+229:                                              ; preds = %221
+  store i32 %226, ptr %gep66.i, align 8, !tbaa !112
+  %230 = getelementptr inbounds nuw i8, ptr %gep66.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !119
   br label %compare_neighbor.exit34.us.i24
 
-compare_neighbor.exit34.us.i24:                   ; preds = %228, %220, %compare_neighbor.exit33.us.i23
+compare_neighbor.exit34.us.i24:                   ; preds = %229, %221, %compare_neighbor.exit33.us.i23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   %indvars.iv.next56.i25 = add nuw nsw i64 %indvars.iv55.i20, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next56.i25, %wide.trip.count.i18
-  br i1 %exitcond.not.i26, label %.lr.ph39.us.i29, label %165, !llvm.loop !124
+  br i1 %exitcond.not.i26, label %._crit_edge.us.i27, label %166, !llvm.loop !124
+
+._crit_edge.us.i27:                               ; preds = %compare_neighbor.exit34.us.i24
+  br i1 %144, label %.lr.ph39.us.i29, label %._crit_edge40.us.i28
 
 .preheader.lr.ph.split.i6:                        ; preds = %.preheader.lr.ph.i5
-  %230 = icmp eq i32 %137, 2
-  br i1 %230, label %.preheader.us43.preheader.i7, label %second_pass.exit
+  br i1 %144, label %.preheader.us43.preheader.i7, label %second_pass.exit
 
 .preheader.us43.preheader.i7:                     ; preds = %.preheader.lr.ph.split.i6
   %231 = zext nneg i32 %143 to i64
@@ -2069,8 +2075,8 @@ compare_neighbor.exit35.us46.i13:                 ; preds = %248, %240, %234
   %251 = icmp sgt i64 %indvars.iv52.i9, 0
   br i1 %251, label %.preheader.us43.i8, label %second_pass.exit, !llvm.loop !122
 
-second_pass.exit:                                 ; preds = %._crit_edge40.us48.i15, %._crit_edge40.us.i28.loopexit, %13, %.preheader.lr.ph.split.i6, %first_pass.exit, %1
-  %.0 = phi i32 [ 6, %1 ], [ 0, %first_pass.exit ], [ 0, %.preheader.lr.ph.split.i6 ], [ 0, %13 ], [ 0, %._crit_edge40.us.i28.loopexit ], [ 0, %._crit_edge40.us48.i15 ]
+second_pass.exit:                                 ; preds = %._crit_edge40.us48.i15, %._crit_edge40.us.i28, %13, %.preheader.lr.ph.split.i6, %first_pass.exit, %1
+  %.0 = phi i32 [ 6, %1 ], [ 0, %first_pass.exit ], [ 0, %.preheader.lr.ph.split.i6 ], [ 0, %13 ], [ 0, %._crit_edge40.us.i28 ], [ 0, %._crit_edge40.us48.i15 ]
   ret i32 %.0
 }
 

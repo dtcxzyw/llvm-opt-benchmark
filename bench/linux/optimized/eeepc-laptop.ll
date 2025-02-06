@@ -1484,27 +1484,28 @@ define internal i64 @available_cpufv_show(ptr noundef readonly captures(none) %0
   br label %.thread
 
 18:                                               ; preds = %11
-  %19 = trunc i64 %15 to i32
+  %.fr = freeze i64 %15
+  %19 = trunc i64 %.fr to i32
   %20 = icmp sgt i32 %19, -1
   %21 = lshr i32 %19, 8
   %22 = and i32 %21, 255
   %23 = add nsw i32 %22, -1
   %24 = icmp ult i32 %23, 12
   %25 = select i1 %20, i1 %24, i1 false
-  br i1 %25, label %.preheader, label %.thread
+  br i1 %25, label %.preheader.split, label %.thread
 
-.preheader:                                       ; preds = %18, %.preheader
-  %26 = phi i64 [ %31, %.preheader ], [ 0, %18 ]
-  %27 = phi i32 [ %32, %.preheader ], [ 0, %18 ]
+.preheader.split:                                 ; preds = %18, %.preheader.split
+  %26 = phi i64 [ %31, %.preheader.split ], [ 0, %18 ]
+  %27 = phi i32 [ %32, %.preheader.split ], [ 0, %18 ]
   %28 = getelementptr i8, ptr %2, i64 %26
   %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %27) #13
   %30 = sext i32 %29 to i64
   %31 = add i64 %26, %30
   %32 = add nuw nsw i32 %27, 1
   %33 = icmp eq i32 %22, %32
-  br i1 %33, label %34, label %.preheader, !llvm.loop !8
+  br i1 %33, label %34, label %.preheader.split, !llvm.loop !8
 
-34:                                               ; preds = %.preheader
+34:                                               ; preds = %.preheader.split
   %35 = getelementptr i8, ptr %2, i64 %31
   store i16 10, ptr %35, align 1
   %36 = add i64 %31, 1

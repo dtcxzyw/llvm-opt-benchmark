@@ -82,9 +82,9 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   %wide.trip.count265.i = zext nneg i32 %17 to i64
   br i1 %.not12, label %_ZL6jacobiIPPdEiT_iS0_S2_.exit, label %.preheader200.i.us
 
-.preheader200.i.us:                               ; preds = %.preheader201.i, %._crit_edge240.i.loopexit.us
-  %.0167242.i.us = phi i32 [ %167, %._crit_edge240.i.loopexit.us ], [ 1, %.preheader201.i ]
-  %.0168241.i.us = phi i32 [ %.3171.i.us, %._crit_edge240.i.loopexit.us ], [ 0, %.preheader201.i ]
+.preheader200.i.us:                               ; preds = %.preheader201.i, %._crit_edge240.i.us
+  %.0167242.i.us = phi i32 [ %166, %._crit_edge240.i.us ], [ 1, %.preheader201.i ]
+  %.0168241.i.us = phi i32 [ %.3171.i.us, %._crit_edge240.i.us ], [ 0, %.preheader201.i ]
   br label %.lr.ph210.i.us
 
 .lr.ph210.i.us:                                   ; preds = %.preheader200.i.us, %.loopexit198.i.us
@@ -344,7 +344,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   br label %159
 
 159:                                              ; preds = %._crit_edge226.i.loopexit.us, %158, %53
-  %.3171.i.us = phi i32 [ %.2170229.i.us, %158 ], [ %166, %._crit_edge226.i.loopexit.us ], [ %.2170229.i.us, %53 ]
+  %.3171.i.us = phi i32 [ %.2170229.i.us, %158 ], [ %167, %._crit_edge226.i.loopexit.us ], [ %.2170229.i.us, %53 ]
   %indvars.iv.next293.i.us = add nuw nsw i64 %indvars.iv292.i.us, 1
   %indvars.iv.next282.i.us = add nuw nsw i64 %indvars.iv281.i.us, 1
   %exitcond297.not.i.us = icmp eq i64 %indvars.iv.next293.i.us, %wide.trip.count248.i
@@ -369,16 +369,16 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   store double 0.000000e+00, ptr %160, align 8
   %indvars.iv.next304.i.us = add nuw nsw i64 %indvars.iv303.i.us, 1
   %exitcond307.not.i.us = icmp eq i64 %indvars.iv.next304.i.us, %wide.trip.count248.i
-  br i1 %exitcond307.not.i.us, label %._crit_edge240.i.loopexit.us, label %.lr.ph239.i.us, !llvm.loop !16
+  br i1 %exitcond307.not.i.us, label %._crit_edge240.i.us, label %.lr.ph239.i.us, !llvm.loop !16
+
+._crit_edge240.i.us:                              ; preds = %.lr.ph239.i.us
+  %166 = add nuw nsw i32 %.0167242.i.us, 1
+  %exitcond308.not.i.us = icmp eq i32 %166, 51
+  br i1 %exitcond308.not.i.us, label %.split.us, label %.preheader200.i.us, !llvm.loop !17
 
 ._crit_edge226.i.loopexit.us:                     ; preds = %144
-  %166 = add nsw i32 %.2170229.i.us, 1
+  %167 = add nsw i32 %.2170229.i.us, 1
   br label %159
-
-._crit_edge240.i.loopexit.us:                     ; preds = %.lr.ph239.i.us
-  %167 = add nuw nsw i32 %.0167242.i.us, 1
-  %exitcond308.not.i.us = icmp eq i32 %167, 51
-  br i1 %exitcond308.not.i.us, label %.split.us, label %.preheader200.i.us, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %._crit_edge.us.i, %.lr.ph.i
   %indvars.iv250.i = phi i64 [ %indvars.iv.next251.i, %.lr.ph.i ], [ 0, %._crit_edge.us.i ]
@@ -396,7 +396,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   %exitcond254.not.i = icmp eq i64 %indvars.iv.next251.i, %wide.trip.count248.i
   br i1 %exitcond254.not.i, label %.preheader201.i, label %.lr.ph.i, !llvm.loop !18
 
-.split.us:                                        ; preds = %._crit_edge240.i.loopexit.us
+.split.us:                                        ; preds = %._crit_edge240.i.us
   call void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(120) @.str.1, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 170, ptr noundef nonnull @.str.3) #10
           to label %175 unwind label %176

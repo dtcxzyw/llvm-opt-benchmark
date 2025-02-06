@@ -1698,16 +1698,11 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
 
 .preheader347.split.us.preheader.i.i:             ; preds = %1227
   %1230 = uitofp nneg i32 %.sroa.speculated.i.i to float
-  br label %.lr.ph384.us.i.i
+  br label %.preheader347.split.us.i.i
 
-.loopexit346.us.i.i:                              ; preds = %..loopexit345_crit_edge.us.us.i.i
-  %indvars.iv.next445.i.i = add nuw nsw i64 %indvars.iv444.i.i, 1
-  %exitcond449.not.i.i = icmp eq i64 %indvars.iv.next445.i.i, 31
-  br i1 %exitcond449.not.i.i, label %.preheader342.i.i, label %.lr.ph384.us.i.i, !llvm.loop !28
-
-.lr.ph384.us.i.i:                                 ; preds = %.loopexit346.us.i.i, %.preheader347.split.us.preheader.i.i
-  %indvars.iv444.i.i = phi i64 [ 0, %.preheader347.split.us.preheader.i.i ], [ %indvars.iv.next445.i.i, %.loopexit346.us.i.i ]
-  %.0252387.us.i.i = phi i32 [ 32, %.preheader347.split.us.preheader.i.i ], [ %.2254.us.us.i.i, %.loopexit346.us.i.i ]
+.preheader347.split.us.i.i:                       ; preds = %.loopexit346.us.i.loopexit.i, %.preheader347.split.us.preheader.i.i
+  %indvars.iv444.i.i = phi i64 [ 0, %.preheader347.split.us.preheader.i.i ], [ %indvars.iv.next445.i.i, %.loopexit346.us.i.loopexit.i ]
+  %.0252387.us.i.i = phi i32 [ 32, %.preheader347.split.us.preheader.i.i ], [ %.2254.us.us.i.i, %.loopexit346.us.i.loopexit.i ]
   %1231 = icmp samesign ult i64 %indvars.iv444.i.i, 12
   %.0241.us.i.i = select i1 %1231, float 0x3FDA48C360000000, float 0x3FE04C1660000000
   %umax.i.i = tail call i64 @llvm.umax.i64(i64 %indvars.iv444.i.i, i64 11)
@@ -1717,9 +1712,14 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
   %gep379.us.i.i = getelementptr inbounds nuw float, ptr %1122, i64 %1232
   br label %1234
 
-1234:                                             ; preds = %..loopexit345_crit_edge.us.us.i.i, %.lr.ph384.us.i.i
-  %indvars.iv446.in.i.i = phi i64 [ %indvars.iv446.i.i, %..loopexit345_crit_edge.us.us.i.i ], [ %umax.i.i, %.lr.ph384.us.i.i ]
-  %.1253382.us.us.i.i = phi i32 [ %.2254.us.us.i.i, %..loopexit345_crit_edge.us.us.i.i ], [ %.0252387.us.i.i, %.lr.ph384.us.i.i ]
+.loopexit346.us.i.loopexit.i:                     ; preds = %..loopexit345_crit_edge.us.us.i.i
+  %indvars.iv.next445.i.i = add nuw nsw i64 %indvars.iv444.i.i, 1
+  %exitcond449.not.i.i = icmp eq i64 %indvars.iv.next445.i.i, 31
+  br i1 %exitcond449.not.i.i, label %.preheader342.i.i, label %.preheader347.split.us.i.i, !llvm.loop !28
+
+1234:                                             ; preds = %..loopexit345_crit_edge.us.us.i.i, %.preheader347.split.us.i.i
+  %indvars.iv446.in.i.i = phi i64 [ %indvars.iv446.i.i, %..loopexit345_crit_edge.us.us.i.i ], [ %umax.i.i, %.preheader347.split.us.i.i ]
+  %.1253382.us.us.i.i = phi i32 [ %.2254.us.us.i.i, %..loopexit345_crit_edge.us.us.i.i ], [ %.0252387.us.i.i, %.preheader347.split.us.i.i ]
   %indvars.iv446.i.i = add nuw nsw i64 %indvars.iv446.in.i.i, 1
   %1235 = load float, ptr %1233, align 4, !noalias !22
   %1236 = mul nuw nsw i64 %indvars.iv446.i.i, 3
@@ -1871,9 +1871,9 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
 ..loopexit345_crit_edge.us.us.i.i:                ; preds = %..loopexit345_crit_edge.us.us.loopexit.i.i, %1234
   %.2254.us.us.i.i = phi i32 [ %.1253382.us.us.i.i, %1234 ], [ %1352, %..loopexit345_crit_edge.us.us.loopexit.i.i ]
   %1353 = icmp samesign ult i64 %indvars.iv446.in.i.i, 30
-  br i1 %1353, label %1234, label %.loopexit346.us.i.i, !llvm.loop !30
+  br i1 %1353, label %1234, label %.loopexit346.us.i.loopexit.i, !llvm.loop !30
 
-.preheader342.i.i:                                ; preds = %.loopexit346.us.i.i
+.preheader342.i.i:                                ; preds = %.loopexit346.us.i.loopexit.i
   %1354 = add nsw i32 %.sroa.speculated.i.i, -1
   %.not425.i.i = icmp eq i32 %.fr.i128.i, 2
   br i1 %.not425.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %.preheader341.us.preheader.i.i
