@@ -110,27 +110,27 @@ define void @LAPACKE_dtp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %79 = add i32 %78, %74
   br label %80
 
-80:                                               ; preds = %80, %72
+80:; preds = %80, %72
   %81 = phi i64 [ %73, %72 ], [ %87, %80 ]
   %82 = trunc i64 %81 to i32
   %83 = add i32 %79, %82
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds double, ptr %4, i64 %84
-  %86 = load double, ptr %85, align 8, !tbaa !6
-  %87 = add nuw nsw i64 %81, 1
-  %88 = mul i64 %87, %81
-  %89 = trunc i64 %88 to i32
-  %90 = lshr i32 %89, 1
-  %91 = add nuw nsw i32 %90, %75
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw double, ptr %5, i64 %92
-  store double %86, ptr %93, align 8, !tbaa !6
-  %94 = icmp slt i64 %87, %44
-  br i1 %94, label %80, label %.loopexit, !llvm.loop !11
+  %84 = load double, ptr %85, align 8, !tbaa !6
+  %85 = add nuw nsw i64 %81, 1
+  %86 = mul i64 %87, %81
+  %87 = trunc i64 %86 to i32
+  %88 = lshr i32 %87, 1
+  %89 = add nuw nsw i32 %88, %75
+  %90 = zext nneg i32 %91 to i64
+  %91 = getelementptr inbounds nuw double, ptr %5, i64 %90
+  store double %86, ptr %91, align 8, !tbaa !6
+  %93 = icmp slt i64 %87, %44
+  br i1 %93, label %80, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %80
+.loopexit:; preds = %80
   %95 = add nuw nsw i32 %75, 1
-  %96 = xor i32 %75, -1
+  %exitcond.not = xor i32 %75, -1
   %97 = add nuw nsw i64 %73, 1
   %98 = icmp eq i32 %95, %38
   br i1 %98, label %.loopexit8, label %72, !llvm.loop !12

@@ -49715,59 +49715,59 @@ for.cond.preheader.lr.ph.split.us.split.i:        ; preds = %for.cond.preheader.
 
 for.cond.preheader.us.us.i.preheader:             ; preds = %for.cond.preheader.lr.ph.split.us.split.i
   switch i32 %0, label %for.cond.preheader.us.us.i [
-    i32 1, label %for.cond.preheader.us.us.i.us.us
-    i32 0, label %for.cond.preheader.us.us.i.us29
+    i32 1, label %for.cond.preheader.us.us.i.us
+    i32 0, label %for.cond.preheader.us.us.i.us21
   ]
 
-for.cond.preheader.us.us.i.us.us:                 ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us
-  %cdata.063.us.us.i.us.us = phi ptr [ %add.ptr48.us.us.i.us.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us ], [ %8, %for.cond.preheader.us.us.i.preheader ]
-  %drow.058.us.us.i.us.us = phi ptr [ %add.ptr49.us.us.i.us.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us ], [ %19, %for.cond.preheader.us.us.i.preheader ]
-  br label %sw.epilog.us.us.us.us.i.us.us.us
+for.cond.preheader.us.us.i.us:                    ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us
+  %cdata.063.us.us.i.us = phi ptr [ %add.ptr48.us.us.i.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us ], [ %8, %for.cond.preheader.us.us.i.preheader ]
+  %drow.058.us.us.i.us = phi ptr [ %add.ptr49.us.us.i.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us ], [ %19, %for.cond.preheader.us.us.i.preheader ]
+  br label %sw.epilog.us.us.us.us.i.us
 
-sw.epilog.us.us.us.us.i.us.us.us:                 ; preds = %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us, %for.cond.preheader.us.us.i.us.us
-  %i.018.us.us.us.us.i.us.us.us = phi i64 [ %inc45.us.us.us.us.i.us.us.us, %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us ], [ 0, %for.cond.preheader.us.us.i.us.us ]
-  %j.017.us.us.us.us.i.us.us.us = phi i32 [ %22, %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us ], [ 0, %for.cond.preheader.us.us.i.us.us ]
-  %arrayidx6.us.us.us.us.i.us.us.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us.us, i64 %i.018.us.us.us.us.i.us.us.us
-  store float 0.000000e+00, ptr %arrayidx6.us.us.us.us.i.us.us.us, align 4
-  %21 = sext i32 %j.017.us.us.us.us.i.us.us.us to i64
-  %22 = add i32 %j.017.us.us.us.us.i.us.us.us, %1
-  br label %for.body14.us.us.us.us.us.i.us.us.us
+sw.epilog.us.us.us.us.i.us:                       ; preds = %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us, %for.cond.preheader.us.us.i.us
+  %i.018.us.us.us.us.i.us = phi i64 [ %inc45.us.us.us.us.i.us, %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us ]
+  %j.017.us.us.us.us.i.us = phi i32 [ %22, %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us ]
+  %arrayidx6.us.us.us.us.i.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us, i64 %i.018.us.us.us.us.i.us
+  store float 0.000000e+00, ptr %arrayidx6.us.us.us.us.i.us, align 4
+  %21 = sext i32 %j.017.us.us.us.us.i.us to i64
+  %22 = add i32 %j.017.us.us.us.us.i.us, %1
+  br label %for.body14.us.us.us.us.us.i.us
 
-for.body14.us.us.us.us.us.i.us.us.us:             ; preds = %for.body14.us.us.us.us.us.i.us.us.us, %sw.epilog.us.us.us.us.i.us.us.us
-  %indvars.iv166.i.us.us.us = phi i64 [ %indvars.iv.next167.i.us.us.us, %for.body14.us.us.us.us.us.i.us.us.us ], [ %21, %sw.epilog.us.us.us.us.i.us.us.us ]
-  %add.us15.us.us.us.us.i.us.us.us = phi float [ %add.us.us.us.us.us.i.us.us.us, %for.body14.us.us.us.us.us.i.us.us.us ], [ 0.000000e+00, %sw.epilog.us.us.us.us.i.us.us.us ]
-  %arrayidx16.us.us.us.us.us.i.us.us.us = getelementptr inbounds float, ptr %cdata.063.us.us.i.us.us, i64 %indvars.iv166.i.us.us.us
-  %23 = load float, ptr %arrayidx16.us.us.us.us.us.i.us.us.us, align 4
-  %add.us.us.us.us.us.i.us.us.us = fadd float %add.us15.us.us.us.us.i.us.us.us, %23
-  store float %add.us.us.us.us.us.i.us.us.us, ptr %arrayidx6.us.us.us.us.i.us.us.us, align 4
-  %indvars.iv.next167.i.us.us.us = add nsw i64 %indvars.iv166.i.us.us.us, 1
-  %lftr.wideiv169.i.us.us.us = trunc i64 %indvars.iv.next167.i.us.us.us to i32
-  %exitcond170.not.i.us.us.us = icmp eq i32 %22, %lftr.wideiv169.i.us.us.us
-  br i1 %exitcond170.not.i.us.us.us, label %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us, label %for.body14.us.us.us.us.us.i.us.us.us, !llvm.loop !610
+for.body14.us.us.us.us.us.i.us:                   ; preds = %for.body14.us.us.us.us.us.i.us, %sw.epilog.us.us.us.us.i.us
+  %indvars.iv166.i.us = phi i64 [ %indvars.iv.next167.i.us, %for.body14.us.us.us.us.us.i.us ], [ %21, %sw.epilog.us.us.us.us.i.us ]
+  %add.us15.us.us.us.us.i.us = phi float [ %add.us.us.us.us.us.i.us, %for.body14.us.us.us.us.us.i.us ], [ 0.000000e+00, %sw.epilog.us.us.us.us.i.us ]
+  %arrayidx16.us.us.us.us.us.i.us = getelementptr inbounds float, ptr %cdata.063.us.us.i.us, i64 %indvars.iv166.i.us
+  %23 = load float, ptr %arrayidx16.us.us.us.us.us.i.us, align 4
+  %add.us.us.us.us.us.i.us = fadd float %add.us15.us.us.us.us.i.us, %23
+  store float %add.us.us.us.us.us.i.us, ptr %arrayidx6.us.us.us.us.i.us, align 4
+  %indvars.iv.next167.i.us = add nsw i64 %indvars.iv166.i.us, 1
+  %lftr.wideiv169.i.us = trunc i64 %indvars.iv.next167.i.us to i32
+  %exitcond170.not.i.us = icmp eq i32 %22, %lftr.wideiv169.i.us
+  br i1 %exitcond170.not.i.us, label %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us, label %for.body14.us.us.us.us.us.i.us, !llvm.loop !610
 
-for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us: ; preds = %for.body14.us.us.us.us.us.i.us.us.us
-  %div.us.us.us.us.i.us.us.us = fdiv float %add.us.us.us.us.us.i.us.us.us, %conv.i
-  store float %div.us.us.us.us.i.us.us.us, ptr %arrayidx6.us.us.us.us.i.us.us.us, align 4
-  %inc45.us.us.us.us.i.us.us.us = add nuw nsw i64 %i.018.us.us.us.us.i.us.us.us, 1
-  %exitcond171.not.i.us.us.us = icmp eq i64 %inc45.us.us.us.us.i.us.us.us, %20
-  br i1 %exitcond171.not.i.us.us.us, label %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us, label %sw.epilog.us.us.us.us.i.us.us.us, !llvm.loop !611
+for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us: ; preds = %for.body14.us.us.us.us.us.i.us
+  %div.us.us.us.us.i.us = fdiv float %add.us.us.us.us.us.i.us, %conv.i
+  store float %div.us.us.us.us.i.us, ptr %arrayidx6.us.us.us.us.i.us, align 4
+  %inc45.us.us.us.us.i.us = add nuw nsw i64 %i.018.us.us.us.us.i.us, 1
+  %exitcond171.not.i.us = icmp eq i64 %inc45.us.us.us.us.i.us, %20
+  br i1 %exitcond171.not.i.us, label %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us, label %sw.epilog.us.us.us.us.i.us, !llvm.loop !611
 
-for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us: ; preds = %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us.us.us
+for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us: ; preds = %for.cond12.for.end_crit_edge.split.us.us.us.us.us.i.us
   %24 = load i64, ptr %arrayidx47.i, align 8
-  %add.ptr48.us.us.i.us.us = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us.us, i64 %24
-  %add.ptr49.us.us.i.us.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us.us, i64 %20
-  %cmp4.us.us.i.us.us = icmp ult ptr %add.ptr48.us.us.i.us.us, %add.ptr.i
-  br i1 %cmp4.us.us.i.us.us, label %for.cond.preheader.us.us.i.us.us, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
+  %add.ptr48.us.us.i.us = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us, i64 %24
+  %add.ptr49.us.us.i.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us, i64 %20
+  %cmp4.us.us.i.us = icmp ult ptr %add.ptr48.us.us.i.us, %add.ptr.i
+  br i1 %cmp4.us.us.i.us, label %for.cond.preheader.us.us.i.us, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
 
-for.cond.preheader.us.us.i.us29:                  ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split
-  %cdata.063.us.us.i.us30 = phi ptr [ %add.ptr48.us.us.i.us33, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split ], [ %8, %for.cond.preheader.us.us.i.preheader ]
-  %drow.058.us.us.i.us31 = phi ptr [ %add.ptr49.us.us.i.us34, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split ], [ %19, %for.cond.preheader.us.us.i.preheader ]
+for.cond.preheader.us.us.i.us21:                  ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us
+  %cdata.063.us.us.i.us22 = phi ptr [ %add.ptr48.us.us.i.us25, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us ], [ %8, %for.cond.preheader.us.us.i.preheader ]
+  %drow.058.us.us.i.us23 = phi ptr [ %add.ptr49.us.us.i.us26, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us ], [ %19, %for.cond.preheader.us.us.i.preheader ]
   br label %sw.epilog.us.us.us.us123.i.us
 
-sw.epilog.us.us.us.us123.i.us:                    ; preds = %for.cond.preheader.us.us.i.us29, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us
-  %i.018.us.us.us.us117.i.us = phi i64 [ %inc45.us.us.us.us130.i.us, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us29 ]
-  %j.017.us.us.us.us118.i.us = phi i32 [ %26, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us29 ]
-  %arrayidx8.us.us.us.us120.i.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us31, i64 %i.018.us.us.us.us117.i.us
+sw.epilog.us.us.us.us123.i.us:                    ; preds = %for.cond.preheader.us.us.i.us21, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us
+  %i.018.us.us.us.us117.i.us = phi i64 [ %inc45.us.us.us.us130.i.us, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us21 ]
+  %j.017.us.us.us.us118.i.us = phi i32 [ %26, %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us ], [ 0, %for.cond.preheader.us.us.i.us21 ]
+  %arrayidx8.us.us.us.us120.i.us = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us23, i64 %i.018.us.us.us.us117.i.us
   store float 0xC7EFFFFFE0000000, ptr %arrayidx8.us.us.us.us120.i.us, align 4
   %25 = sext i32 %j.017.us.us.us.us118.i.us to i64
   %26 = add i32 %j.017.us.us.us.us118.i.us, %1
@@ -49776,7 +49776,7 @@ sw.epilog.us.us.us.us123.i.us:                    ; preds = %for.cond.preheader.
 for.body14.us6.us.us.us.us.i.us:                  ; preds = %sw.epilog33.us9.us.us.us.us.i.us, %sw.epilog.us.us.us.us123.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %sw.epilog33.us9.us.us.us.us.i.us ], [ %25, %sw.epilog.us.us.us.us123.i.us ]
   %27 = phi float [ %29, %sw.epilog33.us9.us.us.us.us.i.us ], [ 0xC7EFFFFFE0000000, %sw.epilog.us.us.us.us123.i.us ]
-  %arrayidx20.us.us.us.us.us.i.us = getelementptr inbounds float, ptr %cdata.063.us.us.i.us30, i64 %indvars.iv.i.us
+  %arrayidx20.us.us.us.us.us.i.us = getelementptr inbounds float, ptr %cdata.063.us.us.i.us22, i64 %indvars.iv.i.us
   %28 = load float, ptr %arrayidx20.us.us.us.us.us.i.us, align 4
   %cmp22.us.us.us.us.us.i.us = fcmp ogt float %28, %27
   br i1 %cmp22.us.us.us.us.us.i.us, label %if.then23.us.us.us.us.us.i.us, label %sw.epilog33.us9.us.us.us.us.i.us
@@ -49795,14 +49795,14 @@ sw.epilog33.us9.us.us.us.us.i.us:                 ; preds = %if.then23.us.us.us.
 for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us: ; preds = %sw.epilog33.us9.us.us.us.us.i.us
   %inc45.us.us.us.us130.i.us = add nuw nsw i64 %i.018.us.us.us.us117.i.us, 1
   %exitcond165.not.i.us = icmp eq i64 %inc45.us.us.us.us130.i.us, %20
-  br i1 %exitcond165.not.i.us, label %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split, label %sw.epilog.us.us.us.us123.i.us, !llvm.loop !611
+  br i1 %exitcond165.not.i.us, label %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us, label %sw.epilog.us.us.us.us123.i.us, !llvm.loop !611
 
-for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split: ; preds = %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us
+for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us: ; preds = %for.cond12.for.end_crit_edge.split.split.us.us.us.us.us.i.us
   %30 = load i64, ptr %arrayidx47.i, align 8
-  %add.ptr48.us.us.i.us33 = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us30, i64 %30
-  %add.ptr49.us.us.i.us34 = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us31, i64 %20
-  %cmp4.us.us.i.us35 = icmp ult ptr %add.ptr48.us.us.i.us33, %add.ptr.i
-  br i1 %cmp4.us.us.i.us35, label %for.cond.preheader.us.us.i.us29, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
+  %add.ptr48.us.us.i.us25 = getelementptr inbounds i8, ptr %cdata.063.us.us.i.us22, i64 %30
+  %add.ptr49.us.us.i.us26 = getelementptr inbounds nuw float, ptr %drow.058.us.us.i.us23, i64 %20
+  %cmp4.us.us.i.us27 = icmp ult ptr %add.ptr48.us.us.i.us25, %add.ptr.i
+  br i1 %cmp4.us.us.i.us27, label %for.cond.preheader.us.us.i.us21, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
 
 for.cond.preheader.us.us.i:                       ; preds = %for.cond.preheader.us.us.i.preheader, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit
   %cdata.063.us.us.i = phi ptr [ %add.ptr48.us.us.i, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit ], [ %8, %for.cond.preheader.us.us.i.preheader ]
@@ -49861,8 +49861,8 @@ for.body.us29.us.us.us.us.i:                      ; preds = %for.body.us29.us.us
   br i1 %exitcond162.not.i, label %for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i, label %for.body.us29.us.us.us.us.i, !llvm.loop !611
 
 for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i: ; preds = %for.body.us29.us.us.us.us.i
-  %32 = load i64, ptr %arrayidx47.i, align 8
-  %add.ptr48.us.us79.us.i = getelementptr inbounds i8, ptr %cdata.063.us.us77.us.i, i64 %32
+  %31 = load i64, ptr %arrayidx47.i, align 8
+  %add.ptr48.us.us79.us.i = getelementptr inbounds i8, ptr %cdata.063.us.us77.us.i, i64 %31
   %add.ptr49.us.us80.us.i = getelementptr inbounds nuw float, ptr %drow.058.us.us78.us.i, i64 %20
   %cmp4.us.us81.us.i = icmp ult ptr %add.ptr48.us.us79.us.i, %add.ptr.i
   br i1 %cmp4.us.us81.us.i, label %for.cond.preheader.us.us76.us.i, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
@@ -49881,22 +49881,22 @@ for.body.us50.us.us.i:                            ; preds = %for.body.us50.us.us
   br i1 %exitcond.not.i, label %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i, label %for.body.us50.us.us.i, !llvm.loop !611
 
 for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i: ; preds = %for.body.us50.us.us.i
-  %33 = load i64, ptr %arrayidx47.i, align 8
-  %add.ptr48.us.us93.i = getelementptr inbounds i8, ptr %cdata.063.us.us90.i, i64 %33
+  %32 = load i64, ptr %arrayidx47.i, align 8
+  %add.ptr48.us.us93.i = getelementptr inbounds i8, ptr %cdata.063.us.us90.i, i64 %32
   %add.ptr49.us.us94.i = getelementptr inbounds nuw float, ptr %drow.058.us.us91.i, i64 %20
   %cmp4.us.us95.i = icmp ult ptr %add.ptr48.us.us93.i, %add.ptr.i
   br i1 %cmp4.us.us95.i, label %for.cond.preheader.us.us89.i, label %ggml_compute_forward_pool_1d_sk_p0.exit, !llvm.loop !612
 
 do.body.i:                                        ; preds = %for.cond.preheader.lr.ph.split.us.i
-  %34 = load ptr, ptr @stdout, align 8
-  %call10.i = tail call i32 @fflush(ptr noundef %34)
-  %35 = load ptr, ptr @stderr, align 8
-  %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 12245, ptr noundef nonnull @.str.26) #46
+  %33 = load ptr, ptr @stdout, align 8
+  %call10.i = tail call i32 @fflush(ptr noundef %33)
+  %34 = load ptr, ptr @stderr, align 8
+  %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 12245, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
-ggml_compute_forward_pool_1d_sk_p0.exit:          ; preds = %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i, %for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us.split, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.split.us.us.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit, %for.cond.preheader.lr.ph.split.us.split.split.i, %do.end11, %do.end11, %ggml_nbytes.exit.i, %for.cond.preheader.lr.ph.i
+ggml_compute_forward_pool_1d_sk_p0.exit:          ; preds = %for.cond.for.end46_crit_edge.split.split.split.split.us.us.us.i, %for.cond.for.end46_crit_edge.split.split.us.us.us.split.us.us.i, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit7.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit6.us, %for.cond.for.end46_crit_edge.split.us.us.us.i.loopexit, %for.cond.preheader.lr.ph.split.us.split.split.i, %do.end11, %do.end11, %ggml_nbytes.exit.i, %for.cond.preheader.lr.ph.i
   ret void
 }
 

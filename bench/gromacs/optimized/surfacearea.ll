@@ -1698,11 +1698,11 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
 
 .preheader347.split.us.preheader.i.i:             ; preds = %1227
   %1230 = uitofp nneg i32 %.sroa.speculated.i.i to float
-  br label %.preheader347.split.us.i.i
+  br label %.loopexit346.us.i.i
 
-.preheader347.split.us.i.i:                       ; preds = %.loopexit346.us.i.loopexit.i, %.preheader347.split.us.preheader.i.i
-  %indvars.iv444.i.i = phi i64 [ 0, %.preheader347.split.us.preheader.i.i ], [ %indvars.iv.next445.i.i, %.loopexit346.us.i.loopexit.i ]
-  %.0252387.us.i.i = phi i32 [ 32, %.preheader347.split.us.preheader.i.i ], [ %.2254.us.us.i.i, %.loopexit346.us.i.loopexit.i ]
+.loopexit346.us.i.i:                              ; preds = %1234, %.preheader347.split.us.preheader.i.i
+  %indvars.iv.next445.i.i = phi i64 [ 0, %.preheader347.split.us.preheader.i.i ], [ %indvars.iv446.in.i.i, %1234 ]
+  %exitcond449.not.i.i = phi i32 [ 32, %.preheader347.split.us.preheader.i.i ], [ %.2254.us.us.i.i, %1234 ]
   %1231 = icmp samesign ult i64 %indvars.iv444.i.i, 12
   %.0241.us.i.i = select i1 %1231, float 0x3FDA48C360000000, float 0x3FE04C1660000000
   %umax.i.i = tail call i64 @llvm.umax.i64(i64 %indvars.iv444.i.i, i64 11)
@@ -1712,9 +1712,9 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %372, %279
   %gep379.us.i.i = getelementptr inbounds nuw float, ptr %1122, i64 %1232
   br label %1234
 
-.loopexit346.us.i.loopexit.i:                     ; preds = %..loopexit345_crit_edge.us.us.i.i
-  %indvars.iv.next445.i.i = add nuw nsw i64 %indvars.iv444.i.i, 1
-  %exitcond449.not.i.i = icmp eq i64 %indvars.iv.next445.i.i, 31
+1234:                                             ; preds = %..loopexit345_crit_edge.us.us.i.i
+  %indvars.iv446.in.i.i = add nuw nsw i64 %indvars.iv444.i.i, 1
+  %.1253382.us.us.i.i = icmp eq i64 %indvars.iv446.in.i.i, 31
   br i1 %exitcond449.not.i.i, label %.preheader342.i.i, label %.preheader347.split.us.i.i, !llvm.loop !28
 
 1234:                                             ; preds = %..loopexit345_crit_edge.us.us.i.i, %.preheader347.split.us.i.i

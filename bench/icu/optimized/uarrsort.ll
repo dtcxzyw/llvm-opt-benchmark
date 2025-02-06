@@ -516,14 +516,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.body10.preheader.i.i
 
-while.body10.preheader.i.i.loopexit:              ; preds = %while.body.i.i
-  %3 = sext i32 %start.1.i.i to i64
+while.cond8.preheader.i.i:                        ; preds = %while.body.i.i
+  %cmp925.i.i = sext i32 %start.1.i.i to i64
   br label %while.body10.preheader.i.i
 
-while.body10.preheader.i.i:                       ; preds = %while.body10.preheader.i.i.loopexit, %for.body.i
-  %limit.addr.0.lcssa.i29.i = phi i32 [ %2, %for.body.i ], [ %limit.addr.1.i.i, %while.body10.preheader.i.i.loopexit ]
-  %start.0.lcssa.i28.i = phi i64 [ 0, %for.body.i ], [ %3, %while.body10.preheader.i.i.loopexit ]
-  %found.0.lcssa.i27.i = phi i8 [ 0, %for.body.i ], [ %found.1.i.i, %while.body10.preheader.i.i.loopexit ]
+while.body10.preheader.i.i:                       ; preds = %while.cond8.preheader.i.i, %for.body.i
+  %limit.addr.0.lcssa.i29.i = phi i32 [ %2, %for.body.i ], [ %limit.addr.1.i.i, %while.cond8.preheader.i.i ]
+  %start.0.lcssa.i28.i = phi i64 [ 0, %for.body.i ], [ %cmp925.i.i, %while.cond8.preheader.i.i ]
+  %found.0.lcssa.i27.i = phi i8 [ 0, %for.body.i ], [ %found.1.i.i, %while.cond8.preheader.i.i ]
   br label %while.body10.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
@@ -546,7 +546,7 @@ while.body.i.i:                                   ; preds = %for.body.i, %while.
   %limit.addr.1.i.i = select i1 %cmp2.i.i, i32 %limit.addr.022.i.i, i32 %div.limit.addr.0.i.i
   %sub.i.i = sub nsw i32 %limit.addr.1.i.i, %start.1.i.i
   %cmp1.i.i = icmp sgt i32 %sub.i.i, 8
-  br i1 %cmp1.i.i, label %while.body.i.i, label %while.body10.preheader.i.i.loopexit, !llvm.loop !4
+  br i1 %cmp1.i.i, label %while.body.i.i, label %while.cond8.preheader.i.i, !llvm.loop !4
 
 while.body10.i.i:                                 ; preds = %if.end22.i.i, %while.body10.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %start.0.lcssa.i28.i, %while.body10.preheader.i.i ], [ %indvars.iv.next.i.i, %if.end22.i.i ]

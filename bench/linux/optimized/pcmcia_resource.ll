@@ -1292,7 +1292,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %128, label %9
+  br i1 %8, label %130, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1321,7 +1321,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %28 = zext i32 %27 to i64
   %29 = and i64 %18, %28
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %128
+  br i1 %30, label %31, label %130
 
 31:                                               ; preds = %17
   %32 = load i64, ptr %1, align 8
@@ -1329,13 +1329,13 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %34 = and i32 %20, 8
   %35 = icmp eq i32 %34, 0
   %36 = or i1 %35, %33
-  br i1 %36, label %37, label %128
+  br i1 %36, label %37, label %130
 
 37:                                               ; preds = %31
   %38 = add i64 %26, -1
   %39 = and i64 %32, %38
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %128
+  br i1 %40, label %41, label %130
 
 41:                                               ; preds = %37
   %42 = select i1 %33, i64 %26, i64 0
@@ -1361,11 +1361,11 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %55 = zext nneg i32 %46 to i64
   %56 = getelementptr [4 x %struct.pccard_mem_map], ptr %54, i64 0, i64 %55
   %57 = load i32, ptr %19, align 4
-  %58 = and i32 %57, 8
-  %59 = icmp eq i32 %58, 0
+  %56 = and i32 %57, 8
+  %57 = icmp eq i32 %56, 0
   br i1 %59, label %60, label %73
 
-60:                                               ; preds = %53
+60:; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -1373,44 +1373,44 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread3, label %67
 
-.thread3:                                         ; preds = %60
+.thread3:; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr null, ptr %66, align 8
   br label %.thread
 
-67:                                               ; preds = %60
-  %68 = load i64, ptr %10, align 8
-  %69 = load i64, ptr %1, align 8
-  %70 = tail call ptr %64(i64 noundef %69, i64 noundef %68, i64 noundef %42, i32 noundef 0, ptr noundef %4) #7
-  %71 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr %70, ptr %71, align 8
-  %72 = icmp eq ptr %70, null
-  br i1 %72, label %.thread, label %73
+69:                                               ; preds = %60
+  %70 = load i64, ptr %10, align 8
+  %71 = load i64, ptr %1, align 8
+  %72 = tail call ptr %64(i64 noundef %71, i64 noundef %70, i64 noundef %42, i32 noundef 0, ptr noundef %4) #7
+  %73 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr %72, ptr %73, align 8
+  %74 = icmp eq ptr %72, null
+  br i1 %74, label %.thread, label %75
 
-73:                                               ; preds = %67, %53
-  %74 = shl nuw i32 1, %46
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %76 = load i16, ptr %75, align 8
-  %77 = trunc i32 %74 to i16
-  %78 = shl i16 %77, 3
-  %79 = and i16 %78, 120
-  %80 = or i16 %76, %79
-  store i16 %80, ptr %75, align 8
-  %81 = trunc i32 %46 to i8
-  %82 = add nsw i8 %81, 1
-  store i8 %82, ptr %56, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %84 = load i64, ptr %83, align 8
-  %85 = trunc i64 %84 to i8
-  %86 = and i8 %85, 99
-  %87 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store i8 %86, ptr %87, align 1
-  %88 = trunc i32 %2 to i16
-  %89 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  store i16 %88, ptr %89, align 2
-  %90 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 352
+75:                                               ; preds = %69, %53
+  %76 = shl nuw i32 1, %46
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %78 = load i16, ptr %77, align 8
+  %79 = trunc i32 %76 to i16
+  %80 = shl i16 %79, 3
+  %81 = and i16 %80, 120
+  %82 = or i16 %78, %81
+  store i16 %82, ptr %77, align 8
+  %83 = trunc i32 %46 to i8
+  %84 = add nsw i8 %83, 1
+  store i8 %84, ptr %56, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i8
+  %88 = and i8 %87, 99
+  %89 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  store i8 %88, ptr %89, align 1
+  %90 = trunc i32 %2 to i16
+  %91 = getelementptr inbounds nuw i8, ptr %56, i64 2
+  store i16 %90, ptr %91, align 2
+  %92 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store i32 0, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %94 = load ptr, ptr %93, align 8
@@ -1418,60 +1418,60 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %.thread
 
-97:                                               ; preds = %73
+97:   ; preds = %73
   %98 = load i32, ptr %5, align 4
   %99 = or i32 %98, %47
   store i32 %99, ptr %5, align 4
-  %100 = load i32, ptr %19, align 4
-  %101 = and i32 %100, 8
+  %101 = load i32, ptr %19, align 4
+  %101 = and i32 %101, 8
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %105, label %103
 
-103:                                              ; preds = %97
+103:; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br label %108
 
-105:                                              ; preds = %97
+105:; preds = %97
   %106 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %107 = load ptr, ptr %106, align 8
   br label %108
 
-108:                                              ; preds = %105, %103
+108:; preds = %105, %103
   %109 = phi ptr [ %107, %105 ], [ %104, %103 ]
   %110 = load i64, ptr %109, align 8
   store i64 %110, ptr %1, align 8
-  %111 = add i64 %110, -1
+  %112 = add i64 %110, -1
   %112 = load i64, ptr %10, align 8
-  %113 = add i64 %111, %112
+  %113 = add i64 %112, %112
   store i64 %113, ptr %10, align 8
-  %114 = load i64, ptr %83, align 8
-  %115 = and i64 %114, -29
-  store i64 %115, ptr %83, align 8
-  %116 = load i8, ptr %56, align 8
+  %115 = load i64, ptr %83, align 8
+  %115 = and i64 %115, -29
+  store i64 %115, ptr %85, align 8
+  %117 = load i8, ptr %56, align 8
   %117 = zext i8 %116 to i64
   %118 = shl nuw nsw i64 %117, 2
   %119 = or i64 %115, %118
   %120 = or i64 %119, 512
   store i64 %120, ptr %83, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %122, ptr %123, align 8
-  %124 = icmp eq ptr %122, null
+  %125 = icmp eq ptr %122, null
   br i1 %124, label %.thread, label %125
 
-125:                                              ; preds = %108
+125:; preds = %108
   %126 = tail call i32 @request_resource(ptr noundef nonnull @iomem_resource, ptr noundef %1) #7
   br label %.thread
 
-.thread:                                          ; preds = %50, %.thread3, %125, %108, %73, %67
-  %127 = phi i32 [ -22, %67 ], [ -5, %73 ], [ 0, %125 ], [ 0, %108 ], [ -22, %.thread3 ], [ -22, %50 ]
+.thread:                                          ; preds = %50, %.thread3, %125, %108, %75, %69
+  %129 = phi i32 [ -22, %69 ], [ -5, %75 ], [ 0, %125 ], [ 0, %108 ], [ -22, %.thread3 ], [ -22, %50 ]
   tail call void @mutex_unlock(ptr noundef nonnull %43) #7
-  br label %128
+  br label %130
 
-128:                                              ; preds = %.thread, %37, %31, %17, %3
-  %129 = phi i32 [ -19, %3 ], [ -22, %17 ], [ -22, %37 ], [ -22, %31 ], [ %127, %.thread ]
-  ret i32 %129
+130:                                              ; preds = %.thread, %37, %31, %17, %3
+  %131 = phi i32 [ -19, %3 ], [ -22, %17 ], [ -22, %37 ], [ -22, %31 ], [ %129, %.thread ]
+  ret i32 %131
 }
 
 ; Function Attrs: null_pointer_is_valid

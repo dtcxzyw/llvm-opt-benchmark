@@ -3071,7 +3071,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %.174.i.i.ph = phi i32 [ 0, %.lr.ph82.split.i.i ], [ %894, %.lr.ph.i235.i ]
   br label %.preheader.i239.i
 
-.preheader.i239.i:                                ; preds = %.preheader.i239.i.preheader, %._crit_edge.i242.i
+.preheader.i239.loopexit.i:                       ; preds = %.preheader.i239.i.preheader, %._crit_edge.i242.i
   %indvars.iv97.i.i = phi i64 [ %indvars.iv.next98.i.i, %._crit_edge.i242.i ], [ 1, %.preheader.i239.i.preheader ]
   %.05375.i.i = phi i32 [ %916, %._crit_edge.i242.i ], [ 0, %.preheader.i239.i.preheader ]
   %.174.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge.i242.i ], [ %.174.i.i.ph, %.preheader.i239.i.preheader ]
@@ -3080,7 +3080,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %.not6165.i.i = icmp slt i32 %896, 0
   br i1 %.not6165.i.i, label %._crit_edge.i242.i, label %.lr.ph69.i.i
 
-.lr.ph69.i.i:                                     ; preds = %.preheader.i239.i
+.lr.ph69.i.i:                                     ; preds = %.preheader.i239.loopexit.i
   %897 = sub nsw i32 0, %896
   %898 = mul nsw i64 %indvars.iv97.i.i, %818
   %899 = sext i32 %897 to i64
@@ -3110,15 +3110,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit232.i: ; preds = %798, %._crit_edge1
   %exitcond96.not.i.i = icmp eq i32 %900, %lftr.wideiv95.i.i
   br i1 %exitcond96.not.i.i, label %._crit_edge.i242.i, label %901, !llvm.loop !40
 
-._crit_edge.i242.i:                               ; preds = %901, %.preheader.i239.i
-  %.056.lcssa.i.i = phi i32 [ 0, %.preheader.i239.i ], [ %909, %901 ]
-  %.2.lcssa.i.i = phi i32 [ %.174.i.i, %.preheader.i239.i ], [ %913, %901 ]
+._crit_edge.i242.i:                               ; preds = %901, %.preheader.i239.loopexit.i
+  %.056.lcssa.i.i = phi i32 [ 0, %.preheader.i239.loopexit.i ], [ %909, %901 ]
+  %.2.lcssa.i.i = phi i32 [ %.174.i.i, %.preheader.i239.loopexit.i ], [ %913, %901 ]
   %914 = trunc nuw nsw i64 %indvars.iv97.i.i to i32
   %915 = mul nsw i32 %.056.lcssa.i.i, %914
   %916 = add nsw i32 %915, %.05375.i.i
   %indvars.iv.next98.i.i = add nuw nsw i64 %indvars.iv97.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %indvars.iv.next98.i.i, %wide.trip.count.i.i
-  br i1 %exitcond100.not.i.i, label %._crit_edge77.i.i, label %.preheader.i239.i, !llvm.loop !41
+  br i1 %exitcond100.not.i.i, label %._crit_edge77.i.i, label %.preheader.i239.loopexit.i, !llvm.loop !41
 
 ._crit_edge77.i.i:                                ; preds = %._crit_edge.i242.i
   %917 = sitofp i32 %916 to float

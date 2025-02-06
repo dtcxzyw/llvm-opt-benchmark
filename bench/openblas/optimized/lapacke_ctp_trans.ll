@@ -114,31 +114,31 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %82 = add i32 %81, %77
   br label %83
 
-83:                                               ; preds = %83, %75
+83:; preds = %83, %75
   %84 = phi i64 [ %76, %75 ], [ %92, %83 ]
   %85 = trunc i64 %84 to i32
   %86 = add i32 %82, %85
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds { float, float }, ptr %4, i64 %87
+  %87 = load float, ptr %88, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %89 = load float, ptr %88, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %91 = load float, ptr %90, align 4
-  %92 = add nuw nsw i64 %84, 1
-  %93 = mul i64 %92, %84
-  %94 = trunc i64 %93 to i32
-  %95 = lshr i32 %94, 1
-  %96 = add nuw nsw i32 %95, %78
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw { float, float }, ptr %5, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %90 = add nuw nsw i64 %84, 1
+  %91 = mul i64 %90, %84
+  %92 = trunc i64 %91 to i32
+  %93 = lshr i32 %94, 1
+  %94 = add nuw nsw i32 %93, %78
+  %95 = zext nneg i32 %96 to i64
+  %96 = getelementptr inbounds nuw { float, float }, ptr %5, i64 %97
+  %97 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store float %89, ptr %98, align 4
-  store float %91, ptr %99, align 4
+  store float %91, ptr %97, align 4
   %100 = icmp slt i64 %92, %44
   br i1 %100, label %83, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %83
+.loopexit: ; preds = %83
   %101 = add nuw nsw i32 %78, 1
-  %102 = xor i32 %78, -1
+  %exitcond.not = xor i32 %78, -1
   %103 = add nuw nsw i64 %76, 1
   %104 = icmp eq i32 %101, %38
   br i1 %104, label %.loopexit8, label %75, !llvm.loop !8

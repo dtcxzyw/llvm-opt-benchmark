@@ -1388,20 +1388,20 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h237b
   %20 = load i64, ptr %10, align 8, !alias.scope !580, !noalias !574, !noundef !9
   %21 = add i64 %20, 1
   store i64 %21, ptr %10, align 8, !alias.scope !580, !noalias !574
-  %.not = icmp eq i64 %.val5, 0
-  br i1 %.not, label %22, label %.lr.ph.split.preheader.i.i
+  %cond = icmp eq i64 %.val5, 0
+  br i1 %cond, label %22, label %.lr.ph.split.preheader.i.i
 
 22:                                               ; preds = %16
   %23 = load i64, ptr %12, align 8, !alias.scope !582, !noalias !591, !noundef !9
   %24 = icmp eq i64 %23, %21
-  br i1 %24, label %25, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit.thread"
+  br i1 %24, label %25, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit"
 
 25:                                               ; preds = %22
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h9b8020b29721cf34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %21, i64 noundef 1), !noalias !591
   %.pre.i.i.i.i.i11.i = load i64, ptr %10, align 8, !alias.scope !597, !noalias !591
-  br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit.thread"
+  br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit"
 
-"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit.thread": ; preds = %22, %25
+"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit": ; preds = %22, %25
   %26 = phi i64 [ %21, %22 ], [ %.pre.i.i.i.i.i11.i, %25 ]
   %27 = load ptr, ptr %.val.i, align 8, !alias.scope !597, !noalias !591, !nonnull !9, !noundef !9
   %28 = getelementptr inbounds i8, ptr %27, i64 %26
@@ -1755,8 +1755,8 @@ _ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i: ; preds = %1
   store i64 %152, ptr %142, align 8, !alias.scope !803, !noalias !797
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h03efbdb7bd2ee8fcE.exit"
 
-"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h03efbdb7bd2ee8fcE.exit": ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit.thread", %_ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i
-  %.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit.thread" ], [ %139, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ]
+"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h03efbdb7bd2ee8fcE.exit": ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit", %_ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i
+  %.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha1ef905107d4b6edE.exit" ], [ %139, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ]
   ret ptr %.1
 }
 

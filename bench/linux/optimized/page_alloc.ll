@@ -4221,30 +4221,30 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %7 = icmp ne ptr %5, null
   %8 = icmp sgt i32 %3, 0
   %9 = and i1 %8, %7
-  br i1 %9, label %.preheader.split.preheader, label %.loopexit25
+  br i1 %9, label %.preheader.preheader, label %.loopexit25
 
-.preheader.split.preheader:                       ; preds = %6
+.preheader.preheader:                             ; preds = %6
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.preheader.split
+  br label %.preheader
 
-.preheader.split:                                 ; preds = %.preheader.split.preheader, %13
-  %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %13 ]
+.preheader:                                       ; preds = %.preheader.preheader, %13
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %13 ]
   %10 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit25.loopexit.split.loop.exit76, label %13
+  br i1 %12, label %.loopexit25.loopexit.split.loop.exit, label %13
 
-13:                                               ; preds = %.preheader.split
+13:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit25, label %.preheader.split, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit25, label %.preheader, !llvm.loop !93
 
-.loopexit25.loopexit.split.loop.exit76:           ; preds = %.preheader.split
+.loopexit25.loopexit.split.loop.exit:             ; preds = %.preheader
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit25
 
-.loopexit25:                                      ; preds = %13, %.loopexit25.loopexit.split.loop.exit76, %6
-  %15 = phi i32 [ 0, %6 ], [ %14, %.loopexit25.loopexit.split.loop.exit76 ], [ %3, %13 ]
+.loopexit25:                                      ; preds = %13, %.loopexit25.loopexit.split.loop.exit, %6
+  %15 = phi i32 [ 0, %6 ], [ %14, %.loopexit25.loopexit.split.loop.exit ], [ %3, %13 ]
   %16 = icmp slt i32 %3, 1
   %17 = icmp eq i32 %15, %3
   %18 = and i1 %7, %17
@@ -4496,10 +4496,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   br i1 %185, label %.thread22, label %.split, !llvm.loop !95
 
 .thread21:                                        ; preds = %152, %100
-  %.us-phi37 = phi ptr [ %86, %100 ], [ %134, %152 ]
+  %.us-phi = phi ptr [ %86, %100 ], [ %134, %152 ]
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !96
-  %186 = getelementptr inbounds nuw i8, ptr %.us-phi37, i64 96
+  %186 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 96
   %187 = load ptr, ptr %186, align 32
   %188 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %187) #23, !srcloc !97
   %189 = inttoptr i64 %188 to ptr
@@ -4543,28 +4543,28 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %213 = phi i32 [ 0, %206 ], [ %236, %266 ]
   %214 = phi i32 [ %15, %206 ], [ %267, %266 ]
   %215 = sext i32 %214 to i64
-  br i1 %7, label %.split38.us, label %.split40.us
+  br i1 %7, label %.split37.us, label %.split39.us
 
-.split38.us:                                      ; preds = %212, %220
+.split37.us:                                      ; preds = %212, %220
   %216 = phi i64 [ %221, %220 ], [ %215, %212 ]
   %217 = getelementptr ptr, ptr %5, i64 %216
   %218 = load ptr, ptr %217, align 8
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %.split40.us, label %220
+  br i1 %219, label %.split39.us, label %220
 
-220:                                              ; preds = %.split38.us
+220:                                              ; preds = %.split37.us
   %221 = add nsw i64 %216, 1
   %222 = icmp slt i64 %221, %84
-  br i1 %222, label %.split38.us, label %.split43.us, !llvm.loop !100
+  br i1 %222, label %.split37.us, label %.split42.us, !llvm.loop !100
 
-.split40.us:                                      ; preds = %.split38.us, %212
-  %.us-phi41 = phi i64 [ %215, %212 ], [ %216, %.split38.us ]
-  %223 = trunc nsw i64 %.us-phi41 to i32
-  %224 = tail call fastcc ptr @__rmqueue_pcplist(ptr noundef nonnull %.us-phi37, i32 noundef 0, i32 noundef %42, i32 noundef %58, ptr noundef nonnull %189, ptr noundef %204)
+.split39.us:                                      ; preds = %.split37.us, %212
+  %.us-phi40 = phi i64 [ %215, %212 ], [ %216, %.split37.us ]
+  %223 = trunc nsw i64 %.us-phi40 to i32
+  %224 = tail call fastcc ptr @__rmqueue_pcplist(ptr noundef nonnull %.us-phi, i32 noundef 0, i32 noundef %42, i32 noundef %58, ptr noundef nonnull %189, ptr noundef %204)
   %225 = icmp eq ptr %224, null
   br i1 %225, label %226, label %235, !prof !14
 
-226:                                              ; preds = %.split40.us
+226:                                              ; preds = %.split39.us
   %227 = icmp eq i32 %213, 0
   br i1 %227, label %228, label %.loopexit
 
@@ -4582,7 +4582,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %234 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %233) #22, !srcloc !102
   br label %.thread22.sink.split
 
-235:                                              ; preds = %.split40.us
+235:                                              ; preds = %.split39.us
   %236 = add i32 %213, 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #22
           to label %239 [label %.thread24], !srcloc !29
@@ -4641,7 +4641,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   br label %266
 
 264:                                              ; preds = %258
-  %265 = getelementptr ptr, ptr %5, i64 %.us-phi41
+  %265 = getelementptr ptr, ptr %5, i64 %.us-phi40
   store ptr %224, ptr %265, align 8
   br label %266
 
@@ -4650,15 +4650,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %268 = icmp slt i32 %267, %3
   br i1 %268, label %212, label %.loopexit, !llvm.loop !100
 
-.split43.us:                                      ; preds = %220
+.split42.us:                                      ; preds = %220
   %269 = add nsw i64 %215, 1
   %smax.le = tail call i64 @llvm.smax.i64(i64 %269, i64 %84)
   %270 = trunc nuw nsw i64 %smax.le to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %266, %.split43.us, %226, %201
-  %271 = phi i32 [ %213, %226 ], [ 0, %201 ], [ %213, %.split43.us ], [ %236, %266 ]
-  %272 = phi i32 [ %223, %226 ], [ %15, %201 ], [ %270, %.split43.us ], [ %267, %266 ]
+.loopexit:                                        ; preds = %266, %.split42.us, %226, %201
+  %271 = phi i32 [ %213, %226 ], [ 0, %201 ], [ %213, %.split42.us ], [ %236, %266 ]
+  %272 = phi i32 [ %223, %226 ], [ %15, %201 ], [ %270, %.split42.us ], [ %267, %266 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %189) #22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !103
   %273 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !35
@@ -4675,8 +4675,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
 
 279:                                              ; preds = %276, %.loopexit
   %280 = sext i32 %271 to i64
-  %281 = ptrtoint ptr %.us-phi37 to i64
-  %282 = getelementptr inbounds nuw i8, ptr %.us-phi37, i64 88
+  %281 = ptrtoint ptr %.us-phi to i64
+  %282 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 88
   %283 = load ptr, ptr %282, align 8
   %284 = ptrtoint ptr %283 to i64
   %285 = sub i64 %281, %284
@@ -4690,7 +4690,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
           to label %291 [label %313], !srcloc !29
 
 291:                                              ; preds = %279
-  %292 = getelementptr inbounds nuw i8, ptr %.us-phi37, i64 80
+  %292 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 80
   %293 = load i32, ptr %292, align 16
   %294 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #23, !srcloc !105
   %295 = icmp eq i32 %293, %294
@@ -4698,7 +4698,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   %297 = getelementptr inbounds nuw i8, ptr %290, i64 80
   %298 = load i32, ptr %297, align 16
   %299 = icmp eq i32 %293, %298
-  %300 = getelementptr inbounds nuw i8, ptr %.us-phi37, i64 104
+  %300 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 104
   %301 = load ptr, ptr %300, align 8
   br i1 %299, label %302, label %304
 

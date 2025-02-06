@@ -2755,8 +2755,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc14c
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
 
 8:                                                ; preds = %2
-  %.not = icmp eq i64 %.val6, 0
-  br i1 %.not, label %9, label %.lr.ph.i.i
+  %cond = icmp eq i64 %.val6, 0
+  br i1 %cond, label %9, label %.lr.ph.i.i
 
 9:                                                ; preds = %8
   %10 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.38, i64 noundef 1), !noalias !495

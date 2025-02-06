@@ -2818,17 +2818,17 @@ if.else24.i183:                                   ; preds = %if.else18.i180
   %93 = ptrtoint ptr %92 to i64
   %and27.i185 = and i64 %93, -4
   %cmp2944.i186 = icmp eq i64 %and27.i185, 0
-  br i1 %cmp2944.i186, label %cond.end48, label %while.cond.preheader.i191.preheader
+  br i1 %cmp2944.i186, label %cond.end48, label %while.cond.preheader.lr.ph.i187
 
-while.cond.preheader.i191.preheader:              ; preds = %if.else24.i183
+while.cond.preheader.lr.ph.i187:                  ; preds = %if.else24.i183
   %94 = load ptr, ptr %base.i, align 8
-  %add.ptr28.i189 = getelementptr inbounds i8, ptr %94, i64 -8
-  %95 = inttoptr i64 %and27.i185 to ptr
+  %95 = getelementptr inbounds i8, ptr %94, i64 -8
+  %add.ptr28.i189 = inttoptr i64 %and27.i185 to ptr
   br label %while.cond.preheader.i191
 
-while.cond.preheader.i191:                        ; preds = %while.cond.preheader.i191.preheader, %if.end78.i210
-  %f.046.i192 = phi ptr [ %f.1.i212, %if.end78.i210 ], [ %add.ptr28.i189, %while.cond.preheader.i191.preheader ]
-  %cf25.045.i193 = phi ptr [ %cf25.2.i211, %if.end78.i210 ], [ %95, %while.cond.preheader.i191.preheader ]
+while.cond.preheader.i191:                        ; preds = %while.cond.preheader.lr.ph.i187, %if.end78.i210
+  %f.046.i192 = phi ptr [ %f.1.i212, %if.end78.i210 ], [ %add.ptr28.i189, %while.cond.preheader.lr.ph.i187 ]
+  %cf25.045.i193 = phi ptr [ %cf25.2.i211, %if.end78.i210 ], [ %95, %while.cond.preheader.lr.ph.i187 ]
   br label %while.cond.i194
 
 while.cond.i194:                                  ; preds = %if.end42.i256, %while.cond.preheader.i191

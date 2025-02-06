@@ -5323,8 +5323,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %17 = load i64, ptr %7, align 8, !alias.scope !1421, !noalias !1415, !noundef !7
   %18 = add i64 %17, 1
   store i64 %18, ptr %7, align 8, !alias.scope !1421, !noalias !1415
-  %.not = icmp eq i64 %.val6, 0
-  br i1 %.not, label %19, label %.lr.ph.i.i
+  %cond = icmp eq i64 %.val6, 0
+  br i1 %cond, label %19, label %.lr.ph.i.i
 
 19:                                               ; preds = %12
   %20 = load i64, ptr %.val.i, align 8, !alias.scope !1423, !noalias !1432, !noundef !7
@@ -5475,13 +5475,13 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb826cc5da994fa04E.exit.th
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hec9bdfd9b89f7ad8E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hec9bdfd9b89f7ad8E.exit": ; preds = %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hec9bdfd9b89f7ad8E.exit.sink.split", %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb826cc5da994fa04E.exit.thread, %19
-  %.sink27 = phi i64 [ %18, %19 ], [ %86, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb826cc5da994fa04E.exit.thread ], [ %.pre.i.i.i.i.i.i10, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hec9bdfd9b89f7ad8E.exit.sink.split" ]
+  %.sink26 = phi i64 [ %18, %19 ], [ %86, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb826cc5da994fa04E.exit.thread ], [ %.pre.i.i.i.i.i.i10, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hec9bdfd9b89f7ad8E.exit.sink.split" ]
   %90 = load ptr, ptr %14, align 8, !noalias !7, !nonnull !7, !noundef !7
-  %91 = getelementptr inbounds i8, ptr %90, i64 %.sink27
+  %91 = getelementptr inbounds i8, ptr %90, i64 %.sink26
   store i8 93, ptr %91, align 1, !noalias !7
-  %92 = load i64, ptr %7, align 8, !noalias !7, !noundef !7
-  %93 = add i64 %92, 1
-  store i64 %93, ptr %7, align 8, !noalias !7
+  %storemerge.in = load i64, ptr %7, align 8, !noalias !7, !noundef !7
+  %storemerge = add i64 %storemerge.in, 1
+  store i64 %storemerge, ptr %7, align 8, !noalias !7
   ret ptr null
 }
 
@@ -5515,8 +5515,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %17 = load i64, ptr %7, align 8, !alias.scope !1534, !noalias !1528, !noundef !7
   %18 = add i64 %17, 1
   store i64 %18, ptr %7, align 8, !alias.scope !1534, !noalias !1528
-  %.not = icmp eq i64 %.val7, 0
-  br i1 %.not, label %19, label %.lr.ph.i.i
+  %cond = icmp eq i64 %.val7, 0
+  br i1 %cond, label %19, label %.lr.ph.i.i
 
 19:                                               ; preds = %12
   %20 = load i64, ptr %.val.i, align 8, !alias.scope !1536, !noalias !1545, !noundef !7

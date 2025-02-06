@@ -344,7 +344,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   br label %159
 
 159:                                              ; preds = %._crit_edge226.i.loopexit.us, %158, %53
-  %.3171.i.us = phi i32 [ %.2170229.i.us, %158 ], [ %167, %._crit_edge226.i.loopexit.us ], [ %.2170229.i.us, %53 ]
+  %.3171.i.us = phi i32 [ %.2170229.i.us, %158 ], [ %166, %._crit_edge226.i.loopexit.us ], [ %.2170229.i.us, %53 ]
   %indvars.iv.next293.i.us = add nuw nsw i64 %indvars.iv292.i.us, 1
   %indvars.iv.next282.i.us = add nuw nsw i64 %indvars.iv281.i.us, 1
   %exitcond297.not.i.us = icmp eq i64 %indvars.iv.next293.i.us, %wide.trip.count248.i
@@ -377,7 +377,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 no
   br i1 %exitcond308.not.i.us, label %.split.us, label %.preheader200.i.us, !llvm.loop !17
 
 ._crit_edge226.i.loopexit.us:                     ; preds = %144
-  %167 = add nsw i32 %.2170229.i.us, 1
+  %166 = add nsw i32 %.2170229.i.us, 1
   br label %159
 
 .lr.ph.i:                                         ; preds = %._crit_edge.us.i, %.lr.ph.i
