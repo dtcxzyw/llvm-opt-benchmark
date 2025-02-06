@@ -1999,9 +1999,9 @@ for.body414.lr.ph.i:                              ; preds = %for.cond411.prehead
   %222 = zext nneg i32 %i.0.lcssa459.i to i64
   %223 = getelementptr i8, ptr %call.i, i64 %222
   %scevgep.i = getelementptr i8, ptr %223, i64 201
-  %narrow.i = sub nuw nsw i32 6, %i.0.lcssa459.i
-  %224 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %224, i1 false)
+  %narrow.i = sub i32 6, %i.0.lcssa459.i
+  %224 = zext i32 %narrow.i to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %224, i1 false)
   br label %for.end420.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i

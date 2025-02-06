@@ -1740,12 +1740,12 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr
 .preheader.lr.ph.i:                               ; preds = %24
   %26 = lshr i32 %25, 28
   %27 = getelementptr inbounds nuw i8, ptr %.057102, i64 24
-  %wide.trip.count30.i = zext nneg i32 %26 to i64
+  %wide.trip.count31.i = zext nneg i32 %26 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %37, %.preheader.lr.ph.i
-  %indvars.iv27.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next28.i, %37 ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %27, i64 0, i64 %indvars.iv27.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next29.i, %37 ]
+  %28 = getelementptr inbounds nuw [0 x i32], ptr %27, i64 0, i64 %indvars.iv28.i
   %29 = load i32, ptr %28, align 4, !tbaa !35
   br label %30
 
@@ -1767,9 +1767,9 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr
   br i1 %36, label %Cut_CutCheckDominance.exit.thread, label %37
 
 37:                                               ; preds = %._crit_edge.us.i
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
+  br i1 %exitcond32.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
 
 Cut_CutCheckDominance.exit:                       ; preds = %24, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1845,13 +1845,13 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %
   br i1 %.not25.i73, label %.loopexit, label %.preheader.us.preheader.i74
 
 .preheader.us.preheader.i74:                      ; preds = %.preheader.lr.ph.i72
-  %wide.trip.count30.i75 = zext nneg i32 %60 to i64
+  %wide.trip.count31.i75 = zext nneg i32 %60 to i64
   %wide.trip.count.i76 = zext nneg i32 %62 to i64
   br label %.preheader.us.i77
 
 .preheader.us.i77:                                ; preds = %73, %.preheader.us.preheader.i74
-  %indvars.iv27.i78 = phi i64 [ 0, %.preheader.us.preheader.i74 ], [ %indvars.iv.next28.i84, %73 ]
-  %64 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv27.i78
+  %indvars.iv28.i78 = phi i64 [ 0, %.preheader.us.preheader.i74 ], [ %indvars.iv.next29.i84, %73 ]
+  %64 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv28.i78
   %65 = load i32, ptr %64, align 4, !tbaa !35
   br label %66
 
@@ -1873,9 +1873,9 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %._crit_edge.us.i83
-  %indvars.iv.next28.i84 = add nuw nsw i64 %indvars.iv27.i78, 1
-  %exitcond31.not.i85 = icmp eq i64 %indvars.iv.next28.i84, %wide.trip.count30.i75
-  br i1 %exitcond31.not.i85, label %Cut_CutCheckDominance.exit86, label %.preheader.us.i77, !llvm.loop !100
+  %indvars.iv.next29.i84 = add nuw nsw i64 %indvars.iv28.i78, 1
+  %exitcond32.not.i85 = icmp eq i64 %indvars.iv.next29.i84, %wide.trip.count31.i75
+  br i1 %exitcond32.not.i85, label %Cut_CutCheckDominance.exit86, label %.preheader.us.i77, !llvm.loop !100
 
 Cut_CutCheckDominance.exit86:                     ; preds = %73, %58
   %74 = load i32, ptr %13, align 8, !tbaa !84
@@ -2605,12 +2605,12 @@ Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
 
 .preheader.lr.ph.i:                               ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %.0368187, i64 24
-  %wide.trip.count30.i = zext nneg i32 %29 to i64
+  %wide.trip.count31.i = zext nneg i32 %29 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %45, %.preheader.lr.ph.i
-  %indvars.iv27.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next28.i, %45 ]
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %indvars.iv27.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next29.i, %45 ]
+  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %indvars.iv28.i
   %37 = load i32, ptr %36, align 4, !tbaa !35
   br label %38
 
@@ -2632,9 +2632,9 @@ Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
   br i1 %44, label %Cut_CutCheckDominance.exit.thread, label %45
 
 45:                                               ; preds = %._crit_edge.us.i
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
+  br i1 %exitcond32.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
 
 Cut_CutCheckDominance.exit:                       ; preds = %34, %45, %16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -2688,13 +2688,13 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %
   br i1 %.not25.i48, label %.loopexit, label %.preheader.us.preheader.i49
 
 .preheader.us.preheader.i49:                      ; preds = %.preheader.lr.ph.i47
-  %wide.trip.count30.i50 = zext nneg i32 %63 to i64
+  %wide.trip.count31.i50 = zext nneg i32 %63 to i64
   %wide.trip.count.i51 = zext nneg i32 %65 to i64
   br label %.preheader.us.i52
 
 .preheader.us.i52:                                ; preds = %76, %.preheader.us.preheader.i49
-  %indvars.iv27.i53 = phi i64 [ 0, %.preheader.us.preheader.i49 ], [ %indvars.iv.next28.i59, %76 ]
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv27.i53
+  %indvars.iv28.i53 = phi i64 [ 0, %.preheader.us.preheader.i49 ], [ %indvars.iv.next29.i59, %76 ]
+  %67 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv28.i53
   %68 = load i32, ptr %67, align 4, !tbaa !35
   br label %69
 
@@ -2716,9 +2716,9 @@ Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %._crit_edge.us.i58
-  %indvars.iv.next28.i59 = add nuw nsw i64 %indvars.iv27.i53, 1
-  %exitcond31.not.i60 = icmp eq i64 %indvars.iv.next28.i59, %wide.trip.count30.i50
-  br i1 %exitcond31.not.i60, label %Cut_CutCheckDominance.exit61, label %.preheader.us.i52, !llvm.loop !100
+  %indvars.iv.next29.i59 = add nuw nsw i64 %indvars.iv28.i53, 1
+  %exitcond32.not.i60 = icmp eq i64 %indvars.iv.next29.i59, %wide.trip.count31.i50
+  br i1 %exitcond32.not.i60, label %Cut_CutCheckDominance.exit61, label %.preheader.us.i52, !llvm.loop !100
 
 Cut_CutCheckDominance.exit61:                     ; preds = %76, %61
   %77 = load i32, ptr %52, align 8, !tbaa !84
@@ -2776,13 +2776,13 @@ define range(i32 0, 2) i32 @Cut_CutListVerify(ptr noundef %0) local_unnamed_addr
   br i1 %.not25.i, label %.loopexit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %wide.trip.count30.i = zext nneg i32 %5 to i64
+  %wide.trip.count31.i = zext nneg i32 %5 to i64
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %18, %.preheader.us.preheader.i
-  %indvars.iv27.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next28.i, %18 ]
-  %9 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv27.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next29.i, %18 ]
+  %9 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv28.i
   %10 = load i32, ptr %9, align 4, !tbaa !35
   br label %11
 
@@ -2804,9 +2804,9 @@ define range(i32 0, 2) i32 @Cut_CutListVerify(ptr noundef %0) local_unnamed_addr
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %._crit_edge.us.i
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
+  br i1 %exitcond32.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !100
 
 Cut_CutCheckDominance.exit:                       ; preds = %3, %18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)

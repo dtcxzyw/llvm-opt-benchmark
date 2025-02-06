@@ -28516,7 +28516,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14AdvancingFrontI6CMeshOE8See
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br i1 %9, label %10, label %84
+  br i1 %9, label %10, label %83
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -28565,86 +28565,86 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %30, %32, %34, %36
   %.sroa.5.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 3
   br label %39
 
-39:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %75
-  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %indvars.iv.next, %75 ]
-  %.sroa.017.024 = phi ptr [ %37, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %66, %75 ]
-  %.sroa.016.023 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %.sroa.016.1, %75 ]
+39:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %74
+  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %indvars.iv.next, %74 ]
+  %.sroa.017.027 = phi ptr [ %37, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %65, %74 ]
+  %.sroa.016.026 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %.sroa.016.1, %74 ]
   %40 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp eq i64 %indvars.iv.next, 3
-  %43 = and i64 %indvars.iv.next, 4294967295
-  %44 = select i1 %42, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %.cmp = icmp eq i64 %indvars.iv, 0
-  %47 = add nuw i64 %indvars.iv, 4294967295
-  %48 = and i64 %47, 4294967295
-  %49 = select i1 %.cmp, i64 2, i64 %48
-  %50 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = sext i32 %41 to i64
-  %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds %class.CVertexO, ptr %55, i64 %54, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %57 = load i32, ptr %56, align 4
-  %58 = or i32 %57, 256
-  store i32 %58, ptr %56, align 4
-  %59 = load i32, ptr %40, align 4
-  %60 = sext i32 %59 to i64
-  %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %60
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %62, align 4
-  %65 = load ptr, ptr %37, align 8
+  %.cmp.not = icmp eq i64 %indvars.iv, 2
+  %42 = and i64 %indvars.iv.next, 4294967295
+  %43 = select i1 %.cmp.not, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %.cmp25 = icmp eq i64 %indvars.iv, 0
+  %46 = add nuw i64 %indvars.iv, 4294967295
+  %47 = and i64 %46, 4294967295
+  %48 = select i1 %.cmp25, i64 2, i64 %47
+  %49 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = sext i32 %41 to i64
+  %54 = load ptr, ptr %52, align 8
+  %55 = getelementptr inbounds %class.CVertexO, ptr %54, i64 %53, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, 256
+  store i32 %57, ptr %55, align 4
+  %58 = load i32, ptr %40, align 4
+  %59 = sext i32 %58 to i64
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds i32, ptr %60, i64 %59
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %61, align 4
+  %64 = load ptr, ptr %37, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5.3..sroa_idx, i8 0, i64 16, i1 false)
-  %66 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i32 %41, ptr %67, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 20
-  store i32 %46, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store i32 %51, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 28
+  %65 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i32 %41, ptr %66, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 20
+  store i32 %45, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 24
+  store i32 %50, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 28
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 29
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.5, i64 19, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef %65) #28
-  %68 = load i64, ptr %38, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %38, align 8
-  br i1 %.cmp, label %75, label %70
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef %64) #28
+  %67 = load i64, ptr %38, align 8
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %38, align 8
+  br i1 %.cmp25, label %74, label %69
 
-70:                                               ; preds = %39
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 32
-  %72 = ptrtoint ptr %66 to i64
-  store i64 %72, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %74 = ptrtoint ptr %.sroa.017.024 to i64
-  store i64 %74, ptr %73, align 8
-  br label %75
+69:                                               ; preds = %39
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.017.027, i64 32
+  %71 = ptrtoint ptr %65 to i64
+  store i64 %71, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %73 = ptrtoint ptr %.sroa.017.027 to i64
+  store i64 %73, ptr %72, align 8
+  br label %74
 
-75:                                               ; preds = %39, %70
-  %.sroa.016.1 = phi ptr [ %.sroa.016.023, %70 ], [ %66, %39 ]
+74:                                               ; preds = %39, %69
+  %.sroa.016.1 = phi ptr [ %.sroa.016.026, %69 ], [ %65, %39 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %76, label %39, !llvm.loop !318
+  br i1 %exitcond.not, label %75, label %39, !llvm.loop !318
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %78 = ptrtoint ptr %.sroa.016.1 to i64
-  store i64 %78, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 40
-  %80 = ptrtoint ptr %66 to i64
-  store i64 %80, ptr %79, align 8
-  %81 = load i32, ptr %2, align 4
-  %82 = load i32, ptr %4, align 4
-  %83 = load i32, ptr %5, align 4
-  call void @_ZN3vcg3tri14AdvancingFrontI6CMeshOE7AddFaceEiii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %81, i32 noundef %82, i32 noundef %83)
-  br label %84
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %77 = ptrtoint ptr %.sroa.016.1 to i64
+  store i64 %77, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 40
+  %79 = ptrtoint ptr %65 to i64
+  store i64 %79, ptr %78, align 8
+  %80 = load i32, ptr %2, align 4
+  %81 = load i32, ptr %4, align 4
+  %82 = load i32, ptr %5, align 4
+  call void @_ZN3vcg3tri14AdvancingFrontI6CMeshOE7AddFaceEiii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %80, i32 noundef %81, i32 noundef %82)
+  br label %83
 
-84:                                               ; preds = %1, %76
+83:                                               ; preds = %1, %75
   ret i1 %9
 }
 

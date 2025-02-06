@@ -2821,32 +2821,40 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM20PerformNeonImmChecksEPNS
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %switch = icmp samesign ult i32 %11, 13
   tail call void @llvm.assume(i1 %switch)
-  %12 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang7SemaARM20PerformNeonImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiiEEEEi, i64 0, i64 %12
+  %12 = icmp samesign ult i32 %11, 13
+  %13 = zext nneg i32 %11 to i64
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang7SemaARM20PerformNeonImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiiEEEEi, i64 0, i64 %13
   br label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
-  %.024.us = phi i1 [ %14, %.lr.ph.split.us.split ], [ false, %.lr.ph.split.us ]
-  %.01823.us = phi ptr [ %15, %.lr.ph.split.us.split ], [ %5, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us
+  %.024.us = phi i1 [ %15, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us ], [ false, %.lr.ph.split.us ]
+  %.01823.us = phi ptr [ %16, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us ], [ %5, %.lr.ph.split.us ]
   %.sroa.020.0.copyload.us = load i32, ptr %.01823.us, align 4
   %.sroa.6.0..018.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.01823.us, i64 8
   %.sroa.6.0.copyload.us = load i32, ptr %.sroa.6.0..018.sroa_idx.us, align 4
   %.sroa.7.0..018.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.01823.us, i64 12
   %.sroa.7.0.copyload.us = load i32, ptr %.sroa.7.0..018.sroa_idx.us, align 4
+  br i1 %12, label %switch.lookup, label %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us
+
+switch.lookup:                                    ; preds = %.lr.ph.split.us.split
   %switch.load = load i32, ptr %switch.gep, align 4
-  %13 = tail call noundef zeroext i1 @_ZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %.sroa.6.0.copyload.us, i32 noundef %.sroa.7.0.copyload.us, i32 noundef %switch.load, i32 noundef %.sroa.020.0.copyload.us)
-  %14 = or i1 %.024.us, %13
-  %15 = getelementptr inbounds nuw i8, ptr %.01823.us, i64 16
-  %.not.us = icmp eq ptr %15, %9
+  br label %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us
+
+_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us: ; preds = %.lr.ph.split.us.split, %switch.lookup
+  %.sroa.4.0.us = phi i32 [ %switch.load, %switch.lookup ], [ 128, %.lr.ph.split.us.split ]
+  %14 = tail call noundef zeroext i1 @_ZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %.sroa.6.0.copyload.us, i32 noundef %.sroa.7.0.copyload.us, i32 noundef %.sroa.4.0.us, i32 noundef %.sroa.020.0.copyload.us)
+  %15 = or i1 %.024.us, %14
+  %16 = getelementptr inbounds nuw i8, ptr %.01823.us, i64 16
+  %.not.us = icmp eq ptr %16, %9
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split
 
-._crit_edge:                                      ; preds = %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit, %.lr.ph.split.us.split, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ %14, %.lr.ph.split.us.split ], [ %17, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ]
+._crit_edge:                                      ; preds = %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us, %4
+  %.0.lcssa = phi i1 [ false, %4 ], [ %15, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit.us ], [ %18, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ]
   ret i1 %.0.lcssa
 
 _ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit: ; preds = %.lr.ph, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit
-  %.024 = phi i1 [ %17, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ], [ false, %.lr.ph ]
-  %.01823 = phi ptr [ %18, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ], [ %5, %.lr.ph ]
+  %.024 = phi i1 [ %18, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ], [ false, %.lr.ph ]
+  %.01823 = phi ptr [ %19, %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit ], [ %5, %.lr.ph ]
   %.sroa.020.0.copyload = load i32, ptr %.01823, align 4
   %.sroa.4.0..018.sroa_idx = getelementptr inbounds nuw i8, ptr %.01823, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..018.sroa_idx, align 4
@@ -2854,10 +2862,10 @@ _ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit: ; preds = %.lr.ph, %_ZNK5cla
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..018.sroa_idx, align 4
   %.sroa.7.0..018.sroa_idx = getelementptr inbounds nuw i8, ptr %.01823, i64 12
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..018.sroa_idx, align 4
-  %16 = tail call noundef zeroext i1 @_ZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.7.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.020.0.copyload)
-  %17 = or i1 %.024, %16
-  %18 = getelementptr inbounds nuw i8, ptr %.01823, i64 16
-  %.not = icmp eq ptr %18, %9
+  %17 = tail call noundef zeroext i1 @_ZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.7.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.020.0.copyload)
+  %18 = or i1 %.024, %17
+  %19 = getelementptr inbounds nuw i8, ptr %.01823, i64 16
+  %.not = icmp eq ptr %19, %9
   br i1 %.not, label %._crit_edge, label %_ZNK5clang13NeonTypeFlags16getEltSizeInBitsEv.exit
 }
 

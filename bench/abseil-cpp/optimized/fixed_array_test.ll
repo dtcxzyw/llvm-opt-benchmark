@@ -51164,17 +51164,17 @@ entry:
   %data_.i.i = getelementptr inbounds nuw i8, ptr %v, i64 264
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %cases, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %cases, i64 16
-  br label %invoke.cont
+  br label %for.body
 
-invoke.cont:                                      ; preds = %entry, %_ZN4absl10FixedArrayIiLm18446744073709551615ESaIiEED2Ev.exit
+for.body:                                         ; preds = %entry, %_ZN4absl10FixedArrayIiLm18446744073709551615ESaIiEED2Ev.exit
   %indvars.iv40 = phi i64 [ 0, %entry ], [ %indvars.iv.next41, %_ZN4absl10FixedArrayIiLm18446744073709551615ESaIiEED2Ev.exit ]
   store i64 %indvars.iv40, ptr %size_alloc_.i.i, align 8
   store ptr %v, ptr %data_.i.i, align 8
   %cmp336.not = icmp eq i64 %indvars.iv40, 0
   br i1 %cmp336.not, label %for.end, label %for.body4
 
-for.body4:                                        ; preds = %invoke.cont, %for.body4
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body4 ], [ 0, %invoke.cont ]
+for.body4:                                        ; preds = %for.body, %for.body4
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body4 ], [ 0, %for.body ]
   %0 = load ptr, ptr %data_.i.i, align 8
   %arrayidx.i = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %1 = trunc nuw nsw i64 %indvars.iv to i32
@@ -51183,7 +51183,7 @@ for.body4:                                        ; preds = %invoke.cont, %for.b
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv40
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !912
 
-for.end:                                          ; preds = %for.body4, %invoke.cont
+for.end:                                          ; preds = %for.body4, %for.body
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
@@ -51266,7 +51266,7 @@ invoke.cont11.i.i:                                ; preds = %invoke.cont7
 _ZN4absl10FixedArrayIiLm18446744073709551615ESaIiEED2Ev.exit: ; preds = %invoke.cont7, %invoke.cont11.i.i
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 10
-  br i1 %exitcond43.not, label %for.end10, label %invoke.cont, !llvm.loop !913
+  br i1 %exitcond43.not, label %for.end10, label %for.body, !llvm.loop !913
 
 lpad6.loopexit:                                   ; preds = %invoke.cont.i.thread.i.i.i.i.i, %if.else.i
   %lpad.loopexit = landingpad { ptr, i32 }

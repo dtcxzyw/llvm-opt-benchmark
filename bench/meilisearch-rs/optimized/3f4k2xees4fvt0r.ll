@@ -94593,10 +94593,10 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN9byte_unit9byte_uni
   br i1 %6, label %.lr.ph, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7cc02704585bd23E.exit.thread.thread"
 
 .lr.ph:                                           ; preds = %3
-  %7 = icmp samesign ult i8 %0, -32
+  %7 = icmp ugt i8 %0, -33
   %8 = icmp samesign ult i8 %0, -16
   %. = select i1 %8, i64 3, i64 4
-  %.sroa.06.0.ph = select i1 %7, i64 2, i64 %.
+  %.sroa.06.0.ph = select i1 %7, i64 %., i64 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %5, i8 %0, i64 4, i1 false)
   %.sroa.018.0.ptr28 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -94628,6 +94628,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN9byte_unit9byte_uni
   br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i.i": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7cc02704585bd23E.exit.thread"
+  tail call void @llvm.assume(i1 %7)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %26 = load i8, ptr %18, align 1, !alias.scope !17772, !noalias !17775, !noundef !8
   %27 = shl nuw nsw i32 %22, 6

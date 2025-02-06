@@ -11380,7 +11380,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread322
   %scevgep = getelementptr i8, ptr %20, i64 %132
   %narrow = xor i32 %.0215.lcssa459466, 7
   %133 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %133, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %133, i1 false)
   br label %._crit_edge405
 
 ._crit_edge405:                                   ; preds = %.lr.ph404.preheader, %.preheader361

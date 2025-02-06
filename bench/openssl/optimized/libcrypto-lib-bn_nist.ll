@@ -1174,44 +1174,45 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %5 = zext nneg i32 %4 to i64
   %scevgep = getelementptr i8, ptr %t_d, i64 %5
   %6 = shl nuw nsw i32 %ii.0.lcssa63, 3
-  %narrow = sub nsw i32 72, %6
-  %7 = zext i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %7, i1 false)
+  %7 = sub nsw i32 64, %6
+  %8 = zext i32 %7 to i64
+  %9 = add nuw nsw i64 %8, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %9, i1 false)
   br label %for.end36
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx, align 8
+  %10 = load i64, ptr %arrayidx, align 8
   %arrayidx27 = getelementptr inbounds nuw [9 x i64], ptr %t_d, i64 0, i64 %indvars.iv
-  store i64 %8, ptr %arrayidx27, align 8
+  store i64 %10, ptr %arrayidx27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond28.preheader, label %for.body, !llvm.loop !8
 
 for.end36:                                        ; preds = %for.body31.preheader, %for.cond28.preheader
-  %9 = load i64, ptr %t_d, align 16
+  %11 = load i64, ptr %t_d, align 16
   br label %for.body41
 
 for.body41:                                       ; preds = %for.end36, %for.body41
   %indvars.iv57 = phi i64 [ 0, %for.end36 ], [ %indvars.iv.next58, %for.body41 ]
-  %val.051 = phi i64 [ %9, %for.end36 ], [ %10, %for.body41 ]
+  %val.051 = phi i64 [ %11, %for.end36 ], [ %12, %for.body41 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %arrayidx43 = getelementptr inbounds nuw [9 x i64], ptr %t_d, i64 0, i64 %indvars.iv.next58
-  %10 = load i64, ptr %arrayidx43, align 8
-  %or = tail call i64 @llvm.fshl.i64(i64 %10, i64 %val.051, i64 55)
+  %12 = load i64, ptr %arrayidx43, align 8
+  %or = tail call i64 @llvm.fshl.i64(i64 %12, i64 %val.051, i64 55)
   %arrayidx45 = getelementptr inbounds nuw [9 x i64], ptr %t_d, i64 0, i64 %indvars.iv57
   store i64 %or, ptr %arrayidx45, align 8
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 8
   br i1 %exitcond60.not, label %for.end48, label %for.body41, !llvm.loop !9
 
 for.end48:                                        ; preds = %for.body41
-  %shr49 = lshr i64 %10, 9
+  %shr49 = lshr i64 %12, 9
   %arrayidx51 = getelementptr inbounds nuw i8, ptr %t_d, i64 64
   store i64 %shr49, ptr %arrayidx51, align 16
   %arrayidx53 = getelementptr inbounds nuw i8, ptr %r_d.0, i64 64
-  %11 = load i64, ptr %arrayidx53, align 8
-  %and54 = and i64 %11, 511
+  %13 = load i64, ptr %arrayidx53, align 8
+  %and54 = and i64 %13, 511
   store i64 %and54, ptr %arrayidx53, align 8
   %call55 = call i64 @bn_add_words(ptr noundef %r_d.0, ptr noundef %r_d.0, ptr noundef nonnull %t_d, i32 noundef 9) #6
   %call57 = call i64 @bn_sub_words(ptr noundef nonnull %t_d, ptr noundef %r_d.0, ptr noundef nonnull @_nist_p_521, i32 noundef 9) #6
@@ -1222,9 +1223,9 @@ for.end48:                                        ; preds = %for.body41
 for.body.i40:                                     ; preds = %for.body.i40, %for.end48
   %indvars.iv.i41 = phi i64 [ 0, %for.end48 ], [ %indvars.iv.next.i44, %for.body.i40 ]
   %arrayidx.i42 = getelementptr inbounds nuw i64, ptr %cond63, i64 %indvars.iv.i41
-  %12 = load i64, ptr %arrayidx.i42, align 8
+  %14 = load i64, ptr %arrayidx.i42, align 8
   %arrayidx2.i43 = getelementptr inbounds nuw i64, ptr %r_d.0, i64 %indvars.iv.i41
-  store i64 %12, ptr %arrayidx2.i43, align 8
+  store i64 %14, ptr %arrayidx2.i43, align 8
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 9
   br i1 %exitcond.not.i45, label %nist_cp_bn.exit46, label %for.body.i40, !llvm.loop !4

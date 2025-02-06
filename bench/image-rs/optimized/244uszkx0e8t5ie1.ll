@@ -21421,7 +21421,7 @@ default.unreachable.i:                            ; preds = %1936
 1929:                                             ; preds = %2117, %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$18intra_predict_luma17h2ebf32c9616895f8E.exit"
   %.sroa.0.099.i = phi i64 [ 0, %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$18intra_predict_luma17h2ebf32c9616895f8E.exit" ], [ %1930, %2117 ]
   %1930 = add nuw nsw i64 %.sroa.0.099.i, 1
-  %1931 = icmp ule i64 %1919, %.sroa.0.099.i
+  %1931 = icmp samesign uge i64 %.sroa.0.099.i, %.0.sroa.speculated.i.i113
   %or.cond1.i = or i1 %1922, %1931
   br i1 %or.cond1.i, label %2117, label %2105
 
@@ -21432,7 +21432,7 @@ default.unreachable.i:                            ; preds = %1936
 1933:                                             ; preds = %2102, %.preheader31.i
   %.sroa.05.0100.i = phi i64 [ 0, %.preheader31.i ], [ %1934, %2102 ]
   %1934 = add nuw nsw i64 %.sroa.05.0100.i, 1
-  %1935 = icmp ule i64 %1921, %.sroa.05.0100.i
+  %1935 = icmp samesign uge i64 %.sroa.05.0100.i, %.0.sroa.speculated.i85.i
   %or.cond.i115 = or i1 %1537, %1935
   br i1 %or.cond.i115, label %2102, label %2091
 

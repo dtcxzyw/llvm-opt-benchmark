@@ -82,14 +82,14 @@ define noundef i32 @If_CutVerifyCuts(ptr noundef readonly captures(none) %0, i32
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
-  %umax32.i = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
-  %wide.trip.count33.i = zext nneg i32 %umax32.i to i64
+  %umax33.i = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
+  %wide.trip.count34.i = zext nneg i32 %umax33.i to i64
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %42, %.preheader.us.preheader.i
-  %indvars.iv29.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next30.i, %42 ]
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv29.i
+  %indvars.iv30.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next31.i, %42 ]
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv30.i
   %34 = load i32, ptr %33, align 4, !tbaa !14
   br label %35
 
@@ -98,26 +98,26 @@ define noundef i32 @If_CutVerifyCuts(ptr noundef readonly captures(none) %0, i32
   %36 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = icmp eq i32 %34, %37
-  br i1 %38, label %._crit_edge.us.split.loop.exit35.i, label %39
+  br i1 %38, label %._crit_edge.us.split.loop.exit36.i, label %39
 
 39:                                               ; preds = %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %35, !llvm.loop !16
 
-._crit_edge.us.split.loop.exit35.i:               ; preds = %35
+._crit_edge.us.split.loop.exit36.i:               ; preds = %35
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.us.i
 
-._crit_edge.us.i:                                 ; preds = %39, %._crit_edge.us.split.loop.exit35.i
-  %.0.lcssa.us.i = phi i32 [ %40, %._crit_edge.us.split.loop.exit35.i ], [ %umax.i, %39 ]
+._crit_edge.us.i:                                 ; preds = %39, %._crit_edge.us.split.loop.exit36.i
+  %.0.lcssa.us.i = phi i32 [ %40, %._crit_edge.us.split.loop.exit36.i ], [ %umax.i, %39 ]
   %41 = icmp eq i32 %.0.lcssa.us.i, %27
   br i1 %41, label %If_CutVerifyCut.exit.thread, label %42
 
 42:                                               ; preds = %._crit_edge.us.i
-  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %exitcond34.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count33.i
-  br i1 %exitcond34.not.i, label %If_CutVerifyCut.exit, label %.preheader.us.i, !llvm.loop !18
+  %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
+  %exitcond35.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count34.i
+  br i1 %exitcond35.not.i, label %If_CutVerifyCut.exit, label %.preheader.us.i, !llvm.loop !18
 
 If_CutVerifyCut.exit:                             ; preds = %42, %22
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1)
@@ -315,14 +315,14 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   br i1 %.not25.i, label %If_CutCheckDominance.exit.thread, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %umax30.i = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
-  %wide.trip.count31.i = zext nneg i32 %umax30.i to i64
+  %umax31.i = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
+  %wide.trip.count32.i = zext nneg i32 %umax31.i to i64
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %53, %.preheader.us.preheader.i
-  %indvars.iv27.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next28.i, %53 ]
-  %44 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv27.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next29.i, %53 ]
+  %44 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv28.i
   %45 = load i32, ptr %44, align 4, !tbaa !14
   br label %46
 
@@ -344,9 +344,9 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   br i1 %52, label %If_CutCheckDominance.exit.thread, label %53
 
 53:                                               ; preds = %._crit_edge.us.i
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond32.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %If_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !27
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count32.i
+  br i1 %exitcond33.not.i, label %If_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !27
 
 If_CutCheckDominance.exit:                        ; preds = %53, %42
   %54 = icmp slt i32 %.03572, %14
@@ -394,14 +394,14 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
 
 .preheader.us.preheader.i46:                      ; preds = %.preheader.lr.ph.i44
   %umax.i47 = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
-  %umax30.i48 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %wide.trip.count31.i49 = zext nneg i32 %umax30.i48 to i64
+  %umax31.i48 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
+  %wide.trip.count32.i49 = zext nneg i32 %umax31.i48 to i64
   %wide.trip.count.i50 = zext nneg i32 %umax.i47 to i64
   br label %.preheader.us.i51
 
 .preheader.us.i51:                                ; preds = %78, %.preheader.us.preheader.i46
-  %indvars.iv27.i52 = phi i64 [ 0, %.preheader.us.preheader.i46 ], [ %indvars.iv.next28.i58, %78 ]
-  %69 = getelementptr inbounds nuw [0 x i32], ptr %68, i64 0, i64 %indvars.iv27.i52
+  %indvars.iv28.i52 = phi i64 [ 0, %.preheader.us.preheader.i46 ], [ %indvars.iv.next29.i58, %78 ]
+  %69 = getelementptr inbounds nuw [0 x i32], ptr %68, i64 0, i64 %indvars.iv28.i52
   %70 = load i32, ptr %69, align 4, !tbaa !14
   br label %71
 
@@ -410,26 +410,26 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
   %72 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv.i53
   %73 = load i32, ptr %72, align 4, !tbaa !14
   %74 = icmp eq i32 %70, %73
-  br i1 %74, label %._crit_edge.us.split.loop.exit33.i61, label %75
+  br i1 %74, label %._crit_edge.us.split.loop.exit34.i61, label %75
 
 75:                                               ; preds = %71
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i50
   br i1 %exitcond.not.i55, label %._crit_edge.us.i56, label %71, !llvm.loop !26
 
-._crit_edge.us.split.loop.exit33.i61:             ; preds = %71
+._crit_edge.us.split.loop.exit34.i61:             ; preds = %71
   %76 = trunc nuw nsw i64 %indvars.iv.i53 to i32
   br label %._crit_edge.us.i56
 
-._crit_edge.us.i56:                               ; preds = %75, %._crit_edge.us.split.loop.exit33.i61
-  %.0.lcssa.us.i57 = phi i32 [ %76, %._crit_edge.us.split.loop.exit33.i61 ], [ %umax.i47, %75 ]
+._crit_edge.us.i56:                               ; preds = %75, %._crit_edge.us.split.loop.exit34.i61
+  %.0.lcssa.us.i57 = phi i32 [ %76, %._crit_edge.us.split.loop.exit34.i61 ], [ %umax.i47, %75 ]
   %77 = icmp eq i32 %.0.lcssa.us.i57, %25
   br i1 %77, label %If_CutCheckDominance.exit.thread, label %78
 
 78:                                               ; preds = %._crit_edge.us.i56
-  %indvars.iv.next28.i58 = add nuw nsw i64 %indvars.iv27.i52, 1
-  %exitcond32.not.i59 = icmp eq i64 %indvars.iv.next28.i58, %wide.trip.count31.i49
-  br i1 %exitcond32.not.i59, label %If_CutCheckDominance.exit62, label %.preheader.us.i51, !llvm.loop !27
+  %indvars.iv.next29.i58 = add nuw nsw i64 %indvars.iv28.i52, 1
+  %exitcond33.not.i59 = icmp eq i64 %indvars.iv.next29.i58, %wide.trip.count32.i49
+  br i1 %exitcond33.not.i59, label %If_CutCheckDominance.exit62, label %.preheader.us.i51, !llvm.loop !27
 
 If_CutCheckDominance.exit.thread:                 ; preds = %._crit_edge.us.i56, %._crit_edge.us.i, %50, %36, %.preheader.lr.ph.i44, %.preheader.lr.ph.i, %._crit_edge, %62, %37, %31
   %79 = phi i16 [ %15, %31 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %62 ], [ %15, %.preheader.lr.ph.i ], [ %15, %.preheader.lr.ph.i44 ], [ 1, %36 ], [ %15, %50 ], [ %15, %._crit_edge.us.i ], [ %15, %._crit_edge.us.i56 ]

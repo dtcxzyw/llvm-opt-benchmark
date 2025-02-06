@@ -9309,11 +9309,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
 198:                                              ; preds = %195
   %199 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %199, i32 13, i32 9
-  %.115 = select i1 %199, i32 3, i32 11
-  %.116 = select i1 %199, i32 3, i32 7
+  %.114 = select i1 %199, i32 3, i32 11
+  %.115 = select i1 %199, i32 3, i32 7
   %200 = lshr i32 %197, %.
-  %201 = add nuw nsw i32 %200, %.115
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.116)
+  %201 = add nuw nsw i32 %200, %.114
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.115)
   %.not61 = icmp eq i32 %.04290, 0
   br i1 %.not61, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %.preheader
 
@@ -9341,23 +9341,23 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
 
 209:                                              ; preds = %195
   %210 = icmp eq i16 %.0.in.i, 18
-  %.119 = select i1 %210, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.119)
+  %.118 = select i1 %210, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.118)
   %211 = icmp samesign ult i32 %.04290, 404
   br i1 %211, label %.lr.ph84.preheader, label %.critedge, !llvm.loop !249
 
 .lr.ph84.preheader:                               ; preds = %209
-  %.117 = select i1 %210, i32 13, i32 9
-  %212 = lshr i32 %197, %.117
-  %.118 = select i1 %210, i32 3, i32 11
-  %213 = add nuw nsw i32 %212, %.118
+  %.116 = select i1 %210, i32 13, i32 9
+  %212 = lshr i32 %197, %.116
+  %.117 = select i1 %210, i32 3, i32 11
+  %213 = add nuw nsw i32 %212, %.117
   %214 = zext nneg i32 %.04290 to i64
   %scevgep95 = getelementptr i8, ptr %3, i64 %214
   %215 = add nsw i32 %213, -1
   %216 = sub nuw nsw i32 403, %.04290
   %217 = tail call i32 @llvm.umin.i32(i32 %215, i32 %216)
-  %narrow106 = add nuw nsw i32 %217, 1
-  %218 = zext nneg i32 %narrow106 to i64
+  %narrow119 = add nuw nsw i32 %217, 1
+  %218 = zext nneg i32 %narrow119 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i8 0, i64 %218, i1 false), !tbaa !27
   br label %.lr.ph84
 
@@ -12979,11 +12979,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %168, %.prehea
 216:                                              ; preds = %213
   %217 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %217, i32 13, i32 9
-  %.141 = select i1 %217, i32 3, i32 11
-  %.142 = select i1 %217, i32 3, i32 7
+  %.140 = select i1 %217, i32 3, i32 11
+  %.141 = select i1 %217, i32 3, i32 7
   %218 = lshr i32 %215, %.
-  %219 = add nuw nsw i32 %218, %.141
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.142)
+  %219 = add nuw nsw i32 %218, %.140
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.141)
   %.not = icmp eq i32 %.068115, 0
   br i1 %.not, label %_ZN6Unpack10UnpReadBufEv.exit93.thread, label %.preheader
 
@@ -13011,23 +13011,23 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %168, %.prehea
 
 227:                                              ; preds = %213
   %228 = icmp eq i16 %.0.in.i, 18
-  %.145 = select i1 %228, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.145)
+  %.144 = select i1 %228, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.144)
   %229 = icmp samesign ult i32 %.068115, 430
   br i1 %229, label %.lr.ph109.preheader, label %.critedge, !llvm.loop !305
 
 .lr.ph109.preheader:                              ; preds = %227
-  %.143 = select i1 %228, i32 13, i32 9
-  %230 = lshr i32 %215, %.143
-  %.144 = select i1 %228, i32 3, i32 11
-  %231 = add nuw nsw i32 %230, %.144
+  %.142 = select i1 %228, i32 13, i32 9
+  %230 = lshr i32 %215, %.142
+  %.143 = select i1 %228, i32 3, i32 11
+  %231 = add nuw nsw i32 %230, %.143
   %232 = zext nneg i32 %.068115 to i64
   %scevgep120 = getelementptr i8, ptr %6, i64 %232
   %233 = add nsw i32 %231, -1
   %234 = sub nuw nsw i32 429, %.068115
   %235 = tail call i32 @llvm.umin.i32(i32 %233, i32 %234)
-  %narrow132 = add nuw nsw i32 %235, 1
-  %236 = zext nneg i32 %narrow132 to i64
+  %narrow145 = add nuw nsw i32 %235, 1
+  %236 = zext nneg i32 %narrow145 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep120, i8 0, i64 %236, i1 false), !tbaa !27
   br label %.lr.ph109
 

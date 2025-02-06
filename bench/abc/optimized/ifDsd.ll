@@ -11227,17 +11227,17 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %39, %46, %.critedge
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %86
-  %indvars.iv139 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next140, %86 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.val89.us, i64 %indvars.iv139
+  %indvars.iv140 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next141, %86 ]
+  %61 = getelementptr inbounds nuw i32, ptr %.val89.us, i64 %indvars.iv140
   %62 = load i32, ptr %61, align 4, !tbaa !40
   br label %63
 
 63:                                               ; preds = %.lr.ph.us.us, %83
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next135, %83 ]
+  %indvars.iv135 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next136, %83 ]
   %.077100.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %.178.us.us, %83 ]
   %.07999.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %.180.us.us, %83 ]
-  %indvars.iv134.tr = trunc i64 %indvars.iv134 to i32
-  %64 = shl i32 %indvars.iv134.tr, 1
+  %indvars.iv135.tr = trunc i64 %indvars.iv135 to i32
+  %64 = shl i32 %indvars.iv135.tr, 1
   %65 = ashr i32 %62, %64
   %66 = and i32 %65, 3
   switch i32 %66, label %.unreachabledefault [
@@ -11248,20 +11248,20 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %39, %46, %.critedge
   ]
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv134
+  %68 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv135
   %69 = load i32, ptr %68, align 4, !tbaa !40
   %70 = add nsw i32 %69, %.077100.us.us
   %71 = add nsw i32 %69, %.07999.us.us
   br label %80
 
 72:                                               ; preds = %63
-  %73 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv134
+  %73 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv135
   %74 = load i32, ptr %73, align 4, !tbaa !40
   %75 = add nsw i32 %74, %.077100.us.us
   br label %80
 
 76:                                               ; preds = %63
-  %77 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv134
+  %77 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv135
   %78 = load i32, ptr %77, align 4, !tbaa !40
   %79 = add nsw i32 %78, %.07999.us.us
   br label %80
@@ -11275,18 +11275,18 @@ If_DsdManGetSuppSizes.exit:                       ; preds = %39, %46, %.critedge
   br i1 %or.cond.us.us, label %._crit_edge.us.us, label %83
 
 83:                                               ; preds = %80
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %28
-  br i1 %exitcond138.not, label %.critedge, label %63, !llvm.loop !230
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond139.not = icmp eq i64 %indvars.iv.next136, %28
+  br i1 %exitcond139.not, label %.critedge, label %63, !llvm.loop !230
 
 ._crit_edge.us.us:                                ; preds = %80
-  %84 = trunc nuw nsw i64 %indvars.iv134 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv135 to i32
   %85 = icmp eq i32 %26, %84
   br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %._crit_edge.us.us
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %87 = icmp samesign ult i64 %indvars.iv.next140, %60
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %87 = icmp samesign ult i64 %indvars.iv.next141, %60
   br i1 %87, label %.lr.ph.us.us, label %.critedge, !llvm.loop !231
 
 .unreachabledefault:                              ; preds = %63
@@ -11296,10 +11296,10 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 .lr.ph112.split:                                  ; preds = %.lr.ph112, %158
-  %.val88143 = phi i32 [ %.val88, %158 ], [ %.val88109, %.lr.ph112 ]
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %158 ], [ 0, %.lr.ph112 ]
+  %.val88144 = phi i32 [ %.val88, %158 ], [ %.val88109, %.lr.ph112 ]
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %158 ], [ 0, %.lr.ph112 ]
   %.val89 = load ptr, ptr %57, align 8, !tbaa !39
-  %88 = getelementptr inbounds nuw i32, ptr %.val89, i64 %indvars.iv131
+  %88 = getelementptr inbounds nuw i32, ptr %.val89, i64 %indvars.iv132
   %89 = load i32, ptr %88, align 4, !tbaa !40
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
@@ -11347,8 +11347,8 @@ default.unreachable:                              ; preds = %.lr.ph
 
 109:                                              ; preds = %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond125.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond125.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !230
+  %exitcond126.not = icmp eq i64 %indvars.iv.next, %28
+  br i1 %exitcond126.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !230
 
 ._crit_edge.loopexit:                             ; preds = %106
   %110 = trunc nuw nsw i64 %indvars.iv to i32
@@ -11394,10 +11394,10 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
   br i1 %.not120, label %._crit_edge107, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %If_DsdManComputeFirst.exit, %156
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %156 ], [ 0, %If_DsdManComputeFirst.exit ]
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %156 ], [ 0, %If_DsdManComputeFirst.exit ]
   %.070105 = phi i32 [ %.171, %156 ], [ 0, %If_DsdManComputeFirst.exit ]
-  %indvars.iv126.tr = trunc i64 %indvars.iv126 to i32
-  %127 = shl i32 %indvars.iv126.tr, 1
+  %indvars.iv127.tr = trunc i64 %indvars.iv127 to i32
+  %127 = shl i32 %indvars.iv127.tr, 1
   %128 = ashr i32 %89, %127
   %129 = and i32 %128, 3
   switch i32 %129, label %156 [
@@ -11406,13 +11406,13 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
   ]
 
 130:                                              ; preds = %.lr.ph106
-  %131 = getelementptr inbounds nuw [12 x i32], ptr %12, i64 0, i64 %indvars.iv126
+  %131 = getelementptr inbounds nuw [12 x i32], ptr %12, i64 0, i64 %indvars.iv127
   %132 = load i32, ptr %131, align 4, !tbaa !40
   %133 = add nsw i32 %132, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %133, ptr %10, align 4, !tbaa !40
   %.val.i94 = load ptr, ptr %59, align 8, !tbaa !23
-  %134 = getelementptr inbounds nuw [0 x i32], ptr %58, i64 0, i64 %indvars.iv126
+  %134 = getelementptr inbounds nuw [0 x i32], ptr %58, i64 0, i64 %indvars.iv127
   %135 = load i32, ptr %134, align 4, !tbaa !40
   %136 = ashr i32 %135, 1
   %137 = sext i32 %136 to i64
@@ -11424,13 +11424,13 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
   br label %156
 
 142:                                              ; preds = %.lr.ph106
-  %143 = getelementptr inbounds nuw [12 x i32], ptr %12, i64 0, i64 %indvars.iv126
+  %143 = getelementptr inbounds nuw [12 x i32], ptr %12, i64 0, i64 %indvars.iv127
   %144 = load i32, ptr %143, align 4, !tbaa !40
   %145 = add nsw i32 %144, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %145, ptr %9, align 4, !tbaa !40
   %.val.i95 = load ptr, ptr %59, align 8, !tbaa !23
-  %146 = getelementptr inbounds nuw [0 x i32], ptr %58, i64 0, i64 %indvars.iv126
+  %146 = getelementptr inbounds nuw [0 x i32], ptr %58, i64 0, i64 %indvars.iv127
   %147 = load i32, ptr %146, align 4, !tbaa !40
   %148 = ashr i32 %147, 1
   %149 = sext i32 %148 to i64
@@ -11445,9 +11445,9 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
 
 156:                                              ; preds = %.lr.ph106, %130, %142
   %.171 = phi i32 [ %141, %130 ], [ %155, %142 ], [ %.070105, %.lr.ph106 ]
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %28
-  br i1 %exitcond130.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !232
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %28
+  br i1 %exitcond131.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !232
 
 ._crit_edge107:                                   ; preds = %156, %If_DsdManComputeFirst.exit
   %.070.lcssa = phi i32 [ 0, %If_DsdManComputeFirst.exit ], [ %.171, %156 ]
@@ -11460,10 +11460,10 @@ If_DsdManComputeFirst.exit:                       ; preds = %114, %._crit_edge.t
   br label %158
 
 158:                                              ; preds = %._crit_edge107._crit_edge, %._crit_edge
-  %.val88 = phi i32 [ %.val88.pre, %._crit_edge107._crit_edge ], [ %.val88143, %._crit_edge ]
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %.val88 = phi i32 [ %.val88.pre, %._crit_edge107._crit_edge ], [ %.val88144, %._crit_edge ]
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %159 = sext i32 %.val88 to i64
-  %160 = icmp slt i64 %indvars.iv.next132, %159
+  %160 = icmp slt i64 %indvars.iv.next133, %159
   br i1 %160, label %.lr.ph112.split, label %.critedge, !llvm.loop !231
 
 .critedge:                                        ; preds = %._crit_edge107, %158, %86, %._crit_edge.us.us, %83, %.lr.ph112.split.us, %If_DsdManGetSuppSizes.exit

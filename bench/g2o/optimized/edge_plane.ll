@@ -411,15 +411,15 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   %13 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  br label %.preheader.i
+  br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %22, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit
-  %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i5, %22 ]
+.lr.ph.i:                                         ; preds = %._crit_edge.i, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit
+  %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i5, %._crit_edge.i ]
   %15 = getelementptr double, ptr %14, i64 %indvars.iv.i3
   br label %16
 
-16:                                               ; preds = %16, %.preheader.i
-  %indvars.iv14.i = phi i64 [ %indvars.iv.i3, %.preheader.i ], [ %indvars.iv.next15.i, %16 ]
+16:                                               ; preds = %16, %.lr.ph.i
+  %indvars.iv14.i = phi i64 [ %indvars.iv.i3, %.lr.ph.i ], [ %indvars.iv.next15.i, %16 ]
   %17 = shl nuw nsw i64 %indvars.iv14.i, 5
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = load double, ptr %18, align 8
@@ -427,20 +427,20 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSoRKNS2_
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.5)
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond.not.i4 = icmp eq i64 %indvars.iv.next15.i, 4
-  br i1 %exitcond.not.i4, label %22, label %16, !llvm.loop !16
+  br i1 %exitcond.not.i4, label %._crit_edge.i, label %16, !llvm.loop !16
 
-22:                                               ; preds = %16
+._crit_edge.i:                                    ; preds = %16
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i5, 4
-  br i1 %exitcond18.not.i, label %_ZNK3g2o8BaseEdgeILi4EN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE22writeInformationMatrixERSo.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond18.not.i, label %_ZNK3g2o8BaseEdgeILi4EN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE22writeInformationMatrixERSo.exit, label %.lr.ph.i, !llvm.loop !17
 
-_ZNK3g2o8BaseEdgeILi4EN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE22writeInformationMatrixERSo.exit: ; preds = %22
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr i8, ptr %23, i64 -24
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 %25
-  %27 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %26)
-  ret i1 %27
+_ZNK3g2o8BaseEdgeILi4EN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE22writeInformationMatrixERSo.exit: ; preds = %._crit_edge.i
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr i8, ptr %22, i64 -24
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  %26 = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %25)
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

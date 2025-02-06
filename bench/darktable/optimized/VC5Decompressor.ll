@@ -4418,8 +4418,8 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.sroa.1315.035.us = phi i32 [ %.sroa.1315.2.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.sroa.6.034.us = phi i32 [ %75, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.sroa.012.033.us = phi i64 [ %76, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.sroa.6.034.us = phi i32 [ %76, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.sroa.012.033.us = phi i64 [ %77, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %44 = mul nuw nsw i64 %indvars.iv41, %42
   %45 = add nuw nsw i64 %44, %42
   %46 = icmp samesign ule i64 %45, %43
@@ -4429,8 +4429,8 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
 48:                                               ; preds = %.preheader.us, %71
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %71 ]
   %.sroa.1315.129.us = phi i32 [ %.sroa.1315.035.us, %.preheader.us ], [ %.sroa.1315.2.us, %71 ]
-  %.sroa.6.128.us = phi i32 [ %.sroa.6.034.us, %.preheader.us ], [ %75, %71 ]
-  %.sroa.012.127.us = phi i64 [ %.sroa.012.033.us, %.preheader.us ], [ %76, %71 ]
+  %.sroa.6.128.us = phi i32 [ %.sroa.6.034.us, %.preheader.us ], [ %76, %71 ]
+  %.sroa.012.127.us = phi i64 [ %.sroa.012.033.us, %.preheader.us ], [ %77, %71 ]
   %49 = icmp samesign ult i32 %.sroa.6.128.us, 65
   tail call void @llvm.assume(i1 %49)
   %.not.i.i.us = icmp samesign ult i32 %.sroa.6.128.us, %35
@@ -4482,13 +4482,15 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
   %.sroa.1315.2.us = phi i32 [ %51, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.1315.129.us, %48 ]
   %72 = phi i64 [ %70, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.012.127.us, %48 ]
   %73 = phi i32 [ %66, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.6.128.us, %48 ]
-  %74 = lshr i64 %72, %40
-  %75 = sub nsw i32 %73, %35
-  %76 = shl i64 %72, %41
+  %74 = icmp samesign uge i32 %73, %35
+  tail call void @llvm.assume(i1 %74)
+  %75 = lshr i64 %72, %40
+  %76 = sub nsw i32 %73, %35
+  %77 = shl i64 %72, %41
   tail call void @llvm.assume(i1 %46)
-  %77 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
-  %78 = trunc i64 %74 to i16
-  store i16 %78, ptr %77, align 2, !tbaa !41
+  %78 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
+  %79 = trunc i64 %75 to i16
+  store i16 %79, ptr %78, align 2, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %42
   br i1 %exitcond.not, label %._crit_edge.us, label %48, !llvm.loop !308
@@ -4502,23 +4504,23 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   ret void
 
 .split.us.invoke:                                 ; preds = %55, %16
-  %79 = phi ptr [ @.str.38, %16 ], [ @.str.40, %55 ]
-  %80 = phi ptr [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE, %16 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %55 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %79, ptr noundef nonnull %80) #23
-          to label %.split.us.cont unwind label %81
+  %80 = phi ptr [ @.str.38, %16 ], [ @.str.40, %55 ]
+  %81 = phi ptr [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE, %16 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %55 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %80, ptr noundef nonnull %81) #23
+          to label %.split.us.cont unwind label %82
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-81:                                               ; preds = %.split.us.invoke
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %.split.us.invoke
+  %83 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %14, %81
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %15, %14 ]
-  %83 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %83) #33
+.body:                                            ; preds = %14, %82
+  %eh.lpad-body = phi { ptr, i32 } [ %83, %82 ], [ %15, %14 ]
+  %84 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  tail call void @__clang_call_terminate(ptr %84) #33
   unreachable
 }
 

@@ -907,8 +907,8 @@ polyvalx.exit.i162:                               ; preds = %.lr.ph.i.i157
   %287 = add i32 %reass.sub, 6
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i155228, 1
   %288 = fmul double %108, %278
-  %289 = zext nneg i32 %287 to i64
-  %290 = getelementptr inbounds nuw double, ptr %268, i64 %289
+  %289 = sext i32 %287 to i64
+  %290 = getelementptr inbounds double, ptr %268, i64 %289
   %291 = load double, ptr %290, align 8
   %.not.i.i156 = icmp eq i64 %indvars.iv.next.i163, 5
   br i1 %.not.i.i156, label %polyvalx.exit.thread.i, label %.lr.ph.i.preheader.i
@@ -982,8 +982,8 @@ SinCosSeries.exit176:                             ; preds = %307
   %indvars.iv.i177 = phi i64 [ 0, %326 ], [ %indvars.iv.next.i190, %polyvalx.exit.i187 ]
   %.017.i178 = phi double [ 1.000000e+00, %326 ], [ %342, %polyvalx.exit.i187 ]
   %.01415.i179 = phi i32 [ 0, %326 ], [ %341, %polyvalx.exit.i187 ]
-  %330 = zext nneg i32 %.01415.i179 to i64
-  %331 = getelementptr inbounds nuw double, ptr %328, i64 %330
+  %330 = sext i32 %.01415.i179 to i64
+  %331 = getelementptr inbounds double, ptr %328, i64 %330
   %332 = load double, ptr %331, align 8
   %.not.i.i180 = icmp eq i64 %indvars.iv.i177, 5
   br i1 %.not.i.i180, label %polyvalx.exit.i187, label %.lr.ph.i.preheader.i181
@@ -3057,8 +3057,8 @@ polyvalx.exit.i.i:                                ; preds = %.lr.ph.i.i.i279
   %596 = add i32 %reass.sub.i, 6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i151.i, 1
   %597 = fmul double %578, %587
-  %598 = zext nneg i32 %596 to i64
-  %599 = getelementptr inbounds nuw double, ptr %515, i64 %598
+  %598 = sext i32 %596 to i64
+  %599 = getelementptr inbounds double, ptr %515, i64 %598
   %600 = load double, ptr %599, align 8
   %.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %.not.i.i.i, label %polyvalx.exit.thread.i.i, label %.lr.ph.i.preheader.i.i
@@ -3393,8 +3393,8 @@ Lambda12.exit:                                    ; preds = %A3f.exit.i284, %649
   %indvars.iv.i = phi i64 [ 0, %770 ], [ %indvars.iv.next.i, %polyvalx.exit.i ]
   %.017.i = phi double [ 1.000000e+00, %770 ], [ %804, %polyvalx.exit.i ]
   %.01415.i = phi i32 [ 0, %770 ], [ %803, %polyvalx.exit.i ]
-  %792 = zext nneg i32 %.01415.i to i64
-  %793 = getelementptr inbounds nuw double, ptr %790, i64 %792
+  %792 = sext i32 %.01415.i to i64
+  %793 = getelementptr inbounds double, ptr %790, i64 %792
   %794 = load double, ptr %793, align 8
   %.not.i.i = icmp eq i64 %indvars.iv.i, 5
   br i1 %.not.i.i, label %polyvalx.exit.i, label %.lr.ph.i.preheader.i

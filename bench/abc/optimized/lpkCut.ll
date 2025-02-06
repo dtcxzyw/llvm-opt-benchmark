@@ -1241,13 +1241,13 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr noundef captures(none) %0,
 
 .preheader.us.preheader.i:                        ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %wide.trip.count30.i = zext nneg i32 %11 to i64
+  %wide.trip.count31.i = zext nneg i32 %11 to i64
   %wide.trip.count.i = zext nneg i32 %15 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv27.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next28.i, %._crit_edge.us.i ]
-  %48 = getelementptr inbounds nuw [100 x i32], ptr %47, i64 0, i64 %indvars.iv27.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next29.i, %._crit_edge.us.i ]
+  %48 = getelementptr inbounds nuw [100 x i32], ptr %47, i64 0, i64 %indvars.iv28.i
   %49 = load i32, ptr %48, align 4, !tbaa !45
   br label %50
 
@@ -1264,9 +1264,9 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr noundef captures(none) %0,
   br i1 %exitcond.not.i, label %Lpk_NodeCutsOneDominance.exit.thread, label %50, !llvm.loop !93
 
 ._crit_edge.us.i:                                 ; preds = %50
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %Lpk_NodeCutsOneDominance.exit, label %.preheader.us.i, !llvm.loop !94
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
+  br i1 %exitcond32.not.i, label %Lpk_NodeCutsOneDominance.exit, label %.preheader.us.i, !llvm.loop !94
 
 55:                                               ; preds = %35
   %.not = icmp eq i32 %40, %39
@@ -1286,13 +1286,13 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr noundef captures(none) %0,
 
 .preheader.us.preheader.i53:                      ; preds = %61
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %wide.trip.count30.i54 = zext nneg i32 %15 to i64
+  %wide.trip.count31.i54 = zext nneg i32 %15 to i64
   %wide.trip.count.i55 = zext nneg i32 %11 to i64
   br label %.preheader.us.i56
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i53
-  %indvars.iv27.i57 = phi i64 [ 0, %.preheader.us.preheader.i53 ], [ %indvars.iv.next28.i63, %._crit_edge.us.i62 ]
-  %63 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %indvars.iv27.i57
+  %indvars.iv28.i57 = phi i64 [ 0, %.preheader.us.preheader.i53 ], [ %indvars.iv.next29.i63, %._crit_edge.us.i62 ]
+  %63 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %indvars.iv28.i57
   %64 = load i32, ptr %63, align 4, !tbaa !45
   br label %65
 
@@ -1309,9 +1309,9 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr noundef captures(none) %0,
   br i1 %exitcond.not.i60, label %Lpk_NodeCutsOneDominance.exit.thread, label %65, !llvm.loop !93
 
 ._crit_edge.us.i62:                               ; preds = %65
-  %indvars.iv.next28.i63 = add nuw nsw i64 %indvars.iv27.i57, 1
-  %exitcond31.not.i64 = icmp eq i64 %indvars.iv.next28.i63, %wide.trip.count30.i54
-  br i1 %exitcond31.not.i64, label %Lpk_NodeCutsOneDominance.exit65, label %.preheader.us.i56, !llvm.loop !94
+  %indvars.iv.next29.i63 = add nuw nsw i64 %indvars.iv28.i57, 1
+  %exitcond32.not.i64 = icmp eq i64 %indvars.iv.next29.i63, %wide.trip.count31.i54
+  br i1 %exitcond32.not.i64, label %Lpk_NodeCutsOneDominance.exit65, label %.preheader.us.i56, !llvm.loop !94
 
 Lpk_NodeCutsOneDominance.exit65:                  ; preds = %._crit_edge.us.i62, %61
   %70 = and i32 %10, -64

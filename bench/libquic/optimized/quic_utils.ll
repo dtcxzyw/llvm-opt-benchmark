@@ -1500,7 +1500,7 @@ while.body:                                       ; preds = %while.cond
           to label %for.body.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 for.body.preheader:                               ; preds = %while.body
-  %1 = zext nneg i32 %bytes_remaining.0 to i64
+  %1 = zext nneg i32 %.sroa.speculated to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -1555,14 +1555,10 @@ for.inc:                                          ; preds = %if.end, %if.then10
 
 for.end:                                          ; preds = %for.inc
   %call15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 32)
-          to label %for.body19.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.body19 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-for.body19.preheader:                             ; preds = %for.end
-  %wide.trip.count = zext nneg i32 %.sroa.speculated to i64
-  br label %for.body19
-
-for.body19:                                       ; preds = %for.body19.preheader, %for.inc32
-  %indvars.iv32 = phi i64 [ 0, %for.body19.preheader ], [ %indvars.iv.next33, %for.inc32 ]
+for.body19:                                       ; preds = %for.end, %for.inc32
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %for.inc32 ], [ 0, %for.end ]
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %p.0, i64 %indvars.iv32
   %3 = load i8, ptr %arrayidx21, align 1
   %4 = add i8 %3, -127
@@ -1573,13 +1569,13 @@ for.body19:                                       ; preds = %for.body19.preheade
 
 for.inc32:                                        ; preds = %for.body19
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count
+  %exitcond35.not = icmp eq i64 %indvars.iv.next33, %1
   br i1 %exitcond35.not, label %for.end34, label %for.body19, !llvm.loop !34
 
 for.end34:                                        ; preds = %for.inc32
   %sub = sub nsw i32 %bytes_remaining.0, %.sroa.speculated
   %add = add nuw nsw i32 %offset.0, %.sroa.speculated
-  %add.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 %wide.trip.count
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 %1
   %call36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10)
           to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit.split-lp, !llvm.loop !35
 

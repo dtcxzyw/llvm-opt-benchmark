@@ -291,25 +291,25 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit70:      ; preds = %46
   %50 = icmp samesign ule i32 %49, %14
   call void @llvm.assume(i1 %50)
   %51 = zext nneg i32 %49 to i64
-  %.not.i.i.i.i.i.i71 = icmp samesign ult i64 %invariant.op304, %51
-  br i1 %.not.i.i.i.i.i.i71, label %52, label %_ZN8rawspeed10ByteStream6getU16Ev.exit
+  %52 = add nuw nsw i64 %51, 2
+  %.not.i.i.i.i.i.i71 = icmp samesign ugt i64 %52, %17
+  br i1 %.not.i.i.i.i.i.i71, label %53, label %_ZN8rawspeed10ByteStream6getU16Ev.exit
 
-52:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit70
+53:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit70
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
 _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit70
-  %53 = add nuw nsw i32 %.sroa.51.0306, 18
-  %54 = icmp samesign ule i32 %53, %14
-  call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %51
-  %.0.copyload.i.i.i.i.i.i72 = load i16, ptr %55, align 1
-  %56 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i72)
-  %57 = zext i16 %56 to i32
-  store i32 %57, ptr %19, align 4, !tbaa !49
-  %58 = zext nneg i32 %53 to i64
-  %59 = add nuw nsw i64 %58, 2
-  %.not.i.i.i.i.i.i74 = icmp samesign ugt i64 %59, %17
+  %54 = add nuw nsw i32 %.sroa.51.0306, 18
+  %55 = icmp samesign ule i32 %54, %14
+  call void @llvm.assume(i1 %55)
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %51
+  %.0.copyload.i.i.i.i.i.i72 = load i16, ptr %56, align 1
+  %57 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i72)
+  %58 = zext i16 %57 to i32
+  store i32 %58, ptr %19, align 4, !tbaa !49
+  %59 = zext nneg i32 %54 to i64
+  %.not.i.i.i.i.i.i74 = icmp samesign ult i64 %invariant.op304, %59
   br i1 %.not.i.i.i.i.i.i74, label %60, label %_ZN8rawspeed10ByteStream6getU16Ev.exit77
 
 60:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit
@@ -320,7 +320,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit77:         ; preds = %_ZN8rawspeed10ByteS
   %61 = add nuw nsw i32 %.sroa.51.0306, 20
   %62 = icmp samesign ule i32 %61, %14
   call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %58
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %59
   %.0.copyload.i.i.i.i.i.i75 = load i16, ptr %63, align 1
   %64 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i75)
   %65 = zext i16 %64 to i32
@@ -332,12 +332,12 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit77:         ; preds = %_ZN8rawspeed10ByteS
   %.not46 = icmp eq i16 %.0.copyload.i.i.i.i.i.i72, 0
   %67 = icmp ugt i16 %64, 3280
   %or.cond52 = or i1 %.not46, %67
-  %68 = icmp ugt i16 %56, 2456
+  %68 = icmp ugt i16 %57, 2456
   %or.cond53 = or i1 %68, %or.cond52
   br i1 %or.cond53, label %69, label %70
 
 69:                                               ; preds = %66, %_ZN8rawspeed10ByteStream6getU16Ev.exit77
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10MrwDecoder11parseHeaderEv, i32 noundef %65, i32 noundef %57) #16
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10MrwDecoder11parseHeaderEv, i32 noundef %65, i32 noundef %58) #16
   unreachable
 
 70:                                               ; preds = %66
@@ -383,7 +383,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit:          ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 79:                                               ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit, %_ZN8rawspeed10ByteStream7getByteEv.exit
-  %80 = mul nuw nsw i32 %65, %57
+  %80 = mul nuw nsw i32 %65, %58
   %81 = mul nuw i32 %80, %77
   %82 = and i32 %81, 7
   %.not49 = icmp eq i32 %82, 0
