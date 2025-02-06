@@ -1889,19 +1889,19 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %arrayidx.i31.i = getelementptr inbounds nuw i8, ptr %rows, i64 168
   %4 = load ptr, ptr %arrayidx.i31.i, align 8
-  %cmp46.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
-  br i1 %cmp46.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
+  %cmp43.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
+  br i1 %cmp43.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %fixed_length.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 12
   %varbinary_end_array_offset.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 16
   %5 = zext i32 %num_processed.0 to i64
-  %wide.trip.count52.i = zext i32 %num_rows_to_compare to i64
+  %wide.trip.count49.i = zext i32 %num_rows_to_compare to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %indvars.iv49.i = phi i64 [ %5, %for.body.lr.ph.i ], [ %indvars.iv.next50.i, %if.end.i ]
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %sel_left_maybe_null, i64 %indvars.iv49.i
+  %indvars.iv46.i = phi i64 [ %5, %for.body.lr.ph.i ], [ %indvars.iv.next47.i, %if.end.i ]
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %sel_left_maybe_null, i64 %indvars.iv46.i
   %6 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %6 to i64
   %arrayidx5.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %conv.i
@@ -1929,34 +1929,34 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %idx.ext17.i = zext i32 %add13.i to i64
   %add.ptr18.i = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext17.i
   %cmp21.not.i = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %cmp21.not.i, label %if.end.i, label %for.cond22.preheader.i
+  br i1 %cmp21.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
-for.cond22.preheader.i:                           ; preds = %for.body.i
-  %cmp2742.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2742.not.i, label %for.end.i, label %for.body28.preheader.i
+_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2739.i = icmp ult i32 %.sroa.speculated.i, 9
+  br i1 %cmp2739.i, label %for.end.i, label %for.body28.preheader.i
 
-for.body28.preheader.i:                           ; preds = %for.cond22.preheader.i
+for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i33.i = add i32 %.sroa.speculated.i, -1
-  %div.i394041.i = lshr i32 %sub.i33.i, 3
-  %wide.trip.count.i = zext nneg i32 %div.i394041.i to i64
+  %div.i515253.i = lshr i32 %sub.i33.i, 3
+  %wide.trip.count.i = zext nneg i32 %div.i515253.i to i64
   br label %for.body28.i
 
 for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
-  %result_or.144.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.141.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds nuw i64, ptr %add.ptr18.i, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx33.i, align 8
   %xor.i = xor i64 %14, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.144.i
+  %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !34
 
-for.end.i:                                        ; preds = %for.body28.i, %for.cond22.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %for.cond22.preheader.i ], [ %div.i394041.i, %for.body28.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %for.cond22.preheader.i ], [ %or.i, %for.body28.i ]
+for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i515253.i, %for.body28.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -1982,11 +1982,11 @@ if.end.i:                                         ; preds = %for.end.i, %for.bod
   %result_or.0.i = phi i8 [ %17, %for.end.i ], [ -1, %for.body.i ]
   %cmp47.i = icmp eq i32 %sub.i, %sub.i.i
   %conv50.i = select i1 %cmp47.i, i8 %result_or.0.i, i8 0
-  %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv49.i
+  %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv46.i
   store i8 %conv50.i, ptr %arrayidx52.i, align 1
-  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !35
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
+  br i1 %exitcond50.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !35
 
 _ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit: ; preds = %if.end.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key_left37.i)
@@ -2017,20 +2017,20 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %arrayidx.i31.i = getelementptr inbounds nuw i8, ptr %rows, i64 168
   %4 = load ptr, ptr %arrayidx.i31.i, align 8
-  %cmp48.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
-  br i1 %cmp48.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
+  %cmp44.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
+  br i1 %cmp44.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %varbinary_end_array_offset.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 16
   %5 = sext i32 %id_varbinary_col to i64
   %string_alignment.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 28
   %6 = zext i32 %num_processed.0 to i64
-  %wide.trip.count54.i = zext i32 %num_rows_to_compare to i64
+  %wide.trip.count50.i = zext i32 %num_rows_to_compare to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %indvars.iv51.i = phi i64 [ %6, %for.body.lr.ph.i ], [ %indvars.iv.next52.i, %if.end.i ]
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %sel_left_maybe_null, i64 %indvars.iv51.i
+  %indvars.iv47.i = phi i64 [ %6, %for.body.lr.ph.i ], [ %indvars.iv.next48.i, %if.end.i ]
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %sel_left_maybe_null, i64 %indvars.iv47.i
   %7 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %7 to i64
   %arrayidx5.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %conv.i
@@ -2065,34 +2065,34 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %idx.ext17.i = zext i32 %add13.i to i64
   %add.ptr18.i = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext17.i
   %cmp21.not.i = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %cmp21.not.i, label %if.end.i, label %for.cond22.preheader.i
+  br i1 %cmp21.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
-for.cond22.preheader.i:                           ; preds = %for.body.i
-  %cmp2743.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2743.not.i, label %for.end.i, label %for.body28.preheader.i
+_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2740.i = icmp ult i32 %.sroa.speculated.i, 9
+  br i1 %cmp2740.i, label %for.end.i, label %for.body28.preheader.i
 
-for.body28.preheader.i:                           ; preds = %for.cond22.preheader.i
+for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i.i = add i32 %.sroa.speculated.i, -1
-  %div.i404142.i = lshr i32 %sub.i.i, 3
-  %wide.trip.count.i = zext nneg i32 %div.i404142.i to i64
+  %div.i525354.i = lshr i32 %sub.i.i, 3
+  %wide.trip.count.i = zext nneg i32 %div.i525354.i to i64
   br label %for.body28.i
 
 for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
-  %result_or.145.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.142.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds nuw i64, ptr %add.ptr18.i, i64 %indvars.iv.i
   %17 = load i64, ptr %arrayidx33.i, align 8
   %xor.i = xor i64 %17, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.145.i
+  %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !36
 
-for.end.i:                                        ; preds = %for.body28.i, %for.cond22.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %for.cond22.preheader.i ], [ %div.i404142.i, %for.body28.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %for.cond22.preheader.i ], [ %or.i, %for.body28.i ]
+for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i525354.i, %for.body28.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -2118,11 +2118,11 @@ if.end.i:                                         ; preds = %for.end.i, %for.bod
   %result_or.0.i = phi i8 [ %20, %for.end.i ], [ -1, %for.body.i ]
   %cmp47.i = icmp eq i32 %sub.i, %sub15.i.i
   %conv50.i = select i1 %cmp47.i, i8 %result_or.0.i, i8 0
-  %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv51.i
+  %arrayidx52.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv47.i
   store i8 %conv50.i, ptr %arrayidx52.i, align 1
-  %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
-  br i1 %exitcond55.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !37
+  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
+  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
+  br i1 %exitcond51.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !37
 
 _ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb1ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit: ; preds = %if.end.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key_left37.i)
@@ -2153,24 +2153,24 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %arrayidx.i31.i = getelementptr inbounds nuw i8, ptr %rows, i64 168
   %4 = load ptr, ptr %arrayidx.i31.i, align 8
-  %cmp46.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
-  br i1 %cmp46.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
+  %cmp43.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
+  br i1 %cmp43.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %fixed_length.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 12
   %varbinary_end_array_offset.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 16
   %5 = zext i32 %num_processed.0 to i64
-  %wide.trip.count52.i = zext i32 %num_rows_to_compare to i64
+  %wide.trip.count49.i = zext i32 %num_rows_to_compare to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %indvars.iv49.i = phi i64 [ %5, %for.body.lr.ph.i ], [ %indvars.iv.next50.i, %if.end.i ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %indvars.iv49.i
+  %indvars.iv46.i = phi i64 [ %5, %for.body.lr.ph.i ], [ %indvars.iv.next47.i, %if.end.i ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %indvars.iv46.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv49.i
+  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv46.i
   %7 = load i32, ptr %arrayidx5.i, align 4
-  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %arrayidx7.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next50.i
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %arrayidx7.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next47.i
   %8 = load i32, ptr %arrayidx7.i, align 4
   %sub.i = sub i32 %8, %7
   %idxprom8.i = zext i32 %6 to i64
@@ -2191,34 +2191,34 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %idx.ext15.i = zext i32 %add11.i to i64
   %add.ptr16.i = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext15.i
   %cmp19.not.i = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %cmp19.not.i, label %if.end.i, label %for.cond20.preheader.i
+  br i1 %cmp19.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
-for.cond20.preheader.i:                           ; preds = %for.body.i
-  %cmp2442.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2442.not.i, label %for.end.i, label %for.body25.preheader.i
+_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2439.i = icmp ult i32 %.sroa.speculated.i, 9
+  br i1 %cmp2439.i, label %for.end.i, label %for.body25.preheader.i
 
-for.body25.preheader.i:                           ; preds = %for.cond20.preheader.i
+for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i33.i = add i32 %.sroa.speculated.i, -1
-  %div.i394041.i = lshr i32 %sub.i33.i, 3
-  %wide.trip.count.i = zext nneg i32 %div.i394041.i to i64
+  %div.i515253.i = lshr i32 %sub.i33.i, 3
+  %wide.trip.count.i = zext nneg i32 %div.i515253.i to i64
   br label %for.body25.i
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
-  %result_or.144.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.141.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds nuw i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %13 = load i64, ptr %arrayidx30.i, align 8
   %xor.i = xor i64 %13, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.144.i
+  %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !38
 
-for.end.i:                                        ; preds = %for.body25.i, %for.cond20.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %for.cond20.preheader.i ], [ %div.i394041.i, %for.body25.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %for.cond20.preheader.i ], [ %or.i, %for.body25.i ]
+for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i515253.i, %for.body25.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2244,10 +2244,10 @@ if.end.i:                                         ; preds = %for.end.i, %for.bod
   %result_or.0.i = phi i8 [ %16, %for.end.i ], [ -1, %for.body.i ]
   %cmp44.i = icmp eq i32 %sub.i, %sub.i.i
   %conv47.i = select i1 %cmp44.i, i8 %result_or.0.i, i8 0
-  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv49.i
+  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv46.i
   store i8 %conv47.i, ptr %arrayidx49.i, align 1
-  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !39
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
+  br i1 %exitcond50.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !39
 
 _ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb1EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit: ; preds = %if.end.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key_left34.i)
@@ -2278,25 +2278,25 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %arrayidx.i31.i = getelementptr inbounds nuw i8, ptr %rows, i64 168
   %4 = load ptr, ptr %arrayidx.i31.i, align 8
-  %cmp47.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
-  br i1 %cmp47.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
+  %cmp45.i = icmp ult i32 %num_processed.0, %num_rows_to_compare
+  br i1 %cmp45.i, label %for.body.lr.ph.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %varbinary_end_array_offset.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 16
   %5 = sext i32 %id_varbinary_col to i64
   %string_alignment.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 28
   %6 = zext i32 %num_processed.0 to i64
-  %wide.trip.count53.i = zext i32 %num_rows_to_compare to i64
+  %wide.trip.count51.i = zext i32 %num_rows_to_compare to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %indvars.iv50.i = phi i64 [ %6, %for.body.lr.ph.i ], [ %indvars.iv.next51.i, %if.end.i ]
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %indvars.iv50.i
+  %indvars.iv48.i = phi i64 [ %6, %for.body.lr.ph.i ], [ %indvars.iv.next49.i, %if.end.i ]
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %left_to_right_map, i64 %indvars.iv48.i
   %7 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv50.i
+  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv48.i
   %8 = load i32, ptr %arrayidx5.i, align 4
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %arrayidx7.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next51.i
+  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
+  %arrayidx7.i = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next49.i
   %9 = load i32, ptr %arrayidx7.i, align 4
   %sub.i = sub i32 %9, %8
   %idxprom8.i = zext i32 %7 to i64
@@ -2324,34 +2324,34 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %idx.ext15.i = zext i32 %add11.i to i64
   %add.ptr16.i = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext15.i
   %cmp19.not.i = icmp eq i32 %.sroa.speculated.i, 0
-  br i1 %cmp19.not.i, label %if.end.i, label %for.cond20.preheader.i
+  br i1 %cmp19.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
-for.cond20.preheader.i:                           ; preds = %for.body.i
-  %cmp2443.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2443.not.i, label %for.end.i, label %for.body25.preheader.i
+_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2440.i = icmp ult i32 %.sroa.speculated.i, 9
+  br i1 %cmp2440.i, label %for.end.i, label %for.body25.preheader.i
 
-for.body25.preheader.i:                           ; preds = %for.cond20.preheader.i
+for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i.i = add i32 %.sroa.speculated.i, -1
-  %div.i404142.i = lshr i32 %sub.i.i, 3
-  %wide.trip.count.i = zext nneg i32 %div.i404142.i to i64
+  %div.i535455.i = lshr i32 %sub.i.i, 3
+  %wide.trip.count.i = zext nneg i32 %div.i535455.i to i64
   br label %for.body25.i
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
-  %result_or.145.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.142.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds nuw i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds nuw i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %16 = load i64, ptr %arrayidx30.i, align 8
   %xor.i = xor i64 %16, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.145.i
+  %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !40
 
-for.end.i:                                        ; preds = %for.body25.i, %for.cond20.preheader.i
-  %j.0.lcssa.i = phi i32 [ 0, %for.cond20.preheader.i ], [ %div.i404142.i, %for.body25.i ]
-  %result_or.1.lcssa.i = phi i64 [ 0, %for.cond20.preheader.i ], [ %or.i, %for.body25.i ]
+for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
+  %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i535455.i, %for.body25.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2377,10 +2377,10 @@ if.end.i:                                         ; preds = %for.end.i, %for.bod
   %result_or.0.i = phi i8 [ %19, %for.end.i ], [ -1, %for.body.i ]
   %cmp44.i = icmp eq i32 %sub.i, %sub15.i.i
   %conv47.i = select i1 %cmp44.i, i8 %result_or.0.i, i8 0
-  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv50.i
+  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %match_bytevector, i64 %indvars.iv48.i
   store i8 %conv47.i, ptr %arrayidx49.i, align 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
-  br i1 %exitcond54.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !41
+  %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
+  br i1 %exitcond52.not.i, label %_ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit, label %for.body.i, !llvm.loop !41
 
 _ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh.exit: ; preds = %if.end.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key_left34.i)
