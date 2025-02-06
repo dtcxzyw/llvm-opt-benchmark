@@ -305,7 +305,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph172.i
-  %93 = trunc nuw nsw i64 %indvars.iv.next195.i to i16
+  %93 = trunc nuw i64 %indvars.iv.next195.i to i16
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %87, %78, %59

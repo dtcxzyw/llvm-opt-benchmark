@@ -673,7 +673,7 @@ define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef 
   %.137.i.i = getelementptr i8, ptr %.03147.i.i, i64 1
   %47 = load i8, ptr %.03147.i.i, align 1
   %48 = zext i8 %47 to i32
-  %49 = add i32 %.03545.i.i, -2
+  %49 = add nsw i32 %.03545.i.i, -2
   %umin.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 6)
   br label %50
 

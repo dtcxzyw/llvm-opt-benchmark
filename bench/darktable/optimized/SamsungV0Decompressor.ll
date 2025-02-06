@@ -865,13 +865,13 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
 46:                                               ; preds = %.preheader.us, %46
   %indvars.iv94 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next95, %46 ]
   %47 = or disjoint i64 %indvars.iv94, 1
-  %48 = icmp samesign ult i64 %47, %32
-  tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw i16, ptr %40, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %40, i64 %47
+  %49 = icmp samesign ule i64 %indvars.iv94, %32
+  tail call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv94
-  %51 = load i16, ptr %49, align 2, !tbaa !142
+  %51 = load i16, ptr %48, align 2, !tbaa !142
   %52 = load i16, ptr %50, align 2, !tbaa !142
-  store i16 %52, ptr %49, align 2, !tbaa !142
+  store i16 %52, ptr %48, align 2, !tbaa !142
   store i16 %51, ptr %50, align 2, !tbaa !142
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 2
   %53 = icmp samesign ult i64 %indvars.iv.next95, %33
