@@ -196,8 +196,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.bo
   %code.addr.0.lcssa.i.i = phi i32 [ %1, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 255
-  br i1 %cmp.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.i, 255
+  br i1 %exitcond.not.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
 
 _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i
   ret void
@@ -272,8 +272,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit:    ; preds = %if.end.i, %for.body
   %code.addr.0.lcssa.i = phi i32 [ %1, %for.body ], [ %and21.i, %if.end.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i, i32 noundef %code.addr.0.lcssa.i, i8 noundef zeroext %bits.addr.0.lcssa.i, i8 noundef zeroext %conv, i8 noundef zeroext %bits.addr.0.lcssa.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp samesign ult i64 %indvars.iv, 255
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, 255
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit
   ret void
@@ -380,8 +380,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.bo
   %code.addr.0.lcssa.i.i = phi i32 [ %3, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 255
-  br i1 %cmp.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.i, 255
+  br i1 %exitcond.not.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
 
 _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i
   ret void
@@ -719,8 +719,8 @@ for.inc:                                          ; preds = %if.then, %_ZN5folly
   %totalBytes.1 = phi i32 [ %totalBytes.039, %if.then ], [ %add22, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %wbits.1 = phi i8 [ %conv11, %if.then ], [ %conv15, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %inc = add nuw i64 %i.038, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.sub.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.sub.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
   %20 = and i8 %wbits.1, 7
@@ -865,8 +865,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext i8 %2 to i32
   %add = add i32 %totalBits.09, %conv
   %inc = add nuw i64 %i.08, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.sub.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.sub.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
   %totalBits.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]

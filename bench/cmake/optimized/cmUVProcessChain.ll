@@ -1728,7 +1728,7 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
   %.08 = phi i64 [ %25, %.lr.ph ], [ 0, %.loopexit ]
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
+  %.08 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
   %22 = load ptr, ptr %21, align 8, !tbaa !85
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08

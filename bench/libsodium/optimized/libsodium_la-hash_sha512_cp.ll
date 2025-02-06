@@ -58,8 +58,8 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx22 = getelementptr [128 x i8], ptr %buf, i64 0, i64 %add21
   store i8 %1, ptr %arrayidx22, align 1
   %inc23 = add nuw nsw i64 %i.048, 1
-  %cmp19 = icmp ult i64 %inc23, %inlen
-  br i1 %cmp19, label %for.body, label %return, !llvm.loop !4
+  %exitcond50.not = icmp ult i64 %inc23, %inlen
+  br i1 %exitcond50.not, label %for.body, label %return, !llvm.loop !4
 
 for.body28:                                       ; preds = %if.end, %for.body28
   %i.141 = phi i64 [ %inc34, %for.body28 ], [ 0, %if.end ]
@@ -69,8 +69,8 @@ for.body28:                                       ; preds = %if.end, %for.body28
   %arrayidx32 = getelementptr [128 x i8], ptr %buf, i64 0, i64 %add31
   store i8 %2, ptr %arrayidx32, align 1
   %inc34 = add nuw nsw i64 %i.141, 1
-  %cmp27 = icmp samesign ult i64 %inc34, %sub
-  br i1 %cmp27, label %for.body28, label %for.end35, !llvm.loop !6
+  %exitcond.not = icmp samesign ult i64 %inc34, %sub
+  br i1 %exitcond.not, label %for.body28, label %for.end35, !llvm.loop !6
 
 for.end35:                                        ; preds = %for.body28
   %arrayidx40 = getelementptr inbounds nuw i8, ptr %tmp64, i64 640
@@ -102,8 +102,8 @@ for.body54:                                       ; preds = %for.cond52.preheade
   %arrayidx57 = getelementptr [128 x i8], ptr %buf, i64 0, i64 %i.247
   store i8 %3, ptr %arrayidx57, align 1
   %inc59 = add nuw nsw i64 %i.247, 1
-  %cmp53 = icmp samesign ult i64 %inc59, %inlen.addr.0.lcssa
-  br i1 %cmp53, label %for.body54, label %for.end60, !llvm.loop !8
+  %exitcond49.not = icmp samesign ult i64 %inc59, %inlen.addr.0.lcssa
+  br i1 %exitcond49.not, label %for.body54, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %for.body54, %for.cond52.preheader
   call void @sodium_memzero(ptr noundef nonnull %tmp64, i64 noundef 704) #7
@@ -162,8 +162,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %arrayidx.i = getelementptr i64, ptr %W, i64 %i.04.i
   store i64 %or26.i.i, ptr %arrayidx.i, align 8
   %inc.i = add nuw nsw i64 %i.04.i, 1
-  %cmp.i = icmp samesign ult i64 %i.04.i, 15
-  br i1 %cmp.i, label %for.body.i, label %be64dec_vect.exit, !llvm.loop !9
+  %exitcond.not.i = icmp samesign ult i64 %i.04.i, 15
+  br i1 %exitcond.not.i, label %for.body.i, label %be64dec_vect.exit, !llvm.loop !9
 
 be64dec_vect.exit:                                ; preds = %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %S, ptr noundef nonnull align 8 dereferenceable(64) %state, i64 64, i1 false)
@@ -953,8 +953,8 @@ for.body1549:                                     ; preds = %for.body, %for.body
   %add1554 = add i64 %80, %79
   store i64 %add1554, ptr %arrayidx1553, align 8
   %indvars.iv.next1145 = add nuw nsw i64 %indvars.iv1144, 1
-  %cmp1548 = icmp samesign ult i64 %indvars.iv1144, 7
-  br i1 %cmp1548, label %for.body1549, label %for.end1556, !llvm.loop !10
+  %exitcond.not = icmp samesign ult i64 %indvars.iv1144, 7
+  br i1 %exitcond.not, label %for.body1549, label %for.end1556, !llvm.loop !10
 
 for.end1556:                                      ; preds = %for.body1549
   ret void
@@ -1003,7 +1003,7 @@ if.end.i:                                         ; preds = %for.body.lr.ph.i, %
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
-  %cmp.i.i = phi i1 [ false, %for.body.i.i ], [ true, %if.end.i ]
+  %i.06.i.i = phi i1 [ false, %for.body.i.i ], [ true, %if.end.i ]
   %i.06.i.i = phi i64 [ 1, %for.body.i.i ], [ 0, %if.end.i ]
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 3
   %add.ptr.i.i = getelementptr i8, ptr %arrayidx29.i, i64 %mul.i.i
@@ -1039,7 +1039,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %shr18.i.i.i = lshr i64 %9, 56
   %conv19.i.i.i = trunc nuw i64 %shr18.i.i.i to i8
   store i8 %conv19.i.i.i, ptr %add.ptr.i.i, align 1
-  br i1 %cmp.i.i, label %for.body.i.i, label %SHA512_Pad.exit, !llvm.loop !11
+  br i1 %i.06.i.i, label %for.body.i.i, label %SHA512_Pad.exit, !llvm.loop !11
 
 SHA512_Pad.exit:                                  ; preds = %for.body.i.i
   %buf28.i = getelementptr inbounds nuw i8, ptr %state, i64 80
@@ -1084,8 +1084,8 @@ for.body.i:                                       ; preds = %for.body.i, %SHA512
   %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.06.i, 1
-  %cmp.i5 = icmp samesign ult i64 %i.06.i, 7
-  br i1 %cmp.i5, label %for.body.i, label %be64enc_vect.exit, !llvm.loop !11
+  %exitcond.not.i = icmp samesign ult i64 %i.06.i, 7
+  br i1 %exitcond.not.i, label %for.body.i, label %be64enc_vect.exit, !llvm.loop !11
 
 be64enc_vect.exit:                                ; preds = %for.body.i
   call void @sodium_memzero(ptr noundef nonnull %tmp64, i64 noundef 704) #7

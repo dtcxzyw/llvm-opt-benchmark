@@ -8118,13 +8118,13 @@ for.body.i.i.i.i.i.i.preheader:                   ; preds = %if.then.i16.i, %if.
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i
   %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 7, %for.body.i.i.i.i.i.i.preheader ]
   %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__result.addr.08.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader ]
-  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i5, %for.body.i.i.i.i.i.i ], [ @.str.28, %for.body.i.i.i.i.i.i.preheader ]
-  %15 = load i8, ptr %__first.addr.07.i.i.i.i.i.i, align 1
+  %__first.addr.07.i.i.i.i.i.i.idx = phi ptr [ %__first.addr.07.i.i.i.i.i.i.add, %for.body.i.i.i.i.i.i ], [ @.str.28, %for.body.i.i.i.i.i.i.preheader ]
+  %__first.addr.07.i.i.i.i.i.i.ptr = load i8, ptr %__first.addr.07.i.i.i.i.i.i.idx, align 1
   %conv.i.i.i.i.i.i = sext i8 %15 to i16
   store i16 %conv.i.i.i.i.i.i, ptr %__result.addr.08.i.i.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 1
+  %__first.addr.07.i.i.i.i.i.i.add = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i.idx, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 2
-  %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
+  %exitcond.not = add nsw i64 %__n.09.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i6 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i6, label %for.body.i.i.i.i.i.i, label %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit, !llvm.loop !64
 

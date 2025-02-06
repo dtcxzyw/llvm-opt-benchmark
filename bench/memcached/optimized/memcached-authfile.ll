@@ -64,7 +64,7 @@ for.cond.preheader:                               ; preds = %if.end5, %while.con
 
 for.body:                                         ; preds = %for.body.backedge, %for.cond.preheader
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.be, %for.body.backedge ]
-  %found.049 = phi i32 [ 0, %for.cond.preheader ], [ %found.049.be, %for.body.backedge ]
+  %tobool17.not = phi i32 [ 0, %for.cond.preheader ], [ %found.049.be, %for.body.backedge ]
   %tobool17.not = icmp eq i32 %found.049, 0
   %arrayidx = getelementptr inbounds nuw i8, ptr %auth_cur.056, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
@@ -99,17 +99,17 @@ for.end.thread40:                                 ; preds = %if.else36, %if.else
   br label %if.end62
 
 for.inc:                                          ; preds = %if.else36, %if.then29
-  %cmp15 = icmp samesign ult i64 %indvars.iv, 255
-  br i1 %cmp15, label %for.body.backedge, label %if.end62
+  %indvars.iv.next = icmp samesign ult i64 %indvars.iv, 255
+  br i1 %indvars.iv.next, label %for.body.backedge, label %if.end62
 
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
-  %found.049.be = phi i32 [ 1, %for.inc ], [ 0, %for.inc.thread ]
-  %indvars.iv.be = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.be = phi i32 [ 1, %for.inc ], [ 0, %for.inc.thread ]
+  %tobool17.not.be = add nuw nsw i64 %indvars.iv, 1
   br label %for.body, !llvm.loop !7
 
 for.inc.thread:                                   ; preds = %if.then18
-  %cmp1568 = icmp samesign ult i64 %indvars.iv, 255
-  br i1 %cmp1568, label %for.body.backedge, label %if.then60
+  %indvars.iv.next67 = icmp samesign ult i64 %indvars.iv, 255
+  br i1 %indvars.iv.next67, label %for.body.backedge, label %if.then60
 
 if.then60:                                        ; preds = %for.inc.thread, %if.then18
   %call61 = tail call i32 @fclose(ptr noundef nonnull %call)
@@ -124,18 +124,18 @@ if.end62:                                         ; preds = %for.inc, %for.end.t
 
 if.end67:                                         ; preds = %if.end62
   %arrayidx69 = getelementptr inbounds nuw i8, ptr %auth_cur.056, i64 %x.047
-  %3 = load i8, ptr %arrayidx69, align 1
-  %cmp71 = icmp eq i8 %3, 0
+  %4 = load i8, ptr %arrayidx69, align 1
+  %cmp71 = icmp eq i8 %4, 0
   br i1 %cmp71, label %while.end, label %while.cond
 
 while.end:                                        ; preds = %while.cond, %if.end62, %if.end67, %if.end5
   %used.1 = phi i32 [ 0, %if.end5 ], [ %inc63, %if.end67 ], [ 8, %if.end62 ], [ %inc63, %while.cond ]
-  %4 = load ptr, ptr @main_auth_data, align 8
-  %cmp76.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr @main_auth_data, align 8
+  %cmp76.not = icmp eq ptr %5, null
   br i1 %cmp76.not, label %if.end79, label %if.then78
 
 if.then78:                                        ; preds = %while.end
-  tail call void @free(ptr noundef nonnull %4) #8
+  tail call void @free(ptr noundef nonnull %5) #8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %while.end

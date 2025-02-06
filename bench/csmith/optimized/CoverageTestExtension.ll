@@ -284,7 +284,7 @@ define dso_local void @_ZN21CoverageTestExtension17output_array_initERSoi(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %41, label %7
+  br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
   %8 = add i32 %2, -1
@@ -324,30 +324,30 @@ define dso_local void @_ZN21CoverageTestExtension17output_array_initERSoi(ptr no
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4)
   %31 = add nuw nsw i32 %.01922, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %32 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %32, label %14, label %._crit_edge, !llvm.loop !9
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %13
+  br i1 %exitcond.not, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23
-  %33 = add i32 %5, -1
-  %34 = urem i32 %33, 10
+  %32 = add i32 %5, -1
+  %33 = urem i32 %32, 10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %._crit_edge.thread, label %41
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %37 = load ptr, ptr @_ZN12AbsExtension4tab_E, align 8
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %37)
   %39 = load ptr, ptr @_ZN12AbsExtension4tab_E, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39)
   br label %41
 
-41:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
+39:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
   %.sink = phi i32 [ %2, %3 ], [ %9, %._crit_edge.thread ], [ %9, %._crit_edge ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = sext i32 %.sink to i64
-  %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %43
-  %46 = load ptr, ptr %45, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = sext i32 %.sink to i64
+  %42 = load ptr, ptr %40, align 8
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %41
+  %44 = load ptr, ptr %43, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %49 = load ptr, ptr %48, align 8

@@ -70,8 +70,8 @@ for.body:                                         ; preds = %entry, %for.body
   %3 = load ptr, ptr %arrayidx6, align 8
   tail call void @luaC_fix(ptr noundef %L, ptr noundef %3) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, 24
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -828,8 +828,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %tt_34 = getelementptr inbounds nuw %union.StackValue, ptr %15, i64 %indvars.iv, i32 0, i32 1
   store i8 0, ptr %tt_34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp20.not.not = icmp samesign ult i64 %indvars.iv, %10
-  br i1 %cmp20.not.not, label %for.body, label %for.end, !llvm.loop !7
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end
   %16 = load ptr, ptr %ci, align 8
@@ -907,11 +907,11 @@ if.end17:                                         ; preds = %if.end14, %entry
 for.body.lr.ph:                                   ; preds = %if.end17
   %idx.ext24 = sext i32 %.fr to i64
   %idx.neg = sub nsw i64 0, %idx.ext24
-  %8 = zext nneg i32 %invariant.smin to i64
+  %wide.trip.count = zext nneg i32 %invariant.smin to i64
   br label %for.body
 
-for.cond30.preheader.loopexit:                    ; preds = %for.body
-  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
+for.cond30.preheader:                             ; preds = %for.body
+  %i.0.lcssa = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.cond30.preheader
 
 for.cond30.preheader:                             ; preds = %for.cond30.preheader.loopexit, %if.end17
@@ -920,33 +920,33 @@ for.cond30.preheader:                             ; preds = %for.cond30.preheade
   br i1 %cmp3129, label %for.body33.preheader, label %for.end39
 
 for.body33.preheader:                             ; preds = %for.cond30.preheader
-  %10 = zext nneg i32 %i.0.lcssa to i64
-  %sext = sext i32 %wanted.addr.0 to i64
+  %8 = zext nneg i32 %i.0.lcssa to i64
+  %wide.trip.count35 = sext i32 %wanted.addr.0 to i64
   br label %for.body33
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %add.ptr23 = getelementptr inbounds nuw %union.StackValue, ptr %where.addr.0, i64 %indvars.iv
-  %11 = load ptr, ptr %ci, align 8
-  %add.ptr25 = getelementptr inbounds %union.StackValue, ptr %11, i64 %idx.neg
+  %9 = load ptr, ptr %ci, align 8
+  %add.ptr25 = getelementptr inbounds %union.StackValue, ptr %9, i64 %idx.neg
   %add.ptr27 = getelementptr inbounds nuw %union.StackValue, ptr %add.ptr25, i64 %indvars.iv
-  %12 = load i64, ptr %add.ptr27, align 8
-  store i64 %12, ptr %add.ptr23, align 8
+  %10 = load i64, ptr %add.ptr27, align 8
+  store i64 %10, ptr %add.ptr23, align 8
   %tt_ = getelementptr inbounds nuw i8, ptr %add.ptr27, i64 8
-  %13 = load i8, ptr %tt_, align 8
+  %11 = load i8, ptr %tt_, align 8
   %tt_29 = getelementptr inbounds nuw i8, ptr %add.ptr23, i64 8
-  store i8 %13, ptr %tt_29, align 8
+  store i8 %11, ptr %tt_29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %for.body, label %for.cond30.preheader.loopexit, !llvm.loop !8
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.body, label %for.cond30.preheader, !llvm.loop !8
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.body33
-  %indvars.iv32 = phi i64 [ %10, %for.body33.preheader ], [ %indvars.iv.next33, %for.body33 ]
+  %indvars.iv32 = phi i64 [ %8, %for.body33.preheader ], [ %indvars.iv.next33, %for.body33 ]
   %tt_36 = getelementptr inbounds nuw %union.StackValue, ptr %where.addr.0, i64 %indvars.iv32, i32 0, i32 1
   store i8 0, ptr %tt_36, align 8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %15 = icmp slt i64 %indvars.iv.next33, %sext
-  br i1 %15, label %for.body33, label %for.end39, !llvm.loop !9
+  %exitcond36.not = icmp slt i64 %indvars.iv.next33, %wide.trip.count35
+  br i1 %exitcond36.not, label %for.body33, label %for.end39, !llvm.loop !9
 
 for.end39:                                        ; preds = %for.body33, %for.cond30.preheader
   ret void

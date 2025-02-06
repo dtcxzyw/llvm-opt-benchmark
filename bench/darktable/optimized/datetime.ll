@@ -1047,7 +1047,7 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %1, 21
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %22, label %6
+  br i1 %or.cond, label %17, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 19
@@ -1056,32 +1056,32 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %10 = add i64 %1, -1
   br label %11
 
-11:                                               ; preds = %6, %19
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %19 ]
+11:                                               ; preds = %6, %16
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %16 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !57
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %.critedge, label %14
 
-14:                                               ; preds = %11
+14:  ; preds = %11
   %15 = add nuw nsw i64 %indvars.iv, 20
   %16 = icmp ugt i64 %10, %15
   br i1 %16, label %19, label %.critedge
 
-.critedge:                                        ; preds = %11, %19, %14
+.critedge: ; preds = %11, %19, %14
   %17 = getelementptr i8, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -1
   store i8 0, ptr %18, align 1, !tbaa !57
   br label %22
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %15
-  store i8 %13, ptr %20, align 1, !tbaa !57
+16:                                               ; preds = %14
+  %gep = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  store i8 %13, ptr %gep, align 1, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = icmp samesign ult i64 %indvars.iv, 5
-  br i1 %21, label %11, label %.critedge
+  %exitcond21.not = icmp samesign ult i64 %indvars.iv, 5
+  br i1 %exitcond21.not, label %11, label %.critedge
 
-22:                                               ; preds = %3, %.critedge
+17:                                               ; preds = %3, %.critedge
   ret void
 }
 

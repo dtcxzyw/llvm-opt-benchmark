@@ -301,8 +301,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i
   %31 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ]
-  %cmp6.not.not.i = icmp samesign ult i64 %indvars.iv.i, %25
-  br i1 %cmp6.not.not.i, label %for.body.i, label %for.cond9.i, !llvm.loop !5
+  %exitcond.i = icmp samesign ult i64 %indvars.iv.i, %25
+  br i1 %exitcond.i, label %for.body.i, label %for.cond9.i, !llvm.loop !5
 
 for.cond9.i:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit.i, %_ZNSt6vectorImSaImEE9push_backEOm.exit50.i
   %32 = phi ptr [ %40, %_ZNSt6vectorImSaImEE9push_backEOm.exit50.i ], [ %31, %_ZNSt6vectorImSaImEE9push_backEOm.exit.i ]
@@ -956,8 +956,8 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 for.inc:                                          ; preds = %invoke.cont10
   %inc = add nuw i64 %storemerge18, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !16
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %invoke.cont, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %invoke.cont10, %for.body
   %storemerge.lcssa = phi i64 [ 0, %for.body ], [ %storemerge18, %invoke.cont10 ], [ %inc, %for.inc ]

@@ -3864,8 +3864,8 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %91 = sub i64 %factor47.i, %85
   store i64 %91, ptr %49, align 8, !tbaa !39
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %.not.not.i = icmp samesign ult i64 %indvars.iv50.i, %59
-  br i1 %.not.not.i, label %60, label %ft_stroke_border_arcto.exit, !llvm.loop !83
+  %exitcond.not = icmp samesign ult i64 %indvars.iv50.i, %59
+  br i1 %exitcond.not, label %60, label %ft_stroke_border_arcto.exit, !llvm.loop !83
 
 ft_stroke_border_arcto.exit:                      ; preds = %60, %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %3
+  br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @cs_malloc(i32 noundef %1, i64 noundef 4) #3
@@ -74,16 +74,16 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 38:                                               ; preds = %.lr.ph61, %35
   %.147 = phi i32 [ %.04659, %.lr.ph61 ], [ %37, %35 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %39 = icmp slt i64 %indvars.iv.next65, %10
-  br i1 %39, label %.lr.ph61, label %.sink.split, !llvm.loop !6
+  %exitcond.not = icmp slt i64 %indvars.iv.next65, %10
+  br i1 %exitcond.not, label %.lr.ph61, label %.sink.split, !llvm.loop !6
 
 .sink.split:                                      ; preds = %38, %9, %3
   %.sink = phi i32 [ 0, %3 ], [ 1, %9 ], [ 1, %38 ]
-  %40 = tail call ptr @cs_idone(ptr noundef %4, ptr noundef null, ptr noundef %6, i32 noundef %.sink) #3
-  br label %41
+  %39 = tail call ptr @cs_idone(ptr noundef %4, ptr noundef null, ptr noundef %6, i32 noundef %.sink) #3
+  br label %40
 
-41:                                               ; preds = %.sink.split, %2
-  %.0 = phi ptr [ null, %2 ], [ %40, %.sink.split ]
+40:                                               ; preds = %.sink.split, %2
+  %.0 = phi ptr [ null, %2 ], [ %39, %.sink.split ]
   ret ptr %.0
 }
 

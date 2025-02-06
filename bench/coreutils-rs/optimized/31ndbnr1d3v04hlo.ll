@@ -611,7 +611,7 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %.127 = phi i64 [ %.032, %.lr.ph ], [ %44, %39 ]
   %37 = mul i64 %.sroa.013.028, %.01731
   %38 = icmp ult i64 %37, 8
-  br i1 %38, label %39, label %46, !prof !51
+  br i1 %38, label %39, label %45, !prof !51
 
 39:                                               ; preds = %36
   %40 = add nuw nsw i64 %.sroa.013.028, 1
@@ -620,10 +620,10 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %43 = add i64 %42, %32
   store i64 %43, ptr %41, align 8
   %44 = sub i64 %.127, %32
-  %45 = icmp samesign ult i64 %40, %.01830
-  br i1 %45, label %36, label %33
+  %exitcond.not = icmp samesign ult i64 %40, %.01830
+  br i1 %exitcond.not, label %36, label %33
 
-46:                                               ; preds = %36
+45:                                               ; preds = %36
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9b0663e721ce1a382de15852675646b.30) #10
   unreachable
 }

@@ -65,8 +65,8 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly %0, i64
 
 24:                                               ; preds = %.lr.ph
   %25 = add nuw nsw i64 %.01924, 1
-  %26 = icmp samesign ult i64 %25, %invariant.umin
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %exitcond.not = icmp samesign ult i64 %25, %invariant.umin
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %24, %7, %4, %21
   %.0 = phi i32 [ %., %21 ], [ -1, %4 ], [ -1, %7 ], [ -1, %24 ]
@@ -78,8 +78,8 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode(i64 noundef %0, i64 noundef 
   br label %5
 
 5:                                                ; preds = %5, %4
-  %.03.i = phi i64 [ %0, %4 ], [ %7, %5 ]
-  %.0.i = phi i64 [ 0, %4 ], [ %6, %5 ]
+  %indvars.iv = phi i64 [ %0, %4 ], [ %7, %5 ]
+  %.03.i = phi i64 [ 0, %4 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.0.i, 1
   %7 = lshr i64 %.03.i, 7
   %.not.i = icmp ult i64 %.03.i, 128
@@ -111,8 +111,8 @@ aom_uleb_size_in_bytes.exit:                      ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.02433
   store i8 %.0, ptr %17, align 1
   %18 = add nuw nsw i64 %.02433, 1
-  %.not31.not = icmp samesign ult i64 %.02433, %.0.i
-  br i1 %.not31.not, label %.preheader, label %19, !llvm.loop !7
+  %exitcond.not = icmp samesign ult i64 %.02433, %.0.i
+  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !7
 
 19:                                               ; preds = %.preheader
   store i64 %6, ptr %3, align 8
@@ -130,19 +130,19 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i
   %or.cond = and i1 %6, %7
   %8 = icmp ne ptr %4, null
   %or.cond3 = and i1 %or.cond, %8
-  br i1 %or.cond3, label %9, label %23
+  br i1 %or.cond3, label %9, label %22
 
 9:                                                ; preds = %5
   %10 = icmp ult i64 %1, %2
   %11 = icmp ugt i64 %2, 8
   %or.cond5 = or i1 %10, %11
-  br i1 %or.cond5, label %23, label %12
+  br i1 %or.cond5, label %22, label %12
 
 12:                                               ; preds = %9
   %13 = mul nuw nsw i64 %2, 7
   %.highbits = lshr i64 %0, %13
   %.not = icmp eq i64 %.highbits, 0
-  br i1 %.not, label %.preheader, label %23
+  br i1 %.not, label %.preheader, label %22
 
 .preheader:                                       ; preds = %12
   %.not36 = icmp eq i64 %2, 0
@@ -164,14 +164,14 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.02735
   store i8 %.0, ptr %20, align 1
   %21 = add nuw nsw i64 %.02735, 1
-  %22 = icmp ult i64 %21, %2
-  br i1 %22, label %15, label %._crit_edge, !llvm.loop !8
+  %exitcond.not = icmp ult i64 %21, %2
+  br i1 %exitcond.not, label %15, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   store i64 %2, ptr %4, align 8
-  br label %23
+  br label %22
 
-23:                                               ; preds = %12, %5, %9, %._crit_edge
+22:                                               ; preds = %12, %5, %9, %._crit_edge
   %.028 = phi i32 [ 0, %._crit_edge ], [ -1, %9 ], [ -1, %5 ], [ -1, %12 ]
   ret i32 %.028
 }

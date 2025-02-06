@@ -198,7 +198,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %128 = icmp slt i32 %115, 2
   %129 = icmp slt i32 %116, 2
   %130 = select i1 %128, i1 %129, i1 false
-  br i1 %130, label %.preheader88, label %131
+  br i1 %130, label %.preheader86, label %131
 
 131:                                              ; preds = %125
   %132 = load i32, ptr %2, align 4, !tbaa !3
@@ -208,14 +208,14 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 134:                                              ; preds = %131
   %135 = load i32, ptr %3, align 4, !tbaa !3
   %136 = icmp slt i32 %116, %135
-  br i1 %136, label %185, label %.preheader88
+  br i1 %136, label %185, label %.preheader86
 
-.preheader88:                                     ; preds = %134, %125
+.preheader86:                                     ; preds = %134, %125
   br label %137
 
-137:                                              ; preds = %.preheader88, %181
-  %138 = phi i32 [ %183, %181 ], [ 1, %.preheader88 ]
-  %139 = phi double [ %182, %181 ], [ undef, %.preheader88 ]
+137:                                              ; preds = %.preheader86, %181
+  %138 = phi i32 [ %183, %181 ], [ 1, %.preheader86 ]
+  %139 = phi double [ %182, %181 ], [ undef, %.preheader86 ]
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
   store i32 0, ptr %33, align 4, !tbaa !3
@@ -243,8 +243,8 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %151
 
 151:                                              ; preds = %149, %144
-  %.sink80 = phi i32 [ %150, %149 ], [ %148, %144 ]
-  %152 = sitofp i32 %.sink80 to double
+  %.sink79 = phi i32 [ %150, %149 ], [ %148, %144 ]
+  %152 = sitofp i32 %.sink79 to double
   %153 = call double @sqrt(double noundef %152) #6
   %154 = load double, ptr %32, align 8, !tbaa !7
   %155 = load double, ptr %26, align 8, !tbaa !7
@@ -477,9 +477,9 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %315 = icmp slt i32 %283, %285
   br label %316
 
-316:                                              ; preds = %.backedge, %.preheader44.split.us
-  %317 = phi i32 [ %280, %.preheader44.split.us ], [ %344, %.backedge ]
-  %318 = phi i64 [ %270, %.preheader44.split.us ], [ %.be, %.backedge ]
+316:                                              ; preds = %421, %.preheader44.split.us
+  %317 = phi i32 [ %280, %.preheader44.split.us ], [ %344, %421 ]
+  %318 = phi i64 [ %270, %.preheader44.split.us ], [ %422, %421 ]
   %319 = getelementptr inbounds i32, ptr %59, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !3
   %321 = getelementptr i8, ptr %319, i64 4
@@ -652,14 +652,14 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %422 = icmp sgt i32 %421, 1
   br i1 %422, label %.backedge, label %.loopexit43.us
 
-.backedge:                                        ; preds = %410, %.thread71
-  %.be = add nsw i64 %318, -1
+421:                                              ; preds = %410, %.thread71
+  %422 = add nsw i64 %318, -1
   br label %316, !llvm.loop !16
 
 .thread71:                                        ; preds = %409
   %423 = trunc i64 %318 to i32
   %424 = icmp sgt i32 %423, 1
-  br i1 %424, label %.backedge, label %.split.us
+  br i1 %424, label %421, label %.split.us
 
 .loopexit43.us:                                   ; preds = %410
   %425 = add nsw i64 %281, 1
@@ -685,9 +685,9 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %434
 
 434:                                              ; preds = %427, %429
-  %.sink81.in = phi i32 [ %433, %429 ], [ %344, %427 ]
-  %.sink81 = sitofp i32 %.sink81.in to double
-  %435 = call double @sqrt(double noundef %.sink81) #6
+  %.sink80.in = phi i32 [ %433, %429 ], [ %344, %427 ]
+  %.sink80 = sitofp i32 %.sink80.in to double
+  %435 = call double @sqrt(double noundef %.sink80) #6
   %436 = load double, ptr %32, align 8, !tbaa !7
   %437 = load double, ptr %26, align 8, !tbaa !7
   %438 = call double @sqrt(double noundef %437) #6

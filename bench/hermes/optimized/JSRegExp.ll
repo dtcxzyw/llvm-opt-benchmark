@@ -2361,14 +2361,14 @@ if.then.i:                                        ; preds = %if.end5
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit: ; preds = %if.end5, %if.then.i
   %cmp793.not = icmp eq ptr %1, %2
-  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body
+  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body.preheader
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
   %.pre = load i32, ptr %Size.i.i.i.i.i11, align 8
   br label %for.end
 
-for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
-  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
+for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
+  %umax = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
@@ -2428,8 +2428,8 @@ for.inc:                                          ; preds = %_ZN4llvh23SmallVect
   %storemerge = add i32 %14, 1
   store i32 %storemerge, ptr %Size.i.i.i.i.i11, align 8
   %inc = add nuw i64 %i.094, 1
-  %cmp7 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !32
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge
   %15 = phi i32 [ %.pre, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge ], [ %storemerge, %for.inc ]
@@ -2581,14 +2581,14 @@ if.then.i:                                        ; preds = %if.end5
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit: ; preds = %if.end5, %if.then.i
   %cmp793.not = icmp eq ptr %1, %2
-  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body
+  br i1 %cmp793.not, label %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge, label %for.body.preheader
 
 _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit
   %.pre = load i32, ptr %Size.i.i.i.i.i11, align 8
   br label %for.end
 
-for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
-  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
+for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
+  %umax = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
@@ -2648,8 +2648,8 @@ for.inc:                                          ; preds = %_ZN4llvh23SmallVect
   %storemerge = add i32 %14, 1
   store i32 %storemerge, ptr %Size.i.i.i.i.i11, align 8
   %inc = add nuw i64 %i.094, 1
-  %cmp7 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !33
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge
   %15 = phi i32 [ %.pre, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit.for.end_crit_edge ], [ %storemerge, %for.inc ]
@@ -4512,8 +4512,8 @@ land.rhs:                                         ; preds = %_ZNSt6vectorIPS_IPN
 
 while.body18:                                     ; preds = %land.rhs
   %inc = add nuw i64 %idx.1170, 1
-  %cmp13 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp13, label %land.rhs, label %while.end, !llvm.loop !65
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %land.rhs, label %while.end, !llvm.loop !65
 
 while.end:                                        ; preds = %land.rhs, %while.body18, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
   %idx.1.lcssa = phi i64 [ %idx.0176, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ], [ %sub.ptr.div.i, %while.body18 ], [ %idx.1170, %land.rhs ]

@@ -60,7 +60,7 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load i32, ptr @print_fields_have_header, align 4
   %4 = icmp ne i32 %3, 0
   %or.cond = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond, label %5, label %51
+  br i1 %or.cond, label %5, label %49
 
 5:                                                ; preds = %1
   %6 = tail call i32 @list_count(ptr noundef nonnull %0) #8
@@ -136,34 +136,34 @@ define void @print_fields_header(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %._crit_edge
   tail call void @list_iterator_destroy(ptr noundef %7) #8
-  br label %51
+  br label %49
 
 .lr.ph42:                                         ; preds = %.preheader, %._crit_edge40
-  %43 = phi ptr [ %50, %._crit_edge40 ], [ %41, %.preheader ]
+  %43 = phi ptr [ %48, %._crit_edge40 ], [ %41, %.preheader ]
   %44 = load i32, ptr %43, align 8
   %45 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
   %.not44 = icmp eq i32 %44, 0
   br i1 %.not44, label %._crit_edge40, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.lr.ph42, %.lr.ph39
-  %.037 = phi i32 [ %47, %.lr.ph39 ], [ 0, %.lr.ph42 ]
-  %46 = tail call i32 @putchar(i32 noundef 45)
-  %47 = add nuw nsw i32 %.037, 1
-  %48 = icmp samesign ult i32 %47, %45
-  br i1 %48, label %.lr.ph39, label %._crit_edge40, !llvm.loop !8
+  %.037 = phi i32 [ %46, %.lr.ph39 ], [ 0, %.lr.ph42 ]
+  %45 = tail call i32 @putchar(i32 noundef 45)
+  %46 = add nuw nsw i32 %.037, 1
+  %exitcond.not = icmp samesign ult i32 %46, %45
+  br i1 %exitcond.not, label %.lr.ph39, label %._crit_edge40, !llvm.loop !8
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %.lr.ph42
-  %49 = tail call i32 @putchar(i32 noundef 32)
-  %50 = tail call ptr @list_next(ptr noundef %7) #8
-  %.not32 = icmp eq ptr %50, null
+  %47 = tail call i32 @putchar(i32 noundef 32)
+  %48 = tail call ptr @list_next(ptr noundef %7) #8
+  %.not32 = icmp eq ptr %48, null
   br i1 %.not32, label %._crit_edge43, label %.lr.ph42, !llvm.loop !9
 
 ._crit_edge43:                                    ; preds = %._crit_edge40, %.preheader
   tail call void @list_iterator_destroy(ptr noundef %7) #8
   %putchar33 = tail call i32 @putchar(i32 10)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %1, %._crit_edge43, %42
+49:                                               ; preds = %1, %._crit_edge43, %42
   ret void
 }
 

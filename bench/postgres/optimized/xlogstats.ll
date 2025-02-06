@@ -107,8 +107,8 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
   %.1 = phi i32 [ %25, %21 ], [ %.0, %17 ], [ %.0, %.lr.ph.i ]
   %27 = phi i32 [ %25, %21 ], [ %13, %17 ], [ %13, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.i.not = icmp samesign ult i64 %indvars.iv, %12
-  br i1 %.not.i.not, label %.lr.ph.i, label %XLogRecGetLen.exit.loopexit, !llvm.loop !5
+  %exitcond = icmp samesign ult i64 %indvars.iv, %12
+  br i1 %exitcond, label %.lr.ph.i, label %XLogRecGetLen.exit.loopexit, !llvm.loop !5
 
 XLogRecGetLen.exit.loopexit:                      ; preds = %26
   %28 = zext i32 %.1 to i64

@@ -5140,8 +5140,8 @@ invoke.cont45.i:                                  ; preds = %invoke.cont43.i
 
 for.inc54.i:                                      ; preds = %invoke.cont45.i
   %inc55.i = add nuw i64 %i20.0234.i, 1
-  %cmp23.i = icmp ult i64 %inc55.i, %sub.ptr.div.i.i
-  br i1 %cmp23.i, label %for.body24.i, label %for.end56.i, !llvm.loop !28
+  %exitcond.not = icmp ult i64 %inc55.i, %sub.ptr.div.i.i
+  br i1 %exitcond.not, label %for.body24.i, label %for.end56.i, !llvm.loop !28
 
 lpad30.i:                                         ; preds = %call.i98.noexc.i, %invoke.cont27.i
   %225 = landingpad { ptr, i32 }
@@ -11440,8 +11440,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i.i59 = getelementptr inbounds nuw i8, ptr %__p.sroa.0.151.i.i, i64 8
   %incdec.ptr.i15.i.i = getelementptr inbounds nuw i8, ptr %__q.sroa.0.052.i.i, i64 8
   %inc.i.i = add nuw nsw i64 %__i.053.i.i, 1
-  %cmp27.i.i = icmp slt i64 %inc.i.i, %sub20.i.i
-  br i1 %cmp27.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !78
+  %exitcond56.not.i.i = icmp slt i64 %inc.i.i, %sub20.i.i
+  br i1 %exitcond56.not.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !78
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.then22.i.i
   %__p.sroa.0.1.lcssa.i.i = phi ptr [ %__p.sroa.0.0.i.i, %if.then22.i.i ], [ %incdec.ptr.i.i.i59, %for.body.i.i ]
@@ -11471,8 +11471,8 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   store ptr %9, ptr %incdec.ptr.i18.i.i, align 8
   store ptr %8, ptr %incdec.ptr.i19.i.i, align 8
   %inc57.i.i = add nuw nsw i64 %__i45.049.i.i, 1
-  %cmp48.i.i = icmp slt i64 %inc57.i.i, %__k.0.i.i
-  br i1 %cmp48.i.i, label %for.body49.i.i, label %for.end58.i.i, !llvm.loop !79
+  %exitcond.not.i.i = icmp slt i64 %inc57.i.i, %__k.0.i.i
+  br i1 %exitcond.not.i.i, label %for.body49.i.i, label %for.end58.i.i, !llvm.loop !79
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
   %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
@@ -12849,8 +12849,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__p.sroa.0.151.i.i, i64 8
   %incdec.ptr.i15.i.i = getelementptr inbounds nuw i8, ptr %__q.sroa.0.052.i.i, i64 8
   %inc.i.i = add nuw nsw i64 %__i.053.i.i, 1
-  %cmp27.i.i = icmp slt i64 %inc.i.i, %sub20.i.i
-  br i1 %cmp27.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !78
+  %exitcond56.not.i.i = icmp slt i64 %inc.i.i, %sub20.i.i
+  br i1 %exitcond56.not.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !78
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.then22.i.i
   %__p.sroa.0.1.lcssa.i.i = phi ptr [ %__p.sroa.0.0.i.i, %if.then22.i.i ], [ %incdec.ptr.i.i.i, %for.body.i.i ]
@@ -12880,8 +12880,8 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   store ptr %23, ptr %incdec.ptr.i18.i.i, align 8
   store ptr %22, ptr %incdec.ptr.i19.i.i, align 8
   %inc57.i.i = add nuw nsw i64 %__i45.049.i.i, 1
-  %cmp48.i.i = icmp slt i64 %inc57.i.i, %__k.0.i.i
-  br i1 %cmp48.i.i, label %for.body49.i.i, label %for.end58.i.i, !llvm.loop !79
+  %exitcond.not.i.i = icmp slt i64 %inc57.i.i, %__k.0.i.i
+  br i1 %exitcond.not.i.i, label %for.body49.i.i, label %for.end58.i.i, !llvm.loop !79
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
   %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]

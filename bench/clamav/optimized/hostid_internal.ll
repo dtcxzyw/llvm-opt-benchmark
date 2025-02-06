@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %19, label %.preheader57
+  br i1 %.not, label %22, label %.preheader57
 
 .preheader57:                                     ; preds = %3
   %4 = load i64, ptr %1, align 8, !tbaa !3
@@ -17,8 +17,8 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw i64 %.03560, 1
-  %.not48 = icmp ult i64 %6, %4
-  br i1 %.not48, label %.lr.ph, label %.critedge
+  %exitcond.not = icmp ult i64 %6, %4
+  br i1 %exitcond.not, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader57, %5
   %.03560 = phi i64 [ %6, %5 ], [ 0, %.preheader57 ]
@@ -54,35 +54,35 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
   tail call void @free(ptr noundef nonnull %0) #10
   br label %31
 
-19:                                               ; preds = %3
-  %20 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
-  %.not45 = icmp eq ptr %20, null
+22:                                               ; preds = %3
+  %23 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
+  %.not45 = icmp eq ptr %23, null
   br i1 %.not45, label %31, label %.thread53
 
-.thread53:                                        ; preds = %19
+.thread53:                                        ; preds = %22
   store i64 1, ptr %1, align 8, !tbaa !3
   br label %thread-pre-split.thread
 
 thread-pre-split:                                 ; preds = %.critedge
-  %21 = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
+  %.pr = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  %22 = add i64 %13, 1
-  store i64 %22, ptr %1, align 8, !tbaa !3
+  %.not50 = add i64 %13, 1
+  store i64 %.not50, ptr %1, align 8, !tbaa !3
   %.not50 = icmp eq i64 %22, 0
   br i1 %.not50, label %31, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %.lr.ph, %.thread53, %thread-pre-split
-  %.256 = phi ptr [ %20, %.thread53 ], [ %12, %thread-pre-split ], [ %0, %.lr.ph ]
-  %23 = phi i64 [ 1, %.thread53 ], [ %22, %thread-pre-split ], [ %4, %.lr.ph ]
-  %24 = getelementptr %struct.device, ptr %.256, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -32
-  %26 = load ptr, ptr %25, align 8, !tbaa !7
-  %27 = icmp eq ptr %26, null
+thread-pre-split.thread:; preds = %.lr.ph, %.thread53, %thread-pre-split
+  %26 = phi ptr [ %20, %.thread53 ], [ %12, %thread-pre-split ], [ %0, %.lr.ph ]
+  %27 = phi i64 [ 1, %.thread53 ], [ %22, %thread-pre-split ], [ %4, %.lr.ph ]
+  %28 = getelementptr %struct.device, ptr %26, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -32
+  %30 = load ptr, ptr %25, align 8, !tbaa !7
+  %or.cond = icmp eq ptr %30, null
   %28 = icmp ne ptr %2, null
   %or.cond = and i1 %28, %27
   br i1 %or.cond, label %29, label %31
 
-29:                                               ; preds = %thread-pre-split.thread
+29:; preds = %thread-pre-split.thread
   %30 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
   store ptr %30, ptr %25, align 8, !tbaa !7
   br label %31

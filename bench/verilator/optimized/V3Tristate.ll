@@ -14361,32 +14361,32 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number4hasZEv(ptr nound
   %11 = icmp samesign ult i32 %6, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
-  br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %18
+  br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %16
 
 _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
-  %13 = zext nneg i32 %8 to i64
+  %smax = zext nneg i32 %8 to i64
   br label %_ZNK12V3NumberData3numEv.exit
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %14 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %14, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i32, ptr %13, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %15 = xor i32 %.sroa.0.0.copyload, -1
-  %16 = and i32 %.sroa.2.0.copyload, %15
-  %.not.not = icmp ne i32 %16, 0
+  %14 = xor i32 %.sroa.0.0.copyload, -1
+  %15 = and i32 %.sroa.2.0.copyload, %14
+  %.not.not = icmp ne i32 %15, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = icmp samesign uge i64 %indvars.iv.next, %13
-  %or.cond.not = select i1 %.not.not, i1 true, i1 %17
-  br i1 %or.cond.not, label %.loopexit, label %_ZNK12V3NumberData3numEv.exit, !llvm.loop !58
+  %exitcond.not = icmp samesign uge i64 %indvars.iv.next, %13
+  %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %.loopexit, label %_ZNK12V3NumberData3numEv.exit, !llvm.loop !58
 
-18:                                               ; preds = %.lr.ph
-  %19 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.39, i32 noundef 206, i1 noundef zeroext true)
-  %20 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.40)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %22) #28
+16:                                               ; preds = %.lr.ph
+  %17 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.39, i32 noundef 206, i1 noundef zeroext true)
+  %18 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.40)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %20) #28
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK12V3NumberData3numEv.exit, %.preheader, %1

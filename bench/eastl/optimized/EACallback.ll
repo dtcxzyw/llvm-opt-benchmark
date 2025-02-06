@@ -797,8 +797,8 @@ _ZN2EA4StdC15CallbackManager10StopThreadEv.exit:  ; preds = %if.then, %if.then.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp9.not = icmp eq ptr %3, %4
-  br i1 %cmp9.not, label %for.end, label %for.body
+  %umax = icmp eq ptr %3, %4
+  br i1 %umax, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit ]
@@ -847,8 +847,8 @@ _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %if.then7, %if.then.
 
 for.inc:                                          ; preds = %for.body, %_ZN2EA4StdC8Callback4StopEv.exit
   %inc = add nuw i64 %i.010, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %mCallbackArray, align 8
@@ -1412,8 +1412,8 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp37.not = icmp eq ptr %1, %2
-  br i1 %cmp37.not, label %if.then14, label %for.body
+  %umax = icmp eq ptr %1, %2
+  br i1 %umax, label %if.then14, label %for.body
 
 for.body:                                         ; preds = %if.then, %if.else
   %found_empty.039 = phi i64 [ %spec.select, %if.else ], [ 4294967295, %if.then ]
@@ -1438,8 +1438,8 @@ if.else:                                          ; preds = %for.body
   %or.cond = select i1 %tobool7, i1 %cmp8, i1 false
   %spec.select = select i1 %or.cond, i64 %i.038, i64 %found_empty.039
   %inc = add nuw i64 %i.038, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %if.then12, !llvm.loop !9
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %if.then12, !llvm.loop !9
 
 if.then12:                                        ; preds = %if.else, %if.then6
   %found_empty.035 = phi i64 [ %found_empty.039, %if.then6 ], [ %spec.select, %if.else ]
@@ -1651,8 +1651,8 @@ if.then3:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp11.not = icmp eq ptr %1, %2
-  br i1 %cmp11.not, label %if.end12.thread, label %for.body
+  %umax = icmp eq ptr %1, %2
+  br i1 %umax, label %if.end12.thread, label %for.body
 
 for.body:                                         ; preds = %if.then3, %for.inc
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %if.then3 ]
@@ -1663,8 +1663,8 @@ for.body:                                         ; preds = %if.then3, %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %if.end12.thread, !llvm.loop !10
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %if.end12.thread, !llvm.loop !10
 
 if.end12.thread:                                  ; preds = %for.inc, %if.then3, %if.then, %entry
   %call149 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)

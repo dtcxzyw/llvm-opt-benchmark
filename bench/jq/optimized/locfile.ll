@@ -32,7 +32,7 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly ca
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 1, ptr %15, align 8
   %16 = icmp sgt i32 %3, 0
-  br i1 %16, label %.lr.ph, label %._crit_edge.thread
+  br i1 %16, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4
   %17 = tail call ptr @jv_mem_calloc(i64 noundef 2, i64 noundef 4) #6
@@ -41,8 +41,8 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly ca
   store i32 0, ptr %17, align 4
   br label %._crit_edge42
 
-.lr.ph:                                           ; preds = %4, %25
-  %19 = phi i32 [ %26, %25 ], [ 1, %4 ]
+.lr.ph.preheader:                                 ; preds = %4, %25
+  %wide.trip.count = phi i32 [ %26, %25 ], [ 1, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %4 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
@@ -57,49 +57,49 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly ca
 25:                                               ; preds = %.lr.ph, %23
   %26 = phi i32 [ %19, %.lr.ph ], [ %24, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %10
+  br i1 %exitcond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %25
-  %28 = add nsw i32 %26, 1
-  %29 = sext i32 %28 to i64
-  %30 = tail call ptr @jv_mem_calloc(i64 noundef %29, i64 noundef 4) #6
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %30, ptr %31, align 8
-  store i32 0, ptr %30, align 4
+  %27 = add nsw i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = tail call ptr @jv_mem_calloc(i64 noundef %28, i64 noundef 4) #6
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %29, ptr %30, align 8
+  store i32 0, ptr %29, align 4
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41._crit_edge
-  %indvars.iv44 = phi i64 [ %35, %.lr.ph41._crit_edge ], [ 0, %._crit_edge ]
+  %indvars.iv44 = phi i64 [ %34, %.lr.ph41._crit_edge ], [ 0, %._crit_edge ]
   %.03438 = phi i32 [ %.1, %.lr.ph41._crit_edge ], [ 1, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, 10
-  %35 = add nuw nsw i64 %indvars.iv44, 1
-  br i1 %34, label %36, label %.lr.ph41._crit_edge
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 10
+  %34 = add nuw nsw i64 %indvars.iv44, 1
+  br i1 %33, label %35, label %.lr.ph41._crit_edge
 
-36:                                               ; preds = %.lr.ph41
-  %37 = load ptr, ptr %31, align 8
-  %38 = sext i32 %.03438 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
-  %40 = trunc nuw nsw i64 %35 to i32
-  store i32 %40, ptr %39, align 4
-  %41 = add nsw i32 %.03438, 1
+35:                                               ; preds = %.lr.ph41
+  %36 = load ptr, ptr %30, align 8
+  %37 = sext i32 %.03438 to i64
+  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %39 = trunc nuw nsw i64 %34 to i32
+  store i32 %39, ptr %38, align 4
+  %40 = add nsw i32 %.03438, 1
   br label %.lr.ph41._crit_edge
 
-.lr.ph41._crit_edge:                              ; preds = %.lr.ph41, %36
-  %.1 = phi i32 [ %41, %36 ], [ %.03438, %.lr.ph41 ]
-  %42 = icmp slt i64 %35, %10
-  br i1 %42, label %.lr.ph41, label %._crit_edge42, !llvm.loop !6
+.lr.ph41._crit_edge:                              ; preds = %.lr.ph41, %35
+  %.1 = phi i32 [ %40, %35 ], [ %.03438, %.lr.ph41 ]
+  %exitcond48.not = icmp slt i64 %34, %10
+  br i1 %exitcond48.not, label %.lr.ph41, label %._crit_edge42, !llvm.loop !6
 
 ._crit_edge42:                                    ; preds = %.lr.ph41._crit_edge, %._crit_edge.thread
-  %43 = phi ptr [ %18, %._crit_edge.thread ], [ %31, %.lr.ph41._crit_edge ]
-  %44 = add nsw i32 %3, 1
-  %45 = load ptr, ptr %43, align 8
-  %46 = load i32, ptr %14, align 8
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %45, i64 %47
-  store i32 %44, ptr %48, align 4
+  %41 = phi ptr [ %18, %._crit_edge.thread ], [ %30, %.lr.ph41._crit_edge ]
+  %42 = add nsw i32 %3, 1
+  %43 = load ptr, ptr %41, align 8
+  %44 = load i32, ptr %14, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i32, ptr %43, i64 %45
+  store i32 %42, ptr %46, align 4
   ret ptr %5
 }
 

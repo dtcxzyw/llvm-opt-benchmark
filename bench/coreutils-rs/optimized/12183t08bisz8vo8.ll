@@ -1202,8 +1202,8 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26:
 67:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %68 = add nuw i64 %.036, 1
-  %69 = icmp ult i64 %68, %20
-  br i1 %69, label %52, label %.loopexit
+  %exitcond.not = icmp ult i64 %68, %20
+  br i1 %exitcond.not, label %52, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

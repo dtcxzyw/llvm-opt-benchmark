@@ -1806,8 +1806,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %100 = load i16, ptr %arrayidx.i.i.i.i, align 2
   store i16 %100, ptr %add.ptr.i.i.i.i, align 2
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %cmp.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i.i, 7
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i, !llvm.loop !48
+  %exitcond.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i.i, 7
+  br i1 %exitcond.not.i.i.i.i, label %for.body.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i, !llvm.loop !48
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i: ; preds = %for.body.i.i.i.i
   %add.ptr13.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i, i64 27
@@ -8857,11 +8857,11 @@ entry:
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i, %entry
-  %__n.013.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i ], [ 2, %entry ]
+  %__first.addr.012.i.i.i.i.i.i.i.idx = phi i64 [ %dec.i.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i ], [ 2, %entry ]
   %__first.addr.012.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i ], [ %ref.tmp, %entry ]
   %__result.sroa.5.011.i.i.i.i.i.i.i = phi i32 [ %spec.select8.i.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i ], [ 0, %entry ]
   %__result.sroa.0.010.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i1.i, %entry ]
-  %0 = load i8, ptr %__first.addr.012.i.i.i.i.i.i.i, align 1
+  %__first.addr.012.i.i.i.i.i.i.i.ptr = load i8, ptr %__first.addr.012.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i = trunc i8 %0 to i1
   %sh_prom.i.i.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.011.i.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i.i
@@ -8881,13 +8881,13 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i.i:     ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ], [ %or.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %__result.sroa.0.010.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.012.i.i.i.i.i.i.i, i64 1
+  %__first.addr.012.i.i.i.i.i.i.i.add = getelementptr inbounds nuw i8, ptr %__first.addr.012.i.i.i.i.i.i.i, i64 1
   %inc.i.i.i.i.i.i.i.i.i = add i32 %__result.sroa.5.011.i.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.011.i.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i64 8, i64 0
   %spec.select.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.010.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i.i
   %spec.select8.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i.i
-  %dec.i.i.i.i.i.i.i = add nsw i64 %__n.013.i.i.i.i.i.i.i, -1
+  %exitcond.not = add nsw i64 %__first.addr.012.i.i.i.i.i.i.i.idx, -1
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.013.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %invoke.cont20, !llvm.loop !687
 

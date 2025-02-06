@@ -66,7 +66,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !15
   %45 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %44) #5
-  br i1 %45, label %46, label %244
+  br i1 %45, label %46, label %243
 
 46:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
@@ -360,10 +360,10 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 .lr.ph170.split.split.us:                         ; preds = %.lr.ph170.split
   %211 = icmp sgt i32 %.fr177, 0
-  br i1 %211, label %.lr.ph170.split.split.us.split.us, label %.lr.ph170.split.split.us.split
+  br i1 %211, label %.lr.ph170.split.split.us.split.us.preheader, label %.lr.ph170.split.split.us.split
 
-.lr.ph170.split.split.us.split.us:                ; preds = %.lr.ph170.split.split.us, %229
-  %.0122168.us171.us = phi i32 [ %230, %229 ], [ %180, %.lr.ph170.split.split.us ]
+.lr.ph170.split.split.us.split.us.preheader:      ; preds = %.lr.ph170.split.split.us, %229
+  %wide.trip.count = phi i32 [ %230, %229 ], [ %180, %.lr.ph170.split.split.us ]
   store i32 %.0122168.us171.us, ptr %138, align 4, !tbaa !12
   store i32 %.0122168.us171.us, ptr %140, align 4, !tbaa !14
   call void @lv_memset(ptr noundef %137, i8 noundef zeroext -1, i64 noundef %136) #5
@@ -373,7 +373,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   switch i32 %213, label %.thread.us172.us [
     i32 2, label %.lr.ph.us.us
     i32 1, label %214
-    i32 0, label %229
+    i32 0, label %228
   ]
 
 214:                                              ; preds = %.lr.ph170.split.split.us.split.us
@@ -405,34 +405,34 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 227:                                              ; preds = %219, %215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %228 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %228, label %215, label %.thread.us172.us, !llvm.loop !47
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %136
+  br i1 %exitcond.not, label %215, label %.thread.us172.us, !llvm.loop !47
 
 .thread.us172.us:                                 ; preds = %227, %214, %.lr.ph170.split.split.us.split.us
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #5
-  br label %229
+  br label %228
 
-229:                                              ; preds = %.thread.us172.us, %.lr.ph170.split.split.us.split.us
-  %230 = add nsw i32 %.0122168.us171.us, 1
-  %231 = load i32, ptr %181, align 4, !tbaa !14
-  %.not.us173.us.not = icmp slt i32 %.0122168.us171.us, %231
+228:                                              ; preds = %.thread.us172.us, %.lr.ph170.split.split.us.split.us
+  %229 = add nsw i32 %.0122168.us171.us, 1
+  %230 = load i32, ptr %181, align 4, !tbaa !14
+  %.not.us173.us.not = icmp slt i32 %.0122168.us171.us, %230
   br i1 %.not.us173.us.not, label %.lr.ph170.split.split.us.split.us, label %._crit_edge, !llvm.loop !45
 
-.lr.ph170.split.split.us.split:                   ; preds = %.lr.ph170.split.split.us, %235
-  %.0122168.us171 = phi i32 [ %236, %235 ], [ %180, %.lr.ph170.split.split.us ]
+.lr.ph170.split.split.us.split:                   ; preds = %.lr.ph170.split.split.us, %234
+  %.0122168.us171 = phi i32 [ %235, %234 ], [ %180, %.lr.ph170.split.split.us ]
   store i32 %.0122168.us171, ptr %138, align 4, !tbaa !12
   store i32 %.0122168.us171, ptr %140, align 4, !tbaa !14
   call void @lv_memset(ptr noundef %137, i8 noundef zeroext -1, i64 noundef %136) #5
-  %232 = load i32, ptr %4, align 4, !tbaa !8
-  %233 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %137, i32 noundef %232, i32 noundef %.0122168.us171, i32 noundef %.fr177) #5
-  store i32 %233, ptr %206, align 8, !tbaa !44
-  switch i32 %233, label %.thread.us172 [
+  %231 = load i32, ptr %4, align 4, !tbaa !8
+  %232 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %137, i32 noundef %231, i32 noundef %.0122168.us171, i32 noundef %.fr177) #5
+  store i32 %232, ptr %206, align 8, !tbaa !44
+  switch i32 %232, label %.thread.us172 [
     i32 2, label %.thread.loopexit.us
-    i32 1, label %234
-    i32 0, label %235
+    i32 1, label %233
+    i32 0, label %234
   ]
 
-234:                                              ; preds = %.lr.ph170.split.split.us.split
+233:                                              ; preds = %.lr.ph170.split.split.us.split
   store ptr %178, ptr %146, align 8, !tbaa !34
   store i32 2, ptr %206, align 8, !tbaa !44
   br label %.thread.us172
@@ -441,42 +441,42 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store ptr %137, ptr %146, align 8, !tbaa !34
   br label %.thread.us172
 
-.thread.us172:                                    ; preds = %.thread.loopexit.us, %234, %.lr.ph170.split.split.us.split
+.thread.us172:                                    ; preds = %.thread.loopexit.us, %233, %.lr.ph170.split.split.us.split
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #5
-  br label %235
+  br label %234
 
-235:                                              ; preds = %.thread.us172, %.lr.ph170.split.split.us.split
-  %236 = add nsw i32 %.0122168.us171, 1
-  %237 = load i32, ptr %181, align 4, !tbaa !14
-  %.not.us173.not = icmp slt i32 %.0122168.us171, %237
+234:                                              ; preds = %.thread.us172, %.lr.ph170.split.split.us.split
+  %235 = add nsw i32 %.0122168.us171, 1
+  %236 = load i32, ptr %181, align 4, !tbaa !14
+  %.not.us173.not = icmp slt i32 %.0122168.us171, %236
   br i1 %.not.us173.not, label %.lr.ph170.split.split.us.split, label %._crit_edge, !llvm.loop !45
 
 .thread:                                          ; preds = %.thread.preheader, %.thread
-  %.0122168 = phi i32 [ %240, %.thread ], [ %209, %.thread.preheader ]
+  %.0122168 = phi i32 [ %239, %.thread ], [ %209, %.thread.preheader ]
   store i32 %.0122168, ptr %138, align 4, !tbaa !12
   store i32 %.0122168, ptr %140, align 4, !tbaa !14
   call void @lv_memset(ptr noundef %137, i8 noundef zeroext -1, i64 noundef %136) #5
-  %238 = load i32, ptr %4, align 4, !tbaa !8
-  %239 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %137, i32 noundef %238, i32 noundef %.0122168, i32 noundef %.fr177) #5
-  store i32 %239, ptr %210, align 8, !tbaa !44
+  %237 = load i32, ptr %4, align 4, !tbaa !8
+  %238 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %137, i32 noundef %237, i32 noundef %.0122168, i32 noundef %.fr177) #5
+  store i32 %238, ptr %210, align 8, !tbaa !44
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #5
-  %240 = add nsw i32 %.0122168, 1
-  %241 = load i32, ptr %208, align 4, !tbaa !14
-  %.not.not = icmp slt i32 %.0122168, %241
+  %239 = add nsw i32 %.0122168, 1
+  %240 = load i32, ptr %208, align 4, !tbaa !14
+  %.not.not = icmp slt i32 %.0122168, %240
   br i1 %.not.not, label %.thread, label %._crit_edge, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.thread.us, %.thread, %235, %229, %.thread185, %159
+._crit_edge:                                      ; preds = %.thread.us, %.thread, %234, %228, %.thread185, %159
   call void @lv_free(ptr noundef %137) #5
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %9) #5
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %7) #5
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %8) #5
-  br i1 %157, label %242, label %243
+  br i1 %157, label %241, label %242
 
-242:                                              ; preds = %._crit_edge
+241:                                              ; preds = %._crit_edge
   call void @lv_gradient_cleanup(ptr noundef nonnull %156) #5
-  br label %243
+  br label %242
 
-243:                                              ; preds = %242, %._crit_edge
+242:                                              ; preds = %241, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
@@ -484,9 +484,9 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
-  br label %244
+  br label %243
 
-244:                                              ; preds = %2, %243
+243:                                              ; preds = %2, %242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
   ret void

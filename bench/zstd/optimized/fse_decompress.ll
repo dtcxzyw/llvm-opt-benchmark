@@ -79,8 +79,8 @@ for.inc:                                          ; preds = %if.then26, %if.else
   %1 = getelementptr inbounds nuw i16, ptr %workSpace, i64 %indvars.iv
   store i16 %.sink, ptr %1, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %conv
-  br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !4
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %conv
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   store i16 %conv16, ptr %dt, align 4
@@ -104,10 +104,10 @@ for.cond83.preheader:                             ; preds = %for.end75
   br label %for.cond88.preheader
 
 for.body61:                                       ; preds = %for.body61.preheader, %for.end75
-  %indvars.iv109 = phi i64 [ 0, %for.body61.preheader ], [ %indvars.iv.next110, %for.end75 ]
+  %indvars.iv111 = phi i64 [ 0, %for.body61.preheader ], [ %indvars.iv.next112, %for.end75 ]
   %pos.098 = phi i64 [ 0, %for.body61.preheader ], [ %add77, %for.end75 ]
   %sv.097 = phi i64 [ 0, %for.body61.preheader ], [ %add80, %for.end75 ]
-  %arrayidx63 = getelementptr inbounds nuw i16, ptr %normalizedCounter, i64 %indvars.iv109
+  %arrayidx63 = getelementptr inbounds nuw i16, ptr %normalizedCounter, i64 %indvars.iv111
   %2 = load i16, ptr %arrayidx63, align 2
   %add.ptr65 = getelementptr inbounds i8, ptr %add.ptr2, i64 %pos.098
   store i64 %sv.097, ptr %add.ptr65, align 1
@@ -119,20 +119,20 @@ for.body69.preheader:                             ; preds = %for.body61
   br label %for.body69
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.body69
-  %indvars.iv106 = phi i64 [ 8, %for.body69.preheader ], [ %indvars.iv.next107, %for.body69 ]
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %add.ptr65, i64 %indvars.iv106
+  %indvars.iv108 = phi i64 [ 8, %for.body69.preheader ], [ %indvars.iv.next109, %for.body69 ]
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %add.ptr65, i64 %indvars.iv108
   store i64 %sv.097, ptr %add.ptr72, align 1
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 8
-  %cmp67 = icmp samesign ult i64 %indvars.iv.next107, %3
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 8
+  %cmp67 = icmp samesign ult i64 %indvars.iv.next109, %3
   br i1 %cmp67, label %for.body69, label %for.end75, !llvm.loop !6
 
 for.end75:                                        ; preds = %for.body69, %for.body61
   %conv76 = sext i16 %2 to i64
   %add77 = add i64 %pos.098, %conv76
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %add80 = add i64 %sv.097, 72340172838076673
-  %cmp59 = icmp samesign ult i64 %indvars.iv.next110, %conv
-  br i1 %cmp59, label %for.body61, label %for.cond83.preheader, !llvm.loop !7
+  %exitcond116.not = icmp samesign ult i64 %indvars.iv.next112, %conv
+  br i1 %exitcond116.not, label %for.body61, label %for.cond83.preheader, !llvm.loop !7
 
 for.cond88.preheader:                             ; preds = %for.cond83.preheader, %for.cond88.preheader
   %s82.0101 = phi i64 [ 0, %for.cond83.preheader ], [ %add105, %for.cond88.preheader ]
@@ -204,8 +204,8 @@ for.inc139:                                       ; preds = %while.cond
 for.inc142:                                       ; preds = %for.inc139, %for.cond122.preheader
   %position116.1.lcssa = phi i32 [ %position116.091, %for.cond122.preheader ], [ %position116.2, %for.inc139 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %cmp118 = icmp samesign ult i64 %indvars.iv.next104, %conv
-  br i1 %cmp118, label %for.cond122.preheader, label %for.end144, !llvm.loop !11
+  %exitcond107.not = icmp samesign ult i64 %indvars.iv.next104, %conv
+  br i1 %exitcond107.not, label %for.cond122.preheader, label %for.end144, !llvm.loop !11
 
 for.end144:                                       ; preds = %for.inc142
   %cmp145.not = icmp eq i32 %position116.1.lcssa, 0
@@ -216,12 +216,12 @@ for.end144.if.end149_crit_edge:                   ; preds = %for.end144
   br label %if.end149
 
 if.end149:                                        ; preds = %for.cond88.preheader, %for.end144.if.end149_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %for.end144.if.end149_crit_edge ], [ %conv84, %for.cond88.preheader ]
+  %wide.trip.count121.pre-phi = phi i64 [ %.pre, %for.end144.if.end149_crit_edge ], [ %conv84, %for.cond88.preheader ]
   br label %for.body154
 
 for.body154:                                      ; preds = %if.end149, %for.body154
-  %indvars.iv112 = phi i64 [ 0, %if.end149 ], [ %indvars.iv.next113, %for.body154 ]
-  %arrayidx157 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %add.ptr, i64 %indvars.iv112
+  %indvars.iv117 = phi i64 [ 0, %if.end149 ], [ %indvars.iv.next118, %for.body154 ]
+  %arrayidx157 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %add.ptr, i64 %indvars.iv117
   %symbol158 = getelementptr inbounds nuw i8, ptr %arrayidx157, i64 2
   %8 = load i8, ptr %symbol158, align 2
   %idxprom159 = zext i8 %8 to i64
@@ -241,9 +241,9 @@ for.body154:                                      ; preds = %if.end149, %for.bod
   %sub172 = sub i32 %shl171, %shl
   %conv173 = trunc i32 %sub172 to i16
   store i16 %conv173, ptr %arrayidx157, align 2
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %cmp152 = icmp samesign ult i64 %indvars.iv.next113, %.pre-phi
-  br i1 %cmp152, label %for.body154, label %return, !llvm.loop !12
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond122.not = icmp samesign ult i64 %indvars.iv.next118, %wide.trip.count121.pre-phi
+  br i1 %exitcond122.not, label %for.body154, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.body154, %for.end144, %if.end11, %entry
   %retval.0 = phi i64 [ -46, %entry ], [ -44, %if.end11 ], [ -1, %for.end144 ], [ 0, %for.body154 ]
@@ -283,7 +283,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %FSE_decompress_wksp_body_default.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %call.i.i = call i64 @FSE_readNCount_bmi2(ptr noundef %workSpace, ptr noundef nonnull %maxSymbolValue.i.i, ptr noundef nonnull %tableLog.i.i, ptr noundef %cSrc, i64 noundef %cSrcSize, i32 noundef 0) #9
+  %call.i.i = call i64 @FSE_readNCount_bmi2(ptr noundef %workSpace, ptr noundef nonnull %maxSymbolValue.i.i, ptr noundef nonnull %tableLog.i.i, ptr noundef %cSrc, i64 noundef %cSrcSize, i32 noundef 0) #10
   %cmp.i198.i = icmp ult i64 %call.i.i, -119
   br i1 %cmp.i198.i, label %if.end3.i.i, label %FSE_decompress_wksp_body_default.exit
 
@@ -1028,7 +1028,7 @@ entry:
   br i1 %cmp.i, label %FSE_decompress_wksp_body.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i64 @FSE_readNCount_bmi2(ptr noundef %workSpace, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize, i32 noundef 1) #9
+  %call.i = call i64 @FSE_readNCount_bmi2(ptr noundef %workSpace, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %tableLog.i, ptr noundef %cSrc, i64 noundef %cSrcSize, i32 noundef 1) #10
   %cmp.i198 = icmp ult i64 %call.i, -119
   br i1 %cmp.i198, label %if.end3.i, label %FSE_decompress_wksp_body.exit
 
@@ -1982,10 +1982,10 @@ BIT_reloadDStream.exit:                           ; preds = %if.end7.i, %if.end1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -27,9 +27,9 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
 
 .preheader16:                                     ; preds = %2
   %9 = icmp sgt i32 %0, 0
-  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %9, label %10, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader16
+10:                                               ; preds = %.preheader16
   %10 = zext nneg i32 %0 to i64
   br label %.lr.ph
 
@@ -37,46 +37,46 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str) #10
   unreachable
 
-12:                                               ; preds = %.lr.ph
+11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %13, label %.lr.ph, label %.lr.ph19.preheader, !llvm.loop !7
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %10
+  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph19.preheader, !llvm.loop !7
 
 .lr.ph19.preheader:                               ; preds = %12
   %14 = zext nneg i32 %0 to i64
   br label %.lr.ph19
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
-  %16 = call i32 @pthread_create(ptr noundef %15, ptr noundef null, ptr noundef nonnull @taskqueue_thread, ptr noundef nonnull %3) #9
-  %.not15 = icmp eq i32 %16, 0
-  br i1 %.not15, label %12, label %17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %13 = call i32 @pthread_create(ptr noundef %12, ptr noundef null, ptr noundef nonnull @taskqueue_thread, ptr noundef nonnull %3) #9
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %11, label %14
 
-17:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.1) #10
   unreachable
 
-18:                                               ; preds = %.lr.ph19
+15:                                               ; preds = %.lr.ph19
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %19 = icmp samesign ult i64 %indvars.iv.next22, %14
-  br i1 %19, label %.lr.ph19, label %._crit_edge, !llvm.loop !9
+  %exitcond25.not = icmp samesign ult i64 %indvars.iv.next22, %14
+  br i1 %exitcond25.not, label %.lr.ph19, label %._crit_edge, !llvm.loop !9
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %18
-  %indvars.iv21 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next22, %18 ]
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv21
-  %21 = load i64, ptr %20, align 8
-  %22 = call i32 @pthread_join(i64 noundef %21, ptr noundef null) #9
-  %.not14 = icmp eq i32 %22, 0
-  br i1 %.not14, label %18, label %23
+.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %15
+  %indvars.iv21 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next22, %15 ]
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv21
+  %17 = load i64, ptr %16, align 8
+  %18 = call i32 @pthread_join(i64 noundef %17, ptr noundef null) #9
+  %.not14 = icmp eq i32 %18, 0
+  br i1 %.not14, label %15, label %19
 
-23:                                               ; preds = %.lr.ph19
+19:                                               ; preds = %.lr.ph19
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2) #10
   unreachable
 
-._crit_edge:                                      ; preds = %18, %.preheader16
+._crit_edge:                                      ; preds = %15, %.preheader16
   call void @free(ptr noundef %6) #9
-  %24 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
+  %20 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %3) #9
   ret void
 }
 

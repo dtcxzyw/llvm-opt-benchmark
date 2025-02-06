@@ -248,14 +248,14 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 5:                                                ; preds = %.lr.ph21
   %6 = getelementptr inbounds nuw i8, ptr %.01220, i64 1
   %7 = zext i8 %4 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4
+  %or.cond = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
+  %9 = load i32, ptr %or.cond, align 4
   %10 = add i8 %4, 64
   %or.cond = icmp ult i8 %10, 53
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %5, %15
-  %.01119 = phi i32 [ %17, %15 ], [ 1, %5 ]
+.lr.ph:; preds = %5, %15
+  %smax = phi i32 [ %17, %15 ], [ 1, %5 ]
   %.218 = phi ptr [ %16, %15 ], [ %6, %5 ]
   %11 = icmp eq ptr %.218, %1
   br i1 %11, label %.loopexit15, label %12
@@ -268,13 +268,13 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.218, i64 1
   %17 = add nuw nsw i32 %.01119, 1
-  %18 = icmp slt i32 %17, %9
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  %exitcond.not = icmp slt i32 %17, %9
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %15, %5
   %.1 = phi ptr [ %6, %5 ], [ %16, %15 ]
-  %19 = icmp ult ptr %.1, %1
-  br i1 %19, label %.lr.ph21, label %.loopexit15, !llvm.loop !8
+  %18 = icmp ult ptr %.1, %1
+  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !8
 
 .loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]

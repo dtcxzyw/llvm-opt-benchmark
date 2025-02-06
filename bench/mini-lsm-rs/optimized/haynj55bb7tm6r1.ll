@@ -7515,7 +7515,7 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %28, ptr %31, align 8, !alias.scope !1722, !noalias !1725
   invoke void @_ZN5bytes9bytes_mut8BytesMut6resize17h5da0860c4914d284E(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %17, i8 noundef 0)
-          to label %32 unwind label %97
+          to label %32 unwind label %96
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds i32, ptr %1, i64 %2
@@ -7668,14 +7668,14 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %65, %39
 
 84:                                               ; preds = %79
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %82, i64 noundef %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.122.llvm.6717981035442482804) #48
-          to label %.noexc19 unwind label %97
+          to label %.noexc19 unwind label %96
 
 .noexc19:                                         ; preds = %84
   unreachable
 
 85:                                               ; preds = %.lr.ph
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.89) #48
-          to label %86 unwind label %97
+          to label %86 unwind label %96
 
 86:                                               ; preds = %85
   unreachable
@@ -7690,21 +7690,21 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %65, %39
   %94 = or i8 %93, %91
   store i8 %94, ptr %92, align 1, !noalias !1751
   %95 = add i32 %.01551, %74
-  %96 = icmp samesign ugt i32 %.0.sroa.speculated.i, %88
-  br i1 %96, label %79, label %.loopexit
+  %exitcond.not = icmp samesign ugt i32 %.0.sroa.speculated.i, %88
+  br i1 %exitcond.not, label %79, label %.loopexit
 
-.body.thread:                                     ; preds = %97, %57
-  %eh.lpad-body39 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm, %97 ]
+.body.thread:                                     ; preds = %96, %57
+  %eh.lpad-body39 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm, %96 ]
   resume { ptr, i32 } %eh.lpad-body39
 
-97:                                               ; preds = %85, %4, %84
+96:                                               ; preds = %85, %4, %84
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c0c4a5ea4d01e8fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %.body.thread unwind label %98
+          to label %.body.thread unwind label %97
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %96
+  %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #49
   unreachable
@@ -7729,7 +7729,7 @@ define hidden noundef zeroext i1 @_ZN13mini_lsm_mvcc5table5bloom5Bloom11may_cont
   %10 = shl i32 %.tr, 3
   %11 = icmp eq i32 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %11, label %28, label %.lr.ph.split, !prof !1727
+  br i1 %11, label %27, label %.lr.ph.split, !prof !1727
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN59_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlice$GT$7get_bit17h99d1d6e3a27369e7E.exit"
   %.017 = phi i32 [ %26, %"_ZN59_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlice$GT$7get_bit17h99d1d6e3a27369e7E.exit" ], [ %1, %.lr.ph ]
@@ -7755,11 +7755,11 @@ define hidden noundef zeroext i1 @_ZN13mini_lsm_mvcc5table5bloom5Bloom11may_cont
   %25 = and i8 %21, %24
   %.not.not = icmp ne i8 %25, 0
   %26 = add i32 %.017, %9
-  %27 = icmp ult i8 %18, %4
-  %or.cond = select i1 %.not.not, i1 %27, i1 false
-  br i1 %or.cond, label %.lr.ph.split, label %.thread
+  %exitcond.not = icmp ult i8 %18, %4
+  %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph.split, label %.thread
 
-28:                                               ; preds = %.lr.ph
+27:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.90) #48
   unreachable
 

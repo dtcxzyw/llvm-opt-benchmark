@@ -158,13 +158,13 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.c
   %arrayidx10.i = getelementptr i32, ptr %add.ptr, i64 %add9.i
   store i32 %arrayidx.val.i, ptr %arrayidx10.i, align 4
   %inc.i = add nuw nsw i64 %i.063.i, 1
-  %cmp3.i = icmp samesign ult i64 %i.063.i, 15
-  br i1 %cmp3.i, label %for.body4.i, label %for.inc11.i, !llvm.loop !4
+  %exitcond.not.i = icmp samesign ult i64 %i.063.i, 15
+  br i1 %exitcond.not.i, label %for.body4.i, label %for.inc11.i, !llvm.loop !4
 
 for.inc11.i:                                      ; preds = %for.body4.i
   %inc12.i = add nuw nsw i64 %k.064.i, 1
-  %cmp.i = icmp samesign ult i64 %inc12.i, %mul1.i
-  br i1 %cmp.i, label %for.cond2.preheader.i, label %for.cond14.preheader.i, !llvm.loop !6
+  %exitcond74.not.i = icmp samesign ult i64 %inc12.i, %mul1.i
+  br i1 %exitcond74.not.i, label %for.cond2.preheader.i, label %for.cond14.preheader.i, !llvm.loop !6
 
 for.body16.i:                                     ; preds = %for.cond14.preheader.i, %for.body16.i
   %X.067.i = phi ptr [ %8, %for.body16.i ], [ %add.ptr, %for.cond14.preheader.i ]
@@ -235,18 +235,18 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %13 = load i32, ptr %arrayidx64.i, align 4
   store i32 %13, ptr %arrayidx61.i, align 1
   %inc66.i = add nuw nsw i64 %i.372.i, 1
-  %cmp53.i = icmp samesign ult i64 %i.372.i, 15
-  br i1 %cmp53.i, label %for.body55.i, label %for.inc68.i, !llvm.loop !9
+  %exitcond75.not.i = icmp samesign ult i64 %i.372.i, 15
+  br i1 %exitcond75.not.i, label %for.body55.i, label %for.inc68.i, !llvm.loop !9
 
 for.inc68.i:                                      ; preds = %for.body55.i
   %inc69.i = add nuw nsw i64 %k.173.i, 1
-  %cmp49.i = icmp samesign ult i64 %inc69.i, %mul1.i
-  br i1 %cmp49.i, label %for.cond52.preheader.i, label %smix.exit, !llvm.loop !10
+  %exitcond76.not.i = icmp samesign ult i64 %inc69.i, %mul1.i
+  br i1 %exitcond76.not.i, label %for.cond52.preheader.i, label %smix.exit, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.inc68.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp67 = icmp samesign ult i64 %indvars.iv.next, %conv1
-  br i1 %cmp67, label %for.body, label %for.end, !llvm.loop !11
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %conv1
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %smix.exit
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef nonnull %2, i64 noundef %mul38, i64 noundef 1, ptr noundef %buf, i64 noundef %buflen) #6
@@ -862,8 +862,8 @@ for.body:                                         ; preds = %entry, %for.body
   %X2.0 = bitcast <4 x i32> %add.i1943 to <2 x i64>
   %X1.0 = bitcast <4 x i32> %add.i1946 to <2 x i64>
   %X0.0 = bitcast <4 x i32> %add.i1949 to <2 x i64>
-  %cmp = icmp ult i64 %inc, %dec
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  %exitcond.not = icmp ult i64 %inc, %dec
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.body ]
@@ -1050,7 +1050,7 @@ for.end:                                          ; preds = %for.body, %entry
   %290 = xor <4 x i32> %289, %283
   %add.i1841 = add <4 x i32> %290, %224
   %add995 = add i64 %i.0.lcssa, %dec
-  %.idx = shl i64 %add995, 6
+  %291 = shl i64 %add995, 6
   %291 = getelementptr i8, ptr %Bout, i64 %.idx
   %arrayidx998 = getelementptr i8, ptr %291, i64 64
   store <4 x i32> %add.i1841, ptr %arrayidx998, align 16
@@ -1712,8 +1712,8 @@ for.body:                                         ; preds = %entry, %for.body
   %X2.0 = bitcast <4 x i32> %add.i2092 to <2 x i64>
   %X1.0 = bitcast <4 x i32> %add.i2095 to <2 x i64>
   %X0.0 = bitcast <4 x i32> %add.i2098 to <2 x i64>
-  %cmp = icmp ult i64 %inc, %dec
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  %exitcond.not = icmp ult i64 %inc, %dec
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.body ]
@@ -1912,7 +1912,7 @@ for.end:                                          ; preds = %for.body, %entry
   %320 = xor <4 x i32> %319, %313
   %add.i1990 = add <4 x i32> %320, %254
   %add1083 = add i64 %i.0.lcssa, %dec
-  %.idx = shl i64 %add1083, 6
+  %321 = shl i64 %add1083, 6
   %321 = getelementptr i8, ptr %Bout, i64 %.idx
   %arrayidx1086 = getelementptr i8, ptr %321, i64 64
   store <4 x i32> %add.i1990, ptr %arrayidx1086, align 16

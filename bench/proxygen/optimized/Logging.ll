@@ -1660,8 +1660,8 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i9.i.i.i, %_
 
 if.end.i9.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add nuw nsw i64 %i.i.019.i.i.i, 1
-  %cmp.i7.i.i.i = icmp samesign ult i64 %i.i.019.i.i.i, 19
-  br i1 %cmp.i7.i.i.i, label %for.body.i.i.i.i, label %while.body.i.preheader.i.i.i, !llvm.loop !26
+  %exitcond.not.i.i.i = icmp samesign ult i64 %i.i.019.i.i.i, 19
+  br i1 %exitcond.not.i.i.i, label %for.body.i.i.i.i, label %while.body.i.preheader.i.i.i, !llvm.loop !26
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.019.i.i.i, i64 1)
@@ -1705,7 +1705,7 @@ if.else.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
   br label %_ZN5folly16to_ascii_decimalEPcPKcm.exit
 
 _ZN5folly16to_ascii_decimalEPcPKcm.exit:          ; preds = %if.then.i16.i.i.i, %if.else.i.i.i.i
-  %add.ptr28 = getelementptr inbounds i8, ptr %add.ptr23, i64 %retval.i5.03236.i.i.i
+  %retval.i.0.i.i.i = getelementptr inbounds i8, ptr %add.ptr23, i64 %retval.i5.03236.i.i.i
   store ptr %add.ptr28, ptr %valBufEnd, align 8
   %thousandsSeparator29 = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %13 = load i8, ptr %thousandsSeparator29, align 4
@@ -2883,8 +2883,8 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
   %inc.i.i.i.i.i.i.i = add nuw nsw i64 %i.i.06.i.i.i.i.i.i, 1
-  %cmp.i.i.i.i.i.i.i = icmp samesign ult i64 %i.i.06.i.i.i.i.i.i, 19
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i, !llvm.loop !26
+  %exitcond.not.i.i.i.i.i.i = icmp samesign ult i64 %i.i.06.i.i.i.i.i.i, 19
+  br i1 %exitcond.not.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i, !llvm.loop !26
 
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
@@ -2970,8 +2970,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nuw nsw i64 %i.i.i.015.i.i.i.i, 1
-  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %i.i.i.015.i.i.i.i, 19
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %while.body.i.i.preheader.i.i.i.i, !llvm.loop !26
+  %exitcond.not.i.i.i.i = icmp samesign ult i64 %i.i.i.015.i.i.i.i, 19
+  br i1 %exitcond.not.i.i.i.i, label %for.body.i.i.i.i.i.i, label %while.body.i.i.preheader.i.i.i.i, !llvm.loop !26
 
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)

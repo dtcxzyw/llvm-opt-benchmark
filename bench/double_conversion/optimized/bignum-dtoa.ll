@@ -439,7 +439,7 @@ entry.for.end_crit_edge:                          ; preds = %entry
   br label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %0 = zext nneg i32 %sub to i64
+  %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -451,8 +451,8 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %add, ptr %arrayidx.i, align 1
   tail call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry.for.end_crit_edge
   %idxprom.i17.pre-phi = phi i64 [ %.pre39, %entry.for.end_crit_edge ], [ %0, %for.body ]
@@ -463,7 +463,7 @@ for.end:                                          ; preds = %for.body, %entry.fo
   %spec.select = add i16 %call4, %inc7
   %conv8 = trunc i16 %spec.select to i8
   %add9 = add i8 %conv8, 48
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17.pre-phi
+  %idxprom.i17 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17.pre-phi
   store i8 %add9, ptr %arrayidx.i18, align 1
   br i1 %cmp34, label %for.body17.preheader, label %for.end28
 
@@ -474,9 +474,9 @@ for.body17.preheader:                             ; preds = %for.end
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.preheader, %if.end22
-  %1 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.body17.preheader ]
+  %0 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.body17.preheader ]
   %i13.037 = phi i32 [ %sub24, %if.end22 ], [ %sub, %for.body17.preheader ]
-  %cmp20.not = icmp eq i8 %1, 58
+  %cmp20.not = icmp eq i8 %0, 58
   br i1 %cmp20.not, label %if.end22, label %for.end28
 
 if.end22:                                         ; preds = %for.body17
@@ -486,21 +486,21 @@ if.end22:                                         ; preds = %for.body17
   %sub24 = add nsw i32 %i13.037, -1
   %idxprom.i23 = zext nneg i32 %sub24 to i64
   %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i23
-  %2 = load i8, ptr %arrayidx.i24, align 1
-  %inc26 = add i8 %2, 1
+  %1 = load i8, ptr %arrayidx.i24, align 1
+  %inc26 = add i8 %1, 1
   store i8 %inc26, ptr %arrayidx.i24, align 1
   %cmp16 = icmp sgt i32 %i13.037, 1
   br i1 %cmp16, label %for.body17, label %for.end28, !llvm.loop !8
 
-for.end28:                                        ; preds = %if.end22, %for.body17, %for.end
-  %3 = load i8, ptr %buffer.coerce0, align 1
-  %cmp31 = icmp eq i8 %3, 58
+for.end28.critedge:                               ; preds = %if.end22, %for.body17, %for.end
+  %call4.c = load i8, ptr %buffer.coerce0, align 1
+  %call5.c = icmp eq i8 %call4.c, 58
   br i1 %cmp31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %for.end28
   store i8 49, ptr %buffer.coerce0, align 1
-  %4 = load i32, ptr %decimal_point, align 4
-  %inc34 = add nsw i32 %4, 1
+  %3 = load i32, ptr %decimal_point, align 4
+  %inc34 = add nsw i32 %3, 1
   store i32 %inc34, ptr %decimal_point, align 4
   br label %if.end35
 

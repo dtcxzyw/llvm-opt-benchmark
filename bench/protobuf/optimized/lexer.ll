@@ -403,8 +403,8 @@ for.body18.i:                                     ; preds = %.noexc7, %if.end.i
 
 .noexc7:                                          ; preds = %for.body18.i
   %inc.i = add nuw nsw i64 %i.035.i, 1
-  %cmp17.i = icmp samesign ult i64 %inc.i, %conv15.i
-  br i1 %cmp17.i, label %for.body18.i, label %for.inc19.i, !llvm.loop !6
+  %exitcond.not.i = icmp samesign ult i64 %inc.i, %conv15.i
+  br i1 %exitcond.not.i, label %for.body18.i, label %for.inc19.i, !llvm.loop !6
 
 for.inc19.i:                                      ; preds = %.noexc7, %lor.lhs.false.i, %.noexc6
   %state.1.i = phi i64 [ %add.i16.i, %lor.lhs.false.i ], [ %state.037.i, %.noexc6 ], [ %add.i23.i, %.noexc7 ]
@@ -2701,10 +2701,10 @@ if.then272:                                       ; preds = %sw.epilog
           to label %if.end274 unwind label %lpad34.loopexit.split-lp.loopexit
 
 if.end274:                                        ; preds = %if.then272, %sw.epilog
-  br i1 %cmp276643, label %do.body277, label %sw.epilog340
+  br i1 %cmp276643, label %do.body277.preheader, label %sw.epilog340
 
-do.body277:                                       ; preds = %if.end274, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end274 ]
+do.body277.preheader:                             ; preds = %if.end274, %for.inc
+  %umax = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end274 ]
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream13BufferAtLeastEm(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.41") align 8 %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 1)
           to label %invoke.cont281 unwind label %lpad34.loopexit
 
@@ -2952,8 +2952,8 @@ for.inc:                                          ; preds = %.noexc393
   %add6.i392 = add i64 %167, 1
   store i64 %add6.i392, ptr %col.i, align 8, !noalias !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp276 = icmp samesign ugt i64 %lookahead.0, %indvars.iv.next
-  br i1 %cmp276, label %do.body277, label %sw.epilog340, !llvm.loop !86
+  %exitcond.not = icmp samesign ugt i64 %lookahead.0, %indvars.iv.next
+  br i1 %exitcond.not, label %do.body277, label %sw.epilog340, !llvm.loop !86
 
 sw.epilog340:                                     ; preds = %for.inc, %if.end274, %if.then.i.i.i.i262, %cleanup198, %if.end226
   br label %while.cond, !llvm.loop !87

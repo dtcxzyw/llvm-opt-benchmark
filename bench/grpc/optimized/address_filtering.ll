@@ -195,8 +195,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.cond:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
   %inc = add nuw i64 %i.045, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -2506,8 +2506,8 @@ for.body.lr.ph.i.i:                               ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
   %inc.i.i = add nuw i64 %i.045.i.i, 1
-  %cmp.i.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !4
+  %exitcond.not.i.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i
+  br i1 %exitcond.not.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %i.045.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]

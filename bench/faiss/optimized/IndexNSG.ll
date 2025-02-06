@@ -2220,7 +2220,7 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   %12 = alloca [1 x ptr], align 8
   %13 = load i64, ptr %2, align 8
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %15, label %47
+  br i1 %14, label %15, label %46
 
 15:                                               ; preds = %6
   %16 = add nsw i64 %13, -1
@@ -2244,10 +2244,10 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   %23 = load ptr, ptr %4, align 8
   %24 = sext i32 %21 to i64
   %25 = load i64, ptr %2, align 8
-  br i1 %22, label %.preheader.us, label %.preheader.lr.ph.split
+  br i1 %22, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.035.us = phi i64 [ %38, %._crit_edge.us ], [ %20, %.preheader.lr.ph ]
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph, %._crit_edge.us
+  %wide.trip.count = phi i64 [ %38, %._crit_edge.us ], [ %20, %.preheader.lr.ph ]
   %26 = phi i64 [ %37, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %27 = mul nsw i64 %.035.us, %24
   %28 = getelementptr i64, ptr %23, i64 %27
@@ -2266,16 +2266,16 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   %34 = zext i1 %or.cond29.us to i32
   %.1.us = add nuw nsw i32 %.02532.us, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %35, label %29, label %._crit_edge.us, !llvm.loop !15
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %24
+  br i1 %exitcond.not, label %29, label %._crit_edge.us, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %29
-  %36 = zext nneg i32 %.1.us to i64
-  %37 = add nuw nsw i64 %26, %36
-  store i64 %37, ptr %11, align 8
-  %38 = add nsw i64 %.035.us, 1
-  %.not.us.not = icmp slt i64 %.035.us, %19
-  br i1 %.not.us.not, label %.preheader.us, label %._crit_edge36
+  %35 = zext nneg i32 %.1.us to i64
+  %36 = add nuw nsw i64 %26, %35
+  store i64 %36, ptr %11, align 8
+  %37 = add nsw i64 %.035.us, 1
+  %exitcond39.not = icmp slt i64 %.035.us, %19
+  br i1 %exitcond39.not, label %.preheader.us, label %._crit_edge36
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   store i64 0, ptr %11, align 8
@@ -2284,26 +2284,26 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %11, ptr %12, align 8
-  %39 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %17, i32 1, i64 8, ptr nonnull %12, ptr nonnull @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %39, label %47 [
-    i32 1, label %40
-    i32 2, label %44
+  %38 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %17, i32 1, i64 8, ptr nonnull %12, ptr nonnull @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %38, label %46 [
+    i32 1, label %39
+    i32 2, label %43
   ]
 
-40:                                               ; preds = %._crit_edge36
-  %41 = load i64, ptr %5, align 8
-  %42 = load i64, ptr %11, align 8
-  %43 = add nsw i64 %42, %41
-  store i64 %43, ptr %5, align 8
+39:                                               ; preds = %._crit_edge36
+  %40 = load i64, ptr %5, align 8
+  %41 = load i64, ptr %11, align 8
+  %42 = add nsw i64 %41, %40
+  store i64 %42, ptr %5, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @4, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %47
+  br label %46
 
-44:                                               ; preds = %._crit_edge36
-  %45 = load i64, ptr %11, align 8
-  %46 = atomicrmw add ptr %5, i64 %45 monotonic, align 8
-  br label %47
+43:                                               ; preds = %._crit_edge36
+  %44 = load i64, ptr %11, align 8
+  %45 = atomicrmw add ptr %5, i64 %44 monotonic, align 8
+  br label %46
 
-47:                                               ; preds = %._crit_edge36, %40, %44, %6
+46:                                               ; preds = %._crit_edge36, %39, %43, %6
   ret void
 }
 

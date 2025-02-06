@@ -493,8 +493,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 for.inc:                                          ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %invoke.cont
   %inc = add nuw i64 %i.073, 1
-  %cmp5 = icmp ult i64 %inc, %num_keys
-  br i1 %cmp5, label %invoke.cont, label %for.end, !llvm.loop !4
+  %exitcond74.not = icmp ult i64 %inc, %num_keys
+  br i1 %exitcond74.not, label %invoke.cont, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.then
   %state_.i21 = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -723,8 +723,8 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont39
 
 _ZN7rocksdb6StatusD2Ev.exit53:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %invoke.cont39
   %inc43 = add nuw i64 %i34.071, 1
-  %cmp36 = icmp ult i64 %inc43, %num_keys
-  br i1 %cmp36, label %invoke.cont39, label %if.end45, !llvm.loop !6
+  %exitcond.not = icmp ult i64 %inc43, %num_keys
+  br i1 %exitcond.not, label %invoke.cont39, label %if.end45, !llvm.loop !6
 
 lpad16:                                           ; preds = %if.then.i.i26, %if.else.i
   %47 = landingpad { ptr, i32 }
@@ -3723,7 +3723,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   store i64 %15, ptr %__result.addr.07.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i = add nuw i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
   %incdec.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__result.addr.07.i.i.i.i.i, i64 8
-  %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
+  %exitcond.not = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.08.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont31, !llvm.loop !20
 
@@ -3913,8 +3913,8 @@ do.body:                                          ; preds = %do.cond, %if.end7
   %retval.1 = phi i1 [ undef, %if.end7 ], [ %retval.2, %do.cond ]
   %repeats.0 = phi i64 [ 0, %if.end7 ], [ %inc, %do.cond ]
   %inc = add nuw nsw i64 %repeats.0, 1
-  %cmp8 = icmp samesign ugt i64 %repeats.0, 98
-  br i1 %cmp8, label %if.then9, label %if.end10
+  %exitcond = icmp samesign ugt i64 %repeats.0, 98
+  br i1 %exitcond, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %do.body
   %exception = call ptr @__cxa_allocate_exception(i64 16) #21

@@ -1592,53 +1592,53 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96
   %13 = sext i32 %4 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph, %.backedge
+13:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %15 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %15, ptr %0, align 4, !alias.scope !226
+  %14 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %14, ptr %0, align 4, !alias.scope !226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %16 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17hbbd43f1ab65f955fE"(ptr noundef nonnull align 8 %8, ptr noundef nonnull align 8 %7), !noalias !227
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i64, ptr %17, align 8, !noalias !227, !noundef !10
-  %.not.i.i.i = icmp ugt i64 %18, %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !227, !nonnull !10
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %20, i64 %indvars.iv
-  br i1 %.not.i.i.i, label %22, label %.backedge
+  %15 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17hbbd43f1ab65f955fE"(ptr noundef nonnull align 8 %8, ptr noundef nonnull align 8 %7), !noalias !227
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i64, ptr %16, align 8, !noalias !227, !noundef !10
+  %.not.i.i.i = icmp ugt i64 %17, %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load ptr, ptr %18, align 8, !noalias !227, !nonnull !10
+  %20 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 %indvars.iv
+  br i1 %.not.i.i.i, label %21, label %.backedge
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %21, align 8, !noalias !227, !noundef !10
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %.backedge, label %25
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %20, align 8, !noalias !227, !noundef !10
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.backedge, label %24
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %27 = load i64, ptr %26, align 8, !noalias !227, !noundef !10
-  %.not.i8.i.i = icmp eq i64 %27, %10
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = load i64, ptr %25, align 8, !noalias !227, !noundef !10
+  %.not.i8.i.i = icmp eq i64 %26, %10
   br i1 %.not.i8.i.i, label %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i", label %.backedge
 
-"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i": ; preds = %25
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull readonly align 1 %11, i64 %10), !alias.scope !234, !noalias !227
+"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i": ; preds = %24
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %22, ptr nonnull readonly align 1 %11, i64 %10), !alias.scope !234, !noalias !227
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %.not = icmp eq i32 %bcmp.i.i.fr.i, 0
   br i1 %.not, label %._crit_edge.loopexit.split.loop.exit18, label %.backedge
 
-.backedge:                                        ; preds = %25, %14, %22, %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
-  %28 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %28, label %14, label %._crit_edge
+.backedge:                                        ; preds = %24, %13, %21, %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %13
+  br i1 %exitcond.not, label %14, label %._crit_edge
 
 ._crit_edge.loopexit.split.loop.exit18:           ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
-  %29 = trunc nsw i64 %indvars.iv to i32
+  %27 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %._crit_edge.loopexit.split.loop.exit18, %2
-  %.lcssa = phi i32 [ %.promoted, %2 ], [ %29, %._crit_edge.loopexit.split.loop.exit18 ], [ %4, %.backedge ]
+  %.lcssa = phi i32 [ %.promoted, %2 ], [ %27, %._crit_edge.loopexit.split.loop.exit18 ], [ %4, %.backedge ]
   %.sroa.0.0 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.loopexit.split.loop.exit18 ], [ 0, %.backedge ]
-  %30 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %31 = insertvalue { i32, i32 } %30, i32 %.lcssa, 1
-  ret { i32, i32 } %31
+  %28 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %29 = insertvalue { i32, i32 } %28, i32 %.lcssa, 1
+  ret { i32, i32 } %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -8056,53 +8056,53 @@ define hidden { i64, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse21in
 
 .lr.ph.i:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %11 = zext nneg i32 %8 to i64
-  br label %12
+  %zext = zext nneg i32 %8 to i64
+  br label %11
 
-12:                                               ; preds = %.backedge.i, %.lr.ph.i
+11:                                               ; preds = %.backedge.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.backedge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17hbbd43f1ab65f955fE"(ptr noundef nonnull align 8 %10, ptr noundef nonnull align 8 %0), !noalias !1144
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !1144, !noundef !10
-  %.not.i.i.i.i = icmp ugt i64 %15, %indvars.iv.i
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !1144, !nonnull !10
-  %18 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i64 %indvars.iv.i
-  br i1 %.not.i.i.i.i, label %19, label %.backedge.i
+  %12 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17hbbd43f1ab65f955fE"(ptr noundef nonnull align 8 %10, ptr noundef nonnull align 8 %0), !noalias !1144
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i64, ptr %13, align 8, !noalias !1144, !noundef !10
+  %.not.i.i.i.i = icmp ugt i64 %14, %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %16 = load ptr, ptr %15, align 8, !noalias !1144, !nonnull !10
+  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i64 %indvars.iv.i
+  br i1 %.not.i.i.i.i, label %18, label %.backedge.i
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %18, align 8, !noalias !1144, !noundef !10
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.backedge.i, label %22
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %17, align 8, !noalias !1144, !noundef !10
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.backedge.i, label %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load i64, ptr %23, align 8, !noalias !1144, !noundef !10
-  %.not.i8.i.i.i = icmp eq i64 %24, %2
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %23 = load i64, ptr %22, align 8, !noalias !1144, !noundef !10
+  %.not.i8.i.i.i = icmp eq i64 %23, %2
   br i1 %.not.i8.i.i.i, label %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i", label %.backedge.i
 
-"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i": ; preds = %22
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %20, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !1152, !noalias !1144
+"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i": ; preds = %21
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %19, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !1152, !noalias !1144
   %bcmp.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i
   %.not.i = icmp eq i32 %bcmp.i.i.fr.i.i, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit, label %.backedge.i
 
-.backedge.i:                                      ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i", %22, %19, %12
-  %25 = icmp samesign ult i64 %indvars.iv.next.i, %11
-  br i1 %25, label %12, label %.loopexit
+.backedge.i:                                      ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i", %21, %18, %11
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %zext
+  br i1 %24, label %12, label %.loopexit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit: ; preds = %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i.i"
   %sext = shl i64 %indvars.iv.i, 32
-  %26 = ashr exact i64 %sext, 32
+  %25 = ashr exact i64 %sext, 32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge.i, %3, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit
   %not.switch = phi i64 [ 1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit ], [ 0, %3 ], [ 0, %.backedge.i ]
-  %27 = phi i64 [ %26, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit ], [ undef, %3 ], [ undef, %.backedge.i ]
-  %28 = insertvalue { i64, i64 } poison, i64 %not.switch, 0
-  %29 = insertvalue { i64, i64 } %28, i64 %27, 1
-  ret { i64, i64 } %29
+  %26 = phi i64 [ %25, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit ], [ undef, %3 ], [ undef, %.backedge.i ]
+  %27 = insertvalue { i64, i64 } poison, i64 %not.switch, 0
+  %28 = insertvalue { i64, i64 } %27, i64 %26, 1
+  ret { i64, i64 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

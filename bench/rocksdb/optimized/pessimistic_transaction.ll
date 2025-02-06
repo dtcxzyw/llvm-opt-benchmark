@@ -9035,7 +9035,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   store i64 %15, ptr %__result.addr.07.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i = add nuw i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
   %incdec.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__result.addr.07.i.i.i.i.i, i64 8
-  %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
+  %exitcond.not = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.08.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont31, !llvm.loop !112
 

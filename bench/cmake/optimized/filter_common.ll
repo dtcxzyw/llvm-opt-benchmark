@@ -326,8 +326,8 @@ lzma_validate_chain.exit:                         ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %48, ptr %49, align 8, !tbaa !33
   %50 = add nuw i64 %.05690, 1
-  %.not60 = icmp ult i64 %50, %24
-  br i1 %.not60, label %.lr.ph91, label %.loopexit, !llvm.loop !34
+  %exitcond104.not = icmp ult i64 %50, %24
+  br i1 %exitcond104.not, label %.lr.ph91, label %.loopexit, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader78, %59
   %.05588 = phi i64 [ %66, %59 ], [ 0, %.preheader78 ]
@@ -354,8 +354,8 @@ lzma_validate_chain.exit:                         ; preds = %27
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %64, ptr %65, align 8, !tbaa !33
   %66 = add nuw i64 %.05588, 1
-  %.not59 = icmp ult i64 %66, %24
-  br i1 %.not59, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  %exitcond.not = icmp ult i64 %66, %24
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %59, %43, %.preheader78, %.preheader
   %67 = getelementptr inbounds nuw [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %24

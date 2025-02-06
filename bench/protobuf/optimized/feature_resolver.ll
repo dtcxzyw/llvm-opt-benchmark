@@ -4020,8 +4020,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %13, i64 8
   store i8 %add40, ptr %add.ptr.i.i.i.i.i, align 1
   store ptr %this, ptr %13, align 8
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %conv32
-  br i1 %cmp, label %for.body, label %for.cond45.preheader, !llvm.loop !73
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %conv32
+  br i1 %exitcond.not, label %for.body, label %for.cond45.preheader, !llvm.loop !73
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.body52
   %i43.080 = phi i8 [ 0, %for.body52.lr.ph ], [ %inc63, %for.body52 ]
@@ -4192,8 +4192,8 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   store i8 %23, ptr %add.ptr.i.i.i.i.i63, align 1
   store ptr %right, ptr %22, align 8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %cmp59.not.not = icmp samesign ult i64 %indvars.iv76, %14
-  br i1 %cmp59.not.not, label %for.body60, label %if.end, !llvm.loop !76
+  %exitcond = icmp samesign ult i64 %indvars.iv76, %14
+  br i1 %exitcond, label %for.body60, label %if.end, !llvm.loop !76
 
 if.end:                                           ; preds = %for.body60, %for.cond56.preheader, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit
   %24 = load i8, ptr %arrayidx.i, align 1

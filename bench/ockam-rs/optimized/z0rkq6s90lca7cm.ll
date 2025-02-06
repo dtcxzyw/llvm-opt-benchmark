@@ -4598,8 +4598,8 @@ define void @"_ZN106_$LT$ockam_vault..software..vault_for_secure_channels..types
   %15 = add nuw i64 %.sroa.0.0.i5.i.i, 1
   %16 = getelementptr inbounds i8, ptr %10, i64 %.sroa.0.0.i5.i.i
   store volatile i8 0, ptr %16, align 1, !alias.scope !1614, !noalias !1602
-  %17 = icmp ult i64 %15, %12
-  br i1 %17, label %.lr.ph.i7.i, label %"_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit"
+  %exitcond.not.i.i = icmp ult i64 %15, %12
+  br i1 %exitcond.not.i.i, label %.lr.ph.i7.i, label %"_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit"
 
 "_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit": ; preds = %.lr.ph.i7.i, %.preheader.i.i
   fence syncscope("singlethread") seq_cst

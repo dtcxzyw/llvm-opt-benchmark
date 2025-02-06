@@ -264,8 +264,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hd8c38152741f4af7E.exit.i: ; preds =
   %48 = load i32, ptr %47, align 4, !alias.scope !13, !noalias !21, !noundef !4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %46, align 1, !alias.scope !49, !noalias !53
-  %50 = icmp samesign ult i64 %.sroa.12.040.i, 7
-  br i1 %50, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i", label %"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit"
+  %exitcond.not.i = icmp samesign ult i64 %.sroa.12.040.i, 7
+  br i1 %exitcond.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i", label %"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit"
 
 "_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$22finalize_variable_core17hd25b9330b6b55406E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha33db307e64c0f6aE.exit12.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %12, i64 32, i1 false), !alias.scope !55, !noalias !59
@@ -581,38 +581,38 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 36, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %0, i8 0, i64 36, i1 false)
-  br label %14
+  br label %15
 
-.thread:                                          ; preds = %._crit_edge, %23
+14:                                               ; preds = %._crit_edge, %23
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   ret void
 
-14:                                               ; preds = %3, %23
+15:                                               ; preds = %3, %23
   %.sroa.02.033 = phi i64 [ 0, %3 ], [ %25, %23 ]
   %.sroa.09.032 = phi i64 [ 0, %3 ], [ %.sroa.09.1.lcssa, %23 ]
-  %15 = getelementptr inbounds nuw [5 x { i64, i64 }], ptr %4, i64 0, i64 %.sroa.02.033
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = icmp ult i64 %16, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge
+  %16 = getelementptr inbounds nuw [5 x { i64, i64 }], ptr %4, i64 0, i64 %.sroa.02.033
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load i64, ptr %18, align 8, !noundef !4
+  %20 = icmp ult i64 %17, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %41, %14
-  %.sroa.09.1.lcssa = phi i64 [ %.sroa.09.032, %14 ], [ %31, %41 ]
+._crit_edge:                                      ; preds = %41, %15
+  %.sroa.09.1.lcssa = phi i64 [ %.sroa.09.032, %15 ], [ %31, %41 ]
   %.not = icmp eq i64 %.sroa.02.033, 4
-  br i1 %.not, label %.thread, label %21
+  br i1 %.not, label %14, label %21
 
-.lr.ph:                                           ; preds = %14, %41
-  %.sroa.09.131 = phi i64 [ %31, %41 ], [ %.sroa.09.032, %14 ]
-  %.sroa.013.030 = phi i64 [ %48, %41 ], [ %16, %14 ]
+22:                                               ; preds = %14, %41
+  %23 = phi i64 [ %31, %41 ], [ %.sroa.09.032, %14 ]
+  %.sroa.013.030 = phi i64 [ %48, %41 ], [ %17, %15 ]
   %20 = icmp ult i64 %.sroa.09.131, 16
   br i1 %20, label %28, label %33, !prof !165
 
-21:                                               ; preds = %._crit_edge
-  %22 = icmp ult i64 %18, 36
-  br i1 %22, label %23, label %27, !prof !165
+24:                                               ; preds = %._crit_edge
+  %25 = icmp ult i64 %19, 36
+  br i1 %25, label %23, label %27, !prof !165
 
-23:                                               ; preds = %21
+27:                                               ; preds = %21
   %24 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %18
   store i8 45, ptr %24, align 1
   %25 = add nuw nsw i64 %.sroa.02.033, 1
@@ -657,7 +657,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   %47 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %42
   store i8 %46, ptr %47, align 1
   %48 = add nuw nsw i64 %.sroa.013.030, 2
-  %49 = icmp ult i64 %48, %18
+  %49 = icmp ult i64 %48, %19
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 50:                                               ; preds = %34

@@ -37,8 +37,8 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
   store volatile i64 %17, ptr %19, align 8
   %20 = add i64 %.01518, 4096
   %21 = add nuw nsw i32 %.019, 1
-  %22 = icmp ult i32 %21, %9
-  br i1 %22, label %14, label %.loopexit, !llvm.loop !6
+  %exitcond.not = icmp ult i32 %21, %9
+  br i1 %exitcond.not, label %14, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %14, %11, %3
   %.016 = phi i32 [ -1, %3 ], [ 0, %11 ], [ 0, %14 ]

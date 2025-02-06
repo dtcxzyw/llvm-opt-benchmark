@@ -3800,13 +3800,13 @@ for.cond.preheader:                               ; preds = %invoke.cont2
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
-  %cmp88.not = icmp eq ptr %7, %8
-  br i1 %cmp88.not, label %for.end201, label %for.body
+  %umax = icmp eq ptr %7, %8
+  br i1 %umax, label %for.end201, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc200 = add nuw i64 %i.089, 1
-  %cmp = icmp ult i64 %inc200, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end201, !llvm.loop !99
+  %exitcond.not = icmp ult i64 %inc200, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end201, !llvm.loop !99
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.089 = phi i64 [ %inc200, %for.cond ], [ 0, %for.cond.preheader ]

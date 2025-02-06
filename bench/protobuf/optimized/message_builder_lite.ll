@@ -489,8 +489,8 @@ while.body.i.i.i.i.i:                             ; preds = %for.cond.i.i, %if.e
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw nsw i64 %s.addr.05.i.i.i.i.i, 1
-  %cmp.i.i.i.i.i = icmp samesign ult i64 %inc.i.i.i.i.i, %conv3.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i, !llvm.loop !12
+  %exitcond.not.i.i.i.i.i = icmp samesign ult i64 %inc.i.i.i.i.i, %conv3.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i, !llvm.loop !12
 
 _ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterISA_iE15checked_compareE.exit.i.i: ; preds = %if.end.i.i.i.i.i, %while.body.i.i.i.i.i, %for.cond.i.i
   %s.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.cond.i.i ], [ %conv3.i.i.i.i, %if.end.i.i.i.i.i ], [ %s.addr.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
@@ -3050,8 +3050,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %9, i64 8
   store i8 %add40, ptr %add.ptr.i.i.i.i.i, align 1
   store ptr %this, ptr %9, align 8
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %conv32
-  br i1 %cmp, label %for.body, label %for.cond45.preheader, !llvm.loop !83
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %conv32
+  br i1 %exitcond.not, label %for.body, label %for.cond45.preheader, !llvm.loop !83
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.body52
   %i43.080 = phi i8 [ 0, %for.body52.lr.ph ], [ %inc63, %for.body52 ]
@@ -3218,8 +3218,8 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   store i8 %19, ptr %add.ptr.i.i.i.i.i63, align 1
   store ptr %right, ptr %18, align 8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %cmp59.not.not = icmp samesign ult i64 %indvars.iv76, %10
-  br i1 %cmp59.not.not, label %for.body60, label %if.end, !llvm.loop !86
+  %exitcond = icmp samesign ult i64 %indvars.iv76, %10
+  br i1 %exitcond, label %for.body60, label %if.end, !llvm.loop !86
 
 if.end:                                           ; preds = %for.body60, %for.cond56.preheader, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit
   %20 = load i8, ptr %arrayidx.i, align 1

@@ -3729,7 +3729,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1095
   store ptr %0, ptr %4, align 8, !noalias !1095
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hee9c9d36931ef177E.llvm.3524786003483496519"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %53 unwind label %51
+          to label %52 unwind label %50
 
 14:                                               ; preds = %44
   unreachable
@@ -3839,16 +3839,16 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %48 = load i32, ptr %34, align 4, !noalias !1107, !noundef !4
   store i32 %48, ptr %.046, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.046, i64 4
-  %50 = icmp samesign ult i64 %46, %10
-  br i1 %50, label %33, label %._crit_edge
+  %exitcond.not = icmp samesign ult i64 %46, %10
+  br i1 %exitcond.not, label %33, label %._crit_edge
 
-51:                                               ; preds = %12
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %12
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-53:                                               ; preds = %12
+52:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !1095
   resume { ptr, i32 } %13
 }

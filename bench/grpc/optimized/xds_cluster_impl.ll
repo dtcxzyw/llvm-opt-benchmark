@@ -1855,8 +1855,8 @@ invoke.cont56.i:                                  ; preds = %if.then.i88.i, %inv
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i82.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54.i) #26
   %inc.i = add nuw i64 %i.096.i, 1
-  %cmp.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
-  br i1 %cmp.i, label %for.body.i, label %if.end58.i, !llvm.loop !27
+  %exitcond.not.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
+  br i1 %exitcond.not.i, label %for.body.i, label %if.end58.i, !llvm.loop !27
 
 ehcleanup38.i:                                    ; preds = %lpad22.i, %ehcleanup.i, %lpad.i
   %.pn10.i = phi { ptr, i32 } [ %11, %lpad.i ], [ %21, %lpad22.i ], [ %.pn.i, %ehcleanup.i ]

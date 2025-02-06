@@ -910,8 +910,8 @@ if.else164:                                       ; preds = %if.then151
   br i1 %or.cond1, label %if.then170, label %wait_for_ready
 
 if.then170:                                       ; preds = %if.else164
-  %cmp171 = icmp sgt i32 %reuses.1128, 8
-  br i1 %cmp171, label %end, label %land.lhs.true.i90
+  %exitcond = icmp sgt i32 %reuses.1128, 8
+  br i1 %exitcond, label %end, label %land.lhs.true.i90
 
 land.lhs.true.i90:                                ; preds = %if.then170
   %inc = add nsw i32 %reuses.1128, 1

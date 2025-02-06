@@ -1477,8 +1477,8 @@ lpad.thread:                                      ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.015, 1
-  %cmp = icmp ult i64 %inc, %call
-  br i1 %cmp, label %for.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9, !llvm.loop !11
+  %exitcond.not = icmp ult i64 %inc, %call
+  br i1 %exitcond.not, label %for.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9, !llvm.loop !11
 
 lpad:                                             ; preds = %_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit
   %5 = landingpad { ptr, i32 }
@@ -1986,8 +1986,8 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %pTestArray, i64 %i.019
   store ptr %3, ptr %arrayidx, align 8
   %inc = add nuw i64 %i.019, 1
-  %cmp5 = icmp ult i64 %inc, %spec.select
-  br i1 %cmp5, label %for.body, label %if.end8, !llvm.loop !16
+  %exitcond.not = icmp ult i64 %inc, %spec.select
+  br i1 %exitcond.not, label %for.body, label %if.end8, !llvm.loop !16
 
 if.end8:                                          ; preds = %for.body, %if.then, %entry
   %mTests9 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4453,8 +4453,8 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp11.not = icmp eq ptr %1, %2
-  br i1 %cmp11.not, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit10, label %for.body
+  %umax = icmp eq ptr %1, %2
+  br i1 %umax, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit10, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
@@ -4477,8 +4477,8 @@ invoke.cont5:                                     ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont5
   %inc = add nuw i64 %i.012, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !23
 
 lpad:                                             ; preds = %invoke.cont5, %for.body
   %8 = landingpad { ptr, i32 }

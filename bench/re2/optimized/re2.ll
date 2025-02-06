@@ -2014,13 +2014,13 @@ if.end36:                                         ; preds = %if.then29, %if.end2
   br i1 %or.cond1, label %cleanup, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end36
-  %8 = sext i32 %n to i64
+  %smax = sext i32 %n to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont48
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %invoke.cont48 ]
-  %cmp41.not.not = icmp sge i64 %indvars.iv, %8
-  br i1 %cmp41.not.not, label %cleanup, label %for.body
+  %exitcond.not = icmp sge i64 %wide.trip.count, %8
+  br i1 %exitcond.not, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2029,25 +2029,25 @@ for.body:                                         ; preds = %for.cond
   %s.sroa.2.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx43, i64 8
   %s.sroa.2.0.copyload = load i64, ptr %s.sroa.2.0.arrayidx43.sroa_idx, align 8
   %arrayidx45 = getelementptr inbounds nuw ptr, ptr %args, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx45, align 8
-  %parser_.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %parser_.i, align 8
-  %11 = load ptr, ptr %9, align 8
-  %call.i22 = invoke noundef zeroext i1 %10(ptr noundef %s.sroa.0.0.copyload, i64 noundef %s.sroa.2.0.copyload, ptr noundef %11)
+  %8 = load ptr, ptr %arrayidx45, align 8
+  %parser_.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %parser_.i, align 8
+  %10 = load ptr, ptr %8, align 8
+  %call.i22 = invoke noundef zeroext i1 %10(ptr noundef %s.sroa.0.0.copyload, i64 noundef %s.sroa.2.0.copyload, ptr noundef %10)
           to label %invoke.cont48 unwind label %lpad20.loopexit
 
 invoke.cont48:                                    ; preds = %for.body
   br i1 %call.i22, label %for.cond, label %cleanup, !llvm.loop !18
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont48, %if.end36, %invoke.cont24
-  %retval.1 = phi i1 [ false, %invoke.cont24 ], [ true, %if.end36 ], [ %cmp41.not.not, %invoke.cont48 ], [ %cmp41.not.not, %for.cond ]
-  %12 = load i64, ptr %size_alloc_.i.i, align 8
-  %cmp.i.i.i24 = icmp ult i64 %12, 18
+  %retval.1 = phi i1 [ false, %invoke.cont24 ], [ true, %if.end36 ], [ %exitcond.not, %invoke.cont48 ], [ %exitcond.not, %for.cond ]
+  %11 = load i64, ptr %size_alloc_.i.i, align 8
+  %cmp.i.i.i24 = icmp ult i64 %11, 18
   br i1 %cmp.i.i.i24, label %return, label %invoke.cont11.i.i25
 
 invoke.cont11.i.i25:                              ; preds = %cleanup
-  %13 = load ptr, ptr %data_.i.i19, align 8
-  call void @_ZdlPv(ptr noundef %13) #32
+  %12 = load ptr, ptr %data_.i.i19, align 8
+  call void @_ZdlPv(ptr noundef %12) #32
   br label %return
 
 return:                                           ; preds = %invoke.cont11.i.i25, %cleanup, %if.end9, %if.then, %invoke.cont7
@@ -3097,7 +3097,7 @@ if.end468:                                        ; preds = %_ZN4absl7debian211s
 
 for.body.preheader:                               ; preds = %if.end468
   %69 = sext i32 %spec.select to i64
-  %70 = sext i32 %nsubmatch to i64
+  %wide.trip.count = sext i32 %nsubmatch to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -3105,8 +3105,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx471 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %submatch, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx471, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp469 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %cmp469, label %for.body, label %return, !llvm.loop !21
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.body, label %return, !llvm.loop !21
 
 return.sink.split:                                ; preds = %if.then445, %if.then426, %if.then402, %if.then293, %invoke.cont124, %invoke.cont37, %invoke.cont5
   %ref.tmp446.sink = phi ptr [ %ref.tmp, %invoke.cont5 ], [ %ref.tmp16, %invoke.cont37 ], [ %ref.tmp120, %invoke.cont124 ], [ %ref.tmp294, %if.then293 ], [ %ref.tmp403, %if.then402 ], [ %ref.tmp427, %if.then426 ], [ %ref.tmp446, %if.then445 ]
@@ -3701,8 +3701,8 @@ invoke.cont47:                                    ; preds = %if.end.invoke.cont4
 
 for.inc:                                          ; preds = %invoke.cont47, %if.then41
   %inc = add nuw i64 %ii.092, 1
-  %cmp = icmp ult i64 %inc, %unquoted.coerce1
-  br i1 %cmp, label %invoke.cont2, label %nrvo.skipdtor, !llvm.loop !24
+  %exitcond.not = icmp ult i64 %inc, %unquoted.coerce1
+  br i1 %exitcond.not, label %invoke.cont2, label %nrvo.skipdtor, !llvm.loop !24
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %for.cond.preheader
   ret void
@@ -3743,10 +3743,10 @@ if.end:                                           ; preds = %entry
   %bf.cast.not = icmp slt i32 %bf.load, 0
   %cmp1320 = icmp sgt i32 %spec.select, 0
   %or.cond22 = and i1 %bf.cast.not, %cmp1320
-  br i1 %or.cond22, label %for.body, label %if.end24
+  br i1 %or.cond22, label %for.body.preheader, label %if.end24
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
+for.body.preheader:                               ; preds = %if.end, %for.inc
+  %wide.trip.count = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %call15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %min, i64 noundef %indvars.iv)
   %1 = load i8, ptr %call15, align 1
   %2 = add i8 %1, -97
@@ -3760,8 +3760,8 @@ if.then20:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp13 = icmp slt i64 %indvars.iv.next, %conv6
-  br i1 %cmp13, label %for.body, label %if.end24, !llvm.loop !25
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %conv6
+  br i1 %exitcond.not, label %for.body, label %if.end24, !llvm.loop !25
 
 if.end24:                                         ; preds = %for.inc, %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dmin) #30

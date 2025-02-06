@@ -109,17 +109,17 @@ while.end45:                                      ; preds = %while.end.thread, %
   store i8 %conv49, ptr %outWrite.053, align 1
   %outWrite.244 = getelementptr inbounds nuw i8, ptr %outWrite.053, i64 1
   %cmp5245 = icmp ult ptr %runStart.051, %runEnd.3.lcssa
-  br i1 %cmp5245, label %while.body53, label %if.end
+  br i1 %cmp5245, label %while.body53.preheader, label %if.end
 
-while.body53:                                     ; preds = %while.end45, %while.body53
-  %outWrite.247 = phi ptr [ %outWrite.2, %while.body53 ], [ %outWrite.244, %while.end45 ]
-  %runStart.246 = phi ptr [ %incdec.ptr54, %while.body53 ], [ %runStart.051, %while.end45 ]
+while.body53.preheader:                           ; preds = %while.end45, %while.body53
+  %8 = phi ptr [ %outWrite.2, %while.body53.preheader ], [ %outWrite.244, %while.end45 ]
+  %scevgep = phi ptr [ %incdec.ptr54, %while.body53 ], [ %runStart.051, %while.end45 ]
   %incdec.ptr54 = getelementptr inbounds nuw i8, ptr %runStart.246, i64 1
-  %8 = load i8, ptr %runStart.246, align 1
-  store i8 %8, ptr %outWrite.247, align 1
+  %9 = load i8, ptr %runStart.246, align 1
+  store i8 %9, ptr %outWrite.247, align 1
   %outWrite.2 = getelementptr inbounds nuw i8, ptr %outWrite.247, i64 1
-  %cmp52 = icmp ult ptr %incdec.ptr54, %runEnd.3.lcssa
-  br i1 %cmp52, label %while.body53, label %if.end, !llvm.loop !6
+  %exitcond.not = icmp ult ptr %incdec.ptr54, %runEnd.3.lcssa
+  br i1 %exitcond.not, label %while.body53, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %while.body53, %while.end45, %if.then
   %runStart.1 = phi ptr [ %runEnd.1, %if.then ], [ %runStart.051, %while.end45 ], [ %incdec.ptr54, %while.body53 ]

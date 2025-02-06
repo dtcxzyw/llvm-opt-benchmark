@@ -335,8 +335,8 @@ define hidden void @_ZN4core3mem4swap17hf365a3fafd4beea1E.llvm.70327298717942296
   store i64 %6, ptr %3, align 8
   store i64 %5, ptr %4, align 8
   %7 = add nuw nsw i64 %.05.i, 1
-  %8 = icmp samesign ult i64 %.05.i, 6
-  br i1 %8, label %.lr.ph.i, label %_ZN4core3ptr19swap_nonoverlapping17hb140597b17bcdcd4E.llvm.7032729871794229628.exit
+  %exitcond.not.i = icmp samesign ult i64 %.05.i, 6
+  br i1 %exitcond.not.i, label %.lr.ph.i, label %_ZN4core3ptr19swap_nonoverlapping17hb140597b17bcdcd4E.llvm.7032729871794229628.exit
 
 _ZN4core3ptr19swap_nonoverlapping17hb140597b17bcdcd4E.llvm.7032729871794229628.exit: ; preds = %.lr.ph.i
   ret void
@@ -412,7 +412,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$cor
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core3ptr19swap_nonoverlapping17hb140597b17bcdcd4E.llvm.7032729871794229628(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = mul i64 %2, 7
-  %.not = icmp eq i64 %2, 0
+  %umax = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -427,8 +427,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17hb140597b17bcdcd4E.llvm.7
   store i64 %8, ptr %5, align 8
   store i64 %7, ptr %6, align 8
   %9 = add nuw i64 %.05, 1
-  %10 = icmp ult i64 %9, %4
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %exitcond.not = icmp ult i64 %9, %4
+  br i1 %exitcond.not, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4927,8 +4927,8 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM23epsilon_closure_explore17ha86869
   store i64 %1245, ptr %1242, align 8, !alias.scope !976, !noalias !979
   store i64 %1244, ptr %1243, align 8, !alias.scope !979, !noalias !976
   %1246 = add nuw nsw i64 %.05.i.i, 1
-  %1247 = icmp samesign ult i64 %.05.i.i, 11
-  br i1 %1247, label %1241, label %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit
+  %exitcond.not.i.i = icmp samesign ult i64 %.05.i.i, 11
+  br i1 %exitcond.not.i.i, label %1241, label %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit
 
 _ZN4core3mem4swap17hbf23c99ca7091f5dE.exit:       ; preds = %1241
   store i64 0, ptr %32, align 8
@@ -7746,8 +7746,8 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM17nexts_overlapping17h18d8504a8b05
   store i64 %1202, ptr %1199, align 8, !alias.scope !1537, !noalias !1540
   store i64 %1201, ptr %1200, align 8, !alias.scope !1540, !noalias !1537
   %1203 = add nuw nsw i64 %.05.i.i, 1
-  %1204 = icmp samesign ult i64 %.05.i.i, 11
-  br i1 %1204, label %1198, label %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit
+  %exitcond.not.i.i = icmp samesign ult i64 %.05.i.i, 11
+  br i1 %exitcond.not.i.i, label %1198, label %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit
 
 _ZN4core3mem4swap17hbf23c99ca7091f5dE.exit:       ; preds = %1198
   store i64 0, ptr %29, align 8
@@ -15891,8 +15891,8 @@ define hidden void @_ZN14regex_automata4util10sparse_set10SparseSets4swap17ha89c
   store i64 %6, ptr %3, align 8, !alias.scope !3669, !noalias !3672
   store i64 %5, ptr %4, align 8, !alias.scope !3672, !noalias !3669
   %7 = add nuw nsw i64 %.05.i.i, 1
-  %8 = icmp samesign ult i64 %.05.i.i, 6
-  br i1 %8, label %.lr.ph.i.i, label %_ZN4core3mem4swap17hf365a3fafd4beea1E.llvm.7032729871794229628.exit
+  %exitcond.not.i.i = icmp samesign ult i64 %.05.i.i, 6
+  br i1 %exitcond.not.i, label %.lr.ph.i.i, label %_ZN4core3mem4swap17hf365a3fafd4beea1E.llvm.7032729871794229628.exit
 
 _ZN4core3mem4swap17hf365a3fafd4beea1E.llvm.7032729871794229628.exit: ; preds = %.lr.ph.i.i
   ret void

@@ -469,50 +469,50 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
   br label %._crit_edge82
 
 .lr.ph81.preheader:                               ; preds = %._crit_edge
-  %38 = zext nneg i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %36 to i64
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv84 = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next85, %.lr.ph81 ]
-  %.07278 = phi i32 [ %35, %.lr.ph81.preheader ], [ %49, %.lr.ph81 ]
-  %39 = sext i32 %.07278 to i64
-  %40 = getelementptr inbounds i8, ptr %8, i64 %39
-  %41 = trunc nuw nsw i64 %indvars.iv84 to i32
-  %42 = urem i32 %41, 20
-  %43 = icmp eq i32 %42, 0
-  %44 = select i1 %43, ptr @.str.28, ptr @.str.29
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv84
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %44, i32 noundef %47) #17
-  %49 = add nsw i32 %48, %.07278
+  %.07278 = phi i32 [ %35, %.lr.ph81.preheader ], [ %48, %.lr.ph81 ]
+  %38 = sext i32 %.07278 to i64
+  %39 = getelementptr inbounds i8, ptr %8, i64 %38
+  %40 = trunc nuw nsw i64 %indvars.iv84 to i32
+  %41 = urem i32 %40, 20
+  %42 = icmp eq i32 %41, 0
+  %43 = select i1 %42, ptr @.str.28, ptr @.str.29
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv84
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %43, i32 noundef %46) #17
+  %48 = add nsw i32 %47, %.07278
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %50 = icmp samesign ult i64 %indvars.iv.next85, %38
-  br i1 %50, label %.lr.ph81, label %._crit_edge82
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next85, %wide.trip.count
+  br i1 %exitcond.not, label %.lr.ph81, label %._crit_edge82
 
 ._crit_edge82:                                    ; preds = %.lr.ph81, %._crit_edge.._crit_edge82_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge.._crit_edge82_crit_edge ], [ %38, %.lr.ph81 ]
-  %.072.lcssa = phi i32 [ %35, %._crit_edge.._crit_edge82_crit_edge ], [ %49, %.lr.ph81 ]
-  %51 = sext i32 %.072.lcssa to i64
-  %52 = getelementptr inbounds i8, ptr %8, i64 %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %55) #17
-  %57 = call zeroext i1 @SaveFileText(ptr noundef %2, ptr noundef nonnull %8)
+  %.072.lcssa = phi i64 [ %.pre, %._crit_edge.._crit_edge82_crit_edge ], [ %38, %.lr.ph81 ]
+  %49 = phi i32 [ %35, %._crit_edge.._crit_edge82_crit_edge ], [ %49, %.lr.ph81 ]
+  %50 = sext i32 %.072.lcssa to i64
+  %51 = getelementptr inbounds i8, ptr %8, i64 %51
+  %52 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %54) #17
+  %56 = call zeroext i1 @SaveFileText(ptr noundef %2, ptr noundef nonnull %8)
   call void @free(ptr noundef nonnull %8) #17
-  br i1 %57, label %58, label %59
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %._crit_edge82
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef %2)
+  br label %59
 
 58:                                               ; preds = %._crit_edge82
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef %2)
-  br label %60
-
-59:                                               ; preds = %._crit_edge82
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.32, ptr noundef %2)
-  br label %60
+  br label %59
 
-60:                                               ; preds = %59, %58
-  ret i1 %57
+59:                                               ; preds = %58, %57
+  ret i1 %56
 }
 
 ; Function Attrs: nofree nounwind

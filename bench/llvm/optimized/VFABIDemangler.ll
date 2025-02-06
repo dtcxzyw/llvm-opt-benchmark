@@ -2201,7 +2201,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 
 .preheader:                                       ; preds = %8, %25
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %25 ], [ %indvars.iv, %8 ]
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond.not = add nuw nsw i64 %indvars.iv37, 1
   %.not = icmp samesign ult i64 %indvars.iv.next38, %7
   br i1 %.not, label %25, label %.loopexit
 
@@ -2213,8 +2213,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 
 .loopexit:                                        ; preds = %.preheader, %19, %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not35 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %.not35, label %8, label %.thread, !llvm.loop !200
+  %exitcond42.not = icmp samesign ult i64 %indvars.iv.next, %7
+  br i1 %exitcond42.not, label %8, label %.thread, !llvm.loop !200
 
 .thread:                                          ; preds = %.loopexit, %12, %16, %19, %25, %1
   %29 = phi i1 [ true, %1 ], [ false, %25 ], [ true, %.loopexit ], [ false, %12 ], [ false, %16 ], [ false, %19 ]

@@ -346,31 +346,31 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp827, label %for.body10.preheader, label %for.end37
 
 for.body10.preheader:                             ; preds = %for.end
-  %1 = zext i32 %call5 to i64
-  %.pre36 = load i64, ptr @max_background_threads, align 8
+  %wide.trip.count = zext i32 %call5 to i64
+  %.pre38 = load i64, ptr @max_background_threads, align 8
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.inc35
-  %2 = phi i64 [ %.pre36, %for.body10.preheader ], [ %11, %for.inc35 ]
+  %1 = phi i64 [ %.pre38, %for.body10.preheader ], [ %10, %for.inc35 ]
   %indvars.iv = phi i64 [ 1, %for.body10.preheader ], [ %indvars.iv.next, %for.inc35 ]
   %nmarked.029 = phi i32 [ 0, %for.body10.preheader ], [ %nmarked.1, %for.inc35 ]
-  %rem = urem i64 %indvars.iv, %2
+  %rem = urem i64 %indvars.iv, %1
   %arrayidx12 = getelementptr inbounds nuw i8, ptr %vla, i64 %rem
-  %3 = load i8, ptr %arrayidx12, align 1
-  %tobool = trunc i8 %3 to i1
+  %2 = load i8, ptr %arrayidx12, align 1
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %for.inc35, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body10
   %arrayidx.i = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
-  %4 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %cmp16 = icmp eq i64 %4, 0
+  %3 = load atomic i64, ptr %arrayidx.i acquire, align 8
+  %cmp16 = icmp eq i64 %3, 0
   %.pre = load i64, ptr @max_background_threads, align 8
   br i1 %cmp16, label %for.inc35, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %5 = load ptr, ptr @background_thread_info, align 8
+  %4 = load ptr, ptr @background_thread_info, align 8
   %rem19 = urem i64 %indvars.iv, %.pre
-  %arrayidx20 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %5, i64 %rem19
+  %arrayidx20 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %rem19
   %lock.i.i = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #11
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -385,19 +385,19 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %n_lock_ops.i.i = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 112
-  %6 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %6, 1
+  %5 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 104
-  %7 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, %tsd
+  %6 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %6, %tsd
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsd, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 96
-  %8 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %8, 1
+  %7 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %7, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
@@ -412,27 +412,27 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %tot_sleep_time.i.i = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %npages_to_purge_new.i.i, i8 0, i64 16, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %tot_sleep_time.i.i, ptr noundef nonnull @nstime_zero) #11
-  %9 = load i64, ptr @n_background_threads, align 8
-  %inc.i = add i64 %9, 1
+  %8 = load i64, ptr @n_background_threads, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr @n_background_threads, align 8
   %locked.i21 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 120
   store atomic i8 0, ptr %locked.i21 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
-  %10 = load i64, ptr @max_background_threads, align 8
-  %rem27 = urem i64 %indvars.iv, %10
+  %9 = load i64, ptr @max_background_threads, align 8
+  %rem27 = urem i64 %indvars.iv, %9
   %arrayidx28 = getelementptr inbounds nuw i8, ptr %vla, i64 %rem27
   store i8 1, ptr %arrayidx28, align 1
   %inc29 = add i32 %nmarked.029, 1
   %conv30 = zext i32 %inc29 to i64
-  %cmp31 = icmp eq i64 %10, %conv30
+  %cmp31 = icmp eq i64 %9, %conv30
   br i1 %cmp31, label %for.end37, label %for.inc35
 
 for.inc35:                                        ; preds = %malloc_mutex_lock.exit, %for.body10, %lor.lhs.false
-  %11 = phi i64 [ %2, %for.body10 ], [ %.pre, %lor.lhs.false ], [ %10, %malloc_mutex_lock.exit ]
+  %10 = phi i64 [ %1, %for.body10 ], [ %.pre, %lor.lhs.false ], [ %9, %malloc_mutex_lock.exit ]
   %nmarked.1 = phi i32 [ %nmarked.029, %for.body10 ], [ %nmarked.029, %lor.lhs.false ], [ %inc29, %malloc_mutex_lock.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %1
-  br i1 %cmp8, label %for.body10, label %for.end37, !llvm.loop !11
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.body10, label %for.end37, !llvm.loop !11
 
 for.end37:                                        ; preds = %for.inc35, %malloc_mutex_lock.exit, %for.end
   %call38 = tail call fastcc zeroext i1 @background_thread_create_locked(ptr noundef %tsd, i32 noundef 0)
@@ -441,26 +441,26 @@ for.end37:                                        ; preds = %for.inc35, %malloc_
   br i1 %or.cond.not, label %cleanup, label %for.body46.preheader
 
 for.body46.preheader:                             ; preds = %for.end37
-  %12 = zext i32 %call5 to i64
+  %wide.trip.count36 = zext i32 %call5 to i64
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %for.inc54
   %indvars.iv33 = phi i64 [ 0, %for.body46.preheader ], [ %indvars.iv.next34, %for.inc54 ]
   %arrayidx.i23 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv33
-  %13 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
-  %cmp49.not = icmp eq i64 %13, 0
+  %11 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
+  %cmp49.not = icmp eq i64 %11, 0
   br i1 %cmp49.not, label %for.inc54, label %if.then51
 
 if.then51:                                        ; preds = %for.body46
-  %14 = inttoptr i64 %13 to ptr
-  %pa_shard = getelementptr inbounds nuw i8, ptr %14, i64 10664
+  %12 = inttoptr i64 %11 to ptr
+  %pa_shard = getelementptr inbounds nuw i8, ptr %12, i64 10664
   tail call void @pa_shard_set_deferral_allowed(ptr noundef %tsd, ptr noundef nonnull %pa_shard, i1 noundef zeroext true) #11
   br label %for.inc54
 
 for.inc54:                                        ; preds = %for.body46, %if.then51
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %cmp44 = icmp samesign ult i64 %indvars.iv.next34, %12
-  br i1 %cmp44, label %for.body46, label %cleanup, !llvm.loop !12
+  %exitcond37.not = icmp samesign ult i64 %indvars.iv.next34, %wide.trip.count36
+  br i1 %exitcond37.not, label %for.body46, label %cleanup, !llvm.loop !12
 
 cleanup:                                          ; preds = %for.inc54, %for.end37
   ret i1 %call38
@@ -483,26 +483,26 @@ do.end3:                                          ; preds = %entry
   br i1 %cmp7.not9, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %do.end3
-  %1 = zext i32 %call4 to i64
+  %wide.trip.count = zext i32 %call4 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
-  %2 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %cmp7.not = icmp eq i64 %2, 0
+  %1 = load atomic i64, ptr %arrayidx.i acquire, align 8
+  %cmp7.not = icmp eq i64 %1, 0
   br i1 %cmp7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %for.body
-  %3 = inttoptr i64 %2 to ptr
-  %pa_shard = getelementptr inbounds nuw i8, ptr %3, i64 10664
+  %2 = inttoptr i64 %1 to ptr
+  %pa_shard = getelementptr inbounds nuw i8, ptr %2, i64 10664
   tail call void @pa_shard_set_deferral_allowed(ptr noundef %tsd, ptr noundef nonnull %pa_shard, i1 noundef zeroext false) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %for.inc, %do.end3, %entry
   ret i1 %call1
@@ -1498,8 +1498,8 @@ if.then25.i.us:                                   ; preds = %post_reentrancy.exi
 
 for.inc.i.us:                                     ; preds = %malloc_mutex_lock.exit.i.us, %for.body.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp6.i.us = icmp samesign ult i64 %indvars.iv.next, %.fr
-  br i1 %cmp6.i.us, label %for.body.i.us, label %for.end.i.us, !llvm.loop !26
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %.fr
+  br i1 %exitcond.not, label %for.body.i.us, label %for.end.i.us, !llvm.loop !26
 
 for.end.i.us:                                     ; preds = %for.inc.i.us, %if.then25.i.us, %if.else.i.us
   %n_created.1.us = phi i32 [ %inc.i.us, %if.then25.i.us ], [ %n_created.0.ph.us, %if.else.i.us ], [ %n_created.0.ph.us, %for.inc.i.us ]

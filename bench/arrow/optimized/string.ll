@@ -120,8 +120,8 @@ invoke.cont9:                                     ; preds = %invoke.cont3
   %inc8 = add i64 %i.011, 2
   store i8 %6, ptr %call10, align 1
   %inc11 = add nuw i64 %j.010, 1
-  %cmp = icmp ult i64 %inc11, %length
-  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !4
+  %exitcond.not = icmp ult i64 %inc11, %length
+  br i1 %exitcond.not, label %for.body, label %nrvo.skipdtor, !llvm.loop !4
 
 lpad:                                             ; preds = %call.i.noexc, %entry
   %7 = landingpad { ptr, i32 }
@@ -221,8 +221,8 @@ sw.default:                                       ; preds = %for.body
 
 for.inc:                                          ; preds = %sw.bb.invoke, %sw.default
   %inc = add nuw i64 %j.09, 1
-  %cmp = icmp ult i64 %inc, %length
-  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !6
+  %exitcond.not = icmp ult i64 %inc, %length
+  br i1 %exitcond.not, label %for.body, label %nrvo.skipdtor, !llvm.loop !6
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %for.cond.preheader
   ret void
@@ -362,8 +362,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
 
 for.inc:                                          ; preds = %nrvo.skipdtor.thread, %_ZN5arrow6StatusD2Ev.exit
   %inc = add nuw nsw i64 %j.051, 1
-  %cmp2 = icmp samesign ult i64 %inc, %div4
-  br i1 %cmp2, label %do.body, label %for.end, !llvm.loop !18
+  %exitcond.not = icmp samesign ult i64 %inc, %div4
+  br i1 %exitcond.not, label %do.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   store ptr null, ptr %agg.result, align 8, !alias.scope !19
@@ -908,9 +908,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call8 = tail call i32 @tolower(i32 noundef %conv7) #24
   %cmp9.not = icmp eq i32 %call5, %call8
   %inc = add nuw i64 %i.08, 1
-  %cmp3 = icmp ult i64 %inc, %left.coerce0
-  %or.cond = select i1 %cmp9.not, i1 %cmp3, i1 false
-  br i1 %or.cond, label %for.body, label %return, !llvm.loop !38
+  %exitcond.not = icmp ult i64 %inc, %left.coerce0
+  %or.cond.not = select i1 %cmp9.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !38
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %entry
   %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ %cmp9.not, %for.body ]
@@ -1285,8 +1285,8 @@ entry:
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.08.i, 1
-  %cmp3.i = icmp samesign ult i64 %i.08.i, 3
-  br i1 %cmp3.i, label %for.body.i, label %if.then, !llvm.loop !38
+  %exitcond.not.i = icmp samesign ult i64 %i.08.i, 3
+  br i1 %exitcond.not.i, label %for.body.i, label %if.then, !llvm.loop !38
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.08.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1314,8 +1314,8 @@ if.then:                                          ; preds = %for.cond.i, %_ZNSt1
 
 for.cond.i18:                                     ; preds = %for.body.i9
   %inc.i19 = add nuw i64 %i.08.i10, 1
-  %cmp3.i20 = icmp ult i64 %inc.i19, %value.coerce0
-  br i1 %cmp3.i20, label %for.body.i9, label %if.then12, !llvm.loop !38
+  %exitcond.not.i20 = icmp ult i64 %inc.i19, %value.coerce0
+  br i1 %exitcond.not.i20, label %for.body.i9, label %if.then12, !llvm.loop !38
 
 for.body.i9:                                      ; preds = %entry, %for.cond.i18
   %i.08.i10 = phi i64 [ %inc.i19, %for.cond.i18 ], [ 0, %entry ]
@@ -1330,7 +1330,7 @@ for.body.i9:                                      ; preds = %entry, %for.cond.i1
   %cmp9.not.i17 = icmp eq i32 %call5.i13, %call8.i16
   br i1 %cmp9.not.i17, label %for.cond.i18, label %if.else14
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+lor.lhs.false8:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %bcmp.i28 = tail call i32 @bcmp(ptr %value.coerce1, ptr nonnull @.str.11, i64 %value.coerce0)
   %cmp.i.i29 = icmp eq i32 %bcmp.i28, 0
   br i1 %cmp.i.i29, label %if.then12, label %if.else14

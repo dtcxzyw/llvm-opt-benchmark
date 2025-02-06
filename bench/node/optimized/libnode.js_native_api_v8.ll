@@ -1935,8 +1935,8 @@ do.end48:                                         ; preds = %if.end38
   %7 = add i64 %length, -2147483648
   %or.cond = icmp ult i64 %7, -2147483649
   %cmp59.not = icmp eq ptr %utf8name, null
-  %or.cond105 = or i1 %or.cond, %cmp59.not
-  br i1 %or.cond105, label %cleanup298.sink.split, label %do.end64
+  %or.cond106 = or i1 %or.cond, %cmp59.not
+  br i1 %or.cond106, label %cleanup298.sink.split, label %do.end64
 
 do.end64:                                         ; preds = %do.end48
   %8 = load ptr, ptr %isolate.i, align 8
@@ -2056,8 +2056,8 @@ if.else204:                                       ; preds = %if.else
 for.inc:                                          ; preds = %if.end141, %if.else204, %do.end184, %if.then91
   %static_property_count.1 = phi i64 [ %inc, %if.then91 ], [ %static_property_count.0100, %if.end141 ], [ %static_property_count.0100, %do.end184 ], [ %static_property_count.0100, %if.else204 ]
   %inc231 = add nuw i64 %i.099, 1
-  %cmp89 = icmp ult i64 %inc231, %property_count
-  br i1 %cmp89, label %for.body, label %for.end, !llvm.loop !5
+  %exitcond.not = icmp ult i64 %inc231, %property_count
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %static_property_count.0.lcssa = phi i64 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %static_property_count.1, %for.inc ]
@@ -2097,8 +2097,8 @@ if.then279:                                       ; preds = %for.body273
 
 for.inc281:                                       ; preds = %for.body273, %if.then279
   %inc282 = add nuw i64 %i270.0102, 1
-  %cmp272 = icmp ult i64 %inc282, %property_count
-  br i1 %cmp272, label %for.body273, label %do.body284, !llvm.loop !7
+  %exitcond103.not = icmp ult i64 %inc282, %property_count
+  br i1 %exitcond103.not, label %for.body273, label %do.body284, !llvm.loop !7
 
 do.body284:                                       ; preds = %for.inc281, %if.then269
   %20 = load ptr, ptr %result, align 8
@@ -2790,8 +2790,8 @@ for.inc.sink.split:                               ; preds = %do.end153, %if.end1
 
 for.inc:                                          ; preds = %for.inc.sink.split, %do.body258
   %inc = add nuw i64 %i.0107, 1
-  %cmp63 = icmp ult i64 %inc, %property_count
-  br i1 %cmp63, label %for.body, label %for.end, !llvm.loop !8
+  %exitcond.not = icmp ult i64 %inc, %property_count
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call271 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -15993,11 +15993,11 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %arrayidx = getelementptr inbounds ptr, ptr %buffer, i64 %i.020
   store ptr %retval.i32.sroa.0.0, ptr %arrayidx, align 8
   %add = add nuw i64 %i.020, 1
-  %cmp = icmp ult i64 %add, %.sroa.speculated
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  %exitcond.not = icmp ult i64 %add, %.sroa.speculated
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
+  %cmp9 = phi i64 [ 0, %entry ], [ %add, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
   %cmp9 = icmp ult i64 %i.0.lcssa, %buffer_length
   br i1 %cmp9, label %if.then, label %if.end
 
@@ -16017,8 +16017,8 @@ for.body27:                                       ; preds = %if.then, %for.body2
   %arrayidx28 = getelementptr inbounds ptr, ptr %buffer, i64 %i.122
   store ptr %12, ptr %arrayidx28, align 8
   %add30 = add nuw i64 %i.122, 1
-  %cmp26 = icmp ult i64 %add30, %buffer_length
-  br i1 %cmp26, label %for.body27, label %if.end, !llvm.loop !11
+  %exitcond23.not = icmp ult i64 %add30, %buffer_length
+  br i1 %exitcond23.not, label %for.body27, label %if.end, !llvm.loop !11
 
 if.end:                                           ; preds = %for.body27, %for.end
   ret void

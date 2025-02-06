@@ -50321,14 +50321,14 @@ for.body.i:                                       ; preds = %while.cond, %for.in
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %__pos.addr.05.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.i = icmp eq i8 %4, 120
-  br i1 %cmp.i.i, label %for.inc.i, label %while.body
+  br i1 %cmp.i.i, label %for.inc.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %__pos.addr.05.i, 1
-  %cmp.i = icmp ult i64 %inc.i, %sub5.i
-  br i1 %cmp.i, label %for.body.i, label %_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit, !llvm.loop !1270
+  %exitcond.not.i = icmp ult i64 %inc.i, %sub5.i
+  br i1 %exitcond.not.i, label %for.body.i, label %_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit, !llvm.loop !1270
 
-while.body:                                       ; preds = %for.body.i
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; preds = %for.body.i
   %call.i = tail call noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %__pos.addr.05.i, i64 noundef -1, ptr noundef nonnull @.str.280)
   %call17 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #28
   %5 = extractvalue { i64, ptr } %call17, 0

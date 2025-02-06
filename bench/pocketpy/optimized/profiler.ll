@@ -120,7 +120,7 @@ define void @_ZN4pkpy12LineProfiler5_stepEiPNS_5FrameE(ptr noundef nonnull align
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 4
   %12 = trunc i8 %.sroa.2.0.copyload to i1
-  br i1 %12, label %81, label %13
+  br i1 %12, label %80, label %13
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %6, align 8
@@ -241,42 +241,42 @@ _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE6resizeEm.exit: ; preds = %59
   br i1 %.not32, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE6resizeEm.exit
-  %66 = zext nneg i32 %63 to i64
+  %wide.trip.count = zext nneg i32 %63 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %67 = load ptr, ptr %54, align 8
-  %68 = getelementptr inbounds nuw %"struct.pkpy::_LineRecord", ptr %67, i64 %indvars.iv
-  %69 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %69, ptr %68, align 8
+  %66 = load ptr, ptr %54, align 8
+  %67 = getelementptr inbounds nuw %"struct.pkpy::_LineRecord", ptr %66, i64 %indvars.iv
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %68, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.not = icmp samesign ult i64 %indvars.iv, %66
-  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  %exitcond.not = icmp samesign ult i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %59, %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE6resizeEm.exit, %_ZN4pkpy5stackINS_12_FrameRecordESt6vectorIS1_SaIS1_EEE4pushEOS1_.exit
-  %70 = sext i32 %.sroa.0.0.copyload to i64
-  %71 = load ptr, ptr %56, align 8
-  %72 = load ptr, ptr %54, align 8
+  %69 = sext i32 %.sroa.0.0.copyload to i64
+  %70 = load ptr, ptr %56, align 8
+  %71 = load ptr, ptr %54, align 8
   %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
-  %76 = sdiv exact i64 %75, 24
+  %.not.i.i20 = sdiv exact i64 %75, 24
   %.not.i.i20 = icmp ugt i64 %76, %70
   br i1 %.not.i.i20, label %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE2atEm.exit, label %77
 
-77:                                               ; preds = %.loopexit
+77: ; preds = %.loopexit
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, i64 noundef %70, i64 noundef %76) #23
   unreachable
 
 _ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE2atEm.exit: ; preds = %.loopexit
-  %78 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %72, i64 %70
-  %79 = load ptr, ptr %22, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 -8
-  store ptr %78, ptr %80, align 8
-  br label %81
+  %77 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %71, i64 %69
+  %78 = load ptr, ptr %22, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 -8
+  store ptr %77, ptr %79, align 8
+  br label %80
 
-81:                                               ; preds = %3, %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE2atEm.exit
+80:                                               ; preds = %3, %_ZNSt6vectorIN4pkpy11_LineRecordESaIS1_EE2atEm.exit
   ret void
 }
 
@@ -1073,8 +1073,8 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
   %70 = load i64, ptr %69, align 8
   %71 = add nsw i64 %70, %.050199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.not = icmp slt i64 %indvars.iv, %66
-  br i1 %.not.not, label %67, label %._crit_edge, !llvm.loop !9
+  %lftr.wideiv = icmp slt i64 %indvars.iv, %66
+  br i1 %exitcond.not, label %66, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %68, %.preheader124
   %.050.lcssa = phi i64 [ 0, %.preheader124 ], [ %71, %68 ]
@@ -1840,7 +1840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 333:                                              ; preds = %331, %113
   %indvars.iv.next283 = add nsw i64 %indvars.iv282, 1
-  %.not56.not = icmp slt i64 %indvars.iv282, %103
+  %lftr.wideiv285 = icmp slt i64 %indvars.iv282, %103
   br i1 %.not56.not, label %104, label %._crit_edge203, !llvm.loop !28
 
 ._crit_edge203:                                   ; preds = %333, %.preheader

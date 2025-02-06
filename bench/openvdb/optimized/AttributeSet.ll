@@ -7966,8 +7966,8 @@ for.cond.preheader:                               ; preds = %lor.lhs.false9
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %n.033, 1
-  %cmp18 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !42
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !42
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %n.033 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -8688,8 +8688,8 @@ _ZNSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEED2Ev.exit: ; preds = %
   %47 = load ptr, ptr %vfn, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(16) %is)
   %inc = add nuw i64 %n.020, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEED2Ev.exit, %_ZNSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EED2Ev.exit
   ret void

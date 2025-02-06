@@ -295,20 +295,20 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %if.end.i, %for.inc.
   %conv.i.i.i.i.i = sext i8 %2 to i32
   %call.i.i.i.i.i = tail call ptr @memchr(ptr noundef readonly %1, i32 noundef %conv.i.i.i.i.i, i64 noundef %0) #10
   %tobool2.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
-  br i1 %tobool2.not.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit.loopexit.split.loop.exit
+  br i1 %tobool2.not.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %inc.i.i.i.i = add nuw i64 %__pos.addr.07.i.i.i.i, 1
-  %cmp.i.i.i.i = icmp ult i64 %inc.i.i.i.i, %text.coerce0
-  br i1 %cmp.i.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, !llvm.loop !7
+  %exitcond.not.i.i.i.i = icmp ult i64 %inc.i.i.i.i, %text.coerce0
+  br i1 %exitcond.not.i.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, !llvm.loop !7
 
-_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit.loopexit.split.loop.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
+_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds i8, ptr %text.coerce1, i64 %__pos.addr.07.i.i.i.i
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
-_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %for.inc.i.i.i.i, %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit.loopexit.split.loop.exit, %land.lhs.true.i, %if.then.i, %if.end.i
-  %retval.sroa.0.0.i = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 1, %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit.loopexit.split.loop.exit ], [ 0, %for.inc.i.i.i.i ]
-  %retval.sroa.4.0.i = phi ptr [ %add.ptr3.i, %if.then.i ], [ %add.ptr6.i, %if.end.i ], [ %text.coerce1, %land.lhs.true.i ], [ %arrayidx.i.i.i.i.le, %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit.loopexit.split.loop.exit ], [ %add.ptr6.i, %for.inc.i.i.i.i ]
+_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %for.inc.i.i.i.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %land.lhs.true.i, %if.then.i, %if.end.i
+  %retval.sroa.0.0.i = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 1, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %for.inc.i.i.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %add.ptr3.i, %if.then.i ], [ %add.ptr6.i, %if.end.i ], [ %text.coerce1, %land.lhs.true.i ], [ %arrayidx.i.i.i.i.le, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %add.ptr6.i, %for.inc.i.i.i.i ]
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %retval.sroa.4.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i

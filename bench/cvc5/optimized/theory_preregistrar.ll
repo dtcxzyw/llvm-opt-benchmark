@@ -493,8 +493,8 @@ cond.end:                                         ; preds = %for.body
   store ptr %8, ptr %agg.tmp, align 8
   call void @_ZN4cvc58internal12TheoryEngine11preRegisterENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(1448) %7, ptr noundef nonnull %agg.tmp)
   %inc = add nuw i64 %i.047, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
+  %exitcond.not = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %exitcond.not, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %cond.end, %for.body, %entry
   ret void

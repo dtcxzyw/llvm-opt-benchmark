@@ -427,10 +427,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3
 
 _ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit: ; preds = %126, %124, %122, %120
   %127 = icmp sgt i32 %3, 0
-  br i1 %127, label %.lr.ph84, label %._crit_edge85
+  br i1 %127, label %.lr.ph84.preheader, label %._crit_edge85
 
-.lr.ph84:                                         ; preds = %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit, %.lr.ph84
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph84 ], [ 0, %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit ]
+.lr.ph84.preheader:                               ; preds = %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit, %.lr.ph84
+  %wide.trip.count = phi i64 [ %indvars.iv.next, %.lr.ph84 ], [ 0, %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit ]
   %.sroa.029.082 = phi ptr [ %136, %.lr.ph84 ], [ %.sroa.042.1.lcssa95, %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.029.082, i64 4
   %129 = load i32, ptr %128, align 4
@@ -443,19 +443,19 @@ _ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit: ; preds = %126, %124, %122, 
   store ptr %133, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.029.082, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %137 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %137, label %.lr.ph84, label %._crit_edge85, !llvm.loop !15
+  %exitcond.not = icmp slt i64 %indvars.iv.next, %111
+  br i1 %exitcond.not, label %.lr.ph84, label %._crit_edge85, !llvm.loop !15
 
 ._crit_edge85:                                    ; preds = %.lr.ph84, %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit
   store i8 1, ptr %5, align 8
   %.not.i.i.i26 = icmp eq ptr %.sroa.042.1.lcssa95, null
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit27, label %138
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit27, label %137
 
-138:                                              ; preds = %._crit_edge85
+137:                                              ; preds = %._crit_edge85
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.042.1.lcssa95) #20
   br label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit27
 
-_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit27: ; preds = %138, %._crit_edge85, %4
+_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit27: ; preds = %137, %._crit_edge85, %4
   ret void
 }
 

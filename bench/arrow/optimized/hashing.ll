@@ -152,8 +152,8 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i: ; preds = %if.then11.i.i.us
   %reader.sroa.7.2.i.us.i = phi i8 [ %5, %if.then11.i.i.us.i ], [ %reader.sroa.7.027.i.us.i, %if.then.i20.i.us.i ], [ %reader.sroa.7.027.i.us.i, %for.body.i.us.i ]
   %reader.sroa.11.1.i.us.i = phi i64 [ %inc6.i.i.us.i, %if.then11.i.i.us.i ], [ %inc6.i.i.us.i, %if.then.i20.i.us.i ], [ %reader.sroa.11.028.i.us.i, %for.body.i.us.i ]
   %reader.sroa.14.1.i.us.i = phi i64 [ 0, %if.then11.i.i.us.i ], [ 0, %if.then.i20.i.us.i ], [ %inc.i.i.us.i, %for.body.i.us.i ]
-  %inc.i.us.i = add nuw nsw i32 %i.031.i.us.i, 1
-  %cmp4.i.us.i = icmp slt i32 %inc.i.us.i, %reader.sroa.13.0.us.i
+  %exitcond.not.i.us.i = add nuw nsw i32 %i.031.i.us.i, 1
+  %cmp4.i.us.i = icmp slt i32 %exitcond.not.i.us.i, %reader.sroa.13.0.us.i
   br i1 %cmp4.i.us.i, label %for.body.i.us.i, label %for.end.loopexit.i.us.i, !llvm.loop !6
 
 for.end.loopexit.i.us.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i
@@ -231,8 +231,8 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.7.2.i.i = phi i8 [ %10, %if.then11.i.i.i ], [ %reader.sroa.7.027.i.i, %if.then.i20.i.i ], [ %reader.sroa.7.027.i.i, %for.body.i.i ]
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
-  %inc.i.i = add nuw nsw i32 %i.031.i.i, 1
-  %cmp4.i.i = icmp slt i32 %inc.i.i, %reader.sroa.13.0.i
+  %exitcond.not.i.i = add nuw nsw i32 %i.031.i.i, 1
+  %cmp4.i.i = icmp slt i32 %exitcond.not.i.i, %reader.sroa.13.0.i
   br i1 %cmp4.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !6
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i

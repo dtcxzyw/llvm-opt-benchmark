@@ -2969,8 +2969,8 @@ define void @PHP_TIGER128Final(ptr noundef writeonly captures(none) %0, ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = icmp samesign ult i64 %indvars.iv.i, 15
-  br i1 %12, label %3, label %TigerDigest.exit
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.i, 15
+  br i1 %exitcond.not.i, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5869,8 +5869,8 @@ define void @PHP_TIGER160Final(ptr noundef writeonly captures(none) %0, ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = icmp samesign ult i64 %indvars.iv.i, 19
-  br i1 %12, label %3, label %TigerDigest.exit
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.i, 19
+  br i1 %exitcond.not.i, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5894,8 +5894,8 @@ define void @PHP_TIGER192Final(ptr noundef writeonly captures(none) %0, ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = icmp samesign ult i64 %indvars.iv.i, 23
-  br i1 %12, label %3, label %TigerDigest.exit
+  %exitcond.not.i = icmp samesign ult i64 %indvars.iv.i, 23
+  br i1 %exitcond.not.i, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7

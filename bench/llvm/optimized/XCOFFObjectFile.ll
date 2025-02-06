@@ -5071,8 +5071,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %18, align 1
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
-  %.not4268.not = icmp eq i16 %.0.copyload.i.i.i.i, 0
-  br i1 %.not4268.not, label %.thread, label %.lr.ph71
+  %umax80 = icmp eq i16 %.0.copyload.i.i.i.i, 0
+  br i1 %umax80, label %.thread, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %14, %26
   %.03370 = phi ptr [ %27, %26 ], [ %9, %14 ]
@@ -5097,8 +5097,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
 26:                                               ; preds = %21, %.lr.ph71
   %27 = getelementptr inbounds nuw i8, ptr %.03370, i64 72
   %28 = add nuw i16 %.03569, 1
-  %.not42 = icmp ult i16 %28, %rev.i.i.i.i.i.i.i.i
-  br i1 %.not42, label %.lr.ph71, label %.thread, !llvm.loop !536
+  %exitcond81.not = icmp ult i16 %28, %rev.i.i.i.i.i.i.i.i
+  br i1 %exitcond81.not, label %.lr.ph71, label %.thread, !llvm.loop !536
 
 29:                                               ; preds = %21
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
@@ -5114,8 +5114,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
   call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   %.0.copyload.i.i.i.i50 = load i16, ptr %35, align 1
   %rev.i.i.i.i.i.i.i.i51 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i50)
-  %.not4065.not = icmp eq i16 %.0.copyload.i.i.i.i50, 0
-  br i1 %.not4065.not, label %.thread, label %.lr.ph
+  %umax = icmp eq i16 %.0.copyload.i.i.i.i50, 0
+  br i1 %umax, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %43
   %.067 = phi i16 [ %45, %43 ], [ 0, %31 ]
@@ -5140,8 +5140,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
 43:                                               ; preds = %38, %.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %.03466, i64 40
   %45 = add nuw i16 %.067, 1
-  %.not40 = icmp ult i16 %45, %rev.i.i.i.i.i.i.i.i51
-  br i1 %.not40, label %.lr.ph, label %.thread, !llvm.loop !537
+  %exitcond.not = icmp ult i16 %45, %rev.i.i.i.i.i.i.i.i51
+  br i1 %exitcond.not, label %.lr.ph, label %.thread, !llvm.loop !537
 
 46:                                               ; preds = %38
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
