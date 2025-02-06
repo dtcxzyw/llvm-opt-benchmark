@@ -1555,10 +1555,10 @@ for.inc:                                          ; preds = %if.end, %if.then10
 
 for.end:                                          ; preds = %for.inc
   %call15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 32)
-          to label %for.body19 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.body19.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-for.body19:                                       ; preds = %for.end, %for.inc32
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %for.inc32 ], [ 0, %for.end ]
+for.body19.preheader:                             ; preds = %for.end, %for.inc32
+  %wide.trip.count = phi i64 [ %indvars.iv.next33, %for.inc32 ], [ 0, %for.end ]
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %p.0, i64 %indvars.iv32
   %3 = load i8, ptr %arrayidx21, align 1
   %4 = add i8 %3, -127

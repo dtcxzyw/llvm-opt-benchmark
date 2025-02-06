@@ -453,61 +453,61 @@ define zeroext i16 @lv_atan2(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
   %17 = icmp samesign ult i32 %14, 45
   %spec.select62 = zext i1 %17 to i32
   %18 = icmp samesign ult i32 %14, 42
-  %19 = select i1 %17, i32 2, i32 1
-  %.147 = select i1 %18, i32 %19, i32 %spec.select62
+  %.147 = select i1 %17, i32 2, i32 1
+  %19 = select i1 %18, i32 %.147, i32 %spec.select62
   %20 = icmp samesign ult i32 %14, 38
   %21 = icmp samesign ult i32 %14, 33
   br label %27
 
-22:                                               ; preds = %13
-  %23 = icmp samesign ugt i32 %14, 1
-  %spec.select63 = zext i1 %23 to i32
-  %24 = icmp samesign ugt i32 %14, 5
-  %.5 = select i1 %24, i32 2, i32 %spec.select63
+22:; preds = %13
+  %spec.select63 = icmp samesign ugt i32 %14, 1
+  %23 = zext i1 %23 to i32
+  %.5 = icmp samesign ugt i32 %14, 5
+  %24 = select i1 %24, i32 2, i32 %23
   %25 = icmp samesign ugt i32 %14, 9
   %26 = icmp samesign ugt i32 %14, 14
   br label %27
 
-27:                                               ; preds = %22, %16
-  %.sink69 = phi i1 [ %26, %22 ], [ %21, %16 ]
-  %.sink68.in = phi i1 [ %25, %22 ], [ %20, %16 ]
+27:; preds = %22, %16
+  %.sink68.in = phi i1 [ %26, %22 ], [ %21, %16 ]
+  %.5.sink = phi i1 [ %25, %22 ], [ %20, %16 ]
   %.5.sink = phi i32 [ %.5, %22 ], [ %.147, %16 ]
   %.sink68 = zext i1 %.sink68.in to i32
-  %28 = zext i1 %.sink69 to i32
-  %.6 = add nuw nsw i32 %28, %.sink68
+  %27 = zext i1 %.sink69 to i32
+  %.6 = add nuw nsw i32 %27, %.sink68
   %spec.select67 = add nuw nsw i32 %.6, %.5.sink
-  %29 = add i32 %spec.select67, %.045
-  %30 = zext nneg i8 %.251 to i32
-  %31 = and i32 %30, 16
-  %.not = icmp eq i32 %31, 0
-  %32 = sub i32 90, %29
-  %spec.select64 = select i1 %.not, i32 %29, i32 %32
-  %33 = and i32 %30, 2
-  %.not58 = icmp eq i32 %33, 0
-  %34 = and i32 %30, 1
-  %.not59 = icmp eq i32 %34, 0
-  br i1 %.not58, label %40, label %35
+  %28 = add i32 %spec.select67, %.045
+  %29 = zext nneg i8 %.251 to i32
+  %30 = and i32 %29, 16
+  %.not = icmp eq i32 %30, 0
+  %31 = sub i32 90, %28
+  %spec.select64 = select i1 %.not, i32 %28, i32 %31
+  %32 = and i32 %29, 2
+  %.not58 = icmp eq i32 %32, 0
+  %33 = and i32 %29, 1
+  %.not59 = icmp eq i32 %33, 0
+  br i1 %.not58, label %39, label %34
 
-35:                                               ; preds = %27
-  br i1 %.not59, label %38, label %36
+34:                                               ; preds = %27
+  br i1 %.not59, label %37, label %35
 
-36:                                               ; preds = %35
-  %37 = add i32 %spec.select64, 180
-  br label %42
+35:                                               ; preds = %34
+  %36 = add i32 %spec.select64, 180
+  br label %41
 
-38:                                               ; preds = %35
-  %39 = sub i32 180, %spec.select64
-  br label %42
+37:                                               ; preds = %34
+  %38 = sub i32 180, %spec.select64
+  br label %41
 
-40:                                               ; preds = %27
-  %41 = sub i32 360, %spec.select64
-  %spec.select65 = select i1 %.not59, i32 %spec.select64, i32 %41
-  br label %42
+39:                                               ; preds = %27
+  %40 = sub i32 360, %spec.select64
+  %spec.select65 = select i1 %.not59, i32 %spec.select64, i32 %40
+  br label %41
 
-42:                                               ; preds = %40, %36, %38
-  %.2 = phi i32 [ %37, %36 ], [ %39, %38 ], [ %spec.select65, %40 ]
-  %43 = trunc i32 %.2 to i16
-  ret i16 %43
+41:                                               ; preds = %39, %35, %37
+  %.2 = phi i32 [ %36, %35 ], [ %38, %37 ], [ %spec.select65, %39 ]
+  %42 = trunc i32 %.2 to i16
+  ret i16 %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable

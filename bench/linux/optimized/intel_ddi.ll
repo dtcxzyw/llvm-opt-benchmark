@@ -11534,24 +11534,24 @@ define internal fastcc void @intel_wait_ddi_buf_active(ptr noundef %0, i32 nound
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %10, %15, %17
-  %.pr = phi i16 [ %5, %15 ], [ %.pr.pre, %17 ], [ %5, %10 ]
-  %.ph = phi i64 [ 500000, %15 ], [ %19, %17 ], [ 1200000, %10 ]
-  %20 = icmp ugt i16 %.pr, 13
+  %21 = phi i16 [ %5, %15 ], [ %.pr.pre, %17 ], [ %5, %10 ]
+  %22 = phi i64 [ 500000, %15 ], [ %19, %17 ], [ 1200000, %10 ]
+  %23 = icmp ugt i16 %21, 13
   br label %21
 
-21:                                               ; preds = %thread-pre-split, %8
+21:; preds = %thread-pre-split, %8
   %22 = phi i1 [ %20, %thread-pre-split ], [ true, %8 ]
-  %23 = phi i64 [ %.ph, %thread-pre-split ], [ 10000000, %8 ]
-  %24 = tail call i64 @ktime_get_raw() #14
-  %25 = add i64 %24, %23
-  %26 = tail call i32 @__SCT__might_resched() #14
-  br i1 %22, label %27, label %50
+  %23 = phi i64 [ %22, %thread-pre-split ], [ 10000000, %8 ]
+  %27 = tail call i64 @ktime_get_raw() #14
+  %28 = add i64 %24, %23
+  %29 = tail call i32 @__SCT__might_resched() #14
+  br i1 %22, label %27, label %49
 
-27:                                               ; preds = %21
-  %28 = icmp slt i32 %1, 3
-  %29 = shl i32 %1, 8
-  %30 = add i32 %29, 409604
-  %31 = shl i32 %1, 9
+27:; preds = %21
+  %33 = icmp slt i32 %1, 3
+  %34 = shl i32 %1, 8
+  %35 = add i32 %29, 409604
+  %36 = shl i32 %1, 9
   %32 = add i32 %31, 1502208
   %33 = select i1 %28, i32 %30, i32 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -11559,76 +11559,76 @@ thread-pre-split:                                 ; preds = %10, %15, %17
   %36 = tail call i64 @ktime_get_raw() #14
   %37 = icmp sle i64 %36, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !367
-  %38 = load ptr, ptr %35, align 8
-  %39 = tail call i32 %38(ptr noundef nonnull %34, i32 %33, i1 noundef zeroext true) #14
-  %40 = and i32 %39, 128
-  %41 = icmp ne i32 %40, 0
-  %42 = select i1 %41, i1 %37, i1 false
-  br i1 %42, label %.lr.ph7, label %.thread.loopexit
+  %37 = load ptr, ptr %35, align 8
+  %38 = tail call i32 %38(ptr noundef nonnull %34, i32 %33, i1 noundef zeroext true) #14
+  %39 = and i32 %38, 128
+  %40 = icmp ne i32 %39, 0
+  %41 = select i1 %40, i1 %37, i1 false
+  br i1 %41, label %.lr.ph7, label %.thread.loopexit
 
 .lr.ph7:                                          ; preds = %27, %.lr.ph7
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #14
-  %43 = tail call i64 @ktime_get_raw() #14
-  %44 = icmp sle i64 %43, %25
+  %42 = tail call i64 @ktime_get_raw() #14
+  %43 = icmp sle i64 %42, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !367
-  %45 = load ptr, ptr %35, align 8
-  %46 = tail call i32 %45(ptr noundef nonnull %34, i32 %33, i1 noundef zeroext true) #14
-  %47 = and i32 %46, 128
-  %48 = icmp ne i32 %47, 0
-  %49 = select i1 %48, i1 %44, i1 false
-  br i1 %49, label %.lr.ph7, label %.thread.loopexit
+  %44 = load ptr, ptr %35, align 8
+  %45 = tail call i32 %45(ptr noundef nonnull %34, i32 %33, i1 noundef zeroext true) #14
+  %46 = and i32 %45, 128
+  %47 = icmp ne i32 %46, 0
+  %48 = select i1 %47, i1 %43, i1 false
+  br i1 %48, label %.lr.ph7, label %.thread.loopexit
 
-50:                                               ; preds = %21
-  %51 = shl i32 %1, 8
-  %52 = add i32 %51, 409600
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 7368
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 7512
-  %55 = tail call i64 @ktime_get_raw() #14
-  %56 = icmp sle i64 %55, %25
+49:                                               ; preds = %21
+  %50 = shl i32 %1, 8
+  %51 = add i32 %50, 409600
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %54 = tail call i64 @ktime_get_raw() #14
+  %55 = icmp sle i64 %54, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !368
-  %57 = load ptr, ptr %54, align 8
-  %58 = tail call i32 %57(ptr noundef nonnull %53, i32 %52, i1 noundef zeroext true) #14
-  %59 = and i32 %58, 128
-  %60 = icmp ne i32 %59, 0
-  %61 = select i1 %60, i1 %56, i1 false
-  br i1 %61, label %.lr.ph, label %.thread.loopexit3
+  %56 = load ptr, ptr %53, align 8
+  %57 = tail call i32 %57(ptr noundef nonnull %52, i32 %51, i1 noundef zeroext true) #14
+  %58 = and i32 %57, 128
+  %59 = icmp ne i32 %58, 0
+  %60 = select i1 %59, i1 %55, i1 false
+  br i1 %60, label %.lr.ph, label %.thread.loopexit3
 
-.lr.ph:                                           ; preds = %50, %.lr.ph
+.lr.ph:                                           ; preds = %49, %.lr.ph
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #14
-  %62 = tail call i64 @ktime_get_raw() #14
-  %63 = icmp sle i64 %62, %25
+  %61 = tail call i64 @ktime_get_raw() #14
+  %62 = icmp sle i64 %61, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !368
-  %64 = load ptr, ptr %54, align 8
-  %65 = tail call i32 %64(ptr noundef nonnull %53, i32 %52, i1 noundef zeroext true) #14
-  %66 = and i32 %65, 128
-  %67 = icmp ne i32 %66, 0
-  %68 = select i1 %67, i1 %63, i1 false
-  br i1 %68, label %.lr.ph, label %.thread.loopexit3
+  %63 = load ptr, ptr %53, align 8
+  %64 = tail call i32 %64(ptr noundef nonnull %52, i32 %51, i1 noundef zeroext true) #14
+  %65 = and i32 %64, 128
+  %66 = icmp ne i32 %65, 0
+  %67 = select i1 %66, i1 %62, i1 false
+  br i1 %67, label %.lr.ph, label %.thread.loopexit3
 
 .thread.loopexit:                                 ; preds = %.lr.ph7, %27
-  %.lcssa6 = phi i1 [ %41, %27 ], [ %48, %.lr.ph7 ]
+  %.lcssa6 = phi i1 [ %40, %27 ], [ %47, %.lr.ph7 ]
   br i1 %.lcssa6, label %.thread, label %.thread.thread
 
-.thread.loopexit3:                                ; preds = %.lr.ph, %50
-  %.lcssa5 = phi i1 [ %60, %50 ], [ %67, %.lr.ph ]
+.thread.loopexit3:                                ; preds = %.lr.ph, %49
+  %.lcssa5 = phi i1 [ %59, %49 ], [ %66, %.lr.ph ]
   br i1 %.lcssa5, label %.thread, label %.thread.thread
 
 .thread:                                          ; preds = %.thread.loopexit3, %.thread.loopexit
-  %69 = icmp eq ptr %0, null
-  br i1 %69, label %73, label %70
+  %68 = icmp eq ptr %0, null
+  br i1 %68, label %72, label %69
 
-70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load ptr, ptr %71, align 8
-  br label %73
+69:                                               ; preds = %.thread
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  br label %72
 
-73:                                               ; preds = %70, %.thread
-  %74 = phi ptr [ %72, %70 ], [ null, %.thread ]
-  %75 = add i32 %1, 65
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %74, ptr noundef nonnull @.str.70, i32 noundef %75) #16
+72:                                               ; preds = %69, %.thread
+  %73 = phi ptr [ %71, %69 ], [ null, %.thread ]
+  %74 = add i32 %1, 65
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %73, ptr noundef nonnull @.str.70, i32 noundef %74) #16
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread.loopexit3, %.thread.loopexit, %73, %7
+.thread.thread:                                   ; preds = %.thread.loopexit3, %.thread.loopexit, %72, %7
   ret void
 }
 

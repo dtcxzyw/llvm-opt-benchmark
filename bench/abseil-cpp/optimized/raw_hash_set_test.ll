@@ -141953,25 +141953,25 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %t, i64 24
   %message_.i = getelementptr inbounds nuw i8, ptr %gtest_ar_, i64 8
   %message_.i.i = getelementptr inbounds nuw i8, ptr %gtest_ar, i64 8
-  br label %for.body4.lr.ph
+  br label %for.cond2.preheader
 
-for.body4.lr.ph:                                  ; preds = %for.inc89, %entry
-  %source_size.0176 = phi i64 [ 0, %entry ], [ %inc90, %for.inc89 ]
-  %cmp11169.not = icmp eq i64 %source_size.0176, 0
+for.cond2.preheader:                              ; preds = %for.inc89, %entry
+  %source_size.0175 = phi i64 [ 0, %entry ], [ %inc90, %for.inc89 ]
+  %cmp11169.not = icmp eq i64 %source_size.0175, 0
   br label %for.body4
 
-for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc86
-  %target_size.0175 = phi i64 [ %source_size.0176, %for.body4.lr.ph ], [ %inc87, %for.inc86 ]
+for.body4:                                        ; preds = %for.cond2.preheader, %for.inc86
+  %target_size.0174 = phi i64 [ %source_size.0175, %for.cond2.preheader ], [ %inc87, %for.inc86 ]
   store i8 0, ptr %ref.tmp5, align 1
   store i8 1, ptr %arrayinit.element, align 1
-  %sub.i.i32 = add nsw i64 %target_size.0175, -1
+  %sub.i.i32 = add nsw i64 %target_size.0174, -1
   %div.i.i33 = sdiv i64 %sub.i.i32, 7
-  %add.i.i34 = add nsw i64 %div.i.i33, %target_size.0175
+  %add.i.i34 = add nsw i64 %div.i.i33, %target_size.0174
   %tobool.not.i.i35 = icmp eq i64 %add.i.i34, 0
   %1 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i.i34, i1 true)
   %shr.i.i36 = lshr i64 -1, %1
   %cond.i.i37 = select i1 %tobool.not.i.i35, i64 1, i64 %shr.i.i36
-  %cmp.i = icmp eq i64 %target_size.0175, 0
+  %cmp.i = icmp eq i64 %target_size.0174, 0
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body4, %for.inc84
@@ -142150,7 +142150,7 @@ call40.i.i.i.i.i.i.i.noexc:                       ; preds = %if.end.i.i139, %cal
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %call40.i.i.i.i.i.i.i.noexc
   %inc = add nuw nsw i64 %i.0170, 1
-  %exitcond.not = icmp eq i64 %inc, %source_size.0176
+  %exitcond.not = icmp eq i64 %inc, %source_size.0175
   br i1 %exitcond.not, label %for.end, label %for.body12, !llvm.loop !5683
 
 lpad.loopexit:                                    ; preds = %if.then.i.i95, %if.end.i.i
@@ -142200,7 +142200,7 @@ if.end10.i:                                       ; preds = %land.lhs.true4.i, %
   %sub.i.i = add nsw i64 %shr.i.i9.i, -1
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add nuw i64 %div.i.i, %shr.i.i9.i
-  %or.i = or i64 %add.i.i, %target_size.0175
+  %or.i = or i64 %add.i.i, %target_size.0174
   %tobool.not.i.i = icmp eq i64 %or.i, 0
   %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
   %shr.i.i = lshr i64 -1, %27
@@ -142216,7 +142216,7 @@ if.else:                                          ; preds = %for.end
   %28 = getelementptr i8, ptr %this.val5.i, i64 -8
   %this.val5.val.i = load i64, ptr %28, align 8
   %add.i = add i64 %this.val5.val.i, %shr.i.i.i
-  %cmp.i31 = icmp ugt i64 %target_size.0175, %add.i
+  %cmp.i31 = icmp ugt i64 %target_size.0174, %add.i
   br i1 %cmp.i31, label %if.then.i.invoke, label %if.end
 
 if.then.i.invoke:                                 ; preds = %if.else, %if.end10.i
@@ -142551,8 +142551,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit117:         ; preds = %if.end79, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i116
   store ptr null, ptr %message_.i.i, align 8
   %inc82 = add nuw nsw i64 %i17.0172, 1
-  %exitcond178.not = icmp eq i64 %inc82, %source_size.0176
-  br i1 %exitcond178.not, label %for.inc84, label %for.body20, !llvm.loop !5690
+  %exitcond177.not = icmp eq i64 %inc82, %source_size.0175
+  br i1 %exitcond177.not, label %for.inc84, label %for.body20, !llvm.loop !5690
 
 ehcleanup80:                                      ; preds = %_ZN7testing7MessageD2Ev.exit113, %lpad68
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %_ZN7testing7MessageD2Ev.exit113 ], [ %60, %lpad68 ]
@@ -142575,14 +142575,14 @@ for.inc84:                                        ; preds = %_ZN7testing15Assert
   br i1 %cmp8.not, label %for.inc86, label %for.body9
 
 for.inc86:                                        ; preds = %for.inc84
-  %inc87 = add nuw nsw i64 %target_size.0175, 1
-  %exitcond179.not = icmp eq i64 %inc87, 32
-  br i1 %exitcond179.not, label %for.inc89, label %for.body4, !llvm.loop !5691
+  %inc87 = add nuw nsw i64 %target_size.0174, 1
+  %exitcond178.not = icmp eq i64 %inc87, 32
+  br i1 %exitcond178.not, label %for.inc89, label %for.body4, !llvm.loop !5691
 
 for.inc89:                                        ; preds = %for.inc86
-  %inc90 = add nuw nsw i64 %source_size.0176, 1
-  %exitcond180.not = icmp eq i64 %inc90, 32
-  br i1 %exitcond180.not, label %for.end91, label %for.body4.lr.ph, !llvm.loop !5692
+  %inc90 = add nuw nsw i64 %source_size.0175, 1
+  %exitcond179.not = icmp eq i64 %inc90, 32
+  br i1 %exitcond179.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5692
 
 for.end91:                                        ; preds = %for.inc89
   %this.val.i.i.i = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8
@@ -142700,22 +142700,22 @@ entry:
   %had_infoz_.i.i = getelementptr inbounds nuw i8, ptr %resize_helper.i, i64 16
   %message_.i = getelementptr inbounds nuw i8, ptr %gtest_ar_, i64 8
   %message_.i.i = getelementptr inbounds nuw i8, ptr %gtest_ar, i64 8
-  br label %for.body4.lr.ph
+  br label %for.cond2.preheader
 
-for.body4.lr.ph:                                  ; preds = %for.inc89, %entry
-  %source_size.0278 = phi i64 [ 0, %entry ], [ %inc90, %for.inc89 ]
-  %cmp11271.not = icmp eq i64 %source_size.0278, 0
+for.cond2.preheader:                              ; preds = %for.inc89, %entry
+  %source_size.0277 = phi i64 [ 0, %entry ], [ %inc90, %for.inc89 ]
+  %cmp11271.not = icmp eq i64 %source_size.0277, 0
   br label %for.body4
 
-for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc86
-  %target_size.0277 = phi i64 [ %source_size.0278, %for.body4.lr.ph ], [ %inc87, %for.inc86 ]
+for.body4:                                        ; preds = %for.cond2.preheader, %for.inc86
+  %target_size.0276 = phi i64 [ %source_size.0277, %for.cond2.preheader ], [ %inc87, %for.inc86 ]
   store i8 0, ptr %ref.tmp5, align 1
   store i8 1, ptr %arrayinit.element, align 1
-  %1 = trunc nuw nsw i64 %target_size.0277 to i8
+  %1 = trunc nuw nsw i64 %target_size.0276 to i8
   %div.i6.lhs.trunc.i = add nsw i8 %1, -1
   %div.i67.i = udiv i8 %div.i6.lhs.trunc.i, 7
   %div.i6.zext.i = zext nneg i8 %div.i67.i to i64
-  %add.i.i32 = add nuw nsw i64 %target_size.0277, %div.i6.zext.i
+  %add.i.i32 = add nuw nsw i64 %target_size.0276, %div.i6.zext.i
   %2 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i.i32, i1 true)
   %shr.i.i33 = lshr i64 -1, %2
   %sub.i.i.i204 = add nuw i64 %shr.i.i33, 31
@@ -142727,7 +142727,7 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   %div2.i.i.i214 = lshr i64 2305843009213693951, %2
   %cmp.i.i.i219 = icmp samesign ult i64 %shr.i.i33, 17
   %add1.i.i224 = add nuw i64 %shr.i.i33, 16
-  %cmp.i = icmp eq i64 %target_size.0277, 0
+  %cmp.i = icmp eq i64 %target_size.0276, 0
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body4, %for.inc84
@@ -142760,7 +142760,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.no
 
 for.inc:                                          ; preds = %if.then.i.i.i.i.i.i, %call.i.i.i.i.i.i.noexc
   %inc = add nuw nsw i64 %i.0272, 1
-  %exitcond.not = icmp eq i64 %inc, %source_size.0278
+  %exitcond.not = icmp eq i64 %inc, %source_size.0277
   br i1 %exitcond.not, label %for.end, label %for.body12, !llvm.loop !5706
 
 lpad.loopexit:                                    ; preds = %if.then.i.i91, %if.end.i.i
@@ -142820,7 +142820,7 @@ if.end10.i:                                       ; preds = %land.lhs.true4.i, %
   %sub.i.i = add nsw i64 %shr.i.i9.i, -1
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add nuw i64 %div.i.i, %shr.i.i9.i
-  %or.i = or i64 %add.i.i, %target_size.0277
+  %or.i = or i64 %add.i.i, %target_size.0276
   %tobool.not.i.i = icmp eq i64 %or.i, 0
   %8 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
   %shr.i.i = lshr i64 -1, %8
@@ -142999,7 +142999,7 @@ if.else:                                          ; preds = %for.end
   %28 = getelementptr i8, ptr %this.val.i30, i64 -8
   %this.val.val.i = load i64, ptr %28, align 8
   %add.i = add i64 %this.val.val.i, %shr.i.i.i
-  %cmp.i31 = icmp ugt i64 %target_size.0277, %add.i
+  %cmp.i31 = icmp ugt i64 %target_size.0276, %add.i
   br i1 %cmp.i31, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.else
@@ -143484,8 +143484,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit113:         ; preds = %if.end79, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i112
   store ptr null, ptr %message_.i.i, align 8
   %inc82 = add nuw nsw i64 %i17.0274, 1
-  %exitcond280.not = icmp eq i64 %inc82, %source_size.0278
-  br i1 %exitcond280.not, label %for.inc84, label %for.body20, !llvm.loop !5713
+  %exitcond279.not = icmp eq i64 %inc82, %source_size.0277
+  br i1 %exitcond279.not, label %for.inc84, label %for.body20, !llvm.loop !5713
 
 ehcleanup80:                                      ; preds = %_ZN7testing7MessageD2Ev.exit109, %lpad68
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %_ZN7testing7MessageD2Ev.exit109 ], [ %78, %lpad68 ]
@@ -143508,14 +143508,14 @@ for.inc84:                                        ; preds = %_ZN7testing15Assert
   br i1 %cmp8.not, label %for.inc86, label %for.body9
 
 for.inc86:                                        ; preds = %for.inc84
-  %inc87 = add nuw nsw i64 %target_size.0277, 1
-  %exitcond281.not = icmp eq i64 %inc87, 32
-  br i1 %exitcond281.not, label %for.inc89, label %for.body4, !llvm.loop !5714
+  %inc87 = add nuw nsw i64 %target_size.0276, 1
+  %exitcond280.not = icmp eq i64 %inc87, 32
+  br i1 %exitcond280.not, label %for.inc89, label %for.body4, !llvm.loop !5714
 
 for.inc89:                                        ; preds = %for.inc86
-  %inc90 = add nuw nsw i64 %source_size.0278, 1
-  %exitcond282.not = icmp eq i64 %inc90, 32
-  br i1 %exitcond282.not, label %for.end91, label %for.body4.lr.ph, !llvm.loop !5715
+  %inc90 = add nuw nsw i64 %source_size.0277, 1
+  %exitcond281.not = icmp eq i64 %inc90, 32
+  br i1 %exitcond281.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5715
 
 for.end91:                                        ; preds = %for.inc89
   %this.val.i.i.i = load i64, ptr %capacity_.i.i.i138, align 8

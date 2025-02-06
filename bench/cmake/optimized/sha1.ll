@@ -1200,38 +1200,38 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph36.preheader:                               ; preds = %.thread, %21
   %.145 = phi i32 [ 0, %.thread ], [ %22, %21 ]
-  %23 = shl nuw nsw i32 %.145, 2
-  %24 = zext nneg i32 %23 to i64
-  %scevgep40 = getelementptr i8, ptr %0, i64 %24
-  %25 = shl nuw i32 %.145, 2
-  %26 = sub nsw i32 52, %25
+  %22 = shl nuw nsw i32 %.145, 2
+  %scevgep40 = zext nneg i32 %23 to i64
+  %narrow = getelementptr i8, ptr %0, i64 %24
+  %23 = shl nuw i32 %.145, 2
+  %26 = sub nsw i32 52, %23
   %27 = zext i32 %26 to i64
   %28 = add nuw nsw i64 %27, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep40, i8 0, i64 %28, i1 false), !tbaa !9
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %.lr.ph36.preheader, %21
-  %29 = load i64, ptr %3, align 8, !tbaa !4
-  %30 = lshr i64 %29, 29
-  %31 = trunc i64 %30 to i32
-  %32 = tail call i32 @llvm.bswap.i32(i32 %31)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %32, ptr %33, align 4, !tbaa !9
-  %.tr = trunc i64 %29 to i32
-  %34 = shl i32 %.tr, 3
-  %35 = tail call i32 @llvm.bswap.i32(i32 %34)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %35, ptr %36, align 4, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @rhash_sha1_process_block(ptr noundef nonnull %37, ptr noundef nonnull %0)
+  %24 = load i64, ptr %3, align 8, !tbaa !4
+  %25 = lshr i64 %24, 29
+  %26 = trunc i64 %25 to i32
+  %27 = tail call i32 @llvm.bswap.i32(i32 %26)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %27, ptr %28, align 4, !tbaa !9
+  %.tr = trunc i64 %24 to i32
+  %29 = shl i32 %.tr, 3
+  %30 = tail call i32 @llvm.bswap.i32(i32 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %30, ptr %31, align 4, !tbaa !9
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call fastcc void @rhash_sha1_process_block(ptr noundef nonnull %32, ptr noundef nonnull %0)
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %39, label %38
+  br i1 %.not28, label %34, label %33
 
-38:                                               ; preds = %._crit_edge37
-  tail call void @rhash_swap_copy_str_to_u32(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %37, i64 noundef 20) #9
-  br label %39
+33:                                               ; preds = %._crit_edge37
+  tail call void @rhash_swap_copy_str_to_u32(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %32, i64 noundef 20) #9
+  br label %34
 
-39:                                               ; preds = %38, %._crit_edge37
+34:                                               ; preds = %33, %._crit_edge37
   ret void
 }
 

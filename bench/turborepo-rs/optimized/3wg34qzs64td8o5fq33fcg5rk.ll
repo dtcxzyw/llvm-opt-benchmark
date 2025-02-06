@@ -512,8 +512,8 @@ define void @_RNvXs8_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5AttrsNtB5_8BufW
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i8, ptr %29, align 1, !range !50, !noundef !4
   %31 = icmp eq i8 %30, 3
-  %.sroa.07.1.i.i92.sroa.gep238 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %.sroa.07.1.i.i120.sroa.gep242 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %.sroa.07.1.i.i92.sroa.gep242 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %.sroa.07.1.i.i120.sroa.gep246 = getelementptr inbounds nuw i8, ptr %17, i64 1
   br i1 %31, label %33, label %.critedge
 
 default.unreachable:                              ; preds = %321
@@ -1077,9 +1077,9 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i91: ; preds = %290, %285
   %.sink = phi i16 [ %296, %290 ], [ %289, %285 ]
-  %.sroa.07.1.i.i92.sroa.phi = phi ptr [ %20, %290 ], [ %.sroa.07.1.i.i92.sroa.gep238, %285 ]
+  %.sroa.07.1.i.i92.sroa.phi = phi ptr [ %20, %290 ], [ %.sroa.07.1.i.i92.sroa.gep242, %285 ]
   %.sroa.07.1.i.i92 = phi i64 [ 3, %290 ], [ 2, %285 ]
-  store i16 %.sink, ptr %.sroa.07.1.i.i92.sroa.gep238, align 1, !alias.scope !148, !noalias !145
+  store i16 %.sink, ptr %.sroa.07.1.i.i92.sroa.gep242, align 1, !alias.scope !148, !noalias !145
   %298 = load i64, ptr %1, align 8, !alias.scope !152, !noundef !4
   %299 = sub i64 %298, %283
   %300 = icmp ugt i64 %.sroa.07.1.i.i92, %299
@@ -1329,10 +1329,10 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119
 
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119: ; preds = %411, %406
-  %.sink248 = phi i16 [ %417, %411 ], [ %410, %406 ]
-  %.sroa.07.1.i.i120.sroa.phi = phi ptr [ %17, %411 ], [ %.sroa.07.1.i.i120.sroa.gep242, %406 ]
+  %.sink252 = phi i16 [ %417, %411 ], [ %410, %406 ]
+  %.sroa.07.1.i.i120.sroa.phi = phi ptr [ %17, %411 ], [ %.sroa.07.1.i.i120.sroa.gep246, %406 ]
   %.sroa.07.1.i.i120 = phi i64 [ 3, %411 ], [ 2, %406 ]
-  store i16 %.sink248, ptr %.sroa.07.1.i.i120.sroa.gep242, align 1, !alias.scope !191, !noalias !188
+  store i16 %.sink252, ptr %.sroa.07.1.i.i120.sroa.gep246, align 1, !alias.scope !191, !noalias !188
   %419 = load i64, ptr %1, align 8, !alias.scope !195, !noundef !4
   %420 = sub i64 %419, %404
   %421 = icmp ugt i64 %.sroa.07.1.i.i120, %420
@@ -1398,8 +1398,8 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit138: ; preds =
   %450 = load ptr, ptr %449, align 8, !alias.scope !207, !nonnull !4, !noundef !4
   %451 = getelementptr inbounds i8, ptr %450, i64 %448
   store i8 49, ptr %451, align 1
-  %.sroa.4244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %451, i64 1
-  store i16 %442, ptr %.sroa.4244.0..sroa_idx, align 1
+  %.sroa.4248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %451, i64 1
+  store i16 %442, ptr %.sroa.4248.0..sroa_idx, align 1
   %452 = load i64, ptr %443, align 8, !alias.scope !207, !noundef !4
   %453 = add i64 %452, 3
   store i64 %453, ptr %443, align 8, !alias.scope !207

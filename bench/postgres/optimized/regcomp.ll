@@ -29449,7 +29449,7 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr noundef rea
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10() #22
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %79
+  br i1 %.not, label %12, label %76
 
 12:                                               ; preds = %3
   %13 = load volatile i32, ptr @InterruptPending, align 4
@@ -29463,7 +29463,7 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr noundef rea
 15:                                               ; preds = %12, %14
   %16 = tail call ptr @palloc_extended(i64 noundef 258, i32 noundef 2) #22
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %79, label %18
+  br i1 %17, label %76, label %18
 
 18:                                               ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(258) %16, i8 0, i64 258, i1 false)
@@ -29592,23 +29592,23 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr noundef rea
 .lr.ph79.preheader:                               ; preds = %69
   %71 = getelementptr i8, ptr %16, i64 %indvars.iv82
   %scevgep = getelementptr i8, ptr %71, i64 1
-  %72 = sub nsw i64 256, %indvars.iv82
-  %73 = and i64 %72, 4294967295
+  %narrow = sub nsw i64 256, %indvars.iv82
+  %73 = and i64 %narrow, 4294967295
   %74 = add nuw nsw i64 %73, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 1, i64 %74, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %44, %33, %42, %68, %18, %.lr.ph79.preheader, %69, %._crit_edge
-  %75 = phi i1 [ %.2, %._crit_edge ], [ true, %69 ], [ true, %.lr.ph79.preheader ], [ false, %18 ], [ true, %68 ], [ false, %42 ], [ false, %33 ], [ false, %44 ]
-  %76 = load i32, ptr %1, align 8
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr ptr, ptr %2, i64 %77
-  store ptr %16, ptr %78, align 8
+  %72 = phi i1 [ %.2, %._crit_edge ], [ true, %69 ], [ true, %.lr.ph79.preheader ], [ false, %18 ], [ true, %68 ], [ false, %42 ], [ false, %33 ], [ false, %44 ]
+  %73 = load i32, ptr %1, align 8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr ptr, ptr %2, i64 %74
+  store ptr %16, ptr %75, align 8
   store ptr null, ptr %19, align 8
-  br label %79
+  br label %76
 
-79:                                               ; preds = %15, %3, %.thread
-  %.050 = phi i1 [ %75, %.thread ], [ false, %3 ], [ false, %15 ]
+76:                                               ; preds = %15, %3, %.thread
+  %.050 = phi i1 [ %72, %.thread ], [ false, %3 ], [ false, %15 ]
   ret i1 %.050
 }
 

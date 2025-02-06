@@ -22194,7 +22194,7 @@ while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.sp
   %arrayidx14.i.i.i45 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i.i.i44
   %idxprom16.i.i.i47 = zext nneg i32 %mul11.i.i.i42 to i64
   %arrayidx17.i.i.i48 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i.i.i47
-  br i1 %cmp9.i.i.i30, label %while.body.us93.preheader, label %while.body.lr.ph.split.split.split
+  br i1 %cmp9.i.i.i30, label %while.body.us93.preheader, label %while.body.us125
 
 while.body.us93.preheader:                        ; preds = %while.body.lr.ph.split.split
   %12 = zext nneg i32 %..i18169 to i64
@@ -22224,7 +22224,7 @@ lpad2.loopexit.split.split.split.us:              ; preds = %while.body.us93
           cleanup
   br label %lpad2
 
-while.body.lr.ph.split.split.split:               ; preds = %while.body.lr.ph.split.split
+while.body.us125:                                 ; preds = %while.body.lr.ph.split.split
   br i1 %cmp19.i.i.i11166, label %while.body.us125, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.lr.ph.split.split.split
@@ -22273,12 +22273,12 @@ invoke.cont6:                                     ; preds = %while.body
   br i1 %or.cond184, label %while.body, label %while.end.loopexit157
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %lpad ], [ %0, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   br label %eh.resume
 
@@ -22309,11 +22309,11 @@ while.end.loopexit154:                            ; preds = %if.else.i.i.i31.us,
   br label %while.end
 
 while.end.loopexit155:                            ; preds = %invoke.cont6.us96
-  %17 = load i8, ptr %arrayidx14.i.i.i45, align 1
+  %15 = load i8, ptr %arrayidx14.i.i.i45, align 1
   %arrayidx15.i.i.i46.us113 = getelementptr inbounds nuw i8, ptr %call8.us97, i64 1
-  store i8 %17, ptr %arrayidx15.i.i.i46.us113, align 1
-  %18 = load i8, ptr %arrayidx17.i.i.i48, align 2
-  store i8 %18, ptr %call8.us97, align 1
+  store i8 %15, ptr %arrayidx15.i.i.i46.us113, align 1
+  %16 = load i8, ptr %arrayidx17.i.i.i48, align 2
+  store i8 %16, ptr %call8.us97, align 1
   %add.ptr.i109.i36.us116 = getelementptr inbounds nuw i8, ptr %call8.us97, i64 %conv.i23.i24.us109
   br label %while.end
 
@@ -22322,7 +22322,7 @@ while.end.loopexit156:                            ; preds = %invoke.cont6.us128
   %add.ptr.i109.i36.us141 = getelementptr inbounds nuw i8, ptr %call8.us129, i64 1
   br label %while.end
 
-while.end.loopexit157:                            ; preds = %invoke.cont6
+while.end:                                        ; preds = %invoke.cont6
   store i8 %conv.i.i.i32, ptr %call8, align 1
   %add.ptr.i109.i36 = getelementptr inbounds nuw i8, ptr %call8, i64 %conv.i23.i24
   br label %while.end

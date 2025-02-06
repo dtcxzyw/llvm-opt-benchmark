@@ -59159,17 +59159,17 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEP
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %51, ptr %52, align 4
-  br label %.preheader118
+  br label %.preheader115
 
-.preheader118:                                    ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEPNS4_10VoroVertexE.exit94, %60
-  %indvars.iv130 = phi i64 [ 0, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEPNS4_10VoroVertexE.exit94 ], [ %indvars.iv.next131, %60 ]
-  %53 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv130
+.preheader115:                                    ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEPNS4_10VoroVertexE.exit94, %60
+  %indvars.iv127 = phi i64 [ 0, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEPNS4_10VoroVertexE.exit94 ], [ %indvars.iv.next128, %60 ]
+  %53 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv127
   %54 = load i32, ptr %53, align 4
   br label %55
 
-55:                                               ; preds = %.preheader118, %55
-  %indvars.iv = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %3, i64 %indvars.iv130, i64 %indvars.iv
+55:                                               ; preds = %.preheader115, %55
+  %indvars.iv = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next, %55 ]
+  %56 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %3, i64 %indvars.iv127, i64 %indvars.iv
   store i32 %54, ptr %56, align 4
   %57 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
@@ -59180,49 +59180,49 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEP
   br i1 %exitcond.not, label %60, label %55, !llvm.loop !606
 
 60:                                               ; preds = %55
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 3
-  br i1 %exitcond133.not, label %.preheader116, label %.preheader118, !llvm.loop !607
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next128, 3
+  br i1 %exitcond130.not, label %.preheader113, label %.preheader115, !llvm.loop !607
 
-.preheader116:                                    ; preds = %60, %.preheader116
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.preheader116 ], [ 0, %60 ]
-  %.cmp = icmp eq i64 %indvars.iv134, 0
-  %61 = add nuw i64 %indvars.iv134, 4294967295
+.preheader113:                                    ; preds = %60, %.preheader113
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.preheader113 ], [ 0, %60 ]
+  %.cmp = icmp eq i64 %indvars.iv131, 0
+  %61 = add nuw i64 %indvars.iv131, 4294967295
   %62 = and i64 %61, 4294967295
   %63 = select i1 %.cmp, i64 2, i64 %62
   %64 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %.cmp115.not = icmp eq i64 %indvars.iv134, 2
-  %66 = and i64 %indvars.iv.next135, 4294967295
-  %67 = select i1 %.cmp115.not, i64 0, i64 %66
-  %68 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = load float, ptr %65, align 4
-  %71 = load float, ptr %69, align 4
-  %72 = fsub float %70, %71
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %76 = load float, ptr %75, align 4
-  %77 = fsub float %74, %76
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %81 = load float, ptr %80, align 4
-  %82 = fsub float %79, %81
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %72, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %77, i64 1
-  %83 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %7, i64 0, i64 %indvars.iv134
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %83, align 4
-  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store float %82, ptr %.sroa.224.0..sroa_idx, align 4
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, 3
-  br i1 %exitcond138.not, label %84, label %.preheader116, !llvm.loop !608
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %66 = icmp eq i64 %indvars.iv134, 2
+  %67 = and i64 %indvars.iv.next132, 4294967295
+  %68 = select i1 %66, i64 0, i64 %67
+  %69 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = load float, ptr %65, align 4
+  %72 = load float, ptr %70, align 4
+  %73 = fsub float %71, %72
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %75 = load float, ptr %74, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %77 = load float, ptr %76, align 4
+  %78 = fsub float %75, %77
+  %79 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %80 = load float, ptr %79, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %82 = load float, ptr %81, align 4
+  %83 = fsub float %80, %82
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %73, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %78, i64 1
+  %84 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %7, i64 0, i64 %indvars.iv131
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %84, align 4
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store float %83, ptr %.sroa.224.0..sroa_idx, align 4
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, 3
+  br i1 %exitcond135.not, label %85, label %.preheader113, !llvm.loop !608
 
-84:                                               ; preds = %.preheader116
-  %85 = load ptr, ptr %9, align 8
-  %86 = load ptr, ptr %1, align 8
+85:                                               ; preds = %.preheader113
+  %86 = load ptr, ptr %9, align 8
+  %87 = load ptr, ptr %1, align 8
   %87 = load float, ptr %85, align 4
   %88 = load float, ptr %86, align 4
   %89 = fsub float %87, %88
@@ -59257,23 +59257,23 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEP
   %118 = fmul float %114, %114
   %119 = tail call float @llvm.fmuladd.f32(float %111, float %111, float %118)
   %120 = tail call float @llvm.fmuladd.f32(float %117, float %117, float %119)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %120)
-  %121 = fmul float %sqrt.i, 5.000000e-01
-  %122 = fpext float %121 to double
+  %121 = tail call noundef float @llvm.sqrt.f32(float %120)
+  %sqrt.i = fmul float %sqrt.i, 5.000000e-01
+  %122 = fpext float %sqrt.i to double
   %123 = fmul double %122, 4.000000e+00
   br label %.preheader
 
-.preheader:                                       ; preds = %84, %146
-  %indvars.iv143 = phi i64 [ 0, %84 ], [ %indvars.iv.next144, %146 ]
-  %124 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %7, i64 0, i64 %indvars.iv143
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
+.preheader:                                       ; preds = %85, %146
+  %indvars.iv140 = phi i64 [ 0, %85 ], [ %indvars.iv.next144, %146 ]
+  %125 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %7, i64 0, i64 %indvars.iv140
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   br label %127
 
-127:                                              ; preds = %.preheader, %145
-  %indvars.iv139 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next140, %145 ]
-  %.not = icmp eq i64 %indvars.iv143, %indvars.iv139
-  br i1 %.not, label %145, label %128
+147:                                              ; preds = %.preheader, %145
+  %indvars.iv.next141 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next140, %145 ]
+  %exitcond143.not = icmp eq i64 %indvars.iv143, %indvars.iv.next141
+  br i1 %exitcond143.not, label %145, label %128
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %7, i64 0, i64 %indvars.iv139
@@ -59305,29 +59305,29 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11VertexIndexEP
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 3
   br i1 %exitcond146.not, label %.preheader.i, label %.preheader, !llvm.loop !610
 
-.preheader.i:                                     ; preds = %146, %151
-  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %151 ], [ 0, %146 ]
-  br label %147
+.preheader.i:                                     ; preds = %146, %152
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %152 ], [ 0, %146 ]
+  br label %148
 
-147:                                              ; preds = %147, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %147 ]
-  %.01113.i = phi float [ 0.000000e+00, %.preheader.i ], [ %150, %147 ]
-  %148 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv17.i, i64 %indvars.iv.i
-  %149 = load float, ptr %148, align 4
-  %150 = fadd float %.01113.i, %149
+148:                                              ; preds = %148, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %148 ]
+  %.01113.i = phi float [ 0.000000e+00, %.preheader.i ], [ %151, %148 ]
+  %149 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv17.i, i64 %indvars.iv.i
+  %150 = load float, ptr %149, align 4
+  %151 = fadd float %.01113.i, %150
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %151, label %147, !llvm.loop !611
+  br i1 %exitcond.not.i, label %152, label %148, !llvm.loop !611
 
-151:                                              ; preds = %147
-  %152 = fneg float %150
-  %153 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv17.i, i64 %indvars.iv17.i
-  store float %152, ptr %153, align 4
+152:                                              ; preds = %148
+  %153 = fneg float %151
+  %154 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv17.i, i64 %indvars.iv17.i
+  store float %153, ptr %154, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
   br i1 %exitcond20.not.i, label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11SetDiagonalEPA3_f.exit, label %.preheader.i, !llvm.loop !612
 
-_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11SetDiagonalEPA3_f.exit: ; preds = %151
+_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11SetDiagonalEPA3_f.exit: ; preds = %152
   ret void
 }
 

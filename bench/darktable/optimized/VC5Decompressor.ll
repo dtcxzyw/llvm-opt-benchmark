@@ -4484,13 +4484,13 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
   %73 = phi i32 [ %66, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.6.128.us, %48 ]
   %74 = icmp samesign uge i32 %73, %35
   tail call void @llvm.assume(i1 %74)
-  %75 = lshr i64 %72, %40
+  %76 = lshr i64 %72, %40
   %76 = sub nsw i32 %73, %35
   %77 = shl i64 %72, %41
   tail call void @llvm.assume(i1 %46)
-  %78 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
-  %79 = trunc i64 %75 to i16
-  store i16 %79, ptr %78, align 2, !tbaa !41
+  %77 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
+  %78 = trunc i64 %75 to i16
+  store i16 %78, ptr %77, align 2, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %42
   br i1 %exitcond.not, label %._crit_edge.us, label %48, !llvm.loop !308
@@ -4504,23 +4504,23 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   ret void
 
 .split.us.invoke:                                 ; preds = %55, %16
-  %80 = phi ptr [ @.str.38, %16 ], [ @.str.40, %55 ]
-  %81 = phi ptr [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE, %16 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %55 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %80, ptr noundef nonnull %81) #23
-          to label %.split.us.cont unwind label %82
+  %79 = phi ptr [ @.str.38, %16 ], [ @.str.40, %55 ]
+  %80 = phi ptr [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKSt4byteEE, %16 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv, %55 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %79, ptr noundef nonnull %80) #23
+          to label %.split.us.cont unwind label %81
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
-82:                                               ; preds = %.split.us.invoke
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %.split.us.invoke
+  %82 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %14, %82
-  %eh.lpad-body = phi { ptr, i32 } [ %83, %82 ], [ %15, %14 ]
-  %84 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %84) #33
+.body:                                            ; preds = %14, %81
+  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %15, %14 ]
+  %83 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  tail call void @__clang_call_terminate(ptr %83) #33
   unreachable
 }
 

@@ -3824,20 +3824,20 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %.preheader30.us.i
 
 .preheader30.us.i:                                ; preds = %._crit_edge.us50.i, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i
-  %indvars.iv63.i = phi i64 [ 0, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %indvars.iv.next64.i, %._crit_edge.us50.i ]
+  %indvars.iv61.i = phi i64 [ 0, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %indvars.iv.next64.i, %._crit_edge.us50.i ]
   %.sroa.029.046.us.i = phi i64 [ 305419896, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.us-phi.us.i, %._crit_edge.us50.i ]
-  %1136 = mul nuw nsw i64 %indvars.iv63.i, %1135
+  %1136 = mul nuw nsw i64 %indvars.iv61.i, %1135
   %invariant.gep572 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %1134, i64 %1136
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.split.us.us.i, %.preheader30.us.i
-  %indvars.iv58.i = phi i64 [ 0, %.preheader30.us.i ], [ %indvars.iv.next59.i, %.split.us.us.i ]
+  %indvars.iv56.i = phi i64 [ 0, %.preheader30.us.i ], [ %indvars.iv.next59.i, %.split.us.us.i ]
   %.sroa.029.144.us.i = phi i64 [ %.sroa.029.046.us.i, %.preheader30.us.i ], [ %.us-phi.us.i, %.split.us.us.i ]
-  %.not.i241 = icmp eq i64 %indvars.iv58.i, 0
+  %.not.i241 = icmp eq i64 %indvars.iv56.i, 0
   br i1 %.not.i241, label %.preheader.split.split.us.us.i, label %.lr.ph.us.us.i
 
-.split.us.us.i:                                   ; preds = %._crit_edge.us.us.i, %.preheader.split.split.us.us.i
-  %.us-phi.us.i = phi i64 [ %1155, %.preheader.split.split.us.us.i ], [ %1140, %._crit_edge.us.us.i ]
+.preheader.split.us48.i:                          ; preds = %._crit_edge.us.us.i, %.preheader.split.split.us.us.i
+  %1137 = phi i64 [ %1155, %.preheader.split.preheader.split.us48.i ], [ %1140, %._crit_edge.us.us.i ]
   %.us-phi35.us.i = phi i64 [ %1158, %.preheader.split.split.us.us.i ], [ %1143, %._crit_edge.us.us.i ]
   %gep573 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %invariant.gep572, i64 %indvars.iv58.i
   store i64 %.us-phi35.us.i, ptr %gep573, align 4
@@ -3857,37 +3857,37 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %.sroa.0.0.extract.trunc.us.us.i = trunc i64 %1143 to i32
   %.sroa.3.0.extract.shift.us.us.i = lshr i64 %1143, 32
   %.sroa.3.0.extract.trunc.us.us.i = trunc nuw i64 %.sroa.3.0.extract.shift.us.us.i to i32
-  br label %1144
+  br label %1151
 
-1144:                                             ; preds = %1149, %.lr.ph.us.us.i
-  %indvars.iv.i242 = phi i64 [ %indvars.iv.next.i243, %1149 ], [ 0, %.lr.ph.us.us.i ]
+1151:                                             ; preds = %1156, %.lr.ph.us.us.i
+  %indvars.iv.i242 = phi i64 [ %indvars.iv.next.i243, %1156 ], [ 0, %.lr.ph.us.us.i ]
   %gep.i = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %invariant.gep572, i64 %indvars.iv.i242
   %.val.us.us.i = load i32, ptr %gep.i, align 4
-  %1145 = getelementptr i8, ptr %gep.i, i64 4
-  %.val26.us.us.i = load i32, ptr %1145, align 4
-  %1146 = icmp eq i32 %.val.us.us.i, %.sroa.0.0.extract.trunc.us.us.i
-  %1147 = icmp eq i32 %.val26.us.us.i, %.sroa.3.0.extract.trunc.us.us.i
-  %1148 = select i1 %1146, i1 %1147, i1 false
-  br i1 %1148, label %._crit_edge.us.us.i, label %1149
+  %1152 = getelementptr i8, ptr %gep.i, i64 4
+  %.val26.us.us.i = load i32, ptr %1152, align 4
+  %1153 = icmp eq i32 %.val.us.us.i, %.sroa.0.0.extract.trunc.us.us.i
+  %1154 = icmp eq i32 %.val26.us.us.i, %.sroa.3.0.extract.trunc.us.us.i
+  %1155 = select i1 %1153, i1 %1154, i1 false
+  br i1 %1155, label %._crit_edge.us.us.i, label %1156
 
-1149:                                             ; preds = %1144
+1156:                                             ; preds = %1151
   %indvars.iv.next.i243 = add nuw nsw i64 %indvars.iv.i242, 1
-  %exitcond.not.i244 = icmp eq i64 %indvars.iv.next.i243, %indvars.iv58.i
-  br i1 %exitcond.not.i244, label %._crit_edge.us.us.i, label %1144, !llvm.loop !63
+  %exitcond.not.i244 = icmp eq i64 %indvars.iv.next.i243, %indvars.iv56.i
+  br i1 %exitcond.not.i244, label %._crit_edge.us.us.i, label %1151, !llvm.loop !63
 
-._crit_edge.us.us.i:                              ; preds = %1149, %1144
-  %.024.lcssa.us.us.in.i = phi i64 [ %indvars.iv.i242, %1144 ], [ %indvars.iv58.i, %1149 ]
-  %1150 = and i64 %.024.lcssa.us.us.in.i, 4294967295
-  %1151 = icmp eq i64 %1150, %indvars.iv58.i
-  br i1 %1151, label %.split.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !64
+._crit_edge.us.us.i:                              ; preds = %1156, %1151
+  %.024.lcssa.us.us.in.i = phi i64 [ %indvars.iv.i242, %1151 ], [ %indvars.iv56.i, %1156 ]
+  %1157 = and i64 %.024.lcssa.us.us.in.i, 4294967295
+  %1158 = icmp eq i64 %1157, %indvars.iv56.i
+  br i1 %1158, label %.split.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !64
 
-.preheader.split.split.us.us.i:                   ; preds = %.preheader.us.i
-  %1152 = and i64 %.sroa.029.144.us.i, 4294967295
-  %1153 = mul nuw i64 %1152, 4164903690
+.preheader.split.preheader.split.us48.i:                               ; preds = %.preheader.us.i
+  %indvars.iv.next62.i = and i64 %.sroa.029.144.us.i, 4294967295
+  %exitcond64.not.i = mul nuw i64 %indvars.iv.next62.i, 4164903690
   %1154 = lshr i64 %.sroa.029.144.us.i, 32
   %1155 = add nuw i64 %1153, %1154
   %1156 = and i64 %1155, 511
-  %1157 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %.0128, i64 %1156
+  %.sroa.0293.2 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %.0128, i64 %1156
   %1158 = load i64, ptr %1157, align 8
   br label %.split.us.us.i
 
