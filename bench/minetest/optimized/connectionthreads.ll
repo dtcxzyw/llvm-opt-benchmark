@@ -19399,7 +19399,7 @@ if.end6:                                          ; preds = %if.end
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
   %call9 = tail call noundef zeroext i16 @_ZN3con7Channel22readNextIncomingSeqNumEv(ptr noundef nonnull align 8 dereferenceable(512) %channel)
   %add.narrow.i = xor i16 %call9, -32768
-  %cmp.i = icmp ugt i16 %add.narrow.i, %call9
+  %cmp.i = icmp sgt i16 %call9, -1
   br i1 %cmp.i, label %if.then.i, label %_ZN3con16seqnum_in_windowEttt.exit
 
 if.then.i:                                        ; preds = %if.end6

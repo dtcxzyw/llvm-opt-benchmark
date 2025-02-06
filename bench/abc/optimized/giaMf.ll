@@ -93,57 +93,57 @@ define i32 @Mf_ManTruthCanonicize(ptr noundef captures(none) %0, i32 noundef %1)
   %3 = load i64, ptr %0, align 8, !tbaa !3
   %4 = shl nuw i32 1, %1
   %5 = icmp sgt i32 %1, 0
-  %6 = xor i64 %3, -1
-  %7 = icmp ugt i64 %3, %6
-  %.123.us = tail call i64 @llvm.umin.i64(i64 %3, i64 %6)
-  %8 = select i1 %7, i32 %4, i32 0
+  %6 = icmp slt i64 %3, 0
+  %.022.lobit.us = ashr i64 %3, 63
+  %.123.us = xor i64 %.022.lobit.us, %3
+  %7 = select i1 %6, i32 %4, i32 0
   br i1 %5, label %.lr.ph.us, label %..loopexit_crit_edge.us
 
 .lr.ph.us:                                        ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph.us, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %9 ]
-  %.230.us = phi i32 [ %8, %.lr.ph.us ], [ %.3.us, %9 ]
-  %.22428.us = phi i64 [ %.123.us, %.lr.ph.us ], [ %.325.us, %9 ]
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %11 = shl nuw i32 1, %10
-  %12 = zext i32 %11 to i64
-  %13 = shl i64 %.22428.us, %12
-  %14 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
-  %15 = load i64, ptr %14, align 8, !tbaa !3
-  %16 = and i64 %15, %13
-  %17 = and i64 %15, %.22428.us
-  %18 = lshr i64 %17, %12
-  %19 = or i64 %18, %16
-  %20 = icmp ugt i64 %.22428.us, %19
-  %.325.us = tail call i64 @llvm.umin.i64(i64 %.22428.us, i64 %19)
-  %21 = select i1 %20, i32 %11, i32 0
-  %.3.us = xor i32 %21, %.230.us
+8:                                                ; preds = %.lr.ph.us, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %8 ]
+  %.230.us = phi i32 [ %7, %.lr.ph.us ], [ %.3.us, %8 ]
+  %.22428.us = phi i64 [ %.123.us, %.lr.ph.us ], [ %.325.us, %8 ]
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %10 = shl nuw i32 1, %9
+  %11 = zext i32 %10 to i64
+  %12 = shl i64 %.22428.us, %11
+  %13 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %14 = load i64, ptr %13, align 8, !tbaa !3
+  %15 = and i64 %14, %12
+  %16 = and i64 %14, %.22428.us
+  %17 = lshr i64 %16, %11
+  %18 = or i64 %17, %15
+  %19 = icmp ugt i64 %.22428.us, %18
+  %.325.us = tail call i64 @llvm.umin.i64(i64 %.22428.us, i64 %18)
+  %20 = select i1 %19, i32 %10, i32 0
+  %.3.us = xor i32 %20, %.230.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %9, !llvm.loop !7
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %8, !llvm.loop !7
 
-..loopexit_crit_edge.us:                          ; preds = %9, %2
-  %.us-phi = phi i64 [ %.123.us, %2 ], [ %.325.us, %9 ]
-  %.us-phi36 = phi i32 [ %8, %2 ], [ %.3.us, %9 ]
+..loopexit_crit_edge.us:                          ; preds = %8, %2
+  %.us-phi = phi i64 [ %.123.us, %2 ], [ %.325.us, %8 ]
+  %.us-phi36 = phi i32 [ %7, %2 ], [ %.3.us, %8 ]
   store i64 %.us-phi, ptr %0, align 8, !tbaa !3
-  %22 = load ptr, ptr @s_vTtMem, align 8, !tbaa !9
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %26
+  %21 = load ptr, ptr @s_vTtMem, align 8, !tbaa !9
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %..loopexit_crit_edge.us
-  %25 = tail call fastcc ptr @Vec_MemAllocForTT(i32 noundef 6)
-  store ptr %25, ptr @s_vTtMem, align 8, !tbaa !9
-  br label %26
+23:                                               ; preds = %..loopexit_crit_edge.us
+  %24 = tail call fastcc ptr @Vec_MemAllocForTT(i32 noundef 6)
+  store ptr %24, ptr @s_vTtMem, align 8, !tbaa !9
+  br label %25
 
-26:                                               ; preds = %24, %..loopexit_crit_edge.us
-  %27 = phi ptr [ %25, %24 ], [ %22, %..loopexit_crit_edge.us ]
-  %28 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef %27, ptr noundef nonnull %0)
-  %29 = load i32, ptr @s_nCalls, align 4, !tbaa !12
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr @s_nCalls, align 4, !tbaa !12
+25:                                               ; preds = %23, %..loopexit_crit_edge.us
+  %26 = phi ptr [ %24, %23 ], [ %21, %..loopexit_crit_edge.us ]
+  %27 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef %26, ptr noundef nonnull %0)
+  %28 = load i32, ptr @s_nCalls, align 4, !tbaa !12
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr @s_nCalls, align 4, !tbaa !12
   ret i32 %.us-phi36
 }
 
@@ -1134,68 +1134,68 @@ Vec_WrdFree.exit63:                               ; preds = %Vec_WrdFree.exit, %
   %indvars.iv103 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next104, %Mf_ManTruthCanonicize.exit ]
   %98 = getelementptr inbounds nuw i64, ptr %.val60, i64 %indvars.iv103
   %99 = load i64, ptr %98, align 8, !tbaa !3
-  %100 = xor i64 %99, -1
-  %.123.us.i = tail call i64 @llvm.umin.i64(i64 %99, i64 %100)
-  br label %101
+  %.022.lobit.us.i = ashr i64 %99, 63
+  %.123.us.i = xor i64 %.022.lobit.us.i, %99
+  br label %100
 
-101:                                              ; preds = %101, %97
-  %indvars.iv.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i, %101 ]
-  %.22428.us.i = phi i64 [ %.123.us.i, %97 ], [ %.325.us.i, %101 ]
-  %102 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %103 = shl nuw i32 1, %102
-  %104 = zext i32 %103 to i64
-  %105 = shl i64 %.22428.us.i, %104
-  %106 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
-  %107 = load i64, ptr %106, align 8, !tbaa !3
-  %108 = and i64 %105, %107
-  %109 = and i64 %107, %.22428.us.i
-  %110 = lshr i64 %109, %104
-  %111 = or i64 %108, %110
-  %.325.us.i = tail call i64 @llvm.umin.i64(i64 %.22428.us.i, i64 %111)
+100:                                              ; preds = %100, %97
+  %indvars.iv.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i, %100 ]
+  %.22428.us.i = phi i64 [ %.123.us.i, %97 ], [ %.325.us.i, %100 ]
+  %101 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %102 = shl nuw i32 1, %101
+  %103 = zext i32 %102 to i64
+  %104 = shl i64 %.22428.us.i, %103
+  %105 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
+  %106 = load i64, ptr %105, align 8, !tbaa !3
+  %107 = and i64 %104, %106
+  %108 = and i64 %106, %.22428.us.i
+  %109 = lshr i64 %108, %103
+  %110 = or i64 %107, %109
+  %.325.us.i = tail call i64 @llvm.umin.i64(i64 %.22428.us.i, i64 %110)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %101, !llvm.loop !7
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %100, !llvm.loop !7
 
-..loopexit_crit_edge.us.i:                        ; preds = %101
+..loopexit_crit_edge.us.i:                        ; preds = %100
   store i64 %.325.us.i, ptr %2, align 8, !tbaa !3
-  %112 = load ptr, ptr @s_vTtMem, align 8, !tbaa !9
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %Mf_ManTruthCanonicize.exit
+  %111 = load ptr, ptr @s_vTtMem, align 8, !tbaa !9
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %Mf_ManTruthCanonicize.exit
 
-114:                                              ; preds = %..loopexit_crit_edge.us.i
-  %115 = tail call fastcc ptr @Vec_MemAllocForTT(i32 noundef 6)
-  store ptr %115, ptr @s_vTtMem, align 8, !tbaa !9
+113:                                              ; preds = %..loopexit_crit_edge.us.i
+  %114 = tail call fastcc ptr @Vec_MemAllocForTT(i32 noundef 6)
+  store ptr %114, ptr @s_vTtMem, align 8, !tbaa !9
   br label %Mf_ManTruthCanonicize.exit
 
-Mf_ManTruthCanonicize.exit:                       ; preds = %..loopexit_crit_edge.us.i, %114
-  %116 = phi ptr [ %115, %114 ], [ %112, %..loopexit_crit_edge.us.i ]
-  %117 = call fastcc i32 @Vec_MemHashInsert(ptr noundef %116, ptr noundef nonnull %2)
-  %118 = load i32, ptr @s_nCalls, align 4, !tbaa !12
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr @s_nCalls, align 4, !tbaa !12
+Mf_ManTruthCanonicize.exit:                       ; preds = %..loopexit_crit_edge.us.i, %113
+  %115 = phi ptr [ %114, %113 ], [ %111, %..loopexit_crit_edge.us.i ]
+  %116 = call fastcc i32 @Vec_MemHashInsert(ptr noundef %115, ptr noundef nonnull %2)
+  %117 = load i32, ptr @s_nCalls, align 4, !tbaa !12
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr @s_nCalls, align 4, !tbaa !12
   store i64 %.325.us.i, ptr %98, align 8, !tbaa !3
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
   br i1 %exitcond106.not, label %.critedge2, label %97, !llvm.loop !49
 
 .critedge2:                                       ; preds = %Mf_ManTruthCanonicize.exit, %Vec_WrdFree.exit63
-  %120 = tail call fastcc ptr @Vec_WrdUniqifyHash(ptr noundef %90)
-  %121 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !44
-  %.not.i64 = icmp eq ptr %122, null
-  br i1 %.not.i64, label %Vec_WrdFree.exit65, label %123
+  %119 = tail call fastcc ptr @Vec_WrdUniqifyHash(ptr noundef %90)
+  %120 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !44
+  %.not.i64 = icmp eq ptr %121, null
+  br i1 %.not.i64, label %Vec_WrdFree.exit65, label %122
 
-123:                                              ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %122) #29
+122:                                              ; preds = %.critedge2
+  tail call void @free(ptr noundef nonnull %121) #29
   br label %Vec_WrdFree.exit65
 
-Vec_WrdFree.exit65:                               ; preds = %.critedge2, %123
+Vec_WrdFree.exit65:                               ; preds = %.critedge2, %122
   tail call void @free(ptr noundef nonnull %90) #29
-  %124 = getelementptr i8, ptr %120, i64 4
-  %.val58 = load i32, ptr %124, align 4, !tbaa !41
-  %125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.val58)
+  %123 = getelementptr i8, ptr %119, i64 4
+  %.val58 = load i32, ptr %123, align 4, !tbaa !41
+  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.val58)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
-  ret ptr %120
+  ret ptr %119
 }
 
 declare ptr @Extra_PermSchedule(i32 noundef) local_unnamed_addr #4

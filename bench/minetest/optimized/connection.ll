@@ -2449,7 +2449,7 @@ invoke.cont18:                                    ; preds = %if.end
   %val.0.copyload.i.i = load i16, ptr %arrayidx.i, align 1
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   %add.narrow.i = xor i16 %next_expected, -32768
-  %cmp.i271 = icmp ugt i16 %add.narrow.i, %next_expected
+  %cmp.i271 = icmp sgt i16 %next_expected, -1
   br i1 %cmp.i271, label %if.then.i274, label %_ZN3con16seqnum_in_windowEttt.exit
 
 if.then.i274:                                     ; preds = %invoke.cont18
