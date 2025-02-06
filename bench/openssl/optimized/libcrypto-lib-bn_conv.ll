@@ -373,7 +373,7 @@ for.cond44:                                       ; preds = %for.cond44, %while.
   %conv54 = zext nneg i32 %spec.store.select to i64
   %or = or i64 %shl, %conv54
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
-  %cmp55 = icmp ult i64 %indvars.iv50, 2
+  %cmp55 = icmp samesign ult i64 %indvars.iv50, 2
   br i1 %cmp55, label %if.then57, label %for.cond44
 
 if.then57:                                        ; preds = %for.cond44

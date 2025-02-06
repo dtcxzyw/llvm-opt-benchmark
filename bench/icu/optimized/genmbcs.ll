@@ -1328,7 +1328,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %arrayidx10 = getelementptr inbounds [1088 x i16], ptr %stage18, i64 0, i64 %indvars.iv.next
   %7 = load i16, ptr %arrayidx10, align 2
   %cmp12 = icmp eq i16 %7, 0
-  %cmp7 = icmp ugt i64 %indvars.iv, 1
+  %cmp7 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond = and i1 %cmp7, %cmp12
   br i1 %or.cond, label %land.rhs, label %while.end.loopexit, !llvm.loop !29
 

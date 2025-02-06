@@ -41,7 +41,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
   %13 = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
-  %14 = icmp ugt i64 %indvars.iv, -4
+  %14 = icmp samesign ugt i64 %indvars.iv, -4
   br i1 %14, label %15, label %.thread475
 
 15:                                               ; preds = %9

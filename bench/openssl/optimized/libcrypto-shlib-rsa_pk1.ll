@@ -713,7 +713,6 @@ for.cond.preheader:                               ; preds = %if.end16
   %arrayidx37 = getelementptr inbounds nuw i8, ptr %be_iter, i64 1
   %conv43 = zext nneg i32 %llen to i64
   %0 = zext nneg i32 %tlen to i64
-  %zext = zext nneg i32 %tlen to i64
   br label %for.body
 
 if.then20:                                        ; preds = %if.end16
@@ -776,8 +775,8 @@ if.then53:                                        ; preds = %if.end48
 if.end54:                                         ; preds = %if.end48
   store i32 32, ptr %md_len, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %1 = icmp samesign ugt i64 %indvars.iv.next, %zext
-  br i1 %1, label %if.then57, label %if.else
+  %cmp55 = icmp samesign ugt i64 %indvars.iv.next, %0
+  br i1 %cmp55, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %if.end54
   %call59 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef nonnull %hmac_out, ptr noundef nonnull %md_len) #4
@@ -792,8 +791,8 @@ if.then62:                                        ; preds = %if.then57
 
 if.end63:                                         ; preds = %if.then57
   %add.ptr = getelementptr inbounds nuw i8, ptr %to, i64 %indvars.iv
-  %2 = sub nsw i64 %0, %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %hmac_out, i64 %2, i1 false)
+  %1 = sub nsw i64 %0, %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %hmac_out, i64 %1, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %if.end54
@@ -810,8 +809,8 @@ if.then71:                                        ; preds = %if.else
 
 for.inc:                                          ; preds = %if.end63, %if.else
   %inc = add i16 %iter.026, 1
-  %3 = icmp samesign ult i64 %indvars.iv.next, %zext
-  br i1 %3, label %for.body, label %err, !llvm.loop !17
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next, %0
+  br i1 %cmp22, label %for.body, label %err, !llvm.loop !17
 
 err:                                              ; preds = %for.inc, %if.then71, %if.then62, %if.then53, %if.then47, %if.then41, %if.then27, %if.then20, %if.then15, %if.then10
   %ret.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.then15 ], [ -1, %if.then20 ], [ -1, %if.then27 ], [ -1, %if.then41 ], [ -1, %if.then47 ], [ -1, %if.then53 ], [ -1, %if.then62 ], [ -1, %if.then71 ], [ 0, %for.inc ]

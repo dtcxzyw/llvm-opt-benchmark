@@ -876,42 +876,42 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %278 = trunc nuw nsw i64 %indvars.iv124.i to i32
   %279 = add nuw nsw i32 %.0231.i, %278
   %280 = sext i32 %.0231.i to i64
-  br label %281
+  %281 = sext i32 %279 to i64
+  br label %282
 
-281:                                              ; preds = %._crit_edge52.i, %.preheader12.i
+282:                                              ; preds = %._crit_edge52.i, %.preheader12.i
   %indvars.iv132.i = phi i64 [ %280, %.preheader12.i ], [ %indvars.iv.next133.i, %._crit_edge52.i ]
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.next133.i
-  %282 = load i32, ptr %gep.i, align 4
-  %283 = sitofp i32 %282 to double
-  %284 = add i64 %indvars.iv149, %indvars.iv132.i
-  %sext153 = shl i64 %284, 32
-  %285 = ashr exact i64 %sext153, 32
-  %286 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %285
-  store double %283, ptr %286, align 8
+  %283 = load i32, ptr %gep.i, align 4
+  %284 = sitofp i32 %283 to double
+  %285 = add i64 %indvars.iv149, %indvars.iv132.i
+  %sext153 = shl i64 %285, 32
+  %286 = ashr exact i64 %sext153, 32
+  %287 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %286
+  store double %284, ptr %287, align 8
   br i1 %.not269.not31163.i, label %.lr.ph51.i, label %._crit_edge52.i
 
-.lr.ph51.i:                                       ; preds = %281, %.lr.ph51.i
-  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph51.i ], [ 0, %281 ]
-  %.149.i = phi double [ %293, %.lr.ph51.i ], [ 0.000000e+00, %281 ]
-  %287 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv127.i
-  %288 = load double, ptr %287, align 8
-  %289 = sub nsw i64 %285, %indvars.iv127.i
-  %290 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %289
-  %291 = load double, ptr %290, align 8
-  %292 = fmul double %288, %291
-  %293 = fadd double %.149.i, %292
+.lr.ph51.i:                                       ; preds = %282, %.lr.ph51.i
+  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph51.i ], [ 0, %282 ]
+  %.149.i = phi double [ %294, %.lr.ph51.i ], [ 0.000000e+00, %282 ]
+  %288 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv127.i
+  %289 = load double, ptr %288, align 8
+  %290 = sub nsw i64 %286, %indvars.iv127.i
+  %291 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %290
+  %292 = load double, ptr %291, align 8
+  %293 = fmul double %289, %292
+  %294 = fadd double %.149.i, %293
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count130.i.pre-phi
   br i1 %exitcond131.not.i, label %._crit_edge52.i, label %.lr.ph51.i, !llvm.loop !17
 
-._crit_edge52.i:                                  ; preds = %.lr.ph51.i, %281
-  %.1.lcssa.i = phi double [ 0.000000e+00, %281 ], [ %293, %.lr.ph51.i ]
-  %294 = getelementptr inbounds nuw [20 x double], ptr %6, i64 0, i64 %indvars.iv.next133.i
-  store double %.1.lcssa.i, ptr %294, align 8
-  %295 = trunc nsw i64 %indvars.iv.next133.i to i32
-  %.not266.not.i = icmp samesign ugt i32 %279, %295
-  br i1 %.not266.not.i, label %281, label %.loopexit13.loopexit.i, !llvm.loop !12
+._crit_edge52.i:                                  ; preds = %.lr.ph51.i, %282
+  %.1.lcssa.i = phi double [ 0.000000e+00, %282 ], [ %294, %.lr.ph51.i ]
+  %295 = getelementptr inbounds nuw [20 x double], ptr %6, i64 0, i64 %indvars.iv.next133.i
+  store double %.1.lcssa.i, ptr %295, align 8
+  %.not266.not.i = icmp samesign ult i64 %indvars.iv.next133.i, %281
+  br i1 %.not266.not.i, label %282, label %.loopexit13.loopexit.i, !llvm.loop !12
 
 296:                                              ; preds = %296, %.preheader11.i
   %indvars.iv137.i = phi i64 [ %273, %.preheader11.i ], [ %indvars.iv.next138.i, %296 ]

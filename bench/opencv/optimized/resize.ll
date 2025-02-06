@@ -1722,6 +1722,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit469:          ; preds = %411, %406, %375
   %473 = zext nneg i32 %factor.op.mul546 to i64
   %wide.trip.count = zext nneg i32 %73 to i64
   %474 = icmp samesign ult i32 %.0376, %factor.op.mul546
+  %wide.trip.count594 = zext nneg i32 %factor.op.mul546 to i64
   %475 = icmp samesign ult i32 %.0376, %factor.op.mul546
   br label %486
 
@@ -2024,7 +2025,7 @@ _ZN2cvL19interpolateLanczos4EfPf.exit:            ; preds = %596, %600, %547
   %623 = getelementptr inbounds nuw float, ptr %457, i64 %619
   store float %622, ptr %623, align 4
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
-  %exitcond595.not = icmp eq i64 %indvars.iv.next592, %473
+  %exitcond595.not = icmp eq i64 %indvars.iv.next592, %wide.trip.count594
   br i1 %exitcond595.not, label %.loopexit531, label %.lr.ph, !llvm.loop !17
 
 .loopexit531:                                     ; preds = %.lr.ph, %.lr.ph545, %.preheader535, %.preheader530

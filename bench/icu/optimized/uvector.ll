@@ -1940,7 +1940,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i = getelementptr inbounds nuw %union.UElement, ptr %16, i64 %indvars.iv.next
   %17 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %14, -1
-  %18 = zext i32 %sub7.i.i to i64
+  %18 = sext i32 %sub7.i.i to i64
   %cmp48.i.i = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 

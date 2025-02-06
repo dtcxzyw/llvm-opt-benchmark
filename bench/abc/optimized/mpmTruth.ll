@@ -107,15 +107,15 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr noundef capt
   br i1 %82, label %89, label %83
 
 83:                                               ; preds = %76
-  %84 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %85 = icmp samesign ult i32 %.017.i.i, %84
-  br i1 %85, label %86, label %87
+  %84 = icmp samesign ugt i64 %indvars.iv.next.i.i, %77
+  br i1 %84, label %85, label %87
 
-86:                                               ; preds = %83
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %11, i32 noundef %16, i32 noundef %.017.i.i, i32 noundef %84)
+85:                                               ; preds = %83
+  %86 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %11, i32 noundef %16, i32 noundef %.017.i.i, i32 noundef %86)
   br label %87
 
-87:                                               ; preds = %86, %83
+87:                                               ; preds = %85, %83
   %88 = add nsw i32 %.017.i.i, -1
   br label %89
 
@@ -153,15 +153,15 @@ Mpm_TruthStretch.exit.i:                          ; preds = %89, %50
   br i1 %107, label %114, label %108
 
 108:                                              ; preds = %101
-  %109 = trunc nsw i64 %indvars.iv.next.i53.i to i32
-  %110 = icmp samesign ult i32 %.017.i52.i, %109
-  br i1 %110, label %111, label %112
+  %109 = icmp samesign ugt i64 %indvars.iv.next.i53.i, %102
+  br i1 %109, label %110, label %112
 
-111:                                              ; preds = %108
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef %16, i32 noundef %.017.i52.i, i32 noundef %109)
+110:                                              ; preds = %108
+  %111 = trunc nsw i64 %indvars.iv.next.i53.i to i32
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef %16, i32 noundef %.017.i52.i, i32 noundef %111)
   br label %112
 
-112:                                              ; preds = %111, %108
+112:                                              ; preds = %110, %108
   %113 = add nsw i32 %.017.i52.i, -1
   br label %114
 
@@ -224,15 +224,15 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
   br i1 %152, label %159, label %153
 
 153:                                              ; preds = %146
-  %154 = trunc nsw i64 %indvars.iv.next.i59.i to i32
-  %155 = icmp samesign ult i32 %.017.i58.i, %154
-  br i1 %155, label %156, label %157
+  %154 = icmp samesign ugt i64 %indvars.iv.next.i59.i, %147
+  br i1 %154, label %155, label %157
 
-156:                                              ; preds = %153
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef %16, i32 noundef %.017.i58.i, i32 noundef %154)
+155:                                              ; preds = %153
+  %156 = trunc nsw i64 %indvars.iv.next.i59.i to i32
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef %16, i32 noundef %.017.i58.i, i32 noundef %156)
   br label %157
 
-157:                                              ; preds = %156, %153
+157:                                              ; preds = %155, %153
   %158 = add nsw i32 %.017.i58.i, -1
   br label %159
 
@@ -577,15 +577,15 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
   br i1 %316, label %323, label %317
 
 317:                                              ; preds = %310
-  %318 = trunc nsw i64 %indvars.iv.next.i89.i to i32
-  %319 = icmp samesign ult i32 %.017.i.i36, %318
-  br i1 %319, label %320, label %321
+  %318 = icmp samesign ugt i64 %indvars.iv.next.i89.i, %311
+  br i1 %318, label %319, label %321
 
-320:                                              ; preds = %317
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %270, i32 noundef %16, i32 noundef %.017.i.i36, i32 noundef %318)
+319:                                              ; preds = %317
+  %320 = trunc nsw i64 %indvars.iv.next.i89.i to i32
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %270, i32 noundef %16, i32 noundef %.017.i.i36, i32 noundef %320)
   br label %321
 
-321:                                              ; preds = %320, %317
+321:                                              ; preds = %319, %317
   %322 = add nsw i32 %.017.i.i36, -1
   br label %323
 
@@ -632,15 +632,15 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
   br i1 %345, label %352, label %346
 
 346:                                              ; preds = %339
-  %347 = trunc nsw i64 %indvars.iv.next.i93.i to i32
-  %348 = icmp samesign ult i32 %.017.i92.i, %347
-  br i1 %348, label %349, label %350
+  %347 = icmp samesign ugt i64 %indvars.iv.next.i93.i, %340
+  br i1 %347, label %348, label %350
 
-349:                                              ; preds = %346
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %285, i32 noundef %328, i32 noundef %.017.i92.i, i32 noundef %347)
+348:                                              ; preds = %346
+  %349 = trunc nsw i64 %indvars.iv.next.i93.i to i32
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %285, i32 noundef %328, i32 noundef %.017.i92.i, i32 noundef %349)
   br label %350
 
-350:                                              ; preds = %349, %346
+350:                                              ; preds = %348, %346
   %351 = add nsw i32 %.017.i92.i, -1
   br label %352
 
@@ -752,15 +752,15 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
   br i1 %408, label %415, label %409
 
 409:                                              ; preds = %402
-  %410 = trunc nsw i64 %indvars.iv.next.i115.i to i32
-  %411 = icmp samesign ult i32 %.017.i114.i, %410
-  br i1 %411, label %412, label %413
+  %410 = icmp samesign ugt i64 %indvars.iv.next.i115.i, %403
+  br i1 %410, label %411, label %413
 
-412:                                              ; preds = %409
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %376, i32 noundef %390, i32 noundef %.017.i114.i, i32 noundef %410)
+411:                                              ; preds = %409
+  %412 = trunc nsw i64 %indvars.iv.next.i115.i to i32
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %376, i32 noundef %390, i32 noundef %.017.i114.i, i32 noundef %412)
   br label %413
 
-413:                                              ; preds = %412, %409
+413:                                              ; preds = %411, %409
   %414 = add nsw i32 %.017.i114.i, -1
   br label %415
 

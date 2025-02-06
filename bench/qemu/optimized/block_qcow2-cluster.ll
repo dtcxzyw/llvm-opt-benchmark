@@ -954,8 +954,8 @@ if.end32.i:                                       ; preds = %if.then23.i, %if.el
   %55 = load i32, ptr %subclusters_per_cluster.i, align 4
   %cmp35.i = icmp uge i32 %.pn.i, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp ult i64 %indvars.iv.next, %shr.i118
-  %or.cond46.i = select i1 %cmp35.i, i1 %56, i1 false
+  %cmp1.i = icmp samesign ult i64 %indvars.iv.next, %shr.i118
+  %or.cond46.i = select i1 %cmp35.i, i1 %cmp1.i, i1 false
   br i1 %or.cond46.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !11
 
 count_contiguous_subclusters.exit:                ; preds = %if.else19.i, %if.then23.i, %if.end32.i
@@ -971,13 +971,13 @@ if.then68:                                        ; preds = %get_l2_bitmap.exit.
 if.end69:                                         ; preds = %if.then12.i, %for.cond.preheader.i, %count_contiguous_subclusters.exit
   %retval.0.i129152 = phi i32 [ %retval.0.i129, %count_contiguous_subclusters.exit ], [ 0, %for.cond.preheader.i ], [ %retval.0.i30.i, %if.then12.i ]
   %l2_table_cache = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load ptr, ptr %l2_table_cache, align 8
-  call void @qcow2_cache_put(ptr noundef %57, ptr noundef nonnull %l2_slice) #13
+  %56 = load ptr, ptr %l2_table_cache, align 8
+  call void @qcow2_cache_put(ptr noundef %56, ptr noundef nonnull %l2_slice) #13
   %conv70 = zext nneg i32 %retval.0.i129152 to i64
   %conv71 = zext i32 %conv1.i109 to i64
   %add72 = add nuw nsw i64 %conv70, %conv71
-  %58 = load i32, ptr %17, align 4
-  %sh_prom73 = zext nneg i32 %58 to i64
+  %57 = load i32, ptr %17, align 4
+  %sh_prom73 = zext nneg i32 %57 to i64
   %shl74 = shl i64 %add72, %sh_prom73
   br label %out
 
@@ -1001,8 +1001,8 @@ if.end85:                                         ; preds = %out
 
 fail:                                             ; preds = %if.then68, %if.then60, %if.then53, %if.then44, %if.then40
   %l2_table_cache89 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %59 = load ptr, ptr %l2_table_cache89, align 8
-  call void @qcow2_cache_put(ptr noundef %59, ptr noundef nonnull %l2_slice) #13
+  %58 = load ptr, ptr %l2_table_cache89, align 8
+  call void @qcow2_cache_put(ptr noundef %58, ptr noundef nonnull %l2_slice) #13
   br label %return
 
 return:                                           ; preds = %if.end18, %fail, %if.end85, %if.then17

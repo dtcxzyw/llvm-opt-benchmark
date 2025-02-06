@@ -2874,7 +2874,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr noundef ca
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %.loopexit ]
   %indvars147 = trunc i64 %indvars.iv145 to i32
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %10 = icmp samesign ult i64 %indvars.iv.next146, %7
+  %10 = icmp samesign ult i64 %indvars.iv.next146, %8
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %9
