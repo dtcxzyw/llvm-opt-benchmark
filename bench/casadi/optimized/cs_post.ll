@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @cs_malloc(i32 noundef %1, i64 noundef 4) #3
@@ -33,10 +33,6 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %18 = zext nneg i32 %1 to i64
   br label %.lr.ph58
 
-.lr.ph61.preheader:                               ; preds = %31
-  %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph61
-
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %31
   %indvars.iv = phi i64 [ %18, %.lr.ph58.preheader ], [ %indvars.iv.next, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -60,11 +56,11 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 
 31:                                               ; preds = %.lr.ph58, %22
   %32 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %32, label %.lr.ph58, label %.lr.ph61.preheader, !llvm.loop !4
+  br i1 %32, label %.lr.ph58, label %.lr.ph61, !llvm.loop !4
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %38
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next65, %38 ]
-  %.04659 = phi i32 [ 0, %.lr.ph61.preheader ], [ %.147, %38 ]
+.lr.ph61:                                         ; preds = %31, %38
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %38 ], [ 0, %31 ]
+  %.04659 = phi i32 [ %.147, %38 ], [ 0, %31 ]
   %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv64
   %34 = load i32, ptr %33, align 4
   %.not53 = icmp eq i32 %34, -1
@@ -78,16 +74,16 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 38:                                               ; preds = %.lr.ph61, %35
   %.147 = phi i32 [ %.04659, %.lr.ph61 ], [ %37, %35 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph61, !llvm.loop !6
+  %39 = icmp slt i64 %indvars.iv.next65, %10
+  br i1 %39, label %.lr.ph61, label %.sink.split, !llvm.loop !6
 
 .sink.split:                                      ; preds = %38, %9, %3
   %.sink = phi i32 [ 0, %3 ], [ 1, %9 ], [ 1, %38 ]
-  %39 = tail call ptr @cs_idone(ptr noundef %4, ptr noundef null, ptr noundef %6, i32 noundef %.sink) #3
-  br label %40
+  %40 = tail call ptr @cs_idone(ptr noundef %4, ptr noundef null, ptr noundef %6, i32 noundef %.sink) #3
+  br label %41
 
-40:                                               ; preds = %.sink.split, %2
-  %.0 = phi ptr [ null, %2 ], [ %39, %.sink.split ]
+41:                                               ; preds = %.sink.split, %2
+  %.0 = phi ptr [ null, %2 ], [ %40, %.sink.split ]
   ret ptr %.0
 }
 

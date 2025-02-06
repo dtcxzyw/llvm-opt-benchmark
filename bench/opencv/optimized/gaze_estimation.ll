@@ -23141,7 +23141,6 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE7reserveEm.exit46.i.i.i: ; preds = %_ZNSt12_V
   %112 = icmp slt i32 %.val.i, 1
   %113 = icmp slt i32 %.val5.i, 1
   %114 = select i1 %112, i1 true, i1 %113
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 1)
   br label %115
 
 115:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit113.i.i.i, %.lr.ph.i.i.i
@@ -23495,8 +23494,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__no
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit113.i.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i112.i.i.i, %263
   %286 = add nuw i64 %.03230.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %286, %umax.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_112OCVParseEyesESt5tupleIJNS_6GArrayINS_4GMatEEENS6_INS_5Rect_IiEEEENS_7GOpaqueINS_5Size_IiEEEEEES5_IJSB_SB_EEE9call_implIJLi0ELi1ELi2EEJLi0ELi1EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSM_IJXspT0_EEEE.exit, label %115, !llvm.loop !370
+  %287 = icmp ult i64 %286, %47
+  br i1 %287, label %115, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_112OCVParseEyesESt5tupleIJNS_6GArrayINS_4GMatEEENS6_INS_5Rect_IiEEEENS_7GOpaqueINS_5Size_IiEEEEEES5_IJSB_SB_EEE9call_implIJLi0ELi1ELi2EEJLi0ELi1EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSM_IJXspT0_EEEE.exit, !llvm.loop !370
 
 _ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_112OCVParseEyesESt5tupleIJNS_6GArrayINS_4GMatEEENS6_INS_5Rect_IiEEEENS_7GOpaqueINS_5Size_IiEEEEEES5_IJSB_SB_EEE9call_implIJLi0ELi1ELi2EEJLi0ELi1EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSM_IJXspT0_EEEE.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit113.i.i.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE7reserveEm.exit46.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -23945,8 +23944,8 @@ _ZN2cv4util8any_castINS_6detail9VectorRefEEEPT_PNS0_3anyE.exit.thread.i.i.i.i.i:
 16:                                               ; preds = %_ZN2cv4util8any_castINS_6detail9VectorRefEEEPT_PNS0_3anyE.exit.thread.i.i.i.i.i
   unreachable
 
-common.resume.i:                                  ; preds = %115, %84, %49, %33, %17
-  %common.resume.op.i = phi { ptr, i32 } [ %18, %17 ], [ %34, %33 ], [ %50, %49 ], [ %116, %115 ], [ %.pn.i.i.i, %84 ]
+common.resume.i:                                  ; preds = %116, %84, %49, %33, %17
+  %common.resume.op.i = phi { ptr, i32 } [ %18, %17 ], [ %34, %33 ], [ %50, %49 ], [ %117, %116 ], [ %.pn.i.i.i, %84 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %_ZN2cv4util8any_castINS_6detail9VectorRefEEEPT_PNS0_3anyE.exit.thread.i.i.i.i.i
@@ -24129,7 +24128,6 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN2c
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %61, i64 1)
   br label %92
 
 92:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i, %.lr.ph.i.i.i
@@ -24167,16 +24165,16 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN2c
 
 113:                                              ; preds = %92
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr %108, ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i unwind label %115
+          to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i unwind label %116
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i.i.i: ; preds = %113, %110
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %114 = add nuw i64 %.02028.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %114, %umax.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_115OCVProcessPosesESt5tupleIJNS_6GArrayINS_4GMatEEES8_S8_EES5_IJS8_EEE9call_implIJLi0ELi1ELi2EEJLi0EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSF_IJXspT0_EEEE.exit, label %92, !llvm.loop !371
+  %115 = icmp ult i64 %114, %61
+  br i1 %115, label %92, label %_ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_115OCVProcessPosesESt5tupleIJNS_6GArrayINS_4GMatEEES8_S8_EES5_IJS8_EEE9call_implIJLi0ELi1ELi2EEJLi0EEEEvRNS_11GCPUContextENS0_3SeqIJXspT_EEEENSF_IJXspT0_EEEE.exit, !llvm.loop !371
 
-115:                                              ; preds = %113
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %113
+  %117 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   br label %common.resume.i

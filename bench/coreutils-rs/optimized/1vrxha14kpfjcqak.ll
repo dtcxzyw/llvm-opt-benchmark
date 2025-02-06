@@ -1165,14 +1165,13 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17h22144648775a4
 
 275:                                              ; preds = %270
   %.1.us.i.i = extractvalue { i16, i1 } %273, 0
-  %276 = add i64 %263, 1
+  %276 = add nuw i64 %263, 1
   store i64 %276, ptr %249, align 8, !alias.scope !73, !noalias !74
   %.not112.i.i = icmp ult i64 %276, %252
   %277 = getelementptr inbounds i8, ptr %253, i64 %276
   %.0.us.i.i = select i1 %.not112.i.i, ptr %277, ptr null
   store ptr %.0.us.i.i, ptr %25, align 8, !alias.scope !73, !noalias !74
-  %exitcond.not.i = icmp eq i64 %276, %252
-  br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i
+  br i1 %.not112.i.i, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i
 
 278:                                              ; preds = %248
   %279 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 23, i1 noundef zeroext false), !noalias !67
@@ -2361,14 +2360,13 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17ha595767283ac8
 
 352:                                              ; preds = %347
   %.1.us.i.i = extractvalue { i16, i1 } %350, 0
-  %353 = add i64 %340, 1
+  %353 = add nuw i64 %340, 1
   store i64 %353, ptr %326, align 8, !alias.scope !155, !noalias !156
   %.not112.i.i = icmp ult i64 %353, %329
   %354 = getelementptr inbounds i8, ptr %330, i64 %353
   %.0.us.i.i = select i1 %.not112.i.i, ptr %354, ptr null
   store ptr %.0.us.i.i, ptr %26, align 8, !alias.scope !155, !noalias !156
-  %exitcond.not.i = icmp eq i64 %353, %329
-  br i1 %exitcond.not.i, label %._crit_edge.i.i364, label %.lr.ph.split.us.i.i
+  br i1 %.not112.i.i, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i364
 
 355:                                              ; preds = %325
   %356 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 23, i1 noundef zeroext false), !noalias !149
@@ -2994,11 +2992,11 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
 
 20:                                               ; preds = %22, %10
   %21 = phi i64 [ %23, %22 ], [ 0, %10 ]
-  %exitcond.not.i.i = icmp eq i64 %21, %17
-  br i1 %exitcond.not.i.i, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17h83dc73fa806b92c1E.exit", label %22
+  %.not.not.i.not.i.not.not = icmp uge i64 %21, %17
+  br i1 %.not.not.i.not.i.not.not, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17h83dc73fa806b92c1E.exit", label %22
 
 22:                                               ; preds = %20
-  %23 = add i64 %21, 1
+  %23 = add nuw i64 %21, 1
   %24 = getelementptr inbounds i8, ptr %18, i64 %21
   %25 = getelementptr inbounds i8, ptr %19, i64 %21
   %.val.i.i.i = load i8, ptr %24, align 1, !noalias !238, !noundef !4
@@ -3015,7 +3013,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
   br i1 %.not.i.i.i, label %20, label %"_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17h83dc73fa806b92c1E.exit"
 
 "_ZN10fundu_core5parse5Bytes25next_is_ignore_ascii_case28_$u7b$$u7b$closure$u7d$$u7d$17h83dc73fa806b92c1E.exit": ; preds = %22, %20, %3
-  %.0 = phi i1 [ false, %3 ], [ %exitcond.not.i.i, %20 ], [ %exitcond.not.i.i, %22 ]
+  %.0 = phi i1 [ false, %3 ], [ %.not.not.i.not.i.not.not, %20 ], [ %.not.not.i.not.i.not.not, %22 ]
   ret i1 %.0
 }
 
@@ -4202,11 +4200,11 @@ thread-pre-split:                                 ; preds = %173, %.critedge
 
 200:                                              ; preds = %202, %189
   %201 = phi i64 [ %203, %202 ], [ 0, %189 ]
-  %exitcond.not.i.i.i = icmp eq i64 %201, %197
-  br i1 %exitcond.not.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E.exit", label %202
+  %.not.not.i.not.i.not.i = icmp ult i64 %201, %197
+  br i1 %.not.not.i.not.i.not.i, label %202, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E.exit"
 
 202:                                              ; preds = %200
-  %203 = add i64 %201, 1
+  %203 = add nuw i64 %201, 1
   %204 = getelementptr inbounds i8, ptr %198, i64 %201
   %205 = getelementptr inbounds i8, ptr %199, i64 %201
   %.val.i.i.i.i = load i8, ptr %204, align 1, !noalias !442, !noundef !4

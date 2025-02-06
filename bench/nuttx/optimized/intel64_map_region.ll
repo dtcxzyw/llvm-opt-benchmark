@@ -24,7 +24,6 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph:                                           ; preds = %11
   %12 = and i64 %4, -4096
   %13 = sext i32 %2 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -37,20 +36,16 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
   %19 = getelementptr inbounds nuw i64, ptr %18, i64 %16
   store volatile i64 %17, ptr %19, align 8
   %20 = add i64 %.01518, 4096
-  %21 = add nuw i32 %.019, 1
-  %exitcond.not = icmp eq i32 %21, %umax
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !6
+  %21 = add nuw nsw i32 %.019, 1
+  %22 = icmp ult i32 %21, %9
+  br i1 %22, label %14, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %14, %11, %3
   %.016 = phi i32 [ -1, %3 ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.016
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #1
-
 attributes #0 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

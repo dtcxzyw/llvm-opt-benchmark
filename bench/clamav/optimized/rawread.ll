@@ -505,9 +505,9 @@ define noundef i32 @_ZN7RawRead8GetVSizeEm(ptr noundef nonnull readonly align 8 
   br label %.loopexit
 
 14:                                               ; preds = %6
-  %15 = add i64 %.0812, 1
-  %exitcond.not = icmp eq i64 %15, %4
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !25
+  %15 = add nuw i64 %.0812, 1
+  %.not = icmp ult i64 %15, %4
+  br i1 %.not, label %6, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %14, %2, %10
   %spec.select = phi i32 [ %13, %10 ], [ 0, %2 ], [ 0, %14 ]
@@ -639,36 +639,37 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.preheader:                                 ; preds = %4
   %5 = zext i32 %.promoted to i64
+  %6 = zext i32 %2 to i64
   br label %.lr.ph
 
-6:                                                ; preds = %.lr.ph
-  %7 = add i32 %.01723, 7
-  %exitcond.not = icmp eq i32 %2, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+7:                                                ; preds = %.lr.ph
+  %8 = add i32 %.01723, 7
+  %.not = icmp samesign ult i64 %indvars.iv.next, %6
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %6
-  %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %.01723 = phi i32 [ 0, %.lr.ph.preheader ], [ %7, %6 ]
-  %.01822 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %6 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+  %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
+  %.01723 = phi i32 [ 0, %.lr.ph.preheader ], [ %8, %7 ]
+  %.01822 = phi i64 [ 0, %.lr.ph.preheader ], [ %16, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = trunc i64 %indvars.iv.next to i32
-  store i32 %8, ptr %1, align 4, !tbaa !28
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1, !tbaa !22
-  %11 = and i8 %10, 127
-  %12 = zext nneg i8 %11 to i64
-  %13 = zext nneg i32 %.01723 to i64
-  %14 = shl i64 %12, %13
-  %15 = add i64 %14, %.01822
-  %16 = icmp slt i8 %10, 0
-  br i1 %16, label %6, label %.thread
+  %9 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %9, ptr %1, align 4, !tbaa !28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1, !tbaa !22
+  %12 = and i8 %11, 127
+  %13 = zext nneg i8 %12 to i64
+  %14 = zext nneg i32 %.01723 to i64
+  %15 = shl i64 %13, %14
+  %16 = add i64 %15, %.01822
+  %17 = icmp slt i8 %11, 0
+  br i1 %17, label %7, label %.thread
 
-._crit_edge:                                      ; preds = %6, %4
+._crit_edge:                                      ; preds = %7, %4
   store i8 1, ptr %3, align 1, !tbaa !26
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %.3 = phi i64 [ 0, %._crit_edge ], [ %15, %.lr.ph ]
+  %.3 = phi i64 [ 0, %._crit_edge ], [ %16, %.lr.ph ]
   ret i64 %.3
 }
 

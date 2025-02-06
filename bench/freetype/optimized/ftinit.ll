@@ -76,6 +76,7 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 .preheader72thread-pre-split:                     ; preds = %8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pr = load i8, ptr %9, align 1, !tbaa !10
   br label %.preheader72
 
@@ -84,23 +85,21 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader72thread-pre-split ], [ 0, %.preheader73 ]
   %.24774 = phi ptr [ %9, %.preheader72thread-pre-split ], [ %.045, %.preheader73 ]
   switch i8 %7, label %8 [
-    i8 0, label %11
-    i8 58, label %11
+    i8 0, label %12
+    i8 58, label %12
   ]
 
 8:                                                ; preds = %.preheader72
   %9 = getelementptr inbounds nuw i8, ptr %.24774, i64 1
   %10 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %indvars.iv
   store i8 %7, ptr %10, align 1, !tbaa !10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %11, label %.preheader72thread-pre-split, !llvm.loop !11
+  %11 = icmp samesign ult i64 %indvars.iv, 127
+  br i1 %11, label %.preheader72thread-pre-split, label %12, !llvm.loop !11
 
-11:                                               ; preds = %.preheader72, %.preheader72, %8
+12:                                               ; preds = %.preheader72, %.preheader72, %8
   %.247.lcssa = phi ptr [ %.24774, %.preheader72 ], [ %.24774, %.preheader72 ], [ %9, %8 ]
   %.0.lcssa = phi i64 [ %indvars.iv, %.preheader72 ], [ %indvars.iv, %.preheader72 ], [ 128, %8 ]
-  %12 = and i64 %.0.lcssa, 4294967295
-  %13 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %.0.lcssa
   store i8 0, ptr %13, align 1, !tbaa !10
   %14 = load i8, ptr %.247.lcssa, align 1, !tbaa !10
   %cond = icmp ne i8 %14, 58
@@ -108,7 +107,7 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond = or i1 %cond, %15
   br i1 %or.cond, label %.loopexit, label %.preheader71
 
-.preheader71:                                     ; preds = %11
+.preheader71:                                     ; preds = %12
   %.3.ptr76 = getelementptr inbounds nuw i8, ptr %.247.lcssa, i64 1
   br label %16
 
@@ -118,8 +117,8 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   %.3.idx77 = phi i64 [ 1, %.preheader71 ], [ %.3.add, %18 ]
   %17 = load i8, ptr %.3.ptr79, align 1, !tbaa !10
   switch i8 %17, label %18 [
-    i8 0, label %20
-    i8 61, label %20
+    i8 0, label %21
+    i8 61, label %21
   ]
 
 18:                                               ; preds = %16
@@ -128,15 +127,14 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %17, ptr %19, align 1, !tbaa !10
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.3.ptr = getelementptr inbounds nuw i8, ptr %.247.lcssa, i64 %.3.add
-  %exitcond88.not = icmp eq i64 %indvars.iv.next86, 128
-  br i1 %exitcond88.not, label %20, label %16, !llvm.loop !12
+  %20 = icmp samesign ult i64 %indvars.iv85, 127
+  br i1 %20, label %16, label %21, !llvm.loop !12
 
-20:                                               ; preds = %16, %16, %18
+21:                                               ; preds = %16, %16, %18
   %.3.idx.lcssa = phi i64 [ %.3.idx77, %16 ], [ %.3.idx77, %16 ], [ 129, %18 ]
   %.1.lcssa = phi i64 [ %indvars.iv85, %16 ], [ %indvars.iv85, %16 ], [ 128, %18 ]
   %.3.ptr.lcssa = phi ptr [ %.3.ptr79, %16 ], [ %.3.ptr79, %16 ], [ %.3.ptr, %18 ]
-  %21 = and i64 %.1.lcssa, 4294967295
-  %22 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %.1.lcssa
   store i8 0, ptr %22, align 1, !tbaa !10
   %23 = load i8, ptr %.3.ptr.lcssa, align 1, !tbaa !10
   %cond69 = icmp ne i8 %23, 61
@@ -144,36 +142,35 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond70 = select i1 %cond69, i1 true, i1 %24
   br i1 %or.cond70, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %20
+.preheader:                                       ; preds = %21
   %.4.ptr80 = getelementptr inbounds nuw i8, ptr %.3.ptr.lcssa, i64 1
   br label %25
 
 25:                                               ; preds = %.preheader, %27
-  %indvars.iv89 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next90, %27 ]
+  %indvars.iv88 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next89, %27 ]
   %.4.ptr83 = phi ptr [ %.4.ptr80, %.preheader ], [ %.4.ptr, %27 ]
   %.4.idx81 = phi i64 [ 1, %.preheader ], [ %.4.add, %27 ]
   %26 = load i8, ptr %.4.ptr83, align 1, !tbaa !10
   switch i8 %26, label %27 [
-    i8 0, label %29
-    i8 32, label %29
-    i8 9, label %29
+    i8 0, label %30
+    i8 32, label %30
+    i8 9, label %30
   ]
 
 27:                                               ; preds = %25
   %.4.add = add nuw nsw i64 %.4.idx81, 1
-  %28 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %indvars.iv89
+  %28 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %indvars.iv88
   store i8 %26, ptr %28, align 1, !tbaa !10
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %.4.ptr = getelementptr inbounds nuw i8, ptr %.3.ptr.lcssa, i64 %.4.add
-  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 128
-  br i1 %exitcond92.not, label %29, label %25, !llvm.loop !13
+  %29 = icmp samesign ult i64 %indvars.iv88, 127
+  br i1 %29, label %25, label %30, !llvm.loop !13
 
-29:                                               ; preds = %25, %25, %25, %27
+30:                                               ; preds = %25, %25, %25, %27
   %.4.idx.lcssa = phi i64 [ %.4.idx81, %25 ], [ %.4.idx81, %25 ], [ %.4.idx81, %25 ], [ 129, %27 ]
-  %.2.lcssa = phi i64 [ %indvars.iv89, %25 ], [ %indvars.iv89, %25 ], [ %indvars.iv89, %25 ], [ 128, %27 ]
+  %.2.lcssa = phi i64 [ %indvars.iv88, %25 ], [ %indvars.iv88, %25 ], [ %indvars.iv88, %25 ], [ 128, %27 ]
   %.4.ptr.lcssa = phi ptr [ %.4.ptr83, %25 ], [ %.4.ptr83, %25 ], [ %.4.ptr83, %25 ], [ %.4.ptr, %27 ]
-  %30 = and i64 %.2.lcssa, 4294967295
-  %31 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %.2.lcssa
   store i8 0, ptr %31, align 1, !tbaa !10
   %32 = load i8, ptr %.4.ptr.lcssa, align 1, !tbaa !10
   switch i8 %32, label %.loopexit [
@@ -182,7 +179,7 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
     i8 9, label %33
   ]
 
-33:                                               ; preds = %29, %29, %29
+33:                                               ; preds = %30, %30, %30
   %34 = icmp eq i64 %.4.idx.lcssa, 1
   br i1 %34, label %.loopexit, label %35
 
@@ -197,7 +194,7 @@ define void @FT_Set_Default_Properties(ptr noundef %0) local_unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %.146, i64 1
   br label %.preheader73, !llvm.loop !14
 
-.loopexit:                                        ; preds = %20, %11, %33, %35, %.preheader73, %29, %1
+.loopexit:                                        ; preds = %21, %12, %33, %35, %.preheader73, %30, %1
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %2) #4

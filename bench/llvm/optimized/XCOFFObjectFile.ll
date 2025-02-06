@@ -5070,17 +5070,13 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %18, align 1
-  %.not4268.not = icmp eq i16 %.0.copyload.i.i.i.i, 0
-  br i1 %.not4268.not, label %.thread, label %.lr.ph71.preheader
-
-.lr.ph71.preheader:                               ; preds = %14
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
-  %umax80 = tail call i16 @llvm.umax.i16(i16 %rev.i.i.i.i.i.i.i.i, i16 1)
-  br label %.lr.ph71
+  %.not4268.not = icmp eq i16 %.0.copyload.i.i.i.i, 0
+  br i1 %.not4268.not, label %.thread, label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %26
-  %.03370 = phi ptr [ %27, %26 ], [ %9, %.lr.ph71.preheader ]
-  %.03569 = phi i16 [ %28, %26 ], [ 0, %.lr.ph71.preheader ]
+.lr.ph71:                                         ; preds = %14, %26
+  %.03370 = phi ptr [ %27, %26 ], [ %9, %14 ]
+  %.03569 = phi i16 [ %28, %26 ], [ 0, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %.03370, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
   %.0.copyload.i.i.i45 = load i64, ptr %19, align 1
@@ -5101,8 +5097,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
 26:                                               ; preds = %21, %.lr.ph71
   %27 = getelementptr inbounds nuw i8, ptr %.03370, i64 72
   %28 = add nuw i16 %.03569, 1
-  %exitcond81.not = icmp eq i16 %28, %umax80
-  br i1 %exitcond81.not, label %.thread, label %.lr.ph71, !llvm.loop !536
+  %.not42 = icmp ult i16 %28, %rev.i.i.i.i.i.i.i.i
+  br i1 %.not42, label %.lr.ph71, label %.thread, !llvm.loop !536
 
 29:                                               ; preds = %21
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
@@ -5117,17 +5113,13 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
   %.0.copyload.i.i.i.i50 = load i16, ptr %35, align 1
-  %.not4065.not = icmp eq i16 %.0.copyload.i.i.i.i50, 0
-  br i1 %.not4065.not, label %.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %31
   %rev.i.i.i.i.i.i.i.i51 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i50)
-  %umax = tail call i16 @llvm.umax.i16(i16 %rev.i.i.i.i.i.i.i.i51, i16 1)
-  br label %.lr.ph
+  %.not4065.not = icmp eq i16 %.0.copyload.i.i.i.i50, 0
+  br i1 %.not4065.not, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %.067 = phi i16 [ %45, %43 ], [ 0, %.lr.ph.preheader ]
-  %.03466 = phi ptr [ %44, %43 ], [ %9, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %31, %43
+  %.067 = phi i16 [ %45, %43 ], [ 0, %31 ]
+  %.03466 = phi ptr [ %44, %43 ], [ %9, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %.03466, i64 12
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
   %.0.copyload.i.i.i52 = load i32, ptr %36, align 1
@@ -5148,8 +5140,8 @@ define dso_local noundef i64 @_ZNK4llvm6object15XCOFFObjectFile19getRelocationOf
 43:                                               ; preds = %38, %.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %.03466, i64 40
   %45 = add nuw i16 %.067, 1
-  %exitcond.not = icmp eq i16 %45, %umax
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !537
+  %.not40 = icmp ult i16 %45, %rev.i.i.i.i.i.i.i.i51
+  br i1 %.not40, label %.lr.ph, label %.thread, !llvm.loop !537
 
 46:                                               ; preds = %38
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
@@ -10532,9 +10524,6 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22

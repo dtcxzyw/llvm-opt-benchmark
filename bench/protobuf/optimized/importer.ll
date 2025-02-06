@@ -1375,7 +1375,6 @@ entry:
   br i1 %cmp33.not, label %cleanup54, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv45 = phi i32 [ %indvars.iv.next46, %for.inc ], [ 0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %call3 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %canonical_disk_file) #27
   %2 = extractvalue { i64, ptr } %call3, 0
@@ -1401,7 +1400,7 @@ for.cond19.preheader:                             ; preds = %invoke.cont
   br i1 %cmp2036.not, label %for.end47, label %for.body21.preheader
 
 for.body21.preheader:                             ; preds = %for.cond19.preheader
-  %wide.trip.count = zext i32 %indvars.iv45 to i64
+  %10 = and i64 %indvars.iv, 4294967295
   br label %for.body21
 
 lpad.loopexit:                                    ; preds = %for.body21
@@ -1426,32 +1425,31 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 for.inc:                                          ; preds = %invoke.cont
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load ptr, ptr %_M_finish.i, align 8
-  %11 = load ptr, ptr %mappings_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
+  %11 = load ptr, ptr %_M_finish.i, align 8
+  %12 = load ptr, ptr %mappings_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
-  %indvars.iv.next46 = add nuw i32 %indvars.iv45, 1
   br i1 %cmp, label %for.body, label %cleanup54, !llvm.loop !32
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.inc45
   %indvars.iv42 = phi i64 [ 0, %for.body21.preheader ], [ %indvars.iv.next43, %for.inc45 ]
   %call23 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %virtual_file) #27
-  %12 = extractvalue { i64, ptr } %call23, 0
-  %13 = extractvalue { i64, ptr } %call23, 1
-  %14 = load ptr, ptr %mappings_, align 8
-  %add.ptr.i14 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %14, i64 %indvars.iv42
+  %13 = extractvalue { i64, ptr } %call23, 0
+  %14 = extractvalue { i64, ptr } %call23, 1
+  %15 = load ptr, ptr %mappings_, align 8
+  %add.ptr.i14 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %15, i64 %indvars.iv42
   %call29 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i14) #27
-  %15 = extractvalue { i64, ptr } %call29, 0
-  %16 = extractvalue { i64, ptr } %call29, 1
-  %17 = load ptr, ptr %mappings_, align 8
-  %disk_path34 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %17, i64 %indvars.iv42, i32 1
+  %16 = extractvalue { i64, ptr } %call29, 0
+  %17 = extractvalue { i64, ptr } %call29, 1
+  %18 = load ptr, ptr %mappings_, align 8
+  %disk_path34 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::DiskSourceTree::Mapping", ptr %18, i64 %indvars.iv42, i32 1
   %call35 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %disk_path34) #27
-  %18 = extractvalue { i64, ptr } %call35, 0
-  %19 = extractvalue { i64, ptr } %call35, 1
-  %call37 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compilerL12ApplyMappingESt17basic_string_viewIcSt11char_traitsIcEES5_S5_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %12, ptr %13, i64 %15, ptr %16, i64 %18, ptr %19, ptr noundef %shadowing_disk_file)
+  %19 = extractvalue { i64, ptr } %call35, 0
+  %20 = extractvalue { i64, ptr } %call35, 1
+  %call37 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compilerL12ApplyMappingESt17basic_string_viewIcSt11char_traitsIcEES5_S5_PNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64 %13, ptr %14, i64 %16, ptr %17, i64 %19, ptr %20, ptr noundef %shadowing_disk_file)
           to label %invoke.cont36 unwind label %lpad.loopexit
 
 invoke.cont36:                                    ; preds = %for.body21
@@ -1465,8 +1463,8 @@ if.then38:                                        ; preds = %invoke.cont36
 
 for.inc45:                                        ; preds = %invoke.cont36, %if.then38
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
-  br i1 %exitcond.not, label %for.end47, label %for.body21, !llvm.loop !33
+  %cmp20 = icmp samesign ult i64 %indvars.iv.next43, %10
+  br i1 %cmp20, label %for.body21, label %for.end47, !llvm.loop !33
 
 for.end47:                                        ; preds = %for.inc45, %for.cond19.preheader
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %shadowing_disk_file) #27
@@ -1480,8 +1478,8 @@ invoke.cont49:                                    ; preds = %for.end47
 _ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i: ; preds = %invoke.cont49
   %vtable.i.i = load ptr, ptr %call50, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %20 = load ptr, ptr %vfn.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %call50) #27
+  %21 = load ptr, ptr %vfn.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %call50) #27
   br label %cleanup54
 
 cleanup54:                                        ; preds = %for.inc, %if.then38, %entry, %_ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i, %invoke.cont49

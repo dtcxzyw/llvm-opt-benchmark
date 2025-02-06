@@ -31,13 +31,9 @@ entry:
 
 for.cond19.preheader:                             ; preds = %entry
   %sub20 = add i32 %hi, 1
-  %cmp2246.not = icmp eq i32 %sub20, %lo
-  br i1 %cmp2246.not, label %for.end28, label %for.body23.preheader
-
-for.body23.preheader:                             ; preds = %for.cond19.preheader
   %add21 = sub i32 %sub20, %lo
-  %umax = tail call i32 @llvm.umax.i32(i32 %add21, i32 1)
-  br label %for.body23
+  %cmp2246.not = icmp eq i32 %sub20, %lo
+  br i1 %cmp2246.not, label %for.end28, label %for.body23
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 %hi, %lo
@@ -49,19 +45,19 @@ for.body.preheader:                               ; preds = %if.then
   %div222 = lshr exact i32 %lo, 5
   %div21 = lshr i32 %add, 5
   %0 = zext nneg i32 %div222 to i64
-  %wide.trip.count = zext nneg i32 %div21 to i64
+  %1 = zext nneg i32 %div21 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %indvars.iv
-  %1 = load i32, ptr %arrayidx, align 4
-  %2 = add nuw nsw i64 %indvars.iv, %0
-  %arrayidx7 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %2
-  store i32 %1, ptr %arrayidx7, align 4
+  %2 = load i32, ptr %arrayidx, align 4
+  %3 = add nuw nsw i64 %indvars.iv, %0
+  %arrayidx7 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %3
+  store i32 %2, ptr %arrayidx7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond56.not, label %for.end, label %for.body, !llvm.loop !4
+  %cmp3 = icmp samesign ult i64 %indvars.iv.next, %1
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.then
   %mul = and i32 %add, -32
@@ -74,49 +70,49 @@ for.body13:                                       ; preds = %for.end, %for.body1
   %div1.i.i = lshr i32 %i8.051, 5
   %idxprom.i.i = zext nneg i32 %div1.i.i to i64
   %arrayidx.i.i = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i
-  %3 = load i32, ptr %arrayidx.i.i, align 4
+  %4 = load i32, ptr %arrayidx.i.i, align 4
   %rem.i.i = and i32 %i8.051, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i
-  %and.i = and i32 %3, %shl.i.i
+  %and.i = and i32 %4, %shl.i.i
   %cmp.i = icmp ne i32 %and.i, 0
   %conv.neg.i = sext i1 %cmp.i to i32
   %div1.i.i23 = lshr i32 %add14, 5
   %idxprom.i.i24 = zext nneg i32 %div1.i.i23 to i64
   %arrayidx.i.i25 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i24
-  %4 = load i32, ptr %arrayidx.i.i25, align 4
-  %xor.i = xor i32 %4, %conv.neg.i
+  %5 = load i32, ptr %arrayidx.i.i25, align 4
+  %xor.i = xor i32 %5, %conv.neg.i
   %and.i28 = and i32 %xor.i, %shl.i.i
-  %xor4.i = xor i32 %and.i28, %4
+  %xor4.i = xor i32 %and.i28, %5
   store i32 %xor4.i, ptr %arrayidx.i.i25, align 4
   %inc16 = add nuw i32 %i8.051, 1
   %cmp12 = icmp ult i32 %inc16, %add
   br i1 %cmp12, label %for.body13, label %for.end28, !llvm.loop !6
 
-for.body23:                                       ; preds = %for.body23.preheader, %for.body23
-  %i18.047 = phi i32 [ %inc27, %for.body23 ], [ 0, %for.body23.preheader ]
+for.body23:                                       ; preds = %for.cond19.preheader, %for.body23
+  %i18.047 = phi i32 [ %inc27, %for.body23 ], [ 0, %for.cond19.preheader ]
   %add24 = add i32 %i18.047, %lo
   %div1.i.i29 = lshr i32 %i18.047, 5
   %idxprom.i.i30 = zext nneg i32 %div1.i.i29 to i64
   %arrayidx.i.i31 = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i30
-  %5 = load i32, ptr %arrayidx.i.i31, align 4
+  %6 = load i32, ptr %arrayidx.i.i31, align 4
   %rem.i.i32 = and i32 %i18.047, 31
   %shl.i.i33 = shl nuw i32 1, %rem.i.i32
-  %and.i34 = and i32 %5, %shl.i.i33
+  %and.i34 = and i32 %6, %shl.i.i33
   %cmp.i35 = icmp ne i32 %and.i34, 0
   %conv.neg.i36 = sext i1 %cmp.i35 to i32
   %div1.i.i37 = lshr i32 %add24, 5
   %idxprom.i.i38 = zext nneg i32 %div1.i.i37 to i64
   %arrayidx.i.i39 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i38
-  %6 = load i32, ptr %arrayidx.i.i39, align 4
-  %xor.i40 = xor i32 %6, %conv.neg.i36
+  %7 = load i32, ptr %arrayidx.i.i39, align 4
+  %xor.i40 = xor i32 %7, %conv.neg.i36
   %rem.i.i41 = and i32 %add24, 31
   %shl.i.i42 = shl nuw i32 1, %rem.i.i41
   %and.i43 = and i32 %xor.i40, %shl.i.i42
-  %xor4.i44 = xor i32 %and.i43, %6
+  %xor4.i44 = xor i32 %and.i43, %7
   store i32 %xor4.i44, ptr %arrayidx.i.i39, align 4
   %inc27 = add nuw i32 %i18.047, 1
-  %exitcond.not = icmp eq i32 %inc27, %umax
-  br i1 %exitcond.not, label %for.end28, label %for.body23, !llvm.loop !7
+  %cmp22 = icmp ult i32 %inc27, %add21
+  br i1 %cmp22, label %for.body23, label %for.end28, !llvm.loop !7
 
 for.end28:                                        ; preds = %for.body23, %for.body13, %for.cond19.preheader, %for.end
   ret void
@@ -431,34 +427,34 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp520.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = zext i32 %sub to i64
+  %1 = zext i32 %sub to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18, label %for.body, !llvm.loop !11
+  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %1
+  br i1 %cmp5, label %for.body, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %indvars.iv
-  %1 = load i32, ptr %arrayidx, align 4
+  %2 = load i32, ptr %arrayidx, align 4
   %arrayidx8 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx8, align 4
-  %cmp9.not = icmp eq i32 %1, %2
+  %3 = load i32, ptr %arrayidx8, align 4
+  %cmp9.not = icmp eq i32 %2, %3
   br i1 %cmp9.not, label %for.cond, label %return
 
 _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18: ; preds = %for.cond, %for.cond.preheader
-  %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %wide.trip.count, %for.cond ]
+  %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %1, %for.cond ]
   %arrayidx.i = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
-  %3 = load i32, ptr %arrayidx.i, align 4
+  %4 = load i32, ptr %arrayidx.i, align 4
   %m_mask.i = getelementptr inbounds nuw i8, ptr %this, i64 532
-  %4 = load i32, ptr %m_mask.i, align 4
+  %5 = load i32, ptr %m_mask.i, align 4
   %arrayidx.i14 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
-  %5 = load i32, ptr %arrayidx.i14, align 4
-  %6 = xor i32 %5, %3
-  %7 = and i32 %6, %4
-  %cmp14 = icmp eq i32 %7, 0
+  %6 = load i32, ptr %arrayidx.i14, align 4
+  %7 = xor i32 %6, %4
+  %8 = and i32 %7, %5
+  %cmp14 = icmp eq i32 %8, 0
   br label %return
 
 return:                                           ; preds = %for.body, %if.end, %entry, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18
@@ -492,36 +488,36 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp221.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = zext i32 %sub to i64
+  %1 = zext i32 %sub to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19, label %for.body, !llvm.loop !12
+  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %1
+  br i1 %cmp2, label %for.body, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %indvars.iv
-  %1 = load i32, ptr %arrayidx, align 4
+  %2 = load i32, ptr %arrayidx, align 4
   %arrayidx5 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx5, align 4
-  %and = and i32 %2, %1
-  %cmp9.not = icmp eq i32 %and, %2
+  %3 = load i32, ptr %arrayidx5, align 4
+  %and = and i32 %3, %2
+  %cmp9.not = icmp eq i32 %and, %3
   br i1 %cmp9.not, label %for.cond, label %return
 
 _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19: ; preds = %for.cond, %for.cond.preheader
-  %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %wide.trip.count, %for.cond ]
+  %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %1, %for.cond ]
   %arrayidx.i = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
-  %3 = load i32, ptr %arrayidx.i, align 4
+  %4 = load i32, ptr %arrayidx.i, align 4
   %m_mask.i = getelementptr inbounds nuw i8, ptr %this, i64 532
-  %4 = load i32, ptr %m_mask.i, align 4
+  %5 = load i32, ptr %m_mask.i, align 4
   %arrayidx.i15 = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
-  %5 = load i32, ptr %arrayidx.i15, align 4
-  %6 = xor i32 %5, -1
-  %7 = and i32 %4, %3
-  %8 = and i32 %7, %6
-  %cmp15 = icmp eq i32 %8, 0
+  %6 = load i32, ptr %arrayidx.i15, align 4
+  %7 = xor i32 %6, -1
+  %8 = and i32 %5, %4
+  %9 = and i32 %8, %7
+  %cmp15 = icmp eq i32 %9, 0
   br label %return
 
 return:                                           ; preds = %for.body, %entry, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19
@@ -563,12 +559,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define internal void @_GLOBAL__sub_I_fixed_bit_vector.cpp() #9 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -580,8 +573,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -826,8 +826,9 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit: ; pred
   %10 = ptrtoint ptr %1 to i64
   %11 = sub nuw i64 %9, %10
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 16)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %.0.sroa.speculated.i.i.i, i1 false), !noalias !251
-  store i64 %.0.sroa.speculated.i.i.i, ptr %5, align 8, !noalias !257
+  %umax = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %umax, i1 false), !noalias !251
+  store i64 %umax, ptr %5, align 8, !noalias !257
   %12 = icmp ult i64 %11, 16
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit.thread, label %13
 
@@ -837,7 +838,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit: ; pred
   ret void
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit.thread: ; preds = %3, %_ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit
-  %14 = phi i64 [ %.0.sroa.speculated.i.i.i, %_ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit ], [ 0, %3 ]
+  %14 = phi i64 [ %umax, %_ZN4core4iter6traits8iterator8Iterator8for_each17h8ecd0d825098ec50E.exit ], [ 0, %3 ]
   invoke void @_ZN13generic_array21from_iter_length_fail17h19a4403824f6808dE(i64 noundef %14, i64 noundef 16) #30
           to label %15 unwind label %7
 
@@ -876,8 +877,9 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit: ; pred
   %10 = ptrtoint ptr %1 to i64
   %11 = sub nuw i64 %9, %10
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 64)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %1, i64 %.0.sroa.speculated.i.i.i, i1 false), !noalias !262
-  store i64 %.0.sroa.speculated.i.i.i, ptr %5, align 8, !noalias !268
+  %umax = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i, i64 1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %umax, i1 false), !noalias !262
+  store i64 %umax, ptr %5, align 8, !noalias !268
   %12 = icmp ult i64 %11, 64
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit.thread, label %13
 
@@ -887,7 +889,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit: ; pred
   ret void
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit.thread: ; preds = %3, %_ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit
-  %14 = phi i64 [ %.0.sroa.speculated.i.i.i, %_ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit ], [ 0, %3 ]
+  %14 = phi i64 [ %umax, %_ZN4core4iter6traits8iterator8Iterator8for_each17h22139435b2607485E.exit ], [ 0, %3 ]
   invoke void @_ZN13generic_array21from_iter_length_fail17h19a4403824f6808dE(i64 noundef %14, i64 noundef 64) #30
           to label %15 unwind label %7
 
@@ -4593,11 +4595,11 @@ define void @"_ZN106_$LT$ockam_vault..software..vault_for_secure_channels..types
 
 .lr.ph.i7.i:                                      ; preds = %.preheader.i.i, %.lr.ph.i7.i
   %.sroa.0.0.i5.i.i = phi i64 [ %15, %.lr.ph.i7.i ], [ 0, %.preheader.i.i ]
-  %15 = add nuw nsw i64 %.sroa.0.0.i5.i.i, 1
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.0.0.i5.i.i
+  %15 = add nuw i64 %.sroa.0.0.i5.i.i, 1
+  %16 = getelementptr inbounds i8, ptr %10, i64 %.sroa.0.0.i5.i.i
   store volatile i8 0, ptr %16, align 1, !alias.scope !1614, !noalias !1602
-  %exitcond.not.i.i = icmp eq i64 %15, %12
-  br i1 %exitcond.not.i.i, label %"_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit", label %.lr.ph.i7.i
+  %17 = icmp ult i64 %15, %12
+  br i1 %17, label %.lr.ph.i7.i, label %"_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit"
 
 "_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E.exit": ; preds = %.lr.ph.i7.i, %.preheader.i.i
   fence syncscope("singlethread") seq_cst

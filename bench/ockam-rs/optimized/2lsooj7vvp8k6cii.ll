@@ -474,39 +474,36 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
 21:                                               ; preds = %15
   %22 = trunc i64 %.027 to i32
   %23 = and i32 %22, 31
+  %24 = shl nuw i32 1, %23
   %.not = icmp eq i32 %23, 31
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %21
-  %24 = shl nuw nsw i32 1, %23
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %25 = icmp ugt i64 %.027, 7
-  br i1 %25, label %29, label %27
+  br i1 %25, label %30, label %28
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.0.i26 = phi i32 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %21, %.lr.ph
+  %.sroa.0.0.i26 = phi i32 [ %26, %.lr.ph ], [ 0, %21 ]
   %26 = add nuw nsw i32 %.sroa.0.0.i26, 1
   tail call void @llvm.x86.sse2.pause() #19, !noalias !62
-  %exitcond.not = icmp eq i32 %26, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  %27 = icmp slt i32 %26, %24
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
-27:                                               ; preds = %._crit_edge
-  %28 = add nuw nsw i64 %.027, 1
+28:                                               ; preds = %._crit_edge
+  %29 = add nuw nsw i64 %.027, 1
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
-29:                                               ; preds = %._crit_edge
+30:                                               ; preds = %._crit_edge
   tail call void @_ZN3std6thread9yield_now17h7e18dd28aaaa5f53E(), !noalias !62
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
-_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %29, %27, %11
-  %.121 = phi i64 [ 0, %11 ], [ %.027, %29 ], [ %28, %27 ]
-  %.117 = phi i1 [ %.01628, %11 ], [ true, %29 ], [ true, %27 ]
-  %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01529, %29 ], [ %.01529, %27 ]
-  %30 = lshr i64 %.1, 51
-  %31 = icmp eq i64 %1, %30
-  %or.cond.not = or i1 %.117, %31
+_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %30, %28, %11
+  %.121 = phi i64 [ 0, %11 ], [ %.027, %30 ], [ %29, %28 ]
+  %.117 = phi i1 [ %.01628, %11 ], [ true, %30 ], [ true, %28 ]
+  %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01529, %30 ], [ %.01529, %28 ]
+  %31 = lshr i64 %.1, 51
+  %32 = icmp eq i64 %1, %31
+  %or.cond.not = or i1 %.117, %32
   br i1 %or.cond.not, label %11, label %.loopexit
 }
 
@@ -567,39 +564,36 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
 24:                                               ; preds = %15
   %25 = trunc i64 %.028 to i32
   %26 = and i32 %25, 31
+  %27 = shl nuw i32 1, %26
   %.not = icmp eq i32 %26, 31
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %24
-  %27 = shl nuw nsw i32 1, %26
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %28 = icmp ugt i64 %.028, 7
-  br i1 %28, label %32, label %30
+  br i1 %28, label %33, label %31
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.0.i27 = phi i32 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %24, %.lr.ph
+  %.sroa.0.0.i27 = phi i32 [ %29, %.lr.ph ], [ 0, %24 ]
   %29 = add nuw nsw i32 %.sroa.0.0.i27, 1
   tail call void @llvm.x86.sse2.pause() #19, !noalias !71
-  %exitcond.not = icmp eq i32 %29, %27
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  %30 = icmp slt i32 %29, %27
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nuw nsw i64 %.028, 1
+31:                                               ; preds = %._crit_edge
+  %32 = add nuw nsw i64 %.028, 1
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
-32:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   tail call void @_ZN3std6thread9yield_now17h7e18dd28aaaa5f53E(), !noalias !71
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
-_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %32, %30, %11
-  %.121 = phi i64 [ 0, %11 ], [ %.028, %32 ], [ %31, %30 ]
-  %.117 = phi i1 [ %.01629, %11 ], [ true, %32 ], [ true, %30 ]
-  %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01530, %32 ], [ %.01530, %30 ]
-  %33 = lshr i64 %.1, 51
-  %34 = icmp eq i64 %1, %33
-  %or.cond.not = or i1 %.117, %34
+_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %33, %31, %11
+  %.121 = phi i64 [ 0, %11 ], [ %.028, %33 ], [ %32, %31 ]
+  %.117 = phi i1 [ %.01629, %11 ], [ true, %33 ], [ true, %31 ]
+  %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01530, %33 ], [ %.01530, %31 ]
+  %34 = lshr i64 %.1, 51
+  %35 = icmp eq i64 %1, %34
+  %or.cond.not = or i1 %.117, %35
   br i1 %or.cond.not, label %11, label %"_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17h4d5b05611c6056b8E.exit"
 }
 

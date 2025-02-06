@@ -6305,30 +6305,26 @@ _ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit34
   %365 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %366 = load ptr, ptr %365, align 8
   %367 = load ptr, ptr %364, align 8
-  %.not.i.i79 = icmp eq ptr %366, %367
-  br i1 %.not.i.i79, label %_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.noexc82
   %368 = ptrtoint ptr %366 to i64
   %369 = ptrtoint ptr %367 to i64
   %370 = sub i64 %368, %369
   %371 = sdiv exact i64 %370, 120
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %371, i64 1)
-  br label %372
+  %.not.i.i79 = icmp eq ptr %366, %367
+  br i1 %.not.i.i79, label %_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i, label %.lr.ph.i.i
 
-372:                                              ; preds = %372, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %372 ]
-  %373 = phi double [ %362, %.lr.ph.i.i ], [ %377, %372 ]
-  %374 = getelementptr inbounds nuw %"struct.ceres::IterationSummary", ptr %367, i64 %indvars.iv.i.i, i32 4
-  %375 = load double, ptr %374, align 8
-  %376 = fcmp olt double %373, %375
-  %377 = select i1 %376, double %373, double %375
-  store double %377, ptr %363, align 8
+.lr.ph.i.i:                                       ; preds = %.noexc82, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.noexc82 ]
+  %372 = phi double [ %376, %.lr.ph.i.i ], [ %362, %.noexc82 ]
+  %373 = getelementptr inbounds nuw %"struct.ceres::IterationSummary", ptr %367, i64 %indvars.iv.i.i, i32 4
+  %374 = load double, ptr %373, align 8
+  %375 = fcmp olt double %372, %374
+  %376 = select i1 %375, double %372, double %374
+  store double %376, ptr %363, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i, label %372, !llvm.loop !4
+  %377 = icmp ugt i64 %371, %indvars.iv.next.i.i
+  br i1 %377, label %.lr.ph.i.i, label %_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i, !llvm.loop !4
 
-_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i: ; preds = %372, %.noexc82
+_ZN5ceres8internal19SetSummaryFinalCostINS_6Solver7SummaryEEEvPT_.exit.i: ; preds = %.lr.ph.i.i, %.noexc82
   %378 = getelementptr inbounds nuw i8, ptr %25, i64 1072
   %379 = load ptr, ptr %378, align 8
   %.not.i80 = icmp eq ptr %379, null

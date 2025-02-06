@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %40, %2
+3:                                                ; preds = %2, %40
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
   %.01739 = phi ptr [ %0, %2 ], [ %41, %40 ]
   %4 = load i8, ptr %.01739, align 1
@@ -72,25 +72,28 @@ xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread,
   %37 = getelementptr inbounds nuw [6 x i8], ptr %1, i64 0, i64 %indvars.iv
   store i8 %36, ptr %37, align 1
   %.not21 = icmp eq i64 %indvars.iv, 5
-  %38 = load i8, ptr %33, align 1
-  br i1 %.not21, label %42, label %39
+  br i1 %.not21, label %.thread, label %38
 
-39:                                               ; preds = %xdigit.exit25.thread
-  %.not22 = icmp eq i8 %38, 58
+38:                                               ; preds = %xdigit.exit25.thread
+  %39 = load i8, ptr %33, align 1
+  %.not22 = icmp eq i8 %39, 58
   br i1 %.not22, label %40, label %xdigit.exit.thread28
 
-40:                                               ; preds = %39
+40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %.01739, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %3
+  %42 = icmp samesign ult i64 %indvars.iv, 5
+  br i1 %42, label %3, label %.thread, !llvm.loop !6
 
-42:                                               ; preds = %xdigit.exit25.thread
-  %.not = icmp eq i8 %38, 0
+.thread:                                          ; preds = %xdigit.exit25.thread, %40
+  %.143 = phi ptr [ %41, %40 ], [ %33, %xdigit.exit25.thread ]
+  %43 = load i8, ptr %.143, align 1
+  %.not = icmp eq i8 %43, 0
   %. = select i1 %.not, ptr %1, ptr null
   br label %xdigit.exit.thread28
 
-xdigit.exit.thread28:                             ; preds = %28, %13, %39, %42
-  %.0 = phi ptr [ %., %42 ], [ null, %39 ], [ null, %13 ], [ null, %28 ]
+xdigit.exit.thread28:                             ; preds = %28, %13, %38, %.thread
+  %.0 = phi ptr [ %., %.thread ], [ null, %38 ], [ null, %13 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -159,7 +162,7 @@ xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.ex
   %35 = getelementptr inbounds nuw [6 x i8], ptr @ether_aton.addr, i64 0, i64 %indvars.iv.i
   store i8 %34, ptr %35, align 1
   %.not21.i = icmp eq i64 %indvars.iv.i, 5
-  br i1 %.not21.i, label %41, label %36
+  br i1 %.not21.i, label %.thread.i, label %36
 
 36:                                               ; preds = %xdigit.exit25.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 2
@@ -172,14 +175,14 @@ xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.ex
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %2
 
-41:                                               ; preds = %xdigit.exit25.thread.i
-  %42 = load i8, ptr %scevgep, align 1
-  %.not.i = icmp eq i8 %42, 0
+.thread.i:                                        ; preds = %xdigit.exit25.thread.i
+  %41 = load i8, ptr %scevgep, align 1
+  %.not.i = icmp eq i8 %41, 0
   %..i = select i1 %.not.i, ptr @ether_aton.addr, ptr null
   br label %ether_aton_r.exit
 
-ether_aton_r.exit:                                ; preds = %12, %27, %36, %41
-  %.0.i = phi ptr [ %..i, %41 ], [ null, %36 ], [ null, %27 ], [ null, %12 ]
+ether_aton_r.exit:                                ; preds = %12, %27, %36, %.thread.i
+  %.0.i = phi ptr [ %..i, %.thread.i ], [ null, %36 ], [ null, %27 ], [ null, %12 ]
   ret ptr %.0.i
 }
 
@@ -194,3 +197,5 @@ attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: read, i
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

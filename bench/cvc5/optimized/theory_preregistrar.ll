@@ -467,13 +467,12 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp46.not = icmp eq ptr %1, %2
   br i1 %cmp46.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %d_theoryEngine = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
@@ -494,8 +493,8 @@ cond.end:                                         ; preds = %for.body
   store ptr %8, ptr %agg.tmp, align 8
   call void @_ZN4cvc58internal12TheoryEngine11preRegisterENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(1448) %7, ptr noundef nonnull %agg.tmp)
   %inc = add nuw i64 %i.047, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %cond.end, %for.body, %entry
   ret void

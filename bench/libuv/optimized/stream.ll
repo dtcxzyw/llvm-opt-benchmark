@@ -460,7 +460,6 @@ if.end.i44.i:                                     ; preds = %for.body.i.i
 
 for.body6.lr.ph.i.i:                              ; preds = %if.end.i44.i
   %__cmsg_data.i.i = getelementptr inbounds nuw i8, ptr %cmsg.029.i.i, i64 16
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %div19.i.i, i64 1)
   br label %for.body6.i.i
 
 for.body6.i.i:                                    ; preds = %for.inc19.i.i, %for.body6.lr.ph.i.i
@@ -536,8 +535,8 @@ for.body14.i.i:                                   ; preds = %uv__stream_queue_fd
   %i.132.i.i = phi i64 [ %inc.i.i, %for.body14.i.i ], [ %i.025.i.i, %uv__stream_queue_fd.exit.i.i ]
   %call15.i.i = call i32 @uv__close(i32 noundef %fd.0.copyload.i.i) #12
   %inc.i.i = add nuw nsw i64 %i.132.i.i, 1
-  %exitcond36.not.i.i = icmp eq i64 %inc.i.i, %div19.i.i
-  br i1 %exitcond36.not.i.i, label %if.then99.i, label %for.body14.i.i
+  %cmp13.i.i = icmp samesign ult i64 %inc.i.i, %div19.i.i
+  br i1 %cmp13.i.i, label %for.body14.i.i, label %if.then99.i
 
 if.else.i.i:                                      ; preds = %for.body6.i.i
   store i32 %fd.0.copyload.i.i, ptr %accepted_fd.i.i, align 4
@@ -545,8 +544,8 @@ if.else.i.i:                                      ; preds = %for.body6.i.i
 
 for.inc19.i.i:                                    ; preds = %if.else.i.i, %uv__stream_queue_fd.exit.thread.i.i
   %inc20.i.i = add nuw nsw i64 %i.025.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i
+  %cmp5.i.i = icmp samesign ult i64 %inc20.i.i, %div19.i.i
+  br i1 %cmp5.i.i, label %for.body6.i.i, label %for.inc22.i.i
 
 for.inc22.i.i:                                    ; preds = %for.inc19.i.i, %if.end.i44.i, %if.then.i.i
   %call23.i.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg.i, ptr noundef nonnull %cmsg.029.i.i) #12
@@ -2166,9 +2165,6 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

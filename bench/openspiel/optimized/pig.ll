@@ -1192,21 +1192,21 @@ define noundef zeroext i1 @_ZNK10open_spiel3pig8PigState10IsTerminalEv(ptr nound
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %wide.trip.count = zext nneg i32 %7 to i64
-  br label %13
+  %13 = zext nneg i32 %7 to i64
+  br label %14
 
-13:                                               ; preds = %13, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4
-  %.not5.not = icmp sge i32 %15, %12
+14:                                               ; preds = %14, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4
+  %.not5.not = icmp sge i32 %16, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %.not5.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %13, !llvm.loop !4
+  %17 = icmp samesign uge i64 %indvars.iv.next, %13
+  %or.cond.not = select i1 %.not5.not, i1 true, i1 %17
+  br i1 %or.cond.not, label %.loopexit, label %14, !llvm.loop !4
 
-.loopexit:                                        ; preds = %13, %.preheader, %1
-  %.04 = phi i1 [ true, %1 ], [ false, %.preheader ], [ %.not5.not, %13 ]
+.loopexit:                                        ; preds = %14, %.preheader, %1
+  %.04 = phi i1 [ true, %1 ], [ false, %.preheader ], [ %.not5.not, %14 ]
   ret i1 %.04
 }
 
@@ -1293,56 +1293,54 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i11: ; preds = %19
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = load i32, ptr %30, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %33
+  br label %34
 
-32:                                               ; preds = %33
+32:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i21, label %33, !llvm.loop !7
+  %33 = icmp slt i64 %indvars.iv.next, %9
+  br i1 %33, label %34, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i21, !llvm.loop !7
 
-33:                                               ; preds = %.lr.ph, %32
+34:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4
-  %.not = icmp slt i32 %35, %31
+  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %36 = load i32, ptr %35, align 4
+  %.not = icmp slt i32 %36, %31
   br i1 %.not, label %32, label %.thread
 
-.thread:                                          ; preds = %33
-  %36 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
-  store double 1.000000e+00, ptr %36, align 8
+.thread:                                          ; preds = %34
+  %37 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  store double 1.000000e+00, ptr %37, align 8
   store ptr %25, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %26, ptr %39, align 8
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit32
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i21: ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %39 = shl nuw nsw i64 %9, 3
-  %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #26
+  %40 = shl nuw nsw i64 %9, 3
+  %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #26
           to label %.loopexit.thread unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 .loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i21
-  store ptr %40, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = getelementptr inbounds nuw double, ptr %40, i64 %9
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %42, ptr %43, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %39, i1 false)
-  store ptr %42, ptr %41, align 8
+  store ptr %41, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw double, ptr %41, i64 %9
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %43, ptr %44, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %41, i8 0, i64 %40, i1 false)
+  store ptr %43, ptr %42, align 8
   %.idx79 = shl nuw nsw i64 %9, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %.idx79) #27
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit32
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i21
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   %.idx = shl nuw nsw i64 %9, 3
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %.idx) #27
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %45
 
 _ZNSt6vectorIdSaIdEED2Ev.exit32:                  ; preds = %.loopexit.thread74, %.loopexit.thread, %.thread, %.loopexit49
   ret void
@@ -9684,9 +9682,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

@@ -1212,15 +1212,15 @@ define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEP
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !5
+  %8 = icmp samesign ult i64 %indvars.iv, 29
+  br i1 %8, label %2, label %.split.loop.exit, !llvm.loop !5
 
 .split.loop.exit8:                                ; preds = %2
-  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %7, %.split.loop.exit8
-  %.05 = phi i32 [ %8, %.split.loop.exit8 ], [ 0, %7 ]
+  %.05 = phi i32 [ %9, %.split.loop.exit8 ], [ 0, %7 ]
   ret i32 %.05
 }
 
@@ -1270,21 +1270,20 @@ define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10H
 
 20:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 30
-  br i1 %exitcond.not.i, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %15, !llvm.loop !5
+  %21 = icmp samesign ult i64 %indvars.iv.i, 29
+  br i1 %21, label %15, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, !llvm.loop !5
 
 _ZN4Luau11LintWarning9parseNameEPKc.exit:         ; preds = %15
   %.not17 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not17, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %21
+  br i1 %.not17, label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread, label %22
 
-21:                                               ; preds = %_ZN4Luau11LintWarning9parseNameEPKc.exit
-  %22 = and i64 %indvars.iv.i, 4294967295
-  %23 = shl nuw i64 1, %22
+22:                                               ; preds = %_ZN4Luau11LintWarning9parseNameEPKc.exit
+  %23 = shl nuw nsw i64 1, %indvars.iv.i
   %24 = or i64 %23, %.01427
   br label %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread
 
-_ZN4Luau11LintWarning9parseNameEPKc.exit.thread:  ; preds = %20, %10, %_ZN4Luau11LintWarning9parseNameEPKc.exit, %21, %7, %.lr.ph
-  %.1 = phi i64 [ %.01427, %7 ], [ %24, %21 ], [ %.01427, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01427, %.lr.ph ], [ %.01427, %10 ], [ %.01427, %20 ]
+_ZN4Luau11LintWarning9parseNameEPKc.exit.thread:  ; preds = %20, %10, %_ZN4Luau11LintWarning9parseNameEPKc.exit, %22, %7, %.lr.ph
+  %.1 = phi i64 [ %.01427, %7 ], [ %24, %22 ], [ %.01427, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01427, %.lr.ph ], [ %.01427, %10 ], [ %.01427, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.018.026, i64 56
   %.not23 = icmp eq ptr %25, %4
   br i1 %.not23, label %._crit_edge, label %.lr.ph

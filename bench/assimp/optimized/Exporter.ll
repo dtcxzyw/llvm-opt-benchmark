@@ -3796,24 +3796,20 @@ for.cond.preheader:                               ; preds = %invoke.cont2
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %6, i64 112
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %mExporters, align 8
-  %cmp88.not = icmp eq ptr %7, %8
-  br i1 %cmp88.not, label %for.end201, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
+  %cmp88.not = icmp eq ptr %7, %8
+  br i1 %cmp88.not, label %for.end201, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc200 = add nuw i64 %i.089, 1
-  %exitcond.not = icmp eq i64 %inc200, %umax
-  br i1 %exitcond.not, label %for.end201, label %for.body, !llvm.loop !99
+  %cmp = icmp ult i64 %inc200, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %for.end201, !llvm.loop !99
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %i.089 = phi i64 [ %inc200, %for.cond ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %i.089 = phi i64 [ %inc200, %for.cond ], [ 0, %for.cond.preheader ]
   %add.ptr.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %8, i64 %i.089
   %9 = load ptr, ptr %add.ptr.i, align 8
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %pFormatId) #32

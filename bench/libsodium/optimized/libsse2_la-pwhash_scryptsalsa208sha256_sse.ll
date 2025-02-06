@@ -158,13 +158,13 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.c
   %arrayidx10.i = getelementptr i32, ptr %add.ptr, i64 %add9.i
   store i32 %arrayidx.val.i, ptr %arrayidx10.i, align 4
   %inc.i = add nuw nsw i64 %i.063.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 16
-  br i1 %exitcond.not.i, label %for.inc11.i, label %for.body4.i, !llvm.loop !4
+  %cmp3.i = icmp samesign ult i64 %i.063.i, 15
+  br i1 %cmp3.i, label %for.body4.i, label %for.inc11.i, !llvm.loop !4
 
 for.inc11.i:                                      ; preds = %for.body4.i
   %inc12.i = add nuw nsw i64 %k.064.i, 1
-  %exitcond74.not.i = icmp eq i64 %inc12.i, %mul1.i
-  br i1 %exitcond74.not.i, label %for.cond14.preheader.i, label %for.cond2.preheader.i, !llvm.loop !6
+  %cmp.i = icmp samesign ult i64 %inc12.i, %mul1.i
+  br i1 %cmp.i, label %for.cond2.preheader.i, label %for.cond14.preheader.i, !llvm.loop !6
 
 for.body16.i:                                     ; preds = %for.cond14.preheader.i, %for.body16.i
   %X.067.i = phi ptr [ %8, %for.body16.i ], [ %add.ptr, %for.cond14.preheader.i ]
@@ -235,18 +235,18 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %13 = load i32, ptr %arrayidx64.i, align 4
   store i32 %13, ptr %arrayidx61.i, align 1
   %inc66.i = add nuw nsw i64 %i.372.i, 1
-  %exitcond75.not.i = icmp eq i64 %inc66.i, 16
-  br i1 %exitcond75.not.i, label %for.inc68.i, label %for.body55.i, !llvm.loop !9
+  %cmp53.i = icmp samesign ult i64 %i.372.i, 15
+  br i1 %cmp53.i, label %for.body55.i, label %for.inc68.i, !llvm.loop !9
 
 for.inc68.i:                                      ; preds = %for.body55.i
   %inc69.i = add nuw nsw i64 %k.173.i, 1
-  %exitcond76.not.i = icmp eq i64 %inc69.i, %mul1.i
-  br i1 %exitcond76.not.i, label %smix.exit, label %for.cond52.preheader.i, !llvm.loop !10
+  %cmp49.i = icmp samesign ult i64 %inc69.i, %mul1.i
+  br i1 %cmp49.i, label %for.cond52.preheader.i, label %smix.exit, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.inc68.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  %cmp67 = icmp samesign ult i64 %indvars.iv.next, %conv1
+  br i1 %cmp67, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %smix.exit
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef nonnull %2, i64 noundef %mul38, i64 noundef 1, ptr noundef %buf, i64 noundef %buflen) #6
@@ -862,15 +862,16 @@ for.body:                                         ; preds = %entry, %for.body
   %X2.0 = bitcast <4 x i32> %add.i1943 to <2 x i64>
   %X1.0 = bitcast <4 x i32> %add.i1946 to <2 x i64>
   %X0.0 = bitcast <4 x i32> %add.i1949 to <2 x i64>
-  %exitcond.not = icmp eq i64 %inc, %dec
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  %cmp = icmp ult i64 %inc, %dec
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %X3.0.lcssa = phi <2 x i64> [ %X3.01007, %entry ], [ %X3.0, %for.body ]
   %X2.0.lcssa = phi <2 x i64> [ %X2.01008, %entry ], [ %X2.0, %for.body ]
   %X1.0.lcssa = phi <2 x i64> [ %X1.01009, %entry ], [ %X1.0, %for.body ]
   %X0.0.lcssa = phi <2 x i64> [ %X0.01010, %entry ], [ %X0.0, %for.body ]
-  %mul755 = shl nuw nsw i64 %dec, 3
+  %mul755 = shl i64 %i.0.lcssa, 3
   %add756 = or disjoint i64 %mul755, 4
   %arrayidx757 = getelementptr <2 x i64>, ptr %Bin, i64 %add756
   %220 = load <2 x i64>, ptr %arrayidx757, align 16
@@ -1048,8 +1049,9 @@ for.end:                                          ; preds = %for.body, %entry
   %permil993 = shufflevector <4 x i32> %xor.i1035916, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %290 = xor <4 x i32> %289, %283
   %add.i1841 = add <4 x i32> %290, %224
-  %add995 = shl nsw i64 %dec, 7
-  %291 = getelementptr i8, ptr %Bout, i64 %add995
+  %add995 = add i64 %i.0.lcssa, %dec
+  %.idx = shl i64 %add995, 6
+  %291 = getelementptr i8, ptr %Bout, i64 %.idx
   %arrayidx998 = getelementptr i8, ptr %291, i64 64
   store <4 x i32> %add.i1841, ptr %arrayidx998, align 16
   %add.i1838 = add <4 x i32> %permil991, %227
@@ -1710,15 +1712,16 @@ for.body:                                         ; preds = %entry, %for.body
   %X2.0 = bitcast <4 x i32> %add.i2092 to <2 x i64>
   %X1.0 = bitcast <4 x i32> %add.i2095 to <2 x i64>
   %X0.0 = bitcast <4 x i32> %add.i2098 to <2 x i64>
-  %exitcond.not = icmp eq i64 %inc, %dec
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  %cmp = icmp ult i64 %inc, %dec
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %X3.0.lcssa = phi <2 x i64> [ %X3.01058, %entry ], [ %X3.0, %for.body ]
   %X2.0.lcssa = phi <2 x i64> [ %X2.01059, %entry ], [ %X2.0, %for.body ]
   %X1.0.lcssa = phi <2 x i64> [ %X1.01060, %entry ], [ %X1.0, %for.body ]
   %X0.0.lcssa = phi <2 x i64> [ %X0.01061, %entry ], [ %X0.0, %for.body ]
-  %mul822 = shl nuw nsw i64 %dec, 3
+  %mul822 = shl i64 %i.0.lcssa, 3
   %add823 = or disjoint i64 %mul822, 4
   %arrayidx824 = getelementptr <2 x i64>, ptr %Bin1, i64 %add823
   %242 = load <2 x i64>, ptr %arrayidx824, align 16
@@ -1908,8 +1911,9 @@ for.end:                                          ; preds = %for.body, %entry
   %permil1081 = shufflevector <4 x i32> %xor.i1124968, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %320 = xor <4 x i32> %319, %313
   %add.i1990 = add <4 x i32> %320, %254
-  %add1083 = shl nsw i64 %dec, 7
-  %321 = getelementptr i8, ptr %Bout, i64 %add1083
+  %add1083 = add i64 %i.0.lcssa, %dec
+  %.idx = shl i64 %add1083, 6
+  %321 = getelementptr i8, ptr %Bout, i64 %.idx
   %arrayidx1086 = getelementptr i8, ptr %321, i64 64
   store <4 x i32> %add.i1990, ptr %arrayidx1086, align 16
   %add.i1987 = add <4 x i32> %permil1079, %257

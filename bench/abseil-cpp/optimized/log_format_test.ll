@@ -50321,18 +50321,14 @@ for.body.i:                                       ; preds = %while.cond, %for.in
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %__pos.addr.05.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.i = icmp eq i8 %4, 120
-  br i1 %cmp.i.i, label %for.inc.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
+  br i1 %cmp.i.i, label %for.inc.i, label %while.body
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %__pos.addr.05.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %sub5.i
-  br i1 %exitcond.not.i, label %_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit, label %for.body.i, !llvm.loop !1270
+  %cmp.i = icmp ult i64 %inc.i, %sub5.i
+  br i1 %cmp.i, label %for.body.i, label %_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit, !llvm.loop !1270
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; preds = %for.body.i
-  %cmp.i = icmp eq i64 %__pos.addr.05.i, -1
-  br i1 %cmp.i, label %_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit, label %while.body
-
-while.body:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
+while.body:                                       ; preds = %for.body.i
   %call.i = tail call noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %__pos.addr.05.i, i64 noundef -1, ptr noundef nonnull @.str.280)
   %call17 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #28
   %5 = extractvalue { i64, ptr } %call17, 0
@@ -50341,7 +50337,7 @@ while.body:                                       ; preds = %_ZNKSt17basic_strin
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #32
   unreachable
 
-_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit: ; preds = %for.inc.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit, %while.cond
+_ZNSt8optionalImE7emplaceIJmEEENSt9enable_ifIX18is_constructible_vImDpT_EERmE4typeEDpOS3_.exit: ; preds = %for.inc.i, %while.cond
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %sub5.i, ptr %size_, align 8
   store i8 1, ptr %_M_engaged.i.i, align 8

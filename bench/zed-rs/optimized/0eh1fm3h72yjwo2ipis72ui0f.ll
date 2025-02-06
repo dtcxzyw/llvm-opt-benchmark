@@ -56,8 +56,8 @@ define hidden void @_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.94
   store i64 %6, ptr %3, align 8
   store i64 %5, ptr %4, align 8
   %7 = add nuw nsw i64 %.sroa.0.05.i, 1
-  %exitcond.not.i = icmp eq i64 %7, 3
-  br i1 %exitcond.not.i, label %_ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9439706717187049124.exit, label %.lr.ph.i
+  %8 = icmp samesign ult i64 %.sroa.0.05.i, 2
+  br i1 %8, label %.lr.ph.i, label %_ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9439706717187049124.exit
 
 _ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9439706717187049124.exit: ; preds = %.lr.ph.i
   ret void
@@ -134,19 +134,15 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7fa783421569fdc5E.l
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9439706717187049124(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #1 {
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = mul i64 %2, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
-  br label %.lr.ph
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.05 = phi i64 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.sroa.0.05 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds i64, ptr %0, i64 %.sroa.0.05
   %6 = getelementptr inbounds i64, ptr %1, i64 %.sroa.0.05
   %7 = load i64, ptr %5, align 8
@@ -154,8 +150,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9
   store i64 %8, ptr %5, align 8
   store i64 %7, ptr %6, align 8
   %9 = add nuw i64 %.sroa.0.05, 1
-  %exitcond.not = icmp eq i64 %9, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  %10 = icmp ult i64 %9, %4
+  br i1 %10, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -204,7 +200,7 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.lr.ph.i.i, label %11
+  br i1 %5, label %.lr.ph.i.i, label %12
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.0.05.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ 0, %2 ]
@@ -215,34 +211,34 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
   store i64 %9, ptr %6, align 8
   store i64 %8, ptr %7, align 8
   %10 = add nuw nsw i64 %.sroa.0.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %10, 3
-  br i1 %exitcond.not.i.i, label %_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit, label %.lr.ph.i.i
+  %11 = icmp samesign ult i64 %.sroa.0.05.i.i, 2
+  br i1 %11, label %.lr.ph.i.i, label %_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %1, align 8, !noundef !4
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %1, align 8, !noundef !4
   store ptr null, ptr %1, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit, label %14
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit, label %15
 
-_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit: ; preds = %.lr.ph.i.i, %14, %11
+_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit: ; preds = %.lr.ph.i.i, %15, %12
   ret void
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %12, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !noundef !4
-  store ptr null, ptr %17, align 8
-  store ptr %18, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8, !noundef !4
-  store i64 0, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = add i64 %22, %20
-  store i64 %23, ptr %21, align 8
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %13, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr %4, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8, !noundef !4
+  store ptr null, ptr %18, align 8
+  store ptr %19, ptr %3, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load i64, ptr %20, align 8, !noundef !4
+  store i64 0, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load i64, ptr %22, align 8, !noundef !4
+  %24 = add i64 %23, %21
+  store i64 %24, ptr %22, align 8
   br label %_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.9439706717187049124.exit
 }
 
@@ -1065,14 +1061,14 @@ declare i8 @llvm.ucmp.i8.i64(i64, i64) #23
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

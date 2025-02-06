@@ -1143,8 +1143,8 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit: ;
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   br label %46
 
-.loopexit:                                        ; preds = %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26
-  %.034 = phi i64 [ %.036, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26 ], [ 1, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit ]
+.loopexit:                                        ; preds = %67, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26
+  %.034 = phi i64 [ %.036, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26 ], [ 1, %_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit ], [ %68, %67 ]
   %49 = icmp ugt i64 %.034, %20
   br i1 %49, label %50, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41e282a3d4b7b6feE.exit"
 
@@ -1152,14 +1152,13 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit: ;
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.034, i64 noundef range(i64 1, 0) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.33) #21, !noalias !157
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41e282a3d4b7b6feE.exit": ; preds = %67, %.loopexit
-  %.03443 = phi i64 [ %.034, %.loopexit ], [ %20, %67 ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41e282a3d4b7b6feE.exit": ; preds = %.loopexit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %51, align 8
   %.sroa.016.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.03443, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
+  store i64 %.034, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.03443, ptr %.sroa.417.0..sroa_idx, align 8
+  store i64 %.034, ptr %.sroa.417.0..sroa_idx, align 8
   br label %46
 
 52:                                               ; preds = %.lr.ph, %67
@@ -1203,8 +1202,8 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit26:
 67:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %68 = add nuw i64 %.036, 1
-  %exitcond.not = icmp eq i64 %68, %20
-  br i1 %exitcond.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41e282a3d4b7b6feE.exit", label %52
+  %69 = icmp ult i64 %68, %20
+  br i1 %69, label %52, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

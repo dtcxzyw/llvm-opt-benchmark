@@ -412,14 +412,10 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %16, ptr %17, align 8
   %18 = icmp sgt i32 %3, 0
-  br i1 %18, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %7
-  %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr %struct._srt_procedure_t, ptr %19, i64 %indvars.iv, i32 1
   tail call void @time_stat_init(ptr noundef %20) #8
@@ -430,17 +426,17 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %24 = getelementptr %struct._srt_procedure_t, ptr %23, i64 %indvars.iv, i32 2
   store ptr null, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %25 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = call ptr @g_array_insert_vals(ptr noundef %2, i32 noundef %26, ptr noundef nonnull %8, i32 noundef 1) #8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store ptr %6, ptr %29, align 8
-  ret ptr %28
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = call ptr @g_array_insert_vals(ptr noundef %2, i32 noundef %27, ptr noundef nonnull %8, i32 noundef 1) #8
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store ptr %6, ptr %30, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: allocsize(0,1)

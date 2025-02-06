@@ -3384,6 +3384,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   ]
 
 if.then12:                                        ; preds = %land.lhs.true5, %land.lhs.true5
+  %sub = add i64 %length, -2
   %add.ptr = getelementptr inbounds nuw i8, ptr %s, i64 2
   %3 = add i64 %length, -3
   %4 = icmp ult i64 %3, 4
@@ -3429,35 +3430,35 @@ if.then37.i:                                      ; preds = %if.else29.i
 for.inc.i:                                        ; preds = %if.then37.i, %if.then22.i, %if.then10.i
   %result.1.i = phi i16 [ %or.i, %if.then10.i ], [ %or27.i, %if.then22.i ], [ %or43.i, %if.then37.i ]
   %inc.i = add nuw nsw i64 %i.030.i, 1
-  %exitcond.not.i = icmp eq i64 %i.030.i, %3
-  br i1 %exitcond.not.i, label %return.sink.split, label %for.body.i, !llvm.loop !55
+  %cmp3.i = icmp ult i64 %inc.i, %sub
+  br i1 %cmp3.i, label %for.body.i, label %return.sink.split, !llvm.loop !55
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %length.addr.020 = phi i64 [ %dec, %while.body ], [ %length, %land.rhs.preheader ]
-  %s.addr.019 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %land.rhs.preheader ]
-  %11 = load i8, ptr %s.addr.019, align 1
+  %length.addr.021 = phi i64 [ %dec, %while.body ], [ %length, %land.rhs.preheader ]
+  %s.addr.020 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %land.rhs.preheader ]
+  %11 = load i8, ptr %s.addr.020, align 1
   %cmp19 = icmp eq i8 %11, 48
   br i1 %cmp19, label %while.body, label %if.then.i
 
 while.body:                                       ; preds = %land.rhs
-  %dec = add i64 %length.addr.020, -1
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.019, i64 1
+  %dec = add i64 %length.addr.021, -1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.020, i64 1
   %cmp17.not = icmp eq i64 %dec, 0
   br i1 %cmp17.not, label %return.sink.split, label %land.rhs, !llvm.loop !56
 
 if.then.i:                                        ; preds = %land.rhs
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.019, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.020, i64 1
   %sub.i.i = add i8 %11, -48
-  %cmp3.i = icmp ugt i8 %sub.i.i, 9
-  br i1 %cmp3.i, label %return, label %if.end.i
+  %cmp3.i15 = icmp ugt i8 %sub.i.i, 9
+  br i1 %cmp3.i15, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %conv9.i = zext nneg i8 %sub.i.i to i16
-  %cmp11.not.i = icmp eq i64 %length.addr.020, 1
+  %cmp11.not.i = icmp eq i64 %length.addr.021, 1
   br i1 %cmp11.not.i, label %return.sink.split, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %incdec.ptr14.i = getelementptr inbounds nuw i8, ptr %s.addr.019, i64 2
+  %incdec.ptr14.i = getelementptr inbounds nuw i8, ptr %s.addr.020, i64 2
   %12 = load i8, ptr %incdec.ptr.i, align 1
   %sub.i34.i = add i8 %12, -48
   %cmp21.i = icmp ugt i8 %sub.i34.i, 9
@@ -3467,11 +3468,11 @@ if.end26.i:                                       ; preds = %if.then12.i
   %narrow.i = mul nuw nsw i8 %sub.i.i, 10
   %narrow38.i = add nuw nsw i8 %sub.i34.i, %narrow.i
   %add29.i = zext nneg i8 %narrow38.i to i16
-  %cmp33.not.i = icmp eq i64 %length.addr.020, 2
+  %cmp33.not.i = icmp eq i64 %length.addr.021, 2
   br i1 %cmp33.not.i, label %return.sink.split, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end26.i
-  %incdec.ptr36.i = getelementptr inbounds nuw i8, ptr %s.addr.019, i64 3
+  %incdec.ptr36.i = getelementptr inbounds nuw i8, ptr %s.addr.020, i64 3
   %13 = load i8, ptr %incdec.ptr14.i, align 1
   %sub.i35.i = add i8 %13, -48
   %cmp43.i = icmp ugt i8 %sub.i35.i, 9
@@ -3481,11 +3482,11 @@ if.end48.i:                                       ; preds = %if.then34.i
   %conv42.i = zext nneg i8 %sub.i35.i to i16
   %narrow32.i = mul nuw nsw i16 %add29.i, 10
   %add51.i = add nuw nsw i16 %narrow32.i, %conv42.i
-  %cmp55.not.i = icmp eq i64 %length.addr.020, 3
+  %cmp55.not.i = icmp eq i64 %length.addr.021, 3
   br i1 %cmp55.not.i, label %return.sink.split, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.end48.i
-  %incdec.ptr58.i = getelementptr inbounds nuw i8, ptr %s.addr.019, i64 4
+  %incdec.ptr58.i = getelementptr inbounds nuw i8, ptr %s.addr.020, i64 4
   %14 = load i8, ptr %incdec.ptr36.i, align 1
   %sub.i36.i = add i8 %14, -48
   %cmp65.i = icmp ugt i8 %sub.i36.i, 9
@@ -3495,7 +3496,7 @@ if.end70.i:                                       ; preds = %if.then56.i
   %conv64.i = zext nneg i8 %sub.i36.i to i16
   %mul61.i = mul nuw nsw i16 %add51.i, 10
   %add73.i = add nuw nsw i16 %mul61.i, %conv64.i
-  %cmp77.not.i = icmp eq i64 %length.addr.020, 4
+  %cmp77.not.i = icmp eq i64 %length.addr.021, 4
   br i1 %cmp77.not.i, label %return.sink.split, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end70.i
@@ -3508,11 +3509,11 @@ if.end87.i:                                       ; preds = %if.then78.i
   %mul92.i = mul nuw i16 %add73.i, 10
   %16 = zext i8 %sub.i37.i to i16
   %conv97.i = add i16 %mul92.i, %16
-  %cmp99.not.i = icmp ne i64 %length.addr.020, 5
+  %cmp99.not.i = icmp ne i64 %length.addr.021, 5
   %cmp106.i = icmp ugt i8 %sub.i37.i, 9
-  %or.cond.i15 = or i1 %cmp99.not.i, %cmp106.i
+  %or.cond.i16 = or i1 %cmp99.not.i, %cmp106.i
   %cmp114.i = icmp ult i16 %conv97.i, %mul92.i
-  %or.cond33.i = select i1 %or.cond.i15, i1 true, i1 %cmp114.i
+  %or.cond33.i = select i1 %or.cond.i16, i1 true, i1 %cmp114.i
   br i1 %or.cond33.i, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %for.inc.i, %while.body, %if.end.i, %if.end26.i, %if.end48.i, %if.end70.i, %if.end87.i

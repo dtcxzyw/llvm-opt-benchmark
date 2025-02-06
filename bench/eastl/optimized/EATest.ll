@@ -1477,8 +1477,8 @@ lpad.thread:                                      ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.015, 1
-  %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9, label %for.body, !llvm.loop !11
+  %cmp = icmp ult i64 %inc, %call
+  br i1 %cmp, label %for.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9, !llvm.loop !11
 
 lpad:                                             ; preds = %_ZN5eastl6vectorIPN2EA8UnitTest4TestENS_9allocatorEEC2EmRKS5_.exit
   %5 = landingpad { ptr, i32 }
@@ -1986,8 +1986,8 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %pTestArray, i64 %i.019
   store ptr %3, ptr %arrayidx, align 8
   %inc = add nuw i64 %i.019, 1
-  %exitcond.not = icmp eq i64 %inc, %spec.select
-  br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !16
+  %cmp5 = icmp ult i64 %inc, %spec.select
+  br i1 %cmp5, label %for.body, label %if.end8, !llvm.loop !16
 
 if.end8:                                          ; preds = %for.body, %if.then, %entry
   %mTests9 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4449,19 +4449,15 @@ entry:
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %mpEnd.i, align 8
   %2 = load ptr, ptr %mTests, align 8
-  %cmp11.not = icmp eq ptr %1, %2
-  br i1 %cmp11.not, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit10, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
+  %cmp11.not = icmp eq ptr %1, %2
+  br i1 %cmp11.not, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit10, label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %entry, %for.inc
+  %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %3 = load ptr, ptr %mTests, align 8
   %add.ptr.i = getelementptr inbounds %"struct.EA::UnitTest::TestCollection::TestInfo", ptr %3, i64 %i.012
   %4 = load ptr, ptr %add.ptr.i, align 8
@@ -4481,8 +4477,8 @@ invoke.cont5:                                     ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont5
   %inc = add nuw i64 %i.012, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 lpad:                                             ; preds = %invoke.cont5, %for.body
   %8 = landingpad { ptr, i32 }

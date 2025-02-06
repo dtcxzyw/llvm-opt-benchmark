@@ -387,16 +387,20 @@ for.body.lr.ph:                                   ; preds = %if.else
   %pointCount32 = getelementptr inbounds nuw i8, ptr %oldManifold, i64 60
   %15 = load i32, ptr %pointCount32, align 4
   %cmp3346 = icmp sgt i32 %15, 0
-  %wide.trip.count61 = zext nneg i32 %14 to i64
-  br i1 %cmp3346, label %for.body.us.preheader, label %for.body
+  br i1 %cmp3346, label %for.body.us.preheader, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %for.body.lr.ph
+  %16 = zext nneg i32 %14 to i64
+  br label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count56 = zext nneg i32 %15 to i64
+  %17 = zext nneg i32 %15 to i64
+  %18 = zext nneg i32 %14 to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc46.us
-  %indvars.iv58 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next59, %for.inc46.us ]
-  %add.ptr.us = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv58
+  %indvars.iv56 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next57, %for.inc46.us ]
+  %add.ptr.us = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv56
   %normalImpulse.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 8
   store float 0.000000e+00, ptr %normalImpulse.us, align 4
   %tangentImpulse.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 12
@@ -407,41 +411,41 @@ for.body.us:                                      ; preds = %for.body.us.prehead
 
 for.cond31.us:                                    ; preds = %for.body34.us
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %for.inc46.us, label %for.body34.us, !llvm.loop !4
+  %cmp33.us = icmp samesign ult i64 %indvars.iv.next54, %17
+  br i1 %cmp33.us, label %for.body34.us, label %for.inc46.us, !llvm.loop !4
 
 for.body34.us:                                    ; preds = %for.body.us, %for.cond31.us
   %indvars.iv53 = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next54, %for.cond31.us ]
   %add.ptr38.us = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %oldManifold, i64 %indvars.iv53
   %id39.us = getelementptr inbounds nuw i8, ptr %add.ptr38.us, i64 16
-  %16 = load i32, ptr %id39.us, align 4
-  %cmp40.us = icmp eq i32 %16, %id2.sroa.0.0.copyload.us
+  %19 = load i32, ptr %id39.us, align 4
+  %cmp40.us = icmp eq i32 %19, %id2.sroa.0.0.copyload.us
   br i1 %cmp40.us, label %if.then41.us, label %for.cond31.us
 
 if.then41.us:                                     ; preds = %for.body34.us
   %normalImpulse42.us = getelementptr inbounds nuw i8, ptr %add.ptr38.us, i64 8
-  %17 = load float, ptr %normalImpulse42.us, align 4
-  store float %17, ptr %normalImpulse.us, align 4
+  %20 = load float, ptr %normalImpulse42.us, align 4
+  store float %20, ptr %normalImpulse.us, align 4
   %tangentImpulse44.us = getelementptr inbounds nuw i8, ptr %add.ptr38.us, i64 12
-  %18 = load float, ptr %tangentImpulse44.us, align 4
-  store float %18, ptr %tangentImpulse.us, align 4
+  %21 = load float, ptr %tangentImpulse44.us, align 4
+  store float %21, ptr %tangentImpulse.us, align 4
   br label %for.inc46.us
 
 for.inc46.us:                                     ; preds = %for.cond31.us, %if.then41.us
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %for.end48, label %for.body.us, !llvm.loop !6
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %cmp29.us = icmp samesign ult i64 %indvars.iv.next57, %18
+  br i1 %cmp29.us, label %for.body.us, label %for.end48, !llvm.loop !6
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %add.ptr = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %m_manifold, i64 %indvars.iv
   %normalImpulse = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store float 0.000000e+00, ptr %normalImpulse, align 4
   %tangentImpulse = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store float 0.000000e+00, ptr %tangentImpulse, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
-  br i1 %exitcond.not, label %for.end48, label %for.body, !llvm.loop !6
+  %cmp29 = icmp samesign ult i64 %indvars.iv.next, %16
+  br i1 %cmp29, label %for.body, label %for.end48, !llvm.loop !6
 
 for.end48:                                        ; preds = %for.body, %for.inc46.us, %if.else
   %conv = zext i1 %cmp25 to i32
@@ -450,37 +454,37 @@ for.end48:                                        ; preds = %for.body, %for.inc4
   br i1 %cmp52.not, label %if.end55, label %if.then53
 
 if.then53:                                        ; preds = %for.end48
-  %19 = load i32, ptr %7, align 8
-  %cmp.i = icmp eq i32 %19, 0
+  %22 = load i32, ptr %7, align 8
+  %cmp.i = icmp eq i32 %22, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then53
   %m_flags.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %20 = load i16, ptr %m_flags.i, align 4
+  %23 = load i16, ptr %m_flags.i, align 4
   %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %7, i64 172
-  %21 = or i16 %20, 2
-  store i16 %21, ptr %m_flags.i, align 4
+  %24 = or i16 %23, 2
+  store i16 %24, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then53, %if.end.i
-  %22 = load i32, ptr %8, align 8
-  %cmp.i38 = icmp eq i32 %22, 0
+  %25 = load i32, ptr %8, align 8
+  %cmp.i38 = icmp eq i32 %25, 0
   br i1 %cmp.i38, label %if.end55, label %if.end.i39
 
 if.end.i39:                                       ; preds = %_ZN6b2Body8SetAwakeEb.exit
   %m_flags.i40 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %23 = load i16, ptr %m_flags.i40, align 4
+  %26 = load i16, ptr %m_flags.i40, align 4
   %m_sleepTime.i41 = getelementptr inbounds nuw i8, ptr %8, i64 172
-  %24 = or i16 %23, 2
-  store i16 %24, ptr %m_flags.i40, align 4
+  %27 = or i16 %26, 2
+  store i16 %27, ptr %m_flags.i40, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i41, align 4
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end.i39, %_ZN6b2Body8SetAwakeEb.exit, %for.end48, %if.then
   %touching.0.in = phi i1 [ %call19, %if.then ], [ %cmp25, %for.end48 ], [ %cmp25, %_ZN6b2Body8SetAwakeEb.exit ], [ %cmp25, %if.end.i39 ]
-  %25 = load i32, ptr %m_flags, align 8
-  %and62 = and i32 %25, -3
+  %28 = load i32, ptr %m_flags, align 8
+  %and62 = and i32 %28, -3
   %masksel = select i1 %touching.0.in, i32 2, i32 0
   %storemerge = or disjoint i32 %and62, %masksel
   store i32 %storemerge, ptr %m_flags, align 8
@@ -499,8 +503,8 @@ if.end88.sink.split:                              ; preds = %if.end75, %if.end55
   %.sink = phi i64 [ 16, %if.end55 ], [ 24, %if.end75 ]
   %vtable73 = load ptr, ptr %listener, align 8
   %vfn74 = getelementptr inbounds nuw i8, ptr %vtable73, i64 %.sink
-  %26 = load ptr, ptr %vfn74, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %listener, ptr noundef nonnull %this)
+  %29 = load ptr, ptr %vfn74, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %listener, ptr noundef nonnull %this)
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end88.sink.split, %if.end75
@@ -511,8 +515,8 @@ if.end88:                                         ; preds = %if.end88.sink.split
 if.then96:                                        ; preds = %if.end88
   %vtable97 = load ptr, ptr %listener, align 8
   %vfn98 = getelementptr inbounds nuw i8, ptr %vtable97, i64 32
-  %27 = load ptr, ptr %vfn98, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %listener, ptr noundef nonnull %this, ptr noundef nonnull %oldManifold)
+  %30 = load ptr, ptr %vfn98, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %listener, ptr noundef nonnull %this, ptr noundef nonnull %oldManifold)
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then96, %if.end88

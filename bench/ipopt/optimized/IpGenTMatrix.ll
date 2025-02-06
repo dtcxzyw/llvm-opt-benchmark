@@ -960,45 +960,49 @@ define void @_ZN5Ipopt15GenTMatrixSpaceC2EiiiPKiS2_(ptr noundef nonnull align 8 
   store i32 %3, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = zext i32 %3 to i64
+  %13 = zext nneg i32 %3 to i64
   %14 = icmp slt i32 %3, 0
   %15 = shl nuw nsw i64 %13, 2
   %16 = select i1 %14, i64 -1, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %16) #13
-          to label %18 unwind label %30
+          to label %18 unwind label %32
 
 18:                                               ; preds = %6
   store ptr %17, ptr %12, align 8
   %19 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %16) #13
-          to label %20 unwind label %30
+          to label %20 unwind label %32
 
 20:                                               ; preds = %18
   store ptr %19, ptr %11, align 8
   %21 = icmp sgt i32 %3, 0
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %20 ]
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
-  store i32 %23, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
-  store i32 %27, ptr %29, align 4
+.lr.ph.preheader:                                 ; preds = %20
+  %22 = zext nneg i32 %3 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4
+  %25 = load ptr, ptr %12, align 8
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  store i32 %24, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4
+  %29 = load ptr, ptr %11, align 8
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  store i32 %28, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %31 = icmp samesign ult i64 %indvars.iv.next, %22
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-30:                                               ; preds = %18, %6
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %18, %6
+  %33 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   ret void

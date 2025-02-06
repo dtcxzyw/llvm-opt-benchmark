@@ -79,8 +79,8 @@ for.cond.preheader:                               ; preds = %if.end40
 
 for.cond:                                         ; preds = %if.end53
   %inc = add nuw nsw i32 %i.078, 1
-  %exitcond.not = icmp eq i32 %inc, %iterations
-  br i1 %exitcond.not, label %if.end62, label %for.body, !llvm.loop !4
+  %cmp47 = icmp sgt i32 %iterations, %inc
+  br i1 %cmp47, label %for.body, label %if.end62, !llvm.loop !4
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.078 = phi i32 [ %inc, %for.cond ], [ 1, %for.cond.preheader ]
@@ -228,8 +228,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 for.cond.us:                                      ; preds = %for.body.us
   %inc.us = add nuw nsw i32 %j.039.us, 1
-  %exitcond97.not = icmp eq i32 %inc.us, 4
-  br i1 %exitcond97.not, label %if.end34.us, label %for.body.us, !llvm.loop !7
+  %cmp24.us = icmp samesign ult i32 %j.039.us, 3
+  br i1 %cmp24.us, label %for.body.us, label %if.end34.us, !llvm.loop !7
 
 if.end34.us:                                      ; preds = %for.cond.us
   %call37.us = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %buffer) #6
@@ -275,8 +275,8 @@ for.body.i.i.us:                                  ; preds = %if.end62.us, %for.b
   %xor.i.i.us = xor i64 %6, %5
   store i64 %xor.i.i.us, ptr %tpb.sroa.0.0.i.us, align 8
   %inc.i.i.us = add nuw nsw i32 %i.03.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i32 %inc.i.i.us, %div15.i.us
-  br i1 %exitcond.not.i.i.us, label %if.end.i.us, label %for.body.i.i.us, !llvm.loop !8
+  %cmp.i.i.us = icmp samesign ult i32 %inc.i.i.us, %div15.i.us
+  br i1 %cmp.i.i.us, label %for.body.i.i.us, label %if.end.i.us, !llvm.loop !8
 
 if.end.i.us:                                      ; preds = %for.body.i.i.us, %if.end62.us
   %count.addr.0.i.us = phi i32 [ %cond.i.us.mux, %if.end62.us ], [ %rem8.i.us, %for.body.i.i.us ]
@@ -286,30 +286,30 @@ if.end.i.us:                                      ; preds = %for.body.i.i.us, %i
   br i1 %cmp928.not.i.us, label %xorbuf.exit.us, label %for.body.preheader.i.us
 
 for.body.preheader.i.us:                          ; preds = %if.end.i.us
-  %wide.trip.count.i.us = zext i32 %count.addr.0.i.us to i64
+  %7 = zext i32 %count.addr.0.i.us to i64
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us, %for.body.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %for.body.preheader.i.us ], [ %indvars.iv.next.i.us, %for.body.i.us ]
   %arrayidx.i.us = getelementptr inbounds nuw i8, ptr %m.0.i.us, i64 %indvars.iv.i.us
-  %7 = load i8, ptr %arrayidx.i.us, align 1
+  %8 = load i8, ptr %arrayidx.i.us, align 1
   %arrayidx13.i.us = getelementptr inbounds nuw i8, ptr %b.0.i.us, i64 %indvars.iv.i.us
-  %8 = load i8, ptr %arrayidx13.i.us, align 1
-  %xor1516.i.us = xor i8 %8, %7
+  %9 = load i8, ptr %arrayidx13.i.us, align 1
+  %xor1516.i.us = xor i8 %9, %8
   store i8 %xor1516.i.us, ptr %arrayidx13.i.us, align 1
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %xorbuf.exit.us, label %for.body.i.us, !llvm.loop !9
+  %cmp9.i.us = icmp samesign ult i64 %indvars.iv.next.i.us, %7
+  br i1 %cmp9.i.us, label %for.body.i.us, label %xorbuf.exit.us, !llvm.loop !9
 
 xorbuf.exit.us:                                   ; preds = %for.body.i.us, %if.end.i.us
   %inc65.us = add nuw nsw i32 %j.141.us, 1
-  %exitcond98.not = icmp eq i32 %inc65.us, %iterations
-  br i1 %exitcond98.not, label %for.cond45.if.end70_crit_edge.us, label %for.body48.us, !llvm.loop !10
+  %cmp46.us = icmp sgt i32 %iterations, %inc65.us
+  br i1 %cmp46.us, label %for.body48.us, label %for.cond45.if.end70_crit_edge.us, !llvm.loop !10
 
 for.body.us:                                      ; preds = %while.body.us, %for.cond.us
   %j.039.us = phi i32 [ %inc.us, %for.cond.us ], [ 0, %while.body.us ]
-  %9 = shl nuw nsw i32 %j.039.us, 3
-  %mul.us = sub nuw nsw i32 24, %9
+  %10 = shl nuw nsw i32 %j.039.us, 3
+  %mul.us = sub nuw nsw i32 24, %10
   %shr.us = lshr i32 %i.046.us, %mul.us
   %conv.us = trunc i32 %shr.us to i8
   store i8 %conv.us, ptr %b, align 1
@@ -334,13 +334,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %j.039, 1
-  %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %if.end34, label %for.body, !llvm.loop !7
+  %cmp24 = icmp samesign ult i32 %j.039, 3
+  br i1 %cmp24, label %for.body, label %if.end34, !llvm.loop !7
 
 for.body:                                         ; preds = %while.body, %for.cond
   %j.039 = phi i32 [ %inc, %for.cond ], [ 0, %while.body ]
-  %10 = shl nuw nsw i32 %j.039, 3
-  %mul = sub nuw nsw i32 24, %10
+  %11 = shl nuw nsw i32 %j.039, 3
+  %mul = sub nuw nsw i32 24, %11
   %shr = lshr i32 %i.046, %mul
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %b, align 1
@@ -499,8 +499,6 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %cmp1318.i = icmp sgt i32 %iterations, 1
   %cmp10899.not = icmp eq i32 %add29, 0
   %add.ptr149 = getelementptr inbounds nuw i8, ptr %tmp, i64 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %call16.fr, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %while.body
 
 for.body52:                                       ; preds = %for.body52.preheader, %for.body52
@@ -556,8 +554,8 @@ if.then20.i:                                      ; preds = %if.end18.i
 for.inc.i:                                        ; preds = %if.then20.i, %if.end18.i, %for.body.i
   %ret.3.i = phi i32 [ %call22.i, %if.then20.i ], [ %call17.i, %if.end18.i ], [ %ret.120.i, %for.body.i ]
   %inc.i = add nuw nsw i32 %i.019.i, 1
-  %exitcond.not.i = icmp eq i32 %iterations, %inc.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
+  %cmp13.i = icmp sgt i32 %iterations, %inc.i
+  br i1 %cmp13.i, label %for.body.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end12.i
   %ret.1.lcssa.i = phi i32 [ %ret.0.i, %if.end12.i ], [ %ret.3.i, %for.inc.i ]
@@ -580,8 +578,8 @@ for.body72:                                       ; preds = %DoPKCS12Hash.exit, 
   %arrayidx77 = getelementptr inbounds nuw [144 x i8], ptr %B, i64 0, i64 %indvars.iv110
   store i8 %9, ptr %arrayidx77, align 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %for.end80, label %for.body72, !llvm.loop !15
+  %cmp70 = icmp samesign ult i64 %indvars.iv.next111, %idx.ext
+  br i1 %cmp70, label %for.body72, label %for.end80, !llvm.loop !15
 
 for.end80:                                        ; preds = %for.body72
   %call82 = call i32 @sp_init(ptr noundef nonnull %B1) #6
@@ -732,9 +730,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

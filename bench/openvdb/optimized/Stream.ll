@@ -849,15 +849,15 @@ if.end.i:                                         ; preds = %invoke.cont144
 invoke.cont146.thread:                            ; preds = %if.end.i
   %46 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 8
   store i32 0, ptr %46, align 8
-  %_M_parent.i.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 16
-  store ptr null, ptr %_M_parent.i.i.i.i.i213, align 8
-  %_M_left.i.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 24
-  store ptr %46, ptr %_M_left.i.i.i.i.i214, align 8
-  %_M_right.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 32
-  store ptr %46, ptr %_M_right.i.i.i.i.i215, align 8
-  %_M_node_count.i.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 40
-  store i64 0, ptr %_M_node_count.i.i.i.i.i216, align 8
-  %_M_finish.i136221 = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
+  %_M_parent.i.i.i.i.i212 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 16
+  store ptr null, ptr %_M_parent.i.i.i.i.i212, align 8
+  %_M_left.i.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 24
+  store ptr %46, ptr %_M_left.i.i.i.i.i213, align 8
+  %_M_right.i.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 32
+  store ptr %46, ptr %_M_right.i.i.i.i.i214, align 8
+  %_M_node_count.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 40
+  store i64 0, ptr %_M_node_count.i.i.i.i.i215, align 8
+  %_M_finish.i136220 = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
   br label %for.end175
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -910,7 +910,6 @@ invoke.cont146:                                   ; preds = %_ZSt8_DestroyIPN7op
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %grid, i64 8
   %mUniqueName.i = getelementptr inbounds nuw i8, ptr %gd, i64 32
-  %smax = call i32 @llvm.smax.i32(i32 %call139, i32 1)
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont146, %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135
@@ -1256,8 +1255,8 @@ if.end8.sink.split.i.i.i.i126:                    ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEaSERKS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i123, %if.end8.sink.split.i.i.i.i126
   call void @_ZN7openvdb5v11_02io14GridDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %gd) #25
   %inc = add nuw nsw i32 %i.0208, 1
-  %exitcond.not = icmp eq i32 %inc, %smax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  %cmp = icmp slt i32 %inc, %call139
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 lpad98:                                           ; preds = %invoke.cont96
   %103 = landingpad { ptr, i32 }
@@ -1303,21 +1302,17 @@ ehcleanup165:                                     ; preds = %lpad157, %lpad149
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135
   %.pre = load ptr, ptr %_M_finish.i, align 8
-  %.pre212 = load ptr, ptr %descriptors, align 8
+  %.pre211 = load ptr, ptr %descriptors, align 8
   %_M_finish.i136 = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
-  %cmp169209.not = icmp eq ptr %.pre, %.pre212
-  br i1 %cmp169209.not, label %for.end175, label %for.body170.preheader
-
-for.body170.preheader:                            ; preds = %for.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.pre to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre212 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre211 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body170
+  %cmp169209.not = icmp eq ptr %.pre, %.pre211
+  br i1 %cmp169209.not, label %for.end175, label %for.body170
 
-for.body170:                                      ; preds = %for.body170.preheader, %for.inc173
-  %i166.0210 = phi i64 [ %inc174, %for.inc173 ], [ 0, %for.body170.preheader ]
+for.body170:                                      ; preds = %for.end, %for.inc173
+  %i166.0210 = phi i64 [ %inc174, %for.inc173 ], [ 0, %for.end ]
   %108 = load ptr, ptr %descriptors, align 8
   %add.ptr.i137 = getelementptr inbounds %"class.openvdb::v11_0::io::GridDescriptor", ptr %108, i64 %i166.0210
   invoke void @_ZNK7openvdb5v11_02io7Archive15connectInstanceERKNS1_14GridDescriptorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8GridBaseEESt4lessISC_ESaISt4pairIKSC_SF_EEE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i137, ptr noundef nonnull align 8 dereferenceable(48) %namedGrids)
@@ -1325,13 +1320,13 @@ for.body170:                                      ; preds = %for.body170.prehead
 
 for.inc173:                                       ; preds = %for.body170
   %inc174 = add nuw i64 %i166.0210, 1
-  %exitcond211.not = icmp eq i64 %inc174, %umax
-  br i1 %exitcond211.not, label %for.end175, label %for.body170, !llvm.loop !10
+  %cmp169 = icmp ult i64 %inc174, %sub.ptr.div.i
+  br i1 %cmp169, label %for.body170, label %for.end175, !llvm.loop !10
 
 for.end175:                                       ; preds = %for.inc173, %invoke.cont146.thread, %for.end
-  %_M_finish.i136224 = phi ptr [ %_M_finish.i136221, %invoke.cont146.thread ], [ %_M_finish.i136, %for.end ], [ %_M_finish.i136, %for.inc173 ]
-  %_M_parent.i.i.i.i.i218223 = phi ptr [ %_M_parent.i.i.i.i.i213, %invoke.cont146.thread ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i, %for.inc173 ]
-  %109 = load ptr, ptr %_M_parent.i.i.i.i.i218223, align 8
+  %_M_finish.i136227 = phi ptr [ %_M_finish.i136220, %invoke.cont146.thread ], [ %_M_finish.i136, %for.end ], [ %_M_finish.i136, %for.inc173 ]
+  %_M_parent.i.i.i.i.i217226 = phi ptr [ %_M_parent.i.i.i.i.i212, %invoke.cont146.thread ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i, %for.inc173 ]
+  %109 = load ptr, ptr %_M_parent.i.i.i.i.i217226, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08GridBaseEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %namedGrids, ptr noundef %109)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08GridBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %terminate.lpad.i.i138
 
@@ -1344,7 +1339,7 @@ terminate.lpad.i.i138:                            ; preds = %for.end175
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08GridBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %for.end175
   %112 = load ptr, ptr %descriptors, align 8
-  %113 = load ptr, ptr %_M_finish.i136224, align 8
+  %113 = load ptr, ptr %_M_finish.i136227, align 8
   %cmp.not3.i.i.i.i140 = icmp eq ptr %112, %113
   br i1 %cmp.not3.i.i.i.i140, label %invoke.cont.i, label %for.body.i.i.i.i141
 
@@ -5939,9 +5934,6 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

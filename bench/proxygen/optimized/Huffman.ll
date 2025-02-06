@@ -196,8 +196,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.bo
   %code.addr.0.lcssa.i.i = phi i32 [ %1, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, label %for.body.i, !llvm.loop !6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 255
+  br i1 %cmp.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
 
 _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i
   ret void
@@ -272,8 +272,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit:    ; preds = %if.end.i, %for.body
   %code.addr.0.lcssa.i = phi i32 [ %1, %for.body ], [ %and21.i, %if.end.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i, i32 noundef %code.addr.0.lcssa.i, i8 noundef zeroext %bits.addr.0.lcssa.i, i8 noundef zeroext %conv, i8 noundef zeroext %bits.addr.0.lcssa.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  %cmp = icmp samesign ult i64 %indvars.iv, 255
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit
   ret void
@@ -380,8 +380,8 @@ _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.bo
   %code.addr.0.lcssa.i.i = phi i32 [ %3, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, label %for.body.i, !llvm.loop !6
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 255
+  br i1 %cmp.i, label %for.body.i, label %_ZN8proxygen7huffman8HuffTree9buildTreeEv.exit, !llvm.loop !6
 
 _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i
   ret void
@@ -589,20 +589,19 @@ entry:
 define noundef i32 @_ZNK8proxygen7huffman8HuffTree6encodeEN5folly5RangeIPKcEERNS2_2io13QueueAppenderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %buf) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp36.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp36.not, label %if.end57, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %queue_.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   %growth_.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
   %attached3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -720,8 +719,8 @@ for.inc:                                          ; preds = %if.then, %_ZN5folly
   %totalBytes.1 = phi i32 [ %totalBytes.039, %if.then ], [ %add22, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %wbits.1 = phi i8 [ %conv11, %if.then ], [ %conv15, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %inc = add nuw i64 %i.038, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  %cmp = icmp ult i64 %inc, %sub.ptr.sub.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
   %20 = and i8 %wbits.1, 7
@@ -844,16 +843,15 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 536870913) i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
 entry:
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp7.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -867,8 +865,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext i8 %2 to i32
   %add = add i32 %totalBits.09, %conv
   %inc = add nuw i64 %i.08, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  %cmp = icmp ult i64 %inc, %sub.ptr.sub.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
   %totalBits.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]

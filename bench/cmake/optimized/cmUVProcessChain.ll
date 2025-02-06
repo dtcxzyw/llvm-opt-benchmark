@@ -1724,21 +1724,20 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %19, align 8, !tbaa !142
   %20 = lshr exact i64 %10, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %21
+  br label %.lr.ph
 
-21:                                               ; preds = %.loopexit, %21
-  %.08 = phi i64 [ 0, %.loopexit ], [ %26, %21 ]
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
-  %23 = load ptr, ptr %22, align 8, !tbaa !85
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08
-  store ptr %24, ptr %25, align 8, !tbaa !140
-  %26 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %26, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !143
+.lr.ph:                                           ; preds = %.loopexit, %.lr.ph
+  %.08 = phi i64 [ %25, %.lr.ph ], [ 0, %.loopexit ]
+  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
+  %22 = load ptr, ptr %21, align 8, !tbaa !85
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08
+  store ptr %23, ptr %24, align 8, !tbaa !140
+  %25 = add nuw i64 %.08, 1
+  %26 = icmp ult i64 %25, %20
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %21, %.loopexit.thread
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit.thread
   ret void
 }
 

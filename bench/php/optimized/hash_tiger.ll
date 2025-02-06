@@ -2960,18 +2960,17 @@ define void @PHP_TIGER128Final(ptr noundef writeonly captures(none) %0, ptr noun
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
   %4 = lshr i64 %indvars.iv.i, 3
-  %5 = and i64 %4, 536870911
-  %6 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %indvars.iv.i, 3
-  %9 = and i64 %8, 56
-  %10 = lshr i64 %7, %9
-  %11 = trunc i64 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1
+  %5 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %4
+  %6 = load i64, ptr %5, align 8
+  %7 = shl nuw nsw i64 %indvars.iv.i, 3
+  %8 = and i64 %7, 56
+  %9 = lshr i64 %6, %8
+  %10 = trunc i64 %9 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  %12 = icmp samesign ult i64 %indvars.iv.i, 15
+  br i1 %12, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5861,18 +5860,17 @@ define void @PHP_TIGER160Final(ptr noundef writeonly captures(none) %0, ptr noun
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
   %4 = lshr i64 %indvars.iv.i, 3
-  %5 = and i64 %4, 536870911
-  %6 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %indvars.iv.i, 3
-  %9 = and i64 %8, 56
-  %10 = lshr i64 %7, %9
-  %11 = trunc i64 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1
+  %5 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %4
+  %6 = load i64, ptr %5, align 8
+  %7 = shl nuw nsw i64 %indvars.iv.i, 3
+  %8 = and i64 %7, 56
+  %9 = lshr i64 %6, %8
+  %10 = trunc i64 %9 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  %12 = icmp samesign ult i64 %indvars.iv.i, 19
+  br i1 %12, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -5887,18 +5885,17 @@ define void @PHP_TIGER192Final(ptr noundef writeonly captures(none) %0, ptr noun
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
   %4 = lshr i64 %indvars.iv.i, 3
-  %5 = and i64 %4, 536870911
-  %6 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %indvars.iv.i, 3
-  %9 = and i64 %8, 56
-  %10 = lshr i64 %7, %9
-  %11 = trunc i64 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %11, ptr %12, align 1
+  %5 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %4
+  %6 = load i64, ptr %5, align 8
+  %7 = shl nuw nsw i64 %indvars.iv.i, 3
+  %8 = and i64 %7, 56
+  %9 = lshr i64 %6, %8
+  %10 = trunc i64 %9 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
+  %12 = icmp samesign ult i64 %indvars.iv.i, 23
+  br i1 %12, label %3, label %TigerDigest.exit
 
 TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7

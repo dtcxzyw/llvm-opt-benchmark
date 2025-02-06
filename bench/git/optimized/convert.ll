@@ -3686,8 +3686,7 @@ define internal fastcc void @trace_encoding(ptr noundef %0, ptr noundef %1, ptr 
   %20 = select i1 %.not24, i32 10, i32 %19
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.64, i32 noundef %21, i32 noundef %14, i32 noundef %16, i32 noundef %20) #22
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !130
+  br i1 %18, label %.lr.ph.split, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %8
   call void @strbuf_addchars(ptr noundef nonnull %6, i32 noundef 10, i64 noundef 1) #22

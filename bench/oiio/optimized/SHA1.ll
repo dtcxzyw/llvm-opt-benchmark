@@ -279,7 +279,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds nuw [2 x i32], ptr %m_count, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %1 = shl i32 %indvars.iv.tr, 3
+  %1 = shl nuw nsw i32 %indvars.iv.tr, 3
   %sub = and i32 %1, 24
   %mul = xor i32 %sub, 24
   %shr = lshr i32 %0, %mul
@@ -287,8 +287,8 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx5 = getelementptr inbounds nuw [8 x i8], ptr %pbFinalCount, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx5, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  %cmp = icmp samesign ult i64 %indvars.iv, 7
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
   %2 = load i32, ptr %m_count, align 4
@@ -354,11 +354,11 @@ if.end24.i21.thread:                              ; preds = %while.body
 if.end24.i21:                                     ; preds = %while.body
   store i8 0, ptr %arrayidx14.i36, align 1
   tail call void @_ZN18OpenImageIO_v2_6_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %m_buffer28.i27)
-  %.pre113 = load i32, ptr %m_count, align 4
+  %.pre112 = load i32, ptr %m_count, align 4
   br label %_ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47
 
 _ZN18OpenImageIO_v2_6_05CSHA16UpdateEPKhj.exit47: ; preds = %if.end24.i21, %if.end24.i21.thread
-  %11 = phi i32 [ %.pre113, %if.end24.i21 ], [ %add.i13, %if.end24.i21.thread ]
+  %11 = phi i32 [ %.pre112, %if.end24.i21 ], [ %add.i13, %if.end24.i21.thread ]
   %and8 = and i32 %11, 504
   %cmp9.not = icmp eq i32 %and8, 448
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
@@ -383,11 +383,10 @@ while.end:                                        ; preds = %_ZN18OpenImageIO_v2
 for.body12:                                       ; preds = %while.end, %for.body12
   %indvars.iv108 = phi i64 [ 0, %while.end ], [ %indvars.iv.next109, %for.body12 ]
   %shr13 = lshr i64 %indvars.iv108, 2
-  %idxprom14 = and i64 %shr13, 1073741823
-  %arrayidx15 = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr13
   %15 = load i32, ptr %arrayidx15, align 4
   %indvars.iv108.tr = trunc i64 %indvars.iv108 to i32
-  %16 = shl i32 %indvars.iv108.tr, 3
+  %16 = shl nuw nsw i32 %indvars.iv108.tr, 3
   %sub17 = and i32 %16, 24
   %mul18 = xor i32 %sub17, 24
   %shr19 = lshr i32 %15, %mul18
@@ -395,8 +394,8 @@ for.body12:                                       ; preds = %while.end, %for.bod
   %arrayidx23 = getelementptr inbounds nuw [20 x i8], ptr %m_digest, i64 0, i64 %indvars.iv108
   store i8 %conv21, ptr %arrayidx23, align 1
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next109, 20
-  br i1 %exitcond112.not, label %for.end26, label %for.body12, !llvm.loop !8
+  %cmp11 = icmp samesign ult i64 %indvars.iv108, 19
+  br i1 %cmp11, label %for.body12, label %for.end26, !llvm.loop !8
 
 for.end26:                                        ; preds = %for.body12
   ret void
@@ -2371,8 +2370,8 @@ for.body:                                         ; preds = %if.then4, %for.body
   store i64 %call.i.i.i12, ptr %m_len.i13, align 8
   %call16 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcatEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %tszReport, ptr noundef nonnull %agg.tmp14, i64 noundef 83) #21
   %inc = add nuw nsw i64 %i.020, 1
-  %exitcond22.not = icmp eq i64 %inc, 20
-  br i1 %exitcond22.not, label %return, label %for.body, !llvm.loop !10
+  %cmp8 = icmp samesign ult i64 %i.020, 19
+  br i1 %cmp8, label %for.body, label %return, !llvm.loop !10
 
 if.then18:                                        ; preds = %if.end
   %m_digest20 = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -2398,8 +2397,8 @@ for.body30:                                       ; preds = %if.then18, %for.bod
   store i64 %call.i.i.i16, ptr %m_len.i17, align 8
   %call38 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcatEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %tszReport, ptr noundef nonnull %agg.tmp36, i64 noundef 83) #21
   %inc40 = add nuw nsw i64 %i27.019, 1
-  %exitcond.not = icmp eq i64 %inc40, 20
-  br i1 %exitcond.not, label %return, label %for.body30, !llvm.loop !11
+  %cmp29 = icmp samesign ult i64 %i27.019, 19
+  br i1 %cmp29, label %for.body30, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.body30, %for.body, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.body ], [ true, %for.body30 ]

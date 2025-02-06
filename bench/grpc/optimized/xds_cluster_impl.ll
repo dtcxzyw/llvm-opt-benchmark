@@ -1791,16 +1791,15 @@ _ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i: 
   %call47.val.i = load ptr, ptr %value.i, align 8
   %62 = getelementptr inbounds nuw i8, ptr %value.i, i64 8
   %call47.val15.i = load ptr, ptr %62, align 8
-  %cmp95.not.i = icmp eq ptr %call47.val15.i, %call47.val.i
-  br i1 %cmp95.not.i, label %if.end58.i, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call47.val15.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call47.val.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
+  %cmp95.not.i = icmp eq ptr %call47.val15.i, %call47.val.i
+  br i1 %cmp95.not.i, label %if.end58.i, label %for.body.lr.ph.i
+
+for.body.lr.ph.i:                                 ; preds = %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit.i
   %parts_per_million3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i82.i, i64 32
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont56.i, %for.body.lr.ph.i
@@ -1856,8 +1855,8 @@ invoke.cont56.i:                                  ; preds = %if.then.i88.i, %inv
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i82.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54.i) #26
   %inc.i = add nuw i64 %i.096.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
-  br i1 %exitcond.not.i, label %if.end58.i, label %for.body.i, !llvm.loop !27
+  %cmp.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
+  br i1 %cmp.i, label %for.body.i, label %if.end58.i, !llvm.loop !27
 
 ehcleanup38.i:                                    ; preds = %lpad22.i, %ehcleanup.i, %lpad.i
   %.pn10.i = phi { ptr, i32 } [ %11, %lpad.i ], [ %21, %lpad22.i ], [ %.pn.i, %ehcleanup.i ]

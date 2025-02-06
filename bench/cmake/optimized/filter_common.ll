@@ -242,7 +242,6 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %10, label %lzma_validate_chain.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8, %17
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 1, %8 ]
   %11 = phi i64 [ %26, %17 ], [ %9, %8 ]
   %.026.i = phi i64 [ %23, %17 ], [ 0, %8 ]
   %.024.i = phi i8 [ %19, %17 ], [ 1, %8 ]
@@ -278,7 +277,6 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
   %25 = getelementptr inbounds nuw %struct.lzma_filter, ptr %2, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !4
   %.not34.i = icmp eq i64 %26, -1
-  %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %.not34.i, label %27, label %.preheader.i, !llvm.loop !25
 
 27:                                               ; preds = %17
@@ -328,8 +326,8 @@ lzma_validate_chain.exit:                         ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %48, ptr %49, align 8, !tbaa !33
   %50 = add nuw i64 %.05690, 1
-  %exitcond104.not = icmp eq i64 %50, %indvars.iv
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph91, !llvm.loop !34
+  %.not60 = icmp ult i64 %50, %24
+  br i1 %.not60, label %.lr.ph91, label %.loopexit, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader78, %59
   %.05588 = phi i64 [ %66, %59 ], [ 0, %.preheader78 ]
@@ -356,8 +354,8 @@ lzma_validate_chain.exit:                         ; preds = %27
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %64, ptr %65, align 8, !tbaa !33
   %66 = add nuw i64 %.05588, 1
-  %exitcond.not = icmp eq i64 %66, %indvars.iv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  %.not59 = icmp ult i64 %66, %24
+  br i1 %.not59, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %59, %43, %.preheader78, %.preheader
   %67 = getelementptr inbounds nuw [5 x %struct.lzma_filter_info_s], ptr %6, i64 0, i64 %24

@@ -488,7 +488,7 @@ for.inc.i:                                        ; preds = %if.then33.i, %for.b
   %.str.19.sink.i = phi ptr [ @.str.20, %if.then33.i ], [ @.str.19, %for.body.i ]
   %call29.i = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull %.str.19.sink.i) #5
   %inc.i = add nuw nsw i32 %i.01.i, 1
-  br label %for.body.i
+  br label %for.body.i, !llvm.loop !12
 
 if.else36.i:                                      ; preds = %if.then7
   %call37.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.21) #5
@@ -503,7 +503,7 @@ if.end12:                                         ; preds = %for.body.i, %if.els
   %inc = add nuw i64 %i.03, 1
   %call2 = tail call i64 @sk_num(ptr noundef %trees) #5
   %cmp3 = icmp ult i64 %inc, %call2
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end12, %if.end
   ret void
@@ -816,3 +816,4 @@ attributes #6 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

@@ -90,7 +90,6 @@ for.body.lr.ph:                                   ; preds = %call5.i.i.i.i2.i.i.
   %mul = mul nsw i32 %channels, %width
   %1 = zext nneg i32 %height to i64
   %2 = sext i32 %mul to i64
-  %wide.trip.count = zext nneg i32 %height to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -102,8 +101,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
   store ptr %add.ptr, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %1
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 lpad16:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i
   %6 = landingpad { ptr, i32 }
@@ -250,14 +249,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp25.not, label %for.end, label %invoke.cont6.preheader
 
 invoke.cont6.preheader:                           ; preds = %invoke.cont
-  %wide.trip.count = zext nneg i32 %mul4 to i64
+  %0 = zext nneg i32 %mul4 to i64
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont6.preheader, %invoke.cont6
   %indvars.iv = phi i64 [ 0, %invoke.cont6.preheader ], [ %indvars.iv.next, %invoke.cont6 ]
   %arrayidx = getelementptr inbounds nuw float, ptr %pixels, i64 %indvars.iv
-  %0 = load float, ptr %arrayidx, align 4
-  %mul.i = fmul float %0, 2.560000e+02
+  %1 = load float, ptr %arrayidx, align 4
+  %mul.i = fmul float %1, 2.560000e+02
   %cmp.i.i14 = fcmp ult float %mul.i, 0.000000e+00
   %cmp1.i.i = fcmp ugt float %mul.i, 2.550000e+02
   %or.cond.i.i = or i1 %cmp.i.i14, %cmp1.i.i
@@ -269,14 +268,14 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i13, i64 %indvars.iv
   store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %invoke.cont6, !llvm.loop !7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
+  br i1 %cmp, label %invoke.cont6, label %for.end, !llvm.loop !7
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %for.end
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i13) #16
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 
 for.end:                                          ; preds = %invoke.cont6, %invoke.cont
   %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %call5.i.i.i.i1.i.i13, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)

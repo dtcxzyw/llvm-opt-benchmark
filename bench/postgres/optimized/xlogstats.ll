@@ -78,9 +78,7 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
 
 .lr.ph.i.preheader:                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %12 = add nuw i32 %10, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %12 = zext nneg i32 %10 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %26
@@ -109,8 +107,8 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
   %.1 = phi i32 [ %25, %21 ], [ %.0, %17 ], [ %.0, %.lr.ph.i ]
   %27 = phi i32 [ %25, %21 ], [ %13, %17 ], [ %13, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %XLogRecGetLen.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  %.not.i.not = icmp samesign ult i64 %indvars.iv, %12
+  br i1 %.not.i.not, label %.lr.ph.i, label %XLogRecGetLen.exit.loopexit, !llvm.loop !5
 
 XLogRecGetLen.exit.loopexit:                      ; preds = %26
   %28 = zext i32 %.1 to i64
@@ -161,11 +159,7 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #1
-
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

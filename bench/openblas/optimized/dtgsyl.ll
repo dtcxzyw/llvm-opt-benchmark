@@ -198,7 +198,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %128 = icmp slt i32 %115, 2
   %129 = icmp slt i32 %116, 2
   %130 = select i1 %128, i1 %129, i1 false
-  br i1 %130, label %.preheader86, label %131
+  br i1 %130, label %.preheader88, label %131
 
 131:                                              ; preds = %125
   %132 = load i32, ptr %2, align 4, !tbaa !3
@@ -208,14 +208,14 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 134:                                              ; preds = %131
   %135 = load i32, ptr %3, align 4, !tbaa !3
   %136 = icmp slt i32 %116, %135
-  br i1 %136, label %185, label %.preheader86
+  br i1 %136, label %185, label %.preheader88
 
-.preheader86:                                     ; preds = %134, %125
+.preheader88:                                     ; preds = %134, %125
   br label %137
 
-137:                                              ; preds = %.preheader86, %181
-  %138 = phi i32 [ %183, %181 ], [ 1, %.preheader86 ]
-  %139 = phi double [ %182, %181 ], [ undef, %.preheader86 ]
+137:                                              ; preds = %.preheader88, %181
+  %138 = phi i32 [ %183, %181 ], [ 1, %.preheader88 ]
+  %139 = phi double [ %182, %181 ], [ undef, %.preheader88 ]
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
   store i32 0, ptr %33, align 4, !tbaa !3
@@ -243,8 +243,8 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %151
 
 151:                                              ; preds = %149, %144
-  %.sink79 = phi i32 [ %150, %149 ], [ %148, %144 ]
-  %152 = sitofp i32 %.sink79 to double
+  %.sink80 = phi i32 [ %150, %149 ], [ %148, %144 ]
+  %152 = sitofp i32 %.sink80 to double
   %153 = call double @sqrt(double noundef %152) #6
   %154 = load double, ptr %32, align 8, !tbaa !7
   %155 = load double, ptr %26, align 8, !tbaa !7
@@ -477,9 +477,9 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %315 = icmp slt i32 %283, %285
   br label %316
 
-316:                                              ; preds = %421, %.preheader44.split.us
-  %317 = phi i32 [ %280, %.preheader44.split.us ], [ %344, %421 ]
-  %318 = phi i64 [ %270, %.preheader44.split.us ], [ %422, %421 ]
+316:                                              ; preds = %.backedge, %.preheader44.split.us
+  %317 = phi i32 [ %280, %.preheader44.split.us ], [ %344, %.backedge ]
+  %318 = phi i64 [ %270, %.preheader44.split.us ], [ %.be, %.backedge ]
   %319 = getelementptr inbounds i32, ptr %59, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !3
   %321 = getelementptr i8, ptr %319, i64 4
@@ -631,7 +631,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %409
 
 409:                                              ; preds = %403, %401
-  br i1 %301, label %410, label %421
+  br i1 %301, label %410, label %.thread71
 
 410:                                              ; preds = %409
   %411 = load i32, ptr %3, align 4, !tbaa !3
@@ -648,20 +648,24 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %419 = sext i32 %418 to i64
   %420 = getelementptr inbounds double, ptr %58, i64 %419
   call void @dgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %30, ptr noundef nonnull %24, ptr noundef nonnull %31, ptr noundef nonnull @c_b52, ptr noundef %338, ptr noundef nonnull %15, ptr noundef %310, ptr noundef nonnull %13, ptr noundef nonnull @c_b52, ptr noundef %420, ptr noundef nonnull %15) #6
-  br label %421
+  %421 = trunc i64 %318 to i32
+  %422 = icmp sgt i32 %421, 1
+  br i1 %422, label %.backedge, label %.loopexit43.us
 
-421:                                              ; preds = %410, %409
-  %422 = add nsw i64 %318, -1
+.backedge:                                        ; preds = %410, %.thread71
+  %.be = add nsw i64 %318, -1
+  br label %316, !llvm.loop !16
+
+.thread71:                                        ; preds = %409
   %423 = trunc i64 %318 to i32
   %424 = icmp sgt i32 %423, 1
-  br i1 %424, label %316, label %.loopexit43.us, !llvm.loop !16
+  br i1 %424, label %.backedge, label %.split.us
 
-.loopexit43.us:                                   ; preds = %421
+.loopexit43.us:                                   ; preds = %410
   %425 = add nsw i64 %281, 1
-  %exitcond.not = icmp eq i64 %281, %smax
-  br i1 %exitcond.not, label %.split.us, label %.preheader44.split.us, !llvm.loop !17
+  br label %.preheader44.split.us
 
-.split.us:                                        ; preds = %.loopexit43.us
+.split.us:                                        ; preds = %.thread71
   %.pr29.pre = load double, ptr %32, align 8, !tbaa !7
   %426 = fcmp une double %.pr29.pre, 0.000000e+00
   br i1 %426, label %427, label %.thread30
@@ -681,9 +685,9 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %434
 
 434:                                              ; preds = %427, %429
-  %.sink80.in = phi i32 [ %433, %429 ], [ %344, %427 ]
-  %.sink80 = sitofp i32 %.sink80.in to double
-  %435 = call double @sqrt(double noundef %.sink80) #6
+  %.sink81.in = phi i32 [ %433, %429 ], [ %344, %427 ]
+  %.sink81 = sitofp i32 %.sink81.in to double
+  %435 = call double @sqrt(double noundef %.sink81) #6
   %436 = load double, ptr %32, align 8, !tbaa !7
   %437 = load double, ptr %26, align 8, !tbaa !7
   %438 = call double @sqrt(double noundef %437) #6
@@ -732,7 +736,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %461 = phi double [ %445, %443 ], [ %276, %454 ], [ %276, %451 ]
   %462 = add nuw nsw i32 %275, 1
   %463 = icmp samesign ult i32 %275, %127
-  br i1 %463, label %274, label %.loopexit37, !llvm.loop !18
+  br i1 %463, label %274, label %.loopexit37, !llvm.loop !17
 
 464:                                              ; preds = %244
   store double 1.000000e+00, ptr %16, align 8, !tbaa !7
@@ -764,7 +768,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .loopexit36:                                      ; preds = %618
   %483 = add nuw nsw i64 %485, 1
   %484 = icmp samesign ult i64 %485, %482
-  br i1 %484, label %.split55, label %.loopexit37, !llvm.loop !19
+  br i1 %484, label %.split55, label %.loopexit37, !llvm.loop !18
 
 .split55:                                         ; preds = %.split55.preheader, %.loopexit36
   %485 = phi i64 [ %483, %.loopexit36 ], [ 1, %.split55.preheader ]
@@ -856,7 +860,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %553 = load i32, ptr %24, align 4, !tbaa !3
   %554 = sext i32 %553 to i64
   %555 = icmp slt i64 %547, %554
-  br i1 %555, label %.preheader, label %.loopexit35, !llvm.loop !20
+  br i1 %555, label %.preheader, label %.loopexit35, !llvm.loop !19
 
 .loopexit35:                                      ; preds = %.preheader, %544
   store i32 %520, ptr %24, align 4, !tbaa !3
@@ -881,7 +885,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %566 = load i32, ptr %24, align 4, !tbaa !3
   %567 = sext i32 %566 to i64
   %568 = icmp slt i64 %560, %567
-  br i1 %568, label %559, label %569, !llvm.loop !21
+  br i1 %568, label %559, label %569, !llvm.loop !20
 
 569:                                              ; preds = %559
   store i32 %520, ptr %24, align 4, !tbaa !3
@@ -905,7 +909,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %581 = load i32, ptr %24, align 4, !tbaa !3
   %582 = sext i32 %581 to i64
   %583 = icmp slt i64 %571, %582
-  br i1 %583, label %570, label %.loopexit34, !llvm.loop !22
+  br i1 %583, label %570, label %.loopexit34, !llvm.loop !21
 
 .loopexit34:                                      ; preds = %570, %.loopexit35
   %584 = load i32, ptr %3, align 4, !tbaa !3
@@ -929,7 +933,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %595 = load i32, ptr %24, align 4, !tbaa !3
   %596 = sext i32 %595 to i64
   %597 = icmp slt i64 %589, %596
-  br i1 %597, label %588, label %.loopexit33, !llvm.loop !23
+  br i1 %597, label %588, label %.loopexit33, !llvm.loop !22
 
 .loopexit33:                                      ; preds = %588, %.loopexit34
   %598 = load double, ptr %34, align 8, !tbaa !7
@@ -973,7 +977,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 618:                                              ; preds = %610, %609
   %619 = add nsw i64 %515, -1
-  br i1 %602, label %514, label %.loopexit36, !llvm.loop !24
+  br i1 %602, label %514, label %.loopexit36, !llvm.loop !23
 
 .loopexit37:                                      ; preds = %460, %.loopexit36, %466, %464
   store double %107, ptr %18, align 8, !tbaa !7
@@ -1060,4 +1064,3 @@ attributes #6 = { nounwind }
 !21 = distinct !{!21, !10, !11}
 !22 = distinct !{!22, !10, !11}
 !23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}

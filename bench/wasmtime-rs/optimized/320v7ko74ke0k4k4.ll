@@ -28437,9 +28437,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %170 = add nuw nsw i64 %.sroa.9.0194, 1
   %171 = icmp samesign ugt i64 %.sroa.9.0194, 4294967295
   %172 = trunc nuw i64 %.sroa.9.0194 to i32
-  %.2.i = select i1 %171, i32 undef, i32 %172
-  %exitcond = icmp eq i64 %.sroa.9.0194, 4294967296
-  br i1 %exitcond, label %184, label %173
+  br i1 %171, label %184, label %173
 
 173:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !4297
@@ -28625,7 +28623,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %246 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %247 = load ptr, ptr %246, align 8, !alias.scope !4335, !nonnull !5, !noundef !5
   %248 = getelementptr inbounds i32, ptr %247, i64 %245
-  store i32 %.2.i, ptr %248, align 4
+  store i32 %172, ptr %248, align 4
   %249 = load i64, ptr %240, align 8, !alias.scope !4335, !noundef !5
   %250 = add i64 %249, 1
   store i64 %250, ptr %240, align 8, !alias.scope !4335

@@ -234,8 +234,7 @@ cond.end.i:                                       ; preds = %cond.false.i
   %cond5.i = tail call i32 @llvm.umin.i32(i32 %repeatMax.val, i32 %minPeriod)
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %25 = add nuw nsw i32 %cond5.i, 1
-  %wide.trip.count.i = zext nneg i32 %25 to i64
+  %25 = zext nneg i32 %cond5.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit.i, %cond.end.i
@@ -302,8 +301,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i
   %31 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ]
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %for.cond9.i, label %for.body.i, !llvm.loop !5
+  %cmp6.not.not.i = icmp samesign ult i64 %indvars.iv.i, %25
+  br i1 %cmp6.not.not.i, label %for.body.i, label %for.cond9.i, !llvm.loop !5
 
 for.cond9.i:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit.i, %_ZNSt6vectorImSaImEE9push_backEOm.exit50.i
   %32 = phi ptr [ %40, %_ZNSt6vectorImSaImEE9push_backEOm.exit50.i ], [ %31, %_ZNSt6vectorImSaImEE9push_backEOm.exit.i ]
@@ -885,20 +884,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %_M_finish.i4 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.024, i64 8
   %3 = load ptr, ptr %_M_finish.i4, align 8
   %4 = load ptr, ptr %__begin1.sroa.0.024, align 8
-  %cmp17.not = icmp eq ptr %3, %4
-  br i1 %cmp17.not, label %for.end, label %invoke.cont.lr.ph
-
-invoke.cont.lr.ph:                                ; preds = %for.body
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
+  %cmp17.not = icmp eq ptr %3, %4
+  br i1 %cmp17.not, label %for.end, label %invoke.cont.lr.ph
+
+invoke.cont.lr.ph:                                ; preds = %for.body
   %5 = getelementptr i8, ptr %4, i64 %sub.ptr.sub.i
   %6 = load i64, ptr %cr, align 8, !noalias !13
   %7 = load i64, ptr %arrayidx.i.i19.i.i, align 8, !noalias !13
   %8 = load i64, ptr %arrayidx.i.i21.i.i, align 8, !noalias !13
   %9 = load i64, ptr %arrayidx.i.i23.i.i, align 8, !noalias !13
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.inc
@@ -958,11 +956,11 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 for.inc:                                          ; preds = %invoke.cont10
   %inc = add nuw i64 %storemerge18, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %invoke.cont, !llvm.loop !16
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %invoke.cont, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %invoke.cont10, %for.body
-  %storemerge.lcssa = phi i64 [ 0, %for.body ], [ %storemerge18, %invoke.cont10 ], [ %umax, %for.inc ]
+  %storemerge.lcssa = phi i64 [ 0, %for.body ], [ %storemerge18, %invoke.cont10 ], [ %inc, %for.inc ]
   %16 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i

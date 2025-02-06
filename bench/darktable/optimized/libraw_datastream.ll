@@ -411,35 +411,34 @@ define noundef i32 @_ZN24LibRaw_buffer_datastream9scanf_oneEPKcPv(ptr noundef no
   %16 = add i64 %15, -1
   %.promoted = load i64, ptr %4, align 8, !tbaa !60
   %17 = load ptr, ptr %10, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %.promoted, i64 %16)
   br label %18
 
-18:                                               ; preds = %.preheader, %24
-  %19 = phi i64 [ %21, %24 ], [ %.promoted, %.preheader ]
-  %.0 = phi i32 [ %25, %24 ], [ 0, %.preheader ]
-  %exitcond.not = icmp eq i64 %19, %umax
-  br i1 %exitcond.not, label %.loopexit, label %20
+18:                                               ; preds = %.preheader, %25
+  %19 = phi i64 [ %22, %25 ], [ %.promoted, %.preheader ]
+  %.0 = phi i32 [ %26, %25 ], [ 0, %.preheader ]
+  %20 = icmp ult i64 %19, %16
+  br i1 %20, label %21, label %.loopexit
 
-20:                                               ; preds = %18
-  %21 = add i64 %19, 1
-  store i64 %21, ptr %4, align 8, !tbaa !60
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !64
-  switch i8 %23, label %24 [
+21:                                               ; preds = %18
+  %22 = add nuw i64 %19, 1
+  store i64 %22, ptr %4, align 8, !tbaa !60
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !64
+  switch i8 %24, label %25 [
     i8 0, label %.loopexit
     i8 32, label %.loopexit
     i8 9, label %.loopexit
   ]
 
-24:                                               ; preds = %20
-  %25 = add nuw nsw i32 %.0, 1
-  %26 = icmp eq i8 %23, 10
-  %27 = icmp samesign ugt i32 %.0, 23
-  %or.cond = select i1 %26, i1 true, i1 %27
+25:                                               ; preds = %21
+  %26 = add nuw nsw i32 %.0, 1
+  %27 = icmp eq i8 %24, 10
+  %28 = icmp samesign ugt i32 %.0, 23
+  %or.cond = select i1 %27, i1 true, i1 %28
   br i1 %or.cond, label %.loopexit, label %18, !llvm.loop !65
 
-.loopexit:                                        ; preds = %20, %20, %20, %24, %18, %9, %3
-  %.08 = phi i32 [ 0, %3 ], [ %13, %9 ], [ %13, %18 ], [ %13, %24 ], [ %13, %20 ], [ %13, %20 ], [ %13, %20 ]
+.loopexit:                                        ; preds = %21, %21, %21, %25, %18, %9, %3
+  %.08 = phi i32 [ 0, %3 ], [ %13, %9 ], [ %13, %18 ], [ %13, %25 ], [ %13, %21 ], [ %13, %21 ], [ %13, %21 ]
   ret i32 %.08
 }
 

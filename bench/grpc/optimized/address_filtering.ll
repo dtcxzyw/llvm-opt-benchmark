@@ -168,6 +168,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp44.not = icmp eq ptr %0, %1
   br i1 %cmp44.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
@@ -182,7 +183,6 @@ entry.for.end_crit_edge:                          ; preds = %entry
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %path_1 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %_M_finish.i10 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %2 = load ptr, ptr %_M_finish.i10, align 8
@@ -191,13 +191,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
   %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
   %inc = add nuw i64 %i.045, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -2480,6 +2479,7 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %cmp44.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp44.not.i.i, label %entry.for.end_crit_edge.i.i, label %for.body.lr.ph.i.i
 
@@ -2494,7 +2494,6 @@ entry.for.end_crit_edge.i.i:                      ; preds = %entry
   br label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %path_1.i.i = getelementptr inbounds nuw i8, ptr %p2, i64 16
   %_M_finish.i10.i.i = getelementptr inbounds nuw i8, ptr %p2, i64 24
   %2 = load ptr, ptr %_M_finish.i10.i.i, align 8
@@ -2503,13 +2502,12 @@ for.body.lr.ph.i.i:                               ; preds = %entry
   %sub.ptr.rhs.cast.i12.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i13.i.i = sub i64 %sub.ptr.lhs.cast.i11.i.i, %sub.ptr.rhs.cast.i12.i.i
   %sub.ptr.div.i14.i.i = ashr exact i64 %sub.ptr.sub.i13.i.i, 3
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
   %inc.i.i = add nuw i64 %i.045.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !4
+  %cmp.i.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i
+  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %i.045.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
@@ -2601,9 +2599,6 @@ declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18

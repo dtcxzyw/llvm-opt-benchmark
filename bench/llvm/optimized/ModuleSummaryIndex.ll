@@ -1420,26 +1420,22 @@ define dso_local i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef
   %.0.copyload.i.i.i.i = load i64, ptr %8, align 8
   %9 = and i64 %.0.copyload.i.i.i.i, 4
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %.critedge, label %10
+  br i1 %.not, label %.lr.ph26.preheader, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = add nuw i32 %.01418, 1
   %.0 = add nsw i32 %.019, -1
-  %exitcond.not = icmp eq i32 %11, %5
-  br i1 %exitcond.not, label %.critedge.thread34, label %.lr.ph, !llvm.loop !103
+  %12 = icmp sgt i32 %.019, 0
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !103
 
-.critedge.thread34:                               ; preds = %10
-  %12 = zext i32 %5 to i64
-  %13 = shl nuw i64 %12, 32
+.critedge:                                        ; preds = %10
+  %13 = zext i32 %5 to i64
+  %14 = shl nuw i64 %13, 32
   br label %.critedge2
 
-.critedge:                                        ; preds = %.lr.ph
-  %14 = zext i32 %.01418 to i64
-  %15 = shl nuw i64 %14, 32
-  %16 = icmp sgt i32 %.019, -1
-  br i1 %16, label %.lr.ph26.preheader, label %.critedge2
-
-.lr.ph26.preheader:                               ; preds = %.critedge
+.lr.ph26.preheader:                               ; preds = %.lr.ph
+  %15 = zext i32 %.01418 to i64
+  %16 = shl nuw i64 %15, 32
   %17 = add nuw i32 %.019, 1
   br label %.lr.ph26
 
@@ -1456,18 +1452,18 @@ define dso_local i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef
 21:                                               ; preds = %.lr.ph26
   %22 = add nuw i32 %.01524, 1
   %23 = add nsw i32 %.125, -1
-  %exitcond30.not = icmp eq i32 %.01524, %.019
-  br i1 %exitcond30.not, label %.critedge2.loopexit, label %.lr.ph26, !llvm.loop !104
+  %24 = icmp sgt i32 %.125, 0
+  br i1 %24, label %.lr.ph26, label %.critedge2.loopexit, !llvm.loop !104
 
 .critedge2.loopexit:                              ; preds = %21, %.lr.ph26
   %.015.lcssa.ph = phi i32 [ %.01524, %.lr.ph26 ], [ %17, %21 ]
-  %24 = zext i32 %.015.lcssa.ph to i64
+  %25 = zext i32 %.015.lcssa.ph to i64
   br label %.critedge2
 
-.critedge2:                                       ; preds = %1, %.critedge.thread34, %.critedge2.loopexit, %.critedge
-  %.014.lcssa33 = phi i64 [ %15, %.critedge ], [ %15, %.critedge2.loopexit ], [ %13, %.critedge.thread34 ], [ 0, %1 ]
-  %.015.lcssa = phi i64 [ 0, %.critedge ], [ %24, %.critedge2.loopexit ], [ 0, %.critedge.thread34 ], [ 0, %1 ]
-  %.sroa.013.0.insert.insert = or disjoint i64 %.014.lcssa33, %.015.lcssa
+.critedge2:                                       ; preds = %1, %.critedge, %.critedge2.loopexit
+  %.014.lcssa32 = phi i64 [ %14, %.critedge ], [ %16, %.critedge2.loopexit ], [ 0, %1 ]
+  %.015.lcssa = phi i64 [ 0, %.critedge ], [ %25, %.critedge2.loopexit ], [ 0, %1 ]
+  %.sroa.013.0.insert.insert = or disjoint i64 %.014.lcssa32, %.015.lcssa
   ret i64 %.sroa.013.0.insert.insert
 }
 

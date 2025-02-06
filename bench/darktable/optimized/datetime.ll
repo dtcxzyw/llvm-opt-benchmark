@@ -1047,39 +1047,41 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %1, 21
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %17, label %6
+  br i1 %or.cond, label %22, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %8 = add i64 %1, -19
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, i64 noundef %8) #7
-  %10 = add i64 %1, -21
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = add i64 %1, -1
   br label %11
 
-11:                                               ; preds = %6, %16
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %16 ]
+11:                                               ; preds = %6, %19
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %19 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !57
   %.not = icmp eq i8 %13, 0
-  %exitcond.not = icmp eq i64 %indvars.iv, %10
-  %or.cond22 = or i1 %.not, %exitcond.not
-  br i1 %or.cond22, label %.critedge, label %16
+  br i1 %.not, label %.critedge, label %14
 
-.critedge:                                        ; preds = %11, %16
-  %14 = getelementptr i8, ptr %0, i64 %1
-  %15 = getelementptr i8, ptr %14, i64 -1
-  store i8 0, ptr %15, align 1, !tbaa !57
-  br label %17
+14:                                               ; preds = %11
+  %15 = add nuw nsw i64 %indvars.iv, 20
+  %16 = icmp ugt i64 %10, %15
+  br i1 %16, label %19, label %.critedge
 
-16:                                               ; preds = %11
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %13, ptr %gep, align 1, !tbaa !57
+.critedge:                                        ; preds = %11, %19, %14
+  %17 = getelementptr i8, ptr %0, i64 %1
+  %18 = getelementptr i8, ptr %17, i64 -1
+  store i8 0, ptr %18, align 1, !tbaa !57
+  br label %22
+
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  store i8 %13, ptr %20, align 1, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond21.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond21.not, label %.critedge, label %11
+  %21 = icmp samesign ult i64 %indvars.iv, 5
+  br i1 %21, label %11, label %.critedge
 
-17:                                               ; preds = %3, %.critedge
+22:                                               ; preds = %3, %.critedge
   ret void
 }
 

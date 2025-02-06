@@ -5519,13 +5519,13 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKP4FactSt6vectorIS3_SaIS3_EEEENS1_IPS3
 .thread:                                          ; preds = %122, %121, %118, %115, %109, %100
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %132
 
 .loopexit.split-lp:                               ; preds = %46, %55, %56, %76, %77, %.critedge.i, %39, %_ZNSt12_Vector_baseIP4FactSaIS1_EE11_M_allocateEm.exit.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   %.pre42 = load ptr, ptr %9, align 8
-  br label %129
+  br label %130
 
 46:                                               ; preds = %5
   invoke void @_ZN7FactMgr24find_updated_final_factsEPK9StatementRSt6vectorIP4FactSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -5603,7 +5603,7 @@ _ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit:         ; preds = %._ZNSt6vectorIP4Fac
 73:                                               ; preds = %71, %69
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #24
-  br label %129
+  br label %130
 
 74:                                               ; preds = %50, %68
   %75 = phi i32 [ %53, %50 ], [ %.pre41, %68 ]
@@ -5659,20 +5659,19 @@ _ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit:         ; preds = %._ZNSt6vectorIP4Fac
 92:                                               ; preds = %90, %88
   %.pn29 = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #24
-  br label %129
+  br label %130
 
 93:                                               ; preds = %74, %87
   %94 = load ptr, ptr %48, align 8
-  %.not = icmp eq ptr %94, %.pr
-  br i1 %.not, label %thread-pre-split, label %.lr.ph
-
-.lr.ph:                                           ; preds = %93
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %.pr to i64
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
+  %.not = icmp eq ptr %94, %.pr
+  br i1 %.not, label %thread-pre-split, label %.lr.ph
+
+.lr.ph:                                           ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %umax = call i64 @llvm.umax.i64(i64 %98, i64 1)
   br label %100
 
 100:                                              ; preds = %.lr.ph, %127
@@ -5725,8 +5724,8 @@ _ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit:         ; preds = %._ZNSt6vectorIP4Fac
 
 127:                                              ; preds = %122, %120
   %128 = add nuw i64 %.02537, 1
-  %exitcond.not = icmp eq i64 %128, %umax
-  br i1 %exitcond.not, label %thread-pre-split.thread, label %100, !llvm.loop !77
+  %129 = icmp ult i64 %128, %98
+  br i1 %129, label %100, label %thread-pre-split.thread, !llvm.loop !77
 
 thread-pre-split:                                 ; preds = %93, %_ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit
   %.not.i.i.i = icmp eq ptr %.pr, null
@@ -5739,20 +5738,20 @@ thread-pre-split.thread:                          ; preds = %127, %thread-pre-sp
 _ZNSt6vectorIP4FactSaIS1_EED2Ev.exit:             ; preds = %thread-pre-split, %thread-pre-split.thread
   ret void
 
-129:                                              ; preds = %.loopexit.split-lp, %92, %73
-  %130 = phi ptr [ %.pr, %92 ], [ %.pr, %73 ], [ %.pre42, %.loopexit.split-lp ]
+130:                                              ; preds = %.loopexit.split-lp, %92, %73
+  %131 = phi ptr [ %.pr, %92 ], [ %.pr, %73 ], [ %.pre42, %.loopexit.split-lp ]
   %.pn31 = phi { ptr, i32 } [ %.pn29, %92 ], [ %.pn, %73 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i35 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorIP4FactSaIS1_EED2Ev.exit36, label %131
+  %.not.i.i.i35 = icmp eq ptr %131, null
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIP4FactSaIS1_EED2Ev.exit36, label %132
 
-131:                                              ; preds = %.thread, %129
-  %.pn3147 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn31, %129 ]
-  %132 = phi ptr [ %.pr, %.thread ], [ %130, %129 ]
-  call void @_ZdlPv(ptr noundef nonnull %132) #20
+132:                                              ; preds = %.thread, %130
+  %.pn3147 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn31, %130 ]
+  %133 = phi ptr [ %.pr, %.thread ], [ %131, %130 ]
+  call void @_ZdlPv(ptr noundef nonnull %133) #20
   br label %_ZNSt6vectorIP4FactSaIS1_EED2Ev.exit36
 
-_ZNSt6vectorIP4FactSaIS1_EED2Ev.exit36:           ; preds = %129, %131
-  %.pn3148 = phi { ptr, i32 } [ %.pn31, %129 ], [ %.pn3147, %131 ]
+_ZNSt6vectorIP4FactSaIS1_EED2Ev.exit36:           ; preds = %130, %132
+  %.pn3148 = phi { ptr, i32 } [ %.pn31, %130 ], [ %.pn3147, %132 ]
   resume { ptr, i32 } %.pn3148
 }
 

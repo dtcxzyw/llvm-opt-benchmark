@@ -111,7 +111,6 @@ define i32 @__dtoa_engine(double noundef %0, ptr noundef writeonly captures(none
   %.679 = select i1 %43, double %46, double %42
   %47 = fptoui double %.679 to i64
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %wide.trip.count = zext nneg i32 %.181 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
@@ -126,19 +125,19 @@ define i32 @__dtoa_engine(double noundef %0, ptr noundef writeonly captures(none
   %54 = urem i64 %.065101, %.0102
   %55 = udiv i64 %.0102, 10
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !9
+  %56 = icmp slt i64 %indvars.iv.next112, %39
+  br i1 %56, label %49, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %49, %.lr.ph104, %38, %7, %14, %17
   %.080 = phi i32 [ %2, %14 ], [ %2, %17 ], [ %2, %7 ], [ %.181, %38 ], [ %2, %.lr.ph104 ], [ %.181, %49 ]
   %.069 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %7 ], [ %.6, %38 ], [ 0, %.lr.ph104 ], [ %.6, %49 ]
   %.168 = phi i8 [ %15, %14 ], [ %18, %17 ], [ %8, %7 ], [ %.067, %38 ], [ %8, %.lr.ph104 ], [ %.067, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %57 = sext i32 %.080 to i64
-  %58 = getelementptr inbounds [16 x i8], ptr %56, i64 0, i64 %57
-  store i8 0, ptr %58, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %.168, ptr %59, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %58 = sext i32 %.080 to i64
+  %59 = getelementptr inbounds [16 x i8], ptr %57, i64 0, i64 %58
+  store i8 0, ptr %59, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 %.168, ptr %60, align 4
   store i32 %.069, ptr %1, align 4
   ret i32 %.080
 }

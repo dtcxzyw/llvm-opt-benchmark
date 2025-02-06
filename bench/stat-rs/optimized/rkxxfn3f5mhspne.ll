@@ -178,13 +178,13 @@ define hidden noundef double @_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1
 7:                                                ; preds = %.lr.ph, %7
   %.sroa.0.015 = phi double [ %2, %.lr.ph ], [ %12, %7 ]
   %.sroa.0.0814 = phi i64 [ %0, %.lr.ph ], [ %8, %7 ]
-  %8 = add i64 %.sroa.0.0814, 1
+  %8 = add nuw i64 %.sroa.0.0814, 1
   %9 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef %.sroa.0.0814), !noalias !24
   %10 = tail call noundef double @llvm.log.f64(double %9)
   %11 = fmul double %9, %10
   %12 = fsub double %.sroa.0.015, %11
-  %exitcond.not = icmp eq i64 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %7
+  %13 = icmp ult i64 %8, %1
+  br i1 %13, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %4
   %.sroa.0.0.lcssa = phi double [ %2, %4 ], [ %12, %7 ]
@@ -1274,24 +1274,25 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13": ; preds = %8, %15, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7"
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %.not = icmp eq i64 %20, -1
+  %21 = add i64 %20, 1
+  %.not = icmp eq i64 %21, 0
   br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13", %.lr.ph.i
-  %.sroa.0.015.i = phi double [ %25, %.lr.ph.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
-  %.sroa.0.0814.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
-  %21 = add nuw i64 %.sroa.0.0814.i, 1
-  %22 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i), !noalias !73
-  %23 = tail call noundef double @llvm.log.f64(double %22)
-  %24 = fmul double %22, %23
-  %25 = fsub double %.sroa.0.015.i, %24
-  %exitcond.not.i = icmp eq i64 %.sroa.0.0814.i, %20
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit, label %.lr.ph.i
+  %.sroa.0.015.i = phi double [ %26, %.lr.ph.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
+  %.sroa.0.0814.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
+  %22 = add nuw i64 %.sroa.0.0814.i, 1
+  %23 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i), !noalias !73
+  %24 = tail call noundef double @llvm.log.f64(double %23)
+  %25 = fmul double %23, %24
+  %26 = fsub double %.sroa.0.015.i, %25
+  %27 = icmp ult i64 %22, %21
+  br i1 %27, label %.lr.ph.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit: ; preds = %.lr.ph.i, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13", %1, %15, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7"
-  %.sroa.03.0 = phi double [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7" ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit" ], [ %25, %.lr.ph.i ]
-  %26 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.03.0, 1
-  ret { i64, double } %26
+  %.sroa.03.0 = phi double [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7" ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit" ], [ %26, %.lr.ph.i ]
+  %28 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.03.0, 1
+  ret { i64, double } %28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2882,8 +2883,8 @@ define noundef double @_ZN6statrs8function8harmonic12gen_harmonic17hf5a5ac6ebead
   %9 = fadd double %8, 1.000000e+00
   %10 = tail call double @llvm.pow.f64(double %9, double %5)
   %11 = fadd double %.sroa.0.015.i, %10
-  %exitcond.not.i = icmp eq i64 %7, %0
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %6
+  %12 = icmp ult i64 %7, %0
+  br i1 %12, label %6, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit: ; preds = %6, %2
   %.sroa.0.0 = phi double [ 1.000000e+00, %2 ], [ %11, %6 ]

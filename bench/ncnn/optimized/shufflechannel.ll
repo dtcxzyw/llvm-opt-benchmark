@@ -98,39 +98,41 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14ShuffleChannel7forwardE
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %42 = zext nneg i32 %spec.select to i64
   %43 = zext nneg i32 %20 to i64
+  %44 = zext nneg i32 %spec.select to i64
+  %45 = zext nneg i32 %20 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv139 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next140, %._crit_edge.us ]
-  %44 = mul nuw nsw i64 %indvars.iv139, %43
-  br label %45
+  %46 = mul nuw nsw i64 %indvars.iv139, %45
+  br label %47
 
-45:                                               ; preds = %.preheader.us, %45
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %45 ]
-  %46 = add nuw nsw i64 %indvars.iv, %44
-  %47 = mul nuw nsw i64 %indvars.iv, %42
-  %48 = add nuw nsw i64 %47, %indvars.iv139
-  %49 = load ptr, ptr %2, align 8
-  %50 = load i64, ptr %26, align 8
-  %51 = mul i64 %50, %48
-  %52 = load i64, ptr %40, align 8
-  %53 = mul i64 %51, %52
-  %54 = getelementptr inbounds i8, ptr %49, i64 %53
-  %55 = load ptr, ptr %1, align 8
-  %56 = load i64, ptr %41, align 8
-  %57 = mul i64 %56, %46
-  %58 = load i64, ptr %11, align 8
-  %59 = mul i64 %57, %58
-  %60 = getelementptr inbounds i8, ptr %55, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %60, i64 %37, i1 false)
+47:                                               ; preds = %.preheader.us, %47
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %47 ]
+  %48 = add nuw nsw i64 %indvars.iv, %46
+  %49 = mul nuw nsw i64 %indvars.iv, %42
+  %50 = add nuw nsw i64 %49, %indvars.iv139
+  %51 = load ptr, ptr %2, align 8
+  %52 = load i64, ptr %26, align 8
+  %53 = mul i64 %52, %50
+  %54 = load i64, ptr %40, align 8
+  %55 = mul i64 %53, %54
+  %56 = getelementptr inbounds i8, ptr %51, i64 %55
+  %57 = load ptr, ptr %1, align 8
+  %58 = load i64, ptr %41, align 8
+  %59 = mul i64 %58, %48
+  %60 = load i64, ptr %11, align 8
+  %61 = mul i64 %59, %60
+  %62 = getelementptr inbounds i8, ptr %57, i64 %61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %62, i64 %37, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %43
-  br i1 %exitcond.not, label %._crit_edge.us, label %45, !llvm.loop !4
+  %63 = icmp samesign ult i64 %indvars.iv.next, %43
+  br i1 %63, label %47, label %._crit_edge.us, !llvm.loop !4
 
-._crit_edge.us:                                   ; preds = %45
+._crit_edge.us:                                   ; preds = %47
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %42
-  br i1 %exitcond143.not, label %.critedge, label %.preheader.us, !llvm.loop !6
+  %64 = icmp samesign ult i64 %indvars.iv.next140, %44
+  br i1 %64, label %.preheader.us, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %33, %25, %17, %4
   %.093 = phi i32 [ -100, %4 ], [ -100, %17 ], [ -100, %25 ], [ 0, %33 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]

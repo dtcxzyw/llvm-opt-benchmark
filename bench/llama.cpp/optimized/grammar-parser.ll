@@ -2415,19 +2415,15 @@ for.end:                                          ; preds = %for.inc, %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %state, i64 56
   %12 = load ptr, ptr %_M_finish.i, align 8
   %13 = load ptr, ptr %rules, align 8
-  %cmp38.not = icmp eq ptr %12, %13
-  br i1 %cmp38.not, label %for.end16, label %for.body11.preheader
-
-for.body11.preheader:                             ; preds = %for.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body11
+  %cmp38.not = icmp eq ptr %12, %13
+  br i1 %cmp38.not, label %for.end16, label %for.body11
 
-for.body11:                                       ; preds = %for.body11.preheader, %for.inc15
-  %i.039 = phi i64 [ %inc, %for.inc15 ], [ 0, %for.body11.preheader ]
+for.body11:                                       ; preds = %for.end, %for.inc15
+  %i.039 = phi i64 [ %inc, %for.inc15 ], [ 0, %for.end ]
   %conv = trunc i64 %i.039 to i32
   %14 = load ptr, ptr %rules, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::vector", ptr %14, i64 %i.039
@@ -2927,8 +2923,8 @@ for.inc.sink.split.i:                             ; preds = %if.then125.i, %for.
 
 for.inc.i:                                        ; preds = %sw.epilog.i, %for.inc.sink.split.i, %if.then125.i, %for.body.i
   %inc.i = add nuw i64 %i.0135.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %sub.i
-  br i1 %exitcond.not.i, label %for.inc15, label %for.body.i, !llvm.loop !14
+  %cmp10.i = icmp ult i64 %inc.i, %sub.i
+  br i1 %cmp10.i, label %for.body.i, label %for.inc15, !llvm.loop !14
 
 eh.resume.sink.split.sink.split.i:                ; preds = %ehcleanup116.thread.i, %ehcleanup79.thread.i, %ehcleanup34.thread.i, %ehcleanup.thread.i
   %ref.tmp99.sink.i = phi ptr [ %ref.tmp99.i, %ehcleanup116.thread.i ], [ %ref.tmp62.i, %ehcleanup79.thread.i ], [ %ref.tmp17.i, %ehcleanup34.thread.i ], [ %ref.tmp2.i, %ehcleanup.thread.i ]
@@ -2966,8 +2962,8 @@ for.inc15:                                        ; preds = %for.inc.i, %_ZNKSt3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp104.i)
   %inc = add nuw i64 %i.039, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end16, label %for.body11, !llvm.loop !15
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %for.body11, label %for.end16, !llvm.loop !15
 
 for.end16:                                        ; preds = %for.inc15, %for.end
   %56 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

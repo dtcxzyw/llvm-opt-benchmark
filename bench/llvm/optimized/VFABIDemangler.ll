@@ -2157,9 +2157,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
-  %7 = add i32 %3, -1
-  %wide.trip.count41 = zext i32 %3 to i64
-  %wide.trip.count = zext i32 %7 to i64
+  %7 = zext i32 %3 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.loopexit
@@ -2203,11 +2201,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 
 .preheader:                                       ; preds = %8, %25
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %25 ], [ %indvars.iv, %8 ]
-  %exitcond.not = icmp eq i64 %indvars.iv37, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %.not = icmp samesign ult i64 %indvars.iv.next38, %7
+  br i1 %.not, label %25, label %.loopexit
 
 25:                                               ; preds = %.preheader
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %26 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %6, i64 %indvars.iv.next38, i32 1
   %27 = load i32, ptr %26, align 4, !tbaa !47
   %28 = icmp eq i32 %27, 10
@@ -2215,8 +2213,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 
 .loopexit:                                        ; preds = %.preheader, %19, %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count41
-  br i1 %exitcond42.not, label %.thread, label %8, !llvm.loop !200
+  %.not35 = icmp samesign ult i64 %indvars.iv.next, %7
+  br i1 %.not35, label %8, label %.thread, !llvm.loop !200
 
 .thread:                                          ; preds = %.loopexit, %12, %16, %19, %25, %1
   %29 = phi i1 [ true, %1 ], [ false, %25 ], [ true, %.loopexit ], [ false, %12 ], [ false, %16 ], [ false, %19 ]

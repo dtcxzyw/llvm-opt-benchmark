@@ -3814,7 +3814,6 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = and i64 %24, 4294967295
-  %umax = call i64 @llvm.umax.i64(i64 %59, i64 1)
   br label %60
 
 60:                                               ; preds = %87, %2
@@ -3865,8 +3864,8 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %91 = sub i64 %factor47.i, %85
   store i64 %91, ptr %49, align 8, !tbaa !39
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv50.i, %umax
-  br i1 %exitcond.not, label %ft_stroke_border_arcto.exit, label %60, !llvm.loop !83
+  %.not.not.i = icmp samesign ult i64 %indvars.iv50.i, %59
+  br i1 %.not.not.i, label %60, label %ft_stroke_border_arcto.exit, !llvm.loop !83
 
 ft_stroke_border_arcto.exit:                      ; preds = %60, %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -3887,9 +3886,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10

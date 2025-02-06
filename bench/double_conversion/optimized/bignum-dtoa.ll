@@ -430,12 +430,16 @@ return:                                           ; preds = %sw.epilog, %if.then
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %count, ptr noundef captures(none) %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr captures(none) %buffer.coerce0, ptr noundef writeonly captures(none) %length) unnamed_addr #0 {
 entry:
-  %sub = add i32 %count, -1
+  %sub = add nsw i32 %count, -1
   %cmp34 = icmp sgt i32 %count, 1
-  br i1 %cmp34, label %for.body.preheader, label %for.end28.critedge
+  br i1 %cmp34, label %for.body.preheader, label %entry.for.end_crit_edge
+
+entry.for.end_crit_edge:                          ; preds = %entry
+  %.pre39 = sext i32 %sub to i64
+  br label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = zext nneg i32 %sub to i64
+  %0 = zext nneg i32 %sub to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -447,10 +451,11 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %add, ptr %arrayidx.i, align 1
   tail call void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  %cmp = icmp samesign ult i64 %indvars.iv.next, %0
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body
+for.end:                                          ; preds = %for.body, %entry.for.end_crit_edge
+  %idxprom.i17.pre-phi = phi i64 [ %.pre39, %entry.for.end_crit_edge ], [ %0, %for.body ]
   %call4 = tail call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
   %call5 = tail call noundef i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
   %cmp633 = icmp sgt i32 %call5, -1
@@ -458,18 +463,20 @@ for.end:                                          ; preds = %for.body
   %spec.select = add i16 %call4, %inc7
   %conv8 = trunc i16 %spec.select to i8
   %add9 = add i8 %conv8, 48
-  %idxprom.i17 = sext i32 %sub to i64
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17.pre-phi
   store i8 %add9, ptr %arrayidx.i18, align 1
+  br i1 %cmp34, label %for.body17.preheader, label %for.end28
+
+for.body17.preheader:                             ; preds = %for.end
   %idxprom.i19.phi.trans.insert = zext nneg i32 %sub to i64
   %arrayidx.i20.phi.trans.insert = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i19.phi.trans.insert
   %.pre = load i8, ptr %arrayidx.i20.phi.trans.insert, align 1
   br label %for.body17
 
-for.body17:                                       ; preds = %for.end, %if.end22
-  %0 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.end ]
-  %i13.037 = phi i32 [ %sub24, %if.end22 ], [ %sub, %for.end ]
-  %cmp20.not = icmp eq i8 %0, 58
+for.body17:                                       ; preds = %for.body17.preheader, %if.end22
+  %1 = phi i8 [ %inc26, %if.end22 ], [ %.pre, %for.body17.preheader ]
+  %i13.037 = phi i32 [ %sub24, %if.end22 ], [ %sub, %for.body17.preheader ]
+  %cmp20.not = icmp eq i8 %1, 58
   br i1 %cmp20.not, label %if.end22, label %for.end28
 
 if.end22:                                         ; preds = %for.body17
@@ -479,34 +486,21 @@ if.end22:                                         ; preds = %for.body17
   %sub24 = add nsw i32 %i13.037, -1
   %idxprom.i23 = zext nneg i32 %sub24 to i64
   %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i23
-  %1 = load i8, ptr %arrayidx.i24, align 1
-  %inc26 = add i8 %1, 1
+  %2 = load i8, ptr %arrayidx.i24, align 1
+  %inc26 = add i8 %2, 1
   store i8 %inc26, ptr %arrayidx.i24, align 1
   %cmp16 = icmp sgt i32 %i13.037, 1
   br i1 %cmp16, label %for.body17, label %for.end28, !llvm.loop !8
 
-for.end28.critedge:                               ; preds = %entry
-  %call4.c = tail call noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
-  %call5.c = tail call noundef i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
-  %cmp633.c = icmp sgt i32 %call5.c, -1
-  %inc7.c = zext i1 %cmp633.c to i16
-  %spec.select.c = add i16 %call4.c, %inc7.c
-  %conv8.c = trunc i16 %spec.select.c to i8
-  %add9.c = add i8 %conv8.c, 48
-  %idxprom.i17.c = sext i32 %sub to i64
-  %arrayidx.i18.c = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17.c
-  store i8 %add9.c, ptr %arrayidx.i18.c, align 1
-  br label %for.end28
-
-for.end28:                                        ; preds = %if.end22, %for.body17, %for.end28.critedge
-  %2 = load i8, ptr %buffer.coerce0, align 1
-  %cmp31 = icmp eq i8 %2, 58
+for.end28:                                        ; preds = %if.end22, %for.body17, %for.end
+  %3 = load i8, ptr %buffer.coerce0, align 1
+  %cmp31 = icmp eq i8 %3, 58
   br i1 %cmp31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %for.end28
   store i8 49, ptr %buffer.coerce0, align 1
-  %3 = load i32, ptr %decimal_point, align 4
-  %inc34 = add nsw i32 %3, 1
+  %4 = load i32, ptr %decimal_point, align 4
+  %inc34 = add nsw i32 %4, 1
   store i32 %inc34, ptr %decimal_point, align 4
   br label %if.end35
 

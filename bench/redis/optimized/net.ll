@@ -776,7 +776,6 @@ addrretry.preheader:                              ; preds = %addrretry.preheader
 if.end89.lr.ph:                                   ; preds = %addrretry.preheader
   %ai_addrlen132 = getelementptr inbounds nuw i8, ptr %p.0133, i64 16
   %ai_addr141 = getelementptr inbounds nuw i8, ptr %p.0133, i64 24
-  %smax = call i32 @llvm.smax.i32(i32 %reuses.0132, i32 9)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end89.lr.ph, %redisNetClose.exit96
@@ -911,11 +910,11 @@ if.else164:                                       ; preds = %if.then151
   br i1 %or.cond1, label %if.then170, label %wait_for_ready
 
 if.then170:                                       ; preds = %if.else164
-  %exitcond = icmp eq i32 %reuses.1128, %smax
-  br i1 %exitcond, label %end, label %land.lhs.true.i90
+  %cmp171 = icmp sgt i32 %reuses.1128, 8
+  br i1 %cmp171, label %end, label %land.lhs.true.i90
 
 land.lhs.true.i90:                                ; preds = %if.then170
-  %inc = add i32 %reuses.1128, 1
+  %inc = add nsw i32 %reuses.1128, 1
   %41 = load i32, ptr %fd, align 4
   %cmp.not.i92 = icmp eq i32 %41, -1
   br i1 %cmp.not.i92, label %redisNetClose.exit96, label %if.then.i93
@@ -1407,9 +1406,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

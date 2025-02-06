@@ -598,7 +598,6 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %.01731 = phi i64 [ %35, %33 ], [ %22, %.lr.ph.preheader ]
   %.01830 = phi i64 [ %34, %33 ], [ %.zext, %.lr.ph.preheader ]
   %32 = udiv i64 %.032, %.01830
-  %umax = tail call i64 @llvm.umax.i64(i64 %.01830, i64 1)
   br label %36
 
 33:                                               ; preds = %39
@@ -612,19 +611,19 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   %.127 = phi i64 [ %.032, %.lr.ph ], [ %44, %39 ]
   %37 = mul i64 %.sroa.013.028, %.01731
   %38 = icmp ult i64 %37, 8
-  br i1 %38, label %39, label %45, !prof !51
+  br i1 %38, label %39, label %46, !prof !51
 
 39:                                               ; preds = %36
-  %40 = add nuw i64 %.sroa.013.028, 1
+  %40 = add nuw nsw i64 %.sroa.013.028, 1
   %41 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %37
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = add i64 %42, %32
   store i64 %43, ptr %41, align 8
   %44 = sub i64 %.127, %32
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %33, label %36
+  %45 = icmp samesign ult i64 %40, %.01830
+  br i1 %45, label %36, label %33
 
-45:                                               ; preds = %36
+46:                                               ; preds = %36
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9b0663e721ce1a382de15852675646b.30) #10
   unreachable
 }

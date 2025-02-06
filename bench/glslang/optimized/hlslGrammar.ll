@@ -9504,16 +9504,14 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar26acceptParameterDeclarationE
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %61 to i64
   %68 = sub i64 %66, %67
-  %69 = lshr exact i64 %68, 4
-  %70 = trunc i64 %69 to i32
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %70, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %sext.i.i = shl i64 %68, 28
+  %69 = ashr i64 %sext.i.i, 32
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i:  ; preds = %71, %.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %71 ], [ 1, %.split.i.i ]
-  %exitcond.not.not.i.not.i = icmp eq i64 %indvars.iv.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.not.i.not.i, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, label %71
+  %70 = icmp slt i64 %indvars.iv.i.i, %69
+  br i1 %70, label %71, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit
 
 71:                                               ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
   %72 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %61, i64 %indvars.iv.i.i
@@ -12684,21 +12682,21 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType22getCumulativeArraySizeEv(pt
   br i1 %16, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
 .lr.ph.i:                                         ; preds = %.split.i
-  %wide.trip.count.i = and i64 %14, 2147483647
+  %17 = and i64 %14, 2147483647
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %.058.i = phi i32 [ 1, %.lr.ph.i ], [ %19, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %17 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %10, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 8
-  %19 = mul i32 %18, %.058.i
+  %.058.i = phi i32 [ 1, %.lr.ph.i ], [ %20, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %18 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %10, i64 %indvars.iv.i
+  %19 = load i32, ptr %18, align 8
+  %20 = mul i32 %19, %.058.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, !llvm.loop !64
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %17
+  br i1 %21, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, !llvm.loop !64
 
 _ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %1, %.split.i
-  %.us-phi.i = phi i32 [ 1, %1 ], [ 1, %.split.i ], [ %19, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %.us-phi.i = phi i32 [ 1, %1 ], [ 1, %.split.i ], [ %20, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
   ret i32 %.us-phi.i
 }
 

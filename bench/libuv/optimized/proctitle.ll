@@ -28,20 +28,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp435.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %wide.trip.count = zext nneg i32 %argc to i64
+  %1 = zext nneg i32 %argc to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %size.036 = phi i64 [ %add, %for.body.preheader ], [ %add8, %for.body ]
   %arrayidx5 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx5, align 8
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
+  %2 = load ptr, ptr %arrayidx5, align 8
+  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
   %add7 = add i64 %size.036, 1
   %add8 = add i64 %add7, %call6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body
+  %cmp4 = icmp samesign ult i64 %indvars.iv.next, %1
+  br i1 %cmp4, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.body, %if.end
   %size.0.lcssa = phi i64 [ %add, %if.end ], [ %add8, %for.body ]
@@ -55,14 +55,13 @@ for.end:                                          ; preds = %for.body, %if.end
 
 if.end15:                                         ; preds = %for.end
   %arrayidx18 = getelementptr inbounds nuw ptr, ptr %call11, i64 %conv
-  %2 = load ptr, ptr %argv, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx18, ptr align 1 %2, i64 %add, i1 false)
+  %3 = load ptr, ptr %argv, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx18, ptr align 1 %3, i64 %add, i1 false)
   store ptr %arrayidx18, ptr %call11, align 8
   br i1 %cmp435.not, label %for.end34, label %for.body23.preheader
 
 for.body23.preheader:                             ; preds = %if.end15
-  %smax = tail call i32 @llvm.smax.i32(i32 %argc, i32 2)
-  %wide.trip.count51 = zext nneg i32 %smax to i64
+  %4 = zext nneg i32 %argc to i64
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.body23
@@ -71,32 +70,32 @@ for.body23:                                       ; preds = %for.body23.preheade
   %size.139 = phi i64 [ %add, %for.body23.preheader ], [ %add27, %for.body23 ]
   %add.ptr = getelementptr inbounds i8, ptr %s.040, i64 %size.139
   %arrayidx25 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv48
-  %3 = load ptr, ptr %arrayidx25, align 8
-  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
+  %5 = load ptr, ptr %arrayidx25, align 8
+  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %add27 = add i64 %call26, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %3, i64 %add27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %5, i64 %add27, i1 false)
   %arrayidx31 = getelementptr inbounds nuw ptr, ptr %call11, i64 %indvars.iv48
   store ptr %add.ptr, ptr %arrayidx31, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %for.end34.loopexit, label %for.body23
+  %cmp21 = icmp samesign ult i64 %indvars.iv.next49, %4
+  br i1 %cmp21, label %for.body23, label %for.end34.loopexit
 
 for.end34.loopexit:                               ; preds = %for.body23
-  %4 = zext nneg i32 %smax to i64
+  %6 = and i64 %indvars.iv.next49, 4294967295
   br label %for.end34
 
-for.end34:                                        ; preds = %if.end15, %for.end34.loopexit
-  %idxprom28.lcssa = phi i64 [ %indvars.iv48, %for.end34.loopexit ], [ 0, %if.end15 ]
-  %size.1.lcssa = phi i64 [ %add27, %for.end34.loopexit ], [ %add, %if.end15 ]
-  %inc33.lcssa = phi i64 [ %4, %for.end34.loopexit ], [ 1, %if.end15 ]
+for.end34:                                        ; preds = %for.end34.loopexit, %if.end15
+  %idxprom28.lcssa = phi i64 [ 0, %if.end15 ], [ %indvars.iv48, %for.end34.loopexit ]
+  %size.1.lcssa = phi i64 [ %add, %if.end15 ], [ %add27, %for.end34.loopexit ]
+  %inc33.lcssa = phi i64 [ 1, %if.end15 ], [ %6, %for.end34.loopexit ]
   %arrayidx29.le = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom28.lcssa
   %arrayidx36 = getelementptr inbounds nuw ptr, ptr %call11, i64 %inc33.lcssa
   store ptr null, ptr %arrayidx36, align 8
-  %5 = load ptr, ptr %arrayidx29.le, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %5, i64 %size.1.lcssa
-  %6 = load ptr, ptr %argv, align 8
+  %7 = load ptr, ptr %arrayidx29.le, align 8
+  %add.ptr39 = getelementptr inbounds i8, ptr %7, i64 %size.1.lcssa
+  %8 = load ptr, ptr %argv, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store ptr %call11, ptr @args_mem, align 8
   store ptr %0, ptr @process_title.0, align 8
@@ -222,9 +221,6 @@ entry:
 declare void @uv__free(ptr noundef) local_unnamed_addr #2
 
 declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #5

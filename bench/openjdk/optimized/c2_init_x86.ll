@@ -33,12 +33,14 @@ define hidden void @_ZN7Compile17pd_compiler2_initEv() local_unnamed_addr #0 ali
 
 .loopexit24:                                      ; preds = %5, %.loopexit24
   %indvar = phi i64 [ %indvar.next, %.loopexit24 ], [ 0, %5 ]
-  %8 = shl nuw nsw i64 %indvar, 6
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 352), i64 %8
+  %.02227 = phi i32 [ %8, %.loopexit24 ], [ 80, %5 ]
+  %8 = add nuw nsw i32 %.02227, 16
+  %9 = shl nuw nsw i64 %indvar, 6
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 352), i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %gep, i8 -1, i64 32, i1 false)
+  %10 = icmp samesign ult i32 %.02227, 320
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond.not = icmp eq i64 %indvar.next, 16
-  br i1 %exitcond.not, label %.preheader.preheader, label %.loopexit24, !llvm.loop !6
+  br i1 %10, label %.loopexit24, label %.preheader.preheader, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %.loopexit24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1016) getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 1344), i8 -1, i64 1016, i1 false)

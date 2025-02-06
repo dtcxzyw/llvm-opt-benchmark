@@ -8080,7 +8080,6 @@ do.end6.i.i:                                      ; preds = %.noexc28
 
 for.body.i54.i.preheader:                         ; preds = %.noexc29
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i50.i.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 3)
   br label %for.body.i54.i
 
 for.body.i54.i:                                   ; preds = %for.body.i54.i.preheader, %.noexc30
@@ -8098,8 +8097,8 @@ for.body.i54.i:                                   ; preds = %for.body.i54.i.preh
 
 .noexc30:                                         ; preds = %for.body.i54.i
   %inc.i.i = add nuw i64 %i.053.i.i, 1
-  %exitcond.not = icmp eq i64 %inc.i.i, %umax
-  br i1 %exitcond.not, label %for.end.i.i, label %for.body.i54.i, !llvm.loop !117
+  %cmp.i55.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i
+  br i1 %cmp.i55.i, label %for.body.i54.i, label %for.end.i.i, !llvm.loop !117
 
 for.end.i.i:                                      ; preds = %.noexc30, %.noexc29
   store ptr null, ptr %agg.result, align 8, !alias.scope !118
@@ -8387,8 +8386,8 @@ for.body51:                                       ; preds = %for.cond48.preheade
 
 for.inc54:                                        ; preds = %for.body51
   %inc = add nuw i64 %i.094, 1
-  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %cleanup, label %for.body51, !llvm.loop !121
+  %cmp50 = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp50, label %for.body51, label %cleanup, !llvm.loop !121
 
 cleanup:                                          ; preds = %for.inc54, %for.cond48.preheader, %if.then26, %if.then23, %if.then17
   %arrays_with_nulls.sroa.0.0.lcssa105 = phi ptr [ %arrays_with_nulls.sroa.0.1, %for.cond48.preheader ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then26 ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then23 ], [ %arrays_with_nulls.sroa.0.1, %if.then17 ], [ %arrays_with_nulls.sroa.0.1, %for.inc54 ]

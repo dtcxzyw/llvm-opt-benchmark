@@ -7962,19 +7962,15 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false
 
 for.cond.preheader:                               ; preds = %lor.lhs.false9
   %cmp1832.not = icmp eq ptr %0, %1
-  br i1 %cmp1832.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  br label %for.body
+  br i1 %cmp1832.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %n.033, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  %cmp18 = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !42
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %n.033 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %n.033 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %8 = load ptr, ptr %mTypes, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.40", ptr %8, i64 %n.033
   %9 = load ptr, ptr %mTypes2, align 8
@@ -8512,16 +8508,15 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 _ZNSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %16 = load ptr, ptr %_M_finish.i2.i.i, align 8
   %17 = load ptr, ptr %mAttrs, align 8
-  %cmp19.not = icmp eq ptr %16, %17
-  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EED2Ev.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  %cmp19.not = icmp eq ptr %16, %17
+  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EED2Ev.exit
   %_M_refcount4.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEED2Ev.exit
@@ -8693,8 +8688,8 @@ _ZNSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEED2Ev.exit: ; preds = %
   %47 = load ptr, ptr %vfn, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(16) %is)
   %inc = add nuw i64 %n.020, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !44
+  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEED2Ev.exit, %_ZNSt6vectorISt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEESaIS5_EED2Ev.exit
   ret void

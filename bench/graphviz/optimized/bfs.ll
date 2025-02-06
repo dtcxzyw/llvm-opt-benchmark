@@ -34,14 +34,14 @@ define void @bfs(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 nou
 
 14:                                               ; preds = %._crit_edge
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4) #12
-  tail call fastcc void @graphviz_exit() #13
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4) #11
+  tail call fastcc void @graphviz_exit() #12
   unreachable
 
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %18 = phi i64 [ %10, %._crit_edge.thread ], [ %13, %._crit_edge ]
   %19 = icmp ne i32 %2, 0
-  %20 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 4) #14
+  %20 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 4) #13
   %21 = icmp eq ptr %20, null
   %or.cond3.i.i = and i1 %19, %21
   br i1 %or.cond3.i.i, label %22, label %mkQueue.exit
@@ -49,8 +49,8 @@ define void @bfs(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 nou
 22:                                               ; preds = %17
   %23 = load ptr, ptr @stderr, align 8
   %24 = shl nuw nsw i64 %18, 2
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %24) #12
-  tail call fastcc void @graphviz_exit() #13
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %24) #11
+  tail call fastcc void @graphviz_exit() #12
   unreachable
 
 mkQueue.exit:                                     ; preds = %17
@@ -184,8 +184,6 @@ deQueue.exit:                                     ; preds = %.loopexit77, %.loop
 
 .lr.ph95:                                         ; preds = %deQueue.exit
   %88 = add nsw i32 %.1, 10
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
   br label %89
 
 89:                                               ; preds = %.lr.ph95, %94
@@ -201,11 +199,11 @@ deQueue.exit:                                     ; preds = %.loopexit77, %.loop
 
 94:                                               ; preds = %89, %93
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge96, label %89
+  %95 = icmp slt i64 %indvars.iv.next105, %18
+  br i1 %95, label %89, label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %94, %deQueue.exit
-  tail call void @free(ptr noundef %20) #15
+  tail call void @free(ptr noundef %20) #14
   ret void
 }
 
@@ -217,13 +215,13 @@ define void @mkQueue(ptr noundef writeonly captures(none) %0, i32 noundef %1) lo
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #12
-  tail call fastcc void @graphviz_exit() #13
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #11
+  tail call fastcc void @graphviz_exit() #12
   unreachable
 
 7:                                                ; preds = %2
   %8 = icmp ne i32 %1, 0
-  %9 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #14
+  %9 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #13
   %10 = icmp eq ptr %9, null
   %or.cond3.i = and i1 %8, %10
   br i1 %or.cond3.i, label %11, label %gv_calloc.exit
@@ -231,8 +229,8 @@ define void @mkQueue(ptr noundef writeonly captures(none) %0, i32 noundef %1) lo
 11:                                               ; preds = %7
   %12 = load ptr, ptr @stderr, align 8
   %13 = shl nuw nsw i64 %3, 2
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #12
-  tail call fastcc void @graphviz_exit() #13
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #11
+  tail call fastcc void @graphviz_exit() #12
   unreachable
 
 gv_calloc.exit:                                   ; preds = %7
@@ -305,7 +303,7 @@ define noundef zeroext i1 @enQueue(ptr noundef captures(none) %0, i32 noundef %1
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @freeQueue(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %2) #15
+  tail call void @free(ptr noundef %2) #14
   ret void
 }
 
@@ -317,7 +315,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #7 {
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 }
 
@@ -330,9 +328,6 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -344,12 +339,11 @@ attributes #7 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "m
 attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { cold nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { nounwind }
-attributes #16 = { cold noreturn nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind allocsize(0,1) }
+attributes #14 = { nounwind }
+attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %22, label %.preheader57
+  br i1 %.not, label %19, label %.preheader57
 
 .preheader57:                                     ; preds = %3
   %4 = load i64, ptr %1, align 8, !tbaa !3
@@ -17,8 +17,8 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw i64 %.03560, 1
-  %exitcond.not = icmp eq i64 %6, %4
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  %.not48 = icmp ult i64 %6, %4
+  br i1 %.not48, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader57, %5
   %.03560 = phi i64 [ %6, %5 ], [ 0, %.preheader57 ]
@@ -26,7 +26,7 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #8
   %.not46 = icmp eq i32 %9, 0
-  br i1 %.not46, label %thread-pre-split, label %5
+  br i1 %.not46, label %thread-pre-split.thread, label %5
 
 .critedge:                                        ; preds = %5, %.preheader57
   %10 = shl i64 %4, 5
@@ -34,7 +34,7 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
   %12 = tail call ptr @realloc(ptr noundef nonnull %0, i64 noundef %11) #9
   %.not49 = icmp eq ptr %12, null
   %13 = load i64, ptr %1, align 8, !tbaa !3
-  br i1 %.not49, label %.preheader, label %19
+  br i1 %.not49, label %.preheader, label %thread-pre-split
 
 .preheader:                                       ; preds = %.critedge
   %.not63 = icmp eq i64 %13, 0
@@ -50,50 +50,45 @@ define noundef ptr @get_device_entry(ptr noundef %0, ptr noundef captures(none) 
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %.lr.ph62, label %._crit_edge
 
-19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  %21 = add i64 %13, 1
-  store i64 %21, ptr %1, align 8, !tbaa !3
-  br label %thread-pre-split
-
 ._crit_edge:                                      ; preds = %.lr.ph62, %.preheader
   tail call void @free(ptr noundef nonnull %0) #10
-  br label %33
+  br label %31
 
-22:                                               ; preds = %3
-  %23 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
-  %.not45 = icmp eq ptr %23, null
-  br i1 %.not45, label %33, label %.thread53
+19:                                               ; preds = %3
+  %20 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
+  %.not45 = icmp eq ptr %20, null
+  br i1 %.not45, label %31, label %.thread53
 
-.thread53:                                        ; preds = %22
+.thread53:                                        ; preds = %19
   store i64 1, ptr %1, align 8, !tbaa !3
-  br label %24
+  br label %thread-pre-split.thread
 
-thread-pre-split:                                 ; preds = %.lr.ph, %19
-  %.pr = phi i64 [ %21, %19 ], [ %4, %.lr.ph ]
-  %.139.ph = phi ptr [ %12, %19 ], [ %0, %.lr.ph ]
-  %.not50 = icmp eq i64 %.pr, 0
-  br i1 %.not50, label %33, label %24
+thread-pre-split:                                 ; preds = %.critedge
+  %21 = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
+  %22 = add i64 %13, 1
+  store i64 %22, ptr %1, align 8, !tbaa !3
+  %.not50 = icmp eq i64 %22, 0
+  br i1 %.not50, label %31, label %thread-pre-split.thread
 
-24:                                               ; preds = %.thread53, %thread-pre-split
-  %.256 = phi ptr [ %23, %.thread53 ], [ %.139.ph, %thread-pre-split ]
-  %25 = phi i64 [ 1, %.thread53 ], [ %.pr, %thread-pre-split ]
-  %26 = getelementptr %struct.device, ptr %.256, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -32
-  %28 = load ptr, ptr %27, align 8, !tbaa !7
-  %29 = icmp eq ptr %28, null
-  %30 = icmp ne ptr %2, null
-  %or.cond = and i1 %30, %29
-  br i1 %or.cond, label %31, label %33
+thread-pre-split.thread:                          ; preds = %.lr.ph, %.thread53, %thread-pre-split
+  %.256 = phi ptr [ %20, %.thread53 ], [ %12, %thread-pre-split ], [ %0, %.lr.ph ]
+  %23 = phi i64 [ 1, %.thread53 ], [ %22, %thread-pre-split ], [ %4, %.lr.ph ]
+  %24 = getelementptr %struct.device, ptr %.256, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 -32
+  %26 = load ptr, ptr %25, align 8, !tbaa !7
+  %27 = icmp eq ptr %26, null
+  %28 = icmp ne ptr %2, null
+  %or.cond = and i1 %28, %27
+  br i1 %or.cond, label %29, label %31
 
-31:                                               ; preds = %24
-  %32 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
-  store ptr %32, ptr %27, align 8, !tbaa !7
-  br label %33
+29:                                               ; preds = %thread-pre-split.thread
+  %30 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
+  store ptr %30, ptr %25, align 8, !tbaa !7
+  br label %31
 
-33:                                               ; preds = %._crit_edge, %thread-pre-split, %24, %31, %22
-  %.137 = phi ptr [ null, %._crit_edge ], [ null, %22 ], [ %.256, %31 ], [ %.256, %24 ], [ %.139.ph, %thread-pre-split ]
+31:                                               ; preds = %._crit_edge, %thread-pre-split, %thread-pre-split.thread, %29, %19
+  %.137 = phi ptr [ null, %._crit_edge ], [ null, %19 ], [ %.256, %29 ], [ %.256, %thread-pre-split.thread ], [ %12, %thread-pre-split ]
   ret ptr %.137
 }
 

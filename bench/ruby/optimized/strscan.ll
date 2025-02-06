@@ -1935,7 +1935,6 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %wide.trip.count = zext nneg i32 %13 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %extract_range.exit
@@ -2001,8 +2000,8 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
   %.0 = phi i64 [ 4, %21 ], [ %52, %RSTRING_PTR.exit.i ], [ 4, %adjust_register_position.exit24 ]
   %54 = tail call i64 @rb_ary_push(i64 noundef %15, i64 noundef %.0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !51
+  %55 = icmp slt i64 %indvars.iv.next, %14
+  br i1 %55, label %21, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %extract_range.exit, %11, %8
   %.020 = phi i64 [ 4, %8 ], [ %15, %11 ], [ %15, %extract_range.exit ]
@@ -2041,8 +2040,8 @@ define internal i64 @strscan_values_at(i32 noundef %0, ptr noundef readonly capt
   %19 = tail call i64 @strscan_aref(i64 noundef %2, i64 noundef %18)
   %20 = tail call i64 @rb_ary_push(i64 noundef %15, i64 noundef %19) #7
   %21 = add nuw nsw i64 %.01213, 1
-  %exitcond.not = icmp eq i64 %21, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  %22 = icmp slt i64 %21, %14
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %10
   %.0 = phi i64 [ 4, %10 ], [ %15, %13 ], [ %15, %.lr.ph ]
@@ -2891,27 +2890,27 @@ define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1,
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %6
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %12 = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
-  %15 = sext i32 %14 to i64
-  %16 = shl nsw i64 %15, 1
-  %17 = or disjoint i64 %16, 1
-  %18 = tail call i64 @strscan_aref(i64 noundef %12, i64 noundef %17)
+  %13 = load i64, ptr %5, align 8
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 1
+  %18 = or disjoint i64 %17, 1
+  %19 = tail call i64 @strscan_aref(i64 noundef %13, i64 noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  %20 = icmp samesign ult i64 %indvars.iv.next, %12
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %.012.lcssa = phi i64 [ 4, %6 ], [ %18, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 @rb_hash_aset(i64 noundef %20, i64 noundef %10, i64 noundef %.012.lcssa) #7
+  %.012.lcssa = phi i64 [ 4, %6 ], [ %19, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = tail call i64 @rb_hash_aset(i64 noundef %22, i64 noundef %10, i64 noundef %.012.lcssa) #7
   ret i32 0
 }
 

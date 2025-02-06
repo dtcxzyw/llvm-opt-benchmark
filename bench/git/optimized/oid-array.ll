@@ -58,7 +58,7 @@ st_mult.exit:                                     ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i32 %23, ptr %24, align 4, !tbaa !14
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %25, label %38
+  br i1 %.not, label %25, label %39
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %0, align 8, !tbaa !13
@@ -77,22 +77,22 @@ st_mult.exit:                                     ; preds = %9
 
 34:                                               ; preds = %32
   %35 = add nuw nsw i64 %.0811.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %35, 3
-  br i1 %exitcond.not.i.i, label %oid_set_algo.exit, label %32, !llvm.loop !37
+  %36 = icmp samesign ult i64 %.0811.i.i, 2
+  br i1 %36, label %32, label %oid_set_algo.exit, !llvm.loop !37
 
 .split.loop.exit9.i.i:                            ; preds = %32
-  %36 = trunc nuw nsw i64 %.0811.i.i to i32
+  %37 = trunc nuw nsw i64 %.0811.i.i to i32
   br label %oid_set_algo.exit
 
 oid_set_algo.exit:                                ; preds = %34, %.split.loop.exit9.i.i
-  %.2.i.i = phi i32 [ %36, %.split.loop.exit9.i.i ], [ 0, %34 ]
-  %37 = getelementptr i8, ptr %28, i64 -4
-  store i32 %.2.i.i, ptr %37, align 4, !tbaa !14
-  br label %38
+  %.2.i.i = phi i32 [ %37, %.split.loop.exit9.i.i ], [ 0, %34 ]
+  %38 = getelementptr i8, ptr %28, i64 -4
+  store i32 %.2.i.i, ptr %38, align 4, !tbaa !14
+  br label %39
 
-38:                                               ; preds = %oid_set_algo.exit, %18
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %39, align 8, !tbaa !39
+39:                                               ; preds = %oid_set_algo.exit, %18
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %40, align 8, !tbaa !39
   ret void
 }
 
@@ -251,7 +251,7 @@ oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %oid_array_sort.exit, %oid_array_next_unique.exit
-  %.01315 = phi i64 [ %23, %oid_array_next_unique.exit ], [ 0, %oid_array_sort.exit ]
+  %.01315 = phi i64 [ %20, %oid_array_next_unique.exit ], [ 0, %oid_array_sort.exit ]
   %14 = load ptr, ptr %0, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %.01315
   %16 = tail call i32 %1(ptr noundef %15, ptr noundef %2) #15
@@ -260,31 +260,28 @@ oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit
 
 17:                                               ; preds = %.lr.ph
   %18 = load i64, ptr %12, align 8, !tbaa !4
-  %19 = add nuw i64 %.01315, 1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %19)
-  %20 = add i64 %umax.i, -1
-  br label %21
+  br label %19
 
-21:                                               ; preds = %22, %17
-  %.0.i = phi i64 [ %.01315, %17 ], [ %23, %22 ]
-  %exitcond.not = icmp eq i64 %.0.i, %20
-  br i1 %exitcond.not, label %._crit_edge, label %22
+19:                                               ; preds = %22, %17
+  %.0.i = phi i64 [ %.01315, %17 ], [ %20, %22 ]
+  %20 = add nuw i64 %.0.i, 1
+  %21 = icmp ult i64 %20, %18
+  br i1 %21, label %22, label %._crit_edge
 
-22:                                               ; preds = %21
-  %23 = add i64 %.0.i, 1
-  %24 = load ptr, ptr %0, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.object_id, ptr %24, i64 %23
-  %26 = getelementptr inbounds i8, ptr %25, i64 -36
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %25, ptr noundef nonnull readonly dereferenceable(32) %26, i64 32)
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %0, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.object_id, ptr %23, i64 %20
+  %25 = getelementptr inbounds i8, ptr %24, i64 -36
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %24, ptr noundef nonnull readonly dereferenceable(32) %25, i64 32)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.not.i, label %21, label %oid_array_next_unique.exit, !llvm.loop !41
+  br i1 %.not.i.not.i, label %19, label %oid_array_next_unique.exit, !llvm.loop !41
 
 oid_array_next_unique.exit:                       ; preds = %22
-  %27 = icmp ult i64 %23, %18
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  %26 = icmp ult i64 %20, %18
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %.lr.ph, %oid_array_next_unique.exit, %21, %oid_array_sort.exit
-  %.2 = phi i32 [ 0, %oid_array_sort.exit ], [ 0, %21 ], [ 0, %oid_array_next_unique.exit ], [ %16, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %oid_array_next_unique.exit, %19, %oid_array_sort.exit
+  %.2 = phi i32 [ 0, %oid_array_sort.exit ], [ 0, %19 ], [ 0, %oid_array_next_unique.exit ], [ %16, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -324,8 +321,8 @@ define dso_local void @oid_array_filter(ptr noundef captures(none) %0, ptr nound
 17:                                               ; preds = %.lr.ph, %15
   %.1 = phi i64 [ %16, %15 ], [ %.01719, %.lr.ph ]
   %18 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  %19 = icmp ult i64 %18, %5
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %17, %3
   %.017.lcssa = phi i64 [ 0, %3 ], [ %.1, %17 ]

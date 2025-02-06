@@ -879,9 +879,8 @@ Bac_ObjNameStr.exit:                              ; preds = %46, %51
   %56 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -536870912, 536870912) %54) #5
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %42, ptr noundef %56) #5
   %58 = add nuw nsw i32 %.075141, 1
-  %59 = zext nneg i32 %58 to i64
-  %exitcond.not = icmp eq i64 %indvars.iv, %59
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !46
+  %59 = icmp sgt i64 %indvars.iv162, 1
+  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %.lr.ph, %Bac_ObjNameStr.exit, %29
   %60 = add nuw nsw i64 %indvars.iv, 1

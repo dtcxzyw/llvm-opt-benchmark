@@ -6,12 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @N_VNewEmpty_SensWrapper(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
-  br i1 %3, label %65, label %4
+  br i1 %3, label %67, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @N_VNewEmpty(ptr noundef %1) #5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %65, label %7
+  br i1 %6, label %67, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -87,7 +87,7 @@ define ptr @N_VNewEmpty_SensWrapper(i32 noundef %0, ptr noundef %1) local_unname
 
 55:                                               ; preds = %7
   tail call void @N_VFreeEmpty(ptr noundef nonnull %5) #5
-  br label %65
+  br label %67
 
 56:                                               ; preds = %7
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -99,27 +99,31 @@ define ptr @N_VNewEmpty_SensWrapper(i32 noundef %0, ptr noundef %1) local_unname
   %61 = tail call noalias ptr @malloc(i64 noundef %60) #6
   store ptr %61, ptr %53, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %.lr.ph
+  br i1 %62, label %64, label %.lr.ph.preheader
 
-63:                                               ; preds = %56
+.lr.ph.preheader:                                 ; preds = %56
+  %63 = zext nneg i32 %0 to i64
+  br label %.lr.ph
+
+64:                                               ; preds = %56
   tail call void @free(ptr noundef nonnull %53) #5
   tail call void @N_VFreeEmpty(ptr noundef nonnull %5) #5
-  br label %65
+  br label %67
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %56 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
-  store ptr null, ptr %64, align 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  store ptr null, ptr %65, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %59
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  %66 = icmp samesign ult i64 %indvars.iv.next, %63
+  br i1 %66, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store ptr %53, ptr %5, align 8
-  br label %65
+  br label %67
 
-65:                                               ; preds = %4, %2, %._crit_edge, %63, %55
-  %.044 = phi ptr [ null, %55 ], [ null, %63 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %4 ]
+67:                                               ; preds = %4, %2, %._crit_edge, %64, %55
+  %.044 = phi ptr [ null, %55 ], [ null, %64 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %4 ]
   ret ptr %.044
 }
 

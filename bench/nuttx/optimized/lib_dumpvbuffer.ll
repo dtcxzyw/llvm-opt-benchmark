@@ -43,11 +43,11 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %.not55 = icmp eq i64 %16, 0
   br i1 %.not55, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
-  %.164 = phi ptr [ %.3, %54 ], [ %.068, %.lr.ph ]
-  %.04063 = phi ptr [ %32, %54 ], [ %6, %.lr.ph ]
-  %.14461 = phi i32 [ %.346, %54 ], [ %.04366, %.lr.ph ]
+.preheader:                                       ; preds = %.lr.ph, %53
+  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
+  %.164 = phi ptr [ %.3, %53 ], [ %.068, %.lr.ph ]
+  %.04063 = phi ptr [ %32, %53 ], [ %6, %.lr.ph ]
+  %.14461 = phi i32 [ %.346, %53 ], [ %.04366, %.lr.ph ]
   %17 = load ptr, ptr %.164, align 8
   %18 = zext i32 %.14461 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -81,12 +81,12 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, %38
-  br i1 %41, label %42, label %54
+  br i1 %41, label %42, label %53
 
 42:                                               ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %.164, i64 16
   %44 = icmp eq ptr %43, %14
-  br i1 %44, label %45, label %54
+  br i1 %44, label %45, label %53
 
 45:                                               ; preds = %42
   %46 = trunc nuw nsw i64 %indvars.iv to i32
@@ -94,23 +94,22 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %48 = mul nuw nsw i32 %47, 3
   %49 = zext nneg i32 %48 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 32, i64 %49, i1 false)
-  %50 = add nuw i64 %indvars.iv, 50
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %51
-  %53 = zext nneg i32 %47 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 32, i64 %53, i1 false)
+  %50 = add nuw nsw i64 %indvars.iv, 50
+  %51 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %50
+  %52 = zext nneg i32 %47 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 32, i64 %52, i1 false)
   br label %.loopexit
 
-54:                                               ; preds = %.preheader, %42
+53:                                               ; preds = %.preheader, %42
   %.346 = phi i32 [ 0, %42 ], [ %37, %.preheader ]
   %.3 = phi ptr [ %43, %42 ], [ %.164, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
+  %54 = icmp samesign ult i64 %indvars.iv, 15
+  br i1 %54, label %.preheader, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %54, %45
-  %.245 = phi i32 [ 0, %45 ], [ %.346, %54 ]
-  %.2 = phi ptr [ %14, %45 ], [ %.3, %54 ]
+.loopexit:                                        ; preds = %53, %45
+  %.245 = phi i32 [ 0, %45 ], [ %.346, %53 ]
+  %.2 = phi ptr [ %14, %45 ], [ %.3, %53 ]
   %55 = add i32 %.04167, 1
   %56 = shl i32 %.04167, 4
   call void (ptr, ptr, ...) %3(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef %56, ptr noundef nonnull %6) #4
