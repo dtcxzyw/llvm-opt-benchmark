@@ -174,16 +174,14 @@ define void @cvBoxPoints(ptr noundef readonly byval(%struct.CvBox2D) align 8 cap
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %15 = load <4 x float>, ptr %0, align 8, !noalias !4
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %.sroa.0.0.vec.insert.i1.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %16 = extractelement <4 x float> %15, i64 3
-  %.sroa.0.4.vec.insert.i2.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i1.i, float %16, i64 1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load float, ptr %17, align 8, !noalias !4
+  %.sroa.0.4.vec.insert.i2.i = shufflevector <4 x float> %15, <4 x float> poison, <2 x i32> <i32 2, i32 3>
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load float, ptr %16, align 8, !noalias !4
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %5, align 8, !alias.scope !4
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store <2 x float> %.sroa.0.4.vec.insert.i2.i, ptr %19, align 8, !alias.scope !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store float %18, ptr %20, align 8, !alias.scope !4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i2.i, ptr %18, align 8, !alias.scope !4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store float %17, ptr %19, align 8, !alias.scope !4
   call void @_ZNK2cv11RotatedRect6pointsEPNS_6Point_IfEE(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull %1)
   ret void
 }

@@ -6326,9 +6326,7 @@ define noundef zeroext i1 @_ZNK4pkpy6Mat3x39is_affineEv(ptr noundef nonnull read
 define <2 x float> @_ZNK4pkpy6Mat3x32_tEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load <4 x float>, ptr %2, align 4
-  %.sroa.0.0.vec.insert = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %4 = extractelement <4 x float> %3, i64 3
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %4, i64 1
+  %.sroa.0.4.vec.insert = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 3>
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
@@ -15505,15 +15503,13 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load <4 x float>, ptr %7, align 4
-  %.sroa.0.0.vec.insert.i.i = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %9 = extractelement <4 x float> %8, i64 3
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %9, i64 1
+  %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 3>
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 %11, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress uwtable

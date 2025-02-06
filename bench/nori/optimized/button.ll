@@ -782,10 +782,10 @@ define hidden void @_ZN7nanogui6Button4drawEP10NVGcontext(ptr noundef nonnull al
 54:                                               ; preds = %29
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %56 = load <4 x float>, ptr %55, align 8
-  %57 = extractelement <4 x float> %56, i64 2
   %.sroa.0137.4.vec.insert = shufflevector <4 x float> %56, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %.sroa.3.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %57, i64 0
-  tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0137.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert)
+  %57 = shufflevector <4 x float> %56, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
+  %.sroa.3.12.vec.insert158 = insertelement <2 x float> %57, float 1.000000e+00, i64 1
+  tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0137.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert158)
   tail call void @nvgFill(ptr noundef %1)
   %58 = load i8, ptr %12, align 8
   %59 = trunc i8 %58 to i1

@@ -860,15 +860,13 @@ if.then5:                                         ; preds = %entry
   %agg.tmp4.sroa.0.0.copyload.i = load <2 x float>, ptr %c.i, align 8
   %dsdx.i = getelementptr inbounds nuw i8, ptr %c.i, i64 8
   %9 = load <4 x float>, ptr %dsdx.i, align 8
-  %agg.tmp6.sroa.0.0.vec.insert.i = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %10 = extractelement <4 x float> %9, i64 2
-  %agg.tmp6.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp6.sroa.0.0.vec.insert.i, float %10, i64 1
+  %agg.tmp6.sroa.0.4.vec.insert.i = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 2>
   %agg.tmp7.sroa.0.4.vec.insert.i = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %call10.i = call noundef float @_ZNK4pbrt6MIPMap6FilterIfEET_NS_6Point2IfEENS_7Vector2IfEES6_(ptr noundef nonnull align 8 dereferenceable(52) %8, <2 x float> %agg.tmp4.sroa.0.0.copyload.i, <2 x float> %agg.tmp6.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp7.sroa.0.4.vec.insert.i)
   %mul.i = fmul float %7, %call10.i
   %invert.i = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %11 = load i8, ptr %invert.i, align 4
-  %tobool.i = trunc i8 %11 to i1
+  %10 = load i8, ptr %invert.i, align 4
+  %tobool.i = trunc i8 %10 to i1
   %sub12.i = fsub float 1.000000e+00, %mul.i
   %cmp.i.i = fcmp ogt float %sub12.i, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, float %sub12.i, float 0.000000e+00
@@ -882,14 +880,14 @@ if.then11:                                        ; preds = %entry
 
 if.then16:                                        ; preds = %entry
   %and.i.i11 = and i64 %0, 144115188075855871
-  %12 = inttoptr i64 %and.i.i11 to ptr
+  %11 = inttoptr i64 %and.i.i11 to ptr
   %agg.tmp18.sroa.2.0.ctx.sroa_idx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %agg.tmp18.sroa.2.0.copyload = load i32, ptr %agg.tmp18.sroa.2.0.ctx.sroa_idx, align 8
   %conv.i = sext i32 %agg.tmp18.sroa.2.0.copyload to i64
-  %ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = load ptr, ptr %ptr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds float, ptr %13, i64 %conv.i
-  %14 = load float, ptr %arrayidx.i.i, align 4
+  %ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %12 = load ptr, ptr %ptr.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds float, ptr %12, i64 %conv.i
+  %13 = load float, ptr %arrayidx.i.i, align 4
   br label %return
 
 if.else20:                                        ; preds = %entry
@@ -902,7 +900,7 @@ if.then22:                                        ; preds = %if.else20
   unreachable
 
 return:                                           ; preds = %if.else20, %if.then16, %if.then5, %if.then
-  %retval.0 = phi float [ %2, %if.then ], [ %cond.i, %if.then5 ], [ %14, %if.then16 ], [ 0.000000e+00, %if.else20 ]
+  %retval.0 = phi float [ %2, %if.then ], [ %cond.i, %if.then5 ], [ %13, %if.then16 ], [ 0.000000e+00, %if.else20 ]
   ret float %retval.0
 }
 

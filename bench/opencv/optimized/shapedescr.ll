@@ -4595,7 +4595,7 @@ define void @cvFitEllipse2(ptr dead_on_unwind noalias writable writeonly sret(%s
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 136, ptr %8, align 8
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %4, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %3)
-          to label %9 unwind label %23
+          to label %9 unwind label %22
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4606,60 +4606,58 @@ define void @cvFitEllipse2(ptr dead_on_unwind noalias writable writeonly sret(%s
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %12, align 8
   invoke void @_ZN2cv10fitEllipseERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::RotatedRect") align 4 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %13 unwind label %25
+          to label %13 unwind label %24
 
 13:                                               ; preds = %9
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %14 = load <4 x float>, ptr %5, align 16, !noalias !53
   %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %0, align 4, !alias.scope !53
-  %.sroa.0.0.vec.insert.i4.i = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %15 = extractelement <4 x float> %14, i64 3
-  %.sroa.0.4.vec.insert.i5.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i4.i, float %15, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <2 x float> %.sroa.0.4.vec.insert.i5.i, ptr %16, align 4, !alias.scope !53
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load float, ptr %17, align 16, !noalias !53
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %18, ptr %19, align 4, !alias.scope !53
+  %.sroa.0.4.vec.insert.i5.i = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 2, i32 3>
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i5.i, ptr %15, align 4, !alias.scope !53
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %17 = load float, ptr %16, align 16, !noalias !53
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %17, ptr %18, align 4, !alias.scope !53
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #17
-  %20 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %20, %7
-  %21 = icmp eq ptr %20, null
-  %or.cond = or i1 %.not.i.i, %21
-  br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %22
+  %19 = load ptr, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %19, %7
+  %20 = icmp eq ptr %19, null
+  %or.cond = or i1 %.not.i.i, %20
+  br i1 %or.cond, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %21
 
-22:                                               ; preds = %13
-  call void @_ZdaPv(ptr noundef nonnull %20) #21
+21:                                               ; preds = %13
+  call void @_ZdaPv(ptr noundef nonnull %19) #21
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
-_ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %22, %13
+_ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %21, %13
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-25:                                               ; preds = %9
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %9
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #17
-  br label %27
+  br label %26
 
-27:                                               ; preds = %25, %23
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
-  %28 = load ptr, ptr %3, align 8
-  %.not.i.i6 = icmp eq ptr %28, %7
-  %29 = icmp eq ptr %28, null
-  %or.cond8 = or i1 %.not.i.i6, %29
-  br i1 %or.cond8, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit7, label %30
+26:                                               ; preds = %24, %22
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
+  %27 = load ptr, ptr %3, align 8
+  %.not.i.i6 = icmp eq ptr %27, %7
+  %28 = icmp eq ptr %27, null
+  %or.cond8 = or i1 %.not.i.i6, %28
+  br i1 %or.cond8, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit7, label %29
 
-30:                                               ; preds = %27
-  call void @_ZdaPv(ptr noundef nonnull %28) #21
+29:                                               ; preds = %26
+  call void @_ZdaPv(ptr noundef nonnull %27) #21
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit7
 
-_ZN2cv10AutoBufferIdLm136EED2Ev.exit7:            ; preds = %30, %27
+_ZN2cv10AutoBufferIdLm136EED2Ev.exit7:            ; preds = %29, %26
   resume { ptr, i32 } %.pn.pn
 }
 

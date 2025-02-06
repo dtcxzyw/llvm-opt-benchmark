@@ -3737,11 +3737,11 @@ define internal fastcc noundef float @_ZL13pressureErrorN3gmx8ArrayRefIK17Verlet
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = load <4 x float>, ptr %20, align 4
   %.sroa.0.4.vec.insert.i = shufflevector <4 x float> %21, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %22 = extractelement <4 x float> %21, i64 2
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %22, i64 0
+  %22 = shufflevector <4 x float> %21, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
+  %.sroa.3.12.vec.insert.i88 = insertelement <2 x float> %22, float 0.000000e+00, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %23, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i88, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %25 = load float, ptr %24, align 4
   %.sroa.0.0.vec.insert.i51 = insertelement <2 x float> poison, float %25, i64 0

@@ -2198,50 +2198,48 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_115SemisphereScene5depthERKN2
   %.sroa.05.sroa.0.0.copyload = load float, ptr %7, align 8
   %.sroa.05.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load <4 x float>, ptr %.sroa.05.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.8.vec.insert = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %9 = extractelement <4 x float> %8, i64 2
-  %10 = extractelement <4 x float> %8, i64 3
-  %11 = fdiv float 1.000000e+00, %.sroa.05.sroa.0.0.copyload
-  %.sroa.06.0.vec.insert = insertelement <2 x float> poison, float %11, i64 0
-  %12 = fdiv float 1.000000e+00, %9
-  %.sroa.06.4.vec.insert = insertelement <2 x float> %.sroa.06.0.vec.insert, float %12, i64 1
-  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %10, i64 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8
+  %10 = fdiv float 1.000000e+00, %.sroa.05.sroa.0.0.copyload
+  %.sroa.06.0.vec.insert = insertelement <2 x float> poison, float %10, i64 0
+  %11 = fdiv float 1.000000e+00, %9
+  %.sroa.06.4.vec.insert = insertelement <2 x float> %.sroa.06.0.vec.insert, float %11, i64 1
+  %.sroa.3.12.vec.insert = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 3>
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %13, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %19 = load i8, ptr %18, align 8
+  %20 = and i8 %19, 1
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN11opencv_test12_GLOBAL__N_113RenderInvokerINS0_15SemisphereSceneEEE, i64 16), ptr %5, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store <2 x float> %.sroa.06.4.vec.insert, ptr %23, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store <2 x float> %.sroa.06.4.vec.insert, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 88
   store <2 x float> %.sroa.3.12.vec.insert, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store float %18, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i8 %21, ptr %25, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store float %17, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  store i8 %20, ptr %24, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef -1.000000e+00)
-          to label %26 unwind label %27
+          to label %25 unwind label %26
 
-26:                                               ; preds = %3
+25:                                               ; preds = %3
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %5) #29
   ret void
 
-27:                                               ; preds = %3
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %5) #29
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #29
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable

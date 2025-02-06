@@ -355,12 +355,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2feqE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2f12GetTransposeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = load <4 x float>, ptr %0, align 4
-  %.sroa.0.0.vec.insert = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %.sroa.3.8.vec.insert = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %3 = extractelement <4 x float> %2, i64 2
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %3, i64 1
-  %4 = extractelement <4 x float> %2, i64 3
-  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %4, i64 1
+  %.sroa.0.4.vec.insert = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 0, i32 2>
+  %.sroa.3.12.vec.insert = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.3.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

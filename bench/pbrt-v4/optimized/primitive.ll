@@ -9001,15 +9001,13 @@ sw.bb:                                            ; preds = %entry
   %agg.tmp4.sroa.0.0.copyload.i.i = load <2 x float>, ptr %c.i.i, align 8
   %dsdx.i.i = getelementptr inbounds nuw i8, ptr %c.i.i, i64 8
   %6 = load <4 x float>, ptr %dsdx.i.i, align 8
-  %agg.tmp6.sroa.0.0.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %7 = extractelement <4 x float> %6, i64 2
-  %agg.tmp6.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %agg.tmp6.sroa.0.0.vec.insert.i.i, float %7, i64 1
+  %agg.tmp6.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 2>
   %agg.tmp7.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %call10.i.i = call noundef float @_ZNK4pbrt6MIPMap6FilterIfEET_NS_6Point2IfEENS_7Vector2IfEES6_(ptr noundef nonnull align 8 dereferenceable(52) %5, <2 x float> %agg.tmp4.sroa.0.0.copyload.i.i, <2 x float> %agg.tmp6.sroa.0.4.vec.insert.i.i, <2 x float> %agg.tmp7.sroa.0.4.vec.insert.i.i)
   %mul.i.i = fmul float %4, %call10.i.i
   %invert.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 44
-  %8 = load i8, ptr %invert.i.i, align 4
-  %tobool.i.i = trunc i8 %8 to i1
+  %7 = load i8, ptr %invert.i.i, align 4
+  %tobool.i.i = trunc i8 %7 to i1
   %sub12.i.i = fsub float 1.000000e+00, %mul.i.i
   %cmp.i.i.i = fcmp ogt float %sub12.i.i, 0.000000e+00
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float %sub12.i.i, float 0.000000e+00
@@ -9022,21 +9020,21 @@ sw.bb1:                                           ; preds = %entry
   unreachable
 
 sw.bb3:                                           ; preds = %entry
-  %9 = load ptr, ptr %func, align 8
+  %8 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp.i107)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i107, ptr noundef nonnull align 4 dereferenceable(76) %9, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i107, ptr noundef nonnull align 4 dereferenceable(76) %8, i64 76, i1 false)
   %amount.i = getelementptr inbounds nuw i8, ptr %ptr, i64 16
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp4.i, ptr noundef nonnull align 4 dereferenceable(76) %9, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp4.i, ptr noundef nonnull align 4 dereferenceable(76) %8, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i.i108)
   store ptr %agg.tmp4.i, ptr %eval.i.i108, align 8
-  %10 = load i64, ptr %amount.i, align 8
-  %and.i.i109 = and i64 %10, 144115188075855871
-  %11 = inttoptr i64 %and.i.i109 to ptr
-  %shr.i.i110 = lshr i64 %10, 57
+  %9 = load i64, ptr %amount.i, align 8
+  %and.i.i109 = and i64 %9, 144115188075855871
+  %10 = inttoptr i64 %and.i.i109 to ptr
+  %shr.i.i110 = lshr i64 %9, 57
   %conv.i.i111 = trunc nuw nsw i64 %shr.i.i110 to i32
   %sub.i.i.i112 = add nsw i32 %conv.i.i111, -1
-  %call3.i.i.i113 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i108, ptr noundef %11, i32 noundef %sub.i.i.i112)
+  %call3.i.i.i113 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i108, ptr noundef %10, i32 noundef %sub.i.i.i112)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i.i108)
   %cmp.i114 = fcmp une float %call3.i.i.i113, 1.000000e+00
@@ -9047,13 +9045,13 @@ if.then.i:                                        ; preds = %sw.bb3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp25.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i107, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i6.i)
   store ptr %agg.tmp25.i, ptr %eval.i6.i, align 8
-  %12 = load i64, ptr %ptr, align 8
-  %and.i19.i = and i64 %12, 144115188075855871
-  %13 = inttoptr i64 %and.i19.i to ptr
-  %shr.i17.i = lshr i64 %12, 57
+  %11 = load i64, ptr %ptr, align 8
+  %and.i19.i = and i64 %11, 144115188075855871
+  %12 = inttoptr i64 %and.i19.i to ptr
+  %shr.i17.i = lshr i64 %11, 57
   %conv.i18.i = trunc nuw nsw i64 %shr.i17.i to i32
   %sub.i.i9.i = add nsw i32 %conv.i18.i, -1
-  %call3.i.i10.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i, ptr noundef %13, i32 noundef %sub.i.i9.i)
+  %call3.i.i10.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i, ptr noundef %12, i32 noundef %sub.i.i9.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp25.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i6.i)
   br label %if.end.i115
@@ -9069,13 +9067,13 @@ if.then5.i:                                       ; preds = %if.end.i115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp611.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i107, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i12.i)
   store ptr %agg.tmp611.i, ptr %eval.i12.i, align 8
-  %14 = load i64, ptr %tex2.i, align 8
-  %and.i22.i = and i64 %14, 144115188075855871
-  %15 = inttoptr i64 %and.i22.i to ptr
-  %shr.i20.i = lshr i64 %14, 57
+  %13 = load i64, ptr %tex2.i, align 8
+  %and.i22.i = and i64 %13, 144115188075855871
+  %14 = inttoptr i64 %and.i22.i to ptr
+  %shr.i20.i = lshr i64 %13, 57
   %conv.i21.i = trunc nuw nsw i64 %shr.i20.i to i32
   %sub.i.i15.i = add nsw i32 %conv.i21.i, -1
-  %call3.i.i16.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i12.i, ptr noundef %15, i32 noundef %sub.i.i15.i)
+  %call3.i.i16.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i12.i, ptr noundef %14, i32 noundef %sub.i.i15.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp611.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i12.i)
   br label %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit
@@ -9090,14 +9088,14 @@ _ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit: ; preds = %if
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %16 = load ptr, ptr %func, align 8
+  %15 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %agg.tmp.i18117.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i18117.sroa.0, ptr noundef nonnull align 4 dereferenceable(36) %16, i64 36, i1 false)
-  %agg.tmp.i18.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i18117.sroa.0, ptr noundef nonnull align 4 dereferenceable(36) %15, i64 36, i1 false)
+  %agg.tmp.i18.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 36
   %agg.tmp.i18.sroa.4.0.copyload = load <2 x float>, ptr %agg.tmp.i18.sroa.4.0..sroa_idx, align 4
-  %agg.tmp.i18.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 44
+  %agg.tmp.i18.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 44
   %agg.tmp.i18.sroa.5.0.copyload = load float, ptr %agg.tmp.i18.sroa.5.0..sroa_idx, align 4
-  %agg.tmp.i18.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %agg.tmp.i18.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %agg.tmp.i18117.sroa.7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp.i18117.sroa.7, ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp.i18.sroa.6.0..sroa_idx, i64 28, i1 false)
   %dir.i = getelementptr inbounds nuw i8, ptr %ptr, i64 16
@@ -9109,18 +9107,18 @@ sw.bb5:                                           ; preds = %entry
   %n.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.i18.sroa.4.0.copyload, i64 1
   %v.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i, i64 1
   %mul.i.i.i.i122 = fmul float %agg.tmp.i18.sroa.5.0.copyload, %agg.tmp2.sroa.2.0.copyload.i
-  %17 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i, float %v.sroa.0.4.vec.extract.i.i.i, float %mul.i.i.i.i122)
+  %16 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i, float %v.sroa.0.4.vec.extract.i.i.i, float %mul.i.i.i.i122)
   %fneg.i.i.i.i = fneg float %mul.i.i.i.i122
-  %18 = tail call noundef float @llvm.fma.f32(float %agg.tmp.i18.sroa.5.0.copyload, float %agg.tmp2.sroa.2.0.copyload.i, float %fneg.i.i.i.i)
-  %add.i.i.i.i = fadd float %17, %18
-  %19 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i, float %v.sroa.0.0.vec.extract.i.i.i, float %add.i.i.i.i)
-  %20 = tail call noundef float @llvm.fabs.f32(float %19)
-  %cmp.i123 = fcmp une float %19, 0.000000e+00
+  %17 = tail call noundef float @llvm.fma.f32(float %agg.tmp.i18.sroa.5.0.copyload, float %agg.tmp2.sroa.2.0.copyload.i, float %fneg.i.i.i.i)
+  %add.i.i.i.i = fadd float %16, %17
+  %18 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i, float %v.sroa.0.0.vec.extract.i.i.i, float %add.i.i.i.i)
+  %19 = tail call noundef float @llvm.fabs.f32(float %18)
+  %cmp.i123 = fcmp une float %18, 0.000000e+00
   br i1 %cmp.i123, label %if.then.i133, label %if.end.i124
 
 if.then.i133:                                     ; preds = %sw.bb5
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp34.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp34.i, ptr noundef nonnull align 4 dereferenceable(36) %16, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp34.i, ptr noundef nonnull align 4 dereferenceable(36) %15, i64 36, i1 false)
   %agg.tmp.i18117.sroa.5.0.agg.tmp34.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp34.i, i64 36
   store <2 x float> %agg.tmp.i18.sroa.4.0.copyload, ptr %agg.tmp.i18117.sroa.5.0.agg.tmp34.i.sroa_idx, align 4
   %agg.tmp.i18117.sroa.6.0.agg.tmp34.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp34.i, i64 44
@@ -9129,20 +9127,20 @@ if.then.i133:                                     ; preds = %sw.bb5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp.i18117.sroa.7.0.agg.tmp34.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp.i18.sroa.6.0..sroa_idx, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i.i119)
   store ptr %agg.tmp34.i, ptr %eval.i.i119, align 8
-  %21 = load i64, ptr %ptr, align 8
-  %and.i.i134 = and i64 %21, 144115188075855871
-  %22 = inttoptr i64 %and.i.i134 to ptr
-  %shr.i.i135 = lshr i64 %21, 57
+  %20 = load i64, ptr %ptr, align 8
+  %and.i.i134 = and i64 %20, 144115188075855871
+  %21 = inttoptr i64 %and.i.i134 to ptr
+  %shr.i.i135 = lshr i64 %20, 57
   %conv.i.i136 = trunc nuw nsw i64 %shr.i.i135 to i32
   %sub.i.i.i137 = add nsw i32 %conv.i.i136, -1
-  %call3.i.i.i138 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i119, ptr noundef %22, i32 noundef %sub.i.i.i137)
+  %call3.i.i.i138 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i119, ptr noundef %21, i32 noundef %sub.i.i.i137)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp34.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i.i119)
   br label %if.end.i124
 
 if.end.i124:                                      ; preds = %if.then.i133, %sw.bb5
   %t1.0.i125 = phi float [ %call3.i.i.i138, %if.then.i133 ], [ 0.000000e+00, %sw.bb5 ]
-  %cmp5.i = fcmp une float %20, 1.000000e+00
+  %cmp5.i = fcmp une float %19, 1.000000e+00
   br i1 %cmp5.i, label %if.then6.i, label %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit
 
 if.then6.i:                                       ; preds = %if.end.i124
@@ -9157,21 +9155,21 @@ if.then6.i:                                       ; preds = %if.end.i124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp.i18117.sroa.7.0.agg.tmp75.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp.i18117.sroa.7, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i6.i118)
   store ptr %agg.tmp75.i, ptr %eval.i6.i118, align 8
-  %23 = load i64, ptr %tex2.i130, align 8
-  %and.i13.i = and i64 %23, 144115188075855871
-  %24 = inttoptr i64 %and.i13.i to ptr
-  %shr.i11.i = lshr i64 %23, 57
+  %22 = load i64, ptr %tex2.i130, align 8
+  %and.i13.i = and i64 %22, 144115188075855871
+  %23 = inttoptr i64 %and.i13.i to ptr
+  %shr.i11.i = lshr i64 %22, 57
   %conv.i12.i = trunc nuw nsw i64 %shr.i11.i to i32
   %sub.i.i9.i131 = add nsw i32 %conv.i12.i, -1
-  %call3.i.i10.i132 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i118, ptr noundef %24, i32 noundef %sub.i.i9.i131)
+  %call3.i.i10.i132 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i118, ptr noundef %23, i32 noundef %sub.i.i9.i131)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp75.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i6.i118)
   br label %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit
 
 _ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit: ; preds = %if.end.i124, %if.then6.i
   %t2.0.i126 = phi float [ %call3.i.i10.i132, %if.then6.i ], [ 0.000000e+00, %if.end.i124 ]
-  %mul.i127 = fmul float %20, %t1.0.i125
-  %sub.i128 = fsub float 1.000000e+00, %20
+  %mul.i127 = fmul float %19, %t1.0.i125
+  %sub.i128 = fsub float 1.000000e+00, %19
   %mul10.i = fmul float %sub.i128, %t2.0.i126
   %add.i129 = fadd float %mul.i127, %mul10.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %agg.tmp.i18117.sroa.0)
@@ -9179,21 +9177,21 @@ _ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit: ; pr
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %25 = load ptr, ptr %func, align 8
+  %24 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp.i2034)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i2034, ptr noundef nonnull align 4 dereferenceable(76) %25, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i2034, ptr noundef nonnull align 4 dereferenceable(76) %24, i64 76, i1 false)
   %scale.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp3.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp3.i, ptr noundef nonnull align 4 dereferenceable(76) %25, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp3.i, ptr noundef nonnull align 4 dereferenceable(76) %24, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i.i)
   store ptr %agg.tmp3.i, ptr %eval.i.i, align 8
-  %26 = load i64, ptr %scale.i, align 8
-  %and.i94 = and i64 %26, 144115188075855871
-  %27 = inttoptr i64 %and.i94 to ptr
-  %shr.i92 = lshr i64 %26, 57
+  %25 = load i64, ptr %scale.i, align 8
+  %and.i94 = and i64 %25, 144115188075855871
+  %26 = inttoptr i64 %and.i94 to ptr
+  %shr.i92 = lshr i64 %25, 57
   %conv.i93 = trunc nuw nsw i64 %shr.i92 to i32
   %sub.i.i.i = add nsw i32 %conv.i93, -1
-  %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i, ptr noundef %27, i32 noundef %sub.i.i.i)
+  %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i, ptr noundef %26, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i.i)
   %cmp.i = fcmp oeq float %call3.i.i.i, 0.000000e+00
@@ -9204,13 +9202,13 @@ if.end.i:                                         ; preds = %sw.bb7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp24.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i2034, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i5.i)
   store ptr %agg.tmp24.i, ptr %eval.i5.i, align 8
-  %28 = load i64, ptr %ptr, align 8
-  %and.i = and i64 %28, 144115188075855871
-  %29 = inttoptr i64 %and.i to ptr
-  %shr.i = lshr i64 %28, 57
+  %27 = load i64, ptr %ptr, align 8
+  %and.i = and i64 %27, 144115188075855871
+  %28 = inttoptr i64 %and.i to ptr
+  %shr.i = lshr i64 %27, 57
   %conv.i = trunc nuw nsw i64 %shr.i to i32
   %sub.i.i8.i = add nsw i32 %conv.i, -1
-  %call3.i.i9.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i5.i, ptr noundef %29, i32 noundef %sub.i.i8.i)
+  %call3.i.i9.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i5.i, ptr noundef %28, i32 noundef %sub.i.i8.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp24.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i5.i)
   %mul.i = fmul float %call3.i.i.i, %call3.i.i9.i
@@ -9222,63 +9220,63 @@ _ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit: ; preds = 
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %30 = load float, ptr %ptr, align 4
+  %29 = load float, ptr %ptr, align 4
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %31 = load ptr, ptr %func, align 8
+  %30 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(76) %31, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(76) %30, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %c.i.i23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %map.i.i.i22)
   store ptr %agg.tmp1.i.i, ptr %map.i.i.i22, align 8, !noalias !95
-  %32 = load i64, ptr %ptr, align 8, !noalias !98
-  %and.i.i.i.i.i24 = and i64 %32, 144115188075855871
-  %33 = inttoptr i64 %and.i.i.i.i.i24 to ptr
-  %shr.i.i.i.i.i25 = lshr i64 %32, 57
+  %31 = load i64, ptr %ptr, align 8, !noalias !98
+  %and.i.i.i.i.i24 = and i64 %31, 144115188075855871
+  %32 = inttoptr i64 %and.i.i.i.i.i24 to ptr
+  %shr.i.i.i.i.i25 = lshr i64 %31, 57
   %conv.i.i.i.i.i26 = trunc nuw nsw i64 %shr.i.i.i.i.i25 to i32
   %sub.i.i.i.i27 = add nsw i32 %conv.i.i.i.i.i26, -1
-  call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %map.i.i.i22, ptr noundef %33, i32 noundef %sub.i.i.i.i27)
+  call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %map.i.i.i22, ptr noundef %32, i32 noundef %sub.i.i.i.i27)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %map.i.i.i22)
-  %34 = load float, ptr %c.i.i23, align 4
-  %sub.i.i28 = fsub float 1.000000e+00, %34
+  %33 = load float, ptr %c.i.i23, align 4
+  %sub.i.i28 = fsub float 1.000000e+00, %33
   %cond-lvalue.i.i.i29 = getelementptr inbounds nuw i8, ptr %c.i.i23, i64 4
-  %35 = load float, ptr %cond-lvalue.i.i.i29, align 4
-  %sub4.i.i = fsub float 1.000000e+00, %35
+  %34 = load float, ptr %cond-lvalue.i.i.i29, align 4
+  %sub4.i.i = fsub float 1.000000e+00, %34
   %mul.i.i30 = fmul float %sub.i.i28, %sub4.i.i
   %v00.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
-  %36 = load float, ptr %v00.i.i, align 8
-  %mul5.i.i = fmul float %36, %mul.i.i30
-  %mul11.i.i = fmul float %34, %sub4.i.i
+  %35 = load float, ptr %v00.i.i, align 8
+  %mul5.i.i = fmul float %35, %mul.i.i30
+  %mul11.i.i = fmul float %33, %sub4.i.i
   %v10.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 16
-  %37 = load float, ptr %v10.i.i, align 8
-  %mul12.i.i = fmul float %mul11.i.i, %37
+  %36 = load float, ptr %v10.i.i, align 8
+  %mul12.i.i = fmul float %mul11.i.i, %36
   %add.i.i = fadd float %mul5.i.i, %mul12.i.i
-  %mul18.i.i = fmul float %sub.i.i28, %35
+  %mul18.i.i = fmul float %sub.i.i28, %34
   %v01.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 12
-  %38 = load float, ptr %v01.i.i, align 4
-  %mul19.i.i = fmul float %mul18.i.i, %38
+  %37 = load float, ptr %v01.i.i, align 4
+  %mul19.i.i = fmul float %mul18.i.i, %37
   %add20.i.i = fadd float %add.i.i, %mul19.i.i
-  %mul25.i.i = fmul float %34, %35
+  %mul25.i.i = fmul float %33, %34
   %v11.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 20
-  %39 = load float, ptr %v11.i.i, align 4
-  %mul26.i.i = fmul float %mul25.i.i, %39
+  %38 = load float, ptr %v11.i.i, align 4
+  %mul26.i.i = fmul float %mul25.i.i, %38
   %add27.i.i = fadd float %add20.i.i, %mul26.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %c.i.i23)
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %40 = load ptr, ptr %func, align 8
+  %39 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp.i31139)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i31139, ptr noundef nonnull align 4 dereferenceable(76) %40, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i31139, ptr noundef nonnull align 4 dereferenceable(76) %39, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i142)
-  %41 = load i64, ptr %ptr, align 8
-  store i64 %41, ptr %agg.tmp2.i, align 8
+  %40 = load i64, ptr %ptr, align 8
+  store i64 %40, ptr %agg.tmp2.i, align 8
   %map3D.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
-  %42 = load i64, ptr %map3D.i, align 8
-  store i64 %42, ptr %agg.tmp3.i142, align 8
+  %41 = load i64, ptr %map3D.i, align 8
+  store i64 %41, ptr %agg.tmp3.i142, align 8
   %call.i = call noundef float @_ZN4pbrt12CheckerboardENS_18TextureEvalContextENS_16TextureMapping2DENS_16TextureMapping3DE(ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp.i31139, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %agg.tmp3.i142)
   %cmp.i143 = fcmp une float %call.i, 1.000000e+00
   br i1 %cmp.i143, label %if.then.i154, label %if.end.i144
@@ -9289,13 +9287,13 @@ if.then.i154:                                     ; preds = %sw.bb13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp44.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i31139, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i.i141)
   store ptr %agg.tmp44.i, ptr %eval.i.i141, align 8
-  %43 = load i64, ptr %tex.i, align 8
-  %and.i.i155 = and i64 %43, 144115188075855871
-  %44 = inttoptr i64 %and.i.i155 to ptr
-  %shr.i.i156 = lshr i64 %43, 57
+  %42 = load i64, ptr %tex.i, align 8
+  %and.i.i155 = and i64 %42, 144115188075855871
+  %43 = inttoptr i64 %and.i.i155 to ptr
+  %shr.i.i156 = lshr i64 %42, 57
   %conv.i.i157 = trunc nuw nsw i64 %shr.i.i156 to i32
   %sub.i.i.i158 = add nsw i32 %conv.i.i157, -1
-  %call3.i.i.i159 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i141, ptr noundef %44, i32 noundef %sub.i.i.i158)
+  %call3.i.i.i159 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i.i141, ptr noundef %43, i32 noundef %sub.i.i.i158)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp44.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i.i141)
   br label %if.end.i144
@@ -9311,13 +9309,13 @@ if.then7.i:                                       ; preds = %if.end.i144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp105.i, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i31139, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i6.i140)
   store ptr %agg.tmp105.i, ptr %eval.i6.i140, align 8
-  %45 = load i64, ptr %arrayidx9.i, align 8
-  %and.i13.i149 = and i64 %45, 144115188075855871
-  %46 = inttoptr i64 %and.i13.i149 to ptr
-  %shr.i11.i150 = lshr i64 %45, 57
+  %44 = load i64, ptr %arrayidx9.i, align 8
+  %and.i13.i149 = and i64 %44, 144115188075855871
+  %45 = inttoptr i64 %and.i13.i149 to ptr
+  %shr.i11.i150 = lshr i64 %44, 57
   %conv.i12.i151 = trunc nuw nsw i64 %shr.i11.i150 to i32
   %sub.i.i9.i152 = add nsw i32 %conv.i12.i151, -1
-  %call3.i.i10.i153 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i140, ptr noundef %46, i32 noundef %sub.i.i9.i152)
+  %call3.i.i10.i153 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i6.i140, ptr noundef %45, i32 noundef %sub.i.i9.i152)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp105.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i6.i140)
   br label %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit
@@ -9334,21 +9332,21 @@ _ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit: ; pr
   br label %return
 
 sw.bb.i:                                          ; preds = %entry
-  %47 = load ptr, ptr %func, align 8
+  %46 = load ptr, ptr %func, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp1.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i, ptr noundef nonnull align 4 dereferenceable(76) %47, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i, ptr noundef nonnull align 4 dereferenceable(76) %46, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %c.i.i88)
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp.i.i105)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i.i105, ptr noundef nonnull align 4 dereferenceable(76) %47, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i.i105, ptr noundef nonnull align 4 dereferenceable(76) %46, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %map.i)
   store ptr %agg.tmp.i.i105, ptr %map.i, align 8, !noalias !101
-  %48 = load i64, ptr %ptr, align 8, !noalias !104
-  %and.i.i.i = and i64 %48, 144115188075855871
-  %49 = inttoptr i64 %and.i.i.i to ptr
-  %shr.i.i.i = lshr i64 %48, 57
+  %47 = load i64, ptr %ptr, align 8, !noalias !104
+  %and.i.i.i = and i64 %47, 144115188075855871
+  %48 = inttoptr i64 %and.i.i.i to ptr
+  %shr.i.i.i = lshr i64 %47, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i106 = add nsw i32 %conv.i.i.i, -1
-  call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i.i88, ptr noundef nonnull align 8 dereferenceable(8) %map.i, ptr noundef %49, i32 noundef %sub.i.i106)
+  call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i.i88, ptr noundef nonnull align 8 dereferenceable(8) %map.i, ptr noundef %48, i32 noundef %sub.i.i106)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp.i.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %map.i)
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %c.i.i88, align 8
@@ -9361,13 +9359,13 @@ cond.true.i.i:                                    ; preds = %sw.bb.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp3.i.i98, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i99)
   store ptr %agg.tmp3.i.i98, ptr %eval.i99, align 8
-  %50 = load i64, ptr %insideDot.i.i, align 8
-  %and.i.i100 = and i64 %50, 144115188075855871
-  %51 = inttoptr i64 %and.i.i100 to ptr
-  %shr.i.i101 = lshr i64 %50, 57
+  %49 = load i64, ptr %insideDot.i.i, align 8
+  %and.i.i100 = and i64 %49, 144115188075855871
+  %50 = inttoptr i64 %and.i.i100 to ptr
+  %shr.i.i101 = lshr i64 %49, 57
   %conv.i.i102 = trunc nuw nsw i64 %shr.i.i101 to i32
   %sub.i.i103 = add nsw i32 %conv.i.i102, -1
-  %call3.i.i104 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i99, ptr noundef %51, i32 noundef %sub.i.i103)
+  %call3.i.i104 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i99, ptr noundef %50, i32 noundef %sub.i.i103)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp3.i.i98)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i99)
   br label %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit
@@ -9378,13 +9376,13 @@ cond.false.i.i:                                   ; preds = %sw.bb.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp5.i.i95, ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp1.i, i64 76, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
   store ptr %agg.tmp5.i.i95, ptr %eval.i, align 8
-  %52 = load i64, ptr %outsideDot.i.i, align 8
-  %and.i.i = and i64 %52, 144115188075855871
-  %53 = inttoptr i64 %and.i.i to ptr
-  %shr.i.i = lshr i64 %52, 57
+  %51 = load i64, ptr %outsideDot.i.i, align 8
+  %and.i.i = and i64 %51, 144115188075855871
+  %52 = inttoptr i64 %and.i.i to ptr
+  %shr.i.i = lshr i64 %51, 57
   %conv.i.i96 = trunc nuw nsw i64 %shr.i.i to i32
   %sub.i.i97 = add nsw i32 %conv.i.i96, -1
-  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %53, i32 noundef %sub.i.i97)
+  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_17FloatImageTextureENS_20GPUFloatImageTextureENS_15FloatMixTextureENS_24FloatDirectionMixTextureENS_18FloatScaledTextureENS_20FloatConstantTextureENS_18FloatBilerpTextureENS_24FloatCheckerboardTextureEJNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEvEET0_OS4_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %52, i32 noundef %sub.i.i97)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp5.i.i95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i)
   br label %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit
@@ -9396,79 +9394,79 @@ _ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16Flo
   br label %return
 
 sw.bb3.i:                                         ; preds = %entry
-  %54 = load ptr, ptr %func, align 8
-  %agg.tmp.sroa.0.0.copyload.i64 = load <2 x float>, ptr %54, align 4
-  %agg.tmp.sroa.2.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %53 = load ptr, ptr %func, align 8
+  %agg.tmp.sroa.0.0.copyload.i64 = load <2 x float>, ptr %53, align 4
+  %agg.tmp.sroa.2.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %agg.tmp.sroa.2.0.copyload.i66 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i65, align 4
-  %agg.tmp.sroa.3.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %agg.tmp.sroa.3.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %agg.tmp.sroa.3.0.copyload.i68 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i67, align 4
-  %agg.tmp.sroa.4.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  %agg.tmp.sroa.4.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %agg.tmp.sroa.4.0.copyload.i70 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i69, align 4
-  %agg.tmp.sroa.5.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %agg.tmp.sroa.5.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %agg.tmp.sroa.5.0.copyload.i72 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i71, align 4
-  %agg.tmp.sroa.6.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %agg.tmp.sroa.6.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %agg.tmp.sroa.6.0.copyload.i74 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i73, align 4
-  %55 = load i64, ptr %ptr, align 8, !noalias !107
-  %and.i.i.i.i.i75 = and i64 %55, 144115188075855871
-  %56 = inttoptr i64 %and.i.i.i.i.i75 to ptr
-  %call.i.i.i.i.i.i.i76 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %56, <2 x float> %agg.tmp.sroa.0.0.copyload.i64, float %agg.tmp.sroa.2.0.copyload.i66), !noalias !112
+  %54 = load i64, ptr %ptr, align 8, !noalias !107
+  %and.i.i.i.i.i75 = and i64 %54, 144115188075855871
+  %55 = inttoptr i64 %and.i.i.i.i.i75 to ptr
+  %call.i.i.i.i.i.i.i76 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %55, <2 x float> %agg.tmp.sroa.0.0.copyload.i64, float %agg.tmp.sroa.2.0.copyload.i66), !noalias !112
   %call.fca.0.extract.i.i.i.i.i.i.i77 = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i76, 0
   %call.fca.1.extract.i.i.i.i.i.i.i78 = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i76, 1
-  %call6.i.i.i.i.i.i.i79 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %56, <2 x float> %agg.tmp.sroa.3.0.copyload.i68, float %agg.tmp.sroa.4.0.copyload.i70), !noalias !112
+  %call6.i.i.i.i.i.i.i79 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %55, <2 x float> %agg.tmp.sroa.3.0.copyload.i68, float %agg.tmp.sroa.4.0.copyload.i70), !noalias !112
   %call6.fca.0.extract.i.i.i.i.i.i.i80 = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i79, 0
   %call6.fca.1.extract.i.i.i.i.i.i.i81 = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i79, 1
-  %call12.i.i.i.i.i.i.i82 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %56, <2 x float> %agg.tmp.sroa.5.0.copyload.i72, float %agg.tmp.sroa.6.0.copyload.i74), !noalias !112
+  %call12.i.i.i.i.i.i.i82 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %55, <2 x float> %agg.tmp.sroa.5.0.copyload.i72, float %agg.tmp.sroa.6.0.copyload.i74), !noalias !112
   %call12.fca.0.extract.i.i.i.i.i.i.i83 = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i82, 0
   %call12.fca.1.extract.i.i.i.i.i.i.i84 = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i82, 1
   %omega.i.i85 = getelementptr inbounds nuw i8, ptr %ptr, i64 8
-  %57 = load float, ptr %omega.i.i85, align 8
+  %56 = load float, ptr %omega.i.i85, align 8
   %octaves.i.i86 = getelementptr inbounds nuw i8, ptr %ptr, i64 12
-  %58 = load i32, ptr %octaves.i.i86, align 4
-  %call.i.i87 = tail call noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %call.fca.0.extract.i.i.i.i.i.i.i77, float %call.fca.1.extract.i.i.i.i.i.i.i78, <2 x float> %call6.fca.0.extract.i.i.i.i.i.i.i80, float %call6.fca.1.extract.i.i.i.i.i.i.i81, <2 x float> %call12.fca.0.extract.i.i.i.i.i.i.i83, float %call12.fca.1.extract.i.i.i.i.i.i.i84, float noundef %57, i32 noundef %58)
+  %57 = load i32, ptr %octaves.i.i86, align 4
+  %call.i.i87 = tail call noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %call.fca.0.extract.i.i.i.i.i.i.i77, float %call.fca.1.extract.i.i.i.i.i.i.i78, <2 x float> %call6.fca.0.extract.i.i.i.i.i.i.i80, float %call6.fca.1.extract.i.i.i.i.i.i.i81, <2 x float> %call12.fca.0.extract.i.i.i.i.i.i.i83, float %call12.fca.1.extract.i.i.i.i.i.i.i84, float noundef %56, i32 noundef %57)
   br label %return
 
 sw.bb5.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp.i62)
-  %59 = load ptr, ptr %func, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i62, ptr noundef nonnull align 4 dereferenceable(76) %59, i64 76, i1 false)
+  %58 = load ptr, ptr %func, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp.i62, ptr noundef nonnull align 4 dereferenceable(76) %58, i64 76, i1 false)
   %call.i63 = tail call noundef float @_ZNK4pbrt16FloatPtexTexture8EvaluateENS_18TextureEvalContextE(ptr noundef nonnull align 8 dereferenceable(52) %ptr, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp.i62)
   br label %return
 
 sw.bb7.i:                                         ; preds = %entry
-  %60 = load ptr, ptr %func, align 8
-  %agg.tmp.sroa.2.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %60, i64 72
+  %59 = load ptr, ptr %func, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %agg.tmp.sroa.2.0.copyload.i61 = load i32, ptr %agg.tmp.sroa.2.0..sroa_idx.i60, align 4
   %conv.i.i = sext i32 %agg.tmp.sroa.2.0.copyload.i61 to i64
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
-  %61 = load ptr, ptr %ptr.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %61, i64 %conv.i.i
-  %62 = load float, ptr %arrayidx.i.i.i, align 4
+  %60 = load ptr, ptr %ptr.i.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %60, i64 %conv.i.i
+  %61 = load float, ptr %arrayidx.i.i.i, align 4
   br label %return
 
 sw.bb9.i:                                         ; preds = %entry
-  %63 = load ptr, ptr %func, align 8
-  %agg.tmp.sroa.0.0.copyload.i38 = load <2 x float>, ptr %63, align 4
-  %agg.tmp.sroa.2.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %62 = load ptr, ptr %func, align 8
+  %agg.tmp.sroa.0.0.copyload.i38 = load <2 x float>, ptr %62, align 4
+  %agg.tmp.sroa.2.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %agg.tmp.sroa.2.0.copyload.i40 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i39, align 4
-  %agg.tmp.sroa.3.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  %agg.tmp.sroa.3.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %agg.tmp.sroa.3.0.copyload.i42 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i41, align 4
-  %agg.tmp.sroa.4.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  %agg.tmp.sroa.4.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %agg.tmp.sroa.4.0.copyload.i44 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i43, align 4
-  %agg.tmp.sroa.5.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %agg.tmp.sroa.5.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %agg.tmp.sroa.5.0.copyload.i46 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i45, align 4
-  %agg.tmp.sroa.6.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %agg.tmp.sroa.6.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %agg.tmp.sroa.6.0.copyload.i48 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i47, align 4
-  %64 = load i64, ptr %ptr, align 8, !noalias !119
-  %and.i.i.i.i.i49 = and i64 %64, 144115188075855871
-  %65 = inttoptr i64 %and.i.i.i.i.i49 to ptr
-  %call.i.i.i.i.i.i.i50 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %65, <2 x float> %agg.tmp.sroa.0.0.copyload.i38, float %agg.tmp.sroa.2.0.copyload.i40), !noalias !124
+  %63 = load i64, ptr %ptr, align 8, !noalias !119
+  %and.i.i.i.i.i49 = and i64 %63, 144115188075855871
+  %64 = inttoptr i64 %and.i.i.i.i.i49 to ptr
+  %call.i.i.i.i.i.i.i50 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %64, <2 x float> %agg.tmp.sroa.0.0.copyload.i38, float %agg.tmp.sroa.2.0.copyload.i40), !noalias !124
   %call.fca.0.extract.i.i.i.i.i.i.i51 = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i50, 0
   %call.fca.1.extract.i.i.i.i.i.i.i52 = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i50, 1
-  %call6.i.i.i.i.i.i.i53 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %65, <2 x float> %agg.tmp.sroa.3.0.copyload.i42, float %agg.tmp.sroa.4.0.copyload.i44), !noalias !124
+  %call6.i.i.i.i.i.i.i53 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %64, <2 x float> %agg.tmp.sroa.3.0.copyload.i42, float %agg.tmp.sroa.4.0.copyload.i44), !noalias !124
   %call6.fca.0.extract.i.i.i.i.i.i.i54 = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i53, 0
   %call6.fca.1.extract.i.i.i.i.i.i.i55 = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i53, 1
-  %call12.i.i.i.i.i.i.i56 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %65, <2 x float> %agg.tmp.sroa.5.0.copyload.i46, float %agg.tmp.sroa.6.0.copyload.i48), !noalias !124
+  %call12.i.i.i.i.i.i.i56 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %64, <2 x float> %agg.tmp.sroa.5.0.copyload.i46, float %agg.tmp.sroa.6.0.copyload.i48), !noalias !124
   %call12.fca.0.extract.i.i.i.i.i.i.i57 = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i56, 0
   %call12.fca.1.extract.i.i.i.i.i.i.i58 = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i56, 1
   %t.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %call.fca.0.extract.i.i.i.i.i.i.i51, i64 0
@@ -9494,44 +9492,44 @@ sw.bb9.i:                                         ; preds = %entry
   %retval.sroa.0.4.vec.insert.i.i17.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i16.i.i, float %mul2.i.i14.i.i, i64 1
   %call14.i.i = tail call noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, float %mul3.i.i.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i8.i.i, float %mul3.i.i6.i.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i17.i.i, float %mul3.i.i15.i.i, float noundef 5.000000e-01, i32 noundef 3)
   %call21.i.i = tail call noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %call.fca.0.extract.i.i.i.i.i.i.i51, float %call.fca.1.extract.i.i.i.i.i.i.i52, <2 x float> %call6.fca.0.extract.i.i.i.i.i.i.i54, float %call6.fca.1.extract.i.i.i.i.i.i.i55, <2 x float> %call12.fca.0.extract.i.i.i.i.i.i.i57, float %call12.fca.1.extract.i.i.i.i.i.i.i58, float noundef 5.000000e-01, i32 noundef 6)
-  %66 = tail call noundef float @llvm.fabs.f32(float %call14.i.i)
-  %mul.i.i59 = fmul float %66, %call21.i.i
+  %65 = tail call noundef float @llvm.fabs.f32(float %call14.i.i)
+  %mul.i.i59 = fmul float %65, %call21.i.i
   br label %return
 
 sw.default.i:                                     ; preds = %entry
-  %67 = load ptr, ptr %func, align 8
-  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %67, align 4
-  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %66 = load ptr, ptr %func, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %66, align 4
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 4
-  %agg.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %agg.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 12
   %agg.tmp.sroa.3.0.copyload.i = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i, align 4
-  %agg.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 20
+  %agg.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 20
   %agg.tmp.sroa.4.0.copyload.i = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i, align 4
-  %agg.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %agg.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 24
   %agg.tmp.sroa.5.0.copyload.i = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i, align 4
-  %agg.tmp.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %agg.tmp.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 32
   %agg.tmp.sroa.6.0.copyload.i = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i, align 4
-  %68 = load i64, ptr %ptr, align 8, !noalias !131
-  %and.i.i.i.i.i37 = and i64 %68, 144115188075855871
-  %69 = inttoptr i64 %and.i.i.i.i.i37 to ptr
-  %call.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %69, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !136
+  %67 = load i64, ptr %ptr, align 8, !noalias !131
+  %and.i.i.i.i.i37 = and i64 %67, 144115188075855871
+  %68 = inttoptr i64 %and.i.i.i.i.i37 to ptr
+  %call.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %68, <2 x float> %agg.tmp.sroa.0.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i), !noalias !136
   %call.fca.0.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i, 0
   %call.fca.1.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call.i.i.i.i.i.i.i, 1
-  %call6.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %69, <2 x float> %agg.tmp.sroa.3.0.copyload.i, float %agg.tmp.sroa.4.0.copyload.i), !noalias !136
+  %call6.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %68, <2 x float> %agg.tmp.sroa.3.0.copyload.i, float %agg.tmp.sroa.4.0.copyload.i), !noalias !136
   %call6.fca.0.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i, 0
   %call6.fca.1.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call6.i.i.i.i.i.i.i, 1
-  %call12.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %69, <2 x float> %agg.tmp.sroa.5.0.copyload.i, float %agg.tmp.sroa.6.0.copyload.i), !noalias !136
+  %call12.i.i.i.i.i.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %68, <2 x float> %agg.tmp.sroa.5.0.copyload.i, float %agg.tmp.sroa.6.0.copyload.i), !noalias !136
   %call12.fca.0.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i, 0
   %call12.fca.1.extract.i.i.i.i.i.i.i = extractvalue { <2 x float>, float } %call12.i.i.i.i.i.i.i, 1
   %omega.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 12
-  %70 = load float, ptr %omega.i.i, align 4
+  %69 = load float, ptr %omega.i.i, align 4
   %octaves.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
-  %71 = load i32, ptr %octaves.i.i, align 8
-  %call.i.i = tail call noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %call.fca.0.extract.i.i.i.i.i.i.i, float %call.fca.1.extract.i.i.i.i.i.i.i, <2 x float> %call6.fca.0.extract.i.i.i.i.i.i.i, float %call6.fca.1.extract.i.i.i.i.i.i.i, <2 x float> %call12.fca.0.extract.i.i.i.i.i.i.i, float %call12.fca.1.extract.i.i.i.i.i.i.i, float noundef %70, i32 noundef %71)
+  %70 = load i32, ptr %octaves.i.i, align 8
+  %call.i.i = tail call noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3IfEES3_fi(<2 x float> %call.fca.0.extract.i.i.i.i.i.i.i, float %call.fca.1.extract.i.i.i.i.i.i.i, <2 x float> %call6.fca.0.extract.i.i.i.i.i.i.i, float %call6.fca.1.extract.i.i.i.i.i.i.i, <2 x float> %call12.fca.0.extract.i.i.i.i.i.i.i, float %call12.fca.1.extract.i.i.i.i.i.i.i, float noundef %69, i32 noundef %70)
   br label %return
 
 return:                                           ; preds = %sw.default.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit, %sw.bb11, %sw.bb9, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit, %sw.bb
-  %retval.0 = phi float [ %add.i148, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add27.i.i, %sw.bb11 ], [ %30, %sw.bb9 ], [ %retval.0.i36, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add.i129, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add.i, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %cond.i.i, %sw.bb ], [ %call.i.i, %sw.default.i ], [ %mul.i.i59, %sw.bb9.i ], [ %62, %sw.bb7.i ], [ %call.i63, %sw.bb5.i ], [ %call.i.i87, %sw.bb3.i ], [ %cond.i.i91, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ]
+  %retval.0 = phi float [ %add.i148, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add27.i.i, %sw.bb11 ], [ %29, %sw.bb9 ], [ %retval.0.i36, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add.i129, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %add.i, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %cond.i.i, %sw.bb ], [ %call.i.i, %sw.default.i ], [ %mul.i.i59, %sw.bb9.i ], [ %61, %sw.bb7.i ], [ %call.i63, %sw.bb5.i ], [ %call.i.i87, %sw.bb3.i ], [ %cond.i.i91, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ]
   ret float %retval.0
 }
 

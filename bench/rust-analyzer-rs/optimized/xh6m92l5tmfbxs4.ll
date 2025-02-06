@@ -3939,16 +3939,14 @@ switch.lookup:                                    ; preds = %2
   %switch.shiftamt = shl nuw nsw i32 %7, 3
   %switch.downshift = lshr i32 33619971, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %17 = extractelement <4 x i32> %15, i64 3
-  %.sroa.02.0.vec.insert = shufflevector <4 x i32> %15, <4 x i32> poison, <2 x i32> <i32 2, i32 poison>
-  %.sroa.02.4.vec.insert = insertelement <2 x i32> %.sroa.02.0.vec.insert, i32 %17, i64 1
+  %.sroa.02.4.vec.insert = shufflevector <4 x i32> %15, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   store i32 %16, ptr %0, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %switch.masked, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <2 x i32> %.sroa.02.4.vec.insert, ptr %20, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 -1, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %switch.masked, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store <2 x i32> %.sroa.02.4.vec.insert, ptr %19, align 4
   ret void
 }
 

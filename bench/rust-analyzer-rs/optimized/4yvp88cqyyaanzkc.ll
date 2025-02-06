@@ -3686,7 +3686,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2acec756a0
 ._crit_edge28:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val8.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !1304
-  br label %31
+  br label %30
 
 .lr.ph:                                           ; preds = %2
   %.not.i.i.i = icmp eq i64 %9, 4
@@ -3697,7 +3697,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2acec756a0
   br i1 %.not.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9ffc3991fe7455a2E.exit.i.i.i.us", label %.lr.ph.split
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9ffc3991fe7455a2E.exit.i.i.i.us": ; preds = %.lr.ph, %switch.lookup
-  %14 = phi i64 [ %22, %switch.lookup ], [ %.promoted18, %.lr.ph ]
+  %14 = phi i64 [ %21, %switch.lookup ], [ %.promoted18, %.lr.ph ]
   %15 = phi i64 [ %18, %switch.lookup ], [ %.promoted, %.lr.ph ]
   %16 = phi ptr [ %17, %switch.lookup ], [ %.promoted12, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3717,36 +3717,34 @@ switch.lookup:                                    ; preds = %"_ZN4core6result19R
   %switch.downshift = lshr i32 33619971, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %.sroa.0.0.vec.extract.i.i.i.i.us = extractelement <4 x i32> %.val.i.i.i.i.us, i64 0
-  %20 = extractelement <4 x i32> %.val.i.i.i.i.us, i64 3
-  %.sroa.02.0.vec.insert.i.i.i.i.i.us = shufflevector <4 x i32> %.val.i.i.i.i.us, <4 x i32> poison, <2 x i32> <i32 2, i32 poison>
-  %.sroa.02.4.vec.insert.i.i.i.i.i.us = insertelement <2 x i32> %.sroa.02.0.vec.insert.i.i.i.i.i.us, i32 %20, i64 1
+  %.sroa.02.4.vec.insert.i.i.i.i.i.us = shufflevector <4 x i32> %.val.i.i.i.i.us, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1328)
-  %21 = getelementptr inbounds { i32, i32, [2 x i32], i8, [3 x i8] }, ptr %12, i64 %14
-  store i32 %.sroa.0.0.vec.extract.i.i.i.i.us, ptr %21, align 4, !noalias !1331
-  %.sroa.0.sroa.4.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %20 = getelementptr inbounds { i32, i32, [2 x i32], i8, [3 x i8] }, ptr %12, i64 %14
+  store i32 %.sroa.0.0.vec.extract.i.i.i.i.us, ptr %20, align 4, !noalias !1331
+  %.sroa.0.sroa.4.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 -1, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.us, align 4, !noalias !1331
-  %.sroa.0.sroa.5.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.0.sroa.5.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   store <2 x i32> %.sroa.02.4.vec.insert.i.i.i.i.i.us, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.us, align 4, !noalias !1331
-  %.sroa.0.sroa.6.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sroa.0.sroa.6.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i8 %switch.masked, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.us, align 4, !noalias !1331
-  %22 = add i64 %14, 1
-  store i64 %22, ptr %13, align 8, !alias.scope !1332, !noalias !1335
-  %23 = icmp ult i64 %18, 4
-  br i1 %23, label %._crit_edge, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9ffc3991fe7455a2E.exit.i.i.i.us"
+  %21 = add i64 %14, 1
+  store i64 %21, ptr %13, align 8, !alias.scope !1332, !noalias !1335
+  %22 = icmp ult i64 %18, 4
+  br i1 %22, label %._crit_edge, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9ffc3991fe7455a2E.exit.i.i.i.us"
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %24 = getelementptr inbounds i32, ptr %.promoted12, i64 %9
-  %25 = sub nuw i64 %.promoted, %9
+  %23 = getelementptr inbounds i32, ptr %.promoted12, i64 %9
+  %24 = sub nuw i64 %.promoted, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1312)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1314)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1317)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1319)
-  store ptr %24, ptr %0, align 8, !alias.scope !1301
-  store i64 %25, ptr %7, align 8, !alias.scope !1301
+  store ptr %23, ptr %0, align 8, !alias.scope !1301
+  store i64 %24, ptr %7, align 8, !alias.scope !1301
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !1338
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.82330f67cb894bb82cb1b85bd5bbfa08.26, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82330f67cb894bb82cb1b85bd5bbfa08.27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82330f67cb894bb82cb1b85bd5bbfa08.46) #31
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %.lr.ph.split
   unreachable
@@ -3759,19 +3757,19 @@ switch.lookup:                                    ; preds = %"_ZN4core6result19R
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1339
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1339
   store ptr %6, ptr %4, align 8, !noalias !1339
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %26, align 8, !noalias !1339
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %25, align 8, !noalias !1339
   store ptr @anon.8116ce5b6f07845c538d26bdcae5af43.65.llvm.13009932103675954609, ptr %5, align 8, !alias.scope !1345, !noalias !1348
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %27, align 8, !alias.scope !1345, !noalias !1348
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %28, align 8, !alias.scope !1345, !noalias !1348
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %29, align 8, !alias.scope !1345, !noalias !1348
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %30, align 8, !alias.scope !1345, !noalias !1348
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %26, align 8, !alias.scope !1345, !noalias !1348
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %27, align 8, !alias.scope !1345, !noalias !1348
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %28, align 8, !alias.scope !1345, !noalias !1348
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 1, ptr %29, align 8, !alias.scope !1345, !noalias !1348
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8116ce5b6f07845c538d26bdcae5af43.66.llvm.13009932103675954609) #31
-          to label %.noexc9 unwind label %32
+          to label %.noexc9 unwind label %31
 
 .noexc9:                                          ; preds = %.split.us
   unreachable
@@ -3779,21 +3777,21 @@ switch.lookup:                                    ; preds = %"_ZN4core6result19R
 ._crit_edge:                                      ; preds = %switch.lookup
   store ptr %17, ptr %0, align 8, !alias.scope !1301
   store i64 %18, ptr %7, align 8, !alias.scope !1301
-  br label %31
+  br label %30
 
-31:                                               ; preds = %._crit_edge28, %._crit_edge
-  %.val8 = phi i64 [ %.val8.pre, %._crit_edge28 ], [ %22, %._crit_edge ]
+30:                                               ; preds = %._crit_edge28, %._crit_edge
+  %.val8 = phi i64 [ %.val8.pre, %._crit_edge28 ], [ %21, %._crit_edge ]
   %.val7 = load ptr, ptr %1, align 8, !alias.scope !1304, !nonnull !23, !align !107, !noundef !23
   store i64 %.val8, ptr %.val7, align 8, !noalias !1351
   ret void
 
-32:                                               ; preds = %.lr.ph.split, %.split.us
+31:                                               ; preds = %.lr.ph.split, %.split.us
   %.val6 = phi i64 [ %.promoted18, %.lr.ph.split ], [ %14, %.split.us ]
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   %.val = load ptr, ptr %1, align 8, !alias.scope !1304, !nonnull !23, !align !107, !noundef !23
   store i64 %.val6, ptr %.val, align 8, !noalias !1356
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
