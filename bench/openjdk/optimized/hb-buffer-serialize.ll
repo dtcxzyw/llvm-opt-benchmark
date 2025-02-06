@@ -189,9 +189,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %.0105179.i = phi i32 [ 0, %.lr.ph.i ], [ %.1106.i, %147 ]
   %.0107178.i = phi ptr [ %3, %.lr.ph.i ], [ %137, %147 ]
   %.0108177.i = phi i32 [ %4, %.lr.ph.i ], [ %138, %147 ]
-  %.not113.i = icmp eq i64 %indvars.iv.i, 0
-  %..i = select i1 %.not113.i, i8 91, i8 124
-  store i8 %..i, ptr %13, align 16
+  store i8 124, ptr %13, align 16
   %52 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4
   br i1 %.not114.i, label %54, label %56
@@ -447,9 +445,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   %.0107181.i = phi i32 [ 0, %.lr.ph.i28 ], [ %.1108.i, %275 ]
   %.0109180.i = phi ptr [ %3, %.lr.ph.i28 ], [ %265, %275 ]
   %.0110179.i = phi i32 [ %4, %.lr.ph.i28 ], [ %266, %275 ]
-  %.not117.i = icmp eq i64 %indvars.iv.i34, 0
-  %..i35 = select i1 %.not117.i, i8 91, i8 44
-  store i8 %..i35, ptr %10, align 16
+  store i8 44, ptr %10, align 16
   store i8 123, ptr %157, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %158, ptr noundef nonnull align 1 dereferenceable(5) @.str.9, i64 5, i1 false) #11
   %174 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %150, i64 %indvars.iv.i34
@@ -732,9 +728,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %26, %.lr.ph.i ]
   %.04159.us.i = phi ptr [ %51, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %3, %.lr.ph.i ]
   %.04258.us.i = phi i32 [ %52, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %4, %.lr.ph.i ]
-  %.not.us.i = icmp eq i64 %indvars.iv67.i, 0
-  %..us.i = select i1 %.not.us.i, i8 60, i8 124
-  store i8 %..us.i, ptr %10, align 16
+  store i8 124, ptr %10, align 16
   %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv67.i
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1023, ptr noundef nonnull @.str.16, i32 noundef %29) #11
@@ -796,9 +790,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %26, %.lr.ph.i ]
   %.04159.i = phi ptr [ %70, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %3, %.lr.ph.i ]
   %.04258.i = phi i32 [ %71, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %4, %.lr.ph.i ]
-  %.not.i22 = icmp eq i64 %indvars.iv.i, 0
-  %..i = select i1 %.not.i22, i8 60, i8 124
-  store i8 %..i, ptr %10, align 16
+  store i8 124, ptr %10, align 16
   %54 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1023, ptr noundef nonnull @.str.16, i32 noundef %55) #11
@@ -892,9 +884,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %84, %.lr.ph.i24 ]
   %.04563.us.i = phi ptr [ %110, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %3, %.lr.ph.i24 ]
   %.04662.us.i = phi i32 [ %111, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %4, %.lr.ph.i24 ]
-  %.not.us.i35 = icmp eq i64 %indvars.iv71.i, 0
-  %..us.i36 = select i1 %.not.us.i35, i8 91, i8 44
-  store i8 %..us.i36, ptr %9, align 16
+  store i8 44, ptr %9, align 16
   store i8 123, ptr %78, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %79, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
   %86 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv71.i
@@ -960,9 +950,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %84, %.lr.ph.i24 ]
   %.04563.i = phi ptr [ %130, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %3, %.lr.ph.i24 ]
   %.04662.i = phi i32 [ %131, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %4, %.lr.ph.i24 ]
-  %.not.i27 = icmp eq i64 %indvars.iv.i26, 0
-  %..i28 = select i1 %.not.i27, i8 91, i8 44
-  store i8 %..i28, ptr %9, align 16
+  store i8 44, ptr %9, align 16
   store i8 123, ptr %78, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %79, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
   %113 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv.i26
