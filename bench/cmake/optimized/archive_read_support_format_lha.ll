@@ -4950,15 +4950,15 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   br i1 %104, label %.lr.ph250, label %.loopexit
 
 .lr.ph250:                                        ; preds = %100, %.lr.ph250
-  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %.lr.ph250 ], [ %102, %100 ]
-  %indvars.iv.next287 = add nsw i64 %indvars.iv286, -16
-  %105 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv.next287
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %105, ptr noundef nonnull align 2 dereferenceable(32) %103, i64 32, i1 false)
-  %106 = icmp samesign ugt i64 %indvars.iv.next287, 15
-  br i1 %106, label %.lr.ph250, label %.loopexit.loopexit, !llvm.loop !177
+  %indvars.iv286 = phi i64 [ %105, %.lr.ph250 ], [ %102, %100 ]
+  %105 = add nsw i64 %indvars.iv286, -16
+  %106 = getelementptr inbounds nuw i16, ptr %82, i64 %105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %106, ptr noundef nonnull align 2 dereferenceable(32) %103, i64 32, i1 false)
+  %.wide = icmp samesign ugt i64 %105, 15
+  br i1 %.wide, label %.lr.ph250, label %.loopexit.loopexit, !llvm.loop !177
 
 .loopexit.loopexit:                               ; preds = %.lr.ph250
-  %107 = trunc nuw nsw i64 %indvars.iv.next287 to i32
+  %107 = trunc nuw nsw i64 %105 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %100, %87

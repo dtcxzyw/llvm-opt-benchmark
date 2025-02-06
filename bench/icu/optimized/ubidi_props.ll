@@ -27,7 +27,7 @@ if.end:                                           ; preds = %entry
 
 for.cond4.preheader:                              ; preds = %for.body
   %add9 = getelementptr inbounds nuw i8, ptr %sa, i64 8
-  br label %while.body.preheader
+  br label %for.cond4
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.body ]
@@ -42,7 +42,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !4
 
-while.body.preheader:                             ; preds = %if.end18, %for.cond4.preheader
+for.cond4:                                        ; preds = %if.end18, %for.cond4.preheader
   %start.0 = phi i32 [ 68288, %if.end18 ], [ 1568, %for.cond4.preheader ]
   %cmp20 = phi i1 [ false, %if.end18 ], [ true, %for.cond4.preheader ]
   %limit.0 = phi i32 [ 68900, %if.end18 ], [ 2252, %for.cond4.preheader ]
@@ -76,17 +76,17 @@ if.end11:                                         ; preds = %if.then8, %while.bo
   br i1 %exitcond23.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end11
-  %cmp14.not = icmp eq i8 %prev.1, 0
-  br i1 %cmp14.not, label %if.end18, label %if.then15
+  %10 = icmp eq i8 %prev.1, 0
+  br i1 %10, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %while.end
-  %10 = load ptr, ptr %add9, align 8
-  %11 = load ptr, ptr %sa, align 8
-  tail call void %10(ptr noundef %11, i32 noundef %limit.0)
+  %11 = load ptr, ptr %add9, align 8
+  %12 = load ptr, ptr %sa, align 8
+  tail call void %10(ptr noundef %12, i32 noundef %limit.0)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %while.end
-  br i1 %cmp20, label %while.body.preheader, label %for.end25, !llvm.loop !7
+  br i1 %cmp20, label %for.cond4, label %for.end25, !llvm.loop !7
 
 for.end25:                                        ; preds = %if.end18, %entry
   ret void

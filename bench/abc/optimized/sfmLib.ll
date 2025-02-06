@@ -3584,7 +3584,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %191, label %.lr.ph268.preheader, label %._crit_edge269
 
 .lr.ph268.preheader:                              ; preds = %184
-  %wide.trip.count314 = zext i32 %190 to i64
+  %smax = zext i32 %190 to i64
   br label %.lr.ph268
 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.lr.ph268

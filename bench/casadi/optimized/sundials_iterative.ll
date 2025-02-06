@@ -510,74 +510,74 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   br label %.lr.ph56
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %9 = phi double [ %.pre, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %7 = phi double [ %.pre, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = shl nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw double, ptr %2, i64 %10
-  %12 = load double, ptr %11, align 8
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds nuw double, ptr %2, i64 %13
-  %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %8 = shl nuw nsw i64 %indvars.iv, 1
+  %9 = getelementptr inbounds nuw double, ptr %2, i64 %8
+  %10 = load double, ptr %9, align 8
+  %11 = or disjoint i64 %8, 1
+  %12 = getelementptr inbounds nuw double, ptr %2, i64 %11
+  %13 = load double, ptr %12, align 8
+  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
-  %18 = load double, ptr %17, align 8
-  %19 = fneg double %18
-  %20 = fmul double %15, %19
-  %21 = tail call double @llvm.fmuladd.f64(double %12, double %9, double %20)
-  store double %21, ptr %16, align 8
-  %22 = fmul double %12, %18
-  %23 = tail call double @llvm.fmuladd.f64(double %15, double %9, double %22)
-  store double %23, ptr %17, align 8
+  %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
+  %16 = load double, ptr %15, align 8
+  %17 = fneg double %16
+  %18 = fmul double %13, %17
+  %19 = tail call double @llvm.fmuladd.f64(double %10, double %7, double %18)
+  store double %19, ptr %14, align 8
+  %20 = fmul double %10, %16
+  %21 = tail call double @llvm.fmuladd.f64(double %13, double %7, double %20)
+  store double %21, ptr %15, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph52
-  %24 = icmp sgt i64 %indvars.iv69, 1
+  %22 = icmp sgt i64 %indvars.iv63, 1
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
   br i1 %24, label %.lr.ph56, label %._crit_edge, !llvm.loop !15
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.loopexit
-  %indvars.iv69 = phi i64 [ %8, %.lr.ph56.preheader ], [ %indvars.iv.next70, %.loopexit ]
-  %indvars.iv67 = phi i64 [ %7, %.lr.ph56.preheader ], [ %indvars.iv.next68, %.loopexit ]
-  %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next70
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.next70
-  %28 = load double, ptr %27, align 8
+  %indvars.iv63 = phi i64 [ %8, %.lr.ph56.preheader ], [ %indvars.iv.next70, %.loopexit ]
+  %indvars.iv.next64 = phi i64 [ %7, %.lr.ph56.preheader ], [ %indvars.iv.next68, %.loopexit ]
+  %23 = add nsw i64 %indvars.iv69, -1
+  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %23
+  %27 = load double, ptr %26, align 8
   %29 = fcmp oeq double %28, 0.000000e+00
   br i1 %29, label %._crit_edge.loopexit.split.loop.exit75, label %30
 
-30:                                               ; preds = %.lr.ph56
-  %31 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next70
-  %32 = load double, ptr %31, align 8
-  %33 = fdiv double %32, %28
+30: ; preds = %.lr.ph56
+  %30 = getelementptr inbounds nuw double, ptr %3, i64 %23
+  %31 = load double, ptr %30, align 8
+  %33 = fdiv double %31, %28
   store double %33, ptr %31, align 8
   %34 = icmp samesign ugt i64 %indvars.iv69, 1
   br i1 %34, label %.lr.ph52, label %._crit_edge
 
-.lr.ph52:                                         ; preds = %30, %.lr.ph52
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %30 ]
-  %35 = load double, ptr %31, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.next70
+.lr.ph52:; preds = %30, %.lr.ph52
+  %33 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %30 ]
+  %34 = load double, ptr %31, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw double, ptr %36, i64 %23
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv60
+  %40 = getelementptr inbounds nuw double, ptr %3, i64 %33
   %41 = load double, ptr %40, align 8
   %42 = fneg double %35
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %39, double %41)
   store double %43, ptr %40, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv67
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !16
+  %42 = icmp eq i64 %indvars.iv.next61, %indvars.iv.next64
+  br i1 %42, label %.loopexit, label %.lr.ph52, !llvm.loop !16
 
-._crit_edge.loopexit.split.loop.exit75:           ; preds = %.lr.ph56
-  %44 = trunc nuw nsw i64 %indvars.iv69 to i32
+._crit_edge.loopexit.split.loop.exit66:           ; preds = %.lr.ph56
+  %43 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %30, %.loopexit, %._crit_edge.loopexit.split.loop.exit75, %4
-  %.0 = phi i32 [ 0, %4 ], [ %44, %._crit_edge.loopexit.split.loop.exit75 ], [ 0, %.loopexit ], [ 0, %30 ]
+._crit_edge:                                      ; preds = %30, %.loopexit, %._crit_edge.loopexit.split.loop.exit66, %4
+  %.0 = phi i32 [ 0, %4 ], [ %43, %._crit_edge.loopexit.split.loop.exit66 ], [ 0, %.loopexit ], [ 0, %30 ]
   ret i32 %.0
 }
 
