@@ -2547,67 +2547,65 @@ _ZN2cv3PtrINS_10BmpEncoderEED2Ev.exit:            ; preds = %.noexc.i.i.i.i.i
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv10BmpEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca [5 x i8], align 1
-  %5 = alloca %"class.cv::WLByteStream", align 8
-  %6 = alloca [256 x %"struct.cv::PaletteEntry"], align 16
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8
-  %11 = load i32, ptr %1, align 8
-  %12 = lshr i32 %11, 3
-  %13 = and i32 %12, 511
-  %14 = add nuw nsw i32 %13, 1
-  %15 = mul nsw i32 %14, %8
-  %16 = add nsw i32 %15, 3
-  %17 = and i32 %16, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
-  call void @_ZN2cv11WBaseStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv12WLByteStreamE, i64 16), ptr %5, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %23, label %20
+  %4 = alloca %"class.cv::WLByteStream", align 8
+  %5 = alloca [256 x %"struct.cv::PaletteEntry"], align 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = load i32, ptr %1, align 8
+  %11 = lshr i32 %10, 3
+  %12 = and i32 %11, 511
+  %13 = add nuw nsw i32 %12, 1
+  %14 = mul nsw i32 %13, %7
+  %15 = add nsw i32 %14, 3
+  %16 = and i32 %15, -4
+  call void @_ZN2cv11WBaseStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv12WLByteStreamE, i64 16), ptr %4, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %23, label %19
 
-20:                                               ; preds = %3
-  %21 = invoke noundef zeroext i1 @_ZN2cv11WBaseStream4openERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %22 unwind label %.loopexit.split-lp
+19:                                               ; preds = %3
+  %20 = invoke noundef zeroext i1 @_ZN2cv11WBaseStream4openERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %21 unwind label %.loopexit.split-lp
 
-22:                                               ; preds = %20
-  br i1 %21, label %27, label %100
+21:                                               ; preds = %19
+  br i1 %20, label %27, label %91
 
-.loopexit.split:                                  ; preds = %.lr.ph.split
+.loopexit:                                        ; preds = %83
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit
+  br label %22
 
-.loopexit.split-lp:                               ; preds = %20, %23, %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %58, %60, %61, %62, %63, %64, %65, %66, %67, %69, %70, %71, %72, %73, %74, %76, %77, %._crit_edge, %39, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
+.loopexit.split-lp:                               ; preds = %19, %23, %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %58, %60, %61, %62, %63, %64, %65, %66, %67, %69, %70, %71, %72, %73, %74, %76, %77, %._crit_edge, %39, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit
+  br label %22
 
-.loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
-  call void @_ZN2cv12WLByteStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
+22:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZN2cv12WLByteStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   resume { ptr, i32 } %lpad.phi
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = invoke noundef zeroext i1 @_ZN2cv11WBaseStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %25 = invoke noundef zeroext i1 @_ZN2cv11WBaseStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %26 unwind label %.loopexit.split-lp
 
 26:                                               ; preds = %23
-  br i1 %25, label %27, label %100
+  br i1 %25, label %27, label %91
 
-27:                                               ; preds = %26, %22
-  %.not41 = icmp eq i32 %13, 0
+27:                                               ; preds = %26, %21
+  %.not41 = icmp eq i32 %12, 0
   %28 = select i1 %.not41, i32 1078, i32 54
-  %29 = sext i32 %17 to i64
-  %30 = sext i32 %10 to i64
+  %29 = sext i32 %16 to i64
+  %30 = sext i32 %9 to i64
   %31 = mul nsw i64 %29, %30
   %32 = zext nneg i32 %28 to i64
   %33 = add nsw i64 %31, %32
-  %34 = load ptr, ptr %18, align 8
+  %34 = load ptr, ptr %17, align 8
   %.not39 = icmp eq ptr %34, null
   br i1 %.not39, label %_ZNSt6vectorIhSaIhEE7reserveEm.exit, label %35
 
@@ -2667,7 +2665,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %55, %_ZNSt6vec
   br label %_ZNSt6vectorIhSaIhEE7reserveEm.exit
 
 _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i, %40, %27
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @.str.8, i32 noundef 2)
+  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull @.str.8, i32 noundef 2)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
@@ -2675,133 +2673,105 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
           to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %58
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %59)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %59)
           to label %61 unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %60
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %62 unwind label %.loopexit.split-lp
 
 62:                                               ; preds = %61
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %28)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %28)
           to label %63 unwind label %.loopexit.split-lp
 
 63:                                               ; preds = %62
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 40)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 40)
           to label %64 unwind label %.loopexit.split-lp
 
 64:                                               ; preds = %63
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %8)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %7)
           to label %65 unwind label %.loopexit.split-lp
 
 65:                                               ; preds = %64
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %10)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %9)
           to label %66 unwind label %.loopexit.split-lp
 
 66:                                               ; preds = %65
-  invoke void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1)
+  invoke void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 1)
           to label %67 unwind label %.loopexit.split-lp
 
 67:                                               ; preds = %66
-  %68 = shl nuw nsw i32 %14, 3
-  invoke void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %68)
+  %68 = shl nuw nsw i32 %13, 3
+  invoke void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %68)
           to label %69 unwind label %.loopexit.split-lp
 
 69:                                               ; preds = %67
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %70 unwind label %.loopexit.split-lp
 
 70:                                               ; preds = %69
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %71 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %70
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %72 unwind label %.loopexit.split-lp
 
 72:                                               ; preds = %71
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %73 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %72
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %74 unwind label %.loopexit.split-lp
 
 74:                                               ; preds = %73
-  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 0)
+  invoke void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
           to label %75 unwind label %.loopexit.split-lp
 
 75:                                               ; preds = %74
   br i1 %.not41, label %76, label %78
 
 76:                                               ; preds = %75
-  invoke void @_ZN2cv15FillGrayPaletteEPNS_12PaletteEntryEib(ptr noundef nonnull %6, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN2cv15FillGrayPaletteEPNS_12PaletteEntryEib(ptr noundef nonnull %5, i32 noundef 8, i1 noundef zeroext false)
           to label %77 unwind label %.loopexit.split-lp
 
 77:                                               ; preds = %76
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %6, i32 noundef 1024)
+  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5, i32 noundef 1024)
           to label %78 unwind label %.loopexit.split-lp
 
 78:                                               ; preds = %77, %75
-  %79 = icmp sgt i32 %10, 0
+  %79 = icmp sgt i32 %9, 0
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %78
-  %.042 = add nsw i32 %10, -1
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %82 = icmp sgt i32 %17, %15
-  %83 = sub nsw i32 %17, %15
-  %.fr = freeze i1 %82
-  %84 = zext nneg i32 %.042 to i64
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %82 = zext nneg i32 %9 to i64
+  br label %83
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %91
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %91 ], [ %84, %.lr.ph ]
-  %85 = load ptr, ptr %80, align 8
-  %86 = load ptr, ptr %81, align 8
-  %87 = load i64, ptr %86, align 8
-  %88 = mul i64 %87, %indvars.iv46
-  %89 = getelementptr inbounds i8, ptr %85, i64 %88
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %89, i32 noundef %15)
-          to label %90 unwind label %.loopexit.split.us
-
-90:                                               ; preds = %.lr.ph.split.us
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %4, i32 noundef %83)
-          to label %91 unwind label %.loopexit.split.us
-
-91:                                               ; preds = %90
-  %indvars.iv.next47 = add nsw i64 %indvars.iv46, -1
-  %92 = icmp sgt i64 %indvars.iv46, 0
-  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !32
-
-.loopexit.split.us:                               ; preds = %90, %.lr.ph.split.us
-  %lpad.loopexit.us = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %98
-  %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ %84, %.lr.ph ]
-  %93 = load ptr, ptr %80, align 8
-  %94 = load ptr, ptr %81, align 8
-  %95 = load i64, ptr %94, align 8
-  %96 = mul i64 %95, %indvars.iv
-  %97 = getelementptr inbounds i8, ptr %93, i64 %96
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %97, i32 noundef %15)
-          to label %98 unwind label %.loopexit.split
-
-98:                                               ; preds = %.lr.ph.split
+83:                                               ; preds = %.lr.ph, %89
+  %indvars.iv = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %99 = icmp sgt i64 %indvars.iv, 0
-  br i1 %99, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
+  %84 = load ptr, ptr %80, align 8
+  %85 = load ptr, ptr %81, align 8
+  %86 = load i64, ptr %85, align 8
+  %87 = mul i64 %86, %indvars.iv.next
+  %88 = getelementptr inbounds i8, ptr %84, i64 %87
+  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %88, i32 noundef %14)
+          to label %89 unwind label %.loopexit
 
-._crit_edge:                                      ; preds = %98, %91, %78
-  invoke void @_ZN2cv11WBaseStream5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %100 unwind label %.loopexit.split-lp
+89:                                               ; preds = %83
+  %90 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %90, label %83, label %._crit_edge, !llvm.loop !32
 
-100:                                              ; preds = %._crit_edge, %26, %22
-  %.034 = phi i1 [ false, %22 ], [ false, %26 ], [ true, %._crit_edge ]
-  call void @_ZN2cv12WLByteStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
+._crit_edge:                                      ; preds = %89, %78
+  invoke void @_ZN2cv11WBaseStream5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+          to label %91 unwind label %.loopexit.split-lp
+
+91:                                               ; preds = %._crit_edge, %26, %21
+  %.034 = phi i1 [ false, %21 ], [ false, %26 ], [ true, %._crit_edge ]
+  call void @_ZN2cv12WLByteStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   ret i1 %.034
 }
 

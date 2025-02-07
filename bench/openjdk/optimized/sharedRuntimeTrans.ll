@@ -59,7 +59,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   %5 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
   %6 = or i32 %5, %.sroa.0.0.extract.trunc.i
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %115, label %8
+  br i1 %7, label %96, label %8
 
 8:                                                ; preds = %4
   %9 = icmp slt i64 %2, 0
@@ -68,7 +68,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 10:                                               ; preds = %8
   %11 = fsub double %0, %0
   %12 = fdiv double %11, 0.000000e+00
-  br label %115
+  br label %96
 
 13:                                               ; preds = %8
   %14 = fmul double %0, 0x4350000000000000
@@ -86,7 +86,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 
 18:                                               ; preds = %16
   %19 = fadd double %.091, %.091
-  br label %115
+  br label %96
 
 20:                                               ; preds = %16
   %21 = ashr i32 %.078, 20
@@ -116,14 +116,14 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 
 38:                                               ; preds = %36
   %39 = icmp eq i32 %31, 0
-  br i1 %39, label %115, label %40
+  br i1 %39, label %96, label %40
 
 40:                                               ; preds = %38
   %41 = sitofp i32 %31 to double
   %42 = fmul double %41, 0x3FE62E42FEE00000
   %43 = fmul double %41, 0x3DEA39EF35793C76
   %44 = fadd double %42, %43
-  br label %115
+  br label %96
 
 45:                                               ; preds = %36
   %46 = fmul double %32, %32
@@ -135,7 +135,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 
 51:                                               ; preds = %45
   %52 = fsub double %32, %49
-  br label %115
+  br label %96
 
 53:                                               ; preds = %45
   %54 = sitofp i32 %31 to double
@@ -144,79 +144,52 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   %57 = fsub double %49, %56
   %58 = fsub double %57, %32
   %59 = fsub double %55, %58
-  br label %115
+  br label %96
 
 60:                                               ; preds = %20
   %61 = fadd double %32, 2.000000e+00
   %62 = fdiv double %32, %61
-  %63 = sitofp i32 %31 to double
-  %64 = fmul double %62, %62
-  %65 = add nsw i32 %22, -398458
-  %66 = fmul double %64, %64
-  %67 = sub nsw i32 440401, %22
-  %68 = fmul double %66, 0x3FC39A09D078C69F
-  %69 = fadd double %68, 0x3FCC71C51D8E78AF
-  %70 = fmul double %66, %69
-  %71 = fadd double %70, 0x3FD999999997FA04
-  %72 = fmul double %66, %71
-  %73 = fmul double %66, 0x3FC2F112DF3E5244
-  %74 = fadd double %73, 0x3FC7466496CB03DE
-  %75 = fmul double %66, %74
-  %76 = fadd double %75, 0x3FD2492494229359
-  %77 = fmul double %66, %76
-  %78 = fadd double %77, 0x3FE5555555555593
-  %79 = fmul double %64, %78
-  %80 = or i32 %65, %67
-  %81 = fadd double %72, %79
-  %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %83, label %101
+  %63 = fmul double %62, %62
+  %64 = fmul double %63, %63
+  %65 = fmul double %64, 0x3FC39A09D078C69F
+  %66 = fadd double %65, 0x3FCC71C51D8E78AF
+  %67 = fmul double %64, %66
+  %68 = fadd double %67, 0x3FD999999997FA04
+  %69 = fmul double %64, %68
+  %70 = fmul double %64, 0x3FC2F112DF3E5244
+  %71 = fadd double %70, 0x3FC7466496CB03DE
+  %72 = fmul double %64, %71
+  %73 = fadd double %72, 0x3FD2492494229359
+  %74 = fmul double %64, %73
+  %75 = fadd double %74, 0x3FE5555555555593
+  %76 = fmul double %63, %75
+  %77 = fadd double %69, %76
+  %78 = fmul double %32, 5.000000e-01
+  %79 = fmul double %32, %78
+  %80 = icmp eq i32 %31, 0
+  br i1 %80, label %81, label %86
 
-83:                                               ; preds = %60
-  %84 = fmul double %32, 5.000000e-01
-  %85 = fmul double %32, %84
-  %86 = icmp eq i32 %31, 0
-  br i1 %86, label %87, label %92
+81:                                               ; preds = %60
+  %82 = fadd double %79, %77
+  %83 = fmul double %62, %82
+  %84 = fsub double %83, %79
+  %85 = fadd double %32, %84
+  br label %96
 
-87:                                               ; preds = %83
-  %88 = fadd double %85, %81
-  %89 = fmul double %62, %88
-  %90 = fsub double %89, %85
-  %91 = fadd double %32, %90
-  br label %115
+86:                                               ; preds = %60
+  %87 = sitofp i32 %31 to double
+  %88 = fmul double %87, 0x3FE62E42FEE00000
+  %89 = fadd double %79, %77
+  %90 = fmul double %62, %89
+  %91 = fmul double %87, 0x3DEA39EF35793C76
+  %92 = fadd double %91, %90
+  %93 = fsub double %79, %92
+  %94 = fsub double %93, %32
+  %95 = fsub double %88, %94
+  br label %96
 
-92:                                               ; preds = %83
-  %93 = fmul double %63, 0x3FE62E42FEE00000
-  %94 = fadd double %85, %81
-  %95 = fmul double %62, %94
-  %96 = fmul double %63, 0x3DEA39EF35793C76
-  %97 = fadd double %96, %95
-  %98 = fsub double %85, %97
-  %99 = fsub double %98, %32
-  %100 = fsub double %93, %99
-  br label %115
-
-101:                                              ; preds = %60
-  %102 = icmp eq i32 %31, 0
-  br i1 %102, label %103, label %107
-
-103:                                              ; preds = %101
-  %104 = fsub double %32, %81
-  %105 = fmul double %62, %104
-  %106 = fsub double %32, %105
-  br label %115
-
-107:                                              ; preds = %101
-  %108 = fmul double %63, 0x3FE62E42FEE00000
-  %109 = fsub double %32, %81
-  %110 = fmul double %62, %109
-  %111 = fmul double %63, 0x3DEA39EF35793C76
-  %112 = fsub double %110, %111
-  %113 = fsub double %112, %32
-  %114 = fsub double %108, %113
-  br label %115
-
-115:                                              ; preds = %38, %4, %107, %103, %92, %87, %53, %51, %40, %18, %10
-  %.0 = phi double [ %12, %10 ], [ %19, %18 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %91, %87 ], [ %100, %92 ], [ %106, %103 ], [ %114, %107 ], [ 0xFFF0000000000000, %4 ], [ 0.000000e+00, %38 ]
+96:                                               ; preds = %38, %4, %86, %81, %53, %51, %40, %18, %10
+  %.0 = phi double [ %12, %10 ], [ %19, %18 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %85, %81 ], [ %95, %86 ], [ 0xFFF0000000000000, %4 ], [ 0.000000e+00, %38 ]
   ret double %.0
 }
 

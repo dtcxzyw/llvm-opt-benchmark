@@ -15905,27 +15905,22 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14RISCVInstrInfo22hasReassociableS
   br i1 %or.cond.not, label %30, label %_ZN4llvm5RISCV11hasEqualFRMERKNS_12MachineInstrES3_.exit
 
 30:                                               ; preds = %11
-  %31 = or i16 %28, %25
-  %or.cond.not.i = icmp sgt i16 %31, -1
-  br i1 %or.cond.not.i, label %32, label %_ZN4llvm5RISCV11hasEqualFRMERKNS_12MachineInstrES3_.exit
-
-32:                                               ; preds = %30
-  %33 = sext i16 %28 to i64
-  %34 = sext i16 %25 to i64
-  %35 = load ptr, ptr %17, align 8, !tbaa !241
-  %36 = and i64 %34, 4294967295
-  %.sroa.313.0..sroa_idx.i = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %35, i64 %36, i32 3
+  %31 = sext i16 %28 to i64
+  %32 = sext i16 %25 to i64
+  %33 = load ptr, ptr %17, align 8, !tbaa !241
+  %34 = and i64 %32, 4294967295
+  %.sroa.313.0..sroa_idx.i = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %33, i64 %34, i32 3
   %.sroa.313.0.copyload.i = load i64, ptr %.sroa.313.0..sroa_idx.i, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !241
-  %39 = and i64 %33, 4294967295
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %38, i64 %39, i32 3
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !241
+  %37 = and i64 %31, 4294967295
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %36, i64 %37, i32 3
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %40 = icmp eq i64 %.sroa.313.0.copyload.i, %.sroa.3.0.copyload.i
+  %38 = icmp eq i64 %.sroa.313.0.copyload.i, %.sroa.3.0.copyload.i
   br label %_ZN4llvm5RISCV11hasEqualFRMERKNS_12MachineInstrES3_.exit
 
-_ZN4llvm5RISCV11hasEqualFRMERKNS_12MachineInstrES3_.exit: ; preds = %32, %30, %11, %9, %7
-  %.0 = phi i1 [ %8, %7 ], [ false, %9 ], [ true, %11 ], [ %40, %32 ], [ false, %30 ]
+_ZN4llvm5RISCV11hasEqualFRMERKNS_12MachineInstrES3_.exit: ; preds = %30, %11, %9, %7
+  %.0 = phi i1 [ %8, %7 ], [ false, %9 ], [ true, %11 ], [ %38, %30 ]
   ret i1 %.0
 }
 

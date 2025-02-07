@@ -1130,8 +1130,7 @@ if.else26:                                        ; preds = %if.then23
   %and27 = and i32 %.us-phi162, 1024
   %cmp28 = icmp eq i32 %and27, 0
   %. = select i1 %cmp28, i32 2048, i32 1728
-  %minmaxop = add nuw nsw i32 %and27, 56320
-  %cond.cond36 = tail call i32 @llvm.smin.i32(i32 %minmaxop, i32 %limit)
+  %.183 = add nuw nsw i32 %and27, 56320
   br label %if.end56
 
 if.else39:                                        ; preds = %for.body
@@ -1157,7 +1156,7 @@ if.end56:                                         ; preds = %if.else26, %if.end5
   %add134 = phi i32 [ %.us-phi160, %if.then25 ], [ %.us-phi163, %if.end56.loopexit ], [ %.us-phi160, %if.else26 ]
   %c.0131 = phi i32 [ %.us-phi162, %if.then25 ], [ %.us-phi166, %if.end56.loopexit ], [ %.us-phi162, %if.else26 ]
   %i2Block.0 = phi i32 [ %shr, %if.then25 ], [ %.us-phi164, %if.end56.loopexit ], [ %., %if.else26 ]
-  %tempLimit.1 = phi i32 [ %spec.select.le155, %if.then25 ], [ %spec.select.le, %if.end56.loopexit ], [ %cond.cond36, %if.else26 ]
+  %tempLimit.1 = phi i32 [ %spec.select.le155, %if.then25 ], [ %spec.select.le, %if.end56.loopexit ], [ %.183, %if.else26 ]
   %cmp57 = icmp eq i32 %i2Block.0, %index2NullOffset.0
   br i1 %cmp57, label %if.then58, label %if.else69
 
@@ -1191,11 +1190,11 @@ for.body82.preheader:                             ; preds = %if.else69
   %16 = zext nneg i32 %15 to i64
   %17 = sext i32 %i2Block.0 to i64
   %wide.trip.count = zext nneg i32 %i2Limit.0 to i64
-  %invariant.gep258 = getelementptr i16, ptr %idx.0, i64 %17
+  %invariant.gep259 = getelementptr i16, ptr %idx.0, i64 %17
   br label %for.body82
 
 for.body82:                                       ; preds = %for.body82.preheader, %for.inc144
-  %indvars.iv219 = phi i64 [ %16, %for.body82.preheader ], [ %indvars.iv.next220, %for.inc144 ]
+  %indvars.iv220 = phi i64 [ %16, %for.body82.preheader ], [ %indvars.iv.next221, %for.inc144 ]
   %prevBlock.3178 = phi i32 [ %prevBlock.0.ph, %for.body82.preheader ], [ %prevBlock.4, %for.inc144 ]
   %prev.3177 = phi i32 [ %prev.0.ph, %for.body82.preheader ], [ %prev.4, %for.inc144 ]
   %c.2176 = phi i32 [ %c.0131, %for.body82.preheader ], [ %c.3, %for.inc144 ]
@@ -1203,8 +1202,8 @@ for.body82:                                       ; preds = %for.body82.preheade
   br i1 %cmp40.not, label %if.else89, label %if.then84
 
 if.then84:                                        ; preds = %for.body82
-  %gep259 = getelementptr i16, ptr %invariant.gep258, i64 %indvars.iv219
-  %18 = load i16, ptr %gep259, align 2
+  %gep260 = getelementptr i16, ptr %invariant.gep259, i64 %indvars.iv220
+  %18 = load i16, ptr %gep260, align 2
   %conv88 = zext i16 %18 to i32
   %shl = shl nuw nsw i32 %conv88, 2
   br label %if.end94
@@ -1212,7 +1211,7 @@ if.then84:                                        ; preds = %for.body82
 if.else89:                                        ; preds = %for.body82
   %19 = load ptr, ptr %newTrie, align 8
   %index2 = getelementptr inbounds nuw i8, ptr %19, i64 2176
-  %20 = add nsw i64 %indvars.iv219, %17
+  %20 = add nsw i64 %indvars.iv220, %17
   %arrayidx93 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %20
   %21 = load i32, ptr %arrayidx93, align 4
   br label %if.end94
@@ -1238,20 +1237,20 @@ for.cond116.preheader:                            ; preds = %if.end101
   br i1 %cmp119.not, label %for.body118.us.preheader, label %for.body118.preheader
 
 for.body118.preheader:                            ; preds = %for.cond116.preheader
-  %invariant.gep254 = getelementptr i32, ptr %data32.0, i64 %22
+  %invariant.gep255 = getelementptr i32, ptr %data32.0, i64 %22
   br label %for.body118
 
 for.body118.us.preheader:                         ; preds = %for.cond116.preheader
-  %invariant.gep256 = getelementptr i16, ptr %idx.0, i64 %22
+  %invariant.gep257 = getelementptr i16, ptr %idx.0, i64 %22
   br label %for.body118.us
 
 for.body118.us:                                   ; preds = %for.body118.us.preheader, %if.end141.us
-  %indvars.iv214 = phi i64 [ 0, %for.body118.us.preheader ], [ %indvars.iv.next215, %if.end141.us ]
+  %indvars.iv215 = phi i64 [ 0, %for.body118.us.preheader ], [ %indvars.iv.next216, %if.end141.us ]
   %prev.6169.us = phi i32 [ %prev.3177, %for.body118.us.preheader ], [ %prev.7.us, %if.end141.us ]
   %c.4168.us = phi i32 [ %c.2176, %for.body118.us.preheader ], [ %inc.us, %if.end141.us ]
   %prevValue.6167.us = phi i32 [ %prevValue.3175, %for.body118.us.preheader ], [ %prevValue.7.us, %if.end141.us ]
-  %gep257 = getelementptr i16, ptr %invariant.gep256, i64 %indvars.iv214
-  %23 = load i16, ptr %gep257, align 2
+  %gep258 = getelementptr i16, ptr %invariant.gep257, i64 %indvars.iv215
+  %23 = load i16, ptr %gep258, align 2
   %conv128.us = zext i16 %23 to i32
   %call131.us = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %conv128.us)
   %cmp132.not.us = icmp eq i32 %call131.us, %prevValue.6167.us
@@ -1271,9 +1270,9 @@ if.end141.us:                                     ; preds = %land.lhs.true135.us
   %prevValue.7.us = phi i32 [ %prevValue.6167.us, %for.body118.us ], [ %call131.us, %land.lhs.true135.us ], [ %call131.us, %if.then133.us ]
   %prev.7.us = phi i32 [ %prev.6169.us, %for.body118.us ], [ %c.4168.us, %land.lhs.true135.us ], [ %c.4168.us, %if.then133.us ]
   %inc.us = add nsw i32 %c.4168.us, 1
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next215, 32
-  br i1 %exitcond218.not, label %for.inc144, label %for.body118.us, !llvm.loop !15
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next216, 32
+  br i1 %exitcond219.not, label %for.inc144, label %for.body118.us, !llvm.loop !15
 
 if.then103:                                       ; preds = %if.end101
   %cmp104.not = icmp eq i32 %prevValue.3175, %call
@@ -1299,8 +1298,8 @@ for.body118:                                      ; preds = %for.body118.prehead
   %prev.6169 = phi i32 [ %prev.3177, %for.body118.preheader ], [ %prev.7, %if.end141 ]
   %c.4168 = phi i32 [ %c.2176, %for.body118.preheader ], [ %inc, %if.end141 ]
   %prevValue.6167 = phi i32 [ %prevValue.3175, %for.body118.preheader ], [ %prevValue.7, %if.end141 ]
-  %gep255 = getelementptr i32, ptr %invariant.gep254, i64 %indvars.iv
-  %24 = load i32, ptr %gep255, align 4
+  %gep256 = getelementptr i32, ptr %invariant.gep255, i64 %indvars.iv
+  %24 = load i32, ptr %gep256, align 4
   %call131 = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %24)
   %cmp132.not = icmp eq i32 %call131, %prevValue.6167
   br i1 %cmp132.not, label %if.end141, label %if.then133
@@ -1328,9 +1327,9 @@ for.inc144:                                       ; preds = %if.end141, %if.end1
   %c.3 = phi i32 [ %add100, %if.then99 ], [ %add114, %if.end113 ], [ %inc.us, %if.end141.us ], [ %inc, %if.end141 ]
   %prev.4 = phi i32 [ %prev.3177, %if.then99 ], [ %prev.5, %if.end113 ], [ %prev.7.us, %if.end141.us ], [ %prev.7, %if.end141 ]
   %prevBlock.4 = phi i32 [ %prevBlock.3178, %if.then99 ], [ %nullBlock.0, %if.end113 ], [ %block.0, %if.end141.us ], [ %block.0, %if.end141 ]
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count
-  br i1 %exitcond224.not, label %if.end147, label %for.body82, !llvm.loop !16
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count
+  br i1 %exitcond225.not, label %if.end147, label %for.body82, !llvm.loop !16
 
 if.end147:                                        ; preds = %for.inc144, %if.else69, %if.then58, %land.lhs.true62, %if.then60
   %prevValue.2 = phi i32 [ %call, %if.then58 ], [ %call, %land.lhs.true62 ], [ %call, %if.then60 ], [ %prevValue.0.ph, %if.else69 ], [ %prevValue.4, %for.inc144 ]

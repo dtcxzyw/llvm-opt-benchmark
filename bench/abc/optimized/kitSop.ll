@@ -624,13 +624,11 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   br i1 %.not130.us, label %.critedge6.us, label %115
 
 115:                                              ; preds = %112
-  %.not131.us = icmp sgt i32 %114, -1
   %116 = and i32 %114, %109
   %.not166.us = icmp eq i32 %116, %109
-  %or.cond.us = and i1 %.not131.us, %.not166.us
   %117 = and i32 %114, %123
   %118 = icmp eq i32 %105, %117
-  %or.cond = and i1 %or.cond.us, %118
+  %or.cond = and i1 %.not166.us, %118
   br i1 %or.cond, label %.critedge6.us, label %119
 
 119:                                              ; preds = %115
@@ -769,13 +767,11 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   br i1 %.not135, label %.critedge10.loopexit.split.loop.exit355, label %154
 
 154:                                              ; preds = %.lr.ph227
-  %.not136 = icmp sgt i32 %153, -1
   %155 = and i32 %153, %147
   %.not167 = icmp eq i32 %155, %147
-  %or.cond168 = and i1 %.not136, %.not167
   %156 = and i32 %153, %150
   %157 = icmp eq i32 %137, %156
-  %or.cond257 = and i1 %or.cond168, %157
+  %or.cond257 = and i1 %.not167, %157
   br i1 %or.cond257, label %.critedge10.loopexit.split.loop.exit352, label %158
 
 158:                                              ; preds = %154

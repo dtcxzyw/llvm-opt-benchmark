@@ -4408,12 +4408,7 @@ lpad102:                                          ; preds = %invoke.cont119, %_Z
 
 if.else107:                                       ; preds = %invoke.cont95
   %cmp99 = icmp slt i64 %call88, 0
-  br i1 %cmp99, label %if.then109, label %if.else114
-
-if.then109:                                       ; preds = %if.else107
-  %cond.i237239 = sub nsw i64 0, %call88
-  %cond.i238 = call noundef i64 @llvm.smax.i64(i64 %cond.i237239, i64 %call96)
-  br label %if.end123
+  br i1 %cmp99, label %if.end123, label %if.else114
 
 if.else114:                                       ; preds = %if.else107
   %25 = load ptr, ptr %input, align 8, !tbaa !75
@@ -4446,9 +4441,9 @@ invoke.cont119:                                   ; preds = %_ZN6duckdb10unique_
   invoke void @_ZNK6duckdb14BaseStatistics8ToUniqueEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %call120)
           to label %cleanup171 unwind label %lpad102
 
-if.end123:                                        ; preds = %if.then109, %if.then101
-  %min_val.0 = phi i64 [ %cond.i, %if.then101 ], [ 0, %if.then109 ]
-  %max_val.0 = phi i64 [ %cond.i236, %if.then101 ], [ %cond.i238, %if.then109 ]
+if.end123:                                        ; preds = %if.else107, %if.then101
+  %min_val.0 = phi i64 [ %cond.i, %if.then101 ], [ 0, %if.else107 ]
+  %max_val.0 = phi i64 [ %cond.i236, %if.then101 ], [ %call96, %if.else107 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp124) #22
   invoke void @_ZN6duckdb5Value7NumericERKNS_11LogicalTypeEl(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(24) %return_type, i64 noundef %min_val.0)
           to label %invoke.cont127 unwind label %lpad126
@@ -122594,9 +122589,6 @@ declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

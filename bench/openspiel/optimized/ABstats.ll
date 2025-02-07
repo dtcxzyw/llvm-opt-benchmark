@@ -922,34 +922,7 @@ define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsI
   %35 = sitofp i32 %34 to double
   %36 = fdiv double %33, %35
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %31, double noundef %36)
-  %38 = and i32 %2, -2147483645
-  %39 = icmp eq i32 %38, 1
-  %40 = icmp slt i32 %2, 45
-  %or.cond = and i1 %40, %39
-  br i1 %or.cond, label %41, label %57
-
-41:                                               ; preds = %4
-  %42 = add nuw nsw i32 %2, 4
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [49 x i32], ptr %14, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %57
-
-47:                                               ; preds = %41
-  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 6)
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 2)
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
-  %51 = load i32, ptr %15, align 4
-  %52 = sitofp i32 %51 to double
-  %53 = load i32, ptr %44, align 4
-  %54 = sitofp i32 %53 to double
-  %55 = fdiv double %52, %54
-  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %50, double noundef %55)
-  br label %57
-
-57:                                               ; preds = %47, %41, %4
-  %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14)
+  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14)
   ret void
 }
 

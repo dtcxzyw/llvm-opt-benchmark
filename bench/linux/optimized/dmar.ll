@@ -3764,17 +3764,17 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   %8 = and i64 %1, -3
   %9 = icmp eq i64 %8, 0
   %10 = and i1 %9, %7
-  br i1 %10, label %11, label %97
+  br i1 %10, label %11, label %95
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %2, i64 -184
   %13 = tail call fastcc ptr @dmar_alloc_pci_notify_info(ptr noundef %12, i64 noundef %1)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %97, label %15
+  br i1 %14, label %95, label %15
 
 15:                                               ; preds = %11
   tail call void @down_write(ptr noundef nonnull @dmar_global_lock) #20
-  switch i64 %1, label %94 [
+  switch i64 %1, label %92 [
     i64 0, label %16
     i64 2, label %53
   ]
@@ -3829,11 +3829,11 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   %49 = load i32, ptr @dmar_dev_scope_status, align 4
   %50 = icmp eq i32 %49, 0
   %51 = select i1 %48, i1 %50, i1 false
-  br i1 %51, label %52, label %94
+  br i1 %51, label %52, label %92
 
 52:                                               ; preds = %46
   store i32 %47, ptr @dmar_dev_scope_status, align 4
-  br label %94
+  br label %92
 
 53:                                               ; preds = %15
   %54 = load volatile ptr, ptr @dmar_drhd_units, align 8
@@ -3846,7 +3846,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br label %59
 
 59:                                               ; preds = %.loopexit, %56
-  %60 = phi ptr [ %54, %56 ], [ %91, %.loopexit ]
+  %60 = phi ptr [ %54, %56 ], [ %89, %.loopexit ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %62 = load i16, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -3863,64 +3863,60 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br label %72
 
 72:                                               ; preds = %.thread11, %66
-  %73 = phi i64 [ 0, %66 ], [ %90, %.thread11 ]
+  %73 = phi i64 [ 0, %66 ], [ %88, %.thread11 ]
   %74 = icmp slt i64 %73, %69
   br i1 %74, label %75, label %.thread10
 
 75:                                               ; preds = %72
   %76 = getelementptr %struct.dmar_dev_scope, ptr %64, i64 %73
   %77 = load volatile ptr, ptr %76, align 8
-  %78 = icmp eq i64 %73, %71
-  br i1 %78, label %.loopexit, label %80
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %.thread11, label %80
 
 .thread10:                                        ; preds = %72
   %79 = icmp eq i64 %73, %71
   br i1 %79, label %.loopexit, label %.thread11
 
 80:                                               ; preds = %75
-  %81 = icmp eq ptr %77, null
-  br i1 %81, label %.thread11, label %82
+  %81 = load ptr, ptr %13, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 184
+  %83 = icmp eq ptr %77, %82
+  br i1 %83, label %84, label %.thread11
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %13, align 1
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 184
-  %85 = icmp eq ptr %77, %84
-  br i1 %85, label %86, label %.thread11
-
-86:                                               ; preds = %82
-  %87 = shl i64 %73, 32
-  %88 = ashr exact i64 %87, 28
-  %89 = getelementptr i8, ptr %64, i64 %88
-  store volatile ptr null, ptr %89, align 8
+84:                                               ; preds = %80
+  %85 = shl i64 %73, 32
+  %86 = ashr exact i64 %85, 28
+  %87 = getelementptr i8, ptr %64, i64 %86
+  store volatile ptr null, ptr %87, align 8
   tail call void @synchronize_rcu() #20
   tail call void @put_device(ptr noundef nonnull %77) #20
   br label %.loopexit12
 
-.thread11:                                        ; preds = %.thread10, %82, %80
-  %90 = add nuw nsw i64 %73, 1
+.thread11:                                        ; preds = %.thread10, %80, %75
+  %88 = add nuw nsw i64 %73, 1
   br label %72, !llvm.loop !18
 
-.loopexit:                                        ; preds = %.thread10, %75, %59
-  %91 = load volatile ptr, ptr %60, align 8
-  %92 = icmp eq ptr %91, @dmar_drhd_units
-  br i1 %92, label %.loopexit12, label %59, !llvm.loop !81
+.loopexit:                                        ; preds = %.thread10, %59
+  %89 = load volatile ptr, ptr %60, align 8
+  %90 = icmp eq ptr %89, @dmar_drhd_units
+  br i1 %90, label %.loopexit12, label %59, !llvm.loop !81
 
-.loopexit12:                                      ; preds = %.loopexit, %86, %53
-  %93 = tail call i32 @dmar_iommu_notify_scope_dev(ptr noundef nonnull %13) #20
-  br label %94
+.loopexit12:                                      ; preds = %.loopexit, %84, %53
+  %91 = tail call i32 @dmar_iommu_notify_scope_dev(ptr noundef nonnull %13) #20
+  br label %92
 
-94:                                               ; preds = %.loopexit12, %52, %46, %15
+92:                                               ; preds = %.loopexit12, %52, %46, %15
   tail call void @up_write(ptr noundef nonnull @dmar_global_lock) #20
-  %95 = icmp eq ptr %13, @dmar_pci_notify_info_buf
-  br i1 %95, label %97, label %96
+  %93 = icmp eq ptr %13, @dmar_pci_notify_info_buf
+  br i1 %93, label %95, label %94
 
-96:                                               ; preds = %94
+94:                                               ; preds = %92
   tail call void @kfree(ptr noundef nonnull %13) #20
-  br label %97
+  br label %95
 
-97:                                               ; preds = %96, %94, %11, %3
-  %98 = phi i32 [ 0, %11 ], [ 1, %94 ], [ 1, %96 ], [ 0, %3 ]
-  ret i32 %98
+95:                                               ; preds = %94, %92, %11, %3
+  %96 = phi i32 [ 0, %11 ], [ 1, %92 ], [ 1, %94 ], [ 0, %3 ]
+  ret i32 %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

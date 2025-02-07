@@ -12175,16 +12175,12 @@ for.body69.i:                                     ; preds = %for.body69.i, %for.
 for.end89.i:                                      ; preds = %for.body69.i, %if.then61.i
   %mul91.i = and i32 %sub.i322, -16
   %add92.i = or disjoint i32 %mul91.i, 8
-  %cmp94103.i = icmp slt i32 %add92.i, %182
-  br i1 %cmp94103.i, label %for.body95.preheader.i, label %invoke.cont486
-
-for.body95.preheader.i:                           ; preds = %for.end89.i
   %212 = sext i32 %add92.i to i64
   %wide.trip.count140.i = zext nneg i32 %182 to i64
   br label %for.body95.i
 
-for.body95.i:                                     ; preds = %for.body95.i, %for.body95.preheader.i
-  %indvars.iv135.i = phi i64 [ %212, %for.body95.preheader.i ], [ %indvars.iv.next136.i, %for.body95.i ]
+for.body95.i:                                     ; preds = %for.body95.i, %for.end89.i
+  %indvars.iv135.i = phi i64 [ %212, %for.end89.i ], [ %indvars.iv.next136.i, %for.body95.i ]
   %arrayidx97.i = getelementptr inbounds i8, ptr %180, i64 %indvars.iv135.i
   %213 = load i8, ptr %arrayidx97.i, align 1
   %214 = shl nsw i64 %indvars.iv135.i, 1
@@ -12243,7 +12239,7 @@ for.body137.i:                                    ; preds = %for.body137.i, %for
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count119.i
   br i1 %exitcond120.not.i, label %invoke.cont486, label %for.body137.i, !llvm.loop !101
 
-invoke.cont486:                                   ; preds = %for.body137.i, %for.body95.i, %for.body20.i, %for.end132.i, %for.end89.i, %for.end59.i, %for.cond42.preheader.i, %for.end.i
+invoke.cont486:                                   ; preds = %for.body137.i, %for.body95.i, %for.body20.i, %for.end132.i, %for.end59.i, %for.cond42.preheader.i, %for.end.i
   %226 = load i32, ptr %width500, align 4
   %227 = load ptr, ptr %planarUncRleEnd506, align 8
   %idx.ext490 = sext i32 %226 to i64

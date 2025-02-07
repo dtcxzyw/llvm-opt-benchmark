@@ -414,13 +414,13 @@ dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_d
 
 162:                                              ; preds = %160, %160
   %163 = call i32 @errcode(i32 noundef 8389) #11
-  br label %errcode_for_dynamic_shared_memory.exit.i34
+  br label %errcode_for_dynamic_shared_memory.exit.i30
 
 164:                                              ; preds = %160
   %165 = call i32 @errcode_for_file_access() #11
-  br label %errcode_for_dynamic_shared_memory.exit.i34
+  br label %errcode_for_dynamic_shared_memory.exit.i30
 
-errcode_for_dynamic_shared_memory.exit.i34:       ; preds = %164, %162
+errcode_for_dynamic_shared_memory.exit.i30:       ; preds = %164, %162
   %166 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 519, ptr noundef nonnull @__func__.dsm_impl_sysv) #11
   br label %dsm_impl_sysv.exit
@@ -580,8 +580,8 @@ errcode_for_dynamic_shared_memory.exit120.i:      ; preds = %225, %223
   store i64 %.094.i, ptr %5, align 8
   br label %dsm_impl_sysv.exit
 
-dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_dynamic_shared_memory.exit120.i, %197, %errcode_for_dynamic_shared_memory.exit118.i, %189, %191, %175, %errcode_for_dynamic_shared_memory.exit116.i, %._crit_edge.i, %errcode_for_dynamic_shared_memory.exit.i34, %157, %145, %185, %186, %228
-  %.0.i23 = phi i1 [ false, %145 ], [ true, %228 ], [ true, %186 ], [ true, %185 ], [ false, %157 ], [ false, %errcode_for_dynamic_shared_memory.exit.i34 ], [ false, %._crit_edge.i ], [ false, %errcode_for_dynamic_shared_memory.exit116.i ], [ false, %175 ], [ false, %191 ], [ false, %189 ], [ false, %errcode_for_dynamic_shared_memory.exit118.i ], [ false, %197 ], [ false, %errcode_for_dynamic_shared_memory.exit120.i ], [ false, %219 ]
+dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_dynamic_shared_memory.exit120.i, %197, %errcode_for_dynamic_shared_memory.exit118.i, %189, %191, %175, %errcode_for_dynamic_shared_memory.exit116.i, %._crit_edge.i, %errcode_for_dynamic_shared_memory.exit.i30, %157, %145, %185, %186, %228
+  %.0.i23 = phi i1 [ false, %145 ], [ true, %228 ], [ true, %186 ], [ true, %185 ], [ false, %157 ], [ false, %errcode_for_dynamic_shared_memory.exit.i30 ], [ false, %._crit_edge.i ], [ false, %errcode_for_dynamic_shared_memory.exit116.i ], [ false, %175 ], [ false, %191 ], [ false, %189 ], [ false, %errcode_for_dynamic_shared_memory.exit118.i ], [ false, %197 ], [ false, %errcode_for_dynamic_shared_memory.exit120.i ], [ false, %219 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
   br label %350
@@ -592,8 +592,8 @@ dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_d
   %230 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %1) #11
   %231 = icmp eq i32 %0, 3
   %232 = and i32 %0, -2
-  %or.cond.i35 = icmp eq i32 %232, 2
-  br i1 %or.cond.i35, label %233, label %261
+  %or.cond.i31 = icmp eq i32 %232, 2
+  br i1 %or.cond.i31, label %233, label %261
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %4, align 8
@@ -620,13 +620,13 @@ dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_d
 
 243:                                              ; preds = %240, %240
   %244 = call i32 @errcode(i32 noundef 8389) #11
-  br label %errcode_for_dynamic_shared_memory.exit.i49
+  br label %errcode_for_dynamic_shared_memory.exit.i45
 
 245:                                              ; preds = %240
   %246 = call i32 @errcode_for_file_access() #11
-  br label %errcode_for_dynamic_shared_memory.exit.i49
+  br label %errcode_for_dynamic_shared_memory.exit.i45
 
-errcode_for_dynamic_shared_memory.exit.i49:       ; preds = %245, %243
+errcode_for_dynamic_shared_memory.exit.i45:       ; preds = %245, %243
   %247 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #11
   br label %.sink.split.i.sink.split
 
@@ -763,18 +763,18 @@ errcode_for_dynamic_shared_memory.exit135.i:      ; preds = %293, %291
   store volatile i32 0, ptr %305, align 4
   %306 = icmp ne i64 %.1117.i, 0
   %307 = select i1 %303, i1 %306, i1 false
-  br i1 %307, label %.lr.ph.i, label %._crit_edge.i36, !llvm.loop !7
+  br i1 %307, label %.lr.ph.i, label %._crit_edge.i32, !llvm.loop !7
 
-._crit_edge.i36:                                  ; preds = %.lr.ph.i
+._crit_edge.i32:                                  ; preds = %.lr.ph.i
   br i1 %303, label %.critedge.i, label %308
 
-308:                                              ; preds = %._crit_edge.i36
+308:                                              ; preds = %._crit_edge.i32
   %309 = tail call ptr @__errno_location() #12
   %310 = load i32, ptr %309, align 4
   %311 = call i32 @CloseTransientFile(i32 noundef %264) #11
   %312 = call i32 @unlink(ptr noundef nonnull %8) #11
-  %.not.i37 = icmp eq i32 %310, 0
-  %313 = select i1 %.not.i37, i32 28, i32 %310
+  %.not.i33 = icmp eq i32 %310, 0
+  %313 = select i1 %.not.i33, i32 28, i32 %310
   store i32 %313, ptr %309, align 4
   %314 = call zeroext i1 @errstart(i32 noundef %6, ptr noundef null) #11
   br i1 %314, label %315, label %dsm_impl_mmap.exit
@@ -798,8 +798,8 @@ errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %319, %317
   %321 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %8, i64 noundef %2) #11
   br label %.sink.split.i.sink.split
 
-.critedge.i:                                      ; preds = %._crit_edge.i36, %299, %296
-  %.0114.i = phi i64 [ %298, %296 ], [ %2, %._crit_edge.i36 ], [ 0, %299 ]
+.critedge.i:                                      ; preds = %._crit_edge.i32, %299, %296
+  %.0114.i = phi i64 [ %298, %296 ], [ %2, %._crit_edge.i32 ], [ 0, %299 ]
   %322 = call ptr @mmap(ptr noundef null, i64 noundef %.0114.i, i32 noundef 3, i32 noundef 1, i32 noundef %264, i64 noundef 0) #11
   %323 = icmp eq ptr %322, inttoptr (i64 -1 to ptr)
   br i1 %323, label %324, label %339
@@ -854,13 +854,13 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %336, %334
   %345 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #11
   br label %.sink.split.i.sink.split
 
-.sink.split.i.sink.split:                         ; preds = %errcode_for_dynamic_shared_memory.exit.i49, %errcode_for_dynamic_shared_memory.exit131.i, %errcode_for_dynamic_shared_memory.exit133.i, %errcode_for_dynamic_shared_memory.exit135.i, %errcode_for_dynamic_shared_memory.exit137.i, %errcode_for_dynamic_shared_memory.exit139.i, %343
-  %.sink = phi i32 [ 945, %343 ], [ 934, %errcode_for_dynamic_shared_memory.exit139.i ], [ 912, %errcode_for_dynamic_shared_memory.exit137.i ], [ 861, %errcode_for_dynamic_shared_memory.exit135.i ], [ 837, %errcode_for_dynamic_shared_memory.exit133.i ], [ 823, %errcode_for_dynamic_shared_memory.exit131.i ], [ 813, %errcode_for_dynamic_shared_memory.exit.i49 ]
+.sink.split.i.sink.split:                         ; preds = %errcode_for_dynamic_shared_memory.exit.i45, %errcode_for_dynamic_shared_memory.exit131.i, %errcode_for_dynamic_shared_memory.exit133.i, %errcode_for_dynamic_shared_memory.exit135.i, %errcode_for_dynamic_shared_memory.exit137.i, %errcode_for_dynamic_shared_memory.exit139.i, %343
+  %.sink = phi i32 [ 945, %343 ], [ 934, %errcode_for_dynamic_shared_memory.exit139.i ], [ 912, %errcode_for_dynamic_shared_memory.exit137.i ], [ 861, %errcode_for_dynamic_shared_memory.exit135.i ], [ 837, %errcode_for_dynamic_shared_memory.exit133.i ], [ 823, %errcode_for_dynamic_shared_memory.exit131.i ], [ 813, %errcode_for_dynamic_shared_memory.exit.i45 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink, ptr noundef nonnull @__func__.dsm_impl_mmap) #11
   br label %dsm_impl_mmap.exit
 
 dsm_impl_mmap.exit:                               ; preds = %238, %251, %271, %284, %308, %330, %341, %.sink.split.i.sink.split, %248, %249, %268, %339
-  %.0.i40 = phi i1 [ true, %249 ], [ true, %248 ], [ false, %268 ], [ true, %339 ], [ false, %.sink.split.i.sink.split ], [ false, %341 ], [ false, %330 ], [ false, %308 ], [ false, %284 ], [ false, %271 ], [ false, %251 ], [ false, %238 ]
+  %.0.i36 = phi i1 [ true, %249 ], [ true, %248 ], [ false, %268 ], [ true, %339 ], [ false, %.sink.split.i.sink.split ], [ false, %341 ], [ false, %330 ], [ false, %308 ], [ false, %284 ], [ false, %271 ], [ false, %251 ], [ false, %238 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
   br label %350
@@ -874,7 +874,7 @@ dsm_impl_mmap.exit:                               ; preds = %238, %251, %271, %2
   unreachable
 
 350:                                              ; preds = %dsm_impl_mmap.exit, %dsm_impl_sysv.exit, %dsm_impl_posix.exit
-  %.0 = phi i1 [ %.0.i40, %dsm_impl_mmap.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i, %dsm_impl_posix.exit ]
+  %.0 = phi i1 [ %.0.i36, %dsm_impl_mmap.exit ], [ %.0.i23, %dsm_impl_sysv.exit ], [ %.0.i, %dsm_impl_posix.exit ]
   ret i1 %.0
 }
 

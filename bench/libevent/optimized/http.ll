@@ -2534,10 +2534,8 @@ entry:
 define range(i32 0, 2) i32 @evhttp_connection_set_flags(ptr noundef captures(none) %evcon, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   %and = and i32 %flags, -25
-  %tobool = icmp ne i32 %and, 0
-  %cmp = icmp sgt i32 %flags, 1048576
-  %or.cond = or i1 %cmp, %tobool
-  br i1 %or.cond, label %return, label %if.end
+  %tobool.not = icmp eq i32 %and, 0
+  br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %flags3 = getelementptr inbounds nuw i8, ptr %evcon, i64 200
