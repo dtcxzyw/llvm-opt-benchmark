@@ -15634,9 +15634,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %30 = icmp sgt i64 %27, 0
   br i1 %30, label %.lr.ph50.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_5BlockIS5_Lin1ELin1ELb0EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSC_.exit
 
-.lr.ph50.i:                                       ; preds = %25, %._crit_edge.i.loopexit
-  %.03348.i = phi i64 [ %.sroa.speculated.i, %._crit_edge.i.loopexit ], [ 0, %25 ]
-  %.03447.i = phi i64 [ %53, %._crit_edge.i.loopexit ], [ 0, %25 ]
+.lr.ph50.i:                                       ; preds = %25, %._crit_edge.i
+  %.03348.i = phi i64 [ %.sroa.speculated.i, %._crit_edge.i ], [ 0, %25 ]
+  %.03447.i = phi i64 [ %56, %._crit_edge.i ], [ 0, %25 ]
   %31 = sub nsw i64 %26, %.03348.i
   %32 = and i64 %31, -2
   %33 = add nsw i64 %32, %.03348.i
@@ -15668,40 +15668,40 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.lr.ph44.i
 
 .preheader.i:                                     ; preds = %.lr.ph44.i, %.preheader41.i..preheader.i_crit_edge
-  %.pre-phi37 = phi i64 [ %.pre36, %.preheader41.i..preheader.i_crit_edge ], [ %42, %.lr.ph44.i ]
+  %43 = phi i64 [ %.pre36, %.preheader41.i..preheader.i_crit_edge ], [ %42, %.lr.ph44.i ]
   %invariant.gep27 = getelementptr double, ptr %28, i64 %41
   %43 = getelementptr double, ptr %4, i64 %.pre-phi37
   br label %.lr.ph46.i
 
 .lr.ph44.i:                                       ; preds = %.lr.ph44.i.preheader, %.lr.ph44.i
-  %.03143.i = phi i64 [ %45, %.lr.ph44.i ], [ %.03348.i, %.lr.ph44.i.preheader ]
+  %.03143.i = phi i64 [ %48, %.lr.ph44.i ], [ %.03348.i, %.lr.ph44.i.preheader ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %.03143.i
   %gep26 = getelementptr double, ptr %invariant.gep25, i64 %.03143.i
-  %44 = load <2 x double>, ptr %gep26, align 1
-  store <2 x double> %44, ptr %gep, align 16
-  %45 = add nsw i64 %.03143.i, 2
-  %46 = icmp slt i64 %45, %33
-  br i1 %46, label %.lr.ph44.i, label %.preheader.i, !llvm.loop !416
+  %47 = load <2 x double>, ptr %gep26, align 1
+  store <2 x double> %47, ptr %gep, align 16
+  %48 = add nsw i64 %.03143.i, 2
+  %49 = icmp slt i64 %48, %33
+  br i1 %49, label %.lr.ph44.i, label %.preheader.i, !llvm.loop !416
 
 .lr.ph46.i:                                       ; preds = %.preheader.i, %.lr.ph46.i
-  %.045.i = phi i64 [ %49, %.lr.ph46.i ], [ %33, %.preheader.i ]
+  %.045.i = phi i64 [ %52, %.lr.ph46.i ], [ %33, %.preheader.i ]
   %gep28 = getelementptr double, ptr %invariant.gep27, i64 %.045.i
-  %47 = getelementptr double, ptr %43, i64 %.045.i
-  %48 = load double, ptr %47, align 8
-  store double %48, ptr %gep28, align 8
-  %49 = add nsw i64 %.045.i, 1
-  %50 = icmp slt i64 %49, %26
-  br i1 %50, label %.lr.ph46.i, label %._crit_edge.i.loopexit, !llvm.loop !417
+  %50 = getelementptr double, ptr %43, i64 %.045.i
+  %51 = load double, ptr %50, align 8
+  store double %51, ptr %gep28, align 8
+  %52 = add nsw i64 %.045.i, 1
+  %53 = icmp slt i64 %52, %26
+  br i1 %53, label %.lr.ph46.i, label %._crit_edge.i, !llvm.loop !417
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph46.i
-  %51 = add nsw i64 %.03348.i, %29
-  %52 = srem i64 %51, 2
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %26, i64 %52)
-  %53 = add nuw nsw i64 %.03447.i, 1
-  %exitcond.not.i = icmp eq i64 %53, %27
+._crit_edge.i:                                    ; preds = %.lr.ph46.i
+  %54 = add nsw i64 %.03348.i, %29
+  %55 = srem i64 %54, 2
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %26, i64 %55)
+  %56 = add nuw nsw i64 %.03447.i, 1
+  %exitcond.not.i = icmp eq i64 %56, %27
   br i1 %exitcond.not.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_5BlockIS5_Lin1ELin1ELb0EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSC_.exit, label %.lr.ph50.i, !llvm.loop !418
 
-_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_5BlockIS5_Lin1ELin1ELb0EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSC_.exit: ; preds = %._crit_edge.i.loopexit, %25
+_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_5BlockIS5_Lin1ELin1ELb0EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSC_.exit: ; preds = %._crit_edge.i, %25
   ret void
 }
 

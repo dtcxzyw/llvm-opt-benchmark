@@ -169,7 +169,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   %80 = icmp eq i32 %31, 0
   br i1 %80, label %81, label %86
 
-81:                                               ; preds = %60
+81:; preds = %60
   %82 = fadd double %79, %77
   %83 = fmul double %62, %82
   %84 = fsub double %83, %79
@@ -185,11 +185,11 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   %92 = fadd double %91, %90
   %93 = fsub double %79, %92
   %94 = fsub double %93, %32
-  %95 = fsub double %88, %94
+  %93 = fsub double %88, %94
   br label %96
 
-96:                                               ; preds = %38, %4, %86, %81, %53, %51, %40, %18, %10
-  %.0 = phi double [ %12, %10 ], [ %19, %18 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %85, %81 ], [ %95, %86 ], [ 0xFFF0000000000000, %4 ], [ 0.000000e+00, %38 ]
+96:; preds = %38, %4, %86, %81, %53, %51, %40, %18, %10
+  %97 = phi double [ %12, %10 ], [ %19, %18 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %85, %81 ], [ %95, %86 ], [ 0xFFF0000000000000, %4 ], [ 0.000000e+00, %38 ]
   ret double %.0
 }
 

@@ -1853,16 +1853,16 @@ _ZN4llvm11stable_sortIRNS_11SmallVectorIN12_GLOBAL__N_116BlockLayoutChunkELj16EE
 575:                                              ; preds = %574
   %576 = load i64, ptr %.0157, align 8, !tbaa !996
   %577 = icmp slt i64 %569, %576
-  br i1 %577, label %574, label %.critedge.preheader.split, !llvm.loop !1074
+  br i1 %577, label %574, label %.critedge.preheader, !llvm.loop !1074
 
-.critedge.preheader.split:                        ; preds = %575
+.critedge.preheader:                              ; preds = %575
   %.pre336 = load i32, ptr %20, align 8, !tbaa !32
   br label %578
 
-578:                                              ; preds = %.critedge.preheader.split, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
-  %.sroa.017.0.copyload = phi i64 [ %564, %.critedge.preheader.split ], [ %597, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
-  %579 = phi i32 [ %.pre336, %.critedge.preheader.split ], [ %593, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
-  %.1158306 = phi ptr [ %.0157, %.critedge.preheader.split ], [ %598, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
+578:                                              ; preds = %.critedge.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
+  %.sroa.017.0.copyload = phi i64 [ %564, %.critedge.preheader ], [ %597, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
+  %579 = phi i32 [ %.pre336, %.critedge.preheader ], [ %593, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
+  %.1158306 = phi ptr [ %.0157, %.critedge.preheader ], [ %598, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ]
   call fastcc void @_ZN12_GLOBAL__N_116BlockLayoutChunk8setIndexERN5clang7CodeGen11CGBlockInfoEjNS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(56) %.1158306, ptr noundef nonnull align 8 dereferenceable(376) %2, i32 noundef %579, i64 %.sroa.017.0.copyload)
   %580 = getelementptr inbounds nuw i8, ptr %.1158306, i64 24
   %581 = load ptr, ptr %580, align 8, !tbaa !1001
@@ -1894,11 +1894,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %597 = add nsw i64 %596, %595
   store i64 %597, ptr %562, align 8, !tbaa !996
   %598 = getelementptr inbounds nuw i8, ptr %.1158306, i64 56
-  %.not167 = icmp eq ptr %598, %573
+  %599 = icmp eq ptr %598, %573
   br i1 %.not167, label %.loopexit, label %578, !llvm.loop !1075
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
-  %599 = sub nsw i64 0, %597
+  %.2 = sub nsw i64 0, %597
   %600 = and i64 %597, %599
   %.val11.i = load ptr, ptr %12, align 8, !tbaa !31
   %.val12.i = load i32, ptr %253, align 8, !tbaa !32
@@ -1983,14 +1983,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit209: ; preds
   %.val179 = load i32, ptr %253, align 8, !tbaa !32
   %645 = zext i32 %.val179 to i64
   %646 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.val175, i64 %645
-  %.not168309 = icmp eq i32 %.val179, 0
-  br i1 %.not168309, label %._crit_edge314, label %.lr.ph313
+  %.not168307 = icmp eq i32 %.val179, 0
+  br i1 %.not168307, label %._crit_edge312, label %.lr.ph311
 
-.lr.ph313:                                        ; preds = %644
+.lr.ph311:                                        ; preds = %644
   %647 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %669
 
-._crit_edge314:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222, %644
+._crit_edge312:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222, %644
   %648 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %649 = load ptr, ptr %648, align 8, !tbaa !31
   %650 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -2000,7 +2000,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit209: ; preds
   %.not9.i210 = icmp eq i32 %651, 0
   br i1 %.not9.i210, label %_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216, label %.lr.ph.i211
 
-.lr.ph.i211:                                      ; preds = %._crit_edge314
+.lr.ph.i211:                                      ; preds = %._crit_edge312
   %654 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %655
 
@@ -2020,7 +2020,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit209: ; preds
   %.not.i214 = icmp eq ptr %661, %653
   br i1 %.not.i214, label %_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216, label %655
 
-_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216: ; preds = %655, %._crit_edge314
+_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216: ; preds = %655, %._crit_edge312
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %663 = load ptr, ptr %662, align 8, !tbaa !665
   %664 = load ptr, ptr %11, align 8, !tbaa !31
@@ -2031,11 +2031,11 @@ _ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216: ; preds = %655, %._cr
   store ptr %667, ptr %668, align 8, !tbaa !335
   br label %_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit
 
-669:                                              ; preds = %.lr.ph313, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222
-  %.0159311 = phi ptr [ %.val175, %.lr.ph313 ], [ %712, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222 ]
-  %.sroa.0229.4310 = phi i64 [ %.sroa.0229.3, %.lr.ph313 ], [ %711, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222 ]
-  %670 = load i64, ptr %.0159311, align 8, !tbaa !996
-  %671 = icmp slt i64 %.sroa.0229.4310, %670
+669:                                              ; preds = %.lr.ph311, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222
+  %.0159309 = phi ptr [ %.val175, %.lr.ph311 ], [ %712, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222 ]
+  %.sroa.0229.4308 = phi i64 [ %.sroa.0229.3, %.lr.ph311 ], [ %711, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222 ]
+  %670 = load i64, ptr %.0159309, align 8, !tbaa !996
+  %671 = icmp slt i64 %.sroa.0229.4308, %670
   br i1 %671, label %672, label %._crit_edge338
 
 ._crit_edge338:                                   ; preds = %669
@@ -2044,7 +2044,7 @@ _ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216: ; preds = %655, %._cr
   br label %690
 
 672:                                              ; preds = %669
-  %673 = sub nsw i64 %670, %.sroa.0229.4310
+  %673 = sub nsw i64 %670, %.sroa.0229.4308
   %674 = load ptr, ptr %647, align 8, !tbaa !1076
   %675 = call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %674, i64 noundef %673) #30
   %676 = load i32, ptr %20, align 8, !tbaa !32
@@ -2077,8 +2077,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit219: ; preds
 690:                                              ; preds = %._crit_edge338, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit219
   %.sroa.03.0.copyload = phi i64 [ %.sroa.03.0.copyload.pre, %._crit_edge338 ], [ %689, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit219 ]
   %691 = phi i32 [ %.pre339, %._crit_edge338 ], [ %687, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit219 ]
-  call fastcc void @_ZN12_GLOBAL__N_116BlockLayoutChunk8setIndexERN5clang7CodeGen11CGBlockInfoEjNS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(56) %.0159311, ptr noundef nonnull align 8 dereferenceable(376) %2, i32 noundef %691, i64 %.sroa.03.0.copyload)
-  %692 = getelementptr inbounds nuw i8, ptr %.0159311, i64 24
+  call fastcc void @_ZN12_GLOBAL__N_116BlockLayoutChunk8setIndexERN5clang7CodeGen11CGBlockInfoEjNS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(56) %.0159309, ptr noundef nonnull align 8 dereferenceable(376) %2, i32 noundef %691, i64 %.sroa.03.0.copyload)
+  %692 = getelementptr inbounds nuw i8, ptr %.0159309, i64 24
   %693 = load ptr, ptr %692, align 8, !tbaa !1001
   %694 = load i32, ptr %20, align 8, !tbaa !32
   %695 = load i32, ptr %21, align 4, !tbaa !33
@@ -2102,16 +2102,16 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit222: ; preds
   %704 = load i32, ptr %20, align 8, !tbaa !32
   %705 = add i32 %704, 1
   store i32 %705, ptr %20, align 8, !tbaa !32
-  %706 = getelementptr inbounds nuw i8, ptr %.0159311, i64 8
+  %706 = getelementptr inbounds nuw i8, ptr %.0159309, i64 8
   %707 = load i64, ptr %706, align 8, !tbaa !996
   %708 = load i64, ptr %562, align 8, !tbaa !996
   %709 = add nsw i64 %708, %707
   store i64 %709, ptr %562, align 8, !tbaa !996
   %710 = sub nsw i64 0, %709
   %711 = and i64 %709, %710
-  %712 = getelementptr inbounds nuw i8, ptr %.0159311, i64 56
+  %712 = getelementptr inbounds nuw i8, ptr %.0159309, i64 56
   %.not168 = icmp eq ptr %712, %646
-  br i1 %.not168, label %._crit_edge314, label %669, !llvm.loop !1077
+  br i1 %.not168, label %._crit_edge312, label %669, !llvm.loop !1077
 
 _ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit: ; preds = %545, %527, %_ZN5clang7CodeGen11CGBlockInfo15buildCaptureMapEv.exit216
   %713 = load ptr, ptr %12, align 8, !tbaa !31

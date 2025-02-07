@@ -4997,25 +4997,25 @@ do.body14:                                        ; preds = %_ZN4node10BaseObjec
   %24 = load i32, ptr %length_.i298, align 8
   %25 = and i32 %24, -3
   %spec.select.not = icmp eq i32 %25, 4
-  br i1 %spec.select.not, label %if.end.i557, label %do.body22
+  br i1 %spec.select.not, label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit566, label %do.body22
 
 do.body22:                                        ; preds = %do.body14
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node7UDPWrap6DoSendERKN2v820FunctionCallbackInfoINS1_5ValueEEEiE4args) #20
   tail call void @abort() #21
   unreachable
 
-if.end.i557:                                      ; preds = %do.body14
+_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit566: ; preds = %do.body14
   %values_.i558 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %26 = load ptr, ptr %values_.i558, align 8
   %call33 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %26) #20
   br i1 %call33, label %lor.lhs.false.i534, label %do.body38
 
-do.body38:                                        ; preds = %if.end.i557
+do.body38:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit566
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node7UDPWrap6DoSendERKN2v820FunctionCallbackInfoINS1_5ValueEEEiE4args_0) #20
   tail call void @abort() #21
   unreachable
 
-lor.lhs.false.i534:                               ; preds = %if.end.i557
+lor.lhs.false.i534:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit566
   %27 = load i32, ptr %length_.i298, align 8
   %cmp2.i536 = icmp slt i32 %27, 2
   br i1 %cmp2.i536, label %if.then.i542, label %if.end.i537
@@ -5030,7 +5030,7 @@ if.then.i542:                                     ; preds = %lor.lhs.false.i534
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit546
 
 if.end.i537:                                      ; preds = %lor.lhs.false.i534
-  %32 = load ptr, ptr %values_.i558, align 8
+  %values_.i538 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i540 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit546
 
@@ -5059,7 +5059,7 @@ if.then.i522:                                     ; preds = %lor.lhs.false.i514
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit526
 
 if.end.i517:                                      ; preds = %lor.lhs.false.i514
-  %38 = load ptr, ptr %values_.i558, align 8
+  %values_.i518 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i520 = getelementptr inbounds nuw i8, ptr %38, i64 16
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit526
 
@@ -5079,7 +5079,7 @@ do.end73:                                         ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp75, label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit506, label %lor.lhs.false.i434
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit506: ; preds = %do.end73
-  %40 = load ptr, ptr %values_.i558, align 8
+  %values_.i498 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i500 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %call84 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i500) #20
   br i1 %call84, label %lor.lhs.false.i474, label %do.body89
@@ -5172,7 +5172,7 @@ if.then.i442:                                     ; preds = %lor.lhs.false.i434
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit446
 
 if.end.i437:                                      ; preds = %lor.lhs.false.i434
-  %61 = load ptr, ptr %values_.i558, align 8
+  %values_.i438 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i440 = getelementptr inbounds nuw i8, ptr %61, i64 24
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit446
 
@@ -5201,7 +5201,7 @@ lor.lhs.false.i394.thread:                        ; preds = %lor.lhs.false.i414
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit406
 
 lor.lhs.false.i394:                               ; preds = %lor.lhs.false.i414
-  %67 = load ptr, ptr %values_.i558, align 8
+  %values_.i418 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i420 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %cmp2.i396 = icmp eq i32 %62, 2
   br i1 %cmp2.i396, label %lor.lhs.false.i394.if.then.i402_crit_edge, label %if.end.i397
@@ -5316,7 +5316,7 @@ if.then.i382:                                     ; preds = %lor.lhs.false.i374
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit386
 
 if.end.i377:                                      ; preds = %lor.lhs.false.i374
-  %80 = load ptr, ptr %values_.i558, align 8
+  %values_.i378 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i380 = getelementptr inbounds nuw i8, ptr %80, i64 24
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit386
 
@@ -5339,7 +5339,7 @@ if.then.i362:                                     ; preds = %_ZNK2v820FunctionCa
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit366
 
 if.end.i357:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit386
-  %87 = load ptr, ptr %values_.i558, align 8
+  %values_.i358 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i360 = getelementptr inbounds nuw i8, ptr %87, i64 32
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit366
 
@@ -5401,7 +5401,7 @@ if.then.i342:                                     ; preds = %lor.lhs.false.i334
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit346
 
 if.end.i337:                                      ; preds = %lor.lhs.false.i334
-  %96 = load ptr, ptr %values_.i558, align 8
+  %values_.i338 = load ptr, ptr %values_.i558, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit346
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit346: ; preds = %if.end.i337, %if.then.i342
@@ -5425,7 +5425,7 @@ if.then.i322:                                     ; preds = %lor.lhs.false.i314
   br label %cond.end
 
 if.end.i317:                                      ; preds = %lor.lhs.false.i314
-  %102 = load ptr, ptr %values_.i558, align 8
+  %values_.i318 = load ptr, ptr %values_.i558, align 8
   %add.ptr.i320 = getelementptr inbounds nuw i8, ptr %102, i64 40
   br label %cond.end
 
@@ -5443,7 +5443,7 @@ if.then.i306:                                     ; preds = %lor.lhs.false.i
   br label %cond.end
 
 if.end.i305:                                      ; preds = %lor.lhs.false.i
-  %107 = load ptr, ptr %values_.i558, align 8
+  %values_.i = load ptr, ptr %values_.i558, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %107, i64 24
   br label %cond.end
 

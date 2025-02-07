@@ -23620,18 +23620,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIaE9getCoeffs
   call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %15 = call noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %35
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
   %23 = icmp samesign ult i32 %15, %22
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
   store i32 %15, ptr %2, align 4
@@ -23646,23 +23646,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIaE9getCoeffs
   store i32 %27, ptr %3, align 4
   br label %35
 
-28:                                               ; preds = %21
+32:                                               ; preds = %21
   store i32 %22, ptr %2, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8
-  %.sroa.speculated27 = call i32 @llvm.smin.i32(i32 %1, i32 %30)
-  store i32 %.sroa.speculated27, ptr %29, align 8
-  br label %35
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load i32, ptr %33, align 8
+  %.sroa.speculated27 = call i32 @llvm.smin.i32(i32 %1, i32 %34)
+  store i32 %.sroa.speculated27, ptr %33, align 8
+  br label %39
 
-31:                                               ; preds = %17, %4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %33 = add nsw i32 %1, 1
-  %34 = load i32, ptr %32, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %34, i32 %33)
-  store i32 %.sroa.speculated, ptr %32, align 4
-  br label %35
+35:                                               ; preds = %17, %4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %37 = add nsw i32 %1, 1
+  %38 = load i32, ptr %36, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %38, i32 %37)
+  store i32 %.sroa.speculated, ptr %36, align 4
+  br label %39
 
-35:                                               ; preds = %24, %28, %31
+39:                                               ; preds = %24, %32, %35
   ret void
 }
 
@@ -27218,18 +27218,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIsE9getCoeffs
   call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %15 = call noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %35
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
   %23 = icmp samesign ult i32 %15, %22
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
   store i32 %15, ptr %2, align 4
@@ -27244,23 +27244,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIsE9getCoeffs
   store i32 %27, ptr %3, align 4
   br label %35
 
-28:                                               ; preds = %21
+32:                                               ; preds = %21
   store i32 %22, ptr %2, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8
-  %.sroa.speculated27 = call i32 @llvm.smin.i32(i32 %1, i32 %30)
-  store i32 %.sroa.speculated27, ptr %29, align 8
-  br label %35
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load i32, ptr %33, align 8
+  %.sroa.speculated27 = call i32 @llvm.smin.i32(i32 %1, i32 %34)
+  store i32 %.sroa.speculated27, ptr %33, align 8
+  br label %39
 
-31:                                               ; preds = %17, %4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %33 = add nsw i32 %1, 1
-  %34 = load i32, ptr %32, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %34, i32 %33)
-  store i32 %.sroa.speculated, ptr %32, align 4
-  br label %35
+35:                                               ; preds = %17, %4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %37 = add nsw i32 %1, 1
+  %38 = load i32, ptr %36, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %38, i32 %37)
+  store i32 %.sroa.speculated, ptr %36, align 4
+  br label %39
 
-35:                                               ; preds = %24, %28, %31
+39:                                               ; preds = %24, %32, %35
   ret void
 }
 
@@ -29618,18 +29618,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIiE9getCoeffs
   call void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %15 = call noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %31
+  br i1 %16, label %17, label %36
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %36
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
   %23 = icmp samesign ult i32 %15, %22
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %33
 
 24:                                               ; preds = %21
   store i32 %15, ptr %2, align 4
@@ -29642,25 +29642,25 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIiE9getCoeffs
   store i64 %26, ptr %25, align 8
   %27 = sub nsw i64 4294967296, %26
   store i64 %27, ptr %3, align 8
-  br label %35
+  br label %40
 
-28:                                               ; preds = %21
+33:                                               ; preds = %21
   store i32 %22, ptr %2, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8
-  %.sroa.speculated26 = call i32 @llvm.smin.i32(i32 %1, i32 %30)
-  store i32 %.sroa.speculated26, ptr %29, align 8
-  br label %35
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i32, ptr %34, align 8
+  %.sroa.speculated26 = call i32 @llvm.smin.i32(i32 %1, i32 %35)
+  store i32 %.sroa.speculated26, ptr %34, align 8
+  br label %40
 
-31:                                               ; preds = %17, %4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %33 = add nsw i32 %1, 1
-  %34 = load i32, ptr %32, align 4
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %34, i32 %33)
-  store i32 %.sroa.speculated, ptr %32, align 4
-  br label %35
+36:                                               ; preds = %17, %4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %38 = add nsw i32 %1, 1
+  %39 = load i32, ptr %37, align 4
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %39, i32 %38)
+  store i32 %.sroa.speculated, ptr %37, align 4
+  br label %40
 
-35:                                               ; preds = %24, %28, %31
+40:                                               ; preds = %24, %33, %36
   ret void
 }
 

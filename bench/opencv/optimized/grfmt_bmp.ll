@@ -2564,27 +2564,27 @@ define hidden noundef zeroext i1 @_ZN2cv10BmpEncoder5writeERKNS_3MatERKSt6vector
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv12WLByteStreamE, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %23, label %19
+  %18 = icmp eq ptr %18, null
+  br i1 %18, label %23, label %19
 
-19:                                               ; preds = %3
+19:; preds = %3
   %20 = invoke noundef zeroext i1 @_ZN2cv11WBaseStream4openERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %21 unwind label %.loopexit.split-lp
 
-21:                                               ; preds = %19
+21:; preds = %19
   br i1 %20, label %27, label %91
 
-.loopexit:                                        ; preds = %83
+.loopexit:; preds = %._crit_edge
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  br label %.loopexit
 
 .loopexit.split-lp:                               ; preds = %19, %23, %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %58, %60, %61, %62, %63, %64, %65, %66, %67, %69, %70, %71, %72, %73, %74, %76, %77, %._crit_edge, %39, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  br label %.loopexit
 
-22:                                               ; preds = %.loopexit.split-lp, %.loopexit
+.loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv12WLByteStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   resume { ptr, i32 } %lpad.phi
@@ -2748,14 +2748,14 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %82 = zext nneg i32 %9 to i64
-  br label %83
+  br label %._crit_edge
 
-83:                                               ; preds = %.lr.ph, %89
+._crit_edge:                                      ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %84 = load ptr, ptr %80, align 8
   %85 = load ptr, ptr %81, align 8
-  %86 = load i64, ptr %85, align 8
+  %.034 = load i64, ptr %85, align 8
   %87 = mul i64 %86, %indvars.iv.next
   %88 = getelementptr inbounds i8, ptr %84, i64 %87
   invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %88, i32 noundef %14)

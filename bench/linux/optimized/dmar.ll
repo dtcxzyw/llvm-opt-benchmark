@@ -3764,17 +3764,17 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   %8 = and i64 %1, -3
   %9 = icmp eq i64 %8, 0
   %10 = and i1 %9, %7
-  br i1 %10, label %11, label %95
+  br i1 %10, label %11, label %97
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %2, i64 -184
   %13 = tail call fastcc ptr @dmar_alloc_pci_notify_info(ptr noundef %12, i64 noundef %1)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %95, label %15
+  br i1 %14, label %97, label %15
 
 15:                                               ; preds = %11
   tail call void @down_write(ptr noundef nonnull @dmar_global_lock) #20
-  switch i64 %1, label %92 [
+  switch i64 %1, label %94 [
     i64 0, label %16
     i64 2, label %53
   ]
@@ -3829,11 +3829,11 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   %49 = load i32, ptr @dmar_dev_scope_status, align 4
   %50 = icmp eq i32 %49, 0
   %51 = select i1 %48, i1 %50, i1 false
-  br i1 %51, label %52, label %92
+  br i1 %51, label %52, label %94
 
 52:                                               ; preds = %46
   store i32 %47, ptr @dmar_dev_scope_status, align 4
-  br label %92
+  br label %94
 
 53:                                               ; preds = %15
   %54 = load volatile ptr, ptr @dmar_drhd_units, align 8
@@ -3846,7 +3846,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br label %59
 
 59:                                               ; preds = %.loopexit, %56
-  %60 = phi ptr [ %54, %56 ], [ %89, %.loopexit ]
+  %60 = phi ptr [ %54, %56 ], [ %91, %.loopexit ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %62 = load i16, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -3863,7 +3863,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br label %72
 
 72:                                               ; preds = %.thread11, %66
-  %73 = phi i64 [ 0, %66 ], [ %88, %.thread11 ]
+  %73 = phi i64 [ 0, %66 ], [ %90, %.thread11 ]
   %74 = icmp slt i64 %73, %69
   br i1 %74, label %75, label %.thread10
 
@@ -3883,7 +3883,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   %83 = icmp eq ptr %77, %82
   br i1 %83, label %84, label %.thread11
 
-84:                                               ; preds = %80
+84: ; preds = %80
   %85 = shl i64 %73, 32
   %86 = ashr exact i64 %85, 28
   %87 = getelementptr i8, ptr %64, i64 %86
@@ -3893,30 +3893,30 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
   br label %.loopexit12
 
 .thread11:                                        ; preds = %.thread10, %80, %75
-  %88 = add nuw nsw i64 %73, 1
+  %90 = add nuw nsw i64 %73, 1
   br label %72, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread10, %59
-  %89 = load volatile ptr, ptr %60, align 8
-  %90 = icmp eq ptr %89, @dmar_drhd_units
-  br i1 %90, label %.loopexit12, label %59, !llvm.loop !81
+  %91 = load volatile ptr, ptr %60, align 8
+  %92 = icmp eq ptr %91, @dmar_drhd_units
+  br i1 %92, label %.loopexit12, label %59, !llvm.loop !81
 
 .loopexit12:                                      ; preds = %.loopexit, %84, %53
-  %91 = tail call i32 @dmar_iommu_notify_scope_dev(ptr noundef nonnull %13) #20
-  br label %92
+  %93 = tail call i32 @dmar_iommu_notify_scope_dev(ptr noundef nonnull %13) #20
+  br label %94
 
-92:                                               ; preds = %.loopexit12, %52, %46, %15
+94:                                               ; preds = %.loopexit12, %52, %46, %15
   tail call void @up_write(ptr noundef nonnull @dmar_global_lock) #20
-  %93 = icmp eq ptr %13, @dmar_pci_notify_info_buf
-  br i1 %93, label %95, label %94
+  %95 = icmp eq ptr %13, @dmar_pci_notify_info_buf
+  br i1 %95, label %97, label %96
 
-94:                                               ; preds = %92
+96:                                               ; preds = %94
   tail call void @kfree(ptr noundef nonnull %13) #20
-  br label %95
+  br label %97
 
-95:                                               ; preds = %94, %92, %11, %3
-  %96 = phi i32 [ 0, %11 ], [ 1, %92 ], [ 1, %94 ], [ 0, %3 ]
-  ret i32 %96
+97:                                               ; preds = %96, %94, %11, %3
+  %98 = phi i32 [ 0, %11 ], [ 1, %94 ], [ 1, %96 ], [ 0, %3 ]
+  ret i32 %98
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

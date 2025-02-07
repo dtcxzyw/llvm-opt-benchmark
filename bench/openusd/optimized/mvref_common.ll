@@ -2117,18 +2117,18 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @av1_setup_frame_sign_bias(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 27844
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 278430
   br label %get_ref_frame_map_idx.exit.i
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %1, %get_ref_frame_map_idx.exit.i
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %get_ref_frame_map_idx.exit.i ]
-  %3 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %indvars.iv
-  store i32 0, ptr %3, align 4
+  %8 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %indvars.iv
+  store i32 0, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %4, label %get_ref_frame_map_idx.exit.i, !llvm.loop !37
+  br i1 %exitcond.not, label %30, label %get_ref_frame_map_idx.exit.i, !llvm.loop !37
 
-4:                                                ; preds = %get_ref_frame_map_idx.exit.i
+30:                                               ; preds = %get_ref_frame_map_idx.exit.i
   ret void
 }
 
@@ -2162,7 +2162,7 @@ define hidden void @av1_setup_motion_field(ptr noundef captures(none) initialize
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
-  br label %get_ref_frame_map_idx.exit.i.preheader
+  br label %get_ref_frame_map_idx.exit.i.us
 
 .lr.ph.preheader:                                 ; preds = %7
   %wide.trip.count = zext nneg i32 %17 to i64
@@ -2187,13 +2187,13 @@ define hidden void @av1_setup_motion_field(ptr noundef captures(none) initialize
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.not.i65 = icmp eq i32 %.pre, 0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  br i1 %.not.i65, label %get_ref_frame_map_idx.exit.i.us, label %get_ref_frame_map_idx.exit.i.preheader
+  br i1 %.not.i65, label %get_ref_frame_map_idx.exit.i.us, label %get_ref_frame_map_idx.exit.i.us
 
-get_ref_frame_map_idx.exit.i.preheader:           ; preds = %._crit_edge.thread, %._crit_edge
-  %31 = phi i32 [ %22, %._crit_edge.thread ], [ %28, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  br label %get_ref_frame_map_idx.exit.i
+get_ref_frame_map_idx.exit.i.us:                  ; preds = %._crit_edge.thread, %._crit_edge
+  %indvars.iv103 = phi i32 [ %22, %._crit_edge.thread ], [ %28, %._crit_edge ]
+  %indvars.iv103 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  br label %.split
 
 get_ref_frame_map_idx.exit.i.us:                  ; preds = %._crit_edge, %49
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %49 ], [ 1, %._crit_edge ]
@@ -2204,99 +2204,99 @@ get_ref_frame_map_idx.exit.i.us:                  ; preds = %._crit_edge, %49
   br i1 %.not.i.us, label %get_ref_frame_buf.exit.thread.us, label %get_ref_frame_buf.exit.us
 
 get_ref_frame_buf.exit.us:                        ; preds = %get_ref_frame_map_idx.exit.i.us
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [8 x ptr], ptr %30, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %.not62.us = icmp eq ptr %39, null
-  br i1 %.not62.us, label %get_ref_frame_buf.exit.thread.us, label %40
+  %34 = sext i32 %36 to i64
+  %35 = getelementptr inbounds [8 x ptr], ptr %30, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %.not62.us = icmp eq ptr %36, null
+  br i1 %.not62.us, label %get_ref_frame_buf.exit.thread.us, label %37
 
-40:                                               ; preds = %get_ref_frame_buf.exit.us
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %42 = load i32, ptr %41, align 4
+37:                                               ; preds = %get_ref_frame_buf.exit.us
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load i32, ptr %38, align 4
   br label %get_ref_frame_buf.exit.thread.us
 
-get_ref_frame_buf.exit.thread.us:                 ; preds = %40, %get_ref_frame_buf.exit.us, %get_ref_frame_map_idx.exit.i.us
-  %43 = phi ptr [ %39, %40 ], [ null, %get_ref_frame_buf.exit.us ], [ null, %get_ref_frame_map_idx.exit.i.us ]
-  %.055.us = phi i32 [ %42, %40 ], [ 0, %get_ref_frame_buf.exit.us ], [ 0, %get_ref_frame_map_idx.exit.i.us ]
-  %44 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %34
-  store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %34
-  store i32 %.055.us, ptr %45, align 4
-  %46 = icmp eq i32 %.055.us, %28
-  br i1 %46, label %47, label %49
+get_ref_frame_buf.exit.thread.us:                 ; preds = %37, %get_ref_frame_buf.exit.us, %get_ref_frame_map_idx.exit.i.us
+  %40 = phi ptr [ %36, %37 ], [ null, %get_ref_frame_buf.exit.us ], [ null, %get_ref_frame_map_idx.exit.i.us ]
+  %.055.us = phi i32 [ %39, %37 ], [ 0, %get_ref_frame_buf.exit.us ], [ 0, %get_ref_frame_map_idx.exit.i.us ]
+  %41 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %34
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %34
+  store i32 %.055.us, ptr %42, align 4
+  %43 = icmp eq i32 %.055.us, %28
+  br i1 %43, label %44, label %46
 
-47:                                               ; preds = %get_ref_frame_buf.exit.thread.us
-  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv103
-  store i8 -1, ptr %48, align 1
-  br label %49
+44:                                               ; preds = %get_ref_frame_buf.exit.thread.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv103
+  store i8 -1, ptr %45, align 1
+  br label %46
 
-49:                                               ; preds = %47, %get_ref_frame_buf.exit.thread.us
+46:                                               ; preds = %44, %get_ref_frame_buf.exit.thread.us
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 8
   br i1 %exitcond106.not, label %.split96.us, label %get_ref_frame_map_idx.exit.i.us, !llvm.loop !39
 
-get_ref_frame_map_idx.exit.i:                     ; preds = %get_ref_frame_map_idx.exit.i.preheader, %65
-  %indvars.iv99 = phi i64 [ 1, %get_ref_frame_map_idx.exit.i.preheader ], [ %indvars.iv.next100, %65 ]
-  %50 = add nsw i64 %indvars.iv99, -1
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %32, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %.not.i = icmp eq i32 %52, -1
+.split:                                           ; preds = %get_ref_frame_map_idx.exit.i.us, %65
+  %47 = phi i630 [ 1, %get_ref_frame_map_idx.exit.i.us ], [ %indvars.iv.next100, %65 ]
+  %48 = add nsw i64 %47, -1
+  %49 = getelementptr inbounds nuw [8 x i32], ptr %32, i64 0, i64 %50
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %50, -1
   br i1 %.not.i, label %get_ref_frame_buf.exit.thread, label %get_ref_frame_buf.exit
 
 get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_idx.exit.i
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [8 x ptr], ptr %33, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %.not62 = icmp eq ptr %55, null
-  br i1 %.not62, label %get_ref_frame_buf.exit.thread, label %56
+  %58 = sext i32 %52 to i64
+  %59 = getelementptr inbounds [8 x ptr], ptr %33, i64 0, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %.not62 = icmp eq ptr %60, null
+  br i1 %.not62, label %get_ref_frame_buf.exit.thread, label %61
 
-56:                                               ; preds = %get_ref_frame_buf.exit
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %58 = load i32, ptr %57, align 4
+61:                                               ; preds = %get_ref_frame_buf.exit
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %63 = load i32, ptr %62, align 4
   br label %get_ref_frame_buf.exit.thread
 
-get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_idx.exit.i, %56, %get_ref_frame_buf.exit
-  %59 = phi ptr [ %55, %56 ], [ null, %get_ref_frame_buf.exit ], [ null, %get_ref_frame_map_idx.exit.i ]
-  %.055 = phi i32 [ %58, %56 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %get_ref_frame_map_idx.exit.i ]
-  %60 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %50
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %50
-  store i32 %.055, ptr %61, align 4
-  %62 = icmp eq i32 %.055, %31
-  br i1 %62, label %63, label %65
+get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_idx.exit.i, %61, %get_ref_frame_buf.exit
+  %64 = phi ptr [ %60, %61 ], [ null, %get_ref_frame_buf.exit ], [ null, %get_ref_frame_map_idx.exit.i ]
+  %.055 = phi i32 [ %63, %61 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %get_ref_frame_map_idx.exit.i ]
+  %65 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %50
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %50
+  store i32 %.055, ptr %66, align 4
+  %67 = icmp eq i32 %.055, %31
+  br i1 %83, label %63, label %65
 
-63:                                               ; preds = %get_ref_frame_buf.exit.thread
-  %64 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv99
+63:; preds = %get_ref_frame_buf.exit.thread
+  %630 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %47
   store i8 -1, ptr %64, align 1
   br label %65
 
-65:                                               ; preds = %63, %get_ref_frame_buf.exit.thread
+65:; preds = %63, %get_ref_frame_buf.exit.thread
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 8
   br i1 %exitcond102.not, label %.split96.us, label %get_ref_frame_map_idx.exit.i, !llvm.loop !39
 
-.split96.us:                                      ; preds = %65, %49
-  %66 = load ptr, ptr %2, align 16
-  %.not58 = icmp eq ptr %66, null
-  br i1 %.not58, label %.thread85, label %67
+.split96.us:                                      ; preds = %65, %46
+  %74 = load ptr, ptr %2, align 16
+  %75 = icmp eq ptr %730, null
+  br i1 %75, label %.thread85, label %67
 
-67:                                               ; preds = %.split96.us
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 12
+83:                                               ; preds = %.split96.us
+  %84 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %.pre107 = load i32, ptr %84, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %69, %71
+  %72 = icmp eq i32 %.pre107, %71
   br i1 %72, label %.thread85, label %73
 
-73:                                               ; preds = %67
+73:; preds = %67
   tail call fastcc void @motion_field_projection(ptr noundef nonnull %0, i8 noundef signext 1, i32 noundef 2)
   br label %.thread85
 
-.thread85:                                        ; preds = %.split96.us, %73, %67
+.thread85:; preds = %.split96.us, %73, %67
   tail call fastcc void @motion_field_projection(ptr noundef nonnull %0, i8 noundef signext 2, i32 noundef 2)
   br label %74
 
-74:                                               ; preds = %1, %.thread85
+74:; preds = %1, %.thread85
   ret void
 }
 
@@ -3274,85 +3274,85 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %13, %get_ref_frame_
   %.sroa.044.0106 = phi i32 [ -1, %13 ], [ %.sroa.044.1, %get_ref_frame_buf.exit.thread ]
   %.sroa.0.0104 = phi i32 [ -1, %13 ], [ %.sroa.0.1, %get_ref_frame_buf.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4
-  %.not.i = icmp eq i32 %17, -1
+  %19 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %20 = load i32, ptr %19, align 4
+  %.not.i = icmp eq i32 %20, -1
   br i1 %.not.i, label %get_ref_frame_buf.exit.thread, label %get_ref_frame_buf.exit
 
 get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_idx.exit.i
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %get_ref_frame_buf.exit.thread, label %get_relative_dist.exit
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %get_ref_frame_buf.exit.thread, label %get_relative_dist.exit
 
 get_relative_dist.exit:                           ; preds = %get_ref_frame_buf.exit
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %.sroa.044.0106, -1
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %.077103..sroa.0.0104 = select i1 %24, i32 %25, i32 %.sroa.0.0104
-  %..sroa.044.0106 = select i1 %24, i32 %23, i32 %.sroa.044.0106
-  %26 = freeze i32 %..sroa.044.0106
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %.sroa.044.0106, -1
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = select i1 %24, i32 %25, i32 %.sroa.0.0104
+  %30 = select i1 %24, i32 %23, i32 %.sroa.044.0106
+  %31 = freeze i32 %30
   br label %get_ref_frame_buf.exit.thread
 
-get_ref_frame_buf.exit.thread:                    ; preds = %get_relative_dist.exit, %get_ref_frame_map_idx.exit.i, %get_ref_frame_buf.exit
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0104, %get_ref_frame_buf.exit ], [ %.sroa.0.0104, %get_ref_frame_map_idx.exit.i ], [ %.077103..sroa.0.0104, %get_relative_dist.exit ]
-  %.sroa.044.1 = phi i32 [ %.sroa.044.0106, %get_ref_frame_buf.exit ], [ %.sroa.044.0106, %get_ref_frame_map_idx.exit.i ], [ %26, %get_relative_dist.exit ]
+get_ref_frame_buf.exit.thread:                    ; preds = %get_relative_dist.exit, %.split, %get_ref_frame_buf.exit
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0104, %get_ref_frame_buf.exit ], [ %.sroa.0.0104, %get_ref_frame_map_idx.exit.i ], [ %29, %get_relative_dist.exit ]
+  %.sroa.12.1 = phi i32 [ %.sroa.044.0106, %get_ref_frame_buf.exit ], [ %.sroa.044.0106, %get_ref_frame_map_idx.exit.i ], [ %26, %get_relative_dist.exit ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %27, label %get_ref_frame_map_idx.exit.i, !llvm.loop !46
+  br i1 %exitcond.not, label %52, label %get_ref_frame_map_idx.exit.i, !llvm.loop !46
 
-27:                                               ; preds = %get_ref_frame_buf.exit.thread
-  %.not112 = icmp eq i32 %.sroa.0.1, -1
+52:                                               ; preds = %get_ref_frame_buf.exit.thread
+  %53 = icmp eq i32 %.sroa.0.1, -1
   %.not82 = icmp eq i32 %.sroa.044.1, -1
-  %or.cond = select i1 %.not112, i1 true, i1 %.not82
-  br i1 %or.cond, label %.split.us.thread, label %get_ref_frame_map_idx.exit.i94
+  %or.cond120 = select i1 %53, i1 true, i1 %.not82
+  br i1 %or.cond120, label %.split.us.thread, label %get_ref_frame_map_idx.exit.i94
 
-get_ref_frame_map_idx.exit.i94:                   ; preds = %27, %get_ref_frame_buf.exit96.thread
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %get_ref_frame_buf.exit96.thread ], [ 0, %27 ]
-  %.sroa.6.2110 = phi i32 [ %.sroa.6.3, %get_ref_frame_buf.exit96.thread ], [ -1, %27 ]
-  %.sroa.12.2108 = phi i32 [ %.sroa.12.3, %get_ref_frame_buf.exit96.thread ], [ -1, %27 ]
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %28 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv115
-  %29 = load i32, ptr %28, align 4
-  %.not.i95 = icmp eq i32 %29, -1
+get_ref_frame_map_idx.exit.i94:                   ; preds = %52, %get_ref_frame_buf.exit96.thread
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %get_ref_frame_buf.exit96.thread ], [ 0, %52 ]
+  %.sroa.6.2110 = phi i32 [ %.sroa.6.3, %get_ref_frame_buf.exit96.thread ], [ -1, %52 ]
+  %.sroa.12.2108 = phi i32 [ %.sroa.12.3, %get_ref_frame_buf.exit96.thread ], [ -1, %52 ]
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %57 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv114
+  %58 = load i32, ptr %57, align 4
+  %.not.i95 = icmp eq i32 %58, -1
   br i1 %.not.i95, label %get_ref_frame_buf.exit96.thread, label %get_ref_frame_buf.exit96
 
 get_ref_frame_buf.exit96:                         ; preds = %get_ref_frame_map_idx.exit.i94
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %get_ref_frame_buf.exit96.thread, label %get_relative_dist.exit99
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %get_ref_frame_buf.exit96.thread, label %get_relative_dist.exit99
 
 get_relative_dist.exit99:                         ; preds = %get_ref_frame_buf.exit96
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %.sroa.6.2110, -1
-  %37 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %.0109..sroa.12.2108 = select i1 %36, i32 %37, i32 %.sroa.12.2108
-  %..sroa.6.2110 = select i1 %36, i32 %35, i32 %.sroa.6.2110
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %.sroa.6.2110, -1
+  %66 = trunc nuw nsw i64 %indvars.iv115 to i32
+  %67 = select i1 %36, i32 %37, i32 %.sroa.12.2108
+  %68 = select i1 %36, i32 %64, i32 %.sroa.6.2110
   br label %get_ref_frame_buf.exit96.thread
 
-get_ref_frame_buf.exit96.thread:                  ; preds = %get_relative_dist.exit99, %get_ref_frame_map_idx.exit.i94, %get_ref_frame_buf.exit96
-  %.sroa.12.3 = phi i32 [ %.sroa.12.2108, %get_ref_frame_buf.exit96 ], [ %.sroa.12.2108, %get_ref_frame_map_idx.exit.i94 ], [ %.0109..sroa.12.2108, %get_relative_dist.exit99 ]
-  %.sroa.6.3 = phi i32 [ %.sroa.6.2110, %get_ref_frame_buf.exit96 ], [ %.sroa.6.2110, %get_ref_frame_map_idx.exit.i94 ], [ %..sroa.6.2110, %get_relative_dist.exit99 ]
-  %exitcond118.not = icmp eq i64 %indvars.iv.next116, 7
-  br i1 %exitcond118.not, label %.split.us, label %get_ref_frame_map_idx.exit.i94, !llvm.loop !47
+get_ref_frame_buf.exit96.thread:                  ; preds = %get_relative_dist.exit99, %get_ref_frame_map_idx.exit.i930, %get_ref_frame_buf.exit96
+  %.sroa.12.3 = phi i32 [ %.sroa.12.2108, %get_ref_frame_buf.exit96 ], [ %.sroa.12.2108, %get_ref_frame_map_idx.exit.i94 ], [ %67, %get_relative_dist.exit99 ]
+  %.sroa.6.3 = phi i32 [ %.sroa.6.2110, %get_ref_frame_buf.exit96 ], [ %.sroa.6.2110, %get_ref_frame_map_idx.exit.i94 ], [ %68, %get_relative_dist.exit99 ]
+  %exitcond117.not = icmp eq i64 %indvars.iv.next115, 7
+  br i1 %exitcond117.not, label %.split.us, label %get_ref_frame_map_idx.exit.i94, !llvm.loop !47
 
 .split.us:                                        ; preds = %get_ref_frame_buf.exit96.thread
-  %38 = icmp eq i32 %.sroa.6.3, -1
-  br i1 %38, label %.split.us.thread, label %39
+  %80 = icmp eq i32 %.sroa.6.3, -1
+  br i1 %80, label %.split.us.thread, label %.split.us.thread.sink.split
 
-39:                                               ; preds = %.split.us
+.split.us.thread.sink.split:                      ; preds = %.split.us
   store i32 1, ptr %3, align 4
-  %40 = tail call i32 @llvm.smin.i32(i32 %.sroa.0.1, i32 %.sroa.12.3)
-  store i32 %40, ptr %4, align 4
-  %41 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.1, i32 %.sroa.12.3)
-  store i32 %41, ptr %5, align 4
+  %81 = tail call i32 @llvm.smin.i32(i32 %.sroa.0.1, i32 %.sroa.12.3)
+  store i32 %81, ptr %4, align 4
+  %82 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.1, i32 %.sroa.12.3)
+  store i32 %82, ptr %5, align 4
   br label %.split.us.thread
 
-.split.us.thread:                                 ; preds = %27, %39, %.split.us, %1, %7, %9
+.split.us.thread:                                 ; preds = %27, %.split.us.thread.sink.split, %.split.us, %1, %7, %9
   ret void
 }
 
@@ -3430,7 +3430,7 @@ get_relative_dist.exit:                           ; preds = %25
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %43, i32 noundef 7, ptr noundef nonnull @.str) #15
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %43, i32 noundef 7, ptr noundef nonnull @.str) #14
   br label %44
 
 44:                                               ; preds = %40, %42
@@ -3441,11 +3441,11 @@ get_relative_dist.exit:                           ; preds = %25
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %47, i32 noundef 7, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %47, i32 noundef 7, ptr noundef nonnull @.str.1) #14
   br label %48
 
 48:                                               ; preds = %44, %46
-  call void @qsort(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 24, ptr noundef nonnull @compare_ref_frame_info) #15
+  call void @qsort(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 24, ptr noundef nonnull @compare_ref_frame_info) #14
   br label %49
 
 49:                                               ; preds = %48, %56
@@ -3646,10 +3646,10 @@ get_relative_dist.exit:                           ; preds = %25
   br i1 %exitcond201.not, label %.preheader, label %111, !llvm.loop !53
 }
 
-declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #9
+declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_ref_frame_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
@@ -4359,171 +4359,171 @@ get_relative_dist.exit108:                        ; preds = %get_ref_frame_map_i
   %219 = and i32 %218, %216
   %220 = and i32 %217, %216
   %221 = sub nsw i32 %219, %220
-  br label %get_relative_dist.exit108.thread
+  br label %223
 
-get_relative_dist.exit108.thread:                 ; preds = %get_relative_dist.exit108, %get_ref_frame_map_idx.exit.i103
+223:                                              ; preds = %get_relative_dist.exit108, %get_ref_frame_map_idx.exit.i103
   %.0.i107179 = phi i32 [ %221, %get_relative_dist.exit108 ], [ 0, %get_ref_frame_map_idx.exit.i103 ]
-  %222 = tail call i32 @llvm.smax.i32(i32 %.0.i107179, i32 -31)
+  %225 = tail call i32 @llvm.smax.i32(i32 %.0.i107179, i32 -31)
   %223 = mul i32 %222, %103
   %224 = mul i32 %223, %100
-  %225 = icmp slt i32 %224, 0
+  %225 = icmp slt i32 %2230, 0
   br i1 %225, label %226, label %230
 
-226:                                              ; preds = %get_relative_dist.exit108.thread
-  %227 = sub i32 8192, %224
-  %228 = lshr i32 %227, 14
+226:; preds = %223
+  %230 = sub i32 8192, %2230
+  %228 = lshr i32 %227, 130
   %229 = sub nsw i32 0, %228
   br label %233
 
-230:                                              ; preds = %get_relative_dist.exit108.thread
-  %231 = add nuw nsw i32 %224, 8192
+230:; preds = %223
+  %234 = add nuw nsw i32 %2230, 8192
   %232 = lshr i32 %231, 14
   br label %233
 
-233:                                              ; preds = %230, %226
-  %234 = phi i32 [ %229, %226 ], [ %232, %230 ]
+233:; preds = %230, %226
+  %237 = phi i32 [ %229, %226 ], [ %232, %230 ]
   %235 = mul i32 %223, %116
   %236 = icmp slt i32 %235, 0
   br i1 %236, label %237, label %241
 
-237:                                              ; preds = %233
-  %238 = sub i32 8192, %235
+237:; preds = %233
+  %241 = sub i32 8192, %235
   %239 = lshr i32 %238, 14
   %240 = sub nsw i32 0, %239
   br label %get_mv_projection.exit110
 
-241:                                              ; preds = %233
-  %242 = add nuw nsw i32 %235, 8192
-  %243 = lshr i32 %242, 14
+246:                                              ; preds = %233
+  %247 = add nuw nsw i32 %235, 8192
+  %248 = lshr i32 %247, 14
   br label %get_mv_projection.exit110
 
-get_mv_projection.exit110:                        ; preds = %237, %241
-  %244 = phi i32 [ %240, %237 ], [ %243, %241 ]
-  %245 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %234, i32 16383)
-  %246 = tail call i32 @llvm.smax.i32(i32 %245, i32 -16383)
-  %247 = trunc nsw i32 %246 to i16
-  %248 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %244, i32 16383)
-  %249 = tail call i32 @llvm.smax.i32(i32 %248, i32 -16383)
-  %250 = trunc nsw i32 %249 to i16
-  br i1 %.not.i101, label %267, label %251
+get_mv_projection.exit110:                        ; preds = %237, %246
+  %249 = phi i32 [ %240, %237 ], [ %248, %246 ]
+  %250 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %234, i32 16383)
+  %251 = tail call i32 @llvm.smax.i32(i32 %250, i32 -16383)
+  %252 = trunc nsw i32 %251 to i16
+  %253 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %249, i32 16383)
+  %254 = tail call i32 @llvm.smax.i32(i32 %253, i32 -16383)
+  %255 = trunc nsw i32 %254 to i16
+  br i1 %.not.i101, label %272, label %256
 
-251:                                              ; preds = %get_mv_projection.exit110
-  %252 = srem i16 %247, 8
-  %.not.i.i112 = icmp eq i16 %252, 0
-  br i1 %.not.i.i112, label %259, label %253
+256:                                              ; preds = %get_mv_projection.exit110
+  %257 = srem i16 %252, 8
+  %.not.i.i112 = icmp eq i16 %257, 0
+  br i1 %.not.i.i112, label %264, label %258
 
-253:                                              ; preds = %251
-  %254 = sub nsw i16 %247, %252
-  %255 = tail call i16 @llvm.abs.i16(i16 %252, i1 true)
-  %256 = icmp samesign ugt i16 %255, 4
-  br i1 %256, label %.sink.split.i.i116, label %259
+258:                                              ; preds = %256
+  %259 = sub nsw i16 %252, %257
+  %260 = tail call i16 @llvm.abs.i16(i16 %257, i1 true)
+  %261 = icmp samesign ugt i16 %260, 4
+  br i1 %261, label %.sink.split.i.i116, label %264
 
-.sink.split.i.i116:                               ; preds = %253
-  %257 = icmp sgt i16 %252, 0
-  %..i.i117 = select i1 %257, i16 8, i16 -8
-  %258 = add nsw i16 %..i.i117, %254
-  br label %259
+.sink.split.i.i116:                               ; preds = %258
+  %262 = icmp sgt i16 %257, 0
+  %..i.i117 = select i1 %262, i16 8, i16 -8
+  %263 = add nsw i16 %..i.i117, %259
+  br label %264
 
-259:                                              ; preds = %.sink.split.i.i116, %253, %251
-  %.sroa.0.0 = phi i16 [ %247, %251 ], [ %258, %.sink.split.i.i116 ], [ %254, %253 ]
-  %260 = srem i16 %250, 8
-  %.not16.i.i113 = icmp eq i16 %260, 0
-  br i1 %.not16.i.i113, label %lower_mv_precision.exit123, label %261
+264:                                              ; preds = %.sink.split.i.i116, %258, %256
+  %.sroa.0.0 = phi i16 [ %252, %256 ], [ %263, %.sink.split.i.i116 ], [ %259, %258 ]
+  %265 = srem i16 %255, 8
+  %.not16.i.i113 = icmp eq i16 %265, 0
+  br i1 %.not16.i.i113, label %lower_mv_precision.exit123, label %266
 
-261:                                              ; preds = %259
-  %262 = sub nsw i16 %250, %260
-  %263 = tail call i16 @llvm.abs.i16(i16 %260, i1 true)
-  %264 = icmp samesign ugt i16 %263, 4
-  br i1 %264, label %.sink.split20.i.i114, label %lower_mv_precision.exit123
+266:                                              ; preds = %264
+  %267 = sub nsw i16 %255, %265
+  %268 = tail call i16 @llvm.abs.i16(i16 %265, i1 true)
+  %269 = icmp samesign ugt i16 %268, 4
+  br i1 %269, label %.sink.split20.i.i114, label %lower_mv_precision.exit123
 
-.sink.split20.i.i114:                             ; preds = %261
-  %265 = icmp sgt i16 %260, 0
-  %.22.i.i115 = select i1 %265, i16 8, i16 -8
-  %266 = add nsw i16 %.22.i.i115, %262
+.sink.split20.i.i114:                             ; preds = %266
+  %270 = icmp sgt i16 %265, 0
+  %.22.i.i115 = select i1 %270, i16 8, i16 -8
+  %271 = add nsw i16 %.22.i.i115, %267
   br label %lower_mv_precision.exit123
 
-267:                                              ; preds = %get_mv_projection.exit110
+272:                                              ; preds = %get_mv_projection.exit110
   %.not8.i118 = icmp eq i8 %86, 0
-  br i1 %.not8.i118, label %268, label %lower_mv_precision.exit123
+  br i1 %.not8.i118, label %273, label %lower_mv_precision.exit123
 
-268:                                              ; preds = %267
-  %269 = and i16 %247, 1
-  %.not9.i119 = icmp eq i16 %269, 0
+273:                                              ; preds = %272
+  %274 = and i16 %252, 1
+  %.not9.i119 = icmp eq i16 %274, 0
   %.inv.i120 = icmp slt i32 %234, 1
-  %270 = select i1 %.inv.i120, i16 1, i16 -1
-  %271 = select i1 %.not9.i119, i16 0, i16 %270
-  %.sroa.0.1 = add nsw i16 %271, %247
-  %272 = and i16 %250, 1
-  %.not10.i121 = icmp eq i16 %272, 0
-  br i1 %.not10.i121, label %lower_mv_precision.exit123, label %273
+  %275 = select i1 %.inv.i120, i16 1, i16 -1
+  %276 = select i1 %.not9.i119, i16 0, i16 %275
+  %.sroa.0.1 = add nsw i16 %276, %252
+  %277 = and i16 %255, 1
+  %.not10.i121 = icmp eq i16 %277, 0
+  br i1 %.not10.i121, label %lower_mv_precision.exit123, label %278
 
-273:                                              ; preds = %268
-  %.inv11.i122 = icmp slt i32 %244, 1
-  %274 = select i1 %.inv11.i122, i16 1, i16 -1
-  %275 = add nsw i16 %274, %250
+278:                                              ; preds = %273
+  %.inv11.i122 = icmp slt i32 %249, 1
+  %279 = select i1 %.inv11.i122, i16 1, i16 -1
+  %280 = add nsw i16 %279, %255
   br label %lower_mv_precision.exit123
 
-lower_mv_precision.exit123:                       ; preds = %259, %261, %.sink.split20.i.i114, %267, %268, %273
-  %.sroa.9.0 = phi i16 [ %250, %268 ], [ %275, %273 ], [ %250, %267 ], [ %250, %259 ], [ %266, %.sink.split20.i.i114 ], [ %262, %261 ]
-  %.sroa.0.2 = phi i16 [ %.sroa.0.1, %268 ], [ %.sroa.0.1, %273 ], [ %247, %267 ], [ %.sroa.0.0, %259 ], [ %.sroa.0.0, %.sink.split20.i.i114 ], [ %.sroa.0.0, %261 ]
-  %276 = or i32 %6, %5
-  %or.cond3 = icmp eq i32 %276, 0
-  br i1 %or.cond3, label %277, label %313
+lower_mv_precision.exit123:                       ; preds = %264, %266, %.sink.split20.i.i114, %272, %273, %278
+  %.sroa.9.0 = phi i16 [ %255, %273 ], [ %280, %278 ], [ %255, %272 ], [ %255, %264 ], [ %271, %.sink.split20.i.i114 ], [ %267, %266 ]
+  %.sroa.0.2 = phi i16 [ %.sroa.0.1, %273 ], [ %.sroa.0.1, %278 ], [ %252, %272 ], [ %.sroa.0.0, %264 ], [ %.sroa.0.0, %.sink.split20.i.i114 ], [ %.sroa.0.0, %266 ]
+  %281 = or i32 %6, %5
+  %or.cond3 = icmp eq i32 %281, 0
+  br i1 %or.cond3, label %282, label %318
 
-277:                                              ; preds = %lower_mv_precision.exit123
-  %278 = sext i16 %.sroa.0138.2 to i32
-  %279 = load i16, ptr %7, align 4
-  %280 = sext i16 %279 to i32
-  %281 = sub nsw i32 %278, %280
-  %282 = tail call i32 @llvm.abs.i32(i32 %281, i1 true)
-  %283 = icmp samesign ugt i32 %282, 15
-  br i1 %283, label %308, label %284
+282:                                              ; preds = %lower_mv_precision.exit123
+  %283 = sext i16 %.sroa.0138.2 to i32
+  %284 = load i16, ptr %7, align 4
+  %285 = sext i16 %284 to i32
+  %286 = sub nsw i32 %283, %285
+  %287 = tail call i32 @llvm.abs.i32(i32 %286, i1 true)
+  %288 = icmp samesign ugt i32 %287, 15
+  br i1 %288, label %313, label %289
 
-284:                                              ; preds = %277
-  %285 = sext i16 %.sroa.12.0 to i32
-  %286 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %287 = load i16, ptr %286, align 2
-  %288 = sext i16 %287 to i32
-  %289 = sub nsw i32 %285, %288
-  %290 = tail call i32 @llvm.abs.i32(i32 %289, i1 true)
-  %291 = icmp samesign ugt i32 %290, 15
-  br i1 %291, label %308, label %292
+289:                                              ; preds = %282
+  %290 = sext i16 %.sroa.12.0 to i32
+  %291 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %292 = load i16, ptr %291, align 2
+  %293 = sext i16 %292 to i32
+  %294 = sub nsw i32 %290, %293
+  %295 = tail call i32 @llvm.abs.i32(i32 %294, i1 true)
+  %296 = icmp samesign ugt i32 %295, 15
+  br i1 %296, label %313, label %297
 
-292:                                              ; preds = %284
-  %293 = sext i16 %.sroa.0.2 to i32
-  %294 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %295 = load i16, ptr %294, align 4
-  %296 = sext i16 %295 to i32
-  %297 = sub nsw i32 %293, %296
-  %298 = tail call i32 @llvm.abs.i32(i32 %297, i1 true)
-  %299 = icmp samesign ugt i32 %298, 15
-  br i1 %299, label %308, label %300
+297:                                              ; preds = %289
+  %298 = sext i16 %.sroa.0.2 to i32
+  %299 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %300 = load i16, ptr %299, align 4
+  %301 = sext i16 %300 to i32
+  %302 = sub nsw i32 %298, %301
+  %303 = tail call i32 @llvm.abs.i32(i32 %302, i1 true)
+  %304 = icmp samesign ugt i32 %303, 15
+  br i1 %304, label %313, label %305
 
-300:                                              ; preds = %292
-  %301 = sext i16 %.sroa.9.0 to i32
-  %302 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %303 = load i16, ptr %302, align 2
-  %304 = sext i16 %303 to i32
-  %305 = sub nsw i32 %301, %304
-  %306 = tail call i32 @llvm.abs.i32(i32 %305, i1 true)
-  %307 = icmp samesign ugt i32 %306, 15
-  br i1 %307, label %308, label %313
+305:                                              ; preds = %297
+  %306 = sext i16 %.sroa.9.0 to i32
+  %307 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %308 = load i16, ptr %307, align 2
+  %309 = sext i16 %308 to i32
+  %310 = sub nsw i32 %306, %309
+  %311 = tail call i32 @llvm.abs.i32(i32 %310, i1 true)
+  %312 = icmp samesign ugt i32 %311, 15
+  br i1 %312, label %313, label %318
 
-308:                                              ; preds = %300, %292, %284, %277
-  %309 = sext i8 %4 to i64
-  %310 = getelementptr inbounds i16, ptr %11, i64 %309
-  %311 = load i16, ptr %310, align 2
-  %312 = or i16 %311, 8
-  store i16 %312, ptr %310, align 2
-  br label %313
+313:                                              ; preds = %305, %297, %289, %282
+  %314 = sext i8 %4 to i64
+  %315 = getelementptr inbounds i16, ptr %11, i64 %314
+  %316 = load i16, ptr %315, align 2
+  %317 = or i16 %316, 8
+  store i16 %317, ptr %315, align 2
+  br label %318
 
-313:                                              ; preds = %300, %308, %lower_mv_precision.exit123
-  %314 = load i8, ptr %8, align 1
-  %.not190 = icmp eq i8 %314, 0
+318:                                              ; preds = %305, %313, %lower_mv_precision.exit123
+  %319 = load i8, ptr %8, align 1
+  %.not190 = icmp eq i8 %319, 0
   br i1 %.not190, label %.loopexit181, label %.lr.ph
 
-.lr.ph:                                           ; preds = %313
-  %315 = zext i8 %314 to i32
+.lr.ph:                                           ; preds = %318
+  %320 = zext i8 %319 to i32
   %.sroa.12.0.insert.ext161 = zext i16 %.sroa.12.0 to i32
   %.sroa.12.0.insert.shift162 = shl nuw i32 %.sroa.12.0.insert.ext161, 16
   %.sroa.0138.0.insert.ext148 = zext i16 %.sroa.0138.2 to i32
@@ -4532,69 +4532,69 @@ lower_mv_precision.exit123:                       ; preds = %259, %261, %.sink.s
   %.sroa.9.0.insert.shift = shl nuw i32 %.sroa.9.0.insert.ext, 16
   %.sroa.0.0.insert.ext = zext i16 %.sroa.0.2 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.9.0.insert.shift, %.sroa.0.0.insert.ext
-  %wide.trip.count = zext i8 %314 to i64
-  br label %316
+  %wide.trip.count = zext i8 %319 to i64
+  br label %321
 
-316:                                              ; preds = %.lr.ph, %324
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %324 ]
-  %317 = getelementptr inbounds nuw %struct.candidate_mv, ptr %9, i64 %indvars.iv
-  %318 = load i32, ptr %317, align 4
-  %319 = icmp eq i32 %.sroa.0138.0.insert.insert150, %318
-  br i1 %319, label %320, label %324
+321:                                              ; preds = %.lr.ph, %329
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %329 ]
+  %322 = getelementptr inbounds nuw %struct.candidate_mv, ptr %9, i64 %indvars.iv
+  %323 = load i32, ptr %322, align 4
+  %324 = icmp eq i32 %.sroa.0138.0.insert.insert150, %323
+  br i1 %324, label %325, label %329
 
-320:                                              ; preds = %316
-  %321 = getelementptr inbounds nuw i8, ptr %317, i64 4
-  %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %.sroa.0.0.insert.insert, %322
-  br i1 %323, label %325, label %324
+325:                                              ; preds = %321
+  %326 = getelementptr inbounds nuw i8, ptr %322, i64 4
+  %327 = load i32, ptr %326, align 4
+  %328 = icmp eq i32 %.sroa.0.0.insert.insert, %327
+  br i1 %328, label %330, label %329
 
-324:                                              ; preds = %316, %320
+329:                                              ; preds = %321, %325
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit181, label %316, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit181, label %321, !llvm.loop !57
 
-325:                                              ; preds = %320
-  %326 = trunc nuw nsw i64 %indvars.iv to i32
-  %327 = and i64 %indvars.iv, 4294967295
-  %328 = getelementptr inbounds nuw i16, ptr %10, i64 %327
-  %329 = load i16, ptr %328, align 2
-  %330 = add i16 %329, 2
-  store i16 %330, ptr %328, align 2
+330:                                              ; preds = %325
+  %331 = trunc nuw nsw i64 %indvars.iv to i32
+  %332 = and i64 %indvars.iv, 4294967295
+  %333 = getelementptr inbounds nuw i16, ptr %10, i64 %332
+  %334 = load i16, ptr %333, align 2
+  %335 = add i16 %334, 2
+  store i16 %335, ptr %333, align 2
   %.pre = load i8, ptr %8, align 1
   br label %.loopexit181
 
-.loopexit181:                                     ; preds = %324, %313, %325
-  %331 = phi i8 [ %.pre, %325 ], [ 0, %313 ], [ %314, %324 ]
-  %.1185 = phi i32 [ %326, %325 ], [ 0, %313 ], [ %315, %324 ]
-  %332 = zext i8 %331 to i32
-  %333 = icmp eq i32 %.1185, %332
-  %334 = icmp ult i8 %331, 8
-  %or.cond97 = and i1 %334, %333
-  br i1 %or.cond97, label %335, label %is_inside.exit.thread
+.loopexit181:                                     ; preds = %329, %318, %330
+  %336 = phi i8 [ %.pre, %330 ], [ 0, %318 ], [ %319, %329 ]
+  %.1185 = phi i32 [ %331, %330 ], [ 0, %318 ], [ %320, %329 ]
+  %337 = zext i8 %336 to i32
+  %338 = icmp eq i32 %.1185, %337
+  %339 = icmp ult i8 %336, 8
+  %or.cond97 = and i1 %339, %338
+  br i1 %or.cond97, label %340, label %is_inside.exit.thread
 
-335:                                              ; preds = %.loopexit181
+340:                                              ; preds = %.loopexit181
   %.sroa.12.0.insert.ext166 = zext i16 %.sroa.12.0 to i32
   %.sroa.12.0.insert.shift167 = shl nuw i32 %.sroa.12.0.insert.ext166, 16
   %.sroa.0138.0.insert.ext152 = zext i16 %.sroa.0138.2 to i32
   %.sroa.0138.0.insert.insert154 = or disjoint i32 %.sroa.12.0.insert.shift167, %.sroa.0138.0.insert.ext152
-  %336 = zext nneg i32 %.1185 to i64
-  %337 = getelementptr inbounds nuw %struct.candidate_mv, ptr %9, i64 %336
-  store i32 %.sroa.0138.0.insert.insert154, ptr %337, align 4
+  %341 = zext nneg i32 %.1185 to i64
+  %342 = getelementptr inbounds nuw %struct.candidate_mv, ptr %9, i64 %341
+  store i32 %.sroa.0138.0.insert.insert154, ptr %342, align 4
   %.sroa.9.0.insert.ext132 = zext i16 %.sroa.9.0 to i32
   %.sroa.9.0.insert.shift133 = shl nuw i32 %.sroa.9.0.insert.ext132, 16
   %.sroa.0.0.insert.ext128 = zext i16 %.sroa.0.2 to i32
   %.sroa.0.0.insert.insert130 = or disjoint i32 %.sroa.9.0.insert.shift133, %.sroa.0.0.insert.ext128
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  store i32 %.sroa.0.0.insert.insert130, ptr %338, align 4
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 4
+  store i32 %.sroa.0.0.insert.insert130, ptr %343, align 4
   br label %is_inside.exit.thread.sink.split
 
-is_inside.exit.thread.sink.split:                 ; preds = %335, %199
-  %.sink205 = phi i64 [ %200, %199 ], [ %336, %335 ]
-  %339 = getelementptr inbounds nuw i16, ptr %10, i64 %.sink205
-  store i16 2, ptr %339, align 2
-  %340 = load i8, ptr %8, align 1
-  %341 = add i8 %340, 1
-  store i8 %341, ptr %8, align 1
+is_inside.exit.thread.sink.split:                 ; preds = %340, %199
+  %.sink205 = phi i64 [ %200, %199 ], [ %341, %340 ]
+  %344 = getelementptr inbounds nuw i16, ptr %10, i64 %.sink205
+  store i16 2, ptr %344, align 2
+  %345 = load i8, ptr %8, align 1
+  %346 = add i8 %345, 1
+  store i8 %346, ptr %8, align 1
   br label %is_inside.exit.thread
 
 is_inside.exit.thread:                            ; preds = %is_inside.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.exit
@@ -4885,41 +4885,41 @@ have_newmv_in_inter_mode.exit93.thread:           ; preds = %128, %128, %128, %1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #12
+declare i16 @llvm.abs.i16(i16, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #12
+declare i8 @llvm.umax.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #12
+declare i8 @llvm.umin.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4927,7 +4927,7 @@ attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 
