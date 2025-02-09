@@ -25,6 +25,6 @@ jobs:
           GH_PR_NUMBER: ${{ github.event.issue.number }}
 
       - name: Report
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          filePath: pr-comment.md
+          file-path: pr-comment.md

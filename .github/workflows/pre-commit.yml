@@ -35,7 +35,7 @@ jobs:
           GH_RUNNER: ${{ runner.name }}
 
       - name: Report
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           github-token: ${{ secrets.PAT }}
-          filePath: scripts/pr-comment.md
+          file-path: scripts/pr-comment.md

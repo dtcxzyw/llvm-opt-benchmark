@@ -36,6 +36,6 @@ jobs:
           cat ${{ github.workspace }}/scripts/grep.md
 
       - name: Report
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          filePath: scripts/grep.md
+          file-path: scripts/grep.md
