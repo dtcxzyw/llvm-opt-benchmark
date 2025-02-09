@@ -2530,14 +2530,14 @@ if.then59:                                        ; preds = %invoke.cont56
 
 for.body:                                         ; preds = %if.then59, %for.inc
   %27 = phi ptr [ %.pre, %if.then59 ], [ %35, %for.inc ]
-  %d.0178 = phi ptr [ %26, %if.then59 ], [ %add.ptr, %for.inc ]
-  %i.0177 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
-  %28 = load double, ptr %d.0178, align 8
+  %d.0180 = phi ptr [ %26, %if.then59 ], [ %add.ptr, %for.inc ]
+  %i.0179 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
+  %28 = load double, ptr %d.0180, align 8
   %conv63 = fptrunc double %28 to float
-  %arrayidx65 = getelementptr inbounds nuw i8, ptr %d.0178, i64 8
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %d.0180, i64 8
   %29 = load double, ptr %arrayidx65, align 8
   %conv66 = fptrunc double %29 to float
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %d.0178, i64 16
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %d.0180, i64 16
   %30 = load double, ptr %arrayidx68, align 8
   %conv69 = fptrunc double %30 to float
   %31 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -2621,10 +2621,10 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__n
 
 for.inc:                                          ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i62
   %35 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i62 ]
-  %inc = add nuw nsw i32 %i.0177, 1
-  %add.ptr = getelementptr inbounds nuw i8, ptr %d.0178, i64 24
-  %exitcond181.not = icmp eq i32 %inc, %umax180
-  br i1 %exitcond181.not, label %if.end90, label %for.body, !llvm.loop !18
+  %inc = add nuw nsw i32 %i.0179, 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %d.0180, i64 24
+  %exitcond182.not = icmp eq i32 %inc, %umax180
+  br i1 %exitcond182.not, label %if.end90, label %for.body, !llvm.loop !18
 
 if.then74:                                        ; preds = %invoke.cont56
   %36 = load ptr, ptr %buff, align 8
@@ -2632,16 +2632,16 @@ if.then74:                                        ; preds = %invoke.cont56
   br label %for.body79
 
 for.body79:                                       ; preds = %if.then74, %for.inc85
-  %i76.0176 = phi i32 [ 0, %if.then74 ], [ %inc86, %for.inc85 ]
-  %f.0175 = phi ptr [ %36, %if.then74 ], [ %add.ptr87, %for.inc85 ]
-  %arrayidx81 = getelementptr inbounds nuw i8, ptr %f.0175, i64 4
-  %arrayidx82 = getelementptr inbounds nuw i8, ptr %f.0175, i64 8
-  %call84 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRKfS6_S6_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) %f.0175, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx81, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx82)
+  %i76.0177 = phi i32 [ 0, %if.then74 ], [ %inc86, %for.inc85 ]
+  %f.0176 = phi ptr [ %36, %if.then74 ], [ %add.ptr87, %for.inc85 ]
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %f.0176, i64 4
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %f.0176, i64 8
+  %call84 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRKfS6_S6_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) %f.0176, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx81, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx82)
           to label %for.inc85 unwind label %lpad37.loopexit.split-lp.loopexit
 
 for.inc85:                                        ; preds = %for.body79
-  %inc86 = add nuw nsw i32 %i76.0176, 1
-  %add.ptr87 = getelementptr inbounds nuw i8, ptr %f.0175, i64 12
+  %inc86 = add nuw nsw i32 %i76.0177, 1
+  %add.ptr87 = getelementptr inbounds nuw i8, ptr %f.0176, i64 12
   %exitcond.not = icmp eq i32 %inc86, %umax
   br i1 %exitcond.not, label %if.end90, label %for.body79, !llvm.loop !19
 

@@ -3094,7 +3094,7 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
 
 22:                                               ; preds = %10
   %23 = icmp sgt i64 %19, 0
-  br i1 %23, label %24, label %44
+  br i1 %23, label %24, label %45
 
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %0, i64 16
@@ -3132,22 +3132,22 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %16, i1 false)
   br label %44
 
-44:                                               ; preds = %38, %22
+45:                                               ; preds = %38, %22
   call void @PyBuffer_Release(ptr noundef nonnull %3) #11
   br label %array_array_frombytes_impl.exit
 
-array_array_frombytes_impl.exit:                  ; preds = %44, %37, %32, %20, %8, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %20 ], [ @_Py_NoneStruct, %44 ], [ null, %37 ], [ %33, %32 ]
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !89
-  %.not3 = icmp eq ptr %46, null
-  br i1 %.not3, label %48, label %47
+array_array_frombytes_impl.exit:                  ; preds = %45, %37, %32, %20, %8, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %20 ], [ @_Py_NoneStruct, %45 ], [ null, %37 ], [ %33, %32 ]
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !89
+  %.not3 = icmp eq ptr %47, null
+  br i1 %.not3, label %49, label %48
 
-47:                                               ; preds = %array_array_frombytes_impl.exit
+48:                                               ; preds = %array_array_frombytes_impl.exit
   call void @PyBuffer_Release(ptr noundef nonnull %3) #11
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %array_array_frombytes_impl.exit
+49:                                               ; preds = %48, %array_array_frombytes_impl.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
   ret ptr %.0
 }

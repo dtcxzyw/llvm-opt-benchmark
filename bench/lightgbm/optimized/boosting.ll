@@ -8361,50 +8361,50 @@ define internal fastcc noundef double @_ZN8LightGBM6CommonL3PowIdEEdT_i(double n
 
 .lr.ph.preheader:                                 ; preds = %2
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %common.ret36, label %.lr.ph35
+  br i1 %4, label %common.ret40, label %.lr.ph35
 
-common.ret36:                                     ; preds = %.lr.ph.preheader, %18, %tailrecurse._crit_edge
-  %common.ret36.op = phi double [ %7, %tailrecurse._crit_edge ], [ %21, %18 ], [ 1.000000e+00, %.lr.ph.preheader ]
-  ret double %common.ret36.op
+common.ret40:                                     ; preds = %.lr.ph.preheader, %19, %tailrecurse._crit_edge
+  %common.ret40.op = phi double [ %7, %tailrecurse._crit_edge ], [ %22, %19 ], [ 1.000000e+00, %.lr.ph.preheader ]
+  ret double %common.ret40.op
 
 tailrecurse._crit_edge:                           ; preds = %2
   %5 = sub nsw i32 0, %1
   %6 = tail call fastcc noundef double @_ZN8LightGBM6CommonL3PowIdEEdT_i(double noundef %0, i32 noundef %5)
   %7 = fdiv double 1.000000e+00, %6
-  br label %common.ret36
+  br label %common.ret40
 
 .lr.ph35:                                         ; preds = %.lr.ph.preheader, %tailrecurse.backedge
   %.tr2234 = phi double [ %.tr.be, %tailrecurse.backedge ], [ %0, %.lr.ph.preheader ]
   %.tr172333 = phi i32 [ %.tr17.be, %tailrecurse.backedge ], [ %1, %.lr.ph.preheader ]
   %8 = and i32 %.tr172333, 1
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %.lr.ph35
   %11 = lshr exact i32 %.tr172333, 1
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %10, %16
-  %.tr22.pn = phi double [ %.tr2234, %10 ], [ %17, %16 ]
-  %.tr17.be = phi i32 [ %11, %10 ], [ %14, %16 ]
+tailrecurse.backedge:                             ; preds = %10, %17
+  %.tr22.pn = phi double [ %.tr2234, %10 ], [ %18, %17 ]
+  %.tr17.be = phi i32 [ %11, %10 ], [ %15, %17 ]
   %.tr.be = fmul double %.tr2234, %.tr22.pn
   br label %.lr.ph35
 
-12:                                               ; preds = %.lr.ph35
-  %13 = urem i32 %.tr172333, 3
-  %14 = udiv exact i32 %.tr172333, 3
-  %15 = icmp eq i32 %13, 0
-  br i1 %15, label %16, label %18
+13:                                               ; preds = %.lr.ph35
+  %14 = urem i32 %.tr172333, 3
+  %15 = udiv exact i32 %.tr172333, 3
+  %16 = icmp eq i32 %14, 0
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %12
-  %17 = fmul double %.tr2234, %.tr2234
+17:                                               ; preds = %13
+  %18 = fmul double %.tr2234, %.tr2234
   br label %tailrecurse.backedge
 
-18:                                               ; preds = %12
-  %19 = add nsw i32 %.tr172333, -1
-  %20 = tail call fastcc noundef double @_ZN8LightGBM6CommonL3PowIdEEdT_i(double noundef %.tr2234, i32 noundef %19)
-  %21 = fmul double %.tr2234, %20
-  br label %common.ret36
+19:                                               ; preds = %13
+  %20 = add nsw i32 %.tr172333, -1
+  %21 = tail call fastcc noundef double @_ZN8LightGBM6CommonL3PowIdEEdT_i(double noundef %.tr2234, i32 noundef %20)
+  %22 = fmul double %.tr2234, %21
+  br label %common.ret40
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0

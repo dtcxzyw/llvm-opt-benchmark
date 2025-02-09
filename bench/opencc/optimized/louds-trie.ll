@@ -7472,18 +7472,18 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit
 
-22:                                               ; preds = %13
-  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr @.str.25, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 107, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr @.str.31, ptr %27, align 8
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+23:                                               ; preds = %13
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr @.str.25, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 107, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  store i32 1, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store ptr @.str.31, ptr %28, align 8
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit: ; preds = %13
@@ -15807,18 +15807,18 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit
 
-22:                                               ; preds = %13
-  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr @.str.25, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 107, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr @.str.31, ptr %27, align 8
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+23:                                               ; preds = %13
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr @.str.25, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 107, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  store i32 1, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store ptr @.str.31, ptr %28, align 8
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit: ; preds = %13

@@ -1603,7 +1603,7 @@ thread-pre-split140.i:                            ; preds = %167
   br i1 %.not143.i, label %parsehwp3_infoblk_1.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %223
-  %umax.i = call i32 @llvm.umax.i32(i32 %214, i32 1)
+  %wide.trip.count.i = call i32 @llvm.umax.i32(i32 %214, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
   %invariant.op = add i64 %119, 296
   br label %.lr.ph.i

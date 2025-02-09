@@ -4789,13 +4789,13 @@ if.then.i.i:                                      ; preds = %if.end
 _ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %invoke.cont
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %for.body17.lr.ph
 
 invoke.cont.thread:                               ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %for.end
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %div, 12
   %call5.i.i.i.i2.i.i23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store ptr %call5.i.i.i.i2.i.i23, ptr %agg.result, align 8

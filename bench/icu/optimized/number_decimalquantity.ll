@@ -2594,13 +2594,13 @@ for.end.i106:                                     ; preds = %for.body.i91, %_ZNK
 land.rhs10.i:                                     ; preds = %for.end.i106, %land.rhs10.i
   %result.2.i = phi i64 [ %div.i, %land.rhs10.i ], [ %result.0.lcssa.i107, %for.end.i106 ]
   %rem.i = urem i64 %result.2.i, 10
-  %cmp11.i = icmp ne i64 %rem.i, 0
-  %div.i = udiv exact i64 %result.2.i, 10
+  %div.i = icmp ne i64 %rem.i, 0
+  %cmp11.i = udiv exact i64 %result.2.i, 10
   %cmp9.old.not.i = icmp eq i64 %result.2.i, 0
   %or.cond = or i1 %cmp11.i, %cmp9.old.not.i
   br i1 %or.cond, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit, label %land.rhs10.i
 
-_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit: ; preds = %land.rhs10.i
+_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit:; preds = %land.rhs10.i
   %40 = uitofp i64 %result.2.i to double
   br label %return
 

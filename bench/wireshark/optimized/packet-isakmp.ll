@@ -4294,9 +4294,9 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
 1046:                                             ; preds = %989
   %1047 = urem i32 %983, 17
   %1048 = icmp eq i32 %1047, 0
-  br i1 %1048, label %.lr.ph217.i.i, label %.loopexit.i.i
+  br i1 %1048, label %.preheader169.i.i, label %.loopexit.i.i
 
-.lr.ph217.i.i:                                    ; preds = %1046
+.preheader169.i.i:                                ; preds = %1046
   %1049 = udiv exact i32 %983, 17
   %1050 = load ptr, ptr %20, align 8
   br label %1051
