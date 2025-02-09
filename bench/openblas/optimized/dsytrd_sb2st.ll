@@ -371,15 +371,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 224:                                              ; preds = %.preheader
   %225 = srem i32 %222, 2
-  %226 = sdiv i32 %222, 2
-  %227 = add nsw i32 %225, 2
-  store i32 %227, ptr %19, align 4, !tbaa !3
-  %228 = icmp eq i32 %225, 0
-  br i1 %228, label %229, label %235
+  %226 = add nsw i32 %225, 2
+  store i32 %226, ptr %19, align 4, !tbaa !3
+  %227 = icmp eq i32 %225, 0
+  br i1 %227, label %228, label %235
 
-229:                                              ; preds = %224
+228:                                              ; preds = %224
+  %229 = ashr exact i32 %222, 1
   %230 = load i32, ptr %4, align 4, !tbaa !3
-  %231 = mul nsw i32 %230, %226
+  %231 = mul nsw i32 %230, %229
   %232 = add nsw i32 %231, %219
   %reass.sub = sub i32 %232, %230
   %233 = add i32 %reass.sub, 1
@@ -406,8 +406,8 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %248 = select i1 %247, i32 %217, i32 0
   br label %249
 
-249:                                              ; preds = %235, %229
-  %250 = phi i32 [ %232, %229 ], [ %248, %235 ]
+249:                                              ; preds = %235, %228
+  %250 = phi i32 [ %232, %228 ], [ %248, %235 ]
   call void @dsb2st_kernels_(ptr noundef %2, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef nonnull %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %20, ptr noundef nonnull %11, ptr noundef nonnull %21, ptr noundef nonnull %194, ptr noundef nonnull %9, ptr noundef nonnull %22, ptr noundef %196) #5
   %251 = load i32, ptr %3, align 4, !tbaa !3
   %252 = add nsw i32 %251, -1

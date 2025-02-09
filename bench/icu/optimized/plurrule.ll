@@ -8078,7 +8078,7 @@ while.cond.preheader.i:                           ; preds = %if.end21.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %fdwtz.013.i = phi i64 [ %div.i, %while.body.i ], [ %f, %while.cond.preheader.i ]
-  %div.i = sdiv i64 %fdwtz.013.i, 10
+  %div.i = sdiv exact i64 %fdwtz.013.i, 10
   %rem.i = srem i64 %div.i, 10
   %cmp25.i = icmp eq i64 %rem.i, 0
   br i1 %cmp25.i, label %while.body.i, label %invoke.cont, !llvm.loop !50
@@ -8159,7 +8159,7 @@ while.cond.preheader:                             ; preds = %if.end21
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %fdwtz.013 = phi i64 [ %div, %while.body ], [ %f, %while.cond.preheader ]
-  %div = sdiv i64 %fdwtz.013, 10
+  %div = sdiv exact i64 %fdwtz.013, 10
   %rem = srem i64 %div, 10
   %cmp25 = icmp eq i64 %rem, 0
   br i1 %cmp25, label %while.body, label %if.end27, !llvm.loop !50
@@ -8243,7 +8243,7 @@ while.cond.preheader.i.i:                         ; preds = %if.end21.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %fdwtz.013.i.i = phi i64 [ %div.i.i, %while.body.i.i ], [ %f, %while.cond.preheader.i.i ]
-  %div.i.i = sdiv i64 %fdwtz.013.i.i, 10
+  %div.i.i = sdiv exact i64 %fdwtz.013.i.i, 10
   %rem.i.i = srem i64 %div.i.i, 10
   %cmp25.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp25.i.i, label %while.body.i.i, label %invoke.cont, !llvm.loop !50
@@ -8322,7 +8322,7 @@ while.cond.preheader.i:                           ; preds = %if.end21.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %fdwtz.013.i = phi i64 [ %div.i, %while.body.i ], [ %f, %while.cond.preheader.i ]
-  %div.i = sdiv i64 %fdwtz.013.i, 10
+  %div.i = sdiv exact i64 %fdwtz.013.i, 10
   %rem.i = srem i64 %div.i, 10
   %cmp25.i = icmp eq i64 %rem.i, 0
   br i1 %cmp25.i, label %while.body.i, label %_ZN6icu_7512FixedDecimal4initEdilii.exit, !llvm.loop !50
@@ -8403,7 +8403,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.end21.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %fdwtz.013.i.i.i = phi i64 [ %div.i.i.i, %while.body.i.i.i ], [ %f, %while.cond.preheader.i.i.i ]
-  %div.i.i.i = sdiv i64 %fdwtz.013.i.i.i, 10
+  %div.i.i.i = sdiv exact i64 %fdwtz.013.i.i.i, 10
   %rem.i.i.i = srem i64 %div.i.i.i, 10
   %cmp25.i.i.i = icmp eq i64 %rem.i.i.i, 0
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %invoke.cont, !llvm.loop !50
@@ -8482,7 +8482,7 @@ while.cond.preheader.i.i:                         ; preds = %if.end21.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %fdwtz.013.i.i = phi i64 [ %div.i.i, %while.body.i.i ], [ %f, %while.cond.preheader.i.i ]
-  %div.i.i = sdiv i64 %fdwtz.013.i.i, 10
+  %div.i.i = sdiv exact i64 %fdwtz.013.i.i, 10
   %rem.i.i = srem i64 %div.i.i, 10
   %cmp25.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp25.i.i, label %while.body.i.i, label %_ZN6icu_7512FixedDecimal4initEdili.exit, !llvm.loop !50
@@ -8624,7 +8624,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.end21.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %fdwtz.013.i.i.i = phi i64 [ %div.i.i.i, %while.body.i.i.i ], [ %retval.0.i, %while.cond.preheader.i.i.i ]
-  %div.i.i.i = sdiv i64 %fdwtz.013.i.i.i, 10
+  %div.i.i.i = sdiv exact i64 %fdwtz.013.i.i.i, 10
   %rem.i.i.i = srem i64 %div.i.i.i, 10
   %cmp25.i.i.i = icmp eq i64 %rem.i.i.i, 0
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %invoke.cont2, !llvm.loop !50
@@ -8889,7 +8889,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.end21.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %fdwtz.013.i.i.i = phi i64 [ %div.i.i.i, %while.body.i.i.i ], [ %retval.0.i6, %while.cond.preheader.i.i.i ]
-  %div.i.i.i = sdiv i64 %fdwtz.013.i.i.i, 10
+  %div.i.i.i = sdiv exact i64 %fdwtz.013.i.i.i, 10
   %rem.i.i.i = srem i64 %div.i.i.i, 10
   %cmp25.i.i.i = icmp eq i64 %rem.i.i.i, 0
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN6icu_7512FixedDecimal4initEdil.exit, !llvm.loop !50
@@ -9374,7 +9374,7 @@ while.cond.preheader.i.i:                         ; preds = %if.end21.i.i86
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %fdwtz.013.i.i = phi i64 [ %div.i.i, %while.body.i.i ], [ %retval.0.i, %while.cond.preheader.i.i ]
-  %div.i.i = sdiv i64 %fdwtz.013.i.i, 10
+  %div.i.i = sdiv exact i64 %fdwtz.013.i.i, 10
   %rem.i.i = srem i64 %div.i.i, 10
   %cmp25.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp25.i.i, label %while.body.i.i, label %_ZN6icu_7512FixedDecimal4initEdili.exit99, !llvm.loop !50
@@ -9741,7 +9741,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.end21.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %fdwtz.013.i.i.i = phi i64 [ %div.i.i.i, %while.body.i.i.i ], [ %retval.0.i, %while.cond.preheader.i.i.i ]
-  %div.i.i.i = sdiv i64 %fdwtz.013.i.i.i, 10
+  %div.i.i.i = sdiv exact i64 %fdwtz.013.i.i.i, 10
   %rem.i.i.i = srem i64 %div.i.i.i, 10
   %cmp25.i.i.i = icmp eq i64 %rem.i.i.i, 0
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %_ZN6icu_7512FixedDecimal4initEdil.exit, !llvm.loop !50

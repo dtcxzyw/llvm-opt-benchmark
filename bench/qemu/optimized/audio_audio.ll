@@ -3876,7 +3876,7 @@ while.body.i39.i:                                 ; preds = %while.cond.i32.i
   %tobool1.not.i41.i = icmp eq i32 %110, 0
   br i1 %tobool1.not.i41.i, label %while.cond.i32.i.backedge, label %while.body10.i
 
-while.cond.i32.i.backedge:                        ; preds = %audio_pcm_hw_find_min_in.exit.i, %for.inc.i70, %while.body.i39.i
+while.cond.i32.i.backedge:                        ; preds = %audio_pcm_hw_find_min_in.exit.i, %for.inc.i69, %while.body.i39.i
   br label %while.cond.i32.i, !llvm.loop !26
 
 while.body10.i:                                   ; preds = %while.body.i39.i
@@ -3924,23 +3924,23 @@ audio_pcm_hw_find_min_in.exit.i.i:                ; preds = %for.inc.i.i.i, %if.
 
 if.then.i7.i.i:                                   ; preds = %audio_pcm_hw_find_min_in.exit.i.i
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.audio_pcm_hw_get_live_in)
-  %.b.i.i.i72 = load i1, ptr @audio_bug.shown, align 4
-  br i1 %.b.i.i.i72, label %if.then.i.i74, label %if.then2.i.i.i73
+  %.b.i.i.i71 = load i1, ptr @audio_bug.shown, align 4
+  br i1 %.b.i.i.i71, label %if.then.i.i73, label %if.then2.i.i.i72
 
-if.then2.i.i.i73:                                 ; preds = %if.then.i7.i.i
+if.then2.i.i.i72:                                 ; preds = %if.then.i7.i.i
   store i1 true, ptr @audio_bug.shown, align 4
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
-  br label %if.then.i.i74
+  br label %if.then.i.i73
 
-if.then.i.i74:                                    ; preds = %if.then2.i.i.i73, %if.then.i7.i.i
+if.then.i.i73:                                    ; preds = %if.then2.i.i.i72, %if.then.i7.i.i
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
   %116 = load i64, ptr %size.i26, align 8
   call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.68, i64 noundef %sub.i.i28, i64 noundef %116)
   br label %audio_pcm_hw_get_live_in.exit.i
 
-audio_pcm_hw_get_live_in.exit.i:                  ; preds = %if.then.i.i74, %audio_pcm_hw_find_min_in.exit.i.i
-  %retval.0.i46.i = phi i64 [ 0, %if.then.i.i74 ], [ %sub.i.i28, %audio_pcm_hw_find_min_in.exit.i.i ]
+audio_pcm_hw_get_live_in.exit.i:                  ; preds = %if.then.i.i73, %audio_pcm_hw_find_min_in.exit.i.i
+  %retval.0.i46.i = phi i64 [ 0, %if.then.i.i73 ], [ %sub.i.i28, %audio_pcm_hw_find_min_in.exit.i.i ]
   %sub.i30 = sub i64 %112, %retval.0.i46.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i47.i)
   %pcm_ops.i.i31 = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 144
@@ -3967,7 +3967,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 
 while.body.i50.i:                                 ; preds = %audio_pcm_hw_conv_in.exit.i.i, %while.body.lr.ph.i.i
   %samples.addr.022.i.i = phi i64 [ %sub.i30, %while.body.lr.ph.i.i ], [ %sub.i53.i, %audio_pcm_hw_conv_in.exit.i.i ]
-  %conv.021.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %add.i.i51, %audio_pcm_hw_conv_in.exit.i.i ]
+  %conv.021.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %add.i.i50, %audio_pcm_hw_conv_in.exit.i.i ]
   %119 = load i32, ptr %bytes_per_frame.i.i32, align 8
   %conv4.i.i34 = sext i32 %119 to i64
   %mul.i.i35 = mul i64 %samples.addr.022.i.i, %conv4.i.i34
@@ -3980,7 +3980,7 @@ while.body.i50.i:                                 ; preds = %audio_pcm_hw_conv_i
   %123 = load i32, ptr %bytes_per_frame.i.i32, align 8
   %conv8.i.i = sext i32 %123 to i64
   %rem.i.i37 = urem i64 %122, %conv8.i.i
-  %div.i.i40 = udiv i64 %122, %conv8.i.i
+  %div.i.i40 = udiv exact i64 %122, %conv8.i.i
   %cmp.i.i38 = icmp eq i64 %rem.i.i37, 0
   br i1 %cmp.i.i38, label %if.end11.i.i, label %if.else.i.i
 
@@ -3990,13 +3990,9 @@ if.else.i.i:                                      ; preds = %while.body.i50.i
 
 if.end11.i.i:                                     ; preds = %while.body.i50.i
   %cmp12.i.i = icmp eq i64 %122, 0
-  br i1 %cmp12.i.i, label %audio_pcm_hw_run_in.exit.i, label %if.end15.i.i
+  br i1 %cmp12.i.i, label %audio_pcm_hw_run_in.exit.i, label %while.body.lr.ph.i.i.i39
 
-if.end15.i.i:                                     ; preds = %if.end11.i.i
-  %tobool.not18.i.i.i = icmp ult i64 %122, %conv8.i.i
-  br i1 %tobool.not18.i.i.i, label %audio_pcm_hw_conv_in.exit.i.i, label %while.body.lr.ph.i.i.i39
-
-while.body.lr.ph.i.i.i39:                         ; preds = %if.end15.i.i
+while.body.lr.ph.i.i.i39:                         ; preds = %if.end11.i.i
   %.pre.i.i.i41 = load i64, ptr %size.i26, align 8
   %.pre21.i.i.i = load i64, ptr %conv_buf1.i.i.i, align 8
   br label %while.body.i.i.i42
@@ -4026,28 +4022,23 @@ while.body.i.i.i42:                               ; preds = %while.body.i.i.i42,
   %sub11.i.i.i = sub i64 %samples.addr.020.i.i.i, %cond.i.i51.i
   %add12.i.i.i = add i64 %cond.i.i51.i, %conv.019.i.i.i
   %tobool.not.i.i52.i = icmp eq i64 %sub11.i.i.i, 0
-  br i1 %tobool.not.i.i52.i, label %audio_pcm_hw_conv_in.exit.loopexit.i.i, label %while.body.i.i.i42, !llvm.loop !28
+  br i1 %tobool.not.i.i52.i, label %audio_pcm_hw_conv_in.exit.i.i, label %while.body.i.i.i42, !llvm.loop !28
 
-audio_pcm_hw_conv_in.exit.loopexit.i.i:           ; preds = %while.body.i.i.i42
-  %.pre.i.i50 = load i32, ptr %bytes_per_frame.i.i32, align 8
-  %.pre24.i.i = sext i32 %.pre.i.i50 to i64
-  br label %audio_pcm_hw_conv_in.exit.i.i
-
-audio_pcm_hw_conv_in.exit.i.i:                    ; preds = %audio_pcm_hw_conv_in.exit.loopexit.i.i, %if.end15.i.i
-  %conv23.pre-phi.i.i = phi i64 [ %.pre24.i.i, %audio_pcm_hw_conv_in.exit.loopexit.i.i ], [ %conv8.i.i, %if.end15.i.i ]
-  %conv.0.lcssa.i.i.i = phi i64 [ %add12.i.i.i, %audio_pcm_hw_conv_in.exit.loopexit.i.i ], [ 0, %if.end15.i.i ]
-  %sub.i53.i = sub i64 %samples.addr.022.i.i, %conv.0.lcssa.i.i.i
-  %add.i.i51 = add i64 %conv.0.lcssa.i.i.i, %conv.021.i.i
+audio_pcm_hw_conv_in.exit.i.i:                    ; preds = %while.body.i.i.i42
+  %sub.i53.i = sub i64 %samples.addr.022.i.i, %add12.i.i.i
+  %add.i.i50 = add i64 %add12.i.i.i, %conv.021.i.i
   %132 = load ptr, ptr %pcm_ops.i.i31, align 8
   %put_buffer_in.i.i = getelementptr inbounds nuw i8, ptr %132, i64 112
   %133 = load ptr, ptr %put_buffer_in.i.i, align 8
-  %mul24.i.i = mul i64 %conv.0.lcssa.i.i.i, %conv23.pre-phi.i.i
+  %134 = load i32, ptr %bytes_per_frame.i.i32, align 8
+  %conv23.i.i = sext i32 %134 to i64
+  %mul24.i.i = mul i64 %add12.i.i.i, %conv23.i.i
   call void %133(ptr noundef nonnull %cond.i.i37.i, ptr noundef %call.i.i36, i64 noundef %mul24.i.i) #25
-  %tobool3.not.i.i52 = icmp eq i64 %sub.i53.i, 0
-  br i1 %tobool3.not.i.i52, label %audio_pcm_hw_run_in.exit.i, label %while.body.i50.i, !llvm.loop !29
+  %tobool3.not.i.i51 = icmp eq i64 %sub.i53.i, 0
+  br i1 %tobool3.not.i.i51, label %audio_pcm_hw_run_in.exit.i, label %while.body.i50.i, !llvm.loop !29
 
 audio_pcm_hw_run_in.exit.i:                       ; preds = %audio_pcm_hw_conv_in.exit.i.i, %if.end11.i.i, %if.end.i.i
-  %conv.0.lcssa.i.i = phi i64 [ 0, %if.end.i.i ], [ %conv.021.i.i, %if.end11.i.i ], [ %add.i.i51, %audio_pcm_hw_conv_in.exit.i.i ]
+  %conv.0.lcssa.i.i = phi i64 [ 0, %if.end.i.i ], [ %conv.021.i.i, %if.end11.i.i ], [ %add.i.i50, %audio_pcm_hw_conv_in.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i47.i)
   store i64 %conv.0.lcssa.i.i, ptr %captured.i, align 8
   br label %if.end15.i
@@ -4055,73 +4046,73 @@ audio_pcm_hw_run_in.exit.i:                       ; preds = %audio_pcm_hw_conv_i
 if.end15.i:                                       ; preds = %audio_pcm_hw_run_in.exit.i, %while.body10.i
   %conv_buf16.i = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 72
   %buffer.i = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 88
-  %134 = load ptr, ptr %buffer.i, align 8
+  %135 = load ptr, ptr %buffer.i, align 8
   %size19.i = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 80
-  %135 = load i64, ptr %size19.i, align 8
-  call void @replay_audio_in(ptr noundef nonnull %captured.i, ptr noundef %134, ptr noundef nonnull %conv_buf16.i, i64 noundef %135) #25
+  %136 = load i64, ptr %size19.i, align 8
+  call void @replay_audio_in(ptr noundef nonnull %captured.i, ptr noundef %135, ptr noundef nonnull %conv_buf16.i, i64 noundef %136) #25
   %total_samples_captured.i54.i = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 56
-  %136 = load i64, ptr %total_samples_captured.i54.i, align 8
-  %sw_head.i.i53 = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 136
-  %sw.08.i.i = load ptr, ptr %sw_head.i.i53, align 8
+  %137 = load i64, ptr %total_samples_captured.i54.i, align 8
+  %sw_head.i.i52 = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 136
+  %sw.08.i.i = load ptr, ptr %sw_head.i.i52, align 8
   %tobool.not9.i.i = icmp eq ptr %sw.08.i.i, null
-  br i1 %tobool.not9.i.i, label %audio_pcm_hw_find_min_in.exit.i, label %for.body.i.i54
+  br i1 %tobool.not9.i.i, label %audio_pcm_hw_find_min_in.exit.i, label %for.body.i.i53
 
-for.body.i.i54:                                   ; preds = %if.end15.i, %for.inc.i.i57
-  %sw.011.i.i = phi ptr [ %sw.0.i.i59, %for.inc.i.i57 ], [ %sw.08.i.i, %if.end15.i ]
-  %m.010.i.i = phi i64 [ %m.1.i.i, %for.inc.i.i57 ], [ %136, %if.end15.i ]
-  %active.i.i55 = getelementptr inbounds nuw i8, ptr %sw.011.i.i, i64 16
-  %137 = load i32, ptr %active.i.i55, align 8
-  %tobool1.not.i55.i = icmp eq i32 %137, 0
-  br i1 %tobool1.not.i55.i, label %for.inc.i.i57, label %if.then.i56.i
+for.body.i.i53:                                   ; preds = %if.end15.i, %for.inc.i.i56
+  %sw.011.i.i = phi ptr [ %sw.0.i.i58, %for.inc.i.i56 ], [ %sw.08.i.i, %if.end15.i ]
+  %m.010.i.i = phi i64 [ %m.1.i.i, %for.inc.i.i56 ], [ %137, %if.end15.i ]
+  %active.i.i54 = getelementptr inbounds nuw i8, ptr %sw.011.i.i, i64 16
+  %138 = load i32, ptr %active.i.i54, align 8
+  %tobool1.not.i55.i = icmp eq i32 %138, 0
+  br i1 %tobool1.not.i55.i, label %for.inc.i.i56, label %if.then.i56.i
 
-if.then.i56.i:                                    ; preds = %for.body.i.i54
+if.then.i56.i:                                    ; preds = %for.body.i.i53
   %total_hw_samples_acquired.i.i = getelementptr inbounds nuw i8, ptr %sw.011.i.i, i64 56
-  %138 = load i64, ptr %total_hw_samples_acquired.i.i, align 8
-  %cond.i.i56 = call i64 @llvm.umin.i64(i64 %m.010.i.i, i64 %138)
-  br label %for.inc.i.i57
+  %139 = load i64, ptr %total_hw_samples_acquired.i.i, align 8
+  %cond.i.i55 = call i64 @llvm.umin.i64(i64 %m.010.i.i, i64 %139)
+  br label %for.inc.i.i56
 
-for.inc.i.i57:                                    ; preds = %if.then.i56.i, %for.body.i.i54
-  %m.1.i.i = phi i64 [ %cond.i.i56, %if.then.i56.i ], [ %m.010.i.i, %for.body.i.i54 ]
-  %entries.i.i58 = getelementptr inbounds nuw i8, ptr %sw.011.i.i, i64 152
-  %sw.0.i.i59 = load ptr, ptr %entries.i.i58, align 8
-  %tobool.not.i57.i = icmp eq ptr %sw.0.i.i59, null
-  br i1 %tobool.not.i57.i, label %audio_pcm_hw_find_min_in.exit.i, label %for.body.i.i54, !llvm.loop !27
+for.inc.i.i56:                                    ; preds = %if.then.i56.i, %for.body.i.i53
+  %m.1.i.i = phi i64 [ %cond.i.i55, %if.then.i56.i ], [ %m.010.i.i, %for.body.i.i53 ]
+  %entries.i.i57 = getelementptr inbounds nuw i8, ptr %sw.011.i.i, i64 152
+  %sw.0.i.i58 = load ptr, ptr %entries.i.i57, align 8
+  %tobool.not.i57.i = icmp eq ptr %sw.0.i.i58, null
+  br i1 %tobool.not.i57.i, label %audio_pcm_hw_find_min_in.exit.i, label %for.body.i.i53, !llvm.loop !27
 
-audio_pcm_hw_find_min_in.exit.i:                  ; preds = %for.inc.i.i57, %if.end15.i
-  %m.0.lcssa.i.i = phi i64 [ %136, %if.end15.i ], [ %m.1.i.i, %for.inc.i.i57 ]
-  %139 = load i64, ptr %captured.i, align 8
-  %sub21.i = sub i64 %136, %m.0.lcssa.i.i
-  %add.i60 = add i64 %sub21.i, %139
-  store i64 %add.i60, ptr %total_samples_captured.i54.i, align 8
-  %ts_helper.i61 = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 64
-  %140 = load i64, ptr %ts_helper.i61, align 8
-  %add22.i = add i64 %140, %139
-  store i64 %add22.i, ptr %ts_helper.i61, align 8
-  br i1 %tobool.not9.i.i, label %while.cond.i32.i.backedge, label %for.body.i62
+audio_pcm_hw_find_min_in.exit.i:                  ; preds = %for.inc.i.i56, %if.end15.i
+  %m.0.lcssa.i.i = phi i64 [ %137, %if.end15.i ], [ %m.1.i.i, %for.inc.i.i56 ]
+  %140 = load i64, ptr %captured.i, align 8
+  %sub21.i = sub i64 %137, %m.0.lcssa.i.i
+  %add.i59 = add i64 %sub21.i, %140
+  store i64 %add.i59, ptr %total_samples_captured.i54.i, align 8
+  %ts_helper.i60 = getelementptr inbounds nuw i8, ptr %cond.i.i37.i, i64 64
+  %141 = load i64, ptr %ts_helper.i60, align 8
+  %add22.i = add i64 %141, %140
+  store i64 %add22.i, ptr %ts_helper.i60, align 8
+  br i1 %tobool.not9.i.i, label %while.cond.i32.i.backedge, label %for.body.i61
 
-for.body.i62:                                     ; preds = %audio_pcm_hw_find_min_in.exit.i, %for.inc.i70
-  %sw11.072.i = phi ptr [ %sw11.0.i, %for.inc.i70 ], [ %sw.08.i.i, %audio_pcm_hw_find_min_in.exit.i ]
+for.body.i61:                                     ; preds = %audio_pcm_hw_find_min_in.exit.i, %for.inc.i69
+  %sw11.072.i = phi ptr [ %sw11.0.i, %for.inc.i69 ], [ %sw.08.i.i, %audio_pcm_hw_find_min_in.exit.i ]
   %total_hw_samples_acquired.i = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 56
-  %141 = load i64, ptr %total_hw_samples_acquired.i, align 8
-  %sub26.i = sub i64 %141, %m.0.lcssa.i.i
+  %142 = load i64, ptr %total_hw_samples_acquired.i, align 8
+  %sub26.i = sub i64 %142, %m.0.lcssa.i.i
   store i64 %sub26.i, ptr %total_hw_samples_acquired.i, align 8
-  %active27.i63 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 16
-  %142 = load i32, ptr %active27.i63, align 8
-  %tobool28.not.i64 = icmp eq i32 %142, 0
-  br i1 %tobool28.not.i64, label %for.inc.i70, label %if.then29.i65
+  %active27.i62 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 16
+  %143 = load i32, ptr %active27.i62, align 8
+  %tobool28.not.i63 = icmp eq i32 %143, 0
+  br i1 %tobool28.not.i63, label %for.inc.i69, label %if.then29.i64
 
-if.then29.i65:                                    ; preds = %for.body.i62
-  %hw.i.i66 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 96
-  %143 = load ptr, ptr %hw.i.i66, align 8
-  %total_samples_captured.i58.i = getelementptr inbounds nuw i8, ptr %143, i64 56
-  %144 = load i64, ptr %total_samples_captured.i58.i, align 8
-  %sub.i60.i = sub i64 %144, %sub26.i
-  %size.i61.i = getelementptr inbounds nuw i8, ptr %143, i64 80
-  %145 = load i64, ptr %size.i61.i, align 8
-  %cmp.not.i62.i = icmp ugt i64 %sub.i60.i, %145
+if.then29.i64:                                    ; preds = %for.body.i61
+  %hw.i.i65 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 96
+  %144 = load ptr, ptr %hw.i.i65, align 8
+  %total_samples_captured.i58.i = getelementptr inbounds nuw i8, ptr %144, i64 56
+  %145 = load i64, ptr %total_samples_captured.i58.i, align 8
+  %sub.i60.i = sub i64 %145, %sub26.i
+  %size.i61.i = getelementptr inbounds nuw i8, ptr %144, i64 80
+  %146 = load i64, ptr %size.i61.i, align 8
+  %cmp.not.i62.i = icmp ugt i64 %sub.i60.i, %146
   br i1 %cmp.not.i62.i, label %if.then.i.i64.i, label %audio_get_avail.exit.i
 
-if.then.i.i64.i:                                  ; preds = %if.then29.i65
+if.then.i.i64.i:                                  ; preds = %if.then29.i64
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.audio_get_avail)
   %.b.i.i65.i = load i1, ptr @audio_bug.shown, align 4
   br i1 %.b.i.i65.i, label %if.then3.i.i, label %if.then2.i.i66.i
@@ -4134,177 +4125,177 @@ if.then2.i.i66.i:                                 ; preds = %if.then.i.i64.i
 
 if.then3.i.i:                                     ; preds = %if.then2.i.i66.i, %if.then.i.i64.i
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
-  %146 = load ptr, ptr %hw.i.i66, align 8
-  %size6.i.i = getelementptr inbounds nuw i8, ptr %146, i64 80
-  %147 = load i64, ptr %size6.i.i, align 8
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.69, i64 noundef %sub.i60.i, i64 noundef %147)
+  %147 = load ptr, ptr %hw.i.i65, align 8
+  %size6.i.i = getelementptr inbounds nuw i8, ptr %147, i64 80
+  %148 = load i64, ptr %size6.i.i, align 8
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.69, i64 noundef %sub.i60.i, i64 noundef %148)
   br label %audio_get_avail.exit.i
 
-audio_get_avail.exit.i:                           ; preds = %if.then3.i.i, %if.then29.i65
-  %retval.0.i63.i = phi i64 [ 0, %if.then3.i.i ], [ %sub.i60.i, %if.then29.i65 ]
-  %rate.i67 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 48
-  %148 = load ptr, ptr %rate.i67, align 8
+audio_get_avail.exit.i:                           ; preds = %if.then3.i.i, %if.then29.i64
+  %retval.0.i63.i = phi i64 [ 0, %if.then3.i.i ], [ %sub.i60.i, %if.then29.i64 ]
+  %rate.i66 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 48
+  %149 = load ptr, ptr %rate.i66, align 8
   %conv.i = trunc i64 %retval.0.i63.i to i32
-  %call31.i = call i32 @st_rate_frames_out(ptr noundef %148, i32 noundef %conv.i) #25
+  %call31.i = call i32 @st_rate_frames_out(ptr noundef %149, i32 noundef %conv.i) #25
   %cmp33.not.i = icmp eq i32 %call31.i, 0
-  br i1 %cmp33.not.i, label %for.inc.i70, label %if.then35.i
+  br i1 %cmp33.not.i, label %for.inc.i69, label %if.then35.i
 
 if.then35.i:                                      ; preds = %audio_get_avail.exit.i
   %conv32.i = zext i32 %call31.i to i64
   %size36.i = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 72
-  %149 = load i64, ptr %size36.i, align 8
-  %cond.i68 = call i64 @llvm.umin.i64(i64 %149, i64 %conv32.i)
+  %150 = load i64, ptr %size36.i, align 8
+  %cond.i67 = call i64 @llvm.umin.i64(i64 %150, i64 %conv32.i)
   %callback39.i = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 136
   %fn40.i = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 144
-  %150 = load ptr, ptr %fn40.i, align 8
-  %151 = load ptr, ptr %callback39.i, align 8
-  %bytes_per_frame.i69 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 36
-  %152 = load i32, ptr %bytes_per_frame.i69, align 4
-  %153 = trunc nuw i64 %cond.i68 to i32
-  %conv44.i = mul i32 %152, %153
-  call void %150(ptr noundef %151, i32 noundef %conv44.i) #25
-  br label %for.inc.i70
+  %151 = load ptr, ptr %fn40.i, align 8
+  %152 = load ptr, ptr %callback39.i, align 8
+  %bytes_per_frame.i68 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 36
+  %153 = load i32, ptr %bytes_per_frame.i68, align 4
+  %154 = trunc nuw i64 %cond.i67 to i32
+  %conv44.i = mul i32 %153, %154
+  call void %151(ptr noundef %152, i32 noundef %conv44.i) #25
+  br label %for.inc.i69
 
-for.inc.i70:                                      ; preds = %if.then35.i, %audio_get_avail.exit.i, %for.body.i62
-  %entries.i71 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 152
-  %sw11.0.i = load ptr, ptr %entries.i71, align 8
+for.inc.i69:                                      ; preds = %if.then35.i, %audio_get_avail.exit.i, %for.body.i61
+  %entries.i70 = getelementptr inbounds nuw i8, ptr %sw11.072.i, i64 152
+  %sw11.0.i = load ptr, ptr %entries.i70, align 8
   %tobool25.not.i = icmp eq ptr %sw11.0.i, null
-  br i1 %tobool25.not.i, label %while.cond.i32.i.backedge, label %for.body.i62, !llvm.loop !30
+  br i1 %tobool25.not.i, label %while.cond.i32.i.backedge, label %for.body.i61, !llvm.loop !30
 
 audio_run_in.exit:                                ; preds = %while.cond.i.i12, %while.cond.i32.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %captured.i)
-  %cap_head.i75 = getelementptr inbounds nuw i8, ptr %s, i64 56
-  %cap.050.i = load ptr, ptr %cap_head.i75, align 8
+  %cap_head.i74 = getelementptr inbounds nuw i8, ptr %s, i64 56
+  %cap.050.i = load ptr, ptr %cap_head.i74, align 8
   %tobool.not51.i = icmp eq ptr %cap.050.i, null
-  br i1 %tobool.not51.i, label %audio_run_capture.exit, label %for.body.i76
+  br i1 %tobool.not51.i, label %audio_run_capture.exit, label %for.body.i75
 
-for.body.i76:                                     ; preds = %audio_run_in.exit, %for.inc42.i
+for.body.i75:                                     ; preds = %audio_run_in.exit, %for.inc42.i
   %cap.052.i = phi ptr [ %cap.0.i, %for.inc42.i ], [ %cap.050.i, %audio_run_in.exit ]
   %call.i = call fastcc i64 @audio_pcm_hw_get_live_out(ptr noundef %cap.052.i, ptr noundef null)
-  %mix_buf.i77 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 64
-  %154 = load i64, ptr %mix_buf.i77, align 8
+  %mix_buf.i76 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 64
+  %155 = load i64, ptr %mix_buf.i76, align 8
   %tobool2.not43.i = icmp eq i64 %call.i, 0
   br i1 %tobool2.not43.i, label %while.end.i, label %while.body.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %for.body.i76
-  %size.i78 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 72
-  %buffer.i79 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 80
+while.body.lr.ph.i:                               ; preds = %for.body.i75
+  %size.i77 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 72
+  %buffer.i78 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 80
   %clip.i = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 48
   %buf.i = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 168
   %cb_head.i = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 176
-  %bytes_per_frame.i80 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 36
-  %.pre.i81 = load i64, ptr %size.i78, align 8
-  br label %while.body.i82
+  %bytes_per_frame.i79 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 36
+  %.pre.i80 = load i64, ptr %size.i77, align 8
+  br label %while.body.i81
 
-while.body.i82:                                   ; preds = %for.end.i87, %while.body.lr.ph.i
-  %155 = phi i64 [ %.pre.i81, %while.body.lr.ph.i ], [ %163, %for.end.i87 ]
-  %live.045.i = phi i64 [ %call.i, %while.body.lr.ph.i ], [ %sub15.i, %for.end.i87 ]
-  %rpos.044.i = phi i64 [ %154, %while.body.lr.ph.i ], [ %rem.i, %for.end.i87 ]
-  %sub.i83 = sub i64 %155, %rpos.044.i
-  %cond.i84 = call i64 @llvm.umin.i64(i64 %live.045.i, i64 %sub.i83)
-  %156 = load ptr, ptr %buffer.i79, align 8
-  %add.ptr.i = getelementptr %struct.st_sample, ptr %156, i64 %rpos.044.i
-  %157 = load ptr, ptr %clip.i, align 8
-  %158 = load ptr, ptr %buf.i, align 8
-  %conv.i85 = trunc i64 %cond.i84 to i32
-  call void %157(ptr noundef %158, ptr noundef %add.ptr.i, i32 noundef %conv.i85) #25
-  call void @mixeng_clear(ptr noundef %add.ptr.i, i32 noundef %conv.i85) #25
+while.body.i81:                                   ; preds = %for.end.i86, %while.body.lr.ph.i
+  %156 = phi i64 [ %.pre.i80, %while.body.lr.ph.i ], [ %164, %for.end.i86 ]
+  %live.045.i = phi i64 [ %call.i, %while.body.lr.ph.i ], [ %sub15.i, %for.end.i86 ]
+  %rpos.044.i = phi i64 [ %155, %while.body.lr.ph.i ], [ %rem.i, %for.end.i86 ]
+  %sub.i82 = sub i64 %156, %rpos.044.i
+  %cond.i83 = call i64 @llvm.umin.i64(i64 %live.045.i, i64 %sub.i82)
+  %157 = load ptr, ptr %buffer.i78, align 8
+  %add.ptr.i = getelementptr %struct.st_sample, ptr %157, i64 %rpos.044.i
+  %158 = load ptr, ptr %clip.i, align 8
+  %159 = load ptr, ptr %buf.i, align 8
+  %conv.i84 = trunc i64 %cond.i83 to i32
+  call void %158(ptr noundef %159, ptr noundef %add.ptr.i, i32 noundef %conv.i84) #25
+  call void @mixeng_clear(ptr noundef %add.ptr.i, i32 noundef %conv.i84) #25
   %cb.040.i = load ptr, ptr %cb_head.i, align 8
   %tobool8.not41.i = icmp eq ptr %cb.040.i, null
-  br i1 %tobool8.not41.i, label %for.end.i87, label %for.body9.i
+  br i1 %tobool8.not41.i, label %for.end.i86, label %for.body9.i
 
-for.body9.i:                                      ; preds = %while.body.i82, %for.body9.i
-  %cb.042.i = phi ptr [ %cb.0.i, %for.body9.i ], [ %cb.040.i, %while.body.i82 ]
+for.body9.i:                                      ; preds = %while.body.i81, %for.body9.i
+  %cb.042.i = phi ptr [ %cb.0.i, %for.body9.i ], [ %cb.040.i, %while.body.i81 ]
   %capture.i = getelementptr inbounds nuw i8, ptr %cb.042.i, i64 8
-  %159 = load ptr, ptr %capture.i, align 8
+  %160 = load ptr, ptr %capture.i, align 8
   %opaque.i = getelementptr inbounds nuw i8, ptr %cb.042.i, i64 24
-  %160 = load ptr, ptr %opaque.i, align 8
-  %161 = load ptr, ptr %buf.i, align 8
-  %162 = load i32, ptr %bytes_per_frame.i80, align 4
-  %conv12.i = mul i32 %162, %conv.i85
-  call void %159(ptr noundef %160, ptr noundef %161, i32 noundef %conv12.i) #25
-  %entries.i86 = getelementptr inbounds nuw i8, ptr %cb.042.i, i64 32
-  %cb.0.i = load ptr, ptr %entries.i86, align 8
+  %161 = load ptr, ptr %opaque.i, align 8
+  %162 = load ptr, ptr %buf.i, align 8
+  %163 = load i32, ptr %bytes_per_frame.i79, align 4
+  %conv12.i = mul i32 %163, %conv.i84
+  call void %160(ptr noundef %161, ptr noundef %162, i32 noundef %conv12.i) #25
+  %entries.i85 = getelementptr inbounds nuw i8, ptr %cb.042.i, i64 32
+  %cb.0.i = load ptr, ptr %entries.i85, align 8
   %tobool8.not.i = icmp eq ptr %cb.0.i, null
-  br i1 %tobool8.not.i, label %for.end.i87, label %for.body9.i, !llvm.loop !31
+  br i1 %tobool8.not.i, label %for.end.i86, label %for.body9.i, !llvm.loop !31
 
-for.end.i87:                                      ; preds = %for.body9.i, %while.body.i82
-  %add.i88 = add i64 %cond.i84, %rpos.044.i
-  %163 = load i64, ptr %size.i78, align 8
-  %rem.i = urem i64 %add.i88, %163
-  %sub15.i = sub i64 %live.045.i, %cond.i84
+for.end.i86:                                      ; preds = %for.body9.i, %while.body.i81
+  %add.i87 = add i64 %cond.i83, %rpos.044.i
+  %164 = load i64, ptr %size.i77, align 8
+  %rem.i = urem i64 %add.i87, %164
+  %sub15.i = sub i64 %live.045.i, %cond.i83
   %tobool2.not.i = icmp eq i64 %sub15.i, 0
-  br i1 %tobool2.not.i, label %while.end.i, label %while.body.i82, !llvm.loop !32
+  br i1 %tobool2.not.i, label %while.end.i, label %while.body.i81, !llvm.loop !32
 
-while.end.i:                                      ; preds = %for.end.i87, %for.body.i76
-  %rpos.0.lcssa.i = phi i64 [ %154, %for.body.i76 ], [ %rem.i, %for.end.i87 ]
-  store i64 %rpos.0.lcssa.i, ptr %mix_buf.i77, align 8
-  %sw_head.i89 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 128
-  %sw.046.i = load ptr, ptr %sw_head.i89, align 8
+while.end.i:                                      ; preds = %for.end.i86, %for.body.i75
+  %rpos.0.lcssa.i = phi i64 [ %155, %for.body.i75 ], [ %rem.i, %for.end.i86 ]
+  store i64 %rpos.0.lcssa.i, ptr %mix_buf.i76, align 8
+  %sw_head.i88 = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 128
+  %sw.046.i = load ptr, ptr %sw_head.i88, align 8
   %tobool20.not47.i = icmp eq ptr %sw.046.i, null
   br i1 %tobool20.not47.i, label %for.inc42.i, label %for.body21.i
 
 for.body21.i:                                     ; preds = %while.end.i, %for.inc38.i
-  %sw.049.i = phi ptr [ %sw.0.i93, %for.inc38.i ], [ %sw.046.i, %while.end.i ]
+  %sw.049.i = phi ptr [ %sw.0.i92, %for.inc38.i ], [ %sw.046.i, %while.end.i ]
   %captured.048.i = phi i64 [ %captured.1.i, %for.inc38.i ], [ %call.i, %while.end.i ]
-  %active.i90 = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 96
-  %164 = load i32, ptr %active.i90, align 8
-  %tobool22.not.i = icmp eq i32 %164, 0
-  br i1 %tobool22.not.i, label %land.lhs.true.i, label %if.end.i91
+  %active.i89 = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 96
+  %165 = load i32, ptr %active.i89, align 8
+  %tobool22.not.i = icmp eq i32 %165, 0
+  br i1 %tobool22.not.i, label %land.lhs.true.i, label %if.end.i90
 
 land.lhs.true.i:                                  ; preds = %for.body21.i
-  %empty.i97 = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 100
-  %165 = load i32, ptr %empty.i97, align 4
-  %tobool23.not.i = icmp eq i32 %165, 0
-  br i1 %tobool23.not.i, label %if.end.i91, label %for.inc38.i
+  %empty.i96 = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 100
+  %166 = load i32, ptr %empty.i96, align 4
+  %tobool23.not.i = icmp eq i32 %166, 0
+  br i1 %tobool23.not.i, label %if.end.i90, label %for.inc38.i
 
-if.end.i91:                                       ; preds = %land.lhs.true.i, %for.body21.i
+if.end.i90:                                       ; preds = %land.lhs.true.i, %for.body21.i
   %total_hw_samples_mixed.i = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 88
-  %166 = load i64, ptr %total_hw_samples_mixed.i, align 8
-  %cmp24.not.i = icmp ugt i64 %captured.048.i, %166
-  br i1 %cmp24.not.i, label %if.then.i.i94, label %if.end31.i
+  %167 = load i64, ptr %total_hw_samples_mixed.i, align 8
+  %cmp24.not.i = icmp ugt i64 %captured.048.i, %167
+  br i1 %cmp24.not.i, label %if.then.i.i93, label %if.end31.i
 
-if.then.i.i94:                                    ; preds = %if.end.i91
+if.then.i.i93:                                    ; preds = %if.end.i90
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.audio_run_capture)
-  %.b.i.i95 = load i1, ptr @audio_bug.shown, align 4
-  br i1 %.b.i.i95, label %if.then28.i, label %if.then2.i.i96
+  %.b.i.i94 = load i1, ptr @audio_bug.shown, align 4
+  br i1 %.b.i.i94, label %if.then28.i, label %if.then2.i.i95
 
-if.then2.i.i96:                                   ; preds = %if.then.i.i94
+if.then2.i.i95:                                   ; preds = %if.then.i.i93
   store i1 true, ptr @audio_bug.shown, align 4
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
   br label %if.then28.i
 
-if.then28.i:                                      ; preds = %if.then2.i.i96, %if.then.i.i94
+if.then28.i:                                      ; preds = %if.then2.i.i95, %if.then.i.i93
   call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
-  %167 = load i64, ptr %total_hw_samples_mixed.i, align 8
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.70, i64 noundef %captured.048.i, i64 noundef %167)
   %168 = load i64, ptr %total_hw_samples_mixed.i, align 8
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.70, i64 noundef %captured.048.i, i64 noundef %168)
+  %169 = load i64, ptr %total_hw_samples_mixed.i, align 8
   br label %if.end31.i
 
-if.end31.i:                                       ; preds = %if.then28.i, %if.end.i91
-  %169 = phi i64 [ %168, %if.then28.i ], [ %166, %if.end.i91 ]
-  %captured.2.i = phi i64 [ %168, %if.then28.i ], [ %captured.048.i, %if.end.i91 ]
-  %sub33.i = sub i64 %169, %captured.2.i
+if.end31.i:                                       ; preds = %if.then28.i, %if.end.i90
+  %170 = phi i64 [ %169, %if.then28.i ], [ %167, %if.end.i90 ]
+  %captured.2.i = phi i64 [ %169, %if.then28.i ], [ %captured.048.i, %if.end.i90 ]
+  %sub33.i = sub i64 %170, %captured.2.i
   store i64 %sub33.i, ptr %total_hw_samples_mixed.i, align 8
-  %cmp35.i = icmp eq i64 %169, %captured.2.i
-  %conv36.i92 = zext i1 %cmp35.i to i32
+  %cmp35.i = icmp eq i64 %170, %captured.2.i
+  %conv36.i91 = zext i1 %cmp35.i to i32
   %empty37.i = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 100
-  store i32 %conv36.i92, ptr %empty37.i, align 4
+  store i32 %conv36.i91, ptr %empty37.i, align 4
   br label %for.inc38.i
 
 for.inc38.i:                                      ; preds = %if.end31.i, %land.lhs.true.i
   %captured.1.i = phi i64 [ %captured.2.i, %if.end31.i ], [ %captured.048.i, %land.lhs.true.i ]
   %entries39.i = getelementptr inbounds nuw i8, ptr %sw.049.i, i64 160
-  %sw.0.i93 = load ptr, ptr %entries39.i, align 8
-  %tobool20.not.i = icmp eq ptr %sw.0.i93, null
+  %sw.0.i92 = load ptr, ptr %entries39.i, align 8
+  %tobool20.not.i = icmp eq ptr %sw.0.i92, null
   br i1 %tobool20.not.i, label %for.inc42.i, label %for.body21.i, !llvm.loop !33
 
 for.inc42.i:                                      ; preds = %for.inc38.i, %while.end.i
   %entries43.i = getelementptr inbounds nuw i8, ptr %cap.052.i, i64 184
   %cap.0.i = load ptr, ptr %entries43.i, align 8
   %tobool.not.i = icmp eq ptr %cap.0.i, null
-  br i1 %tobool.not.i, label %audio_run_capture.exit, label %for.body.i76, !llvm.loop !34
+  br i1 %tobool.not.i, label %audio_run_capture.exit, label %for.body.i75, !llvm.loop !34
 
 audio_run_capture.exit:                           ; preds = %for.inc42.i, %audio_run_in.exit
   ret void

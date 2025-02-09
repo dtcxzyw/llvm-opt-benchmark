@@ -2104,7 +2104,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %rem.i = urem i64 %2, 3
-  %div.i = udiv i64 %2, 3
+  %div.i = udiv exact i64 %2, 3
   %tobool.not.i = icmp eq i64 %rem.i, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then2.i
 
@@ -2473,7 +2473,7 @@ if.end.i75:                                       ; preds = %if.end24
   %sext = shl i64 %33, 32
   %conv.i = ashr exact i64 %sext, 32
   %rem.i76 = urem i64 %37, %conv.i
-  %div.i83 = udiv i64 %37, %conv.i
+  %div.i83 = udiv exact i64 %37, %conv.i
   %tobool.not.i77 = icmp eq i64 %rem.i76, 0
   br i1 %tobool.not.i77, label %if.end5.i81, label %if.then2.i78
 
@@ -3832,7 +3832,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %rem.i.i = urem i64 %5, 3
-  %div.i.i = udiv i64 %5, 3
+  %div.i.i = udiv exact i64 %5, 3
   %tobool.not.i10.i = icmp eq i64 %rem.i.i, 0
   br i1 %tobool.not.i10.i, label %if.end5.i.i, label %if.then2.i.i
 
@@ -3844,7 +3844,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %lookedUp.i.i = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i8 1, ptr %lookedUp.i.i, align 8, !noalias !99
-  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693952
+  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693950
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
@@ -3972,7 +3972,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %rem.i.i = urem i64 %5, 3
-  %div.i.i = udiv i64 %5, 3
+  %div.i.i = udiv exact i64 %5, 3
   %tobool.not.i10.i = icmp eq i64 %rem.i.i, 0
   br i1 %tobool.not.i10.i, label %if.end5.i.i, label %if.then2.i.i
 
@@ -3984,7 +3984,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %lookedUp.i.i = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i8 1, ptr %lookedUp.i.i, align 8, !noalias !107
-  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693952
+  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693950
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN4pbrt7Vector3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
@@ -4112,7 +4112,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %rem.i.i = urem i64 %5, 3
-  %div.i.i = udiv i64 %5, 3
+  %div.i.i = udiv exact i64 %5, 3
   %tobool.not.i10.i = icmp eq i64 %rem.i.i, 0
   br i1 %tobool.not.i10.i, label %if.end5.i.i, label %if.then2.i.i
 
@@ -4124,7 +4124,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %lookedUp.i.i = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i8 1, ptr %lookedUp.i.i, align 8, !noalias !115
-  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693952
+  %cmp.i.i.i.i = icmp ugt i64 %5, 2305843009213693950
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
@@ -4769,7 +4769,7 @@ if.then:                                          ; preds = %land.lhs.true
   %nStored.i20 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load i64, ptr %nStored.i20, align 8
   %rem = urem i64 %5, 3
-  %div = udiv i64 %5, 3
+  %div = udiv exact i64 %5, 3
   %tobool.not = icmp eq i64 %rem, 0
   br i1 %tobool.not, label %if.end, label %if.then7
 
@@ -4779,7 +4779,7 @@ if.then7:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %cmp.i.i22 = icmp ugt i64 %5, 2305843009213693952
+  %cmp.i.i22 = icmp ugt i64 %5, 2305843009213693950
   br i1 %cmp.i.i22, label %if.then.i.i, label %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -4788,14 +4788,14 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i = icmp samesign ult i64 %5, 3
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %for.body17.lr.ph
+  %cmp.not.i.i.i.i = icmp eq i64 %5, 0
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %invoke.cont
 
 invoke.cont.thread:                               ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %for.end
 
-for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+invoke.cont:                                      ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %div, 12
   %call5.i.i.i.i2.i.i23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store ptr %call5.i.i.i.i2.i.i23, ptr %agg.result, align 8
@@ -4806,6 +4806,10 @@ for.body17.lr.ph:                                 ; preds = %_ZNSt6vectorIN4pbrt
   %6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %6, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
+  %cmp1635.not = icmp samesign ult i64 %5, 3
+  br i1 %cmp1635.not, label %for.end, label %for.body17.lr.ph
+
+for.body17.lr.ph:                                 ; preds = %invoke.cont
   %ptr.i25 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.pre = load ptr, ptr %ptr.i25, align 8
   br label %for.body17
@@ -4829,7 +4833,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %cmp16 = icmp samesign ugt i64 %div, %indvars.iv.next
   br i1 %cmp16, label %for.body17, label %for.end, !llvm.loop !123
 
-for.end:                                          ; preds = %for.body17, %invoke.cont.thread
+for.end:                                          ; preds = %for.body17, %invoke.cont.thread, %invoke.cont
   %lookedUp = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i8 1, ptr %lookedUp, align 8
   br label %return

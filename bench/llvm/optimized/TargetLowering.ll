@@ -14373,7 +14373,7 @@ _ZNK4llvm3EVT8isVectorEv.exit4523:                ; preds = %_ZNK4llvm3EVTneES0_
   %.not.i45215200 = phi i1 [ false, %_ZNK4llvm3EVTneES0_.exit.thread5166.thread ], [ true, %_ZNK4llvm3EVT8isVectorEv.exit4523 ]
   %4237 = phi i16 [ %4233, %_ZNK4llvm3EVTneES0_.exit.thread5166.thread ], [ 0, %_ZNK4llvm3EVT8isVectorEv.exit4523 ]
   %4238 = urem i32 %329, %4159
-  %4239 = udiv i32 %329, %4159
+  %4239 = udiv exact i32 %329, %4159
   %4240 = icmp eq i32 %4238, 0
   br i1 %4240, label %4241, label %4376
 
@@ -14409,7 +14409,7 @@ _ZN4llvm5APInt7getZeroEj.exit4524:                ; preds = %4245, %4246
   br label %_ZN4llvm5APInt7getZeroEj.exit4525
 
 _ZN4llvm5APInt7getZeroEj.exit4525:                ; preds = %4249, %4250
-  %.not36745297 = icmp ult i32 %329, %4159
+  %.not36745297 = icmp eq i32 %329, 0
   br i1 %.not36745297, label %._crit_edge5304, label %.lr.ph5303
 
 .lr.ph5303:                                       ; preds = %_ZN4llvm5APInt7getZeroEj.exit4525
@@ -14689,7 +14689,7 @@ _ZN4llvm5APIntD2Ev.exit4534:                      ; preds = %_ZN4llvm5APIntD2Ev.
 
 4378:                                             ; preds = %4376
   %4379 = urem i32 %4159, %329
-  %4380 = udiv i32 %4159, %329
+  %4380 = udiv exact i32 %4159, %329
   %4381 = icmp eq i32 %4379, 0
   br i1 %4381, label %4382, label %4483
 
@@ -16247,7 +16247,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %.critedge375
 
 122:                                              ; preds = %119, %_ZNK4llvm3EVT8isVectorEv.exit
   %123 = urem i32 %111, %109
-  %124 = udiv i32 %111, %109
+  %124 = udiv exact i32 %111, %109
   %125 = icmp eq i32 %123, 0
   br i1 %125, label %126, label %254
 
@@ -16283,7 +16283,7 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %130, %131
   br label %_ZN4llvm5APInt7getZeroEj.exit417
 
 _ZN4llvm5APInt7getZeroEj.exit417:                 ; preds = %134, %135
-  %.not371625 = icmp ugt i32 %109, %111
+  %.not371625 = icmp eq i32 %111, 0
   br i1 %.not371625, label %._crit_edge632, label %.lr.ph631
 
 .lr.ph631:                                        ; preds = %_ZN4llvm5APInt7getZeroEj.exit417
@@ -16551,7 +16551,7 @@ _ZN4llvm5APIntD2Ev.exit421:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 255:                                              ; preds = %254
   %256 = urem i32 %109, %111
-  %257 = udiv i32 %109, %111
+  %257 = udiv exact i32 %109, %111
   %258 = icmp eq i32 %256, 0
   br i1 %258, label %259, label %335
 
@@ -22228,7 +22228,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %420
   store i32 1, ptr %441, align 8, !tbaa !411
   store i64 0, ptr %29, align 8, !tbaa !350
   %442 = urem i32 %162, %433
-  %443 = udiv i32 %162, %433
+  %443 = udiv exact i32 %162, %433
   %444 = icmp eq i32 %442, 0
   br i1 %444, label %445, label %.loopexit
 
@@ -22299,8 +22299,7 @@ _ZN4llvm5APInt7getZeroEj.exit1125:                ; preds = %464, %465
   br i1 %471, label %.critedge1067, label %.preheader1524
 
 .preheader1524:                                   ; preds = %._crit_edge1568
-  %.not10621576 = icmp ugt i32 %433, %162
-  br i1 %.not10621576, label %._crit_edge1581, label %.lr.ph1580
+  br i1 %.not10611565, label %._crit_edge1581, label %.lr.ph1580
 
 .lr.ph1580:                                       ; preds = %.preheader1524
   %472 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -22590,7 +22589,7 @@ _ZN4llvm5APIntD2Ev.exit1133:                      ; preds = %.critedge1067, %608
 
 .loopexit:                                        ; preds = %604, %438
   %612 = urem i32 %433, %162
-  %613 = udiv i32 %433, %162
+  %613 = udiv exact i32 %433, %162
   %614 = icmp eq i32 %612, 0
   br i1 %614, label %615, label %.critedge1069
 

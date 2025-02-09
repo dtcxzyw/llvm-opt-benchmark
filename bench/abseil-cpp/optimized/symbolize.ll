@@ -2879,7 +2879,7 @@ cond.false.i.i.i.i:                               ; preds = %_ZN4absl18debugging
 
 cond.end.i.i.i.i:                                 ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i79.i.i.i
   %rem.i82.i.i.i = urem i64 %retval.0.i.i80.i.i.i, 24
-  %div11.i.i.i.i = udiv i64 %retval.0.i.i80.i.i.i, 24
+  %div11.i.i.i.i = udiv exact i64 %retval.0.i.i80.i.i.i, 24
   %cmp7.i.i.i.i = icmp eq i64 %rem.i82.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %cond.end10.i.i.i.i, label %cond.false9.i.i.i.i
 
@@ -2892,7 +2892,7 @@ cond.end10.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
   br i1 %cmp12.not.i.i101.i.i, label %cond.false14.i.i.i.i, label %for.cond16.preheader.i.i.i.i
 
 for.cond16.preheader.i.i.i.i:                     ; preds = %cond.end10.i.i.i.i
-  %cmp1748.not.i.i.i.i = icmp samesign ult i64 %retval.0.i.i80.i.i.i, 24
+  %cmp1748.not.i.i.i.i = icmp eq i64 %retval.0.i.i80.i.i.i, 0
   br i1 %cmp1748.not.i.i.i.i, label %for.end.i86.i.i.i, label %for.body18.i.i.i.i
 
 cond.false14.i.i.i.i:                             ; preds = %cond.end10.i.i.i.i

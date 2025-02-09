@@ -21793,7 +21793,7 @@ define internal fastcc { i1, i8 } @_ZN17cranelift_codegen8machinst4isle26shuffle
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %11 = load i8, ptr %1, align 1, !noundef !4
   %12 = urem i8 %11, %0
-  %13 = udiv i8 %11, %0
+  %13 = udiv exact i8 %11, %0
   %14 = icmp eq i8 %12, 0
   br i1 %14, label %15, label %.loopexit
 
@@ -36973,23 +36973,23 @@ define i24 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift
   %20 = load i8, ptr %14, align 1, !alias.scope !5111, !noundef !4
   %21 = and i8 %20, 7
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.preheader35, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %22, label %.preheader41, label %.thread
 
-.preheader35:                                     ; preds = %19, %24
+.preheader41:                                     ; preds = %19, %24
   %23 = phi i8 [ %25, %24 ], [ %20, %19 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 0, %19 ]
   %cond = icmp eq i64 %indvars.iv.i, 7
   br i1 %cond, label %28, label %24, !prof !5114
 
-24:                                               ; preds = %.preheader35
+24:                                               ; preds = %.preheader41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = add i8 %23, 1
   %26 = getelementptr inbounds nuw [0 x i8], ptr %14, i64 0, i64 %indvars.iv.next.i
   %27 = load i8, ptr %26, align 1, !alias.scope !5111, !noundef !4
   %.not10.i = icmp eq i8 %25, %27
-  br i1 %.not10.i, label %.preheader35, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i, label %.preheader41, label %.thread
 
-28:                                               ; preds = %.preheader35
+28:                                               ; preds = %.preheader41
   %29 = lshr exact i8 %20, 3
   %30 = icmp ult i64 %16, 16
   br i1 %30, label %31, label %32
@@ -37003,13 +37003,13 @@ define i24 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift
   %34 = load i8, ptr %33, align 1, !alias.scope !5118, !noundef !4
   %35 = and i8 %34, 7
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %.preheader, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %36, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %32, %38
   %37 = phi i8 [ %39, %38 ], [ %34, %32 ]
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %38 ], [ 0, %32 ]
-  %cond38 = icmp eq i64 %indvars.iv.i18, 7
-  br i1 %cond38, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24, label %38, !prof !5114
+  %cond44 = icmp eq i64 %indvars.iv.i18, 7
+  br i1 %cond44, label %42, label %38, !prof !5114
 
 38:                                               ; preds = %.preheader
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -37017,21 +37017,21 @@ define i24 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift
   %40 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %indvars.iv.next.i20
   %41 = load i8, ptr %40, align 1, !alias.scope !5118, !noundef !4
   %.not10.i23 = icmp eq i8 %39, %41
-  br i1 %.not10.i23, label %.preheader, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i23, label %.preheader, label %.thread
 
-_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24: ; preds = %.preheader
-  %42 = lshr exact i8 %34, 3
-  br label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+42:                                               ; preds = %.preheader
+  %43 = lshr exact i8 %34, 3
+  br label %.thread
 
-_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread: ; preds = %24, %38, %32, %19, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24
-  %.sroa.4.0.i29 = phi i8 [ %29, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ %29, %32 ], [ %29, %38 ], [ undef, %24 ]
-  %.sroa.5.0 = phi i8 [ %42, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
-  %.sroa.0.1 = phi i8 [ 1, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ 0, %19 ], [ 0, %32 ], [ 0, %38 ], [ 0, %24 ]
+.thread:                                          ; preds = %24, %38, %32, %19, %42
+  %.sroa.5.0 = phi i8 [ %43, %42 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
+  %.sroa.4.0 = phi i8 [ %29, %42 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
+  %.sroa.0.1 = phi i8 [ 1, %42 ], [ 0, %19 ], [ 0, %32 ], [ 0, %38 ], [ 0, %24 ]
   %.sroa.5.0.insert.ext = zext i8 %.sroa.5.0 to i24
   %.sroa.5.0.insert.shift = shl nuw i24 %.sroa.5.0.insert.ext, 16
-  %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0.i29 to i24
+  %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw nsw i24 %.sroa.4.0.insert.ext, 8
-  %.sroa.4.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
+  %.sroa.4.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.5.0.insert.shift
   %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.1 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
@@ -37237,23 +37237,23 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %21 = load i8, ptr %15, align 1, !alias.scope !5166, !noundef !4
   %22 = and i8 %21, 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.preheader144, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %23, label %.preheader172, label %.thread
 
-.preheader144:                                    ; preds = %20, %25
+.preheader172:                                    ; preds = %20, %25
   %24 = phi i8 [ %26, %25 ], [ %21, %20 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %20 ]
   %cond = icmp eq i64 %indvars.iv.i, 1
   br i1 %cond, label %29, label %25, !prof !5114
 
-25:                                               ; preds = %.preheader144
+25:                                               ; preds = %.preheader172
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = add i8 %24, 1
   %27 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %indvars.iv.next.i
   %28 = load i8, ptr %27, align 1, !alias.scope !5166, !noundef !4
   %.not10.i = icmp eq i8 %26, %28
-  br i1 %.not10.i, label %.preheader144, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i, label %.preheader172, label %.thread
 
-29:                                               ; preds = %.preheader144
+29:                                               ; preds = %.preheader172
   %30 = lshr exact i8 %21, 1
   %31 = icmp ult i64 %17, 4
   br i1 %31, label %32, label %33
@@ -37267,23 +37267,23 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %35 = load i8, ptr %34, align 1, !alias.scope !5172, !noundef !4
   %36 = and i8 %35, 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.preheader142, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %37, label %.preheader170, label %.thread
 
-.preheader142:                                    ; preds = %33, %39
+.preheader170:                                    ; preds = %33, %39
   %38 = phi i8 [ %40, %39 ], [ %35, %33 ]
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i65, %39 ], [ 0, %33 ]
-  %cond151 = icmp eq i64 %indvars.iv.i63, 1
-  br i1 %cond151, label %43, label %39, !prof !5114
+  %cond179 = icmp eq i64 %indvars.iv.i63, 1
+  br i1 %cond179, label %43, label %39, !prof !5114
 
-39:                                               ; preds = %.preheader142
+39:                                               ; preds = %.preheader170
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 1
   %40 = add i8 %38, 1
   %41 = getelementptr inbounds nuw [0 x i8], ptr %34, i64 0, i64 %indvars.iv.next.i65
   %42 = load i8, ptr %41, align 1, !alias.scope !5172, !noundef !4
   %.not10.i68 = icmp eq i8 %40, %42
-  br i1 %.not10.i68, label %.preheader142, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i68, label %.preheader170, label %.thread
 
-43:                                               ; preds = %.preheader142
+43:                                               ; preds = %.preheader170
   %44 = lshr exact i8 %35, 1
   %45 = icmp ult i64 %17, 6
   br i1 %45, label %46, label %47
@@ -37297,23 +37297,23 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %49 = load i8, ptr %48, align 1, !alias.scope !5178, !noundef !4
   %50 = and i8 %49, 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.preheader140, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %51, label %.preheader168, label %.thread
 
-.preheader140:                                    ; preds = %47, %53
+.preheader168:                                    ; preds = %47, %53
   %52 = phi i8 [ %54, %53 ], [ %49, %47 ]
   %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i75, %53 ], [ 0, %47 ]
-  %cond152 = icmp eq i64 %indvars.iv.i73, 1
-  br i1 %cond152, label %57, label %53, !prof !5114
+  %cond180 = icmp eq i64 %indvars.iv.i73, 1
+  br i1 %cond180, label %57, label %53, !prof !5114
 
-53:                                               ; preds = %.preheader140
+53:                                               ; preds = %.preheader168
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %54 = add i8 %52, 1
   %55 = getelementptr inbounds nuw [0 x i8], ptr %48, i64 0, i64 %indvars.iv.next.i75
   %56 = load i8, ptr %55, align 1, !alias.scope !5178, !noundef !4
   %.not10.i78 = icmp eq i8 %54, %56
-  br i1 %.not10.i78, label %.preheader140, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i78, label %.preheader168, label %.thread
 
-57:                                               ; preds = %.preheader140
+57:                                               ; preds = %.preheader168
   %58 = lshr exact i8 %49, 1
   %59 = icmp ult i64 %17, 8
   br i1 %59, label %60, label %61
@@ -37327,23 +37327,23 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %63 = load i8, ptr %62, align 1, !alias.scope !5184, !noundef !4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %.preheader138, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %65, label %.preheader166, label %.thread
 
-.preheader138:                                    ; preds = %61, %67
+.preheader166:                                    ; preds = %61, %67
   %66 = phi i8 [ %68, %67 ], [ %63, %61 ]
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %67 ], [ 0, %61 ]
-  %cond153 = icmp eq i64 %indvars.iv.i83, 1
-  br i1 %cond153, label %71, label %67, !prof !5114
+  %cond181 = icmp eq i64 %indvars.iv.i83, 1
+  br i1 %cond181, label %71, label %67, !prof !5114
 
-67:                                               ; preds = %.preheader138
+67:                                               ; preds = %.preheader166
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %68 = add i8 %66, 1
   %69 = getelementptr inbounds nuw [0 x i8], ptr %62, i64 0, i64 %indvars.iv.next.i85
   %70 = load i8, ptr %69, align 1, !alias.scope !5184, !noundef !4
   %.not10.i88 = icmp eq i8 %68, %70
-  br i1 %.not10.i88, label %.preheader138, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i88, label %.preheader166, label %.thread
 
-71:                                               ; preds = %.preheader138
+71:                                               ; preds = %.preheader166
   %72 = lshr exact i8 %63, 1
   %73 = icmp ult i64 %17, 10
   br i1 %73, label %74, label %75
@@ -37357,23 +37357,23 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %77 = load i8, ptr %76, align 1, !alias.scope !5190, !noundef !4
   %78 = and i8 %77, 1
   %79 = icmp eq i8 %78, 0
-  br i1 %79, label %.preheader136, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %79, label %.preheader164, label %.thread
 
-.preheader136:                                    ; preds = %75, %81
+.preheader164:                                    ; preds = %75, %81
   %80 = phi i8 [ %82, %81 ], [ %77, %75 ]
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i95, %81 ], [ 0, %75 ]
-  %cond154 = icmp eq i64 %indvars.iv.i93, 1
-  br i1 %cond154, label %85, label %81, !prof !5114
+  %cond182 = icmp eq i64 %indvars.iv.i93, 1
+  br i1 %cond182, label %85, label %81, !prof !5114
 
-81:                                               ; preds = %.preheader136
+81:                                               ; preds = %.preheader164
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
   %82 = add i8 %80, 1
   %83 = getelementptr inbounds nuw [0 x i8], ptr %76, i64 0, i64 %indvars.iv.next.i95
   %84 = load i8, ptr %83, align 1, !alias.scope !5190, !noundef !4
   %.not10.i98 = icmp eq i8 %82, %84
-  br i1 %.not10.i98, label %.preheader136, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i98, label %.preheader164, label %.thread
 
-85:                                               ; preds = %.preheader136
+85:                                               ; preds = %.preheader164
   %86 = lshr exact i8 %77, 1
   %87 = icmp ult i64 %17, 12
   br i1 %87, label %88, label %89
@@ -37387,13 +37387,13 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %91 = load i8, ptr %90, align 1, !alias.scope !5196, !noundef !4
   %92 = and i8 %91, 1
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %.preheader, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %93, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %89, %95
   %94 = phi i8 [ %96, %95 ], [ %91, %89 ]
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i105, %95 ], [ 0, %89 ]
-  %cond155 = icmp eq i64 %indvars.iv.i103, 1
-  br i1 %cond155, label %99, label %95, !prof !5114
+  %cond183 = icmp eq i64 %indvars.iv.i103, 1
+  br i1 %cond183, label %99, label %95, !prof !5114
 
 95:                                               ; preds = %.preheader
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i103, 1
@@ -37401,7 +37401,7 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %97 = getelementptr inbounds nuw [0 x i8], ptr %90, i64 0, i64 %indvars.iv.next.i105
   %98 = load i8, ptr %97, align 1, !alias.scope !5196, !noundef !4
   %.not10.i108 = icmp eq i8 %96, %98
-  br i1 %.not10.i108, label %.preheader, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %.not10.i108, label %.preheader, label %.thread
 
 99:                                               ; preds = %.preheader
   %100 = lshr exact i8 %91, 1
@@ -37417,7 +37417,7 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %104 = tail call fastcc { i1, i8 } @_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE(i8 noundef 2, ptr noalias noundef nonnull readonly align 1 %103, i64 noundef 2)
   %105 = extractvalue { i1, i8 } %104, 0
   %106 = extractvalue { i1, i8 } %104, 1
-  br i1 %105, label %107, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %105, label %107, label %.thread
 
 107:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit110"
   %108 = icmp ult i64 %17, 16
@@ -37431,7 +37431,7 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   %110 = getelementptr inbounds nuw i8, ptr %15, i64 14
   %111 = tail call fastcc { i1, i8 } @_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE(i8 noundef 2, ptr noalias noundef nonnull readonly align 1 %110, i64 noundef 2)
   %112 = extractvalue { i1, i8 } %111, 0
-  br i1 %112, label %113, label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit111"
   %114 = extractvalue { i1, i8 } %111, 1
@@ -37451,9 +37451,9 @@ define void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelif
   store i8 %106, ptr %.sroa.17.0..sroa_idx, align 1
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %114, ptr %.sroa.18.0..sroa_idx, align 1
-  br label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
+  br label %.thread
 
-_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread: ; preds = %25, %39, %53, %67, %81, %95, %89, %75, %61, %47, %33, %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit111", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit110", %113
+.thread:                                          ; preds = %25, %39, %53, %67, %81, %95, %89, %75, %61, %47, %33, %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit111", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit110", %113
   %storemerge = phi i8 [ 1, %113 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit111" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63e191f08340c08bE.llvm.14502953478370073462.exit110" ], [ 0, %20 ], [ 0, %33 ], [ 0, %47 ], [ 0, %61 ], [ 0, %75 ], [ 0, %89 ], [ 0, %95 ], [ 0, %81 ], [ 0, %67 ], [ 0, %53 ], [ 0, %39 ], [ 0, %25 ]
   store i8 %storemerge, ptr %0, align 1
   ret void

@@ -1578,7 +1578,7 @@ thread-pre-split140.i:                            ; preds = %167
 
 212:                                              ; preds = %181
   %213 = urem i32 %.0.126.i, 617
-  %214 = udiv i32 %.0.126.i, 617
+  %214 = udiv exact i32 %.0.126.i, 617
   %.not112.i = icmp eq i32 %213, 0
   br i1 %.not112.i, label %216, label %215
 
@@ -1599,11 +1599,12 @@ thread-pre-split140.i:                            ; preds = %167
   br label %223
 
 223:                                              ; preds = %220, %216
-  %.not143.i = icmp ult i32 %.0.126.i, 617
+  %.not143.i = icmp eq i32 %.0.126.i, 0
   br i1 %.not143.i, label %parsehwp3_infoblk_1.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %223
-  %wide.trip.count.i = zext nneg i32 %214 to i64
+  %umax.i = call i32 @llvm.umax.i32(i32 %214, i32 1)
+  %wide.trip.count.i = zext nneg i32 %umax.i to i64
   %invariant.op = add i64 %119, 296
   br label %.lr.ph.i
 
@@ -2817,6 +2818,9 @@ define internal i32 @hwpml_scan_cb(ptr readnone captures(none) %0, i32 noundef %
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

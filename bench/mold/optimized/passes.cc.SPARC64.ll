@@ -185,9 +185,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::unordered_set.436" = type { %"class.std::_Hashtable.437" }
 %"class.std::_Hashtable.437" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.mold::elf::ElfShdr" = type { %"class.mold::BigEndian", %"class.mold::BigEndian", %"class.mold::BigEndian.317", %"class.mold::BigEndian.317", %"class.mold::BigEndian.317", %"class.mold::BigEndian.317", %"class.mold::BigEndian", %"class.mold::BigEndian", %"class.mold::BigEndian.317", %"class.mold::BigEndian.317" }
-%"struct.mold::elf::ElfRel" = type { %"class.mold::BigEndian.317", %"class.mold::BigEndian", %"class.mold::BigEndian.458", i8, %"class.mold::BigEndian.459" }
-%"class.mold::BigEndian.458" = type { [3 x i8] }
-%"class.mold::BigEndian.459" = type { [8 x i8] }
 %"struct.std::__detail::_AllocNode.1181" = type { ptr }
 %"class.std::unique_ptr.468" = type { %"struct.std::__uniq_ptr_data.469" }
 %"struct.std::__uniq_ptr_data.469" = type { %"class.std::__uniq_ptr_impl.470" }
@@ -227,6 +224,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>, std::allocator<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>, std::allocator<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>, std::allocator<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator.1231" = type { ptr }
+%"struct.mold::elf::ElfRel" = type { %"class.mold::BigEndian.317", %"class.mold::BigEndian", %"class.mold::BigEndian.458", i8, %"class.mold::BigEndian.459" }
+%"class.mold::BigEndian.458" = type { [3 x i8] }
+%"class.mold::BigEndian.459" = type { [8 x i8] }
 %class.anon.547 = type { i8 }
 %class.anon.549 = type { ptr, ptr }
 %class.anon.550 = type { ptr }
@@ -14894,7 +14894,6 @@ if.then.i.i:                                      ; preds = %if.end.i
 _ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i)
   %rem.i = urem i64 %16, 24
-  %div.i = udiv i64 %16, 24
   %tobool.not.i56 = icmp eq i64 %rem.i, 0
   br i1 %tobool.not.i56, label %_ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit, label %if.then.i57
 
@@ -14907,8 +14906,8 @@ if.then.i57:                                      ; preds = %_ZN4mold3elf9InputF
 
 _ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit: ; preds = %_ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i)
-  %add.ptr.i38 = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i55, i64 %div.i
-  %cmp.i39100 = icmp ult i64 %16, 24
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i55, i64 %16
+  %cmp.i39100 = icmp eq i64 %x.0.copyload.i6.i.i, 0
   br i1 %cmp.i39100, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %for.body30
 
 for.body30:                                       ; preds = %_ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit, %for.inc
@@ -19311,7 +19310,6 @@ if.then.i.i131:                                   ; preds = %if.end.i88
 _ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i: ; preds = %if.end.i88
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i)
   %rem.i = urem i64 %55, 24
-  %div.i = udiv i64 %55, 24
   %tobool.not.i124 = icmp eq i64 %rem.i, 0
   br i1 %tobool.not.i124, label %_ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit, label %if.then.i125
 
@@ -19324,8 +19322,8 @@ if.then.i125:                                     ; preds = %_ZN4mold3elf9InputF
 
 _ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit: ; preds = %_ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i120)
-  %add.ptr.i97 = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i122, i64 %div.i
-  %cmp.i98148 = icmp ult i64 %55, 24
+  %add.ptr.i97 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i122, i64 %55
+  %cmp.i98148 = icmp eq i64 %x.0.copyload.i6.i.i, 0
   br i1 %cmp.i98148, label %for.inc66, label %for.body49
 
 for.body49:                                       ; preds = %_ZNK4mold3elf12InputSectionINS0_7SPARC64EE8get_relsERNS0_7ContextIS2_EE.exit, %for.body49
@@ -25481,7 +25479,7 @@ if.then.i.i:                                      ; preds = %if.end.i52
 _ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i: ; preds = %if.end.i52
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i)
   %rem.i = urem i64 %39, 24
-  %div.i = udiv i64 %39, 24
+  %div.i = udiv exact i64 %39, 24
   %tobool.not.i = icmp eq i64 %rem.i, 0
   br i1 %tobool.not.i, label %_ZN4mold3elf9InputFileINS0_7SPARC64EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit, label %if.then.i266
 
@@ -25712,7 +25710,7 @@ if.then.i.i304:                                   ; preds = %if.end.i66
 _ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i295: ; preds = %if.end.i66
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i282)
   %rem.i296 = urem i64 %75, 24
-  %div.i301 = udiv i64 %75, 24
+  %div.i301 = udiv exact i64 %75, 24
   %tobool.not.i297 = icmp eq i64 %rem.i296, 0
   br i1 %tobool.not.i297, label %_ZN4mold3elf9InputFileINS0_7SPARC64EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit308, label %if.then.i298
 
@@ -50317,7 +50315,7 @@ if.then.i:                                        ; preds = %entry
 _ZN4mold3elf9InputFileINS0_7SPARC64EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i)
   %rem = urem i64 %3, 24
-  %div = udiv i64 %3, 24
+  %div = udiv exact i64 %3, 24
   %tobool.not = icmp eq i64 %rem, 0
   br i1 %tobool.not, label %if.end, label %if.then
 

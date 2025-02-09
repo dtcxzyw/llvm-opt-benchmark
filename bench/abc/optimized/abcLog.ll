@@ -441,7 +441,7 @@ Vec_IntFree.exit122:                              ; preds = %108, %109
   %111 = sub nsw i32 %.val109, %.val
   %112 = add nsw i32 %101, 1
   %113 = srem i32 %111, %112
-  %114 = sdiv i32 %111, %112
+  %114 = sdiv exact i32 %111, %112
   %.not102 = icmp eq i32 %113, 0
   br i1 %.not102, label %117, label %115
 

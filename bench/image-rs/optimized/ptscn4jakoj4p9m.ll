@@ -21327,7 +21327,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
 
 82:                                               ; preds = %.critedge.i.i.i
   %83 = urem i64 %71, 3
-  %84 = udiv i64 %71, 3
+  %84 = udiv exact i64 %71, 3
   %85 = icmp eq i64 %83, 0
   br i1 %switch2.i.i.i.i.i, label %89, label %167
 
@@ -21343,11 +21343,11 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
 90:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %32), !noalias !5722
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(768) %32, i8 0, i64 768, i1 false), !noalias !5722
-  %.not128.i.i.i.i.i.i = icmp ult i64 %71, 3
+  %.not128.i.i.i.i.i.i = icmp eq i64 %67, 0
   br i1 %.not128.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %90
-  %91 = udiv i64 %71, 3
+  %91 = udiv exact i64 %71, 3
   %92 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %93 = getelementptr inbounds nuw i8, ptr %30, i64 2
   br label %97
@@ -21606,7 +21606,7 @@ _ZN3qoi6decode18decode_impl_stream17h74a453a118f696f6E.exit.i.i.i.i.i: ; preds =
 168:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %27), !noalias !5737
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(768) %27, i8 0, i64 768, i1 false), !noalias !5737
-  %.not144.i.i.i.i.i.i = icmp ult i64 %71, 3
+  %.not144.i.i.i.i.i.i = icmp eq i64 %67, 0
   br i1 %.not144.i.i.i.i.i.i, label %._crit_edge.i18.i.i.i.i.i, label %.lr.ph.i8.i.i.i.i.i
 
 .lr.ph.i8.i.i.i.i.i:                              ; preds = %168
@@ -22964,7 +22964,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
 
 86:                                               ; preds = %.critedge.i.i.i
   %87 = urem i64 %77, 3
-  %88 = udiv i64 %77, 3
+  %88 = udiv exact i64 %77, 3
   %89 = icmp eq i64 %87, 0
   br i1 %switch.i.i, label %93, label %194
 
@@ -22980,11 +22980,11 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %49), !noalias !5893
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(768) %49, i8 0, i64 768, i1 false), !noalias !5893
-  %.not147.i.i.i.i.i.i = icmp ult i64 %77, 3
+  %.not147.i.i.i.i.i.i = icmp eq i64 %62, 0
   br i1 %.not147.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %94
-  %95 = udiv i64 %77, 3
+  %95 = udiv exact i64 %77, 3
   %.fca.1.gep.i68.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.fca.1.gep.i71.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %47, i64 1
@@ -23286,7 +23286,7 @@ _ZN3qoi6decode18decode_impl_stream17h822e36dcbf89d2b9E.exit.i.i.i.i.i: ; preds =
 195:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %40), !noalias !5928
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(768) %40, i8 0, i64 768, i1 false), !noalias !5928
-  %.not171.i.i.i.i.i.i = icmp ult i64 %77, 3
+  %.not171.i.i.i.i.i.i = icmp eq i64 %62, 0
   br i1 %.not171.i.i.i.i.i.i, label %._crit_edge.i18.i.i.i.i.i, label %.lr.ph.i8.i.i.i.i.i
 
 .lr.ph.i8.i.i.i.i.i:                              ; preds = %195

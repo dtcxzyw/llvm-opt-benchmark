@@ -7171,7 +7171,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i: ; preds = 
 
 if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i
   %rem4.i.i.i.i.i.i.i = srem i32 %126, 86400000
-  %div5.i.i.i.i.i.i.i = sdiv i32 %126, 86400000
+  %div5.i.i.i.i.i.i.i = sdiv exact i32 %126, 86400000
   %cmp6.not.i.i.i.i.i.i.i = icmp eq i32 %rem4.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i
 
@@ -9741,7 +9741,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %rem4.i = srem i32 %20, 86400000
-  %div5.i = sdiv i32 %20, 86400000
+  %div5.i = sdiv exact i32 %20, 86400000
   %cmp6.not.i = icmp eq i32 %rem4.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -10109,7 +10109,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %rem4.i = srem i32 %20, 86400000
-  %div5.i = sdiv i32 %20, 86400000
+  %div5.i = sdiv exact i32 %20, 86400000
   %cmp6.not.i = icmp eq i32 %rem4.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -14474,7 +14474,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i: ; preds = 
 
 if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i = srem i64 %126, 86400000
-  %div.i.i.i.i.i.i.i = sdiv i64 %126, 86400000
+  %div.i.i.i.i.i.i.i = sdiv exact i64 %126, 86400000
   %cmp6.not.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i
 
@@ -15089,7 +15089,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i.i: ; pred
 
 if.end5.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i.i.i = srem i64 %220, 86400000
-  %div.i.i.i.i.i.i.i.i.i = sdiv i64 %220, 86400000
+  %div.i.i.i.i.i.i.i.i.i = sdiv exact i64 %220, 86400000
   %cmp6.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i.i
 
@@ -15263,7 +15263,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i: ; preds 
 
 if.end5.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i.i = srem i64 %255, 86400000
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %255, 86400000
+  %div.i.i.i.i.i.i.i.i = sdiv exact i64 %255, 86400000
   %cmp6.not.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i
 
@@ -15830,7 +15830,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
   %rem.i = srem i64 %20, 86400000
-  %div.i = sdiv i64 %20, 86400000
+  %div.i = sdiv exact i64 %20, 86400000
   %cmp6.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -16043,7 +16043,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i: ; preds = %if.end4.i
 
 if.end5.i.i:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i
   %rem.i.i = srem i64 %49, 86400000
-  %div.i.i = sdiv i64 %49, 86400000
+  %div.i.i = sdiv exact i64 %49, 86400000
   %cmp6.not.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp6.not.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE7getStepEllPNS0_13DecodedVectorEibb.exit.i, label %if.then8.i.i
 
@@ -16871,7 +16871,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i: ; preds = 
 
 if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i = srem i64 %126, 86400000
-  %div.i.i.i.i.i.i.i = sdiv i64 %126, 86400000
+  %div.i.i.i.i.i.i.i = sdiv exact i64 %126, 86400000
   %cmp6.not.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i
 
@@ -17477,7 +17477,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i.i: ; pred
 
 if.end5.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i.i.i = srem i64 %219, 86400000
-  %div.i.i.i.i.i.i.i.i.i = sdiv i64 %219, 86400000
+  %div.i.i.i.i.i.i.i.i.i = sdiv exact i64 %219, 86400000
   %cmp6.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i.i
 
@@ -17644,7 +17644,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i94.i.i.i.i.i: ; pred
 
 if.end5.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i94.i.i.i.i.i
   %rem.i.i.i.i.i.i.i.i = srem i64 %252, 86400000
-  %div.i.i.i.i.i.i.i.i = sdiv i64 %252, 86400000
+  %div.i.i.i.i.i.i.i.i = sdiv exact i64 %252, 86400000
   %cmp6.not.i.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i
 
@@ -18422,7 +18422,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
   %rem.i = srem i64 %20, 86400000
-  %div.i = sdiv i64 %20, 86400000
+  %div.i = sdiv exact i64 %20, 86400000
   %cmp6.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -18626,7 +18626,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i: ; preds = %if.end4.i
 
 if.end5.i.i:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i
   %rem.i.i = srem i64 %49, 86400000
-  %div.i.i = sdiv i64 %49, 86400000
+  %div.i.i = sdiv exact i64 %49, 86400000
   %cmp6.not.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp6.not.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE7getStepEllPNS0_13DecodedVectorEibb.exit.i, label %if.then8.i.i
 
@@ -19486,7 +19486,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i: ; preds = 
 
 if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i
   %rem4.i.i.i.i.i.i.i = srem i32 %126, 86400000
-  %div5.i.i.i.i.i.i.i = sdiv i32 %126, 86400000
+  %div5.i.i.i.i.i.i.i = sdiv exact i32 %126, 86400000
   %cmp6.not.i.i.i.i.i.i.i = icmp eq i32 %rem4.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i
 
@@ -20871,7 +20871,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %rem4.i = srem i32 %20, 86400000
-  %div5.i = sdiv i32 %20, 86400000
+  %div5.i = sdiv exact i32 %20, 86400000
   %cmp6.not.i = icmp eq i32 %rem4.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -21352,7 +21352,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %rem4.i = srem i32 %20, 86400000
-  %div5.i = sdiv i32 %20, 86400000
+  %div5.i = sdiv exact i32 %20, 86400000
   %cmp6.not.i = icmp eq i32 %rem4.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -22472,7 +22472,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i: ; preds = 
 
 if.end5.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i
   %rem.i.i.i.i.i.i.i = srem i64 %126, 86400000
-  %div.i.i.i.i.i.i.i = sdiv i64 %126, 86400000
+  %div.i.i.i.i.i.i.i = sdiv exact i64 %126, 86400000
   %cmp6.not.i.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, 0
   br i1 %cmp6.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE7getStepEllPNS0_13DecodedVectorEibb.exit.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i
 
@@ -23638,7 +23638,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
   %rem.i = srem i64 %20, 86400000
-  %div.i = sdiv i64 %20, 86400000
+  %div.i = sdiv exact i64 %20, 86400000
   %cmp6.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 
@@ -23868,7 +23868,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.end4.i.i
 
 if.end5.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
   %rem.i = srem i64 %20, 86400000
-  %div.i = sdiv i64 %20, 86400000
+  %div.i = sdiv exact i64 %20, 86400000
   %cmp6.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp6.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE7getStepEllPNS0_13DecodedVectorEibb.exit, label %if.then8.i
 

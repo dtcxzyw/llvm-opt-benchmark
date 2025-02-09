@@ -730,7 +730,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
   %76 = getelementptr [22 x %struct.mformatdescr], ptr @mformat_descriptors, i64 0, i64 %75
   %77 = load i64, ptr %76, align 16, !tbaa !41
   %78 = urem i64 %.val170, %77
-  %79 = udiv i64 %.val170, %77
+  %79 = udiv exact i64 %.val170, %77
   %.not142 = icmp eq i64 %78, 0
   br i1 %.not142, label %82, label %80
 
@@ -3082,7 +3082,7 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
   %16 = load i64, ptr %15, align 8, !tbaa !87
   %17 = sext i32 %14 to i64
   %18 = srem i64 %16, %17
-  %19 = sdiv i64 %16, %17
+  %19 = sdiv exact i64 %16, %17
   %.not32.i.i = icmp eq i64 %18, 0
   br i1 %.not32.i.i, label %22, label %20
 
@@ -3094,7 +3094,7 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
 
 22:                                               ; preds = %10
   %23 = icmp sgt i64 %19, 0
-  br i1 %23, label %24, label %45
+  br i1 %23, label %24, label %44
 
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %0, i64 16
@@ -3129,26 +3129,25 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
   %41 = mul i64 %.val.i.i, %17
   %42 = getelementptr i8, ptr %40, i64 %41
   %43 = load ptr, ptr %3, align 8, !tbaa !88
-  %44 = mul i64 %19, %17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %44, i1 false)
-  br label %45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %16, i1 false)
+  br label %44
 
-45:                                               ; preds = %38, %22
+44:                                               ; preds = %38, %22
   call void @PyBuffer_Release(ptr noundef nonnull %3) #11
   br label %array_array_frombytes_impl.exit
 
-array_array_frombytes_impl.exit:                  ; preds = %45, %37, %32, %20, %8, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %20 ], [ @_Py_NoneStruct, %45 ], [ null, %37 ], [ %33, %32 ]
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !89
-  %.not3 = icmp eq ptr %47, null
-  br i1 %.not3, label %49, label %48
+array_array_frombytes_impl.exit:                  ; preds = %44, %37, %32, %20, %8, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %20 ], [ @_Py_NoneStruct, %44 ], [ null, %37 ], [ %33, %32 ]
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !89
+  %.not3 = icmp eq ptr %46, null
+  br i1 %.not3, label %48, label %47
 
-48:                                               ; preds = %array_array_frombytes_impl.exit
+47:                                               ; preds = %array_array_frombytes_impl.exit
   call void @PyBuffer_Release(ptr noundef nonnull %3) #11
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %array_array_frombytes_impl.exit
+48:                                               ; preds = %47, %array_array_frombytes_impl.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
   ret ptr %.0
 }

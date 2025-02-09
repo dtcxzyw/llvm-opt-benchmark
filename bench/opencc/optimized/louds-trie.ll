@@ -7440,7 +7440,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
   %3 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef 8)
   %4 = load i64, ptr %3, align 8
   %5 = urem i64 %4, 12
-  %6 = udiv i64 %4, 12
+  %6 = udiv exact i64 %4, 12
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %7
 
@@ -7460,35 +7460,34 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE4map
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = mul nuw i64 %6, 12
-  %16 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %15)
-  store ptr %16, ptr %14, align 8
-  %17 = sub i64 0, %4
-  %18 = and i64 %17, 7
-  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %6, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit
+  %15 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %4)
+  store ptr %15, ptr %14, align 8
+  %16 = sub i64 0, %4
+  %17 = and i64 %16, 7
+  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %6, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit
 
-23:                                               ; preds = %13
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr @.str.25, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 107, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr @.str.31, ptr %28, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+22:                                               ; preds = %13
+  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr @.str.25, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 107, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 1, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store ptr @.str.31, ptr %27, align 8
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE3fixEv.exit: ; preds = %13
-  store i8 1, ptr %20, align 8
+  store i8 1, ptr %19, align 8
   ret void
 }
 
@@ -8050,7 +8049,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
   call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
   %4 = load i64, ptr %3, align 8
   %5 = urem i64 %4, 12
-  %6 = udiv i64 %4, 12
+  %6 = udiv exact i64 %4, 12
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %7
 
@@ -8145,7 +8144,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %40,
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  %49 = icmp ugt i64 %4, 11
+  %49 = icmp ne i64 %4, 0
   %or.cond.i = and i1 %49, %48
   br i1 %or.cond.i, label %50, label %_ZN6marisa8grimoire2io6Reader4readINS0_6vector9RankIndexEEEvPT_m.exit
 
@@ -8164,12 +8163,11 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %40,
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readINS0_6vector9RankIndexEEEvPT_m.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit
-  %56 = mul nuw i64 %6, 12
-  call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %47, i64 noundef %56)
-  %57 = load i64, ptr %3, align 8
-  %58 = sub i64 0, %57
-  %59 = and i64 %58, 7
-  call void @_ZN6marisa8grimoire2io6Reader4seekEm(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %59)
+  call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %47, i64 noundef %4)
+  %56 = load i64, ptr %3, align 8
+  %57 = sub i64 0, %56
+  %58 = and i64 %57, 7
+  call void @_ZN6marisa8grimoire2io6Reader4seekEm(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %58)
   ret void
 }
 
@@ -15777,7 +15775,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
   %3 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef 8)
   %4 = load i64, ptr %3, align 8
   %5 = urem i64 %4, 12
-  %6 = udiv i64 %4, 12
+  %6 = udiv exact i64 %4, 12
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %7
 
@@ -15797,35 +15795,34 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE4ma
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = mul nuw i64 %6, 12
-  %16 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %15)
-  store ptr %16, ptr %14, align 8
-  %17 = sub i64 0, %4
-  %18 = and i64 %17, 7
-  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %6, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit
+  %15 = tail call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %4)
+  store ptr %15, ptr %14, align 8
+  %16 = sub i64 0, %4
+  %17 = and i64 %16, 7
+  tail call void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 dereferenceable(36) %1, i64 noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %6, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit
 
-23:                                               ; preds = %13
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr @.str.25, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 107, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr @.str.31, ptr %28, align 8
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+22:                                               ; preds = %13
+  %23 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr @.str.25, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 107, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 1, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store ptr @.str.31, ptr %27, align 8
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
 _ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE3fixEv.exit: ; preds = %13
-  store i8 1, ptr %20, align 8
+  store i8 1, ptr %19, align 8
   ret void
 }
 
@@ -15921,7 +15918,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %3, i64 noundef 8)
   %4 = load i64, ptr %3, align 8
   %5 = urem i64 %4, 12
-  %6 = udiv i64 %4, 12
+  %6 = udiv exact i64 %4, 12
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %7
 
@@ -15944,7 +15941,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  %17 = icmp ugt i64 %4, 11
+  %17 = icmp ne i64 %4, 0
   %or.cond.i = and i1 %17, %16
   br i1 %or.cond.i, label %18, label %_ZN6marisa8grimoire2io6Reader4readINS0_4trie5CacheEEEvPT_m.exit
 
@@ -15963,12 +15960,11 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS0_4trie5CacheEE5re
   unreachable
 
 _ZN6marisa8grimoire2io6Reader4readINS0_4trie5CacheEEEvPT_m.exit: ; preds = %13
-  %24 = mul nuw i64 %6, 12
-  call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %15, i64 noundef %24)
-  %25 = load i64, ptr %3, align 8
-  %26 = sub i64 0, %25
-  %27 = and i64 %26, 7
-  call void @_ZN6marisa8grimoire2io6Reader4seekEm(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %27)
+  call void @_ZN6marisa8grimoire2io6Reader9read_dataEPvm(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %15, i64 noundef %4)
+  %24 = load i64, ptr %3, align 8
+  %25 = sub i64 0, %24
+  %26 = and i64 %25, 7
+  call void @_ZN6marisa8grimoire2io6Reader4seekEm(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %26)
   ret void
 }
 
