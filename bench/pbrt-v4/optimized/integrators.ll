@@ -10876,8 +10876,7 @@ cleanup.thread:                                   ; preds = %invoke.cont30
   store <2 x float> %call34.fca.0.extract, ptr %wi32, align 4
   store float %call34.fca.1.extract, ptr %z25, align 4
   %set.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 44
-  %frombool.i = and i8 %21, 1
-  store i8 %frombool.i, ptr %set.i32, align 4
+  store i8 1, ptr %set.i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %agg.result, ptr noundef nonnull align 4 dereferenceable(45) %bs, i64 44, i1 false)
   br label %return
 
@@ -28184,7 +28183,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i: ; preds = %_ZN4pst
   %4 = phi i8 [ 0, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i ], [ %3, %invoke.cont ]
   %5 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %5 to i1
-  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread, label %invoke.cont3
+  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %si, ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp, i64 72, i1 false)
@@ -28202,15 +28201,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread: ; preds = %_ZN4ps
   store i8 0, ptr %set.i3.i, align 8
   br label %invoke.cont10
 
-invoke.cont3:                                     ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
-  %tobool.i.i10 = trunc i8 %5 to i1
-  br i1 %tobool.i.i10, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i11, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i11: ; preds = %invoke.cont3
-  store i8 0, ptr %set.i3.i, align 8
-  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %invoke.cont3, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i11
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %invoke.cont10, label %cleanup
 

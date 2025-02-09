@@ -4484,17 +4484,12 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load volatile i32, ptr @_ZN13CompileBroker24_should_compile_new_jobsE, align 4
   %14 = icmp eq i32 %13, 2
-  br i1 %14, label %..critedge.loopexit_crit_edge, label %_ZN13MonitorLocker4waitEl.exit
+  br i1 %14, label %.critedge, label %_ZN13MonitorLocker4waitEl.exit
 
 15:                                               ; preds = %56
   %16 = load volatile i32, ptr @_ZN13CompileBroker24_should_compile_new_jobsE, align 4
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %..critedge.loopexit_crit_edge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !36
-
-..critedge.loopexit_crit_edge:                    ; preds = %15, %.lr.ph
-  %.lcssa = phi i8 [ %9, %.lr.ph ], [ %57, %15 ]
-  %.pre47 = trunc i8 %.lcssa to i1
-  br label %.critedge
+  br i1 %17, label %.critedge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !36
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
   %.0314358 = phi i32 [ %.13238, %15 ], [ %7, %.lr.ph ]
@@ -4595,19 +4590,18 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
   %62 = trunc i8 %61 to i1
   br label %64
 
-.critedge:                                        ; preds = %..critedge.loopexit_crit_edge, %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %.pre-phi = phi i1 [ true, %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %.pre47, %..critedge.loopexit_crit_edge ]
+.critedge:                                        ; preds = %15, %.lr.ph, %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i8 0, ptr %63, align 8
   br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %64
 
 64:                                               ; preds = %.critedge.thread48, %.critedge.thread, %.critedge
-  %65 = phi i1 [ %62, %.critedge.thread ], [ %.pre-phi, %.critedge ], [ true, %.critedge.thread48 ]
+  %65 = phi i1 [ %62, %.critedge.thread ], [ %10, %.critedge ], [ true, %.critedge.thread48 ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #20
   br label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.critedge, %64
-  %66 = phi i1 [ %.pre-phi, %.critedge ], [ %65, %64 ]
+  %66 = phi i1 [ %10, %.critedge ], [ %65, %64 ]
   ret i1 %66
 }
 

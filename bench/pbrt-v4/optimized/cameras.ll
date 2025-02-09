@@ -1406,13 +1406,8 @@ invoke.cont3:                                     ; preds = %entry
   %rx.sroa.6.0.ref.tmp7.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 20
   br label %for.body
 
-for.cond:                                         ; preds = %invoke.cont12, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx290, 4
-  %cmp.not = icmp eq i64 %__begin1.0.add, 8
-  br i1 %cmp.not, label %for.end, label %for.body
-
-for.body:                                         ; preds = %invoke.cont3, %for.cond
-  %__begin1.0.idx290 = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %for.cond ]
+for.body:                                         ; preds = %invoke.cont3, %invoke.cont12
+  %__begin1.0.idx290 = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %invoke.cont12 ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 %__begin1.0.idx290
   %4 = load float, ptr %__begin1.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp822)
@@ -1430,12 +1425,9 @@ for.body:                                         ; preds = %invoke.cont3, %for.
   br i1 %tobool.i4.i, label %invoke.cont53, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.body
-  %tobool.i.i28 = trunc i8 %5 to i1
-  br i1 %tobool.i.i28, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29, label %for.cond
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29: ; preds = %invoke.cont12
-  store i8 0, ptr %set.i3.i, align 8
-  br label %for.cond
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx290, 4
+  %cmp.not = icmp eq i64 %__begin1.0.add, 8
+  br i1 %cmp.not, label %for.end, label %for.body
 
 invoke.cont53:                                    ; preds = %for.body
   %rx.sroa.0.0.copyload = load float, ptr %ref.tmp7, align 8
@@ -1473,11 +1465,11 @@ invoke.cont53:                                    ; preds = %for.body
   %retval.sroa.0.4.vec.insert.i82 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i81, float %add4.i78, i64 1
   br label %for.end
 
-for.end:                                          ; preds = %for.cond, %invoke.cont53
-  %rd.sroa.28269.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i47, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
-  %rd.sroa.33.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i82, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
-  %rd.sroa.34.0 = phi float [ %add6.i80, %invoke.cont53 ], [ 0.000000e+00, %for.cond ]
-  %rd.sroa.30.0 = phi float [ %add6.i, %invoke.cont53 ], [ 0.000000e+00, %for.cond ]
+for.end:                                          ; preds = %invoke.cont12, %invoke.cont53
+  %rd.sroa.28269.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i47, %invoke.cont53 ], [ zeroinitializer, %invoke.cont12 ]
+  %rd.sroa.33.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i82, %invoke.cont53 ], [ zeroinitializer, %invoke.cont12 ]
+  %rd.sroa.34.0 = phi float [ %add6.i80, %invoke.cont53 ], [ 0.000000e+00, %invoke.cont12 ]
+  %rd.sroa.30.0 = phi float [ %add6.i, %invoke.cont53 ], [ 0.000000e+00, %invoke.cont12 ]
   store float 0x3FA99999A0000000, ptr %ref.tmp60, align 4
   %arrayinit.element62 = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 4
   store float 0xBFA99999A0000000, ptr %arrayinit.element62, align 4
@@ -1494,13 +1486,8 @@ for.end:                                          ; preds = %for.cond, %invoke.c
   %ry.sroa.6.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 20
   br label %for.body72
 
-for.cond70:                                       ; preds = %invoke.cont82, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112
-  %__begin166.0.add = add nuw nsw i64 %__begin166.0.idx298, 4
-  %cmp71.not = icmp eq i64 %__begin166.0.add, 8
-  br i1 %cmp71.not, label %for.end134, label %for.body72
-
-for.body72:                                       ; preds = %for.end, %for.cond70
-  %__begin166.0.idx298 = phi i64 [ 0, %for.end ], [ %__begin166.0.add, %for.cond70 ]
+for.body72:                                       ; preds = %for.end, %invoke.cont82
+  %__begin166.0.idx298 = phi i64 [ 0, %for.end ], [ %__begin166.0.add, %invoke.cont82 ]
   %__begin166.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 %__begin166.0.idx298
   %7 = load float, ptr %__begin166.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7892)
@@ -1519,12 +1506,9 @@ for.body72:                                       ; preds = %for.end, %for.cond7
   br i1 %tobool.i4.i100, label %invoke.cont127, label %invoke.cont82
 
 invoke.cont82:                                    ; preds = %for.body72
-  %tobool.i.i111 = trunc i8 %8 to i1
-  br i1 %tobool.i.i111, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112, label %for.cond70
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112: ; preds = %invoke.cont82
-  store i8 0, ptr %set.i3.i99, align 8
-  br label %for.cond70
+  %__begin166.0.add = add nuw nsw i64 %__begin166.0.idx298, 4
+  %cmp71.not = icmp eq i64 %__begin166.0.add, 8
+  br i1 %cmp71.not, label %for.end134, label %for.body72
 
 invoke.cont127:                                   ; preds = %for.body72
   %ry.sroa.0.0.copyload = load float, ptr %ref.tmp77, align 8
@@ -1562,12 +1546,12 @@ invoke.cont127:                                   ; preds = %for.body72
   %retval.sroa.0.4.vec.insert.i187 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i186, float %add4.i183, i64 1
   br label %for.end134
 
-for.end134:                                       ; preds = %for.cond70, %invoke.cont127
-  %ry.sroa.10.4352373 = phi i8 [ 1, %invoke.cont127 ], [ 0, %for.cond70 ]
-  %rd.sroa.31.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i150, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
-  %rd.sroa.35.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i187, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
-  %rd.sroa.36.0 = phi float [ %add6.i185, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
-  %rd.sroa.32.0 = phi float [ %add6.i148, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
+for.end134:                                       ; preds = %invoke.cont82, %invoke.cont127
+  %ry.sroa.10.4352373 = phi i8 [ 1, %invoke.cont127 ], [ 0, %invoke.cont82 ]
+  %rd.sroa.31.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i150, %invoke.cont127 ], [ zeroinitializer, %invoke.cont82 ]
+  %rd.sroa.35.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i187, %invoke.cont127 ], [ zeroinitializer, %invoke.cont82 ]
+  %rd.sroa.36.0 = phi float [ %add6.i185, %invoke.cont127 ], [ 0.000000e+00, %invoke.cont82 ]
+  %rd.sroa.32.0 = phi float [ %add6.i148, %invoke.cont127 ], [ 0.000000e+00, %invoke.cont82 ]
   %9 = load i8, ptr %set.i, align 8
   %tobool.i.i202 = trunc i8 %9 to i1
   br i1 %tobool.i.i202, label %invoke.cont145, label %land.rhs.i.i203

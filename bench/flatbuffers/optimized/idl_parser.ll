@@ -13906,7 +13906,7 @@ for.cond.i.preheader:                             ; preds = %.noexc9
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %invoke.cont104.i
-  %fieldn_outer.0 = phi i64 [ %fieldn_outer.2136, %invoke.cont104.i ], [ 0, %for.cond.i.preheader ]
+  %fieldn_outer.0 = phi i64 [ %inc.i71, %invoke.cont104.i ], [ 0, %for.cond.i.preheader ]
   %5 = load i8, ptr %strict_json.i, align 2, !noalias !278
   %tobool16.i = trunc i8 %5 to i1
   %tobool16.not.i = xor i1 %tobool16.i, true
@@ -13985,29 +13985,21 @@ if.end87.i:                                       ; preds = %invoke.cont76.i, %l
   store i8 1, ptr %has_been_checked_.i133, align 1, !alias.scope !281
   %16 = load i8, ptr %agg.result, align 1, !alias.scope !281
   %tobool.i.i67 = trunc i8 %16 to i1
-  br i1 %tobool.i.i67, label %invoke.cont89.i, label %invoke.cont89.i.thread
+  br i1 %tobool.i.i67, label %cleanup114.i.thread, label %invoke.cont89.i.thread
 
 invoke.cont89.i.thread:                           ; preds = %.noexc73
   %inc.i71 = add i64 %fieldn_outer.0, 1
   store i8 0, ptr %agg.result, align 1, !alias.scope !284
   store i8 1, ptr %has_been_checked_.i133, align 1
-  br label %nrvo.unused95.i
-
-invoke.cont89.i:                                  ; preds = %.noexc73
-  %tobool.i65 = trunc i8 %16 to i1
-  br i1 %tobool.i65, label %cleanup114.i.thread, label %nrvo.unused95.i
-
-nrvo.unused95.i:                                  ; preds = %invoke.cont89.i.thread, %invoke.cont89.i
-  %fieldn_outer.2136 = phi i64 [ %inc.i71, %invoke.cont89.i.thread ], [ %fieldn_outer.0, %invoke.cont89.i ]
   %17 = load i32, ptr %token_, align 4, !noalias !278
   %cmp.i63 = icmp eq i32 %17, 125
   br i1 %cmp.i63, label %cleanup114.i.thread119, label %if.end102.i
 
-cleanup114.i.thread119:                           ; preds = %nrvo.unused95.i
+cleanup114.i.thread119:                           ; preds = %invoke.cont89.i.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #30
   br label %for.end.i
 
-if.end102.i:                                      ; preds = %nrvo.unused95.i
+if.end102.i:                                      ; preds = %invoke.cont89.i.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %18 = load i8, ptr %protobuf_ascii_alike.i, align 8, !noalias !287
   %tobool.i59 = trunc i8 %18 to i1
@@ -14035,7 +14027,7 @@ invoke.cont104.i:                                 ; preds = %if.end3.i, %.noexc6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #30
   br i1 %tobool.i57, label %"_ZN11flatbuffers6Parser20ParseTableDelimitersIZNS0_16SkipAnyJsonValueEvE3$_0EENS_12CheckedErrorERmPKNS_9StructDefET_.exit", label %for.cond.i
 
-cleanup114.i.thread:                              ; preds = %invoke.cont42.i, %invoke.cont57.i, %invoke.cont76.i, %invoke.cont89.i
+cleanup114.i.thread:                              ; preds = %invoke.cont42.i, %invoke.cont57.i, %invoke.cont76.i, %.noexc73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #30
   br label %"_ZN11flatbuffers6Parser20ParseTableDelimitersIZNS0_16SkipAnyJsonValueEvE3$_0EENS_12CheckedErrorERmPKNS_9StructDefET_.exit"
 
@@ -47456,8 +47448,7 @@ for.end191:                                       ; preds = %for.inc189, %for.bo
   br i1 %tobool.i111, label %if.then196, label %if.end198
 
 if.then196:                                       ; preds = %for.end191
-  %frombool.i.i = and i8 %77, 1
-  store i8 %frombool.i.i, ptr %agg.result, align 1
+  store i8 1, ptr %agg.result, align 1
   store i8 0, ptr %has_been_checked_.i, align 1
   br label %return
 

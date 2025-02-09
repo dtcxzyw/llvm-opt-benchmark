@@ -6827,7 +6827,6 @@ entry:
   br i1 %tobool, label %return, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %frombool2.i = and i8 %0, 1
   store i8 1, ptr %d_inPropagate, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 1176
@@ -8181,7 +8180,7 @@ if.then.i.i.i1214:                                ; preds = %ehcleanup483
   br label %ehcleanup486
 
 while.end485:                                     ; preds = %lor.rhs
-  store i8 %frombool2.i, ptr %d_inPropagate, align 8
+  store i8 0, ptr %d_inPropagate, align 8
   br label %return
 
 return:                                           ; preds = %entry, %while.end485
@@ -8189,7 +8188,7 @@ return:                                           ; preds = %entry, %while.end48
 
 ehcleanup486:                                     ; preds = %lpad45.loopexit, %lpad45.loopexit.split-lp, %lpad111, %lpad148, %ehcleanup483, %if.then.i.i.i1214, %lpad
   %.pn55.pn = phi { ptr, i32 } [ %17, %lpad ], [ %60, %lpad148 ], [ %59, %lpad111 ], [ %.pn53, %ehcleanup483 ], [ %.pn53, %if.then.i.i.i1214 ], [ %lpad.loopexit1317, %lpad45.loopexit ], [ %lpad.loopexit.split-lp1318, %lpad45.loopexit.split-lp ]
-  store i8 %frombool2.i, ptr %d_inPropagate, align 8
+  store i8 0, ptr %d_inPropagate, align 8
   resume { ptr, i32 } %.pn55.pn
 }
 

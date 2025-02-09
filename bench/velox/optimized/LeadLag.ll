@@ -5765,16 +5765,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  br i1 %tobool.i, label %if.then.thread, label %if.else
+  br i1 %tobool.i, label %if.then.i10, label %if.else
 
 if.then:                                          ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   br i1 %tobool.i, label %if.then.i10, label %_ZNRSt8optionalIlE5valueEv.exit.i
 
-if.then.thread:                                   ; preds = %lor.lhs.false
-  %tobool.i156 = trunc i8 %.pre to i1
-  br i1 %tobool.i156, label %if.then.i10, label %if.end.i.i
-
-if.then.i10:                                      ; preds = %if.then.thread, %if.then
+if.then.i10:                                      ; preds = %lor.lhs.false, %if.then
   %9 = load ptr, ptr %rowNumbers_, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %9, %10
@@ -5787,10 +5783,6 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %if.then.i10
   %13 = and i64 %reass.sub, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 -1, i64 %13, i1 false)
   br label %if.end11
-
-if.end.i.i:                                       ; preds = %if.then.thread
-  tail call void @_ZSt27__throw_bad_optional_accessv() #27
-  unreachable
 
 _ZNRSt8optionalIlE5valueEv.exit.i:                ; preds = %if.then
   %14 = load i64, ptr %constantOffset_, align 8
@@ -10203,16 +10195,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  br i1 %tobool.i, label %if.then.thread, label %if.else
+  br i1 %tobool.i, label %if.then.i10, label %if.else
 
 if.then:                                          ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   br i1 %tobool.i, label %if.then.i10, label %_ZNRSt8optionalIlE5valueEv.exit.i
 
-if.then.thread:                                   ; preds = %lor.lhs.false
-  %tobool.i164 = trunc i8 %.pre to i1
-  br i1 %tobool.i164, label %if.then.i10, label %if.end.i.i
-
-if.then.i10:                                      ; preds = %if.then.thread, %if.then
+if.then.i10:                                      ; preds = %lor.lhs.false, %if.then
   %9 = load ptr, ptr %rowNumbers_, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %9, %10
@@ -10225,10 +10213,6 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %if.then.i10
   %13 = and i64 %reass.sub, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 -1, i64 %13, i1 false)
   br label %if.end11
-
-if.end.i.i:                                       ; preds = %if.then.thread
-  tail call void @_ZSt27__throw_bad_optional_accessv() #27
-  unreachable
 
 _ZNRSt8optionalIlE5valueEv.exit.i:                ; preds = %if.then
   %14 = load i64, ptr %constantOffset_, align 8

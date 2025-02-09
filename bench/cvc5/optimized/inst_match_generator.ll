@@ -7147,7 +7147,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond.not, label %cond.true234, label %for.body, !llvm.loop !54
 
 cond.true234:                                     ; preds = %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit693, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit
-  %success.0 = phi i8 [ 1, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit693 ], [ 1, %for.inc ]
+  %success.0 = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit693 ], [ true, %for.inc ]
   %41 = load ptr, ptr %d_match_pattern41, align 8
   %d_kind.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
@@ -7233,7 +7233,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1382: ; preds = %invoke.cont261, %
 
 invoke.cont270:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1382
   %brmerge.not = select i1 %call271, i1 %cmp.i1361, i1 false
-  %.mux = select i1 %call271, i8 %success.0, i8 0
+  %.mux = and i1 %call271, %success.0
   br i1 %brmerge.not, label %if.then277, label %if.end285
 
 lpad269:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1382
@@ -7307,7 +7307,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %if.end285
 
 if.end285:                                        ; preds = %invoke.cont270, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i1409, %if.then.i.i1388, %cond.true234
-  %success.1 = phi i8 [ %success.0, %cond.true234 ], [ %.mux, %invoke.cont270 ], [ %success.0, %if.then.i.i1388 ], [ %success.0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i1409 ]
+  %success.1 = phi i1 [ %success.0, %cond.true234 ], [ %.mux, %invoke.cont270 ], [ %success.0, %if.then.i.i1388 ], [ %success.0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i1409 ]
   %d_eq_class_rel = getelementptr inbounds nuw i8, ptr %this, i64 168
   %64 = load ptr, ptr %d_eq_class_rel, align 8
   %65 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -8254,7 +8254,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1652: ; preds = %invoke.cont467, %
 
 invoke.cont475:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1652
   %brmerge1926.not = select i1 %call476, i1 %cmp.i1631, i1 false
-  %.mux1927 = select i1 %call476, i8 %success.1, i8 0
+  %.mux1927 = and i1 %call476, %success.1
   br i1 %brmerge1926.not, label %if.then482, label %if.end486
 
 lpad474:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1652
@@ -8267,7 +8267,7 @@ if.then482:                                       ; preds = %invoke.cont475
           to label %if.end486 unwind label %lpad320
 
 if.end486:                                        ; preds = %invoke.cont475, %if.then482, %invoke.cont459
-  %success.3 = phi i8 [ %success.1, %invoke.cont459 ], [ %success.1, %if.then482 ], [ %.mux1927, %invoke.cont475 ]
+  %success.3 = phi i1 [ %success.1, %invoke.cont459 ], [ %success.1, %if.then482 ], [ %.mux1927, %invoke.cont475 ]
   %186 = load ptr, ptr %t_match, align 8
   %bf.load.i.i1653 = load i64, ptr %186, align 8
   %187 = and i64 %bf.load.i.i1653, 1152920405095219200
@@ -8332,9 +8332,8 @@ ehcleanup488:                                     ; preds = %lpad.i.i1488, %ehcl
   br label %ehcleanup570
 
 if.end489:                                        ; preds = %if.then13.i.i1672, %if.then.i.i1666, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1663, %land.lhs.true, %invoke.cont286
-  %success.2 = phi i8 [ %success.1, %invoke.cont286 ], [ %success.1, %land.lhs.true ], [ %success.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1663 ], [ %success.3, %if.then.i.i1666 ], [ %success.3, %if.then13.i.i1672 ]
-  %tobool490 = trunc nuw i8 %success.2 to i1
-  br i1 %tobool490, label %cond.true495, label %if.then556
+  %success.2 = phi i1 [ %success.1, %invoke.cont286 ], [ %success.1, %land.lhs.true ], [ %success.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1663 ], [ %success.3, %if.then.i.i1666 ], [ %success.3, %if.then13.i.i1672 ]
+  br i1 %success.2, label %cond.true495, label %if.then556
 
 cond.true495:                                     ; preds = %if.end489
   %d_children509 = getelementptr inbounds nuw i8, ptr %this, i64 80

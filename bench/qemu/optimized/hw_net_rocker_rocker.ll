@@ -1192,61 +1192,54 @@ if.then65:                                        ; preds = %for.body
 if.else66:                                        ; preds = %for.body
   %trunc = trunc i64 %indvars.iv to i1
   %17 = trunc i64 %indvars.iv to i32
+  %add79 = add i32 %17, 2
   br i1 %trunc, label %if.then75, label %if.then69
 
 if.then69:                                        ; preds = %if.else66
-  %18 = add i32 %17, -2
-  %div = sdiv i32 %18, 2
-  %mul = shl nsw i32 %div, 1
-  %add70 = add i32 %mul, 4
-  tail call void @desc_ring_set_consume(ptr noundef %call59, ptr noundef nonnull @tx_consume, i32 noundef %add70) #13
+  tail call void @desc_ring_set_consume(ptr noundef %call59, ptr noundef nonnull @tx_consume, i32 noundef %add79) #13
   br label %if.end83
 
 if.then75:                                        ; preds = %if.else66
-  %19 = add i32 %17, -3
-  %div77 = sdiv i32 %19, 2
-  %mul78 = shl nsw i32 %div77, 1
-  %add79 = add i32 %mul78, 5
   tail call void @desc_ring_set_consume(ptr noundef %call59, ptr noundef null, i32 noundef %add79) #13
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then65, %if.then75, %if.then69, %if.then62
-  %20 = load ptr, ptr %rings, align 8
-  %arrayidx85 = getelementptr ptr, ptr %20, i64 %indvars.iv
+  %18 = load ptr, ptr %rings, align 8
+  %arrayidx85 = getelementptr ptr, ptr %18, i64 %indvars.iv
   store ptr %call59, ptr %arrayidx85, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call.val80 = load i32, ptr %fp_ports.i, align 16
   %mul.i85 = shl i32 %call.val80, 1
   %add.i86 = add i32 %mul.i85, 2
-  %21 = sext i32 %add.i86 to i64
-  %cmp57 = icmp slt i64 %indvars.iv.next, %21
+  %19 = sext i32 %add.i86 to i64
+  %cmp57 = icmp slt i64 %indvars.iv.next, %19
   br i1 %cmp57, label %for.body, label %for.cond87.preheader, !llvm.loop !11
 
 for.body91:                                       ; preds = %for.body91.lr.ph, %for.body91
   %i.1109 = phi i32 [ 0, %for.body91.lr.ph ], [ %inc101, %for.body91 ]
-  %22 = load ptr, ptr %name, align 16
-  %23 = load ptr, ptr %fp_ports_peers, align 8
+  %20 = load ptr, ptr %name, align 16
+  %21 = load ptr, ptr %fp_ports_peers, align 8
   %idxprom94 = sext i32 %i.1109 to i64
-  %arrayidx95 = getelementptr %struct.NICPeers, ptr %23, i64 %idxprom94
-  %call96 = tail call ptr @fp_port_alloc(ptr noundef nonnull %call.i, ptr noundef %22, ptr noundef nonnull %fp_start_macaddr, i32 noundef %i.1109, ptr noundef %arrayidx95) #13
+  %arrayidx95 = getelementptr %struct.NICPeers, ptr %21, i64 %idxprom94
+  %call96 = tail call ptr @fp_port_alloc(ptr noundef nonnull %call.i, ptr noundef %20, ptr noundef nonnull %fp_start_macaddr, i32 noundef %i.1109, ptr noundef %arrayidx95) #13
   %arrayidx98 = getelementptr [62 x ptr], ptr %fp_port, i64 0, i64 %idxprom94
   store ptr %call96, ptr %arrayidx98, align 8
-  %24 = load ptr, ptr %world_dflt, align 8
-  tail call void @fp_port_set_world(ptr noundef %call96, ptr noundef %24) #13
+  %22 = load ptr, ptr %world_dflt, align 8
+  tail call void @fp_port_set_world(ptr noundef %call96, ptr noundef %22) #13
   %inc101 = add nuw i32 %i.1109, 1
-  %25 = load i32, ptr %fp_ports.i, align 16
-  %cmp89 = icmp ult i32 %inc101, %25
+  %23 = load i32, ptr %fp_ports.i, align 16
+  %cmp89 = icmp ult i32 %inc101, %23
   br i1 %cmp89, label %for.body91, label %do.body, !llvm.loop !12
 
 do.body:                                          ; preds = %for.body91, %for.cond87.preheader
-  %26 = load ptr, ptr @rockers, align 8
+  %24 = load ptr, ptr @rockers, align 8
   %next = getelementptr inbounds nuw i8, ptr %call.i, i64 3760
-  store ptr %26, ptr %next, align 16
-  %cmp103.not = icmp eq ptr %26, null
+  store ptr %24, ptr %next, align 16
+  %cmp103.not = icmp eq ptr %24, null
   br i1 %cmp103.not, label %if.end109, label %if.then105
 
 if.then105:                                       ; preds = %do.body
-  %le_prev = getelementptr inbounds nuw i8, ptr %26, i64 3768
+  %le_prev = getelementptr inbounds nuw i8, ptr %24, i64 3768
   store ptr %next, ptr %le_prev, align 8
   br label %if.end109
 
@@ -1259,8 +1252,8 @@ if.end109:                                        ; preds = %if.then105, %do.bod
 err_duplicate:                                    ; preds = %if.then33, %if.then28
   %call.i.i87 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   tail call void @msix_uninit(ptr noundef %call.i.i87, ptr noundef nonnull %msix_bar, ptr noundef nonnull %msix_bar) #13
-  %27 = load i32, ptr %fp_ports.i, align 16
-  %sub.i = shl i32 %27, 1
+  %25 = load i32, ptr %fp_ports.i, align 16
+  %sub.i = shl i32 %25, 1
   %add2.i = add i32 %sub.i, 4
   %call.i.i.i90 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %cmp3.not.i.i91 = icmp eq i32 %add2.i, 0
@@ -1279,12 +1272,12 @@ err_msix_init:                                    ; preds = %for.body.i.i92, %er
   br label %err_world_type_by_name
 
 err_world_type_by_name:                           ; preds = %err_msix_init, %if.then11
-  %28 = load ptr, ptr %worlds, align 8
-  %tobool121.not = icmp eq ptr %28, null
+  %26 = load ptr, ptr %worlds, align 8
+  %tobool121.not = icmp eq ptr %26, null
   br i1 %tobool121.not, label %for.end129, label %if.then122
 
 if.then122:                                       ; preds = %err_world_type_by_name
-  tail call void @world_free(ptr noundef nonnull %28) #13
+  tail call void @world_free(ptr noundef nonnull %26) #13
   br label %for.end129
 
 for.end129:                                       ; preds = %if.then122, %err_world_type_by_name, %if.end109

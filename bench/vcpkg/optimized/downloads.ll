@@ -2569,7 +2569,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %153, %155
   %or.cond = icmp ult i32 %167, 100
   %168 = icmp sgt i32 %166, 299
   %or.cond3 = or i1 %168, %or.cond
-  br i1 %or.cond3, label %169, label %212
+  br i1 %or.cond3, label %169, label %211
 
 169:                                              ; preds = %165, %163
   %.sroa.06.0.copyload = load i64, ptr @_ZN5vcpkg22msgCurlFailedToPutHttpE, align 8
@@ -2695,22 +2695,20 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %153, %155
 
 209:                                              ; preds = %_ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %211 = and i8 %161, 1
-  store i8 %211, ptr %210, align 8
+  store i8 1, ptr %210, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(33) %32) #24
   br label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit
 
-212:                                              ; preds = %165
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %214 = and i8 %161, 1
-  store i8 %214, ptr %213, align 8
+211:                                              ; preds = %165
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %212, align 8
   store i32 0, ptr %0, align 8
   br label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit
 
-_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit: ; preds = %212, %209, %186
-  %215 = load i8, ptr %160, align 8
-  %216 = trunc i8 %215 to i1
-  br i1 %216, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit81.sink.split, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit81
+_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit: ; preds = %211, %209, %186
+  %213 = load i8, ptr %160, align 8
+  %214 = trunc i8 %213 to i1
+  br i1 %214, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit81.sink.split, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit81
 
 _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit81.sink.split: ; preds = %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit, %101
   %.sink108 = phi ptr [ %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %101 ], [ %32, %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEEC2EOS2_.exit ]

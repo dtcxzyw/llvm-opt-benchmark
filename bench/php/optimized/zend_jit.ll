@@ -110899,7 +110899,7 @@ zend_jit_trace_propagate_range.exit:              ; preds = %65, %72, %81
   br label %152
 
 147:                                              ; preds = %108
-  %148 = or i8 %113, 1
+  %148 = or disjoint i8 %113, 1
   store i8 %148, ptr %112, align 4
   %149 = load ptr, ptr %109, align 8
   %150 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %149, i64 %9, i32 2
@@ -111105,7 +111105,7 @@ define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef re
   br label %138
 
 133:                                              ; preds = %95
-  %134 = or i8 %99, 1
+  %134 = or disjoint i8 %99, 1
   store i8 %134, ptr %98, align 4
   %135 = load ptr, ptr %51, align 8
   %136 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %135, i64 %8, i32 2

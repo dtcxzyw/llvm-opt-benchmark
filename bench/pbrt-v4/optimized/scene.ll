@@ -17427,8 +17427,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %result = getelementptr inbounds nuw i8, ptr %this, i64 80
   %set.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i2, align 8
+  store i8 1, ptr %set.i2, align 8
   %1 = load i64, ptr %result, align 8
   store i64 %1, ptr %agg.result, align 8
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #29
@@ -17555,8 +17554,8 @@ land.end:                                         ; preds = %land.rhs, %if.then
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %2 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 696
-  %cmp.i.not47 = icmp eq ptr %2, %add.ptr.i.i
-  br i1 %cmp.i.not47, label %for.end, label %for.body.lr.ph
+  %cmp.i.not51 = icmp eq ptr %2, %add.ptr.i.i
+  br i1 %cmp.i.not51, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %land.end
   %mediaMap = getelementptr inbounds nuw i8, ptr %this, i64 736
@@ -17565,9 +17564,9 @@ for.body.lr.ph:                                   ; preds = %land.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.048 = phi ptr [ %2, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.048, i64 32
-  %second = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.048, i64 64
+  %__begin2.sroa.0.052 = phi ptr [ %2, %for.body.lr.ph ], [ %call.i, %for.inc ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.052, i64 32
+  %second = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.052, i64 64
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %for.body
@@ -17643,7 +17642,7 @@ cleanup.cont.i:                                   ; preds = %_ZNSt10lock_guardIS
   %tobool.not.i.i = icmp eq i32 %call1.i.i5.i, 0
   br i1 %tobool.not.i.i, label %while.cond.backedge, label %if.then.i.i
 
-while.cond.backedge:                              ; preds = %cleanup.cont.i, %if.end
+while.cond.backedge:                              ; preds = %cleanup.cont.i, %_ZN4pstd8optionalIN4pbrt6MediumEE5valueEv.exit.i.i16
   br label %while.cond, !llvm.loop !143
 
 if.then.i.i:                                      ; preds = %cleanup.cont.i
@@ -17701,15 +17700,15 @@ terminate.lpad.i.i.i:                             ; preds = %lor.rhs.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %lor.rhs.i
   %cmp.i.i.i9 = icmp slt i32 %call.i.i.i, 0
-  br i1 %cmp.i.i.i9, label %if.then.i10, label %if.end
+  br i1 %cmp.i.i.i9, label %if.then.i10, label %_ZN4pstd8optionalIN4pbrt6MediumEE5valueEv.exit.i.i16
 
 if.then.i10:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit.i, %invoke.cont18
   %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %add.ptr.i.i.i, %invoke.cont18 ]
   store ptr %_M_storage.i.i, ptr %ref.tmp9.i, align 8
   %call12.i11 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6MediumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %mediaMap, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
-  br label %if.end
+  br label %_ZN4pstd8optionalIN4pbrt6MediumEE5valueEv.exit.i.i16
 
-if.end:                                           ; preds = %if.then.i10, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
+_ZN4pstd8optionalIN4pbrt6MediumEE5valueEv.exit.i.i16: ; preds = %if.then.i10, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %call12.i11, %if.then.i10 ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
@@ -17718,7 +17717,7 @@ if.end:                                           ; preds = %if.then.i10, %_ZNKS
   br label %while.cond.backedge
 
 for.inc:                                          ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.048) #33
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.052) #33
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -33488,8 +33487,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %result = getelementptr inbounds nuw i8, ptr %this, i64 80
   %set.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i2, align 8
+  store i8 1, ptr %set.i2, align 8
   %1 = load i64, ptr %result, align 8
   store i64 %1, ptr %agg.result, align 8
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #29

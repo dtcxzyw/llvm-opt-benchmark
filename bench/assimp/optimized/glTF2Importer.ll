@@ -71477,38 +71477,36 @@ while.end.us.loopexit:                            ; preds = %land.rhs.us.us, %wh
   %isNumber.0.lcssa.us.ph = phi i8 [ %isNumber.0.be.us.us, %while.cond28.backedge.us.us ], [ %isNumber.098.us.us, %land.rhs.us.us ]
   %name.1.lcssa.us.ph = phi ptr [ %name.1.be.us.us, %while.cond28.backedge.us.us ], [ %name.199.us.us, %land.rhs.us.us ]
   %.pre140 = load ptr, ptr %token.0125.us, align 8
+  %5 = trunc nuw i8 %isNumber.0.lcssa.us.ph to i1
   br label %while.end.us
 
 while.end.us:                                     ; preds = %while.end.us.loopexit, %while.body.us
-  %5 = phi ptr [ %name.0124.us, %while.body.us ], [ %.pre140, %while.end.us.loopexit ]
+  %6 = phi ptr [ %name.0124.us, %while.body.us ], [ %.pre140, %while.end.us.loopexit ]
   %i.3.lcssa.us = phi i64 [ %inc26.us, %while.body.us ], [ %i.3.lcssa.us.ph, %while.end.us.loopexit ]
-  %isNumber.0.lcssa.us = phi i8 [ 1, %while.body.us ], [ %isNumber.0.lcssa.us.ph, %while.end.us.loopexit ]
+  %isNumber.0.lcssa.us = phi i1 [ true, %while.body.us ], [ %5, %while.end.us.loopexit ]
   %name.1.lcssa.us = phi ptr [ %name.0124.us, %while.body.us ], [ %name.1.lcssa.us.ph, %while.end.us.loopexit ]
   %sub.ptr.lhs.cast.us = ptrtoint ptr %name.1.lcssa.us to i64
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.us = ptrtoint ptr %6 to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast.us
   %conv94.us = trunc i64 %sub.ptr.sub.us to i32
   %length95.us = getelementptr inbounds nuw i8, ptr %token.0125.us, i64 8
   store i32 %conv94.us, ptr %length95.us, align 8
-  %cmp97.us = icmp eq i32 %conv94.us, 0
-  %spec.select64.us = select i1 %cmp97.us, i8 0, i8 %isNumber.0.lcssa.us
+  %cmp97.us = icmp ne i32 %conv94.us, 0
   %incdec.ptr100.us = getelementptr inbounds nuw i8, ptr %name.1.lcssa.us, i64 1
   store i8 0, ptr %name.1.lcssa.us, align 1
-  %tobool101.us = trunc nuw i8 %spec.select64.us to i1
+  %tobool101.us = select i1 %cmp97.us, i1 %isNumber.0.lcssa.us, i1 false
   br i1 %tobool101.us, label %land.lhs.true102.us, label %if.end131.us
 
 land.lhs.true102.us:                              ; preds = %while.end.us
-  %6 = load i32, ptr %length95.us, align 8
-  %cmp104.us = icmp ugt i32 %6, 1
+  %7 = load i32, ptr %length95.us, align 8
+  %cmp104.us = icmp ugt i32 %7, 1
   br i1 %cmp104.us, label %if.end111.us, label %for.cond114.preheader.us
 
 if.end111.us:                                     ; preds = %land.lhs.true102.us
-  %7 = load ptr, ptr %token.0125.us, align 8
-  %8 = load i8, ptr %7, align 1
-  %cmp109.us = icmp ne i8 %8, 48
-  %9 = trunc nuw i8 %spec.select64.us to i1
-  %tobool112.us = select i1 %cmp109.us, i1 %9, i1 false
-  br i1 %tobool112.us, label %for.body118.lr.ph.us, label %if.end131.us
+  %8 = load ptr, ptr %token.0125.us, align 8
+  %9 = load i8, ptr %8, align 1
+  %cmp109.us.not = icmp eq i8 %9, 48
+  br i1 %cmp109.us.not, label %if.end131.us, label %for.body118.lr.ph.us
 
 for.cond114.us:                                   ; preds = %for.body118.us
   %inc129.us = add nuw nsw i64 %j.0117.us, 1
@@ -71536,7 +71534,7 @@ if.end131.us:                                     ; preds = %for.body118.us, %fo
   br i1 %cmp25.us, label %while.body.us, label %while.end134, !llvm.loop !577
 
 for.cond114.preheader.us:                         ; preds = %land.lhs.true102.us
-  %cmp117115.us.not = icmp eq i32 %6, 0
+  %cmp117115.us.not = icmp eq i32 %7, 0
   br i1 %cmp117115.us.not, label %if.end131.us, label %for.body118.lr.ph.us
 
 land.rhs.us.us:                                   ; preds = %while.body.us, %while.cond28.backedge.us.us
@@ -71652,7 +71650,7 @@ while.cond28.backedge.us.us:                      ; preds = %if.end85.us.us, %if
   br i1 %cmp29.us.us, label %land.rhs.us.us, label %while.end.us.loopexit, !llvm.loop !578
 
 for.body118.lr.ph.us:                             ; preds = %if.end111.us, %for.cond114.preheader.us
-  %conv116.us148 = zext i32 %6 to i64
+  %conv116.us148 = zext i32 %7 to i64
   %23 = load ptr, ptr %token.0125.us, align 8
   br label %for.body118.us
 
@@ -71715,45 +71713,43 @@ while.end.loopexit:                               ; preds = %if.end85, %land.rhs
   %isNumber.0.lcssa.ph = phi i8 [ %isNumber.098, %land.rhs ], [ %spec.select63, %if.end85 ]
   %name.1.lcssa.ph = phi ptr [ %name.199, %land.rhs ], [ %incdec.ptr92, %if.end85 ]
   %.pre = load ptr, ptr %token.0125, align 8
+  %27 = trunc nuw i8 %isNumber.0.lcssa.ph to i1
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.body
-  %27 = phi ptr [ %name.0124, %while.body ], [ %.pre, %while.end.loopexit ]
+  %28 = phi ptr [ %name.0124, %while.body ], [ %.pre, %while.end.loopexit ]
   %i.3.lcssa = phi i64 [ %inc26, %while.body ], [ %i.3.lcssa.ph, %while.end.loopexit ]
-  %isNumber.0.lcssa = phi i8 [ 1, %while.body ], [ %isNumber.0.lcssa.ph, %while.end.loopexit ]
+  %isNumber.0.lcssa = phi i1 [ true, %while.body ], [ %27, %while.end.loopexit ]
   %name.1.lcssa = phi ptr [ %name.0124, %while.body ], [ %name.1.lcssa.ph, %while.end.loopexit ]
   %sub.ptr.lhs.cast = ptrtoint ptr %name.1.lcssa to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %28 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv94 = trunc i64 %sub.ptr.sub to i32
   %length95 = getelementptr inbounds nuw i8, ptr %token.0125, i64 8
   store i32 %conv94, ptr %length95, align 8
-  %cmp97 = icmp eq i32 %conv94, 0
-  %spec.select64 = select i1 %cmp97, i8 0, i8 %isNumber.0.lcssa
+  %cmp97 = icmp ne i32 %conv94, 0
   %incdec.ptr100 = getelementptr inbounds nuw i8, ptr %name.1.lcssa, i64 1
   store i8 0, ptr %name.1.lcssa, align 1
-  %tobool101 = trunc nuw i8 %spec.select64 to i1
+  %tobool101 = select i1 %cmp97, i1 %isNumber.0.lcssa, i1 false
   br i1 %tobool101, label %land.lhs.true102, label %if.end131
 
 land.lhs.true102:                                 ; preds = %while.end
-  %28 = load i32, ptr %length95, align 8
-  %cmp104 = icmp ugt i32 %28, 1
+  %29 = load i32, ptr %length95, align 8
+  %cmp104 = icmp ugt i32 %29, 1
   br i1 %cmp104, label %if.end111, label %for.cond114.preheader
 
 if.end111:                                        ; preds = %land.lhs.true102
-  %29 = load ptr, ptr %token.0125, align 8
-  %30 = load i8, ptr %29, align 1
-  %cmp109 = icmp ne i8 %30, 48
-  %31 = trunc nuw i8 %spec.select64 to i1
-  %tobool112 = select i1 %cmp109, i1 %31, i1 false
-  br i1 %tobool112, label %for.body118.lr.ph, label %if.end131
+  %30 = load ptr, ptr %token.0125, align 8
+  %31 = load i8, ptr %30, align 1
+  %cmp109.not = icmp eq i8 %31, 48
+  br i1 %cmp109.not, label %if.end131, label %for.body118.lr.ph
 
 for.cond114.preheader:                            ; preds = %land.lhs.true102
-  %cmp117115.not = icmp eq i32 %28, 0
+  %cmp117115.not = icmp eq i32 %29, 0
   br i1 %cmp117115.not, label %if.end131, label %for.body118.lr.ph
 
 for.body118.lr.ph:                                ; preds = %if.end111, %for.cond114.preheader
-  %conv116156 = zext i32 %28 to i64
+  %conv116156 = zext i32 %29 to i64
   %32 = load ptr, ptr %token.0125, align 8
   br label %for.body118
 

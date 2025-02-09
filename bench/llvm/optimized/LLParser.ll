@@ -10048,7 +10048,8 @@ _ZN4llvm8LLParser12EatIfPresentENS_5lltok4KindE.exit127: ; preds = %_ZN4llvm8LLP
   br i1 %.not243, label %231, label %229
 
 229:                                              ; preds = %221
-  store i16 %.sroa.01.0.insert.insert.i, ptr %33, align 2
+  %.sroa.0217.0.insert.insert = or i16 %.sroa.01.0.insert.insert.i, 256
+  store i16 %.sroa.0217.0.insert.insert, ptr %33, align 2
   %230 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder15removeAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %28, i32 noundef 86) #25
   br label %231
 

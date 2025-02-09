@@ -5973,7 +5973,7 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %16, label %6
+  br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
   store i8 1, ptr %3, align 8
@@ -5984,23 +5984,23 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
 
 9:                                                ; preds = %6, %9
   %.012 = phi i32 [ 0, %6 ], [ %11, %9 ]
-  %.0811 = phi i8 [ 0, %6 ], [ %spec.select, %9 ]
+  %.0811 = phi i1 [ false, %6 ], [ %spec.select, %9 ]
   %10 = tail call noundef zeroext i1 @_ZN7glslang8TProgram9linkStageE11EShLanguage11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 noundef %.012, i32 noundef %1)
-  %spec.select = select i1 %10, i8 %.0811, i8 1
+  %not. = xor i1 %10, true
+  %spec.select = select i1 %not., i1 true, i1 %.0811
   %11 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %11, 14
   br i1 %exitcond.not, label %12, label %9, !llvm.loop !37
 
 12:                                               ; preds = %9
-  %13 = trunc nuw i8 %spec.select to i1
-  br i1 %13, label %16, label %14
+  br i1 %spec.select, label %15, label %13
 
-14:                                               ; preds = %12
-  %15 = tail call noundef zeroext i1 @_ZN7glslang8TProgram15crossStageCheckE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 poison)
-  br label %16
+13:                                               ; preds = %12
+  %14 = tail call noundef zeroext i1 @_ZN7glslang8TProgram15crossStageCheckE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 poison)
+  br label %15
 
-16:                                               ; preds = %12, %14, %2
-  %.09 = phi i1 [ false, %2 ], [ false, %12 ], [ %15, %14 ]
+15:                                               ; preds = %12, %13, %2
+  %.09 = phi i1 [ false, %2 ], [ false, %12 ], [ %14, %13 ]
   ret i1 %.09
 }
 

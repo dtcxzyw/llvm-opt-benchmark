@@ -3877,10 +3877,8 @@ while.body.i:                                     ; preds = %land.rhs.i
 parse_hex_nibbles_for_const_uint.exit:            ; preds = %land.rhs.i, %while.body.i, %while.cond.preheader.i
   %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.110.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
   %retval.sroa.5.0.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.111.i, %land.rhs.i ], [ 0, %while.body.i ]
-  %tobool13 = trunc i8 %.pre.i to i1
   %cmp = icmp ugt i64 %retval.sroa.5.0.i, 1
-  %or.cond.not = select i1 %tobool13, i1 true, i1 %cmp
-  br i1 %or.cond.not, label %do.body16, label %do.end20
+  br i1 %cmp, label %do.body16, label %do.end20
 
 do.body16:                                        ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i, %parse_hex_nibbles_for_const_uint.exit
   store i8 1, ptr %errored, align 8
@@ -3991,10 +3989,8 @@ while.body.i163:                                  ; preds = %land.rhs.i159
 parse_hex_nibbles_for_const_uint.exit169:         ; preds = %land.rhs.i159, %while.body.i163, %while.cond.preheader.i155
   %retval.sroa.0.0.i143 = phi ptr [ %add.ptr.i.i153, %while.cond.preheader.i155 ], [ %retval.sroa.0.110.i161, %land.rhs.i159 ], [ %scevgep.i158, %while.body.i163 ]
   %retval.sroa.5.0.i144 = phi i64 [ 0, %while.cond.preheader.i155 ], [ %retval.sroa.5.111.i160, %land.rhs.i159 ], [ 0, %while.body.i163 ]
-  %tobool51 = trunc i8 %.pre.i154 to i1
   %cmp54 = icmp ugt i64 %retval.sroa.5.0.i144, 6
-  %or.cond1.not = select i1 %tobool51, i1 true, i1 %cmp54
-  br i1 %or.cond1.not, label %do.body57, label %for.cond.preheader
+  br i1 %cmp54, label %do.body57, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %parse_hex_nibbles_for_const_uint.exit169
   %cmp63507.not = icmp eq i64 %retval.sroa.5.0.i144, 0
@@ -4866,7 +4862,7 @@ peek.exit.i.i.i:                                  ; preds = %if.end.i
 eat.exit.thread.i.i:                              ; preds = %peek.exit.i.i.i
   %inc.i.i.i = add nuw i64 %1, 2
   store i64 %inc.i.i.i, ptr %next.i.i.i, align 8
-  br label %if.then4
+  br label %land.lhs.true.i
 
 peek.exit.i22.i.i:                                ; preds = %peek.exit.i.i.i, %if.end40.i.i
   %x.0.i7.i = phi i64 [ %x.1.i.i, %if.end40.i.i ], [ 0, %peek.exit.i.i.i ]
@@ -4914,14 +4910,10 @@ parse_opt_integer_62.exit:                        ; preds = %peek.exit.i22.i.i
   store i64 %inc.i26.i.i, ptr %next.i.i.i, align 8
   %11 = add i64 %x.0.i7.i, 2
   %cmp.not = icmp eq i64 %11, 0
-  br i1 %cmp.not, label %if.end10, label %if.then4
+  br i1 %cmp.not, label %if.end10, label %land.lhs.true.i
 
-if.then4:                                         ; preds = %eat.exit.thread.i.i, %parse_opt_integer_62.exit
+land.lhs.true.i:                                  ; preds = %parse_opt_integer_62.exit, %eat.exit.thread.i.i
   %retval.0.i38 = phi i64 [ %11, %parse_opt_integer_62.exit ], [ 1, %eat.exit.thread.i.i ]
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %print_str.exit, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.then4
   %skipping_printing.i = getelementptr inbounds nuw i8, ptr %rdm, i64 41
   %12 = load i8, ptr %skipping_printing.i, align 1
   %tobool1.i = trunc i8 %12 to i1
@@ -4935,8 +4927,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void %13(ptr noundef nonnull @.str.88, i64 noundef 4, ptr noundef %14) #12
   br label %print_str.exit
 
-print_str.exit:                                   ; preds = %if.then4.thread, %if.then4, %land.lhs.true.i, %if.then.i
-  %retval.0.i3846 = phi i64 [ 1, %if.then4.thread ], [ %retval.0.i38, %if.then4 ], [ %retval.0.i38, %land.lhs.true.i ], [ %retval.0.i38, %if.then.i ]
+print_str.exit:                                   ; preds = %if.then4.thread, %land.lhs.true.i, %if.then.i
+  %retval.0.i3846 = phi i64 [ 1, %if.then4.thread ], [ %retval.0.i38, %land.lhs.true.i ], [ %retval.0.i38, %if.then.i ]
   %skipping_printing.i15 = getelementptr inbounds nuw i8, ptr %rdm, i64 41
   %callback.i18 = getelementptr inbounds nuw i8, ptr %rdm, i64 24
   %callback_opaque.i19 = getelementptr inbounds nuw i8, ptr %rdm, i64 16
@@ -5065,7 +5057,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
 
 while.cond.preheader.i:                           ; preds = %parse_hex_nibbles.exit.i
   %cmp.not9.i = icmp eq i64 %hex_len.0.i.i, 0
-  br i1 %cmp.not9.i, label %parse_hex_nibbles_for_const_uint.exit, label %land.rhs.preheader.i
+  br i1 %cmp.not9.i, label %do.end12, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %while.cond.preheader.i
   %scevgep.i = getelementptr i8, ptr %add.ptr.i.i, i64 %hex_len.0.i.i
@@ -5076,25 +5068,21 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %retval.sroa.0.110.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %land.rhs.preheader.i ]
   %10 = load i8, ptr %retval.sroa.0.110.i, align 1
   %cmp4.i = icmp eq i8 %10, 48
-  br i1 %cmp4.i, label %while.body.i, label %parse_hex_nibbles_for_const_uint.exit
+  br i1 %cmp4.i, label %while.body.i, label %do.end12
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.110.i, i64 1
   %dec.i = add i64 %retval.sroa.5.111.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.not.i, label %parse_hex_nibbles_for_const_uint.exit, label %land.rhs.i, !llvm.loop !28
+  br i1 %cmp.not.i, label %do.end12, label %land.rhs.i, !llvm.loop !28
 
-parse_hex_nibbles_for_const_uint.exit:            ; preds = %land.rhs.i, %while.body.i, %while.cond.preheader.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.110.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
-  %retval.sroa.5.0.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.111.i, %land.rhs.i ], [ 0, %while.body.i ]
-  %tobool6 = trunc i8 %.pre.i to i1
-  br i1 %tobool6, label %do.body8, label %do.end12
-
-do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i, %parse_hex_nibbles_for_const_uint.exit
+do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i
   store i8 1, ptr %errored, align 8
   br label %if.end25
 
-do.end12:                                         ; preds = %parse_hex_nibbles_for_const_uint.exit
+do.end12:                                         ; preds = %while.body.i, %land.rhs.i, %while.cond.preheader.i
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %while.cond.preheader.i ], [ %retval.sroa.0.110.i, %land.rhs.i ], [ %scevgep.i, %while.body.i ]
+  %retval.sroa.5.0.i = phi i64 [ 0, %while.cond.preheader.i ], [ %retval.sroa.5.111.i, %land.rhs.i ], [ 0, %while.body.i ]
   %cmp = icmp ugt i64 %retval.sroa.5.0.i, 16
   br i1 %cmp, label %land.lhs.true.i, label %for.cond.preheader
 
@@ -5580,17 +5568,13 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %rem.i = and i64 %hex_len.0.i.i, 1
   %cmp.i = icmp ne i64 %rem.i, 0
   %or.cond.not.i = select i1 %9, i1 true, i1 %cmp.i
-  br i1 %or.cond.not.i, label %do.body8, label %parse_hex_nibbles_for_const_bytes.exit
+  br i1 %or.cond.not.i, label %do.body8, label %land.lhs.true.i
 
-parse_hex_nibbles_for_const_bytes.exit:           ; preds = %parse_hex_nibbles.exit.i
-  %tobool6 = trunc i8 %.pre.i to i1
-  br i1 %tobool6, label %do.body8, label %land.lhs.true.i
-
-do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i, %parse_hex_nibbles_for_const_bytes.exit
+do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i
   store i8 1, ptr %errored, align 8
   br label %return
 
-land.lhs.true.i:                                  ; preds = %parse_hex_nibbles_for_const_bytes.exit
+land.lhs.true.i:                                  ; preds = %parse_hex_nibbles.exit.i
   %skipping_printing.i = getelementptr inbounds nuw i8, ptr %rdm, i64 41
   %10 = load i8, ptr %skipping_printing.i, align 1
   %tobool1.i = trunc i8 %10 to i1

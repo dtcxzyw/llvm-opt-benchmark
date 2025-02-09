@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   %10 = trunc nuw i8 %.pre to i1
-  br label %107
+  br label %106
 
 11:                                               ; preds = %0
   tail call void @_ZN10VM_Version14initialize_tscEv() #6
@@ -309,34 +309,30 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
   %100 = trunc i8 %99 to i1
   %.not6.i = xor i1 %100, true
   %brmerge7.i = or i1 %94, %.not6.i
-  br i1 %brmerge7.i, label %104, label %101
+  br i1 %brmerge7.i, label %101, label %.sink.split.i
 
 101:                                              ; preds = %98
-  %102 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %103 = and i64 %102, 32768
-  %.not.i = icmp ne i64 %103, 0
-  %brmerge = or i1 %.not.i, %100
-  br i1 %brmerge, label %.sink.split.i, label %_ZL10ergonomicsv.exit
-
-104:                                              ; preds = %98
-  %105 = and i1 %94, %100
+  %102 = and i1 %94, %100
   br label %_ZL10ergonomicsv.exit
 
-.sink.split.i:                                    ; preds = %101
+.sink.split.i:                                    ; preds = %98
+  %103 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %104 = and i64 %103, 32768
+  %.not.i = icmp ne i64 %104, 0
   %.str.mux = select i1 %.not.i, ptr @.str, ptr @.str.4
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %.str.mux) #6
   br label %_ZL10ergonomicsv.exit
 
-_ZL10ergonomicsv.exit:                            ; preds = %101, %.sink.split.i, %104, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
-  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %105, %104 ], [ %.not.i, %.sink.split.i ], [ false, %101 ]
-  %106 = zext i1 %.0.in to i8
-  store i8 %106, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
+_ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %101, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
+  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %102, %101 ], [ %.not.i, %.sink.split.i ]
+  %105 = zext i1 %.0.in to i8
+  store i8 %105, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   store i1 true, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1
-  br label %107
+  br label %106
 
-107:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
-  %108 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
-  ret i1 %108
+106:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
+  %107 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
+  ret i1 %107
 }
 
 declare void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1

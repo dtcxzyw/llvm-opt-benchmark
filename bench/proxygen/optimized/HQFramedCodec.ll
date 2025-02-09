@@ -1146,22 +1146,17 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit.thread: ; preds = %cleanup.done
   store i8 1, ptr %hasValue.i.i.i.i, align 16
   store i64 262, ptr %connError_, align 8
-  store i8 0, ptr %hasValue.i.i, align 8
   br label %invoke.cont2.i
 
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit: ; preds = %cleanup.done
   store i64 262, ptr %connError_, align 8
   store i8 0, ptr %agg.tmp, align 8
-  store i8 0, ptr %hasValue.i.i, align 8
-  %tobool.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i, label %invoke.cont2.i, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
+  br label %invoke.cont2.i
 
-invoke.cont2.i:                                   ; preds = %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit.thread, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit
+invoke.cont2.i:                                   ; preds = %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit.thread
+  store i8 0, ptr %hasValue.i.i, align 8
   store i64 262, ptr %agg.tmp, align 8
   store i8 1, ptr %hasValue.i.i, align 8
-  br label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
-
-_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit: ; preds = %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit, %invoke.cont2.i
   %call26 = call noundef zeroext i1 @_ZN8proxygen2hq13HQFramedCodec20checkConnectionErrorEN5folly8OptionalINS_5HTTP39ErrorCodeEEEPKNS2_5IOBufE(ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull %agg.tmp, ptr noundef null)
   br label %return
 
@@ -1171,8 +1166,8 @@ lpad:                                             ; preds = %invoke.cont13, %inv
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #13
   resume { ptr, i32 } %6
 
-return:                                           ; preds = %if.else3, %entry, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit, %if.then2
-  %retval.0 = phi i1 [ false, %if.then2 ], [ false, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit ], [ false, %entry ], [ true, %if.else3 ]
+return:                                           ; preds = %if.else3, %entry, %invoke.cont2.i, %if.then2
+  %retval.0 = phi i1 [ false, %if.then2 ], [ false, %invoke.cont2.i ], [ false, %entry ], [ true, %if.else3 ]
   ret i1 %retval.0
 }
 

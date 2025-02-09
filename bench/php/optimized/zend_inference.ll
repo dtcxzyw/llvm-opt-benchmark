@@ -27423,7 +27423,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   br i1 %179, label %182, label %180
 
 180:                                              ; preds = %174
-  %181 = or i8 %178, 1
+  %181 = or disjoint i8 %178, 1
   store i8 %181, ptr %177, align 4
   br label %232
 
@@ -27985,7 +27985,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
 
 531:                                              ; preds = %528
   %532 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %522, i64 %523, i32 1
-  %533 = or i8 %526, 1
+  %533 = or disjoint i8 %526, 1
   store i8 %533, ptr %532, align 4
   %534 = load ptr, ptr %47, align 8
   %535 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %534, i64 %523, i32 2, i32 2
@@ -28503,7 +28503,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   br i1 %858, label %861, label %859
 
 859:                                              ; preds = %853
-  %860 = or i8 %857, 1
+  %860 = or disjoint i8 %857, 1
   store i8 %860, ptr %856, align 4
   br label %911
 
@@ -29084,7 +29084,7 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %905, %842
   br i1 %1221, label %1224, label %1222
 
 1222:                                             ; preds = %1216
-  %1223 = or i8 %1220, 1
+  %1223 = or disjoint i8 %1220, 1
   store i8 %1223, ptr %1219, align 4
   br label %zend_inference_narrowing_meet.exit.thread.i
 
@@ -29256,7 +29256,7 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1214, %1270, %zend_
   br i1 %1315, label %1318, label %1316
 
 1316:                                             ; preds = %1310
-  %1317 = or i8 %1314, 1
+  %1317 = or disjoint i8 %1314, 1
   store i8 %1317, ptr %1313, align 4
   br label %1370
 
@@ -34858,7 +34858,7 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %81
-  %88 = or i8 %85, 1
+  %88 = or disjoint i8 %85, 1
   store i8 %88, ptr %84, align 4
   br label %141
 
