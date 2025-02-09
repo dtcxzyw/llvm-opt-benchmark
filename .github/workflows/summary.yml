@@ -1,0 +1,30 @@
+name: Summary
+
+on:
+  issue_comment:
+    types: created
+
+jobs:
+  summary:
+    if: github.event.issue.pull_request && github.event.sender.type == 'Bot' && contains(github.event.comment.body, 'runner:')
+    runs-on: [self-hosted, praction]
+
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Get script
+        run: wget https://raw.githubusercontent.com/dtcxzyw/llvm-opt-benchmark/refs/heads/main/scripts/summary.py
+
+      - name: Run script
+        run: |
+          python3 summary.py > pr-comment.md
+          cat pr-comment.md
+        env:
+          API_TOKEN: ${{ secrets.LLM_API_TOKEN }}
+          GH_PR_NUMBER: ${{ github.event.issue.number }}
+
+      - name: Report
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: pr-comment.md
