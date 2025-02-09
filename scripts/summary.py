@@ -12,6 +12,9 @@ client = OpenAI(
 patch = requests.get(
     f"https://patch-diff.githubusercontent.com/raw/dtcxzyw/llvm-opt-benchmark/pull/{pr_number}.diff"
 ).text
+pos = patch.find("diff --git a/scripts/setup_pre_commit_patch.sh b/scripts/setup_pre_commit_patch.sh")
+if pos != -1:
+    patch = patch[:pos]
 ctx_window = 120_000
 patch = patch[: ctx_window * 2]
 model_vendor = "qwen-plus-latest"
@@ -21,7 +24,13 @@ completion = client.chat.completions.create(
     messages=[
         {
             "role": "system",
-            "content": "You are a senior LLVM maintainer. You are reviewing LLVM IR diffs. Please provide a brief summary of the given changes (within 500 words). Please tell me up to 5 major changes for this patch.",
+            "content": """You are a senior LLVM maintainer. You are reviewing LLVM IR diffs. Please provide a brief summary of the given changes.
+Requirements:
+1. Summarize up to 5 major changes in the patch.
+2. Do not exceed 500 words.
+3. Ignore non-interesting changes (e.g., formatting, comments, remaming, reordering).
+4. Provide a high-level overview of the changes.
+""",
         },
         {
             "role": "user",
@@ -34,11 +43,10 @@ completion = client.chat.completions.create(
     stream_options={"include_usage": True},
 )
 
-print(f"Summarized by the {model_vendor} model:")
-
 for chunk in completion:
     if len(chunk.choices) == 0:
         print("\n")
+        print("model:", model_vendor)
         print(chunk.usage)
     else:
         print(chunk.choices[0].delta.content, end="")
