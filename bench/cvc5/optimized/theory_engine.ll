@@ -23315,7 +23315,7 @@ if.then122:                                       ; preds = %cond.end, %cleanup.
 for.body130:                                      ; preds = %if.then122, %for.inc228
   %cmp137 = phi i1 [ false, %if.then122 ], [ true, %for.inc228 ]
   %cmp129 = phi i1 [ true, %if.then122 ], [ false, %for.inc228 ]
-  %r.0670 = phi i64 [ 1, %if.then122 ], [ 2, %for.inc228 ]
+  %r.0674 = phi i64 [ 1, %if.then122 ], [ 2, %for.inc228 ]
   %bf.load.i.i.i.i329 = load i16, ptr %d_kind.i31, align 8, !noalias !199
   %bf.clear.i.i.i.i330 = and i16 %bf.load.i.i.i.i329, 1023
   %bf.cast.i.i.i.i331 = zext nneg i16 %bf.clear.i.i.i.i330 to i32
@@ -23478,7 +23478,7 @@ if.then155:                                       ; preds = %invoke.cont151
 
 invoke.cont164:                                   ; preds = %if.then155
   %cmp160 = icmp eq i16 %bf.clear.i400, 23
-  %cond = select i1 %cmp160, i64 %r.0670, i64 1
+  %cond = select i1 %cmp160, i64 %r.0674, i64 1
   %cmp.i.i409 = icmp eq i32 %call2.i.i.i408415, 2
   %inc.i.i410 = zext i1 %cmp.i.i409 to i64
   %spec.select.i.i411 = add nuw nsw i64 %cond, %inc.i.i410

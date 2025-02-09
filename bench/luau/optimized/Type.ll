@@ -7386,16 +7386,16 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8Property8isSharedEv(ptr noundef n
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %12 = load ptr, ptr %2, align 8
-  %13 = load ptr, ptr %11, align 8
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %16 = load ptr, ptr %2, align 8
+  %17 = load ptr, ptr %15, align 8
   %14 = icmp eq ptr %12, %13
   br label %_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit
 
-_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit: ; preds = %10, %6, %1
-  %15 = phi i1 [ false, %6 ], [ false, %1 ], [ %14, %10 ]
-  ret i1 %15
+_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit: ; preds = %14, %6, %1
+  %18 = phi i1 [ false, %6 ], [ false, %1 ], [ %14, %14 ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

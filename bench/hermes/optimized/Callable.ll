@@ -2961,7 +2961,7 @@ entry:
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
   store i32 3, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
@@ -3858,7 +3858,7 @@ entry:
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
@@ -4005,7 +4005,7 @@ entry:
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
 
-_ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
+_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
   store i32 5, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4

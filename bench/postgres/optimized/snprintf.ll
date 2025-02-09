@@ -1655,12 +1655,12 @@ define dso_local i32 @pg_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
 
 flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
   %.pre-phi = phi i1 [ %.not.i.i, %21 ], [ %19, %.flushbuffer.exit_crit_edge.i ]
-  %30 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
-  %31 = select i1 %.pre-phi, i32 -1, i32 %30
+  %31 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
+  %32 = select i1 %.pre-phi, i32 -1, i32 %31
   br label %pg_vfprintf.exit
 
 pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %31, %flushbuffer.exit.i ]
+  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -1722,12 +1722,12 @@ define dso_local i32 @pg_vprintf(ptr noundef %0, ptr noundef captures(none) %1) 
 
 flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
   %.pre-phi = phi i1 [ %.not.i.i, %21 ], [ %19, %.flushbuffer.exit_crit_edge.i ]
-  %30 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
-  %31 = select i1 %.pre-phi, i32 -1, i32 %30
+  %31 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
+  %32 = select i1 %.pre-phi, i32 -1, i32 %31
   br label %pg_vfprintf.exit
 
 pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %31, %flushbuffer.exit.i ]
+  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   ret i32 %.0.i
@@ -1790,12 +1790,12 @@ define dso_local i32 @pg_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
 
 flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
   %.pre-phi = phi i1 [ %.not.i.i, %21 ], [ %19, %.flushbuffer.exit_crit_edge.i ]
-  %30 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
-  %31 = select i1 %.pre-phi, i32 -1, i32 %30
+  %31 = phi i32 [ %29, %21 ], [ %.pre.i, %.flushbuffer.exit_crit_edge.i ]
+  %32 = select i1 %.pre-phi, i32 -1, i32 %31
   br label %pg_vfprintf.exit
 
 pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %31, %flushbuffer.exit.i ]
+  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)

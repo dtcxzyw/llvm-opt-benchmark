@@ -1406,8 +1406,8 @@ invoke.cont3:                                     ; preds = %entry
   %rx.sroa.6.0.ref.tmp7.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 20
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont3, %invoke.cont12
-  %__begin1.0.idx290 = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %invoke.cont12 ]
+for.cond:                                         ; preds = %invoke.cont3, %invoke.cont12
+  %__begin1.0.add = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %invoke.cont12 ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 %__begin1.0.idx290
   %4 = load float, ptr %__begin1.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp822)
@@ -1425,8 +1425,8 @@ for.body:                                         ; preds = %invoke.cont3, %invo
   br i1 %tobool.i4.i, label %invoke.cont53, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.body
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx290, 4
-  %cmp.not = icmp eq i64 %__begin1.0.add, 8
+  %tobool.i.i28 = add nuw nsw i64 %tobool.i.i28, 4
+  %cmp.not = icmp eq i64 %tobool.i.i28, 8
   br i1 %cmp.not, label %for.end, label %for.body
 
 invoke.cont53:                                    ; preds = %for.body
@@ -1486,8 +1486,8 @@ for.end:                                          ; preds = %invoke.cont12, %inv
   %ry.sroa.6.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 20
   br label %for.body72
 
-for.body72:                                       ; preds = %for.end, %invoke.cont82
-  %__begin166.0.idx298 = phi i64 [ 0, %for.end ], [ %__begin166.0.add, %invoke.cont82 ]
+for.cond70:                                       ; preds = %for.end, %invoke.cont82
+  %__begin166.0.add = phi i64 [ 0, %for.end ], [ %__begin166.0.add, %invoke.cont82 ]
   %__begin166.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 %__begin166.0.idx298
   %7 = load float, ptr %__begin166.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7892)
@@ -1506,8 +1506,8 @@ for.body72:                                       ; preds = %for.end, %invoke.co
   br i1 %tobool.i4.i100, label %invoke.cont127, label %invoke.cont82
 
 invoke.cont82:                                    ; preds = %for.body72
-  %__begin166.0.add = add nuw nsw i64 %__begin166.0.idx298, 4
-  %cmp71.not = icmp eq i64 %__begin166.0.add, 8
+  %tobool.i.i111 = add nuw nsw i64 %tobool.i.i111, 4
+  %cmp71.not = icmp eq i64 %tobool.i.i111, 8
   br i1 %cmp71.not, label %for.end134, label %for.body72
 
 invoke.cont127:                                   ; preds = %for.body72

@@ -1751,7 +1751,7 @@ if.then.i655:                                     ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp97, label %if.then98, label %if.end100
 
 if.then98:                                        ; preds = %if.then.i655
-  %retval.sroa.0.0.insert.insert.i68 = and i64 %call9131, -4294967295
+  %ref.tmp86.sroa.321.0.extract.shift = and i64 %call9131, -4294967295
   br label %cleanup
 
 if.end100:                                        ; preds = %if.then.i655
@@ -1862,7 +1862,7 @@ if.then.i:                                        ; preds = %if.then188
   br i1 %cmp200, label %if.then201, label %if.end203
 
 if.then201:                                       ; preds = %if.then.i
-  %retval.sroa.0.0.insert.insert.i93 = and i64 %call194, -4294967295
+  %ref.tmp189.sroa.325.0.extract.shift = and i64 %call194, -4294967295
   br label %cleanup
 
 if.end203:                                        ; preds = %if.then.i

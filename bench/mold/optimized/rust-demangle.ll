@@ -4862,7 +4862,7 @@ peek.exit.i.i.i:                                  ; preds = %if.end.i
 eat.exit.thread.i.i:                              ; preds = %peek.exit.i.i.i
   %inc.i.i.i = add nuw i64 %1, 2
   store i64 %inc.i.i.i, ptr %next.i.i.i, align 8
-  br label %land.lhs.true.i
+  br label %if.then4
 
 peek.exit.i22.i.i:                                ; preds = %peek.exit.i.i.i, %if.end40.i.i
   %x.0.i7.i = phi i64 [ %x.1.i.i, %if.end40.i.i ], [ 0, %peek.exit.i.i.i ]
@@ -4910,9 +4910,9 @@ parse_opt_integer_62.exit:                        ; preds = %peek.exit.i22.i.i
   store i64 %inc.i26.i.i, ptr %next.i.i.i, align 8
   %11 = add i64 %x.0.i7.i, 2
   %cmp.not = icmp eq i64 %11, 0
-  br i1 %cmp.not, label %if.end10, label %land.lhs.true.i
+  br i1 %cmp.not, label %if.end10, label %if.then4
 
-land.lhs.true.i:                                  ; preds = %parse_opt_integer_62.exit, %eat.exit.thread.i.i
+if.then4:                                         ; preds = %parse_opt_integer_62.exit, %eat.exit.thread.i.i
   %retval.0.i38 = phi i64 [ %11, %parse_opt_integer_62.exit ], [ 1, %eat.exit.thread.i.i ]
   %skipping_printing.i = getelementptr inbounds nuw i8, ptr %rdm, i64 41
   %12 = load i8, ptr %skipping_printing.i, align 1
@@ -5568,7 +5568,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %rem.i = and i64 %hex_len.0.i.i, 1
   %cmp.i = icmp ne i64 %rem.i, 0
   %or.cond.not.i = select i1 %9, i1 true, i1 %cmp.i
-  br i1 %or.cond.not.i, label %do.body8, label %land.lhs.true.i
+  br i1 %or.cond.not.i, label %do.body8, label %if.then4
 
 do.body8:                                         ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i
   store i8 1, ptr %errored, align 8

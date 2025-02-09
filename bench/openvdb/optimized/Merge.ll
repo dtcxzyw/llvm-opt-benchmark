@@ -18389,13 +18389,13 @@ cond.end:                                         ; preds = %if.end.i.i, %if.the
   %41 = phi i8 [ %.pre50, %cond.false ], [ %frombool.i, %if.then.i ], [ %frombool.i.i, %if.then.i.i ], [ %frombool.i.i.i, %if.end.i.i ]
   %cond = phi i1 [ %call39, %cond.false ], [ %cmp.i.i.i34, %if.then.i ], [ %cmp.i.i.i.i, %if.then.i.i ], [ %cmp.i.i11.i.i, %if.end.i.i ]
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %for.body49, label %if.end58
+  br i1 %42, label %for.cond47.preheader, label %if.end58
 
-for.body49:                                       ; preds = %cond.end, %for.body49
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.body49 ], [ 0, %cond.end ]
+for.cond47.preheader:                             ; preds = %cond.end, %for.body49
+  %43 = phi i64 [ %indvars.iv.next47, %for.body49 ], [ 0, %cond.end ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %leaf, i64 %indvars.iv46
-  %43 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %43, 1
+  %44 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %44, 1
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 512
@@ -21904,13 +21904,13 @@ cond.end:                                         ; preds = %cond.false, %_ZNK7o
   %45 = phi i8 [ %44, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %.pre52, %cond.false ]
   %cond = phi i1 [ %retval.0.i36, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE10probeValueERKNS0_4math5CoordERb.exit ], [ %call39, %cond.false ]
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %for.body49, label %if.end58
+  br i1 %46, label %for.cond47.preheader, label %if.end58
 
 for.body49:                                       ; preds = %cond.end, %for.body49
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.body49 ], [ 0, %cond.end ]
   %arrayidx53 = getelementptr inbounds nuw i64, ptr %mBuffer.i25, i64 %indvars.iv48
-  %47 = load i64, ptr %arrayidx53, align 8
-  %add54 = add i64 %47, 1
+  %48 = load i64, ptr %arrayidx53, align 8
+  %add54 = add i64 %48, 1
   store i64 %add54, ptr %arrayidx53, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 512

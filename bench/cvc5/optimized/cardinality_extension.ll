@@ -13901,15 +13901,15 @@ if.end42:                                         ; preds = %cond.end
 if.end42.thread:                                  ; preds = %cond.end
   %d_data.i.i5121059 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %5 = load i64, ptr %d_data.i.i5121059, align 8
-  %cmp881033.not1060 = icmp eq i64 %5, 0
-  %or.cond = select i1 %cmp45.not, i1 true, i1 %cmp881033.not1060
+  %cmp881032.not1060 = icmp eq i64 %5, 0
+  %or.cond = select i1 %cmp45.not, i1 true, i1 %cmp881032.not1060
   br i1 %or.cond, label %if.end320, label %for.body.lr.ph
 
 for.cond.preheader:                               ; preds = %if.end42
   %d_data.i.i512 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %6 = load i64, ptr %d_data.i.i512, align 8
-  %cmp881033.not = icmp eq i64 %6, 0
-  br i1 %cmp881033.not, label %cond.end187, label %for.body.lr.ph
+  %cmp881032.not = icmp eq i64 %6, 0
+  br i1 %cmp881032.not, label %cond.end187, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end42.thread, %for.cond.preheader
   %7 = phi i64 [ %6, %for.cond.preheader ], [ %5, %if.end42.thread ]
@@ -13920,9 +13920,9 @@ for.body.lr.ph:                                   ; preds = %if.end42.thread, %f
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %8 = phi i64 [ %7, %for.body.lr.ph ], [ %22, %for.inc ]
-  %storemerge1034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %storemerge1033 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %d_regions, align 8
-  %add.ptr.i513 = getelementptr inbounds ptr, ptr %9, i64 %storemerge1034
+  %add.ptr.i513 = getelementptr inbounds ptr, ptr %9, i64 %storemerge1033
   %10 = load ptr, ptr %add.ptr.i513, align 8
   %d_data.i.i.i514 = getelementptr inbounds nuw i8, ptr %10, i64 568
   %11 = load i8, ptr %d_data.i.i.i514, align 1
@@ -14010,7 +14010,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.for.inc_crit_
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.for.inc_crit_edge, %for.body
   %22 = phi i64 [ %.pre, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.for.inc_crit_edge ], [ %8, %for.body ]
-  %inc = add nuw i64 %storemerge1034, 1
+  %inc = add nuw i64 %storemerge1033, 1
   %cmp88 = icmp ult i64 %inc, %22
   br i1 %cmp88, label %for.body, label %for.end, !llvm.loop !116
 
@@ -14026,14 +14026,14 @@ for.body136.lr.ph:                                ; preds = %for.cond132.prehead
   br label %for.body136.outer
 
 for.body136.outer:                                ; preds = %for.inc159.thread, %for.body136.lr.ph
-  %i131.01037.ph = phi i64 [ %inc1601054, %for.inc159.thread ], [ 0, %for.body136.lr.ph ]
-  %addedLemma.11036.ph = phi i1 [ true, %for.inc159.thread ], [ false, %for.body136.lr.ph ]
+  %i131.01036.ph = phi i64 [ %inc1601052, %for.inc159.thread ], [ 0, %for.body136.lr.ph ]
+  %addedLemma.11035.ph = phi i1 [ true, %for.inc159.thread ], [ false, %for.body136.lr.ph ]
   br label %for.body136
 
 for.body136:                                      ; preds = %for.body136.outer, %for.inc159
-  %i131.01037 = phi i64 [ %inc160, %for.inc159 ], [ %i131.01037.ph, %for.body136.outer ]
+  %i131.01036 = phi i64 [ %inc160, %for.inc159 ], [ %i131.01036.ph, %for.body136.outer ]
   %24 = load ptr, ptr %d_regions137, align 8
-  %add.ptr.i640 = getelementptr inbounds ptr, ptr %24, i64 %i131.01037
+  %add.ptr.i640 = getelementptr inbounds ptr, ptr %24, i64 %i131.01036
   %25 = load ptr, ptr %add.ptr.i640, align 8
   %d_data.i.i.i641 = getelementptr inbounds nuw i8, ptr %25, i64 568
   %26 = load i8, ptr %d_data.i.i.i641, align 1
@@ -14056,19 +14056,19 @@ if.then147:                                       ; preds = %land.lhs.true140
   ]
 
 for.inc159:                                       ; preds = %if.then147, %for.body136, %land.lhs.true140
-  %inc160 = add nuw i64 %i131.01037, 1
+  %inc160 = add nuw i64 %i131.01036, 1
   %29 = load i64, ptr %d_data.i.i5121062, align 8
   %cmp135 = icmp ult i64 %inc160, %29
   br i1 %cmp135, label %for.body136, label %lor.lhs.false, !llvm.loop !117
 
 for.inc159.thread:                                ; preds = %if.then147
-  %inc1601054 = add nuw i64 %i131.01037, 1
+  %inc1601052 = add nuw i64 %i131.01036, 1
   %30 = load i64, ptr %d_data.i.i5121062, align 8
-  %cmp1351055 = icmp ult i64 %inc1601054, %30
-  br i1 %cmp1351055, label %for.body136.outer, label %if.end320, !llvm.loop !117
+  %cmp1351053 = icmp ult i64 %inc1601052, %30
+  br i1 %cmp1351053, label %for.body136.outer, label %if.end320, !llvm.loop !117
 
 lor.lhs.false:                                    ; preds = %for.inc159
-  br i1 %addedLemma.11036.ph, label %if.end320, label %cond.end187
+  br i1 %addedLemma.11035.ph, label %if.end320, label %cond.end187
 
 cond.end187:                                      ; preds = %for.cond.preheader, %for.cond132.preheader, %lor.lhs.false
   %d_data.i.i5121063 = phi ptr [ %d_data.i.i5121062, %for.cond132.preheader ], [ %d_data.i.i5121062, %lor.lhs.false ], [ %d_data.i.i512, %for.cond.preheader ]
@@ -14090,8 +14090,8 @@ if.then191:                                       ; preds = %cond.end187
   %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sortsFound, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %33 = load i64, ptr %d_data.i.i5121063, align 8
-  %cmp1981038.not = icmp eq i64 %33, 0
-  br i1 %cmp1981038.not, label %for.end260, label %invoke.cont202.lr.ph
+  %cmp1981037.not = icmp eq i64 %33, 0
+  br i1 %cmp1981037.not, label %for.end260, label %invoke.cont202.lr.ph
 
 invoke.cont202.lr.ph:                             ; preds = %if.then191
   %d_regions200 = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -14099,10 +14099,10 @@ invoke.cont202.lr.ph:                             ; preds = %if.then191
 
 invoke.cont202:                                   ; preds = %invoke.cont202.lr.ph, %for.inc258
   %34 = phi i64 [ %33, %invoke.cont202.lr.ph ], [ %56, %for.inc258 ]
-  %recheck.11041 = phi i1 [ false, %invoke.cont202.lr.ph ], [ %recheck.4, %for.inc258 ]
-  %storemerge91039 = phi i64 [ 0, %invoke.cont202.lr.ph ], [ %inc259, %for.inc258 ]
+  %recheck.11040 = phi i1 [ false, %invoke.cont202.lr.ph ], [ %recheck.4, %for.inc258 ]
+  %storemerge91038 = phi i64 [ 0, %invoke.cont202.lr.ph ], [ %inc259, %for.inc258 ]
   %35 = load ptr, ptr %d_regions200, align 8
-  %add.ptr.i764 = getelementptr inbounds ptr, ptr %35, i64 %storemerge91039
+  %add.ptr.i764 = getelementptr inbounds ptr, ptr %35, i64 %storemerge91038
   %36 = load ptr, ptr %add.ptr.i764, align 8
   %d_data.i.i.i765 = getelementptr inbounds nuw i8, ptr %36, i64 568
   %37 = load i8, ptr %d_data.i.i.i765, align 1
@@ -14235,7 +14235,7 @@ cond.true224:                                     ; preds = %invoke.cont214
 
 invoke.cont244:                                   ; preds = %cond.true224
   %49 = load i32, ptr %call245, align 4
-  %conv246 = trunc i64 %storemerge91039 to i32
+  %conv246 = trunc i64 %storemerge91038 to i32
   %call248 = invoke noundef i32 @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel14combineRegionsEii(ptr noundef nonnull align 8 dereferenceable(928) %this, i32 noundef %49, i32 noundef %conv246)
           to label %cleanup254 unwind label %lpad208
 
@@ -14260,13 +14260,13 @@ if.else249:                                       ; preds = %_ZN4cvc58internal12
           to label %invoke.cont251 unwind label %lpad208
 
 invoke.cont251:                                   ; preds = %if.else249
-  %conv250 = trunc i64 %storemerge91039 to i32
+  %conv250 = trunc i64 %storemerge91038 to i32
   store i32 %conv250, ptr %call252, align 4
   br label %cleanup254
 
 cleanup254:                                       ; preds = %invoke.cont244, %invoke.cont251
   %switch15 = phi i1 [ true, %invoke.cont251 ], [ false, %invoke.cont244 ]
-  %recheck.3 = phi i1 [ %recheck.11041, %invoke.cont251 ], [ true, %invoke.cont244 ]
+  %recheck.3 = phi i1 [ %recheck.11040, %invoke.cont251 ], [ true, %invoke.cont244 ]
   %bf.load.i.i929 = load i64, ptr %39, align 8
   %53 = and i64 %bf.load.i.i929, 1152920405095219200
   %cmp.not.i.i930 = icmp eq i64 %53, 1152920405095219200
@@ -14296,7 +14296,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940: ; preds = %cleanup254, %if.th
   br i1 %switch15, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge, label %for.end260.loopexit
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940
-  %.pre1048 = load i64, ptr %d_data.i.i5121063, align 8
+  %.pre1046 = load i64, ptr %d_data.i.i5121063, align 8
   br label %for.inc258
 
 ehcleanup:                                        ; preds = %lpad210, %lpad208
@@ -14305,28 +14305,28 @@ ehcleanup:                                        ; preds = %lpad210, %lpad208
   br label %ehcleanup261
 
 for.inc258:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge, %invoke.cont202
-  %56 = phi i64 [ %.pre1048, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %34, %invoke.cont202 ]
-  %recheck.4 = phi i1 [ %recheck.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %recheck.11041, %invoke.cont202 ]
-  %inc259 = add nuw i64 %storemerge91039, 1
+  %56 = phi i64 [ %.pre1046, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %34, %invoke.cont202 ]
+  %recheck.4 = phi i1 [ %recheck.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940.for.inc258_crit_edge ], [ %recheck.11040, %invoke.cont202 ]
+  %inc259 = add nuw i64 %storemerge91038, 1
   %cmp198 = icmp ult i64 %inc259, %56
   br i1 %cmp198, label %invoke.cont202, label %for.end260.loopexit, !llvm.loop !122
 
 for.end260.loopexit:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940, %for.inc258
   %recheck.2.ph = phi i1 [ %recheck.4, %for.inc258 ], [ %recheck.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit940 ]
-  %.pre1049 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %.pre1047 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   br label %for.end260
 
 for.end260:                                       ; preds = %for.end260.loopexit, %if.then191
-  %57 = phi ptr [ null, %if.then191 ], [ %.pre1049, %for.end260.loopexit ]
+  %58 = phi ptr [ null, %if.then191 ], [ %.pre1047, %for.end260.loopexit ]
   %recheck.2 = phi i1 [ false, %if.then191 ], [ %recheck.2.ph, %for.end260.loopexit ]
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %sortsFound, ptr noundef %57)
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %sortsFound, ptr noundef %58)
           to label %if.end262 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.end260
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #25
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #25
   unreachable
 
 ehcleanup261:                                     ; preds = %ehcleanup, %lpad195
@@ -14338,32 +14338,32 @@ if.end262:                                        ; preds = %for.end260
   br i1 %recheck.2, label %if.end320.sink.split, label %for.cond266.preheader
 
 for.cond266.preheader:                            ; preds = %if.end262, %cond.end187
-  %60 = load i64, ptr %d_data.i.i5121063, align 8
-  %cmp2691044.not = icmp eq i64 %60, 0
-  br i1 %cmp2691044.not, label %if.end320, label %for.body270.lr.ph
+  %61 = load i64, ptr %d_data.i.i5121063, align 8
+  %cmp2691043.not = icmp eq i64 %61, 0
+  br i1 %cmp2691043.not, label %if.end320, label %for.body270.lr.ph
 
 for.body270.lr.ph:                                ; preds = %for.cond266.preheader
   %d_regions271 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %61 = load ptr, ptr %d_regions271, align 8
+  %62 = load ptr, ptr %d_regions271, align 8
   br label %for.body270
 
 for.body270:                                      ; preds = %for.body270.lr.ph, %for.inc304
-  %storemerge121045 = phi i64 [ 0, %for.body270.lr.ph ], [ %inc305, %for.inc304 ]
-  %add.ptr.i943 = getelementptr inbounds ptr, ptr %61, i64 %storemerge121045
-  %62 = load ptr, ptr %add.ptr.i943, align 8
-  %d_data.i.i.i944 = getelementptr inbounds nuw i8, ptr %62, i64 568
-  %63 = load i8, ptr %d_data.i.i.i944, align 1
-  %tobool.i.i945 = trunc i8 %63 to i1
+  %storemerge121044 = phi i64 [ 0, %for.body270.lr.ph ], [ %inc305, %for.inc304 ]
+  %add.ptr.i943 = getelementptr inbounds ptr, ptr %62, i64 %storemerge121044
+  %63 = load ptr, ptr %add.ptr.i943, align 8
+  %d_data.i.i.i944 = getelementptr inbounds nuw i8, ptr %63, i64 568
+  %64 = load i8, ptr %d_data.i.i.i944, align 1
+  %tobool.i.i945 = trunc i8 %64 to i1
   br i1 %tobool.i.i945, label %cond.true292, label %for.inc304
 
 cond.true292:                                     ; preds = %for.body270
-  %conv275 = trunc i64 %storemerge121045 to i32
+  %conv275 = trunc i64 %storemerge121044 to i32
   %call276 = call noundef i32 @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel18forceCombineRegionEib(ptr noundef nonnull align 8 dereferenceable(928) %this, i32 noundef %conv275, i1 noundef zeroext false)
   br label %if.end320.sink.split
 
 for.inc304:                                       ; preds = %for.body270
-  %inc305 = add nuw i64 %storemerge121045, 1
-  %exitcond.not = icmp eq i64 %inc305, %60
+  %inc305 = add nuw i64 %storemerge121044, 1
+  %exitcond.not = icmp eq i64 %inc305, %61
   br i1 %exitcond.not, label %if.end320, label %for.body270, !llvm.loop !123
 
 if.end320.sink.split:                             ; preds = %if.then147, %if.end262, %cond.true292

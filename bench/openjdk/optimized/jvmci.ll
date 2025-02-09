@@ -643,52 +643,52 @@ define hidden void @_ZN5JVMCI29ensure_box_caches_initializedEP10JavaThread(ptr n
 
 _ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit: ; preds = %5, %21, %25, %28, %32
   %.sroa.0.0 = phi ptr [ null, %25 ], [ %0, %32 ], [ null, %28 ], [ null, %21 ], [ null, %5 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %34
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %35
 
-34:                                               ; preds = %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit, %48
-  %indvars.iv = phi i64 [ 0, %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit ], [ %indvars.iv.next, %48 ]
-  %35 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %36, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
-  %38 = load ptr, ptr %33, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %.loopexit
+35:                                               ; preds = %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit, %49
+  %indvars.iv = phi i64 [ 0, %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit ], [ %indvars.iv.next, %49 ]
+  %36 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %37, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
+  %39 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %40, label %.loopexit
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 305
-  %41 = load volatile i8, ptr %40, align 1
-  %42 = icmp ult i8 %41, 3
-  br i1 %42, label %43, label %48
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 305
+  %42 = load volatile i8, ptr %41, align 1
+  %43 = icmp ult i8 %42, 3
+  br i1 %43, label %44, label %49
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %37, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 176
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(464) %37, ptr noundef nonnull %0) #13
-  %47 = load ptr, ptr %33, align 8
-  %.not12 = icmp eq ptr %47, null
-  br i1 %.not12, label %48, label %.loopexit
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %38, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 176
+  %47 = load ptr, ptr %46, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(464) %38, ptr noundef nonnull %0) #13
+  %48 = load ptr, ptr %34, align 8
+  %.not12 = icmp eq ptr %48, null
+  br i1 %.not12, label %49, label %.loopexit
 
-48:                                               ; preds = %39, %43
+49:                                               ; preds = %40, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %49, label %34, !llvm.loop !8
+  br i1 %exitcond.not, label %50, label %35, !llvm.loop !8
 
-49:                                               ; preds = %48
+50:                                               ; preds = %49
   store i8 1, ptr @_ZN5JVMCI23_box_caches_initializedE, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %34, %49
+.loopexit:                                        ; preds = %44, %35, %50
   %.not.i11 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i11, label %_ZN25CompilerThreadCanCallJavaD2Ev.exit, label %50
+  br i1 %.not.i11, label %_ZN25CompilerThreadCanCallJavaD2Ev.exit, label %51
 
-50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1848
-  store i8 0, ptr %51, align 8
+51:                                               ; preds = %.loopexit
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1848
+  store i8 0, ptr %52, align 8
   br label %_ZN25CompilerThreadCanCallJavaD2Ev.exit
 
-_ZN25CompilerThreadCanCallJavaD2Ev.exit:          ; preds = %50, %.loopexit, %1
+_ZN25CompilerThreadCanCallJavaD2Ev.exit:          ; preds = %51, %.loopexit, %1
   ret void
 }
 

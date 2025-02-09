@@ -3247,7 +3247,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   tail call void @_ZN4llvm3pdb14PDBFileBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(480) %1)
   %21 = load ptr, ptr %0, align 8, !tbaa !166
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %22, label %286
+  br i1 %.not, label %22, label %287
 
 22:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #19
@@ -3840,7 +3840,7 @@ _ZNKSt14default_deleteIN4llvm16FileOutputBufferEEclEPS1_.exit.i.i.i: ; preds = %
   %.pre = load i8, ptr %31, align 8
   %.pre158 = load ptr, ptr %8, align 8
   %266 = trunc i8 %.pre to i1
-  br i1 %266, label %271, label %269
+  br i1 %266, label %272, label %270
 
 .thread161:                                       ; preds = %22
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
@@ -3850,52 +3850,52 @@ _ZNKSt14default_deleteIN4llvm16FileOutputBufferEEclEPS1_.exit.i.i.i: ; preds = %
   store ptr %268, ptr %0, align 8, !tbaa !166, !alias.scope !398
   br label %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
 
-269:                                              ; preds = %265
-  %270 = load ptr, ptr %.pre158, align 8
+270:                                              ; preds = %265
+  %271 = load ptr, ptr %.pre158, align 8
   call void %270(ptr noundef nonnull align 8 dereferenceable(73) %8) #19
   br label %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
 
-271:                                              ; preds = %265
+272:                                              ; preds = %265
   %.not.i.i104 = icmp eq ptr %.pre158, null
   br i1 %.not.i.i104, label %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i105
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i105: ; preds = %271
-  %272 = load ptr, ptr %.pre158, align 8, !tbaa !48
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  %274 = load ptr, ptr %273, align 8
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i105: ; preds = %272
+  %273 = load ptr, ptr %.pre158, align 8, !tbaa !48
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  %275 = load ptr, ptr %274, align 8
   call void %274(ptr noundef nonnull align 8 dereferenceable(8) %.pre158) #19
   br label %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit: ; preds = %271, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i105, %.thread161, %269
+_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit: ; preds = %272, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i105, %.thread161, %270
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #19
-  %275 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %276 = load ptr, ptr %275, align 8, !tbaa !376
-  %.not.i.i.i.i107 = icmp eq ptr %276, null
-  br i1 %.not.i.i.i.i107, label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i, label %277
+  %276 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %277 = load ptr, ptr %276, align 8, !tbaa !376
+  %.not.i.i.i.i107 = icmp eq ptr %277, null
+  br i1 %.not.i.i.i.i107, label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i, label %278
 
-277:                                              ; preds = %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
-  %278 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %279 = load ptr, ptr %278, align 8, !tbaa !401
-  %280 = ptrtoint ptr %279 to i64
-  %281 = ptrtoint ptr %276 to i64
-  %282 = sub i64 %280, %281
-  call void @_ZdlPvm(ptr noundef nonnull %276, i64 noundef %282) #21
+278:                                              ; preds = %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
+  %279 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %280 = load ptr, ptr %279, align 8, !tbaa !401
+  %281 = ptrtoint ptr %280 to i64
+  %282 = ptrtoint ptr %277 to i64
+  %283 = sub i64 %281, %282
+  call void @_ZdlPvm(ptr noundef nonnull %277, i64 noundef %283) #21
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i
 
-_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i: ; preds = %277, %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
-  %283 = load ptr, ptr %23, align 8, !tbaa !20
-  %284 = icmp eq ptr %283, %24
-  br i1 %284, label %_ZN4llvm3msf9MSFLayoutD2Ev.exit, label %285
+_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i: ; preds = %278, %_ZN4llvm8ExpectedINS_20FileBufferByteStreamEED2Ev.exit
+  %284 = load ptr, ptr %23, align 8, !tbaa !20
+  %285 = icmp eq ptr %284, %24
+  br i1 %285, label %_ZN4llvm3msf9MSFLayoutD2Ev.exit, label %286
 
-285:                                              ; preds = %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i
-  call void @free(ptr noundef %283) #19
+286:                                              ; preds = %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i
+  call void @free(ptr noundef %284) #19
   br label %_ZN4llvm3msf9MSFLayoutD2Ev.exit
 
-_ZN4llvm3msf9MSFLayoutD2Ev.exit:                  ; preds = %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i, %285
+_ZN4llvm3msf9MSFLayoutD2Ev.exit:                  ; preds = %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EED2Ev.exit.i, %286
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #19
-  br label %286
+  br label %287
 
-286:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm3msf9MSFLayoutD2Ev.exit
+287:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm3msf9MSFLayoutD2Ev.exit
   ret void
 }
 

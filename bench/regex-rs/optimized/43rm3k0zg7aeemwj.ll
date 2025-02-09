@@ -2719,7 +2719,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %73 = load i64, ptr %72, align 8
   %trunc.i70 = trunc nuw i64 %.sroa.11.0.ph to i1
   %74 = tail call i64 @llvm.umax.i64(i64 %73, i64 %.sroa.15.0.ph)
-  %.sroa.15.3 = select i1 %trunc.i70, i64 %74, i64 %73
+  %spec.select.i72.not = select i1 %trunc.i70, i64 %74, i64 %73
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %71, %68

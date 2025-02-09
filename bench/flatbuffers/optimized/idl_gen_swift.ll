@@ -31934,7 +31934,7 @@ land.lhs.true208:                                 ; preds = %if.end205
   %fixed = getelementptr inbounds nuw i8, ptr %90, i64 272
   %91 = load i8, ptr %fixed, align 8
   %tobool211 = trunc i8 %91 to i1
-  br i1 %tobool211, label %if.then212, label %if.then370
+  br i1 %tobool211, label %if.then212, label %land.lhs.true364
 
 if.then212:                                       ; preds = %land.lhs.true208
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp214) #20
@@ -32684,7 +32684,7 @@ ehcleanup360:                                     ; preds = %lpad354, %lpad.i464
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp353) #20
   br label %ehcleanup400
 
-if.then370:                                       ; preds = %land.lhs.true208
+land.lhs.true364:                                 ; preds = %land.lhs.true208
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp373) #20
   %call.i469473 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp372)
           to label %call.i469.noexc unwind label %lpad374

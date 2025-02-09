@@ -4023,42 +4023,42 @@ saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   store i16 %197, ptr %198, align 4
   call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %8, i32 noundef 20) #10
-  %199 = shl i32 %.0111.lcssa, 1
-  call void @XLogRegisterData(ptr noundef %19, i32 noundef %199) #10
-  %200 = shl nuw i32 %.0113, 1
-  %201 = add i32 %200, 2
-  call void @XLogRegisterData(ptr noundef %22, i32 noundef %201) #10
-  %202 = ptrtoint ptr %122 to i64
-  %203 = ptrtoint ptr %73 to i64
-  %204 = sub i64 %202, %203
-  %205 = trunc i64 %204 to i32
-  call void @XLogRegisterData(ptr noundef %73, i32 noundef %205) #10
-  %206 = load i32, ptr %165, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %206, i8 noundef zeroext 8) #10
-  %207 = load i8, ptr %56, align 2
-  %208 = trunc i8 %207 to i1
-  %209 = select i1 %208, i8 14, i8 8
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %57, i8 noundef zeroext %209) #10
-  %210 = load i32, ptr %163, align 4
-  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %210, i8 noundef zeroext 8) #10
-  %211 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
-  %212 = load ptr, ptr %10, align 8
-  %213 = lshr i64 %211, 32
-  %214 = trunc nuw i64 %213 to i32
-  store i32 %214, ptr %212, align 4
-  %215 = trunc i64 %211 to i32
-  %216 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store i32 %215, ptr %216, align 4
-  store i32 %214, ptr %.0.i.i, align 4
-  %217 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  store i32 %215, ptr %217, align 4
-  %218 = load ptr, ptr %128, align 8
+  %200 = shl i32 %.0111.lcssa, 1
+  call void @XLogRegisterData(ptr noundef %19, i32 noundef %200) #10
+  %201 = shl nuw i32 %.0113, 1
+  %202 = add i32 %201, 2
+  call void @XLogRegisterData(ptr noundef %22, i32 noundef %202) #10
+  %203 = ptrtoint ptr %122 to i64
+  %204 = ptrtoint ptr %73 to i64
+  %205 = sub i64 %203, %204
+  %206 = trunc i64 %205 to i32
+  call void @XLogRegisterData(ptr noundef %73, i32 noundef %206) #10
+  %207 = load i32, ptr %165, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %207, i8 noundef zeroext 8) #10
+  %208 = load i8, ptr %56, align 2
+  %209 = trunc i8 %208 to i1
+  %210 = select i1 %209, i8 14, i8 8
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %57, i8 noundef zeroext %210) #10
+  %211 = load i32, ptr %163, align 4
+  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %211, i8 noundef zeroext 8) #10
+  %212 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
+  %213 = load ptr, ptr %10, align 8
+  %214 = lshr i64 %212, 32
+  %215 = trunc nuw i64 %214 to i32
+  store i32 %215, ptr %213, align 4
+  %216 = trunc i64 %212 to i32
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  store i32 %216, ptr %217, align 4
+  store i32 %215, ptr %.0.i.i, align 4
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  store i32 %216, ptr %218, align 4
+  %219 = load ptr, ptr %128, align 8
   store i32 %214, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
   store i32 %215, ptr %219, align 4
   br label %220
 
-220:                                              ; preds = %saveNodeLink.exit, %175, %179, %183, %186
+220:; preds = %saveNodeLink.exit, %175, %179, %183, %186
   %221 = load volatile i32, ptr @CritSectionCount, align 4
   %222 = add i32 %221, -1
   store volatile i32 %222, ptr @CritSectionCount, align 4

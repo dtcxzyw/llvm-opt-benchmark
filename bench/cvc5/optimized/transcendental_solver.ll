@@ -4497,9 +4497,9 @@ lpad454:                                          ; preds = %invoke.cont453
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp452) #23
   br label %ehcleanup471
 
-cleanup.sink.split:                               ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209
-  %bf.load.i2.i1210.sink2162 = phi i64 [ %bf.load.i2.i1210, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %bf.load.i2.i1268, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
-  %.sink = phi ptr [ %125, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %143, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
+cleanup:                                          ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209
+  %is_secant.3 = phi i64 [ %bf.load.i2.i1210, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %bf.load.i2.i1268, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
+  %is_tangent.4 = phi ptr [ %125, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %143, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %is_secant.3.ph = phi i1 [ %cmp296.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %cmp298.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %is_tangent.4.ph = phi i1 [ %cmp298.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %cmp296.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %bf.value.i6.i1220 = add i64 %bf.load.i2.i1210.sink2162, 1099511627776

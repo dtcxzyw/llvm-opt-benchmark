@@ -4125,7 +4125,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i:  ; preds = %_ZN4pstd8optionalIN
   %21 = phi i8 [ 0, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i ], [ %20, %invoke.cont27 ]
   %22 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %22 to i1
-  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit
+  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread, label %invoke.cont29
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %tok, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp25, i64 40, i1 false)
@@ -4133,7 +4133,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN
   store i8 0, ptr %set.i3.i, align 8
   br label %invoke.cont34
 
-_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit:        ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
+invoke.cont29:                                    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %invoke.cont34, label %for.cond1365.preheader
 

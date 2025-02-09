@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   %10 = trunc nuw i8 %.pre to i1
-  br label %106
+  br label %107
 
 11:                                               ; preds = %0
   tail call void @_ZN10VM_Version14initialize_tscEv() #6
@@ -325,14 +325,14 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
 
 _ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %101, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
   %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %102, %101 ], [ %.not.i, %.sink.split.i ]
-  %105 = zext i1 %.0.in to i8
-  store i8 %105, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
+  %106 = zext i1 %.0.in to i8
+  store i8 %106, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   store i1 true, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1
-  br label %106
+  br label %107
 
-106:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
-  %107 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
-  ret i1 %107
+107:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
+  %108 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
+  ret i1 %108
 }
 
 declare void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1

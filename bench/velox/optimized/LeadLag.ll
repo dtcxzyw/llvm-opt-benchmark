@@ -5765,12 +5765,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  br i1 %tobool.i, label %if.then.i10, label %if.else
+  br i1 %tobool.i, label %if.then.thread, label %if.else
 
 if.then:                                          ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   br i1 %tobool.i, label %if.then.i10, label %_ZNRSt8optionalIlE5valueEv.exit.i
 
-if.then.i10:                                      ; preds = %lor.lhs.false, %if.then
+if.then.thread:                                   ; preds = %lor.lhs.false, %if.then
   %9 = load ptr, ptr %rowNumbers_, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %9, %10
@@ -10195,12 +10195,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %tobool.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  br i1 %tobool.i, label %if.then.i10, label %if.else
+  br i1 %tobool.i, label %if.then.thread, label %if.else
 
 if.then:                                          ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   br i1 %tobool.i, label %if.then.i10, label %_ZNRSt8optionalIlE5valueEv.exit.i
 
-if.then.i10:                                      ; preds = %lor.lhs.false, %if.then
+if.then.thread:                                   ; preds = %lor.lhs.false, %if.then
   %9 = load ptr, ptr %rowNumbers_, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %9, %10

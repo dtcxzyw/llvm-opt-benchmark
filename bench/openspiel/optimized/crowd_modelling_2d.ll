@@ -7183,7 +7183,7 @@ define void @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState13DoApply
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   %30 = load ptr, ptr %0, align 8
@@ -7225,7 +7225,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
 52:                                               ; preds = %46
   store i64 %1, ptr %12, align 8
@@ -7249,7 +7249,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
 62:                                               ; preds = %52
   %63 = load i32, ptr %24, align 4
@@ -7270,7 +7270,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
 69:                                               ; preds = %62
   %70 = trunc i64 %1 to i32
@@ -7333,7 +7333,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit20:                  ; preds = %76
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
 104:                                              ; preds = %98
   %105 = icmp ult i64 %1, 5
@@ -7370,41 +7370,41 @@ _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %104
   %.015 = phi i32 [ %87, %_ZNKSt5arrayIiLm5EE2atEm.exit20 ], [ %115, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %71, %69 ]
   %.0 = phi i32 [ %94, %_ZNKSt5arrayIiLm5EE2atEm.exit20 ], [ %122, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %72, %69 ]
   store i32 %.sink, ptr %24, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %129 = load ptr, ptr %128, align 8
-  %.not.i = icmp eq ptr %127, %129
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %130 = load ptr, ptr %129, align 8
+  %.not.i = icmp eq ptr %128, %130
   br i1 %.not.i, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %125, %136
-  %.sroa.07.010.i = phi ptr [ %137, %136 ], [ %127, %125 ]
-  %130 = load i32, ptr %.sroa.07.010.i, align 4
-  %131 = icmp eq i32 %.015, %130
-  br i1 %131, label %132, label %136
+.lr.ph.i:                                         ; preds = %125, %137
+  %.sroa.07.010.i = phi ptr [ %138, %137 ], [ %128, %125 ]
+  %131 = load i32, ptr %.sroa.07.010.i, align 4
+  %132 = icmp eq i32 %.015, %131
+  br i1 %132, label %133, label %137
 
-132:                                              ; preds = %.lr.ph.i
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 4
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp eq i32 %.0, %134
-  br i1 %135, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit, label %136
+133:                                              ; preds = %.lr.ph.i
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp eq i32 %.0, %135
+  br i1 %136, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit, label %137
 
-136:                                              ; preds = %132, %.lr.ph.i
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 8
-  %.not13.i = icmp eq ptr %137, %129
+137:                                              ; preds = %133, %.lr.ph.i
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 8
+  %.not13.i = icmp eq ptr %138, %130
   br i1 %.not13.i, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit.thread, label %.lr.ph.i
 
-_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit.thread: ; preds = %136, %125
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %.015, ptr %138, align 4
+_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit: ; preds = %136, %125
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %.015, ptr %139, align 4
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.0, ptr %139, align 8
   br label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit
 
-_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit: ; preds = %132, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit.thread
+_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit:; preds = %132, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPositionEii.exit
   ret void
 
-140:                                              ; preds = %102, %67, %60, %50, %28
+143:                                              ; preds = %102, %67, %60, %50, %28
   %.sink24 = phi ptr [ %22, %102 ], [ %18, %67 ], [ %14, %60 ], [ %10, %50 ], [ %5, %28 ]
   %.pn = phi { ptr, i32 } [ %103, %102 ], [ %68, %67 ], [ %61, %60 ], [ %51, %50 ], [ %29, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink24) #26

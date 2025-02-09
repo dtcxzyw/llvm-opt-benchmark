@@ -8420,7 +8420,7 @@ _ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_1
   %.val = load ptr, ptr %40, align 8
   %.val19 = load i32, ptr %7, align 8, !tbaa !495
   %41 = icmp eq i32 %.val19, 0
-  br i1 %41, label %_ZNK5clang6interp7Pointer9getDeclIDEv.exit.i, label %62
+  br i1 %41, label %_ZNK5clang6interp7Pointer9getDeclIDEv.exit.i, label %61
 
 _ZNK5clang6interp7Pointer9getDeclIDEv.exit.i:     ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -8429,21 +8429,21 @@ _ZNK5clang6interp7Pointer9getDeclIDEv.exit.i:     ; preds = %39
   %.sroa.42.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i.i, 32
   %.sroa.42.0.extract.trunc.i = trunc i64 %.sroa.42.0.extract.shift.i to i8
   %43 = trunc i64 %.sroa.42.0.extract.shift.i to i1
-  br i1 %43, label %_ZNK5clang6interp7Pointer8isStaticEv.exit.i, label %62
+  br i1 %43, label %_ZNK5clang6interp7Pointer8isStaticEv.exit.i, label %61
 
 _ZNK5clang6interp7Pointer8isStaticEv.exit.i:      ; preds = %_ZNK5clang6interp7Pointer9getDeclIDEv.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %45 = load i8, ptr %44, align 8, !tbaa !553, !range !465, !noundef !466
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %62
+  br i1 %46, label %47, label %61
 
 47:                                               ; preds = %_ZNK5clang6interp7Pointer8isStaticEv.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %49 = load ptr, ptr %48, align 8, !tbaa !574
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 324
   %51 = load i32, ptr %50, align 4, !tbaa !575
-  %.not.i.i20 = icmp ne i32 %51, -1
-  %.sroa.4.0.extract.trunc.i = zext i1 %.not.i.i20 to i8
+  %.not.i.i21 = icmp ne i32 %51, -1
+  %.sroa.4.0.extract.trunc.i = zext i1 %.not.i.i21 to i8
   %52 = icmp eq i8 %.sroa.4.0.extract.trunc.i, %.sroa.42.0.extract.trunc.i
   br i1 %52, label %53, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit
 
@@ -8454,19 +8454,19 @@ _ZNK5clang6interp7Pointer8isStaticEv.exit.i:      ; preds = %_ZNK5clang6interp7P
   %57 = select i1 %.not.i.i20, i1 %56, i1 undef
   br i1 %57, label %62, label %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit
 
-_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit: ; preds = %47, %53
+_ZSteqIjjENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i: ; preds = %47, %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %59 = load ptr, ptr %58, align 8, !tbaa !451
   %60 = tail call i32 @_ZNK5clang6interp11InterpFrame11getLocationENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(224) %59, ptr %1) #20
-  %61 = tail call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 %60, i32 noundef 2241, i32 noundef 0) #20
+  %57 = tail call ptr @_ZN5clang6interp5State6FFDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 %60, i32 noundef 2241, i32 noundef 0) #20
   br label %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread
 
-62:                                               ; preds = %_ZNK5clang6interp7Pointer8isStaticEv.exit.i, %_ZNK5clang6interp7Pointer9getDeclIDEv.exit.i, %53, %39
-  %63 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckConstERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(52) %2)
+61:                                               ; preds = %_ZNK5clang6interp7Pointer8isStaticEv.exit.i, %_ZNK5clang6interp7Pointer9getDeclIDEv.exit.i, %53, %39
+  %62 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckConstERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(52) %2)
   br label %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread
 
-_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread: ; preds = %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i, %21, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i, %31, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit, %62, %37, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit ], [ false, %37 ], [ false, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit ], [ %63, %62 ], [ false, %31 ], [ false, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i ], [ false, %21 ], [ false, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i ]
+_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit.thread: ; preds = %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i, %21, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i, %31, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit, %61, %37, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE.exit ], [ false, %37 ], [ false, %_ZL11CheckGlobalRN5clang6interp11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit ], [ %62, %61 ], [ false, %31 ], [ false, %_ZNK5clang6interp10Descriptor11asValueDeclEv.exit.i ], [ false, %21 ], [ false, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i ]
   ret i1 %.0
 }
 

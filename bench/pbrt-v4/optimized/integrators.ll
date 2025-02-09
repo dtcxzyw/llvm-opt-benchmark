@@ -28183,7 +28183,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i: ; preds = %_ZN4pst
   %4 = phi i8 [ 0, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i ], [ %3, %invoke.cont ]
   %5 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %5 to i1
-  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
+  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread, label %invoke.cont3
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %si, ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp, i64 72, i1 false)
@@ -28201,7 +28201,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread: ; preds = %_ZN4ps
   store i8 0, ptr %set.i3.i, align 8
   br label %invoke.cont10
 
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
+invoke.cont3:                                     ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %invoke.cont10, label %cleanup
 

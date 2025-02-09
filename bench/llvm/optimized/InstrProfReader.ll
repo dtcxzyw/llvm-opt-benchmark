@@ -14921,7 +14921,7 @@ _ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit.i: ; preds = %109, %_ZN4llvm11Sm
   %.pre17 = load ptr, ptr %6, align 8, !tbaa !159
   store ptr null, ptr %0, align 8, !tbaa !36
   %114 = trunc i8 %.pre16 to i1
-  br i1 %114, label %120, label %117
+  br i1 %114, label %122, label %118
 
 .thread:                                          ; preds = %4
   %115 = load i64, ptr %6, align 8, !tbaa !11, !noalias !1611
@@ -14930,27 +14930,27 @@ _ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit.i: ; preds = %109, %_ZN4llvm11Sm
   store ptr %116, ptr %0, align 8, !tbaa !36
   br label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %119 = icmp eq ptr %.pre17, %118
-  br i1 %119, label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit, label %.thread21
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %120 = icmp eq ptr %.pre17, %119
+  br i1 %120, label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit, label %.thread21
 
-.thread21:                                        ; preds = %117
+.thread21:                                        ; preds = %118
   call void @free(ptr noundef %.pre17) #22
   br label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit
 
-120:                                              ; preds = %113
+122:                                              ; preds = %113
   %.not.i.i13 = icmp eq ptr %.pre17, null
   br i1 %.not.i.i13, label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %120
-  %121 = load ptr, ptr %.pre17, align 8, !tbaa !20
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %122
+  %123 = load ptr, ptr %.pre17, align 8, !tbaa !20
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(8) %.pre17) #22
   br label %_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit: ; preds = %.thread, %120, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %117, %.thread21
+_ZN4llvm8ExpectedINS_11SmallVectorINS_7memprof4MetaELj28EEEED2Ev.exit: ; preds = %.thread, %122, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %118, %.thread21
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %6) #22
   ret void
 }

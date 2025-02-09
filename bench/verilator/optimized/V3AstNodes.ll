@@ -86144,7 +86144,7 @@ define dso_local noundef ptr @_ZN8AstConst17parseParamLiteralEP8FileLineRKNSt7__
 
 _ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %48
+  br label %50
 
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
@@ -86164,7 +86164,7 @@ _ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIc
 21:                                               ; preds = %.body, %17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %18, %17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %49
+  br label %51
 
 22:                                               ; preds = %2
   %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.273, i64 noundef 0) #33
@@ -86180,56 +86180,56 @@ _ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIc
 28:                                               ; preds = %24
   %29 = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #36
   invoke void @_ZN8AstConstC2EP8FileLineNS_10RealDoubleEd(ptr noundef nonnull align 8 dereferenceable(208) %29, ptr noundef %0, double noundef %25)
-          to label %48 unwind label %30
+          to label %50 unwind label %30
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %29) #37
-  br label %49
+  br label %51
 
 .thread:                                          ; preds = %24, %22
-  %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
-  %33 = call i64 @strtol(ptr noundef %32, ptr noundef nonnull %5, i32 noundef 0) #33
-  %34 = trunc i64 %33 to i32
-  %.not20 = icmp eq i32 %34, 0
-  br i1 %.not20, label %43, label %35
+  %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  %35 = call i64 @strtol(ptr noundef %34, ptr noundef nonnull %5, i32 noundef 0) #33
+  %36 = trunc i64 %35 to i32
+  %.not20 = icmp eq i32 %36, 0
+  br i1 %.not20, label %45, label %37
 
-35:                                               ; preds = %.thread
-  %36 = load ptr, ptr %5, align 8
-  %37 = load i8, ptr %36, align 1
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %43
+37:                                               ; preds = %.thread
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %41, label %45
 
-39:                                               ; preds = %35
-  %40 = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #36
-  invoke void @_ZN8AstConstC2EP8FileLineNS_8Signed32Ei(ptr noundef nonnull align 8 dereferenceable(208) %40, ptr noundef %0, i32 noundef %34)
-          to label %48 unwind label %41
+41:                                               ; preds = %37
+  %42 = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #36
+  invoke void @_ZN8AstConstC2EP8FileLineNS_8Signed32Ei(ptr noundef nonnull align 8 dereferenceable(208) %42, ptr noundef %0, i32 noundef %36)
+          to label %50 unwind label %43
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %40) #37
-  br label %49
+  call void @_ZdlPv(ptr noundef nonnull %42) #37
+  br label %51
 
-43:                                               ; preds = %35, %.thread
-  %44 = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #36
-  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
-  invoke void @_ZN8AstConstC2EP8FileLineNS_13StringToParseEPKc(ptr noundef nonnull align 8 dereferenceable(208) %44, ptr noundef %0, ptr noundef %45)
-          to label %48 unwind label %46
+45:                                               ; preds = %37, %.thread
+  %46 = call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #36
+  %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #33
+  invoke void @_ZN8AstConstC2EP8FileLineNS_13StringToParseEPKc(ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef %0, ptr noundef %47)
+          to label %50 unwind label %48
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %45
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %44) #37
-  br label %49
+  call void @_ZdlPv(ptr noundef nonnull %46) #37
+  br label %51
 
-48:                                               ; preds = %43, %39, %28, %_ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0 = phi ptr [ %12, %_ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %29, %28 ], [ %40, %39 ], [ %44, %43 ]
+50:                                               ; preds = %45, %41, %28, %_ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.0 = phi ptr [ %12, %_ZN8AstConstC2EP8FileLineNS_20VerilogStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %29, %28 ], [ %42, %41 ], [ %46, %45 ]
   ret ptr %.0
 
-49:                                               ; preds = %46, %41, %30, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %21 ], [ %31, %30 ], [ %42, %41 ], [ %47, %46 ]
+51:                                               ; preds = %48, %43, %30, %21
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %21 ], [ %31, %30 ], [ %44, %43 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn.pn
 }
 

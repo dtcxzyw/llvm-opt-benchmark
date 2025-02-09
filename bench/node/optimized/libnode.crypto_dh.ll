@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.91 = type { i64, [8 x i8] }
 %"class.std::allocator.88" = type { i8 }
-%"class.node::NonCopyableMaybe.509" = type { i8, %"struct.node::crypto::PrivateKeyEncodingConfig" }
+%"struct.node::crypto::KeyPairGenConfig" = type { i8, %"struct.node::crypto::PrivateKeyEncodingConfig" }
 %"struct.node::crypto::PrivateKeyEncodingConfig" = type { %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr, %"class.node::NonCopyableMaybe" }
 %"struct.node::crypto::AsymmetricKeyEncodingConfig" = type { i8, i32, %"class.v8::Maybe.332" }
 %"class.v8::Maybe.332" = type { i8, i32 }
@@ -6937,7 +6937,7 @@ _ZN4node6crypto16KeyPairGenConfigINS0_15DhKeyPairParamsEEC2Ev.exit: ; preds = %_
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 128
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %private_key_encoding.i12)
-  %call.i = call i16 @_ZN4node6crypto14DhKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
+  %tobool.i = call i16 @_ZN4node6crypto14DhKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
   %tobool.i.i = trunc i16 %call.i to i1
   br i1 %tobool.i.i, label %if.end.i13, label %cleanup
 
@@ -6973,16 +6973,16 @@ if.end11.i:                                       ; preds = %_ZN4node16NonCopyab
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i.i) #19
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_15DhKeyPairParamsEEC2Ev.exit, %if.end11.i
+if.end16:                                         ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_15DhKeyPairParamsEEC2Ev.exit, %if.end11.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %private_key_encoding.i12)
   %call17 = call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #20
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %30 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %30, i64 -8
+  %25 = load ptr, ptr %values_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %25, i64 -8
   call void @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_14DhKeyGenTraitsEEEEC2EPNS_11EnvironmentEN2v85LocalINS8_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEE(ptr noundef nonnull align 8 dereferenceable(400) %call17, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, i32 noundef 51, i32 noundef %call12, ptr noundef nonnull align 8 dereferenceable(144) %params)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_14DhKeyGenTraitsEEEEE, i64 16), ptr %call17, align 8
-  %add.ptr.i17 = getelementptr inbounds nuw i8, ptr %call17, i64 56
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_14DhKeyGenTraitsEEEEE, i64 200), ptr %add.ptr.i17, align 8
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %call17, i64 56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_14DhKeyGenTraitsEEEEE, i64 200), ptr %add.ptr.i12, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %call17, i64 392
   store i32 1, ptr %status_.i, align 8
   call void @_ZN4node6crypto16KeyPairGenConfigINS0_15DhKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %params) #19

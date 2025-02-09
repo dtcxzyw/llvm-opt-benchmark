@@ -1593,8 +1593,8 @@ entry:
 
 for.cond.i:                                       ; preds = %_ZNKSt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEEclESB_.exit.i, %entry
   %i.0.i = phi i64 [ %sub.ptr.div.i.i, %entry ], [ %sub.i, %_ZNKSt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEEclESB_.exit.i ]
-  %cmp.not.i.not = icmp eq i64 %i.0.i, 0
-  br i1 %cmp.not.i.not, label %cond.false, label %for.body.i
+  %cmp.not.i = icmp eq i64 %i.0.i, 0
+  br i1 %cmp.not.i, label %_ZN6google8protobuf2io12_GLOBAL__N_118LookupInFrameStackINS1_7Printer9ValueImplILb0EEEEESt8optionalIT_ESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanISt8functionIFS9_SD_EEEE.exit.thread, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %sub.i = add i64 %i.0.i, -1
@@ -1620,7 +1620,7 @@ _ZNKSt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17b
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %cleanup.done, label %for.cond.i, !llvm.loop !45
 
-cond.false:                                       ; preds = %for.cond.i
+_ZN6google8protobuf2io12_GLOBAL__N_118LookupInFrameStackINS1_7Printer9ValueImplILb0EEEEESt8optionalIT_ESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanISt8functionIFS9_SD_EEEE.exit.thread: ; preds = %for.cond.i
   store i8 0, ptr %_M_engaged.i.i.i, align 8, !alias.scope !38
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str.4, i32 noundef 276, i64 18, ptr nonnull @.str.5) #31
           to label %invoke.cont unwind label %lpad
@@ -1638,21 +1638,21 @@ cleanup.action:                                   ; preds = %invoke.cont9
   unreachable
 
 lpad:                                             ; preds = %cond.false23, %cond.false
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %result) #27
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 
 lpad6:                                            ; preds = %invoke.cont, %invoke.cont9
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #32
   unreachable
 
 cleanup.done:                                     ; preds = %_ZNKSt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEEclESB_.exit.i
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
-  %8 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i8 %8, 0
+  %9 = load i8, ptr %_M_index.i.i.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i8 %9, 0
   br i1 %cmp.i.i.i.not, label %if.then.i.i.i.i, label %cond.false23
 
 cond.false23:                                     ; preds = %cleanup.done
@@ -1676,7 +1676,7 @@ cleanup.action42:                                 ; preds = %invoke.cont35
   unreachable
 
 lpad29:                                           ; preds = %invoke.cont35, %invoke.cont27, %invoke.cont32
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25) #32
   unreachable
@@ -1688,14 +1688,14 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.done
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   %consume_after.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i.i.i.i.i.i) #27
-  %10 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %11 = load i8, ptr %_M_index.i.i.i.i, align 8
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEED2Ev.exit, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 16
-  %11 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1703,10 +1703,10 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i
           to label %_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #32
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #32
   unreachable
 
 _ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEED2Ev.exit: ; preds = %if.then.i.i.i.i, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

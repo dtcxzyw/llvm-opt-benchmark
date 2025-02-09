@@ -2789,18 +2789,18 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %178, label %switch.lookup, label %188
 
 179:                                              ; preds = %174
-  %switch.tableidx4396 = add i8 %175, -1
-  %180 = icmp ult i8 %switch.tableidx4396, 3
-  br i1 %180, label %switch.lookup4395, label %188
+  %switch.tableidx4398 = add i8 %175, -1
+  %180 = icmp ult i8 %switch.tableidx4398, 3
+  br i1 %180, label %switch.lookup4397, label %188
 
 181:                                              ; preds = %174
   %182 = icmp ult i32 %.113659, -1879048192
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %181
-  %switch.tableidx4400 = add i8 %175, -2
-  %184 = icmp ult i8 %switch.tableidx4400, 4
-  br i1 %184, label %switch.lookup4399, label %188
+  %switch.tableidx4402 = add i8 %175, -2
+  %184 = icmp ult i8 %switch.tableidx4402, 4
+  br i1 %184, label %switch.lookup4401, label %188
 
 switch.lookup:                                    ; preds = %177
   %185 = zext nneg i8 %switch.tableidx to i64
@@ -2808,20 +2808,20 @@ switch.lookup:                                    ; preds = %177
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %188
 
-switch.lookup4395:                                ; preds = %179
-  %186 = zext nneg i8 %switch.tableidx4396 to i64
-  %switch.gep4397 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
-  %switch.load4398 = load ptr, ptr %switch.gep4397, align 8
+switch.lookup4397:                                ; preds = %179
+  %186 = zext nneg i8 %switch.tableidx4398 to i64
+  %switch.gep4399 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
+  %switch.load4400 = load ptr, ptr %switch.gep4399, align 8
   br label %188
 
-switch.lookup4399:                                ; preds = %183
-  %187 = zext nneg i8 %switch.tableidx4400 to i64
-  %switch.gep4401 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
-  %switch.load4402 = load ptr, ptr %switch.gep4401, align 8
+switch.lookup4401:                                ; preds = %183
+  %187 = zext nneg i8 %switch.tableidx4402 to i64
+  %switch.gep4403 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
+  %switch.load4404 = load ptr, ptr %switch.gep4403, align 8
   br label %188
 
-188:                                              ; preds = %183, %switch.lookup4399, %179, %switch.lookup4395, %177, %switch.lookup, %181
-  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4398, %switch.lookup4395 ], [ @.str.65, %179 ], [ %switch.load4402, %switch.lookup4399 ], [ @.str.65, %183 ]
+188:                                              ; preds = %183, %switch.lookup4401, %179, %switch.lookup4397, %177, %switch.lookup, %181
+  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4400, %switch.lookup4397 ], [ @.str.65, %179 ], [ %switch.load4404, %switch.lookup4401 ], [ @.str.65, %183 ]
   %189 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %190 = xor i32 %.33927, -1
   %191 = add i32 %.13, %190
@@ -2934,44 +2934,44 @@ switch.lookup4399:                                ; preds = %183
   ]
 
 249:                                              ; preds = %246
-  %switch.tableidx4404 = add i8 %247, -1
-  %250 = icmp ult i8 %switch.tableidx4404, 3
-  br i1 %250, label %switch.lookup4403, label %260
+  %switch.tableidx4406 = add i8 %247, -1
+  %250 = icmp ult i8 %switch.tableidx4406, 3
+  br i1 %250, label %switch.lookup4405, label %260
 
 251:                                              ; preds = %246
-  %switch.tableidx4408 = add i8 %247, -1
-  %252 = icmp ult i8 %switch.tableidx4408, 3
-  br i1 %252, label %switch.lookup4407, label %260
+  %switch.tableidx4410 = add i8 %247, -1
+  %252 = icmp ult i8 %switch.tableidx4410, 3
+  br i1 %252, label %switch.lookup4409, label %260
 
 253:                                              ; preds = %246
   %254 = icmp ult i32 %.43652, -1879048192
   br i1 %254, label %255, label %260
 
 255:                                              ; preds = %253
-  %switch.tableidx4412 = add i8 %247, -2
-  %256 = icmp ult i8 %switch.tableidx4412, 4
-  br i1 %256, label %switch.lookup4411, label %260
+  %switch.tableidx4414 = add i8 %247, -2
+  %256 = icmp ult i8 %switch.tableidx4414, 4
+  br i1 %256, label %switch.lookup4413, label %260
 
-switch.lookup4403:                                ; preds = %249
-  %257 = zext nneg i8 %switch.tableidx4404 to i64
-  %switch.gep4405 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
-  %switch.load4406 = load ptr, ptr %switch.gep4405, align 8
+switch.lookup4405:                                ; preds = %249
+  %257 = zext nneg i8 %switch.tableidx4406 to i64
+  %switch.gep4407 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
+  %switch.load4408 = load ptr, ptr %switch.gep4407, align 8
   br label %260
 
-switch.lookup4407:                                ; preds = %251
-  %258 = zext nneg i8 %switch.tableidx4408 to i64
-  %switch.gep4409 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
-  %switch.load4410 = load ptr, ptr %switch.gep4409, align 8
+switch.lookup4409:                                ; preds = %251
+  %258 = zext nneg i8 %switch.tableidx4410 to i64
+  %switch.gep4411 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
+  %switch.load4412 = load ptr, ptr %switch.gep4411, align 8
   br label %260
 
-switch.lookup4411:                                ; preds = %255
-  %259 = zext nneg i8 %switch.tableidx4412 to i64
-  %switch.gep4413 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
-  %switch.load4414 = load ptr, ptr %switch.gep4413, align 8
+switch.lookup4413:                                ; preds = %255
+  %259 = zext nneg i8 %switch.tableidx4414 to i64
+  %switch.gep4415 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
+  %switch.load4416 = load ptr, ptr %switch.gep4415, align 8
   br label %260
 
-260:                                              ; preds = %255, %switch.lookup4411, %251, %switch.lookup4407, %249, %switch.lookup4403, %253
-  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4406, %switch.lookup4403 ], [ @.str.65, %249 ], [ %switch.load4410, %switch.lookup4407 ], [ @.str.65, %251 ], [ %switch.load4414, %switch.lookup4411 ], [ @.str.65, %255 ]
+260:                                              ; preds = %255, %switch.lookup4413, %251, %switch.lookup4409, %249, %switch.lookup4405, %253
+  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4408, %switch.lookup4405 ], [ @.str.65, %249 ], [ %switch.load4412, %switch.lookup4409 ], [ @.str.65, %251 ], [ %switch.load4416, %switch.lookup4413 ], [ @.str.65, %255 ]
   %261 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %262 = xor i32 %.73931, -1
   %263 = add i32 %.15, %262
