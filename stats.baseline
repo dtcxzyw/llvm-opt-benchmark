@@ -38,7 +38,7 @@
   "build-libcalls.NumWriteOnlyArg": 3897,
   "callsite-splitting.NumCallSiteSplit": 9749,
   "capture-tracking.NumCapturedBefore": 13137974,
-  "capture-tracking.NumNotCapturedBefore": 15884191,
+  "capture-tracking.NumNotCapturedBefore": 15884190,
   "constmerge.NumIdenticalMerged": 11556,
   "constraint-elimination.NumCondsRemoved": 1734863,
   "correlated-value-propagation.NumAShrsConverted": 3970,
