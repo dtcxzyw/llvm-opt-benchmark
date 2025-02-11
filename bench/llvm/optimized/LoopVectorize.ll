@@ -20841,7 +20841,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   %128 = load ptr, ptr %127, align 8, !tbaa !117, !noalias !1036
   call void @_ZN4llvm26OptimizationRemarkAnalysisC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %15, ptr noundef nonnull @.str, ptr nonnull @.str.242, i64 19, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %128) #29, !noalias !1036
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %15, ptr nonnull @.str.252, i64 36) #29, !noalias !1036
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr nonnull @.str.253, i64 23, i64 %2) #29, !noalias !1036
+  %.sroa.0.0.insert.insert203 = and i64 %2, -4294967297
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr nonnull @.str.253, i64 23, i64 %.sroa.0.0.insert.insert203) #29, !noalias !1036
   %129 = call noundef nonnull align 8 dereferenceable(432) ptr @_ZN4llvmlsINS_26OptimizationRemarkAnalysisEEERT_S3_NSt9enable_ifIXsr3std10is_base_ofINS_30DiagnosticInfoOptimizationBaseES2_EE5valueENS5_8ArgumentEE4typeE(ptr noundef nonnull align 8 dereferenceable(432) %15, ptr noundef nonnull %18), !noalias !1036
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %129, ptr nonnull @.str.254, i64 58) #29, !noalias !1036
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr nonnull @.str.242, i64 19, i64 %.sroa.0.0.insert.ext151) #29, !noalias !1036

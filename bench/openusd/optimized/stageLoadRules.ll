@@ -2231,50 +2231,50 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_17Usd
   %10 = phi i1 [ false, %.lr.ph.i.i.i.i.i ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i ]
   %.05.i.i.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i.i.i ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i ]
   %.024.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i ], [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i ]
-  %11 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i ]
+  %11 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i ]
   %12 = add i64 %.05.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i, i64 12
   %14 = load i32, ptr %.024.i.i.i.i.i, align 4
   %15 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %14 to i64
-  br i1 %10, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i
+  br i1 %10, label %18, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %9
-  %18 = add nuw i64 %11, %17
-  %19 = add nuw i64 %18, 1
-  %20 = mul i64 %19, %18
-  %21 = lshr i64 %20, 1
-  %22 = add nuw i64 %21, %17
+18:                                               ; preds = %9
+  %19 = add nuw i64 %11, %17
+  %20 = add nuw i64 %19, 1
+  %21 = mul i64 %20, %19
+  %22 = lshr i64 %21, 1
+  %23 = add nuw i64 %22, %17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %9
-  %.sink.i.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %9 ]
-  %23 = zext i32 %16 to i64
-  %24 = add nuw i64 %.sink.i.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %23
-  %25 = add nuw i64 %24, 1
-  %26 = mul i64 %25, %24
-  %27 = lshr i64 %26, 1
-  %28 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i, i64 8
-  %29 = load i32, ptr %28, align 4
-  %30 = zext i32 %29 to i64
-  %31 = add nuw nsw i64 %30, %23
-  %32 = add nuw i64 %31, %27
-  %33 = add nuw i64 %32, 1
-  %34 = mul i64 %33, %32
-  %35 = lshr i64 %34, 1
-  %36 = add nuw i64 %35, %30
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i: ; preds = %18, %9
+  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %9 ]
+  %24 = zext i32 %16 to i64
+  %25 = add nuw i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %24
+  %26 = add nuw i64 %25, 1
+  %27 = mul i64 %26, %25
+  %28 = lshr i64 %27, 1
+  %29 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = zext i32 %30 to i64
+  %32 = add nuw nsw i64 %31, %24
+  %33 = add nuw i64 %32, %28
+  %34 = add nuw i64 %33, 1
+  %35 = mul i64 %34, %33
+  %36 = lshr i64 %35, 1
+  %37 = add nuw i64 %36, %31
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i, label %9, !llvm.loop !24
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i
-  %37 = mul i64 %36, -7046029254386353067
+  %38 = mul i64 %37, -7046029254386353067
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISF_Efp_ELi0EEcvm_EEOSF_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISF_Efp_ELi0EEcvm_EEOSF_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i ]
-  %38 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
-  ret i64 %38
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i ]
+  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
+  ret i64 %39
 }
 
 ; Function Attrs: uwtable

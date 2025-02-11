@@ -30644,115 +30644,114 @@ _ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14defa
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = and i8 %23, 1
-  %25 = and i8 %15, -2
-  %26 = or disjoint i8 %24, %25
-  store i8 %26, ptr %14, align 8
-  %27 = trunc i8 %23 to i1
-  %28 = load i64, ptr %10, align 8, !tbaa !67
-  %29 = inttoptr i64 %28 to ptr
+  %25 = or disjoint i8 %24, %15
+  store i8 %25, ptr %14, align 8
+  %26 = trunc i8 %23 to i1
+  %27 = load i64, ptr %10, align 8, !tbaa !67
+  %28 = inttoptr i64 %27 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #27
-  br i1 %27, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37
+  br i1 %26, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37
 
 _ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit: ; preds = %6
-  %30 = load i64, ptr %8, align 8, !tbaa !430, !noalias !2388
-  %31 = inttoptr i64 %30 to ptr
+  %29 = load i64, ptr %8, align 8, !tbaa !430, !noalias !2388
+  %30 = inttoptr i64 %29 to ptr
   store ptr null, ptr %8, align 8, !tbaa !430, !noalias !2388
-  %32 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i8, ptr %33, align 8
-  %35 = or i8 %34, 1
-  store i8 %35, ptr %33, align 8
-  store ptr %31, ptr %0, align 8, !tbaa !430, !alias.scope !2393
-  br label %60
+  %31 = icmp ne i64 %29, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i8, ptr %32, align 8
+  %34 = or i8 %33, 1
+  store i8 %34, ptr %32, align 8
+  store ptr %30, ptr %0, align 8, !tbaa !430, !alias.scope !2393
+  br label %59
 
 _ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34: ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit.thread
   store ptr null, ptr %8, align 8, !tbaa !430, !noalias !2396
-  %.not = icmp eq i64 %28, 0
+  %.not = icmp eq i64 %27, 0
   br i1 %.not, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37, label %_ZN4llvm5ErrorD2Ev.exit35
 
 _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8
-  %38 = or i8 %37, 1
-  store i8 %38, ptr %36, align 8
-  store ptr %29, ptr %0, align 8, !tbaa !430, !alias.scope !2399
-  br label %60
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i8, ptr %35, align 8
+  %37 = or i8 %36, 1
+  store i8 %37, ptr %35, align 8
+  store ptr %28, ptr %0, align 8, !tbaa !430, !alias.scope !2399
+  br label %59
 
 _ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37: ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit.thread
-  %.sink = phi ptr [ %29, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit.thread ], [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34 ]
+  %.sink = phi ptr [ %28, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit.thread ], [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit34 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #27
   call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1640) %1, ptr %.sink, ptr noundef nonnull align 8 dereferenceable(472) %3, ptr noundef nonnull align 8 dereferenceable(184) %18, ptr noundef nonnull align 8 dereferenceable(184) %4)
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %42 = or disjoint i8 %41, %25
-  store i8 %42, ptr %14, align 8
-  %43 = trunc i8 %40 to i1
-  %44 = load i64, ptr %11, align 8, !tbaa !67
-  store i64 %44, ptr %8, align 8, !tbaa !67
-  %45 = inttoptr i64 %44 to ptr
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %39 = load i8, ptr %38, align 8
+  %40 = and i8 %39, 1
+  %41 = or disjoint i8 %40, %15
+  store i8 %41, ptr %14, align 8
+  %42 = trunc i8 %39 to i1
+  %43 = load i64, ptr %11, align 8, !tbaa !67
+  store i64 %43, ptr %8, align 8, !tbaa !67
+  %44 = inttoptr i64 %43 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #27
-  br i1 %43, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50, label %_ZN4llvm5ErrorD2Ev.exit52
+  br i1 %42, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50, label %_ZN4llvm5ErrorD2Ev.exit52
 
 _ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50: ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37
   store ptr null, ptr %8, align 8, !tbaa !430, !noalias !2402
-  %.not79 = icmp eq i64 %44, 0
+  %.not79 = icmp eq i64 %43, 0
   br i1 %.not79, label %_ZN4llvm5ErrorD2Ev.exit52, label %_ZN4llvm5ErrorD2Ev.exit51
 
 _ZN4llvm5ErrorD2Ev.exit51:                        ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i8, ptr %46, align 8
-  %48 = or i8 %47, 1
-  store i8 %48, ptr %46, align 8
-  store ptr %45, ptr %0, align 8, !tbaa !430, !alias.scope !2405
-  br label %60
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i8, ptr %45, align 8
+  %47 = or i8 %46, 1
+  store i8 %47, ptr %45, align 8
+  store ptr %44, ptr %0, align 8, !tbaa !430, !alias.scope !2405
+  br label %59
 
 _ZN4llvm5ErrorD2Ev.exit52:                        ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50
-  %49 = phi ptr [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50 ], [ %45, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37 ]
-  %50 = phi i64 [ 0, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50 ], [ %44, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37 ]
+  %48 = phi ptr [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50 ], [ %44, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37 ]
+  %49 = phi i64 [ 0, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit50 ], [ %43, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i37 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #27
-  %51 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !488
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter17constrainOperandsESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherEjRKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(184) %4)
-  %53 = load ptr, ptr %12, align 8, !tbaa !410
-  %.not80 = icmp eq ptr %53, null
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %51 = load i32, ptr %50, align 4, !tbaa !488
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter17constrainOperandsESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherEjRKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1640) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(472) %3, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(184) %4)
+  %52 = load ptr, ptr %12, align 8, !tbaa !410
+  %.not80 = icmp eq ptr %52, null
   br i1 %.not80, label %_ZN4llvm5ErrorD2Ev.exit54, label %_ZN4llvm5ErrorD2Ev.exit53
 
 _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit52
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i8, ptr %54, align 8
-  %56 = or i8 %55, 1
-  store i8 %56, ptr %54, align 8
-  store ptr %53, ptr %0, align 8, !tbaa !430, !alias.scope !2408
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load i8, ptr %53, align 8
+  %55 = or i8 %54, 1
+  store i8 %55, ptr %53, align 8
+  store ptr %52, ptr %0, align 8, !tbaa !430, !alias.scope !2408
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #27
-  br label %60
+  br label %59
 
 _ZN4llvm5ErrorD2Ev.exit54:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #27
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, -2
-  store i8 %59, ptr %57, align 8
-  store i64 %50, ptr %0, align 8, !tbaa !2032
-  br label %60
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load i8, ptr %56, align 8
+  %58 = and i8 %57, -2
+  store i8 %58, ptr %56, align 8
+  store i64 %49, ptr %0, align 8, !tbaa !2032
+  br label %59
 
-60:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit53, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit35, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit, %_ZN4llvm5ErrorD2Ev.exit54
-  %61 = phi ptr [ %49, %_ZN4llvm5ErrorD2Ev.exit53 ], [ null, %_ZN4llvm5ErrorD2Ev.exit51 ], [ null, %_ZN4llvm5ErrorD2Ev.exit35 ], [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit ], [ %49, %_ZN4llvm5ErrorD2Ev.exit54 ]
-  %62 = phi i8 [ %42, %_ZN4llvm5ErrorD2Ev.exit53 ], [ %42, %_ZN4llvm5ErrorD2Ev.exit51 ], [ %26, %_ZN4llvm5ErrorD2Ev.exit35 ], [ %15, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit ], [ %42, %_ZN4llvm5ErrorD2Ev.exit54 ]
-  %63 = trunc i8 %62 to i1
-  %.not.i.i55 = icmp ne ptr %61, null
-  %or.cond.not = select i1 %63, i1 %.not.i.i55, i1 false
+59:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit53, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit35, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit, %_ZN4llvm5ErrorD2Ev.exit54
+  %60 = phi ptr [ %48, %_ZN4llvm5ErrorD2Ev.exit53 ], [ null, %_ZN4llvm5ErrorD2Ev.exit51 ], [ null, %_ZN4llvm5ErrorD2Ev.exit35 ], [ null, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit ], [ %48, %_ZN4llvm5ErrorD2Ev.exit54 ]
+  %61 = phi i8 [ %41, %_ZN4llvm5ErrorD2Ev.exit53 ], [ %41, %_ZN4llvm5ErrorD2Ev.exit51 ], [ %25, %_ZN4llvm5ErrorD2Ev.exit35 ], [ %15, %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit ], [ %41, %_ZN4llvm5ErrorD2Ev.exit54 ]
+  %62 = trunc i8 %61 to i1
+  %.not.i.i55 = icmp ne ptr %60, null
+  %or.cond.not = select i1 %62, i1 %.not.i.i55, i1 false
   br i1 %or.cond.not, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i56, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit58
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i56: ; preds = %60
-  %64 = load ptr, ptr %61, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(8) %61) #27
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i56: ; preds = %59
+  %63 = load ptr, ptr %60, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %60) #27
   br label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit58
 
-_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit58: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i56, %60
+_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit58: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i56, %59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #27
   ret void
 }

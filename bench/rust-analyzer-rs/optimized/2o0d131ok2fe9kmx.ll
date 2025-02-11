@@ -13428,7 +13428,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 .lr.ph.i.i.i391:                                  ; preds = %.lr.ph.i.i.i391.preheader, %666
   %.06249.i.i.i = phi i64 [ %667, %666 ], [ 0, %.lr.ph.i.i.i391.preheader ]
   %.06448.i.i.i = phi i8 [ %.3.i.i.i, %666 ], [ 0, %.lr.ph.i.i.i391.preheader ]
-  %662 = trunc i8 %.06448.i.i.i to i1
+  %662 = trunc nuw i8 %.06448.i.i.i to i1
   br i1 %662, label %._crit_edge.i.i.i, label %665
 
 ._crit_edge.i.i.i:                                ; preds = %666, %.lr.ph.i.i.i391, %660
@@ -13466,7 +13466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %exitcond63.not.i.i.i, label %666, label %.preheader.i.i.i
 
 675:                                              ; preds = %.preheader.i.i.i
-  %676 = trunc i8 %.246.i.i.i to i1
+  %676 = trunc nuw i8 %.246.i.i.i to i1
   br i1 %676, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc838ffb7b5030f3bE.exit", label %.preheader17.i
 
 .preheader17.i:                                   ; preds = %675
@@ -13532,7 +13532,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
 .lr.ph57.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %716
   %.16355.i.i.i = phi i64 [ %717, %716 ], [ %.062.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.16554.i.i.i = phi i8 [ %.5.i.i.i, %716 ], [ %.064.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %699 = trunc i8 %.16554.i.i.i to i1
+  %699 = trunc nuw i8 %.16554.i.i.i to i1
   br i1 %699, label %._crit_edge58.i.i.i, label %708
 
 ._crit_edge58.i.i.i:                              ; preds = %716, %.lr.ph57.i.i.i, %._crit_edge.i.i.i
@@ -13576,7 +13576,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
 722:                                              ; preds = %725, %._crit_edge58.i.i.i
   %.4.i.i.i = phi i8 [ %.165.lcssa.i.i.i, %._crit_edge58.i.i.i ], [ %729, %725 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !2609
-  %723 = trunc i8 %.4.i.i.i to i1
+  %723 = trunc nuw i8 %.4.i.i.i to i1
   br i1 %723, label %_ZN13project_model15cargo_workspace10TargetKind3new17h96f1980d3aeca071E.exit.thread, label %.backedge.i
 
 .backedge.i:                                      ; preds = %.critedge.backedge.us.i.i.i.i, %722, %656, %.thread83.i
@@ -13584,7 +13584,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   br i1 %724, label %_ZN13project_model15cargo_workspace10TargetKind3new17h96f1980d3aeca071E.exit.thread, label %.lr.ph.i
 
 725:                                              ; preds = %._crit_edge58.i.i.i
-  %726 = trunc i8 %.165.lcssa.i.i.i to i1
+  %726 = trunc nuw i8 %.165.lcssa.i.i.i to i1
   %727 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc838ffb7b5030f3bE"(ptr noalias noundef readonly align 8 dereferenceable(32) %18, i64 noundef %700, i16 noundef %706, i1 noundef zeroext %726)
   %728 = or i1 %727, %726
   %729 = zext i1 %728 to i8

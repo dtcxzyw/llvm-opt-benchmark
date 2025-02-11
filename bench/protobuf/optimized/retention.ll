@@ -1181,23 +1181,27 @@ land.rhs:                                         ; preds = %invoke.cont14
           to label %land.end unwind label %lpad13
 
 land.end:                                         ; preds = %land.rhs
-  br i1 %call20, label %for.body26, label %for.end38
+  br i1 %call20, label %for.body21, label %for.end38
 
-for.body26:                                       ; preds = %land.end
+for.body21:                                       ; preds = %land.end
   %5 = load atomic i32, ptr @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state monotonic, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull @.str, i32 noundef 121) #28
           to label %invoke.cont29 unwind label %lpad13
 
-invoke.cont29:                                    ; preds = %for.body26
+invoke.cont29:                                    ; preds = %for.body21
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i64 46, ptr nonnull @.str.1)
-          to label %for.inc35 unwind label %lpad30
+          to label %invoke.cont33 unwind label %lpad30
+
+invoke.cont33:                                    ; preds = %invoke.cont29
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27) #29
+  br label %for.end38
 
 lpad8:                                            ; preds = %invoke.cont9, %invoke.cont7
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup159
 
-lpad13:                                           ; preds = %for.end153.invoke, %for.body139, %land.rhs129, %if.end117, %for.body101, %land.rhs91, %invoke.cont80, %if.end78, %for.body62, %land.rhs52, %if.end, %for.end38, %for.body26, %land.rhs, %invoke.cont11
+lpad13:                                           ; preds = %for.end153.invoke, %for.body133, %land.rhs129, %if.end117, %for.body95, %land.rhs91, %invoke.cont80, %if.end78, %for.body56, %land.rhs52, %if.end, %for.end38, %for.body21, %land.rhs, %invoke.cont11
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1208,11 +1212,7 @@ lpad30:                                           ; preds = %invoke.cont29
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27) #29
   br label %ehcleanup
 
-for.inc35:                                        ; preds = %invoke.cont29
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27) #29
-  br label %for.end38
-
-for.end38:                                        ; preds = %land.end, %for.inc35
+for.end38:                                        ; preds = %land.end, %invoke.cont33
   invoke fastcc void @_ZN6google8protobuf8compiler12_GLOBAL__N_112StripMessageERNS0_7MessageERSt6vectorIiSaIiEEPS5_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %stripped_paths)
           to label %cleanup161.critedge unwind label %lpad13
 
@@ -1231,14 +1231,14 @@ land.rhs52:                                       ; preds = %invoke.cont43
           to label %land.end55 unwind label %lpad13
 
 land.end55:                                       ; preds = %land.rhs52
-  br i1 %call54, label %for.body62, label %for.end153.invoke
+  br i1 %call54, label %for.body56, label %for.end153.invoke
 
-for.body62:                                       ; preds = %land.end55
+for.body56:                                       ; preds = %land.end55
   %11 = load atomic i32, ptr @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state_0 monotonic, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, ptr noundef nonnull @.str, i32 noundef 127) #28
           to label %invoke.cont65 unwind label %lpad13
 
-invoke.cont65:                                    ; preds = %for.body62
+invoke.cont65:                                    ; preds = %for.body56
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp63, i64 46, ptr nonnull @.str.1)
           to label %for.end153.invoke.sink.split unwind label %lpad66
 
@@ -1263,14 +1263,14 @@ land.rhs91:                                       ; preds = %invoke.cont82
           to label %land.end94 unwind label %lpad13
 
 land.end94:                                       ; preds = %land.rhs91
-  br i1 %call93, label %for.body101, label %for.end153.invoke
+  br i1 %call93, label %for.body95, label %for.end153.invoke
 
-for.body101:                                      ; preds = %land.end94
+for.body95:                                       ; preds = %land.end94
   %13 = load atomic i32, ptr @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state_1 monotonic, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102, ptr noundef nonnull @.str, i32 noundef 134) #28
           to label %invoke.cont104 unwind label %lpad13
 
-invoke.cont104:                                   ; preds = %for.body101
+invoke.cont104:                                   ; preds = %for.body95
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102, i64 46, ptr nonnull @.str.1)
           to label %for.end153.invoke.sink.split unwind label %lpad105
 
@@ -1294,14 +1294,14 @@ land.rhs129:                                      ; preds = %invoke.cont120
           to label %land.end132 unwind label %lpad13
 
 land.end132:                                      ; preds = %land.rhs129
-  br i1 %call131, label %for.body139, label %for.end153.invoke
+  br i1 %call131, label %for.body133, label %for.end153.invoke
 
-for.body139:                                      ; preds = %land.end132
+for.body133:                                      ; preds = %land.end132
   %17 = load atomic i32, ptr @_ZZN6google8protobuf8compiler12_GLOBAL__N_138ConvertToDynamicMessageAndStripOptionsERNS0_7MessageERKNS0_14DescriptorPoolEPSt6vectorIS8_IiSaIiEESaISA_EEE42absl_log_internal_stateful_condition_state_2 monotonic, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp140, ptr noundef nonnull @.str, i32 noundef 140) #28
           to label %invoke.cont142 unwind label %lpad13
 
-invoke.cont142:                                   ; preds = %for.body139
+invoke.cont142:                                   ; preds = %for.body133
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp140, i64 46, ptr nonnull @.str.1)
           to label %for.end153.invoke.sink.split unwind label %lpad143
 

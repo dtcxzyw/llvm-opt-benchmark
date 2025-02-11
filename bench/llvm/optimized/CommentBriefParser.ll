@@ -80,8 +80,8 @@ define dso_local void @_ZN5clang8comments11BriefParser5ParseB5cxx11Ev(ptr dead_o
 
 19:                                               ; preds = %17
   %20 = and i64 %29, 33554432
-  %.not33.us.not = icmp eq i64 %20, 0
-  br i1 %.not33.us.not, label %..thread.us_crit_edge, label %.thread75
+  %.not33.us = icmp eq i64 %20, 0
+  br i1 %.not33.us, label %..thread.us_crit_edge, label %.thread75
 
 ..thread.us_crit_edge:                            ; preds = %19
   %.pre194 = load i32, ptr %10, align 4, !tbaa !20
@@ -272,8 +272,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.sp
 
 ..thread_crit_edge:                               ; preds = %82
   %89 = and i64 %79, 33554432
-  %.not33.not = icmp eq i64 %89, 0
-  %.0.ph81.mux = select i1 %.not33.not, i8 %.0.ph81.fr, i8 0
+  %.not33 = icmp eq i64 %89, 0
+  %.0.ph81.mux = select i1 %.not33, i8 %.0.ph81.fr, i8 0
   %.pre = load i32, ptr %10, align 4, !tbaa !20
   br label %.thread
 

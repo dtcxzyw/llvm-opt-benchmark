@@ -1460,7 +1460,7 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   call void @initPQExpBuffer(ptr noundef nonnull %6) #12
   %.2166315 = load ptr, ptr %5, align 8
   %.not215316 = icmp eq ptr %.2166315, null
-  br i1 %.not215316, label %.loopexit, label %.lr.ph321
+  br i1 %.not215316, label %._crit_edge322, label %.lr.ph321
 
 .lr.ph321:                                        ; preds = %499, %prepare_btree_command.exit
   %.2166319 = phi ptr [ %.2166, %prepare_btree_command.exit ], [ %.2166315, %499 ]
@@ -1646,26 +1646,26 @@ prepare_btree_command.exit:                       ; preds = %595, %585, %prepare
   call fastcc void @run_command(ptr noundef %513, ptr noundef %607)
   %.2166 = load ptr, ptr %.2166319, align 8
   %.not215 = icmp eq ptr %.2166, null
-  br i1 %.not215, label %.loopexit, label %.lr.ph321, !llvm.loop !11
+  br i1 %.not215, label %._crit_edge322, label %.lr.ph321, !llvm.loop !11
 
 .thread247:                                       ; preds = %.lr.ph321, %503
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   br label %611
 
-.loopexit:                                        ; preds = %prepare_btree_command.exit, %499
+._crit_edge322:                                   ; preds = %prepare_btree_command.exit, %499
   %.0176.lcssa = phi i64 [ 0, %499 ], [ %506, %prepare_btree_command.exit ]
   %.0174.lcssa = phi i64 [ 0, %499 ], [ %510, %prepare_btree_command.exit ]
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   %.not220 = icmp eq ptr %497, null
   br i1 %.not220, label %610, label %608
 
-608:                                              ; preds = %.loopexit
+608:                                              ; preds = %._crit_edge322
   %609 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef nonnull %497) #12
   %not. = xor i1 %609, true
   br label %610
 
-610:                                              ; preds = %608, %.loopexit
-  %.4 = phi i1 [ false, %.loopexit ], [ %not., %608 ]
+610:                                              ; preds = %608, %._crit_edge322
+  %.4 = phi i1 [ false, %._crit_edge322 ], [ %not., %608 ]
   call fastcc void @progress_report(i64 noundef %487, i64 noundef %.0176.lcssa, i64 noundef %.1242, i64 noundef %.0174.lcssa, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %611
 

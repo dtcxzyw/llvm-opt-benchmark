@@ -10167,7 +10167,7 @@ if.then47:                                        ; preds = %if.end45
   %tobool50 = trunc i8 %56 to i1
   %frombool = and i8 %56, 1
   store i8 %frombool, ptr %pol, align 1
-  br i1 %tobool50, label %land.lhs.true, label %lor.rhs.thread
+  br i1 %tobool50, label %land.lhs.true, label %land.rhs
 
 land.lhs.true:                                    ; preds = %if.then47
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -10222,11 +10222,7 @@ lor.rhs:                                          ; preds = %_ZNK4cvc58internal1
   %tobool57 = trunc i8 %.pre3194 to i1
   br i1 %tobool57, label %cleanup.action70, label %land.rhs
 
-lor.rhs.thread:                                   ; preds = %if.then47
-  %tobool573197 = trunc i8 %56 to i1
-  br i1 %tobool573197, label %if.else207, label %land.rhs
-
-land.rhs:                                         ; preds = %lor.rhs.thread, %lor.rhs
+land.rhs:                                         ; preds = %if.then47, %lor.rhs
   %60 = load ptr, ptr %nr, align 8, !noalias !69
   %d_kind.i.i.i.i381 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %bf.load.i.i.i.i382 = load i16, ptr %d_kind.i.i.i.i381, align 8, !noalias !69
@@ -11614,7 +11610,7 @@ ehcleanup205:                                     ; preds = %ehcleanup201, %lpad
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #24
   br label %common.resume
 
-if.else207:                                       ; preds = %lor.rhs.thread, %cleanup.done71
+if.else207:                                       ; preds = %cleanup.done71
   %d_extfInfoTmp = getelementptr inbounds nuw i8, ptr %this, i64 200
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %217 = load ptr, ptr %nr, align 8, !noalias !91

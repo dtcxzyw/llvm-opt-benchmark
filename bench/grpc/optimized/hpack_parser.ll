@@ -22082,7 +22082,7 @@ sw.bb2.i4.i.i:                                    ; preds = %if.then.i784.i
 
 sw.bb4.i.i.i:                                     ; preds = %sw.bb2.i4.i.i
   %447 = trunc nuw nsw i64 %cond19.i.i.i.i to i8
-  %448 = lshr i8 %447, 1
+  %448 = lshr exact i8 %447, 1
   %conv.i.i788.i = or disjoint i8 %448, -20
   %this.val.i.i789.i = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i790.i = getelementptr inbounds nuw i8, ptr %this.val.i.i789.i, i64 8
@@ -22284,7 +22284,7 @@ sw.bb2.i4.i870.i:                                 ; preds = %if.then.i868.i
   br i1 %trunc.i.i873.i, label %sw.bb6.i.i906.i, label %sw.bb4.i.i874.i
 
 sw.bb4.i.i874.i:                                  ; preds = %sw.bb2.i4.i870.i
-  %468 = lshr i8 %467, 1
+  %468 = lshr exact i8 %467, 1
   %shr.i.i.i = zext nneg i8 %468 to i64
   %arrayidx.i3.i.i.i = getelementptr inbounds nuw [15 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 0, i64 %shr.i.i.i
   %469 = load i8, ptr %arrayidx.i3.i.i.i, align 1
@@ -27778,7 +27778,7 @@ sw.bb2.i4.i.i:                                    ; preds = %if.then.i820.i
 
 sw.bb4.i.i.i:                                     ; preds = %sw.bb2.i4.i.i
   %547 = trunc nuw nsw i64 %cond19.i.i.i.i to i8
-  %548 = lshr i8 %547, 1
+  %548 = lshr exact i8 %547, 1
   %conv.i.i824.i = or disjoint i8 %548, -20
   %549 = load ptr, ptr %this, align 8
   %550 = load i32, ptr %549, align 4
@@ -28008,7 +28008,7 @@ sw.bb2.i4.i912.i:                                 ; preds = %if.then.i910.i
   br i1 %trunc.i.i915.i, label %sw.bb6.i.i951.i, label %sw.bb4.i.i916.i
 
 sw.bb4.i.i916.i:                                  ; preds = %sw.bb2.i4.i912.i
-  %574 = lshr i8 %573, 1
+  %574 = lshr exact i8 %573, 1
   %shr.i.i.i = zext nneg i8 %574 to i64
   %arrayidx.i3.i.i.i = getelementptr inbounds nuw [15 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 0, i64 %shr.i.i.i
   %575 = load i8, ptr %arrayidx.i3.i.i.i, align 1

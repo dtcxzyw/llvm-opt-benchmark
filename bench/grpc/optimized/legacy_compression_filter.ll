@@ -5877,14 +5877,14 @@ cleanup15:                                        ; preds = %if.else6.i
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54
 
 if.then.i47.thread:                               ; preds = %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit, %if.then.i43
-  %.sink69 = phi i8 [ %3, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %15, %if.then.i43 ]
+  %.sink68 = phi i8 [ %3, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %15, %if.then.i43 ]
   %.sink = phi i64 [ %4, %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit ], [ %17, %if.then.i43 ]
   store i8 1, ptr %agg.result, align 8
   %26 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i8 %.sink69, ptr %26, align 8
+  store i8 %.sink68, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %.sink, ptr %27, align 8
-  %add.ptr.i.i.i.i.i.i.i4865 = getelementptr inbounds nuw i8, ptr %p, i64 16
+  %add.ptr.i.i.i.i.i.i.i4864 = getelementptr inbounds nuw i8, ptr %p, i64 16
   br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
 
 if.then.i47:                                      ; preds = %if.then.i9
@@ -5911,8 +5911,8 @@ delete.notnull.i.i.i.i53:                         ; preds = %if.then.i.i.i50
   br label %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52
 
 _ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52: ; preds = %if.then.i47.thread, %delete.notnull.i.i.i.i53, %if.then.i.i.i50, %if.then.i47
-  %add.ptr.i.i.i.i.i.i.i4867 = phi ptr [ %add.ptr.i.i.i.i.i.i.i4865, %if.then.i47.thread ], [ %add.ptr.i.i.i.i.i.i.i48, %delete.notnull.i.i.i.i53 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i.i.i50 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i47 ]
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i4867, align 8
+  %add.ptr.i.i.i.i.i.i.i4866 = phi ptr [ %add.ptr.i.i.i.i.i.i.i4864, %if.then.i47.thread ], [ %add.ptr.i.i.i.i.i.i.i48, %delete.notnull.i.i.i.i53 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i.i.i50 ], [ %add.ptr.i.i.i.i.i.i.i48, %if.then.i47 ]
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i.i4866, align 8
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit54: ; preds = %cleanup15, %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i52

@@ -21397,124 +21397,123 @@ define internal void @_ZNK12_GLOBAL__N_114AwsStorageTool13download_fileEN5vcpkg1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = and i8 %14, 1
-  store i8 %18, ptr %17, align 8
+  store i8 1, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(33) %6) #26
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #26
-  %22 = extractvalue { ptr, i64 } %21, 0
-  %23 = extractvalue { ptr, i64 } %21, 1
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #26
+  %21 = extractvalue { ptr, i64 } %20, 0
+  %22 = extractvalue { ptr, i64 } %20, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %22, i64 %23)
-          to label %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit unwind label %25
+  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %21, i64 %22)
+          to label %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit unwind label %24
 
-25:                                               ; preds = %19
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %18
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5vcpkg7CommandC2ENS_10StringViewE.exit:        ; preds = %19
-  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr nonnull @.str.107, i64 2)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit unwind label %39
+_ZN5vcpkg7CommandC2ENS_10StringViewE.exit:        ; preds = %18
+  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr nonnull @.str.107, i64 2)
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit unwind label %38
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit: ; preds = %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit
-  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr nonnull @.str.105, i64 2)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17 unwind label %39
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull @.str.105, i64 2)
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17 unwind label %38
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17: ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit
-  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr %2, i64 %3)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18 unwind label %39
+  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr %2, i64 %3)
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18 unwind label %38
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18: ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17
-  %30 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  %31 = extractvalue { ptr, i64 } %30, 0
-  %32 = extractvalue { ptr, i64 } %30, 1
-  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr %31, i64 %32)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19 unwind label %39
+  %29 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
+  %30 = extractvalue { ptr, i64 } %29, 0
+  %31 = extractvalue { ptr, i64 } %29, 1
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr %30, i64 %31)
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19 unwind label %38
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19: ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %33) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %32) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %43
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %42
 
-37:                                               ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19
-  %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.109, i64 17)
-          to label %43 unwind label %41
+36:                                               ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19
+  %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @.str.109, i64 17)
+          to label %42 unwind label %40
 
-39:                                               ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit, %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit18, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit, %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-41:                                               ; preds = %43, %37
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %42, %36
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-43:                                               ; preds = %37, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19
+42:                                               ; preds = %36, %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit19
   invoke void @_ZN5vcpkg30cmd_execute_and_capture_outputERKNS_7CommandE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.450") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %44 unwind label %41
+          to label %43 unwind label %40
+
+43:                                               ; preds = %42
+  invoke void @_ZN5vcpkg7flattenERKNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(41) %9, ptr nonnull @.str.65, i64 3)
+          to label %44 unwind label %48
 
 44:                                               ; preds = %43
-  invoke void @_ZN5vcpkg7flattenERKNS_9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEEENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.154") align 8 %0, ptr noundef nonnull align 8 dereferenceable(41) %9, ptr nonnull @.str.65, i64 3)
-          to label %45 unwind label %49
-
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %48, i64 0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %46 = load i8, ptr %45, align 8
+  %47 = trunc i8 %46 to i1
+  %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %47, i64 0, i64 8
   %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %9, i64 %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit
 
-49:                                               ; preds = %44
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %43
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  %.sink.idx.i20.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %53, i64 0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %51 = load i8, ptr %50, align 8
+  %52 = trunc i8 %51 to i1
+  %.sink.idx.i20.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %52, i64 0, i64 8
   %.sink.idx.i20.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %9, i64 %.sink.idx.i20.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.idx.i20.sroa.sel.idx.sroa.sel.idx.sroa.sel) #26
   br label %.body
 
-_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit: ; preds = %16, %45
-  %54 = load i8, ptr %13, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit
+_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit: ; preds = %16, %44
+  %53 = load i8, ptr %13, align 8
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit
 
-56:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit
+55:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #26
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit
 
-_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit, %56
+_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEEC2EOS3_.exit, %55
   ret void
 
-.body:                                            ; preds = %41, %49, %25, %39
-  %.sink = phi ptr [ %8, %25 ], [ %8, %39 ], [ %7, %49 ], [ %7, %41 ]
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %40, %39 ], [ %50, %49 ], [ %42, %41 ]
+.body:                                            ; preds = %40, %48, %24, %38
+  %.sink = phi ptr [ %8, %24 ], [ %8, %38 ], [ %7, %48 ], [ %7, %40 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %39, %38 ], [ %49, %48 ], [ %41, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
-  %57 = load i8, ptr %13, align 8
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit22
+  %56 = load i8, ptr %13, align 8
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit22
 
-59:                                               ; preds = %.body
+58:                                               ; preds = %.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #26
   br label %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit22
 
-_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit22: ; preds = %.body, %59
+_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit22: ; preds = %.body, %58
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -22053,9 +22052,9 @@ _ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2Em
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %22 = mul nuw nsw i64 %2, 48
   %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #30
-          to label %.lr.ph.i.i.i.i.i.split.us.i unwind label %.body
+          to label %.noexc27 unwind label %.body
 
-.lr.ph.i.i.i.i.i.split.us.i:                      ; preds = %.lr.ph.i.i.i.i.i.i
+.noexc27:                                         ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %23, ptr %24, align 8
@@ -22064,9 +22063,9 @@ _ZNSt12_Vector_baseIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EEC2Em
   store ptr %25, ptr %26, align 8
   br label %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i
 
-_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i: ; preds = %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i, %.lr.ph.i.i.i.i.i.split.us.i
-  %.015.i.i.i.i.i.us.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.split.us.i ], [ %29, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
-  %.01114.i.i.i.i.i.us.i = phi i64 [ %2, %.lr.ph.i.i.i.i.i.split.us.i ], [ %28, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ]
+_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i: ; preds = %.noexc27, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i
+  %.015.i.i.i.i.i.us.i = phi ptr [ %29, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ], [ %23, %.noexc27 ]
+  %.01114.i.i.i.i.i.us.i = phi i64 [ %28, %_ZSt10_ConstructIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.us.i ], [ %2, %.noexc27 ]
   store i8 0, ptr %.015.i.i.i.i.i.us.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.us.i, i64 8
   store i8 0, ptr %27, align 8

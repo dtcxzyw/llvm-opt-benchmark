@@ -19672,7 +19672,7 @@ common.resume:                                    ; preds = %522, %241, %506, %s
   br label %"_ZN173_$LT$http_client..github.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$http_client..github..GithubRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hf9fc520f773f6b08E.exit"
 
 205:                                              ; preds = %202, %201
-  %.sink213.i = phi ptr [ %198, %201 ], [ %203, %202 ]
+  %.sink210.i = phi ptr [ %198, %201 ], [ %203, %202 ]
   %206 = icmp eq i64 %180, 0
   br i1 %206, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit111.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i110.i"
 
@@ -19683,7 +19683,7 @@ common.resume:                                    ; preds = %522, %241, %506, %s
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit111.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit111.i": ; preds = %186, %187, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i110.i", %205
-  %.sroa.11.2 = phi ptr [ %.sink213.i, %205 ], [ %.sink213.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i110.i" ], [ %183, %186 ], [ %188, %187 ]
+  %.sroa.11.2 = phi ptr [ %.sink210.i, %205 ], [ %.sink210.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.148755494358810581.exit.i.i1.i.i110.i" ], [ %183, %186 ], [ %188, %187 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5977)
   %208 = icmp eq i64 %.sroa.18.0.copyload.i, 0
   br i1 %208, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf3bb4f7294a15E.llvm.148755494358810581.exit.i.i", label %.lr.ph.i.i.i112.i

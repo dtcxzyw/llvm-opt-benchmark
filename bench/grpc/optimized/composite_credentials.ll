@@ -3425,15 +3425,11 @@ cleanup.thread:                                   ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
-  %tobool.i893 = trunc i8 %3 to i1
-  br i1 %tobool.i893, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
-
-_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i: ; preds = %cleanup.thread
   %add.ptr.i.i.i.i.i.i.i.i.i1395 = getelementptr inbounds nuw i8, ptr %r, i64 24
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i1395, align 8
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
 
-_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit: ; preds = %if.else.i.i6, %if.then.i.i3.i.i, %if.then, %cleanup.thread, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i.i
+_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit: ; preds = %if.else.i.i6, %if.then.i.i3.i.i, %if.then, %cleanup.thread
   ret void
 }
 

@@ -804,8 +804,7 @@ for.inc126:                                       ; preds = %for.inc.i.i, %for.i
   br i1 %cmp.i.i.i.i.not, label %do.end141, label %invoke.cont49
 
 if.then131:                                       ; preds = %invoke.cont107
-  %m_size.i.i.i152 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 0, ptr %m_size.i.i.i152, align 8
+  store i64 0, ptr %m_size.i.i.i111, align 8
   br label %do.end141
 
 do.end141:                                        ; preds = %for.inc126, %invoke.cont43, %if.then131, %for.end

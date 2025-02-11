@@ -8306,9 +8306,9 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i:          ; preds = %1920, %1917, %_ZN4l
   %1930 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(80) %1927, i1 noundef zeroext false) #24
   %1931 = extractvalue { i64, i8 } %1930, 0
   %1932 = extractvalue { i64, i8 } %1930, 1
-  %1933 = trunc i8 %1932 to i1
-  %1934 = icmp eq i64 %1931, 0
-  %narrow.i = select i1 %1933, i1 %1934, i1 false
+  %1933 = icmp eq i64 %1931, 0
+  %1934 = trunc i8 %1932 to i1
+  %narrow.i = select i1 %1934, i1 %1933, i1 false
   %1935 = zext i1 %narrow.i to i8
   %1936 = icmp eq i8 %1929, %1935
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #24

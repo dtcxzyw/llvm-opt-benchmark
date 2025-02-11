@@ -76163,9 +76163,8 @@ common.ret:                                       ; preds = %206, %138
 
 232:                                              ; preds = %228
   %.val44 = load i64, ptr %152, align 8
-  %.not226248 = icmp sge i64 %230, %.val44
-  %.not226.not = select i1 %trunc.i70, i1 true, i1 %.not226248
-  br i1 %.not226.not, label %233, label %.critedge35
+  %.not226248 = icmp slt i64 %230, %.val44
+  br i1 %.not226248, label %.critedge35, label %233
 
 _ZN4core3cmp10PartialOrd2ge17hd64d7a63c20af95fE.exit: ; preds = %.thread236, %228
   %.val43242 = phi i64 [ %.val43239, %.thread236 ], [ %.val43, %228 ]

@@ -4771,7 +4771,6 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %cleanup.cont, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %frombool.i = and i8 %1, 1
   store i8 1, ptr %m_internalizing_assertions, align 4
   %call5 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %invoke.cont unwind label %lpad
@@ -4902,7 +4901,7 @@ invoke.cont45:                                    ; preds = %if.end.i.i23, %do.c
 
 cleanup:                                          ; preds = %invoke.cont45, %invoke.cont9, %if.end12, %if.then31
   call void @_ZN6timeitD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %tt) #32
-  store i8 %frombool.i, ptr %m_internalizing_assertions, align 4
+  store i8 0, ptr %m_internalizing_assertions, align 4
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.end, %entry, %cleanup
@@ -4910,7 +4909,7 @@ cleanup.cont:                                     ; preds = %if.end, %entry, %cl
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad7 ], [ %4, %lpad ]
-  store i8 %frombool.i, ptr %m_internalizing_assertions, align 4
+  store i8 0, ptr %m_internalizing_assertions, align 4
   resume { ptr, i32 } %.pn
 }
 

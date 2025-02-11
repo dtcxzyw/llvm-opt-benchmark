@@ -1842,8 +1842,7 @@ if.end15:                                         ; preds = %_ZNK6google8protobu
 
 if.then17:                                        ; preds = %if.end15
   %request_streaming_18 = getelementptr inbounds nuw i8, ptr %to_msg, i64 64
-  %frombool = and i8 %33, 1
-  store i8 %frombool, ptr %request_streaming_18, align 8
+  store i8 1, ptr %request_streaming_18, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end15
@@ -1854,8 +1853,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 
 if.then23:                                        ; preds = %if.end19
   %response_streaming_25 = getelementptr inbounds nuw i8, ptr %to_msg, i64 65
-  %frombool26 = and i8 %34, 1
-  store i8 %frombool26, ptr %response_streaming_25, align 1
+  store i8 1, ptr %response_streaming_25, align 1
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then23, %if.end19

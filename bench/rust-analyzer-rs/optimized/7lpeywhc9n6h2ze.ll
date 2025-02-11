@@ -35721,9 +35721,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h61
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !11385
   store i64 0, ptr %0, align 8, !alias.scope !11387, !noalias !11382
   %trunc.i.i = trunc nuw i64 %.sroa.0.0.copyload.i.i to i1
-  br i1 %trunc.i.i, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit", label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit"
+  br i1 %trunc.i.i, label %5, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit"
 
-"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit": ; preds = %3
+5:                                                ; preds = %3
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !11388
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4.i.i.i.i.i)
@@ -35733,16 +35733,16 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h61
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i.i.i.i, i64 20, i1 false), !noalias !11388
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.4.i.i.i.i.i)
-  %5 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$11intern_goal17hf5c921fc3ff56bf4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !11388
+  %6 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$11intern_goal17hf5c921fc3ff56bf4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !11388
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !11388
-  br label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit"
+  br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit"
 
-"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit": ; preds = %3, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit"
-  %.sroa.3.0.i5 = phi ptr [ %5, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit" ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit" ], [ 0, %3 ]
-  %6 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, ptr } %6, ptr %.sroa.3.0.i5, 1
-  ret { i64, ptr } %7
+"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a00f9ecffaa50E.exit": ; preds = %3, %5
+  %.sroa.3.0.i5 = phi ptr [ %6, %5 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %3 ]
+  %7 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %8 = insertvalue { i64, ptr } %7, ptr %.sroa.3.0.i5, 1
+  ret { i64, ptr } %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -36652,9 +36652,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h85
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !11735
   store i64 0, ptr %0, align 8, !alias.scope !11737, !noalias !11732
   %trunc.i.i = trunc nuw i64 %.sroa.0.0.copyload.i.i to i1
-  br i1 %trunc.i.i, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit", label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit"
+  br i1 %trunc.i.i, label %5, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit"
 
-"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit": ; preds = %3
+5:                                                ; preds = %3
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !11738
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4.i.i.i.i.i)
@@ -36664,16 +36664,16 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h85
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.i.i.i.i.i, i64 20, i1 false), !noalias !11738
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.4.i.i.i.i.i)
-  %5 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$11intern_goal17hf5c921fc3ff56bf4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !11738
+  %6 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$11intern_goal17hf5c921fc3ff56bf4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !11738
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !11738
-  br label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit"
+  br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit"
 
-"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$$LP$$RP$$GT$$GT$$GT$17h89fc5019f9aa2d2aE.exit": ; preds = %3, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit"
-  %.sroa.3.0.i5 = phi ptr [ %5, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit" ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit" ], [ 0, %3 ]
-  %6 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, ptr } %6, ptr %.sroa.3.0.i5, 1
-  ret { i64, ptr } %7
+"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h600391ebd7375549E.exit": ; preds = %3, %5
+  %.sroa.3.0.i5 = phi ptr [ %6, %5 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %3 ]
+  %7 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %8 = insertvalue { i64, ptr } %7, ptr %.sroa.3.0.i5, 1
+  ret { i64, ptr } %8
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable

@@ -154,7 +154,6 @@ entry:
 if.then:                                          ; preds = %entry
   %ctx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ctx.i, align 8
-  %frombool.i = and i8 %0, 1
   %m_trail_stack.i = getelementptr inbounds nuw i8, ptr %1, i64 10008
   %m_region.i = getelementptr inbounds nuw i8, ptr %1, i64 8952
   %call.i.i1 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 24)
@@ -162,7 +161,7 @@ if.then:                                          ; preds = %entry
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   store ptr %m_theory_exprs, ptr %m_value.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 16
-  store i8 %frombool.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
   %2 = load ptr, ptr %m_trail_stack.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -233,7 +232,6 @@ entry:
 if.then.i:                                        ; preds = %entry
   %ctx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ctx.i.i, align 8
-  %frombool.i.i = and i8 %0, 1
   %m_trail_stack.i.i = getelementptr inbounds nuw i8, ptr %1, i64 10008
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8952
   %call.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
@@ -241,7 +239,7 @@ if.then.i:                                        ; preds = %entry
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 8
   store ptr %m_theory_exprs.i, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 16
-  store i8 %frombool.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
   %2 = load ptr, ptr %m_trail_stack.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
@@ -290,7 +288,6 @@ entry:
 if.then.i:                                        ; preds = %entry
   %ctx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ctx.i.i, align 8
-  %frombool.i.i = and i8 %0, 1
   %m_trail_stack.i.i = getelementptr inbounds nuw i8, ptr %1, i64 10008
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8952
   %call.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
@@ -298,7 +295,7 @@ if.then.i:                                        ; preds = %entry
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 8
   store ptr %m_theory_exprs.i, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 16
-  store i8 %frombool.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
   %2 = load ptr, ptr %m_trail_stack.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i

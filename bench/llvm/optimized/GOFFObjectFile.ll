@@ -3313,27 +3313,17 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile15moveSectionNextERNS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm6object14GOFFObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2168
-  %5 = and i64 %2, 4294967295
-  %6 = load ptr, ptr %4, align 8, !tbaa !15
-  %7 = getelementptr inbounds nuw %"union.llvm::object::DataRefImpl", ptr %6, i64 %5
-  %.sroa.01.0.copyload = load i32, ptr %7, align 8
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2168
+  %4 = and i64 %2, 4294967295
+  %5 = load ptr, ptr %3, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw %"union.llvm::object::DataRefImpl", ptr %5, i64 %4
+  %.sroa.01.0.copyload = load i32, ptr %6, align 8
   %.sroa.0.0.insert.ext = zext i32 %.sroa.01.0.copyload to i64
-  %8 = load ptr, ptr %1, align 8, !tbaa !13
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr dead_on_unwind writable sret(%"class.llvm::Expected.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %.sroa.0.0.insert.ext) #23
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %15, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
-
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %3
-  %14 = and i8 %12, -2
-  store i8 %14, ptr %11, align 8
-  br label %15
-
-15:                                               ; preds = %3, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
+  %7 = load ptr, ptr %1, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr dead_on_unwind writable sret(%"class.llvm::Expected.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %.sroa.0.0.insert.ext) #23
   ret void
 }
 

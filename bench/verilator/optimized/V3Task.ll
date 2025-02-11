@@ -17458,20 +17458,19 @@ define linkonce_odr dso_local void @_ZN11TaskVisitor5visitEP10AstSenItem(ptr nou
   unreachable
 
 10:                                               ; preds = %2
-  %11 = and i8 %4, 1
   store i8 1, ptr %3, align 8
   invoke void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %12
+          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %11
 
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %10
-  store i8 %11, ptr %3, align 8
+  store i8 0, ptr %3, align 8
   ret void
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %10
+  %12 = landingpad { ptr, i32 }
           cleanup
-  store i8 %11, ptr %3, align 8
-  resume { ptr, i32 } %13
+  store i8 0, ptr %3, align 8
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable

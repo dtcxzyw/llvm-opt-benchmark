@@ -2062,29 +2062,22 @@ entry:
   store i8 0, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %from, i64 16
   %3 = load i8, ptr %2, align 8
-  %tobool.i.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %frombool.i.i = and i8 %3, 1
-  store i8 %frombool.i.i, ptr %1, align 8
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i.i, %entry
+  %spec.store.select = and i8 %3, 1
+  store i8 %spec.store.select, ptr %1, align 8
   %_internal_metadata_3.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %4 = load i64, ptr %_internal_metadata_3.i.i, align 8
   %and.i8.i.i = and i64 %4, 1
   %tobool.i9.not.i.i = icmp eq i64 %and.i8.i.i, 0
   br i1 %tobool.i9.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i
+if.then.i.i.i.i:                                  ; preds = %entry
   %and.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i to ptr
   %unknown_fields.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %if.end.i.i, %if.then.i.i.i.i
+invoke.cont:                                      ; preds = %entry, %if.then.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i
@@ -2142,8 +2135,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %to_msg, i64 16
-  %frombool = and i8 %1, 1
-  store i8 %frombool, ptr %2, align 8
+  store i8 1, ptr %2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2279,8 +2271,7 @@ _ZN6google8protobuf9BoolValue5ClearEv.exit:       ; preds = %if.end, %if.then.i.
   br i1 %tobool.i.i.i, label %if.then.i.i2, label %if.end.i.i
 
 if.then.i.i2:                                     ; preds = %_ZN6google8protobuf9BoolValue5ClearEv.exit
-  %frombool.i.i = and i8 %3, 1
-  store i8 %frombool.i.i, ptr %0, align 8
+  store i8 1, ptr %0, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i2, %_ZN6google8protobuf9BoolValue5ClearEv.exit

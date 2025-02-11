@@ -5925,7 +5925,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP18AstAssocArrayDTyp
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %10 = load ptr, ptr %9, align 8
@@ -7321,7 +7321,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP13AstBasicDType(ptr
   br i1 %7, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = or i8 %6, 1
+  %9 = or disjoint i8 %6, 1
   store i8 %9, ptr %5, align 2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 161
   %11 = load i8, ptr %10, align 1
@@ -10907,7 +10907,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP8AstClass(ptr nound
   br i1 %11, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = or i8 %10, 1
+  %13 = or disjoint i8 %10, 1
   store i8 %13, ptr %9, align 2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -11182,7 +11182,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP15AstClassExtends(p
   br i1 %5, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -11221,7 +11221,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP20AstClassOrPackage
   br i1 %5, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load ptr, ptr %8, align 8
@@ -11253,7 +11253,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP16AstClassRefDType(
   br i1 %5, label %_ZN7AstNode14didWidthAndSetEv.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   br label %_ZN7AstNode14didWidthAndSetEv.exit
 
@@ -13202,7 +13202,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP8AstConst(ptr nound
   br i1 %5, label %_ZN7AstNode14dtypeSetStringEv.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load ptr, ptr %8, align 8
@@ -13282,7 +13282,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP13AstConstDType(ptr
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %10 = load ptr, ptr %9, align 8
@@ -13533,7 +13533,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP21AstConstraintRefD
   br i1 %5, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -14374,7 +14374,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP16AstDynArrayDType(
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %10 = load ptr, ptr %9, align 8
@@ -14620,7 +14620,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP12AstEnumDType(ptr 
   br i1 %19, label %_ZN8V3NumberD2Ev.exit98, label %20
 
 20:                                               ; preds = %2
-  %21 = or i8 %18, 1
+  %21 = or disjoint i8 %18, 1
   store i8 %21, ptr %17, align 2
   %22 = tail call noundef i32 @_ZL5debugv()
   %23 = icmp sgt i32 %22, 4
@@ -18284,7 +18284,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP16AstIfaceRefDType(
   br i1 %7, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = or i8 %6, 1
+  %9 = or disjoint i8 %6, 1
   store i8 %9, ptr %5, align 2
   %10 = tail call noundef i32 @_ZL5debugv()
   %11 = icmp sgt i32 %10, 4
@@ -19862,7 +19862,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP14AstMemberDType(pt
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %10 = load ptr, ptr %9, align 8
@@ -21687,7 +21687,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP10AstNewCopy(ptr no
   br i1 %8, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %9
 
 9:                                                ; preds = %2
-  %10 = or i8 %7, 1
+  %10 = or disjoint i8 %7, 1
   store i8 %10, ptr %6, align 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
@@ -21838,7 +21838,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP13AstNewDynamic(ptr
   br i1 %8, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %9
 
 9:                                                ; preds = %2
-  %10 = or i8 %7, 1
+  %10 = or disjoint i8 %7, 1
   store i8 %10, ptr %6, align 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
@@ -22035,7 +22035,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP17AstNodeArrayDType
   br i1 %7, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = or i8 %6, 1
+  %9 = or disjoint i8 %6, 1
   store i8 %9, ptr %5, align 2
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
@@ -26184,7 +26184,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP14AstNodeForeach(pt
   br i1 %33, label %_ZN12WidthVisitor18userIterateAndNextEP7AstNodeP7WidthVP.exit569, label %34
 
 34:                                               ; preds = %2
-  %35 = or i8 %32, 1
+  %35 = or disjoint i8 %32, 1
   store i8 %35, ptr %31, align 2
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -29512,7 +29512,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP21AstNodeUOrStructD
   br i1 %7, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = or i8 %6, 1
+  %9 = or disjoint i8 %6, 1
   store i8 %9, ptr %5, align 2
   %10 = tail call noundef i32 @_ZL5debugv()
   %11 = icmp sgt i32 %10, 4
@@ -30163,7 +30163,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP17AstParamTypeDType
   br i1 %5, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -30517,7 +30517,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP10AstPattern(ptr no
   br i1 %11, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = or i8 %10, 1
+  %13 = or disjoint i8 %10, 1
   store i8 %13, ptr %9, align 2
   %14 = tail call noundef i32 @_ZL5debugv()
   %15 = icmp sgt i32 %14, 8
@@ -33571,7 +33571,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP13AstQueueDType(ptr
   br i1 %7, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = or i8 %6, 1
+  %9 = or disjoint i8 %6, 1
   store i8 %9, ptr %5, align 2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %11 = load ptr, ptr %10, align 8
@@ -34376,7 +34376,7 @@ _ZNK7AstNode10prettyNameB5cxx11Ev.exit:           ; preds = %10
   br i1 %31, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = or i8 %8, 3
+  %33 = or disjoint i8 %8, 3
   store i8 %33, ptr %7, align 2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
@@ -40299,7 +40299,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP10AstThisRef(ptr no
   br i1 %5, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = or i8 %4, 1
+  %7 = or disjoint i8 %4, 1
   store i8 %7, ptr %3, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -40868,7 +40868,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP10AstTypedef(ptr no
   br i1 %10, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %11
 
 11:                                               ; preds = %2
-  %12 = or i8 %9, 1
+  %12 = or disjoint i8 %9, 1
   store i8 %12, ptr %8, align 2
   %13 = tail call noundef ptr @_ZN12WidthVisitor24checkRefToTypedefRecurseEP7AstNodeP10AstTypedef(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %1, ptr noundef nonnull %1)
   %.not = icmp eq ptr %13, null
@@ -41383,7 +41383,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP20AstUnsizedArrayDT
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %10 = load ptr, ptr %9, align 8
@@ -42401,7 +42401,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP12AstVoidDType(ptr 
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8
@@ -42691,7 +42691,7 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor5visitEP21AstWildcardArrayD
   br i1 %6, label %_ZN7AstNode14didWidthAndSetEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = or i8 %5, 1
+  %8 = or disjoint i8 %5, 1
   store i8 %8, ptr %4, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %10 = load ptr, ptr %9, align 8

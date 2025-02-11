@@ -1026,15 +1026,14 @@ if.then37:                                        ; preds = %invoke.cont35
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i77.idx
   %add.ptr.i77.ptr = getelementptr inbounds nuw i8, ptr %28, i64 32
   %cmp44.not209 = icmp eq i32 %27, 0
-  br i1 %cmp44.not209, label %while.cond.backedge, label %for.body.lr.ph
+  br i1 %cmp44.not209, label %while.cond.backedge, label %for.body.preheader
 
-for.body.lr.ph:                                   ; preds = %if.then37
+for.body.preheader:                               ; preds = %if.then37
   %m_args.i.ptr = getelementptr inbounds nuw i8, ptr %.sroa.12172.0.copyload, i64 32
-  %frombool.i78 = and i8 %.sroa.0.0.copyload, 1
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin5.0210 = phi ptr [ %m_args.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %__begin5.0210 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
   %29 = load ptr, ptr %__begin5.0210, align 8
   %30 = load ptr, ptr %todo, align 8
   %cmp.i80 = icmp eq ptr %30, null
@@ -1063,7 +1062,7 @@ for.inc:                                          ; preds = %.noexc93, %lor.lhs.
   %34 = phi ptr [ %.pre.i90, %.noexc93 ], [ %30, %lor.lhs.false.i81 ]
   %idx.ext.i85 = zext i32 %33 to i64
   %add.ptr.i86 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %idx.ext.i85
-  store i8 %frombool.i78, ptr %add.ptr.i86, align 8
+  store i8 1, ptr %add.ptr.i86, align 8
   %ref.tmp45.sroa.2161.0.add.ptr.i86.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i86, i64 8
   store ptr %29, ptr %ref.tmp45.sroa.2161.0.add.ptr.i86.sroa_idx, align 8
   %35 = load ptr, ptr %todo, align 8
@@ -1103,15 +1102,14 @@ if.then55:                                        ; preds = %invoke.cont53
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.12172.0.copyload, i64 %add.ptr.i111.idx
   %add.ptr.i111.ptr = getelementptr inbounds nuw i8, ptr %43, i64 32
   %cmp63.not207 = icmp eq i32 %42, 0
-  br i1 %cmp63.not207, label %while.cond.backedge, label %for.body64.lr.ph
+  br i1 %cmp63.not207, label %while.cond.backedge, label %for.body64.preheader
 
-for.body64.lr.ph:                                 ; preds = %if.then55
+for.body64.preheader:                             ; preds = %if.then55
   %m_args.i107.ptr = getelementptr inbounds nuw i8, ptr %.sroa.12172.0.copyload, i64 32
-  %frombool.i112 = and i8 %.sroa.0.0.copyload, 1
   br label %for.body64
 
-for.body64:                                       ; preds = %for.body64.lr.ph, %for.inc70
-  %__begin6.0208 = phi ptr [ %m_args.i107.ptr, %for.body64.lr.ph ], [ %incdec.ptr71, %for.inc70 ]
+for.body64:                                       ; preds = %for.body64.preheader, %for.inc70
+  %__begin6.0208 = phi ptr [ %incdec.ptr71, %for.inc70 ], [ %m_args.i107.ptr, %for.body64.preheader ]
   %44 = load ptr, ptr %__begin6.0208, align 8
   %45 = load ptr, ptr %todo, align 8
   %cmp.i114 = icmp eq ptr %45, null
@@ -1140,7 +1138,7 @@ for.inc70:                                        ; preds = %.noexc127, %lor.lhs
   %49 = phi ptr [ %.pre.i124, %.noexc127 ], [ %45, %lor.lhs.false.i115 ]
   %idx.ext.i119 = zext i32 %48 to i64
   %add.ptr.i120 = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %idx.ext.i119
-  store i8 %frombool.i112, ptr %add.ptr.i120, align 8
+  store i8 0, ptr %add.ptr.i120, align 8
   %ref.tmp66.sroa.2160.0.add.ptr.i120.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i120, i64 8
   store ptr %44, ptr %ref.tmp66.sroa.2160.0.add.ptr.i120.sroa_idx, align 8
   %50 = load ptr, ptr %todo, align 8
@@ -2420,7 +2418,6 @@ if.then21:                                        ; preds = %invoke.cont19
 for.body30.lr.ph:                                 ; preds = %if.then21
   %m_args.i.ptr = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 32
   %cond.i = or i32 %.sroa.15.0.copyload, 1
-  %frombool.i.i.i79 = and i8 %.sroa.21.0.copyload, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   br label %for.body30
 
@@ -2461,7 +2458,7 @@ for.inc:                                          ; preds = %.noexc97, %lor.lhs.
   %33 = getelementptr inbounds nuw i8, ptr %add.ptr.i87, i64 16
   store i32 %cond.i, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %add.ptr.i87, i64 20
-  store i8 %frombool.i.i.i79, ptr %34, align 4
+  store i8 1, ptr %34, align 4
   %35 = load ptr, ptr %todo, align 8
   %arrayidx10.i91 = getelementptr inbounds i8, ptr %35, i64 -4
   %36 = load i32, ptr %arrayidx10.i91, align 4
@@ -2504,7 +2501,6 @@ if.then42:                                        ; preds = %invoke.cont40
 for.body51.lr.ph:                                 ; preds = %if.then42
   %m_args.i111.ptr = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 32
   %cond.i116 = or i32 %.sroa.15.0.copyload, 1
-  %frombool.i.i.i117 = and i8 %.sroa.21.0.copyload, 1
   %44 = trunc nuw i64 %indvars.iv to i32
   br label %for.body51
 
@@ -2545,7 +2541,7 @@ for.inc59:                                        ; preds = %.noexc135, %lor.lhs
   %53 = getelementptr inbounds nuw i8, ptr %add.ptr.i125, i64 16
   store i32 %cond.i116, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %add.ptr.i125, i64 20
-  store i8 %frombool.i.i.i117, ptr %54, align 4
+  store i8 0, ptr %54, align 4
   %55 = load ptr, ptr %todo, align 8
   %arrayidx10.i129 = getelementptr inbounds i8, ptr %55, i64 -4
   %56 = load i32, ptr %arrayidx10.i129, align 4

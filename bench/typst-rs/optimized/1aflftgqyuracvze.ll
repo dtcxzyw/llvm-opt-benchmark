@@ -3784,8 +3784,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
 
 "_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit": ; preds = %.preheader17.split.i, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i, %534
   %.0.i361 = phi i8 [ 0, %534 ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i ], [ 1, %.preheader17.split.i ]
-  %.246.i.i.masked = and i8 %.246.i.i, 1
-  %543 = or i8 %.0.i361, %.246.i.i.masked
+  %543 = or i8 %.0.i361, %.246.i.i
   br label %533
 
 .lr.ph57.i.i:                                     ; preds = %._crit_edge.i.i, %561

@@ -27730,12 +27730,12 @@ if.then.i.i.lr.ph.split:                          ; preds = %if.then.i.i.lr.ph
   br i1 %tobool.i.not.i.i18.i.i, label %if.then.i.i.lr.ph.split.split.us.split, label %if.then.i.i
 
 if.then.i.i.lr.ph.split.split.us.split:           ; preds = %if.then.i.i.lr.ph.split
-  %or.cond.demorgan = or i1 %tobool.i.not.i.i.i.i72, %tobool21.i.i.i
-  br i1 %or.cond.demorgan, label %while.end, label %while.body7.us88
+  %brmerge = or i1 %tobool.i.not.i.i.i.i72, %tobool21.i.i.i
+  br i1 %brmerge, label %while.end, label %while.body7.us88
 
 while.body7.us88:                                 ; preds = %if.then.i.i.lr.ph.split.split.us.split, %while.body7.us88
-  %__first.sroa.0.174.us167 = phi ptr [ %incdec.ptr.i.us89, %while.body7.us88 ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.us.split ]
-  %incdec.ptr.i.us89 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.174.us167, i64 4
+  %__first.sroa.0.174.us165 = phi ptr [ %incdec.ptr.i.us89, %while.body7.us88 ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.us.split ]
+  %incdec.ptr.i.us89 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.174.us165, i64 4
   %12 = load i32, ptr %incdec.ptr.i.us89, align 4
   %idxprom.i.i.us = sext i32 %12 to i64
   %arrayidx.i.i.us = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i.us
@@ -27747,9 +27747,8 @@ while.body7.us88:                                 ; preds = %if.then.i.i.lr.ph.s
   %and.i.i.i.i.i.us = and i64 %conv.i.i.i.i.i.us, 63
   %shl.i.i.i.i.i.us = shl nuw i64 1, %and.i.i.i.i.i.us
   %and2.i.i.i.i.i.us = and i64 %shl.i.i.i.i.i.us, %14
-  %tobool.i.not.i.i.i.i.us = icmp ne i64 %and2.i.i.i.i.i.us, 0
-  %brmerge = or i1 %spec.select.i.i, %tobool.i.not.i.i.i.i.us
-  br i1 %brmerge, label %while.body7.us88, label %while.end
+  %tobool.i.not.i.i.i.i.us = icmp eq i64 %and2.i.i.i.i.i.us, 0
+  br i1 %tobool.i.not.i.i.i.i.us, label %while.end, label %while.body7.us88
 
 if.then.i.i:                                      ; preds = %if.then.i.i.lr.ph.split, %while.body7
   %tobool.i.not.i.i.i.i75 = phi i1 [ true, %while.body7 ], [ %tobool.i.not.i.i.i.i72, %if.then.i.i.lr.ph.split ]

@@ -5646,9 +5646,9 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %4 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i to i32
   %5 = zext i32 %4 to i64
   %6 = load float, ptr %2, align 4
-  %.inv.i.i.i5.i.i.i.i.i.i.i.i = fcmp oeq float %6, 0.000000e+00
-  %storemerge.i.i.i6.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i5.i.i.i.i.i.i.i.i, float 0.000000e+00, float %6
-  %7 = bitcast float %storemerge.i.i.i6.i.i.i.i.i.i.i.i to i32
+  %.inv.i.i.i.i.i.i.i.i.i.i.i = fcmp oeq float %6, 0.000000e+00
+  %storemerge.i.i.i.i.i.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i.i.i.i.i.i, float 0.000000e+00, float %6
+  %7 = bitcast float %storemerge.i.i.i.i.i.i.i.i.i.i.i to i32
   %8 = zext i32 %7 to i64
   %9 = add nuw nsw i64 %8, %5
   %10 = add nuw nsw i64 %9, 1

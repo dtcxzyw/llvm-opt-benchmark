@@ -8635,14 +8635,13 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %m_trail_stack = getelementptr inbounds nuw i8, ptr %this, i64 3976
-  %frombool.i = and i8 %1, 1
   %m_region.i = getelementptr inbounds nuw i8, ptr %this, i64 3992
   %call.i.i17 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 24)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIbE, i64 16), ptr %call.i.i17, align 8
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %call.i.i17, i64 8
   store ptr %m_lts_checked, ptr %m_value.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i17, i64 16
-  store i8 %frombool.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx, align 8
   %2 = load ptr, ptr %m_trail_stack, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i

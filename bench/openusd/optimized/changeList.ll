@@ -2564,7 +2564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.ex
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.exit
-  %22 = or i16 %19, 1
+  %22 = or disjoint i16 %19, 1
   store i16 %22, ptr %18, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %1)

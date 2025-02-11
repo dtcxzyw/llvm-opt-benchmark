@@ -5604,9 +5604,8 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13IN
   %.not122 = xor i1 %186, true
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.mux137 = and i8 %185, 1
   %brmerge139 = or i1 %.not141, %186
-  %.mux137.mux = select i1 %186, i8 %.mux137, i8 0
+  %.mux137.mux = and i8 %185, 1
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit
 
@@ -5864,7 +5863,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   br label %304
 
 304:                                              ; preds = %.thread, %296, %303, %301, %302
-  %305 = phi i8 [ %.mux137.mux, %301 ], [ 1, %296 ], [ 0, %302 ], [ %.mux137, %303 ], [ 1, %.thread ]
+  %305 = phi i8 [ %.mux137.mux, %301 ], [ 1, %296 ], [ 0, %302 ], [ %.mux137.mux, %303 ], [ 1, %.thread ]
   store i8 %305, ptr %190, align 1
   br label %306
 

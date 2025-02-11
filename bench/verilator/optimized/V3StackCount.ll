@@ -854,54 +854,53 @@ _ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit: ; preds = %2
   %11 = trunc i64 %10 to i32
   store i64 0, ptr %9, align 8
   store i32 %11, ptr %3, align 8
-  %12 = and i8 %5, 1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.013 = load ptr, ptr %13, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.013 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %.013, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit
   %.016 = phi ptr [ %.0, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ], [ %.013, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ]
-  %.09.in15 = phi i64 [ %18, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ], [ 0, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ]
+  %.09.in15 = phi i64 [ %17, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ], [ 0, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ]
   store i64 0, ptr %9, align 8
   store i8 0, ptr %4, align 1
-  %14 = load ptr, ptr %.016, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %16 = load ptr, ptr %15, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(152) %.016, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit unwind label %20
+  %13 = load ptr, ptr %.016, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 288
+  %15 = load ptr, ptr %14, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(152) %.016, ptr noundef nonnull align 8 dereferenceable(8) %0)
+          to label %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit unwind label %19
 
 _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %.lr.ph
-  %17 = load i64, ptr %9, align 8
-  %18 = add i64 %17, %.09.in15
-  %19 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %.0 = load ptr, ptr %19, align 8
+  %16 = load i64, ptr %9, align 8
+  %17 = add i64 %16, %.09.in15
+  %18 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
-20:                                               ; preds = %.lr.ph
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph
+  %20 = landingpad { ptr, i32 }
           cleanup
-  store i8 %12, ptr %4, align 1
+  store i8 0, ptr %4, align 1
   call void @_ZN17StackCountVisitor9VisitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
 ._crit_edge.loopexit:                             ; preds = %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit
-  %22 = and i64 %18, 4294967295
+  %21 = and i64 %17, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit
-  %.09.in.lcssa = phi i64 [ 0, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ], [ %22, %._crit_edge.loopexit ]
+  %.09.in.lcssa = phi i64 [ 0, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ], [ %21, %._crit_edge.loopexit ]
   store i64 %.09.in.lcssa, ptr %9, align 8
-  store i8 %12, ptr %4, align 1
+  store i8 0, ptr %4, align 1
   invoke void @_ZN17StackCountVisitor12endVisitBaseEjP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %11, ptr noundef %1)
-          to label %_ZN17StackCountVisitor9VisitBaseD2Ev.exit unwind label %23
+          to label %_ZN17StackCountVisitor9VisitBaseD2Ev.exit unwind label %22
 
-23:                                               ; preds = %._crit_edge
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %._crit_edge
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #15
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #15
   unreachable
 
 _ZN17StackCountVisitor9VisitBaseD2Ev.exit:        ; preds = %._crit_edge, %2

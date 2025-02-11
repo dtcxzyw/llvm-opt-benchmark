@@ -1116,7 +1116,7 @@ define dso_local noundef ptr @_ZNK4llvm8Constant13getSplatValueEb(ptr noundef no
   br i1 %21, label %_ZNK4llvm18ConstantDataVector7isSplatEv.exit.i, label %22
 
 22:                                               ; preds = %18
-  %23 = or i8 %20, 1
+  %23 = or disjoint i8 %20, 1
   store i8 %23, ptr %19, align 8
   %24 = tail call noundef zeroext i1 @_ZNK4llvm18ConstantDataVector11isSplatDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %25 = load i8, ptr %19, align 8
@@ -14789,7 +14789,7 @@ define dso_local noundef ptr @_ZNK4llvm18ConstantDataVector13getSplatValueEv(ptr
   br i1 %4, label %_ZNK4llvm18ConstantDataVector7isSplatEv.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = or i8 %3, 1
+  %6 = or disjoint i8 %3, 1
   store i8 %6, ptr %2, align 8
   %7 = tail call noundef zeroext i1 @_ZNK4llvm18ConstantDataVector11isSplatDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %8 = load i8, ptr %2, align 8
@@ -22579,7 +22579,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18ConstantDataVector7isSplatEv(ptr
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = or i8 %3, 1
+  %6 = or disjoint i8 %3, 1
   store i8 %6, ptr %2, align 8
   %7 = tail call noundef zeroext i1 @_ZNK4llvm18ConstantDataVector11isSplatDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %8 = load i8, ptr %2, align 8

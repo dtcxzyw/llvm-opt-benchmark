@@ -2665,14 +2665,13 @@ entry:
   br i1 %tobool.i, label %if.end.i, label %_ZN7maxcore13improve_modelER3refI5modelE.exit
 
 if.end.i:                                         ; preds = %entry
-  %frombool.i.i = and i8 %0, 1
   store i8 0, ptr %m_enable_lns.i, align 1
   %m_lns.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %call.i = invoke noundef i32 @_ZN3opt3lns5climbER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(184) %m_lns.i, ptr noundef nonnull align 8 dereferenceable(8) %mdl)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  store i8 %frombool.i.i, ptr %m_enable_lns.i, align 1
+  store i8 1, ptr %m_enable_lns.i, align 1
   br label %_ZN7maxcore13improve_modelER3refI5modelE.exit
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -2682,7 +2681,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.end.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  store i8 %frombool.i.i, ptr %m_enable_lns.i, align 1
+  store i8 1, ptr %m_enable_lns.i, align 1
   br label %common.resume
 
 _ZN7maxcore13improve_modelER3refI5modelE.exit:    ; preds = %entry, %invoke.cont.i
@@ -5755,20 +5754,19 @@ for.end:                                          ; preds = %_ZN8rationalD2Ev.ex
 
 if.end.i:                                         ; preds = %for.end
   %m_model = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %frombool.i.i = and i8 %10, 1
   store i8 0, ptr %m_enable_lns.i, align 1
   %m_lns.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %call.i = invoke noundef i32 @_ZN3opt3lns5climbER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(184) %m_lns.i, ptr noundef nonnull align 8 dereferenceable(8) %m_model)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  store i8 %frombool.i.i, ptr %m_enable_lns.i, align 1
+  store i8 1, ptr %m_enable_lns.i, align 1
   br label %_ZN7maxcore13improve_modelER3refI5modelE.exit
 
 lpad.i:                                           ; preds = %if.end.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  store i8 %frombool.i.i, ptr %m_enable_lns.i, align 1
+  store i8 1, ptr %m_enable_lns.i, align 1
   br label %common.resume
 
 _ZN7maxcore13improve_modelER3refI5modelE.exit:    ; preds = %for.end, %invoke.cont.i

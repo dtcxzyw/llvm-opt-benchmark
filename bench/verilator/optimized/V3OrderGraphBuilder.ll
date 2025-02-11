@@ -1786,20 +1786,19 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstAssignPos
   unreachable
 
 10:                                               ; preds = %2
-  %11 = and i8 %4, 1
   store i8 1, ptr %3, align 2
   invoke void @_ZN17OrderGraphBuilder12iterateLogicEP7AstNode(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1)
-          to label %12 unwind label %13
+          to label %11 unwind label %12
 
-12:                                               ; preds = %10
-  store i8 %11, ptr %3, align 2
+11:                                               ; preds = %10
+  store i8 0, ptr %3, align 2
   ret void
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %11, ptr %3, align 2
-  resume { ptr, i32 } %14
+  store i8 0, ptr %3, align 2
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1817,20 +1816,19 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP12AstAssignPre
   unreachable
 
 10:                                               ; preds = %2
-  %11 = and i8 %4, 1
   store i8 1, ptr %3, align 1
   invoke void @_ZN17OrderGraphBuilder12iterateLogicEP7AstNode(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1)
-          to label %12 unwind label %13
+          to label %11 unwind label %12
 
-12:                                               ; preds = %10
-  store i8 %11, ptr %3, align 1
+11:                                               ; preds = %10
+  store i8 0, ptr %3, align 1
   ret void
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %11, ptr %3, align 1
-  resume { ptr, i32 } %14
+  store i8 0, ptr %3, align 1
+  resume { ptr, i32 } %13
 }
 
 declare void @_ZN14VNVisitorConst5visitEP17AstAssignVarScope(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0

@@ -23401,9 +23401,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %92, label %102, label %101
 
 .sink.split:                                      ; preds = %77, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hc1cbc87a285b009eE.exit.i"
-  %.sink = phi i8 [ 0, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hc1cbc87a285b009eE.exit.i" ], [ %29, %77 ]
   %.ph = phi i64 [ 0, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hc1cbc87a285b009eE.exit.i" ], [ %30, %77 ]
-  store i8 %.sink, ptr %23, align 1, !alias.scope !5559, !noalias !5562
+  store i8 0, ptr %23, align 1, !alias.scope !5559, !noalias !5562
   br label %97
 
 97:                                               ; preds = %.sink.split, %._crit_edge

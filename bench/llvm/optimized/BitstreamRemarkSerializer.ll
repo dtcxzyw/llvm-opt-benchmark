@@ -4475,7 +4475,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 65:                                               ; preds = %56
-  %66 = lshr i8 %61, 1
+  %66 = lshr exact i8 %61, 1
   %67 = and i8 %66, 7
   switch i8 %67, label %87 [
     i8 3, label %68
@@ -5771,7 +5771,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %37, %_ZN4llvm15Bits
   br i1 %70, label %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit.sink.split, label %71
 
 71:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %72 = lshr i8 %69, 1
+  %72 = lshr exact i8 %69, 1
   %73 = and i8 %72, 7
   %74 = zext nneg i8 %73 to i32
   %75 = shl i32 %74, %storemerge6.i
@@ -6044,7 +6044,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 65:                                               ; preds = %56
-  %66 = lshr i8 %61, 1
+  %66 = lshr exact i8 %61, 1
   %67 = and i8 %66, 7
   switch i8 %67, label %87 [
     i8 3, label %68

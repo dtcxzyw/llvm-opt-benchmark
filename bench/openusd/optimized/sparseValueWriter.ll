@@ -6903,94 +6903,94 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttribu
   %41 = add i64 %40, 1
   %42 = mul i64 %41, %40
   %43 = lshr i64 %42, 1
-  %44 = load i32, ptr %34, align 8
-  %.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %45 = load i32, ptr %.in.i.i.i.i.i.i.i.i, align 4
-  %46 = zext i32 %44 to i64
-  %47 = add i64 %39, %46
-  %48 = add i64 %47, %43
-  %49 = add i64 %48, 1
-  %50 = mul i64 %49, %48
-  %51 = lshr i64 %50, 1
-  %52 = zext i32 %45 to i64
-  %53 = add nuw nsw i64 %52, %46
-  %54 = add nuw i64 %53, %51
-  %55 = add nuw i64 %54, 1
-  %56 = mul i64 %55, %54
-  %57 = lshr i64 %56, 1
-  %58 = load ptr, ptr %33, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = and i64 %59, -8
-  %61 = add i64 %60, %52
-  %62 = add i64 %61, %57
-  %63 = add i64 %62, 1
-  %64 = mul i64 %63, %62
-  %65 = lshr i64 %64, 1
-  %66 = add i64 %65, %60
-  %67 = mul i64 %66, -7046029254386353067
-  %68 = tail call noundef i64 @llvm.bswap.i64(i64 %67)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = urem i64 %68, %70
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %71
-  %74 = load ptr, ptr %73, align 8
-  %.not.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %75
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr %34, align 8
+  %47 = zext i32 %46 to i64
+  %48 = add i64 %39, %47
+  %49 = add i64 %48, %43
+  %50 = add i64 %49, 1
+  %51 = mul i64 %50, %49
+  %52 = lshr i64 %51, 1
+  %53 = zext i32 %45 to i64
+  %54 = add nuw nsw i64 %47, %53
+  %55 = add nuw i64 %54, %52
+  %56 = add nuw i64 %55, 1
+  %57 = mul i64 %56, %55
+  %58 = lshr i64 %57, 1
+  %59 = load ptr, ptr %33, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = and i64 %60, -8
+  %62 = add i64 %61, %53
+  %63 = add i64 %62, %58
+  %64 = add i64 %63, 1
+  %65 = mul i64 %64, %63
+  %66 = lshr i64 %65, 1
+  %67 = add i64 %66, %61
+  %68 = mul i64 %67, -7046029254386353067
+  %69 = tail call noundef i64 @llvm.bswap.i64(i64 %68)
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = urem i64 %69, %71
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %72
+  %75 = load ptr, ptr %74, align 8
+  %.not.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %76
 
-75:                                               ; preds = %30
-  %76 = load ptr, ptr %74, align 8
+76:                                               ; preds = %30
+  %77 = load ptr, ptr %75, align 8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %76, i64 104
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %77, i64 104
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  br label %77
+  br label %78
 
-77:                                               ; preds = %98, %75
-  %78 = phi i64 [ %.pre.i.i, %75 ], [ %100, %98 ]
-  %79 = phi ptr [ %76, %75 ], [ %97, %98 ]
-  %80 = icmp eq i64 %68, %78
-  br i1 %80, label %81, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+78:                                               ; preds = %99, %76
+  %79 = phi i64 [ %.pre.i.i, %76 ], [ %101, %99 ]
+  %80 = phi ptr [ %77, %76 ], [ %98, %99 ]
+  %81 = icmp eq i64 %69, %79
+  br i1 %81, label %82, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %31, %83
-  br i1 %84, label %85, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp eq i32 %31, %84
+  br i1 %85, label %86, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %36, %87
-  br i1 %88, label %89, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %36, %88
+  br i1 %89, label %90, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %90, align 4
-  %91 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i.i
-  br i1 %91, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %91, align 4
+  %92 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i.i
+  br i1 %92, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i: ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = xor i64 %94, %59
-  %96 = icmp ult i64 %95, 8
-  br i1 %96, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i: ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %94 = load ptr, ptr %93, align 8
+  %95 = ptrtoint ptr %94 to i64
+  %96 = xor i64 %95, %60
+  %97 = icmp ult i64 %96, 8
+  br i1 %97, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %89, %85, %81, %77
-  %97 = load ptr, ptr %79, align 8
-  %.not16.i.i = icmp eq ptr %97, null
-  br i1 %.not16.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %98
+_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %90, %86, %82, %78
+  %98 = load ptr, ptr %80, align 8
+  %.not16.i.i = icmp eq ptr %98, null
+  br i1 %.not16.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %99
 
-98:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 104
-  %100 = load i64, ptr %99, align 8
-  %101 = urem i64 %100, %70
-  %.not17.i.i = icmp eq i64 %101, %71
-  br i1 %.not17.i.i, label %77, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !66
+99:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 104
+  %101 = load i64, ptr %100, align 8
+  %102 = urem i64 %101, %71
+  %.not17.i.i = icmp eq i64 %102, %72
+  br i1 %.not17.i.i, label %78, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !66
 
-_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %98, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread, %5, %30
-  %.sroa.06.1 = phi ptr [ null, %30 ], [ null, %5 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ], [ %79, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ], [ null, %98 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ]
+_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %99, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread, %5, %30
+  %.sroa.06.1 = phi ptr [ null, %30 ], [ null, %5 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread ], [ %80, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ], [ null, %99 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i ]
   ret ptr %.sroa.06.1
 }
 
@@ -7078,108 +7078,108 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttribu
   %47 = add i64 %46, 1
   %48 = mul i64 %47, %46
   %49 = lshr i64 %48, 1
-  %50 = load i32, ptr %40, align 4
-  %.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %51 = load i32, ptr %.in.i.i.i.i.i.i.i.i, align 4
-  %52 = zext i32 %50 to i64
-  %53 = add i64 %45, %52
-  %54 = add i64 %53, %49
-  %55 = add i64 %54, 1
-  %56 = mul i64 %55, %54
-  %57 = lshr i64 %56, 1
-  %58 = zext i32 %51 to i64
-  %59 = add nuw nsw i64 %58, %52
-  %60 = add nuw i64 %59, %57
-  %61 = add nuw i64 %60, 1
-  %62 = mul i64 %61, %60
-  %63 = lshr i64 %62, 1
-  %64 = load ptr, ptr %39, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, -8
-  %67 = add i64 %66, %58
-  %68 = add i64 %67, %63
-  %69 = add i64 %68, 1
-  %70 = mul i64 %69, %68
-  %71 = lshr i64 %70, 1
-  %72 = add i64 %71, %66
-  %73 = mul i64 %72, -7046029254386353067
-  %74 = tail call noundef i64 @llvm.bswap.i64(i64 %73)
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = urem i64 %74, %76
-  br i1 %.not.not, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %78
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %51 = load i32, ptr %50, align 4
+  %52 = load i32, ptr %40, align 4
+  %53 = zext i32 %52 to i64
+  %54 = add i64 %45, %53
+  %55 = add i64 %54, %49
+  %56 = add i64 %55, 1
+  %57 = mul i64 %56, %55
+  %58 = lshr i64 %57, 1
+  %59 = zext i32 %51 to i64
+  %60 = add nuw nsw i64 %53, %59
+  %61 = add nuw i64 %60, %58
+  %62 = add nuw i64 %61, 1
+  %63 = mul i64 %62, %61
+  %64 = lshr i64 %63, 1
+  %65 = load ptr, ptr %39, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = and i64 %66, -8
+  %68 = add i64 %67, %59
+  %69 = add i64 %68, %64
+  %70 = add i64 %69, 1
+  %71 = mul i64 %70, %69
+  %72 = lshr i64 %71, 1
+  %73 = add i64 %72, %67
+  %74 = mul i64 %73, -7046029254386353067
+  %75 = tail call noundef i64 @llvm.bswap.i64(i64 %74)
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = urem i64 %75, %77
+  br i1 %.not.not, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %79
 
-78:                                               ; preds = %.loopexit
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %77
-  %81 = load ptr, ptr %80, align 8
-  %.not.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %82
+79:                                               ; preds = %.loopexit
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %78
+  %82 = load ptr, ptr %81, align 8
+  %.not.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %83
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %81, align 8
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %82, align 8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %40, align 4
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %83, i64 104
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %84, i64 104
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  br label %84
+  br label %85
 
-84:                                               ; preds = %105, %82
-  %85 = phi i64 [ %.pre.i.i, %82 ], [ %107, %105 ]
-  %86 = phi ptr [ %83, %82 ], [ %104, %105 ]
-  %87 = icmp eq i64 %74, %85
-  br i1 %87, label %88, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+85:                                               ; preds = %106, %83
+  %86 = phi i64 [ %.pre.i.i, %83 ], [ %108, %106 ]
+  %87 = phi ptr [ %84, %83 ], [ %105, %106 ]
+  %88 = icmp eq i64 %75, %86
+  br i1 %88, label %89, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %90 = load i32, ptr %89, align 8
-  %91 = icmp eq i32 %37, %90
-  br i1 %91, label %92, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp eq i32 %37, %91
+  br i1 %92, label %93, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %42, %94
-  br i1 %95, label %96, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %42, %95
+  br i1 %96, label %97, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %97, align 4
-  %98 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i.i
-  br i1 %98, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %98, align 4
+  %99 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i.i
+  br i1 %99, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i: ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %100 = load ptr, ptr %99, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %102 = xor i64 %101, %65
-  %103 = icmp ult i64 %102, 8
-  br i1 %103, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i: ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %101 = load ptr, ptr %100, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = xor i64 %102, %66
+  %104 = icmp ult i64 %103, 8
+  br i1 %104, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
 
-_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %96, %92, %88, %84
-  %104 = load ptr, ptr %86, align 8
-  %.not16.i.i = icmp eq ptr %104, null
-  br i1 %.not16.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %105
+_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i, %97, %93, %89, %85
+  %105 = load ptr, ptr %87, align 8
+  %.not16.i.i = icmp eq ptr %105, null
+  br i1 %.not16.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %106
 
-105:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 104
-  %107 = load i64, ptr %106, align 8
-  %108 = urem i64 %107, %76
-  %.not17.i.i = icmp eq i64 %108, %77
-  br i1 %.not17.i.i, label %84, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !66
+106:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 104
+  %108 = load i64, ptr %107, align 8
+  %109 = urem i64 %108, %77
+  %.not17.i.i = icmp eq i64 %109, %78
+  br i1 %.not17.i.i, label %85, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !66
 
-_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread: ; preds = %105, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %78, %.loopexit
-  %109 = invoke ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %77, i64 noundef %74, ptr noundef nonnull %6, i64 noundef 1)
+_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread: ; preds = %106, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %79, %.loopexit
+  %110 = invoke ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %78, i64 noundef %75, ptr noundef nonnull %6, i64 noundef 1)
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %35
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i
-  %.sroa.022.0.ph = phi ptr [ %86, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ], [ %.sroa.019.035, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
+  %.sroa.022.0.ph = phi ptr [ %87, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i ], [ %.sroa.019.035, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS2_NS1_29UsdUtilsSparseAttrValueWriterEENS_10_Select1stESt8equal_toIS2_ENS1_25UsdUtilsSparseValueWriter9_AttrHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
   tail call void @_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS0_29UsdUtilsSparseAttrValueWriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 112) #19
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
   %.sroa.4.029 = phi i8 [ 0, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ 1, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread ]
-  %.sroa.022.028 = phi ptr [ %.sroa.022.0.ph, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %109, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread ]
+  %.sroa.022.028 = phi ptr [ %.sroa.022.0.ph, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %110, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESt4pairIKS1_NS0_29UsdUtilsSparseAttrValueWriterEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_25UsdUtilsSparseValueWriter9_AttrHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.022.028, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.029, 1
   ret { ptr, i8 } %.fca.1.insert

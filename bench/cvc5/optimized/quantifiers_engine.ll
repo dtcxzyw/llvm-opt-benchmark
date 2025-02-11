@@ -2501,9 +2501,9 @@ ehcleanup1116:                                    ; preds = %lpad1013.loopexit, 
   br label %ehcleanup1308
 
 if.end1121:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698, %invoke.cont1007
-  %setModelUnsound.6 = phi i8 [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ %setModelUnsound.8, %invoke.cont1007 ]
-  %tobool1122 = trunc nuw i8 %setModelUnsound.6 to i1
-  br i1 %tobool1122, label %for.inc1129, label %cond.end1146
+  %setModelUnsound.6.ph = phi i8 [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ %setModelUnsound.8, %invoke.cont1007 ]
+  %.pre = trunc nuw i8 %setModelUnsound.6.ph to i1
+  br i1 %.pre, label %for.inc1129, label %cond.end1146
 
 for.inc1129:                                      ; preds = %invoke.cont960, %invoke.cont942, %if.else881, %if.end1121, %if.then878
   %setModelUnsound.10 = phi i8 [ %setModelUnsound.11979, %if.then878 ], [ 1, %if.end1121 ], [ %setModelUnsound.11979, %if.else881 ], [ 1, %invoke.cont942 ], [ 1, %invoke.cont960 ]

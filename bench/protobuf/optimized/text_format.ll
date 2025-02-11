@@ -11756,15 +11756,15 @@ if.then:                                          ; preds = %entry
 
 land.rhs:                                         ; preds = %if.then
   %call = tail call noundef zeroext i1 @_ZN4absl12lts_2023080212log_internal17LogEveryPow2State9ShouldLogEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state)
-  br i1 %call, label %for.body10, label %if.end85
+  br i1 %call, label %for.body6, label %if.end85
 
-for.body10:                                       ; preds = %land.rhs
+for.body6:                                        ; preds = %land.rhs
   %1 = load atomic i32, ptr @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state monotonic, align 4
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.13, i32 noundef 435) #40
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 28, ptr nonnull @.str.36)
           to label %invoke.cont12 unwind label %lpad
 
-invoke.cont12:                                    ; preds = %for.body10
+invoke.cont12:                                    ; preds = %for.body6
   %root_message_type_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %2 = load ptr, ptr %root_message_type_, align 8
   %all_names_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11814,28 +11814,28 @@ invoke.cont29:                                    ; preds = %invoke.cont27
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %call35 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i19, i64 %message.coerce0, ptr %message.coerce1)
-          to label %for.inc36 unwind label %lpad
+          to label %invoke.cont34 unwind label %lpad
 
-lpad:                                             ; preds = %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont16, %for.body10, %invoke.cont31, %invoke.cont12
+invoke.cont34:                                    ; preds = %invoke.cont31
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #41
+  br label %if.end85
+
+lpad:                                             ; preds = %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont16, %for.body6, %invoke.cont31, %invoke.cont12
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-for.inc36:                                        ; preds = %invoke.cont31
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #41
-  br label %if.end85
-
 land.rhs46:                                       ; preds = %if.then
   %call47 = tail call noundef zeroext i1 @_ZN4absl12lts_2023080212log_internal17LogEveryPow2State9ShouldLogEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state_0)
-  br i1 %call47, label %for.body54, label %if.end85
+  br i1 %call47, label %for.body49, label %if.end85
 
-for.body54:                                       ; preds = %land.rhs46
+for.body49:                                       ; preds = %land.rhs46
   %5 = load atomic i32, ptr @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state_0 monotonic, align 4
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull @.str.13, i32 noundef 440) #40
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i64 28, ptr nonnull @.str.36)
           to label %invoke.cont60 unwind label %lpad57
 
-invoke.cont60:                                    ; preds = %for.body54
+invoke.cont60:                                    ; preds = %for.body49
   %root_message_type_62 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %6 = load ptr, ptr %root_message_type_62, align 8
   %all_names_.i23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -11861,16 +11861,16 @@ invoke.cont69:                                    ; preds = %invoke.cont67
 
 invoke.cont71:                                    ; preds = %invoke.cont69
   %call75 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i28, i64 %message.coerce0, ptr %message.coerce1)
-          to label %for.inc78 unwind label %lpad57
+          to label %invoke.cont74 unwind label %lpad57
 
-lpad57:                                           ; preds = %invoke.cont69, %invoke.cont67, %invoke.cont65, %for.body54, %invoke.cont71, %invoke.cont60
+invoke.cont74:                                    ; preds = %invoke.cont71
+  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55) #41
+  br label %if.end85
+
+lpad57:                                           ; preds = %invoke.cont69, %invoke.cont67, %invoke.cont65, %for.body49, %invoke.cont71, %invoke.cont60
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
-
-for.inc78:                                        ; preds = %invoke.cont71
-  call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55) #41
-  br label %if.end85
 
 if.else82:                                        ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
@@ -11879,7 +11879,7 @@ if.else82:                                        ; preds = %entry
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %line, i32 noundef %col, i64 %message.coerce0, ptr %message.coerce1)
   br label %if.end85
 
-if.end85:                                         ; preds = %land.rhs46, %for.inc78, %land.rhs, %for.inc36, %if.else82
+if.end85:                                         ; preds = %land.rhs46, %invoke.cont74, %land.rhs, %invoke.cont34, %if.else82
   ret void
 
 eh.resume:                                        ; preds = %lpad57, %lpad

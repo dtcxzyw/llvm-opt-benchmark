@@ -8052,12 +8052,12 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.gep339 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.gep331 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.gep333 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.gep337 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.gep329 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.gep335 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.gep327 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.gep329 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.gep333 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.gep325 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.gep331 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %.backedge
 
@@ -8153,7 +8153,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
 "_ZN4core6option15Option$LT$T$GT$6map_or17hcd258b74559ba1a7E.exit": ; preds = %41
   %.val36241 = load i64, ptr %13, align 8
   %45 = icmp ult i64 %.val36241, %.sroa.17.1
-  br i1 %45, label %180, label %.cont288
+  br i1 %45, label %180, label %.cont284
 
 .thread:                                          ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -8164,19 +8164,19 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   ret void
 
-.cont288:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd258b74559ba1a7E.exit"
+.cont284:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd258b74559ba1a7E.exit"
   %49 = load i64, ptr %12, align 8, !alias.scope !1594, !noalias !1597, !noundef !4
   %50 = icmp ult i64 %.sroa.17.1, %49
   br i1 %50, label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont", label %51
 
-51:                                               ; preds = %.cont288
-  %52 = load i64, ptr %.sroa.gep339, align 8, !noundef !4
+51:                                               ; preds = %.cont284
+  %52 = load i64, ptr %.sroa.gep335, align 8, !noundef !4
   %53 = sub i64 %52, %.sroa.0123.0
   %54 = add i64 %53, %.sroa.0105.0
   %55 = sub nuw i64 %.sroa.17.1, %49
   %56 = add i64 %54, %55
   %57 = add i64 %52, %55
-  %58 = load i64, ptr %.sroa.gep331, align 8, !noundef !4
+  %58 = load i64, ptr %.sroa.gep327, align 8, !noundef !4
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %57, i64 %58)
   call void @llvm.experimental.noalias.scope.decl(metadata !1599)
   %59 = icmp eq i64 %.sroa.17.1, %49
@@ -8256,10 +8256,10 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   %83 = load i64, ptr %12, align 8, !alias.scope !1620, !noundef !4
   %84 = add i64 %83, %55
   store i64 %84, ptr %12, align 8, !alias.scope !1620
-  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.gep339, align 8
+  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.gep335, align 8
   br label %.cont
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont": ; preds = %.cont288
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont": ; preds = %.cont284
   %85 = sub i64 %.sroa.6.1, %.sroa.0105.0
   %86 = add i64 %85, %.sroa.0123.0
   %87 = sub nuw i64 %49, %.sroa.17.1
@@ -8339,16 +8339,16 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   %.sroa.17.2 = phi i64 [ %.sroa.17.1, %82 ], [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %49, %109 ]
   %storemerge32 = phi i64 [ %56, %82 ], [ %.sroa.0.0.sroa.speculated.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %.sroa.0.0.sroa.speculated.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %.sroa.0.0.sroa.speculated.i.i41, %109 ]
   %storemerge31 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %82 ], [ %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %89, %109 ]
-  %111 = load i64, ptr %.sroa.gep333, align 8, !alias.scope !1644, !noalias !1647, !noundef !4
+  %111 = load i64, ptr %.sroa.gep329, align 8, !alias.scope !1644, !noalias !1647, !noundef !4
   %112 = icmp ugt i64 %.sroa.21.1, %111
   %113 = sub i64 %.sroa.12.1, %.sroa.6.2
-  br i1 %112, label %.cont298.cont, label %.cont284
+  br i1 %112, label %.cont294.cont, label %.cont280
 
-.cont284:                                         ; preds = %.cont
+.cont280:                                         ; preds = %.cont
   %114 = add i64 %113, %storemerge32
   %115 = sub i64 %.sroa.21.1, %.sroa.17.2
-  %116 = load i64, ptr %.sroa.gep329, align 8, !noundef !4
-  %117 = load i64, ptr %.sroa.gep337, align 8, !noundef !4
+  %116 = load i64, ptr %.sroa.gep325, align 8, !noundef !4
+  %117 = load i64, ptr %.sroa.gep333, align 8, !noundef !4
   %118 = sub i64 %116, %117
   %.sroa.0.0.sroa.speculated.i.i52 = call noundef i64 @llvm.umin.i64(i64 %115, i64 %118)
   %119 = add i64 %.sroa.0.0.sroa.speculated.i.i52, %storemerge31
@@ -8358,7 +8358,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   %or.cond249 = and i1 %120, %121
   br i1 %or.cond249, label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont", label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53"
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53": ; preds = %.cont284
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53": ; preds = %.cont280
   %122 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1649, !noalias !1652, !noundef !4
   %.not.i54 = icmp eq i64 %122, 0
   br i1 %.not.i54, label %123, label %128
@@ -8426,18 +8426,18 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   store i64 %119, ptr %142, align 8, !noalias !1669
   br label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont"
 
-"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i56", %141, %.cont284
+"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i56", %141, %.cont280
   store i64 %.sroa.21.1, ptr %12, align 8
-  store i64 %119, ptr %.sroa.gep337, align 8
+  store i64 %119, ptr %.sroa.gep333, align 8
   br label %.backedge.backedge
 
-.cont298.cont:                                    ; preds = %.cont
+.cont294.cont:                                    ; preds = %.cont
   %143 = load i64, ptr %12, align 8, !noundef !4
   %144 = sub i64 %111, %143
   %.sroa.0.0.sroa.speculated.i.i63 = call noundef i64 @llvm.umin.i64(i64 %113, i64 %144)
   %145 = add i64 %.sroa.0.0.sroa.speculated.i.i63, %storemerge32
   %146 = load i64, ptr %.sroa.gep, align 8, !noundef !4
-  %147 = load i64, ptr %.sroa.gep335, align 8, !noundef !4
+  %147 = load i64, ptr %.sroa.gep331, align 8, !noundef !4
   %148 = sub i64 %146, %147
   %149 = add i64 %148, %storemerge31
   call void @llvm.experimental.noalias.scope.decl(metadata !1670)
@@ -8446,7 +8446,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   %or.cond250 = and i1 %150, %151
   br i1 %or.cond250, label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit73.cont", label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i64"
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i64": ; preds = %.cont298.cont
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i64": ; preds = %.cont294.cont
   %152 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1670, !noalias !1673, !noundef !4
   %.not.i65 = icmp eq i64 %152, 0
   br i1 %.not.i65, label %153, label %158
@@ -8514,8 +8514,8 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17h1d346cbf27c3adcfE"
   store i64 %149, ptr %172, align 8, !noalias !1690
   br label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit73.cont"
 
-"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit73.cont": ; preds = %.cont298.cont, %171, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i67", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i69"
-  %173 = load i64, ptr %.sroa.gep333, align 8, !noundef !4
+"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit73.cont": ; preds = %.cont294.cont, %171, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i67", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i69"
+  %173 = load i64, ptr %.sroa.gep329, align 8, !noundef !4
   %.sroa.022.0.copyload = load i64, ptr %5, align 8
   store i64 2, ptr %5, align 8
   %174 = icmp eq i64 %.sroa.022.0.copyload, 2
@@ -9493,12 +9493,12 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hb12933bfd4f82432E"
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.gep340 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.gep332 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.gep334 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.gep338 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.gep330 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.gep336 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.gep328 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.gep330 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.gep334 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.gep326 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.gep332 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %.backedge
 
@@ -9591,7 +9591,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hb12933bfd4f82432E"
 "_ZN4core6option15Option$LT$T$GT$6map_or17hb2e798ff4465ead1E.exit": ; preds = %44
   %.val36242 = load i64, ptr %15, align 8
   %48 = icmp ult i64 %.val36242, %.sroa.17.1
-  br i1 %48, label %186, label %.cont289
+  br i1 %48, label %186, label %.cont285
 
 .thread:                                          ; preds = %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -9623,19 +9623,19 @@ common.resume:                                    ; preds = %253, %50
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   ret void
 
-.cont289:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb2e798ff4465ead1E.exit"
+.cont285:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb2e798ff4465ead1E.exit"
   %54 = load i64, ptr %14, align 8, !alias.scope !2035, !noalias !2038, !noundef !4
   %55 = icmp ult i64 %.sroa.17.1, %54
   br i1 %55, label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont", label %56
 
-56:                                               ; preds = %.cont289
-  %57 = load i64, ptr %.sroa.gep340, align 8, !noundef !4
+56:                                               ; preds = %.cont285
+  %57 = load i64, ptr %.sroa.gep336, align 8, !noundef !4
   %58 = sub i64 %57, %.sroa.0123.0
   %59 = add i64 %58, %.sroa.0105.0
   %60 = sub nuw i64 %.sroa.17.1, %54
   %61 = add i64 %59, %60
   %62 = add i64 %57, %60
-  %63 = load i64, ptr %.sroa.gep332, align 8, !noundef !4
+  %63 = load i64, ptr %.sroa.gep328, align 8, !noundef !4
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %62, i64 %63)
   call void @llvm.experimental.noalias.scope.decl(metadata !2040)
   %64 = icmp eq i64 %.sroa.17.1, %54
@@ -9715,10 +9715,10 @@ common.resume:                                    ; preds = %253, %50
   %88 = load i64, ptr %14, align 8, !alias.scope !2061, !noundef !4
   %89 = add i64 %88, %60
   store i64 %89, ptr %14, align 8, !alias.scope !2061
-  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.gep340, align 8
+  store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.gep336, align 8
   br label %.cont
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont": ; preds = %.cont289
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i42.cont": ; preds = %.cont285
   %90 = sub i64 %.sroa.6.1, %.sroa.0105.0
   %91 = add i64 %90, %.sroa.0123.0
   %92 = sub nuw i64 %54, %.sroa.17.1
@@ -9798,16 +9798,16 @@ common.resume:                                    ; preds = %253, %50
   %.sroa.17.2 = phi i64 [ %.sroa.17.1, %87 ], [ %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %54, %114 ]
   %storemerge32 = phi i64 [ %61, %87 ], [ %.sroa.0.0.sroa.speculated.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %.sroa.0.0.sroa.speculated.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %.sroa.0.0.sroa.speculated.i.i41, %114 ]
   %storemerge31 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %87 ], [ %94, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i47" ], [ %94, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i45" ], [ %94, %114 ]
-  %116 = load i64, ptr %.sroa.gep334, align 8, !alias.scope !2085, !noalias !2088, !noundef !4
+  %116 = load i64, ptr %.sroa.gep330, align 8, !alias.scope !2085, !noalias !2088, !noundef !4
   %117 = icmp ugt i64 %.sroa.21.1, %116
   %118 = sub i64 %.sroa.12.1, %.sroa.6.2
-  br i1 %117, label %.cont299.cont, label %.cont285
+  br i1 %117, label %.cont295.cont, label %.cont281
 
-.cont285:                                         ; preds = %.cont
+.cont281:                                         ; preds = %.cont
   %119 = add i64 %118, %storemerge32
   %120 = sub i64 %.sroa.21.1, %.sroa.17.2
-  %121 = load i64, ptr %.sroa.gep330, align 8, !noundef !4
-  %122 = load i64, ptr %.sroa.gep338, align 8, !noundef !4
+  %121 = load i64, ptr %.sroa.gep326, align 8, !noundef !4
+  %122 = load i64, ptr %.sroa.gep334, align 8, !noundef !4
   %123 = sub i64 %121, %122
   %.sroa.0.0.sroa.speculated.i.i52 = call noundef i64 @llvm.umin.i64(i64 %120, i64 %123)
   %124 = add i64 %.sroa.0.0.sroa.speculated.i.i52, %storemerge31
@@ -9817,7 +9817,7 @@ common.resume:                                    ; preds = %253, %50
   %or.cond250 = and i1 %125, %126
   br i1 %or.cond250, label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont", label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53"
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53": ; preds = %.cont285
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i53": ; preds = %.cont281
   %127 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2090, !noalias !2093, !noundef !4
   %.not.i54 = icmp eq i64 %127, 0
   br i1 %.not.i54, label %128, label %133
@@ -9885,18 +9885,18 @@ common.resume:                                    ; preds = %253, %50
   store i64 %124, ptr %147, align 8, !noalias !2110
   br label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont"
 
-"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i56", %146, %.cont285
+"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit62.cont": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i58", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i56", %146, %.cont281
   store i64 %.sroa.21.1, ptr %14, align 8
-  store i64 %124, ptr %.sroa.gep338, align 8
+  store i64 %124, ptr %.sroa.gep334, align 8
   br label %.backedge.backedge
 
-.cont299.cont:                                    ; preds = %.cont
+.cont295.cont:                                    ; preds = %.cont
   %148 = load i64, ptr %14, align 8, !noundef !4
   %149 = sub i64 %116, %148
   %.sroa.0.0.sroa.speculated.i.i65 = call noundef i64 @llvm.umin.i64(i64 %118, i64 %149)
   %150 = add i64 %.sroa.0.0.sroa.speculated.i.i65, %storemerge32
   %151 = load i64, ptr %.sroa.gep, align 8, !noundef !4
-  %152 = load i64, ptr %.sroa.gep336, align 8, !noundef !4
+  %152 = load i64, ptr %.sroa.gep332, align 8, !noundef !4
   %153 = sub i64 %151, %152
   %154 = add i64 %153, %storemerge31
   call void @llvm.experimental.noalias.scope.decl(metadata !2111)
@@ -9905,7 +9905,7 @@ common.resume:                                    ; preds = %253, %50
   %or.cond251 = and i1 %155, %156
   br i1 %or.cond251, label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit75.cont", label %"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i66"
 
-"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i66": ; preds = %.cont299.cont
+"_ZN4text13Edit$LT$D$GT$8is_empty17hf0546ddd3a732455E.exit.thread.i66": ; preds = %.cont295.cont
   %157 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2111, !noalias !2114, !noundef !4
   %.not.i67 = icmp eq i64 %157, 0
   br i1 %.not.i67, label %158, label %163
@@ -9973,8 +9973,8 @@ common.resume:                                    ; preds = %253, %50
   store i64 %154, ptr %177, align 8, !noalias !2131
   br label %"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit75.cont"
 
-"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit75.cont": ; preds = %.cont299.cont, %176, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i69", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i71"
-  %178 = load i64, ptr %.sroa.gep334, align 8, !noundef !4
+"_ZN4text5patch14Patch$LT$T$GT$4push17h7c06e64f4f3b3caeE.exit75.cont": ; preds = %.cont295.cont, %176, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit1.i69", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf43e7f5d072187a2E.exit.i71"
+  %178 = load i64, ptr %.sroa.gep330, align 8, !noundef !4
   %.sroa.022.0.copyload = load i64, ptr %6, align 8
   store i64 2, ptr %6, align 8
   %179 = icmp eq i64 %.sroa.022.0.copyload, 2

@@ -9873,8 +9873,7 @@ set_namespace_path.exit:                          ; preds = %44, %46
 
 49:                                               ; preds = %set_namespace_path.exit
   store i64 0, ptr %20, align 8
-  %50 = and i8 %47, -2
-  store i8 %50, ptr %40, align 1
+  store i8 %47, ptr %40, align 1
   br label %rb_namespace_p.exit.thread
 
 rb_namespace_p.exit.thread:                       ; preds = %11, %set_namespace_path.exit, %49, %classname.exit, %3, %rb_namespace_p.exit

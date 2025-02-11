@@ -25793,8 +25793,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr76drop
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gpui..app..async_context..AsyncAppContext$GT$17h1447b315172a7544E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %121)
           to label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h611e011370501bf3E.exit" unwind label %459
 
-.body102:                                         ; preds = %.thread205, %369, %381, %448, %443, %.thread194, %.body98, %383, %.body68, %.body, %112
-  %eh.lpad-body103.pn = phi { ptr, i32 } [ %.pn23, %.body68 ], [ %384, %383 ], [ %eh.lpad-body88, %.thread194 ], [ %eh.lpad-body88, %369 ], [ %416, %.body98 ], [ %.pn29, %.body ], [ %113, %112 ], [ %382, %381 ], [ %444, %448 ], [ %444, %443 ], [ %.pn39, %.thread205 ]
+.body102:                                         ; preds = %.thread205, %369, %384, %448, %443, %.thread194, %.body98, %380, %.body68, %.body, %112
+  %eh.lpad-body103.pn = phi { ptr, i32 } [ %.pn23, %.body68 ], [ %381, %380 ], [ %eh.lpad-body88, %.thread194 ], [ %eh.lpad-body88, %369 ], [ %416, %.body98 ], [ %.pn29, %.body ], [ %113, %112 ], [ %385, %384 ], [ %444, %448 ], [ %444, %443 ], [ %.pn39, %.thread205 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %35)
   br label %498
 
@@ -26611,7 +26611,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr76drop
   %brmerge.not = and i1 %276, %366
   br i1 %brmerge.not, label %414, label %.critedge
 
-367:                                              ; preds = %498, %506, %505, %503, %67, %497, %.body104, %485, %.thread194, %455, %.body98, %.body96, %386, %383, %.body77
+367:                                              ; preds = %498, %506, %505, %503, %67, %497, %.body104, %485, %.thread194, %455, %.body98, %.body96, %386, %380, %.body77
   %368 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34
@@ -26649,24 +26649,24 @@ common.ret:                                       ; preds = %"_ZN4core3ptr76drop
 
 379:                                              ; preds = %375
   invoke void @"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17h1320de4ea128e9b6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %35)
-          to label %.thread193 unwind label %383
+          to label %.thread193 unwind label %380
+
+380:                                              ; preds = %379
+  %381 = landingpad { ptr, i32 }
+          cleanup
+  %382 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$worktree..Entry$GT$17h379e4cccfe54ec0fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %382) #33
+          to label %.body102 unwind label %367
 
 .thread193:                                       ; preds = %379
-  %380 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$worktree..Entry$GT$17h379e4cccfe54ec0fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %380)
-          to label %378 unwind label %381
+  %383 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$worktree..Entry$GT$17h379e4cccfe54ec0fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %383)
+          to label %378 unwind label %384
 
-381:                                              ; preds = %452, %.thread193
-  %382 = landingpad { ptr, i32 }
+384:                                              ; preds = %452, %.thread193
+  %385 = landingpad { ptr, i32 }
           cleanup
   br label %.body102
-
-383:                                              ; preds = %379
-  %384 = landingpad { ptr, i32 }
-          cleanup
-  %385 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$worktree..Entry$GT$17h379e4cccfe54ec0fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %385) #33
-          to label %.body102 unwind label %367
 
 386:                                              ; preds = %378
   %387 = landingpad { ptr, i32 }
@@ -26840,7 +26840,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr76drop
 
 452:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17h032dc9ff37d0cb74E.llvm.15992447837750267435.exit.i"
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9ae8522823117ac7E.llvm.15992447837750267435"(ptr noalias noundef nonnull align 8 dereferenceable(16) %449)
-          to label %.critedge unwind label %381
+          to label %.critedge unwind label %384
 
 453:                                              ; preds = %448
   %454 = landingpad { ptr, i32 }

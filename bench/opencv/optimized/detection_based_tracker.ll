@@ -1567,19 +1567,15 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit.thread: ; 
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
 _ZNSt11unique_lockISt5mutexE6unlockEv.exit4:      ; preds = %27
-  %31 = trunc i8 %24 to i1
-  br i1 %31, label %32, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
+  %31 = load ptr, ptr %2, align 8
+  %.not.i.i5 = icmp eq ptr %31, null
+  br i1 %.not.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6, label %32
 
 32:                                               ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit4
-  %33 = load ptr, ptr %2, align 8
-  %.not.i.i5 = icmp eq ptr %33, null
-  br i1 %.not.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6, label %34
-
-34:                                               ; preds = %32
-  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #24
+  %33 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %31) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit6:           ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, %29, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit4, %32, %34
+_ZNSt11unique_lockISt5mutexED2Ev.exit6:           ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, %29, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit4, %32
   ret void
 }
 

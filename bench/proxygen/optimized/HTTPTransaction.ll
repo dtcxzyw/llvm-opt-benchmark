@@ -14929,7 +14929,7 @@ lpad36:                                           ; preds = %invoke.cont39, %inv
   br label %ehcleanup
 
 if.end:                                           ; preds = %cleanup.done
-  %bf.set = or i32 %bf.load, 1
+  %bf.set = or disjoint i32 %bf.load, 1
   store i32 %bf.set, ptr %ingressPaused_, align 8
   invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont58 unwind label %lpad20

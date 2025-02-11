@@ -376,9 +376,9 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffset7GetHa
   %storemerge.i.i.i.i = select i1 %.inv.i.i.i.i, double 0.000000e+00, double %3
   %4 = bitcast double %storemerge.i.i.i.i to i64
   %5 = load double, ptr %2, align 8
-  %.inv.i.i.i5.i.i = fcmp oeq double %5, 0.000000e+00
-  %storemerge.i.i.i6.i.i = select i1 %.inv.i.i.i5.i.i, double 0.000000e+00, double %5
-  %6 = bitcast double %storemerge.i.i.i6.i.i to i64
+  %.inv.i.i.i.i.i = fcmp oeq double %5, 0.000000e+00
+  %storemerge.i.i.i.i.i = select i1 %.inv.i.i.i.i.i, double 0.000000e+00, double %5
+  %6 = bitcast double %storemerge.i.i.i.i.i to i64
   %7 = add i64 %6, %4
   %8 = add i64 %7, 1
   %9 = mul i64 %8, %7

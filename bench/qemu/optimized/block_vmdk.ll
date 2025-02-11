@@ -1491,18 +1491,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx3.us = getelementptr %struct.VmdkExtent, ptr %2, i64 %indvars.iv15
   %flat1.i.us = getelementptr inbounds nuw i8, ptr %arrayidx3.us, i64 8
   %4 = load i8, ptr %flat1.i.us, align 8
-  %5 = xor i8 %4, %.fr
-  %6 = and i8 %5, 1
-  %cmp.i.us = icmp eq i8 %6, 0
-  br i1 %cmp.i.us, label %land.lhs.true.i.us, label %return
+  %5 = and i8 %4, 1
+  %cmp.i.us.not = icmp eq i8 %5, 0
+  br i1 %cmp.i.us.not, label %return, label %land.lhs.true.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.us
-  %7 = load i8, ptr %compressed.i, align 1
+  %6 = load i8, ptr %compressed.i, align 1
   %compressed7.i.us = getelementptr inbounds nuw i8, ptr %arrayidx3.us, i64 9
-  %8 = load i8, ptr %compressed7.i.us, align 1
-  %9 = xor i8 %8, %7
-  %10 = and i8 %9, 1
-  %cmp10.i.us.not = icmp eq i8 %10, 0
+  %7 = load i8, ptr %compressed7.i.us, align 1
+  %8 = xor i8 %7, %6
+  %9 = and i8 %8, 1
+  %cmp10.i.us.not = icmp eq i8 %9, 0
   br i1 %cmp10.i.us.not, label %for.inc.us, label %return
 
 for.inc.us:                                       ; preds = %land.lhs.true.i.us
@@ -1518,26 +1517,25 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.body.lr.ph ]
   %arrayidx3 = getelementptr %struct.VmdkExtent, ptr %2, i64 %indvars.iv
   %flat1.i = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 8
-  %11 = load i8, ptr %flat1.i, align 8
-  %12 = xor i8 %11, %.fr
-  %13 = and i8 %12, 1
-  %cmp.i = icmp eq i8 %13, 0
+  %10 = load i8, ptr %flat1.i, align 8
+  %11 = and i8 %10, 1
+  %cmp.i = icmp eq i8 %11, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %14 = load i8, ptr %compressed.i, align 1
+  %12 = load i8, ptr %compressed.i, align 1
   %compressed7.i = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 9
-  %15 = load i8, ptr %compressed7.i, align 1
-  %16 = xor i8 %15, %14
-  %17 = and i8 %16, 1
-  %cmp10.i.not = icmp eq i8 %17, 0
+  %13 = load i8, ptr %compressed7.i, align 1
+  %14 = xor i8 %13, %12
+  %15 = and i8 %14, 1
+  %cmp10.i.not = icmp eq i8 %15, 0
   br i1 %cmp10.i.not, label %lor.rhs.i, label %return
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
-  %18 = load i64, ptr %cluster_sectors.i, align 8
+  %16 = load i64, ptr %cluster_sectors.i, align 8
   %cluster_sectors15.i = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 248
-  %19 = load i64, ptr %cluster_sectors15.i, align 8
-  %cmp16.i = icmp eq i64 %18, %19
+  %17 = load i64, ptr %cluster_sectors15.i, align 8
+  %cmp16.i = icmp eq i64 %16, %17
   br i1 %cmp16.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %lor.rhs.i
@@ -1546,21 +1544,21 @@ for.inc:                                          ; preds = %lor.rhs.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader.for.end_crit_edge
-  %20 = phi i8 [ %.pre20, %for.cond.preheader.for.end_crit_edge ], [ %7, %for.inc.us ], [ %14, %for.inc ]
+  %18 = phi i8 [ %.pre20, %for.cond.preheader.for.end_crit_edge ], [ %6, %for.inc.us ], [ %12, %for.inc ]
   %extents6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %needs_compressed_writes = getelementptr inbounds nuw i8, ptr %bdi, i64 17
-  %frombool = and i8 %20, 1
+  %frombool = and i8 %18, 1
   store i8 %frombool, ptr %needs_compressed_writes, align 1
-  %21 = load ptr, ptr %extents6, align 8
-  %flat = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %22 = load i8, ptr %flat, align 8
-  %tobool11 = trunc i8 %22 to i1
+  %19 = load ptr, ptr %extents6, align 8
+  %flat = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %20 = load i8, ptr %flat, align 8
+  %tobool11 = trunc i8 %20 to i1
   br i1 %tobool11, label %return, label %if.then12
 
 if.then12:                                        ; preds = %for.end
-  %cluster_sectors = getelementptr inbounds nuw i8, ptr %21, i64 248
-  %23 = load i64, ptr %cluster_sectors, align 8
-  %.tr = trunc i64 %23 to i32
+  %cluster_sectors = getelementptr inbounds nuw i8, ptr %19, i64 248
+  %21 = load i64, ptr %cluster_sectors, align 8
+  %.tr = trunc i64 %21 to i32
   %conv = shl i32 %.tr, 9
   store i32 %conv, ptr %bdi, align 8
   br label %return

@@ -2748,8 +2748,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i217: ; preds = %641
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.9315.0.insert.ext316 = zext i32 %.sroa.9315.1 to i64
   %.sroa.9315.0.insert.shift317 = shl nuw i64 %.sroa.9315.0.insert.ext316, 32
-  %.sroa.0305.0.insert.ext308 = zext nneg i8 %.sroa.0305.1 to i64
-  %.sroa.0305.0.insert.insert310 = or disjoint i64 %.sroa.9315.0.insert.shift317, %.sroa.0305.0.insert.ext308
+  %.sroa.0305.0.insert.insert310 = or disjoint i64 %.sroa.9315.0.insert.shift317, 1
   %653 = invoke noundef i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils11MinDeadwoodESt6vectorIiSaIiEEN4absl7debian28optionalIiEE(ptr noundef nonnull align 8 dereferenceable(120) %652, ptr noundef nonnull %25, i64 %.sroa.0305.0.insert.insert310)
           to label %654 unwind label %739
 

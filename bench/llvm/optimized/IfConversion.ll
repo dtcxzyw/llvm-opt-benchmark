@@ -2445,7 +2445,7 @@ _ZN12_GLOBAL__N_111IfConverter15AnalyzeBranchesERNS0_6BBInfoE.exit.i.i: ; preds 
   br i1 %442, label %443, label %446
 
 443:                                              ; preds = %439, %434
-  %444 = and i16 %424, -7
+  %444 = and i16 %424, -8
   %445 = or disjoint i16 %444, 4
   store i16 %445, ptr %346, align 8
   br label %467, !llvm.loop !402
@@ -2455,7 +2455,7 @@ _ZN12_GLOBAL__N_111IfConverter15AnalyzeBranchesERNS0_6BBInfoE.exit.i.i: ; preds 
   br i1 %.not124.i.i, label %447, label %450
 
 447:                                              ; preds = %446
-  %448 = and i16 %424, -7
+  %448 = and i16 %424, -8
   %449 = or disjoint i16 %448, 4
   store i16 %449, ptr %346, align 8
   br label %467, !llvm.loop !402
@@ -5425,7 +5425,7 @@ _ZL18InsertUncondBranchRN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE.exi
   br i1 %1863, label %1866, label %1864
 
 1864:                                             ; preds = %1860
-  %1865 = and i16 %1858, -13
+  %1865 = and i16 %1858, -14
   store i16 %1865, ptr %1857, align 8
   br label %1866
 
@@ -5698,7 +5698,7 @@ _ZL18InsertUncondBranchRN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE.exi
   br i1 %2007, label %2010, label %2008
 
 2008:                                             ; preds = %2004
-  %2009 = and i16 %2002, -13
+  %2009 = and i16 %2002, -14
   store i16 %2009, ptr %2001, align 8
   br label %2010
 
@@ -5816,7 +5816,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit.i:                 ; preds = %2042, %_ZN4llvm13Tr
   br i1 %2085, label %2088, label %2086
 
 2086:                                             ; preds = %2082
-  %2087 = and i16 %2080, -13
+  %2087 = and i16 %2080, -14
   store i16 %2087, ptr %2079, align 8
   br label %2088
 
@@ -6416,7 +6416,7 @@ _ZL18InsertUncondBranchRN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoE.exi
   br i1 %153, label %156, label %154
 
 154:                                              ; preds = %150
-  %155 = and i16 %148, -13
+  %155 = and i16 %148, -14
   store i16 %155, ptr %147, align 8
   br label %156
 
@@ -6570,7 +6570,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_111IfConverter16ScanInstructionsER
   store i32 0, ptr %14, align 8, !tbaa !448
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %15, align 4, !tbaa !449
-  %16 = and i16 %7, -641
+  %16 = and i16 %7, -642
   store i16 %16, ptr %1, align 8
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
   %.sroa.057.076 = load ptr, ptr %2, align 8

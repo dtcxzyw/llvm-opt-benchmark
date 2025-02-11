@@ -15950,8 +15950,7 @@ if.then131:                                       ; preds = %invoke.cont129
 
 _ZN4pstd8optionalIN4pbrt11ShapeSampleEEC2EOS3_.exit: ; preds = %invoke.cont129
   %set.i347 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
-  %frombool.i = and i8 %12, 1
-  store i8 %frombool.i, ptr %set.i347, align 8
+  store i8 1, ptr %set.i347, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ss, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %medium3.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 72

@@ -10070,10 +10070,10 @@ invoke.cont21:                                    ; preds = %_ZN4cvc58internal8T
   br i1 %cmp423.not, label %for.end89, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont21
-  %_M_finish.i345 = getelementptr inbounds nuw i8, ptr %enums, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %enums, i64 16
   %_M_parent.i.i.i.i.i364 = getelementptr inbounds nuw i8, ptr %unused_strats, i64 16
   %add.ptr.i.i.i.i365 = getelementptr inbounds nuw i8, ptr %unused_strats, i64 8
+  %_M_finish.i345 = getelementptr inbounds nuw i8, ptr %enums, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %enums, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc87
@@ -10095,7 +10095,7 @@ for.cond30.preheader:                             ; preds = %for.body
 
 for.body32:                                       ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit, %for.cond30.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit ], [ 1, %for.cond30.preheader ]
-  %success.1421 = phi i8 [ %success.3, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit ], [ 1, %for.cond30.preheader ]
+  %success.1421 = phi i1 [ %success.3, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit ], [ true, %for.cond30.preheader ]
   %34 = load ptr, ptr %d_cenum, align 8
   %add.ptr.i160 = getelementptr inbounds nuw %"struct.std::pair.621", ptr %34, i64 %indvars.iv
   %35 = load ptr, ptr %add.ptr.i160, align 8
@@ -10137,7 +10137,7 @@ invoke.cont35:                                    ; preds = %if.then13.i.i.i.inv
   %39 = load i32, ptr %nrole.addr, align 4
   %cmp39.not = icmp eq i32 %37, %39
   %40 = select i1 %cmp.i164.not, i1 %cmp39.not, i1 false
-  %success.3 = select i1 %40, i8 %success.1421, i8 0
+  %success.3 = select i1 %40, i1 %success.1421, i1 false
   %41 = and i64 %bf.load.i.i.i165, 1152920405095219200
   %cmp.not.i.i.i166 = icmp eq i64 %41, 1152920405095219200
   br i1 %cmp.not.i.i.i166, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit, label %if.then.i.i.i167
@@ -10190,8 +10190,7 @@ _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRole
   br i1 %or.cond424, label %for.body32, label %for.end, !llvm.loop !92
 
 for.end:                                          ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers8NodeRoleEED2Ev.exit
-  %tobool = trunc nuw i8 %success.3 to i1
-  br i1 %tobool, label %if.then42, label %if.then81
+  br i1 %success.3, label %if.then42, label %if.then81
 
 if.then42:                                        ; preds = %for.end
   %45 = load ptr, ptr %d_cenum, align 8

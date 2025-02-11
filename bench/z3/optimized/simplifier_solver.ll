@@ -6202,14 +6202,13 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %m_trail.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %frombool.i.i.i = and i8 %4, 1
   %m_region.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 240
   %call.i.i1.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 24)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIbE, i64 16), ptr %call.i.i1.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i.i, i64 8
   store ptr %m_inconsistent.i.i, ptr %m_value.i.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i.i, i64 16
-  store i8 %frombool.i.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i, align 8
   %5 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
@@ -6280,14 +6279,13 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %m_trail.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %frombool.i.i.i = and i8 %4, 1
   %m_region.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 240
   %call.i.i1.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 24)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIbE, i64 16), ptr %call.i.i1.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i.i, i64 8
   store ptr %m_inconsistent.i.i, ptr %m_value.i.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i.i, i64 16
-  store i8 %frombool.i.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i, align 8
+  store i8 0, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i.i, align 8
   %5 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i

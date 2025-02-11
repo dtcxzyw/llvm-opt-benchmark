@@ -380,7 +380,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demangle
 
 13:                                               ; preds = %9, %3
   store i8 1, ptr %6, align 1, !tbaa !18
-  br label %531
+  br label %530
 
 14:                                               ; preds = %9
   %15 = add nuw i64 %11, 1
@@ -1568,7 +1568,7 @@ _ZN12_GLOBAL__N_19Demangler18demangleGenericArgEv.exit: ; preds = %_ZN12_GLOBAL_
 .thread297:                                       ; preds = %498
   %501 = add nuw i64 %17, 2
   store i64 %501, ptr %16, align 8, !tbaa !17
-  br label %524
+  br label %523
 
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i169:  ; preds = %498, %518
   %.0194851.i170 = phi i64 [ %521, %518 ], [ 0, %498 ]
@@ -1612,44 +1612,40 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i169:  ; preds = %498, %518
   br i1 %or.cond327, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i169
 
 .split.i178:                                      ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i169
-  %.not43.i179 = icmp eq i64 %.0194851.i170, -1
-  br i1 %.not43.i179, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182
-
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182: ; preds = %.split.i178
+  %.not43.i179 = icmp ne i64 %.0194851.i170, -1
   %522 = add nuw i64 %.0194851.i170, 1
-  %523 = trunc nuw i8 %7 to i1
-  %.not.i107 = icmp uge i64 %522, %503
-  %or.cond326.not = select i1 %523, i1 true, i1 %.not.i107
-  br i1 %or.cond326.not, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread, label %524
+  %.not.i107 = icmp ult i64 %522, %503
+  %or.cond348 = select i1 %.not43.i179, i1 %.not.i107, i1 false
+  br i1 %or.cond348, label %523, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread: ; preds = %518, %517, %514, %.split.i178, %497, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread: ; preds = %518, %517, %514, %.split.i178, %497
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
-524:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182, %.thread297
-  %525 = phi i64 [ %501, %.thread297 ], [ %503, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182 ]
-  %.010.i168296300 = phi i64 [ 0, %.thread297 ], [ %522, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182 ]
-  %526 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %527 = load i8, ptr %526, align 8, !tbaa !19, !range !24, !noundef !25
-  %528 = trunc nuw i8 %527 to i1
-  br i1 %528, label %529, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
+523:                                              ; preds = %.split.i178, %.thread297
+  %524 = phi i64 [ %501, %.thread297 ], [ %503, %.split.i178 ]
+  %.010.i168296300 = phi i64 [ 0, %.thread297 ], [ %522, %.split.i178 ]
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %526 = load i8, ptr %525, align 8, !tbaa !19, !range !24, !noundef !25
+  %527 = trunc nuw i8 %526 to i1
+  br i1 %527, label %528, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
-529:                                              ; preds = %524
+528:                                              ; preds = %523
   store i64 %.010.i168296300, ptr %16, align 8, !tbaa !17
-  %530 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2)
-  store i64 %525, ptr %16, align 8, !tbaa !20
+  %529 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demanglePathENS_8IsInTypeENS_17LeaveGenericsOpenE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2)
+  store i64 %524, ptr %16, align 8, !tbaa !20
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.thread: ; preds = %14, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit
   store i8 1, ptr %6, align 1, !tbaa !18
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
-_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23: ; preds = %381, %384, %382, %529, %524, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i61, %300, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit58, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i40, %227, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit37, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i19, %119, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit, %496, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.thread, %.thread, %.critedge
-  %.1 = phi i1 [ true, %.critedge ], [ false, %.thread ], [ false, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.thread ], [ false, %496 ], [ false, %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ false, %119 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i19 ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit37 ], [ false, %227 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i40 ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit58 ], [ false, %300 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i61 ], [ false, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread ], [ %530, %529 ], [ false, %524 ], [ false, %382 ], [ false, %384 ], [ false, %381 ]
+_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23: ; preds = %381, %384, %382, %528, %523, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i61, %300, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit58, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i40, %227, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit37, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i19, %119, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit, %496, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.thread, %.thread, %.critedge
+  %.1 = phi i1 [ true, %.critedge ], [ false, %.thread ], [ false, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.thread ], [ false, %496 ], [ false, %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ false, %119 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i19 ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit37 ], [ false, %227 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i40 ], [ false, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit58 ], [ false, %300 ], [ false, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i61 ], [ false, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit182.thread ], [ %529, %528 ], [ false, %523 ], [ false, %382 ], [ false, %384 ], [ false, %381 ]
   store i64 %11, ptr %10, align 8, !tbaa !20
-  br label %531
+  br label %530
 
-531:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23, %13
+530:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23, %13
   %.010 = phi i1 [ false, %13 ], [ %.1, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit23 ]
   ret i1 %.010
 }
@@ -2284,7 +2280,7 @@ _ZNK12_GLOBAL__N_19Demangler4lookEv.exit.i:       ; preds = %18
 _ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit.thread49: ; preds = %26
   %28 = add nuw i64 %19, 1
   store i64 %28, ptr %7, align 8, !tbaa !17
-  br label %43
+  br label %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit13.i
   %29 = add i64 %37, -48
@@ -2315,244 +2311,239 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit13.i:   ; preds = %36
   %.not.i5 = icmp ugt i64 %37, %41
   br i1 %.not.i5, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9, label %.lr.ph.i
 
-_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit: ; preds = %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit10.i, %.lr.ph.i
-  %.0.i4 = phi i64 [ %.01626.i34, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit10.i ], [ %30, %.lr.ph.i ]
-  %42 = trunc nuw i8 %4 to i1
-  br i1 %42, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9, label %43
+_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit: ; preds = %.lr.ph.i, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit10.i, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit.thread49
+  %.0.i451 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit.thread49 ], [ %30, %.lr.ph.i ], [ %.01626.i34, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit10.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %43 = load i64, ptr %42, align 8, !tbaa !17
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %45 = load i64, ptr %44, align 8, !tbaa !22
+  %.not.i6 = icmp ult i64 %43, %45
+  br i1 %.not.i6, label %46, label %53
 
-43:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit.thread49, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit
-  %.0.i451 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit.thread49 ], [ %.0.i4, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i64, ptr %44, align 8, !tbaa !17
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !22
-  %.not.i6 = icmp ult i64 %45, %47
-  br i1 %.not.i6, label %48, label %55
+46:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !31
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %43
+  %50 = load i8, ptr %49, align 1, !tbaa !29
+  %.not2.i8 = icmp eq i8 %50, 95
+  br i1 %.not2.i8, label %51, label %53
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !31
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %45
-  %52 = load i8, ptr %51, align 1, !tbaa !29
-  %.not2.i8 = icmp eq i8 %52, 95
-  br i1 %.not2.i8, label %53, label %55
+51:                                               ; preds = %46
+  %52 = add nuw i64 %43, 1
+  store i64 %52, ptr %42, align 8, !tbaa !17
+  br label %53
 
-53:                                               ; preds = %48
-  %54 = add nuw i64 %45, 1
-  store i64 %54, ptr %44, align 8, !tbaa !17
-  br label %55
+53:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit, %46, %51
+  %54 = phi i64 [ %43, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit ], [ %43, %46 ], [ %52, %51 ]
+  %55 = sub i64 %45, %54
+  %56 = icmp ugt i64 %.0.i451, %55
+  br i1 %56, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9, label %57
 
-55:                                               ; preds = %43, %48, %53
-  %56 = phi i64 [ %45, %43 ], [ %45, %48 ], [ %54, %53 ]
-  %57 = sub i64 %47, %56
-  %58 = icmp ugt i64 %.0.i451, %57
-  br i1 %58, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9, label %59
-
-_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9:    ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit13.i, %36, %18, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit.i, %2, %_ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit, %55
+_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9:    ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit13.i, %36, %18, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit.i, %2, %53
   store i8 1, ptr %3, align 1, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
-  br label %146
+  br label %144
 
-59:                                               ; preds = %55
-  %60 = icmp ugt i64 %56, %47
-  br i1 %60, label %61, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+57:                                               ; preds = %53
+  %58 = icmp ugt i64 %54, %45
+  br i1 %58, label %59, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
-61:                                               ; preds = %59
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %56, i64 noundef %47) #14
+59:                                               ; preds = %57
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %54, i64 noundef %45) #14
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !31
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %56
-  %65 = add i64 %56, %.0.i451
-  store i64 %65, ptr %44, align 8, !tbaa !17
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.0.i451
-  %67 = ptrtoint ptr %66 to i64
-  %68 = ashr i64 %.0.i451, 2
-  %69 = icmp sgt i64 %68, 0
-  br i1 %69, label %.lr.ph.i.i.i.i.preheader, label %._crit_edge.i.i.i.i
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !31
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %54
+  %63 = add i64 %54, %.0.i451
+  store i64 %63, ptr %42, align 8, !tbaa !17
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i451
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ashr i64 %.0.i451, 2
+  %67 = icmp sgt i64 %66, 0
+  br i1 %67, label %.lr.ph.i.i.i.i.preheader, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %70 = and i64 %.0.i451, -4
-  %71 = getelementptr i8, ptr %63, i64 %56
-  %scevgep = getelementptr i8, ptr %71, i64 %70
+  %68 = and i64 %.0.i451, -4
+  %69 = getelementptr i8, ptr %61, i64 %54
+  %scevgep = getelementptr i8, ptr %69, i64 %68
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZL7isValidc.exit18.thread
-  %.047.i.i.i.i = phi i64 [ %108, %_ZL7isValidc.exit18.thread ], [ %68, %.lr.ph.i.i.i.i.preheader ]
-  %.02946.i.i.i.i = phi ptr [ %107, %_ZL7isValidc.exit18.thread ], [ %64, %.lr.ph.i.i.i.i.preheader ]
-  %72 = load i8, ptr %.02946.i.i.i.i, align 1, !tbaa !29
-  %73 = add i8 %72, -48
-  %74 = icmp ult i8 %73, 10
-  %75 = add i8 %72, -97
-  %76 = icmp ult i8 %75, 26
-  %or.cond.i25 = or i1 %74, %76
+  %.047.i.i.i.i = phi i64 [ %106, %_ZL7isValidc.exit18.thread ], [ %66, %.lr.ph.i.i.i.i.preheader ]
+  %.02946.i.i.i.i = phi ptr [ %105, %_ZL7isValidc.exit18.thread ], [ %62, %.lr.ph.i.i.i.i.preheader ]
+  %70 = load i8, ptr %.02946.i.i.i.i, align 1, !tbaa !29
+  %71 = add i8 %70, -48
+  %72 = icmp ult i8 %71, 10
+  %73 = add i8 %70, -97
+  %74 = icmp ult i8 %73, 26
+  %or.cond.i25 = or i1 %72, %74
   br i1 %or.cond.i25, label %_ZL7isValidc.exit27.thread, label %_ZL7isValidc.exit27
 
 _ZL7isValidc.exit27:                              ; preds = %.lr.ph.i.i.i.i
-  %77 = add i8 %72, -65
-  %78 = icmp ult i8 %77, 26
-  %79 = icmp eq i8 %72, 95
-  %spec.select.i26 = or i1 %79, %78
+  %75 = add i8 %70, -65
+  %76 = icmp ult i8 %75, 26
+  %77 = icmp eq i8 %70, 95
+  %spec.select.i26 = or i1 %77, %76
   br i1 %spec.select.i26, label %_ZL7isValidc.exit27.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZL7isValidc.exit27.thread:                       ; preds = %.lr.ph.i.i.i.i, %_ZL7isValidc.exit27
-  %80 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
-  %81 = load i8, ptr %80, align 1, !tbaa !29
-  %82 = add i8 %81, -48
-  %83 = icmp ult i8 %82, 10
-  %84 = add i8 %81, -97
-  %85 = icmp ult i8 %84, 26
-  %or.cond.i22 = or i1 %83, %85
+  %78 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
+  %79 = load i8, ptr %78, align 1, !tbaa !29
+  %80 = add i8 %79, -48
+  %81 = icmp ult i8 %80, 10
+  %82 = add i8 %79, -97
+  %83 = icmp ult i8 %82, 26
+  %or.cond.i22 = or i1 %81, %83
   br i1 %or.cond.i22, label %_ZL7isValidc.exit24.thread, label %_ZL7isValidc.exit24
 
 _ZL7isValidc.exit24:                              ; preds = %_ZL7isValidc.exit27.thread
-  %86 = add i8 %81, -65
-  %87 = icmp ult i8 %86, 26
-  %88 = icmp eq i8 %81, 95
-  %spec.select.i23 = or i1 %88, %87
+  %84 = add i8 %79, -65
+  %85 = icmp ult i8 %84, 26
+  %86 = icmp eq i8 %79, 95
+  %spec.select.i23 = or i1 %86, %85
   br i1 %spec.select.i23, label %_ZL7isValidc.exit24.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit
 
 _ZL7isValidc.exit24.thread:                       ; preds = %_ZL7isValidc.exit27.thread, %_ZL7isValidc.exit24
-  %89 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
-  %90 = load i8, ptr %89, align 1, !tbaa !29
-  %91 = add i8 %90, -48
-  %92 = icmp ult i8 %91, 10
-  %93 = add i8 %90, -97
-  %94 = icmp ult i8 %93, 26
-  %or.cond.i19 = or i1 %92, %94
+  %87 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
+  %88 = load i8, ptr %87, align 1, !tbaa !29
+  %89 = add i8 %88, -48
+  %90 = icmp ult i8 %89, 10
+  %91 = add i8 %88, -97
+  %92 = icmp ult i8 %91, 26
+  %or.cond.i19 = or i1 %90, %92
   br i1 %or.cond.i19, label %_ZL7isValidc.exit21.thread, label %_ZL7isValidc.exit21
 
 _ZL7isValidc.exit21:                              ; preds = %_ZL7isValidc.exit24.thread
-  %95 = add i8 %90, -65
-  %96 = icmp ult i8 %95, 26
-  %97 = icmp eq i8 %90, 95
-  %spec.select.i20 = or i1 %97, %96
+  %93 = add i8 %88, -65
+  %94 = icmp ult i8 %93, 26
+  %95 = icmp eq i8 %88, 95
+  %spec.select.i20 = or i1 %95, %94
   br i1 %spec.select.i20, label %_ZL7isValidc.exit21.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit52
 
 _ZL7isValidc.exit21.thread:                       ; preds = %_ZL7isValidc.exit24.thread, %_ZL7isValidc.exit21
-  %98 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
-  %99 = load i8, ptr %98, align 1, !tbaa !29
-  %100 = add i8 %99, -48
-  %101 = icmp ult i8 %100, 10
-  %102 = add i8 %99, -97
-  %103 = icmp ult i8 %102, 26
-  %or.cond.i16 = or i1 %101, %103
+  %96 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
+  %97 = load i8, ptr %96, align 1, !tbaa !29
+  %98 = add i8 %97, -48
+  %99 = icmp ult i8 %98, 10
+  %100 = add i8 %97, -97
+  %101 = icmp ult i8 %100, 26
+  %or.cond.i16 = or i1 %99, %101
   br i1 %or.cond.i16, label %_ZL7isValidc.exit18.thread, label %_ZL7isValidc.exit18
 
 _ZL7isValidc.exit18:                              ; preds = %_ZL7isValidc.exit21.thread
-  %104 = add i8 %99, -65
-  %105 = icmp ult i8 %104, 26
-  %106 = icmp eq i8 %99, 95
-  %spec.select.i17 = or i1 %106, %105
+  %102 = add i8 %97, -65
+  %103 = icmp ult i8 %102, 26
+  %104 = icmp eq i8 %97, 95
+  %spec.select.i17 = or i1 %104, %103
   br i1 %spec.select.i17, label %_ZL7isValidc.exit18.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit54
 
 _ZL7isValidc.exit18.thread:                       ; preds = %_ZL7isValidc.exit21.thread, %_ZL7isValidc.exit18
-  %107 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
-  %108 = add nsw i64 %.047.i.i.i.i, -1
-  %109 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %109, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !43
+  %105 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
+  %106 = add nsw i64 %.047.i.i.i.i, -1
+  %107 = icmp sgt i64 %.047.i.i.i.i, 1
+  br i1 %107, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !43
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZL7isValidc.exit18.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %.029.lcssa.i.i.i.i = phi ptr [ %64, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %scevgep, %_ZL7isValidc.exit18.thread ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %62, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %scevgep, %_ZL7isValidc.exit18.thread ]
   %.pre-phi.i.i.i.i = ptrtoint ptr %.029.lcssa.i.i.i.i to i64
-  %110 = sub i64 %67, %.pre-phi.i.i.i.i
-  switch i64 %110, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread [
-    i64 3, label %111
-    i64 2, label %121
-    i64 1, label %131
+  %108 = sub i64 %65, %.pre-phi.i.i.i.i
+  switch i64 %108, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread [
+    i64 3, label %109
+    i64 2, label %119
+    i64 1, label %129
   ]
 
-111:                                              ; preds = %._crit_edge.i.i.i.i
-  %112 = load i8, ptr %.029.lcssa.i.i.i.i, align 1, !tbaa !29
-  %113 = add i8 %112, -48
-  %114 = icmp ult i8 %113, 10
-  %115 = add i8 %112, -97
-  %116 = icmp ult i8 %115, 26
-  %or.cond.i13 = or i1 %114, %116
+109:                                              ; preds = %._crit_edge.i.i.i.i
+  %110 = load i8, ptr %.029.lcssa.i.i.i.i, align 1, !tbaa !29
+  %111 = add i8 %110, -48
+  %112 = icmp ult i8 %111, 10
+  %113 = add i8 %110, -97
+  %114 = icmp ult i8 %113, 26
+  %or.cond.i13 = or i1 %112, %114
   br i1 %or.cond.i13, label %_ZL7isValidc.exit15.thread, label %_ZL7isValidc.exit15
 
-_ZL7isValidc.exit15:                              ; preds = %111
-  %117 = add i8 %112, -65
-  %118 = icmp ult i8 %117, 26
-  %119 = icmp eq i8 %112, 95
-  %spec.select.i14 = or i1 %119, %118
+_ZL7isValidc.exit15:                              ; preds = %109
+  %115 = add i8 %110, -65
+  %116 = icmp ult i8 %115, 26
+  %117 = icmp eq i8 %110, 95
+  %spec.select.i14 = or i1 %117, %116
   br i1 %spec.select.i14, label %_ZL7isValidc.exit15.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
-_ZL7isValidc.exit15.thread:                       ; preds = %111, %_ZL7isValidc.exit15
-  %120 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 1
-  br label %121
+_ZL7isValidc.exit15.thread:                       ; preds = %109, %_ZL7isValidc.exit15
+  %118 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 1
+  br label %119
 
-121:                                              ; preds = %_ZL7isValidc.exit15.thread, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %120, %_ZL7isValidc.exit15.thread ]
-  %122 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !29
-  %123 = add i8 %122, -48
-  %124 = icmp ult i8 %123, 10
-  %125 = add i8 %122, -97
-  %126 = icmp ult i8 %125, 26
-  %or.cond.i10 = or i1 %124, %126
+119:                                              ; preds = %_ZL7isValidc.exit15.thread, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %118, %_ZL7isValidc.exit15.thread ]
+  %120 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !29
+  %121 = add i8 %120, -48
+  %122 = icmp ult i8 %121, 10
+  %123 = add i8 %120, -97
+  %124 = icmp ult i8 %123, 26
+  %or.cond.i10 = or i1 %122, %124
   br i1 %or.cond.i10, label %_ZL7isValidc.exit12.thread, label %_ZL7isValidc.exit12
 
-_ZL7isValidc.exit12:                              ; preds = %121
-  %127 = add i8 %122, -65
-  %128 = icmp ult i8 %127, 26
-  %129 = icmp eq i8 %122, 95
-  %spec.select.i11 = or i1 %129, %128
+_ZL7isValidc.exit12:                              ; preds = %119
+  %125 = add i8 %120, -65
+  %126 = icmp ult i8 %125, 26
+  %127 = icmp eq i8 %120, 95
+  %spec.select.i11 = or i1 %127, %126
   br i1 %spec.select.i11, label %_ZL7isValidc.exit12.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
-_ZL7isValidc.exit12.thread:                       ; preds = %121, %_ZL7isValidc.exit12
-  %130 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 1
-  br label %131
+_ZL7isValidc.exit12.thread:                       ; preds = %119, %_ZL7isValidc.exit12
+  %128 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 1
+  br label %129
 
-131:                                              ; preds = %_ZL7isValidc.exit12.thread, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %130, %_ZL7isValidc.exit12.thread ]
-  %132 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !29
-  %133 = add i8 %132, -48
-  %134 = icmp ult i8 %133, 10
-  %135 = add i8 %132, -97
-  %136 = icmp ult i8 %135, 26
-  %or.cond.i = or i1 %134, %136
+129:                                              ; preds = %_ZL7isValidc.exit12.thread, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %128, %_ZL7isValidc.exit12.thread ]
+  %130 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !29
+  %131 = add i8 %130, -48
+  %132 = icmp ult i8 %131, 10
+  %133 = add i8 %130, -97
+  %134 = icmp ult i8 %133, 26
+  %or.cond.i = or i1 %132, %134
   br i1 %or.cond.i, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %_ZL7isValidc.exit
 
-_ZL7isValidc.exit:                                ; preds = %131
-  %137 = add i8 %132, -65
-  %138 = icmp ult i8 %137, 26
-  %139 = icmp eq i8 %132, 95
-  %spec.select.i = or i1 %139, %138
+_ZL7isValidc.exit:                                ; preds = %129
+  %135 = add i8 %130, -65
+  %136 = icmp ult i8 %135, 26
+  %137 = icmp eq i8 %130, 95
+  %spec.select.i = or i1 %137, %136
   br i1 %spec.select.i, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZL7isValidc.exit24
-  %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit52: ; preds = %_ZL7isValidc.exit21
-  %141 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit54: ; preds = %_ZL7isValidc.exit18
-  %142 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
+  %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
 
 _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit:              ; preds = %_ZL7isValidc.exit27, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit52, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit54, %_ZL7isValidc.exit15, %_ZL7isValidc.exit12, %_ZL7isValidc.exit
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %_ZL7isValidc.exit15 ], [ %.1.i.i.i.i, %_ZL7isValidc.exit12 ], [ %.2.i.i.i.i, %_ZL7isValidc.exit ], [ %140, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit ], [ %141, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit52 ], [ %142, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit54 ], [ %.02946.i.i.i.i, %_ZL7isValidc.exit27 ]
-  %143 = icmp eq ptr %66, %.028.i.i.i.i
-  br i1 %143, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %144
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %_ZL7isValidc.exit15 ], [ %.1.i.i.i.i, %_ZL7isValidc.exit12 ], [ %.2.i.i.i.i, %_ZL7isValidc.exit ], [ %138, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit ], [ %139, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit52 ], [ %140, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.loopexit.split.loop.exit54 ], [ %.02946.i.i.i.i, %_ZL7isValidc.exit27 ]
+  %141 = icmp eq ptr %64, %.028.i.i.i.i
+  br i1 %141, label %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, label %142
 
-144:                                              ; preds = %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
+142:                                              ; preds = %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
   store i8 1, ptr %3, align 1, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
-  br label %146
+  br label %144
 
-_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread:       ; preds = %131, %_ZL7isValidc.exit, %._crit_edge.i.i.i.i, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
+_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread:       ; preds = %129, %_ZL7isValidc.exit, %._crit_edge.i.i.i.i, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit
   store i64 %.0.i451, ptr %0, align 8, !tbaa !20
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.0.i.ph, ptr %145, align 8, !tbaa !34
-  br label %146
+  store ptr %62, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.0.i.ph, ptr %143, align 8, !tbaa !34
+  br label %144
 
-146:                                              ; preds = %144, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9
+144:                                              ; preds = %142, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9
   ret void
 }
 
@@ -4109,7 +4100,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleConstEv(ptr no
 
 11:                                               ; preds = %7, %1
   store i8 1, ptr %4, align 1, !tbaa !18
-  br label %167
+  br label %166
 
 12:                                               ; preds = %7
   %13 = add nuw i64 %9, 1
@@ -4424,7 +4415,7 @@ _ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit: ; preds = %85, %53, %54, %
 .thread40:                                        ; preds = %135
   %138 = add nuw i64 %15, 2
   store i64 %138, ptr %14, align 8, !tbaa !17
-  br label %161
+  br label %160
 
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i:     ; preds = %135, %155
   %.0194851.i = phi i64 [ %158, %155 ], [ 0, %135 ]
@@ -4468,43 +4459,39 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i:     ; preds = %135, %155
   br i1 %or.cond52, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
 
 .split.i:                                         ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i
-  %.not43.i = icmp eq i64 %.0194851.i, -1
-  br i1 %.not43.i, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit
-
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit: ; preds = %.split.i
+  %.not43.i = icmp ne i64 %.0194851.i, -1
   %159 = add nuw i64 %.0194851.i, 1
-  %160 = trunc nuw i8 %5 to i1
-  %.not.i3 = icmp uge i64 %159, %140
-  %or.cond.not = select i1 %160, i1 true, i1 %.not.i3
-  br i1 %or.cond.not, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %161
+  %.not.i3 = icmp ult i64 %159, %140
+  %or.cond = select i1 %.not43.i, i1 %.not.i3, i1 false
+  br i1 %or.cond, label %160, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %155, %154, %151, %.split.i, %134, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %155, %154, %151, %.split.i, %134
   store i8 1, ptr %4, align 1, !tbaa !18
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
-161:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit, %.thread40
-  %162 = phi i64 [ %138, %.thread40 ], [ %140, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit ]
-  %.010.i3943 = phi i64 [ 0, %.thread40 ], [ %159, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit ]
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %164 = load i8, ptr %163, align 8, !tbaa !19, !range !24, !noundef !25
-  %165 = trunc nuw i8 %164 to i1
-  br i1 %165, label %166, label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
+160:                                              ; preds = %.split.i, %.thread40
+  %161 = phi i64 [ %138, %.thread40 ], [ %140, %.split.i ]
+  %.010.i3943 = phi i64 [ 0, %.thread40 ], [ %159, %.split.i ]
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %163 = load i8, ptr %162, align 8, !tbaa !19, !range !24, !noundef !25
+  %164 = trunc nuw i8 %163 to i1
+  br i1 %164, label %165, label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
-166:                                              ; preds = %161
+165:                                              ; preds = %160
   store i64 %.010.i3943, ptr %14, align 8, !tbaa !17
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleConstEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  store i64 %162, ptr %14, align 8, !tbaa !20
+  store i64 %161, ptr %14, align 8, !tbaa !20
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
 _ZL14parseBasicTypecRN12_GLOBAL__N_19BasicTypeE.exit.thread25: ; preds = %12, %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit
   store i8 1, ptr %4, align 1, !tbaa !18
   br label %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit"
 
-"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit": ; preds = %166, %161, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, %_ZL14parseBasicTypecRN12_GLOBAL__N_19BasicTypeE.exit.thread25, %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit, %130, %131, %132, %133
+"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit": ; preds = %165, %160, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, %_ZL14parseBasicTypecRN12_GLOBAL__N_19BasicTypeE.exit.thread25, %_ZN12_GLOBAL__N_19Demangler16demangleConstIntEv.exit, %130, %131, %132, %133
   store i64 %9, ptr %8, align 8, !tbaa !20
-  br label %167
+  br label %166
 
-167:                                              ; preds = %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit", %11
+166:                                              ; preds = %"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_13demangleConstEvE3$_0EEvT_.exit", %11
   ret void
 }
 
@@ -5828,7 +5815,7 @@ define internal fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_
 _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread10: ; preds = %11
   %16 = add nuw i64 %8, 1
   store i64 %16, ptr %7, align 8, !tbaa !17
-  br label %39
+  br label %38
 
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i:     ; preds = %11, %33
   %.0194851.i = phi i64 [ %36, %33 ], [ 0, %11 ]
@@ -5877,33 +5864,32 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit.i:     ; preds = %11, %33
 
 _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit: ; preds = %.split.i
   %37 = add nuw i64 %.0194851.i, 1
-  %38 = trunc nuw i8 %4 to i1
-  br i1 %38, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread, label %39
+  br label %38
 
-39:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread10, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit
+38:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread10
   %.010.i12 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread10 ], [ %37, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = load i64, ptr %40, align 8, !tbaa !17
-  %.not = icmp ult i64 %.010.i12, %41
-  br i1 %.not, label %42, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %40 = load i64, ptr %39, align 8, !tbaa !17
+  %.not = icmp ult i64 %.010.i12, %40
+  br i1 %.not, label %41, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
 
-_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %33, %32, %29, %.split.i, %2, %6, %39, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit
+_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread: ; preds = %33, %32, %29, %.split.i, %2, %6, %38
   store i8 1, ptr %3, align 1, !tbaa !18
-  br label %47
+  br label %46
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = load i8, ptr %43, align 8, !tbaa !19, !range !24, !noundef !25
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %47
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %43 = load i8, ptr %42, align 8, !tbaa !19, !range !24, !noundef !25
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %42
-  store i64 %.010.i12, ptr %40, align 8, !tbaa !17
+45:                                               ; preds = %41
+  store i64 %.010.i12, ptr %39, align 8, !tbaa !17
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler12demangleTypeEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  store i64 %41, ptr %40, align 8, !tbaa !20
-  br label %47
+  store i64 %40, ptr %39, align 8, !tbaa !20
+  br label %46
 
-47:                                               ; preds = %42, %46, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
+46:                                               ; preds = %41, %45, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
   ret void
 }
 

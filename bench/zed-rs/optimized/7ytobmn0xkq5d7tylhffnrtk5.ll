@@ -41541,8 +41541,8 @@ _ZN18serde_json_lenient4read11peek_or_eof17hd071ab635348569aE.exit21: ; preds = 
 253:                                              ; preds = %_ZN18serde_json_lenient4read11peek_or_eof17hd071ab635348569aE.exit21
   store i8 0, ptr %31, align 8, !alias.scope !8321
   %254 = load i64, ptr %1, align 8, !alias.scope !8321
-  %.not228 = icmp eq i64 %254, -9223372036854775808
-  br i1 %.not228, label %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit16.thread", label %255
+  %.not = icmp eq i64 %254, -9223372036854775808
+  br i1 %.not, label %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit16.thread", label %255
 
 255:                                              ; preds = %253
   %256 = load i64, ptr %38, align 8, !alias.scope !8324, !noundef !4
@@ -41634,8 +41634,8 @@ _ZN18serde_json_lenient4read11peek_or_eof17hd071ab635348569aE.exit: ; preds = %2
 290:                                              ; preds = %_ZN18serde_json_lenient4read11peek_or_eof17hd071ab635348569aE.exit
   store i8 0, ptr %31, align 8, !alias.scope !8356
   %291 = load i64, ptr %1, align 8, !alias.scope !8356
-  %.not192 = icmp eq i64 %291, -9223372036854775808
-  br i1 %.not192, label %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit", label %292
+  %.not193 = icmp eq i64 %291, -9223372036854775808
+  br i1 %.not193, label %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit", label %292
 
 292:                                              ; preds = %290
   %293 = load i64, ptr %38, align 8, !alias.scope !8359, !noundef !4
@@ -41763,8 +41763,8 @@ tailrecurse.i:                                    ; preds = %315
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8407)
   store i8 0, ptr %31, align 8, !alias.scope !8410, !noalias !8413
   %341 = load i64, ptr %1, align 8, !alias.scope !8410, !noalias !8413
-  %.not = icmp eq i64 %341, -9223372036854775808
-  br i1 %.not, label %"_ZN18serde_json_lenient4read12parse_escape28_$u7b$$u7b$closure$u7d$$u7d$17hcf16494fce0b956dE.exit", label %342
+  %.not192 = icmp eq i64 %341, -9223372036854775808
+  br i1 %.not192, label %"_ZN18serde_json_lenient4read12parse_escape28_$u7b$$u7b$closure$u7d$$u7d$17hcf16494fce0b956dE.exit", label %342
 
 342:                                              ; preds = %338
   %343 = load i64, ptr %38, align 8, !alias.scope !8415, !noalias !8413, !noundef !4

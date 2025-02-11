@@ -117734,9 +117734,9 @@ _ZN4core4hash11BuildHasher8hash_one17hff4399801d2d56dcE.exit.i: ; preds = %37
   %53 = mul i64 %52, 5871781006564002453
   store i64 %53, ptr %12, align 8, !alias.scope !23128, !noalias !23133
   invoke void @_ZN4core4hash4Hash10hash_slice17h268148795e8efbe0E.llvm.9792776892897051010(ptr noalias noundef nonnull readonly align 8 %.sroa.7.0.copyload.i, i64 noundef %.sroa.8.0.copyload.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc39 unwind label %361
+          to label %.noexc36 unwind label %361
 
-.noexc39:                                         ; preds = %.noexc
+.noexc36:                                         ; preds = %.noexc
   %54 = zext nneg i32 %.sroa.0.0.copyload.i to i64
   %55 = load i64, ptr %12, align 8, !alias.scope !23134, !noalias !23133, !noundef !9
   %56 = call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 5)
@@ -117768,9 +117768,9 @@ _ZN4core4hash11BuildHasher8hash_one17hff4399801d2d56dcE.exit.i: ; preds = %37
   %.sroa.7.0.copyload.i.i = load ptr, ptr %24, align 8, !nonnull !9
   br label %68
 
-68:                                               ; preds = %117, %.noexc39
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %.noexc39 ], [ %118, %117 ]
-  %.pn.i.i.i = phi i64 [ %63, %.noexc39 ], [ %119, %117 ]
+68:                                               ; preds = %117, %.noexc36
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %.noexc36 ], [ %118, %117 ]
+  %.pn.i.i.i = phi i64 [ %63, %.noexc36 ], [ %119, %117 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %69 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i20.i.i = load <16 x i8>, ptr %69, align 1, !noalias !23144
@@ -117901,7 +117901,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %131 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr151drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h10b0e0381442be35E.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11) #57
-          to label %.thread unwind label %132
+          to label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83" unwind label %132
 
 132:                                              ; preds = %130
   %133 = landingpad { ptr, i32 }
@@ -117941,12 +117941,12 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %145 = landingpad { ptr, i32 }
           cleanup
   %146 = cmpxchg ptr %149, i64 8, i64 0 release monotonic, align 8, !noalias !23208
-  %.sroa.18.0.in.i.i.i.i44 = extractvalue { i64, i1 } %146, 1
-  br i1 %.sroa.18.0.in.i.i.i.i44, label %.thread, label %147
+  %.sroa.18.0.in.i.i.i.i41 = extractvalue { i64, i1 } %146, 1
+  br i1 %.sroa.18.0.in.i.i.i.i41, label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83", label %147
 
 147:                                              ; preds = %144
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %149, i1 noundef zeroext false)
-          to label %.thread unwind label %226
+          to label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83" unwind label %226
 
 148:                                              ; preds = %select.unfold, %128
   %149 = load ptr, ptr %11, align 8, !nonnull !9, !align !890, !noundef !9
@@ -117954,8 +117954,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %151 = cmpxchg weak ptr %150, i8 0, i8 1 acquire monotonic, align 1
-  %.sroa.18.0.in.i42 = extractvalue { i8, i1 } %151, 1
-  br i1 %.sroa.18.0.in.i42, label %154, label %152
+  %.sroa.18.0.in.i39 = extractvalue { i8, i1 } %151, 1
+  br i1 %.sroa.18.0.in.i39, label %154, label %152
 
 152:                                              ; preds = %148
   %153 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17h4a61cc9e4f42e703E(ptr noundef nonnull align 1 %150, i64 undef, i32 noundef 1000000000)
@@ -117970,12 +117970,12 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %158 = landingpad { ptr, i32 }
           cleanup
   %159 = cmpxchg ptr %149, i64 8, i64 0 release monotonic, align 8, !noalias !23213
-  %.sroa.18.0.in.i.i.i.i46 = extractvalue { i64, i1 } %159, 1
-  br i1 %.sroa.18.0.in.i.i.i.i46, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48", label %160
+  %.sroa.18.0.in.i.i.i.i43 = extractvalue { i64, i1 } %159, 1
+  br i1 %.sroa.18.0.in.i.i.i.i43, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45", label %160
 
 160:                                              ; preds = %157
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %149, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48" unwind label %226
+          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45" unwind label %226
 
 161:                                              ; preds = %154
   %162 = extractvalue { ptr, ptr } %156, 0
@@ -118036,11 +118036,11 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 191:                                              ; preds = %202, %187
   %192 = landingpad { ptr, i32 }
           cleanup
-  br label %.body51
+  br label %.body48
 
-.body51:                                          ; preds = %210, %214, %191
+.body48:                                          ; preds = %210, %214, %191
   %.sroa.010.0.lpad-body = phi i1 [ true, %191 ], [ false, %214 ], [ false, %210 ]
-  %eh.lpad-body52 = phi { ptr, i32 } [ %192, %191 ], [ %211, %214 ], [ %211, %210 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %192, %191 ], [ %211, %214 ], [ %211, %210 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !23218)
   call void @llvm.experimental.noalias.scope.decl(metadata !23221)
   %193 = load ptr, ptr %20, align 8, !alias.scope !23224, !nonnull !9, !noundef !9
@@ -118048,7 +118048,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %195 = icmp eq i64 %194, 1
   br i1 %195, label %196, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit"
 
-196:                                              ; preds = %.body51
+196:                                              ; preds = %.body48
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17heb63272945d48253E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
           to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit" unwind label %226
@@ -118090,12 +118090,12 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
           cleanup
   %212 = atomicrmw sub ptr %204, i64 1 release, align 8, !noalias !23235
   %213 = icmp eq i64 %212, 1
-  br i1 %213, label %214, label %.body51
+  br i1 %213, label %214, label %.body48
 
 214:                                              ; preds = %210
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0d951499ae6f7059E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.body51 unwind label %215
+          to label %.body48 unwind label %215
 
 215:                                              ; preds = %214
   %216 = landingpad { ptr, i32 }
@@ -118120,32 +118120,32 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %.sroa.04.0 = phi i8 [ 1, %312 ], [ 0, %217 ]
   %.sroa.0.1 = phi ptr [ %317, %312 ], [ %222, %217 ]
   %224 = cmpxchg ptr %149, i64 8, i64 0 release monotonic, align 8, !noalias !23240
-  %.sroa.18.0.in.i.i.i.i53 = extractvalue { i64, i1 } %224, 1
-  br i1 %.sroa.18.0.in.i.i.i.i53, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55", label %225
+  %.sroa.18.0.in.i.i.i.i50 = extractvalue { i64, i1 } %224, 1
+  br i1 %.sroa.18.0.in.i.i.i.i50, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit52", label %225
 
 225:                                              ; preds = %223
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %149, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55" unwind label %319
+          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit52" unwind label %319
 
-226:                                              ; preds = %369, %360, %356, %350, %344, %336, %258, %234, %229, %196, %160, %147
+226:                                              ; preds = %369, %360, %356, %350, %342, %336, %258, %234, %229, %196, %160, %147
   %227 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #56
   unreachable
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit": ; preds = %.body51, %196
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit": ; preds = %.body48, %196
   br i1 %.sroa.010.0.lpad-body, label %230, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit"
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit": ; preds = %.body, %258, %244, %235, %230, %234, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit"
   %.sroa.04.1 = phi i8 [ 0, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit" ], [ 0, %234 ], [ 0, %230 ], [ 1, %235 ], [ 1, %244 ], [ 1, %258 ], [ 1, %.body ]
-  %.pn27.pn = phi { ptr, i32 } [ %eh.lpad-body52, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit" ], [ %eh.lpad-body52, %234 ], [ %eh.lpad-body52, %230 ], [ %236, %235 ], [ %245, %244 ], [ %.pn27, %258 ], [ %.pn27, %.body ]
+  %.pn27.pn = phi { ptr, i32 } [ %eh.lpad-body49, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit" ], [ %eh.lpad-body49, %234 ], [ %eh.lpad-body49, %230 ], [ %236, %235 ], [ %245, %244 ], [ %.pn27, %258 ], [ %.pn27, %.body ]
   %228 = cmpxchg ptr %149, i64 8, i64 0 release monotonic, align 8, !noalias !23245
-  %.sroa.18.0.in.i.i.i.i56 = extractvalue { i64, i1 } %228, 1
-  br i1 %.sroa.18.0.in.i.i.i.i56, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58", label %229
+  %.sroa.18.0.in.i.i.i.i53 = extractvalue { i64, i1 } %228, 1
+  br i1 %.sroa.18.0.in.i.i.i.i53, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55", label %229
 
 229:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %149, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58" unwind label %226
+          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55" unwind label %226
 
 230:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !23250)
@@ -118179,9 +118179,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 
 243:                                              ; preds = %237
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 64) #55
-          to label %.noexc60 unwind label %244
+          to label %.noexc57 unwind label %244
 
-.noexc60:                                         ; preds = %243
+.noexc57:                                         ; preds = %243
   unreachable
 
 244:                                              ; preds = %243
@@ -118204,9 +118204,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !23260
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbef4938395f72a6fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, i64 noundef %2, i1 noundef zeroext false)
-          to label %.noexc63 unwind label %259
+          to label %.noexc60 unwind label %259
 
-.noexc63:                                         ; preds = %248
+.noexc60:                                         ; preds = %248
   %249 = load i64, ptr %9, align 8, !range !1339, !noalias !23260, !noundef !9
   %trunc.i = trunc nuw i64 %249 to i1
   %250 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -118214,16 +118214,16 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %252 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br i1 %trunc.i, label %253, label %261
 
-253:                                              ; preds = %.noexc63
+253:                                              ; preds = %.noexc60
   %254 = load i64, ptr %252, align 8, !noalias !23260
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %251, i64 %254) #55
-          to label %.noexc64 unwind label %259
+          to label %.noexc61 unwind label %259
 
-.noexc64:                                         ; preds = %253
+.noexc61:                                         ; preds = %253
   unreachable
 
-.body:                                            ; preds = %345, %350, %309, %305, %277, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i", %.body67, %259
-  %.pn27 = phi { ptr, i32 } [ %260, %259 ], [ %266, %.body67 ], [ %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i" ], [ %278, %277 ], [ %306, %305 ], [ %306, %309 ], [ %346, %350 ], [ %346, %345 ]
+.body:                                            ; preds = %345, %350, %309, %305, %277, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i", %.body64, %259
+  %.pn27 = phi { ptr, i32 } [ %260, %259 ], [ %266, %.body64 ], [ %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i" ], [ %278, %277 ], [ %306, %305 ], [ %306, %309 ], [ %346, %350 ], [ %346, %345 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !23264)
   call void @llvm.experimental.noalias.scope.decl(metadata !23267)
   %255 = load ptr, ptr %18, align 8, !alias.scope !23270, !nonnull !9, !noundef !9
@@ -118241,7 +118241,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
           cleanup
   br label %.body
 
-261:                                              ; preds = %.noexc63
+261:                                              ; preds = %.noexc60
   %262 = load ptr, ptr %252, align 8, !noalias !23260, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !23260
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %262, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !23271
@@ -118256,7 +118256,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %266 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr107drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..text_system..line_layout..FontRun$u3b$$u20$1$u5d$$GT$$GT$17ha8ee68e99402eedaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #57
-          to label %.body67 unwind label %267, !noalias !23272
+          to label %.body64 unwind label %267, !noalias !23272
 
 267:                                              ; preds = %265
   %268 = landingpad { ptr, i32 }
@@ -118264,11 +118264,11 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #56, !noalias !23272
   unreachable
 
-.body67:                                          ; preds = %265
+.body64:                                          ; preds = %265
   %269 = icmp eq i64 %251, 0
   br i1 %269, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i": ; preds = %.body67
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i": ; preds = %.body64
   call void @__rust_dealloc(ptr noundef nonnull %262, i64 noundef %251, i64 noundef 1) #51, !noalias !23275
   br label %.body
 
@@ -118297,9 +118297,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 
 276:                                              ; preds = %270
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 80) #55
-          to label %.noexc69 unwind label %277
+          to label %.noexc66 unwind label %277
 
-.noexc69:                                         ; preds = %276
+.noexc66:                                         ; preds = %276
   unreachable
 
 277:                                              ; preds = %276
@@ -118344,19 +118344,19 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 292:                                              ; preds = %288
   store ptr %290, ptr %15, align 8
   %293 = icmp eq ptr %290, null
-  br i1 %293, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72", label %294
+  br i1 %293, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69", label %294
 
 294:                                              ; preds = %292
   %295 = atomicrmw sub ptr %290, i64 1 release, align 8, !noalias !23287
   %296 = icmp eq i64 %295, 1
-  br i1 %296, label %297, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72"
+  br i1 %296, label %297, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69"
 
 297:                                              ; preds = %294
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17heb63272945d48253E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
-          to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72" unwind label %345
+          to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69" unwind label %345
 
-"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72": ; preds = %294, %292, %297
+"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69": ; preds = %294, %292, %297
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %298 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %299 = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
@@ -118369,7 +118369,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %303 = icmp eq i64 %301, %302
   br i1 %303, label %304, label %312
 
-304:                                              ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72"
+304:                                              ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he334644f4742d3f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %298)
           to label %312 unwind label %305
 
@@ -118391,7 +118391,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #56
   unreachable
 
-312:                                              ; preds = %304, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit72"
+312:                                              ; preds = %304, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$$GT$17h5bc73fe3af30d3c4E.exit69"
   %313 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %314 = load ptr, ptr %313, align 8, !alias.scope !23294, !nonnull !9, !noundef !9
   %315 = getelementptr inbounds ptr, ptr %314, i64 %301
@@ -118404,93 +118404,93 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %223
 
-"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit", %229, %319
+"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit", %229, %319
   %.sroa.04.2 = phi i8 [ %.sroa.04.0, %319 ], [ %.sroa.04.1, %229 ], [ %.sroa.04.1, %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit" ]
   %.pn30 = phi { ptr, i32 } [ %320, %319 ], [ %.pn27.pn, %229 ], [ %.pn27.pn, %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..CacheKey$GT$$GT$17h48a230a6220413a3E.exit" ]
   %318 = load ptr, ptr %22, align 8, !noundef !9
   %.not = icmp eq ptr %318, null
-  br i1 %.not, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48", label %351
+  br i1 %.not, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45", label %351
 
 319:                                              ; preds = %225
   %320 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58"
+  br label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55"
 
-"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55": ; preds = %223, %225
+"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit52": ; preds = %223, %225
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   %321 = load ptr, ptr %22, align 8, !noundef !9
   %322 = icmp eq ptr %321, null
-  br i1 %322, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81", label %323
+  br i1 %322, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80", label %323
 
-323:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55"
+323:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit52"
   %324 = trunc nuw i8 %.sroa.04.0 to i1
-  br i1 %324, label %327, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81"
+  br i1 %324, label %327, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81": ; preds = %.thread126, %334, %323, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55"
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80": ; preds = %.thread128, %340, %323, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit52"
   %325 = cmpxchg ptr %150, i8 1, i8 0 release monotonic, align 1
-  %.sroa.18.0.in.i.i.i.i77 = extractvalue { i8, i1 } %325, 1
-  br i1 %.sroa.18.0.in.i.i.i.i77, label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit", label %326
+  %.sroa.18.0.in.i.i.i.i74 = extractvalue { i8, i1 } %325, 1
+  br i1 %.sroa.18.0.in.i.i.i.i74, label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit", label %326
 
-326:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81"
+326:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80"
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %150, i1 noundef zeroext false)
   br label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit"
 
-"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81", %326
+"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80", %326
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   br label %143
 
 327:                                              ; preds = %323
   %328 = atomicrmw sub ptr %321, i64 1 release, align 8, !noalias !23302
   %329 = icmp eq i64 %328, 1
-  br i1 %329, label %330, label %.thread126
+  br i1 %329, label %330, label %.thread128
 
 330:                                              ; preds = %327
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0d951499ae6f7059E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
-          to label %.thread126 unwind label %339
+          to label %.thread128 unwind label %331
 
-.thread126:                                       ; preds = %330, %327
+331:                                              ; preds = %330
+  %332 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !23307)
   call void @llvm.experimental.noalias.scope.decl(metadata !23310)
-  %331 = load ptr, ptr %164, align 8, !alias.scope !23313, !nonnull !9, !noundef !9
-  %332 = atomicrmw sub ptr %331, i64 1 release, align 8, !noalias !23313
-  %333 = icmp eq i64 %332, 1
-  br i1 %333, label %334, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81"
+  %333 = load ptr, ptr %164, align 8, !alias.scope !23313, !nonnull !9, !noundef !9
+  %334 = atomicrmw sub ptr %333, i64 1 release, align 8, !noalias !23313
+  %335 = icmp eq i64 %334, 1
+  br i1 %335, label %336, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45"
 
-334:                                              ; preds = %.thread126
+336:                                              ; preds = %331
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17heb63272945d48253E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit81" unwind label %337
+          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45" unwind label %226
 
-"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48": ; preds = %.thread127, %360, %351, %339, %344, %157, %160, %337, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58"
-  %.pn32 = phi { ptr, i32 } [ %338, %337 ], [ %.pn30, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58" ], [ %158, %160 ], [ %158, %157 ], [ %340, %344 ], [ %340, %339 ], [ %.pn30, %351 ], [ %.pn30, %360 ], [ %.pn30, %.thread127 ]
-  %335 = cmpxchg ptr %150, i8 1, i8 0 release monotonic, align 1
-  %.sroa.18.0.in.i.i.i.i82 = extractvalue { i8, i1 } %335, 1
-  br i1 %.sroa.18.0.in.i.i.i.i82, label %.thread, label %336
-
-336:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48"
-  invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %150, i1 noundef zeroext false)
-          to label %.thread unwind label %226
-
-337:                                              ; preds = %334
-  %338 = landingpad { ptr, i32 }
-          cleanup
-  br label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48"
-
-339:                                              ; preds = %330
-  %340 = landingpad { ptr, i32 }
-          cleanup
+.thread128:                                       ; preds = %330, %327
   call void @llvm.experimental.noalias.scope.decl(metadata !23314)
   call void @llvm.experimental.noalias.scope.decl(metadata !23317)
-  %341 = load ptr, ptr %164, align 8, !alias.scope !23320, !nonnull !9, !noundef !9
-  %342 = atomicrmw sub ptr %341, i64 1 release, align 8, !noalias !23320
-  %343 = icmp eq i64 %342, 1
-  br i1 %343, label %344, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48"
+  %337 = load ptr, ptr %164, align 8, !alias.scope !23320, !nonnull !9, !noundef !9
+  %338 = atomicrmw sub ptr %337, i64 1 release, align 8, !noalias !23320
+  %339 = icmp eq i64 %338, 1
+  br i1 %339, label %340, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80"
 
-344:                                              ; preds = %339
+340:                                              ; preds = %.thread128
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17heb63272945d48253E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164)
-          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48" unwind label %226
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$gpui..text_system..line_layout..LineLayout$GT$$GT$17h9f9d21547254bfb5E.exit80" unwind label %343
+
+"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45": ; preds = %.thread129, %360, %351, %331, %336, %157, %160, %343, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55"
+  %.pn = phi { ptr, i32 } [ %344, %343 ], [ %.pn30, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55" ], [ %158, %160 ], [ %158, %157 ], [ %332, %336 ], [ %332, %331 ], [ %.pn30, %351 ], [ %.pn30, %360 ], [ %.pn30, %.thread129 ]
+  %341 = cmpxchg ptr %150, i8 1, i8 0 release monotonic, align 1
+  %.sroa.18.0.in.i.i.i.i81 = extractvalue { i8, i1 } %341, 1
+  br i1 %.sroa.18.0.in.i.i.i.i81, label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83", label %342
+
+342:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45"
+  invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %150, i1 noundef zeroext false)
+          to label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83" unwind label %226
+
+343:                                              ; preds = %340
+  %344 = landingpad { ptr, i32 }
+          cleanup
+  br label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45"
 
 345:                                              ; preds = %288, %297
   %346 = landingpad { ptr, i32 }
@@ -118507,36 +118507,36 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0d951499ae6f7059E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %.body unwind label %226
 
-351:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit58"
+351:                                              ; preds = %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit55"
   %352 = trunc nuw i8 %.sroa.04.2 to i1
-  br i1 %352, label %353, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48"
+  br i1 %352, label %353, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45"
 
 353:                                              ; preds = %351
   %354 = atomicrmw sub ptr %318, i64 1 release, align 8, !noalias !23328
   %355 = icmp eq i64 %354, 1
-  br i1 %355, label %356, label %.thread127
+  br i1 %355, label %356, label %.thread129
 
 356:                                              ; preds = %353
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0d951499ae6f7059E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
-          to label %.thread127 unwind label %226
+          to label %.thread129 unwind label %226
 
-.thread127:                                       ; preds = %356, %353
+.thread129:                                       ; preds = %356, %353
   call void @llvm.experimental.noalias.scope.decl(metadata !23333)
   call void @llvm.experimental.noalias.scope.decl(metadata !23336)
   %357 = load ptr, ptr %164, align 8, !alias.scope !23339, !nonnull !9, !noundef !9
   %358 = atomicrmw sub ptr %357, i64 1 release, align 8, !noalias !23339
   %359 = icmp eq i64 %358, 1
-  br i1 %359, label %360, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48"
+  br i1 %359, label %360, label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45"
 
-360:                                              ; preds = %.thread127
+360:                                              ; preds = %.thread129
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17heb63272945d48253E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164)
-          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48" unwind label %226
+          to label %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45" unwind label %226
 
-.thread:                                          ; preds = %366, %369, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48", %336, %147, %144, %130
-  %.pn32.pn = phi { ptr, i32 } [ %131, %130 ], [ %145, %144 ], [ %145, %147 ], [ %.pn32, %336 ], [ %.pn32, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit48" ], [ %362, %369 ], [ %362, %366 ]
-  resume { ptr, i32 } %.pn32.pn
+"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83": ; preds = %147, %144, %130, %366, %369, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45", %342
+  %.pn131 = phi { ptr, i32 } [ %.pn, %342 ], [ %.pn, %"_ZN4core3ptr142drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17h3258c50677e28988E.llvm.12018052726552770354.exit45" ], [ %362, %369 ], [ %362, %366 ], [ %131, %130 ], [ %145, %144 ], [ %145, %147 ]
+  resume { ptr, i32 } %.pn131
 
 361:                                              ; preds = %.noexc, %_ZN4core4hash11BuildHasher8hash_one17hff4399801d2d56dcE.exit.i
   %362 = landingpad { ptr, i32 }
@@ -118549,12 +118549,12 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 366:                                              ; preds = %361
   %367 = add i64 %363, -20
   %368 = cmpxchg weak ptr %29, i64 %363, i64 %367 release monotonic, align 8, !noalias !23340
-  %.sroa.18.0.in.i.i.i.i93 = extractvalue { i64, i1 } %368, 1
-  br i1 %.sroa.18.0.in.i.i.i.i93, label %.thread, label %369
+  %.sroa.18.0.in.i.i.i.i90 = extractvalue { i64, i1 } %368, 1
+  br i1 %.sroa.18.0.in.i.i.i.i90, label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83", label %369
 
 369:                                              ; preds = %366, %361
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17hb4b8cd6af622c421E(ptr noundef nonnull align 8 %29, i1 noundef zeroext false)
-          to label %.thread unwind label %226
+          to label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$gpui..text_system..line_layout..FrameCache$GT$$GT$17hc614e1149cdbb7dbE.exit83" unwind label %226
 }
 
 ; Function Attrs: nonlazybind uwtable

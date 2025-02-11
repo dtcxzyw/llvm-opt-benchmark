@@ -17675,7 +17675,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
 67:                                               ; preds = %29
   %68 = xor i8 %15, 1
   store i8 %68, ptr %8, align 8, !alias.scope !3823, !noalias !3826
-  br i1 %17, label %92, label %71
+  br i1 %17, label %91, label %71
 
 69:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit16.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit14.i.i", %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit12.i.i"
   %.sroa.4.0.i.ph.i = phi i32 [ %43, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit12.i.i" ], [ %55, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit14.i.i" ], [ %66, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e32099acc7c427bE.exit16.i.i" ], [ %46, %45 ]
@@ -17718,36 +17718,35 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %88 = load ptr, ptr %87, align 8, !nonnull !9, !align !15, !noundef !9
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %90 = load i64, ptr %89, align 8, !noundef !9
-  br i1 %82, label %98, label %97
+  br i1 %82, label %97, label %96
 
 .loopexit:                                        ; preds = %69
-  %91 = xor i8 %15, 1
-  store i8 %91, ptr %8, align 8, !alias.scope !3823, !noalias !3826
-  br label %92
+  store i8 0, ptr %8, align 8, !alias.scope !3823, !noalias !3826
+  br label %91
 
-92:                                               ; preds = %.loopexit, %67
-  %93 = phi i64 [ %16, %.loopexit ], [ %12, %67 ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %93, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %93, ptr %95, align 8
+91:                                               ; preds = %.loopexit, %67
+  %92 = phi i64 [ %16, %.loopexit ], [ %12, %67 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %92, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %92, ptr %94, align 8
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7"
 
-"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7": ; preds = %.preheader, %71, %92
-  %storemerge = phi i64 [ 1, %92 ], [ 0, %71 ], [ 0, %.preheader ]
+"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7": ; preds = %.preheader, %71, %91
+  %storemerge = phi i64 [ 1, %91 ], [ 0, %71 ], [ 0, %.preheader ]
   store i64 %storemerge, ptr %0, align 8
-  br label %96
+  br label %95
 
-96:                                               ; preds = %97, %98, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7"
+95:                                               ; preds = %96, %97, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7"
   ret void
 
-97:                                               ; preds = %79
+96:                                               ; preds = %79
   tail call fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h45651d57bc72ae3bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86, ptr noalias noundef nonnull readonly align 1 %88, i64 noundef %90, i1 noundef zeroext false)
-  br label %96
+  br label %95
 
-98:                                               ; preds = %79
+97:                                               ; preds = %79
   tail call fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h45651d57bc72ae3bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %86, ptr noalias noundef nonnull readonly align 1 %88, i64 noundef %90, i1 noundef zeroext true)
-  br label %96
+  br label %95
 }
 
 ; Function Attrs: nonlazybind uwtable

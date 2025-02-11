@@ -476,8 +476,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17DirectiveLanguage17HasValidityEr
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
   %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
-  %.not55.i = icmp eq i64 %22, 0
-  br i1 %.not55.i, label %_ZL31hasDuplicateClausesInDirectivesN4llvm8ArrayRefIPKNS_6RecordEEE.exit, label %.lr.ph.i
+  %.not54.i = icmp eq i64 %22, 0
+  br i1 %.not54.i, label %_ZL31hasDuplicateClausesInDirectivesN4llvm8ArrayRefIPKNS_6RecordEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -497,9 +497,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17DirectiveLanguage17HasValidityEr
   br label %38
 
 38:                                               ; preds = %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i, %.lr.ph.i
-  %.01956.i = phi ptr [ %21, %.lr.ph.i ], [ %143, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i ]
+  %.01955.i = phi ptr [ %21, %.lr.ph.i ], [ %143, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
-  %39 = load ptr, ptr %.01956.i, align 8, !tbaa !15
+  %39 = load ptr, ptr %.01955.i, align 8, !tbaa !15
   store ptr %39, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
@@ -664,7 +664,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE5clearEv.exit.i: ; preds = 
 
 _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit30.i: ; preds = %110, %101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #22
-  %115 = or i1 %108, %spec.select.i
+  %115 = or i1 %spec.select.i, %108
   br label %.critedge23.i
 
 .critedge23.i:                                    ; preds = %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit30.i, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE5clearEv.exit.i
@@ -745,7 +745,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i: ; preds = %141
   call void @free(ptr noundef %142) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
-  %143 = getelementptr inbounds nuw i8, ptr %.01956.i, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.01955.i, i64 8
   %.not.i = icmp eq ptr %143, %23
   br i1 %.not.i, label %_ZL31hasDuplicateClausesInDirectivesN4llvm8ArrayRefIPKNS_6RecordEEE.exit, label %38
 

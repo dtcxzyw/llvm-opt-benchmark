@@ -434,9 +434,9 @@ define dso_local void @_ZN5clang5Scope8AddFlagsEj(ptr noundef nonnull align 8 de
 define dso_local void @_ZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   br label %3
 
-3:                                                ; preds = %2, %67
-  %.017 = phi ptr [ %0, %2 ], [ %68, %67 ]
-  %.0816 = phi i1 [ false, %2 ], [ %61, %67 ]
+3:                                                ; preds = %2, %63
+  %.017 = phi ptr [ %0, %2 ], [ %64, %63 ]
+  %.0816 = phi i1 [ false, %2 ], [ %57, %63 ]
   %4 = getelementptr inbounds nuw i8, ptr %.017, i64 432
   %5 = getelementptr inbounds nuw i8, ptr %.017, i64 452
   %6 = load i8, ptr %5, align 4, !tbaa !43, !range !44, !noundef !45
@@ -466,130 +466,123 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.thread.i: ; preds = %8
   %.0810.i.i.i = phi ptr [ %16, %15 ], [ %9, %8 ]
   %17 = load ptr, ptr %.0810.i.i.i, align 8, !tbaa !106
   %18 = icmp eq ptr %17, %1
-  br i1 %18, label %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21, label %15
+  br i1 %18, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread22, label %15
 
 _ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i: ; preds = %3
   %19 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef %1) #10
-  %20 = icmp ne ptr %19, null
+  %.not24 = icmp eq ptr %19, null
   %.pre.i = load i8, ptr %5, align 4, !tbaa !43, !range !44
-  %21 = trunc nuw i8 %.pre.i to i1
-  %22 = getelementptr inbounds nuw i8, ptr %.017, i64 444
-  %23 = getelementptr inbounds nuw i8, ptr %.017, i64 448
-  br i1 %21, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, label %28
+  %20 = trunc nuw i8 %.pre.i to i1
+  %21 = getelementptr inbounds nuw i8, ptr %.017, i64 444
+  %22 = getelementptr inbounds nuw i8, ptr %.017, i64 448
+  br i1 %20, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, label %26
 
-_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21: ; preds = %.lr.ph.i.i.i
-  %24 = trunc nuw i8 %6 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %.017, i64 444
-  %26 = getelementptr inbounds nuw i8, ptr %.017, i64 448
-  br i1 %24, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread25, label %28
-
-_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread25: ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21
-  store i32 0, ptr %25, align 4, !tbaa !46
-  store i32 0, ptr %26, align 8, !tbaa !47
-  br label %44
+_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread22: ; preds = %.lr.ph.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.017, i64 444
+  %24 = getelementptr inbounds nuw i8, ptr %.017, i64 448
+  store i32 0, ptr %23, align 4, !tbaa !46
+  store i32 0, ptr %24, align 8, !tbaa !47
+  br label %40
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread: ; preds = %15
-  %27 = getelementptr inbounds nuw i8, ptr %.017, i64 448
+  %25 = getelementptr inbounds nuw i8, ptr %.017, i64 448
   store i32 0, ptr %10, align 4, !tbaa !46
-  store i32 0, ptr %27, align 8, !tbaa !47
+  store i32 0, ptr %25, align 8, !tbaa !47
   br label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
 
-28:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i
-  %29 = phi ptr [ %26, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21 ], [ %23, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i ]
-  %30 = phi ptr [ %25, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21 ], [ %22, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i ]
-  %.1.i.i.i24 = phi i1 [ true, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i.thread21 ], [ %20, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i ]
-  %31 = load i32, ptr %30, align 4, !tbaa !46
-  %32 = load i32, ptr %29, align 8, !tbaa !47
-  %33 = sub i32 %31, %32
-  %34 = shl i32 %33, 2
-  %35 = getelementptr inbounds nuw i8, ptr %.017, i64 440
-  %36 = load i32, ptr %35, align 8, !tbaa !48
-  %37 = icmp ult i32 %34, %36
-  %38 = icmp ugt i32 %36, 32
-  %or.cond.i.i = and i1 %38, %37
-  br i1 %or.cond.i.i, label %39, label %40
+26:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i
+  %27 = load i32, ptr %21, align 4, !tbaa !46
+  %28 = load i32, ptr %22, align 8, !tbaa !47
+  %29 = sub i32 %27, %28
+  %30 = shl i32 %29, 2
+  %31 = getelementptr inbounds nuw i8, ptr %.017, i64 440
+  %32 = load i32, ptr %31, align 8, !tbaa !48
+  %33 = icmp ult i32 %30, %32
+  %34 = icmp ugt i32 %32, 32
+  %or.cond.i.i = and i1 %34, %33
+  br i1 %or.cond.i.i, label %35, label %36
 
-39:                                               ; preds = %28
+35:                                               ; preds = %26
   tail call void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(21) %4) #10
-  br i1 %.1.i.i.i24, label %44, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
+  br i1 %.not24, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", label %40
 
-40:                                               ; preds = %28
-  %41 = load ptr, ptr %4, align 8, !tbaa !49
-  %42 = zext i32 %36 to i64
-  %43 = shl nuw nsw i64 %42, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 -1, i64 %43, i1 false)
-  store i32 0, ptr %30, align 4, !tbaa !46
-  store i32 0, ptr %29, align 8, !tbaa !47
-  br i1 %.1.i.i.i24, label %44, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %4, align 8, !tbaa !49
+  %38 = zext i32 %32 to i64
+  %39 = shl nuw nsw i64 %38, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %37, i8 -1, i64 %39, i1 false)
+  store i32 0, ptr %21, align 4, !tbaa !46
+  store i32 0, ptr %22, align 8, !tbaa !47
+  br i1 %.not24, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", label %40
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.i
-  store i32 0, ptr %22, align 4, !tbaa !46
-  store i32 0, ptr %23, align 8, !tbaa !47
-  br i1 %20, label %44, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
+  store i32 0, ptr %21, align 4, !tbaa !46
+  store i32 0, ptr %22, align 8, !tbaa !47
+  br i1 %.not24, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", label %40
 
-44:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread25, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %40, %39
-  %45 = phi ptr [ %22, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ %30, %40 ], [ %30, %39 ], [ %25, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread25 ]
-  %46 = load i8, ptr %5, align 4, !tbaa !43, !range !44, !noalias !107, !noundef !45
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+40:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread22, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %36, %35
+  %41 = phi ptr [ %21, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ %21, %36 ], [ %21, %35 ], [ %23, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread22 ]
+  %42 = load i8, ptr %5, align 4, !tbaa !43, !range !44, !noalias !107, !noundef !45
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %4, align 8, !tbaa !49, !noalias !107
-  %50 = load i32, ptr %45, align 4, !tbaa !46, !noalias !107
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
-  %.not36.i.i.i = icmp eq i32 %50, 0
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %4, align 8, !tbaa !49, !noalias !107
+  %46 = load i32, ptr %41, align 4, !tbaa !46, !noalias !107
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
+  %.not36.i.i.i = icmp eq i32 %46, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i5.i
 
-.lr.ph.i.i5.i:                                    ; preds = %48, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %54, %.critedge.i.i.i ], [ %49, %48 ]
-  %53 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !106, !noalias !107
-  %.not17.i.i.i = icmp eq ptr %53, %1
+.lr.ph.i.i5.i:                                    ; preds = %44, %.critedge.i.i.i
+  %.02937.i.i.i = phi ptr [ %50, %.critedge.i.i.i ], [ %45, %44 ]
+  %49 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !106, !noalias !107
+  %.not17.i.i.i = icmp eq ptr %49, %1
   br i1 %.not17.i.i.i, label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i5.i
-  %54 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %54, %52
+  %50 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i5.i, !llvm.loop !110
 
-._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %48
-  %55 = getelementptr inbounds nuw i8, ptr %.017, i64 440
-  %56 = load i32, ptr %55, align 8, !tbaa !48, !noalias !107
-  %57 = icmp ult i32 %50, %56
-  br i1 %57, label %58, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %44
+  %51 = getelementptr inbounds nuw i8, ptr %.017, i64 440
+  %52 = load i32, ptr %51, align 8, !tbaa !48, !noalias !107
+  %53 = icmp ult i32 %46, %52
+  br i1 %53, label %54, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-58:                                               ; preds = %._crit_edge.i.i.i
-  %59 = add nuw i32 %50, 1
-  store i32 %59, ptr %45, align 4, !tbaa !46, !noalias !107
-  store ptr %1, ptr %52, align 8, !tbaa !106, !noalias !107
+54:                                               ; preds = %._crit_edge.i.i.i
+  %55 = add nuw i32 %46, 1
+  store i32 %55, ptr %41, align 4, !tbaa !46, !noalias !107
+  store ptr %1, ptr %48, align 8, !tbaa !106, !noalias !107
   br label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %44
-  %60 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef %1) #10, !noalias !107
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %40
+  %56 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef %1) #10, !noalias !107
   br label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
 
-"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit": ; preds = %.lr.ph.i.i5.i, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.thread.i, %39, %40, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %58, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
-  %.1.i.i57.i = phi i1 [ false, %39 ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.thread.i ], [ false, %40 ], [ true, %58 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread ], [ true, %.lr.ph.i.i5.i ]
-  %61 = or i1 %.0816, %.1.i.i57.i
-  %62 = getelementptr inbounds nuw i8, ptr %.017, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !30
-  %64 = and i32 %63, 128
-  %.not.i = icmp ne i32 %64, 0
-  %65 = getelementptr inbounds nuw i8, ptr %.017, i64 360
-  %66 = load ptr, ptr %65, align 8
-  %.not915 = icmp eq ptr %66, null
+"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit": ; preds = %.lr.ph.i.i5.i, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.thread.i, %35, %36, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %54, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+  %.1.i.i57.i = phi i1 [ false, %35 ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.thread.i ], [ false, %36 ], [ true, %54 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.thread ], [ true, %.lr.ph.i.i5.i ]
+  %57 = or i1 %.0816, %.1.i.i57.i
+  %58 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !30
+  %60 = and i32 %59, 128
+  %.not.i = icmp ne i32 %60, 0
+  %61 = getelementptr inbounds nuw i8, ptr %.017, i64 360
+  %62 = load ptr, ptr %61, align 8
+  %.not915 = icmp eq ptr %62, null
   %.not9 = select i1 %.not.i, i1 true, i1 %.not915
-  br i1 %.not9, label %67, label %69
+  br i1 %.not9, label %63, label %65
 
-67:                                               ; preds = %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
-  %68 = load ptr, ptr %.017, align 8, !tbaa !3
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %69, label %3, !llvm.loop !111
+63:                                               ; preds = %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
+  %64 = load ptr, ptr %.017, align 8, !tbaa !3
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %65, label %3, !llvm.loop !111
 
-69:                                               ; preds = %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", %67
-  %70 = select i1 %61, ptr %1, ptr null
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %70, ptr %71, align 8
+65:                                               ; preds = %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit", %63
+  %66 = select i1 %57, ptr %1, ptr null
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store ptr %66, ptr %67, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8
   ret void

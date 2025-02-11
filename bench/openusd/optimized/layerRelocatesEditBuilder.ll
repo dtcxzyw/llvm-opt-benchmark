@@ -1868,18 +1868,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_9TfWeakPtrINS_8S
   %260 = add nuw nsw i64 %259, 1
   %261 = mul i64 %260, %259
   %262 = lshr i64 %261, 1
-  %263 = getelementptr inbounds nuw i8, ptr %.sroa.07.022.i.i, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.07.022.i.i, i64 12
   %264 = load i32, ptr %263, align 4
-  %265 = getelementptr inbounds nuw i8, ptr %.sroa.07.022.i.i, i64 12
+  %265 = getelementptr inbounds nuw i8, ptr %.sroa.07.022.i.i, i64 8
   %266 = load i32, ptr %265, align 4
-  %267 = zext i32 %264 to i64
+  %267 = zext i32 %266 to i64
   %268 = add nuw nsw i64 %267, %258
   %269 = add nuw i64 %268, %262
   %270 = add nuw i64 %269, 1
   %271 = mul i64 %270, %269
   %272 = lshr i64 %271, 1
-  %273 = zext i32 %266 to i64
-  %274 = add nuw nsw i64 %273, %267
+  %273 = zext i32 %264 to i64
+  %274 = add nuw nsw i64 %267, %273
   %275 = add nuw i64 %274, %272
   %276 = add nuw i64 %275, 1
   %277 = mul i64 %276, %275
@@ -1898,7 +1898,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINS_9TfWeakPtrINS_8S
 287:                                              ; preds = %253
   %288 = load ptr, ptr %286, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.07.022.i.i, align 4
-  %.0.copyload.i.i4.i.i.i.i.i.i.i.i = load i64, ptr %263, align 4
+  %.0.copyload.i.i4.i.i.i.i.i.i.i.i = load i64, ptr %265, align 4
   %.phi.trans.insert.i.i.i.i130 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %.pre.i.i.i.i131 = load i64, ptr %.phi.trans.insert.i.i.i.i130, align 8
   br label %289
@@ -7951,14 +7951,14 @@ _ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaI
   %50 = trunc i64 %.0.copyload.i.i.i.i.i to i32
   %51 = lshr i64 %.0.copyload.i.i.i.i.i, 32
   %52 = trunc nuw i64 %51 to i32
-  %53 = trunc i64 %.0.copyload.i.i4.i.i.i to i32
-  %54 = lshr i64 %.0.copyload.i.i4.i.i.i, 32
-  %55 = trunc nuw i64 %54 to i32
+  %53 = lshr i64 %.0.copyload.i.i4.i.i.i, 32
+  %54 = trunc nuw i64 %53 to i32
+  %55 = trunc i64 %.0.copyload.i.i4.i.i.i to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit.loopexit_crit_edge, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit
-  %56 = phi i32 [ %38, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %55, %..loopexit.loopexit_crit_edge ]
-  %57 = phi i32 [ %23, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %53, %..loopexit.loopexit_crit_edge ]
+  %56 = phi i32 [ %23, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %55, %..loopexit.loopexit_crit_edge ]
+  %57 = phi i32 [ %38, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %54, %..loopexit.loopexit_crit_edge ]
   %58 = phi i32 [ %21, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %52, %..loopexit.loopexit_crit_edge ]
   %59 = phi i32 [ %7, %_ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS1_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeC2IJRKS2_SJ_EEEPNS5_16_Hashtable_allocISaINS5_10_Hash_nodeIS3_Lb1EEEEEEDpOT_.exit ], [ %50, %..loopexit.loopexit_crit_edge ]
   %60 = zext i32 %59 to i64
@@ -7967,14 +7967,14 @@ _ZNSt10_HashtableISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_SaI
   %63 = add nuw nsw i64 %62, 1
   %64 = mul i64 %63, %62
   %65 = lshr i64 %64, 1
-  %66 = zext i32 %57 to i64
+  %66 = zext i32 %56 to i64
   %67 = add nuw nsw i64 %66, %61
   %68 = add nuw i64 %67, %65
   %69 = add nuw i64 %68, 1
   %70 = mul i64 %69, %68
   %71 = lshr i64 %70, 1
-  %72 = zext i32 %56 to i64
-  %73 = add nuw nsw i64 %72, %66
+  %72 = zext i32 %57 to i64
+  %73 = add nuw nsw i64 %66, %72
   %74 = add nuw i64 %73, %71
   %75 = add nuw i64 %74, 1
   %76 = mul i64 %75, %74
@@ -8966,18 +8966,18 @@ define linkonce_odr noundef i64 @_ZNKSt10_HashtableISt4pairIN32pxrInternal_v0_24
   %22 = add nuw nsw i64 %21, 1
   %23 = mul i64 %22, %21
   %24 = lshr i64 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i32, ptr %27, align 4
-  %29 = zext i32 %26 to i64
+  %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, %20
   %31 = add nuw i64 %30, %24
   %32 = add nuw i64 %31, 1
   %33 = mul i64 %32, %31
   %34 = lshr i64 %33, 1
-  %35 = zext i32 %28 to i64
-  %36 = add nuw nsw i64 %35, %29
+  %35 = zext i32 %26 to i64
+  %36 = add nuw nsw i64 %29, %35
   %37 = add nuw i64 %36, %34
   %38 = add nuw i64 %37, 1
   %39 = mul i64 %38, %37
@@ -8997,7 +8997,7 @@ define linkonce_odr noundef i64 @_ZNKSt10_HashtableISt4pairIN32pxrInternal_v0_24
 50:                                               ; preds = %15
   %51 = load ptr, ptr %49, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 4
-  %.0.copyload.i.i4.i.i.i.i.i.i.i = load i64, ptr %25, align 4
+  %.0.copyload.i.i4.i.i.i.i.i.i.i = load i64, ptr %27, align 4
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %52

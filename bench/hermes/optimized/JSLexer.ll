@@ -6579,9 +6579,9 @@ if.else:                                          ; preds = %entry
   %9 = load i32, ptr %token_, align 8
   %expectedToken.sroa.0.0.extract.trunc = trunc i64 %expectedToken.coerce to i32
   %10 = and i64 %expectedToken.coerce, 4294967296
-  %expectedToken.sroa.2.0.extract.trunc.not = icmp ne i64 %10, 0
+  %tobool.i.i.not = icmp ne i64 %10, 0
   %cmp.i = icmp eq i32 %9, %expectedToken.sroa.0.0.extract.trunc
-  %or.cond18 = select i1 %expectedToken.sroa.2.0.extract.trunc.not, i1 %cmp.i, i1 false
+  %or.cond18 = select i1 %tobool.i.i.not, i1 %cmp.i, i1 false
   br i1 %or.cond18, label %if.then.i13, label %if.end24
 
 if.end24:                                         ; preds = %if.else, %entry
@@ -6623,7 +6623,7 @@ if.then43:                                        ; preds = %if.end39
   br label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.else, %if.then43, %if.end39
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %if.then43 ], [ %retval.sroa.0.0, %if.end39 ], [ %expectedToken.sroa.0.0.extract.trunc, %if.else ]
+  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %if.then43 ], [ %retval.sroa.0.0, %if.end39 ], [ %9, %if.else ]
   %retval.sroa.4.1 = phi i8 [ %retval.sroa.4.0, %if.then43 ], [ %retval.sroa.4.0, %if.end39 ], [ 1, %if.else ]
   %storeComments_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %13 = load i8, ptr %storeComments_.i.i, align 1

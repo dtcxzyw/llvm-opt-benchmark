@@ -7788,55 +7788,55 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_Combine
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.thread.i.i.i
+  br i1 %12, label %15, label %13
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.thread.i.i.i: ; preds = %4
-  %13 = zext i32 %7 to i64
+13:                                               ; preds = %4
+  %14 = zext i32 %7 to i64
   store i8 1, ptr %10, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i: ; preds = %4
-  %14 = load i64, ptr %0, align 8
-  %15 = zext i32 %7 to i64
-  %16 = add i64 %14, %15
-  %17 = add i64 %16, 1
-  %18 = mul i64 %17, %16
-  %19 = lshr i64 %18, 1
-  %20 = add nuw i64 %19, %15
+15:                                               ; preds = %4
+  %16 = load i64, ptr %0, align 8
+  %17 = zext i32 %7 to i64
+  %18 = add i64 %16, %17
+  %19 = add i64 %18, 1
+  %20 = mul i64 %19, %18
+  %21 = lshr i64 %20, 1
+  %22 = add nuw i64 %21, %17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.thread.i.i.i
-  %.sink.i.i.i8.i.i.i = phi i64 [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.thread.i.i.i ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRjEEEvDpOT_.exit.i.i.i ]
-  %21 = zext i32 %9 to i64
-  %22 = add nuw i64 %.sink.i.i.i8.i.i.i, %21
-  %23 = add nuw i64 %22, 1
-  %24 = mul i64 %23, %22
-  %25 = lshr i64 %24, 1
-  %26 = add nuw i64 %25, %21
-  store i64 %26, ptr %0, align 8
-  %27 = load i64, ptr %3, align 8
-  %28 = add i64 %26, %27
-  %29 = add i64 %28, 1
-  %30 = mul i64 %29, %28
-  %31 = lshr i64 %30, 1
-  %32 = add i64 %31, %27
-  store i64 %32, ptr %0, align 8
-  %33 = load i64, ptr %3, align 8
-  %.not3.i.i.i.i.i.i = icmp eq i64 %33, 0
+_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i: ; preds = %15, %13
+  %.sink.i.i.i.i.i.i = phi i64 [ %22, %15 ], [ %14, %13 ]
+  %23 = zext i32 %9 to i64
+  %24 = add nuw i64 %.sink.i.i.i.i.i.i, %23
+  %25 = add nuw i64 %24, 1
+  %26 = mul i64 %25, %24
+  %27 = lshr i64 %26, 1
+  %28 = add nuw i64 %27, %23
+  store i64 %28, ptr %0, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = add i64 %28, %29
+  %31 = add i64 %30, 1
+  %32 = mul i64 %31, %30
+  %33 = lshr i64 %32, 1
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %0, align 8
+  %35 = load i64, ptr %3, align 8
+  %.not3.i.i.i.i.i.i = icmp eq i64 %35, 0
   br i1 %.not3.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKNS_7SdfPathEJRKNS_7VtArrayINS_12SdfAssetPathEEEEEEvRT_OT0_DpOT1_.exit, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %37 = load ptr, ptr %36, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
-  %.05.i.i.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.preheader.i.i.i.i ]
-  %.024.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i ], [ %35, %.lr.ph.i.i.preheader.i.i.i.i ]
-  %36 = add i64 %.05.i.i.i.i.i.i, -1
-  %37 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i, i64 64
+  %.05.i.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i.i ], [ %35, %.lr.ph.i.i.preheader.i.i.i.i ]
+  %.024.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i ], [ %37, %.lr.ph.i.i.preheader.i.i.i.i ]
+  %38 = add i64 %.05.i.i.i.i.i.i, -1
+  %39 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i.i.i, i64 64
   tail call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_12SdfAssetPathEEEDTcmcl10hash_valueclsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_z(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(64) %.024.i.i.i.i.i.i, i32 noundef 0)
-  %.not.i.i.i.i.i.i = icmp eq i64 %36, 0
+  %.not.i.i.i.i.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKNS_7SdfPathEJRKNS_7VtArrayINS_12SdfAssetPathEEEEEEvRT_OT0_DpOT1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !71
 
 _ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKNS_7SdfPathEJRKNS_7VtArrayINS_12SdfAssetPathEEEEEEvRT_OT0_DpOT1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJmEEEvDpOT_.exit.i.i.i.i

@@ -47,11 +47,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.111 = type { i64, [8 x i8] }
 %"class.std::allocator.108" = type { i8 }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
-%"struct.node::crypto::KeyPairGenConfig" = type { %"class.node::MemoryRetainer", %"struct.node::crypto::AsymmetricKeyEncodingConfig", %"struct.node::crypto::PrivateKeyEncodingConfig", %"class.node::crypto::ManagedEVPPKey", %"struct.node::crypto::RsaKeyPairParams" }
+%"class.node::NonCopyableMaybe.492" = type { i8, %"struct.node::crypto::PrivateKeyEncodingConfig" }
+%"struct.node::crypto::PrivateKeyEncodingConfig" = type { %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr, %"class.node::NonCopyableMaybe" }
 %"struct.node::crypto::AsymmetricKeyEncodingConfig" = type { i8, i32, %"class.v8::Maybe" }
 %"class.v8::Maybe" = type { i8, i32 }
-%"struct.node::crypto::PrivateKeyEncodingConfig" = type { %"struct.node::crypto::AsymmetricKeyEncodingConfig", ptr, %"class.node::NonCopyableMaybe" }
 %"class.node::NonCopyableMaybe" = type { i8, %"class.node::crypto::ByteSource" }
+%"struct.node::crypto::KeyPairGenConfig" = type { %"class.node::MemoryRetainer", %"struct.node::crypto::AsymmetricKeyEncodingConfig", %"struct.node::crypto::PrivateKeyEncodingConfig", %"class.node::crypto::ManagedEVPPKey", %"struct.node::crypto::RsaKeyPairParams" }
 %"struct.node::crypto::RsaKeyPairParams" = type <{ %"class.node::MemoryRetainer", i32, i32, i32, [4 x i8], ptr, ptr, i32, [4 x i8] }>
 %"class.v8::Local" = type { %"class.v8::LocalBase" }
 %"class.v8::LocalBase" = type { %"class.v8::IndirectHandleBase" }
@@ -64,7 +65,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.468" = type { ptr }
 %class.anon = type { i8 }
 %class.anon.459 = type { i8 }
-%"class.node::NonCopyableMaybe.492" = type { i8, %"struct.node::crypto::PrivateKeyEncodingConfig" }
 %"class.std::unique_ptr.493" = type { %"struct.std::__uniq_ptr_data.494" }
 %"struct.std::__uniq_ptr_data.494" = type { %"class.std::__uniq_ptr_impl.495" }
 %"class.std::__uniq_ptr_impl.495" = type { %"class.std::tuple.496" }
@@ -164,8 +164,6 @@ $_ZZN4node14ThreadPoolWork12ScheduleWorkEvENKUlP9uv_work_sE_clES2_ = comdat any
 $_ZZN4node14ThreadPoolWork12ScheduleWorkEvENUlP9uv_work_siE_8__invokeES2_i = comdat any
 
 $_ZZN4node14ThreadPoolWork12ScheduleWorkEvENKUlP9uv_work_siE_clES2_i = comdat any
-
-$_ZN4node6crypto16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEE16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS5_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE = comdat any
 
 $_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEED2Ev = comdat any
 
@@ -421,8 +419,6 @@ $_ZZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKcE4args_0 = comdat any
 
 $_ZZN4node18MemoryRetainerNodeC1EPNS_13MemoryTrackerEPKNS_14MemoryRetainerEE4args = comdat any
 
-$_ZZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEvE4args = comdat any
-
 $_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE = comdat any
 
 $_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE = comdat any
@@ -664,10 +660,6 @@ $_ZZN4node6crypto9CipherJobINS0_15RSACipherTraitsEE8ToResultEPN2v85LocalINS4_5Va
 @.str.129 = private unnamed_addr constant [86 x i8] c"node::MemoryRetainerNode::MemoryRetainerNode(MemoryTracker *, const MemoryRetainer *)\00", align 1
 @.str.130 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @.str.134 = private unnamed_addr constant [17 x i8] c"KeyPairGenConfig\00", align 1
-@_ZZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEvE4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.135, ptr @.str.136, ptr @.str.137 }, comdat, align 8
-@.str.135 = private unnamed_addr constant [21 x i8] c"../../src/util.h:672\00", align 1
-@.str.136 = private unnamed_addr constant [20 x i8] c"(empty_) == (false)\00", align 1
-@.str.137 = private unnamed_addr constant [123 x i8] c"T &&node::NonCopyableMaybe<node::crypto::PrivateKeyEncodingConfig>::Release() [T = node::crypto::PrivateKeyEncodingConfig]\00", align 1
 @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE = linkonce_odr dso_local unnamed_addr constant { [23 x ptr], [6 x ptr] } { [23 x ptr] [ptr null, ptr null, ptr @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED2Ev, ptr @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED0Ev, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE14MemoryInfoNameEv, ptr @_ZNK4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE8SelfSizeEv, ptr @_ZNK4node10BaseObject13WrappedObjectEv, ptr @_ZNK4node10BaseObject10IsRootNodeEv, ptr @_ZNK4node10BaseObject15GetDetachednessEv, ptr @_ZNK4node9AsyncWrap18IsDoneInitializingEv, ptr @_ZNK4node10BaseObject15GetTransferModeEv, ptr @_ZN4node10BaseObject20TransferForMessagingEv, ptr @_ZNK4node10BaseObject17CloneForMessagingEv, ptr @_ZNK4node10BaseObject19NestedTransferablesEv, ptr @_ZN4node10BaseObject20FinalizeTransferReadEN2v85LocalINS1_7ContextEEEPNS1_17ValueDeserializerE, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE33IsNotIndicativeOfMemoryLeakAtExitEv, ptr @_ZN4node10BaseObject11OnGCCollectEv, ptr @_ZNK4node10BaseObject15is_snapshotableEv, ptr @_ZNK4node9AsyncWrap15diagnostic_nameB5cxx11Ev, ptr @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE19AfterThreadPoolWorkEi, ptr @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE8ToResultEPN2v85LocalINS6_5ValueEEESA_, ptr @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE16DoThreadPoolWorkEv], [6 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr null, ptr @_ZThn56_N4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED1Ev, ptr @_ZThn56_N4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED0Ev, ptr @_ZThn56_N4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE16DoThreadPoolWorkEv, ptr @_ZThn56_N4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE19AfterThreadPoolWorkEi] }, comdat, align 8
 @.str.138 = private unnamed_addr constant [7 x i8] c"crypto\00", align 1
 @_ZTVN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE = linkonce_odr dso_local unnamed_addr constant { [22 x ptr], [6 x ptr] } { [22 x ptr] [ptr null, ptr null, ptr @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED2Ev, ptr @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED0Ev, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE14MemoryInfoNameEv, ptr @__cxa_pure_virtual, ptr @_ZNK4node10BaseObject13WrappedObjectEv, ptr @_ZNK4node10BaseObject10IsRootNodeEv, ptr @_ZNK4node10BaseObject15GetDetachednessEv, ptr @_ZNK4node9AsyncWrap18IsDoneInitializingEv, ptr @_ZNK4node10BaseObject15GetTransferModeEv, ptr @_ZN4node10BaseObject20TransferForMessagingEv, ptr @_ZNK4node10BaseObject17CloneForMessagingEv, ptr @_ZNK4node10BaseObject19NestedTransferablesEv, ptr @_ZN4node10BaseObject20FinalizeTransferReadEN2v85LocalINS1_7ContextEEEPNS1_17ValueDeserializerE, ptr @_ZNK4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE33IsNotIndicativeOfMemoryLeakAtExitEv, ptr @_ZN4node10BaseObject11OnGCCollectEv, ptr @_ZNK4node10BaseObject15is_snapshotableEv, ptr @_ZNK4node9AsyncWrap15diagnostic_nameB5cxx11Ev, ptr @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE19AfterThreadPoolWorkEi, ptr @__cxa_pure_virtual], [6 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr null, ptr @_ZThn56_N4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED1Ev, ptr @_ZThn56_N4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEED0Ev, ptr @__cxa_pure_virtual, ptr @_ZThn56_N4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE19AfterThreadPoolWorkEi] }, comdat, align 8
@@ -5343,6 +5335,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEE3NewERKN2v820FunctionCallbackInfoINS6_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(20) %args) #3 comdat align 2 {
 entry:
+  %private_key_encoding.i13 = alloca %"class.node::NonCopyableMaybe.492", align 8
   %offset = alloca i32, align 4
   %params = alloca %"struct.node::crypto::KeyPairGenConfig", align 8
   %0 = load ptr, ptr %args, align 8
@@ -5481,24 +5474,55 @@ _ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEEC2Ev.exit: ; preds = %
   %saltlen.i.i = getelementptr inbounds nuw i8, ptr %params, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md.i.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %saltlen.i.i, align 8
-  %call13 = call i16 @_ZN4node6crypto16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEE16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS5_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 noundef %call12, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
-  %tobool.i = trunc i16 %call13 to i1
-  br i1 %tobool.i, label %if.end16, label %cleanup
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %private_key_encoding.i13)
+  %call.i = call i16 @_ZN4node6crypto15RsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
+  %tobool.i.i = trunc i16 %call.i to i1
+  br i1 %tobool.i.i, label %if.end.i14, label %cleanup
 
-if.end16:                                         ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEEC2Ev.exit
+if.end.i14:                                       ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEEC2Ev.exit
+  %call5.i = call { i64, i64 } @_ZN4node6crypto14ManagedEVPPKey26GetPublicKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 2) #20
+  %25 = extractvalue { i64, i64 } %call5.i, 0
+  %26 = extractvalue { i64, i64 } %call5.i, 1
+  store i64 %25, ptr %public_key_encoding.i, align 8
+  store i64 %26, ptr %type_.i.i, align 8
+  call void @_ZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nonnull sret(%"class.node::NonCopyableMaybe.492") align 8 %private_key_encoding.i13, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 2) #20
+  %27 = load i8, ptr %private_key_encoding.i13, align 8
+  %tobool.i7.i = trunc i8 %27 to i1
+  br i1 %tobool.i7.i, label %if.end11.i, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
+
+_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i: ; preds = %if.end.i14
+  store i8 1, ptr %private_key_encoding.i13, align 8
+  %value_.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding.i, ptr noundef nonnull align 8 dereferenceable(56) %value_.i.i, i64 16, i1 false)
+  %cipher_.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i13, i64 24
+  %28 = load ptr, ptr %cipher_.i.i, align 8
+  %cipher_2.i.i = getelementptr inbounds nuw i8, ptr %params, i64 40
+  store ptr %28, ptr %cipher_2.i.i, align 8
+  %passphrase_3.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i13, i64 32
+  %29 = load i8, ptr %passphrase_3.i.i, align 8
+  %frombool.i.i8.i = and i8 %29, 1
+  store i8 %frombool.i.i8.i, ptr %passphrase_.i.i, align 8
+  %value_3.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i13, i64 40
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_3.i.i.i) #20
+  br label %if.end11.i
+
+if.end11.i:                                       ; preds = %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i, %if.end.i14
+  %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i13, i64 40
+  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i.i) #20
+  br label %cleanup
+
+cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEEC2Ev.exit, %if.end11.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %private_key_encoding.i13)
   %call17 = call noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #22
   %values_.i73 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %25 = load ptr, ptr %values_.i73, align 8
-  %add.ptr.i74 = getelementptr inbounds i8, ptr %25, i64 -8
+  %30 = load ptr, ptr %values_.i73, align 8
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %30, i64 -8
   call void @_ZN4node6crypto9CryptoJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEC2EPNS_11EnvironmentEN2v85LocalINS8_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(ptr noundef nonnull align 8 dereferenceable(416) %call17, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i74, i32 noundef 51, i32 noundef %call12, ptr noundef nonnull align 8 dereferenceable(160) %params)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE, i64 16), ptr %call17, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call17, i64 56
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto9KeyGenJobINS0_16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEEEEE, i64 200), ptr %add.ptr.i, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %call17, i64 408
   store i32 1, ptr %status_.i, align 8
-  br label %cleanup
-
-cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEEC2Ev.exit, %if.end16
   call void @_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %params) #20
   ret void
 }
@@ -6058,66 +6082,6 @@ do.end:                                           ; preds = %if.end, %_ZN4node7t
 }
 
 declare noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local i16 @_ZN4node6crypto16KeyPairGenTraitsINS0_15RsaKeyGenTraitsEE16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS5_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, ptr noundef %params) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %private_key_encoding = alloca %"class.node::NonCopyableMaybe.492", align 8
-  %call = tail call i16 @_ZN4node6crypto15RsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16RsaKeyPairParamsEEE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, ptr noundef %params)
-  %tobool.i = trunc i16 %call to i1
-  br i1 %tobool.i, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  %call5 = tail call { i64, i64 } @_ZN4node6crypto14ManagedEVPPKey26GetPublicKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef 2) #20
-  %0 = extractvalue { i64, i64 } %call5, 0
-  %1 = extractvalue { i64, i64 } %call5, 1
-  %public_key_encoding = getelementptr inbounds nuw i8, ptr %params, i64 8
-  store i64 %0, ptr %public_key_encoding, align 8
-  %ref.tmp4.sroa.2.0.public_key_encoding.sroa_idx = getelementptr inbounds nuw i8, ptr %params, i64 16
-  store i64 %1, ptr %ref.tmp4.sroa.2.0.public_key_encoding.sroa_idx, align 8
-  call void @_ZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nonnull sret(%"class.node::NonCopyableMaybe.492") align 8 %private_key_encoding, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef 2) #20
-  %2 = load i8, ptr %private_key_encoding, align 8
-  %tobool.i7 = trunc i8 %2 to i1
-  br i1 %tobool.i7, label %if.end11, label %if.then7
-
-if.then7:                                         ; preds = %if.end
-  %3 = and i8 %2, 1
-  %cmp.not.i = icmp eq i8 %3, 0
-  br i1 %cmp.not.i, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit, label %do.body5.i
-
-do.body5.i:                                       ; preds = %if.then7
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEvE4args) #20
-  call void @abort() #21
-  unreachable
-
-_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit: ; preds = %if.then7
-  store i8 1, ptr %private_key_encoding, align 8
-  %value_.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 8
-  %private_key_encoding9 = getelementptr inbounds nuw i8, ptr %params, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding9, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, i64 16, i1 false)
-  %cipher_.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 24
-  %4 = load ptr, ptr %cipher_.i, align 8
-  %cipher_2.i = getelementptr inbounds nuw i8, ptr %params, i64 40
-  store ptr %4, ptr %cipher_2.i, align 8
-  %passphrase_.i = getelementptr inbounds nuw i8, ptr %params, i64 48
-  %passphrase_3.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 32
-  %5 = load i8, ptr %passphrase_3.i, align 8
-  %frombool.i.i8 = and i8 %5, 1
-  store i8 %frombool.i.i8, ptr %passphrase_.i, align 8
-  %value_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 56
-  %value_3.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 40
-  %call.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_3.i.i) #20
-  br label %if.end11
-
-if.end11:                                         ; preds = %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit, %if.end
-  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding, i64 40
-  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i) #20
-  br label %return
-
-return:                                           ; preds = %entry, %if.end11
-  %retval.sroa.0.0 = phi i16 [ 257, %if.end11 ], [ 1, %entry ]
-  ret i16 %retval.sroa.0.0
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto16KeyPairGenConfigINS0_16RsaKeyPairParamsEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 {

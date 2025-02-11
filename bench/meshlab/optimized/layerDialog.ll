@@ -6353,7 +6353,7 @@ _ZNK10MainWindow3GLAEv.exit:                      ; preds = %.lr.ph
   br i1 %.not, label %._crit_edge65, label %.lr.ph64
 
 ._crit_edge65:                                    ; preds = %._crit_edge
-  %55 = trunc i8 %.2.lcssa to i1
+  %55 = trunc nuw i8 %.2.lcssa to i1
   br i1 %55, label %..critedge_crit_edge, label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %.lr.ph101, %._crit_edge65

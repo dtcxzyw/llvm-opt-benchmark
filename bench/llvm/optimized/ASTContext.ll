@@ -147307,18 +147307,18 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
     i32 471, label %45
     i32 460, label %52
     i32 472, label %52
-    i32 461, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 473, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 462, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 474, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 463, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 475, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 464, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 476, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 465, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 477, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 466, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
-    i32 478, label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+    i32 461, label %59
+    i32 473, label %59
+    i32 462, label %59
+    i32 474, label %59
+    i32 463, label %59
+    i32 475, label %59
+    i32 464, label %59
+    i32 476, label %59
+    i32 465, label %59
+    i32 477, label %59
+    i32 466, label %59
+    i32 478, label %59
   ]
 
 16:                                               ; preds = %2
@@ -147331,7 +147331,7 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %21 = load i8, ptr %20, align 1, !tbaa !1987
   %22 = xor i8 %21, -1
   %23 = add i8 %19, %22
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
 24:                                               ; preds = %2, %2
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 46
@@ -147340,7 +147340,7 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %28 = load i8, ptr %27, align 2, !tbaa !1988
   %29 = xor i8 %28, -1
   %30 = add i8 %26, %29
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
 31:                                               ; preds = %2, %2
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -147349,7 +147349,7 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %35 = load i8, ptr %34, align 1, !tbaa !1989
   %36 = xor i8 %35, -1
   %37 = add i8 %33, %36
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
 38:                                               ; preds = %2, %2
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -147358,7 +147358,7 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %42 = load i8, ptr %41, align 1
   %43 = xor i8 %42, -1
   %44 = add i8 %40, %43
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
 45:                                               ; preds = %2, %2
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 46
@@ -147367,7 +147367,7 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %49 = load i8, ptr %48, align 2
   %50 = xor i8 %49, -1
   %51 = add i8 %47, %50
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
 52:                                               ; preds = %2, %2
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -147376,10 +147376,10 @@ define dso_local noundef zeroext i8 @_ZNK5clang10ASTContext18getFixedPointIBitsE
   %56 = load i8, ptr %55, align 1
   %57 = xor i8 %56, -1
   %58 = add i8 %54, %57
-  br label %_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit
+  br label %59
 
-_ZNK5clang10TargetInfo26getUnsignedShortAccumIBitsEv.exit: ; preds = %52, %45, %38, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %31, %24, %17
-  %.0 = phi i8 [ %37, %31 ], [ %30, %24 ], [ %23, %17 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %44, %38 ], [ %51, %45 ], [ %58, %52 ]
+59:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %52, %45, %38, %31, %24, %17
+  %.0 = phi i8 [ %58, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %31 ], [ %30, %24 ], [ %23, %17 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
   ret i8 %.0
 }
 

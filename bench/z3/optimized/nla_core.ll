@@ -22183,14 +22183,13 @@ _ZN3nla4core15patch_monomialsEv.exit:             ; preds = %if.end, %lor.lhs.fa
 
 if.then.i:                                        ; preds = %_ZN3nla4core15patch_monomialsEv.exit
   %m_emons.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4400
-  %frombool.i.i = and i8 %7, 1
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4416
   %call.i.i2.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIbE, i64 16), ptr %call.i.i2.i, align 8
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %m_use_nra_model.i, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
-  store i8 %frombool.i.i, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
+  store i8 1, ptr %ref.tmp.sroa.3.8.m_value.i.i.sroa_idx.i, align 8
   %9 = load ptr, ptr %m_emons.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i

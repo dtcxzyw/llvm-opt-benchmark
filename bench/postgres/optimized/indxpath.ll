@@ -2843,7 +2843,7 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %124 = load i32, ptr %119, align 4
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph335, label %match_pathkeys_to_index.exit.thread377
+  br i1 %125, label %.lr.ph335, label %match_pathkeys_to_index.exit.thread
 
 .lr.ph335:                                        ; preds = %.lr.ph82.i, %.thread60.i
   %.sroa.422.081.i334 = phi i32 [ %219, %.thread60.i ], [ 0, %.lr.ph82.i ]
@@ -3050,13 +3050,13 @@ match_pathkeys_to_index.exit:                     ; preds = %142, %136, %132, %.
   %.not.i158 = icmp eq ptr %.pr, null
   br i1 %.not.i158, label %list_length.exit.thread, label %list_length.exit
 
-match_pathkeys_to_index.exit.thread377:           ; preds = %.lr.ph82.i
-  %.pr380 = load ptr, ptr %117, align 8
-  %.not.i158381 = icmp eq ptr %.pr380, null
-  br i1 %.not.i158381, label %.thread197, label %list_length.exit.thread390
+match_pathkeys_to_index.exit.thread:              ; preds = %.lr.ph82.i
+  %.pr379 = load ptr, ptr %117, align 8
+  %.not.i158380 = icmp eq ptr %.pr379, null
+  br i1 %.not.i158380, label %.thread197, label %list_length.exit.thread389
 
-list_length.exit.thread390:                       ; preds = %match_pathkeys_to_index.exit.thread377
-  %228 = getelementptr inbounds nuw i8, ptr %.pr380, i64 4
+list_length.exit.thread389:                       ; preds = %match_pathkeys_to_index.exit.thread
+  %228 = getelementptr inbounds nuw i8, ptr %.pr379, i64 4
   %229 = load i32, ptr %228, align 4
   br label %list_length.exit160
 
@@ -3070,10 +3070,10 @@ list_length.exit.thread:                          ; preds = %match_pathkeys_to_i
   %.not.i159210 = icmp eq ptr %.1177252, null
   br i1 %.not.i159210, label %list_length.exit160.thread211, label %list_length.exit160.thread
 
-list_length.exit160:                              ; preds = %list_length.exit.thread390, %list_length.exit
-  %232 = phi i32 [ %229, %list_length.exit.thread390 ], [ %231, %list_length.exit ]
-  %.1250387396 = phi ptr [ null, %list_length.exit.thread390 ], [ %.1250, %list_length.exit ]
-  %.pr389395 = phi ptr [ %.pr380, %list_length.exit.thread390 ], [ %.pr, %list_length.exit ]
+list_length.exit160:                              ; preds = %list_length.exit.thread389, %list_length.exit
+  %232 = phi i32 [ %229, %list_length.exit.thread389 ], [ %231, %list_length.exit ]
+  %.1250385395 = phi ptr [ null, %list_length.exit.thread389 ], [ %.1250, %list_length.exit ]
+  %.pr388394 = phi ptr [ %.pr379, %list_length.exit.thread389 ], [ %.pr, %list_length.exit ]
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %list_length.exit160.thread211, label %list_length.exit162
 
@@ -3086,24 +3086,24 @@ list_length.exit160.thread:                       ; preds = %list_length.exit, %
   br i1 %238, label %list_length.exit160.thread211, label %list_length.exit162
 
 list_length.exit162:                              ; preds = %list_length.exit160.thread, %list_length.exit160
-  %.1250388 = phi ptr [ %.1250387396, %list_length.exit160 ], [ %.1250, %list_length.exit160.thread ]
+  %.1250387 = phi ptr [ %.1250385395, %list_length.exit160 ], [ %.1250, %list_length.exit160.thread ]
   %.2178218 = phi ptr [ null, %list_length.exit160 ], [ %.1177252, %list_length.exit160.thread ]
-  %239 = phi ptr [ %.pr389395, %list_length.exit160 ], [ %234, %list_length.exit160.thread ]
+  %239 = phi ptr [ %.pr388394, %list_length.exit160 ], [ %234, %list_length.exit160.thread ]
   %240 = phi i32 [ 0, %list_length.exit160 ], [ %237, %list_length.exit160.thread ]
   %241 = tail call ptr @list_copy_head(ptr noundef %239, i32 noundef %240) #7
   br label %list_length.exit160.thread211
 
 list_length.exit160.thread211:                    ; preds = %._crit_edge323, %list_length.exit.thread, %list_length.exit160.thread, %list_length.exit160, %list_length.exit162
   %.0176 = phi ptr [ %.2178218, %list_length.exit162 ], [ null, %list_length.exit160 ], [ %.1177252, %list_length.exit160.thread ], [ null, %list_length.exit.thread ], [ null, %._crit_edge323 ]
-  %.0174 = phi ptr [ %.1250388, %list_length.exit162 ], [ %.1250387396, %list_length.exit160 ], [ %.1250, %list_length.exit160.thread ], [ %.1250, %list_length.exit.thread ], [ null, %._crit_edge323 ]
-  %.0138 = phi ptr [ %241, %list_length.exit162 ], [ %.pr389395, %list_length.exit160 ], [ %234, %list_length.exit160.thread ], [ null, %list_length.exit.thread ], [ null, %._crit_edge323 ]
+  %.0174 = phi ptr [ %.1250387, %list_length.exit162 ], [ %.1250385395, %list_length.exit160 ], [ %.1250, %list_length.exit160.thread ], [ %.1250, %list_length.exit.thread ], [ null, %._crit_edge323 ]
+  %.0138 = phi ptr [ %241, %list_length.exit162 ], [ %.pr388394, %list_length.exit160 ], [ %234, %list_length.exit160.thread ], [ null, %list_length.exit.thread ], [ null, %._crit_edge323 ]
   br i1 %103, label %.thread197, label %291
 
-.thread197:                                       ; preds = %match_pathkeys_to_index.exit.thread377, %116, %108, %111, %list_length.exit160.thread211
-  %.0138209 = phi ptr [ %.0138, %list_length.exit160.thread211 ], [ null, %111 ], [ %110, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread377 ]
-  %.0174207 = phi ptr [ %.0174, %list_length.exit160.thread211 ], [ null, %111 ], [ null, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread377 ]
-  %.0176205 = phi ptr [ %.0176, %list_length.exit160.thread211 ], [ null, %111 ], [ null, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread377 ]
-  %brmerge187203 = phi i1 [ true, %list_length.exit160.thread211 ], [ true, %111 ], [ false, %108 ], [ true, %116 ], [ true, %match_pathkeys_to_index.exit.thread377 ]
+.thread197:                                       ; preds = %match_pathkeys_to_index.exit.thread, %116, %108, %111, %list_length.exit160.thread211
+  %.0138209 = phi ptr [ %.0138, %list_length.exit160.thread211 ], [ null, %111 ], [ %110, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread ]
+  %.0174207 = phi ptr [ %.0174, %list_length.exit160.thread211 ], [ null, %111 ], [ null, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread ]
+  %.0176205 = phi ptr [ %.0176, %list_length.exit160.thread211 ], [ null, %111 ], [ null, %108 ], [ null, %116 ], [ null, %match_pathkeys_to_index.exit.thread ]
+  %brmerge187203 = phi i1 [ true, %list_length.exit160.thread211 ], [ true, %111 ], [ false, %108 ], [ true, %116 ], [ true, %match_pathkeys_to_index.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %242 = load i8, ptr @enable_indexonlyscan, align 1

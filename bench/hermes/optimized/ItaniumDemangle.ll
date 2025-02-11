@@ -10789,7 +10789,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10810,7 +10809,7 @@ if.end.i:                                         ; preds = %if.end
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %cmp3.i, %if.then.i ], [ %call.i, %if.end.i ]
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10827,7 +10826,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10849,7 +10847,7 @@ if.end.i:                                         ; preds = %if.end
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %cmp3.i, %if.then.i ], [ %call.i, %if.end.i ]
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10866,7 +10864,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10888,7 +10885,7 @@ if.end.i:                                         ; preds = %if.end
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %cmp3.i, %if.then.i ], [ %call.i, %if.end.i ]
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10905,7 +10902,6 @@ entry:
   br i1 %tobool, label %return, label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10913,7 +10909,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10930,7 +10926,6 @@ entry:
   br i1 %tobool, label %return, label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10938,7 +10933,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10954,7 +10949,6 @@ entry:
   br i1 %tobool, label %return, label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 8
   %Ref = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %Ref, align 8
@@ -10962,7 +10956,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %S) #22
-  store i8 %frombool3.i, ptr %Printing, align 8
+  store i8 0, ptr %Printing, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -31420,7 +31414,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 4
   %RK.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %RK.i, align 8
@@ -31614,7 +31607,7 @@ _ZN12OutputStream4growEm.exit.i81:                ; preds = %if.then.i._ZN12Outp
   %27 = load i64, ptr %CurrentPosition.i.i69, align 8
   %add.i83 = add i64 %27, %call.i62
   store i64 %add.i83, ptr %CurrentPosition.i.i69, align 8
-  store i8 %frombool3.i, ptr %Printing, align 4
+  store i8 0, ptr %Printing, align 4
   br label %return
 
 return:                                           ; preds = %entry, %_ZN12OutputStream4growEm.exit.i81
@@ -31630,7 +31623,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool3.i = and i8 %0, 1
   store i8 1, ptr %Printing, align 4
   %retval.sroa.5.0.in5.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %retval.sroa.5.06.i = load ptr, ptr %retval.sroa.5.0.in5.i, align 8
@@ -31729,7 +31721,7 @@ _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %lor.lhs.false, %_ZN
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %14 = load ptr, ptr %vfn, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #22
-  store i8 %frombool3.i, ptr %Printing, align 4
+  store i8 0, ptr %Printing, align 4
   br label %return
 
 return:                                           ; preds = %entry, %_ZN14SwapAndRestoreIbED2Ev.exit

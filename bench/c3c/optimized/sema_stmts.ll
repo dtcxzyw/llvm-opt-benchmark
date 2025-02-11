@@ -5122,7 +5122,7 @@ sema_analyse_statement_inner.exit.thread195:      ; preds = %73, %.thread, %sema
   br i1 %2352, label %2362, label %2353
 
 2353:                                             ; preds = %2350
-  %2354 = or i8 %2351, 1
+  %2354 = or disjoint i8 %2351, 1
   store i8 %2354, ptr %24, align 4
   %2355 = load i8, ptr %20, align 4
   switch i8 %2355, label %2356 [

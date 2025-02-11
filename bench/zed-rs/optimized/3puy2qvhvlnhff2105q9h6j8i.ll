@@ -177279,13 +177279,13 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform5linux7wayland6window21Waylan
 37:                                               ; preds = %.split.us.i.i.i.i.i.us.i
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = add i64 %34, -4
-  %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i.i.i.i.us.i = load i32, ptr %35, align 1, !alias.scope !45622, !noalias !45631
-  %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i.i.i.i.off.us.i = add i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i.i.i.i.us.i, -1
-  %switch.us.i = icmp ult i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i.i.i.i.off.us.i, 9
+  %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i6.i.i.i.us.i = load i32, ptr %35, align 1, !alias.scope !45622, !noalias !45631
+  %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i6.i.i.i.off.us.i = add i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i6.i.i.i.us.i, -1
+  %switch.us.i = icmp ult i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i6.i.i.i.off.us.i, 9
   br i1 %switch.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab73d14d3eb22f54E.exit", label %.split.us.i.i.i.i.i.us.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab73d14d3eb22f54E.exit": ; preds = %37
-  switch i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i.i.i.i.us.i, label %.split.i [
+  switch i32 %.sroa.02.0.copyload.i.i.i.i.i.i.us.i.i6.i.i.i.us.i, label %.split.i [
     i32 8, label %.split.i.outer
     i32 1, label %.split.i.outer243
     i32 2, label %.split.i.outer248

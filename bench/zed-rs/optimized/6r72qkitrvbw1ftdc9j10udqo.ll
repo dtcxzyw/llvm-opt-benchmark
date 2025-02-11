@@ -83267,6 +83267,7 @@ common.ret:                                       ; preds = %314, %"_ZN4core3ptr
   br label %common.ret
 
 222:                                              ; preds = %.thread180, %206, %204, %204, %"_ZN4core3ptr99drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$$GT$17h6587d093a697152eE.exit.i"
+  %.sroa.4.0..sroa_idx183 = phi ptr [ %.sroa.4.0..sroa_idx182, %.thread180 ], [ %.sroa.4.0..sroa_idx, %206 ], [ %.sroa.4.0..sroa_idx, %204 ], [ %.sroa.4.0..sroa_idx, %204 ], [ %.sroa.4.0..sroa_idx, %"_ZN4core3ptr99drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$$GT$17h6587d093a697152eE.exit.i" ]
   %223 = phi ptr [ %201, %.thread180 ], [ %205, %206 ], [ %205, %204 ], [ %205, %204 ], [ %205, %"_ZN4core3ptr99drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$$GT$17h6587d093a697152eE.exit.i" ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 203
   %.val = load i8, ptr %224, align 1, !range !194, !noundef !4
@@ -83297,8 +83298,7 @@ common.ret:                                       ; preds = %314, %"_ZN4core3ptr
   br i1 %trunc.i96, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hb2870d61e79d246dE.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hb2870d61e79d246dE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hb2870d61e79d246dE.exit": ; preds = %230
-  %.sroa.3.0.i95 = getelementptr inbounds nuw i8, ptr %1, i64 161
-  %.val.i = load i8, ptr %.sroa.3.0.i95, align 1, !range !601, !noundef !4
+  %.val.i = load i8, ptr %.sroa.4.0..sroa_idx183, align 1, !range !601, !noundef !4
   %232 = trunc nuw i8 %.val.i to i1
   br i1 %232, label %233, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hb2870d61e79d246dE.exit.thread"
 

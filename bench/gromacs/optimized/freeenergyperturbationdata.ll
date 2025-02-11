@@ -1239,7 +1239,7 @@ define noundef nonnull ptr @_ZN3gmx26FreeEnergyPerturbationData7Element29enableE
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %21, label %16
+  br i1 %15, label %_ZNRSt8optionalIN3gmx15FepStateSettingEE5valueEv.exit, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1262,15 +1262,7 @@ define noundef nonnull ptr @_ZN3gmx26FreeEnergyPerturbationData7Element29enableE
   store i8 1, ptr %13, align 8
   br label %_ZNRSt8optionalIN3gmx15FepStateSettingEE5valueEv.exit
 
-21:                                               ; preds = %11
-  %22 = trunc i8 %14 to i1
-  br i1 %22, label %_ZNRSt8optionalIN3gmx15FepStateSettingEE5valueEv.exit, label %23
-
-23:                                               ; preds = %21
-  tail call void @_ZSt27__throw_bad_optional_accessv() #26
-  unreachable
-
-_ZNRSt8optionalIN3gmx15FepStateSettingEE5valueEv.exit: ; preds = %.thread, %21
+_ZNRSt8optionalIN3gmx15FepStateSettingEE5valueEv.exit: ; preds = %11, %.thread
   ret ptr %12
 }
 

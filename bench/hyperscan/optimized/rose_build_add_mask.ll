@@ -8766,23 +8766,23 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %mask, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %mask, align 8
-  %cmp102.not = icmp eq ptr %0, %1
-  br i1 %cmp102.not, label %for.end, label %for.body.lr.ph
+  %cmp101.not = icmp eq ptr %0, %1
+  br i1 %cmp101.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %maxHistoryAvailable = getelementptr inbounds nuw i8, ptr %grey, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %.pre122.pre125 = phi ptr [ %1, %for.body.lr.ph ], [ %.pre122.pre126, %for.inc ]
-  %case_fixed.0110 = phi i1 [ false, %for.body.lr.ph ], [ %case_fixed.1, %for.inc ]
-  %nocase.0109 = phi i1 [ false, %for.body.lr.ph ], [ %nocase.1, %for.inc ]
-  %best_begin.0108 = phi i64 [ 0, %for.body.lr.ph ], [ %best_begin.2, %for.inc ]
-  %best_end.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %best_end.2, %for.inc ]
-  %i.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
-  %begin.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %begin.1, %for.inc ]
-  %best_len.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %best_len.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre122.pre125, i64 %i.0106
+  %.pre121.pre124 = phi ptr [ %1, %for.body.lr.ph ], [ %.pre121.pre125, %for.inc ]
+  %case_fixed.0109 = phi i1 [ false, %for.body.lr.ph ], [ %case_fixed.1, %for.inc ]
+  %nocase.0108 = phi i1 [ false, %for.body.lr.ph ], [ %nocase.1, %for.inc ]
+  %best_begin.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %best_begin.2, %for.inc ]
+  %best_end.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %best_end.2, %for.inc ]
+  %i.0105 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
+  %begin.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %begin.1, %for.inc ]
+  %best_len.0102 = phi i64 [ 0, %for.body.lr.ph ], [ %best_len.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre121.pre124, i64 %i.0105
   %2 = load i64, ptr %add.ptr.i, align 8
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %arrayidx.i.i44.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -8803,33 +8803,33 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.lhs.true:                                    ; preds = %for.body
   %call5 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %not.call5 = xor i1 %call5, true
-  %.pre122.pre.pre = load ptr, ptr %mask, align 8
+  %.pre121.pre.pre = load ptr, ptr %mask, align 8
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %.pre122.pre = phi ptr [ %.pre122.pre125, %for.body ], [ %.pre122.pre.pre, %land.lhs.true ]
+  %.pre121.pre = phi ptr [ %.pre121.pre124, %for.body ], [ %.pre121.pre.pre, %land.lhs.true ]
   %fail.0 = phi i1 [ false, %for.body ], [ %not.call5, %land.lhs.true ]
   %10 = load i32, ptr %maxHistoryAvailable, align 8
   %add = add i32 %10, 1
   %conv = zext i32 %add to i64
-  %cmp9.not = icmp uge i64 %i.0106, %conv
+  %cmp9.not = icmp uge i64 %i.0105, %conv
   %fail.0.not = xor i1 %fail.0, true
   %not.brmerge = and i1 %streaming, %fail.0.not
   %11 = select i1 %not.brmerge, i1 %cmp9.not, i1 false
-  %tobool14 = or i1 %11, %fail.0
+  %tobool14 = or i1 %fail.0, %11
   br i1 %tobool14, label %if.then37, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.end
-  br i1 %case_fixed.0110, label %land.lhs.true17, label %if.else
+  br i1 %case_fixed.0109, label %land.lhs.true17, label %if.else
 
 land.lhs.true17:                                  ; preds = %land.lhs.true15
-  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre122.pre, i64 %i.0106
+  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre121.pre, i64 %i.0105
   %call19 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i46)
   %12 = load ptr, ptr %mask, align 8
   br i1 %call19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %land.lhs.true17
-  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %12, i64 %i.0106
+  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %12, i64 %i.0105
   %13 = load i64, ptr %add.ptr.i47, align 8
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %arrayidx.i.i44.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 8
@@ -8844,7 +8844,7 @@ if.then20:                                        ; preds = %land.lhs.true17
   %19 = load i64, ptr %arrayidx.i.i46.i.i52, align 8
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %add21.i.i53 = add nuw nsw i64 %add15.i.i51, %20
-  br i1 %nocase.0109, label %if.end35, label %land.lhs.true29
+  br i1 %nocase.0108, label %if.end35, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.then20
   %cmp32.not.not = icmp eq i64 %add21.i.i53, 1
@@ -8855,25 +8855,25 @@ if.end35:                                         ; preds = %if.then20
   br i1 %cmp25.not.not, label %if.else, label %if.then37
 
 if.then37:                                        ; preds = %land.lhs.true29, %if.end, %if.end35
-  %.pre122.pre127 = phi ptr [ %.pre122.pre, %if.end ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ]
-  %sub = sub i64 %i.0106, %begin.0104
-  %cmp38 = icmp ugt i64 %sub, %best_len.0103
-  %best_len.1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %best_len.0103)
-  %best_end.1 = select i1 %cmp38, i64 %i.0106, i64 %best_end.0107
-  %best_begin.1 = select i1 %cmp38, i64 %begin.0104, i64 %best_begin.0108
-  %add43 = add nuw i64 %i.0106, 1
+  %.pre121.pre126 = phi ptr [ %.pre121.pre, %if.end ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ]
+  %sub = sub i64 %i.0105, %begin.0103
+  %cmp38 = icmp ugt i64 %sub, %best_len.0102
+  %best_len.1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %best_len.0102)
+  %best_end.1 = select i1 %cmp38, i64 %i.0105, i64 %best_end.0106
+  %best_begin.1 = select i1 %cmp38, i64 %begin.0103, i64 %best_begin.0107
+  %add43 = add nuw i64 %i.0105, 1
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true17, %land.lhs.true29, %land.lhs.true15, %if.end35
-  %21 = phi ptr [ %.pre122.pre, %land.lhs.true15 ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ], [ %12, %land.lhs.true17 ]
-  %add45 = add nuw i64 %i.0106, 1
-  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %21, i64 %i.0106
+  %21 = phi ptr [ %.pre121.pre, %land.lhs.true15 ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ], [ %12, %land.lhs.true17 ]
+  %add45 = add nuw i64 %i.0105, 1
+  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %21, i64 %i.0105
   %call47 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i61)
-  %.pre123 = load ptr, ptr %mask, align 8
+  %.pre122 = load ptr, ptr %mask, align 8
   br i1 %call47, label %if.then48, label %for.inc
 
 if.then48:                                        ; preds = %if.else
-  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre123, i64 %i.0106
+  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre122, i64 %i.0105
   %22 = load i64, ptr %add.ptr.i62, align 8
   %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %arrayidx.i.i44.i.i63 = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 8
@@ -8892,17 +8892,17 @@ if.then48:                                        ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then37, %if.then48, %if.else
-  %.pre122.pre126 = phi ptr [ %.pre122.pre127, %if.then37 ], [ %.pre123, %if.then48 ], [ %.pre123, %if.else ]
-  %best_len.2 = phi i64 [ %best_len.1, %if.then37 ], [ %best_len.0103, %if.then48 ], [ %best_len.0103, %if.else ]
-  %begin.1 = phi i64 [ %add43, %if.then37 ], [ %begin.0104, %if.then48 ], [ %begin.0104, %if.else ]
+  %.pre121.pre125 = phi ptr [ %.pre121.pre126, %if.then37 ], [ %.pre122, %if.then48 ], [ %.pre122, %if.else ]
+  %best_len.2 = phi i64 [ %best_len.1, %if.then37 ], [ %best_len.0102, %if.then48 ], [ %best_len.0102, %if.else ]
+  %begin.1 = phi i64 [ %add43, %if.then37 ], [ %begin.0103, %if.then48 ], [ %begin.0103, %if.else ]
   %end.1 = phi i64 [ %add43, %if.then37 ], [ %add45, %if.then48 ], [ %add45, %if.else ]
-  %best_end.2 = phi i64 [ %best_end.1, %if.then37 ], [ %best_end.0107, %if.then48 ], [ %best_end.0107, %if.else ]
-  %best_begin.2 = phi i64 [ %best_begin.1, %if.then37 ], [ %best_begin.0108, %if.then48 ], [ %best_begin.0108, %if.else ]
-  %nocase.1 = phi i1 [ false, %if.then37 ], [ %cmp51, %if.then48 ], [ %nocase.0109, %if.else ]
-  %case_fixed.1 = phi i1 [ false, %if.then37 ], [ true, %if.then48 ], [ %case_fixed.0110, %if.else ]
+  %best_end.2 = phi i64 [ %best_end.1, %if.then37 ], [ %best_end.0106, %if.then48 ], [ %best_end.0106, %if.else ]
+  %best_begin.2 = phi i64 [ %best_begin.1, %if.then37 ], [ %best_begin.0107, %if.then48 ], [ %best_begin.0107, %if.else ]
+  %nocase.1 = phi i1 [ false, %if.then37 ], [ %cmp51, %if.then48 ], [ %nocase.0108, %if.else ]
+  %case_fixed.1 = phi i1 [ false, %if.then37 ], [ true, %if.then48 ], [ %case_fixed.0109, %if.else ]
   %30 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre122.pre126 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre121.pre125 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp = icmp ult i64 %end.1, %sub.ptr.div.i
@@ -8920,17 +8920,17 @@ for.end:                                          ; preds = %for.inc, %entry
   %sub60 = sub i64 %sub.ptr.div.i.lcssa, %end.0.lcssa
   %sub60.fr = freeze i64 %sub60
   %cmp61 = icmp ult i64 %sub60.fr, 32
-  %spec.select94 = select i1 %cmp61, i64 %end.0.lcssa, i64 %best_end.0.lcssa
-  %spec.select95 = select i1 %cmp61, i64 %begin.0.lcssa, i64 %best_begin.0.lcssa
-  %31 = select i1 %cmp58.not, i64 %best_end.0.lcssa, i64 %spec.select94
-  %32 = select i1 %cmp58.not, i64 %best_begin.0.lcssa, i64 %spec.select95
-  %cmp68116 = icmp ult i64 %32, %31
-  br i1 %cmp68116, label %for.body69, label %for.end78
+  %spec.select = select i1 %cmp61, i64 %end.0.lcssa, i64 %best_end.0.lcssa
+  %spec.select94 = select i1 %cmp61, i64 %begin.0.lcssa, i64 %best_begin.0.lcssa
+  %31 = select i1 %cmp58.not, i64 %best_end.0.lcssa, i64 %spec.select
+  %32 = select i1 %cmp58.not, i64 %best_begin.0.lcssa, i64 %spec.select94
+  %cmp68115 = icmp ult i64 %32, %31
+  br i1 %cmp68115, label %for.body69, label %for.end78
 
 for.body69:                                       ; preds = %for.end, %_ZNK3ue29CharReach10find_firstEv.exit
-  %i66.0117 = phi i64 [ %inc77, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %32, %for.end ]
+  %i66.0116 = phi i64 [ %inc77, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %32, %for.end ]
   %33 = load ptr, ptr %mask, align 8
-  %add.ptr.i74 = getelementptr inbounds %"class.ue2::CharReach", ptr %33, i64 %i66.0117
+  %add.ptr.i74 = getelementptr inbounds %"class.ue2::CharReach", ptr %33, i64 %i66.0116
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body69
@@ -8970,7 +8970,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.th
   %add21.i.i81 = add nuw nsw i64 %add15.i.i79, %44
   %cmp75 = icmp samesign ugt i64 %add21.i.i81, 1
   tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %lit, i8 noundef signext %retval.0.i.i, i1 noundef zeroext %cmp75)
-  %inc77 = add nuw i64 %i66.0117, 1
+  %inc77 = add nuw i64 %i66.0116, 1
   %exitcond.not = icmp eq i64 %inc77, %31
   br i1 %exitcond.not, label %for.end78, label %for.body69, !llvm.loop !285
 

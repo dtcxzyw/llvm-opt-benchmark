@@ -36291,8 +36291,7 @@ invoke.cont74:                                    ; preds = %invoke.cont27
 
 cleanup.thread:                                   ; preds = %invoke.cont74
   %set.i138 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
-  %frombool.i = and i8 %7, 1
-  store i8 %frombool.i, ptr %set.i138, align 8
+  store i8 1, ptr %set.i138, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ss, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %medium3.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 72
@@ -36996,8 +36995,7 @@ invoke.cont60:                                    ; preds = %invoke.cont15
 
 cleanup.thread:                                   ; preds = %invoke.cont60
   %set.i105 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i105, align 8
+  store i8 1, ptr %set.i105, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ss, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %medium3.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 72
@@ -37382,8 +37380,7 @@ invoke.cont60:                                    ; preds = %invoke.cont15
 
 cleanup.thread:                                   ; preds = %invoke.cont60
   %set.i105 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i105, align 8
+  store i8 1, ptr %set.i105, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ss, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %medium3.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 72
@@ -37702,8 +37699,7 @@ invoke.cont80:                                    ; preds = %invoke.cont33
 
 cleanup.thread:                                   ; preds = %invoke.cont80
   %set.i166 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
-  %frombool.i = and i8 %10, 1
-  store i8 %frombool.i, ptr %set.i166, align 8
+  store i8 1, ptr %set.i166, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %ss, i64 72, i1 false)
   %medium.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %medium3.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 72

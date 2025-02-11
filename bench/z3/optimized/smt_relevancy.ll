@@ -1999,7 +1999,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool.i = and i8 %0, 1
   store i8 1, ptr %m_propagating, align 8
   %m_context.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_qhead = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2082,7 +2081,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %sw.bb, %s
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit54, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  store i8 %frombool.i, ptr %m_propagating, align 8
+  store i8 0, ptr %m_propagating, align 8
   resume { ptr, i32 } %lpad.phi
 
 sw.bb:                                            ; preds = %invoke.cont21
@@ -2264,7 +2263,7 @@ invoke.cont43:                                    ; preds = %while.body41
   br i1 %cmp40.not, label %while.cond.loopexit, label %while.body41, !llvm.loop !13
 
 while.end45:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %while.cond.loopexit, %if.end
-  store i8 %frombool.i, ptr %m_propagating, align 8
+  store i8 0, ptr %m_propagating, align 8
   br label %return
 
 return:                                           ; preds = %entry, %while.end45

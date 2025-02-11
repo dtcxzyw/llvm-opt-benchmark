@@ -27766,9 +27766,9 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   %31 = extractvalue { ptr, i64 } %27, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !6958
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbef4938395f72a6fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %31, i1 noundef zeroext false)
-          to label %.noexc107 unwind label %106
+          to label %.noexc105 unwind label %106
 
-.noexc107:                                        ; preds = %30
+.noexc105:                                        ; preds = %30
   %32 = load i64, ptr %3, align 8, !range !113, !noalias !6958, !noundef !5
   %trunc.i.i = trunc nuw i64 %32 to i1
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -27776,15 +27776,15 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %trunc.i.i, label %36, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h718c1e930af81f8aE.llvm.2317975020751253692.exit.i"
 
-36:                                               ; preds = %.noexc107
+36:                                               ; preds = %.noexc105
   %37 = load i64, ptr %35, align 8, !noalias !6958
   invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %34, i64 %37) #48
-          to label %.noexc108 unwind label %106
+          to label %.noexc106 unwind label %106
 
-.noexc108:                                        ; preds = %36
+.noexc106:                                        ; preds = %36
   unreachable
 
-"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h718c1e930af81f8aE.llvm.2317975020751253692.exit.i": ; preds = %.noexc107
+"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h718c1e930af81f8aE.llvm.2317975020751253692.exit.i": ; preds = %.noexc105
   %38 = load ptr, ptr %35, align 8, !noalias !6958, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !6958
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %28, i64 %31, i1 false), !noalias !6963
@@ -28029,7 +28029,7 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.693)
   %95 = icmp eq i64 %.sroa.086.0.copyload, -9223372036854775807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.591, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.612.sroa.7, i64 16, i1 false)
-  br i1 %95, label %.thread128, label %102
+  br i1 %95, label %.thread126, label %102
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -28043,7 +28043,7 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   %99 = icmp ne i32 %.sroa.530.0.copyload, 0
   br label %19
 
-100:                                              ; preds = %127, %124, %118, %108, %96
+100:                                              ; preds = %127, %124, %114, %108, %96
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
@@ -28051,9 +28051,9 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
 
 102:                                              ; preds = %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.693, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.612.sroa.8, i64 32, i1 false)
-  br label %.thread128
+  br label %.thread126
 
-.thread128:                                       ; preds = %94, %102
+.thread126:                                       ; preds = %94, %102
   %.sroa.089.0 = phi i64 [ %.sroa.086.0.copyload, %102 ], [ -9223372036854775806, %94 ]
   store i64 %.sroa.089.0, ptr %0, align 8
   %.sroa.591.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28100,7 +28100,7 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
           cleanup
   br label %.thread
 
-"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE.exit": ; preds = %109, %104, %.thread128, %"_ZN5x11rb6cursor15Cookie$LT$C$GT$12from_replies17hbae742cf19f424eeE.exit", %.thread133
+"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE.exit": ; preds = %109, %104, %.thread126, %"_ZN5x11rb6cursor15Cookie$LT$C$GT$12from_replies17hbae742cf19f424eeE.exit", %.thread133
   ret void
 
 108:                                              ; preds = %12
@@ -28120,32 +28120,32 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %113 = load i64, ptr %112, align 8, !alias.scope !6990, !noundef !5
   invoke void @"_ZN86_$LT$x11rb..xcb_ffi..XCBConnection$u20$as$u20$x11rb..connection..RequestConnection$GT$13discard_reply17hfa70aa7936a832d5E"(ptr noundef nonnull align 8 %10, i64 noundef %113, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %.thread133 unwind label %118
+          to label %.thread133 unwind label %114
+
+114:                                              ; preds = %111
+  %115 = landingpad { ptr, i32 }
+          cleanup
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %117 = load ptr, ptr %116, align 8, !alias.scope !6997, !nonnull !5, !align !79, !noundef !5
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %119 = load i64, ptr %118, align 8, !alias.scope !6997, !noundef !5
+  invoke void @"_ZN86_$LT$x11rb..xcb_ffi..XCBConnection$u20$as$u20$x11rb..connection..RequestConnection$GT$13discard_reply17hfa70aa7936a832d5E"(ptr noundef nonnull align 8 %117, i64 noundef %119, i1 noundef zeroext true, i1 noundef zeroext false)
+          to label %.critedge unwind label %100
 
 .thread133:                                       ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.experimental.noalias.scope.decl(metadata !6997)
-  call void @llvm.experimental.noalias.scope.decl(metadata !7000)
-  call void @llvm.experimental.noalias.scope.decl(metadata !7003)
-  %115 = load ptr, ptr %114, align 8, !alias.scope !7006, !nonnull !5, !align !79, !noundef !5
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %117 = load i64, ptr %116, align 8, !alias.scope !7006, !noundef !5
-  call void @"_ZN86_$LT$x11rb..xcb_ffi..XCBConnection$u20$as$u20$x11rb..connection..RequestConnection$GT$13discard_reply17hfa70aa7936a832d5E"(ptr noundef nonnull align 8 %115, i64 noundef %117, i1 noundef zeroext true, i1 noundef zeroext false), !noalias !7006
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  call void @llvm.experimental.noalias.scope.decl(metadata !7004)
+  call void @llvm.experimental.noalias.scope.decl(metadata !7007)
+  call void @llvm.experimental.noalias.scope.decl(metadata !7010)
+  %121 = load ptr, ptr %120, align 8, !alias.scope !7013, !nonnull !5, !align !79, !noundef !5
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %123 = load i64, ptr %122, align 8, !alias.scope !7013, !noundef !5
+  call void @"_ZN86_$LT$x11rb..xcb_ffi..XCBConnection$u20$as$u20$x11rb..connection..RequestConnection$GT$13discard_reply17hfa70aa7936a832d5E"(ptr noundef nonnull align 8 %121, i64 noundef %123, i1 noundef zeroext true, i1 noundef zeroext false), !noalias !7013
   br label %"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE.exit"
 
-.critedge:                                        ; preds = %108, %96, %127, %118, %.thread
-  %.pn105 = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %119, %118 ], [ %eh.lpad-body, %127 ], [ %97, %96 ], [ %lpad.thr_comm.split-lp, %108 ]
-  resume { ptr, i32 } %.pn105
-
-118:                                              ; preds = %111
-  %119 = landingpad { ptr, i32 }
-          cleanup
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %121 = load ptr, ptr %120, align 8, !alias.scope !7007, !nonnull !5, !align !79, !noundef !5
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %123 = load i64, ptr %122, align 8, !alias.scope !7007, !noundef !5
-  invoke void @"_ZN86_$LT$x11rb..xcb_ffi..XCBConnection$u20$as$u20$x11rb..connection..RequestConnection$GT$13discard_reply17hfa70aa7936a832d5E"(ptr noundef nonnull align 8 %121, i64 noundef %123, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %.critedge unwind label %100
+.critedge:                                        ; preds = %108, %96, %127, %114, %.thread
+  %eh.lpad-body.pn = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %115, %114 ], [ %eh.lpad-body, %127 ], [ %97, %96 ], [ %lpad.thr_comm.split-lp, %108 ]
+  resume { ptr, i32 } %eh.lpad-body.pn
 
 124:                                              ; preds = %.thread
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -203445,23 +203445,23 @@ attributes #52 = { noreturn nounwind }
 !6994 = distinct !{!6994, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161"}
 !6995 = distinct !{!6995, !6996, !"_ZN4core3ptr133drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryVersionReply$GT$$GT$17hccce81308bbf8ce2E: argument 0"}
 !6996 = distinct !{!6996, !"_ZN4core3ptr133drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryVersionReply$GT$$GT$17hccce81308bbf8ce2E"}
-!6997 = !{!6998}
-!6998 = distinct !{!6998, !6999, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE: argument 0"}
-!6999 = distinct !{!6999, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE"}
-!7000 = !{!7001}
-!7001 = distinct !{!7001, !7002, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161: argument 0"}
-!7002 = distinct !{!7002, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161"}
-!7003 = !{!7004}
-!7004 = distinct !{!7004, !7005, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161: argument 0"}
-!7005 = distinct !{!7005, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161"}
-!7006 = !{!7004, !7001, !6998}
-!7007 = !{!7008, !7010, !7012}
-!7008 = distinct !{!7008, !7009, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161: argument 0"}
-!7009 = distinct !{!7009, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161"}
-!7010 = distinct !{!7010, !7011, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161: argument 0"}
-!7011 = distinct !{!7011, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161"}
-!7012 = distinct !{!7012, !7013, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE: argument 0"}
-!7013 = distinct !{!7013, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE"}
+!6997 = !{!6998, !7000, !7002}
+!6998 = distinct !{!6998, !6999, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161: argument 0"}
+!6999 = distinct !{!6999, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161"}
+!7000 = distinct !{!7000, !7001, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161: argument 0"}
+!7001 = distinct !{!7001, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161"}
+!7002 = distinct !{!7002, !7003, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE: argument 0"}
+!7003 = distinct !{!7003, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE"}
+!7004 = !{!7005}
+!7005 = distinct !{!7005, !7006, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE: argument 0"}
+!7006 = distinct !{!7006, !"_ZN4core3ptr137drop_in_place$LT$x11rb..cookie..Cookie$LT$x11rb..xcb_ffi..XCBConnection$C$x11rb_protocol..protocol..render..QueryPictFormatsReply$GT$$GT$17h67069d5bfb01faeeE"}
+!7007 = !{!7008}
+!7008 = distinct !{!7008, !7009, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161: argument 0"}
+!7009 = distinct !{!7009, !"_ZN4core3ptr82drop_in_place$LT$x11rb..cookie..RawCookie$LT$x11rb..xcb_ffi..XCBConnection$GT$$GT$17h558b0652c6838a81E.llvm.10989238744551635161"}
+!7010 = !{!7011}
+!7011 = distinct !{!7011, !7012, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161: argument 0"}
+!7012 = distinct !{!7012, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161"}
+!7013 = !{!7011, !7008, !7005}
 !7014 = !{!7015, !7017, !7019}
 !7015 = distinct !{!7015, !7016, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161: argument 0"}
 !7016 = distinct !{!7016, !"_ZN75_$LT$x11rb..cookie..RawCookie$LT$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h014848fb7989f0b8E.llvm.10989238744551635161"}

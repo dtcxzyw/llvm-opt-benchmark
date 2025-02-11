@@ -23853,10 +23853,8 @@ _ZNK4llvm6APSInt10isNegativeEv.exit.i:            ; preds = %86
 
 107:                                              ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit.i, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #25
-  %.sroa.2.0.insert.ext.i36.i = zext nneg i8 %48 to i64
-  %.sroa.2.0.insert.shift.i37.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i36.i, 32
   %.sroa.0.0.insert.ext.i38.i = zext i32 %46 to i64
-  %.sroa.0.0.insert.insert.i39.i = or disjoint i64 %.sroa.2.0.insert.shift.i37.i, %.sroa.0.0.insert.ext.i38.i
+  %.sroa.0.0.insert.insert.i39.i = or disjoint i64 %.sroa.0.0.insert.ext.i38.i, 4294967296
   %108 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i39.i to i40
   store i40 %108, ptr %33, align 8
   call void @_ZNK5clang4ento10APSIntType7convertERKN4llvm6APSIntE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APSInt") align 8 %32, ptr noundef nonnull align 4 dereferenceable(5) %33, ptr noundef nonnull align 8 dereferenceable(13) %90) #27
@@ -23985,10 +23983,8 @@ _ZNK4llvm6APSInt10isNegativeEv.exit46.i:          ; preds = %147
 
 168:                                              ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit46.i, %_ZNK4llvm6APSInt10isNegativeEv.exit46.thread.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #25
-  %.sroa.2.0.insert.ext.i47.i = zext nneg i8 %54 to i64
-  %.sroa.2.0.insert.shift.i48.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i47.i, 32
   %.sroa.0.0.insert.ext.i49.i = zext i32 %52 to i64
-  %.sroa.0.0.insert.insert.i50.i = or disjoint i64 %.sroa.2.0.insert.shift.i48.i, %.sroa.0.0.insert.ext.i49.i
+  %.sroa.0.0.insert.insert.i50.i = or disjoint i64 %.sroa.0.0.insert.ext.i49.i, 4294967296
   %169 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i50.i to i40
   store i40 %169, ptr %35, align 8
   call void @_ZNK5clang4ento10APSIntType7convertERKN4llvm6APSIntE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APSInt") align 8 %34, ptr noundef nonnull align 4 dereferenceable(5) %35, ptr noundef nonnull align 8 dereferenceable(13) %151) #27

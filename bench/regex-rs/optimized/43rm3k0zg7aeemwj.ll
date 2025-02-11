@@ -2718,15 +2718,13 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %72 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %73 = load i64, ptr %72, align 8
   %trunc.i70 = trunc nuw i64 %.sroa.11.0.ph to i1
-  %74 = icmp ule i64 %73, %.sroa.15.0.ph
-  %spec.select.i72.not = select i1 %trunc.i70, i1 %74, i1 false
-  %.sroa.15.3 = select i1 %spec.select.i72.not, i64 %.sroa.15.0.ph, i64 %73
-  %.sroa.11.3 = select i1 %spec.select.i72.not, i64 %.sroa.11.0.ph, i64 1
+  %74 = tail call i64 @llvm.umax.i64(i64 %73, i64 %.sroa.15.0.ph)
+  %.sroa.15.3 = select i1 %trunc.i70, i64 %74, i64 %73
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %71, %68
   %.sroa.15.0.ph.be = phi i64 [ undef, %68 ], [ %.sroa.15.3, %71 ]
-  %.sroa.11.0.ph.be = phi i64 [ 0, %68 ], [ %.sroa.11.3, %71 ]
+  %.sroa.11.0.ph.be = phi i64 [ 0, %68 ], [ 1, %71 ]
   br label %.outer
 }
 
@@ -3403,6 +3401,9 @@ declare i32 @llvm.umin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -679,8 +679,7 @@ cleanup.thread:                                   ; preds = %do.end.i, %if.then7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %va.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vb.i)
   %set.i54 = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
-  %frombool.i = and i8 %24, 1
-  store i8 %frombool.i, ptr %set.i54, align 8
+  store i8 1, ptr %set.i54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %agg.result, ptr noundef nonnull align 8 dereferenceable(257) %si, i64 72, i1 false)
   %medium.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   store i64 %33, ptr %medium.i.i.i.i, align 8
@@ -861,7 +860,11 @@ entry:
   %set.i = getelementptr inbounds nuw i8, ptr %si, i64 256
   %3 = load i8, ptr %set.i, align 8
   %tobool.i = trunc i8 %3 to i1
-  br i1 %tobool.i, label %invoke.cont6, label %cleanup
+  br i1 %tobool.i, label %invoke.cont6, label %if.then
+
+if.then:                                          ; preds = %entry
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
+  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit12
 
 invoke.cont6:                                     ; preds = %entry
   %material = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -895,18 +898,17 @@ invoke.cont6:                                     ; preds = %entry
   store float %8, ptr %va.i, align 4
   store double 0.000000e+00, ptr %vb.i, align 8
   %cmp.i = fcmp ult float %8, 0.000000e+00
-  br i1 %cmp.i, label %if.then.i, label %cleanup.thread
+  br i1 %cmp.i, label %if.then.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
 
 if.then.i:                                        ; preds = %invoke.cont6
   call void @_ZN4pbrt8LogFatalIJRA18_KcRA3_S1_S3_RfS5_RdEEEvNS_8LogLevelEPS1_iS9_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef 223, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(18) @.str.25, ptr noundef nonnull align 1 dereferenceable(3) @.str.26, ptr noundef nonnull align 1 dereferenceable(18) @.str.25, ptr noundef nonnull align 4 dereferenceable(4) %va.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.26, ptr noundef nonnull align 8 dereferenceable(8) %vb.i) #16
   unreachable
 
-cleanup.thread:                                   ; preds = %invoke.cont6
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %va.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vb.i)
   %set.i6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
-  %frombool.i = and i8 %3, 1
-  store i8 %frombool.i, ptr %set.i6, align 8
+  store i8 1, ptr %set.i6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %agg.result, ptr noundef nonnull align 8 dereferenceable(257) %si, i64 72, i1 false)
   %medium.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   store i64 %5, ptr %medium.i.i.i.i, align 8
@@ -926,11 +928,7 @@ cleanup.thread:                                   ; preds = %invoke.cont6
   store float %9, ptr %tHit.i.i, align 8
   br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit12
 
-cleanup:                                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
-  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit12
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit12: ; preds = %cleanup, %cleanup.thread
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit12: ; preds = %if.then, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
   ret void
 }
 
@@ -1077,7 +1075,11 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
   %set.i = getelementptr inbounds nuw i8, ptr %si, i64 256
   %19 = load i8, ptr %set.i, align 8
   %tobool.i = trunc i8 %19 to i1
-  br i1 %tobool.i, label %invoke.cont2, label %cleanup
+  br i1 %tobool.i, label %invoke.cont2, label %if.then
+
+if.then:                                          ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
+  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit33
 
 invoke.cont2:                                     ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   %tHit = getelementptr inbounds nuw i8, ptr %si, i64 248
@@ -1146,16 +1148,15 @@ invoke.cont27:                                    ; preds = %invoke.cont9
   store float %28, ptr %va18, align 4
   store i32 0, ptr %vb29, align 4
   %cmp31 = fcmp ult float %28, 0.000000e+00
-  br i1 %cmp31, label %if.then32, label %cleanup.thread
+  br i1 %cmp31, label %if.then32, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
 
 if.then32:                                        ; preds = %invoke.cont27
   call void @_ZN4pbrt8LogFatalIJRA36_KcRA2_S1_S3_RfS5_RiEEEvNS_8LogLevelEPS1_iS9_DpOT_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(36) @.str.9, ptr noundef nonnull align 1 dereferenceable(2) @.str.10, ptr noundef nonnull align 1 dereferenceable(36) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %va18, ptr noundef nonnull align 1 dereferenceable(2) @.str.10, ptr noundef nonnull align 4 dereferenceable(4) %vb29) #16
   unreachable
 
-cleanup.thread:                                   ; preds = %invoke.cont27
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %invoke.cont27
   %set.i27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
-  %frombool.i = and i8 %22, 1
-  store i8 %frombool.i, ptr %set.i27, align 8
+  store i8 1, ptr %set.i27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, i64 72, i1 false)
   %medium.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   store i64 %23, ptr %medium.i.i.i.i, align 8
@@ -1172,11 +1173,7 @@ cleanup.thread:                                   ; preds = %invoke.cont27
   store float %29, ptr %tHit.i.i, align 8
   br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit33
 
-cleanup:                                          ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
-  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit33
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit33: ; preds = %cleanup, %cleanup.thread
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit33: ; preds = %if.then, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
   ret void
 }
 
@@ -1551,7 +1548,11 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
   %set.i = getelementptr inbounds nuw i8, ptr %si, i64 256
   %19 = load i8, ptr %set.i, align 8
   %tobool.i = trunc i8 %19 to i1
-  br i1 %tobool.i, label %invoke.cont2, label %cleanup
+  br i1 %tobool.i, label %invoke.cont2, label %if.then
+
+if.then:                                          ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
+  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit29
 
 invoke.cont2:                                     ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
   call void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr nonnull sret(%"class.pbrt::SurfaceInteraction") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %interpRenderFromPrimitive, ptr noundef nonnull align 8 dereferenceable(248) %si)
@@ -1604,16 +1605,15 @@ invoke.cont18:                                    ; preds = %invoke.cont2
   store float %26, ptr %va, align 4
   store i32 0, ptr %vb, align 4
   %cmp = fcmp ult float %26, 0.000000e+00
-  br i1 %cmp, label %if.then20, label %cleanup.thread
+  br i1 %cmp, label %if.then20, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
 
 if.then20:                                        ; preds = %invoke.cont18
   call void @_ZN4pbrt8LogFatalIJRA36_KcRA2_S1_S3_RfS5_RiEEEvNS_8LogLevelEPS1_iS9_DpOT_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(36) @.str.9, ptr noundef nonnull align 1 dereferenceable(2) @.str.10, ptr noundef nonnull align 1 dereferenceable(36) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %va, ptr noundef nonnull align 1 dereferenceable(2) @.str.10, ptr noundef nonnull align 4 dereferenceable(4) %vb) #16
   unreachable
 
-cleanup.thread:                                   ; preds = %invoke.cont18
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %invoke.cont18
   %set.i23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
-  %frombool.i = and i8 %20, 1
-  store i8 %frombool.i, ptr %set.i23, align 8
+  store i8 1, ptr %set.i23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, i64 72, i1 false)
   %medium.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   store i64 %21, ptr %medium.i.i.i.i, align 8
@@ -1631,11 +1631,7 @@ cleanup.thread:                                   ; preds = %invoke.cont18
   store float %27, ptr %tHit.i.i, align 8
   br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit29
 
-cleanup:                                          ; preds = %_ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %agg.result, i8 0, i64 264, i1 false)
-  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit29
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit29: ; preds = %cleanup, %cleanup.thread
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit29: ; preds = %if.then, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit
   ret void
 }
 

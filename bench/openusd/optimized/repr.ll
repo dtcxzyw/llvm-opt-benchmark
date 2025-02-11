@@ -373,25 +373,25 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelector4HashE
   %4 = and i64 %3, -8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.in.in.i.i.i.i = load ptr, ptr %6, align 8
-  %.in.i.i.i.i = ptrtoint ptr %.in.in.i.i.i.i to i64
-  %7 = and i64 %.in.i.i.i.i, -8
-  %8 = add i64 %7, %4
-  %9 = or disjoint i64 %8, 1
-  %10 = mul i64 %9, %8
-  %11 = lshr exact i64 %10, 1
-  %.in.in.i.i.i.i.i = load ptr, ptr %5, align 8
-  %.in.i.i.i.i.i = ptrtoint ptr %.in.in.i.i.i.i.i to i64
-  %12 = and i64 %.in.i.i.i.i.i, -8
-  %13 = add i64 %12, %7
-  %14 = add i64 %13, %11
-  %15 = or disjoint i64 %14, 1
-  %16 = mul i64 %15, %14
-  %17 = lshr exact i64 %16, 1
-  %18 = add i64 %17, %12
-  %19 = mul i64 %18, -7046029254386353067
-  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
-  ret i64 %20
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = and i64 %8, -8
+  %10 = add i64 %9, %4
+  %11 = or disjoint i64 %10, 1
+  %12 = mul i64 %11, %10
+  %13 = lshr exact i64 %12, 1
+  %14 = load ptr, ptr %5, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = and i64 %15, -8
+  %17 = add i64 %16, %9
+  %18 = add i64 %17, %13
+  %19 = or disjoint i64 %18, 1
+  %20 = mul i64 %19, %18
+  %21 = lshr exact i64 %20, 1
+  %22 = add i64 %21, %16
+  %23 = mul i64 %22, -7046029254386353067
+  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
+  ret i64 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

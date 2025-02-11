@@ -1930,8 +1930,7 @@ if.end39:                                         ; preds = %if.then37, %if.end3
 
 if.then42:                                        ; preds = %if.end39
   %packed_43 = getelementptr inbounds nuw i8, ptr %to_msg, i64 88
-  %frombool = and i8 %47, 1
-  store i8 %frombool, ptr %packed_43, align 8
+  store i8 1, ptr %packed_43, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end39

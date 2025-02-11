@@ -50023,17 +50023,17 @@ define hidden void @"_ZN11meilisearch12search_queue11SearchQueue3run28_$u7b$$u7b
   br i1 %.not23, label %15, label %29
 
 12:                                               ; preds = %29
-  br i1 %.not23, label %.thread86, label %13
+  br i1 %.not23, label %.thread66, label %13
 
 13:                                               ; preds = %12
   store i64 4, ptr %0, align 8
   br label %14
 
-.thread86:                                        ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit", %12
+.thread66:                                        ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit", %12
   store i64 5, ptr %0, align 8
   br label %14
 
-14:                                               ; preds = %26, %44, %.thread86, %13
+14:                                               ; preds = %26, %44, %.thread66, %13
   ret void
 
 15:                                               ; preds = %3
@@ -50146,7 +50146,7 @@ common.resume:                                    ; preds = %40, %23
   %43 = icmp eq i64 %42, 2
   %..i = select i1 %43, i8 3, i8 1
   store i8 %..i, ptr %8, align 8, !noalias !8142
-  br i1 %43, label %.thread86, label %44
+  br i1 %43, label %.thread66, label %44
 
 44:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit"
   %45 = extractvalue { i64, ptr } %39, 1

@@ -7205,8 +7205,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %result = getelementptr inbounds nuw i8, ptr %this, i64 80
   %set.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i2, align 8
+  store i8 1, ptr %set.i2, align 8
   %1 = load i64, ptr %result, align 8
   store i64 %1, ptr %agg.result, align 8
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #27
@@ -7459,8 +7458,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %result = getelementptr inbounds nuw i8, ptr %this, i64 80
   %set.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %frombool.i = and i8 %0, 1
-  store i8 %frombool.i, ptr %set.i2, align 8
+  store i8 1, ptr %set.i2, align 8
   %1 = load i64, ptr %result, align 8
   store i64 %1, ptr %agg.result, align 8
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex) #27

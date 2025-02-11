@@ -25200,7 +25200,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %14 = and i8 %13, -2
   %15 = or disjoint i8 %14, %12
   store i8 %15, ptr %11, align 8
-  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %64
+  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %62
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -25296,41 +25296,37 @@ _ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i: ; pred
 
 .critedge:                                        ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = and i8 %25, 1
-  %61 = load i8, ptr %59, align 8
-  %62 = and i8 %61, -2
-  %63 = or disjoint i8 %62, %60
-  store i8 %63, ptr %59, align 8
-  br label %64
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, -2
+  store i8 %61, ptr %59, align 8
+  br label %62
 
-64:                                               ; preds = %.critedge, %.thread
-  %65 = load ptr, ptr %6, align 8, !tbaa !2678
-  store ptr %65, ptr %0, align 8, !tbaa !2678
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !2681
-  store ptr %68, ptr %66, align 8, !tbaa !2681
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !2682
-  store ptr %71, ptr %69, align 8, !tbaa !2682
+62:                                               ; preds = %.critedge, %.thread
+  %63 = load ptr, ptr %6, align 8, !tbaa !2678
+  store ptr %63, ptr %0, align 8, !tbaa !2678
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !2681
+  store ptr %66, ptr %64, align 8, !tbaa !2681
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !2682
+  store ptr %69, ptr %67, align 8, !tbaa !2682
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split: ; preds = %37, %39, %_ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i, %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = and i8 %25, 1
-  %74 = load i8, ptr %72, align 8
-  %75 = and i8 %74, -2
-  %76 = or disjoint i8 %75, %73
-  store i8 %76, ptr %72, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i8, ptr %70, align 8
+  %72 = or i8 %71, 1
+  store i8 %72, ptr %70, align 8
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split, %.thread
-  %77 = load i64, ptr %6, align 8, !tbaa !15
-  store i64 %77, ptr %0, align 8, !tbaa !15
+  %73 = load i64, ptr %6, align 8, !tbaa !15
+  store i64 %73, ptr %0, align 8, !tbaa !15
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %64, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %62, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
   ret void
 }
@@ -48055,7 +48051,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %14 = and i8 %13, -2
   %15 = or disjoint i8 %14, %12
   store i8 %15, ptr %11, align 8
-  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %64
+  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %62
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -48151,41 +48147,37 @@ _ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i: ; pred
 
 .critedge:                                        ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = and i8 %25, 1
-  %61 = load i8, ptr %59, align 8
-  %62 = and i8 %61, -2
-  %63 = or disjoint i8 %62, %60
-  store i8 %63, ptr %59, align 8
-  br label %64
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, -2
+  store i8 %61, ptr %59, align 8
+  br label %62
 
-64:                                               ; preds = %.critedge, %.thread
-  %65 = load ptr, ptr %6, align 8, !tbaa !2678
-  store ptr %65, ptr %0, align 8, !tbaa !2678
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !2681
-  store ptr %68, ptr %66, align 8, !tbaa !2681
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !2682
-  store ptr %71, ptr %69, align 8, !tbaa !2682
+62:                                               ; preds = %.critedge, %.thread
+  %63 = load ptr, ptr %6, align 8, !tbaa !2678
+  store ptr %63, ptr %0, align 8, !tbaa !2678
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !2681
+  store ptr %66, ptr %64, align 8, !tbaa !2681
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !2682
+  store ptr %69, ptr %67, align 8, !tbaa !2682
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split: ; preds = %37, %39, %_ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i, %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = and i8 %25, 1
-  %74 = load i8, ptr %72, align 8
-  %75 = and i8 %74, -2
-  %76 = or disjoint i8 %75, %73
-  store i8 %76, ptr %72, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i8, ptr %70, align 8
+  %72 = or i8 %71, 1
+  store i8 %72, ptr %70, align 8
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split, %.thread
-  %77 = load i64, ptr %6, align 8, !tbaa !15
-  store i64 %77, ptr %0, align 8, !tbaa !15
+  %73 = load i64, ptr %6, align 8, !tbaa !15
+  store i64 %73, ptr %0, align 8, !tbaa !15
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %64, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %62, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
   ret void
 }
@@ -71781,7 +71773,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %14 = and i8 %13, -2
   %15 = or disjoint i8 %14, %12
   store i8 %15, ptr %11, align 8
-  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %64
+  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %62
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -71877,41 +71869,37 @@ _ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i: ; pred
 
 .critedge:                                        ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = and i8 %25, 1
-  %61 = load i8, ptr %59, align 8
-  %62 = and i8 %61, -2
-  %63 = or disjoint i8 %62, %60
-  store i8 %63, ptr %59, align 8
-  br label %64
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, -2
+  store i8 %61, ptr %59, align 8
+  br label %62
 
-64:                                               ; preds = %.critedge, %.thread
-  %65 = load ptr, ptr %6, align 8, !tbaa !2678
-  store ptr %65, ptr %0, align 8, !tbaa !2678
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !2681
-  store ptr %68, ptr %66, align 8, !tbaa !2681
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !2682
-  store ptr %71, ptr %69, align 8, !tbaa !2682
+62:                                               ; preds = %.critedge, %.thread
+  %63 = load ptr, ptr %6, align 8, !tbaa !2678
+  store ptr %63, ptr %0, align 8, !tbaa !2678
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !2681
+  store ptr %66, ptr %64, align 8, !tbaa !2681
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !2682
+  store ptr %69, ptr %67, align 8, !tbaa !2682
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split: ; preds = %37, %39, %_ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i, %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = and i8 %25, 1
-  %74 = load i8, ptr %72, align 8
-  %75 = and i8 %74, -2
-  %76 = or disjoint i8 %75, %73
-  store i8 %76, ptr %72, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i8, ptr %70, align 8
+  %72 = or i8 %71, 1
+  store i8 %72, ptr %70, align 8
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split, %.thread
-  %77 = load i64, ptr %6, align 8, !tbaa !15
-  store i64 %77, ptr %0, align 8, !tbaa !15
+  %73 = load i64, ptr %6, align 8, !tbaa !15
+  store i64 %73, ptr %0, align 8, !tbaa !15
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %64, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %62, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
   ret void
 }
@@ -95520,7 +95508,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %14 = and i8 %13, -2
   %15 = or disjoint i8 %14, %12
   store i8 %15, ptr %11, align 8
-  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %64
+  br i1 %10, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %62
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -95616,41 +95604,37 @@ _ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i: ; pred
 
 .critedge:                                        ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = and i8 %25, 1
-  %61 = load i8, ptr %59, align 8
-  %62 = and i8 %61, -2
-  %63 = or disjoint i8 %62, %60
-  store i8 %63, ptr %59, align 8
-  br label %64
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, -2
+  store i8 %61, ptr %59, align 8
+  br label %62
 
-64:                                               ; preds = %.critedge, %.thread
-  %65 = load ptr, ptr %6, align 8, !tbaa !2678
-  store ptr %65, ptr %0, align 8, !tbaa !2678
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !2681
-  store ptr %68, ptr %66, align 8, !tbaa !2681
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !2682
-  store ptr %71, ptr %69, align 8, !tbaa !2682
+62:                                               ; preds = %.critedge, %.thread
+  %63 = load ptr, ptr %6, align 8, !tbaa !2678
+  store ptr %63, ptr %0, align 8, !tbaa !2678
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !2681
+  store ptr %66, ptr %64, align 8, !tbaa !2681
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !2682
+  store ptr %69, ptr %67, align 8, !tbaa !2682
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split: ; preds = %37, %39, %_ZSt8_DestroyIPN4llvm6object14PGOAnalysisMapES2_EvT_S4_RSaIT0_E.exit.i.i, %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = and i8 %25, 1
-  %74 = load i8, ptr %72, align 8
-  %75 = and i8 %74, -2
-  %76 = or disjoint i8 %75, %73
-  store i8 %76, ptr %72, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i8, ptr %70, align 8
+  %72 = or i8 %71, 1
+  store i8 %72, ptr %70, align 8
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.sink.split, %.thread
-  %77 = load i64, ptr %6, align 8, !tbaa !15
-  store i64 %77, ptr %0, align 8, !tbaa !15
+  %73 = load i64, ptr %6, align 8, !tbaa !15
+  store i64 %73, ptr %0, align 8, !tbaa !15
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %64, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm8ExpectedISt6vectorINS_6object9BBAddrMapESaIS3_EEED2Ev.exit: ; preds = %62, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
   ret void
 }

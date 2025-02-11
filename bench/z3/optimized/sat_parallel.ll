@@ -1279,7 +1279,6 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %frombool.i = and i8 %1, 1
   store i8 1, ptr %m_par_syncing_clauses, align 8
   %m_mux = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
@@ -1522,7 +1521,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit36:   ; preds = %for.end, %if.end.i3
   %retval.0.i35 = phi i32 [ %34, %if.end.i33 ], [ 0, %for.end ]
   store i32 %retval.0.i35, ptr %limit, align 4
   %call1.i.i.i37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit36
@@ -1530,7 +1529,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad3 ], [ %13, %lpad ]
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   resume { ptr, i32 } %.pn
 }
 
@@ -1711,7 +1710,6 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %frombool.i = and i8 %1, 1
   store i8 1, ptr %m_par_syncing_clauses, align 8
   %call4 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %invoke.cont unwind label %lpad
@@ -1920,7 +1918,7 @@ if.then.i54:                                      ; preds = %invoke.cont61
 
 _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %invoke.cont61, %if.then.i54
   %call1.i.i.i55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %_ZN3sat8parallel11vector_pool14end_add_vectorEv.exit
@@ -1934,7 +1932,7 @@ lpad52:                                           ; preds = %invoke.cont50
 
 ehcleanup:                                        ; preds = %lpad52, %lpad
   %.pn = phi { ptr, i32 } [ %20, %lpad52 ], [ %7, %lpad ]
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   resume { ptr, i32 } %.pn
 }
 
@@ -1970,7 +1968,6 @@ lor.lhs.false3:                                   ; preds = %entry.lor.rhs_crit_
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %frombool.i = and i8 %4, 1
   store i8 1, ptr %m_par_syncing_clauses, align 8
   %5 = load i32, ptr %m_size.i.i, align 4
   %m_par_id = getelementptr inbounds nuw i8, ptr %s, i64 4120
@@ -2105,7 +2102,7 @@ if.then.i:                                        ; preds = %for.end
 
 _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %for.end, %if.then.i
   %call1.i.i.i17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   br label %return
 
 return:                                           ; preds = %entry.lor.rhs_crit_edge.i, %entry, %_ZNK3sat8parallel10enable_addERKNS_6clauseE.exit, %lor.lhs.false3, %_ZN3sat8parallel11vector_pool14end_add_vectorEv.exit
@@ -2113,7 +2110,7 @@ return:                                           ; preds = %entry.lor.rhs_crit_
 
 ehcleanup:                                        ; preds = %lpad38, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad38 ], [ %7, %lpad ]
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   resume { ptr, i32 } %.pn
 }
 
@@ -2142,7 +2139,6 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frombool.i = and i8 %0, 1
   store i8 1, ptr %m_par_syncing_clauses, align 8
   %m_mux = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
@@ -2162,7 +2158,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mux) #20
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont4
@@ -2181,7 +2177,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad ]
-  store i8 %frombool.i, ptr %m_par_syncing_clauses, align 8
+  store i8 0, ptr %m_par_syncing_clauses, align 8
   resume { ptr, i32 } %.pn
 }
 

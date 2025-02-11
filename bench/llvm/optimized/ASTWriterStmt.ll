@@ -29660,7 +29660,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 65:                                               ; preds = %56
-  %66 = lshr i8 %61, 1
+  %66 = lshr exact i8 %61, 1
   %67 = and i8 %66, 7
   switch i8 %67, label %87 [
     i8 3, label %68
@@ -31608,7 +31608,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 65:                                               ; preds = %56
-  %66 = lshr i8 %61, 1
+  %66 = lshr exact i8 %61, 1
   %67 = and i8 %66, 7
   switch i8 %67, label %87 [
     i8 3, label %68

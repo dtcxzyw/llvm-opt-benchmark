@@ -4332,7 +4332,7 @@ SetReindexProcessing.exit:                        ; preds = %138
   store i32 0, ptr @currentlyReindexedIndex, align 4
   %.0..0..0..0.25 = load volatile i8, ptr %8, align 1
   %146 = trunc i8 %.0..0..0..0.25 to i1
-  br i1 %146, label %191, label %147
+  br i1 %146, label %188, label %147
 
 147:                                              ; preds = %SetReindexProcessing.exit
   %148 = call ptr @table_open(i32 noundef 2610, i32 noundef 3) #11
@@ -4375,86 +4375,79 @@ SetReindexProcessing.exit:                        ; preds = %138
   %172 = getelementptr inbounds nuw i8, ptr %159, i64 19
   %173 = load i8, ptr %172, align 1
   %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %190
+  br i1 %174, label %175, label %187
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %122, i64 166
   %177 = load i8, ptr %176, align 2
   %178 = trunc i8 %177 to i1
-  br i1 %178, label %190, label %179
-
-179:                                              ; preds = %175
-  %180 = trunc i8 %177 to i1
-  br i1 %180, label %186, label %.sink.split
+  br i1 %178, label %187, label %.sink.split
 
 .thread:                                          ; preds = %167
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %122, i64 166
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %181 = trunc i8 %.pre to i1
-  br i1 %181, label %.thread114, label %.sink.split
+  %179 = trunc i8 %.pre to i1
+  br i1 %179, label %.thread114, label %.sink.split
 
 .thread113:                                       ; preds = %153, %163
-  %182 = getelementptr inbounds nuw i8, ptr %122, i64 166
-  %183 = load i8, ptr %182, align 2
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %.thread114, label %.sink.split
+  %180 = getelementptr inbounds nuw i8, ptr %122, i64 166
+  %181 = load i8, ptr %180, align 2
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %.thread114, label %.sink.split
 
 .thread114:                                       ; preds = %.thread, %.thread113
   br label %.sink.split
 
-.sink.split:                                      ; preds = %179, %.thread113, %.thread, %.thread114
-  %.sink = phi i8 [ 1, %.thread114 ], [ 0, %.thread ], [ 0, %.thread113 ], [ 0, %179 ]
-  %185 = getelementptr inbounds nuw i8, ptr %159, i64 19
-  store i8 %.sink, ptr %185, align 1
-  br label %186
-
-186:                                              ; preds = %179, %.sink.split
+.sink.split:                                      ; preds = %175, %.thread113, %.thread, %.thread114
+  %.sink = phi i8 [ 1, %.thread114 ], [ 0, %.thread ], [ 0, %.thread113 ], [ 0, %175 ]
+  %183 = getelementptr inbounds nuw i8, ptr %159, i64 19
+  store i8 %.sink, ptr %183, align 1
   store i8 1, ptr %160, align 2
-  %187 = getelementptr inbounds nuw i8, ptr %159, i64 20
-  store i8 1, ptr %187, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %159, i64 21
-  store i8 1, ptr %188, align 1
-  %189 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %148, ptr noundef nonnull %189, ptr noundef nonnull %149) #11
+  %184 = getelementptr inbounds nuw i8, ptr %159, i64 20
+  store i8 1, ptr %184, align 4
+  %185 = getelementptr inbounds nuw i8, ptr %159, i64 21
+  store i8 1, ptr %185, align 1
+  %186 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %148, ptr noundef nonnull %186, ptr noundef nonnull %149) #11
   call void @CacheInvalidateRelcache(ptr noundef nonnull %.091) #11
-  br label %190
+  br label %187
 
-190:                                              ; preds = %186, %175, %171
+187:                                              ; preds = %.sink.split, %175, %171
   call void @table_close(ptr noundef %148, i32 noundef 3) #11
-  br label %191
+  br label %188
 
-191:                                              ; preds = %190, %SetReindexProcessing.exit
-  %192 = load i32, ptr %4, align 4
-  %193 = and i32 %192, 1
-  %.not107 = icmp eq i32 %193, 0
-  br i1 %.not107, label %201, label %194
+188:                                              ; preds = %187, %SetReindexProcessing.exit
+  %189 = load i32, ptr %4, align 4
+  %190 = and i32 %189, 1
+  %.not107 = icmp eq i32 %190, 0
+  br i1 %.not107, label %198, label %191
 
-194:                                              ; preds = %191
-  %195 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #11
-  br i1 %195, label %196, label %201
+191:                                              ; preds = %188
+  %192 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #11
+  br i1 %192, label %193, label %198
 
-196:                                              ; preds = %194
-  %197 = call ptr @get_rel_name(i32 noundef %1) #11
-  %198 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %197) #11
-  %199 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #11
-  %200 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.45, ptr noundef %199) #11
+193:                                              ; preds = %191
+  %194 = call ptr @get_rel_name(i32 noundef %1) #11
+  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %194) #11
+  %196 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #11
+  %197 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.45, ptr noundef %196) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3861, ptr noundef nonnull @__func__.reindex_index) #11
-  br label %201
+  br label %198
 
-201:                                              ; preds = %196, %194, %191
+198:                                              ; preds = %193, %191, %188
   call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %45) #11
-  %202 = load i32, ptr %6, align 4
-  %203 = load i32, ptr %7, align 4
-  call void @SetUserIdAndSecContext(i32 noundef %202, i32 noundef %203) #11
+  %199 = load i32, ptr %6, align 4
+  %200 = load i32, ptr %7, align 4
+  call void @SetUserIdAndSecContext(i32 noundef %199, i32 noundef %200) #11
   call void @index_close(ptr noundef nonnull %.0, i32 noundef 0) #11
   call void @table_close(ptr noundef nonnull %.091, i32 noundef 0) #11
-  br i1 %.not, label %IndexGetRelation.exit.thread, label %204
+  br i1 %.not, label %IndexGetRelation.exit.thread, label %201
 
-204:                                              ; preds = %201
+201:                                              ; preds = %198
   call void @pgstat_progress_end_command() #11
   br label %IndexGetRelation.exit.thread
 
-IndexGetRelation.exit.thread:                     ; preds = %17, %37, %IndexGetRelation.exit, %204, %201, %56
+IndexGetRelation.exit.thread:                     ; preds = %17, %37, %IndexGetRelation.exit, %201, %198, %56
   ret void
 }
 

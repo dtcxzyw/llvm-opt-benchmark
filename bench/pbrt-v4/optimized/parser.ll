@@ -4125,7 +4125,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i:  ; preds = %_ZN4pstd8optionalIN
   %21 = phi i8 [ 0, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i ], [ %20, %invoke.cont27 ]
   %22 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %22 to i1
-  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread, label %invoke.cont29
+  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %tok, ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp25, i64 40, i1 false)
@@ -4133,15 +4133,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.thread: ; preds = %_ZN4pstd8optionalIN
   store i8 0, ptr %set.i3.i, align 8
   br label %invoke.cont34
 
-invoke.cont29:                                    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
-  %tobool.i.i66 = trunc i8 %22 to i1
-  br i1 %tobool.i.i66, label %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i67, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i67: ; preds = %invoke.cont29
-  store i8 0, ptr %set.i3.i, align 8
-  br label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit:        ; preds = %invoke.cont29, %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i67
+_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit:        ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEE5resetEv.exit.i
   %tobool.i = trunc i8 %21 to i1
   br i1 %tobool.i, label %invoke.cont34, label %for.cond1365.preheader
 
@@ -30802,8 +30794,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.i.i.i:  ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %set.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  %frombool.i.i.i.i.i.i = and i8 %1, 1
-  store i8 %frombool.i.i.i.i.i.i, ptr %set.i.i.i.i.i.i, align 8, !alias.scope !321
+  store i8 1, ptr %set.i.i.i.i.i.i, align 8, !alias.scope !321
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %agg.result, ptr noundef nonnull align 8 dereferenceable(41) %0, i64 40, i1 false)
   store i8 0, ptr %set.i.i.i.i, align 8, !noalias !321
   br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
@@ -31021,8 +31012,7 @@ if.end.i42.i.i.i:                                 ; preds = %if.end60.i.i.i
 
 _ZN4pstd8optionalIN4pbrt5TokenEEC2EOS3_.exit.i.i.i: ; preds = %invoke.cont39.i.i.i
   %set.i48.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  %frombool.i.i.i.i = and i8 %7, 1
-  store i8 %frombool.i.i.i.i, ptr %set.i48.i.i.i, align 8, !alias.scope !314
+  store i8 1, ptr %set.i48.i.i.i, align 8, !alias.scope !314
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %agg.result, ptr noundef nonnull align 8 dereferenceable(41) %tok.i.i.i, i64 40, i1 false)
   br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 

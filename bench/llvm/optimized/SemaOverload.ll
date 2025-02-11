@@ -15730,7 +15730,6 @@ _ZL38IsInitializerListConstructorConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeE
   %178 = zext i32 %.2141.ph to i64
   %179 = icmp eq i32 %5, 2
   %brmerge = select i1 %176, i1 true, i1 %177
-  %.mux = select i1 %176, i8 %175, i8 0
   br label %180
 
 180:                                              ; preds = %.lr.ph409, %_ZN5clang12DeclListNode8iteratorppEv.exit
@@ -15933,7 +15932,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i: ; preds = %_ZNK5clang13Refere
   br label %_ZL33isFirstArgumentCompatibleWithTypeRN5clang10ASTContextEPNS_18CXXConstructorDeclENS_8QualTypeE.exit
 
 _ZL33isFirstArgumentCompatibleWithTypeRN5clang10ASTContextEPNS_18CXXConstructorDeclENS_8QualTypeE.exit: ; preds = %210, %207, %271, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i, %211
-  %.0155 = phi i8 [ %.mux, %210 ], [ 0, %211 ], [ 0, %271 ], [ 1, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i ], [ %175, %207 ]
+  %.0155 = phi i8 [ 0, %210 ], [ 0, %211 ], [ 0, %271 ], [ 1, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i ], [ %175, %207 ]
   %272 = trunc nuw i8 %.0155 to i1
   br i1 %.not.i192, label %274, label %273
 

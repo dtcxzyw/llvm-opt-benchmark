@@ -113,33 +113,33 @@ define linkonce_odr noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashcl
   %27 = and i64 %26, -8
   %28 = load i8, ptr %4, align 8
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_7TfTokenEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_14HdBufferSourceEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit
+  br i1 %29, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_14HdBufferSourceEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_7TfTokenEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i: ; preds = %2
-  %30 = load i64, ptr %3, align 8
-  %31 = add i64 %30, %27
-  %32 = add i64 %31, 1
-  %33 = mul i64 %32, %31
-  %34 = lshr i64 %33, 1
-  %35 = add i64 %34, %27
+30:                                               ; preds = %2
+  %31 = load i64, ptr %3, align 8
+  %32 = add i64 %31, %27
+  %33 = add i64 %32, 1
+  %34 = mul i64 %33, %32
+  %35 = lshr i64 %34, 1
+  %36 = add i64 %35, %27
   br label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_14HdBufferSourceEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_14HdBufferSourceEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_7TfTokenEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i
-  %.sink.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i = phi i64 [ %35, %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_7TfTokenEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i ], [ %27, %2 ]
-  %36 = sext i32 %9 to i64
-  %37 = add i64 %.sink.i.i.i.i.i.i.i.i.i.i.i4.i.i.i.i, %36
-  %38 = add i64 %37, 1
-  %39 = mul i64 %38, %37
-  %40 = lshr i64 %39, 1
-  %41 = add i64 %10, %36
-  %42 = add i64 %41, %40
-  %43 = add i64 %42, 1
-  %44 = mul i64 %43, %42
-  %45 = lshr i64 %44, 1
-  %46 = add i64 %45, %10
-  %47 = mul i64 %46, -7046029254386353067
-  %48 = call noundef i64 @llvm.bswap.i64(i64 %47)
-  ret i64 %48
+_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_14HdBufferSourceEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit: ; preds = %2, %30
+  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %36, %30 ], [ %27, %2 ]
+  %37 = sext i32 %9 to i64
+  %38 = add i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %37
+  %39 = add i64 %38, 1
+  %40 = mul i64 %39, %38
+  %41 = lshr i64 %40, 1
+  %42 = add i64 %10, %37
+  %43 = add i64 %42, %41
+  %44 = add i64 %43, 1
+  %45 = mul i64 %44, %43
+  %46 = lshr i64 %45, 1
+  %47 = add i64 %46, %10
+  %48 = mul i64 %47, -7046029254386353067
+  %49 = call noundef i64 @llvm.bswap.i64(i64 %48)
+  ret i64 %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -221,382 +221,362 @@ p_isnotalnum.exit:                                ; preds = %p_isalnum.exit, %14
 
 25:                                               ; preds = %p_isnotalnum.exit
   %.not.i3 = icmp eq ptr %.pre45, null
-  br i1 %.not.i3, label %27, label %p_isalpha.exit.thread
+  br i1 %.not.i3, label %26, label %p_isnotalpha.exit
 
-p_isalpha.exit.thread:                            ; preds = %25
-  %26 = trunc i8 %23 to i1
-  tail call void @llvm.assume(i1 %26)
-  br label %p_isnotalpha.exit
-
-27:                                               ; preds = %25
-  %28 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %29 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %28, i64 %32
-  %34 = load i32, ptr %33, align 4
-  %35 = tail call i32 @iswalpha(i32 noundef %34) #16
+26:                                               ; preds = %25
+  %27 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %28 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr i32, ptr %27, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = tail call i32 @iswalpha(i32 noundef %33) #16
   %.pre43 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre44 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isalpha.exit
 
-p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit, %27
-  %36 = phi ptr [ %.pre45, %p_isnotalnum.exit ], [ %.pre44, %27 ]
-  %37 = phi i8 [ %23, %p_isnotalnum.exit ], [ %.pre43, %27 ]
-  %38 = trunc i8 %37 to i1
-  tail call void @llvm.assume(i1 %38)
-  %.not.i.i4 = icmp eq ptr %36, null
-  br i1 %.not.i.i4, label %39, label %p_isnotalpha.exit
+p_isalpha.exit:                                   ; preds = %p_isnotalnum.exit, %26
+  %35 = phi ptr [ %.pre45, %p_isnotalnum.exit ], [ %.pre44, %26 ]
+  %36 = phi i8 [ %23, %p_isnotalnum.exit ], [ %.pre43, %26 ]
+  %37 = trunc i8 %36 to i1
+  tail call void @llvm.assume(i1 %37)
+  %.not.i.i4 = icmp eq ptr %35, null
+  br i1 %.not.i.i4, label %38, label %p_isnotalpha.exit
 
-39:                                               ; preds = %p_isalpha.exit
-  %40 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %41 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr i32, ptr %40, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @iswalpha(i32 noundef %46) #16
+38:                                               ; preds = %p_isalpha.exit
+  %39 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %40 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr i32, ptr %39, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call i32 @iswalpha(i32 noundef %45) #16
   %.pre46 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre49.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isnotalpha.exit
 
-p_isnotalpha.exit:                                ; preds = %p_isalpha.exit.thread, %p_isalpha.exit, %39
-  %.pre49 = phi ptr [ %36, %p_isalpha.exit ], [ %.pre49.pre, %39 ], [ %.pre45, %p_isalpha.exit.thread ]
-  %48 = phi i8 [ %37, %p_isalpha.exit ], [ %.pre46, %39 ], [ %23, %p_isalpha.exit.thread ]
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %p_isdigit.exit
+p_isnotalpha.exit:                                ; preds = %25, %p_isalpha.exit, %38
+  %.pre49 = phi ptr [ %35, %p_isalpha.exit ], [ %.pre49.pre, %38 ], [ %.pre45, %25 ]
+  %47 = phi i8 [ %36, %p_isalpha.exit ], [ %.pre46, %38 ], [ %23, %25 ]
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %p_isdigit.exit
 
-50:                                               ; preds = %p_isnotalpha.exit
+49:                                               ; preds = %p_isnotalpha.exit
   %.not.i8 = icmp eq ptr %.pre49, null
-  br i1 %.not.i8, label %52, label %p_isdigit.exit.thread
+  br i1 %.not.i8, label %50, label %p_isnotdigit.exit.thread
 
-p_isdigit.exit.thread:                            ; preds = %50
-  %51 = trunc i8 %48 to i1
-  tail call void @llvm.assume(i1 %51)
-  br label %p_isnotdigit.exit.thread
-
-52:                                               ; preds = %50
-  %53 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %54 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr i32, ptr %53, i64 %57
-  %59 = load i32, ptr %58, align 4
-  %60 = tail call i32 @iswdigit(i32 noundef %59) #16
+50:                                               ; preds = %49
+  %51 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %52 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr i32, ptr %51, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call i32 @iswdigit(i32 noundef %57) #16
   %.pre47 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre48 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isdigit.exit
 
-p_isdigit.exit:                                   ; preds = %p_isnotalpha.exit, %52
-  %61 = phi ptr [ %.pre49, %p_isnotalpha.exit ], [ %.pre48, %52 ]
-  %62 = phi i8 [ %48, %p_isnotalpha.exit ], [ %.pre47, %52 ]
-  %63 = trunc i8 %62 to i1
-  tail call void @llvm.assume(i1 %63)
-  %.not.i.i9 = icmp eq ptr %61, null
+p_isdigit.exit:                                   ; preds = %p_isnotalpha.exit, %50
+  %59 = phi ptr [ %.pre49, %p_isnotalpha.exit ], [ %.pre48, %50 ]
+  %60 = phi i8 [ %47, %p_isnotalpha.exit ], [ %.pre47, %50 ]
+  %61 = trunc i8 %60 to i1
+  tail call void @llvm.assume(i1 %61)
+  %.not.i.i9 = icmp eq ptr %59, null
   br i1 %.not.i.i9, label %p_isnotdigit.exit, label %p_isnotdigit.exit.thread
 
-p_isnotdigit.exit.thread:                         ; preds = %p_isdigit.exit, %p_isdigit.exit.thread
-  %.ph = phi ptr [ %.pre49, %p_isdigit.exit.thread ], [ %61, %p_isdigit.exit ]
-  %.ph83 = phi i8 [ %48, %p_isdigit.exit.thread ], [ %62, %p_isdigit.exit ]
-  %64 = trunc i8 %.ph83 to i1
-  tail call void @llvm.assume(i1 %64)
+p_isnotdigit.exit.thread:                         ; preds = %49, %p_isdigit.exit
+  %.ph = phi ptr [ %59, %p_isdigit.exit ], [ %.pre49, %49 ]
+  %.ph83 = phi i8 [ %60, %p_isdigit.exit ], [ %47, %49 ]
+  %62 = trunc i8 %.ph83 to i1
+  tail call void @llvm.assume(i1 %62)
   br label %p_islower.exit.thread
 
 p_isnotdigit.exit:                                ; preds = %p_isdigit.exit
-  %65 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %66 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr i32, ptr %65, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = tail call i32 @iswdigit(i32 noundef %71) #16
+  %63 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %64 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i32, ptr %63, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = tail call i32 @iswdigit(i32 noundef %69) #16
   %.pre50 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre51 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %73 = trunc i8 %.pre50 to i1
-  tail call void @llvm.assume(i1 %73)
+  %71 = trunc i8 %.pre50 to i1
+  tail call void @llvm.assume(i1 %71)
   %.not.i12 = icmp eq ptr %.pre51, null
   br i1 %.not.i12, label %p_islower.exit, label %p_islower.exit.thread
 
 p_islower.exit.thread:                            ; preds = %p_isnotdigit.exit, %p_isnotdigit.exit.thread
   %.ph85 = phi ptr [ %.ph, %p_isnotdigit.exit.thread ], [ %.pre51, %p_isnotdigit.exit ]
   %.ph86 = phi i8 [ %.ph83, %p_isnotdigit.exit.thread ], [ %.pre50, %p_isnotdigit.exit ]
-  %74 = trunc i8 %.ph86 to i1
-  tail call void @llvm.assume(i1 %74)
+  %72 = trunc i8 %.ph86 to i1
+  tail call void @llvm.assume(i1 %72)
   br label %p_isnotlower.exit.thread
 
 p_islower.exit:                                   ; preds = %p_isnotdigit.exit
-  %75 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %76 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr i32, ptr %75, i64 %79
-  %81 = load i32, ptr %80, align 4
-  %82 = tail call i32 @iswlower(i32 noundef %81) #16
+  %73 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %74 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr i32, ptr %73, i64 %77
+  %79 = load i32, ptr %78, align 4
+  %80 = tail call i32 @iswlower(i32 noundef %79) #16
   %.pre52 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre53 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %83 = trunc i8 %.pre52 to i1
-  tail call void @llvm.assume(i1 %83)
+  %81 = trunc i8 %.pre52 to i1
+  tail call void @llvm.assume(i1 %81)
   %.not.i.i14 = icmp eq ptr %.pre53, null
   br i1 %.not.i.i14, label %p_isnotlower.exit, label %p_isnotlower.exit.thread
 
 p_isnotlower.exit.thread:                         ; preds = %p_islower.exit, %p_islower.exit.thread
   %.ph88 = phi ptr [ %.ph85, %p_islower.exit.thread ], [ %.pre53, %p_islower.exit ]
   %.ph89 = phi i8 [ %.ph86, %p_islower.exit.thread ], [ %.pre52, %p_islower.exit ]
-  %84 = trunc i8 %.ph89 to i1
-  tail call void @llvm.assume(i1 %84)
+  %82 = trunc i8 %.ph89 to i1
+  tail call void @llvm.assume(i1 %82)
   br label %p_isprint.exit.thread
 
 p_isnotlower.exit:                                ; preds = %p_islower.exit
-  %85 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %86 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr i32, ptr %85, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = tail call i32 @iswlower(i32 noundef %91) #16
+  %83 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %84 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr i32, ptr %83, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = tail call i32 @iswlower(i32 noundef %89) #16
   %.pre54 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre55 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %93 = trunc i8 %.pre54 to i1
-  tail call void @llvm.assume(i1 %93)
+  %91 = trunc i8 %.pre54 to i1
+  tail call void @llvm.assume(i1 %91)
   %.not.i17 = icmp eq ptr %.pre55, null
   br i1 %.not.i17, label %p_isprint.exit, label %p_isprint.exit.thread
 
 p_isprint.exit.thread:                            ; preds = %p_isnotlower.exit, %p_isnotlower.exit.thread
   %.ph91 = phi ptr [ %.ph88, %p_isnotlower.exit.thread ], [ %.pre55, %p_isnotlower.exit ]
   %.ph92 = phi i8 [ %.ph89, %p_isnotlower.exit.thread ], [ %.pre54, %p_isnotlower.exit ]
-  %94 = trunc i8 %.ph92 to i1
-  tail call void @llvm.assume(i1 %94)
+  %92 = trunc i8 %.ph92 to i1
+  tail call void @llvm.assume(i1 %92)
   br label %p_isnotprint.exit.thread
 
 p_isprint.exit:                                   ; preds = %p_isnotlower.exit
-  %95 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %96 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %95, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = tail call i32 @iswprint(i32 noundef %101) #16
+  %93 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %94 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %96 = load i32, ptr %95, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr i32, ptr %93, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = tail call i32 @iswprint(i32 noundef %99) #16
   %.pre56 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre57 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %103 = trunc i8 %.pre56 to i1
-  tail call void @llvm.assume(i1 %103)
+  %101 = trunc i8 %.pre56 to i1
+  tail call void @llvm.assume(i1 %101)
   %.not.i.i19 = icmp eq ptr %.pre57, null
   br i1 %.not.i.i19, label %p_isnotprint.exit, label %p_isnotprint.exit.thread
 
 p_isnotprint.exit.thread:                         ; preds = %p_isprint.exit, %p_isprint.exit.thread
   %.ph94 = phi ptr [ %.ph91, %p_isprint.exit.thread ], [ %.pre57, %p_isprint.exit ]
   %.ph95 = phi i8 [ %.ph92, %p_isprint.exit.thread ], [ %.pre56, %p_isprint.exit ]
-  %104 = trunc i8 %.ph95 to i1
-  tail call void @llvm.assume(i1 %104)
+  %102 = trunc i8 %.ph95 to i1
+  tail call void @llvm.assume(i1 %102)
   br label %p_ispunct.exit.thread
 
 p_isnotprint.exit:                                ; preds = %p_isprint.exit
-  %105 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %106 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %108 = load i32, ptr %107, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr i32, ptr %105, i64 %109
-  %111 = load i32, ptr %110, align 4
-  %112 = tail call i32 @iswprint(i32 noundef %111) #16
+  %103 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %104 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr i32, ptr %103, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = tail call i32 @iswprint(i32 noundef %109) #16
   %.pre58 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre59 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %113 = trunc i8 %.pre58 to i1
-  tail call void @llvm.assume(i1 %113)
+  %111 = trunc i8 %.pre58 to i1
+  tail call void @llvm.assume(i1 %111)
   %.not.i22 = icmp eq ptr %.pre59, null
   br i1 %.not.i22, label %p_ispunct.exit, label %p_ispunct.exit.thread
 
 p_ispunct.exit.thread:                            ; preds = %p_isnotprint.exit, %p_isnotprint.exit.thread
   %.ph97 = phi ptr [ %.ph94, %p_isnotprint.exit.thread ], [ %.pre59, %p_isnotprint.exit ]
   %.ph98 = phi i8 [ %.ph95, %p_isnotprint.exit.thread ], [ %.pre58, %p_isnotprint.exit ]
-  %114 = trunc i8 %.ph98 to i1
-  tail call void @llvm.assume(i1 %114)
+  %112 = trunc i8 %.ph98 to i1
+  tail call void @llvm.assume(i1 %112)
   br label %p_isnotpunct.exit
 
 p_ispunct.exit:                                   ; preds = %p_isnotprint.exit
-  %115 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %116 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %118 = load i32, ptr %117, align 4
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr i32, ptr %115, i64 %119
-  %121 = load i32, ptr %120, align 4
-  %122 = tail call i32 @iswpunct(i32 noundef %121) #16
+  %113 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %114 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr i32, ptr %113, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = tail call i32 @iswpunct(i32 noundef %119) #16
   %.pre60 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre61 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %123 = trunc i8 %.pre60 to i1
-  tail call void @llvm.assume(i1 %123)
+  %121 = trunc i8 %.pre60 to i1
+  tail call void @llvm.assume(i1 %121)
   %.not.i.i24 = icmp eq ptr %.pre61, null
-  br i1 %.not.i.i24, label %124, label %p_isnotpunct.exit
+  br i1 %.not.i.i24, label %122, label %p_isnotpunct.exit
 
-124:                                              ; preds = %p_ispunct.exit
-  %125 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %126 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr i32, ptr %125, i64 %129
-  %131 = load i32, ptr %130, align 4
-  %132 = tail call i32 @iswpunct(i32 noundef %131) #16
+122:                                              ; preds = %p_ispunct.exit
+  %123 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %124 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr i32, ptr %123, i64 %127
+  %129 = load i32, ptr %128, align 4
+  %130 = tail call i32 @iswpunct(i32 noundef %129) #16
   %.pre62 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre65.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isnotpunct.exit
 
-p_isnotpunct.exit:                                ; preds = %p_ispunct.exit.thread, %p_ispunct.exit, %124
-  %.pre65 = phi ptr [ %.pre61, %p_ispunct.exit ], [ %.pre65.pre, %124 ], [ %.ph97, %p_ispunct.exit.thread ]
-  %133 = phi i8 [ %.pre60, %p_ispunct.exit ], [ %.pre62, %124 ], [ %.ph98, %p_ispunct.exit.thread ]
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %p_isspace.exit
+p_isnotpunct.exit:                                ; preds = %p_ispunct.exit.thread, %p_ispunct.exit, %122
+  %.pre65 = phi ptr [ %.pre61, %p_ispunct.exit ], [ %.pre65.pre, %122 ], [ %.ph97, %p_ispunct.exit.thread ]
+  %131 = phi i8 [ %.pre60, %p_ispunct.exit ], [ %.pre62, %122 ], [ %.ph98, %p_ispunct.exit.thread ]
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %p_isspace.exit
 
-135:                                              ; preds = %p_isnotpunct.exit
+133:                                              ; preds = %p_isnotpunct.exit
   %.not.i28 = icmp eq ptr %.pre65, null
-  br i1 %.not.i28, label %137, label %p_isspace.exit.thread
+  br i1 %.not.i28, label %134, label %p_isnotspace.exit.thread
 
-p_isspace.exit.thread:                            ; preds = %135
-  %136 = trunc i8 %133 to i1
-  tail call void @llvm.assume(i1 %136)
-  br label %p_isnotspace.exit.thread
-
-137:                                              ; preds = %135
-  %138 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %139 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+134:                                              ; preds = %133
+  %135 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %136 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  %138 = load i32, ptr %137, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr i32, ptr %135, i64 %139
   %141 = load i32, ptr %140, align 4
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr i32, ptr %138, i64 %142
-  %144 = load i32, ptr %143, align 4
-  %145 = tail call i32 @iswspace(i32 noundef %144) #16
+  %142 = tail call i32 @iswspace(i32 noundef %141) #16
   %.pre63 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre64 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isspace.exit
 
-p_isspace.exit:                                   ; preds = %p_isnotpunct.exit, %137
-  %146 = phi ptr [ %.pre65, %p_isnotpunct.exit ], [ %.pre64, %137 ]
-  %147 = phi i8 [ %133, %p_isnotpunct.exit ], [ %.pre63, %137 ]
-  %148 = trunc i8 %147 to i1
-  tail call void @llvm.assume(i1 %148)
-  %.not.i.i29 = icmp eq ptr %146, null
+p_isspace.exit:                                   ; preds = %p_isnotpunct.exit, %134
+  %143 = phi ptr [ %.pre65, %p_isnotpunct.exit ], [ %.pre64, %134 ]
+  %144 = phi i8 [ %131, %p_isnotpunct.exit ], [ %.pre63, %134 ]
+  %145 = trunc i8 %144 to i1
+  tail call void @llvm.assume(i1 %145)
+  %.not.i.i29 = icmp eq ptr %143, null
   br i1 %.not.i.i29, label %p_isnotspace.exit, label %p_isnotspace.exit.thread
 
-p_isnotspace.exit.thread:                         ; preds = %p_isspace.exit, %p_isspace.exit.thread
-  %.ph101 = phi ptr [ %.pre65, %p_isspace.exit.thread ], [ %146, %p_isspace.exit ]
-  %.ph102 = phi i8 [ %133, %p_isspace.exit.thread ], [ %147, %p_isspace.exit ]
-  %149 = trunc i8 %.ph102 to i1
-  tail call void @llvm.assume(i1 %149)
+p_isnotspace.exit.thread:                         ; preds = %133, %p_isspace.exit
+  %.ph101 = phi ptr [ %143, %p_isspace.exit ], [ %.pre65, %133 ]
+  %.ph102 = phi i8 [ %144, %p_isspace.exit ], [ %131, %133 ]
+  %146 = trunc i8 %.ph102 to i1
+  tail call void @llvm.assume(i1 %146)
   br label %p_isupper.exit.thread
 
 p_isnotspace.exit:                                ; preds = %p_isspace.exit
-  %150 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %151 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %147 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %148 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = load i32, ptr %149, align 4
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr i32, ptr %147, i64 %151
   %153 = load i32, ptr %152, align 4
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr i32, ptr %150, i64 %154
-  %156 = load i32, ptr %155, align 4
-  %157 = tail call i32 @iswspace(i32 noundef %156) #16
+  %154 = tail call i32 @iswspace(i32 noundef %153) #16
   %.pre66 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre67 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %158 = trunc i8 %.pre66 to i1
-  tail call void @llvm.assume(i1 %158)
+  %155 = trunc i8 %.pre66 to i1
+  tail call void @llvm.assume(i1 %155)
   %.not.i32 = icmp eq ptr %.pre67, null
   br i1 %.not.i32, label %p_isupper.exit, label %p_isupper.exit.thread
 
 p_isupper.exit.thread:                            ; preds = %p_isnotspace.exit, %p_isnotspace.exit.thread
   %.ph104 = phi ptr [ %.ph101, %p_isnotspace.exit.thread ], [ %.pre67, %p_isnotspace.exit ]
   %.ph105 = phi i8 [ %.ph102, %p_isnotspace.exit.thread ], [ %.pre66, %p_isnotspace.exit ]
-  %159 = trunc i8 %.ph105 to i1
-  tail call void @llvm.assume(i1 %159)
+  %156 = trunc i8 %.ph105 to i1
+  tail call void @llvm.assume(i1 %156)
   br label %p_isnotupper.exit
 
 p_isupper.exit:                                   ; preds = %p_isnotspace.exit
-  %160 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %161 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %157 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %158 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  %160 = load i32, ptr %159, align 4
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr i32, ptr %157, i64 %161
   %163 = load i32, ptr %162, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr i32, ptr %160, i64 %164
-  %166 = load i32, ptr %165, align 4
-  %167 = tail call i32 @iswupper(i32 noundef %166) #16
+  %164 = tail call i32 @iswupper(i32 noundef %163) #16
   %.pre68 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre69 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
-  %168 = trunc i8 %.pre68 to i1
-  tail call void @llvm.assume(i1 %168)
+  %165 = trunc i8 %.pre68 to i1
+  tail call void @llvm.assume(i1 %165)
   %.not.i.i34 = icmp eq ptr %.pre69, null
-  br i1 %.not.i.i34, label %169, label %p_isnotupper.exit
+  br i1 %.not.i.i34, label %166, label %p_isnotupper.exit
 
-169:                                              ; preds = %p_isupper.exit
-  %170 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %171 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
+166:                                              ; preds = %p_isupper.exit
+  %167 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %168 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %170 = load i32, ptr %169, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr i32, ptr %167, i64 %171
   %173 = load i32, ptr %172, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr i32, ptr %170, i64 %174
-  %176 = load i32, ptr %175, align 4
-  %177 = tail call i32 @iswupper(i32 noundef %176) #16
+  %174 = tail call i32 @iswupper(i32 noundef %173) #16
   %.pre70 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre73.pre = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isnotupper.exit
 
-p_isnotupper.exit:                                ; preds = %p_isupper.exit.thread, %p_isupper.exit, %169
-  %.pre73 = phi ptr [ %.pre69, %p_isupper.exit ], [ %.pre73.pre, %169 ], [ %.ph104, %p_isupper.exit.thread ]
-  %178 = phi i8 [ %.pre68, %p_isupper.exit ], [ %.pre70, %169 ], [ %.ph105, %p_isupper.exit.thread ]
-  %179 = trunc i8 %178 to i1
-  br i1 %179, label %180, label %p_isxdigit.exit
+p_isnotupper.exit:                                ; preds = %p_isupper.exit.thread, %p_isupper.exit, %166
+  %.pre73 = phi ptr [ %.pre69, %p_isupper.exit ], [ %.pre73.pre, %166 ], [ %.ph104, %p_isupper.exit.thread ]
+  %175 = phi i8 [ %.pre68, %p_isupper.exit ], [ %.pre70, %166 ], [ %.ph105, %p_isupper.exit.thread ]
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %177, label %p_isxdigit.exit
 
-180:                                              ; preds = %p_isnotupper.exit
+177:                                              ; preds = %p_isnotupper.exit
   %.not.i38 = icmp eq ptr %.pre73, null
-  br i1 %.not.i38, label %182, label %p_isxdigit.exit.thread
+  br i1 %.not.i38, label %178, label %p_isnotxdigit.exit
 
-p_isxdigit.exit.thread:                           ; preds = %180
-  %181 = trunc i8 %178 to i1
-  tail call void @llvm.assume(i1 %181)
-  br label %p_isnotxdigit.exit
-
-182:                                              ; preds = %180
-  %183 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %184 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
-  %186 = load i32, ptr %185, align 4
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr i32, ptr %183, i64 %187
-  %189 = load i32, ptr %188, align 4
-  %190 = tail call i32 @iswxdigit(i32 noundef %189) #16
+178:                                              ; preds = %177
+  %179 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %180 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
+  %182 = load i32, ptr %181, align 4
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr i32, ptr %179, i64 %183
+  %185 = load i32, ptr %184, align 4
+  %186 = tail call i32 @iswxdigit(i32 noundef %185) #16
   %.pre71 = load i8, ptr inttoptr (i64 32 to ptr), align 32
   %.pre72 = load ptr, ptr inttoptr (i64 24 to ptr), align 8
   br label %p_isxdigit.exit
 
-p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit, %182
-  %191 = phi ptr [ %.pre73, %p_isnotupper.exit ], [ %.pre72, %182 ]
-  %192 = phi i8 [ %178, %p_isnotupper.exit ], [ %.pre71, %182 ]
-  %193 = trunc i8 %192 to i1
-  tail call void @llvm.assume(i1 %193)
-  %.not.i.i39 = icmp eq ptr %191, null
-  br i1 %.not.i.i39, label %194, label %p_isnotxdigit.exit
+p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit, %178
+  %187 = phi ptr [ %.pre73, %p_isnotupper.exit ], [ %.pre72, %178 ]
+  %188 = phi i8 [ %175, %p_isnotupper.exit ], [ %.pre71, %178 ]
+  %189 = trunc i8 %188 to i1
+  tail call void @llvm.assume(i1 %189)
+  %.not.i.i39 = icmp eq ptr %187, null
+  br i1 %.not.i.i39, label %190, label %p_isnotxdigit.exit
 
-194:                                              ; preds = %p_isxdigit.exit
-  %195 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
-  %196 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  %198 = load i32, ptr %197, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr i32, ptr %195, i64 %199
-  %201 = load i32, ptr %200, align 4
-  %202 = tail call i32 @iswxdigit(i32 noundef %201) #16
+190:                                              ; preds = %p_isxdigit.exit
+  %191 = load ptr, ptr inttoptr (i64 16 to ptr), align 16
+  %192 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  %194 = load i32, ptr %193, align 4
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr i32, ptr %191, i64 %195
+  %197 = load i32, ptr %196, align 4
+  %198 = tail call i32 @iswxdigit(i32 noundef %197) #16
   br label %p_isnotxdigit.exit
 
-p_isnotxdigit.exit:                               ; preds = %p_isxdigit.exit.thread, %p_isxdigit.exit, %194
-  %203 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %205 = load i32, ptr %204, align 8
-  %206 = icmp ne i32 %205, 1
-  tail call void @llvm.assume(i1 %206)
+p_isnotxdigit.exit:                               ; preds = %177, %p_isxdigit.exit, %190
+  %199 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %201 = load i32, ptr %200, align 8
+  %202 = icmp ne i32 %201, 1
+  tail call void @llvm.assume(i1 %202)
   ret void
 }
 
