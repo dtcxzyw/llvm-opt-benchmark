@@ -369,7 +369,7 @@ _ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %for.body.i184
   br i1 %brmerge, label %if.else165, label %if.then161
 
 if.then161:                                       ; preds = %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit
-  %36 = trunc i64 %indvars.iv.i185 to i8
+  %36 = trunc nuw i64 %indvars.iv.i185 to i8
   %conv163 = or disjoint i8 %36, -16
   store i8 %conv163, ptr %code.0315, align 1
   br label %if.end170
