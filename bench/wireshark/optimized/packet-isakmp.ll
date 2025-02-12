@@ -4297,11 +4297,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
   br i1 %1048, label %.preheader169.i.i, label %.loopexit.i.i
 
 .preheader169.i.i:                                ; preds = %1046
-  %1049 = udiv i32 %983, 17
-  %.not239.i.i = icmp ult i32 %983, 17
-  br i1 %.not239.i.i, label %.loopexit.i.i, label %.lr.ph217.i.i
-
-.lr.ph217.i.i:                                    ; preds = %.preheader169.i.i
+  %1049 = udiv exact i32 %983, 17
   %1050 = load ptr, ptr %20, align 8
   br label %1051
 
@@ -4430,14 +4426,10 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
 1116:                                             ; preds = %989
   %1117 = urem i32 %983, 17
   %1118 = icmp eq i32 %1117, 0
-  br i1 %1118, label %.preheader181.i.i, label %.loopexit.i.i
+  br i1 %1118, label %.lr.ph199.i.i, label %.loopexit.i.i
 
-.preheader181.i.i:                                ; preds = %1116
-  %1119 = udiv i32 %983, 17
-  %.not233.i.i = icmp ult i32 %983, 17
-  br i1 %.not233.i.i, label %.loopexit.i.i, label %.lr.ph199.i.i
-
-.lr.ph199.i.i:                                    ; preds = %.preheader181.i.i
+.lr.ph199.i.i:                                    ; preds = %1116
+  %1119 = udiv exact i32 %983, 17
   %1120 = load ptr, ptr %20, align 8
   br label %1121
 
@@ -4466,11 +4458,9 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
 
 1137:                                             ; preds = %989
   %1138 = urem i32 %983, 17
-  %1139 = udiv i32 %983, 17
-  %1140 = icmp ne i32 %1138, 0
-  %.not232.i.i = icmp ult i32 %983, 17
-  %or.cond = or i1 %1140, %.not232.i.i
-  br i1 %or.cond, label %.loopexit.i.i, label %.lr.ph196.i.i
+  %1139 = udiv exact i32 %983, 17
+  %1140 = icmp eq i32 %1138, 0
+  br i1 %1140, label %.lr.ph196.i.i, label %.loopexit.i.i
 
 .lr.ph196.i.i:                                    ; preds = %1137
   %1141 = load ptr, ptr %20, align 8
@@ -4651,7 +4641,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1254, ptr noundef nonnull @.str.846, ptr noundef %1255) #17
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %1165, %1155, %1142, %1121, %1111, %1098, %1088, %1078, %1068, %1051, %1034, %1020, %1010, %996, %1249, %1242, %1235, %1228, %1220, %1213, %1206, %1199, %1192, %1185, %1178, %1170, %1160, %1150, %1137, %1129, %.preheader181.i.i, %1116, %1106, %1093, %1083, %1073, %1063, %1059, %.preheader169.i.i, %1046, %1039, %1029, %1025, %1015, %1005, %1001, %991, %989
+.loopexit.i.i:                                    ; preds = %1165, %1155, %1142, %1121, %1111, %1098, %1088, %1078, %1068, %1051, %1034, %1020, %1010, %996, %1249, %1242, %1235, %1228, %1220, %1213, %1206, %1199, %1192, %1185, %1178, %1170, %1160, %1150, %1137, %1129, %1116, %1106, %1093, %1083, %1073, %1063, %1059, %1046, %1039, %1029, %1025, %1015, %1005, %1001, %991, %989
   %1256 = add i32 %983, %981
   br label %dissect_config_attribute.exit.i
 

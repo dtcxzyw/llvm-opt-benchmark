@@ -730,7 +730,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
   %76 = getelementptr [22 x %struct.mformatdescr], ptr @mformat_descriptors, i64 0, i64 %75
   %77 = load i64, ptr %76, align 16, !tbaa !41
   %78 = urem i64 %.val170, %77
-  %79 = udiv i64 %.val170, %77
+  %79 = udiv exact i64 %.val170, %77
   %.not142 = icmp eq i64 %78, 0
   br i1 %.not142, label %82, label %80
 
@@ -3082,7 +3082,7 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
   %16 = load i64, ptr %15, align 8, !tbaa !87
   %17 = sext i32 %14 to i64
   %18 = srem i64 %16, %17
-  %19 = sdiv i64 %16, %17
+  %19 = sdiv exact i64 %16, %17
   %.not32.i.i = icmp eq i64 %18, 0
   br i1 %.not32.i.i, label %22, label %20
 
@@ -3129,9 +3129,8 @@ define internal ptr @array_array_frombytes(ptr noundef captures(none) %0, ptr no
   %41 = mul i64 %.val.i.i, %17
   %42 = getelementptr i8, ptr %40, i64 %41
   %43 = load ptr, ptr %3, align 8, !tbaa !88
-  %44 = mul i64 %19, %17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %44, i1 false)
-  br label %45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %16, i1 false)
+  br label %44
 
 45:                                               ; preds = %38, %22
   call void @PyBuffer_Release(ptr noundef nonnull %3) #11

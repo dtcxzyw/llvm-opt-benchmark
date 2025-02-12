@@ -70529,7 +70529,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135297, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -70813,7 +70813,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %197, %200
 216:                                              ; preds = %215
   %217 = add nsw i32 %.3138309, 1
   %218 = srem i32 %217, %.sroa.speculated
-  %219 = sdiv i32 %217, %.sroa.speculated
+  %219 = sdiv exact i32 %217, %.sroa.speculated
   %220 = icmp eq i32 %218, 0
   br i1 %220, label %221, label %223
 
@@ -71072,7 +71072,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %337, %340
 362:                                              ; preds = %361
   %363 = add nsw i32 %.6329, 1
   %364 = srem i32 %363, %.sroa.speculated
-  %365 = sdiv i32 %363, %.sroa.speculated
+  %365 = sdiv exact i32 %363, %.sroa.speculated
   %366 = icmp eq i32 %364, 0
   br i1 %366, label %367, label %369
 
@@ -77319,7 +77319,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -77605,7 +77605,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -77823,7 +77823,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -80883,7 +80883,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -81169,7 +81169,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -81387,7 +81387,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -83486,7 +83486,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -83772,7 +83772,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -83990,7 +83990,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -85160,7 +85160,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -85446,7 +85446,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -85664,7 +85664,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -87122,7 +87122,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -87408,7 +87408,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -87626,7 +87626,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -89557,7 +89557,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -89843,7 +89843,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -90061,7 +90061,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -92589,7 +92589,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -92875,7 +92875,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -93093,7 +93093,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -95691,7 +95691,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 61:                                               ; preds = %60
   %62 = add nsw i32 %.0135292, 1
   %63 = srem i32 %62, %.sroa.speculated
-  %64 = sdiv i32 %62, %.sroa.speculated
+  %64 = sdiv exact i32 %62, %.sroa.speculated
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %73
 
@@ -95977,7 +95977,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %202, %205
 221:                                              ; preds = %220
   %222 = add nsw i32 %.3138304, 1
   %223 = srem i32 %222, %.sroa.speculated
-  %224 = sdiv i32 %222, %.sroa.speculated
+  %224 = sdiv exact i32 %222, %.sroa.speculated
   %225 = icmp eq i32 %223, 0
   br i1 %225, label %226, label %228
 
@@ -96195,7 +96195,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %314, %317
 339:                                              ; preds = %338
   %340 = add nsw i32 %.6324, 1
   %341 = srem i32 %340, %.sroa.speculated
-  %342 = sdiv i32 %340, %.sroa.speculated
+  %342 = sdiv exact i32 %340, %.sroa.speculated
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %344, label %346
 
@@ -113613,7 +113613,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 64:                                               ; preds = %63
   %65 = add nsw i32 %.0136308, 1
   %66 = srem i32 %65, %.sroa.speculated
-  %67 = sdiv i32 %65, %.sroa.speculated
+  %67 = sdiv exact i32 %65, %.sroa.speculated
   %68 = icmp eq i32 %66, 0
   br i1 %68, label %69, label %76
 
@@ -113955,7 +113955,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %241, %244
 260:                                              ; preds = %259
   %261 = add nsw i32 %.3139321, 1
   %262 = srem i32 %261, %.sroa.speculated
-  %263 = sdiv i32 %261, %.sroa.speculated
+  %263 = sdiv exact i32 %261, %.sroa.speculated
   %264 = icmp eq i32 %262, 0
   br i1 %264, label %265, label %267
 
@@ -114183,7 +114183,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %356, %359
 381:                                              ; preds = %380
   %382 = add nsw i32 %.6341, 1
   %383 = srem i32 %382, %.sroa.speculated
-  %384 = sdiv i32 %382, %.sroa.speculated
+  %384 = sdiv exact i32 %382, %.sroa.speculated
   %385 = icmp eq i32 %383, 0
   br i1 %385, label %386, label %388
 
@@ -114845,7 +114845,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 63:                                               ; preds = %62
   %64 = add nsw i32 %.0136308, 1
   %65 = srem i32 %64, %.sroa.speculated
-  %66 = sdiv i32 %64, %.sroa.speculated
+  %66 = sdiv exact i32 %64, %.sroa.speculated
   %67 = icmp eq i32 %65, 0
   br i1 %67, label %68, label %75
 
@@ -115157,7 +115157,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %218, %221
 237:                                              ; preds = %236
   %238 = add nsw i32 %.3139321, 1
   %239 = srem i32 %238, %.sroa.speculated
-  %240 = sdiv i32 %238, %.sroa.speculated
+  %240 = sdiv exact i32 %238, %.sroa.speculated
   %241 = icmp eq i32 %239, 0
   br i1 %241, label %242, label %244
 
@@ -115385,7 +115385,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %333, %336
 358:                                              ; preds = %357
   %359 = add nsw i32 %.6341, 1
   %360 = srem i32 %359, %.sroa.speculated
-  %361 = sdiv i32 %359, %.sroa.speculated
+  %361 = sdiv exact i32 %359, %.sroa.speculated
   %362 = icmp eq i32 %360, 0
   br i1 %362, label %363, label %365
 
@@ -132484,7 +132484,7 @@ define linkonce_odr void @_ZN3vcg3tri16PointCloudNormalI6CMeshOE23ComputeUndirec
 26:                                               ; preds = %25
   %27 = add nsw i32 %.047, 1
   %28 = srem i32 %27, %.sroa.speculated
-  %29 = sdiv i32 %27, %.sroa.speculated
+  %29 = sdiv exact i32 %27, %.sroa.speculated
   %30 = icmp eq i32 %28, 0
   br i1 %30, label %31, label %35
 

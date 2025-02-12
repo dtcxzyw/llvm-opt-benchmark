@@ -10014,10 +10014,10 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE6resizeEm.exit: ; p
   %31 = load i32, ptr %15, align 8
   %32 = sext i32 %31 to i64
   %33 = srem i64 %30, %32
-  %34 = sdiv i64 %30, %32
+  %34 = sdiv exact i64 %30, %32
   %.not9 = icmp eq i64 %33, 0
   %.not10 = icmp eq i64 %34, %17
-  %or.cond = and i1 %.not9, %.not10
+  %or.cond = select i1 %.not9, i1 %.not10, i1 false
   br i1 %or.cond, label %40, label %35
 
 35:                                               ; preds = %28
@@ -19443,8 +19443,8 @@ define internal fastcc noundef double @_ZN8LightGBM6CommonL3PowIdEEdT_i(double n
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %common.ret40, label %.lr.ph35
 
-common.ret40:                                     ; preds = %.lr.ph.preheader, %tailrecurse.backedge, %19, %tailrecurse._crit_edge
-  %common.ret40.op = phi double [ %7, %tailrecurse._crit_edge ], [ %22, %19 ], [ 1.000000e+00, %tailrecurse.backedge ], [ 1.000000e+00, %.lr.ph.preheader ]
+common.ret40:                                     ; preds = %.lr.ph.preheader, %19, %tailrecurse._crit_edge
+  %common.ret40.op = phi double [ %7, %tailrecurse._crit_edge ], [ %22, %19 ], [ 1.000000e+00, %.lr.ph.preheader ]
   ret double %common.ret40.op
 
 tailrecurse._crit_edge:                           ; preds = %2
@@ -19468,12 +19468,11 @@ tailrecurse.backedge:                             ; preds = %10, %17
   %.tr22.pn = phi double [ %.tr2234, %10 ], [ %18, %17 ]
   %.tr17.be = phi i32 [ %11, %10 ], [ %15, %17 ]
   %.tr.be = fmul double %.tr2234, %.tr22.pn
-  %12 = icmp eq i32 %.tr17.be, 0
-  br i1 %12, label %common.ret40, label %.lr.ph35
+  br label %.lr.ph35
 
 13:                                               ; preds = %.lr.ph35
   %14 = urem i32 %.tr172333, 3
-  %15 = udiv i32 %.tr172333, 3
+  %15 = udiv exact i32 %.tr172333, 3
   %16 = icmp eq i32 %14, 0
   br i1 %16, label %17, label %19
 

@@ -9305,7 +9305,7 @@ define void @_ZN2cv11FileStorage4Impl12writeRawDataERKNSt7__cxx1112basic_stringI
 
 53:                                               ; preds = %42
   %54 = urem i64 %3, %45
-  %55 = udiv i64 %3, %45
+  %55 = udiv exact i64 %3, %45
   %56 = icmp eq i64 %54, 0
   br i1 %56, label %64, label %57
 
@@ -9339,7 +9339,7 @@ define void @_ZN2cv11FileStorage4Impl12writeRawDataERKNSt7__cxx1112basic_stringI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %14, i8 0, i64 256, i1 false)
   %68 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #39
   %69 = call noundef i32 @_ZN2cv2fs12decodeFormatEPKcPii(ptr noundef %68, ptr noundef nonnull %13, i32 noundef 128)
-  %.not81 = icmp ult i64 %3, %45
+  %.not81 = icmp eq i64 %3, 0
   br i1 %.not81, label %.loopexit, label %70
 
 70:                                               ; preds = %64
@@ -9383,14 +9383,12 @@ define void @_ZN2cv11FileStorage4Impl12writeRawDataERKNSt7__cxx1112basic_stringI
   br label %.preheader.us.preheader
 
 85:                                               ; preds = %78
-  %.not85139 = icmp uge i64 %3, %45
   %86 = icmp sgt i32 %69, 0
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 23
-  %or.cond = and i1 %.not85139, %86
-  br i1 %or.cond, label %.preheader.us.preheader, label %.loopexit
+  br i1 %86, label %.preheader.us.preheader, label %.loopexit
 
-.preheader.us.preheader:                          ; preds = %85, %.preheader.lr.ph.thread
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph.thread, %85
   %89 = phi ptr [ %84, %.preheader.lr.ph.thread ], [ %88, %85 ]
   %90 = phi ptr [ %83, %.preheader.lr.ph.thread ], [ %87, %85 ]
   %.058156158 = phi i64 [ 1, %.preheader.lr.ph.thread ], [ %55, %85 ]
@@ -17243,7 +17241,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIterator
   %39 = call noundef i32 @_ZN2cv2fs14calcStructSizeEPKci(ptr noundef %38, i32 noundef 0)
   %40 = sext i32 %39 to i64
   %41 = urem i64 %3, %40
-  %42 = udiv i64 %3, %40
+  %42 = udiv exact i64 %3, %40
   %43 = icmp eq i64 %41, 0
   br i1 %43, label %51, label %44
 
@@ -17271,7 +17269,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIterator
   br label %common.resume
 
 51:                                               ; preds = %35
-  %.not92160 = icmp ult i64 %3, %40
+  %.not92160 = icmp eq i64 %3, 0
   br i1 %.not92160, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %51

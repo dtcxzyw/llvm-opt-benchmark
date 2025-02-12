@@ -2384,7 +2384,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 388:                                              ; preds = %.lr.ph2736.split.us.us.us
   %389 = srem i32 %386, %376
-  %390 = sdiv i32 %386, %376
+  %390 = sdiv exact i32 %386, %376
   %.not2599.us.us.us = icmp eq i32 %389, 0
   %.not2600.us.us.us = icmp slt i32 %390, %15
   %or.cond2919 = select i1 %.not2599.us.us.us, i1 %.not2600.us.us.us, i1 false
@@ -2401,7 +2401,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 396:                                              ; preds = %391
   %397 = srem i32 %394, %380
-  %398 = sdiv i32 %394, %380
+  %398 = sdiv exact i32 %394, %380
   %.not2601.us.us.us = icmp eq i32 %397, 0
   %.not2602.us.us.us = icmp slt i32 %398, %13
   %or.cond2920 = select i1 %.not2601.us.us.us, i1 %.not2602.us.us.us, i1 false
@@ -2758,7 +2758,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 646:                                              ; preds = %.lr.ph2766.split.us.us.us
   %647 = srem i32 %644, %634
-  %648 = sdiv i32 %644, %634
+  %648 = sdiv exact i32 %644, %634
   %.not2593.us.us.us = icmp eq i32 %647, 0
   %.not2594.us.us.us = icmp slt i32 %648, %15
   %or.cond2921 = select i1 %.not2593.us.us.us, i1 %.not2594.us.us.us, i1 false
@@ -2775,7 +2775,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 654:                                              ; preds = %649
   %655 = srem i32 %652, %638
-  %656 = sdiv i32 %652, %638
+  %656 = sdiv exact i32 %652, %638
   %.not2595.us.us.us = icmp eq i32 %655, 0
   %.not2596.us.us.us = icmp slt i32 %656, %13
   %or.cond2922 = select i1 %.not2595.us.us.us, i1 %.not2596.us.us.us, i1 false
@@ -3006,7 +3006,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 776:                                              ; preds = %.lr.ph2801.split.us.us
   %777 = srem i32 %774, %764
-  %778 = sdiv i32 %774, %764
+  %778 = sdiv exact i32 %774, %764
   %.not2588.us.us = icmp eq i32 %777, 0
   %.not2589.us.us = icmp slt i32 %778, %15
   %or.cond2923 = select i1 %.not2588.us.us, i1 %.not2589.us.us, i1 false
@@ -3031,7 +3031,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
 
 789:                                              ; preds = %784
   %790 = srem i32 %787, %768
-  %791 = sdiv i32 %787, %768
+  %791 = sdiv exact i32 %787, %768
   %.not2590.us.us = icmp eq i32 %790, 0
   %.not2591.us.us = icmp slt i32 %791, %13
   %or.cond2924 = select i1 %.not2590.us.us, i1 %.not2591.us.us, i1 false

@@ -21793,7 +21793,7 @@ define internal fastcc { i1, i8 } @_ZN17cranelift_codegen8machinst4isle26shuffle
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %11 = load i8, ptr %1, align 1, !noundef !4
   %12 = urem i8 %11, %0
-  %13 = udiv i8 %11, %0
+  %13 = udiv exact i8 %11, %0
   %14 = icmp eq i8 %12, 0
   br i1 %14, label %15, label %.loopexit
 
@@ -37024,14 +37024,14 @@ _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d14
   br label %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread
 
 _ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit.thread: ; preds = %24, %38, %32, %19, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24
-  %.sroa.4.0.i29 = phi i8 [ %29, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ %29, %32 ], [ %29, %38 ], [ undef, %24 ]
-  %.sroa.5.0 = phi i8 [ %42, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
+  %.sroa.4.0.i29 = phi i8 [ %42, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
+  %.sroa.5.0 = phi i8 [ %29, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ undef, %19 ], [ undef, %32 ], [ undef, %38 ], [ undef, %24 ]
   %.sroa.0.1 = phi i8 [ 1, %_ZN17cranelift_codegen8machinst4isle26shuffle_imm_as_le_lane_idx17hf5a8ab5e74d1491dE.exit24 ], [ 0, %19 ], [ 0, %32 ], [ 0, %38 ], [ 0, %24 ]
   %.sroa.5.0.insert.ext = zext i8 %.sroa.5.0 to i24
   %.sroa.5.0.insert.shift = shl nuw i24 %.sroa.5.0.insert.ext, 16
-  %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0.i29 to i24
+  %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw nsw i24 %.sroa.4.0.insert.ext, 8
-  %.sroa.4.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
+  %.sroa.4.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.5.0.insert.shift
   %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.1 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert

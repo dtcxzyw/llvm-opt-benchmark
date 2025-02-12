@@ -25380,17 +25380,18 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86FrameLowering19adjustStackWit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !154
   %13 = urem i32 %4, %12
-  %14 = udiv i32 %4, %12
+  %14 = udiv exact i32 %4, %12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %182
 
 15:                                               ; preds = %10
-  %16 = add nsw i32 %14, -3
-  %or.cond = icmp ult i32 %16, -2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %2, %18
-  %or.cond98 = select i1 %or.cond, i1 true, i1 %19
+  %16 = icmp ne i32 %4, %12
+  %or.cond = icmp ne i32 %14, 2
+  %17 = select i1 %16, i1 %17, i1 false
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %or.cond98 = icmp eq ptr %2, %19
+  %or.cond98 = select i1 %or.cond, i1 true, i1 %20
   br i1 %or.cond98, label %182, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %15
@@ -25635,10 +25636,6 @@ _ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit
   br label %157
 
 .preheader:                                       ; preds = %157, %.preheader103
-  %152 = icmp sgt i32 %14, 0
-  br i1 %152, label %.lr.ph117, label %.loopexit
-
-.lr.ph117:                                        ; preds = %.preheader
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25714,8 +25711,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %180 = icmp samesign ult i64 %indvars.iv.next122, %156
   br i1 %180, label %160, label %.loopexit, !llvm.loop !2023
 
-.loopexit:                                        ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %50, %.preheader, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit_edge
-  %181 = phi i1 [ true, %.preheader ], [ false, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit_edge ], [ false, %50 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ]
+.loopexit:                                        ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %50, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit_edge
+  %181 = phi i1 [ false, %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit_edge ], [ false, %50 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   br label %182
 

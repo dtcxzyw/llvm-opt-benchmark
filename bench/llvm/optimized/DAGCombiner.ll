@@ -70703,7 +70703,7 @@ _ZN4llvm11SmallVectorIlLj8EEC2EmRKl.exit.i:       ; preds = %.lr.ph.i.i.i.i.i.i.
   %.0.in.i.i.i.i.i.i = select i1 %575, ptr %572, ptr %576
   %.0.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8, !tbaa !13
   %577 = urem i64 %.0.i.i.i.i.i.i, %548
-  %578 = udiv i64 %.0.i.i.i.i.i.i, %548
+  %578 = udiv exact i64 %.0.i.i.i.i.i.i, %548
   %.not142.i = icmp eq i64 %577, 0
   br i1 %.not142.i, label %579, label %.thread434.i
 
@@ -83735,7 +83735,7 @@ _ZNK4llvm7SDValue18getValueSizeInBitsEv.exit.i:   ; preds = %684, %680
 697:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit160.thread.i, %.lr.ph342.i
   %storemerge340.i = phi i32 [ %695, %.lr.ph342.i ], [ %745, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit160.thread.i ]
   %698 = urem i32 %607, %storemerge340.i
-  %699 = udiv i32 %607, %storemerge340.i
+  %699 = udiv exact i32 %607, %storemerge340.i
   %.not133.i = icmp eq i32 %698, 0
   br i1 %.not133.i, label %700, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit160.thread.i
 
@@ -85312,7 +85312,7 @@ _ZN12_GLOBAL__N_111DAGCombiner11isTypeLegalERKN4llvm3EVTE.exit.thread.i351: ; pr
   %1259 = trunc i64 %1258 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #38
   %1260 = urem i32 %1256, %1259
-  %1261 = udiv i32 %1256, %1259
+  %1261 = udiv exact i32 %1256, %1259
   %.not94.i.i = icmp eq i32 %1260, 0
   br i1 %.not94.i.i, label %1262, label %_ZL31reduceBuildVecToShuffleWithZeroPN4llvm6SDNodeERNS_12SelectionDAGE.exit.thread602.i
 
@@ -85339,7 +85339,7 @@ _ZN12_GLOBAL__N_111DAGCombiner11isTypeLegalERKN4llvm3EVTE.exit.thread.i351: ; pr
   store i32 -1, ptr %36, align 4, !tbaa !72
   call void @_ZN4llvm11SmallVectorIiLj32EEC2EmRKi(ptr noundef nonnull align 8 dereferenceable(144) %35, i64 noundef %1272, ptr noundef nonnull align 4 dereferenceable(4) %36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #38
-  %.not95137.i.i = icmp ugt i32 %1259, %1256
+  %.not95137.i.i = icmp eq i32 %1256, 0
   br i1 %.not95137.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
 
 .lr.ph140.i.i:                                    ; preds = %1270
@@ -86732,7 +86732,7 @@ _ZNK4llvm3EVTneES0_.exit.i.i:                     ; preds = %1832
 
 _ZNK4llvm3EVTneES0_.exit.thread.i.i:              ; preds = %.thread.i390.i, %_ZNK4llvm3EVTneES0_.exit.i.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit283.i.i
   %1837 = urem i64 %.pn.i.i.i.i, %.pn.i.i278.i.i
-  %1838 = udiv i64 %.pn.i.i.i.i, %.pn.i.i278.i.i
+  %1838 = udiv exact i64 %.pn.i.i.i.i, %.pn.i.i278.i.i
   %1839 = icmp eq i64 %1837, 0
   %.not.i.i288.i.i = icmp eq i16 %1816, %1824
   %or.cond400.i.i = and i1 %.not.i.i288.i.i, %1839
@@ -92855,7 +92855,7 @@ _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit484: ; preds = %434, %440
   %.sroa.0.0.extract.trunc.i483 = trunc i64 %.sroa.0.0.in.i.i482 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #38
   %442 = urem i32 %.sroa.0.0.extract.trunc.i470, %.sroa.0.0.extract.trunc.i483
-  %443 = udiv i32 %.sroa.0.0.extract.trunc.i470, %.sroa.0.0.extract.trunc.i483
+  %443 = udiv exact i32 %.sroa.0.0.extract.trunc.i470, %.sroa.0.0.extract.trunc.i483
   %444 = icmp eq i32 %442, 0
   br i1 %444, label %445, label %.critedge386
 
@@ -92916,7 +92916,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit491: ; pr
 
 .critedge386:                                     ; preds = %445, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i489, %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit491, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit484
   %474 = urem i32 %.sroa.0.0.extract.trunc.i483, %.sroa.0.0.extract.trunc.i470
-  %475 = udiv i32 %.sroa.0.0.extract.trunc.i483, %.sroa.0.0.extract.trunc.i470
+  %475 = udiv exact i32 %.sroa.0.0.extract.trunc.i483, %.sroa.0.0.extract.trunc.i470
   %476 = icmp eq i32 %474, 0
   br i1 %476, label %477, label %.critedge389
 
@@ -92938,7 +92938,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit491: ; pr
   %487 = extractvalue { i16, ptr } %485, 1
   %488 = zext i32 %475 to i64
   %489 = urem i64 %.0.i.i.i.i, %488
-  %490 = udiv i64 %.0.i.i.i.i, %488
+  %490 = udiv exact i64 %.0.i.i.i.i, %488
   %491 = icmp eq i64 %489, 0
   br i1 %491, label %492, label %.critedge389
 
@@ -94013,7 +94013,7 @@ _ZNK4llvm3EVT19getScalarSizeInBitsEv.exit:        ; preds = %922, %926
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #38
   %929 = trunc i64 %.pn.i.i to i32
   %930 = urem i32 %902, %929
-  %931 = udiv i32 %902, %929
+  %931 = udiv exact i32 %902, %929
   %932 = icmp eq i32 %930, 0
   br i1 %932, label %933, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit585.thread
 
@@ -94039,7 +94039,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %935, %942
   %.fca.1.insert.merged.i = phi { i16, ptr } [ %941, %935 ], [ %943, %942 ]
   %944 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 0
   %945 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 1
-  %946 = icmp eq i32 %931, 1
+  %946 = icmp eq i32 %902, %929
   br i1 %946, label %.thread, label %947
 
 947:                                              ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
@@ -94874,14 +94874,14 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit262.i:         ; preds = %1280, %1276
   %1283 = trunc i64 %1282 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #38
   %1284 = urem i32 %1274, %1283
-  %1285 = udiv i32 %1274, %1283
+  %1285 = udiv exact i32 %1274, %1283
   %.not236.i = icmp eq i32 %1284, 0
   br i1 %.not236.i, label %1286, label %.sink.split.sink.split.sink.split
 
 1286:                                             ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit262.i
   %1287 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %1288 = urem i32 %1287, %1285
-  %1289 = udiv i32 %1287, %1285
+  %1289 = udiv exact i32 %1287, %1285
   %.not237.i = icmp eq i32 %1288, 0
   br i1 %.not237.i, label %1290, label %.sink.split.sink.split.sink.split
 
@@ -102677,14 +102677,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit407:           ; preds = %473, %476
   %509 = trunc i64 %508 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #38
   %510 = urem i32 %.sroa.0482.sroa.0.0.extract.trunc, %509
-  %511 = udiv i32 %.sroa.0482.sroa.0.0.extract.trunc, %509
+  %511 = udiv exact i32 %.sroa.0482.sroa.0.0.extract.trunc, %509
   %512 = icmp eq i32 %510, 0
   br i1 %512, label %513, label %.thread693
 
 513:                                              ; preds = %505
   %514 = and i64 %508, 4294967295
   %515 = urem i64 %.0.i.i.i.i, %514
-  %516 = udiv i64 %.0.i.i.i.i, %514
+  %516 = udiv exact i64 %.0.i.i.i.i, %514
   %517 = icmp eq i64 %515, 0
   br i1 %517, label %518, label %.thread693
 
@@ -212142,7 +212142,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i161:  ; preds = %144, %142
 _ZNK4llvm3EVT20getVectorNumElementsEv.exit166:    ; preds = %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i161, %.thread.i163
   %152 = phi i32 [ %150, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i161 ], [ %151, %.thread.i163 ]
   %153 = srem i32 %152, %34
-  %154 = sdiv i32 %152, %34
+  %154 = sdiv exact i32 %152, %34
   %155 = icmp eq i32 %153, 0
   br i1 %155, label %156, label %158
 
@@ -212152,7 +212152,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit166:    ; preds = %_ZNK4llvm3MVT20getV
 
 158:                                              ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit166
   %159 = srem i32 %34, %152
-  %160 = sdiv i32 %34, %152
+  %160 = sdiv exact i32 %34, %152
   %161 = icmp eq i32 %159, 0
   br i1 %161, label %162, label %.thread250
 
@@ -215125,7 +215125,7 @@ _ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit54: ; preds = %139, %143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #38
   %146 = trunc i64 %.pn.i.i.i52 to i32
   %147 = urem i32 %146, %118
-  %148 = udiv i32 %146, %118
+  %148 = udiv exact i32 %146, %118
   %.not = icmp eq i32 %147, 0
   %149 = trunc i64 %.pn.i.i to i32
   %.not25 = icmp eq i32 %149, %118
@@ -217646,7 +217646,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit91:     ; preds = %_ZNK4llvm3MVT20getV
 
 98:                                               ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit91
   %99 = srem i32 %79, %97
-  %100 = sdiv i32 %79, %97
+  %100 = sdiv exact i32 %79, %97
   %.not69 = icmp eq i32 %99, 0
   br i1 %.not69, label %101, label %.critedge
 
@@ -220249,10 +220249,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjEZL36combineShu
 8:                                                ; preds = %.lr.ph.i.i.i
   %9 = trunc nuw i64 %indvars.iv.i.i.i to i32
   %10 = urem i32 %9, %.val4
-  %11 = udiv i32 %9, %.val4
+  %11 = udiv exact i32 %9, %.val4
   %12 = icmp eq i32 %10, 0
   %13 = icmp eq i32 %6, %11
-  %or.cond = and i1 %12, %13
+  %or.cond = select i1 %12, i1 %13, i1 false
   br i1 %or.cond, label %14, label %"_ZSt10__invoke_rIbRZL36combineShuffleToAnyExtendVectorInregPN4llvm19ShuffleVectorSDNodeERNS0_12SelectionDAGERKNS0_14TargetLoweringEbE3$_0JjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 14:                                               ; preds = %8, %.lr.ph.i.i.i

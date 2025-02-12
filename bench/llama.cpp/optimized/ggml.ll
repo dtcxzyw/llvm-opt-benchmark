@@ -15604,7 +15604,7 @@ if.then497:                                       ; preds = %if.then480
   %type_size.i.i515 = getelementptr inbounds nuw [19 x %struct.ggml_type_traits_t], ptr @type_traits, i64 0, i64 %idxprom.i.i514, i32 2
   %127 = load i64, ptr %type_size.i.i515, align 8
   %rem = urem i64 %offset481.0.copyload, %127
-  %div = udiv i64 %offset481.0.copyload, %127
+  %div = udiv exact i64 %offset481.0.copyload, %127
   %cmp502 = icmp eq i64 %rem, 0
   br i1 %cmp502, label %do.body509, label %if.then504
 
@@ -15619,7 +15619,7 @@ if.then504:                                       ; preds = %if.then497
 
 do.body509:                                       ; preds = %if.then497
   %rem510 = urem i64 %121, %127
-  %div536 = udiv i64 %121, %127
+  %div536 = udiv exact i64 %121, %127
   %cmp511 = icmp eq i64 %rem510, 0
   br i1 %cmp511, label %do.body518, label %if.then513
 
@@ -15634,7 +15634,7 @@ if.then513:                                       ; preds = %do.body509
 
 do.body518:                                       ; preds = %do.body509
   %rem519 = urem i64 %122, %127
-  %div538 = udiv i64 %122, %127
+  %div538 = udiv exact i64 %122, %127
   %cmp520 = icmp eq i64 %rem519, 0
   br i1 %cmp520, label %do.body527, label %if.then522
 
@@ -15649,7 +15649,7 @@ if.then522:                                       ; preds = %do.body518
 
 do.body527:                                       ; preds = %do.body518
   %rem528 = urem i64 %123, %127
-  %div540 = udiv i64 %123, %127
+  %div540 = udiv exact i64 %123, %127
   %cmp529 = icmp eq i64 %rem528, 0
   br i1 %cmp529, label %do.end535, label %if.then531
 
@@ -34091,7 +34091,7 @@ sw.bb:                                            ; preds = %entry
   %ne1.i.i = getelementptr inbounds nuw i8, ptr %src1, i64 16
   %2 = load i64, ptr %ne1.i.i, align 8
   %rem.i.i = srem i64 %1, %2
-  %div99.i = sdiv i64 %1, %2
+  %div99.i = sdiv exact i64 %1, %2
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i
 
@@ -37019,7 +37019,7 @@ sw.bb:                                            ; preds = %do.end
   %ne1.i.i = getelementptr inbounds nuw i8, ptr %src1, i64 16
   %5 = load i64, ptr %ne1.i.i, align 8
   %rem.i.i = srem i64 %4, %5
-  %div86.i = sdiv i64 %4, %5
+  %div86.i = sdiv exact i64 %4, %5
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i
 
@@ -37322,7 +37322,7 @@ sw.bb:                                            ; preds = %entry
   %ne1.i.i = getelementptr inbounds nuw i8, ptr %src1, i64 16
   %2 = load i64, ptr %ne1.i.i, align 8
   %rem.i.i = srem i64 %1, %2
-  %div86.i = sdiv i64 %1, %2
+  %div86.i = sdiv exact i64 %1, %2
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i
 
@@ -38701,7 +38701,7 @@ do.body2.i:                                       ; preds = %sw.bb
   %ne1.i.i = getelementptr inbounds nuw i8, ptr %src0, i64 16
   %5 = load i64, ptr %ne1.i.i, align 8
   %rem.i.i = srem i64 %4, %5
-  %div.i = sdiv i64 %4, %5
+  %div.i = sdiv exact i64 %4, %5
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then4.i
 
@@ -38711,7 +38711,7 @@ land.lhs.true.i.i:                                ; preds = %do.body2.i
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %src0, i64 24
   %7 = load i64, ptr %arrayidx6.i.i, align 8
   %rem7.i.i = srem i64 %6, %7
-  %div43.i = sdiv i64 %6, %7
+  %div43.i = sdiv exact i64 %6, %7
   %cmp8.i.i = icmp eq i64 %rem7.i.i, 0
   br i1 %cmp8.i.i, label %land.lhs.true9.i.i, label %if.then4.i
 
@@ -38721,7 +38721,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %arrayidx13.i.i = getelementptr inbounds nuw i8, ptr %src0, i64 32
   %9 = load i64, ptr %arrayidx13.i.i, align 8
   %rem14.i.i = srem i64 %8, %9
-  %div45.i = sdiv i64 %8, %9
+  %div45.i = sdiv exact i64 %8, %9
   %cmp15.i.i = icmp eq i64 %rem14.i.i, 0
   br i1 %cmp15.i.i, label %ggml_can_repeat.exit.i, label %if.then4.i
 
@@ -38731,7 +38731,7 @@ ggml_can_repeat.exit.i:                           ; preds = %land.lhs.true9.i.i
   %arrayidx19.i.i = getelementptr inbounds nuw i8, ptr %src0, i64 40
   %11 = load i64, ptr %arrayidx19.i.i, align 8
   %rem20.i.i = srem i64 %10, %11
-  %div47.i = sdiv i64 %10, %11
+  %div47.i = sdiv exact i64 %10, %11
   %cmp21.i.i = icmp eq i64 %rem20.i.i, 0
   br i1 %cmp21.i.i, label %do.end8.i, label %if.then4.i
 
@@ -38803,11 +38803,11 @@ for.cond67.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
   %data113.i = getelementptr inbounds nuw i8, ptr %src0, i64 280
   %cmp12554.i = icmp slt i64 %5, 1
   %cmp73105.i = icmp slt i32 %conv46.i, 1
-  %or.cond.not267.i = or i1 %cmp69135.i, %cmp73105.i
+  %or.cond.not267.i = select i1 %cmp69135.i, i1 true, i1 %cmp73105.i
   %brmerge.i = or i1 %cmp7884.i, %or.cond.not267.i
-  %brmerge263.i = or i1 %cmp8268.i, %brmerge.i
+  %brmerge263.i = select i1 %brmerge.i, i1 true, i1 %cmp8268.i
   %brmerge264.i = or i1 %cmp8759.i, %brmerge263.i
-  %brmerge265.i = or i1 %cmp9157.i, %brmerge264.i
+  %brmerge265.i = select i1 %brmerge264.i, i1 true, i1 %cmp9157.i
   %brmerge266.i = or i1 %cmp12554.i, %brmerge265.i
   br i1 %brmerge266.i, label %sw.epilog, label %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i
 
@@ -38943,7 +38943,7 @@ do.body2.i10:                                     ; preds = %sw.bb1
   %ne1.i.i12 = getelementptr inbounds nuw i8, ptr %src0, i64 16
   %34 = load i64, ptr %ne1.i.i12, align 8
   %rem.i.i13 = srem i64 %33, %34
-  %div.i42 = sdiv i64 %33, %34
+  %div.i42 = sdiv exact i64 %33, %34
   %cmp.i.i14 = icmp eq i64 %rem.i.i13, 0
   br i1 %cmp.i.i14, label %land.lhs.true.i.i18, label %if.then4.i15
 
@@ -38953,7 +38953,7 @@ land.lhs.true.i.i18:                              ; preds = %do.body2.i10
   %arrayidx6.i.i20 = getelementptr inbounds nuw i8, ptr %src0, i64 24
   %36 = load i64, ptr %arrayidx6.i.i20, align 8
   %rem7.i.i21 = srem i64 %35, %36
-  %div43.i44 = sdiv i64 %35, %36
+  %div43.i44 = sdiv exact i64 %35, %36
   %cmp8.i.i22 = icmp eq i64 %rem7.i.i21, 0
   br i1 %cmp8.i.i22, label %land.lhs.true9.i.i23, label %if.then4.i15
 
@@ -38963,7 +38963,7 @@ land.lhs.true9.i.i23:                             ; preds = %land.lhs.true.i.i18
   %arrayidx13.i.i25 = getelementptr inbounds nuw i8, ptr %src0, i64 32
   %38 = load i64, ptr %arrayidx13.i.i25, align 8
   %rem14.i.i26 = srem i64 %37, %38
-  %div45.i46 = sdiv i64 %37, %38
+  %div45.i46 = sdiv exact i64 %37, %38
   %cmp15.i.i27 = icmp eq i64 %rem14.i.i26, 0
   br i1 %cmp15.i.i27, label %ggml_can_repeat.exit.i28, label %if.then4.i15
 
@@ -38973,7 +38973,7 @@ ggml_can_repeat.exit.i28:                         ; preds = %land.lhs.true9.i.i2
   %arrayidx19.i.i30 = getelementptr inbounds nuw i8, ptr %src0, i64 40
   %40 = load i64, ptr %arrayidx19.i.i30, align 8
   %rem20.i.i31 = srem i64 %39, %40
-  %div47.i48 = sdiv i64 %39, %40
+  %div47.i48 = sdiv exact i64 %39, %40
   %cmp21.i.i32 = icmp eq i64 %rem20.i.i31, 0
   br i1 %cmp21.i.i32, label %do.end8.i33, label %if.then4.i15
 
@@ -39047,11 +39047,11 @@ for.cond67.preheader.lr.ph.i61:                   ; preds = %for.cond.preheader.
   %cmp4.i.i = icmp slt i32 %conv94.i, 1
   %wide.trip.count.i.i = and i64 %34, 2147483647
   %cmp7399.i = icmp slt i32 %conv46.i47, 1
-  %or.cond.not257.i = or i1 %cmp69129.i, %cmp7399.i
+  %or.cond.not257.i = select i1 %cmp69129.i, i1 true, i1 %cmp7399.i
   %brmerge.i63 = or i1 %cmp7878.i, %or.cond.not257.i
-  %brmerge253.i = or i1 %cmp8262.i, %brmerge.i63
+  %brmerge253.i = select i1 %brmerge.i63, i1 true, i1 %cmp8262.i
   %brmerge254.i = or i1 %cmp8753.i, %brmerge253.i
-  %brmerge255.i = or i1 %cmp9151.i, %brmerge254.i
+  %brmerge255.i = select i1 %brmerge254.i, i1 true, i1 %cmp9151.i
   %brmerge256.i = or i1 %cmp4.i.i, %brmerge255.i
   br i1 %brmerge256.i, label %sw.epilog, label %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i64
 
@@ -39207,7 +39207,7 @@ do.body2.i:                                       ; preds = %sw.bb
   %ne1.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %5 = load i64, ptr %ne1.i.i, align 8
   %rem.i.i = srem i64 %4, %5
-  %div.i = sdiv i64 %4, %5
+  %div.i = sdiv exact i64 %4, %5
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then4.i
 
@@ -39217,7 +39217,7 @@ land.lhs.true.i.i:                                ; preds = %do.body2.i
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   %7 = load i64, ptr %arrayidx6.i.i, align 8
   %rem7.i.i = srem i64 %6, %7
-  %div43.i = sdiv i64 %6, %7
+  %div43.i = sdiv exact i64 %6, %7
   %cmp8.i.i = icmp eq i64 %rem7.i.i, 0
   br i1 %cmp8.i.i, label %land.lhs.true9.i.i, label %if.then4.i
 
@@ -39227,7 +39227,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %arrayidx13.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   %9 = load i64, ptr %arrayidx13.i.i, align 8
   %rem14.i.i = srem i64 %8, %9
-  %div45.i = sdiv i64 %8, %9
+  %div45.i = sdiv exact i64 %8, %9
   %cmp15.i.i = icmp eq i64 %rem14.i.i, 0
   br i1 %cmp15.i.i, label %ggml_can_repeat.exit.i, label %if.then4.i
 
@@ -39237,7 +39237,7 @@ ggml_can_repeat.exit.i:                           ; preds = %land.lhs.true9.i.i
   %arrayidx19.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
   %11 = load i64, ptr %arrayidx19.i.i, align 8
   %rem20.i.i = srem i64 %10, %11
-  %div47.i = sdiv i64 %10, %11
+  %div47.i = sdiv exact i64 %10, %11
   %cmp21.i.i = icmp eq i64 %rem20.i.i, 0
   br i1 %cmp21.i.i, label %do.end8.i, label %if.then4.i
 
@@ -39410,11 +39410,11 @@ for.cond105.preheader.lr.ph.i:                    ; preds = %if.end99.i
   %cmp4.i.i = icmp slt i32 %conv134.i, 1
   %wide.trip.count.i86.i = and i64 %5, 2147483647
   %cmp111172.i = icmp slt i32 %conv46.i, 1
-  %or.cond374.not381.i = or i1 %cmp107202.i, %cmp111172.i
+  %or.cond374.not381.i = select i1 %cmp107202.i, i1 true, i1 %cmp111172.i
   %brmerge375.i = or i1 %cmp117151.i, %or.cond374.not381.i
-  %brmerge376.i = or i1 %cmp121135.i, %brmerge375.i
+  %brmerge376.i = select i1 %brmerge375.i, i1 true, i1 %cmp121135.i
   %brmerge377.i = or i1 %cmp127126.i, %brmerge376.i
-  %brmerge378.i = or i1 %cmp131124.i, %brmerge377.i
+  %brmerge378.i = select i1 %brmerge377.i, i1 true, i1 %cmp131124.i
   %brmerge379.i = or i1 %cmp4.i.i, %brmerge378.i
   br i1 %brmerge379.i, label %ggml_compute_forward_repeat_back_f32.exit, label %for.cond105.preheader.us.us.us.us.us.us.us.preheader.i
 

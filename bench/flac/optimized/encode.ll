@@ -3385,7 +3385,7 @@ fread.inline.exit328:                             ; preds = %1411, %1409
   %1423 = load i32, ptr %1393, align 8, !tbaa !48
   %1424 = zext i32 %1423 to i64
   %1425 = urem i64 %.0228, %1424
-  %1426 = udiv i64 %.0228, %1424
+  %1426 = udiv exact i64 %.0228, %1424
   %.not307 = icmp eq i64 %1425, 0
   br i1 %.not307, label %1430, label %1427
 
@@ -3516,7 +3516,7 @@ fread.inline.exit338:                             ; preds = %fread.inline.exit33
   %.2225.ph556 = phi i64 [ %.2225.ph, %..thread554_crit_edge ], [ %1449, %1453 ]
   %1481 = zext i32 %1480 to i64
   %1482 = urem i64 %.2225.ph556, %1481
-  %1483 = udiv i64 %.2225.ph556, %1481
+  %1483 = udiv exact i64 %.2225.ph556, %1481
   %.not297 = icmp eq i64 %1482, 0
   br i1 %.not297, label %1487, label %1484
 
@@ -3639,7 +3639,7 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
   %1536 = load i32, ptr %1505, align 8, !tbaa !48
   %1537 = zext i32 %1536 to i64
   %1538 = urem i64 %1515, %1537
-  %1539 = udiv i64 %1515, %1537
+  %1539 = udiv exact i64 %1515, %1537
   %.not286 = icmp eq i64 %1538, 0
   br i1 %.not286, label %1543, label %1540
 

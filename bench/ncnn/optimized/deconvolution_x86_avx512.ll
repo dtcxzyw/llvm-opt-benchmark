@@ -3055,7 +3055,7 @@ define hidden noundef i32 @_ZNK4ncnn24Deconvolution_x86_avx5127forwardERKNS_3Mat
 
 895:                                              ; preds = %891
   %896 = srem i32 %893, %668
-  %897 = sdiv i32 %893, %668
+  %897 = sdiv exact i32 %893, %668
   %.not1348.us.us.us.us.i = icmp eq i32 %896, 0
   %.not1349.us.us.us.us.i = icmp slt i32 %897, %717
   %or.cond2323 = select i1 %.not1348.us.us.us.us.i, i1 %.not1349.us.us.us.us.i, i1 false
@@ -3074,7 +3074,7 @@ define hidden noundef i32 @_ZNK4ncnn24Deconvolution_x86_avx5127forwardERKNS_3Mat
 
 902:                                              ; preds = %898
   %903 = srem i32 %900, %667
-  %904 = sdiv i32 %900, %667
+  %904 = sdiv exact i32 %900, %667
   %.not1350.us.us.us.us.i = icmp eq i32 %903, 0
   %.not1351.us.us.us.us.i = icmp slt i32 %904, %716
   %or.cond2324 = select i1 %.not1350.us.us.us.us.i, i1 %.not1351.us.us.us.us.i, i1 false
@@ -3573,7 +3573,7 @@ _ZN4ncnnL27deconvolution_pack16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Optio
 
 1267:                                             ; preds = %1263
   %1268 = srem i32 %1265, %1039
-  %1269 = sdiv i32 %1265, %1039
+  %1269 = sdiv exact i32 %1265, %1039
   %.not1132.us.us.us.us.i = icmp eq i32 %1268, 0
   %.not1133.us.us.us.us.i = icmp slt i32 %1269, %1089
   %or.cond2325 = select i1 %.not1132.us.us.us.us.i, i1 %.not1133.us.us.us.us.i, i1 false
@@ -3592,7 +3592,7 @@ _ZN4ncnnL27deconvolution_pack16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Optio
 
 1274:                                             ; preds = %1270
   %1275 = srem i32 %1272, %1038
-  %1276 = sdiv i32 %1272, %1038
+  %1276 = sdiv exact i32 %1272, %1038
   %.not1134.us.us.us.us.i = icmp eq i32 %1275, 0
   %.not1135.us.us.us.us.i = icmp slt i32 %1276, %1088
   %or.cond2326 = select i1 %.not1134.us.us.us.us.i, i1 %.not1135.us.us.us.us.i, i1 false
@@ -4008,7 +4008,7 @@ _ZN4ncnnL30deconvolution_pack8to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 1556:                                             ; preds = %1552
   %1557 = srem i32 %1554, %1355
-  %1558 = sdiv i32 %1554, %1355
+  %1558 = sdiv exact i32 %1554, %1355
   %.not1355.us.us.us.us.i = icmp eq i32 %1557, 0
   %.not1356.us.us.us.us.i = icmp slt i32 %1558, %1373
   %or.cond2327 = select i1 %.not1355.us.us.us.us.i, i1 %.not1356.us.us.us.us.i, i1 false
@@ -4027,7 +4027,7 @@ _ZN4ncnnL30deconvolution_pack8to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 1563:                                             ; preds = %1559
   %1564 = srem i32 %1561, %1354
-  %1565 = sdiv i32 %1561, %1354
+  %1565 = sdiv exact i32 %1561, %1354
   %.not1357.us.us.us.us.i = icmp eq i32 %1564, 0
   %.not1358.us.us.us.us.i = icmp slt i32 %1565, %1372
   %or.cond2328 = select i1 %.not1357.us.us.us.us.i, i1 %.not1358.us.us.us.us.i, i1 false
@@ -4526,7 +4526,7 @@ _ZN4ncnnL30deconvolution_pack16to8_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 1928:                                             ; preds = %1924
   %1929 = srem i32 %1926, %1700
-  %1930 = sdiv i32 %1926, %1700
+  %1930 = sdiv exact i32 %1926, %1700
   %.not1024.us.us.us.us.i = icmp eq i32 %1929, 0
   %.not1025.us.us.us.us.i = icmp slt i32 %1930, %1750
   %or.cond2329 = select i1 %.not1024.us.us.us.us.i, i1 %.not1025.us.us.us.us.i, i1 false
@@ -4545,7 +4545,7 @@ _ZN4ncnnL30deconvolution_pack16to8_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 1935:                                             ; preds = %1931
   %1936 = srem i32 %1933, %1699
-  %1937 = sdiv i32 %1933, %1699
+  %1937 = sdiv exact i32 %1933, %1699
   %.not1026.us.us.us.us.i = icmp eq i32 %1936, 0
   %.not1027.us.us.us.us.i = icmp slt i32 %1937, %1749
   %or.cond2330 = select i1 %.not1026.us.us.us.us.i, i1 %.not1027.us.us.us.us.i, i1 false
@@ -4940,7 +4940,7 @@ _ZN4ncnnL30deconvolution_pack4to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2196:                                             ; preds = %2192
   %2197 = srem i32 %2194, %1988
-  %2198 = sdiv i32 %2194, %1988
+  %2198 = sdiv exact i32 %2194, %1988
   %.not1158.us.us.us.us.i = icmp eq i32 %2197, 0
   %.not1159.us.us.us.us.i = icmp slt i32 %2198, %2006
   %or.cond2331 = select i1 %.not1158.us.us.us.us.i, i1 %.not1159.us.us.us.us.i, i1 false
@@ -4959,7 +4959,7 @@ _ZN4ncnnL30deconvolution_pack4to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2203:                                             ; preds = %2199
   %2204 = srem i32 %2201, %1987
-  %2205 = sdiv i32 %2201, %1987
+  %2205 = sdiv exact i32 %2201, %1987
   %.not1160.us.us.us.us.i = icmp eq i32 %2204, 0
   %.not1161.us.us.us.us.i = icmp slt i32 %2205, %2005
   %or.cond2332 = select i1 %.not1160.us.us.us.us.i, i1 %.not1161.us.us.us.us.i, i1 false
@@ -5458,7 +5458,7 @@ _ZN4ncnnL30deconvolution_pack16to4_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2568:                                             ; preds = %2564
   %2569 = srem i32 %2566, %2340
-  %2570 = sdiv i32 %2566, %2340
+  %2570 = sdiv exact i32 %2566, %2340
   %.not944.us.us.us.us.i = icmp eq i32 %2569, 0
   %.not945.us.us.us.us.i = icmp slt i32 %2570, %2390
   %or.cond2333 = select i1 %.not944.us.us.us.us.i, i1 %.not945.us.us.us.us.i, i1 false
@@ -5484,7 +5484,7 @@ _ZN4ncnnL30deconvolution_pack16to4_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2579:                                             ; preds = %2575
   %2580 = srem i32 %2577, %2339
-  %2581 = sdiv i32 %2577, %2339
+  %2581 = sdiv exact i32 %2577, %2339
   %.not946.us.us.us.us.i = icmp eq i32 %2580, 0
   %.not947.us.us.us.us.i = icmp slt i32 %2581, %2389
   %or.cond2334 = select i1 %.not946.us.us.us.us.i, i1 %.not947.us.us.us.us.i, i1 false
@@ -5761,7 +5761,7 @@ _ZN4ncnnL30deconvolution_pack1to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2718:                                             ; preds = %2714
   %2719 = srem i32 %2716, %2606
-  %2720 = sdiv i32 %2716, %2606
+  %2720 = sdiv exact i32 %2716, %2606
   %.not305.us.us.us.us.i = icmp eq i32 %2719, 0
   %.not306.us.us.us.us.i = icmp slt i32 %2720, %2624
   %or.cond2335 = select i1 %.not305.us.us.us.us.i, i1 %.not306.us.us.us.us.i, i1 false
@@ -5780,7 +5780,7 @@ _ZN4ncnnL30deconvolution_pack1to16_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2725:                                             ; preds = %2721
   %2726 = srem i32 %2723, %2605
-  %2727 = sdiv i32 %2723, %2605
+  %2727 = sdiv exact i32 %2723, %2605
   %.not307.us.us.us.us.i = icmp eq i32 %2726, 0
   %.not308.us.us.us.us.i = icmp slt i32 %2727, %2623
   %or.cond2336 = select i1 %.not307.us.us.us.us.i, i1 %.not308.us.us.us.us.i, i1 false
@@ -6144,7 +6144,7 @@ _ZN4ncnnL30deconvolution_pack16to1_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2955:                                             ; preds = %2951
   %2956 = srem i32 %2953, %2754
-  %2957 = sdiv i32 %2953, %2754
+  %2957 = sdiv exact i32 %2953, %2754
   %.not1219.us.us.us.us.i = icmp eq i32 %2956, 0
   %.not1220.us.us.us.us.i = icmp slt i32 %2957, %2772
   %or.cond2337 = select i1 %.not1219.us.us.us.us.i, i1 %.not1220.us.us.us.us.i, i1 false
@@ -6163,7 +6163,7 @@ _ZN4ncnnL30deconvolution_pack16to1_avx512ERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Op
 
 2962:                                             ; preds = %2958
   %2963 = srem i32 %2960, %2753
-  %2964 = sdiv i32 %2960, %2753
+  %2964 = sdiv exact i32 %2960, %2753
   %.not1221.us.us.us.us.i = icmp eq i32 %2963, 0
   %.not1222.us.us.us.us.i = icmp slt i32 %2964, %2771
   %or.cond2338 = select i1 %.not1221.us.us.us.us.i, i1 %.not1222.us.us.us.us.i, i1 false
@@ -6578,7 +6578,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 
 3243:                                             ; preds = %3239
   %3244 = srem i32 %3241, %3042
-  %3245 = sdiv i32 %3241, %3042
+  %3245 = sdiv exact i32 %3241, %3042
   %.not1127.us.us.us.us.i = icmp eq i32 %3244, 0
   %.not1128.us.us.us.us.i = icmp slt i32 %3245, %3060
   %or.cond2339 = select i1 %.not1127.us.us.us.us.i, i1 %.not1128.us.us.us.us.i, i1 false
@@ -6597,7 +6597,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 
 3250:                                             ; preds = %3246
   %3251 = srem i32 %3248, %3041
-  %3252 = sdiv i32 %3248, %3041
+  %3252 = sdiv exact i32 %3248, %3041
   %.not1129.us.us.us.us.i = icmp eq i32 %3251, 0
   %.not1130.us.us.us.us.i = icmp slt i32 %3252, %3059
   %or.cond2340 = select i1 %.not1129.us.us.us.us.i, i1 %.not1130.us.us.us.us.i, i1 false
@@ -6991,7 +6991,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3510:                                             ; preds = %3506
   %3511 = srem i32 %3508, %3302
-  %3512 = sdiv i32 %3508, %3302
+  %3512 = sdiv exact i32 %3508, %3302
   %.not1054.us.us.us.us.i = icmp eq i32 %3511, 0
   %.not1055.us.us.us.us.i = icmp slt i32 %3512, %3320
   %or.cond2341 = select i1 %.not1054.us.us.us.us.i, i1 %.not1055.us.us.us.us.i, i1 false
@@ -7010,7 +7010,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3517:                                             ; preds = %3513
   %3518 = srem i32 %3515, %3301
-  %3519 = sdiv i32 %3515, %3301
+  %3519 = sdiv exact i32 %3515, %3301
   %.not1056.us.us.us.us.i = icmp eq i32 %3518, 0
   %.not1057.us.us.us.us.i = icmp slt i32 %3519, %3319
   %or.cond2342 = select i1 %.not1056.us.us.us.us.i, i1 %.not1057.us.us.us.us.i, i1 false
@@ -7425,7 +7425,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3798:                                             ; preds = %3794
   %3799 = srem i32 %3796, %3597
-  %3800 = sdiv i32 %3796, %3597
+  %3800 = sdiv exact i32 %3796, %3597
   %.not1066.us.us.us.us.i = icmp eq i32 %3799, 0
   %.not1067.us.us.us.us.i = icmp slt i32 %3800, %3615
   %or.cond2343 = select i1 %.not1066.us.us.us.us.i, i1 %.not1067.us.us.us.us.i, i1 false
@@ -7451,7 +7451,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3809:                                             ; preds = %3805
   %3810 = srem i32 %3807, %3596
-  %3811 = sdiv i32 %3807, %3596
+  %3811 = sdiv exact i32 %3807, %3596
   %.not1068.us.us.us.us.i = icmp eq i32 %3810, 0
   %.not1069.us.us.us.us.i = icmp slt i32 %3811, %3614
   %or.cond2344 = select i1 %.not1068.us.us.us.us.i, i1 %.not1069.us.us.us.us.i, i1 false
@@ -7724,7 +7724,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3944:                                             ; preds = %3940
   %3945 = srem i32 %3942, %3835
-  %3946 = sdiv i32 %3942, %3835
+  %3946 = sdiv exact i32 %3942, %3835
   %.not301.us.us.us.us.i = icmp eq i32 %3945, 0
   %.not302.us.us.us.us.i = icmp slt i32 %3946, %3853
   %or.cond2345 = select i1 %.not301.us.us.us.us.i, i1 %.not302.us.us.us.us.i, i1 false
@@ -7743,7 +7743,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 3951:                                             ; preds = %3947
   %3952 = srem i32 %3949, %3834
-  %3953 = sdiv i32 %3949, %3834
+  %3953 = sdiv exact i32 %3949, %3834
   %.not303.us.us.us.us.i = icmp eq i32 %3952, 0
   %.not304.us.us.us.us.i = icmp slt i32 %3953, %3852
   %or.cond2346 = select i1 %.not303.us.us.us.us.i, i1 %.not304.us.us.us.us.i, i1 false
@@ -8114,7 +8114,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4188:                                             ; preds = %4184
   %4189 = srem i32 %4186, %3980
-  %4190 = sdiv i32 %4186, %3980
+  %4190 = sdiv exact i32 %4186, %3980
   %.not978.us.us.us.us.i = icmp eq i32 %4189, 0
   %.not979.us.us.us.us.i = icmp slt i32 %4190, %3998
   %or.cond2347 = select i1 %.not978.us.us.us.us.i, i1 %.not979.us.us.us.us.i, i1 false
@@ -8133,7 +8133,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4195:                                             ; preds = %4191
   %4196 = srem i32 %4193, %3979
-  %4197 = sdiv i32 %4193, %3979
+  %4197 = sdiv exact i32 %4193, %3979
   %.not980.us.us.us.us.i = icmp eq i32 %4196, 0
   %.not981.us.us.us.us.i = icmp slt i32 %4197, %3997
   %or.cond2348 = select i1 %.not980.us.us.us.us.i, i1 %.not981.us.us.us.us.i, i1 false
@@ -8527,7 +8527,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 
 4455:                                             ; preds = %4451
   %4456 = srem i32 %4453, %4247
-  %4457 = sdiv i32 %4453, %4247
+  %4457 = sdiv exact i32 %4453, %4247
   %.not921.us.us.us.us.i = icmp eq i32 %4456, 0
   %.not922.us.us.us.us.i = icmp slt i32 %4457, %4265
   %or.cond2349 = select i1 %.not921.us.us.us.us.i, i1 %.not922.us.us.us.us.i, i1 false
@@ -8553,7 +8553,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 
 4466:                                             ; preds = %4462
   %4467 = srem i32 %4464, %4246
-  %4468 = sdiv i32 %4464, %4246
+  %4468 = sdiv exact i32 %4464, %4246
   %.not923.us.us.us.us.i = icmp eq i32 %4467, 0
   %.not924.us.us.us.us.i = icmp slt i32 %4468, %4264
   %or.cond2350 = select i1 %.not923.us.us.us.us.i, i1 %.not924.us.us.us.us.i, i1 false
@@ -8823,7 +8823,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4598:                                             ; preds = %4594
   %4599 = srem i32 %4596, %4492
-  %4600 = sdiv i32 %4596, %4492
+  %4600 = sdiv exact i32 %4596, %4492
   %.not295.us.us.us.us.i = icmp eq i32 %4599, 0
   %.not296.us.us.us.us.i = icmp slt i32 %4600, %4510
   %or.cond2351 = select i1 %.not295.us.us.us.us.i, i1 %.not296.us.us.us.us.i, i1 false
@@ -8842,7 +8842,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4605:                                             ; preds = %4601
   %4606 = srem i32 %4603, %4491
-  %4607 = sdiv i32 %4603, %4491
+  %4607 = sdiv exact i32 %4603, %4491
   %.not297.us.us.us.us.i = icmp eq i32 %4606, 0
   %.not298.us.us.us.us.i = icmp slt i32 %4607, %4509
   %or.cond2352 = select i1 %.not297.us.us.us.us.i, i1 %.not298.us.us.us.us.i, i1 false
@@ -9104,7 +9104,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4740:                                             ; preds = %4735
   %4741 = srem i32 %4738, %4724
-  %4742 = sdiv i32 %4738, %4724
+  %4742 = sdiv exact i32 %4738, %4724
   %.not1012.us.us.us.us = icmp eq i32 %4741, 0
   %.not1013.us.us.us.us = icmp slt i32 %4742, %4641
   %or.cond2353 = select i1 %.not1012.us.us.us.us, i1 %.not1013.us.us.us.us, i1 false
@@ -9129,7 +9129,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 4753:                                             ; preds = %4748
   %4754 = srem i32 %4751, %4731
-  %4755 = sdiv i32 %4751, %4731
+  %4755 = sdiv exact i32 %4751, %4731
   %.not1014.us.us.us.us = icmp eq i32 %4754, 0
   %.not1015.us.us.us.us = icmp slt i32 %4755, %4640
   %or.cond2354 = select i1 %.not1014.us.us.us.us, i1 %.not1015.us.us.us.us, i1 false

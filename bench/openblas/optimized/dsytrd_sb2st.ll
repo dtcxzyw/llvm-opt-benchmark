@@ -371,15 +371,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 224:                                              ; preds = %.preheader
   %225 = srem i32 %222, 2
-  %226 = sdiv i32 %222, 2
-  %227 = add nsw i32 %225, 2
-  store i32 %227, ptr %19, align 4, !tbaa !3
-  %228 = icmp eq i32 %225, 0
-  br i1 %228, label %229, label %235
+  %226 = add nsw i32 %225, 2
+  store i32 %226, ptr %19, align 4, !tbaa !3
+  %227 = icmp eq i32 %225, 0
+  br i1 %227, label %228, label %235
 
 229:                                              ; preds = %224
+  %229 = ashr exact i32 %222, 1
   %230 = load i32, ptr %4, align 4, !tbaa !3
-  %231 = mul nsw i32 %230, %226
+  %231 = mul nsw i32 %230, %229
   %232 = add nsw i32 %231, %219
   %reass.sub = sub i32 %232, %230
   %233 = add i32 %reass.sub, 1

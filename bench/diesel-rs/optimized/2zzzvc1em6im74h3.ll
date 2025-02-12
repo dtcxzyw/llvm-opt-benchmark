@@ -2296,7 +2296,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %163 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %164 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %165 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %166 = udiv i32 %storemerge.i, 1000
+  %166 = udiv exact i32 %storemerge.i, 1000
   %167 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.5114.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.6115.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -2309,7 +2309,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %170 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %171 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %173 = udiv i32 %storemerge.i, 1000000
+  %173 = udiv exact i32 %storemerge.i, 1000000
   %174 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.698.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -2454,7 +2454,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %280 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %281 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %282 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %283 = udiv i32 %271, 1000
+  %283 = udiv exact i32 %271, 1000
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2467,7 +2467,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %287 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %288 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %289 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %290 = udiv i32 %271, 1000000
+  %290 = udiv exact i32 %271, 1000000
   %291 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.6.0..sroa_idx.i170 = getelementptr inbounds nuw i8, ptr %12, i64 24

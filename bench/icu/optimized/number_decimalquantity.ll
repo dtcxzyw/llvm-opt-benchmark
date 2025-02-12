@@ -2591,20 +2591,17 @@ for.end.i106:                                     ; preds = %for.body.i91, %_ZNK
   %cmp9.i108 = icmp eq i64 %result.0.lcssa.i107, 0
   br i1 %cmp9.i108, label %return, label %land.rhs10.i
 
-land.rhs10.i:                                     ; preds = %for.end.i106, %while.body.i
-  %result.2.i = phi i64 [ %div.i, %while.body.i ], [ %result.0.lcssa.i107, %for.end.i106 ]
+land.rhs10.i:                                     ; preds = %for.end.i106, %land.rhs10.i
+  %result.2.i = phi i64 [ %div.i, %land.rhs10.i ], [ %result.0.lcssa.i107, %for.end.i106 ]
   %rem.i = urem i64 %result.2.i, 10
-  %div.i = udiv i64 %result.2.i, 10
-  %cmp11.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp11.i, label %while.body.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit
+  %div.i = icmp ne i64 %rem.i, 0
+  %cmp11.i = udiv exact i64 %result.2.i, 10
+  %cmp9.old.not.i = icmp eq i64 %result.2.i, 0
+  %or.cond = or i1 %cmp11.i, %cmp9.old.not.i
+  br i1 %or.cond, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit, label %land.rhs10.i
 
-while.body.i:                                     ; preds = %land.rhs10.i
-  %cmp9.old.not.i = icmp ult i64 %result.2.i, 10
-  br i1 %cmp9.old.not.i, label %_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit, label %land.rhs10.i
-
-_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit: ; preds = %while.body.i, %land.rhs10.i
-  %result.1.i109.ph = phi i64 [ %result.2.i, %land.rhs10.i ], [ 0, %while.body.i ]
-  %40 = uitofp i64 %result.1.i109.ph to double
+_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb.exit127.loopexit:; preds = %land.rhs10.i
+  %40 = uitofp i64 %result.2.i to double
   br label %return
 
 sw.bb10:                                          ; preds = %entry
@@ -2823,12 +2820,12 @@ for.end:                                          ; preds = %for.body, %_ZNK6icu
 land.rhs10:                                       ; preds = %for.end, %while.body
   %result.2 = phi i64 [ %div, %while.body ], [ %result.0.lcssa, %for.end ]
   %rem = urem i64 %result.2, 10
-  %div = udiv i64 %result.2, 10
+  %div = udiv exact i64 %result.2, 10
   %cmp11 = icmp eq i64 %rem, 0
   br i1 %cmp11, label %while.body, label %if.end13
 
 while.body:                                       ; preds = %land.rhs10
-  %cmp9.old.not = icmp ult i64 %result.2, 10
+  %cmp9.old.not = icmp eq i64 %result.2, 0
   br i1 %cmp9.old.not, label %if.end13, label %land.rhs10
 
 if.end13:                                         ; preds = %land.rhs10, %while.body, %entry, %for.end

@@ -31567,7 +31567,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit1065:       ; preds = %822
   %854 = load i8, ptr %853, align 8, !tbaa !724, !range !50, !noundef !51
   %855 = trunc nuw i8 %854 to i1
   %856 = urem i32 %308, %841
-  %857 = udiv i32 %308, %841
+  %857 = udiv exact i32 %308, %841
   %858 = icmp eq i32 %856, 0
   br i1 %858, label %859, label %930
 
@@ -31635,7 +31635,7 @@ _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %880, %870
   br i1 %.not952.us, label %.preheader, label %870, !llvm.loop !975
 
 .preheader:                                       ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us, %_ZN4llvm5APIntC2Ejmbb.exit1071
-  %.not9531471 = icmp ugt i32 %841, %308
+  %.not9531471 = icmp eq i32 %308, 0
   br i1 %.not9531471, label %._crit_edge, label %.lr.ph1473
 
 .lr.ph1473:                                       ; preds = %.preheader
@@ -31730,7 +31730,7 @@ _ZN4llvm5APIntD2Ev.exit1074:                      ; preds = %917, %921, %924
 
 930:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit1073, %850
   %931 = urem i32 %841, %308
-  %932 = udiv i32 %841, %308
+  %932 = udiv exact i32 %841, %308
   %933 = icmp eq i32 %931, 0
   br i1 %933, label %934, label %966
 
@@ -37193,7 +37193,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %425
 
 445:                                              ; preds = %443
   %446 = urem i32 %436, %434
-  %447 = udiv i32 %436, %434
+  %447 = udiv exact i32 %436, %434
   %448 = icmp eq i32 %446, 0
   br i1 %448, label %449, label %.thread276
 
@@ -37201,7 +37201,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %425
   %450 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #34
   call void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %29, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %450, i1 noundef zeroext false) #34
-  %.not288 = icmp ugt i32 %434, %436
+  %.not288 = icmp eq i32 %436, 0
   br i1 %.not288, label %.critedge134, label %.lr.ph
 
 .lr.ph:                                           ; preds = %449
@@ -37303,7 +37303,7 @@ _ZN4llvm5APIntD2Ev.exit204:                       ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
   %491 = add i32 %.0122289, 1
   %.not = icmp ne i32 %491, %447
-  %or.cond334.not = and i1 %.not, %.0.i200
+  %or.cond334.not = select i1 %.0.i200, i1 %.not, i1 false
   br i1 %or.cond334.not, label %455, label %.critedge134, !llvm.loop !1006
 
 .critedge132:                                     ; preds = %_ZN4llvm5APIntaNERKS0_.exit
@@ -41455,7 +41455,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %297
   %324 = load i8, ptr %323, align 8, !tbaa !724, !range !50, !noundef !51
   %325 = trunc nuw i8 %324 to i1
   %326 = urem i32 %311, %95
-  %327 = udiv i32 %311, %95
+  %327 = udiv exact i32 %311, %95
   %.not1313 = icmp eq i32 %326, 0
   br i1 %.not1313, label %328, label %.thread1173
 
