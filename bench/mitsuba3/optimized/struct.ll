@@ -4131,42 +4131,42 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail14StructCompiler4loadEPKNS_6S
   %74 = ptrtoint ptr %70 to i64
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 5
-  %.sink181.sroa.gep = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %.sink181.sroa.gep182 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %.sink181.sroa.gep183 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %.sink181.sroa.gep184 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.sink181.sroa.gep185 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %.sink181.sroa.gep186 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %.sink181.sroa.gep187 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %.sink181.sroa.gep188 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %.sink181.sroa.gep189 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %.sink181.sroa.gep190 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %.sink181.sroa.gep191 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %.sink181.sroa.gep192 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %.sink181.sroa.gep194 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %.sink181.sroa.gep195 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.sink181.sroa.gep196 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %.sink181.sroa.gep197 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.sink181.sroa.gep198 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sink181.sroa.gep199 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.sink181.sroa.gep200 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sink181.sroa.gep201 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.sink181.sroa.gep202 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sink181.sroa.gep203 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink181.sroa.gep204 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sink181.sroa.gep205 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink181.sroa.gep207 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  %.sink181.sroa.gep208 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %.sink181.sroa.gep209 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %.sink181.sroa.gep210 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %.sink181.sroa.gep211 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %.sink181.sroa.gep212 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %.sink181.sroa.gep213 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %.sink181.sroa.gep214 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %.sink181.sroa.gep215 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %.sink181.sroa.gep216 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %.sink181.sroa.gep217 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %.sink181.sroa.gep218 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %.sink180.sroa.gep = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %.sink180.sroa.gep181 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %.sink180.sroa.gep182 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %.sink180.sroa.gep183 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.sink180.sroa.gep184 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %.sink180.sroa.gep185 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %.sink180.sroa.gep186 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %.sink180.sroa.gep187 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %.sink180.sroa.gep188 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %.sink180.sroa.gep189 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sink180.sroa.gep190 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.sink180.sroa.gep191 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.sink180.sroa.gep193 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.sink180.sroa.gep194 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %.sink180.sroa.gep195 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %.sink180.sroa.gep196 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sink180.sroa.gep197 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sink180.sroa.gep198 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sink180.sroa.gep199 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sink180.sroa.gep200 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.sink180.sroa.gep201 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sink180.sroa.gep202 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink180.sroa.gep203 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink180.sroa.gep204 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink180.sroa.gep206 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  %.sink180.sroa.gep207 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %.sink180.sroa.gep208 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %.sink180.sroa.gep209 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %.sink180.sroa.gep210 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %.sink180.sroa.gep211 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %.sink180.sroa.gep212 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %.sink180.sroa.gep213 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %.sink180.sroa.gep214 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %.sink180.sroa.gep215 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %.sink180.sroa.gep216 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %.sink180.sroa.gep217 = getelementptr inbounds nuw i8, ptr %17, i64 12
   invoke void @_ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS5_IS8_EEE16__init_with_sizeB8ne190000IPS8_SC_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef %70, ptr noundef %72, i64 noundef %76)
           to label %_ZN7mitsuba6Struct5FieldC2ERKS1_.exit unwind label %77
 
@@ -4346,19 +4346,19 @@ _ZN6asmjit9_abi_1_103x868Compiler6newXmmIJEEENS1_3XmmEPKcDpOT_.exit: ; preds = %
   br label %.invoke
 
 .invoke:                                          ; preds = %313, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153, %284, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139, %251, %212, %208, %199, %175, %169, %138
-  %.sink181.sroa.phi = phi ptr [ %.sink181.sroa.gep, %313 ], [ %.sink181.sroa.gep182, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink181.sroa.gep183, %284 ], [ %.sink181.sroa.gep184, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink181.sroa.gep185, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink181.sroa.gep186, %251 ], [ %.sink181.sroa.gep187, %212 ], [ %.sink181.sroa.gep188, %208 ], [ %.sink181.sroa.gep189, %199 ], [ %.sink181.sroa.gep190, %175 ], [ %.sink181.sroa.gep191, %169 ], [ %.sink181.sroa.gep192, %138 ]
-  %.sink181.sroa.phi193 = phi ptr [ %.sink181.sroa.gep194, %313 ], [ %.sink181.sroa.gep195, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink181.sroa.gep196, %284 ], [ %.sink181.sroa.gep197, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink181.sroa.gep198, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink181.sroa.gep199, %251 ], [ %.sink181.sroa.gep200, %212 ], [ %.sink181.sroa.gep201, %208 ], [ %.sink181.sroa.gep202, %199 ], [ %.sink181.sroa.gep203, %175 ], [ %.sink181.sroa.gep204, %169 ], [ %.sink181.sroa.gep205, %138 ]
-  %.sink181.sroa.phi206 = phi ptr [ %.sink181.sroa.gep207, %313 ], [ %.sink181.sroa.gep208, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink181.sroa.gep209, %284 ], [ %.sink181.sroa.gep210, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink181.sroa.gep211, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink181.sroa.gep212, %251 ], [ %.sink181.sroa.gep213, %212 ], [ %.sink181.sroa.gep214, %208 ], [ %.sink181.sroa.gep215, %199 ], [ %.sink181.sroa.gep216, %175 ], [ %.sink181.sroa.gep217, %169 ], [ %.sink181.sroa.gep218, %138 ]
-  %.sink181 = phi ptr [ %50, %313 ], [ %49, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %44, %284 ], [ %43, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %36, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %38, %251 ], [ %31, %212 ], [ %29, %208 ], [ %28, %199 ], [ %23, %175 ], [ %22, %169 ], [ %17, %138 ]
+  %.sink180.sroa.phi = phi ptr [ %.sink180.sroa.gep, %313 ], [ %.sink180.sroa.gep181, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink180.sroa.gep182, %284 ], [ %.sink180.sroa.gep183, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink180.sroa.gep184, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink180.sroa.gep185, %251 ], [ %.sink180.sroa.gep186, %212 ], [ %.sink180.sroa.gep187, %208 ], [ %.sink180.sroa.gep188, %199 ], [ %.sink180.sroa.gep189, %175 ], [ %.sink180.sroa.gep190, %169 ], [ %.sink180.sroa.gep191, %138 ]
+  %.sink180.sroa.phi192 = phi ptr [ %.sink180.sroa.gep193, %313 ], [ %.sink180.sroa.gep194, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink180.sroa.gep195, %284 ], [ %.sink180.sroa.gep196, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink180.sroa.gep197, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink180.sroa.gep198, %251 ], [ %.sink180.sroa.gep199, %212 ], [ %.sink180.sroa.gep200, %208 ], [ %.sink180.sroa.gep201, %199 ], [ %.sink180.sroa.gep202, %175 ], [ %.sink180.sroa.gep203, %169 ], [ %.sink180.sroa.gep204, %138 ]
+  %.sink180.sroa.phi205 = phi ptr [ %.sink180.sroa.gep206, %313 ], [ %.sink180.sroa.gep207, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.sink180.sroa.gep208, %284 ], [ %.sink180.sroa.gep209, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %.sink180.sroa.gep210, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.sink180.sroa.gep211, %251 ], [ %.sink180.sroa.gep212, %212 ], [ %.sink180.sroa.gep213, %208 ], [ %.sink180.sroa.gep214, %199 ], [ %.sink180.sroa.gep215, %175 ], [ %.sink180.sroa.gep216, %169 ], [ %.sink180.sroa.gep217, %138 ]
+  %.sink180 = phi ptr [ %50, %313 ], [ %49, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %44, %284 ], [ %43, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %36, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %38, %251 ], [ %31, %212 ], [ %29, %208 ], [ %28, %199 ], [ %23, %175 ], [ %22, %169 ], [ %17, %138 ]
   %.val117.sink = phi i32 [ %.val117, %313 ], [ %312, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %.val111, %284 ], [ %283, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %247, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %.val101, %251 ], [ %.val107, %212 ], [ %.val105, %208 ], [ %201, %199 ], [ %.val95, %175 ], [ %171, %169 ], [ %.val93, %138 ]
   %.sink = phi i32 [ %136, %313 ], [ 0, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %136, %284 ], [ 0, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ 0, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %136, %251 ], [ %136, %212 ], [ %136, %208 ], [ 0, %199 ], [ %136, %175 ], [ 0, %169 ], [ %136, %138 ]
   %143 = phi ptr [ %289, %313 ], [ %311, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %260, %284 ], [ %282, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %246, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %237, %251 ], [ %207, %212 ], [ %207, %208 ], [ %200, %199 ], [ %148, %175 ], [ %170, %169 ], [ %139, %138 ]
   %144 = phi i32 [ 1178, %313 ], [ 1177, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ 1182, %284 ], [ 1155, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ 1640, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %spec.select, %251 ], [ %spec.select, %212 ], [ %spec.select, %208 ], [ %spec.select, %199 ], [ %spec.select, %175 ], [ %spec.select, %169 ], [ %spec.select, %138 ]
   %145 = phi ptr [ %106, %313 ], [ %106, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit153 ], [ %106, %284 ], [ %106, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5bswapERKNS1_2GpE.exit146 ], [ %35, %_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE5movzxERKNS1_2GpERKNS1_3MemE.exit139 ], [ %37, %251 ], [ %30, %212 ], [ %14, %208 ], [ %27, %199 ], [ %14, %175 ], [ %21, %169 ], [ %14, %138 ]
-  store i32 %.val117.sink, ptr %.sink181.sroa.phi, align 4
-  store i32 0, ptr %.sink181.sroa.phi193, align 4
-  store i32 %.sink, ptr %.sink181.sroa.phi206, align 4
-  %146 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %143, i32 noundef %144, ptr noundef nonnull align 4 dereferenceable(16) %145, ptr noundef nonnull align 4 dereferenceable(16) %.sink181)
+  store i32 %.val117.sink, ptr %.sink180.sroa.phi, align 4
+  store i32 0, ptr %.sink180.sroa.phi192, align 4
+  store i32 %.sink, ptr %.sink180.sroa.phi205, align 4
+  %146 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %143, i32 noundef %144, ptr noundef nonnull align 4 dereferenceable(16) %145, ptr noundef nonnull align 4 dereferenceable(16) %.sink180)
           to label %323 unwind label %.loopexit.split-lp
 
 147:                                              ; preds = %133, %133
@@ -5105,15 +5105,15 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail14StructCompiler9linearizeERK
   %spec.select.i.i = icmp ult i32 %37, -3
   %38 = lshr i64 %32, 32
   %39 = trunc nuw i64 %38 to i32
-  %.sink62.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %.sink62.sroa.gep64 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %.sink62.sroa.gep66 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sink62.sroa.gep67 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink62.sroa.gep69 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %.sink62.sroa.gep70 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  br i1 %spec.select.i.i, label %.thread55, label %42
+  %.sink61.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.sink61.sroa.gep63 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %.sink61.sroa.gep65 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink61.sroa.gep66 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink61.sroa.gep68 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %.sink61.sroa.gep69 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  br i1 %spec.select.i.i, label %.thread54, label %42
 
-.thread55:                                        ; preds = %3
+.thread54:                                        ; preds = %3
   store i32 10, ptr %30, align 8
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %41 = and i32 %39, -2
@@ -5136,16 +5136,16 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail14StructCompiler9linearizeERK
   resume { ptr, i32 } %eh.lpad-body
 
 42:                                               ; preds = %3
-  %.not63 = icmp eq i32 %36, 10
-  br i1 %.not63, label %44, label %43
+  %.not62 = icmp eq i32 %36, 10
+  br i1 %.not62, label %44, label %43
 
 43:                                               ; preds = %42
   store i32 10, ptr %30, align 8
   br label %44
 
-44:                                               ; preds = %.thread55, %42, %43
-  %or.cond58 = phi i1 [ false, %.thread55 ], [ false, %42 ], [ true, %43 ]
-  %45 = phi i32 [ %41, %.thread55 ], [ %39, %42 ], [ %39, %43 ]
+44:                                               ; preds = %.thread54, %42, %43
+  %or.cond57 = phi i1 [ false, %.thread54 ], [ false, %42 ], [ true, %43 ]
+  %45 = phi i32 [ %41, %.thread54 ], [ %39, %42 ], [ %39, %43 ]
   %46 = and i32 %45, 2
   %.not53 = icmp eq i32 %46, 0
   br i1 %.not53, label %50, label %47
@@ -5261,16 +5261,16 @@ _ZN6asmjit9_abi_1_103x868Compiler6newXmmEv.exit:  ; preds = %switch.lookup
   br label %.invoke
 
 .invoke:                                          ; preds = %136, %79
-  %.sink62.sroa.phi = phi ptr [ %.sink62.sroa.gep, %136 ], [ %.sink62.sroa.gep64, %79 ]
-  %.sink62.sroa.phi65 = phi ptr [ %.sink62.sroa.gep66, %136 ], [ %.sink62.sroa.gep67, %79 ]
-  %.sink62.sroa.phi68 = phi ptr [ %.sink62.sroa.gep69, %136 ], [ %.sink62.sroa.gep70, %79 ]
-  %.sink62 = phi ptr [ %22, %136 ], [ %13, %79 ]
+  %.sink61.sroa.phi = phi ptr [ %.sink61.sroa.gep, %136 ], [ %.sink61.sroa.gep63, %79 ]
+  %.sink61.sroa.phi64 = phi ptr [ %.sink61.sroa.gep65, %136 ], [ %.sink61.sroa.gep66, %79 ]
+  %.sink61.sroa.phi67 = phi ptr [ %.sink61.sroa.gep68, %136 ], [ %.sink61.sroa.gep69, %79 ]
+  %.sink61 = phi ptr [ %22, %136 ], [ %13, %79 ]
   %.sink = phi i32 [ %138, %136 ], [ %81, %79 ]
-  store i32 %.sink, ptr %.sink62.sroa.phi, align 4
-  store i32 0, ptr %.sink62.sroa.phi65, align 4
-  store i32 0, ptr %.sink62.sroa.phi68, align 4
+  store i32 %.sink, ptr %.sink61.sroa.phi, align 4
+  store i32 0, ptr %.sink61.sroa.phi64, align 4
+  store i32 0, ptr %.sink61.sroa.phi67, align 4
   %82 = load ptr, ptr %1, align 8
-  %83 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %82, i32 noundef 893, ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %.sink62)
+  %83 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %82, i32 noundef 893, ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %.sink61)
           to label %139 unwind label %.loopexit.split-lp
 
 84:                                               ; preds = %_ZN6asmjit9_abi_1_103x868Compiler6newXmmEv.exit
@@ -5427,7 +5427,7 @@ _ZN7mitsuba6detail14StructCompiler6const_IdEEN6asmjit9_abi_1_103x863MemET_.exit:
           to label %_ZN7mitsuba6detail14StructCompiler4mulsIN6asmjit9_abi_1_103x863XmmENS5_3MemEEEvRKT_RKT0_.exit unwind label %.loopexit.split-lp
 
 _ZN7mitsuba6detail14StructCompiler4mulsIN6asmjit9_abi_1_103x863XmmENS5_3MemEEEvRKT_RKT0_.exit: ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IdEEN6asmjit9_abi_1_103x863MemET_.exit, %139, %.thread
-  br i1 %or.cond58, label %153, label %172
+  br i1 %or.cond57, label %153, label %172
 
 153:                                              ; preds = %_ZN7mitsuba6detail14StructCompiler4mulsIN6asmjit9_abi_1_103x863XmmENS5_3MemEEEvRKT_RKT0_.exit
   %154 = load i32, ptr %31, align 8

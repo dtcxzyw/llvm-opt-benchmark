@@ -1299,8 +1299,8 @@ define void @_ZNK2cv5aruco5Board4Impl13generateImageENS_5Size_IiEERKNS_12_Output
   %109 = fsub float %.sroa.speculated115, %.sroa.speculated119
   %110 = load ptr, ptr %69, align 8
   %111 = load ptr, ptr %68, align 8
-  %.not160 = icmp eq ptr %110, %111
-  br i1 %.not160, label %._crit_edge158, label %.preheader.lr.ph
+  %.not159 = icmp eq ptr %110, %111
+  br i1 %.not159, label %._crit_edge158, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -1349,9 +1349,9 @@ define void @_ZNK2cv5aruco5Board4Impl13generateImageENS_5Size_IiEERKNS_12_Output
   br label %148
 
 148:                                              ; preds = %.preheader, %148
-  %indvars.iv162 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next163, %148 ]
+  %indvars.iv161 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next162, %148 ]
   %149 = load ptr, ptr %143, align 8
-  %150 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %149, i64 %indvars.iv162
+  %150 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %149, i64 %indvars.iv161
   %151 = load float, ptr %150, align 4
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %153 = load float, ptr %152, align 4
@@ -1361,13 +1361,13 @@ define void @_ZNK2cv5aruco5Board4Impl13generateImageENS_5Size_IiEERKNS_12_Output
   %157 = fmul float %156, %145
   %158 = fdiv float %155, %109
   %159 = fmul float %158, %147
-  %160 = getelementptr inbounds nuw [3 x %"class.cv::Point_"], ptr %16, i64 0, i64 %indvars.iv162
+  %160 = getelementptr inbounds nuw [3 x %"class.cv::Point_"], ptr %16, i64 0, i64 %indvars.iv161
   store float %157, ptr %160, align 8
   %.sroa_idx109 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store float %159, ptr %.sroa_idx109, align 4
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond165.not = icmp eq i64 %indvars.iv.next163, 3
-  br i1 %exitcond165.not, label %163, label %148, !llvm.loop !31
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next162, 3
+  br i1 %exitcond164.not, label %163, label %148, !llvm.loop !31
 
 161:                                              ; preds = %181, %191
   %162 = landingpad { ptr, i32 }

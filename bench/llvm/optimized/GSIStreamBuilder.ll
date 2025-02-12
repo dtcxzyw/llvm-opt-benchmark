@@ -5301,7 +5301,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i": ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %.not9.i.i.i.i.i.i = icmp eq ptr %41, %21
-  br i1 %.not9.i.i.i.i.i.i, label %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", label %.lr.ph.i14.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i, label %.lr.ph.i.preheader, label %.lr.ph.i14.i.i.i.i.i
 
 .lr.ph.i14.i.i.i.i.i:                             ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i15.i.i.i.i.i"
   %.sroa.0.010.i.i.i.i.i.i = phi ptr [ %47, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i15.i.i.i.i.i" ], [ %41, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i" ]
@@ -5328,11 +5328,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i.i.i.i.i, i64 8
   %.not.i17.i.i.i.i.i = icmp eq ptr %47, %21
-  br i1 %.not.i17.i.i.i.i.i, label %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", label %.lr.ph.i14.i.i.i.i.i, !llvm.loop !279
+  br i1 %.not.i17.i.i.i.i.i, label %.lr.ph.i.preheader, label %.lr.ph.i14.i.i.i.i.i, !llvm.loop !279
 
 48:                                               ; preds = %23
   %.not20.i24.i.i.i.i.i = icmp eq ptr %scevgep.i.i.i.i.i, %21
-  br i1 %.not20.i24.i.i.i.i.i, label %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", label %.lr.ph.i25.i.i.i.i.i
+  br i1 %.not20.i24.i.i.i.i.i, label %.lr.ph.i.preheader, label %.lr.ph.i25.i.i.i.i.i
 
 .lr.ph.i25.i.i.i.i.i:                             ; preds = %48, %63
   %.sroa.0.022.i26.i.i.i.i.i = phi ptr [ %.sroa.0.0.i30.i.i.i.i.i, %63 ], [ %scevgep.i.i.i.i.i, %48 ]
@@ -5378,14 +5378,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6
 63:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i28.i.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36.i.i.i.i.i
   %.sroa.0.0.i30.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i26.i.i.i.i.i, i64 8
   %.not.i31.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i30.i.i.i.i.i, %21
-  br i1 %.not.i31.i.i.i.i.i, label %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", label %.lr.ph.i25.i.i.i.i.i, !llvm.loop !278
+  br i1 %.not.i31.i.i.i.i.i, label %.lr.ph.i.preheader, label %.lr.ph.i25.i.i.i.i.i, !llvm.loop !278
 
-"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i": ; preds = %63, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i15.i.i.i.i.i", %48, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i"
-  %.not22.i = icmp samesign eq i64 %.idx20.i, %.idx.i
-  br i1 %.not22.i, label %"_ZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEm.exit", label %.lr.ph.i
+.lr.ph.i.preheader:                               ; preds = %63, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i15.i.i.i.i.i", %48, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i"
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", %.lr.ph.i
-  %.sroa.012.023.i = phi ptr [ %70, %.lr.ph.i ], [ %15, %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i" ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.sroa.012.023.i = phi ptr [ %70, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
   %64 = load ptr, ptr %24, align 8, !tbaa !276
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.012.023.i, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %.sroa.012.023.i, align 1
@@ -5400,7 +5399,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6
   %.not.i = icmp eq ptr %70, %21
   br i1 %.not.i, label %"_ZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEm.exit", label %.lr.ph.i
 
-"_ZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEm.exit": ; preds = %.lr.ph.i, %2, %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i"
+"_ZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEm.exit": ; preds = %.lr.ph.i, %2
   ret void
 }
 

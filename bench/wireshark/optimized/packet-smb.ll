@@ -27281,7 +27281,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %31) #15
   %33 = add i32 %28, 2
   %34 = icmp eq i16 %29, 0
-  br i1 %34, label %92, label %35
+  br i1 %34, label %91, label %35
 
 35:                                               ; preds = %27
   %36 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -27295,7 +27295,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %41, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %43 = icmp eq ptr %42, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %43, label %92, label %44
+  br i1 %43, label %91, label %44
 
 44:                                               ; preds = %35
   %45 = load i32, ptr @hf_smb_file_name, align 4
@@ -27313,68 +27313,67 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   %57 = call ptr @format_text(ptr noundef %55, ptr noundef nonnull %42, i64 noundef %56) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.27, ptr noundef %57) #15
   %58 = icmp eq i16 %50, %51
-  br i1 %58, label %92, label %59
+  br i1 %58, label %91, label %59
 
 59:                                               ; preds = %44
   %60 = load i32, ptr @hf_smb_buffer_format, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648) #15
   %62 = add i32 %49, 1
-  %63 = add i16 %52, -1
-  %64 = icmp ult i16 %63, 2
-  br i1 %64, label %92, label %65
+  %63 = icmp ult i16 %52, 3
+  br i1 %63, label %91, label %64
 
-65:                                               ; preds = %59
-  %66 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %62) #15
-  %67 = load i32, ptr @hf_smb_resume_key_len, align 4
-  %68 = zext i16 %66 to i32
-  %69 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %68) #15
-  %70 = add i32 %49, 3
-  %71 = add i16 %52, -3
-  store i16 %71, ptr %9, align 2
-  %.not56 = icmp eq i16 %66, 0
-  br i1 %.not56, label %78, label %72
+64:                                               ; preds = %59
+  %65 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %62) #15
+  %66 = load i32, ptr @hf_smb_resume_key_len, align 4
+  %67 = zext i16 %65 to i32
+  %68 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %67) #15
+  %69 = add i32 %49, 3
+  %70 = add i16 %52, -3
+  store i16 %70, ptr %9, align 2
+  %.not56 = icmp eq i16 %65, 0
+  br i1 %.not56, label %77, label %71
 
-72:                                               ; preds = %65
-  %73 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %2, i32 noundef %70, ptr noundef %9, ptr noundef %10, i32 noundef %5)
-  %74 = load i32, ptr %10, align 4
-  %75 = icmp eq i32 %74, 0
-  %76 = load i16, ptr %9, align 2
-  %77 = icmp ne i16 %76, 0
-  %or.cond5 = select i1 %75, i1 %77, i1 false
-  br i1 %or.cond5, label %79, label %92
+71:                                               ; preds = %64
+  %72 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %2, i32 noundef %69, ptr noundef %9, ptr noundef %10, i32 noundef %5)
+  %73 = load i32, ptr %10, align 4
+  %74 = icmp eq i32 %73, 0
+  %75 = load i16, ptr %9, align 2
+  %76 = icmp ne i16 %75, 0
+  %or.cond5 = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond5, label %78, label %91
 
-78:                                               ; preds = %65
-  %.old4.not = icmp eq i16 %71, 0
-  br i1 %.old4.not, label %92, label %79
+77:                                               ; preds = %64
+  %.old4.not = icmp eq i16 %70, 0
+  br i1 %.old4.not, label %91, label %78
 
-79:                                               ; preds = %72, %78
-  %80 = phi i16 [ %76, %72 ], [ %71, %78 ]
-  %81 = phi i32 [ %73, %72 ], [ %70, %78 ]
-  %82 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %81) #15
-  %83 = zext i16 %80 to i32
-  %84 = icmp slt i32 %82, %83
-  br i1 %84, label %85, label %.thread
+78:                                               ; preds = %71, %77
+  %79 = phi i16 [ %75, %71 ], [ %70, %77 ]
+  %80 = phi i32 [ %72, %71 ], [ %69, %77 ]
+  %81 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #15
+  %82 = zext i16 %79 to i32
+  %83 = icmp slt i32 %81, %82
+  br i1 %83, label %84, label %.thread
 
-85:                                               ; preds = %79
-  %86 = trunc i32 %82 to i16
-  %.not57 = icmp eq i16 %86, 0
+84:                                               ; preds = %78
+  %85 = trunc i32 %81 to i16
+  %.not57 = icmp eq i16 %85, 0
   br i1 %.not57, label %._crit_edge, label %.thread
 
-.thread:                                          ; preds = %79, %85
-  %87 = phi i16 [ %86, %85 ], [ %80, %79 ]
-  %88 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %89 = zext i16 %87 to i32
-  %90 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %81, i32 noundef %89, i32 noundef 0) #15
+.thread:                                          ; preds = %78, %84
+  %86 = phi i16 [ %85, %84 ], [ %79, %78 ]
+  %87 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %88 = zext i16 %86 to i32
+  %89 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef %80, i32 noundef %88, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %85, %.thread
-  %.pre-phi = phi i32 [ %89, %.thread ], [ 0, %85 ]
-  %91 = add i32 %81, %.pre-phi
-  br label %92
+._crit_edge:                                      ; preds = %84, %.thread
+  %.pre-phi = phi i32 [ %88, %.thread ], [ 0, %84 ]
+  %90 = add i32 %80, %.pre-phi
+  br label %91
 
-92:                                               ; preds = %78, %._crit_edge, %72, %59, %44, %35, %27
-  %93 = phi i32 [ %70, %78 ], [ %91, %._crit_edge ], [ %73, %72 ], [ %62, %59 ], [ %49, %44 ], [ %.pre, %35 ], [ %33, %27 ]
-  ret i32 %93
+91:                                               ; preds = %77, %._crit_edge, %71, %59, %44, %35, %27
+  %92 = phi i32 [ %69, %77 ], [ %90, %._crit_edge ], [ %72, %71 ], [ %62, %59 ], [ %49, %44 ], [ %.pre, %35 ], [ %33, %27 ]
+  ret i32 %92
 }
 
 ; Function Attrs: nounwind uwtable

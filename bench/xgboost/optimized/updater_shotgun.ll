@@ -12329,7 +12329,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.preheader.split: ; preds = %27
   br i1 %47, label %.split.lr.ph, label %.loopexit73
 
 .split.lr.ph:                                     ; preds = %_ZNK7xgboost18HostSparsePageViewixEm.exit.preheader.split
-  %.not78 = icmp eq i64 %35, %36
+  %.not76 = icmp eq i64 %35, %36
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %.split
@@ -12341,7 +12341,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.preheader.split: ; preds = %27
 .split:                                           ; preds = %.split.lr.ph, %_ZNK7xgboost18HostSparsePageViewixEm.exit
   %indvars.iv = phi i64 [ 0, %.split.lr.ph ], [ %indvars.iv.next, %_ZNK7xgboost18HostSparsePageViewixEm.exit ]
   %51 = phi i32 [ %46, %.split.lr.ph ], [ %145, %_ZNK7xgboost18HostSparsePageViewixEm.exit ]
-  br i1 %.not78, label %._crit_edge, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph
+  br i1 %.not76, label %._crit_edge, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph: ; preds = %.split
   %52 = load ptr, ptr %48, align 8
@@ -12350,10 +12350,10 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit
-  %.04881 = phi double [ 0.000000e+00, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
-  %.04980 = phi double [ 0.000000e+00, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %.150, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
-  %.sroa.469.079 = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %75, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
-  %55 = getelementptr inbounds %"struct.xgboost::Entry", ptr %40, i64 %.sroa.469.079
+  %.04879 = phi double [ 0.000000e+00, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %.1, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
+  %.04978 = phi double [ 0.000000e+00, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %.150, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
+  %.sroa.469.077 = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph ], [ %75, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit ]
+  %55 = getelementptr inbounds %"struct.xgboost::Entry", ptr %40, i64 %.sroa.469.077
   %56 = load i32, ptr %55, align 4
   %57 = mul i32 %56, %51
   %58 = add i32 %57, %54
@@ -12370,17 +12370,17 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   %67 = load float, ptr %60, align 4
   %68 = fmul float %66, %67
   %69 = fpext float %68 to double
-  %70 = fadd double %.04881, %69
+  %70 = fadd double %.04879, %69
   %71 = fmul float %62, %66
   %72 = fmul float %66, %71
   %73 = fpext float %72 to double
-  %74 = fadd double %.04980, %73
+  %74 = fadd double %.04978, %73
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit
 
-_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit, %64
-  %.150 = phi double [ %.04980, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit ], [ %74, %64 ]
-  %.1 = phi double [ %.04881, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit ], [ %70, %64 ]
-  %75 = add nuw i64 %.sroa.469.079, 1
+_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit: ; preds = %64, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit
+  %.150 = phi double [ %.04978, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit ], [ %74, %64 ]
+  %.1 = phi double [ %.04879, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit ], [ %70, %64 ]
+  %75 = add nuw i64 %.sroa.469.077, 1
   %.not = icmp eq i64 %75, %37
   br i1 %.not, label %._crit_edge, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit
 
@@ -12445,20 +12445,20 @@ _ZN7xgboost6linear15CoordinateDeltaEddddd.exit:   ; preds = %108, %103, %._crit_
 117:                                              ; preds = %_ZN7xgboost6linear15CoordinateDeltaEddddd.exit
   %118 = fadd float %89, %115
   store float %118, ptr %87, align 4
-  br i1 %.not78, label %_ZNK7xgboost18HostSparsePageViewixEm.exit, label %.lr.ph.preheader
+  br i1 %.not76, label %_ZNK7xgboost18HostSparsePageViewixEm.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %117
   %119 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit60
 
 120:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit62
-  %121 = add nuw i64 %.sroa.4.084, 1
+  %121 = add nuw i64 %.sroa.4.082, 1
   %.not72 = icmp eq i64 %121, %37
   br i1 %.not72, label %_ZNK7xgboost18HostSparsePageViewixEm.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit60
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit60: ; preds = %120, %.lr.ph.preheader
-  %.sroa.4.084 = phi i64 [ %121, %120 ], [ 0, %.lr.ph.preheader ]
-  %122 = getelementptr inbounds %"struct.xgboost::Entry", ptr %40, i64 %.sroa.4.084
+  %.sroa.4.082 = phi i64 [ %121, %120 ], [ 0, %.lr.ph.preheader ]
+  %122 = getelementptr inbounds %"struct.xgboost::Entry", ptr %40, i64 %.sroa.4.082
   %123 = load ptr, ptr %48, align 8
   %124 = load i32, ptr %122, align 4
   %125 = load ptr, ptr %44, align 8
@@ -12486,7 +12486,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit62
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit62: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit60, %135
-  %.not.i61 = icmp eq i64 %.sroa.4.084, %37
+  %.not.i61 = icmp eq i64 %.sroa.4.082, %37
   br i1 %.not.i61, label %143, label %120
 
 143:                                              ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit62

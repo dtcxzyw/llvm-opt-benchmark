@@ -12909,9 +12909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %__r.0.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %retval.0.i5.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #28
-  %cmp.i19.not73 = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
-  %cmp.i19.not = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i19.not73
-  br i1 %cmp.i19.not, label %if.then21, label %do.end
+  br i1 %cmp.i.i.i.i, label %if.then21, label %do.end
 
 if.then21:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #28

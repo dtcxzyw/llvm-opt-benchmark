@@ -19493,16 +19493,16 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122MemorySanitizerVisitor11g
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
   %9 = icmp eq i32 %8, 12
-  br i1 %9, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %10
+  br i1 %9, label %common.ret77, label %10
 
 10:                                               ; preds = %2
   %trunc.i.i.i = trunc i32 %7 to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
-    i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
-    i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
-    i8 0, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
-    i8 1, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
-    i8 5, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
+    i8 3, label %18
+    i8 2, label %18
+    i8 0, label %18
+    i8 1, label %18
+    i8 5, label %18
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %10
@@ -19511,7 +19511,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %10
   %12 = and i32 %7, 251
   %13 = icmp eq i32 %12, 10
   %or.cond6.i = or i1 %spec.select.i.i, %13
-  br i1 %or.cond6.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %14
+  br i1 %or.cond6.i, label %18, label %14
 
 14:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
   %.off.i = add nsw i32 %8, -15
@@ -19519,7 +19519,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %10
   br i1 %switch.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %15
 
 15:                                               ; preds = %14
-  switch i8 %trunc.i.i.i, label %common.ret76 [
+  switch i8 %trunc.i.i.i, label %common.ret77 [
     i8 20, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
     i8 18, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
     i8 17, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
@@ -19527,21 +19527,15 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %10
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %14, %15, %15, %15
   %16 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef null) #25
-  br i1 %16, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, label %common.ret76
+  br i1 %16, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, label %common.ret77
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
   %.pre = load i32, ptr %6, align 8
   %.pre72 = and i32 %.pre, 255
-  br label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
+  %17 = icmp eq i32 %.pre72, 12
+  br i1 %17, label %common.ret77, label %18
 
-_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, %10, %10, %10, %10, %10, %2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
-  %.pre-phi = phi i32 [ %.pre72, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge ], [ %8, %10 ], [ %8, %10 ], [ %8, %10 ], [ %8, %10 ], [ %8, %10 ], [ 12, %2 ], [ %8, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ]
-  %17 = icmp ne i32 %.pre-phi, 12
-  %.not.not73 = icmp eq ptr %1, null
-  %.not.not = or i1 %17, %.not.not73
-  br i1 %.not.not, label %18, label %common.ret76
-
-18:                                               ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
+18:                                               ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, %10, %10, %10, %10, %10, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
   %19 = load ptr, ptr %0, align 8, !tbaa !565
   %20 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %19) #25
   %21 = load i32, ptr %6, align 8
@@ -19577,7 +19571,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK
   %.sroa.0.0.insert.ext.i.i = zext i32 %36 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   %40 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %34, i64 %.sroa.0.0.insert.insert.i.i) #25
-  br label %common.ret76
+  br label %common.ret77
 
 41:                                               ; preds = %18
   %trunc = trunc i32 %21 to i8
@@ -19586,9 +19580,9 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK
     i8 15, label %49
   ]
 
-common.ret76:                                     ; preds = %15, %87, %24, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %88, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %42
-  %common.ret76.op = phi ptr [ %48, %42 ], [ %1, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread ], [ null, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ %96, %88 ], [ %66, %87 ], [ %40, %24 ], [ null, %15 ]
-  ret ptr %common.ret76.op
+common.ret77:                                     ; preds = %15, %87, %24, %88, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %2, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, %42
+  %common.ret77.op = phi ptr [ %48, %42 ], [ null, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ %96, %88 ], [ %66, %87 ], [ %40, %24 ], [ null, %15 ], [ %1, %2 ], [ %1, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge ]
+  ret ptr %common.ret77.op
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19597,7 +19591,7 @@ common.ret76:                                     ; preds = %15, %87, %24, %_ZNK
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !681
   %48 = tail call noundef ptr @_ZN4llvm9ArrayType3getEPNS_4TypeEm(ptr noundef %45, i64 noundef %47) #25
-  br label %common.ret76
+  br label %common.ret77
 
 49:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
@@ -19676,7 +19670,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 
 87:                                               ; preds = %69, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #25
-  br label %common.ret76
+  br label %common.ret77
 
 88:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
@@ -19694,7 +19688,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %95 = load ptr, ptr %94, align 8, !tbaa !236
   %96 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %95, i32 noundef %91) #25
-  br label %common.ret76
+  br label %common.ret77
 }
 
 declare noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5

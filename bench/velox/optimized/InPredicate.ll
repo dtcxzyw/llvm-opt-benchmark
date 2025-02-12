@@ -8979,7 +8979,7 @@ cleanup.thread:                                   ; preds = %_ZN8facebook5velox6
 
 if.end20:                                         ; preds = %if.end6
   %cmp.i.i29 = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
-  br i1 %cmp.i.i29, label %if.then.i.i37, label %if.then.i.i.i.i.i31
+  br i1 %cmp.i.i29, label %if.then.i.i37, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i37:                                    ; preds = %if.end20
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #40
@@ -8988,13 +8988,13 @@ if.then.i.i37:                                    ; preds = %if.end20
 .noexc:                                           ; preds = %if.then.i.i37
   unreachable
 
-if.then.i.i.i.i.i31:                              ; preds = %if.end20
+_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.end20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intValues, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i32 = shl nuw nsw i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i32) #38
           to label %for.body.preheader unwind label %lpad23
 
-for.body.preheader:                               ; preds = %if.then.i.i.i.i.i31
+for.body.preheader:                               ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   store ptr %call5.i.i.i.i2.i.i38, ptr %intValues, align 8
   %add.ptr.i.i.i33 = getelementptr i64, ptr %call5.i.i.i.i2.i.i38, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %intValues, i64 16
@@ -9022,7 +9022,7 @@ if.then29:                                        ; preds = %for.body
   %.pre = load ptr, ptr %intValues, align 8
   br label %if.end31
 
-lpad23:                                           ; preds = %if.then.i.i.i.i.i31, %if.then.i.i37
+lpad23:                                           ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i37
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
@@ -9444,7 +9444,7 @@ cleanup.thread:                                   ; preds = %_ZN8facebook5velox6
 
 if.end20:                                         ; preds = %if.end6
   %cmp.i.i29 = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
-  br i1 %cmp.i.i29, label %if.then.i.i37, label %if.then.i.i.i.i.i31
+  br i1 %cmp.i.i29, label %if.then.i.i37, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i37:                                    ; preds = %if.end20
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #40
@@ -9453,12 +9453,12 @@ if.then.i.i37:                                    ; preds = %if.end20
 .noexc:                                           ; preds = %if.then.i.i37
   unreachable
 
-if.then.i.i.i.i.i31:                              ; preds = %if.end20
+_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.end20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intValues, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #38
           to label %for.body.preheader unwind label %lpad23
 
-for.body.preheader:                               ; preds = %if.then.i.i.i.i.i31
+for.body.preheader:                               ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   store ptr %call5.i.i.i.i2.i.i38, ptr %intValues, align 8
   %add.ptr.i.i.i33 = getelementptr i8, ptr %call5.i.i.i.i2.i.i38, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %intValues, i64 16
@@ -9486,7 +9486,7 @@ if.then29:                                        ; preds = %for.body
   %.pre = load ptr, ptr %intValues, align 8
   br label %if.end31
 
-lpad23:                                           ; preds = %if.then.i.i.i.i.i31, %if.then.i.i37
+lpad23:                                           ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i37
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41

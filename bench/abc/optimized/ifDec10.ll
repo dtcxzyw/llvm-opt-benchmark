@@ -1736,8 +1736,8 @@ If_Dec10Copy.exit:                                ; preds = %.lr.ph.preheader.i,
   %15 = add nsw i32 %3, -6
   %16 = shl nuw i32 1, %15
   %.not.i.i = icmp eq i32 %15, 31
-  %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
+  %smax54.i.i = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
+  %wide.trip.count55.i.i = zext nneg i32 %smax54.i.i to i64
   br i1 %.not.i.i, label %If_Dec10Support.exit.thread, label %.split.split.preheader.i
 
 .split.split.preheader.i:                         ; preds = %If_Dec10Copy.exit
@@ -1760,13 +1760,13 @@ If_Dec10Copy.exit:                                ; preds = %.lr.ph.preheader.i,
   br label %25
 
 24:                                               ; preds = %25
-  %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
-  %exitcond57.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count56.i.i
-  br i1 %exitcond57.not.i.i, label %If_Dec10HasVar.exit.thread.i, label %25, !llvm.loop !46
+  %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
+  %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, %wide.trip.count55.i.i
+  br i1 %exitcond56.not.i.i, label %If_Dec10HasVar.exit.thread.i, label %25, !llvm.loop !46
 
 25:                                               ; preds = %24, %.lr.ph.i.i
-  %indvars.iv52.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next53.i.i, %24 ]
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv52.i.i
+  %indvars.iv51.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next52.i.i, %24 ]
+  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv51.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %28 = and i64 %27, %22
   %29 = and i64 %27, %21

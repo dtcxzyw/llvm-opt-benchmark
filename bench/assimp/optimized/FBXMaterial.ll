@@ -378,12 +378,12 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont46
-  %lpad.loopexit167 = landingpad { ptr, i32 }
+  %lpad.loopexit165 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
 
 lpad.loopexit.split-lp:                           ; preds = %entry, %if.then, %invoke.cont17, %if.then24, %invoke.cont26, %invoke.cont36
-  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp166 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
 
@@ -470,26 +470,26 @@ ehcleanup38:                                      ; preds = %lpad33, %lpad.i88, 
   br label %ehcleanup180
 
 if.end42:                                         ; preds = %invoke.cont36, %invoke.cont28
-  %call44169 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %shading) #19
-  %cmp170.not = icmp eq i64 %call44169, 0
-  br i1 %cmp170.not, label %for.end, label %for.body
+  %call44167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %shading) #19
+  %cmp168.not = icmp eq i64 %call44167, 0
+  br i1 %cmp168.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end42, %invoke.cont51
-  %i.0171 = phi i64 [ %inc, %invoke.cont51 ], [ 0, %if.end42 ]
-  %call47 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %shading, i64 noundef %i.0171)
+  %i.0169 = phi i64 [ %inc, %invoke.cont51 ], [ 0, %if.end42 ]
+  %call47 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %shading, i64 noundef %i.0169)
           to label %invoke.cont46 unwind label %lpad.loopexit
 
 invoke.cont46:                                    ; preds = %for.body
   %21 = load i8, ptr %call47, align 1
   %conv = zext i8 %21 to i32
   %call48 = call i32 @tolower(i32 noundef %conv) #21
-  %call52 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %shading, i64 noundef %i.0171)
+  %call52 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %shading, i64 noundef %i.0169)
           to label %invoke.cont51 unwind label %lpad.loopexit
 
 invoke.cont51:                                    ; preds = %invoke.cont46
   %conv49 = trunc i32 %call48 to i8
   store i8 %conv49, ptr %call52, align 1
-  %inc = add nuw i64 %i.0171, 1
+  %inc = add nuw i64 %i.0169, 1
   %call44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %shading) #19
   %cmp = icmp ult i64 %inc, %call44
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
@@ -700,12 +700,12 @@ invoke.cont83:                                    ; preds = %_ZNSt10shared_ptrIK
   %51 = load ptr, ptr %ref.tmp80, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %ref.tmp80, i64 8
   %52 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i102.not172 = icmp eq ptr %51, %52
-  br i1 %cmp.i102.not172, label %for.end177, label %for.body89
+  %cmp.i102.not170 = icmp eq ptr %51, %52
+  br i1 %cmp.i102.not170, label %for.end177, label %for.body89
 
 for.body89:                                       ; preds = %invoke.cont83, %for.inc175
-  %__begin2.sroa.0.0173 = phi ptr [ %incdec.ptr.i, %for.inc175 ], [ %51, %invoke.cont83 ]
-  %53 = load ptr, ptr %__begin2.sroa.0.0173, align 8
+  %__begin2.sroa.0.0171 = phi ptr [ %incdec.ptr.i, %for.inc175 ], [ %51, %invoke.cont83 ]
+  %53 = load ptr, ptr %__begin2.sroa.0.0171, align 8
   %prop.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %call94 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %prop.i) #19
   %cmp95 = icmp eq i64 %call94, 0
@@ -972,7 +972,7 @@ invoke.cont172:                                   ; preds = %if.end170
   br label %for.inc175
 
 for.inc175:                                       ; preds = %invoke.cont172, %invoke.cont147, %for.body89, %invoke.cont123, %invoke.cont107
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0173, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0171, i64 8
   %cmp.i102.not = icmp eq ptr %incdec.ptr.i, %52
   br i1 %cmp.i102.not, label %for.end177.loopexit, label %for.body89
 
@@ -1009,7 +1009,7 @@ ehcleanup179:                                     ; preds = %if.then.i.i.i157, %
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup179, %ehcleanup38, %ehcleanup16, %ehcleanup
-  %.pn43 = phi { ptr, i32 } [ %.pn39.pn.pn, %ehcleanup179 ], [ %.pn35, %ehcleanup38 ], [ %.pn33, %ehcleanup16 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit167, %lpad.loopexit ], [ %lpad.loopexit.split-lp168, %lpad.loopexit.split-lp ]
+  %.pn43 = phi { ptr, i32 } [ %.pn39.pn.pn, %ehcleanup179 ], [ %.pn35, %ehcleanup38 ], [ %.pn33, %ehcleanup16 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit165, %lpad.loopexit ], [ %lpad.loopexit.split-lp166, %lpad.loopexit.split-lp ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6Assimp3FBX14LayeredTextureESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %layeredTextures) #19
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6Assimp3FBX7TextureESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %textures) #19
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #19

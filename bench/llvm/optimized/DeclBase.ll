@@ -24854,7 +24854,7 @@ _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i: ; preds = %91, %_ZNK5clang1
   %100 = getelementptr inbounds nuw ptr, ptr %58, i64 %99
   %101 = sub nsw i64 0, %62
   %102 = getelementptr inbounds ptr, ptr %100, i64 %101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 8 %59, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 8 %59, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit, %96

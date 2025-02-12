@@ -12239,11 +12239,7 @@ for.end30:                                        ; preds = %for.inc28, %for.con
 invoke.cont31:                                    ; preds = %for.end30
   %25 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i42 = icmp eq ptr %25, null
-  br i1 %cmp.i.i42, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
-
-_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %invoke.cont31
-  %cmp34.not = icmp eq i32 %2, %1
-  br i1 %cmp34.not, label %cleanup, label %invoke.cont57
+  br i1 %cmp.i.i42, label %invoke.cont57, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread: ; preds = %invoke.cont31
   %arrayidx.i.i43 = getelementptr inbounds i8, ptr %25, i64 -4
@@ -12280,7 +12276,7 @@ invoke.cont45:                                    ; preds = %land.rhs
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   br i1 %cmp49.not, label %land.rhs, label %invoke.cont57, !llvm.loop !90
 
-invoke.cont57:                                    ; preds = %invoke.cont45, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
+invoke.cont57:                                    ; preds = %invoke.cont45, %invoke.cont31, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
   %34 = load ptr, ptr %this, align 8
   %35 = ptrtoint ptr %34 to i64
   store i64 %35, ptr %tail, align 8
@@ -12736,7 +12732,7 @@ ehcleanup:                                        ; preds = %lpad64.loopexit.spl
   call void @_ZN10ref_vectorI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tail) #22
   br label %ehcleanup124
 
-cleanup:                                          ; preds = %land.rhs, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %_ZN7svectorIbjED2Ev.exit
+cleanup:                                          ; preds = %land.rhs, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %_ZN7svectorIbjED2Ev.exit
   %.pr = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i151 = icmp eq ptr %.pr, null
   br i1 %cmp.i.i.i151, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i

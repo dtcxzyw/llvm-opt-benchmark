@@ -6621,7 +6621,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118InitializerBuilder5RangeELb1E
   %70 = sub i64 %68, %69
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %70, -24
   %71 = getelementptr inbounds %"struct.(anonymous namespace)::InitializerBuilder::Range", ptr %65, i64 %.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %71, ptr nonnull align 8 %60, i64 %70, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 %60, i64 %70, i1 false)
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !26
   %.val16.pre.i.i = load ptr, ptr %6, align 8, !tbaa !25
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_118InitializerBuilder5RangeES3_ET0_T_S5_S4_.exit.i.i

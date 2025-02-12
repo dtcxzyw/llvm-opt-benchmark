@@ -2058,11 +2058,11 @@ unixsocket_len.exit:                              ; preds = %.preheader
   %88 = add nsw i32 %87, -127
   %89 = icmp ult i32 %88, -95
   %90 = icmp eq i8 %86, 32
-  %spec.select230 = select i1 %89, i1 true, i1 %90
+  %spec.select229 = select i1 %89, i1 true, i1 %90
   br label %91
 
 91:                                               ; preds = %85, %.lr.ph209
-  %92 = phi i1 [ true, %.lr.ph209 ], [ %spec.select230, %85 ]
+  %92 = phi i1 [ true, %.lr.ph209 ], [ %spec.select229, %85 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0208, i64 1
   %94 = icmp ult ptr %93, %83
   br i1 %94, label %.lr.ph209, label %._crit_edge, !llvm.loop !26

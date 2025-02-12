@@ -22884,7 +22884,7 @@ _ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4l
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -23440,7 +23440,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddr
   %68 = sub i64 %66, %67
   %.neg.i.i.i.i.i = sdiv exact i64 %68, -24
   %69 = getelementptr inbounds %"class.clang::Token", ptr %63, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %69, ptr nonnull align 8 %55, i64 %68, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %55, i64 %68, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !324
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !323
   br label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit

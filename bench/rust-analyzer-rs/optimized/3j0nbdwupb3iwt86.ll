@@ -18671,16 +18671,16 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %28 = getelementptr i8, ptr %24, i64 8
   store i64 %0, ptr %28, align 8
   %29 = icmp eq ptr %.val18, %.val
-  br i1 %29, label %._crit_edge44, label %.lr.ph
+  br i1 %29, label %._crit_edge43, label %.lr.ph
 
-._crit_edge44:                                    ; preds = %27
-  %.pre45 = load ptr, ptr %7, align 8, !alias.scope !4497, !noalias !4500
-  %.pre46 = load ptr, ptr %6, align 8, !alias.scope !4497, !noalias !4500
+._crit_edge43:                                    ; preds = %27
+  %.pre44 = load ptr, ptr %7, align 8, !alias.scope !4497, !noalias !4500
+  %.pre45 = load ptr, ptr %6, align 8, !alias.scope !4497, !noalias !4500
   br label %30
 
-30:                                               ; preds = %._crit_edge44, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread"
-  %31 = phi ptr [ %.pre46, %._crit_edge44 ], [ %43, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread" ]
-  %32 = phi ptr [ %.pre45, %._crit_edge44 ], [ %35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread" ]
+30:                                               ; preds = %._crit_edge43, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread"
+  %31 = phi ptr [ %.pre45, %._crit_edge43 ], [ %43, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread" ]
+  %32 = phi ptr [ %.pre44, %._crit_edge43 ], [ %35, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4497)
   %33 = icmp eq ptr %31, %32

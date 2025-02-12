@@ -3755,9 +3755,9 @@ if.then183:                                       ; preds = %invoke.cont180
   store i32 %conv186, ptr %mNumMeshes, align 8
   %209 = and i64 %sub.ptr.sub.i, 34359738360
   %call190 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %209) #26
-          to label %invoke.cont.i.i307 unwind label %lpad176.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont189 unwind label %lpad176.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont.i.i307:                               ; preds = %if.then183
+invoke.cont189:                                   ; preds = %if.then183
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call190, i8 0, i64 %209, i1 false)
   %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   store ptr %call190, ptr %mMeshes, align 8
@@ -3785,7 +3785,7 @@ lpad176.body:                                     ; preds = %lpad176.loopexit, %
   call void @_ZN6Assimp3IFC14ConversionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %conv171) #25
   br label %ehcleanup259
 
-if.end204:                                        ; preds = %invoke.cont.i.i307, %invoke.cont180
+if.end204:                                        ; preds = %invoke.cont189, %invoke.cont180
   %materials = getelementptr inbounds nuw i8, ptr %conv171, i64 200
   %_M_finish.i308 = getelementptr inbounds nuw i8, ptr %conv171, i64 208
   %210 = load ptr, ptr %_M_finish.i308, align 8
@@ -3803,9 +3803,9 @@ if.then207:                                       ; preds = %if.end204
   store i32 %conv210, ptr %mNumMaterials, align 8
   %212 = and i64 %sub.ptr.sub.i311, 34359738360
   %call214 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %212) #26
-          to label %invoke.cont.i.i327 unwind label %lpad176.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont213 unwind label %lpad176.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont.i.i327:                               ; preds = %if.then207
+invoke.cont213:                                   ; preds = %if.then207
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call214, i8 0, i64 %212, i1 false)
   %mMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 40
   store ptr %call214, ptr %mMaterials, align 8
@@ -3813,7 +3813,7 @@ invoke.cont.i.i327:                               ; preds = %if.then207
   store ptr %211, ptr %_M_finish.i308, align 8
   br label %invoke.cont246
 
-invoke.cont246:                                   ; preds = %if.end204, %invoke.cont.i.i327
+invoke.cont246:                                   ; preds = %if.end204, %invoke.cont213
   %213 = load double, ptr %conv171, align 8
   %conv.i = fptrunc double %213 to float
   %214 = fadd float %conv.i, 0.000000e+00

@@ -864,7 +864,7 @@ define internal void @segment_complete(i32 noundef %0, i64 noundef %1, ptr nound
   %42 = add i64 %41, %32
   store i64 %42, ptr %31, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %7) #9
-  %43 = icmp eq i64 %41, 0
+  %43 = icmp eq i32 %39, 0
   br i1 %43, label %68, label %44
 
 44:                                               ; preds = %36

@@ -5488,7 +5488,7 @@ hostname_suffix_is_valid.exit:                    ; preds = %12
   %48 = sext i32 %34 to i64
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
   store ptr %49, ptr %13, align 8
-  %50 = tail call i64 @strtoul(ptr noundef captures(none) %49, ptr noundef null, i32 noundef 10) #22
+  %50 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %49, ptr noundef null, i32 noundef 10) #22
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %50, ptr %51, align 8
   %52 = load ptr, ptr %0, align 8

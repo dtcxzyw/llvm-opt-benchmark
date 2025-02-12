@@ -1559,10 +1559,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %43, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %45 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
-  %.not223241 = icmp eq ptr %.19.i.i.i.i, %27
-  %.not223 = select i1 %45, i1 true, i1 %.not223241
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
-  br i1 %.not223, label %55, label %46
+  br i1 %45, label %55, label %46
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %47 = uitofp i16 %12 to float
@@ -2000,10 +1998,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i122: ; preds = %_
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i118: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i122, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i116
   %.0.i.i.i.i.i.i.i119 = phi i32 [ %233, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i116 ], [ %.0.i6.i.i.i.i.i.i.i125, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i122 ]
   %235 = icmp slt i32 %.0.i.i.i.i.i.i.i119, 0
-  %.not226238242 = icmp eq ptr %.19.i.i.i.i109, %27
-  %.not226238 = select i1 %235, i1 true, i1 %.not226238242
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #28
-  %.239 = select i1 %.not226238, i32 1, i32 2
+  %.239 = select i1 %235, i32 1, i32 2
   br i1 %cond.fr240, label %236, label %237
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i114
@@ -3248,10 +3244,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %25 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
-  %.not93 = icmp eq ptr %.19.i.i.i.i, %7
-  %.not = select i1 %25, i1 true, i1 %.not93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #28
-  br i1 %.not, label %34, label %26
+  br i1 %25, label %34, label %26
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3347,10 +3341,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i67: ; preds = %_Z
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i67
   %.0.i.i.i.i.i.i.i64 = phi i32 [ %60, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i61 ], [ %.0.i6.i.i.i.i.i.i.i70, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i67 ]
   %62 = icmp slt i32 %.0.i.i.i.i.i.i.i64, 0
-  %.not9495 = icmp eq ptr %.19.i.i.i.i54, %7
-  %.not94 = select i1 %62, i1 true, i1 %.not9495
   call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 19) #29
-  br i1 %.not94, label %72, label %.critedge31.thread
+  br i1 %62, label %72, label %.critedge31.thread
 
 .critedge31.thread:                               ; preds = %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8

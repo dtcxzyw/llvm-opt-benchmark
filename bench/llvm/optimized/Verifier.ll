@@ -22051,7 +22051,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %86 = getelementptr inbounds nuw ptr, ptr %47, i64 %85
   %87 = sub nsw i64 0, %51
   %88 = getelementptr inbounds ptr, ptr %86, i64 %87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 8 %48, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 8 %48, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %82
@@ -53023,14 +53023,14 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %41
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %75, i64 noundef %63, i64 noundef 8) #27
   %.pre.i.i = load i32, ptr %66, align 8, !tbaa !26
-  %.pre17 = zext i32 %.pre.i.i to i64
+  %.pre.i = zext i32 %.pre.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i: ; preds = %74, %70
-  %.pre-phi = phi i64 [ %.pre17, %74 ], [ %68, %70 ]
-  %76 = phi i32 [ %.pre.i.i, %74 ], [ %67, %70 ]
+  %.pre-phi.i = phi i64 [ %68, %70 ], [ %.pre.i, %74 ]
+  %76 = phi i32 [ %67, %70 ], [ %.pre.i.i, %74 ]
   %77 = load ptr, ptr %65, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi.i
   %79 = shl nuw nsw i64 %63, 3
   %80 = add nsw i64 %79, -8
   %81 = shl nuw nsw i64 %68, 3
@@ -77178,14 +77178,14 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %41
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %75, i64 noundef %63, i64 noundef 8) #27
   %.pre.i.i = load i32, ptr %66, align 8, !tbaa !26
-  %.pre20 = zext i32 %.pre.i.i to i64
+  %.pre.i = zext i32 %.pre.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i: ; preds = %74, %70
-  %.pre-phi = phi i64 [ %.pre20, %74 ], [ %68, %70 ]
-  %76 = phi i32 [ %.pre.i.i, %74 ], [ %67, %70 ]
+  %.pre-phi.i = phi i64 [ %68, %70 ], [ %.pre.i, %74 ]
+  %76 = phi i32 [ %67, %70 ], [ %.pre.i.i, %74 ]
   %77 = load ptr, ptr %65, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi.i
   %79 = shl nuw nsw i64 %63, 3
   %80 = add nsw i64 %79, -8
   %81 = shl nuw nsw i64 %68, 3

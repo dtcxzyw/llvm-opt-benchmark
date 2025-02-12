@@ -3330,7 +3330,7 @@ cond.true.i:                                      ; preds = %do.end76
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #23
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %do.end76, %cond.true.i
+for.body.preheader:                               ; preds = %cond.true.i, %do.end76
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %do.end76 ]
   store ptr %cond.i, ptr %agg.result, align 8, !tbaa !24
   %rows_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3339,9 +3339,9 @@ for.body.preheader:                               ; preds = %do.end76, %cond.tru
   store i64 %sub.ptr.div.i.i.i34, ptr %columns_.i, align 8, !tbaa !62
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc.loopexit
-  %i.0101 = phi i64 [ %inc, %for.inc.loopexit ], [ 0, %for.body.preheader ]
-  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc.loopexit ], [ %v1begin.coerce, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.0101 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc ], [ %v1begin.coerce, %for.body.preheader ]
   %mul.i60 = mul i64 %i.0101, %sub.ptr.div.i.i.i34
   %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i60
   br label %for.body.i
@@ -3356,15 +3356,15 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %v2end.coerce
-  br i1 %cmp.i.not.i, label %for.inc.loopexit, label %for.body.i, !llvm.loop !122
+  br i1 %cmp.i.not.i, label %for.inc, label %for.body.i, !llvm.loop !122
 
-for.inc.loopexit:                                 ; preds = %for.body.i
+for.inc:                                          ; preds = %for.body.i
   %inc = add nuw nsw i64 %i.0101, 1
   %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %v1begin.sroa.0.0100, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %v1end.coerce
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !123
 
-nrvo.skipdtor:                                    ; preds = %for.inc.loopexit
+nrvo.skipdtor:                                    ; preds = %for.inc
   ret void
 
 ehcleanup94:                                      ; preds = %ehcleanup72, %ehcleanup29
@@ -3981,7 +3981,7 @@ cond.true.i:                                      ; preds = %do.end76
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #23
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %do.end76, %cond.true.i
+for.body.preheader:                               ; preds = %cond.true.i, %do.end76
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %do.end76 ]
   store ptr %cond.i, ptr %agg.result, align 8, !tbaa !24
   %rows_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3990,9 +3990,9 @@ for.body.preheader:                               ; preds = %do.end76, %cond.tru
   store i64 %sub.ptr.div.i.i.i34, ptr %columns_.i, align 8, !tbaa !62
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc.loopexit
-  %i.0101 = phi i64 [ %inc, %for.inc.loopexit ], [ 0, %for.body.preheader ]
-  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc.loopexit ], [ %v1begin.coerce, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.0101 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc ], [ %v1begin.coerce, %for.body.preheader ]
   %mul.i60 = mul i64 %i.0101, %sub.ptr.div.i.i.i34
   %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i60
   br label %for.body.i
@@ -4007,15 +4007,15 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %v2end.coerce
-  br i1 %cmp.i.not.i, label %for.inc.loopexit, label %for.body.i, !llvm.loop !125
+  br i1 %cmp.i.not.i, label %for.inc, label %for.body.i, !llvm.loop !125
 
-for.inc.loopexit:                                 ; preds = %for.body.i
+for.inc:                                          ; preds = %for.body.i
   %inc = add nuw nsw i64 %i.0101, 1
   %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %v1begin.sroa.0.0100, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %v1end.coerce
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !126
 
-nrvo.skipdtor:                                    ; preds = %for.inc.loopexit
+nrvo.skipdtor:                                    ; preds = %for.inc
   ret void
 
 ehcleanup94:                                      ; preds = %ehcleanup72, %ehcleanup29

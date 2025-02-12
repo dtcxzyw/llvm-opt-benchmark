@@ -3281,8 +3281,8 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 381520
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 2147484048
-  %or.cond451 = select i1 %.not, i1 true, i1 %13
-  br i1 %or.cond451, label %14, label %.thread
+  %or.cond450 = select i1 %.not, i1 true, i1 %13
+  br i1 %or.cond450, label %14, label %.thread
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5456
@@ -3344,8 +3344,8 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   %45 = load i32, ptr %44, align 8
   %.not105 = icmp eq i32 %45, 0
-  %or.cond453 = select i1 %.not104, i1 %.not105, i1 false
-  br i1 %or.cond453, label %46, label %.thread
+  %or.cond452 = select i1 %.not104, i1 %.not105, i1 false
+  br i1 %or.cond452, label %46, label %.thread
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 767584
@@ -3397,7 +3397,7 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
 73:                                               ; preds = %71, %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %74, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 75:                                               ; preds = %.thread
   switch i32 %7, label %469 [
@@ -3410,7 +3410,7 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 381520
   %78 = load i64, ptr %77, align 8, !tbaa !86
-  switch i64 %78, label %.loopexit566 [
+  switch i64 %78, label %.loopexit565 [
     i64 77970, label %79
     i64 78400, label %79
     i64 76145, label %91
@@ -3430,14 +3430,14 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %86 = load i16, ptr %85, align 2, !tbaa !151
   %87 = icmp eq i16 %86, 7392
-  br i1 %87, label %88, label %.loopexit566
+  br i1 %87, label %88, label %.loopexit565
 
 88:                                               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 6, ptr %89, align 2, !tbaa !164
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 7376, ptr %90, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 91:                                               ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 153176
@@ -3448,28 +3448,28 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %96 = load float, ptr %95, align 8, !tbaa !107
   %97 = fmul reassoc nsz arcp contract afn float %96, 4.000000e+00
   store float %97, ptr %95, align 8, !tbaa !107
-  br label %.loopexit566
+  br label %.loopexit565
 
 98:                                               ; preds = %76
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %99, align 8, !tbaa !79
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 370546198, ptr %100, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 101:                                              ; preds = %76
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %102, align 8, !tbaa !147
-  %.repack338 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  store i64 0, ptr %.repack338, align 8, !tbaa !147
-  br label %.loopexit566
+  %.repack337 = getelementptr inbounds nuw i8, ptr %0, i64 767592
+  store i64 0, ptr %.repack337, align 8, !tbaa !147
+  br label %.loopexit565
 
 103:                                              ; preds = %76
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %105 = load i16, ptr %104, align 4, !tbaa !154
   %106 = add i16 %105, -2
   store i16 %106, ptr %104, align 4, !tbaa !154
-  br label %.loopexit566
+  br label %.loopexit565
 
 107:                                              ; preds = %75
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 381656
@@ -3490,12 +3490,12 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %111, %115
-  %.sink597 = phi i16 [ 3866, %115 ], [ 3272, %111 ]
-  store i16 %.sink597, ptr %113, align 2, !tbaa !153
+  %.sink596 = phi i16 [ 3866, %115 ], [ 3272, %111 ]
+  store i16 %.sink596, ptr %113, align 2, !tbaa !153
   br label %116
 
 116:                                              ; preds = %.sink.split, %111
-  %117 = phi i16 [ %114, %111 ], [ %.sink597, %.sink.split ]
+  %117 = phi i16 [ %114, %111 ], [ %.sink596, %.sink.split ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %119 = load i16, ptr %118, align 4, !tbaa !154
   %120 = icmp ugt i16 %119, %117
@@ -3516,8 +3516,8 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %127 = phi i16 [ %119, %121 ], [ %117, %116 ]
   %128 = icmp eq i16 %127, 7200
   %129 = icmp eq i16 %126, 3888
-  %or.cond455 = and i1 %128, %129
-  br i1 %or.cond455, label %130, label %132
+  %or.cond454 = and i1 %128, %129
+  br i1 %or.cond454, label %130, label %132
 
 130:                                              ; preds = %125
   store i16 6480, ptr %113, align 2, !tbaa !153
@@ -3536,15 +3536,15 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store i32 3, ptr %135, align 4, !tbaa !120
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   store i64 ptrtoint (ptr @_ZN6LibRaw19canon_sraw_load_rawEv to i64), ptr %136, align 8, !tbaa !147
-  %.repack310 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  store i64 0, ptr %.repack310, align 8, !tbaa !147
+  %.repack309 = getelementptr inbounds nuw i8, ptr %0, i64 767592
+  store i64 0, ptr %.repack309, align 8, !tbaa !147
   br label %137
 
 137:                                              ; preds = %132, %107
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %bcmp311 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.60, i64 14)
-  %.not312 = icmp eq i32 %bcmp311, 0
-  br i1 %.not312, label %139, label %146
+  %bcmp310 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.60, i64 14)
+  %.not311 = icmp eq i32 %bcmp310, 0
+  br i1 %.not311, label %139, label %146
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3559,19 +3559,19 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store i32 -505093660, ptr %144, align 8, !tbaa !78
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   store i64 ptrtoint (ptr @_ZN6LibRaw18canon_600_load_rawEv to i64), ptr %145, align 8, !tbaa !147
-  %.repack313 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  store i64 0, ptr %.repack313, align 8, !tbaa !147
-  br label %.loopexit566
+  %.repack312 = getelementptr inbounds nuw i8, ptr %0, i64 767592
+  store i64 0, ptr %.repack312, align 8, !tbaa !147
+  br label %.loopexit565
 
 146:                                              ; preds = %137
-  %bcmp314 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %138, ptr noundef nonnull dereferenceable(13) @.str.61, i64 13)
-  %.not315 = icmp eq i32 %bcmp314, 0
-  br i1 %.not315, label %148, label %147
+  %bcmp313 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %138, ptr noundef nonnull dereferenceable(13) @.str.61, i64 13)
+  %.not314 = icmp eq i32 %bcmp313, 0
+  br i1 %.not314, label %148, label %147
 
 147:                                              ; preds = %146
-  %bcmp316 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %138, ptr noundef nonnull dereferenceable(18) @.str.62, i64 18)
-  %.not317 = icmp eq i32 %bcmp316, 0
-  br i1 %.not317, label %148, label %153
+  %bcmp315 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %138, ptr noundef nonnull dereferenceable(18) @.str.62, i64 18)
+  %.not316 = icmp eq i32 %bcmp315, 0
+  br i1 %.not316, label %148, label %153
 
 148:                                              ; preds = %147, %146
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3585,9 +3585,9 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %162
 
 153:                                              ; preds = %147
-  %bcmp318 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.63, i64 14)
-  %.not319 = icmp eq i32 %bcmp318, 0
-  br i1 %.not319, label %154, label %158
+  %bcmp317 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.63, i64 14)
+  %.not318 = icmp eq i32 %bcmp317, 0
+  br i1 %.not318, label %154, label %158
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3599,9 +3599,9 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %162
 
 158:                                              ; preds = %153
-  %bcmp320 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %138, ptr noundef nonnull dereferenceable(16) @.str.64, i64 16)
-  %.not321 = icmp eq i32 %bcmp320, 0
-  br i1 %.not321, label %159, label %167
+  %bcmp319 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %138, ptr noundef nonnull dereferenceable(16) @.str.64, i64 16)
+  %.not320 = icmp eq i32 %bcmp319, 0
+  br i1 %.not320, label %159, label %167
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3611,58 +3611,58 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %162
 
 162:                                              ; preds = %159, %154, %148
-  %.sink598 = phi i32 [ 508251675, %159 ], [ 458115870, %154 ], [ 508436046, %148 ]
+  %.sink597 = phi i32 [ 508251675, %159 ], [ 458115870, %154 ], [ 508436046, %148 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %.sink598, ptr %163, align 8, !tbaa !78
+  store i32 %.sink597, ptr %163, align 8, !tbaa !78
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 4, ptr %164, align 4, !tbaa !136
   store i32 10, ptr %108, align 8, !tbaa !112
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   store i64 ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), ptr %165, align 8, !tbaa !147
-  %.repack322 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  store i64 0, ptr %.repack322, align 8, !tbaa !147
+  %.repack321 = getelementptr inbounds nuw i8, ptr %0, i64 767592
+  store i64 0, ptr %.repack321, align 8, !tbaa !147
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 40, ptr %166, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 167:                                              ; preds = %158
-  %bcmp323 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %138, ptr noundef nonnull dereferenceable(19) @.str.65, i64 19)
-  %.not324 = icmp eq i32 %bcmp323, 0
-  br i1 %.not324, label %169, label %168
+  %bcmp322 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %138, ptr noundef nonnull dereferenceable(19) @.str.65, i64 19)
+  %.not323 = icmp eq i32 %bcmp322, 0
+  br i1 %.not323, label %169, label %168
 
 168:                                              ; preds = %167
-  %bcmp325 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %138, ptr noundef nonnull dereferenceable(13) @.str.66, i64 13)
-  %.not326 = icmp eq i32 %bcmp325, 0
-  br i1 %.not326, label %169, label %172
+  %bcmp324 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %138, ptr noundef nonnull dereferenceable(13) @.str.66, i64 13)
+  %.not325 = icmp eq i32 %bcmp324, 0
+  br i1 %.not325, label %169, label %172
 
 169:                                              ; preds = %168, %167
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 4, ptr %170, align 4, !tbaa !136
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 -1263225676, ptr %171, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 172:                                              ; preds = %168
-  %bcmp327 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %138, ptr noundef nonnull dereferenceable(15) @.str.67, i64 15)
-  %.not328 = icmp eq i32 %bcmp327, 0
-  br i1 %.not328, label %173, label %178
+  %bcmp326 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %138, ptr noundef nonnull dereferenceable(15) @.str.67, i64 15)
+  %.not327 = icmp eq i32 %bcmp326, 0
+  br i1 %.not327, label %173, label %178
 
 173:                                              ; preds = %172
   %174 = tail call noundef i32 @_ZN6LibRaw10canon_s2isEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %.not329 = icmp eq i32 %174, 0
-  br i1 %.not329, label %.loopexit566, label %175
+  %.not328 = icmp eq i32 %174, 0
+  br i1 %.not328, label %.loopexit565, label %175
 
 175:                                              ; preds = %173
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 278
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %176, ptr noundef nonnull align 1 dereferenceable(6) @.str.68, i64 6, i1 false) #17
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 470
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %177, ptr noundef nonnull align 1 dereferenceable(6) @.str.68, i64 6, i1 false) #17
-  br label %.loopexit566
+  br label %.loopexit565
 
 178:                                              ; preds = %172
-  %bcmp330 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %138, ptr noundef nonnull dereferenceable(19) @.str.69, i64 19)
-  %.not331 = icmp eq i32 %bcmp330, 0
-  br i1 %.not331, label %179, label %183
+  %bcmp329 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %138, ptr noundef nonnull dereferenceable(19) @.str.69, i64 19)
+  %.not330 = icmp eq i32 %bcmp329, 0
+  br i1 %.not330, label %179, label %183
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3671,12 +3671,12 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store i16 16, ptr %181, align 8, !tbaa !155
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 92, ptr %182, align 2, !tbaa !164
-  br label %.loopexit566
+  br label %.loopexit565
 
 183:                                              ; preds = %178
-  %bcmp332 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %138, ptr noundef nonnull dereferenceable(15) @.str.70, i64 15)
-  %.not333 = icmp eq i32 %bcmp332, 0
-  br i1 %.not333, label %184, label %195
+  %bcmp331 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %138, ptr noundef nonnull dereferenceable(15) @.str.70, i64 15)
+  %.not332 = icmp eq i32 %bcmp331, 0
+  br i1 %.not332, label %184, label %195
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3699,12 +3699,12 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store i32 23, ptr %193, align 8, !tbaa !92
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 72, ptr %194, align 8, !tbaa !92
-  br label %.loopexit566
+  br label %.loopexit565
 
 195:                                              ; preds = %183
-  %bcmp334 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.71, i64 14)
-  %.not335 = icmp eq i32 %bcmp334, 0
-  br i1 %.not335, label %196, label %211
+  %bcmp333 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %138, ptr noundef nonnull dereferenceable(14) @.str.71, i64 14)
+  %.not334 = icmp eq i32 %bcmp333, 0
+  br i1 %.not334, label %196, label %211
 
 196:                                              ; preds = %195
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3729,17 +3729,17 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   %209 = add i16 %208, -43
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 %209, ptr %210, align 4, !tbaa !154
-  br label %.loopexit566
+  br label %.loopexit565
 
 211:                                              ; preds = %195
-  %bcmp336 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %138, ptr noundef nonnull dereferenceable(18) @.str.72, i64 18)
-  %.not337 = icmp eq i32 %bcmp336, 0
-  br i1 %.not337, label %212, label %.loopexit566
+  %bcmp335 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %138, ptr noundef nonnull dereferenceable(18) @.str.72, i64 18)
+  %.not336 = icmp eq i32 %bcmp335, 0
+  br i1 %.not336, label %212, label %.loopexit565
 
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 17, ptr %213, align 8, !tbaa !155
-  br label %.loopexit566
+  br label %.loopexit565
 
 214:                                              ; preds = %75
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -3765,7 +3765,7 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store float 1.000000e+00, ptr %220, align 8, !tbaa !107
   store float 1.000000e+00, ptr %223, align 4, !tbaa !107
   store float 1.000000e+00, ptr %217, align 8, !tbaa !107
-  br label %.loopexit566
+  br label %.loopexit565
 
 227:                                              ; preds = %214
   %lhsv225 = load i32, ptr %215, align 4
@@ -3779,7 +3779,7 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   store i16 %231, ptr %229, align 2, !tbaa !153
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 5.000000e-01, ptr %232, align 8, !tbaa !129
-  br label %.loopexit566
+  br label %.loopexit565
 
 233:                                              ; preds = %227
   %bcmp228 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.75, i64 5)
@@ -3807,14 +3807,14 @@ switch.early.test:                                ; preds = %233
   %240 = load i16, ptr %239, align 2, !tbaa !153
   %241 = add i16 %240, -4
   store i16 %241, ptr %239, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 242:                                              ; preds = %234
   %bcmp238 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %215, ptr noundef nonnull dereferenceable(3) @.str.79, i64 3)
   %.not239 = icmp eq i32 %bcmp238, 0
   %.not242 = icmp eq i32 %lhsv225, 5452612
-  %or.cond458 = or i1 %.not242, %.not239
-  br i1 %or.cond458, label %244, label %243
+  %or.cond457 = or i1 %.not242, %.not239
+  br i1 %or.cond457, label %244, label %243
 
 243:                                              ; preds = %242
   %bcmp243 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.81, i64 5)
@@ -3828,7 +3828,7 @@ switch.early.test:                                ; preds = %233
   store i16 %247, ptr %245, align 2, !tbaa !153
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 2, ptr %248, align 2, !tbaa !164
-  br label %.loopexit566
+  br label %.loopexit565
 
 249:                                              ; preds = %243
   %bcmp245 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.82, i64 6)
@@ -3842,21 +3842,21 @@ switch.early.test:                                ; preds = %233
   store i16 %253, ptr %251, align 2, !tbaa !153
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 6, ptr %254, align 2, !tbaa !164
-  br label %.loopexit566
+  br label %.loopexit565
 
 255:                                              ; preds = %249
   %bcmp247 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.83, i64 6)
   %.not248 = icmp eq i32 %bcmp247, 0
   %.not251 = icmp eq i32 %lhsv225, 3160388
-  %or.cond459 = or i1 %.not251, %.not248
-  br i1 %or.cond459, label %256, label %260
+  %or.cond458 = or i1 %.not251, %.not248
+  br i1 %or.cond458, label %256, label %260
 
 256:                                              ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %258 = load i16, ptr %257, align 2, !tbaa !153
   %259 = add i16 %258, -42
   store i16 %259, ptr %257, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 260:                                              ; preds = %255
   %bcmp252 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.85, i64 6)
@@ -3878,7 +3878,7 @@ switch.early.test:                                ; preds = %233
   %265 = load i16, ptr %264, align 2, !tbaa !153
   %266 = add i16 %265, -44
   store i16 %266, ptr %264, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 267:                                              ; preds = %262
   %bcmp258 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.88, i64 6)
@@ -3894,15 +3894,15 @@ switch.early.test:                                ; preds = %233
   %bcmp262 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.90, i64 5)
   %.not263 = icmp eq i32 %bcmp262, 0
   %.not266 = icmp eq i32 %lhsv225, 808466500
-  %or.cond460 = or i1 %.not266, %.not263
-  br i1 %or.cond460, label %270, label %274
+  %or.cond459 = or i1 %.not266, %.not263
+  br i1 %or.cond459, label %270, label %274
 
 270:                                              ; preds = %269, %268, %267
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %272 = load i16, ptr %271, align 2, !tbaa !153
   %273 = add i16 %272, -46
   store i16 %273, ptr %271, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 274:                                              ; preds = %269
   %bcmp267 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %215, ptr noundef nonnull dereferenceable(3) @.str.92, i64 3)
@@ -3921,12 +3921,12 @@ switch.early.test:                                ; preds = %233
   store i16 %279, ptr %277, align 2, !tbaa !153
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 2, ptr %280, align 2, !tbaa !164
-  br label %.loopexit566
+  br label %.loopexit565
 
 281:                                              ; preds = %275
   %bcmp271 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.94, i64 5)
   %.not272 = icmp eq i32 %bcmp271, 0
-  br i1 %.not272, label %.loopexit566, label %282
+  br i1 %.not272, label %.loopexit565, label %282
 
 282:                                              ; preds = %281
   %bcmp273 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %215, ptr noundef nonnull dereferenceable(3) @.str.95, i64 3)
@@ -3948,7 +3948,7 @@ switch.early.test:                                ; preds = %233
   %287 = load i16, ptr %286, align 2, !tbaa !153
   %288 = add i16 %287, -1
   store i16 %288, ptr %286, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 289:                                              ; preds = %284
   %bcmp279 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.98, i64 5)
@@ -3959,7 +3959,7 @@ switch.early.test:                                ; preds = %233
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   %292 = load i32, ptr %291, align 8, !tbaa !114
   %.not281 = icmp eq i32 %292, 0
-  br i1 %.not281, label %.loopexit566, label %293
+  br i1 %.not281, label %.loopexit565, label %293
 
 293:                                              ; preds = %290
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -3969,7 +3969,7 @@ switch.early.test:                                ; preds = %233
   %297 = add i16 %295, 6
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %297, ptr %298, align 2, !tbaa !151
-  br label %.loopexit566
+  br label %.loopexit565
 
 299:                                              ; preds = %289
   %bcmp282 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.99, i64 5)
@@ -3985,7 +3985,7 @@ switch.early.test:                                ; preds = %233
   store i16 %304, ptr %302, align 2, !tbaa !153
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 -1802201964, ptr %305, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 306:                                              ; preds = %299
   %bcmp284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %215, ptr noundef nonnull dereferenceable(3) @.str.100, i64 3)
@@ -3999,7 +3999,7 @@ switch.early.test:                                ; preds = %233
   %310 = load i16, ptr %309, align 2, !tbaa !153
   %311 = add i16 %310, -14
   store i16 %311, ptr %309, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 312:                                              ; preds = %306
   %bcmp286 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %215, ptr noundef nonnull dereferenceable(3) @.str.101, i64 3)
@@ -4014,12 +4014,12 @@ switch.early.test:                                ; preds = %233
 
 317:                                              ; preds = %313
   store i16 3232, ptr %314, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 318:                                              ; preds = %313
   %319 = add i16 %315, -8
   store i16 %319, ptr %314, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 320:                                              ; preds = %312
   %.not290 = icmp eq i32 %lhsv225, 808465220
@@ -4030,7 +4030,7 @@ switch.early.test:                                ; preds = %233
   %323 = load i16, ptr %322, align 2, !tbaa !153
   %324 = add i16 %323, -32
   store i16 %324, ptr %322, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 325:                                              ; preds = %320
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -4040,38 +4040,38 @@ switch.early.test:                                ; preds = %233
 
 329:                                              ; preds = %325
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %bcmp304 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %330, ptr noundef nonnull dereferenceable(14) @.str.103, i64 14)
-  %.not305 = icmp eq i32 %bcmp304, 0
-  br i1 %.not305, label %331, label %334
+  %bcmp303 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %330, ptr noundef nonnull dereferenceable(14) @.str.103, i64 14)
+  %.not304 = icmp eq i32 %bcmp303, 0
+  br i1 %.not304, label %331, label %334
 
 331:                                              ; preds = %329
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 65504, ptr %332, align 8, !tbaa !84
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 0, ptr %333, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 334:                                              ; preds = %329
-  %bcmp306 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %330, ptr noundef nonnull dereferenceable(14) @.str.104, i64 14)
-  %.not307 = icmp eq i32 %bcmp306, 0
-  br i1 %.not307, label %335, label %338
+  %bcmp305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %330, ptr noundef nonnull dereferenceable(14) @.str.104, i64 14)
+  %.not306 = icmp eq i32 %bcmp305, 0
+  br i1 %.not306, label %335, label %338
 
 335:                                              ; preds = %334
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 65504, ptr %336, align 8, !tbaa !84
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 0, ptr %337, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 338:                                              ; preds = %334
-  %bcmp308 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %215, ptr noundef nonnull dereferenceable(13) @.str.105, i64 13)
-  %.not309 = icmp eq i32 %bcmp308, 0
-  br i1 %.not309, label %339, label %.loopexit566
+  %bcmp307 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %215, ptr noundef nonnull dereferenceable(13) @.str.105, i64 13)
+  %.not308 = icmp eq i32 %bcmp307, 0
+  br i1 %.not308, label %339, label %.loopexit565
 
 339:                                              ; preds = %338
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 0, ptr %340, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 341:                                              ; preds = %325
   %bcmp291 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %215, ptr noundef nonnull dereferenceable(9) @.str.106, i64 9)
@@ -4086,48 +4086,48 @@ switch.early.test:                                ; preds = %233
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 277
   %346 = load i8, ptr %345, align 1, !tbaa !85
   %347 = icmp eq i8 %346, 55
-  br i1 %347, label %348, label %.loopexit566
+  br i1 %347, label %348, label %.loopexit565
 
 348:                                              ; preds = %342
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 192552
   %350 = load float, ptr %349, align 8, !tbaa !208
   %351 = fcmp reassoc nsz arcp contract afn oge float %350, 4.000000e+02
   %352 = fcmp reassoc nsz arcp contract afn oeq float %350, 0.000000e+00
-  %or.cond461 = or i1 %351, %352
-  br i1 %or.cond461, label %353, label %.loopexit566
+  %or.cond460 = or i1 %351, %352
+  br i1 %or.cond460, label %353, label %.loopexit565
 
 353:                                              ; preds = %348
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %355 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %354, ptr noundef nonnull dereferenceable(1) @.str.107) #19
-  %.not294 = icmp eq ptr %355, null
-  br i1 %.not294, label %356, label %.loopexit566
+  %.not293 = icmp eq ptr %355, null
+  br i1 %.not293, label %356, label %.loopexit565
 
 356:                                              ; preds = %353
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 152992
   store i32 255, ptr %357, align 8, !tbaa !119
-  br label %.loopexit566
+  br label %.loopexit565
 
 358:                                              ; preds = %341
-  %bcmp295 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %215, ptr noundef nonnull dereferenceable(12) @.str.108, i64 12)
-  %.not296 = icmp eq i32 %bcmp295, 0
-  br i1 %.not296, label %359, label %361
+  %bcmp294 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %215, ptr noundef nonnull dereferenceable(12) @.str.108, i64 12)
+  %.not295 = icmp eq i32 %bcmp294, 0
+  br i1 %.not295, label %359, label %361
 
 359:                                              ; preds = %358
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 24, ptr %360, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 361:                                              ; preds = %358
   %362 = and i32 %lhsv225, 65535
-  %.not299 = icmp eq i32 %362, 8241
-  br i1 %.not299, label %363, label %367
+  %.not298 = icmp eq i32 %362, 8241
+  br i1 %.not298, label %363, label %367
 
 363:                                              ; preds = %361
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %365 = load i16, ptr %364, align 4, !tbaa !154
   %366 = add i16 %365, -2
   store i16 %366, ptr %364, align 4, !tbaa !154
-  br label %.loopexit566
+  br label %.loopexit565
 
 367:                                              ; preds = %361
   switch i32 %2, label %387 [
@@ -4145,12 +4145,12 @@ switch.early.test:                                ; preds = %233
   store float 0x3FF18240C0000000, ptr %370, align 4, !tbaa !107
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 153204
   store float 0x3FF1C3C9E0000000, ptr %371, align 4, !tbaa !107
-  br label %.loopexit566
+  br label %.loopexit565
 
 372:                                              ; preds = %367
-  %bcmp300 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.56, i64 5)
-  %.not301 = icmp eq i32 %bcmp300, 0
-  br i1 %.not301, label %387, label %373
+  %bcmp299 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %215, ptr noundef nonnull dereferenceable(5) @.str.56, i64 5)
+  %.not300 = icmp eq i32 %bcmp299, 0
+  br i1 %.not300, label %387, label %373
 
 373:                                              ; preds = %372
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -4162,7 +4162,7 @@ switch.early.test:                                ; preds = %233
   store float 0x3FF3EF9DC0000000, ptr %376, align 4, !tbaa !107
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 153200
   store float 0x3FF049BA60000000, ptr %377, align 8, !tbaa !107
-  br label %.loopexit566
+  br label %.loopexit565
 
 378:                                              ; preds = %367
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 269
@@ -4174,17 +4174,17 @@ switch.early.test:                                ; preds = %233
 383:                                              ; preds = %378
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1229539657, ptr %384, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 385:                                              ; preds = %367
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 6, ptr %386, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 387:                                              ; preds = %378, %372, %367
-  %bcmp302 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.57, i64 6)
-  %.not303 = icmp eq i32 %bcmp302, 0
-  br i1 %.not303, label %388, label %.loopexit566
+  %bcmp301 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %215, ptr noundef nonnull dereferenceable(6) @.str.57, i64 6)
+  %.not302 = icmp eq i32 %bcmp301, 0
+  br i1 %.not302, label %388, label %.loopexit565
 
 388:                                              ; preds = %387
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4197,7 +4197,7 @@ switch.early.test:                                ; preds = %233
   store i32 4, ptr %393, align 4, !tbaa !136
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1263225675, ptr %394, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 395:                                              ; preds = %75
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 381528
@@ -4225,12 +4225,12 @@ switch.early.test:                                ; preds = %233
 408:                                              ; preds = %406, %398
   %.042 = phi i32 [ %402, %406 ], [ %400, %398 ]
   %409 = icmp slt i32 %.042, 0
-  br i1 %409, label %410, label %.loopexit566
+  br i1 %409, label %410, label %.loopexit565
 
 410:                                              ; preds = %408
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1633771873, ptr %411, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 412:                                              ; preds = %395
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4245,7 +4245,7 @@ switch.early.test:                                ; preds = %233
   store i64 0, ptr %.repack222, align 8, !tbaa !147
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 30, ptr %417, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 418:                                              ; preds = %395
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 381512
@@ -4266,43 +4266,43 @@ switch.early.test:                                ; preds = %233
 427:                                              ; preds = %425, %418
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %429 = load i16, ptr %428, align 2, !tbaa !153
-  switch i16 %429, label %.thread554 [
-    i16 4100, label %.thread530
+  switch i16 %429, label %.thread553 [
+    i16 4100, label %.thread529
     i16 4080, label %430
-    i16 10400, label %.thread595
-    i16 8200, label %.thread595.fold.split
-    i16 8180, label %.thread537
+    i16 10400, label %.thread594
+    i16 8200, label %.thread594.fold.split
+    i16 8180, label %.thread536
     i16 9280, label %431
   ]
 
-.thread530:                                       ; preds = %427
+.thread529:                                       ; preds = %427
   store i16 4096, ptr %428, align 2, !tbaa !153
-  br label %.thread554
+  br label %.thread553
 
 430:                                              ; preds = %427
   store i16 4056, ptr %428, align 2, !tbaa !153
-  br label %.thread554
+  br label %.thread553
 
-.thread595.fold.split:                            ; preds = %427
-  br label %.thread595
+.thread594.fold.split:                            ; preds = %427
+  br label %.thread594
 
-.thread595:                                       ; preds = %427, %.thread595.fold.split
-  %storemerge = phi i16 [ 10388, %427 ], [ 8170, %.thread595.fold.split ]
+.thread594:                                       ; preds = %427, %.thread594.fold.split
+  %storemerge = phi i16 [ 10388, %427 ], [ 8170, %.thread594.fold.split ]
   store i16 %storemerge, ptr %428, align 2, !tbaa !153
-  br label %.thread554
+  br label %.thread553
 
-.thread537:                                       ; preds = %427
+.thread536:                                       ; preds = %427
   store i16 8170, ptr %428, align 2, !tbaa !153
-  br label %.thread554
+  br label %.thread553
 
 431:                                              ; preds = %427
   store i16 9274, ptr %428, align 2, !tbaa !153
   %432 = add i16 %423, -6
   store i16 %432, ptr %420, align 4, !tbaa !154
-  br label %.thread554
+  br label %.thread553
 
-.thread554:                                       ; preds = %427, %.thread595, %.thread530, %430, %.thread537, %431
-  %433 = phi i16 [ 4096, %.thread530 ], [ 4056, %430 ], [ 8170, %.thread537 ], [ 9274, %431 ], [ %storemerge, %.thread595 ], [ %429, %427 ]
+.thread553:                                       ; preds = %427, %.thread594, %.thread529, %430, %.thread536, %431
+  %433 = phi i16 [ 4096, %.thread529 ], [ 4056, %430 ], [ 8170, %.thread536 ], [ 9274, %431 ], [ %storemerge, %.thread594 ], [ %429, %427 ]
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   %.unpack213 = load i64, ptr %434, align 8, !tbaa !147
   %.elt214 = getelementptr inbounds nuw i8, ptr %0, i64 767592
@@ -4310,14 +4310,14 @@ switch.early.test:                                ; preds = %233
   %435 = icmp eq i64 %.unpack213, ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64)
   %436 = icmp eq i64 %.unpack215, 0
   %437 = and i1 %435, %436
-  br i1 %437, label %438, label %.thread554._crit_edge
+  br i1 %437, label %438, label %.thread553._crit_edge
 
-.thread554._crit_edge:                            ; preds = %.thread554
+.thread553._crit_edge:                            ; preds = %.thread553
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 3110
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !210
   br label %443
 
-438:                                              ; preds = %.thread554
+438:                                              ; preds = %.thread553
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 3110
   %441 = load i16, ptr %440, align 2, !tbaa !210
@@ -4326,12 +4326,12 @@ switch.early.test:                                ; preds = %233
   store i32 %spec.store.select, ptr %439, align 8
   br label %443
 
-443:                                              ; preds = %.thread554._crit_edge, %438
-  %444 = phi i16 [ %.pre, %.thread554._crit_edge ], [ %441, %438 ]
+443:                                              ; preds = %.thread553._crit_edge, %438
+  %444 = phi i16 [ %.pre, %.thread553._crit_edge ], [ %441, %438 ]
   %445 = zext i16 %444 to i32
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 381656
   store i32 %445, ptr %446, align 8, !tbaa !112
-  switch i64 %397, label %.loopexit566 [
+  switch i64 %397, label %.loopexit565 [
     i64 292933350449, label %447
     i64 357290750004, label %447
     i64 292933678898, label %452
@@ -4345,31 +4345,31 @@ switch.early.test:                                ; preds = %233
 447:                                              ; preds = %443, %443
   %448 = add i16 %433, -20
   store i16 %448, ptr %428, align 2, !tbaa !153
-  br i1 %437, label %449, label %.loopexit566
+  br i1 %437, label %449, label %.loopexit565
 
 449:                                              ; preds = %447
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 4035, ptr %450, align 8, !tbaa !84
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %451, i8 0, i64 16416, i1 false)
-  br label %.loopexit566
+  br label %.loopexit565
 
 452:                                              ; preds = %443
   %453 = add i16 %433, -16
   store i16 %453, ptr %428, align 2, !tbaa !153
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 4095, ptr %454, align 8, !tbaa !84
-  br label %.loopexit566
+  br label %.loopexit565
 
 455:                                              ; preds = %443
   %456 = add i16 %433, -30
   store i16 %456, ptr %428, align 2, !tbaa !153
-  br i1 %437, label %457, label %.loopexit566
+  br i1 %437, label %457, label %.loopexit565
 
 457:                                              ; preds = %455
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 3961, ptr %458, align 8, !tbaa !84
-  br label %.loopexit566
+  br label %.loopexit565
 
 459:                                              ; preds = %443
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 381456
@@ -4381,17 +4381,17 @@ switch.early.test:                                ; preds = %233
   store i16 480, ptr %463, align 2, !tbaa !190
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 193356
   store i16 640, ptr %464, align 4, !tbaa !188
-  br label %.loopexit566
+  br label %.loopexit565
 
 465:                                              ; preds = %443
   %466 = add i16 %433, -16
   store i16 %466, ptr %428, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 467:                                              ; preds = %443, %443
   %468 = add i16 %433, -26
   store i16 %468, ptr %428, align 2, !tbaa !153
-  br label %.loopexit566
+  br label %.loopexit565
 
 469:                                              ; preds = %75
   %470 = icmp eq i32 %7, 58
@@ -4410,7 +4410,7 @@ switch.early.test:                                ; preds = %233
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   store i16 %479, ptr %480, align 8, !tbaa !138
   %481 = icmp eq i16 %479, 19789
-  br i1 %481, label %482, label %.loopexit566
+  br i1 %481, label %482, label %.loopexit565
 
 482:                                              ; preds = %472
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4432,7 +4432,7 @@ switch.early.test:                                ; preds = %233
   store i32 73, ptr %6, align 4, !tbaa !16
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store i8 0, ptr %493, align 4, !tbaa !85
-  br label %.loopexit566
+  br label %.loopexit565
 
 494:                                              ; preds = %469
   switch i32 %7, label %851 [
@@ -4450,15 +4450,15 @@ switch.early.test:                                ; preds = %233
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %499 = load i16, ptr %498, align 2
   %500 = icmp eq i16 %499, 2944
-  %or.cond464 = select i1 %.not178, i1 %500, i1 false
-  br i1 %or.cond464, label %501, label %504
+  %or.cond463 = select i1 %.not178, i1 %500, i1 false
+  br i1 %or.cond463, label %501, label %504
 
 501:                                              ; preds = %495
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 2144, ptr %502, align 4, !tbaa !154
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2880, ptr %503, align 2, !tbaa !153
-  br label %.sink.split600
+  br label %.sink.split599
 
 504:                                              ; preds = %495
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 767584
@@ -4467,16 +4467,16 @@ switch.early.test:                                ; preds = %233
   %.unpack181 = load i64, ptr %.elt180, align 8, !tbaa !147
   %506 = icmp ne i64 %.unpack179, ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64)
   %507 = icmp ne i64 %.unpack181, 0
-  %.not557.not561 = or i1 %506, %507
+  %.not556.not560 = or i1 %506, %507
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %lhsv182 = load i16, ptr %508, align 4
   %.not184 = icmp ne i16 %lhsv182, 11608
-  %or.cond466.not558 = select i1 %.not557.not561, i1 %.not184, i1 false
+  %or.cond465.not557 = select i1 %.not556.not560, i1 %.not184, i1 false
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %510 = load i32, ptr %509, align 8
   %511 = icmp ugt i32 %510, 999
-  %or.cond469 = select i1 %or.cond466.not558, i1 %511, i1 false
-  br i1 %or.cond469, label %512, label %521
+  %or.cond468 = select i1 %or.cond465.not557, i1 %511, i1 false
+  br i1 %or.cond468, label %512, label %521
 
 512:                                              ; preds = %504
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -4487,16 +4487,16 @@ switch.early.test:                                ; preds = %233
   %.not185 = icmp eq i32 %517, 0
   %518 = select i1 %.not185, i32 15872, i32 12032
   %519 = select i1 %515, i32 %518, i32 15872
-  br label %.sink.split600
+  br label %.sink.split599
 
-.sink.split600:                                   ; preds = %501, %512
-  %.sink603 = phi i64 [ 153000, %512 ], [ 48, %501 ]
-  %.sink601 = phi i32 [ %519, %512 ], [ 6, %501 ]
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink603
-  store i32 %.sink601, ptr %520, align 8, !tbaa !92
+.sink.split599:                                   ; preds = %501, %512
+  %.sink602 = phi i64 [ 153000, %512 ], [ 48, %501 ]
+  %.sink600 = phi i32 [ %519, %512 ], [ 6, %501 ]
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink602
+  store i32 %.sink600, ptr %520, align 8, !tbaa !92
   br label %521
 
-521:                                              ; preds = %.sink.split600, %504
+521:                                              ; preds = %.sink.split599, %504
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %523 = load i16, ptr %522, align 8, !tbaa !88
   %.not186 = icmp eq i16 %523, 0
@@ -4504,8 +4504,8 @@ switch.early.test:                                ; preds = %233
 
 524:                                              ; preds = %521
   switch i32 %497, label %525 [
-    i32 0, label %.thread539
-    i32 4096, label %.thread539
+    i32 0, label %.thread538
+    i32 4096, label %.thread538
   ]
 
 525:                                              ; preds = %524
@@ -4517,10 +4517,10 @@ switch.early.test:                                ; preds = %233
   %530 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %531 = load i32, ptr %530, align 8, !tbaa !92
   %532 = trunc i32 %531 to i16
-  br label %.thread539.sink.split
+  br label %.thread538.sink.split
 
 533:                                              ; preds = %521
-  switch i16 %523, label %.thread539 [
+  switch i16 %523, label %.thread538 [
     i16 1, label %534
     i16 4, label %538
   ]
@@ -4530,20 +4530,20 @@ switch.early.test:                                ; preds = %233
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %499, ptr %536, align 2, !tbaa !153
   %537 = load i16, ptr %535, align 8, !tbaa !152
-  br label %.thread539.sink.split
+  br label %.thread538.sink.split
 
 538:                                              ; preds = %533
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %540 = load i16, ptr %539, align 8, !tbaa !152
-  br label %.thread539.sink.split
+  br label %.thread538.sink.split
 
-.thread539.sink.split:                            ; preds = %525, %538, %534
-  %.sink604 = phi i16 [ %537, %534 ], [ %540, %538 ], [ %532, %525 ]
+.thread538.sink.split:                            ; preds = %525, %538, %534
+  %.sink603 = phi i16 [ %537, %534 ], [ %540, %538 ], [ %532, %525 ]
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %.sink604, ptr %541, align 4, !tbaa !154
-  br label %.thread539
+  store i16 %.sink603, ptr %541, align 4, !tbaa !154
+  br label %.thread538
 
-.thread539:                                       ; preds = %.thread539.sink.split, %524, %524, %533
+.thread538:                                       ; preds = %.thread538.sink.split, %524, %524, %533
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %543 = load i16, ptr %542, align 8, !tbaa !152
   %544 = freeze i16 %543
@@ -4570,7 +4570,7 @@ switch.early.test:                                ; preds = %233
     i32 4096, label %609
   ]
 
-557:                                              ; preds = %.thread539
+557:                                              ; preds = %.thread538
   switch i16 %499, label %643 [
     i16 2944, label %558
     i16 4096, label %560
@@ -4616,15 +4616,15 @@ switch.early.test:                                ; preds = %233
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %567 = load i16, ptr %566, align 2, !tbaa !212
   %568 = add i16 %567, -1
-  %or.cond470 = icmp ult i16 %568, 7872
-  br i1 %or.cond470, label %569, label %643
+  %or.cond469 = icmp ult i16 %568, 7872
+  br i1 %or.cond469, label %569, label %643
 
 569:                                              ; preds = %564
   %570 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %571 = load i16, ptr %570, align 4, !tbaa !214
   %572 = add i16 %571, -1
-  %or.cond471.not = icmp ult i16 %572, %544
-  br i1 %or.cond471.not, label %573, label %643
+  %or.cond470.not = icmp ult i16 %572, %544
+  br i1 %or.cond470.not, label %573, label %643
 
 573:                                              ; preds = %569
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4666,15 +4666,15 @@ switch.early.test:                                ; preds = %233
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %585 = load i16, ptr %584, align 2, !tbaa !212
   %586 = add i16 %585, -1
-  %or.cond472 = icmp ult i16 %586, 6336
-  br i1 %or.cond472, label %587, label %643
+  %or.cond471 = icmp ult i16 %586, 6336
+  br i1 %or.cond471, label %587, label %643
 
 587:                                              ; preds = %582
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %589 = load i16, ptr %588, align 4, !tbaa !214
   %590 = add i16 %589, -1
-  %or.cond473.not = icmp ult i16 %590, %544
-  br i1 %or.cond473.not, label %591, label %643
+  %or.cond472.not = icmp ult i16 %590, %544
+  br i1 %or.cond472.not, label %591, label %643
 
 591:                                              ; preds = %587
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4740,7 +4740,7 @@ switch.early.test:                                ; preds = %233
   store i32 65535, ptr %608, align 8, !tbaa !84
   br label %643
 
-609:                                              ; preds = %.thread539, %.thread539
+609:                                              ; preds = %.thread538, %.thread538
   br i1 %.not178, label %610, label %643
 
 610:                                              ; preds = %609
@@ -4811,15 +4811,15 @@ switch.early.test:                                ; preds = %233
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %633 = load i16, ptr %632, align 2, !tbaa !212
   %634 = add i16 %633, -1
-  %or.cond474.not = icmp ult i16 %634, %499
-  br i1 %or.cond474.not, label %635, label %643
+  %or.cond473.not = icmp ult i16 %634, %499
+  br i1 %or.cond473.not, label %635, label %643
 
 635:                                              ; preds = %630
   %636 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %637 = load i16, ptr %636, align 4, !tbaa !214
   %638 = add i16 %637, -1
-  %or.cond475.not = icmp ult i16 %638, %544
-  br i1 %or.cond475.not, label %639, label %643
+  %or.cond474.not = icmp ult i16 %638, %544
+  br i1 %or.cond474.not, label %639, label %643
 
 639:                                              ; preds = %635
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4851,7 +4851,7 @@ switch.early.test:                                ; preds = %233
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %655 = load i32, ptr %654, align 8, !tbaa !78
   %656 = icmp eq i32 %655, 9
-  br i1 %656, label %.preheader, label %.loopexit566
+  br i1 %656, label %.preheader, label %.loopexit565
 
 .preheader:                                       ; preds = %653
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -4878,7 +4878,7 @@ switch.early.test:                                ; preds = %233
   store i8 %671, ptr %672, align 1, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %.loopexit566, label %661, !llvm.loop !217
+  br i1 %exitcond.not, label %.loopexit565, label %661, !llvm.loop !217
 
 673:                                              ; preds = %494
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -4898,7 +4898,7 @@ switch.early.test:                                ; preds = %233
 679:                                              ; preds = %673
   %bcmp175 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %674, ptr noundef nonnull dereferenceable(8) @.str.125, i64 8)
   %.not176 = icmp eq i32 %bcmp175, 0
-  br i1 %.not176, label %712, label %.loopexit566
+  br i1 %.not176, label %712, label %.loopexit565
 
 680:                                              ; preds = %494
   %681 = icmp eq i32 %2, 5869568
@@ -4914,12 +4914,12 @@ switch.early.test:                                ; preds = %233
   %686 = load i16, ptr %685, align 2, !tbaa !218
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   switch i16 %686, label %689 [
-    i16 82, label %.sink.split606
+    i16 82, label %.sink.split605
     i16 89, label %688
   ]
 
 688:                                              ; preds = %684
-  br label %.sink.split606
+  br label %.sink.split605
 
 689:                                              ; preds = %684
   %.unpack162 = load i64, ptr %687, align 8, !tbaa !147
@@ -4929,41 +4929,41 @@ switch.early.test:                                ; preds = %233
 690:                                              ; preds = %689
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 4095, ptr %691, align 8, !tbaa !84
-  br label %.sink.split606
+  br label %.sink.split605
 
-.sink.split606:                                   ; preds = %684, %690, %688
-  %.sink607 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %688 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %690 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %684 ]
-  store i64 %.sink607, ptr %687, align 8, !tbaa !147
+.sink.split605:                                   ; preds = %684, %690, %688
+  %.sink606 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %688 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %690 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %684 ]
+  store i64 %.sink606, ptr %687, align 8, !tbaa !147
   %.repack167 = getelementptr inbounds nuw i8, ptr %0, i64 767592
   store i64 0, ptr %.repack167, align 8, !tbaa !147
   br label %692
 
-692:                                              ; preds = %.sink.split606, %689
+692:                                              ; preds = %.sink.split605, %689
   %693 = getelementptr inbounds nuw i8, ptr %0, i64 3660
   %694 = load i16, ptr %693, align 4, !tbaa !219
   switch i16 %694, label %697 [
-    i16 4, label %.sink.split608
+    i16 4, label %.sink.split607
     i16 1, label %695
   ]
 
 695:                                              ; preds = %692
-  br label %.sink.split608
+  br label %.sink.split607
 
-.sink.split608:                                   ; preds = %692, %695
-  %.sink609 = phi i32 [ -1802201964, %695 ], [ 1229539657, %692 ]
+.sink.split607:                                   ; preds = %692, %695
+  %.sink608 = phi i32 [ -1802201964, %695 ], [ 1229539657, %692 ]
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %.sink609, ptr %696, align 8, !tbaa !78
+  store i32 %.sink608, ptr %696, align 8, !tbaa !78
   br label %697
 
-697:                                              ; preds = %.sink.split608, %692
+697:                                              ; preds = %.sink.split607, %692
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %699 = load i16, ptr %698, align 8, !tbaa !220
   %.not169 = icmp eq i16 %699, 0
   %700 = getelementptr inbounds nuw i8, ptr %0, i64 3654
   %701 = load i16, ptr %700, align 2
   %.not170 = icmp eq i16 %701, 0
-  %or.cond477 = select i1 %.not169, i1 true, i1 %.not170
-  br i1 %or.cond477, label %705, label %702
+  %or.cond476 = select i1 %.not169, i1 true, i1 %.not170
+  br i1 %or.cond476, label %705, label %702
 
 702:                                              ; preds = %697
   %703 = zext i16 %699 to i32
@@ -4975,7 +4975,7 @@ switch.early.test:                                ; preds = %233
   %706 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %bcmp171 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %706, ptr noundef nonnull dereferenceable(8) @.str.126, i64 8)
   %.not172 = icmp eq i32 %bcmp171, 0
-  br i1 %.not172, label %707, label %.loopexit566
+  br i1 %.not172, label %707, label %.loopexit565
 
 707:                                              ; preds = %705
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -4989,28 +4989,28 @@ switch.early.test:                                ; preds = %233
 710:                                              ; preds = %707
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 1716, ptr %711, align 4, !tbaa !154
-  br label %.sink.split611
+  br label %.sink.split610
 
 712:                                              ; preds = %707, %679
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 1956, ptr %713, align 4, !tbaa !154
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2607, ptr %714, align 2, !tbaa !153
-  br label %.sink.split611
+  br label %.sink.split610
 
 715:                                              ; preds = %707
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 2136, ptr %716, align 4, !tbaa !154
-  br label %.sink.split611
+  br label %.sink.split610
 
-.sink.split611:                                   ; preds = %710, %715, %712
-  %.sink614 = phi i64 [ 18, %712 ], [ 22, %715 ], [ 22, %710 ]
-  %.sink612 = phi i16 [ 2624, %712 ], [ 2848, %715 ], [ 2304, %710 ]
-  %717 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink614
-  store i16 %.sink612, ptr %717, align 2, !tbaa !81
+.sink.split610:                                   ; preds = %710, %715, %712
+  %.sink613 = phi i64 [ 18, %712 ], [ 22, %715 ], [ 22, %710 ]
+  %.sink611 = phi i16 [ 2624, %712 ], [ 2848, %715 ], [ 2304, %710 ]
+  %717 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink613
+  store i16 %.sink611, ptr %717, align 2, !tbaa !81
   br label %718
 
-718:                                              ; preds = %.sink.split611, %707
+718:                                              ; preds = %.sink.split610, %707
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   %720 = load i64, ptr %719, align 8, !tbaa !146
   %721 = add nsw i64 %720, 14
@@ -5028,7 +5028,7 @@ switch.early.test:                                ; preds = %233
   store i32 991, ptr %725, align 8, !tbaa !84
   %726 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   store i16 19789, ptr %726, align 8, !tbaa !138
-  br label %.loopexit566
+  br label %.loopexit565
 
 727:                                              ; preds = %494
   %728 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5052,7 +5052,7 @@ switch.early.test:                                ; preds = %233
   store i16 %740, ptr %738, align 2, !tbaa !153
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 32, ptr %741, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 742:                                              ; preds = %727
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -5073,7 +5073,7 @@ switch.early.test:                                ; preds = %233
   store i32 1633771873, ptr %749, align 8, !tbaa !78
   %750 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 3, ptr %750, align 4, !tbaa !136
-  br label %.loopexit566
+  br label %.loopexit565
 
 751:                                              ; preds = %742
   %752 = load i16, ptr %728, align 8, !tbaa !152
@@ -5105,7 +5105,7 @@ switch.early.test:                                ; preds = %233
   store i32 1633771873, ptr %764, align 8, !tbaa !78
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 3, ptr %765, align 4, !tbaa !136
-  br label %.loopexit566
+  br label %.loopexit565
 
 766:                                              ; preds = %751
   switch i16 %730, label %806 [
@@ -5131,12 +5131,12 @@ switch.early.test:                                ; preds = %233
   %777 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %776, ptr %777, align 2, !tbaa !153
   %778 = icmp eq i32 %772, 12
-  br i1 %778, label %779, label %.loopexit566
+  br i1 %778, label %779, label %.loopexit565
 
 779:                                              ; preds = %767
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 80, ptr %780, align 8, !tbaa !114
-  br label %.loopexit566
+  br label %.loopexit565
 
 781:                                              ; preds = %766
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5151,7 +5151,7 @@ switch.early.test:                                ; preds = %233
   store i16 5544, ptr %787, align 2, !tbaa !153
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1229539657, ptr %788, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 789:                                              ; preds = %766
   %790 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -5162,20 +5162,20 @@ switch.early.test:                                ; preds = %233
   %793 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   %794 = load i32, ptr %793, align 8
   %.not157 = icmp eq i32 %794, 0
-  %or.cond479 = select i1 %.not156, i1 %.not157, i1 false
+  %or.cond478 = select i1 %.not156, i1 %.not157, i1 false
   %795 = getelementptr inbounds nuw i8, ptr %0, i64 136580
   %796 = load i32, ptr %795, align 4
   %.not158 = icmp eq i32 %796, 0
-  %or.cond481 = select i1 %or.cond479, i1 %.not158, i1 false
+  %or.cond480 = select i1 %or.cond478, i1 %.not158, i1 false
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 136584
   %798 = load i32, ptr %797, align 8
   %.not159 = icmp eq i32 %798, 0
-  %or.cond483 = select i1 %or.cond481, i1 %.not159, i1 false
+  %or.cond482 = select i1 %or.cond480, i1 %.not159, i1 false
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 136588
   %800 = load i32, ptr %799, align 4
   %.not160 = icmp eq i32 %800, 0
-  %or.cond485 = select i1 %or.cond483, i1 %.not160, i1 false
-  br i1 %or.cond485, label %801, label %.loopexit566
+  %or.cond484 = select i1 %or.cond482, i1 %.not160, i1 false
+  br i1 %or.cond484, label %801, label %.loopexit565
 
 801:                                              ; preds = %789
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 381656
@@ -5183,7 +5183,7 @@ switch.early.test:                                ; preds = %233
   %804 = add i32 %803, -7
   %805 = shl nuw i32 1, %804
   store i32 %805, ptr %791, align 8, !tbaa !119
-  br label %.loopexit566
+  br label %.loopexit565
 
 806:                                              ; preds = %766
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -5205,7 +5205,7 @@ switch.early.test:                                ; preds = %233
   %816 = add i16 %815, -6
   store i16 %816, ptr %814, align 2, !tbaa !153
   %817 = icmp ugt i16 %816, 3682
-  br i1 %817, label %818, label %.loopexit566
+  br i1 %817, label %818, label %.loopexit565
 
 818:                                              ; preds = %808
   %819 = add i16 %811, -30
@@ -5213,7 +5213,7 @@ switch.early.test:                                ; preds = %233
   %820 = add i16 %815, -52
   store i16 %820, ptr %814, align 2, !tbaa !153
   store i16 8, ptr %813, align 8, !tbaa !155
-  br label %.loopexit566
+  br label %.loopexit565
 
 821:                                              ; preds = %806
   %bcmp149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %807, ptr noundef nonnull dereferenceable(7) @.str.129, i64 7)
@@ -5234,7 +5234,7 @@ switch.early.test:                                ; preds = %233
   %830 = add i16 %829, -10
   store i16 %830, ptr %828, align 2, !tbaa !153
   %831 = icmp ugt i16 %830, 3718
-  br i1 %831, label %832, label %.loopexit566
+  br i1 %831, label %832, label %.loopexit565
 
 832:                                              ; preds = %822
   %833 = add i16 %825, -31
@@ -5242,7 +5242,7 @@ switch.early.test:                                ; preds = %233
   %834 = add i16 %829, -66
   store i16 %834, ptr %828, align 2, !tbaa !153
   store i16 8, ptr %827, align 8, !tbaa !155
-  br label %.loopexit566
+  br label %.loopexit565
 
 835:                                              ; preds = %821
   %bcmp151 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %743, ptr noundef nonnull dereferenceable(6) @.str.130, i64 6)
@@ -5252,12 +5252,12 @@ switch.early.test:                                ; preds = %233
 836:                                              ; preds = %835
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   store i16 18761, ptr %837, align 8, !tbaa !138
-  br label %.loopexit566
+  br label %.loopexit565
 
 838:                                              ; preds = %835
   %bcmp153 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %743, ptr noundef nonnull dereferenceable(5) @.str.131, i64 5)
   %.not154 = icmp eq i32 %bcmp153, 0
-  br i1 %.not154, label %839, label %.loopexit566
+  br i1 %.not154, label %839, label %.loopexit565
 
 839:                                              ; preds = %838
   %840 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5276,7 +5276,7 @@ switch.early.test:                                ; preds = %233
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %846, align 8, !tbaa !147
   %.repack155 = getelementptr inbounds nuw i8, ptr %0, i64 767592
   store i64 0, ptr %.repack155, align 8, !tbaa !147
-  br label %.loopexit566
+  br label %.loopexit565
 
 847:                                              ; preds = %494
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -5287,7 +5287,7 @@ switch.early.test:                                ; preds = %233
 849:                                              ; preds = %847
   %850 = getelementptr inbounds nuw i8, ptr %0, i64 152992
   store i32 16, ptr %850, align 8, !tbaa !119
-  br label %.loopexit566
+  br label %.loopexit565
 
 851:                                              ; preds = %494, %847
   %852 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -5303,7 +5303,7 @@ switch.early.test:                                ; preds = %233
   %857 = add i16 %855, -2
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 %857, ptr %858, align 4, !tbaa !154
-  br label %.loopexit566
+  br label %.loopexit565
 
 859:                                              ; preds = %851
   %bcmp118 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %852, ptr noundef nonnull dereferenceable(8) @.str.134, i64 8)
@@ -5312,10 +5312,10 @@ switch.early.test:                                ; preds = %233
 
 860:                                              ; preds = %859
   tail call void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull align 8 dereferenceable(767680) %0, double noundef 4.500000e-01, double noundef 4.500000e+00, i32 noundef 1, i32 noundef 255)
-  br label %.loopexit566
+  br label %.loopexit565
 
 861:                                              ; preds = %859
-  switch i32 %7, label %.loopexit566 [
+  switch i32 %7, label %.loopexit565 [
     i32 24, label %862
     i32 61, label %990
   ]
@@ -5340,8 +5340,8 @@ switch.early.test:                                ; preds = %233
   %870 = load i32, ptr %869, align 8, !tbaa !221
   %871 = icmp eq i32 %870, 4
   %.not132 = icmp eq i32 %lhsv, 1127627094
-  %or.cond486 = and i1 %.not132, %871
-  br i1 %or.cond486, label %872, label %884
+  %or.cond485 = and i1 %.not132, %871
+  br i1 %or.cond485, label %872, label %884
 
 872:                                              ; preds = %868
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %852, ptr noundef nonnull align 1 dereferenceable(5) @.str.135, i64 5, i1 false) #17
@@ -5368,8 +5368,8 @@ switch.early.test:                                ; preds = %233
   %886 = getelementptr inbounds nuw i8, ptr %0, i64 2532
   %887 = load i32, ptr %886, align 4
   %.not133 = icmp eq i32 %887, 0
-  %or.cond488 = select i1 %885, i1 true, i1 %.not133
-  br i1 %or.cond488, label %894, label %888
+  %or.cond487 = select i1 %885, i1 true, i1 %.not133
+  br i1 %or.cond487, label %894, label %888
 
 888:                                              ; preds = %884
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5386,8 +5386,8 @@ switch.early.test:                                ; preds = %233
 
 894:                                              ; preds = %884
   %895 = icmp ne i32 %870, 13
-  %or.cond490 = select i1 %895, i1 true, i1 %.not133
-  br i1 %or.cond490, label %906, label %896
+  %or.cond489 = select i1 %895, i1 true, i1 %.not133
+  br i1 %or.cond489, label %906, label %896
 
 896:                                              ; preds = %894
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5408,8 +5408,8 @@ switch.early.test:                                ; preds = %233
 
 906:                                              ; preds = %894
   %907 = icmp ne i32 %870, 11
-  %or.cond492 = select i1 %907, i1 true, i1 %.not133
-  br i1 %or.cond492, label %918, label %908
+  %or.cond491 = select i1 %907, i1 true, i1 %.not133
+  br i1 %or.cond491, label %918, label %908
 
 908:                                              ; preds = %906
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5433,9 +5433,9 @@ switch.early.test:                                ; preds = %233
   %920 = getelementptr inbounds nuw i8, ptr %0, i64 2524
   %921 = load i32, ptr %920, align 4
   %.not136 = icmp ne i32 %921, 0
-  %or.cond494 = select i1 %919, i1 true, i1 %.not136
-  %or.cond496 = select i1 %or.cond494, i1 true, i1 %.not133
-  br i1 %or.cond496, label %928, label %922
+  %or.cond493 = select i1 %919, i1 true, i1 %.not136
+  %or.cond495 = select i1 %or.cond493, i1 true, i1 %.not133
+  br i1 %or.cond495, label %928, label %922
 
 922:                                              ; preds = %918
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -5452,9 +5452,9 @@ switch.early.test:                                ; preds = %233
 
 928:                                              ; preds = %918
   %929 = icmp ne i32 %921, 2
-  %or.cond499.not564 = select i1 %919, i1 true, i1 %929
-  %or.cond501 = select i1 %or.cond499.not564, i1 true, i1 %.not133
-  br i1 %or.cond501, label %941, label %930
+  %or.cond498.not563 = select i1 %919, i1 true, i1 %929
+  %or.cond500 = select i1 %or.cond498.not563, i1 true, i1 %.not133
+  br i1 %or.cond500, label %941, label %930
 
 930:                                              ; preds = %928
   %931 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5477,8 +5477,8 @@ switch.early.test:                                ; preds = %233
 
 941:                                              ; preds = %928
   %942 = icmp ne i32 %870, 12
-  %or.cond503 = select i1 %942, i1 true, i1 %.not133
-  br i1 %or.cond503, label %957, label %943
+  %or.cond502 = select i1 %942, i1 true, i1 %.not133
+  br i1 %or.cond502, label %957, label %943
 
 943:                                              ; preds = %941
   %944 = getelementptr inbounds nuw i8, ptr %0, i64 152992
@@ -5515,8 +5515,8 @@ switch.early.test:                                ; preds = %233
 
 957:                                              ; preds = %941
   %958 = icmp ne i32 %870, 17
-  %or.cond505 = select i1 %958, i1 true, i1 %.not133
-  br i1 %or.cond505, label %967, label %959
+  %or.cond504 = select i1 %958, i1 true, i1 %.not133
+  br i1 %or.cond504, label %967, label %959
 
 959:                                              ; preds = %957
   %960 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5534,8 +5534,8 @@ switch.early.test:                                ; preds = %233
 
 967:                                              ; preds = %957
   %968 = icmp ne i32 %870, 20
-  %or.cond507 = select i1 %968, i1 true, i1 %.not133
-  br i1 %or.cond507, label %977, label %969
+  %or.cond506 = select i1 %968, i1 true, i1 %.not133
+  br i1 %or.cond506, label %977, label %969
 
 969:                                              ; preds = %967
   %970 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5555,7 +5555,7 @@ switch.early.test:                                ; preds = %233
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 381652
   %979 = load i32, ptr %978, align 4, !tbaa !120
   %980 = icmp ugt i32 %979, 1
-  br i1 %980, label %981, label %.loopexit566
+  br i1 %980, label %981, label %.loopexit565
 
 981:                                              ; preds = %977
   %982 = add i32 %979, 1
@@ -5567,13 +5567,13 @@ switch.early.test:                                ; preds = %233
   %986 = getelementptr inbounds nuw i8, ptr %0, i64 5280
   %987 = load i32, ptr %986, align 8
   %.not143 = icmp eq i32 %987, 0
-  %or.cond509 = select i1 %.not142, i1 %.not143, i1 false
-  br i1 %or.cond509, label %988, label %.loopexit566
+  %or.cond508 = select i1 %.not142, i1 %.not143, i1 false
+  br i1 %or.cond508, label %988, label %.loopexit565
 
 988:                                              ; preds = %981
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %989, align 8, !tbaa !78
-  br label %.loopexit566
+  br label %.loopexit565
 
 990:                                              ; preds = %861
   %991 = getelementptr inbounds nuw i8, ptr %0, i64 767584
@@ -5594,8 +5594,8 @@ switch.early.test:                                ; preds = %233
   %997 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %998 = load i32, ptr %997, align 4
   %.not125 = icmp eq i32 %998, 0
-  %or.cond511 = select i1 %996, i1 %.not125, i1 false
-  br i1 %or.cond511, label %999, label %1001
+  %or.cond510 = select i1 %996, i1 %.not125, i1 false
+  br i1 %or.cond510, label %999, label %1001
 
 999:                                              ; preds = %993
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -5605,36 +5605,36 @@ switch.early.test:                                ; preds = %233
 1001:                                             ; preds = %999, %993
   %1002 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 16383, ptr %1002, align 8, !tbaa !84
-  br label %.loopexit566
+  br label %.loopexit565
 
-.loopexit566:                                     ; preds = %661, %861, %443, %348, %76, %91, %101, %103, %98, %79, %88, %228, %244, %256, %270, %281, %293, %290, %307, %321, %356, %353, %342, %363, %373, %385, %388, %387, %383, %368, %359, %331, %338, %339, %335, %317, %318, %300, %285, %276, %263, %250, %235, %216, %482, %472, %679, %744, %779, %767, %801, %789, %832, %822, %838, %839, %836, %808, %818, %781, %763, %732, %853, %981, %988, %977, %1001, %860, %849, %705, %723, %653, %410, %408, %449, %447, %457, %455, %465, %467, %459, %452, %412, %139, %169, %179, %196, %212, %211, %184, %173, %175, %162, %73
+.loopexit565:                                     ; preds = %661, %861, %443, %348, %76, %91, %101, %103, %98, %79, %88, %228, %244, %256, %270, %281, %293, %290, %307, %321, %356, %353, %342, %363, %373, %385, %388, %387, %383, %368, %359, %331, %338, %339, %335, %317, %318, %300, %285, %276, %263, %250, %235, %216, %482, %472, %679, %744, %779, %767, %801, %789, %832, %822, %838, %839, %836, %808, %818, %781, %763, %732, %853, %981, %988, %977, %1001, %860, %849, %705, %723, %653, %410, %408, %449, %447, %457, %455, %465, %467, %459, %452, %412, %139, %169, %179, %196, %212, %211, %184, %173, %175, %162, %73
   %1003 = getelementptr inbounds nuw i8, ptr %0, i64 767584
-  %.unpack339 = load i64, ptr %1003, align 8, !tbaa !147
-  %.elt340 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  %.unpack341 = load i64, ptr %.elt340, align 8, !tbaa !147
-  %1004 = icmp eq i64 %.unpack339, ptrtoint (ptr @_ZN6LibRaw20sinar_4shot_load_rawEv to i64)
-  %1005 = icmp eq i64 %.unpack341, 0
+  %.unpack338 = load i64, ptr %1003, align 8, !tbaa !147
+  %.elt339 = getelementptr inbounds nuw i8, ptr %0, i64 767592
+  %.unpack340 = load i64, ptr %.elt339, align 8, !tbaa !147
+  %1004 = icmp eq i64 %.unpack338, ptrtoint (ptr @_ZN6LibRaw20sinar_4shot_load_rawEv to i64)
+  %1005 = icmp eq i64 %.unpack340, 0
   %1006 = and i1 %1004, %1005
   br i1 %1006, label %1007, label %1015
 
-1007:                                             ; preds = %.loopexit566
+1007:                                             ; preds = %.loopexit565
   %1008 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %1009 = load i32, ptr %1008, align 8, !tbaa !128
   %1010 = icmp ugt i32 %1009, 1
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %1012 = load i32, ptr %1011, align 4
-  %.not448 = icmp eq i32 %1012, 0
-  %or.cond513 = select i1 %1010, i1 %.not448, i1 false
-  br i1 %or.cond513, label %1013, label %.loopexit
+  %.not447 = icmp eq i32 %1012, 0
+  %or.cond512 = select i1 %1010, i1 %.not447, i1 false
+  br i1 %or.cond512, label %1013, label %.loopexit
 
 1013:                                             ; preds = %1007
   %1014 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %1014, align 8, !tbaa !78
   br label %.loopexit
 
-1015:                                             ; preds = %.loopexit566
+1015:                                             ; preds = %.loopexit565
   %1016 = load i32, ptr %6, align 4, !tbaa !16
-  switch i32 %1016, label %.thread545 [
+  switch i32 %1016, label %.thread544 [
     i32 31, label %1017
     i32 47, label %1117
     i32 12, label %1205
@@ -5668,9 +5668,9 @@ switch.early.test:                                ; preds = %233
   %1034 = getelementptr inbounds nuw i8, ptr %0, i64 381652
   %1035 = load i32, ptr %1034, align 4, !tbaa !120
   %1036 = icmp ugt i32 %1035, 1
-  br i1 %1036, label %.thread540, label %1038
+  br i1 %1036, label %.thread539, label %1038
 
-.thread540:                                       ; preds = %1033
+.thread539:                                       ; preds = %1033
   %1037 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %1037, align 8, !tbaa !78
   br label %1045
@@ -5684,9 +5684,9 @@ switch.early.test:                                ; preds = %233
   %1044 = icmp ult i32 %1040, %1043
   br i1 %1044, label %1045, label %1050
 
-1045:                                             ; preds = %.thread540, %1038
+1045:                                             ; preds = %.thread539, %1038
   store i64 ptrtoint (ptr @_ZN6LibRaw17leaf_hdr_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1046 = getelementptr inbounds nuw i8, ptr %0, i64 381672
   %1047 = load i32, ptr %1046, align 8, !tbaa !131
   %1048 = trunc i32 %1047 to i16
@@ -5747,8 +5747,8 @@ switch.early.test:                                ; preds = %233
 1078:                                             ; preds = %1075
   %1079 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %1080 = load i8, ptr %1079, align 4, !tbaa !85
-  %.not447 = icmp eq i8 %1080, 0
-  br i1 %.not447, label %1081, label %1084
+  %.not446 = icmp eq i8 %1080, 0
+  br i1 %.not446, label %1081, label %1084
 
 1081:                                             ; preds = %1078
   store i64 28554735538561347, ptr %1079, align 4
@@ -5765,25 +5765,25 @@ switch.early.test:                                ; preds = %233
   br label %1088
 
 1088:                                             ; preds = %1084, %1087
-  %.sink588 = phi i16 [ 32, %1087 ], [ 6, %1084 ]
-  %.sink587 = phi i16 [ 6, %1087 ], [ 32, %1084 ]
-  %.sink586 = phi i16 [ 3072, %1087 ], [ 2048, %1084 ]
-  %.sink585 = phi i16 [ 2048, %1087 ], [ 3072, %1084 ]
+  %.sink587 = phi i16 [ 32, %1087 ], [ 6, %1084 ]
+  %.sink586 = phi i16 [ 6, %1087 ], [ 32, %1084 ]
+  %.sink585 = phi i16 [ 3072, %1087 ], [ 2048, %1084 ]
+  %.sink584 = phi i16 [ 2048, %1087 ], [ 3072, %1084 ]
   %.sink = phi i32 [ 370546198, %1087 ], [ 1633771873, %1084 ]
   %1089 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %.sink588, ptr %1089, align 8, !tbaa !155
+  store i16 %.sink587, ptr %1089, align 8, !tbaa !155
   %1090 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %.sink587, ptr %1090, align 2, !tbaa !164
-  store i16 %.sink586, ptr %1054, align 4, !tbaa !154
-  store i16 %.sink585, ptr %1051, align 2, !tbaa !153
+  store i16 %.sink586, ptr %1090, align 2, !tbaa !164
+  store i16 %.sink585, ptr %1054, align 4, !tbaa !154
+  store i16 %.sink584, ptr %1051, align 2, !tbaa !153
   %1091 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.sink, ptr %1091, align 8, !tbaa !78
   %1092 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   %1093 = load float, ptr %1092, align 8, !tbaa !107
   %1094 = fcmp reassoc nsz arcp contract afn oeq float %1093, 0.000000e+00
   %1095 = icmp eq i8 %1085, 86
-  %or.cond515 = or i1 %1094, %1095
-  br i1 %or.cond515, label %1096, label %1097
+  %or.cond514 = or i1 %1094, %1095
+  br i1 %or.cond514, label %1096, label %1097
 
 1096:                                             ; preds = %1088
   store i32 0, ptr %1091, align 8, !tbaa !78
@@ -5837,8 +5837,8 @@ switch.early.test:                                ; preds = %233
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1119 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %1120 = load i16, ptr %1119, align 2, !tbaa !151
-  %.not435 = icmp eq i16 %1120, 0
-  br i1 %.not435, label %1134, label %1121
+  %.not434 = icmp eq i16 %1120, 0
+  br i1 %.not434, label %1134, label %1121
 
 1121:                                             ; preds = %1117
   %1122 = zext i16 %1120 to i32
@@ -5853,46 +5853,46 @@ switch.early.test:                                ; preds = %233
   %1131 = load i16, ptr %1118, align 8, !tbaa !152
   %1132 = zext i16 %1131 to i64
   %1133 = icmp eq i64 %1130, %1132
-  br i1 %1133, label %.thread542, label %1134
+  br i1 %1133, label %.thread541, label %1134
 
-.thread542:                                       ; preds = %1121
+.thread541:                                       ; preds = %1121
   store i64 ptrtoint (ptr @_ZN6LibRaw18panasonic_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %1137
 
 1134:                                             ; preds = %1121, %1117
-  %.not441 = icmp eq i64 %.unpack339, 0
-  br i1 %.not441, label %1135, label %1137
+  %.not440 = icmp eq i64 %.unpack338, 0
+  br i1 %.not440, label %1135, label %1137
 
 1135:                                             ; preds = %1134
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1136 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   store i32 4, ptr %1136, align 8, !tbaa !114
   br label %1137
 
-1137:                                             ; preds = %.thread542, %1135, %1134
+1137:                                             ; preds = %.thread541, %1135, %1134
   %1138 = getelementptr inbounds nuw i8, ptr %0, i64 381488
   store i32 1, ptr %1138, align 8, !tbaa !123
   %1139 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %1140 = load i16, ptr %1139, align 4, !tbaa !154
   %1141 = add i16 %1140, 12
   %1142 = load i16, ptr %1118, align 8, !tbaa !152
-  %spec.store.select516 = tail call i16 @llvm.umin.i16(i16 %1141, i16 %1142)
-  store i16 %spec.store.select516, ptr %1139, align 4
+  %spec.store.select515 = tail call i16 @llvm.umin.i16(i16 %1141, i16 %1142)
+  store i16 %spec.store.select515, ptr %1139, align 4
   %1143 = zext i16 %1120 to i32
   %1144 = zext i16 %1142 to i32
   %1145 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %1146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1147 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %.promoted569 = load i16, ptr %1147, align 2
+  %.promoted568 = load i16, ptr %1147, align 2
   br label %1148
 
 1148:                                             ; preds = %1137, %1171
-  %indvars.iv574 = phi i64 [ 0, %1137 ], [ %indvars.iv.next575, %1171 ]
-  %1149 = phi i16 [ %.promoted569, %1137 ], [ %1172, %1171 ]
-  %1150 = phi i16 [ %spec.store.select516, %1137 ], [ %1173, %1171 ]
-  %1151 = getelementptr inbounds nuw [24 x [6 x i16]], ptr @_ZZN6LibRaw21identify_finetune_dcrEPciiE4pana, i64 0, i64 %indvars.iv574
+  %indvars.iv573 = phi i64 [ 0, %1137 ], [ %indvars.iv.next574, %1171 ]
+  %1149 = phi i16 [ %.promoted568, %1137 ], [ %1172, %1171 ]
+  %1150 = phi i16 [ %spec.store.select515, %1137 ], [ %1173, %1171 ]
+  %1151 = getelementptr inbounds nuw [24 x [6 x i16]], ptr @_ZZN6LibRaw21identify_finetune_dcrEPciiE4pana, i64 0, i64 %indvars.iv573
   %1152 = load i16, ptr %1151, align 4, !tbaa !81
   %1153 = sext i16 %1152 to i32
   %1154 = icmp eq i32 %1143, %1153
@@ -5925,22 +5925,22 @@ switch.early.test:                                ; preds = %233
 1171:                                             ; preds = %1148, %1155, %1160
   %1172 = phi i16 [ %1149, %1148 ], [ %1149, %1155 ], [ %1167, %1160 ]
   %1173 = phi i16 [ %1150, %1148 ], [ %1150, %1155 ], [ %1170, %1160 ]
-  %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
-  %exitcond576.not = icmp eq i64 %indvars.iv.next575, 24
-  br i1 %exitcond576.not, label %1174, label %1148, !llvm.loop !222
+  %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
+  %exitcond575.not = icmp eq i64 %indvars.iv.next574, 24
+  br i1 %exitcond575.not, label %1174, label %1148, !llvm.loop !222
 
 1174:                                             ; preds = %1171
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 381656
   %1176 = load i32, ptr %1175, align 8, !tbaa !112
-  %.not443 = icmp eq i32 %1176, 0
-  br i1 %.not443, label %1177, label %._crit_edge
+  %.not442 = icmp eq i32 %1176, 0
+  br i1 %.not442, label %1177, label %._crit_edge
 
 1177:                                             ; preds = %1174
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 381736
   %1179 = load i32, ptr %1178, align 8, !tbaa !200
   %1180 = add i32 %1179, -12
-  %or.cond517 = icmp ult i32 %1180, 3
-  br i1 %or.cond517, label %1181, label %._crit_edge
+  %or.cond516 = icmp ult i32 %1180, 3
+  br i1 %or.cond516, label %1181, label %._crit_edge
 
 1181:                                             ; preds = %1177
   store i32 %1179, ptr %1175, align 8, !tbaa !112
@@ -5948,19 +5948,19 @@ switch.early.test:                                ; preds = %233
 
 ._crit_edge:                                      ; preds = %1181, %1177, %1174
   %1182 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %bcmp444 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1182, ptr noundef nonnull dereferenceable(11) @.str.141, i64 11)
-  %.not445 = icmp eq i32 %bcmp444, 0
+  %bcmp443 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1182, ptr noundef nonnull dereferenceable(11) @.str.141, i64 11)
+  %.not444 = icmp eq i32 %bcmp443, 0
   %1183 = icmp eq i16 %1142, 3568
-  %or.cond519 = select i1 %.not445, i1 %1183, i1 false
+  %or.cond518 = select i1 %.not444, i1 %1183, i1 false
   %1184 = icmp eq i16 %1120, 4816
-  %or.cond521 = and i1 %1184, %or.cond519
+  %or.cond520 = and i1 %1184, %or.cond518
   %1185 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1186 = load i32, ptr %1185, align 8, !tbaa !78
   %1187 = icmp eq i32 %1186, 3
-  %or.cond615 = select i1 %or.cond521, i1 %1187, i1 false
+  %or.cond614 = select i1 %or.cond520, i1 %1187, i1 false
   %1188 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1189 = add i32 %1186, 3
-  %1190 = select i1 %or.cond615, i32 3, i32 %1189
+  %1190 = select i1 %or.cond614, i32 3, i32 %1189
   %1191 = load i16, ptr %1145, align 2, !tbaa !164
   %1192 = and i16 %1191, 1
   %1193 = zext nneg i16 %1192 to i32
@@ -5980,9 +5980,9 @@ switch.early.test:                                ; preds = %233
 
 1205:                                             ; preds = %1015
   %1206 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %bcmp342 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1206, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
-  %.not343 = icmp eq i32 %bcmp342, 0
-  br i1 %.not343, label %1207, label %.thread545
+  %bcmp341 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1206, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
+  %.not342 = icmp eq i32 %bcmp341, 0
+  br i1 %.not342, label %1207, label %.thread544
 
 1207:                                             ; preds = %1205
   %1208 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5994,14 +5994,14 @@ switch.early.test:                                ; preds = %233
   %1211 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 6656, ptr %1211, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
 1212:                                             ; preds = %1015
   %1213 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %bcmp423 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1213, ptr noundef nonnull dereferenceable(9) @.str.143, i64 9)
-  %.not424 = icmp eq i32 %bcmp423, 0
-  br i1 %.not424, label %1214, label %1222
+  %bcmp422 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1213, ptr noundef nonnull dereferenceable(9) @.str.143, i64 9)
+  %.not423 = icmp eq i32 %bcmp422, 0
+  br i1 %.not423, label %1214, label %1222
 
 1214:                                             ; preds = %1212
   %1215 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6013,7 +6013,7 @@ switch.early.test:                                ; preds = %233
   %1218 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 862144, ptr %1218, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw13sony_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1219 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 -1667457892, ptr %1219, align 8, !tbaa !78
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -6023,9 +6023,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1222:                                             ; preds = %1212
-  %bcmp426 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1213, ptr noundef nonnull dereferenceable(7) @.str.145, i64 7)
-  %.not427 = icmp eq i32 %bcmp426, 0
-  br i1 %.not427, label %1223, label %1228
+  %bcmp425 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1213, ptr noundef nonnull dereferenceable(7) @.str.145, i64 7)
+  %.not426 = icmp eq i32 %bcmp425, 0
+  br i1 %.not426, label %1223, label %1228
 
 1223:                                             ; preds = %1222
   %1224 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6037,7 +6037,7 @@ switch.early.test:                                ; preds = %233
   %1227 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 787392, ptr %1227, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw13sony_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
 1228:                                             ; preds = %1222
@@ -6126,9 +6126,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1262:                                             ; preds = %1251
-  %bcmp433 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1213, ptr noundef nonnull dereferenceable(10) @.str.146, i64 10)
-  %.not434 = icmp eq i32 %bcmp433, 0
-  br i1 %.not434, label %1263, label %1267
+  %bcmp432 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1213, ptr noundef nonnull dereferenceable(10) @.str.146, i64 10)
+  %.not433 = icmp eq i32 %bcmp432, 0
+  br i1 %.not433, label %1263, label %1267
 
 1263:                                             ; preds = %1262
   %1264 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6173,13 +6173,13 @@ switch.early.test:                                ; preds = %233
   store i16 %1287, ptr %1285, align 2, !tbaa !153
   %1288 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %1289 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1288, ptr noundef nonnull dereferenceable(1) @.str.147) #19
-  %.not431 = icmp eq ptr %1289, null
-  br i1 %.not431, label %1290, label %1292
+  %.not430 = icmp eq ptr %1289, null
+  br i1 %.not430, label %1290, label %1292
 
 1290:                                             ; preds = %1284
   %1291 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1288, ptr noundef nonnull dereferenceable(1) @.str.148) #19
-  %.not432 = icmp eq ptr %1291, null
-  br i1 %.not432, label %.loopexit, label %1292
+  %.not431 = icmp eq ptr %1291, null
+  br i1 %.not431, label %.loopexit, label %1292
 
 1292:                                             ; preds = %1290, %1284
   %1293 = add i16 %1286, -30
@@ -6220,8 +6220,8 @@ switch.early.test:                                ; preds = %233
   %1308 = icmp eq i16 %1254, 4608
   %1309 = load i16, ptr %1252, align 8
   %1310 = icmp eq i16 %1309, 3072
-  %or.cond523 = select i1 %1308, i1 %1310, i1 false
-  br i1 %or.cond523, label %1311, label %.loopexit
+  %or.cond522 = select i1 %1308, i1 %1310, i1 false
+  br i1 %or.cond522, label %1311, label %.loopexit
 
 1311:                                             ; preds = %1307
   %1312 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6234,8 +6234,8 @@ switch.early.test:                                ; preds = %233
   %1315 = icmp eq i16 %1254, 8704
   %1316 = load i16, ptr %1252, align 8
   %1317 = icmp eq i16 %1316, 6144
-  %or.cond525 = select i1 %1315, i1 %1317, i1 false
-  br i1 %or.cond525, label %1318, label %1321
+  %or.cond524 = select i1 %1315, i1 %1317, i1 false
+  br i1 %or.cond524, label %1318, label %1321
 
 1318:                                             ; preds = %1314
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6245,7 +6245,7 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1321:                                             ; preds = %1314
-  switch i16 %1254, label %.thread546 [
+  switch i16 %1254, label %.thread545 [
     i16 8672, label %1322
     i16 6144, label %1326
     i16 5664, label %1331
@@ -6262,7 +6262,7 @@ switch.early.test:                                ; preds = %233
 
 1326:                                             ; preds = %1321
   %1327 = icmp eq i16 %1316, 4096
-  br i1 %1327, label %1328, label %.thread546
+  br i1 %1327, label %1328, label %.thread545
 
 1328:                                             ; preds = %1326
   %1329 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6294,7 +6294,7 @@ switch.early.test:                                ; preds = %233
   store i16 2892, ptr %1342, align 4, !tbaa !154
   br label %.loopexit
 
-.thread546:                                       ; preds = %1321, %1326
+.thread545:                                       ; preds = %1321, %1326
   %1343 = getelementptr inbounds nuw i8, ptr %0, i64 5500
   %1344 = load i32, ptr %1343, align 4, !tbaa !199
   %1345 = or i32 %1344, 33554432
@@ -6305,8 +6305,8 @@ switch.early.test:                                ; preds = %233
   %1347 = icmp eq i16 %1254, 7168
   %1348 = load i16, ptr %1252, align 8
   %1349 = icmp eq i16 %1348, 5120
-  %or.cond527 = select i1 %1347, i1 %1349, i1 false
-  br i1 %or.cond527, label %1350, label %1353
+  %or.cond526 = select i1 %1347, i1 %1349, i1 false
+  br i1 %or.cond526, label %1350, label %1353
 
 1350:                                             ; preds = %1346
   %1351 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6375,9 +6375,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1377:                                             ; preds = %1306
-  %bcmp429 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1213, ptr noundef nonnull dereferenceable(10) @.str.149, i64 10)
-  %.not430 = icmp eq i32 %bcmp429, 0
-  br i1 %.not430, label %1378, label %.loopexit
+  %bcmp428 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1213, ptr noundef nonnull dereferenceable(10) @.str.149, i64 10)
+  %.not429 = icmp eq i32 %bcmp428, 0
+  br i1 %.not429, label %1378, label %.loopexit
 
 1378:                                             ; preds = %1377
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6405,19 +6405,19 @@ switch.early.test:                                ; preds = %233
   br label %1392
 
 1392:                                             ; preds = %1387, %1384
-  %.sink589 = phi i16 [ %1386, %1384 ], [ %1389, %1387 ]
-  store i16 %.sink589, ptr %1379, align 2, !tbaa !153
+  %.sink588 = phi i16 [ %1386, %1384 ], [ %1389, %1387 ]
+  store i16 %.sink588, ptr %1379, align 2, !tbaa !153
   %1393 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1633771873, ptr %1393, align 8, !tbaa !78
   br label %.loopexit
 
-.thread545:                                       ; preds = %1015, %1205
+.thread544:                                       ; preds = %1015, %1205
   %1394 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %bcmp345 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.150, i64 5)
-  %.not346 = icmp eq i32 %bcmp345, 0
-  br i1 %.not346, label %1395, label %1404
+  %bcmp344 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.150, i64 5)
+  %.not345 = icmp eq i32 %bcmp344, 0
+  br i1 %.not345, label %1395, label %1404
 
-1395:                                             ; preds = %.thread545
+1395:                                             ; preds = %.thread544
   %1396 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 4, ptr %1396, align 8, !tbaa !155
   %1397 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6433,7 +6433,7 @@ switch.early.test:                                ; preds = %233
   tail call void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull align 8 dereferenceable(767680) %0, double noundef 0.000000e+00, double noundef 7.000000e+00, i32 noundef 1, i32 noundef 255)
   br label %.loopexit
 
-1404:                                             ; preds = %.thread545
+1404:                                             ; preds = %.thread544
   switch i32 %1016, label %1579 [
     i32 29, label %1405
     i32 35, label %1533
@@ -6442,8 +6442,8 @@ switch.early.test:                                ; preds = %233
 
 1405:                                             ; preds = %1404
   %1406 = tail call i32 @strncasecmp(ptr noundef nonnull %1394, ptr noundef nonnull @.str.151, i64 noundef 9) #19
-  %.not371 = icmp eq i32 %1406, 0
-  br i1 %.not371, label %1407, label %1412
+  %.not370 = icmp eq i32 %1406, 0
+  br i1 %.not370, label %1407, label %1412
 
 1407:                                             ; preds = %1405
   %1408 = getelementptr inbounds nuw i8, ptr %0, i64 381584
@@ -6452,23 +6452,23 @@ switch.early.test:                                ; preds = %233
   %1411 = select i1 %1410, i64 86016, i64 94208
   store i64 %1411, ptr %1408, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
 1412:                                             ; preds = %1405
-  %bcmp373 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.48, i64 5)
-  %.not374 = icmp eq i32 %bcmp373, 0
-  br i1 %.not374, label %1415, label %1413
+  %bcmp372 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.48, i64 5)
+  %.not373 = icmp eq i32 %bcmp372, 0
+  br i1 %.not373, label %1415, label %1413
 
 1413:                                             ; preds = %1412
-  %bcmp375 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.152, i64 5)
-  %.not376 = icmp eq i32 %bcmp375, 0
-  br i1 %.not376, label %1415, label %1414
+  %bcmp374 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.152, i64 5)
+  %.not375 = icmp eq i32 %bcmp374, 0
+  br i1 %.not375, label %1415, label %1414
 
 1414:                                             ; preds = %1413
-  %bcmp377 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.153, i64 5)
-  %.not378 = icmp eq i32 %bcmp377, 0
-  br i1 %.not378, label %1415, label %1444
+  %bcmp376 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.153, i64 5)
+  %.not377 = icmp eq i32 %bcmp376, 0
+  br i1 %.not377, label %1415, label %1444
 
 1415:                                             ; preds = %1414, %1413, %1412
   %1416 = getelementptr inbounds nuw i8, ptr %0, i64 381416
@@ -6476,14 +6476,14 @@ switch.early.test:                                ; preds = %233
   store i16 18761, ptr %1417, align 8, !tbaa !138
   %1418 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1419 = load i32, ptr %1418, align 8, !tbaa !78
-  %.not379 = icmp eq i32 %1419, 0
-  br i1 %.not379, label %1432, label %1420
+  %.not378 = icmp eq i32 %1419, 0
+  br i1 %.not378, label %1432, label %1420
 
 1420:                                             ; preds = %1415
   %1421 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   %1422 = load i64, ptr %1421, align 8, !tbaa !146
-  %.not380 = icmp eq i64 %1422, 0
-  br i1 %.not380, label %1432, label %1423
+  %.not379 = icmp eq i64 %1422, 0
+  br i1 %.not379, label %1432, label %1423
 
 1423:                                             ; preds = %1420
   %1424 = load ptr, ptr %1416, align 8, !tbaa !139
@@ -6503,21 +6503,21 @@ switch.early.test:                                ; preds = %233
 
 1433:                                             ; preds = %1432, %1423
   %1434 = load i32, ptr %1418, align 8, !tbaa !78
-  %.not381 = icmp eq i32 %1434, 0
-  br i1 %.not381, label %1435, label %1437
+  %.not380 = icmp eq i32 %1434, 0
+  br i1 %.not380, label %1435, label %1437
 
 1435:                                             ; preds = %1433
-  %bcmp382 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.152, i64 5)
-  %.not383 = icmp eq i32 %bcmp382, 0
-  %1436 = select i1 %.not383, { i64, i64 } { i64 ptrtoint (ptr @_ZN6LibRaw19kodak_c330_load_rawEv to i64), i64 0 }, { i64, i64 } { i64 ptrtoint (ptr @_ZN6LibRaw19kodak_c603_load_rawEv to i64), i64 0 }
+  %bcmp381 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.152, i64 5)
+  %.not382 = icmp eq i32 %bcmp381, 0
+  %1436 = select i1 %.not382, { i64, i64 } { i64 ptrtoint (ptr @_ZN6LibRaw19kodak_c330_load_rawEv to i64), i64 0 }, { i64, i64 } { i64 ptrtoint (ptr @_ZN6LibRaw19kodak_c603_load_rawEv to i64), i64 0 }
   br label %1437
 
 1437:                                             ; preds = %1433, %1435
   %1438 = phi { i64, i64 } [ %1436, %1435 ], [ { i64 ptrtoint (ptr @_ZN6LibRaw18eight_bit_load_rawEv to i64), i64 0 }, %1433 ]
   %.elt = extractvalue { i64, i64 } %1438, 0
   store i64 %.elt, ptr %1003, align 8, !tbaa !147
-  %.elt385 = extractvalue { i64, i64 } %1438, 1
-  store i64 %.elt385, ptr %.elt340, align 8, !tbaa !147
+  %.elt384 = extractvalue { i64, i64 } %1438, 1
+  store i64 %.elt384, ptr %.elt339, align 8, !tbaa !147
   %1439 = getelementptr inbounds nuw i8, ptr %0, i64 381656
   %1440 = load i32, ptr %1439, align 8, !tbaa !112
   %1441 = icmp ugt i32 %1440, 16
@@ -6528,17 +6528,17 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1444:                                             ; preds = %1414
-  %bcmp386 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.154, i64 6)
-  %.not387 = icmp eq i32 %bcmp386, 0
-  br i1 %.not387, label %1446, label %1445
+  %bcmp385 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.154, i64 6)
+  %.not386 = icmp eq i32 %bcmp385, 0
+  br i1 %.not386, label %1446, label %1445
 
 1445:                                             ; preds = %1444
-  %bcmp388 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.155, i64 6)
-  %.not389 = icmp eq i32 %bcmp388, 0
-  %lhsv390 = load i32, ptr %1394, align 4
-  %.not392 = icmp eq i32 %lhsv390, 877871940
-  %or.cond528 = select i1 %.not389, i1 true, i1 %.not392
-  br i1 %or.cond528, label %1446, label %1451
+  %bcmp387 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.155, i64 6)
+  %.not388 = icmp eq i32 %bcmp387, 0
+  %lhsv389 = load i32, ptr %1394, align 4
+  %.not391 = icmp eq i32 %lhsv389, 877871940
+  %or.cond527 = select i1 %.not388, i1 true, i1 %.not391
+  br i1 %or.cond527, label %1446, label %1451
 
 1446:                                             ; preds = %1445, %1444
   %1447 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -6550,9 +6550,9 @@ switch.early.test:                                ; preds = %233
   br label %1463
 
 1451:                                             ; preds = %1445
-  %bcmp393 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1394, ptr noundef nonnull dereferenceable(8) @.str.157, i64 8)
-  %.not394 = icmp eq i32 %bcmp393, 0
-  br i1 %.not394, label %1452, label %1454
+  %bcmp392 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1394, ptr noundef nonnull dereferenceable(8) @.str.157, i64 8)
+  %.not393 = icmp eq i32 %bcmp392, 0
+  br i1 %.not393, label %1452, label %1454
 
 1452:                                             ; preds = %1451
   %1453 = getelementptr inbounds nuw i8, ptr %0, i64 152992
@@ -6560,17 +6560,17 @@ switch.early.test:                                ; preds = %233
   br label %1463
 
 1454:                                             ; preds = %1451
-  %bcmp395 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1394, ptr noundef nonnull dereferenceable(11) @.str.158, i64 11)
-  %.not396 = icmp eq i32 %bcmp395, 0
-  br i1 %.not396, label %1455, label %1463
+  %bcmp394 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1394, ptr noundef nonnull dereferenceable(11) @.str.158, i64 11)
+  %.not395 = icmp eq i32 %bcmp394, 0
+  br i1 %.not395, label %1455, label %1463
 
 1455:                                             ; preds = %1454
   %1456 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1633771873, ptr %1456, align 8, !tbaa !78
   %1457 = getelementptr inbounds nuw i8, ptr %0, i64 152992
   %1458 = load i32, ptr %1457, align 8, !tbaa !119
-  %.not397 = icmp eq i32 %1458, 0
-  br i1 %.not397, label %1459, label %1463
+  %.not396 = icmp eq i32 %1458, 0
+  br i1 %.not396, label %1459, label %1463
 
 1459:                                             ; preds = %1455
   %1460 = getelementptr inbounds nuw i8, ptr %0, i64 5904
@@ -6591,9 +6591,9 @@ switch.early.test:                                ; preds = %233
 
 1468:                                             ; preds = %1467, %1463
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %lhsv398 = load i32, ptr %1469, align 8
-  %.not400 = icmp eq i32 %lhsv398, 5779506
-  br i1 %.not400, label %1470, label %1472
+  %lhsv397 = load i32, ptr %1469, align 8
+  %.not399 = icmp eq i32 %lhsv397, 5779506
+  br i1 %.not399, label %1470, label %1472
 
 1470:                                             ; preds = %1468
   %1471 = getelementptr inbounds nuw i8, ptr %0, i64 620
@@ -6601,9 +6601,9 @@ switch.early.test:                                ; preds = %233
   br label %1472
 
 1472:                                             ; preds = %1470, %1468
-  %bcmp401 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.161, i64 5)
-  %.not402 = icmp eq i32 %bcmp401, 0
-  br i1 %.not402, label %1473, label %1475
+  %bcmp400 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.161, i64 5)
+  %.not401 = icmp eq i32 %bcmp400, 0
+  br i1 %.not401, label %1473, label %1475
 
 1473:                                             ; preds = %1472
   %1474 = getelementptr inbounds nuw i8, ptr %0, i64 381584
@@ -6611,18 +6611,18 @@ switch.early.test:                                ; preds = %233
   br label %1475
 
 1475:                                             ; preds = %1473, %1472
-  %bcmp403 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1394, ptr noundef nonnull dereferenceable(3) @.str.162, i64 3)
-  %.not404 = icmp eq i32 %bcmp403, 0
-  br i1 %.not404, label %1476, label %1495
+  %bcmp402 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1394, ptr noundef nonnull dereferenceable(3) @.str.162, i64 3)
+  %.not403 = icmp eq i32 %bcmp402, 0
+  br i1 %.not403, label %1476, label %1495
 
 1476:                                             ; preds = %1475
   %1477 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1478 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 242, ptr %1478, align 4, !tbaa !154
   store i16 244, ptr %1477, align 8, !tbaa !152
-  %bcmp405 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.163, i64 5)
-  %.not406 = icmp eq i32 %bcmp405, 0
-  br i1 %.not406, label %1479, label %1481
+  %bcmp404 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.163, i64 5)
+  %.not405 = icmp eq i32 %bcmp404, 0
+  br i1 %.not405, label %1479, label %1481
 
 1479:                                             ; preds = %1476
   %1480 = getelementptr inbounds nuw i8, ptr %0, i64 192552
@@ -6630,9 +6630,9 @@ switch.early.test:                                ; preds = %233
   br label %1481
 
 1481:                                             ; preds = %1479, %1476
-  %bcmp407 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.164, i64 5)
-  %.not408 = icmp eq i32 %bcmp407, 0
-  br i1 %.not408, label %1482, label %1484
+  %bcmp406 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.164, i64 5)
+  %.not407 = icmp eq i32 %bcmp406, 0
+  br i1 %.not407, label %1482, label %1484
 
 1482:                                             ; preds = %1481
   %1483 = getelementptr inbounds nuw i8, ptr %0, i64 192552
@@ -6641,15 +6641,15 @@ switch.early.test:                                ; preds = %233
 
 1484:                                             ; preds = %1482, %1481
   %1485 = icmp slt i32 %3, 100000
-  %.sink592 = select i1 %1485, i16 256, i16 512
-  %.sink591 = select i1 %1485, i16 249, i16 501
-  %.sink590 = select i1 %1485, double 0x3FF4BBCD47A00AF7, double 0x3FE46E0C46F4C1D3
+  %.sink591 = select i1 %1485, i16 256, i16 512
+  %.sink590 = select i1 %1485, i16 249, i16 501
+  %.sink589 = select i1 %1485, double 0x3FF4BBCD47A00AF7, double 0x3FE46E0C46F4C1D3
   %1486 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sink592, ptr %1486, align 2, !tbaa !151
+  store i16 %.sink591, ptr %1486, align 2, !tbaa !151
   %1487 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %.sink591, ptr %1487, align 2, !tbaa !153
+  store i16 %.sink590, ptr %1487, align 2, !tbaa !153
   %1488 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %.sink590, ptr %1488, align 8, !tbaa !129
+  store double %.sink589, ptr %1488, align 8, !tbaa !129
   %1489 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 1, ptr %1489, align 2, !tbaa !164
   %1490 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6665,13 +6665,13 @@ switch.early.test:                                ; preds = %233
   %1494 = getelementptr inbounds nuw i8, ptr %0, i64 153204
   store float 0x3FF09374C0000000, ptr %1494, align 4, !tbaa !107
   store i64 ptrtoint (ptr @_ZN6LibRaw18eight_bit_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
 1495:                                             ; preds = %1475
-  %bcmp410 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.165, i64 5)
-  %.not411 = icmp eq i32 %bcmp410, 0
-  br i1 %.not411, label %1496, label %1504
+  %bcmp409 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.165, i64 5)
+  %.not410 = icmp eq i32 %bcmp409, 0
+  br i1 %.not410, label %1496, label %1504
 
 1496:                                             ; preds = %1495
   %1497 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6681,24 +6681,24 @@ switch.early.test:                                ; preds = %233
   %1499 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 1152, ptr %1499, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1500 = getelementptr inbounds nuw i8, ptr %0, i64 381656
   store i32 12, ptr %1500, align 8, !tbaa !112
   %1501 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   br label %1502
 
 1502:                                             ; preds = %1496, %1502
-  %indvars.iv581 = phi i64 [ 0, %1496 ], [ %indvars.iv.next582, %1502 ]
-  %1503 = getelementptr inbounds nuw [4 x float], ptr %1501, i64 0, i64 %indvars.iv581
+  %indvars.iv580 = phi i64 [ 0, %1496 ], [ %indvars.iv.next581, %1502 ]
+  %1503 = getelementptr inbounds nuw [4 x float], ptr %1501, i64 0, i64 %indvars.iv580
   store float 1.000000e+00, ptr %1503, align 4, !tbaa !107
-  %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %exitcond584.not = icmp eq i64 %indvars.iv.next582, 4
-  br i1 %exitcond584.not, label %.loopexit, label %1502, !llvm.loop !223
+  %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
+  %exitcond583.not = icmp eq i64 %indvars.iv.next581, 4
+  br i1 %exitcond583.not, label %.loopexit, label %1502, !llvm.loop !223
 
 1504:                                             ; preds = %1495
-  %bcmp413 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.166, i64 5)
-  %.not414 = icmp eq i32 %bcmp413, 0
-  br i1 %.not414, label %1505, label %1513
+  %bcmp412 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1394, ptr noundef nonnull dereferenceable(5) @.str.166, i64 5)
+  %.not413 = icmp eq i32 %bcmp412, 0
+  br i1 %.not413, label %1505, label %1513
 
 1505:                                             ; preds = %1504
   %1506 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6710,22 +6710,22 @@ switch.early.test:                                ; preds = %233
   %1509 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 19712, ptr %1509, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   br label %1511
 
 1511:                                             ; preds = %1505, %1511
-  %indvars.iv577 = phi i64 [ 0, %1505 ], [ %indvars.iv.next578, %1511 ]
-  %1512 = getelementptr inbounds nuw [4 x float], ptr %1510, i64 0, i64 %indvars.iv577
+  %indvars.iv576 = phi i64 [ 0, %1505 ], [ %indvars.iv.next577, %1511 ]
+  %1512 = getelementptr inbounds nuw [4 x float], ptr %1510, i64 0, i64 %indvars.iv576
   store float 1.000000e+00, ptr %1512, align 4, !tbaa !107
-  %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
-  %exitcond580.not = icmp eq i64 %indvars.iv.next578, 4
-  br i1 %exitcond580.not, label %.loopexit, label %1511, !llvm.loop !224
+  %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
+  %exitcond579.not = icmp eq i64 %indvars.iv.next577, 4
+  br i1 %exitcond579.not, label %.loopexit, label %1511, !llvm.loop !224
 
 1513:                                             ; preds = %1504
-  %bcmp416 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.167, i64 6)
-  %.not417 = icmp eq i32 %bcmp416, 0
-  br i1 %.not417, label %1514, label %1524
+  %bcmp415 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1394, ptr noundef nonnull dereferenceable(6) @.str.167, i64 6)
+  %.not416 = icmp eq i32 %bcmp415, 0
+  br i1 %.not416, label %1514, label %1524
 
 1514:                                             ; preds = %1513
   %1515 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6743,15 +6743,15 @@ switch.early.test:                                ; preds = %233
   %1521 = getelementptr inbounds nuw i8, ptr %0, i64 381660
   %1522 = load i32, ptr %1521, align 4, !tbaa !111
   %1523 = icmp eq i32 %1522, 7
-  %.elt418 = select i1 %1523, i64 ptrtoint (ptr @_ZN6LibRaw19kodak_jpeg_load_rawEv to i64), i64 ptrtoint (ptr @_ZN6LibRaw20kodak_dc120_load_rawEv to i64)
-  store i64 %.elt418, ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  %.elt417 = select i1 %1523, i64 ptrtoint (ptr @_ZN6LibRaw19kodak_jpeg_load_rawEv to i64), i64 ptrtoint (ptr @_ZN6LibRaw20kodak_dc120_load_rawEv to i64)
+  store i64 %.elt417, ptr %1003, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
 1524:                                             ; preds = %1513
-  %bcmp421 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1394, ptr noundef nonnull dereferenceable(7) @.str.168, i64 7)
-  %.not422 = icmp eq i32 %bcmp421, 0
-  br i1 %.not422, label %1525, label %.loopexit
+  %bcmp420 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1394, ptr noundef nonnull dereferenceable(7) @.str.168, i64 7)
+  %.not421 = icmp eq i32 %bcmp420, 0
+  br i1 %.not421, label %1525, label %.loopexit
 
 1525:                                             ; preds = %1524
   %1526 = getelementptr inbounds nuw i8, ptr %0, i64 193358
@@ -6771,9 +6771,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1533:                                             ; preds = %1404
-  %bcmp347 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1394, ptr noundef nonnull dereferenceable(16) @.str.10, i64 16)
-  %.not348 = icmp eq i32 %bcmp347, 0
-  br i1 %.not348, label %1534, label %.thread549
+  %bcmp346 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1394, ptr noundef nonnull dereferenceable(16) @.str.10, i64 16)
+  %.not347 = icmp eq i32 %bcmp346, 0
+  br i1 %.not347, label %1534, label %.thread548
 
 1534:                                             ; preds = %1533
   %1535 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6783,22 +6783,22 @@ switch.early.test:                                ; preds = %233
   %1537 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 3632, ptr %1537, align 8, !tbaa !146
   store i64 ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1538 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 1633771873, ptr %1538, align 8, !tbaa !78
   tail call void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 2)
   br label %.loopexit
 
 1539:                                             ; preds = %1404
-  %bcmp350 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.169, i64 9)
-  %.not351 = icmp eq i32 %bcmp350, 0
-  br i1 %.not351, label %1540, label %.thread549
+  %bcmp349 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.169, i64 9)
+  %.not350 = icmp eq i32 %bcmp349, 0
+  br i1 %.not350, label %1540, label %.thread548
 
 1540:                                             ; preds = %1539
   %1541 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %1542 = load i8, ptr %1541, align 1, !tbaa !85
-  %.not352 = icmp eq i8 %1542, 0
-  br i1 %.not352, label %1547, label %1543
+  %.not351 = icmp eq i8 %1542, 0
+  br i1 %.not351, label %1547, label %1543
 
 1543:                                             ; preds = %1540
   %1544 = getelementptr inbounds nuw i8, ptr %0, i64 278
@@ -6842,8 +6842,8 @@ switch.early.test:                                ; preds = %233
   %1572 = tail call noundef i32 %1571(ptr noundef nonnull align 8 dereferenceable(8) %1567, i64 noundef %1568, i32 noundef 0)
   %1573 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %1574 = and i16 %1573, 3
-  %.not353 = icmp eq i16 %1574, 3
-  %1575 = select i1 %.not353, i32 6, i32 5
+  %.not352 = icmp eq i16 %1574, 3
+  %1575 = select i1 %.not352, i32 6, i32 5
   %1576 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1575, ptr %1576, align 8, !tbaa !79
   br label %1577
@@ -6855,55 +6855,55 @@ switch.early.test:                                ; preds = %233
 
 1579:                                             ; preds = %1404
   %1580 = icmp eq i32 %1016, 57
-  %.not357 = icmp eq i64 %.unpack339, 0
-  %or.cond529 = and i1 %.not357, %1580
-  br i1 %or.cond529, label %1581, label %.thread549
+  %.not356 = icmp eq i64 %.unpack338, 0
+  %or.cond528 = and i1 %.not356, %1580
+  br i1 %or.cond528, label %1581, label %.thread548
 
 1581:                                             ; preds = %1579
   %1582 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %1583 = load i16, ptr %1582, align 2, !tbaa !151
   switch i16 %1583, label %1589 [
-    i16 1316, label %.sink.split616
+    i16 1316, label %.sink.split615
     i16 2568, label %1584
   ]
 
 1584:                                             ; preds = %1581
-  br label %.sink.split616
+  br label %.sink.split615
 
-.sink.split616:                                   ; preds = %1581, %1584
-  %.sink623 = phi i16 [ 1960, %1584 ], [ 1030, %1581 ]
-  %.sink621 = phi i16 [ 2560, %1584 ], [ 1300, %1581 ]
-  %.sink619 = phi i16 [ 2, %1584 ], [ 1, %1581 ]
-  %.sink617 = phi i16 [ 8, %1584 ], [ 6, %1581 ]
+.sink.split615:                                   ; preds = %1581, %1584
+  %.sink622 = phi i16 [ 1960, %1584 ], [ 1030, %1581 ]
+  %.sink620 = phi i16 [ 2560, %1584 ], [ 1300, %1581 ]
+  %.sink618 = phi i16 [ 2, %1584 ], [ 1, %1581 ]
+  %.sink616 = phi i16 [ 8, %1584 ], [ 6, %1581 ]
   %1585 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %.sink623, ptr %1585, align 4, !tbaa !154
+  store i16 %.sink622, ptr %1585, align 4, !tbaa !154
   %1586 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %.sink621, ptr %1586, align 2, !tbaa !153
+  store i16 %.sink620, ptr %1586, align 2, !tbaa !153
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %.sink619, ptr %1587, align 8, !tbaa !155
+  store i16 %.sink618, ptr %1587, align 8, !tbaa !155
   %1588 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %.sink617, ptr %1588, align 2, !tbaa !164
+  store i16 %.sink616, ptr %1588, align 2, !tbaa !164
   br label %1589
 
-1589:                                             ; preds = %.sink.split616, %1581
+1589:                                             ; preds = %.sink.split615, %1581
   %1590 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 370546198, ptr %1590, align 8, !tbaa !78
   store i64 ptrtoint (ptr @_ZN6LibRaw15rollei_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   br label %.loopexit
 
-.thread549:                                       ; preds = %1533, %1539, %1579
-  %bcmp359 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1394, ptr noundef nonnull dereferenceable(11) @.str.171, i64 11)
-  %.not360 = icmp eq i32 %bcmp359, 0
-  br i1 %.not360, label %1591, label %1598
+.thread548:                                       ; preds = %1533, %1539, %1579
+  %bcmp358 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1394, ptr noundef nonnull dereferenceable(11) @.str.171, i64 11)
+  %.not359 = icmp eq i32 %bcmp358, 0
+  br i1 %.not359, label %1591, label %1598
 
-1591:                                             ; preds = %.thread549
+1591:                                             ; preds = %.thread548
   %1592 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 2048, ptr %1592, align 4, !tbaa !154
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2440, ptr %1593, align 2, !tbaa !153
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1594 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %1595 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 0, ptr %1595, align 8, !tbaa !146
@@ -6914,10 +6914,10 @@ switch.early.test:                                ; preds = %233
   store i32 65532, ptr %1597, align 8, !tbaa !84
   br label %.loopexit
 
-1598:                                             ; preds = %.thread549
-  %bcmp362 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.172, i64 9)
-  %.not363 = icmp eq i32 %bcmp362, 0
-  br i1 %.not363, label %1599, label %1606
+1598:                                             ; preds = %.thread548
+  %bcmp361 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.172, i64 9)
+  %.not362 = icmp eq i32 %bcmp361, 0
+  br i1 %.not362, label %1599, label %1606
 
 1599:                                             ; preds = %1598
   %1600 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6925,7 +6925,7 @@ switch.early.test:                                ; preds = %233
   %1601 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2448, ptr %1601, align 2, !tbaa !153
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1602 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 0, ptr %1603, align 8, !tbaa !146
@@ -6937,9 +6937,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1606:                                             ; preds = %1598
-  %bcmp365 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.173, i64 9)
-  %.not366 = icmp eq i32 %bcmp365, 0
-  br i1 %.not366, label %1607, label %1614
+  %bcmp364 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.173, i64 9)
+  %.not365 = icmp eq i32 %bcmp364, 0
+  br i1 %.not365, label %1607, label %1614
 
 1607:                                             ; preds = %1606
   %1608 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6947,7 +6947,7 @@ switch.early.test:                                ; preds = %233
   %1609 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2456, ptr %1609, align 2, !tbaa !153
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1610 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %1611 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 0, ptr %1611, align 8, !tbaa !146
@@ -6959,9 +6959,9 @@ switch.early.test:                                ; preds = %233
   br label %.loopexit
 
 1614:                                             ; preds = %1606
-  %bcmp368 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.174, i64 9)
-  %.not369 = icmp eq i32 %bcmp368, 0
-  br i1 %.not369, label %1615, label %.loopexit
+  %bcmp367 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %1394, ptr noundef nonnull dereferenceable(9) @.str.174, i64 9)
+  %.not368 = icmp eq i32 %bcmp367, 0
+  br i1 %.not368, label %1615, label %.loopexit
 
 1615:                                             ; preds = %1614
   %1616 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6969,7 +6969,7 @@ switch.early.test:                                ; preds = %233
   %1617 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2448, ptr %1617, align 2, !tbaa !153
   store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %1003, align 8, !tbaa !147
-  store i64 0, ptr %.elt340, align 8, !tbaa !147
+  store i64 0, ptr %.elt339, align 8, !tbaa !147
   %1618 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %1619 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   store i64 0, ptr %1619, align 8, !tbaa !146
@@ -6980,7 +6980,7 @@ switch.early.test:                                ; preds = %233
   store i32 4095, ptr %1621, align 8, !tbaa !84
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1511, %1502, %1231, %1100, %1097, %1096, %1109, %1101, %1061, %1069, %1207, %1395, %1534, %1589, %1599, %1614, %1615, %1607, %1591, %1577, %1407, %1484, %1524, %1525, %1514, %1437, %1214, %1234, %1240, %1245, %1243, %1237, %1258, %1273, %1269, %1292, %1290, %1298, %1311, %1307, %1354, %1360, %1364, %1357, %1350, %1377, %1392, %1369, %1374, %1372, %1318, %1328, %1335, %.thread546, %1340, %1331, %1322, %1302, %1294, %1277, %1267, %1255, %1223, %._crit_edge, %1007, %1013
+.loopexit:                                        ; preds = %1511, %1502, %1231, %1100, %1097, %1096, %1109, %1101, %1061, %1069, %1207, %1395, %1534, %1589, %1599, %1614, %1615, %1607, %1591, %1577, %1407, %1484, %1524, %1525, %1514, %1437, %1214, %1234, %1240, %1245, %1243, %1237, %1258, %1273, %1269, %1292, %1290, %1298, %1311, %1307, %1354, %1360, %1364, %1357, %1350, %1377, %1392, %1369, %1374, %1372, %1318, %1328, %1335, %.thread545, %1340, %1331, %1322, %1302, %1294, %1277, %1267, %1255, %1223, %._crit_edge, %1007, %1013
   call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %5) #17
   ret void
 }

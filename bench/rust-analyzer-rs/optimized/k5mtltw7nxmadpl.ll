@@ -48945,115 +48945,115 @@ define void @_ZN13rust_analyzer6config6Config10completion17he39d69d5119f3e3dE(pt
   %.0.i15 = select i1 %22, ptr %spec.select.i14, ptr %20
   %27 = load i8, ptr %.0.i15, align 8, !range !2708, !noundef !4
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge
+  br i1 %28, label %30, label %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge
 
 ._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 3512
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !313
+  %29 = icmp eq i64 %.pre, -9223372036854775807
   br label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit
 
-29:                                               ; preds = %4
+30:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8702)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3512
-  %31 = load i64, ptr %30, align 8, !range !313, !alias.scope !8702, !noundef !4
-  %32 = icmp eq i64 %31, -9223372036854775807
-  br i1 %32, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %33
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 3512
+  %32 = load i64, ptr %31, align 8, !range !313, !alias.scope !8702, !noundef !4
+  %33 = icmp eq i64 %32, -9223372036854775807
+  br i1 %33, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %34
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3800
-  %35 = load i64, ptr %34, align 8, !range !1019, !alias.scope !8702, !noundef !4
-  %.off.i.i = add i64 %35, 9223372036854775807
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3800
+  %36 = load i64, ptr %35, align 8, !range !1019, !alias.scope !8702, !noundef !4
+  %.off.i.i = add i64 %36, 9223372036854775807
   %switch.i.i = icmp ult i64 %.off.i.i, 2
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 3848
-  %37 = load i64, ptr %36, align 8, !range !159, !alias.scope !8702
-  %38 = icmp eq i64 %37, -9223372036854775808
-  %or.cond.i = select i1 %switch.i.i, i1 true, i1 %38
-  br i1 %or.cond.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %39
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3848
+  %38 = load i64, ptr %37, align 8, !range !159, !alias.scope !8702
+  %39 = icmp eq i64 %38, -9223372036854775808
+  %or.cond.i = select i1 %switch.i.i, i1 true, i1 %39
+  br i1 %or.cond.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %40
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 3856
-  %41 = load ptr, ptr %40, align 8, !alias.scope !8702, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 3864
-  %43 = load i64, ptr %42, align 8, !alias.scope !8702, !noundef !4
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %41, i64 %43
-  %.not.i.i.i = icmp eq i64 %43, 0
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 3856
+  %42 = load ptr, ptr %41, align 8, !alias.scope !8702, !nonnull !4, !noundef !4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 3864
+  %44 = load i64, ptr %43, align 8, !alias.scope !8702, !noundef !4
+  %45 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %42, i64 %44
+  %.not.i.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %39, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
-  %45 = phi ptr [ %46, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ], [ %41, %39 ]
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = getelementptr i8, ptr %45, i64 16
-  %.val3.i.i.i = load i64, ptr %47, align 8, !noalias !8705, !noundef !4
+.lr.ph.i.i.i:                                     ; preds = %40, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
+  %46 = phi ptr [ %47, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ], [ %42, %40 ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = getelementptr i8, ptr %46, i64 16
+  %.val3.i.i.i = load i64, ptr %48, align 8, !noalias !8705, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %.val3.i.i.i, 19
-  br i1 %.not.i.i.i.i.i, label %48, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %49, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
 
-48:                                               ; preds = %.lr.ph.i.i.i
-  %49 = getelementptr i8, ptr %45, i64 8
-  %.val.i.i.i = load ptr, ptr %49, align 8, !noalias !8705, !nonnull !4, !noundef !4
+49:                                               ; preds = %.lr.ph.i.i.i
+  %50 = getelementptr i8, ptr %46, i64 8
+  %.val.i.i.i = load ptr, ptr %50, align 8, !noalias !8705, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) %.val.i.i.i, ptr noundef nonnull dereferenceable(19) @anon.91380dbf7fcc3cee666491d632c78d8e.447, i64 19), !alias.scope !8708, !noalias !8705
-  %50 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %50, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
+  %51 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %51, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i"
 
-"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i": ; preds = %48, %.lr.ph.i.i.i
-  %.not12.i.i.i = icmp eq ptr %46, %44
+"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i": ; preds = %49, %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq ptr %47, %45
   br i1 %.not12.i.i.i, label %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit, label %.lr.ph.i.i.i
 
-_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit: ; preds = %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i", %48, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge, %39, %33, %29
-  %51 = phi i64 [ %.pre, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge ], [ -9223372036854775807, %29 ], [ %31, %39 ], [ %31, %33 ], [ %31, %48 ], [ %31, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ]
-  %.0 = phi i8 [ 0, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge ], [ 0, %29 ], [ 0, %39 ], [ 0, %33 ], [ 0, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ], [ 1, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2185
-  %53 = load i8, ptr %52, align 1, !range !1844, !alias.scope !8712, !noundef !4
-  %54 = icmp eq i8 %53, 2
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 3313
-  %56 = load i8, ptr %55, align 1, !range !1844, !alias.scope !8712
-  %57 = icmp eq i8 %56, 2
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 1057
-  %spec.select.i16 = select i1 %57, ptr %58, ptr %55
-  %.0.i17 = select i1 %54, ptr %spec.select.i16, ptr %52
-  %59 = load i8, ptr %.0.i17, align 1, !range !2708, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 2188
-  %61 = load i8, ptr %60, align 4, !range !1844, !alias.scope !8715, !noundef !4
-  %62 = icmp eq i8 %61, 2
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 3316
-  %64 = load i8, ptr %63, align 4, !range !1844, !alias.scope !8715
-  %65 = icmp eq i8 %64, 2
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1060
-  %spec.select.i18 = select i1 %65, ptr %66, ptr %63
-  %.0.i19 = select i1 %62, ptr %spec.select.i18, ptr %60
-  %67 = load i8, ptr %.0.i19, align 4, !range !2708, !noundef !4
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 2186
-  %69 = load i8, ptr %68, align 2, !range !1844, !alias.scope !8718, !noundef !4
-  %70 = icmp eq i8 %69, 2
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 3314
-  %72 = load i8, ptr %71, align 2, !range !1844, !alias.scope !8718
-  %73 = icmp eq i8 %72, 2
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 1058
-  %spec.select.i20 = select i1 %73, ptr %74, ptr %71
-  %.0.i21 = select i1 %70, ptr %spec.select.i20, ptr %68
-  %75 = load i8, ptr %.0.i21, align 2, !range !2708, !noundef !4
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 2225
-  %77 = load i8, ptr %76, align 1, !range !2089, !alias.scope !8721, !noundef !4
-  %78 = icmp eq i8 %77, 3
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 3353
-  %80 = load i8, ptr %79, align 1, !range !2089, !alias.scope !8721
-  %81 = icmp eq i8 %80, 3
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 1097
-  %spec.select.i22 = select i1 %81, ptr %82, ptr %79
-  %.0.i23 = select i1 %78, ptr %spec.select.i22, ptr %76
-  %83 = load i8, ptr %.0.i23, align 1, !range !1844, !noundef !4
-  %84 = tail call i40 @_ZN13rust_analyzer6config6Config17insert_use_config17h39d8d8eaeb53eb23E.llvm.3663151438746104753(ptr noalias noundef nonnull readonly align 8 dereferenceable(4560) %1, i32 poison, i32 poison)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2198
-  %86 = load i8, ptr %85, align 2, !range !1844, !alias.scope !8724, !noundef !4
-  %87 = icmp eq i8 %86, 2
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 3326
-  %89 = load i8, ptr %88, align 2, !range !1844, !alias.scope !8724
-  %90 = icmp eq i8 %89, 2
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 1070
-  %spec.select.i24 = select i1 %90, ptr %91, ptr %88
-  %.0.i25 = select i1 %87, ptr %spec.select.i24, ptr %85
-  %92 = load i8, ptr %.0.i25, align 2, !range !2708, !noundef !4
-  %93 = icmp eq i64 %51, -9223372036854775807
-  br i1 %93, label %"_ZN13rust_analyzer6config6Config10completion28_$u7b$$u7b$closure$u7d$$u7d$17h118f85d2aa2ad44eE.exit", label %94
+_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit: ; preds = %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i", %49, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge, %40, %34, %30
+  %52 = phi i1 [ %29, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge ], [ true, %30 ], [ false, %40 ], [ false, %34 ], [ false, %49 ], [ false, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ]
+  %.0 = phi i8 [ 0, %._ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit_crit_edge ], [ 0, %30 ], [ 0, %40 ], [ 0, %34 ], [ 0, %"_ZN13rust_analyzer4caps28completion_item_edit_resolve28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc038dcaf412fbb1aE.exit.backedge.i.i.i" ], [ 1, %49 ]
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2185
+  %54 = load i8, ptr %53, align 1, !range !1844, !alias.scope !8712, !noundef !4
+  %55 = icmp eq i8 %54, 2
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 3313
+  %57 = load i8, ptr %56, align 1, !range !1844, !alias.scope !8712
+  %58 = icmp eq i8 %57, 2
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1057
+  %spec.select.i16 = select i1 %58, ptr %59, ptr %56
+  %.0.i17 = select i1 %55, ptr %spec.select.i16, ptr %53
+  %60 = load i8, ptr %.0.i17, align 1, !range !2708, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2188
+  %62 = load i8, ptr %61, align 4, !range !1844, !alias.scope !8715, !noundef !4
+  %63 = icmp eq i8 %62, 2
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 3316
+  %65 = load i8, ptr %64, align 4, !range !1844, !alias.scope !8715
+  %66 = icmp eq i8 %65, 2
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1060
+  %spec.select.i18 = select i1 %66, ptr %67, ptr %64
+  %.0.i19 = select i1 %63, ptr %spec.select.i18, ptr %61
+  %68 = load i8, ptr %.0.i19, align 4, !range !2708, !noundef !4
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 2186
+  %70 = load i8, ptr %69, align 2, !range !1844, !alias.scope !8718, !noundef !4
+  %71 = icmp eq i8 %70, 2
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 3314
+  %73 = load i8, ptr %72, align 2, !range !1844, !alias.scope !8718
+  %74 = icmp eq i8 %73, 2
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 1058
+  %spec.select.i20 = select i1 %74, ptr %75, ptr %72
+  %.0.i21 = select i1 %71, ptr %spec.select.i20, ptr %69
+  %76 = load i8, ptr %.0.i21, align 2, !range !2708, !noundef !4
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 2225
+  %78 = load i8, ptr %77, align 1, !range !2089, !alias.scope !8721, !noundef !4
+  %79 = icmp eq i8 %78, 3
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 3353
+  %81 = load i8, ptr %80, align 1, !range !2089, !alias.scope !8721
+  %82 = icmp eq i8 %81, 3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1097
+  %spec.select.i22 = select i1 %82, ptr %83, ptr %80
+  %.0.i23 = select i1 %79, ptr %spec.select.i22, ptr %77
+  %84 = load i8, ptr %.0.i23, align 1, !range !1844, !noundef !4
+  %85 = tail call i40 @_ZN13rust_analyzer6config6Config17insert_use_config17h39d8d8eaeb53eb23E.llvm.3663151438746104753(ptr noalias noundef nonnull readonly align 8 dereferenceable(4560) %1, i32 poison, i32 poison)
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2198
+  %87 = load i8, ptr %86, align 2, !range !1844, !alias.scope !8724, !noundef !4
+  %88 = icmp eq i8 %87, 2
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 3326
+  %90 = load i8, ptr %89, align 2, !range !1844, !alias.scope !8724
+  %91 = icmp eq i8 %90, 2
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 1070
+  %spec.select.i24 = select i1 %91, ptr %92, ptr %89
+  %.0.i25 = select i1 %88, ptr %spec.select.i24, ptr %86
+  %93 = load i8, ptr %.0.i25, align 2, !range !2708, !noundef !4
+  br i1 %52, label %"_ZN13rust_analyzer6config6Config10completion28_$u7b$$u7b$closure$u7d$$u7d$17h118f85d2aa2ad44eE.exit", label %94
 
 94:                                               ; preds = %_ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 3800
@@ -49340,22 +49340,22 @@ _ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit: 
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.0, ptr %207, align 1
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %59, ptr %208, align 2
+  store i8 %60, ptr %208, align 2
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  store i8 %67, ptr %209, align 1
+  store i8 %68, ptr %209, align 1
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %197, ptr %210, align 4
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  store i8 %75, ptr %211, align 1
+  store i8 %76, ptr %211, align 1
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i8 %83, ptr %212, align 2
+  store i8 %84, ptr %212, align 2
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %214 = zext i1 %101 to i8
   store i8 %214, ptr %213, align 2
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 47
-  store i40 %84, ptr %215, align 1
+  store i40 %85, ptr %215, align 1
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i8 %92, ptr %216, align 4
+  store i8 %93, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 %205, ptr %217, align 1
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 16

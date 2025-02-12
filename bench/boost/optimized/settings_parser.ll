@@ -4523,7 +4523,7 @@ _ZN5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traits
 
 ..thread_crit_edge:                               ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre40 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.pre39 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %40
@@ -4660,7 +4660,7 @@ _ZN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traits
   br label %186
 
 .thread:                                          ; preds = %..thread_crit_edge, %._crit_edge.i.i.i.i, %76
-  %98 = phi i64 [ %.pre40, %..thread_crit_edge ], [ %51, %._crit_edge.i.i.i.i ], [ %51, %76 ]
+  %98 = phi i64 [ %.pre39, %..thread_crit_edge ], [ %51, %._crit_edge.i.i.i.i ], [ %51, %76 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #29
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %99, ptr %10, align 8, !tbaa !23
@@ -12528,7 +12528,7 @@ _ZN5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traits
 
 ..thread_crit_edge:                               ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pre40 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.pre39 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %40
@@ -12666,7 +12666,7 @@ _ZN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traits
   br label %188
 
 .thread:                                          ; preds = %..thread_crit_edge, %._crit_edge.i.i.i.i, %76
-  %99 = phi i64 [ %.pre40, %..thread_crit_edge ], [ %51, %._crit_edge.i.i.i.i ], [ %51, %76 ]
+  %99 = phi i64 [ %.pre39, %..thread_crit_edge ], [ %51, %._crit_edge.i.i.i.i ], [ %51, %76 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #29
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %100, ptr %10, align 8, !tbaa !23

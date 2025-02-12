@@ -496,7 +496,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
   store i32 0, ptr %3, align 4, !tbaa !103
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge105, label %.preheader.lr.ph
+  br i1 %.not, label %._crit_edge104, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -504,7 +504,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr noundef no
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  br i1 %25, label %._crit_edge105, label %.preheader.us.preheader
+  br i1 %25, label %._crit_edge104, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %33 = zext nneg i32 %13 to i64
@@ -514,15 +514,15 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr noundef no
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv130 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next131, %._crit_edge.us ]
-  %36 = mul nuw nsw i64 %indvars.iv130, %34
+  %indvars.iv128 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next129, %._crit_edge.us ]
+  %36 = mul nuw nsw i64 %indvars.iv128, %34
   %37 = add nuw nsw i64 %36, %33
   %38 = icmp samesign ule i64 %37, %35
   %39 = getelementptr inbounds nuw i16, ptr %8, i64 %36
   br label %40
 
-40:                                               ; preds = %.preheader.us, %_ZNSt5arrayIiLm2EE4fillERKi.exit._crit_edge.us
-  %.021102.us = phi i32 [ 0, %.preheader.us ], [ %117, %_ZNSt5arrayIiLm2EE4fillERKi.exit._crit_edge.us ]
+40:                                               ; preds = %.preheader.us, %118
+  %.021102.us = phi i32 [ 0, %.preheader.us ], [ %119, %118 ]
   %41 = load ptr, ptr %0, align 8, !tbaa !6
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !119
@@ -582,7 +582,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit.i.us:     ; preds = %54
 
 67:                                               ; preds = %65
   %.not.i.not.i.i.i.i.i43.i.us = icmp ugt i32 %49, %60
-  br i1 %.not.i.not.i.i.i.i.i43.i.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit45.i.us, label %.split107.us
+  br i1 %.not.i.not.i.i.i.i.i43.i.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit45.i.us, label %.split106.us
 
 _ZN8rawspeed10ByteStream7getByteEv.exit45.i.us:   ; preds = %67
   %68 = and i64 %indvars.iv.next.i.us, 4294967295
@@ -591,7 +591,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit45.i.us:   ; preds = %67
   %70 = add nuw nsw i32 %60, 1
   store i32 %70, ptr %28, align 8, !tbaa !95, !noalias !120
   %.not.i.not.i.i.i.i.i46.i.us = icmp samesign ult i32 %70, %49
-  br i1 %.not.i.not.i.i.i.i.i46.i.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit48.i.us, label %.split109.us
+  br i1 %.not.i.not.i.i.i.i.i46.i.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit48.i.us, label %.split108.us
 
 _ZN8rawspeed10ByteStream7getByteEv.exit48.i.us:   ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit45.i.us
   %71 = zext i8 %.0.copyload.i.i.i.i.i.i44.i.us to i64
@@ -635,7 +635,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit48.i.us:   ; preds = %_ZN8rawspeed10ByteS
   %.356.i.us = phi i64 [ %.159.i.us, %.preheader.preheader.i.us ], [ %94, %_ZN8rawspeed10ByteStream7getByteEv.exit51.i.us ]
   %.03455.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %95, %_ZN8rawspeed10ByteStream7getByteEv.exit51.i.us ]
   %exitcond74.not.i.us = icmp eq i64 %indvars.iv69.i.us, %wide.trip.count73.i.us
-  br i1 %exitcond74.not.i.us, label %.split111.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit51.i.us
+  br i1 %exitcond74.not.i.us, label %.split110.us, label %_ZN8rawspeed10ByteStream7getByteEv.exit51.i.us
 
 _ZN8rawspeed10ByteStream7getByteEv.exit51.i.us:   ; preds = %.preheader.i.us
   %85 = and i64 %indvars.iv69.i.us, 2147483648
@@ -692,85 +692,85 @@ _ZN8rawspeed10ByteStream7getByteEv.exit51.i.us:   ; preds = %.preheader.i.us
   store i16 %115, ptr %116, align 2, !tbaa !109, !alias.scope !120
   %indvars.iv.next76.i.us = add nuw nsw i64 %indvars.iv75.i.us, 1
   %exitcond79.not.i.us = icmp eq i64 %indvars.iv.next76.i.us, %53
-  br i1 %exitcond79.not.i.us, label %.lr.ph.us.preheader, label %78, !llvm.loop !111
+  br i1 %exitcond79.not.i.us, label %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us, label %78, !llvm.loop !111
 
-_ZNSt5arrayIiLm2EE4fillERKi.exit._crit_edge.us:   ; preds = %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
-  %117 = trunc nuw i64 %indvars.iv.next126 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #17
-  %118 = icmp sgt i32 %13, %117
-  br i1 %118, label %40, label %._crit_edge.us, !llvm.loop !123
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
-  %indvars.iv125 = phi i64 [ %149, %.lr.ph.us.preheader ], [ %indvars.iv.next126, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
-  %119 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %indvars.iv
-  %120 = load i16, ptr %119, align 2, !tbaa !109
-  %121 = sext i16 %120 to i32
-  %122 = and i64 %indvars.iv, 1
-  %123 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !103
-  %125 = add nsw i32 %124, %121
-  store i32 %125, ptr %123, align 4, !tbaa !103
-  %126 = load i32, ptr %31, align 8, !tbaa !15
-  %127 = icmp ult i32 %126, 32
-  call void @llvm.assume(i1 %127)
-  %128 = lshr i32 %125, %126
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %.split113.us
-
-130:                                              ; preds = %.lr.ph.us
-  %131 = load i8, ptr %32, align 4, !tbaa !26, !range !124, !noundef !105
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %143, label %133
-
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %0, align 8, !tbaa !6
-  %135 = trunc i32 %125 to i16
-  %136 = and i64 %indvars.iv125, 2147483648
-  %137 = icmp eq i64 %136, 0
-  call void @llvm.assume(i1 %137)
-  %138 = icmp samesign ult i64 %indvars.iv125, %33
-  call void @llvm.assume(i1 %138)
-  call void @llvm.assume(i1 %38)
-  %139 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv125
-  %140 = load ptr, ptr %134, align 8, !tbaa !100
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(616) %134, i16 noundef zeroext %135, ptr noundef nonnull %139, ptr noundef nonnull %3)
-  br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
-
-143:                                              ; preds = %130
-  %144 = trunc i32 %125 to i16
-  %145 = and i64 %indvars.iv125, 2147483648
-  %146 = icmp eq i64 %145, 0
-  call void @llvm.assume(i1 %146)
-  %147 = icmp samesign ult i64 %indvars.iv125, %33
-  call void @llvm.assume(i1 %147)
-  call void @llvm.assume(i1 %38)
-  %148 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv125
-  store i16 %144, ptr %148, align 2, !tbaa !109
-  br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
-
-_ZNSt5arrayIiLm2EE4fillERKi.exit.us:              ; preds = %143, %133
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %53
-  br i1 %exitcond.not, label %_ZNSt5arrayIiLm2EE4fillERKi.exit._crit_edge.us, label %.lr.ph.us, !llvm.loop !125
-
-.lr.ph.us.preheader:                              ; preds = %113
+_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #17, !noalias !120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store i64 0, ptr %5, align 8
-  %149 = zext i32 %.021102.us to i64
-  br label %.lr.ph.us
+  %117 = zext i32 %.021102.us to i64
+  br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us
 
-._crit_edge.us:                                   ; preds = %_ZNSt5arrayIiLm2EE4fillERKi.exit._crit_edge.us
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
-  br i1 %exitcond133.not, label %._crit_edge105, label %.preheader.us, !llvm.loop !126
+118:                                              ; preds = %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
+  %119 = trunc nuw i64 %indvars.iv.next124 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #17
+  %120 = icmp sgt i32 %13, %119
+  br i1 %120, label %40, label %._crit_edge.us, !llvm.loop !123
 
-._crit_edge105:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
+_ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us:    ; preds = %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
+  %indvars.iv123 = phi i64 [ %117, %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us ], [ %indvars.iv.next124, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
+  %indvars.iv = phi i64 [ 0, %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us ], [ %indvars.iv.next, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
+  %121 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %122 = load i16, ptr %121, align 2, !tbaa !109
+  %123 = sext i16 %122 to i32
+  %124 = and i64 %indvars.iv, 1
+  %125 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !103
+  %127 = add nsw i32 %126, %123
+  store i32 %127, ptr %125, align 4, !tbaa !103
+  %128 = load i32, ptr %31, align 8, !tbaa !15
+  %129 = icmp ult i32 %128, 32
+  call void @llvm.assume(i1 %129)
+  %130 = lshr i32 %127, %128
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %.split112.us
+
+132:                                              ; preds = %_ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us
+  %133 = load i8, ptr %32, align 4, !tbaa !26, !range !124, !noundef !105
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %145, label %135
+
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %0, align 8, !tbaa !6
+  %137 = trunc i32 %127 to i16
+  %138 = and i64 %indvars.iv123, 2147483648
+  %139 = icmp eq i64 %138, 0
+  call void @llvm.assume(i1 %139)
+  %140 = icmp samesign ult i64 %indvars.iv123, %33
+  call void @llvm.assume(i1 %140)
+  call void @llvm.assume(i1 %38)
+  %141 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv123
+  %142 = load ptr, ptr %136, align 8, !tbaa !100
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load ptr, ptr %143, align 8
+  call void %144(ptr noundef nonnull align 8 dereferenceable(616) %136, i16 noundef zeroext %137, ptr noundef nonnull %141, ptr noundef nonnull %3)
+  br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
+
+145:                                              ; preds = %132
+  %146 = trunc i32 %127 to i16
+  %147 = and i64 %indvars.iv123, 2147483648
+  %148 = icmp eq i64 %147, 0
+  call void @llvm.assume(i1 %148)
+  %149 = icmp samesign ult i64 %indvars.iv123, %33
+  call void @llvm.assume(i1 %149)
+  call void @llvm.assume(i1 %38)
+  %150 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv123
+  store i16 %146, ptr %150, align 2, !tbaa !109
+  br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
+
+_ZNSt5arrayIiLm2EE4fillERKi.exit.us:              ; preds = %145, %135
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %53
+  br i1 %exitcond.not, label %118, label %_ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us, !llvm.loop !125
+
+._crit_edge.us:                                   ; preds = %118
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
+  br i1 %exitcond131.not, label %._crit_edge104, label %.preheader.us, !llvm.loop !126
+
+._crit_edge104:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   ret void
 
@@ -778,20 +778,20 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit.us:              ; preds = %143, %133
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #11, !noalias !120
   unreachable
 
-.split107.us:                                     ; preds = %67
+.split106.us:                                     ; preds = %67
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #11, !noalias !120
   unreachable
 
-.split109.us:                                     ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit45.i.us
+.split108.us:                                     ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit45.i.us
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #11, !noalias !120
   unreachable
 
-.split111.us:                                     ; preds = %.preheader.i.us
+.split110.us:                                     ; preds = %.preheader.i.us
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #11, !noalias !120
   unreachable
 
-.split113.us:                                     ; preds = %.lr.ph.us
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17KodakDecompressor10decompressEv, i32 noundef %125, i32 noundef %126) #11
+.split112.us:                                     ; preds = %_ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17KodakDecompressor10decompressEv, i32 noundef %127, i32 noundef %128) #11
   unreachable
 }
 

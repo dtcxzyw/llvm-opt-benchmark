@@ -5951,21 +5951,14 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %.noexc, %1598, %_ZS
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %1629
   %1632 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1627) #24
-          to label %.noexc1737 unwind label %1702
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i unwind label %1702
 
-.noexc1737:                                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i1734 = icmp eq ptr %1624, %1623
-  br i1 %.not7.i.i.i.i.i.i1734, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc1737
+_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
   %1633 = add i64 %1625, -16
   %1634 = sub i64 %1633, %1626
   %1635 = and i64 %1634, -16
   %1636 = add i64 %1635, 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1632, ptr align 8 %1624, i64 %1636, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %.noexc1737, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %1632, ptr %1619, align 8
   %1637 = getelementptr inbounds nuw i8, ptr %1632, i64 %1627
   store ptr %1637, ptr %1628, align 8
@@ -7339,21 +7332,14 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i: ; preds = %2271
   %2274 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2270) #24
-          to label %.noexc1807 unwind label %.loopexit4131
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i unwind label %.loopexit4131
 
-.noexc1807:                                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i1803 = icmp eq ptr %.pre7061, %.pre7060
-  br i1 %.not7.i.i.i.i.i.i1803, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i1804
-
-.lr.ph.i.i.i.i.preheader.i.i1804:                 ; preds = %.noexc1807
+_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i
   %2275 = add i64 %2268, -32
   %2276 = sub i64 %2275, %2269
   %2277 = and i64 %2276, -32
   %2278 = add i64 %2277, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2274, ptr align 8 %.pre7061, i64 %2278, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i: ; preds = %.noexc1807, %.lr.ph.i.i.i.i.preheader.i.i1804
   store ptr %2274, ptr %1675, align 8
   %2279 = getelementptr inbounds nuw i8, ptr %2274, i64 %2270
   store ptr %2279, ptr %1676, align 8
@@ -17221,21 +17207,14 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1263: 
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2251: ; preds = %6888
   %6891 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6887) #24
-          to label %.noexc2258 unwind label %.loopexit3982
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2256 unwind label %.loopexit3982
 
-.noexc2258:                                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2251
-  %.not7.i.i.i.i.i.i2252 = icmp eq ptr %.pre7099, %.pre7098
-  br i1 %.not7.i.i.i.i.i.i2252, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2256, label %.lr.ph.i.i.i.i.preheader.i.i2253
-
-.lr.ph.i.i.i.i.preheader.i.i2253:                 ; preds = %.noexc2258
+_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2256: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2251
   %6892 = add i64 %6885, -32
   %6893 = sub i64 %6892, %6886
   %6894 = and i64 %6893, -32
   %6895 = add i64 %6894, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6891, ptr align 8 %.pre7099, i64 %6895, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2256
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2256: ; preds = %.noexc2258, %.lr.ph.i.i.i.i.preheader.i.i2253
   store ptr %6891, ptr %3233, align 8
   %6896 = getelementptr inbounds nuw i8, ptr %6891, i64 %6887
   store ptr %6896, ptr %3234, align 8
@@ -17952,21 +17931,14 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEED2Ev.exit1314: ; pr
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2317: ; preds = %7213
   %7216 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7212) #24
-          to label %.noexc2324 unwind label %.loopexit3994
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2322 unwind label %.loopexit3994
 
-.noexc2324:                                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2317
-  %.not7.i.i.i.i.i.i2318 = icmp eq ptr %7209, %7208
-  br i1 %.not7.i.i.i.i.i.i2318, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2322, label %.lr.ph.i.i.i.i.preheader.i.i2319
-
-.lr.ph.i.i.i.i.preheader.i.i2319:                 ; preds = %.noexc2324
+_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2322: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i2317
   %7217 = add i64 %7210, -32
   %7218 = sub i64 %7217, %7211
   %7219 = and i64 %7218, -32
   %7220 = add i64 %7219, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7216, ptr align 8 %7209, i64 %7220, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2322
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i2322: ; preds = %.noexc2324, %.lr.ph.i.i.i.i.preheader.i.i2319
   store ptr %7216, ptr %3239, align 8
   %7221 = getelementptr inbounds nuw i8, ptr %7216, i64 %7212
   store ptr %7221, ptr %3240, align 8

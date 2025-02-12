@@ -4024,17 +4024,17 @@ _ZN5vcpkg4Util4Sets8containsISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIc
   %131 = load ptr, ptr %102, align 8
   %132 = load ptr, ptr %104, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 -32
-  %.not5254 = icmp eq ptr %131, %133
-  br i1 %.not5254, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp eq ptr %131, %133
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5vcpkg4Util4Sets8containsISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EES9_EEbRKT_RKT0_.exit.thread
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %135
 
 135:                                              ; preds = %.lr.ph, %135
-  %.sroa.038.055 = phi ptr [ %131, %.lr.ph ], [ %139, %135 ]
+  %.sroa.038.053 = phi ptr [ %131, %.lr.ph ], [ %139, %135 ]
   call void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.61)
-  call void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.055)
+  call void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.053)
   call void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   %136 = load ptr, ptr %8, align 8
@@ -4042,13 +4042,13 @@ _ZN5vcpkg4Util4Sets8containsISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIc
   call void @_ZN5vcpkg3msg22write_unlocalized_textENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr %136, i64 %137)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %108)
   %138 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.62)
-  call fastcc void @_ZN12_GLOBAL__N_114print_dep_treeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_RKSt6vectorIN5vcpkg17PackageDependInfoESaISB_EERSt3setIS5_St4lessIS5_ESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.055, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  call fastcc void @_ZN12_GLOBAL__N_114print_dep_treeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_RKSt6vectorIN5vcpkg17PackageDependInfoESaISB_EERSt3setIS5_St4lessIS5_ESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.053, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %108)
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.038.055, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.038.053, i64 32
   %140 = load ptr, ptr %104, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 -32
-  %.not52 = icmp eq ptr %139, %141
-  br i1 %.not52, label %._crit_edge, label %135, !llvm.loop !74
+  %.not = icmp eq ptr %139, %141
+  br i1 %.not, label %._crit_edge, label %135, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %135, %_ZN5vcpkg4Util4Sets8containsISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EES9_EEbRKT_RKT0_.exit.thread
   %.lcssa = phi ptr [ %133, %_ZN5vcpkg4Util4Sets8containsISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EES9_EEbRKT_RKT0_.exit.thread ], [ %141, %135 ]
@@ -9927,7 +9927,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
   %57 = phi i64 [ %51, %46 ], [ %.pre19.i.i.i, %53 ]
   %58 = sub i64 %57, %56
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %58, i64 %49)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %57, %56
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %59
 
 59:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -10003,7 +10003,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i34: ; preds = %88, %81
   %92 = phi i64 [ %86, %81 ], [ %.pre19.i.i.i40, %88 ]
   %93 = sub i64 %92, %91
   %spec.select.i.i.i35 = tail call i64 @llvm.umin.i64(i64 %93, i64 %84)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq i64 %spec.select.i.i.i35, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq i64 %92, %91
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i36, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i38, label %94
 
 94:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i34
@@ -10107,7 +10107,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i52: ; preds = %132, %125
   %136 = phi i64 [ %130, %125 ], [ %.pre19.i.i.i60, %132 ]
   %137 = sub i64 %136, %135
   %spec.select.i.i.i53 = tail call i64 @llvm.umin.i64(i64 %137, i64 %128)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq i64 %spec.select.i.i.i53, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq i64 %136, %135
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i54, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i56, label %138
 
 138:                                              ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i52
@@ -10722,7 +10722,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %187, %180
   %191 = phi i64 [ %185, %180 ], [ %.pre19.i.i, %187 ]
   %192 = sub i64 %191, %190
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %192, i64 %183)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %191, %190
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %193
 
 193:                                              ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -11067,7 +11067,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -11181,7 +11181,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -11295,7 +11295,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i

@@ -3756,13 +3756,9 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %x.0.copyload.i.i.i.i.i.i = load i64, ptr %retval.sroa.0.1.i.i.i, align 1
   %x.0.copyload.i1.i.i.i.i.i = load i64, ptr %__first.sroa.0.0.i.i.i, align 1
   %cmp.i.i.i.i.i = icmp ult i64 %x.0.copyload.i.i.i.i.i.i, %x.0.copyload.i1.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit, label %for.cond.i.i.i, !llvm.loop !48
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %for.cond.i.i.i, !llvm.loop !48
 
-_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit: ; preds = %for.body.i.i.i
-  %cmp.i.i = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i13
-  br i1 %cmp.i.i, label %for.inc, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit
+if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %cmp16.i.i.i.i.i = icmp sgt i64 %14, 0
   br i1 %cmp16.i.i.i.i.i, label %while.body.i.i.i.i.i, label %if.then5.i.i.i
 
@@ -3792,7 +3788,7 @@ if.end18.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.013.i.i.i) #14
   br label %for.inc
 
-for.inc:                                          ; preds = %for.cond.i.i.i, %if.end, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE8get_relsERNS0_7ContextIS2_EE.exit, %if.end18.i.i.i, %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEEZNS3_10ObjectFileIS5_E16sort_relocationsERNS3_7ContextIS5_EEEUlRKS6_SH_E_EbT_SJ_T0_.exit, %for.body, %lor.lhs.false, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4shdrEv.exit
+for.inc:                                          ; preds = %for.cond.i.i.i, %if.end, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE8get_relsERNS0_7ContextIS2_EE.exit, %if.end18.i.i.i, %for.body, %lor.lhs.false, %_ZNK4mold3elf12InputSectionINS0_11LOONGARCH64EE4shdrEv.exit
   %inc = add nuw nsw i64 %i.029, 1
   %15 = load ptr, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %sections, align 8
@@ -18589,7 +18585,7 @@ if.then.i.i.i.i.i26:                              ; preds = %if.then64
   %sub.ptr.sub.i.i.i.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i.i28
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i29, -24
   %add.ptr.i.i.i.i.i30 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %add.ptr.i20, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i30, ptr nonnull align 1 %__p.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i30, ptr nonnull align 1 %__p.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit: ; preds = %if.then64, %if.then.i.i.i.i.i26
@@ -19066,7 +19062,7 @@ return.sink.split.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i17.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i15.i, %sub.ptr.rhs.cast.i.i.i.i.i16.i
   %sub.ptr.div.neg.i.i.i.i.i18.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i17.i, -24
   %add.ptr.i.i.i.i.i19.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %incdec.ptr.i11.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i19.i, ptr align 1 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i19.i, ptr align 1 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
   br label %if.end89
 
 if.else29:                                        ; preds = %if.else
@@ -19185,7 +19181,7 @@ if.then.i.i.i.i.i11.i:                            ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i14.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i97, %sub.ptr.rhs.cast.i.i.i.i.i13.i
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i14.i, -24
   %add.ptr.i.i.i.i.i15.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__second_cut.sroa.0.0, i64 %sub.ptr.div.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i15.i, ptr align 1 %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i14.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i15.i, ptr align 1 %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i14.i, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i11.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEES7_ET0_T_SC_SB_.exit.i
@@ -19234,7 +19230,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEE
 if.then.i.i.i.i.i36.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit.i
   %sub.ptr.div.neg.i.i.i.i.i40.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i24.i, -24
   %add.ptr.i.i.i.i.i41.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__second_cut.sroa.0.0, i64 %sub.ptr.div.neg.i.i.i.i.i40.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i41.i, ptr align 1 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i41.i, ptr align 1 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
   br label %_ZSt13move_backwardIPN4mold3elf6ElfRelINS1_11LOONGARCH64EEEN9__gnu_cxx17__normal_iteratorIS5_St4spanIS4_Lm18446744073709551615EEEEET0_T_SC_SB_.exit.i
 
 _ZSt13move_backwardIPN4mold3elf6ElfRelINS1_11LOONGARCH64EEEN9__gnu_cxx17__normal_iteratorIS5_St4spanIS4_Lm18446744073709551615EEEEET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i36.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf6ElfRelINS3_11LOONGARCH64EEESt4spanIS6_Lm18446744073709551615EEEESA_ET0_T_SC_SB_.exit.i

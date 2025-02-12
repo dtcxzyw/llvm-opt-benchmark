@@ -1510,7 +1510,7 @@ _ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8
   %64 = sub i64 %47, %41
   %.neg.i.i.i.i.i = sdiv exact i64 %64, -24
   %65 = getelementptr inbounds %"class.clang::Token", ptr %40, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr align 8 %39, i64 %64, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr align 8 %39, i64 %64, i1 false)
   br label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %63
@@ -1532,7 +1532,7 @@ _ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15Sm
   %71 = getelementptr inbounds nuw %"class.clang::Token", ptr %38, i64 %70
   %72 = sub nsw i64 0, %42
   %73 = getelementptr inbounds %"class.clang::Token", ptr %71, i64 %72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67

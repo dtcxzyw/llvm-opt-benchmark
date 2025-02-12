@@ -47745,7 +47745,7 @@ _ZSt13move_backwardIPN4llvm2gi10LLTCodeGenES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4
   %86 = getelementptr inbounds nuw %"class.llvm::gi::LLTCodeGen", ptr %46, i64 %85
   %87 = sub nsw i64 0, %50
   %88 = getelementptr inbounds %"class.llvm::gi::LLTCodeGen", ptr %86, i64 %87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 8 %47, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 8 %47, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %82

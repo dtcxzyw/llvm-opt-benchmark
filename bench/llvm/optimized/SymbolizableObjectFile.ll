@@ -3761,7 +3761,7 @@ _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gn
   %61 = sub i64 %59, %60
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %61, -40
   %62 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %5, i64 %61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %5, i64 %61, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_less_iterEEvT_SD_T0_SE_T1_T2_.exit
 
 63:                                               ; preds = %32
@@ -4434,7 +4434,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFi
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -40
   %21 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit, %18
@@ -4483,7 +4483,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFi
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -40
   %35 = getelementptr inbounds %"struct.llvm::symbolize::SymbolizableObjectFile::SymbolDesc", ptr %2, i64 %.neg.i.i.i.i.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %34

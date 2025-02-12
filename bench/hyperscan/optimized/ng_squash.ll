@@ -1737,7 +1737,7 @@ for.body.i.i353:                                  ; preds = %for.body.i.i353, %c
 
 _ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i: ; preds = %for.body.i.i353
   %call5.i.i.i.i2.i6.i.i1328.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i347) #21
-          to label %for.body.preheader.i unwind label %lpad145.body.thread, !noalias !23
+          to label %invoke.cont146 unwind label %lpad145.body.thread, !noalias !23
 
 lpad145.body.thread:                              ; preds = %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i
   %120 = landingpad { ptr, i32 }
@@ -1745,19 +1745,19 @@ lpad145.body.thread:                              ; preds = %_ZN5boost14dynamic_
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i6.i.i.i362) #22, !noalias !23
   br label %if.then.i.i.i.i383
 
-for.body.preheader.i:                             ; preds = %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i
+invoke.cont146:                                   ; preds = %_ZN5boost14dynamic_bitsetImSaImEEaNERKS2_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i1328.i, ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i.i362, i64 %sub.ptr.sub.i.i.i.i347, i1 false), !noalias !23
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i6.i.i.i362) #22, !noalias !23
   br label %for.body.i370
 
-for.body.i370:                                    ; preds = %for.body.i370, %for.body.preheader.i
-  %i.04.i = phi i64 [ 0, %for.body.preheader.i ], [ %inc.i372, %for.body.i370 ]
+for.body.i370:                                    ; preds = %for.body.i370, %invoke.cont146
+  %i.04.i = phi i64 [ 0, %invoke.cont146 ], [ %inc.i372, %for.body.i370 ]
   %add.ptr.i.i371 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i6.i.i1328.i, i64 %i.04.i
   %121 = load i64, ptr %add.ptr.i.i371, align 8
-  %tobool.not.not.i = icmp ne i64 %121, 0
+  %tobool.not.not.i.not = icmp ne i64 %121, 0
   %inc.i372 = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i373 = icmp eq i64 %inc.i372, %umax.i
-  %or.cond1990 = select i1 %tobool.not.not.i, i1 true, i1 %exitcond.not.i373
+  %or.cond1990 = select i1 %tobool.not.not.i.not, i1 true, i1 %exitcond.not.i373
   br i1 %or.cond1990, label %if.then.i.i.i.i375, label %for.body.i370, !llvm.loop !26
 
 if.then.i.i.i.i375:                               ; preds = %for.body.i370
@@ -1765,7 +1765,7 @@ if.then.i.i.i.i375:                               ; preds = %for.body.i370
   br label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit377
 
 _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit377:    ; preds = %invoke.cont144, %if.then.i.i.i.i375
-  %cmp.lcssa.i1504 = phi i1 [ %tobool.not.not.i, %if.then.i.i.i.i375 ], [ false, %invoke.cont144 ]
+  %cmp.lcssa.i1504 = phi i1 [ %tobool.not.not.i.not, %if.then.i.i.i.i375 ], [ false, %invoke.cont144 ]
   %tobool.not.i.i.i.i378 = icmp eq ptr %ref.tmp143.sroa.0.31866, null
   br i1 %tobool.not.i.i.i.i378, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit381, label %if.then.i.i.i.i379
 
@@ -7003,7 +7003,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.body.i.i.i.i.i26.preheader
 
-for.body.i.i.i.i.i26.preheader:                   ; preds = %if.then.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit
+for.body.i.i.i.i.i26.preheader:                   ; preds = %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit, %if.then.i.i.i.i.i
   br label %for.body.i.i.i.i.i26
 
 for.body.i.i.i.i.i26:                             ; preds = %for.body.i.i.i.i.i26.preheader, %for.body.i.i.i.i.i26

@@ -2641,8 +2641,8 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
   %.08.lcssa.i.i.i = phi ptr [ %30, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.thread ], [ %.19.i.i.i14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i12 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !29
-  %.not30 = icmp eq ptr %.08.lcssa.i.i.i, %44
-  br i1 %.not30, label %.critedge, label %45
+  %.not = icmp eq ptr %.08.lcssa.i.i.i, %44
+  br i1 %.not, label %.critedge, label %45
 
 45:                                               ; preds = %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11lower_boundERKS5_.exit
   %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i) #26

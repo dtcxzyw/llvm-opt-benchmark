@@ -9743,8 +9743,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %74
   br i1 %.not.not.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessIvEclIRKN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSE_OSF_.exit.i.i.i
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i, %74
-  %.not214 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i.i, %76
-  br i1 %.not214, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS9_EESt4lessIvESaISt4pairIKS5_SC_EEE4findINS7_9StringRefEEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit.thread, label %82
+  %.not = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i.i, %76
+  br i1 %.not, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS9_EESt4lessIvESaISt4pairIKS5_SC_EEE4findINS7_9StringRefEEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit.thread, label %82
 
 _ZNKSt4lessIvEclIRKN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSE_OSF_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
   %81 = icmp sgt i32 %.fr.i.i.i.i.i.i.i, -1
@@ -10140,8 +10140,8 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: 
   %.sroa.01.0.copyload.i.i.i.i.i.i = phi i64 [ %193, %188 ], [ %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i" ], [ %199, %217 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %224 = load ptr, ptr %19, align 8, !tbaa !260
-  %.not = icmp eq ptr %224, null
-  br i1 %.not, label %225, label %289
+  %.not209 = icmp eq ptr %224, null
+  br i1 %.not209, label %225, label %289
 
 225:                                              ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNS_9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS_9StringRefEE3$_1EEbOT_T0_.exit"
   %226 = icmp ne ptr %200, %.sroa.22.0.copyload.i.i.i.i.i.i
@@ -10171,8 +10171,8 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: 
   %239 = extractvalue { ptr, i64 } %237, 1
   call void @_ZN4llvm3pdb14loadDataForEXEENS0_14PDB_ReaderTypeENS_9StringRefERSt10unique_ptrINS0_11IPDBSessionESt14default_deleteIS4_EE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %21, i32 noundef %not., ptr %238, i64 %239, ptr noundef nonnull align 8 dereferenceable(8) %20) #22
   %240 = load ptr, ptr %21, align 8, !tbaa !260
-  %.not209 = icmp eq ptr %240, null
-  br i1 %.not209, label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EE5resetEPS1_.exit, label %.critedge35
+  %.not210 = icmp eq ptr %240, null
+  br i1 %.not210, label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EE5resetEPS1_.exit, label %.critedge35
 
 .critedge35:                                      ; preds = %233
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #22
@@ -10330,8 +10330,8 @@ _ZNKSt14default_deleteIN4llvm3pdb11IPDBSessionEEclEPS2_.exit.i93: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
-  %.not210 = icmp eq ptr %.sroa.0178.0202, null
-  br i1 %.not210, label %.thread, label %330
+  %.not211 = icmp eq ptr %.sroa.0178.0202, null
+  br i1 %.not211, label %.thread, label %330
 
 .thread:                                          ; preds = %.thread218, %184, %289
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #22

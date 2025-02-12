@@ -25218,7 +25218,7 @@ _ZSt13move_backwardIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit.sink.split.i: ; 
   %79 = sub i64 %77, %78
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %79, -24
   %80 = getelementptr inbounds %"class.(anonymous namespace)::Slice", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %80, ptr align 8 %5, i64 %79, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr align 8 %5, i64 %79, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_15SliceES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
 
 81:                                               ; preds = %45
@@ -25419,7 +25419,7 @@ _ZSt4moveIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit.i104: ; preds = %158, %154
   %161 = sub i64 %156, %160
   %.neg.i.i.i.i.i.i = sdiv exact i64 %161, -24
   %162 = getelementptr inbounds %"class.(anonymous namespace)::Slice", ptr %.0115, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %162, ptr align 8 %.0116, i64 %161, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %.0116, i64 %161, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit.i: ; preds = %159, %_ZSt4moveIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit.i104
@@ -25468,7 +25468,7 @@ _ZSt4moveIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit42.i: ; preds = %172, %_ZSt
 175:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit42.i
   %.neg.i.i.i.i.i44.i = sdiv exact i64 %170, -24
   %176 = getelementptr inbounds %"class.(anonymous namespace)::Slice", ptr %.0115, i64 %.neg.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %176, ptr align 8 %5, i64 %170, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %176, ptr align 8 %5, i64 %170, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit46.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit46.i: ; preds = %175, %_ZSt4moveIPN12_GLOBAL__N_15SliceES2_ET0_T_S4_S3_.exit42.i

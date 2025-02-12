@@ -293023,7 +293023,7 @@ _ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__nor
   %53 = sub i64 %51, %52
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %53, -24
   %54 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %54, ptr align 4 %5, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %54, ptr align 4 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS1_12parseYoloRefERKN2cv3MatERKNSC_5Size_IiEEffiRKS6_IfSaIfEERS6_INSC_5Rect_IiEESaISP_EERS6_IiSaIiEEEUlRKS2_SX_E_EEEvT_S10_T0_S11_T1_T2_.exit
 
 55:                                               ; preds = %28
@@ -293336,7 +293336,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9Detecti
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -24
   %21 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %21, ptr align 4 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, %18
@@ -293385,7 +293385,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9Detecti
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
   %35 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.neg.i.i.i.i.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %35, ptr align 4 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %35, ptr align 4 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %34

@@ -34152,7 +34152,7 @@ define dso_local noundef ptr @_ZN5clang4Sema12getCurLambdaEb(ptr noundef nonnull
   %7 = load ptr, ptr %6, align 8, !tbaa !1322, !noalias !2425
   %8 = zext i32 %4 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
-  br i1 %1, label %.preheader, label %19
+  br i1 %1, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %5, %10
   %.sroa.015.1 = phi ptr [ %11, %10 ], [ %9, %5 ]
@@ -34171,52 +34171,48 @@ define dso_local noundef ptr @_ZN5clang4Sema12getCurLambdaEb(ptr noundef nonnull
   %or.cond = or i1 %17, %switch.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !2428
 
-.critedge:                                        ; preds = %10
-  %18 = icmp eq ptr %.sroa.015.1, %7
-  br i1 %18, label %.critedge.thread, label %19
-
-19:                                               ; preds = %.critedge, %5
-  %.sroa.015.0 = phi ptr [ %.sroa.015.1, %.critedge ], [ %9, %5 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.015.0, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !1636
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 7
-  %25 = icmp eq i32 %24, 2
-  %spec.select.i.i = select i1 %25, ptr %21, ptr null
+.critedge:                                        ; preds = %10, %5
+  %.sroa.015.0 = phi ptr [ %9, %5 ], [ %.sroa.015.1, %10 ]
+  %18 = getelementptr inbounds i8, ptr %.sroa.015.0, i64 -8
+  %19 = load ptr, ptr %18, align 8, !tbaa !1636
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 7
+  %23 = icmp eq i32 %22, 2
+  %spec.select.i.i = select i1 %23, ptr %19, ptr null
   %.not = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not, label %41, label %26
+  br i1 %.not, label %39, label %24
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1584
-  %28 = load ptr, ptr %27, align 8, !tbaa !2423
-  %.not12 = icmp eq ptr %28, null
-  br i1 %.not12, label %41, label %29
+24:                                               ; preds = %.critedge
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1584
+  %26 = load ptr, ptr %25, align 8, !tbaa !2423
+  %.not12 = icmp eq ptr %26, null
+  br i1 %.not12, label %39, label %27
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1592
-  %31 = load ptr, ptr %30, align 8, !tbaa !2424
-  %.not13 = icmp eq ptr %31, null
-  br i1 %.not13, label %41, label %32
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1592
+  %29 = load ptr, ptr %28, align 8, !tbaa !2424
+  %.not13 = icmp eq ptr %29, null
+  br i1 %.not13, label %39, label %30
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %35 = load ptr, ptr %34, align 8, !tbaa !1807
-  %36 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext8EnclosesEPKS0_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %35) #28
-  br i1 %36, label %41, label %37
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %33 = load ptr, ptr %32, align 8, !tbaa !1807
+  %34 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext8EnclosesEPKS0_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %33) #28
+  br i1 %34, label %39, label %35
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1600
-  %39 = load i8, ptr %38, align 8, !tbaa !2404, !range !873, !noundef !874
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %.critedge.thread, label %41
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1600
+  %37 = load i8, ptr %36, align 8, !tbaa !2404, !range !873, !noundef !874
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %.critedge.thread, label %39
 
-41:                                               ; preds = %37, %32, %29, %26, %19
+39:                                               ; preds = %35, %30, %27, %24, %.critedge
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.preheader, %.critedge, %37, %41, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.critedge ], [ %spec.select.i.i, %41 ], [ null, %37 ], [ null, %.preheader ]
+.critedge.thread:                                 ; preds = %.preheader, %35, %39, %2
+  %.0 = phi ptr [ null, %2 ], [ %spec.select.i.i, %39 ], [ null, %35 ], [ null, %.preheader ]
   ret ptr %.0
 }
 

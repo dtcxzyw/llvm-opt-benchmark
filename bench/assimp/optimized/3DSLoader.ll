@@ -12120,7 +12120,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, -12
   %add.ptr.i.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %1, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont
@@ -14198,7 +14198,7 @@ return.sink.split.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i17.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i15.i, %sub.ptr.rhs.cast.i.i.i.i.i16.i
   %sub.ptr.div.neg.i.i.i.i.i18.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i17.i, -24
   %add.ptr.i.i.i.i.i19.i = getelementptr inbounds %struct.aiVectorKey, ptr %incdec.ptr.i11.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i19.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i19.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
   br label %if.end89
 
 if.else29:                                        ; preds = %if.else
@@ -14492,7 +14492,7 @@ if.then.i.i.i.i.i11:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i14 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i13
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i14, -24
   %add.ptr.i.i.i.i.i15 = getelementptr inbounds %struct.aiVectorKey, ptr %__last.coerce, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i15, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i14, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i15, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i14, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES3_ET0_T_S9_S8_.exit, %if.then.i.i.i.i.i11
@@ -14541,7 +14541,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7
 if.then.i.i.i.i.i36:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
   %sub.ptr.div.neg.i.i.i.i.i40 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i24, -24
   %add.ptr.i.i.i.i.i41 = getelementptr inbounds %struct.aiVectorKey, ptr %__last.coerce, i64 %sub.ptr.div.neg.i.i.i.i.i40
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i41, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i41, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
   br label %_ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIP11aiVectorKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %if.then.i.i.i.i.i36
@@ -16741,7 +16741,7 @@ return.sink.split.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i17.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i15.i, %sub.ptr.rhs.cast.i.i.i.i.i16.i
   %sub.ptr.div.neg.i.i.i.i.i18.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i17.i, -24
   %add.ptr.i.i.i.i.i19.i = getelementptr inbounds %struct.aiQuatKey, ptr %incdec.ptr.i11.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i19.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i19.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i17.i, i1 false)
   br label %if.end89
 
 if.else29:                                        ; preds = %if.else
@@ -17035,7 +17035,7 @@ if.then.i.i.i.i.i11:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i.i.i.i14 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i13
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i14, -24
   %add.ptr.i.i.i.i.i15 = getelementptr inbounds %struct.aiQuatKey, ptr %__last.coerce, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i15, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i14, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i15, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i14, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES3_ET0_T_S9_S8_.exit, %if.then.i.i.i.i.i11
@@ -17084,7 +17084,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET
 if.then.i.i.i.i.i36:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
   %sub.ptr.div.neg.i.i.i.i.i40 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i24, -24
   %add.ptr.i.i.i.i.i41 = getelementptr inbounds %struct.aiQuatKey, ptr %__last.coerce, i64 %sub.ptr.div.neg.i.i.i.i.i40
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i41, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i41, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24, i1 false)
   br label %_ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIP9aiQuatKeyN9__gnu_cxx17__normal_iteratorIS1_St6vectorIS0_SaIS0_EEEEET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %if.then.i.i.i.i.i36

@@ -14868,60 +14868,60 @@ define linkonce_odr void @_ZNSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not46 = icmp ult i64 %16, %8
-  br i1 %.not46, label %42, label %17
+  br i1 %.not46, label %44, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = sdiv exact i64 %19, 3
   %21 = icmp ugt i64 %20, %9
-  br i1 %21, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit
+  br i1 %21, label %22, label %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
-  %22 = sub nsw i64 0, %9
-  %23 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %22
+22:                                               ; preds = %17
+  %23 = sub nsw i64 0, %9
+  %24 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.09.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.04.08.i.i.i.i.i, i64 3, i1 false), !tbaa.struct !269
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 3
-  %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 3
-  %.not.i.i.i.i.i = icmp eq ptr %24, %13
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 3
+  %.not.i.i.i.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !270
 
 _ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre92 = load ptr, ptr %12, align 8, !tbaa !268
-  %26 = getelementptr inbounds nuw i8, ptr %.pre92, i64 %8
-  store ptr %26, ptr %12, align 8, !tbaa !268
-  %.not.i.i.i.i.i47 = icmp eq ptr %23, %1
-  br i1 %.not.i.i.i.i.i47, label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, label %27
+  %27 = load ptr, ptr %12, align 8, !tbaa !268
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %8
+  store ptr %28, ptr %12, align 8, !tbaa !268
+  %.not.i.i.i.i.i47 = icmp eq ptr %24, %1
+  br i1 %.not.i.i.i.i.i47, label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, label %29
 
-27:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %28, %18
-  %.neg.i.i.i.i.i = sdiv exact i64 %29, -3
-  %30 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %1, i64 %29, i1 false)
+29:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+  %30 = ptrtoint ptr %24 to i64
+  %31 = sub i64 %30, %18
+  %.neg.i.i.i.i.i = sdiv exact i64 %31, -3
+  %32 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %1, i64 %31, i1 false)
   br label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
 
-_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %27
+_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %2, i64 %8, i1 false)
   br label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57
 
 _ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit: ; preds = %17
-  %31 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not9.i.i.i.i = icmp eq ptr %31, %3
+  %33 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not9.i.i.i.i = icmp eq ptr %33, %3
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %31, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
+  %.011.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %33, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.011.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.0810.i.i.i.i, i64 3, i1 false), !tbaa.struct !269
-  %32 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 3
-  %33 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 3
-  %.not.i.i.i.i = icmp eq ptr %32, %3
+  %34 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 3
+  %.not.i.i.i.i = icmp eq ptr %34, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !271
 
 _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
@@ -14929,20 +14929,20 @@ _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S
   br label %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit
-  %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
-  %35 = sub nuw nsw i64 %9, %20
-  %36 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %34, i64 %35
-  store ptr %36, ptr %12, align 8, !tbaa !268
+  %36 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
+  %37 = sub nuw nsw i64 %9, %20
+  %38 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %36, i64 %37
+  store ptr %38, ptr %12, align 8, !tbaa !268
   %.not7.i.i.i.i.i49 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, label %.lr.ph.i.i.i.i.i50
 
 .lr.ph.i.i.i.i.i50:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i50
-  %.09.i.i.i.i.i51 = phi ptr [ %38, %.lr.ph.i.i.i.i.i50 ], [ %36, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
-  %.sroa.04.08.i.i.i.i.i52 = phi ptr [ %37, %.lr.ph.i.i.i.i.i50 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %.09.i.i.i.i.i51 = phi ptr [ %40, %.lr.ph.i.i.i.i.i50 ], [ %38, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %.sroa.04.08.i.i.i.i.i52 = phi ptr [ %39, %.lr.ph.i.i.i.i.i50 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.09.i.i.i.i.i51, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.04.08.i.i.i.i.i52, i64 3, i1 false), !tbaa.struct !269
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i52, i64 3
-  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i51, i64 3
-  %.not.i.i.i.i.i53 = icmp eq ptr %37, %13
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i52, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i51, i64 3
+  %.not.i.i.i.i.i53 = icmp eq ptr %39, %13
   br i1 %.not.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55.loopexit, label %.lr.ph.i.i.i.i.i50, !llvm.loop !270
 
 _ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55.loopexit: ; preds = %.lr.ph.i.i.i.i.i50
@@ -14950,68 +14950,68 @@ _ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T
   br label %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55
 
 _ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55: ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55.loopexit, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit
-  %39 = phi ptr [ %.pre91, %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55.loopexit ], [ %36, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %19
-  store ptr %40, ptr %12, align 8, !tbaa !268
+  %41 = phi ptr [ %.pre91, %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55.loopexit ], [ %38, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %19
+  store ptr %42, ptr %12, align 8, !tbaa !268
   %.not.i.i.i.i.i56 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i56, label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57, label %41
+  br i1 %.not.i.i.i.i.i56, label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57, label %43
 
-41:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55
+43:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %2, i64 %19, i1 false)
   br label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57
 
-42:                                               ; preds = %5
-  %43 = load ptr, ptr %0, align 8, !tbaa !176
-  %44 = ptrtoint ptr %43 to i64
-  %45 = sub i64 %15, %44
-  %46 = sdiv exact i64 %45, 3
-  %47 = sub nsw i64 3074457345618258602, %46
-  %48 = icmp ult i64 %47, %9
-  br i1 %48, label %49, label %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %0, align 8, !tbaa !176
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %15, %46
+  %48 = sdiv exact i64 %47, 3
+  %49 = sub nsw i64 3074457345618258602, %48
+  %50 = icmp ult i64 %49, %9
+  br i1 %50, label %51, label %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit
 
-49:                                               ; preds = %42
+51:                                               ; preds = %44
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.816) #23
   unreachable
 
-_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %42
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %9)
-  %50 = add nsw i64 %.sroa.speculated.i, %46
-  %51 = icmp ult i64 %50, %46
-  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 3074457345618258602)
-  %53 = select i1 %51, i64 3074457345618258602, i64 %52
-  %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit, label %54
+_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %44
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %48, i64 %9)
+  %52 = add nsw i64 %.sroa.speculated.i, %48
+  %53 = icmp ult i64 %52, %48
+  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 3074457345618258602)
+  %55 = select i1 %53, i64 3074457345618258602, i64 %54
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit, label %56
 
-54:                                               ; preds = %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit
-  %55 = mul nuw nsw i64 %53, 3
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #26
+56:                                               ; preds = %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit
+  %57 = mul nuw nsw i64 %55, 3
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #26
   br label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit, %54
-  %57 = phi ptr [ %56, %54 ], [ null, %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %.not7.i.i.i.i.i58 = icmp eq ptr %43, %1
+_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit, %56
+  %59 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.not7.i.i.i.i.i58 = icmp eq ptr %45, %1
   br i1 %.not7.i.i.i.i.i58, label %.lr.ph.i.i.i.i65.preheader, label %.lr.ph.i.i.i.i.i59
 
 .lr.ph.i.i.i.i.i59:                               ; preds = %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i59
-  %.09.i.i.i.i.i60 = phi ptr [ %59, %.lr.ph.i.i.i.i.i59 ], [ %57, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ]
-  %.sroa.04.08.i.i.i.i.i61 = phi ptr [ %58, %.lr.ph.i.i.i.i.i59 ], [ %43, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ]
+  %.09.i.i.i.i.i60 = phi ptr [ %61, %.lr.ph.i.i.i.i.i59 ], [ %59, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ]
+  %.sroa.04.08.i.i.i.i.i61 = phi ptr [ %60, %.lr.ph.i.i.i.i.i59 ], [ %45, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.09.i.i.i.i.i60, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.04.08.i.i.i.i.i61, i64 3, i1 false), !tbaa.struct !269
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i61, i64 3
-  %59 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i60, i64 3
-  %.not.i.i.i.i.i62 = icmp eq ptr %58, %1
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i61, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i60, i64 3
+  %.not.i.i.i.i.i62 = icmp eq ptr %60, %1
   br i1 %.not.i.i.i.i.i62, label %.lr.ph.i.i.i.i65.preheader, label %.lr.ph.i.i.i.i.i59, !llvm.loop !270
 
 .lr.ph.i.i.i.i65.preheader:                       ; preds = %.lr.ph.i.i.i.i.i59, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit
-  %.011.i.i.i.i66.ph = phi ptr [ %57, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ], [ %59, %.lr.ph.i.i.i.i.i59 ]
+  %.011.i.i.i.i66.ph = phi ptr [ %59, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.exit ], [ %61, %.lr.ph.i.i.i.i.i59 ]
   br label %.lr.ph.i.i.i.i65
 
 .lr.ph.i.i.i.i65:                                 ; preds = %.lr.ph.i.i.i.i65.preheader, %.lr.ph.i.i.i.i65
-  %.011.i.i.i.i66 = phi ptr [ %61, %.lr.ph.i.i.i.i65 ], [ %.011.i.i.i.i66.ph, %.lr.ph.i.i.i.i65.preheader ]
-  %.0810.i.i.i.i67 = phi ptr [ %60, %.lr.ph.i.i.i.i65 ], [ %2, %.lr.ph.i.i.i.i65.preheader ]
+  %.011.i.i.i.i66 = phi ptr [ %63, %.lr.ph.i.i.i.i65 ], [ %.011.i.i.i.i66.ph, %.lr.ph.i.i.i.i65.preheader ]
+  %.0810.i.i.i.i67 = phi ptr [ %62, %.lr.ph.i.i.i.i65 ], [ %2, %.lr.ph.i.i.i.i65.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.011.i.i.i.i66, ptr noundef nonnull align 1 dereferenceable(3) %.0810.i.i.i.i67, i64 3, i1 false), !tbaa.struct !269
-  %60 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i67, i64 3
-  %61 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i66, i64 3
-  %.not.i.i.i.i68 = icmp eq ptr %60, %3
+  %62 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i67, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i66, i64 3
+  %.not.i.i.i.i68 = icmp eq ptr %62, %3
   br i1 %.not.i.i.i.i68, label %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70, label %.lr.ph.i.i.i.i65, !llvm.loop !271
 
 _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70: ; preds = %.lr.ph.i.i.i.i65
@@ -15019,34 +15019,34 @@ _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S
   br i1 %.not7.i.i.i.i.i71, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77, label %.lr.ph.i.i.i.i.i72
 
 .lr.ph.i.i.i.i.i72:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70, %.lr.ph.i.i.i.i.i72
-  %.09.i.i.i.i.i73 = phi ptr [ %63, %.lr.ph.i.i.i.i.i72 ], [ %61, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ]
-  %.sroa.04.08.i.i.i.i.i74 = phi ptr [ %62, %.lr.ph.i.i.i.i.i72 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ]
+  %.09.i.i.i.i.i73 = phi ptr [ %65, %.lr.ph.i.i.i.i.i72 ], [ %63, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ]
+  %.sroa.04.08.i.i.i.i.i74 = phi ptr [ %64, %.lr.ph.i.i.i.i.i72 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.09.i.i.i.i.i73, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.04.08.i.i.i.i.i74, i64 3, i1 false), !tbaa.struct !269
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i74, i64 3
-  %63 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i73, i64 3
-  %.not.i.i.i.i.i75 = icmp eq ptr %62, %13
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i74, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i73, i64 3
+  %.not.i.i.i.i.i75 = icmp eq ptr %64, %13
   br i1 %.not.i.i.i.i.i75, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77, label %.lr.ph.i.i.i.i.i72, !llvm.loop !270
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77: ; preds = %.lr.ph.i.i.i.i.i72, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70
-  %.0.lcssa.i.i.i.i.i76 = phi ptr [ %61, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ], [ %63, %.lr.ph.i.i.i.i.i72 ]
-  %.not.i78 = icmp eq ptr %43, null
-  br i1 %.not.i78, label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit, label %64
+  %.0.lcssa.i.i.i.i.i76 = phi ptr [ %63, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70 ], [ %65, %.lr.ph.i.i.i.i.i72 ]
+  %.not.i78 = icmp eq ptr %45, null
+  br i1 %.not.i78, label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit, label %66
 
-64:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77
-  %65 = load ptr, ptr %10, align 8, !tbaa !267
-  %66 = ptrtoint ptr %65 to i64
-  %67 = sub i64 %66, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %67) #22
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77
+  %67 = load ptr, ptr %10, align 8, !tbaa !267
+  %68 = ptrtoint ptr %67 to i64
+  %69 = sub i64 %68, %46
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %69) #22
   br label %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77, %64
-  store ptr %57, ptr %0, align 8, !tbaa !176
+_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit77, %66
+  store ptr %59, ptr %0, align 8, !tbaa !176
   store ptr %.0.lcssa.i.i.i.i.i76, ptr %12, align 8, !tbaa !268
-  %68 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %57, i64 %53
-  store ptr %68, ptr %10, align 8, !tbaa !267
+  %70 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %59, i64 %55
+  store ptr %70, ptr %10, align 8, !tbaa !267
   br label %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57
 
-_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57: ; preds = %41, %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, %4
+_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit57: ; preds = %43, %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, %_ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt4copyIPKN5clang5RISCV19PrototypeDescriptorEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, %4
   ret void
 }
 

@@ -7061,24 +7061,15 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i6.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %2 = icmp eq ptr %pCurrent.0.i.i, %p
-  tail call void @llvm.assume(i1 %2)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i5.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i6.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i5.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %3 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %3, 0
+  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %2, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7086,12 +7077,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %4 = trunc nuw i64 %sub.ptr.div.i6.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %4
+  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
   ret void
 }
 
@@ -7281,24 +7272,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7306,12 +7288,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -7350,24 +7332,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7375,12 +7348,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -7419,24 +7392,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7444,12 +7408,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -7476,24 +7440,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %1 = icmp eq ptr %pEnd, %pBegin
-  tail call void @llvm.assume(i1 %1)
-  %add.ptr.i26.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
-  store i16 poison, ptr %add.ptr.i26.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i = or i64 %cond.i.i.i, -9223372036854775808
-  store i64 %or.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %pBegin, i64 %sub.ptr.sub.i, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr.i38.i, align 2
-  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i = icmp slt i8 %2, 0
+  %1 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i = icmp slt i8 %1, 0
   br i1 %tobool.i.i40.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -7501,12 +7456,12 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %3 = trunc nuw i64 %sub.ptr.div.i to i8
-  %conv.i.i41.i = sub nsw i8 11, %3
+  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %if.then5.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %entry
   ret void
 }
 
@@ -7648,24 +7603,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7673,12 +7619,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -7717,24 +7663,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -7742,12 +7679,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -8675,24 +8612,15 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i6.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %2 = icmp eq ptr %pCurrent.0.i.i, %p
-  tail call void @llvm.assume(i1 %2)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i5.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i6.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i5.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %3 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %3, 0
+  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %2, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -8700,12 +8628,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %4 = trunc nuw i64 %sub.ptr.div.i6.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %4
+  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
   ret void
 }
 
@@ -8895,24 +8823,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -8920,12 +8839,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -8964,24 +8883,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -8989,12 +8899,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -9033,24 +8943,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -9058,12 +8959,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -9090,24 +8991,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %1 = icmp eq ptr %pEnd, %pBegin
-  tail call void @llvm.assume(i1 %1)
-  %add.ptr.i26.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
-  store i32 poison, ptr %add.ptr.i26.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i = or i64 %cond.i.i.i, -9223372036854775808
-  store i64 %or.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %pBegin, i64 %sub.ptr.sub.i, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr.i38.i, align 4
-  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i = icmp slt i8 %2, 0
+  %1 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i = icmp slt i8 %1, 0
   br i1 %tobool.i.i40.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -9115,12 +9007,12 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %3 = trunc nuw i64 %sub.ptr.div.i to i8
-  %conv.i.i41.i = sub nsw i8 5, %3
+  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %if.then5.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %entry
   ret void
 }
 
@@ -9262,24 +9154,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -9287,12 +9170,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -9331,24 +9214,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -9356,12 +9230,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -16031,24 +15905,15 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i6.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %2 = icmp eq ptr %pCurrent.0.i.i, %p
-  tail call void @llvm.assume(i1 %2)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i5.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i6.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i5.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %3 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %3, 0
+  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %2, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16056,12 +15921,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %4 = trunc nuw i64 %sub.ptr.div.i6.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %4
+  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
   ret void
 }
 
@@ -16251,24 +16116,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16276,12 +16132,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -16320,24 +16176,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16345,12 +16192,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -16389,24 +16236,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16414,12 +16252,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -16446,24 +16284,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %1 = icmp eq ptr %pEnd, %pBegin
-  tail call void @llvm.assume(i1 %1)
-  %add.ptr.i26.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
-  store i16 poison, ptr %add.ptr.i26.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i = or i64 %cond.i.i.i, -9223372036854775808
-  store i64 %or.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %pBegin, i64 %sub.ptr.sub.i, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr.i38.i, align 2
-  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i = icmp slt i8 %2, 0
+  %1 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i = icmp slt i8 %1, 0
   br i1 %tobool.i.i40.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -16471,12 +16300,12 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %3 = trunc nuw i64 %sub.ptr.div.i to i8
-  %conv.i.i41.i = sub nsw i8 11, %3
+  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %if.then5.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %entry
   ret void
 }
 
@@ -16618,24 +16447,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16643,12 +16463,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -16687,24 +16507,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i16 poison, ptr %add.ptr.i26.i.i, align 2
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 2 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i16 0, ptr %add.ptr.i38.i.i, align 2
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -16712,12 +16523,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 11, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -17645,24 +17456,15 @@ if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrl
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i6.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %2 = icmp eq ptr %pCurrent.0.i.i, %p
-  tail call void @llvm.assume(i1 %2)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i5.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i6.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i5.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %3 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %3, 0
+  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %2, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -17670,12 +17472,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %4 = trunc nuw i64 %sub.ptr.div.i6.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %4
+  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
   ret void
 }
 
@@ -17865,24 +17667,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -17890,12 +17683,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -17934,24 +17727,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont9
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -17959,12 +17743,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont9:                                     ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -18003,24 +17787,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -18028,12 +17803,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -18060,24 +17835,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %1 = icmp eq ptr %pEnd, %pBegin
-  tail call void @llvm.assume(i1 %1)
-  %add.ptr.i26.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i
-  store i32 poison, ptr %add.ptr.i26.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i = or i64 %cond.i.i.i, -9223372036854775808
-  store i64 %or.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %pBegin, i64 %sub.ptr.sub.i, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr.i38.i, align 4
-  %2 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i = icmp slt i8 %2, 0
+  %1 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i = icmp slt i8 %1, 0
   br i1 %tobool.i.i40.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -18085,12 +17851,12 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %3 = trunc nuw i64 %sub.ptr.div.i to i8
-  %conv.i.i41.i = sub nsw i8 5, %3
+  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %if.then5.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i, %entry
   ret void
 }
 
@@ -18232,24 +17998,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -18257,12 +18014,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -18301,24 +18058,15 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %cond.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 254)
   store volatile i32 -559038242, ptr null, align 4294967296
-  %4 = icmp eq ptr %cond.i.i, %spec.select.i.i
-  tail call void @llvm.assume(i1 %4)
-  %add.ptr.i26.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  store i32 poison, ptr %add.ptr.i26.i.i, align 4
-  store ptr null, ptr %this, align 8
-  %or.i.i.i = or i64 %cond.i.i.i.i, -9223372036854775808
-  store i64 %or.i.i.i, ptr %mnCapacity.i, align 8
-  store i64 %sub.ptr.div.i.i, ptr %mnSize.i, align 8
-  br label %invoke.cont
+  unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 4 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i.i
   store i32 0, ptr %add.ptr.i38.i.i, align 4
-  %5 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
-  %tobool.i.i40.i.i = icmp slt i8 %5, 0
+  %4 = load i8, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
+  %tobool.i.i40.i.i = icmp slt i8 %4, 0
   br i1 %tobool.i.i40.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.else.i.i
@@ -18326,12 +18074,12 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %6 = trunc nuw i64 %sub.ptr.div.i.i to i8
-  %conv.i.i41.i.i = sub nsw i8 5, %6
+  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %if.then5.i.i, %entry
+invoke.cont:                                      ; preds = %cond.false.i.i.i, %cond.true.i.i.i, %entry
   ret void
 }
 
@@ -33535,7 +33283,7 @@ if.end87:                                         ; preds = %if.else83, %if.then
   %cond.i205 = select i1 %tobool.i.i199, ptr %add.ptr.i.i201, ptr %add.ptr.i1.i204
   %sub.ptr.lhs.cast.i206 = ptrtoint ptr %cond.i205 to i64
   %sub.ptr.sub.i208 = sub i64 %sub.ptr.lhs.cast.i206, %sub.ptr.lhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
   %add.ptr.i209 = getelementptr inbounds i8, ptr %add.ptr.i197, i64 %sub.ptr.sub.i208
   store i8 0, ptr %add.ptr.i209, align 1
   %37 = load i8, ptr %mRemainingSizeField.i.i, align 1
@@ -35184,7 +34932,7 @@ if.end87:                                         ; preds = %if.else83, %if.then
   %cond.i209 = select i1 %tobool.i.i203, ptr %add.ptr.i.i205, ptr %add.ptr.i1.i208
   %sub.ptr.lhs.cast.i210 = ptrtoint ptr %cond.i209 to i64
   %sub.ptr.sub.i212 = sub i64 %sub.ptr.lhs.cast.i210, %sub.ptr.lhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i201, ptr align 1 %p, i64 %sub.ptr.sub.i212, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i201, ptr align 1 %p, i64 %sub.ptr.sub.i212, i1 false)
   %add.ptr.i213 = getelementptr inbounds i8, ptr %add.ptr.i201, i64 %sub.ptr.sub.i212
   store i8 0, ptr %add.ptr.i213, align 1
   %40 = load i8, ptr %mRemainingSizeField.i.i, align 1

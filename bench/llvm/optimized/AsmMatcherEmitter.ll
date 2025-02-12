@@ -33168,7 +33168,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113MatchableInfo10AsmOperandELb1
   %2812 = sub i64 %2810, %2811
   %.neg.i.i.i.i.i.i.i.i = sdiv exact i64 %2812, -72
   %2813 = getelementptr inbounds %"struct.(anonymous namespace)::MatchableInfo::AsmOperand", ptr %2807, i64 %.neg.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2813, ptr nonnull align 8 %2802, i64 %2812, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2813, ptr nonnull align 8 %2802, i64 %2812, i1 false)
   %.pre.i.i.i273 = load i32, ptr %2762, align 8, !tbaa !26
   %.val16.pre.i.i.i = load ptr, ptr %2686, align 8, !tbaa !25
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_113MatchableInfo10AsmOperandES3_ET0_T_S5_S4_.exit.i.i.i

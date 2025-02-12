@@ -1417,7 +1417,7 @@ _ZN15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispat
   %.0.lcssa.i = phi i64 [ 0, %18 ], [ %63, %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEclEPKhb.exit.i ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.lcssa.i, ptr %65, align 8
-  tail call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %24) #11
+  tail call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %24) #11
   br label %66
 
 66:                                               ; preds = %13, %_ZN15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEE8dispatchEbPKhm.exit

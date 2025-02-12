@@ -139019,7 +139019,7 @@ _ZSt13move_backwardIPSt4pairIPN5clang13CXXRecordDeclENS1_14SourceLocationEES6_ET
   %88 = getelementptr inbounds nuw %"struct.std::pair.2325", ptr %38, i64 %87
   %89 = sub nsw i64 0, %42
   %90 = getelementptr inbounds %"struct.std::pair.2325", ptr %88, i64 %89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
@@ -173997,7 +173997,7 @@ _ZSt13move_backwardIPPN5clang16CXXBaseSpecifierES3_ET0_T_S5_S4_.exit: ; preds = 
   %84 = getelementptr inbounds nuw ptr, ptr %44, i64 %83
   %85 = sub nsw i64 0, %48
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -189330,7 +189330,7 @@ _ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llv
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

@@ -3575,13 +3575,13 @@ _ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i: ; preds = %1229,
   %1315 = load i32, ptr %125, align 8, !tbaa !26
   %1316 = zext i32 %1315 to i64
   %1317 = getelementptr inbounds nuw %"class.llvm::Register", ptr %1314, i64 %1316
-  %.not28.i.i = icmp eq i32 %1315, 0
-  br i1 %.not28.i.i, label %_ZN12_GLOBAL__N_115StatepointState13insertReloadsEPN4llvm12MachineInstrERNS_14RegReloadCacheE.exit.i, label %.lr.ph.i51.i
+  %.not29.i.i = icmp eq i32 %1315, 0
+  br i1 %.not29.i.i, label %_ZN12_GLOBAL__N_115StatepointState13insertReloadsEPN4llvm12MachineInstrERNS_14RegReloadCacheE.exit.i, label %.lr.ph.i51.i
 
 .lr.ph.i51.i:                                     ; preds = %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i, %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i
-  %.029.i.i = phi ptr [ %1400, %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i ], [ %1314, %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i ]
+  %.030.i.i = phi ptr [ %1400, %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i ], [ %1314, %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
-  %1318 = load i32, ptr %.029.i.i, align 4, !tbaa !248
+  %1318 = load i32, ptr %.030.i.i, align 4, !tbaa !248
   store i32 %1318, ptr %6, align 4, !tbaa !248
   call fastcc void @_ZN12_GLOBAL__N_115StatepointState18insertReloadBeforeEjN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEPNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(240) %30, i32 noundef %1318, ptr %1313, ptr noundef %1312)
   %1319 = load ptr, ptr %128, align 8, !tbaa !292
@@ -3654,10 +3654,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_8SmallSetISt4pai
   %1357 = load i32, ptr %1356, align 8, !tbaa !26
   %1358 = zext i32 %1357 to i64
   %1359 = getelementptr inbounds nuw %"struct.std::pair.265", ptr %1355, i64 %1358
-  %.not13.i.i.i.i.i68.i = icmp eq i32 %1357, 0
-  br i1 %.not13.i.i.i.i.i68.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i69.i
+  %.not13.i.i.i.i.i67.i = icmp eq i32 %1357, 0
+  br i1 %.not13.i.i.i.i.i67.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i68.i
 
-.lr.ph.i.i.i.i.i69.i:                             ; preds = %1353, %1366
+.lr.ph.i.i.i.i.i68.i:                             ; preds = %1353, %1366
   %.0914.i.i.i.i.i.i = phi ptr [ %1367, %1366 ], [ %1355, %1353 ]
   %1360 = load i32, ptr %.0914.i.i.i.i.i.i, align 4, !tbaa !379
   %1361 = icmp eq i32 %1360, %.sroa.05.0.copyload.i.i
@@ -3667,14 +3667,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_8SmallSetISt4pai
   %1365 = select i1 %1361, i1 %1364, i1 false
   br i1 %1365, label %_ZNK4llvm8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS3_EE5vfindERKS3_.exit.i.i.i.i.i, label %1366
 
-1366:                                             ; preds = %.lr.ph.i.i.i.i.i69.i
+1366:                                             ; preds = %.lr.ph.i.i.i.i.i68.i
   %1367 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i70.i = icmp eq ptr %1367, %1359
-  br i1 %.not.i.i.i.i.i70.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i69.i, !llvm.loop !469
+  %.not.i.i.i.i.i69.i = icmp eq ptr %1367, %1359
+  br i1 %.not.i.i.i.i.i69.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i68.i, !llvm.loop !469
 
-_ZNK4llvm8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS3_EE5vfindERKS3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i69.i
-  %.not25.i.i = icmp eq ptr %.0914.i.i.i.i.i.i, %1359
-  br i1 %.not25.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i
+_ZNK4llvm8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS3_EE5vfindERKS3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i68.i
+  %.not26.i70.i = icmp eq ptr %.0914.i.i.i.i.i.i, %1359
+  br i1 %.not26.i70.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i
 
 1368:                                             ; preds = %1349
   %1369 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i58.i, i64 104
@@ -3729,18 +3729,18 @@ _ZNKSt8_Rb_treeISt4pairIN4llvm8RegisterEiES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_
 _ZNKSt4lessISt4pairIN4llvm8RegisterEiEEclERKS3_S6_.exit.i.i.i.i.i.i.i: ; preds = %1386
   %1388 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i61.i, i64 36
   %1389 = load i32, ptr %1388, align 4, !tbaa !389
-  %.not32.i64.i = icmp slt i32 %1322, %1389
-  br i1 %.not32.i64.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i
+  %.not25.i.i = icmp slt i32 %1322, %1389
+  br i1 %.not25.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i
 
 _ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i: ; preds = %1366, %_ZNKSt4lessISt4pairIN4llvm8RegisterEiEEclERKS3_S6_.exit.i.i.i.i.i.i.i, %1382, %_ZNKSt8_Rb_treeISt4pairIN4llvm8RegisterEiES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i.i.i.i, %1368, %_ZNK4llvm8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS3_EE5vfindERKS3_.exit.i.i.i.i.i, %1353, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS8_EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SD_SG_E4findES4_.exit.i.i.i
-  %.sroa.04.0.copyload.i67.i = load i32, ptr %6, align 4, !tbaa !248
+  %.sroa.04.0.copyload.i66.i = load i32, ptr %6, align 4, !tbaa !248
   %1390 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %1391 = load i32, ptr %1390, align 4, !tbaa !248
   %1392 = load ptr, ptr %128, align 8, !tbaa !292
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1392, ptr %3, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store i32 %.sroa.04.0.copyload.i67.i, ptr %4, align 4, !tbaa !248
+  store i32 %.sroa.04.0.copyload.i66.i, ptr %4, align 4, !tbaa !248
   store i32 %1391, ptr %172, align 4, !tbaa !389
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   %1393 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS8_EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SD_SG_EixERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -3760,9 +3760,9 @@ _ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasi
 
 _ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i: ; preds = %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread.i.i, %_ZNKSt4lessISt4pairIN4llvm8RegisterEiEEclERKS3_S6_.exit.i.i.i.i.i.i.i, %1386, %_ZNK4llvm8SmallSetISt4pairINS_8RegisterEiELj8ESt4lessIS3_EE5vfindERKS3_.exit.i.i.i.i.i, %.lr.ph.i51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
-  %1400 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 4
-  %.not.i65.i = icmp eq ptr %1400, %1317
-  br i1 %.not.i65.i, label %_ZN12_GLOBAL__N_115StatepointState13insertReloadsEPN4llvm12MachineInstrERNS_14RegReloadCacheE.exit.i, label %.lr.ph.i51.i
+  %1400 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 4
+  %.not.i64.i = icmp eq ptr %1400, %1317
+  br i1 %.not.i64.i, label %_ZN12_GLOBAL__N_115StatepointState13insertReloadsEPN4llvm12MachineInstrERNS_14RegReloadCacheE.exit.i, label %.lr.ph.i51.i
 
 _ZN12_GLOBAL__N_115StatepointState13insertReloadsEPN4llvm12MachineInstrERNS_14RegReloadCacheE.exit.i: ; preds = %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.i.i, %_ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i, %_ZN12_GLOBAL__N_115StatepointState20findRegistersToSpillEv.exit.i
   %1401 = load ptr, ptr %127, align 8, !tbaa !450

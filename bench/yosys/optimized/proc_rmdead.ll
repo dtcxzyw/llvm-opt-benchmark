@@ -5055,9 +5055,9 @@ _ZN5Yosys14BitPatternPool6bits_tD2Ev.exit33:      ; preds = %_ZN5Yosys14BitPatte
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %103
   %113 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #21
-          to label %.noexc39 unwind label %.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %.loopexit.split-lp.loopexit
 
-.noexc39:                                         ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i
+_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr align 1 %108, i64 %111, i1 false)
   store ptr %113, ptr %6, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %111
@@ -5075,11 +5075,11 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; pred
   %122 = icmp eq ptr %120, %121
   br i1 %122, label %_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.thread, label %123
 
-_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.thread: ; preds = %.noexc39
+_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.thread: ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i
   store i32 0, ptr %3, align 4, !noalias !61
   br label %.noexc45.thread
 
-123:                                              ; preds = %.noexc39
+123:                                              ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i
   %124 = load i32, ptr %46, align 8, !noalias !61
   %.not.i.i.i.i40 = icmp eq i32 %124, 0
   br i1 %.not.i.i.i.i40, label %125, label %_ZNK5Yosys7hashlib4poolINS_14BitPatternPool6bits_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i

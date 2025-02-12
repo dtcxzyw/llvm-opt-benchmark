@@ -2404,13 +2404,7 @@ create_ce_mode.exit:                              ; preds = %.thread25.i, %136, 
   %152 = load i32, ptr %148, align 8, !tbaa !32
   %153 = and i32 %152, 2097152
   %.not31.i = icmp eq i32 %153, 0
-  br i1 %.not31.i, label %._crit_edge.i127, label %._crit_edge184
-
-._crit_edge184:                                   ; preds = %151
-  %.phi.trans.insert185 = getelementptr inbounds nuw i8, ptr %146, i64 52
-  %.pre186 = load i32, ptr %.phi.trans.insert185, align 4, !tbaa !32
-  %.pre188 = and i32 %.pre186, 61440
-  br label %166
+  br i1 %.not31.i, label %._crit_edge.i127, label %166
 
 ._crit_edge.i127:                                 ; preds = %151
   %154 = and i32 %152, 536870912
@@ -2427,375 +2421,384 @@ create_ce_mode.exit:                              ; preds = %.thread25.i, %136, 
   %159 = load i32, ptr %158, align 4, !tbaa !32
   %160 = and i32 %159, 61440
   %161 = icmp eq i32 %160, 57344
-  br i1 %161, label %.thread191, label %162
+  br i1 %161, label %.thread195, label %162
 
-.thread191:                                       ; preds = %157
-  %.pre187193 = load i32, ptr %148, align 8, !tbaa !32
-  br label %169
+.thread195:                                       ; preds = %157
+  %.pre187197 = load i32, ptr %148, align 8, !tbaa !32
+  br label %170
 
 162:                                              ; preds = %157
   %163 = getelementptr i8, ptr %0, i64 48
   %.val.i.i = load i32, ptr %163, align 8, !tbaa !49
   %.not.i.i.i = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i.i.i, label %166, label %is_racy_timestamp.exit.i
+  br i1 %.not.i.i.i, label %.thread191, label %is_racy_timestamp.exit.i
 
 is_racy_timestamp.exit.i:                         ; preds = %162
   %164 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %165 = load i32, ptr %164, align 4, !tbaa !50
   %.not37.i = icmp ugt i32 %.val.i.i, %165
-  br i1 %.not37.i, label %166, label %ie_match_stat.exit
+  br i1 %.not37.i, label %.thread191, label %ie_match_stat.exit
 
-166:                                              ; preds = %._crit_edge184, %is_racy_timestamp.exit.i, %162
-  %.pre-phi = phi i32 [ %.pre188, %._crit_edge184 ], [ %160, %is_racy_timestamp.exit.i ], [ %160, %162 ]
-  %167 = icmp eq i32 %.pre-phi, 57344
+.thread191:                                       ; preds = %is_racy_timestamp.exit.i, %162
+  %.pre187193 = load i32, ptr %148, align 8, !tbaa !32
+  br label %168
+
+166:                                              ; preds = %151
+  %.phi.trans.insert185 = getelementptr inbounds nuw i8, ptr %146, i64 52
+  %.pre186 = load i32, ptr %.phi.trans.insert185, align 4, !tbaa !32
+  %.pre188 = and i32 %.pre186, 61440
+  %167 = icmp eq i32 %.pre188, 57344
   %.pre187 = load i32, ptr %148, align 8, !tbaa !32
-  %168 = or i32 %.pre187, 262144
-  %spec.select196 = select i1 %167, i32 %.pre187, i32 %168
-  br label %169
+  br i1 %167, label %170, label %168
 
-169:                                              ; preds = %166, %.thread191
-  %170 = phi i32 [ %.pre187193, %.thread191 ], [ %spec.select196, %166 ]
-  %171 = or i32 %170, 524288
-  store i32 %171, ptr %148, align 8, !tbaa !32
-  %172 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
-  %173 = icmp slt i32 %172, 0
-  br i1 %173, label %.sink.split.i.i, label %should_validate_cache_entries.exit.i
+168:                                              ; preds = %.thread191, %166
+  %.pre187194 = phi i32 [ %.pre187193, %.thread191 ], [ %.pre187, %166 ]
+  %169 = or i32 %.pre187194, 262144
+  br label %170
 
-.sink.split.i.i:                                  ; preds = %169
-  %174 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
-  %.not.i.i129 = icmp ne ptr %174, null
+170:                                              ; preds = %.thread195, %166, %168
+  %171 = phi i32 [ %.pre187, %166 ], [ %169, %168 ], [ %.pre187197, %.thread195 ]
+  %172 = or i32 %171, 524288
+  store i32 %172, ptr %148, align 8, !tbaa !32
+  %173 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
+  %174 = icmp slt i32 %173, 0
+  br i1 %174, label %.sink.split.i.i, label %should_validate_cache_entries.exit.i
+
+.sink.split.i.i:                                  ; preds = %170
+  %175 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
+  %.not.i.i129 = icmp ne ptr %175, null
   %..i.i = zext i1 %.not.i.i129 to i32
   store i32 %..i.i, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
   br label %should_validate_cache_entries.exit.i
 
-should_validate_cache_entries.exit.i:             ; preds = %.sink.split.i.i, %169
-  %175 = phi i32 [ %172, %169 ], [ %..i.i, %.sink.split.i.i ]
-  %.not6.i = icmp eq i32 %175, 0
-  br i1 %.not6.i, label %180, label %176
+should_validate_cache_entries.exit.i:             ; preds = %.sink.split.i.i, %170
+  %176 = phi i32 [ %173, %170 ], [ %..i.i, %.sink.split.i.i ]
+  %.not6.i = icmp eq i32 %176, 0
+  br i1 %.not6.i, label %181, label %177
 
-176:                                              ; preds = %should_validate_cache_entries.exit.i
-  %177 = load i32, ptr %56, align 8, !tbaa !32
-  %178 = zext i32 %177 to i64
-  %179 = add nuw nsw i64 %178, 109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, i8 -51, i64 %179, i1 false)
-  br label %180
+177:                                              ; preds = %should_validate_cache_entries.exit.i
+  %178 = load i32, ptr %56, align 8, !tbaa !32
+  %179 = zext i32 %178 to i64
+  %180 = add nuw nsw i64 %179, 109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, i8 -51, i64 %180, i1 false)
+  br label %181
 
-180:                                              ; preds = %176, %should_validate_cache_entries.exit.i
-  %181 = load i32, ptr %54, align 4, !tbaa !32
-  %.not7.i = icmp eq i32 %181, 0
+181:                                              ; preds = %177, %should_validate_cache_entries.exit.i
+  %182 = load i32, ptr %54, align 4, !tbaa !32
+  %.not7.i = icmp eq i32 %182, 0
   br i1 %.not7.i, label %.critedge.i, label %discard_cache_entry.exit
 
-.critedge.i:                                      ; preds = %180
+.critedge.i:                                      ; preds = %181
   call void @free(ptr noundef nonnull %53) #30
   br label %discard_cache_entry.exit
 
 ie_match_stat.exit:                               ; preds = %is_racy_timestamp.exit.i, %155, %._crit_edge.i127, %143, %147, %142
   %.099 = phi ptr [ null, %142 ], [ %146, %147 ], [ null, %143 ], [ %146, %._crit_edge.i127 ], [ %146, %155 ], [ %146, %is_racy_timestamp.exit.i ]
-  br i1 %.not, label %182, label %200
+  br i1 %.not, label %183, label %201
 
-182:                                              ; preds = %ie_match_stat.exit
-  %183 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %184 = call i32 @index_path(ptr noundef nonnull %0, ptr noundef nonnull %183, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %spec.select) #30
-  %.not111 = icmp eq i32 %184, 0
-  br i1 %.not111, label %208, label %185
+183:                                              ; preds = %ie_match_stat.exit
+  %184 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %185 = call i32 @index_path(ptr noundef nonnull %0, ptr noundef nonnull %184, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %spec.select) #30
+  %.not111 = icmp eq i32 %185, 0
+  br i1 %.not111, label %209, label %186
 
-185:                                              ; preds = %182
-  %186 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
-  %187 = icmp slt i32 %186, 0
-  br i1 %187, label %.sink.split.i.i135, label %should_validate_cache_entries.exit.i131
+186:                                              ; preds = %183
+  %187 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
+  %188 = icmp slt i32 %187, 0
+  br i1 %188, label %.sink.split.i.i135, label %should_validate_cache_entries.exit.i131
 
-.sink.split.i.i135:                               ; preds = %185
-  %188 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
-  %.not.i.i136 = icmp ne ptr %188, null
+.sink.split.i.i135:                               ; preds = %186
+  %189 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
+  %.not.i.i136 = icmp ne ptr %189, null
   %..i.i137 = zext i1 %.not.i.i136 to i32
   store i32 %..i.i137, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
   br label %should_validate_cache_entries.exit.i131
 
-should_validate_cache_entries.exit.i131:          ; preds = %.sink.split.i.i135, %185
-  %189 = phi i32 [ %186, %185 ], [ %..i.i137, %.sink.split.i.i135 ]
-  %.not6.i132 = icmp eq i32 %189, 0
-  br i1 %.not6.i132, label %194, label %190
+should_validate_cache_entries.exit.i131:          ; preds = %.sink.split.i.i135, %186
+  %190 = phi i32 [ %187, %186 ], [ %..i.i137, %.sink.split.i.i135 ]
+  %.not6.i132 = icmp eq i32 %190, 0
+  br i1 %.not6.i132, label %195, label %191
 
-190:                                              ; preds = %should_validate_cache_entries.exit.i131
-  %191 = load i32, ptr %56, align 8, !tbaa !32
-  %192 = zext i32 %191 to i64
-  %193 = add nuw nsw i64 %192, 109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, i8 -51, i64 %193, i1 false)
-  br label %194
+191:                                              ; preds = %should_validate_cache_entries.exit.i131
+  %192 = load i32, ptr %56, align 8, !tbaa !32
+  %193 = zext i32 %192 to i64
+  %194 = add nuw nsw i64 %193, 109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, i8 -51, i64 %194, i1 false)
+  br label %195
 
-194:                                              ; preds = %190, %should_validate_cache_entries.exit.i131
-  %195 = load i32, ptr %54, align 4, !tbaa !32
-  %.not7.i133 = icmp eq i32 %195, 0
+195:                                              ; preds = %191, %should_validate_cache_entries.exit.i131
+  %196 = load i32, ptr %54, align 4, !tbaa !32
+  %.not7.i133 = icmp eq i32 %196, 0
   br i1 %.not7.i133, label %.critedge.i134, label %discard_cache_entry.exit138
 
-.critedge.i134:                                   ; preds = %194
+.critedge.i134:                                   ; preds = %195
   call void @free(ptr noundef nonnull %53) #30
   br label %discard_cache_entry.exit138
 
-discard_cache_entry.exit138:                      ; preds = %194, %.critedge.i134
-  %196 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !32
-  %.not4.i139 = icmp eq i32 %196, 0
-  br i1 %.not4.i139, label %_.exit141, label %197
+discard_cache_entry.exit138:                      ; preds = %195, %.critedge.i134
+  %197 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !32
+  %.not4.i139 = icmp eq i32 %197, 0
+  br i1 %.not4.i139, label %_.exit141, label %198
 
-197:                                              ; preds = %discard_cache_entry.exit138
-  %198 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #30
+198:                                              ; preds = %discard_cache_entry.exit138
+  %199 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #30
   br label %_.exit141
 
-_.exit141:                                        ; preds = %discard_cache_entry.exit138, %197
-  %.0.i140 = phi ptr [ %198, %197 ], [ @.str.5, %discard_cache_entry.exit138 ]
-  %199 = call i32 (ptr, ...) @error(ptr noundef %.0.i140, ptr noundef nonnull %1) #30
+_.exit141:                                        ; preds = %discard_cache_entry.exit138, %198
+  %.0.i140 = phi ptr [ %199, %198 ], [ @.str.5, %discard_cache_entry.exit138 ]
+  %200 = call i32 (ptr, ...) @error(ptr noundef %.0.i140, ptr noundef nonnull %1) #30
   br label %discard_cache_entry.exit
 
-200:                                              ; preds = %ie_match_stat.exit
+201:                                              ; preds = %ie_match_stat.exit
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #30
-  %201 = call i32 @write_object_file_flags(ptr noundef nonnull @.str, i64 noundef 0, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0) #30
-  %.not.i142 = icmp eq i32 %201, 0
-  br i1 %.not.i142, label %set_object_name_for_intent_to_add_entry.exit, label %202
+  %202 = call i32 @write_object_file_flags(ptr noundef nonnull @.str, i64 noundef 0, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0) #30
+  %.not.i142 = icmp eq i32 %202, 0
+  br i1 %.not.i142, label %set_object_name_for_intent_to_add_entry.exit, label %203
 
-202:                                              ; preds = %200
-  %203 = call fastcc ptr @_(ptr noundef nonnull @.str.1)
-  call void (ptr, ...) @die(ptr noundef %203) #31
+203:                                              ; preds = %201
+  %204 = call fastcc ptr @_(ptr noundef nonnull @.str.1)
+  call void (ptr, ...) @die(ptr noundef %204) #31
   unreachable
 
-set_object_name_for_intent_to_add_entry.exit:     ; preds = %200
-  %204 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %204, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false)
-  %205 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %206 = load i32, ptr %205, align 4, !tbaa !79
-  %207 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  store i32 %206, ptr %207, align 4, !tbaa !79
+set_object_name_for_intent_to_add_entry.exit:     ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %205, ptr noundef nonnull readonly align 4 dereferenceable(32) %5, i64 32, i1 false)
+  %206 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %207 = load i32, ptr %206, align 4, !tbaa !79
+  %208 = getelementptr inbounds nuw i8, ptr %53, i64 104
+  store i32 %207, ptr %208, align 4, !tbaa !79
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #30
-  br label %208
+  br label %209
 
-208:                                              ; preds = %182, %set_object_name_for_intent_to_add_entry.exit
-  %209 = load i32, ptr @ignore_case, align 4, !tbaa !32
-  %210 = icmp ne i32 %209, 0
-  %211 = icmp ne ptr %.099, null
-  %or.cond3 = and i1 %211, %210
-  br i1 %or.cond3, label %212, label %252
+209:                                              ; preds = %183, %set_object_name_for_intent_to_add_entry.exit
+  %210 = load i32, ptr @ignore_case, align 4, !tbaa !32
+  %211 = icmp ne i32 %210, 0
+  %212 = icmp ne ptr %.099, null
+  %or.cond3 = and i1 %212, %211
+  br i1 %or.cond3, label %213, label %253
 
-212:                                              ; preds = %208
-  %213 = load i32, ptr %56, align 8, !tbaa !32
-  %214 = getelementptr inbounds nuw i8, ptr %.099, i64 64
-  %215 = load i32, ptr %214, align 8, !tbaa !32
-  %.not.i143 = icmp eq i32 %215, %213
+213:                                              ; preds = %209
+  %214 = load i32, ptr %56, align 8, !tbaa !32
+  %215 = getelementptr inbounds nuw i8, ptr %.099, i64 64
+  %216 = load i32, ptr %215, align 8, !tbaa !32
+  %.not.i143 = icmp eq i32 %216, %214
   br i1 %.not.i143, label %different_name.exit, label %different_name.exit.thread
 
-different_name.exit:                              ; preds = %212
-  %216 = getelementptr inbounds nuw i8, ptr %.099, i64 108
-  %217 = sext i32 %213 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %55, ptr nonnull readonly %216, i64 %217)
+different_name.exit:                              ; preds = %213
+  %217 = getelementptr inbounds nuw i8, ptr %.099, i64 108
+  %218 = sext i32 %214 to i64
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %55, ptr nonnull readonly %217, i64 %218)
   %.not177 = icmp eq i32 %bcmp.i, 0
   br i1 %.not177, label %.thread, label %different_name.exit.thread
 
-different_name.exit.thread:                       ; preds = %212, %different_name.exit
-  %218 = getelementptr inbounds nuw i8, ptr %.099, i64 56
-  %219 = load i32, ptr %218, align 8, !tbaa !32
-  %220 = and i32 %219, 524288
-  %.not.i144 = icmp eq i32 %220, 0
-  br i1 %.not.i144, label %224, label %221
+different_name.exit.thread:                       ; preds = %213, %different_name.exit
+  %219 = getelementptr inbounds nuw i8, ptr %.099, i64 56
+  %220 = load i32, ptr %219, align 8, !tbaa !32
+  %221 = and i32 %220, 524288
+  %.not.i144 = icmp eq i32 %221, 0
+  br i1 %.not.i144, label %225, label %222
 
-221:                                              ; preds = %different_name.exit.thread
-  %222 = call fastcc ptr @_(ptr noundef nonnull @.str.52)
-  %223 = getelementptr inbounds nuw i8, ptr %.099, i64 108
-  call void (ptr, ...) @die(ptr noundef %222, ptr noundef nonnull %55, ptr noundef nonnull %223) #31
+222:                                              ; preds = %different_name.exit.thread
+  %223 = call fastcc ptr @_(ptr noundef nonnull @.str.52)
+  %224 = getelementptr inbounds nuw i8, ptr %.099, i64 108
+  call void (ptr, ...) @die(ptr noundef %223, ptr noundef nonnull %55, ptr noundef nonnull %224) #31
   unreachable
 
-224:                                              ; preds = %different_name.exit.thread
-  %225 = load ptr, ptr %41, align 8, !tbaa !27
-  %.not.i.i.i145 = icmp eq ptr %225, null
-  br i1 %.not.i.i.i145, label %229, label %226
+225:                                              ; preds = %different_name.exit.thread
+  %226 = load ptr, ptr %41, align 8, !tbaa !27
+  %.not.i.i.i145 = icmp eq ptr %226, null
+  br i1 %.not.i.i.i145, label %230, label %227
 
-226:                                              ; preds = %224
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 40
-  %228 = load ptr, ptr %227, align 8, !tbaa !28
-  %.not10.i.i.i = icmp eq ptr %228, null
-  br i1 %.not10.i.i.i, label %229, label %230
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 40
+  %229 = load ptr, ptr %228, align 8, !tbaa !28
+  %.not10.i.i.i = icmp eq ptr %229, null
+  br i1 %.not10.i.i.i, label %230, label %231
 
-229:                                              ; preds = %226, %224
-  br label %230
+230:                                              ; preds = %227, %225
+  br label %231
 
-230:                                              ; preds = %229, %226
-  %.pn.i.i.i = phi ptr [ %0, %229 ], [ %228, %226 ]
+231:                                              ; preds = %230, %227
+  %.pn.i.i.i = phi ptr [ %0, %230 ], [ %229, %227 ]
   %.0.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 224
-  %231 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !31
-  %.not11.i.i.i = icmp eq ptr %231, null
-  br i1 %.not11.i.i.i, label %232, label %create_alias_ce.exit
+  %232 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !31
+  %.not11.i.i.i = icmp eq ptr %232, null
+  br i1 %.not11.i.i.i, label %233, label %create_alias_ce.exit
 
-232:                                              ; preds = %230
-  %233 = call ptr @xmalloc(i64 noundef 24) #30
-  store ptr %233, ptr %.0.i.i.i, align 8, !tbaa !31
-  call void @mem_pool_init(ptr noundef %233, i64 noundef 0) #30
+233:                                              ; preds = %231
+  %234 = call ptr @xmalloc(i64 noundef 24) #30
+  store ptr %234, ptr %.0.i.i.i, align 8, !tbaa !31
+  call void @mem_pool_init(ptr noundef %234, i64 noundef 0) #30
   %.pre.i.i.i = load ptr, ptr %.0.i.i.i, align 8, !tbaa !31
   br label %create_alias_ce.exit
 
-create_alias_ce.exit:                             ; preds = %230, %232
-  %234 = phi ptr [ %.pre.i.i.i, %232 ], [ %231, %230 ]
-  %235 = sext i32 %215 to i64
-  %236 = add nsw i64 %235, 109
-  %237 = call ptr @mem_pool_calloc(ptr noundef %234, i64 noundef 1, i64 noundef %236) #30
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 60
-  store i32 1, ptr %238, align 4, !tbaa !32
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 108
-  %240 = getelementptr inbounds nuw i8, ptr %.099, i64 108
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %239, ptr nonnull align 4 %240, i64 %235, i1 false)
-  %241 = getelementptr inbounds nuw i8, ptr %237, i64 56
-  %242 = load i32, ptr %241, align 8, !tbaa !32
-  %243 = and i32 %242, 1048576
-  %244 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %245 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %244, ptr noundef nonnull readonly align 8 dereferenceable(92) %245, i64 92, i1 false)
-  %246 = load i32, ptr %241, align 8, !tbaa !32
-  %247 = and i32 %246, -1048577
-  %248 = or disjoint i32 %247, %243
-  store i32 %248, ptr %241, align 8, !tbaa !32
-  store i32 1, ptr %238, align 4, !tbaa !32
+create_alias_ce.exit:                             ; preds = %231, %233
+  %235 = phi ptr [ %.pre.i.i.i, %233 ], [ %232, %231 ]
+  %236 = sext i32 %216 to i64
+  %237 = add nsw i64 %236, 109
+  %238 = call ptr @mem_pool_calloc(ptr noundef %235, i64 noundef 1, i64 noundef %237) #30
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 60
+  store i32 1, ptr %239, align 4, !tbaa !32
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 108
+  %241 = getelementptr inbounds nuw i8, ptr %.099, i64 108
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %240, ptr nonnull align 4 %241, i64 %236, i1 false)
+  %242 = getelementptr inbounds nuw i8, ptr %238, i64 56
+  %243 = load i32, ptr %242, align 8, !tbaa !32
+  %244 = and i32 %243, 1048576
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %245, ptr noundef nonnull readonly align 8 dereferenceable(92) %246, i64 92, i1 false)
+  %247 = load i32, ptr %242, align 8, !tbaa !32
+  %248 = and i32 %247, -1048577
+  %249 = or disjoint i32 %248, %244
+  store i32 %249, ptr %242, align 8, !tbaa !32
+  store i32 1, ptr %239, align 4, !tbaa !32
   call void @save_or_free_index_entry(ptr noundef nonnull %0, ptr noundef nonnull %53) #30
   br label %.thread
 
 .thread:                                          ; preds = %create_alias_ce.exit, %different_name.exit
-  %.098.ph = phi ptr [ %53, %different_name.exit ], [ %237, %create_alias_ce.exit ]
-  %249 = getelementptr inbounds nuw i8, ptr %.098.ph, i64 56
-  %250 = load i32, ptr %249, align 8, !tbaa !32
-  %251 = or i32 %250, 524288
-  store i32 %251, ptr %249, align 8, !tbaa !32
-  br label %256
+  %.098.ph = phi ptr [ %53, %different_name.exit ], [ %238, %create_alias_ce.exit ]
+  %250 = getelementptr inbounds nuw i8, ptr %.098.ph, i64 56
+  %251 = load i32, ptr %250, align 8, !tbaa !32
+  %252 = or i32 %251, 524288
+  store i32 %252, ptr %250, align 8, !tbaa !32
+  br label %257
 
-252:                                              ; preds = %208
-  %253 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %254 = load i32, ptr %253, align 8, !tbaa !32
-  %255 = or i32 %254, 524288
-  store i32 %255, ptr %253, align 8, !tbaa !32
-  br i1 %211, label %256, label %269
+253:                                              ; preds = %209
+  %254 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %255 = load i32, ptr %254, align 8, !tbaa !32
+  %256 = or i32 %255, 524288
+  store i32 %256, ptr %254, align 8, !tbaa !32
+  br i1 %212, label %257, label %270
 
-256:                                              ; preds = %.thread, %252
-  %.098176 = phi ptr [ %.098.ph, %.thread ], [ %53, %252 ]
-  %257 = getelementptr inbounds nuw i8, ptr %.099, i64 56
-  %258 = load i32, ptr %257, align 8, !tbaa !32
-  %259 = and i32 %258, 12288
-  %.not113 = icmp eq i32 %259, 0
-  br i1 %.not113, label %260, label %269
+257:                                              ; preds = %.thread, %253
+  %.098176 = phi ptr [ %.098.ph, %.thread ], [ %53, %253 ]
+  %258 = getelementptr inbounds nuw i8, ptr %.099, i64 56
+  %259 = load i32, ptr %258, align 8, !tbaa !32
+  %260 = and i32 %259, 12288
+  %.not113 = icmp eq i32 %260, 0
+  br i1 %.not113, label %261, label %270
 
-260:                                              ; preds = %256
-  %261 = getelementptr inbounds nuw i8, ptr %.099, i64 72
-  %262 = getelementptr inbounds nuw i8, ptr %.098176, i64 72
-  %bcmp.i146 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %261, ptr noundef nonnull readonly dereferenceable(32) %262, i64 32)
+261:                                              ; preds = %257
+  %262 = getelementptr inbounds nuw i8, ptr %.099, i64 72
+  %263 = getelementptr inbounds nuw i8, ptr %.098176, i64 72
+  %bcmp.i146 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %262, ptr noundef nonnull readonly dereferenceable(32) %263, i64 32)
   %.not.i147.not = icmp eq i32 %bcmp.i146, 0
-  br i1 %.not.i147.not, label %263, label %269
+  br i1 %.not.i147.not, label %264, label %270
 
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds nuw i8, ptr %.098176, i64 52
-  %265 = load i32, ptr %264, align 4, !tbaa !32
-  %266 = getelementptr inbounds nuw i8, ptr %.099, i64 52
-  %267 = load i32, ptr %266, align 4, !tbaa !32
-  %268 = icmp eq i32 %265, %267
-  br label %269
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds nuw i8, ptr %.098176, i64 52
+  %266 = load i32, ptr %265, align 4, !tbaa !32
+  %267 = getelementptr inbounds nuw i8, ptr %.099, i64 52
+  %268 = load i32, ptr %267, align 4, !tbaa !32
+  %269 = icmp eq i32 %266, %268
+  br label %270
 
-269:                                              ; preds = %263, %260, %256, %252
-  %.098175 = phi ptr [ %.098176, %260 ], [ %.098176, %256 ], [ %53, %252 ], [ %.098176, %263 ]
-  %270 = phi i1 [ false, %260 ], [ false, %256 ], [ false, %252 ], [ %268, %263 ]
-  br i1 %.not104, label %284, label %271
+270:                                              ; preds = %264, %261, %257, %253
+  %.098175 = phi ptr [ %.098176, %261 ], [ %.098176, %257 ], [ %53, %253 ], [ %.098176, %264 ]
+  %271 = phi i1 [ false, %261 ], [ false, %257 ], [ false, %253 ], [ %269, %264 ]
+  br i1 %.not104, label %285, label %272
 
-271:                                              ; preds = %269
-  %272 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
-  %273 = icmp slt i32 %272, 0
-  br i1 %273, label %.sink.split.i.i153, label %should_validate_cache_entries.exit.i149
+272:                                              ; preds = %270
+  %273 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
+  %274 = icmp slt i32 %273, 0
+  br i1 %274, label %.sink.split.i.i153, label %should_validate_cache_entries.exit.i149
 
-.sink.split.i.i153:                               ; preds = %271
-  %274 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
-  %.not.i.i154 = icmp ne ptr %274, null
+.sink.split.i.i153:                               ; preds = %272
+  %275 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
+  %.not.i.i154 = icmp ne ptr %275, null
   %..i.i155 = zext i1 %.not.i.i154 to i32
   store i32 %..i.i155, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
   br label %should_validate_cache_entries.exit.i149
 
-should_validate_cache_entries.exit.i149:          ; preds = %.sink.split.i.i153, %271
-  %275 = phi i32 [ %272, %271 ], [ %..i.i155, %.sink.split.i.i153 ]
-  %.not6.i150 = icmp eq i32 %275, 0
-  br i1 %.not6.i150, label %281, label %276
+should_validate_cache_entries.exit.i149:          ; preds = %.sink.split.i.i153, %272
+  %276 = phi i32 [ %273, %272 ], [ %..i.i155, %.sink.split.i.i153 ]
+  %.not6.i150 = icmp eq i32 %276, 0
+  br i1 %.not6.i150, label %282, label %277
 
-276:                                              ; preds = %should_validate_cache_entries.exit.i149
-  %277 = getelementptr inbounds nuw i8, ptr %.098175, i64 64
-  %278 = load i32, ptr %277, align 8, !tbaa !32
-  %279 = zext i32 %278 to i64
-  %280 = add nuw nsw i64 %279, 109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.098175, i8 -51, i64 %280, i1 false)
-  br label %281
+277:                                              ; preds = %should_validate_cache_entries.exit.i149
+  %278 = getelementptr inbounds nuw i8, ptr %.098175, i64 64
+  %279 = load i32, ptr %278, align 8, !tbaa !32
+  %280 = zext i32 %279 to i64
+  %281 = add nuw nsw i64 %280, 109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.098175, i8 -51, i64 %281, i1 false)
+  br label %282
 
-281:                                              ; preds = %276, %should_validate_cache_entries.exit.i149
-  %282 = getelementptr inbounds nuw i8, ptr %.098175, i64 60
-  %283 = load i32, ptr %282, align 4, !tbaa !32
-  %.not7.i151 = icmp eq i32 %283, 0
+282:                                              ; preds = %277, %should_validate_cache_entries.exit.i149
+  %283 = getelementptr inbounds nuw i8, ptr %.098175, i64 60
+  %284 = load i32, ptr %283, align 4, !tbaa !32
+  %.not7.i151 = icmp eq i32 %284, 0
   br i1 %.not7.i151, label %.critedge.i152, label %discard_cache_entry.exit156
 
-.critedge.i152:                                   ; preds = %281
+.critedge.i152:                                   ; preds = %282
   call void @free(ptr noundef nonnull %.098175) #30
   br label %discard_cache_entry.exit156
 
-284:                                              ; preds = %269
-  %285 = call i32 @add_index_entry(ptr noundef nonnull %0, ptr noundef nonnull %.098175, i32 noundef %12)
-  %.not115 = icmp eq i32 %285, 0
-  br i1 %.not115, label %discard_cache_entry.exit156, label %286
+285:                                              ; preds = %270
+  %286 = call i32 @add_index_entry(ptr noundef nonnull %0, ptr noundef nonnull %.098175, i32 noundef %12)
+  %.not115 = icmp eq i32 %286, 0
+  br i1 %.not115, label %discard_cache_entry.exit156, label %287
 
-286:                                              ; preds = %284
-  %287 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
-  %288 = icmp slt i32 %287, 0
-  br i1 %288, label %.sink.split.i.i162, label %should_validate_cache_entries.exit.i158
+287:                                              ; preds = %285
+  %288 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
+  %289 = icmp slt i32 %288, 0
+  br i1 %289, label %.sink.split.i.i162, label %should_validate_cache_entries.exit.i158
 
-.sink.split.i.i162:                               ; preds = %286
-  %289 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
-  %.not.i.i163 = icmp ne ptr %289, null
+.sink.split.i.i162:                               ; preds = %287
+  %290 = call ptr @getenv(ptr noundef nonnull @.str.45) #30
+  %.not.i.i163 = icmp ne ptr %290, null
   %..i.i164 = zext i1 %.not.i.i163 to i32
   store i32 %..i.i164, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4, !tbaa !32
   br label %should_validate_cache_entries.exit.i158
 
-should_validate_cache_entries.exit.i158:          ; preds = %.sink.split.i.i162, %286
-  %290 = phi i32 [ %287, %286 ], [ %..i.i164, %.sink.split.i.i162 ]
-  %.not6.i159 = icmp eq i32 %290, 0
-  br i1 %.not6.i159, label %296, label %291
+should_validate_cache_entries.exit.i158:          ; preds = %.sink.split.i.i162, %287
+  %291 = phi i32 [ %288, %287 ], [ %..i.i164, %.sink.split.i.i162 ]
+  %.not6.i159 = icmp eq i32 %291, 0
+  br i1 %.not6.i159, label %297, label %292
 
-291:                                              ; preds = %should_validate_cache_entries.exit.i158
-  %292 = getelementptr inbounds nuw i8, ptr %.098175, i64 64
-  %293 = load i32, ptr %292, align 8, !tbaa !32
-  %294 = zext i32 %293 to i64
-  %295 = add nuw nsw i64 %294, 109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.098175, i8 -51, i64 %295, i1 false)
-  br label %296
+292:                                              ; preds = %should_validate_cache_entries.exit.i158
+  %293 = getelementptr inbounds nuw i8, ptr %.098175, i64 64
+  %294 = load i32, ptr %293, align 8, !tbaa !32
+  %295 = zext i32 %294 to i64
+  %296 = add nuw nsw i64 %295, 109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.098175, i8 -51, i64 %296, i1 false)
+  br label %297
 
-296:                                              ; preds = %291, %should_validate_cache_entries.exit.i158
-  %297 = getelementptr inbounds nuw i8, ptr %.098175, i64 60
-  %298 = load i32, ptr %297, align 4, !tbaa !32
-  %.not7.i160 = icmp eq i32 %298, 0
+297:                                              ; preds = %292, %should_validate_cache_entries.exit.i158
+  %298 = getelementptr inbounds nuw i8, ptr %.098175, i64 60
+  %299 = load i32, ptr %298, align 4, !tbaa !32
+  %.not7.i160 = icmp eq i32 %299, 0
   br i1 %.not7.i160, label %.critedge.i161, label %discard_cache_entry.exit165
 
-.critedge.i161:                                   ; preds = %296
+.critedge.i161:                                   ; preds = %297
   call void @free(ptr noundef nonnull %.098175) #30
   br label %discard_cache_entry.exit165
 
-discard_cache_entry.exit165:                      ; preds = %296, %.critedge.i161
-  %299 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !32
-  %.not4.i166 = icmp eq i32 %299, 0
-  br i1 %.not4.i166, label %_.exit168, label %300
+discard_cache_entry.exit165:                      ; preds = %297, %.critedge.i161
+  %300 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !32
+  %.not4.i166 = icmp eq i32 %300, 0
+  br i1 %.not4.i166, label %_.exit168, label %301
 
-300:                                              ; preds = %discard_cache_entry.exit165
-  %301 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #30
+301:                                              ; preds = %discard_cache_entry.exit165
+  %302 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #30
   br label %_.exit168
 
-_.exit168:                                        ; preds = %discard_cache_entry.exit165, %300
-  %.0.i167 = phi ptr [ %301, %300 ], [ @.str.6, %discard_cache_entry.exit165 ]
-  %302 = call i32 (ptr, ...) @error(ptr noundef %.0.i167, ptr noundef nonnull %1) #30
+_.exit168:                                        ; preds = %discard_cache_entry.exit165, %301
+  %.0.i167 = phi ptr [ %302, %301 ], [ @.str.6, %discard_cache_entry.exit165 ]
+  %303 = call i32 (ptr, ...) @error(ptr noundef %.0.i167, ptr noundef nonnull %1) #30
   br label %discard_cache_entry.exit
 
-discard_cache_entry.exit156:                      ; preds = %.critedge.i152, %281, %284
-  %303 = icmp eq i32 %9, 0
-  %or.cond5 = select i1 %303, i1 true, i1 %270
-  br i1 %or.cond5, label %discard_cache_entry.exit, label %304
+discard_cache_entry.exit156:                      ; preds = %.critedge.i152, %282, %285
+  %304 = icmp eq i32 %9, 0
+  %or.cond5 = select i1 %304, i1 true, i1 %271
+  br i1 %or.cond5, label %discard_cache_entry.exit, label %305
 
-304:                                              ; preds = %discard_cache_entry.exit156
-  %305 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1)
+305:                                              ; preds = %discard_cache_entry.exit156
+  %306 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1)
   br label %discard_cache_entry.exit
 
-discard_cache_entry.exit:                         ; preds = %.critedge.i, %180, %discard_cache_entry.exit156, %304, %_.exit168, %_.exit141, %_.exit118, %_.exit
-  %.0 = phi i32 [ -1, %_.exit118 ], [ -1, %_.exit168 ], [ -1, %_.exit141 ], [ -1, %_.exit ], [ 0, %304 ], [ 0, %discard_cache_entry.exit156 ], [ 0, %180 ], [ 0, %.critedge.i ]
+discard_cache_entry.exit:                         ; preds = %.critedge.i, %181, %discard_cache_entry.exit156, %305, %_.exit168, %_.exit141, %_.exit118, %_.exit
+  %.0 = phi i32 [ -1, %_.exit118 ], [ -1, %_.exit168 ], [ -1, %_.exit141 ], [ -1, %_.exit ], [ 0, %305 ], [ 0, %discard_cache_entry.exit156 ], [ 0, %181 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #30
   ret i32 %.0
 }

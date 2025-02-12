@@ -8632,7 +8632,7 @@ _ZN3nix13OrSuggestionsINS_3refINS_10eval_cache10AttrCursorEEEEdeEv.exit154: ; pr
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3nix6SymbolESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %431
   %434 = ptrtoint ptr %432 to i64
   %435 = sub i64 %434, %429
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %422, ptr align 4 %428, i64 %435, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %422, ptr nonnull align 4 %428, i64 %435, i1 false)
   %.pre.i.i = load ptr, ptr %279, align 8
   %.pre12.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %._crit_edge.i.i

@@ -121,9 +121,7 @@ define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf
   %18 = trunc nuw i8 %.sroa.020.085 to i1
   %19 = icmp ne i32 %7, 5
   %.not = xor i1 %19, %18
-  %.not1.i = icmp eq ptr %.sroa.068.083, %6
-  %or.cond = or i1 %.not1.i, %.not
-  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i
+  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %28
   %.sroa.068.2 = phi ptr [ %29, %28 ], [ %.sroa.068.083, %17 ]

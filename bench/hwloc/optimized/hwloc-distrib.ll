@@ -1656,12 +1656,12 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
   br label %.lr.ph9
 
 .lr.ph9:                                          ; preds = %.lr.ph9.preheader, %.lr.ph9
-  %indvars.iv21 = phi i64 [ 0, %.lr.ph9.preheader ], [ %indvars.iv.next22, %.lr.ph9 ]
+  %indvars.iv20 = phi i64 [ 0, %.lr.ph9.preheader ], [ %indvars.iv.next21, %.lr.ph9 ]
   %48 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %22) #18
-  %49 = getelementptr inbounds nuw ptr, ptr %.06212, i64 %indvars.iv21
+  %49 = getelementptr inbounds nuw ptr, ptr %.06212, i64 %indvars.iv20
   store ptr %48, ptr %49, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %50 = icmp samesign ult i64 %indvars.iv.next22, %47
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %50 = icmp samesign ult i64 %indvars.iv.next21, %47
   br i1 %50, label %.lr.ph9, label %.loopexit, !llvm.loop !15
 
 51:                                               ; preds = %46
@@ -1685,8 +1685,8 @@ define internal fastcc void @hwloc_distrib(ptr noundef readonly captures(none) %
   %.165 = phi i32 [ %31, %.loopexit ], [ %.06411, %._crit_edge ]
   %.163 = phi ptr [ %59, %.loopexit ], [ %.06212, %._crit_edge ]
   %61 = add nuw i32 %.113, 1
-  %exitcond24.not = icmp eq i32 %61, %1
-  br i1 %exitcond24.not, label %._crit_edge15, label %14, !llvm.loop !16
+  %exitcond23.not = icmp eq i32 %61, %1
+  br i1 %exitcond23.not, label %._crit_edge15, label %14, !llvm.loop !16
 
 ._crit_edge15:                                    ; preds = %60, %6
   ret void

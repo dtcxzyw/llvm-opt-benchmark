@@ -1737,8 +1737,8 @@ if.end6:                                          ; preds = %if.end
   %mMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 40
   store ptr %call8, ptr %mMaterials, align 8
   %5 = and i64 %sub.ptr.sub.i, 137438953440
-  %cmp9238.not = icmp eq i64 %5, 0
-  br i1 %cmp9238.not, label %for.end261, label %for.body.lr.ph
+  %cmp9237.not = icmp eq i64 %5, 0
+  br i1 %cmp9237.not, label %for.end261, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %pModel, i64 344
@@ -1757,9 +1757,9 @@ for.bodythread-pre-split:                         ; preds = %for.inc259
 
 for.body:                                         ; preds = %for.bodythread-pre-split, %for.body.preheader
   %8 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %6, %for.body.preheader ]
-  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
+  %indvars.iv242 = phi i64 [ %indvars.iv.next243, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
   %9 = load ptr, ptr %mMaterialLib, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %indvars.iv243
+  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %indvars.iv242
   %cmp.not6.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not6.i.i.i, label %for.inc259, label %while.body.i.i.i
 
@@ -2099,8 +2099,8 @@ if.then166:                                       ; preds = %for.body157
 
 for.inc:                                          ; preds = %for.body157, %if.then166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp156240 = icmp samesign ult i64 %indvars.iv, 5
-  %cmp156 = select i1 %cmp152.not, i1 %cmp156240, i1 false
+  %cmp156239 = icmp samesign ult i64 %indvars.iv, 5
+  %cmp156 = select i1 %cmp152.not, i1 %cmp156239, i1 false
   br i1 %cmp156, label %for.body157, label %if.end168, !llvm.loop !13
 
 if.end168:                                        ; preds = %for.inc, %if.end144
@@ -2269,8 +2269,8 @@ if.end252:                                        ; preds = %if.then243, %if.the
   br label %for.inc259
 
 for.inc259:                                       ; preds = %for.body, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %if.end252
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count
+  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count
   br i1 %exitcond.not, label %for.end261, label %for.bodythread-pre-split, !llvm.loop !14
 
 for.end261:                                       ; preds = %for.inc259, %for.body.lr.ph, %if.end6, %entry, %if.then4

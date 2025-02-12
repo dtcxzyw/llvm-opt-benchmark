@@ -10187,26 +10187,26 @@ invoke.cont333:                                   ; preds = %invoke.cont320, %in
   %sub.ptr.sub.i.i.i.i.i440 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i438, %sub.ptr.rhs.cast.i.i.i.i.i439
   %sub.ptr.div.i.i.i.i.i441 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i440, 3
   %tobool.not.i.i442 = icmp eq ptr %271, %270
-  br i1 %tobool.not.i.i442, label %cond.end.thread.i, label %cond.true.i.i443
+  br i1 %tobool.not.i.i442, label %invoke.cont341.thread, label %cond.true.i.i443
+
+invoke.cont341.thread:                            ; preds = %invoke.cont333
+  store i64 %sub.ptr.div.i.i.i.i.i441, ptr %n_.i437, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pn) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pn, i8 0, i64 16, i1 false)
+  br label %_ZN8QuantLib5ArrayC2Emd.exit
 
 cond.true.i.i443:                                 ; preds = %invoke.cont333
   %272 = icmp ugt i64 %sub.ptr.div.i.i.i.i.i441, 2305843009213693951
   %273 = select i1 %272, i64 -1, i64 %sub.ptr.sub.i.i.i.i.i440
   %call5.i1.i444 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %273) #33
-          to label %for.body.i.i.i.preheader.i unwind label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i445
+          to label %invoke.cont341 unwind label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i445
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.i445: ; preds = %cond.true.i.i443
   %274 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup404
 
-cond.end.thread.i:                                ; preds = %invoke.cont333
-  store i64 %sub.ptr.div.i.i.i.i.i441, ptr %n_.i437, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pn) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pn, i8 0, i64 16, i1 false)
-  br label %_ZN8QuantLib5ArrayC2Emd.exit
-
-for.body.i.i.i.preheader.i:                       ; preds = %cond.true.i.i443
+invoke.cont341:                                   ; preds = %cond.true.i.i443
   store ptr %call5.i1.i444, ptr %xn, align 8, !tbaa !3
   store i64 %sub.ptr.div.i.i.i.i.i441, ptr %n_.i437, align 8, !tbaa !30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i1.i444, ptr align 8 %270, i64 %sub.ptr.sub.i.i.i.i.i440, i1 false)
@@ -10214,7 +10214,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %cond.true.i.i443
   %call.i453461 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %273) #33
           to label %call.i453.noexc unwind label %ehcleanup402.thread
 
-call.i453.noexc:                                  ; preds = %for.body.i.i.i.preheader.i
+call.i453.noexc:                                  ; preds = %invoke.cont341
   store ptr %call.i453461, ptr %pn, align 8, !tbaa !3
   store i64 %sub.ptr.div.i.i.i.i.i441, ptr %n_.i454, align 8, !tbaa !128
   %275 = add i64 %sub.ptr.lhs.cast.i.i.i.i.i438, -8
@@ -10224,7 +10224,7 @@ call.i453.noexc:                                  ; preds = %for.body.i.i.i.preh
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i453461, i8 0, i64 %278, i1 false), !tbaa !105
   br label %_ZN8QuantLib5ArrayC2Emd.exit
 
-_ZN8QuantLib5ArrayC2Emd.exit:                     ; preds = %call.i453.noexc, %cond.end.thread.i
+_ZN8QuantLib5ArrayC2Emd.exit:                     ; preds = %call.i453.noexc, %invoke.cont341.thread
   %cmp351926.not = icmp eq ptr %271, %270
   br i1 %cmp351926.not, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i, label %for.body353
 
@@ -10292,7 +10292,7 @@ lpad325:                                          ; preds = %cond.false.i425
           cleanup
   br label %ehcleanup404
 
-ehcleanup402.thread:                              ; preds = %for.body.i.i.i.preheader.i
+ehcleanup402.thread:                              ; preds = %invoke.cont341
   %288 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pn) #30

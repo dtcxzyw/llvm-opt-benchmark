@@ -26210,7 +26210,7 @@ _ZSt22__uninitialized_move_aIPN12colvarmodule7rvectorES2_SaIS1_EET0_T_S5_S4_RT1_
   %28 = sub i64 %27, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %28, -24
   %29 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %9, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %29, ptr align 8 %1, i64 %28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPN12colvarmodule7rvectorES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN12colvarmodule7rvectorES2_ET0_T_S4_S3_.exit: ; preds = %26, %_ZSt22__uninitialized_move_aIPN12colvarmodule7rvectorES2_SaIS1_EET0_T_S5_S4_RT1_.exit

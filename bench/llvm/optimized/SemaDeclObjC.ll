@@ -37254,7 +37254,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i: ; preds = %49, %59
 _ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit: ; preds = %59
   br i1 %.not.i21, label %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit29, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25.preheader
 
-_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25.preheader: ; preds = %49, %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit
+_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25.preheader: ; preds = %_ZNK5clang17ObjCInterfaceDecl14isSuperClassOfEPKS0_.exit, %49
   br label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25
 
 _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25: ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i25.preheader, %71

@@ -1301,7 +1301,7 @@ define noundef range(i32 0, 5) i32 @_ZN4pkpy5Lexer8eat_nameEv(ptr noundef nonnul
 
 30:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.038142 = phi i32 [ 0, %.lr.ph ], [ %.139, %56 ]
+  %.038139 = phi i32 [ 0, %.lr.ph ], [ %.139, %56 ]
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i64 %indvars.iv, 0
@@ -1340,11 +1340,11 @@ define noundef range(i32 0, 5) i32 @_ZN4pkpy5Lexer8eat_nameEv(ptr noundef nonnul
   %52 = add nsw i32 %15, %51
   %53 = mul nsw i32 %52, 6
   %54 = shl i32 %49, %53
-  %55 = or i32 %54, %.038142
+  %55 = or i32 %54, %.038139
   br label %56
 
 56:                                               ; preds = %34, %47, %39, %43, %35
-  %.139 = phi i32 [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %55, %47 ], [ %.038142, %34 ]
+  %.139 = phi i32 [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %55, %47 ], [ %.038139, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !16
@@ -1354,7 +1354,7 @@ define noundef range(i32 0, 5) i32 @_ZN4pkpy5Lexer8eat_nameEv(ptr noundef nonnul
   br i1 %57, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread, label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader:   ; preds = %.preheader, %._crit_edge
-  %.038.lcssa149 = phi i32 [ %.139, %._crit_edge ], [ 0, %.preheader ]
+  %.038.lcssa146 = phi i32 [ %.139, %._crit_edge ], [ 0, %.preheader ]
   br label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
@@ -1363,7 +1363,7 @@ _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %_ZSt7advanceIPKjlEv
   %58 = lshr i64 %.01116.i.i.i, 1
   %59 = getelementptr inbounds nuw i32, ptr %.017.i.i.i, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = icmp ult i32 %60, %.038.lcssa149
+  %61 = icmp ult i32 %60, %.038.lcssa146
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %63 = xor i64 %58, -1
   %64 = add nsw i64 %.01116.i.i.i, %63
@@ -1378,7 +1378,7 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
   %68 = ashr exact i64 %67, 2
   %69 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %.038.lcssa149, %70
+  %71 = icmp eq i32 %.038.lcssa146, %70
   br i1 %71, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread, label %72
 
 72:                                               ; preds = %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i
@@ -1389,13 +1389,13 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %73
   %77 = load i32, ptr %76, align 4
-  %.not.i = icmp ult i32 %.038.lcssa149, %77
+  %.not.i = icmp ult i32 %.038.lcssa146, %77
   br i1 %.not.i, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit
 
 _ZN4pkpyL18is_unicode_Lo_charEj.exit:             ; preds = %75
   %78 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeBE, i64 0, i64 %73
   %79 = load i32, ptr %78, align 4
-  %.not134 = icmp ugt i32 %.038.lcssa149, %79
+  %.not134 = icmp ugt i32 %.038.lcssa146, %79
   br i1 %.not134, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread
 
 .thread:                                          ; preds = %_ZN4pkpyL18is_unicode_Lo_charEj.exit, %72, %75
@@ -1562,8 +1562,8 @@ _ZN4pkpy2TKEPKc.exit70:                           ; preds = %138, %136
 
 140:                                              ; preds = %_ZN4pkpy2TKEPKc.exit70
   %141 = load i8, ptr %139, align 8
-  %switch.tableidx168 = add i8 %141, 1
-  %142 = icmp ult i8 %switch.tableidx168, 4
+  %switch.tableidx165 = add i8 %141, 1
+  %142 = icmp ult i8 %switch.tableidx165, 4
   br i1 %142, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 143:                                              ; preds = %_ZN4pkpy2TKEPKc.exit70
@@ -1591,8 +1591,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 149:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit82
   %150 = load i8, ptr %148, align 8
-  %switch.tableidx170 = add i8 %150, 1
-  %151 = icmp ult i8 %switch.tableidx170, 4
+  %switch.tableidx167 = add i8 %150, 1
+  %151 = icmp ult i8 %switch.tableidx167, 4
   br i1 %151, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 152:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit82
@@ -1687,8 +1687,8 @@ _ZNKSt3mapISt17basic_string_viewIcSt11char_traitsIcEEhSt4lessIS3_ESaISt4pairIKS3
 
 175:                                              ; preds = %171
   %176 = load i8, ptr %174, align 8
-  %switch.tableidx172 = add i8 %176, 1
-  %177 = icmp ult i8 %switch.tableidx172, 4
+  %switch.tableidx169 = add i8 %176, 1
+  %177 = icmp ult i8 %switch.tableidx169, 4
   br i1 %177, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 178:                                              ; preds = %171
@@ -1750,8 +1750,8 @@ _ZN4pkpy2TKEPKc.exit112:                          ; preds = %195, %193
 
 197:                                              ; preds = %_ZN4pkpy2TKEPKc.exit112
   %198 = load i8, ptr %196, align 8
-  %switch.tableidx174 = add i8 %198, 1
-  %199 = icmp ult i8 %switch.tableidx174, 4
+  %switch.tableidx171 = add i8 %198, 1
+  %199 = icmp ult i8 %switch.tableidx171, 4
   br i1 %199, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit, label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit.sink.split
 
 200:                                              ; preds = %_ZN4pkpy2TKEPKc.exit112
@@ -1776,9 +1776,9 @@ _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit: ; preds = %.backedge, %197,
   ret i32 %.1
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53.sink.split: ; preds = %200, %178, %152, %143, %120
-  %.sink153 = phi ptr [ %4, %120 ], [ %5, %143 ], [ %6, %152 ], [ %7, %178 ], [ %8, %200 ]
+  %.sink150 = phi ptr [ %4, %120 ], [ %5, %143 ], [ %6, %152 ], [ %7, %178 ], [ %8, %200 ]
   %.pn.ph = phi { ptr, i32 } [ %121, %120 ], [ %144, %143 ], [ %153, %152 ], [ %179, %178 ], [ %201, %200 ]
-  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink153) #28
+  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sink150) #28
   br label %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53
 
 _ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53: ; preds = %200, %200, %200, %200, %178, %178, %178, %178, %152, %152, %152, %152, %143, %143, %143, %143, %120, %120, %120, %120, %_ZNSt7variantIJSt9monostateldN4pkpy3StrEEED2Ev.exit53.sink.split

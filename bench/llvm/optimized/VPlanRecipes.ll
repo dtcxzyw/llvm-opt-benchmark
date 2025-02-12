@@ -8994,7 +8994,7 @@ define dso_local { i64, i32 } @_ZNK4llvm17VPWidenCastRecipe11computeCostENS_12El
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !62
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %106, label %6
+  br i1 %.not, label %107, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9005,9 +9005,9 @@ define dso_local { i64, i32 } @_ZNK4llvm17VPWidenCastRecipe11computeCostENS_12El
   switch i32 %11, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" [
     i32 38, label %12
     i32 45, label %12
-    i32 39, label %51
-    i32 40, label %51
-    i32 46, label %51
+    i32 39, label %52
+    i32 40, label %52
+    i32 46, label %52
   ]
 
 12:                                               ; preds = %6, %6
@@ -9021,198 +9021,198 @@ define dso_local { i64, i32 } @_ZNK4llvm17VPWidenCastRecipe11computeCostENS_12El
   %18 = load ptr, ptr %17, align 8, !tbaa !59
   %19 = zext i32 %14 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %.pre = load ptr, ptr %18, align 8, !tbaa !302
-  br label %21
+  %21 = load ptr, ptr %18, align 8, !tbaa !302
+  br label %22
 
-21:                                               ; preds = %22, %16
-  %.pn.i = phi ptr [ %18, %16 ], [ %.0.i, %22 ]
+22:                                               ; preds = %23, %16
+  %.pn.i = phi ptr [ %18, %16 ], [ %.0.i, %23 ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %20
-  br i1 %.not.i, label %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53, label %22
+  br i1 %.not.i, label %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53, label %23
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %.0.i, align 8, !tbaa !302
-  %24 = icmp eq ptr %.pre, %23
-  br i1 %24, label %21, label %.thread, !llvm.loop !393
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %.0.i, align 8, !tbaa !302
+  %25 = icmp eq ptr %21, %24
+  br i1 %25, label %22, label %.thread, !llvm.loop !393
 
-_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53: ; preds = %21
-  %25 = icmp eq ptr %.pre, null
-  br i1 %25, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %26
+_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53: ; preds = %22
+  %26 = icmp eq ptr %21, null
+  br i1 %26, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %27
 
-26:                                               ; preds = %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53
-  %27 = trunc i64 %.sroa.5.0.extract.shift to i1
-  %28 = icmp ne i32 %.sroa.0.0.extract.trunc, 1
-  %.not6.i = or i1 %28, %27
-  br i1 %.not6.i, label %29, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
+27:                                               ; preds = %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53
+  %28 = trunc i64 %.sroa.5.0.extract.shift to i1
+  %29 = icmp ne i32 %.sroa.0.0.extract.trunc, 1
+  %.not6.i = or i1 %29, %28
+  br i1 %.not6.i, label %30, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.pre, i64 -32
-  %31 = load i8, ptr %30, align 8, !tbaa !3
-  switch i8 %31, label %37 [
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %21, i64 -32
+  %32 = load i8, ptr %31, align 8, !tbaa !3
+  switch i8 %32, label %38 [
     i8 5, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
-    i8 9, label %32
+    i8 9, label %33
   ]
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 121
-  %34 = load i8, ptr %33, align 1, !tbaa !394, !range !57, !noundef !58
-  %35 = trunc nuw i8 %34 to i1
-  %36 = select i1 %35, i8 2, i8 1
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 121
+  %35 = load i8, ptr %34, align 1, !tbaa !394, !range !57, !noundef !58
+  %36 = trunc nuw i8 %35 to i1
+  %37 = select i1 %36, i8 2, i8 1
   br label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-37:                                               ; preds = %29
-  %38 = add i8 %31, -23
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ult i8 %38, -4
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %39
+38:                                               ; preds = %30
+  %39 = add i8 %32, -23
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ult i8 %39, -4
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %40
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %41 = load i8, ptr %40, align 8, !tbaa !395, !range !57, !noundef !58
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %42 = load i8, ptr %41, align 8, !tbaa !395, !range !57, !noundef !58
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 65
-  %45 = load i8, ptr %44, align 1, !tbaa !397, !range !57, !noundef !58
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %47
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 65
+  %46 = load i8, ptr %45, align 1, !tbaa !397, !range !57, !noundef !58
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %48
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 66
-  %49 = load i8, ptr %48, align 2, !tbaa !398, !range !57, !noundef !58
-  %50 = trunc nuw i8 %49 to i1
-  %..i = select i1 %50, i8 2, i8 1
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 66
+  %50 = load i8, ptr %49, align 2, !tbaa !398, !range !57, !noundef !58
+  %51 = trunc nuw i8 %50 to i1
+  %..i = select i1 %51, i8 2, i8 1
   br label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-.thread:                                          ; preds = %22, %12
+.thread:                                          ; preds = %23, %12
   switch i32 %11, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" [
-    i32 39, label %51
-    i32 40, label %51
-    i32 46, label %51
+    i32 39, label %52
+    i32 40, label %52
+    i32 46, label %52
   ]
 
-51:                                               ; preds = %6, %6, %6, %.thread, %.thread, %.thread
-  %52 = tail call noundef ptr @_ZNK4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
-  %.not.i25 = icmp eq ptr %52, null
-  br i1 %.not.i25, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %53
+52:                                               ; preds = %6, %6, %6, %.thread, %.thread, %.thread
+  %53 = tail call noundef ptr @_ZNK4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
+  %.not.i25 = icmp eq ptr %53, null
+  br i1 %.not.i25, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %54
 
-53:                                               ; preds = %51
-  %54 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
-  %.not19 = icmp eq ptr %54, null
-  br i1 %.not19, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %55
+54:                                               ; preds = %52
+  %55 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
+  %.not19 = icmp eq ptr %55, null
+  br i1 %.not19, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %56
 
-55:                                               ; preds = %53
-  %56 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
-  %57 = trunc i64 %.sroa.5.0.extract.shift to i1
-  %58 = icmp ne i32 %.sroa.0.0.extract.trunc, 1
-  %.not6.i26 = or i1 %58, %57
-  br i1 %.not6.i26, label %59, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
+56:                                               ; preds = %54
+  %57 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
+  %58 = trunc i64 %.sroa.5.0.extract.shift to i1
+  %59 = icmp ne i32 %.sroa.0.0.extract.trunc, 1
+  %.not6.i26 = or i1 %59, %58
+  br i1 %.not6.i26, label %60, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %61 = load i8, ptr %60, align 8, !tbaa !3
-  switch i8 %61, label %67 [
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %62 = load i8, ptr %61, align 8, !tbaa !3
+  switch i8 %62, label %68 [
     i8 5, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
-    i8 9, label %62
+    i8 9, label %63
   ]
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 161
-  %64 = load i8, ptr %63, align 1, !tbaa !394, !range !57, !noundef !58
-  %65 = trunc nuw i8 %64 to i1
-  %66 = select i1 %65, i8 2, i8 1
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 161
+  %65 = load i8, ptr %64, align 1, !tbaa !394, !range !57, !noundef !58
+  %66 = trunc nuw i8 %65 to i1
+  %67 = select i1 %66, i8 2, i8 1
   br label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-67:                                               ; preds = %59
-  %68 = add i8 %61, -23
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i29 = icmp ult i8 %68, -4
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i29, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %69
+68:                                               ; preds = %60
+  %69 = add i8 %62, -23
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i29 = icmp ult i8 %69, -4
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i29, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %70
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 104
-  %71 = load i8, ptr %70, align 8, !tbaa !395, !range !57, !noundef !58
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 104
+  %72 = load i8, ptr %71, align 8, !tbaa !395, !range !57, !noundef !58
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %74, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %56, i64 105
-  %75 = load i8, ptr %74, align 1, !tbaa !397, !range !57, !noundef !58
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %77
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 105
+  %76 = load i8, ptr %75, align 1, !tbaa !397, !range !57, !noundef !58
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", label %78
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %56, i64 106
-  %79 = load i8, ptr %78, align 2, !tbaa !398, !range !57, !noundef !58
-  %80 = trunc nuw i8 %79 to i1
-  %..i30 = select i1 %80, i8 2, i8 1
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 106
+  %80 = load i8, ptr %79, align 2, !tbaa !398, !range !57, !noundef !58
+  %81 = trunc nuw i8 %80 to i1
+  %..i30 = select i1 %81, i8 2, i8 1
   br label %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
 
-"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit": ; preds = %59, %6, %29, %77, %73, %69, %67, %62, %55, %47, %43, %39, %37, %32, %26, %51, %.thread, %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53, %53
-  %.1 = phi i8 [ 0, %53 ], [ 0, %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53 ], [ 0, %.thread ], [ 1, %51 ], [ %36, %32 ], [ 1, %26 ], [ 4, %29 ], [ 0, %37 ], [ 3, %39 ], [ 5, %43 ], [ %..i, %47 ], [ %66, %62 ], [ 1, %55 ], [ 4, %59 ], [ 0, %67 ], [ 3, %69 ], [ 5, %73 ], [ %..i30, %77 ], [ 0, %6 ]
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %82 = tail call noundef ptr @_ZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueE(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef %9) #25
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i32, ptr %83, align 8
-  %trunc.i = trunc i32 %84 to i8
-  switch i8 %trunc.i, label %85 [
+"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit": ; preds = %60, %6, %30, %78, %74, %70, %68, %63, %56, %48, %44, %40, %38, %33, %27, %52, %.thread, %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53, %54
+  %.1 = phi i8 [ 0, %54 ], [ 0, %_ZNK4llvm7VPValue24hasMoreThanOneUniqueUserEv.exit.thread53 ], [ 0, %.thread ], [ 1, %52 ], [ %37, %33 ], [ 1, %27 ], [ 4, %30 ], [ 0, %38 ], [ 3, %40 ], [ 5, %44 ], [ %..i, %48 ], [ %67, %63 ], [ 1, %56 ], [ 4, %60 ], [ 0, %68 ], [ 3, %70 ], [ 5, %74 ], [ %..i30, %78 ], [ 0, %6 ]
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %83 = tail call noundef ptr @_ZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueE(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef %9) #25
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load i32, ptr %84, align 8
+  %trunc.i = trunc i32 %85 to i8
+  switch i8 %trunc.i, label %86 [
     i8 7, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
     i8 9, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
   ]
 
-85:                                               ; preds = %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
-  %86 = and i64 %1, 8589934591
-  %.not5.not.i = icmp eq i64 %86, 1
-  br i1 %.not5.not.i, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, label %87
+86:                                               ; preds = %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit"
+  %87 = and i64 %1, 8589934591
+  %.not5.not.i = icmp eq i64 %87, 1
+  br i1 %.not5.not.i, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, label %88
 
-87:                                               ; preds = %85
-  %88 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %82, i64 %1) #25
+88:                                               ; preds = %86
+  %89 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %83, i64 %1) #25
   br label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
 
-_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit: ; preds = %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", %85, %87
-  %.0.i32 = phi ptr [ %88, %87 ], [ %82, %85 ], [ %82, %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" ], [ %82, %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %90 = load ptr, ptr %89, align 8, !tbaa !392
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8
-  %trunc.i33 = trunc i32 %92 to i8
-  switch i8 %trunc.i33, label %93 [
+_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit: ; preds = %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit", %86, %88
+  %.0.i32 = phi ptr [ %89, %88 ], [ %83, %86 ], [ %83, %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" ], [ %83, %"_ZZNK4llvm17VPWidenCastRecipe11computeCostENS_12ElementCountERNS_13VPCostContextEENK3$_0clEPKNS_12VPRecipeBaseE.exit" ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %91 = load ptr, ptr %90, align 8, !tbaa !392
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load i32, ptr %92, align 8
+  %trunc.i33 = trunc i32 %93 to i8
+  switch i8 %trunc.i33, label %94 [
     i8 7, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36
     i8 9, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36
   ]
 
-93:                                               ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
-  %94 = and i64 %1, 8589934591
-  %.not5.not.i35 = icmp eq i64 %94, 1
-  br i1 %.not5.not.i35, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36, label %95
+94:                                               ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit
+  %95 = and i64 %1, 8589934591
+  %.not5.not.i35 = icmp eq i64 %95, 1
+  br i1 %.not5.not.i35, label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36, label %96
 
-95:                                               ; preds = %93
-  %96 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %90, i64 %1) #25
+96:                                               ; preds = %94
+  %97 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef nonnull %91, i64 %1) #25
   br label %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36
 
-_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36: ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, %93, %95
-  %.0.i34 = phi ptr [ %96, %95 ], [ %90, %93 ], [ %90, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit ], [ %90, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit ]
-  %97 = load ptr, ptr %2, align 8, !tbaa !99
-  %98 = load i32, ptr %10, align 8, !tbaa !113
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %100 = load i32, ptr %99, align 8, !tbaa !324
-  %101 = load ptr, ptr %4, align 8, !tbaa !62
-  %.not.i37 = icmp eq ptr %101, null
-  br i1 %.not.i37, label %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit, label %102
+_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36: ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit, %94, %96
+  %.0.i34 = phi ptr [ %97, %96 ], [ %91, %94 ], [ %91, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit ], [ %91, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit ]
+  %98 = load ptr, ptr %2, align 8, !tbaa !99
+  %99 = load i32, ptr %10, align 8, !tbaa !113
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %101 = load i32, ptr %100, align 8, !tbaa !324
+  %102 = load ptr, ptr %4, align 8, !tbaa !62
+  %.not.i37 = icmp eq ptr %102, null
+  br i1 %.not.i37, label %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit, label %103
 
-102:                                              ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36
-  %103 = load i8, ptr %101, align 8, !tbaa !73
-  %104 = icmp ugt i8 %103, 28
-  %spec.select.i.i = select i1 %104, ptr %101, ptr null
+103:                                              ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36
+  %104 = load i8, ptr %102, align 8, !tbaa !73
+  %105 = icmp ugt i8 %104, 28
+  %spec.select.i.i = select i1 %105, ptr %102, ptr null
   br label %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit
 
-_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36, %102
-  %.0.i38 = phi ptr [ %spec.select.i.i, %102 ], [ null, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36 ]
-  %105 = tail call { i64, i32 } @_ZNK4llvm19TargetTransformInfo16getCastInstrCostEjPNS_4TypeES2_NS0_15CastContextHintENS0_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %98, ptr noundef %.0.i34, ptr noundef %.0.i32, i8 noundef zeroext %.1, i32 noundef %100, ptr noundef %.0.i38) #25
-  %.fca.0.extract = extractvalue { i64, i32 } %105, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %105, 1
-  br label %106
+_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36, %103
+  %.0.i38 = phi ptr [ %spec.select.i.i, %103 ], [ null, %_ZN4llvm10toVectorTyEPNS_4TypeENS_12ElementCountE.exit36 ]
+  %106 = tail call { i64, i32 } @_ZNK4llvm19TargetTransformInfo16getCastInstrCostEjPNS_4TypeES2_NS0_15CastContextHintENS0_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef %99, ptr noundef %.0.i34, ptr noundef %.0.i32, i8 noundef zeroext %.1, i32 noundef %101, ptr noundef %.0.i38) #25
+  %.fca.0.extract = extractvalue { i64, i32 } %106, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %106, 1
+  br label %107
 
-106:                                              ; preds = %3, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit
+107:                                              ; preds = %3, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit
   %.sroa.039.0 = phi i64 [ %.fca.0.extract, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit ], [ 0, %3 ]
   %.sroa.3.0 = phi i32 [ %.fca.1.extract, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit ], [ 0, %3 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.039.0, 0

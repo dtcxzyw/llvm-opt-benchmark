@@ -803,8 +803,8 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %pModel, i64 80
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_Faces, align 8
-  %cmp27.not = icmp eq ptr %0, %1
-  br i1 %cmp27.not, label %for.end, label %for.body.lr.ph
+  %cmp26.not = icmp eq ptr %0, %1
+  br i1 %cmp26.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_MaterialLookupMap = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -814,8 +814,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %19, %for.inc ]
-  %idx.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %idx.028
+  %idx.027 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %idx.027
   %3 = load ptr, ptr %add.ptr.i, align 8
   %4 = load i32, ptr %3, align 4
   %iLightmapID = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -914,17 +914,17 @@ if.end.thread:                                    ; preds = %invoke.cont10
   br label %if.then17
 
 lpad.loopexit:                                    ; preds = %if.then, %invoke.cont10, %for.body, %_ZNKSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %lpad.loopexit21 = landingpad { ptr, i32 }
+  %lpad.loopexit20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i
-  %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad.i ], [ %lpad.loopexit21, %lpad.loopexit ], [ %lpad.loopexit.split-lp22, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad.i ], [ %lpad.loopexit20, %lpad.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
   resume { ptr, i32 } %eh.lpad-body
 
@@ -1005,7 +1005,7 @@ _ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i, %if.end
-  %inc = add nuw i64 %idx.028, 1
+  %inc = add nuw i64 %idx.027, 1
   %18 = load ptr, ptr %_M_finish.i, align 8
   %19 = load ptr, ptr %m_Faces, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64

@@ -2480,7 +2480,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %75, %68
-  %.0222.lcssa.i = phi i32 [ %67, %75 ], [ %.0222273.i, %68 ]
+  %.0222.lcssa.ph.i = phi i32 [ %67, %75 ], [ %.0222273.i, %68 ]
   %77 = icmp eq i8 %70, 58
   br i1 %77, label %78, label %tvb_parse_param.exit
 
@@ -2491,7 +2491,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   ]
 
 79:                                               ; preds = %78
-  %80 = sext i32 %.0222.lcssa.i to i64
+  %80 = sext i32 %.0222.lcssa.ph.i to i64
   %81 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %65, ptr noundef nonnull @.str.444, i64 noundef %80) #11
   %82 = icmp eq i32 %81, 0
   %hf_mgcp_param_x_osmux.hf_mgcp_param_extension.i = select i1 %82, ptr @hf_mgcp_param_x_osmux, ptr @hf_mgcp_param_extension
@@ -2502,7 +2502,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 
 83:                                               ; preds = %79, %.sink.split.i, %78
   %.1 = phi ptr [ null, %78 ], [ %hf_mgcp_param_x_osmux.hf_mgcp_param_extension.i, %79 ], [ @hf_mgcp_param_extension_critical, %.sink.split.i ]
-  %84 = add i32 %.0222.lcssa.i, %43
+  %84 = add i32 %.0222.lcssa.ph.i, %43
   br label %.critedge.i
 
 85:                                               ; preds = %22

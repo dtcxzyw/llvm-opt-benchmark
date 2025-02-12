@@ -9767,7 +9767,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i50
   %10 = load ptr, ptr %this, align 8
   %conv.i7.i = zext i32 %.pre11.i to i64
   %add.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i7.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i51, ptr align 1 %add.ptr16, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i51, ptr nonnull align 1 %add.ptr16, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   %.pre.i52 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
 
@@ -9784,7 +9784,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVect
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit, %if.then.i.i.i.i.i
@@ -9806,7 +9806,7 @@ for.body.preheader:                               ; preds = %if.end24
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv.i68
   %idx.neg33 = sub nsw i64 0, %gepdiff
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr34, ptr align 1 %add.ptr7, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr34, ptr align 1 %add.ptr7, i64 %gepdiff, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

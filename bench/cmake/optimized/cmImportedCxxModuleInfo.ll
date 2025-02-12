@@ -1565,8 +1565,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE21ImportedCxxModul
           to label %86 unwind label %161
 
 86:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE21ImportedCxxModuleInfoSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit
-  %.not118 = icmp eq ptr %.sroa.0.0.i.i46, %61
-  br i1 %.not118, label %180, label %87
+  %.not = icmp eq ptr %.sroa.0.0.i.i46, %61
+  br i1 %.not, label %180, label %87
 
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22

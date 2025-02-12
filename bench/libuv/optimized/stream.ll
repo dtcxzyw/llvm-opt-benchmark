@@ -627,11 +627,11 @@ uv__stream_eof.exit:                              ; preds = %if.then18, %if.end.
   %74 = load ptr, ptr %read_cb.i36, align 8
   call void %74(ptr noundef nonnull %add.ptr, i64 noundef -4095, ptr noundef nonnull %buf) #12
   %.pre = load i32, ptr %fd, align 8
+  %75 = icmp eq i32 %.pre, -1
   br label %if.end19
 
 if.end19:                                         ; preds = %uv__stream_eof.exit, %land.lhs.true, %if.end5
-  %75 = phi i32 [ %.pre, %uv__stream_eof.exit ], [ %67, %land.lhs.true ], [ %67, %if.end5 ]
-  %cmp22 = icmp eq i32 %75, -1
+  %cmp22 = phi i1 [ %75, %uv__stream_eof.exit ], [ false, %land.lhs.true ], [ false, %if.end5 ]
   %and25 = and i32 %events, 28
   %tobool26.not = icmp eq i32 %and25, 0
   %or.cond16 = or i1 %tobool26.not, %cmp22

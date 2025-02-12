@@ -4906,7 +4906,7 @@ _ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm1
   %84 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %41, i64 %83
   %85 = sub nsw i64 0, %45
   %86 = getelementptr inbounds %"class.llvm::StringRef", ptr %84, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 8 %42, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %80

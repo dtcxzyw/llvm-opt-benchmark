@@ -169,54 +169,53 @@ define void @_ZN6google8protobuf15StripWhitespaceEPNSt7__cxx1112basic_stringIcSt
 
 11:                                               ; preds = %.critedge
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %16, label %12
+  br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %11
-  %13 = and i64 %indvars.iv, 4294967295
-  %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %13)
-  %15 = sub nsw i32 %3, %8
-  br label %16
+  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %indvars.iv)
+  %14 = sub nsw i32 %3, %8
+  br label %15
 
-16:                                               ; preds = %12, %11
-  %.027 = phi i32 [ %15, %12 ], [ %3, %11 ]
-  %17 = add i32 %.027, -1
-  %18 = icmp sgt i32 %.027, 0
-  br i1 %18, label %.lr.ph37.preheader, label %.critedge2.thread
+15:                                               ; preds = %12, %11
+  %.027 = phi i32 [ %14, %12 ], [ %3, %11 ]
+  %16 = add i32 %.027, -1
+  %17 = icmp sgt i32 %.027, 0
+  br i1 %17, label %.lr.ph37.preheader, label %.critedge2.thread
 
-.lr.ph37.preheader:                               ; preds = %16
-  %19 = zext nneg i32 %17 to i64
+.lr.ph37.preheader:                               ; preds = %15
+  %18 = zext nneg i32 %16 to i64
   br label %.lr.ph37
 
-.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %22
-  %indvars.iv40 = phi i64 [ %19, %.lr.ph37.preheader ], [ %indvars.iv.next41, %22 ]
-  %20 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv40)
-  %21 = load i8, ptr %20, align 1
-  switch i8 %21, label %.critedge2 [
-    i8 32, label %22
-    i8 12, label %22
-    i8 11, label %22
-    i8 10, label %22
-    i8 9, label %22
-    i8 13, label %22
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %21
+  %indvars.iv40 = phi i64 [ %18, %.lr.ph37.preheader ], [ %indvars.iv.next41, %21 ]
+  %19 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv40)
+  %20 = load i8, ptr %19, align 1
+  switch i8 %20, label %.critedge2 [
+    i8 32, label %21
+    i8 12, label %21
+    i8 11, label %21
+    i8 10, label %21
+    i8 9, label %21
+    i8 13, label %21
   ]
 
-22:                                               ; preds = %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37
+21:                                               ; preds = %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37, %.lr.ph37
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %23 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %23, label %.lr.ph37, label %.critedge2.thread, !llvm.loop !7
+  %22 = icmp sgt i64 %indvars.iv40, 0
+  br i1 %22, label %.lr.ph37, label %.critedge2.thread, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph37
-  %24 = trunc nuw nsw i64 %indvars.iv40 to i32
-  %.not31 = icmp eq i32 %17, %24
-  br i1 %.not31, label %.critedge2.thread, label %25
+  %23 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %.not31 = icmp eq i32 %16, %23
+  br i1 %.not31, label %.critedge2.thread, label %24
 
-25:                                               ; preds = %.critedge2
-  %26 = add nuw nsw i64 %indvars.iv40, 1
-  %27 = and i64 %26, 4294967295
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %27, i64 noundef -1)
+24:                                               ; preds = %.critedge2
+  %25 = add nuw nsw i64 %indvars.iv40, 1
+  %26 = and i64 %25, 4294967295
+  %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26, i64 noundef -1)
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %22, %.critedge.thread44, %16, %25, %.critedge2, %.critedge.thread
+.critedge2.thread:                                ; preds = %21, %.critedge.thread44, %15, %24, %.critedge2, %.critedge.thread
   ret void
 }
 

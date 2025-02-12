@@ -16310,8 +16310,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 273:                                              ; preds = %270
   %274 = load ptr, ptr %14, align 8, !tbaa !21
   %275 = load ptr, ptr %215, align 8, !tbaa !21
-  %.not207 = icmp eq ptr %274, %275
-  br i1 %.not207, label %.critedge86, label %.lr.ph
+  %.not205 = icmp eq ptr %274, %275
+  br i1 %.not205, label %.critedge86, label %.lr.ph
 
 276:                                              ; preds = %326, %.critedge86, %270
   %277 = landingpad { ptr, i32 }
@@ -16319,8 +16319,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
   br label %455
 
 .lr.ph:                                           ; preds = %273, %.critedge
-  %.sroa.0199.0208 = phi ptr [ %319, %.critedge ], [ %274, %273 ]
-  %278 = invoke noundef zeroext i1 @_ZNK17cmGlobalGenerator21IsExportedTargetsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1834) %272, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0199.0208)
+  %.sroa.0199.0206 = phi ptr [ %319, %.critedge ], [ %274, %273 ]
+  %278 = invoke noundef zeroext i1 @_ZNK17cmGlobalGenerator21IsExportedTargetsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1834) %272, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0199.0206)
           to label %279 unwind label %305
 
 279:                                              ; preds = %.lr.ph
@@ -16336,8 +16336,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
   %282 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %282, align 8, !tbaa !57, !alias.scope !283, !noalias !280
   %283 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %284 = load ptr, ptr %.sroa.0199.0208, align 8, !tbaa !12, !noalias !280
-  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0199.0208, i64 8
+  %284 = load ptr, ptr %.sroa.0199.0206, align 8, !tbaa !12, !noalias !280
+  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0199.0206, i64 8
   %286 = load i64, ptr %285, align 8, !tbaa !15, !noalias !280
   store i64 %286, ptr %283, align 8, !tbaa !10, !alias.scope !286, !noalias !280
   %.sroa.4.0..sroa_idx.i11.i126 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -16429,7 +16429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   br label %455
 
 .critedge:                                        ; preds = %279
-  %319 = getelementptr inbounds nuw i8, ptr %.sroa.0199.0208, i64 32
+  %319 = getelementptr inbounds nuw i8, ptr %.sroa.0199.0206, i64 32
   %.not = icmp eq ptr %319, %275
   br i1 %.not, label %.critedge86, label %.lr.ph
 

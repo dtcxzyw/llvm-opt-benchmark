@@ -835,7 +835,7 @@ if.then.i.i.i.i.i.i77:                            ; preds = %if.end10.i
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %idx.neg.i.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %add.ptr.i38.i, i64 %idx.neg.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i78, ptr nonnull align 1 %54, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i78, ptr nonnull align 1 %54, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   %.pre28.i = load i32, ptr %Size.i.i.i.i.i.i46, align 8
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i
 
@@ -919,7 +919,7 @@ if.then.i.i.i.i.i.i111:                           ; preds = %if.end10.i102
   %sub.ptr.sub.i.i.i.i.i.i114 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i112, %sub.ptr.rhs.cast.i.i.i.i.i.i113
   %idx.neg.i.i.i.i.i.i115 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i114
   %add.ptr.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %add.ptr.i38.i108, i64 %idx.neg.i.i.i.i.i.i115
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i116, ptr nonnull align 1 %I.addr.0.i104, i64 %sub.ptr.sub.i.i.i.i.i.i114, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i116, ptr nonnull align 1 %I.addr.0.i104, i64 %sub.ptr.sub.i.i.i.i.i.i114, i1 false)
   %.pre28.i117 = load i32, ptr %Size.i.i.i.i.i.i46, align 8
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i119
 
@@ -993,7 +993,7 @@ if.then.i.i.i.i.i.i167:                           ; preds = %if.end10.i158
   %sub.ptr.sub.i.i.i.i.i.i170 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i168, %sub.ptr.rhs.cast.i.i.i.i.i.i169
   %idx.neg.i.i.i.i.i.i171 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i170
   %add.ptr.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr.i38.i164, i64 %idx.neg.i.i.i.i.i.i171
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i172, ptr nonnull align 1 %75, i64 %sub.ptr.sub.i.i.i.i.i.i170, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i172, ptr nonnull align 1 %75, i64 %sub.ptr.sub.i.i.i.i.i.i170, i1 false)
   %.pre28.i173 = load i32, ptr %Size.i.i.i.i.i.i46, align 8
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i175
 
@@ -2221,7 +2221,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end10
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i38, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %I.addr.0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %I.addr.0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre28 = load i32, ptr %Size.i, align 8
   %.pre29 = load ptr, ptr %this, align 8
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit

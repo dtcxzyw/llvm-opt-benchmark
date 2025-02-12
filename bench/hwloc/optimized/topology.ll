@@ -4324,9 +4324,9 @@ define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef captu
   %17 = load ptr, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %17, i64 %14, i1 false)
   %umax = tail call i32 @llvm.umax.i32(i32 %3, i32 2)
-  %umax21 = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
+  %umax20 = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   %wide.trip.count = zext i32 %umax to i64
-  %wide.trip.count22 = zext i32 %umax21 to i64
+  %wide.trip.count21 = zext i32 %umax20 to i64
   br label %.lr.ph7.us
 
 .lr.ph7.us.loopexit:                              ; preds = %.preheader.us
@@ -4345,15 +4345,15 @@ define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef captu
   br i1 %exitcond.not, label %._crit_edge8.us, label %27, !llvm.loop !46
 
 .preheader.us:                                    ; preds = %._crit_edge8.us, %.preheader.us
-  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.preheader.us ], [ 0, %._crit_edge8.us ]
-  %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv18
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.preheader.us ], [ 0, %._crit_edge8.us ]
+  %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv17
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %23, align 8
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond23.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count22
-  br i1 %exitcond23.not, label %.lr.ph7.us.loopexit, label %.preheader.us, !llvm.loop !45
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond22.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count21
+  br i1 %exitcond22.not, label %.lr.ph7.us.loopexit, label %.preheader.us, !llvm.loop !45
 
 27:                                               ; preds = %.lr.ph7.us, %22
   %indvars.iv = phi i64 [ 1, %.lr.ph7.us ], [ %indvars.iv.next, %22 ]

@@ -11737,7 +11737,7 @@ _ZSt13move_backwardIPN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EE
   %75 = getelementptr inbounds nuw %"class.llvm::MachineInstrBundleIterator", ptr %38, i64 %74
   %76 = sub nsw i64 0, %42
   %77 = getelementptr inbounds %"class.llvm::MachineInstrBundleIterator", ptr %75, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
@@ -11917,7 +11917,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %73 = getelementptr inbounds nuw i32, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds i32, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 4 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 4 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

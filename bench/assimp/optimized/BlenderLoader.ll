@@ -4249,16 +4249,16 @@ if.then101:                                       ; preds = %invoke.cont96
   store i32 %conv106, ptr %mNumMeshes, align 8
   %128 = and i64 %sub.ptr.sub.i, 34359738360
   %call109 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %128) #24
-          to label %invoke.cont.i.i.i unwind label %lpad
+          to label %invoke.cont108 unwind label %lpad
 
-invoke.cont.i.i.i:                                ; preds = %if.then101
+invoke.cont108:                                   ; preds = %if.then101
   %mMeshes = getelementptr inbounds nuw i8, ptr %out, i64 24
   store ptr %call109, ptr %mMeshes, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call109, ptr align 8 %127, i64 %sub.ptr.sub.i, i1 false)
   store ptr %127, ptr %_M_finish.i210, align 8
   br label %if.end127
 
-if.end127:                                        ; preds = %invoke.cont.i.i.i, %invoke.cont96
+if.end127:                                        ; preds = %invoke.cont108, %invoke.cont96
   %lights = getelementptr inbounds nuw i8, ptr %conv, i64 96
   %_M_finish.i218 = getelementptr inbounds nuw i8, ptr %conv, i64 104
   %129 = load ptr, ptr %_M_finish.i218, align 8
@@ -4276,16 +4276,16 @@ if.then132:                                       ; preds = %if.end127
   store i32 %conv137, ptr %mNumLights, align 8
   %131 = and i64 %sub.ptr.sub.i221, 34359738360
   %call140 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %131) #24
-          to label %invoke.cont.i.i.i237 unwind label %lpad
+          to label %invoke.cont139 unwind label %lpad
 
-invoke.cont.i.i.i237:                             ; preds = %if.then132
+invoke.cont139:                                   ; preds = %if.then132
   %mLights = getelementptr inbounds nuw i8, ptr %out, i64 88
   store ptr %call140, ptr %mLights, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call140, ptr align 8 %130, i64 %sub.ptr.sub.i221, i1 false)
   store ptr %130, ptr %_M_finish.i218, align 8
   br label %if.end160
 
-if.end160:                                        ; preds = %invoke.cont.i.i.i237, %if.end127
+if.end160:                                        ; preds = %invoke.cont139, %if.end127
   %cameras = getelementptr inbounds nuw i8, ptr %conv, i64 72
   %_M_finish.i238 = getelementptr inbounds nuw i8, ptr %conv, i64 80
   %132 = load ptr, ptr %_M_finish.i238, align 8
@@ -4303,16 +4303,16 @@ if.then165:                                       ; preds = %if.end160
   store i32 %conv170, ptr %mNumCameras, align 8
   %134 = and i64 %sub.ptr.sub.i241, 34359738360
   %call173 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %134) #24
-          to label %invoke.cont.i.i.i257 unwind label %lpad
+          to label %invoke.cont172 unwind label %lpad
 
-invoke.cont.i.i.i257:                             ; preds = %if.then165
+invoke.cont172:                                   ; preds = %if.then165
   %mCameras = getelementptr inbounds nuw i8, ptr %out, i64 104
   store ptr %call173, ptr %mCameras, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call173, ptr align 8 %133, i64 %sub.ptr.sub.i241, i1 false)
   store ptr %133, ptr %_M_finish.i238, align 8
   br label %if.end193
 
-if.end193:                                        ; preds = %invoke.cont.i.i.i257, %if.end160
+if.end193:                                        ; preds = %invoke.cont172, %if.end160
   %materials = getelementptr inbounds nuw i8, ptr %conv, i64 120
   %_M_finish.i258 = getelementptr inbounds nuw i8, ptr %conv, i64 128
   %135 = load ptr, ptr %_M_finish.i258, align 8
@@ -4330,16 +4330,16 @@ if.then198:                                       ; preds = %if.end193
   store i32 %conv203, ptr %mNumMaterials, align 8
   %137 = and i64 %sub.ptr.sub.i261, 34359738360
   %call206 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %137) #24
-          to label %invoke.cont.i.i.i277 unwind label %lpad
+          to label %invoke.cont205 unwind label %lpad
 
-invoke.cont.i.i.i277:                             ; preds = %if.then198
+invoke.cont205:                                   ; preds = %if.then198
   %mMaterials = getelementptr inbounds nuw i8, ptr %out, i64 40
   store ptr %call206, ptr %mMaterials, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call206, ptr align 8 %136, i64 %sub.ptr.sub.i261, i1 false)
   store ptr %136, ptr %_M_finish.i258, align 8
   br label %if.end226
 
-if.end226:                                        ; preds = %invoke.cont.i.i.i277, %if.end193
+if.end226:                                        ; preds = %invoke.cont205, %if.end193
   %textures = getelementptr inbounds nuw i8, ptr %conv, i64 144
   %_M_finish.i278 = getelementptr inbounds nuw i8, ptr %conv, i64 152
   %138 = load ptr, ptr %_M_finish.i278, align 8
@@ -4357,16 +4357,16 @@ if.then231:                                       ; preds = %if.end226
   store i32 %conv236, ptr %mNumTextures, align 8
   %140 = and i64 %sub.ptr.sub.i281, 34359738360
   %call239 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %140) #24
-          to label %invoke.cont.i.i.i297 unwind label %lpad
+          to label %invoke.cont238 unwind label %lpad
 
-invoke.cont.i.i.i297:                             ; preds = %if.then231
+invoke.cont238:                                   ; preds = %if.then231
   %mTextures = getelementptr inbounds nuw i8, ptr %out, i64 72
   store ptr %call239, ptr %mTextures, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call239, ptr align 8 %139, i64 %sub.ptr.sub.i281, i1 false)
   store ptr %139, ptr %_M_finish.i278, align 8
   br label %if.end259
 
-if.end259:                                        ; preds = %invoke.cont.i.i.i297, %if.end226
+if.end259:                                        ; preds = %invoke.cont238, %if.end226
   %mNumMeshes260 = getelementptr inbounds nuw i8, ptr %out, i64 16
   %141 = load i32, ptr %mNumMeshes260, align 8
   %tobool261.not = icmp eq i32 %141, 0

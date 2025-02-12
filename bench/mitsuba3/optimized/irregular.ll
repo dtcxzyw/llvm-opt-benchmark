@@ -4300,8 +4300,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   call void @_ZdlPv(ptr noundef nonnull %27) #32
   br label %common.resume
 
-common.resume:                                    ; preds = %14, %117, %25, %28
-  %common.resume.op = phi { ptr, i32 } [ %26, %28 ], [ %26, %25 ], [ %15, %14 ], [ %.pn, %117 ]
+common.resume:                                    ; preds = %14, %116, %25, %28
+  %common.resume.op = phi { ptr, i32 } [ %26, %28 ], [ %26, %25 ], [ %15, %14 ], [ %.pn, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph:                                           ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
@@ -4309,15 +4309,15 @@ common.resume:                                    ; preds = %14, %117, %25, %28
   %29 = load float, ptr %2, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %29, ptr %30, align 4
-  %.promoted185 = load float, ptr %18, align 8
+  %.promoted186 = load float, ptr %18, align 8
   %.sroa_idx145.promoted = load float, ptr %.sroa_idx145, align 4
-  %.promoted186 = load float, ptr %17, align 8
+  %.promoted187 = load float, ptr %17, align 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %78
-  %32 = phi float [ %.promoted186, %.lr.ph ], [ %..i138, %78 ]
+  %32 = phi float [ %.promoted187, %.lr.ph ], [ %..i138, %78 ]
   %33 = phi float [ %.sroa_idx145.promoted, %.lr.ph ], [ %..i137, %78 ]
-  %34 = phi float [ %.promoted185, %.lr.ph ], [ %..i136, %78 ]
+  %34 = phi float [ %.promoted186, %.lr.ph ], [ %..i136, %78 ]
   %35 = phi float [ %29, %.lr.ph ], [ %..i, %78 ]
   %.0121170 = phi ptr [ %1, %.lr.ph ], [ %40, %78 ]
   %.0122169 = phi ptr [ %2, %.lr.ph ], [ %45, %78 ]
@@ -4374,13 +4374,13 @@ common.resume:                                    ; preds = %14, %117, %25, %28
 65:                                               ; preds = %.noexc.i139, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, %72, %61
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %116
 
 67:                                               ; preds = %63
   %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #29
-  br label %117
+  br label %116
 
 69:                                               ; preds = %31
   %70 = fcmp contract olt float %43, 0.000000e+00
@@ -4404,7 +4404,7 @@ common.resume:                                    ; preds = %14, %117, %25, %28
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #29
-  br label %117
+  br label %116
 
 78:                                               ; preds = %69
   %79 = fcmp contract ogt double %51, 0.000000e+00
@@ -4439,7 +4439,7 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %._cri
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #29
-  br label %117
+  br label %116
 
 .noexc.i139:                                      ; preds = %._crit_edge
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4475,26 +4475,26 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %._cri
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre182 = load i64, ptr %103, align 8
   %.pre183 = load ptr, ptr %99, align 8
+  %.pre182.fr = freeze i64 %.pre182
+  %107 = icmp eq i64 %.pre182.fr, 1
+  %108 = zext i32 %.pre to i64
+  %spec.select = select i1 %107, i64 0, i64 %108
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
 
-_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %106, %98
-  %107 = phi ptr [ %.pre183, %106 ], [ %97, %98 ]
-  %108 = phi i64 [ %.pre182, %106 ], [ %3, %98 ]
-  %109 = phi i32 [ %.pre, %106 ], [ %82, %98 ]
-  %110 = zext i32 %109 to i64
-  %111 = icmp eq i64 %108, 1
-  %spec.store.select.i = select i1 %111, i64 0, i64 %110
-  %112 = getelementptr inbounds nuw float, ptr %107, i64 %spec.store.select.i
-  %113 = load float, ptr %112, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store float %113, ptr %114, align 8
-  %115 = fdiv contract float 1.000000e+00, %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store float %115, ptr %116, align 4
+_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %98, %106
+  %109 = phi ptr [ %.pre183, %106 ], [ %97, %98 ]
+  %110 = phi i64 [ %spec.select, %106 ], [ %.sroa.2.0.insert.ext, %98 ]
+  %111 = getelementptr inbounds nuw float, ptr %109, i64 %110
+  %112 = load float, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store float %112, ptr %113, align 8
+  %114 = fdiv contract float 1.000000e+00, %112
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store float %114, ptr %115, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %24) #32
   ret void
 
-117:                                              ; preds = %65, %67, %76, %91
+116:                                              ; preds = %65, %67, %76, %91
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %66, %65 ], [ %68, %67 ], [ %92, %91 ]
   call void @_ZdlPv(ptr noundef nonnull %24) #32
   br label %common.resume

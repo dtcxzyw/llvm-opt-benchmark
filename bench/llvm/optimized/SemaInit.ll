@@ -62192,7 +62192,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang22InitializationSequence4StepELb1EE28re
   %68 = sub i64 %66, %67
   %.neg.i.i.i.i.i = sdiv exact i64 %68, -40
   %69 = getelementptr inbounds %"class.clang::InitializationSequence::Step", ptr %63, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %69, ptr nonnull align 8 %55, i64 %68, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %55, i64 %68, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !1009
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !1008
   br label %_ZSt13move_backwardIPN5clang22InitializationSequence4StepES3_ET0_T_S5_S4_.exit

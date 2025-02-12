@@ -6560,7 +6560,7 @@ _ZSt13move_backwardIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4l
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -7381,7 +7381,7 @@ _ZSt13move_backwardIPPN4llvm7DDGEdgeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -7558,7 +7558,7 @@ _ZSt13move_backwardIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4l
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -8965,7 +8965,7 @@ _ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4ll
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -9127,7 +9127,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit.i32: ; preds = %60, 
   %63 = load ptr, ptr %0, align 8, !tbaa !25
   %64 = zext i32 %.pre9.i33 to i64
   %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr align 8 %52, i64 %54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %52, i64 %54, i1 false)
   %.pre.i34 = load i32, ptr %9, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
 
@@ -9187,7 +9187,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_moveIPS2
   %90 = getelementptr inbounds nuw ptr, ptr %44, i64 %89
   %91 = sub nsw i64 0, %48
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %45, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %45, i64 %gepdiff, i1 false)
   %.pre56 = load i64, ptr %2, align 8, !tbaa !197
   %93 = inttoptr i64 %.pre56 to ptr
   br label %.lr.ph

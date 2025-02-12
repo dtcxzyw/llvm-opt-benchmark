@@ -41255,7 +41255,7 @@ _ZSt13move_backwardIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit.sink.split.i: ; pred
   %94 = sub i64 %92, %93
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %94, -56
   %95 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %95, ptr align 8 %5, i64 %94, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %95, ptr align 8 %5, i64 %94, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN5clang9ThunkInfoES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114VFTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit"
 
 96:                                               ; preds = %51
@@ -41585,7 +41585,7 @@ _ZSt4moveIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit: ; preds = %13, %17
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -56
   %21 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt4moveIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit, %18
@@ -41634,7 +41634,7 @@ _ZSt4moveIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit42: ; preds = %_ZSt4moveIPN5cla
 34:                                               ; preds = %_ZSt4moveIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit42
   %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -56
   %35 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %2, i64 %.neg.i.i.i.i.i44
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit46
 
 _ZSt13move_backwardIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit46: ; preds = %_ZSt4moveIPN5clang9ThunkInfoES2_ET0_T_S4_S3_.exit42, %34

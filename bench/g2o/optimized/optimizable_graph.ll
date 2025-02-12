@@ -2511,17 +2511,17 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph4loadERSi(ptr noundef nonnul
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit143
 
 .loopexit.split-lp.loopexit.loopexit:             ; preds = %29, %35, %42, %80, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread, %102, %105, %107, %109, %119, %.thread
-  %lpad.loopexit180 = landingpad { ptr, i32 }
+  %lpad.loopexit178 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit143
 
 .loopexit.split-lp.loopexit.loopexit.split-lp:    ; preds = %121, %128, %130, %135, %294, %144, %149
-  %lpad.loopexit.split-lp181 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp179 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit143
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %18
-  %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit143
 
@@ -2841,11 +2841,11 @@ _ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexE.exit.thread: ; preds = %146, %
   %173 = sub i64 %171, %172
   %174 = ashr exact i64 %173, 3
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %174)
-          to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
   %175 = icmp sgt i32 %167, 0
-  br i1 %175, label %.lr.ph.preheader, label %.loopexit171
+  br i1 %175, label %.lr.ph.preheader, label %.loopexit169
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %wide.trip.count = and i64 %166, 2147483647
@@ -2856,27 +2856,27 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
   %176 = load ptr, ptr %11, align 8
   %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv
   %178 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %177)
-          to label %179 unwind label %.loopexit.split-lp162.loopexit
+          to label %179 unwind label %.loopexit.split-lp160.loopexit
 
 179:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit171, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit169, label %.lr.ph, !llvm.loop !16
 
-.loopexit161:                                     ; preds = %234
-  %lpad.loopexit163 = landingpad { ptr, i32 }
+.loopexit159:                                     ; preds = %234
+  %lpad.loopexit161 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp162
+  br label %.loopexit.split-lp160
 
-.loopexit.split-lp162.loopexit:                   ; preds = %.lr.ph
-  %lpad.loopexit172 = landingpad { ptr, i32 }
+.loopexit.split-lp160.loopexit:                   ; preds = %.lr.ph
+  %lpad.loopexit170 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp162
+  br label %.loopexit.split-lp160
 
-.loopexit.split-lp162.loopexit.split-lp:          ; preds = %274, %269, %267, %262, %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i, %170, %.critedge111
-  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
+.loopexit.split-lp160.loopexit.split-lp:          ; preds = %274, %269, %267, %262, %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i, %170, %.critedge111
+  %lpad.loopexit.split-lp171 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp162
+  br label %.loopexit.split-lp160
 
 180:                                              ; preds = %158
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #38
@@ -2884,7 +2884,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
 
 181:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %180
   %182 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %183 unwind label %.loopexit166
+          to label %183 unwind label %.loopexit164
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %182, align 8
@@ -2892,7 +2892,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
   %186 = load i64, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %182, i64 %186
   %188 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %187)
-          to label %189 unwind label %.loopexit166
+          to label %189 unwind label %.loopexit164
 
 189:                                              ; preds = %183
   br i1 %188, label %190, label %222
@@ -2902,25 +2902,25 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %222, label %193
 
-.loopexit166:                                     ; preds = %181, %183, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %lpad.loopexit168 = landingpad { ptr, i32 }
+.loopexit164:                                     ; preds = %181, %183, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %lpad.loopexit166 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp167
+  br label %.loopexit.split-lp165
 
-.loopexit.split-lp167.loopexit:                   ; preds = %222
-  %lpad.loopexit178 = landingpad { ptr, i32 }
+.loopexit.split-lp165.loopexit:                   ; preds = %222
+  %lpad.loopexit176 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp167
+  br label %.loopexit.split-lp165
 
-.loopexit.split-lp167.loopexit.split-lp:          ; preds = %207
+.loopexit.split-lp165.loopexit.split-lp:          ; preds = %207
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp167
+  br label %.loopexit.split-lp165
 
-.loopexit.split-lp167:                            ; preds = %.loopexit.split-lp167.loopexit, %.loopexit.split-lp167.loopexit.split-lp, %.loopexit166
-  %lpad.phi170 = phi { ptr, i32 } [ %lpad.loopexit168, %.loopexit166 ], [ %lpad.loopexit178, %.loopexit.split-lp167.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp167.loopexit.split-lp ]
+.loopexit.split-lp165:                            ; preds = %.loopexit.split-lp165.loopexit, %.loopexit.split-lp165.loopexit.split-lp, %.loopexit164
+  %lpad.phi168 = phi { ptr, i32 } [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit176, %.loopexit.split-lp165.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp165.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #38
-  br label %.loopexit.split-lp162
+  br label %.loopexit.split-lp160
 
 193:                                              ; preds = %190
   %194 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #38
@@ -2947,7 +2947,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170
 
 207:                                              ; preds = %201
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #41
-          to label %.noexc131 unwind label %.loopexit.split-lp167.loopexit.split-lp
+          to label %.noexc131 unwind label %.loopexit.split-lp165.loopexit.split-lp
 
 .noexc131:                                        ; preds = %207
   unreachable
@@ -2963,7 +2963,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %201
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %213 = shl nuw nsw i64 %212, 2
   %214 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %213) #36
-          to label %.noexc132 unwind label %.loopexit166
+          to label %.noexc132 unwind label %.loopexit164
 
 .noexc132:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %215 = getelementptr inbounds i8, ptr %214, i64 %205
@@ -2993,7 +2993,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %198
   %221 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %181 unwind label %.loopexit166, !llvm.loop !17
+          to label %181 unwind label %.loopexit164, !llvm.loop !17
 
 222:                                              ; preds = %190, %189
   %sext = shl i64 %165, 29
@@ -3002,30 +3002,30 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %226 = load ptr, ptr %225, align 8
   invoke void %226(ptr noundef nonnull align 8 dereferenceable(36) %122, i64 noundef %223)
-          to label %227 unwind label %.loopexit.split-lp167.loopexit
+          to label %227 unwind label %.loopexit.split-lp165.loopexit
 
 227:                                              ; preds = %222
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #38
-  br label %.loopexit171
+  br label %.loopexit169
 
-.loopexit171:                                     ; preds = %179, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %227
+.loopexit169:                                     ; preds = %179, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %227
   %228 = load ptr, ptr %25, align 8
   %229 = load ptr, ptr %11, align 8
-  %.not102193.not = icmp eq ptr %228, %229
-  br i1 %.not102193.not, label %.critedge111, label %.lr.ph195
+  %.not102191.not = icmp eq ptr %228, %229
+  br i1 %.not102191.not, label %.critedge111, label %.lr.ph193
 
-.lr.ph195:                                        ; preds = %.loopexit171, %239
-  %230 = phi ptr [ %240, %239 ], [ %229, %.loopexit171 ]
-  %231 = phi ptr [ %241, %239 ], [ %228, %.loopexit171 ]
-  %.080194 = phi i64 [ %242, %239 ], [ 0, %.loopexit171 ]
-  %232 = getelementptr inbounds i32, ptr %230, i64 %.080194
+.lr.ph193:                                        ; preds = %.loopexit169, %239
+  %230 = phi ptr [ %240, %239 ], [ %229, %.loopexit169 ]
+  %231 = phi ptr [ %241, %239 ], [ %228, %.loopexit169 ]
+  %.080192 = phi i64 [ %242, %239 ], [ 0, %.loopexit169 ]
+  %232 = getelementptr inbounds i32, ptr %230, i64 %.080192
   %233 = load i32, ptr %232, align 4
   %.not100 = icmp eq i32 %233, -1
   br i1 %.not100, label %239, label %234
 
-234:                                              ; preds = %.lr.ph195
+234:                                              ; preds = %.lr.ph193
   %235 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %233)
-          to label %_ZN3g2o16OptimizableGraph6vertexEi.exit134 unwind label %.loopexit161
+          to label %_ZN3g2o16OptimizableGraph6vertexEi.exit134 unwind label %.loopexit159
 
 _ZN3g2o16OptimizableGraph6vertexEi.exit134:       ; preds = %234
   %.not101 = icmp eq ptr %235, null
@@ -3033,29 +3033,29 @@ _ZN3g2o16OptimizableGraph6vertexEi.exit134:       ; preds = %234
 
 236:                                              ; preds = %_ZN3g2o16OptimizableGraph6vertexEi.exit134
   %237 = load ptr, ptr %159, align 8
-  %238 = getelementptr inbounds ptr, ptr %237, i64 %.080194
+  %238 = getelementptr inbounds ptr, ptr %237, i64 %.080192
   store ptr %235, ptr %238, align 8
   %.pre = load ptr, ptr %25, align 8
-  %.pre206 = load ptr, ptr %11, align 8
+  %.pre204 = load ptr, ptr %11, align 8
   br label %239
 
-239:                                              ; preds = %.lr.ph195, %236
-  %240 = phi ptr [ %230, %.lr.ph195 ], [ %.pre206, %236 ]
-  %241 = phi ptr [ %231, %.lr.ph195 ], [ %.pre, %236 ]
-  %242 = add nuw i64 %.080194, 1
+239:                                              ; preds = %.lr.ph193, %236
+  %240 = phi ptr [ %230, %.lr.ph193 ], [ %.pre204, %236 ]
+  %241 = phi ptr [ %231, %.lr.ph193 ], [ %.pre, %236 ]
+  %242 = add nuw i64 %.080192, 1
   %243 = ptrtoint ptr %241 to i64
   %244 = ptrtoint ptr %240 to i64
   %245 = sub i64 %243, %244
   %246 = ashr exact i64 %245, 2
   %.not102 = icmp ult i64 %242, %246
-  br i1 %.not102, label %.lr.ph195, label %.critedge111, !llvm.loop !18
+  br i1 %.not102, label %.lr.ph193, label %.critedge111, !llvm.loop !18
 
-.critedge111:                                     ; preds = %239, %.loopexit171
+.critedge111:                                     ; preds = %239, %.loopexit169
   %247 = load ptr, ptr %122, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 184
   %249 = load ptr, ptr %248, align 8
   %250 = invoke noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(176) %122, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %251 unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %251 unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 251:                                              ; preds = %.critedge111
   br i1 %250, label %252, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split
@@ -3081,7 +3081,7 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i:    ; preds = %255
 
 _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i, %255, %252
   %261 = invoke noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %122)
-          to label %.noexc136 unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %.noexc136 unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 .noexc136:                                        ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i
   br i1 %261, label %262, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split
@@ -3093,7 +3093,7 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16Optimi
   %265 = getelementptr inbounds nuw i8, ptr %122, i64 72
   store i64 %263, ptr %265, align 8
   %266 = invoke noundef i32 @_ZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEv(ptr noundef nonnull align 8 dereferenceable(36) %122)
-          to label %.noexc137 unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %.noexc137 unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 .noexc137:                                        ; preds = %262
   %.not.i = icmp eq i32 %266, 0
@@ -3101,7 +3101,7 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16Optimi
 
 267:                                              ; preds = %.noexc137
   %268 = invoke noundef zeroext i1 @_ZN3g2o16OptimizableGraph4Edge17resolveParametersEv(ptr noundef nonnull align 8 dereferenceable(176) %122)
-          to label %.noexc138 unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %.noexc138 unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 .noexc138:                                        ; preds = %267
   br i1 %268, label %269, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split
@@ -3111,14 +3111,14 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16Optimi
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 200
   %272 = load ptr, ptr %271, align 8
   %273 = invoke noundef zeroext i1 %272(ptr noundef nonnull align 8 dereferenceable(176) %122)
-          to label %.noexc139 unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %.noexc139 unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 .noexc139:                                        ; preds = %269
   br i1 %273, label %274, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split
 
 274:                                              ; preds = %.noexc139
   invoke void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %122)
-          to label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit unwind label %.loopexit.split-lp162.loopexit.split-lp
+          to label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit unwind label %.loopexit.split-lp160.loopexit.split-lp
 
 _ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split: ; preds = %_ZN3g2o16OptimizableGraph6vertexEi.exit134, %251, %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i, %.noexc136, %.noexc138, %.noexc139
   %275 = load ptr, ptr %122, align 8
@@ -3149,13 +3149,13 @@ _ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit: ; preds = %_ZN3g2o16Optimiza
   %.075.ph.be = phi ptr [ %155, %154 ], [ %.075.ph, %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexE.exit.thread ], [ %.075.ph, %305 ], [ null, %311 ], [ %.075.ph, %.critedge112 ], [ %.075.ph, %300 ], [ null, %314 ], [ %.075.ph, %123 ], [ %spec.select1, %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit ], [ %spec.select1, %281 ]
   br label %.outer, !llvm.loop !12
 
-.loopexit.split-lp162:                            ; preds = %.loopexit161, %.loopexit.split-lp162.loopexit.split-lp, %.loopexit.split-lp162.loopexit, %.loopexit.split-lp167
-  %.pn = phi { ptr, i32 } [ %lpad.phi170, %.loopexit.split-lp167 ], [ %lpad.loopexit163, %.loopexit161 ], [ %lpad.loopexit172, %.loopexit.split-lp162.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp162.loopexit.split-lp ]
+.loopexit.split-lp160:                            ; preds = %.loopexit159, %.loopexit.split-lp160.loopexit.split-lp, %.loopexit.split-lp160.loopexit, %.loopexit.split-lp165
+  %.pn = phi { ptr, i32 } [ %lpad.phi168, %.loopexit.split-lp165 ], [ %lpad.loopexit161, %.loopexit159 ], [ %lpad.loopexit170, %.loopexit.split-lp160.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp160.loopexit.split-lp ]
   %286 = load ptr, ptr %11, align 8
   %.not.i.i.i142 = icmp eq ptr %286, null
   br i1 %.not.i.i.i142, label %_ZNSt6vectorIiSaIiEED2Ev.exit143, label %287
 
-287:                                              ; preds = %.loopexit.split-lp162
+287:                                              ; preds = %.loopexit.split-lp160
   %288 = load ptr, ptr %26, align 8
   %289 = ptrtoint ptr %288 to i64
   %290 = ptrtoint ptr %286 to i64
@@ -3233,8 +3233,8 @@ _ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit: ; preds = %_ZN3g2o16Optimiza
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit: ; preds = %318
   ret i1 true
 
-_ZNSt6vectorIiSaIiEED2Ev.exit143:                 ; preds = %.loopexit, %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %287, %.loopexit.split-lp162
-  %.pn104 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp162 ], [ %.pn, %287 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp176, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp181, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
+_ZNSt6vectorIiSaIiEED2Ev.exit143:                 ; preds = %.loopexit, %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %287, %.loopexit.split-lp160
+  %.pn104 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp160 ], [ %.pn, %287 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit178, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #38
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #38
   br label %323
@@ -3651,14 +3651,10 @@ _ZNSt20back_insert_iteratorISt6vectorIPN3g2o10HyperGraph4EdgeESaIS4_EEEaSERKS4_.
 
 .noexc31:                                         ; preds = %98
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS2_16OptimizableGraph13EdgeIDCompareEEEEvT_SG_T0_(ptr %.sroa.039.2, ptr %.sroa.7.1)
-          to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.lr.ph100 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit: ; preds = %.noexc31
-  %.not7198 = icmp eq ptr %.sroa.039.2, %.sroa.7.1
-  br i1 %.not7198, label %._crit_edge101, label %.lr.ph100
-
-.lr.ph100:                                        ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit, %108
-  %.sroa.036.099 = phi ptr [ %109, %108 ], [ %.sroa.039.2, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit ]
+.lr.ph100:                                        ; preds = %.noexc31, %108
+  %.sroa.036.099 = phi ptr [ %109, %108 ], [ %.sroa.039.2, %.noexc31 ]
   %106 = load ptr, ptr %.sroa.036.099, align 8
   %107 = invoke noundef zeroext i1 @_ZNK3g2o16OptimizableGraph8saveEdgeERSoPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %106)
           to label %108 unwind label %.loopexit
@@ -3699,9 +3695,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_S
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.0, i64 noundef %113) #37
   br label %_ZNSt6vectorIPN3g2o10HyperGraph4EdgeESaIS3_EED2Ev.exit
 
-._crit_edge101:                                   ; preds = %108, %._crit_edge97, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit", %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit
-  %.sroa.039.366114 = phi ptr [ %.sroa.039.2, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit ], [ null, %._crit_edge97 ], [ %.sroa.039.2, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit" ], [ %.sroa.039.2, %108 ]
-  %.sroa.13.368113 = phi ptr [ %.sroa.13.2, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph4EdgeESt6vectorIS5_SaIS5_EEEENS2_16OptimizableGraph13EdgeIDCompareEEvT_SD_T0_.exit ], [ null, %._crit_edge97 ], [ %.sroa.13.2, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit" ], [ %.sroa.13.2, %108 ]
+._crit_edge101:                                   ; preds = %108, %._crit_edge97, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit"
+  %.sroa.039.366114 = phi ptr [ null, %._crit_edge97 ], [ %.sroa.039.2, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit" ], [ %.sroa.039.2, %108 ]
+  %.sroa.13.368113 = phi ptr [ null, %._crit_edge97 ], [ %.sroa.13.2, %"_ZSt7copy_ifISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEESt20back_insert_iteratorISt6vectorIS4_SaIS4_EEEZNKS1_16OptimizableGraph4saveERSoiE3$_0ET0_T_SF_SE_T1_.exit" ], [ %.sroa.13.2, %108 ]
   %114 = load ptr, ptr %1, align 8
   %115 = getelementptr i8, ptr %114, i64 -24
   %116 = load i64, ptr %115, align 8

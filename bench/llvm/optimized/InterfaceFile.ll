@@ -4385,7 +4385,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   %307 = sub i64 %305, %306
   %.neg.i.i.i.i.i.i = sdiv exact i64 %307, -24
   %308 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %302, i64 %.neg.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %308, ptr nonnull align 4 %294, i64 %307, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %308, ptr nonnull align 4 %294, i64 %307, i1 false)
   %.pre15.i = load i32, ptr %214, align 8, !tbaa !9
   %.pre16.i = load ptr, ptr %212, align 8, !tbaa !3
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit.i
@@ -4752,7 +4752,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   %474 = sub i64 %472, %473
   %.neg.i.i.i.i.i.i185 = sdiv exact i64 %474, -24
   %475 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %469, i64 %.neg.i.i.i.i.i.i185
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %475, ptr nonnull align 4 %461, i64 %474, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %475, ptr nonnull align 4 %461, i64 %474, i1 false)
   %.pre15.i186 = load i32, ptr %381, align 8, !tbaa !9
   %.pre16.i187 = load ptr, ptr %379, align 8, !tbaa !3
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit.i188
@@ -6010,7 +6010,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   %292 = sub i64 %290, %291
   %.neg.i.i.i.i.i.i = sdiv exact i64 %292, -24
   %293 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %287, i64 %.neg.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %293, ptr nonnull align 4 %279, i64 %292, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %293, ptr nonnull align 4 %279, i64 %292, i1 false)
   %.pre15.i = load i32, ptr %199, align 8, !tbaa !9
   %.pre16.i = load ptr, ptr %197, align 8, !tbaa !3
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit.i
@@ -6377,7 +6377,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   %460 = sub i64 %458, %459
   %.neg.i.i.i.i.i.i136 = sdiv exact i64 %460, -24
   %461 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %455, i64 %.neg.i.i.i.i.i.i136
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %461, ptr nonnull align 4 %447, i64 %460, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %461, ptr nonnull align 4 %447, i64 %460, i1 false)
   %.pre15.i137 = load i32, ptr %367, align 8, !tbaa !9
   %.pre16.i138 = load ptr, ptr %365, align 8, !tbaa !3
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit.i139
@@ -8168,7 +8168,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   %68 = sub i64 %66, %67
   %.neg.i.i.i.i.i = sdiv exact i64 %68, -24
   %69 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %63, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %69, ptr nonnull align 4 %55, i64 %68, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %69, ptr nonnull align 4 %55, i64 %68, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !9
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit

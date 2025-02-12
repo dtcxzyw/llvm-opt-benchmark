@@ -27638,8 +27638,8 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 .noexc:                                           ; preds = %37
   %44 = load i64, ptr %15, align 8, !range !379, !noalias !4796, !noundef !8
-  %trunc.i.i.i.i.i7.i.i = trunc nuw i64 %44 to i1
-  br i1 %trunc.i.i.i.i.i7.i.i, label %151, label %143
+  %trunc.i.i.i.i.i6.i.i = trunc nuw i64 %44 to i1
+  br i1 %trunc.i.i.i.i.i6.i.i, label %151, label %143
 
 45:                                               ; preds = %.noexc19
   call void @llvm.experimental.noalias.scope.decl(metadata !4797)
@@ -27855,22 +27855,22 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 143:                                              ; preds = %.noexc
   %144 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !range !13, !alias.scope !4841, !noalias !4775, !noundef !8
   %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i12.i.i", label %146
+  br i1 %145, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i11.i.i", label %146
 
 146:                                              ; preds = %143
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !alias.scope !4841, !noalias !4775
   %147 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx.i, align 8, !range !13, !alias.scope !4841, !noalias !4775, !noundef !8
   %148 = trunc nuw i8 %147 to i1
-  %.pre.i.i.i.i.i.i8.i.i = load i64, ptr %42, align 8, !alias.scope !4841, !noalias !4775
-  %.pre5.i.i.i.i.i.i9.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4841, !noalias !4775
-  %.not.i.i.i.i.i.i10.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i9.i.i, %.pre.i.i.i.i.i.i8.i.i
-  %or.cond.not.i.i.i.i.i.i11.i.i = select i1 %148, i1 true, i1 %.not.i.i.i.i.i.i10.i.i
-  br i1 %or.cond.not.i.i.i.i.i.i11.i.i, label %._crit_edge.i.i.i.i.i.i13.i.i, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i12.i.i"
+  %.pre.i.i.i.i.i.i7.i.i = load i64, ptr %42, align 8, !alias.scope !4841, !noalias !4775
+  %.pre5.i.i.i.i.i.i8.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4841, !noalias !4775
+  %.not.i.i.i.i.i.i9.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i8.i.i, %.pre.i.i.i.i.i.i7.i.i
+  %or.cond.not.i.i.i.i.i.i10.i.i = select i1 %148, i1 true, i1 %.not.i.i.i.i.i.i9.i.i
+  br i1 %or.cond.not.i.i.i.i.i.i10.i.i, label %._crit_edge.i.i.i.i.i.i12.i.i, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i11.i.i"
 
-._crit_edge.i.i.i.i.i.i13.i.i:                    ; preds = %146
+._crit_edge.i.i.i.i.i.i12.i.i:                    ; preds = %146
   %.val.i.i.i.i.i4.i.i.i = load ptr, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4841, !noalias !4775, !nonnull !8, !align !451, !noundef !8
-  %149 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i4.i.i.i, i64 %.pre.i.i.i.i.i.i8.i.i
-  %150 = sub i64 %.pre5.i.i.i.i.i.i9.i.i, %.pre.i.i.i.i.i.i8.i.i
+  %149 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i4.i.i.i, i64 %.pre.i.i.i.i.i.i7.i.i
+  %150 = sub i64 %.pre5.i.i.i.i.i.i8.i.i, %.pre.i.i.i.i.i.i7.i.i
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9c07c25ced58ce09E.exit.i.i
 
 151:                                              ; preds = %.noexc
@@ -27882,15 +27882,15 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   store i64 %153, ptr %42, align 8, !alias.scope !4844, !noalias !4775
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9c07c25ced58ce09E.exit.i.i
 
-"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i12.i.i": ; preds = %146, %143
+"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i11.i.i": ; preds = %146, %143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !4796
   br label %.loopexit
 
-_ZN4core4iter6traits8iterator8Iterator3nth17h9c07c25ced58ce09E.exit.i.i: ; preds = %151, %._crit_edge.i.i.i.i.i.i13.i.i
-  %.sroa.4.1.i.i.i.i.i14.i.i = phi i64 [ %156, %151 ], [ %150, %._crit_edge.i.i.i.i.i.i13.i.i ]
-  %.sroa.0.1.i.i.i.i.i15.i.i = phi ptr [ %155, %151 ], [ %149, %._crit_edge.i.i.i.i.i.i13.i.i ]
+_ZN4core4iter6traits8iterator8Iterator3nth17h9c07c25ced58ce09E.exit.i.i: ; preds = %151, %._crit_edge.i.i.i.i.i.i12.i.i
+  %.sroa.4.1.i.i.i.i.i13.i.i = phi i64 [ %156, %151 ], [ %150, %._crit_edge.i.i.i.i.i.i12.i.i ]
+  %.sroa.0.1.i.i.i.i.i14.i.i = phi ptr [ %155, %151 ], [ %149, %._crit_edge.i.i.i.i.i.i12.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !4796
-  %157 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h5778cb10e5aeb715E.llvm.5923418642108526555"(ptr noalias noundef nonnull readonly align 1 %43, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i15.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i14.i.i)
+  %157 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h5778cb10e5aeb715E.llvm.5923418642108526555"(ptr noalias noundef nonnull readonly align 1 %43, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i14.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i13.i.i)
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h9c07c25ced58ce09E.exit.i.i
@@ -28459,7 +28459,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #49, !noalias !4875
   unreachable
 
-.loopexit:                                        ; preds = %48, %.noexc18, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i.i.i", %.noexc19, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i12.i.i"
+.loopexit:                                        ; preds = %48, %.noexc18, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i.i.i", %.noexc19, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i11.i.i"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17), !noalias !4775
   br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread
 

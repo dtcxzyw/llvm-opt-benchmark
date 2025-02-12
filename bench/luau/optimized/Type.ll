@@ -12731,14 +12731,14 @@ declare noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef) local_unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4Luau15lookupClassPropEPKNS_9ClassTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-  %.not14 = icmp eq ptr %0, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq ptr %0, null
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %28
-  %.0715 = phi ptr [ %31, %28 ], [ %0, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.0715, i64 48
+  %.0714 = phi ptr [ %31, %28 ], [ %0, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.0714, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %.0715, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.0714, i64 40
   %.not11.i.i.i = icmp eq ptr %4, null
   br i1 %.not11.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread, label %.lr.ph.i.i.i
 
@@ -12790,13 +12790,13 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyES
   br label %.loopexit
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread: ; preds = %.lr.ph, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  %22 = getelementptr inbounds nuw i8, ptr %.0715, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %.0714, i64 88
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread
-  %26 = getelementptr inbounds nuw i8, ptr %.0715, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %.0714, i64 80
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %.loopexit, label %28

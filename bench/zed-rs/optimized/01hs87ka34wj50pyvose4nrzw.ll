@@ -14253,14 +14253,14 @@ _ZN4gpui3app10entity_map9EntityMap4read17hfd81ec0e27b2f1d7E.exit: ; preds = %.no
 
 "_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread": ; preds = %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit"
   %.pre48 = load i64, ptr %233, align 8, !range !34, !alias.scope !2577
+  %240 = icmp eq i64 %.pre48, -9223372036854775808
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, ptr noundef nonnull align 8 dereferenceable(160) %23, i64 160, i1 false)
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %241 = icmp eq i64 %.pre48, -9223372036854775808
-  br i1 %241, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit", label %242
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %240, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit", label %242
 
 242:                                              ; preds = %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread", %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread"
-  %243 = phi ptr [ %239, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread" ], [ %240, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread" ]
+  %243 = phi ptr [ %239, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread" ], [ %241, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread" ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$language..buffer..Diagnostic$GT$17h24e150eda9f23a29E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %243)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit" unwind label %.thread
 
@@ -14449,7 +14449,7 @@ common.resume:                                    ; preds = %.body, %316
   br label %.body
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$language..buffer..Diagnostic$GT$$GT$17hb8154b65202e4d45E.exit": ; preds = %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread51", %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread", %242
-  %326 = phi ptr [ %240, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread" ], [ %243, %242 ], [ %238, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread51" ]
+  %326 = phi ptr [ %241, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread" ], [ %243, %242 ], [ %238, %"_ZN69_$LT$language..buffer..Diagnostic$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha96052e90a97a8bfE.exit.thread.thread51" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %326, ptr noundef nonnull align 8 dereferenceable(160) %20, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20)
   %327 = getelementptr inbounds nuw i8, ptr %2, i64 16

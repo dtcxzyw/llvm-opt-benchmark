@@ -20751,7 +20751,7 @@ if.end249:                                        ; preds = %sw.bb210
   %60 = load ptr, ptr %m_traits, align 8
   %61 = load ptr, ptr %m_position, align 8
   %add.ptr253 = getelementptr inbounds i8, ptr %61, i64 %.sroa.speculated
-  %call254 = call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef %add.ptr253, i32 noundef 8)
+  %call254 = call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef nonnull %add.ptr253, i32 noundef 8)
   %or.cond128.not = icmp ult i64 %call254, 128
   br i1 %or.cond128.not, label %if.end286, label %while.cond263.preheader
 

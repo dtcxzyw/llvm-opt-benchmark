@@ -4331,8 +4331,7 @@ _ZNSt3mapImSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS2_EE
   %_M_storage.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ult i64 %log_number, %2
-  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  br i1 %cmp.i4.i.i, label %if.then, label %lor.rhs
+  br i1 %cmp.i4.i.i, label %if.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
@@ -4341,17 +4340,13 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImSt10uniq
   %log_number_.i = getelementptr inbounds nuw i8, ptr %4, i64 104
   %5 = load i64, ptr %log_number_.i, align 8
   %cmp.not = icmp eq i64 %5, %log_number
-  br i1 %cmp.not, label %if.end91, label %if.then
+  br i1 %cmp.not, label %if.end91, label %if.then14
 
-if.then:                                          ; preds = %_ZNSt3mapImSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit, %lor.rhs
-  %cmp.i13.not = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i13.not, label %if.end, label %if.then14
-
-if.then14:                                        ; preds = %if.then
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %log_readers_, ptr %spec.select.i.i)
+if.then14:                                        ; preds = %lor.rhs
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %log_readers_, ptr nonnull %__y.addr.1.i.i.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %if.then14, %if.then
+if.end:                                           ; preds = %_ZNSt3mapImSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE4findERS9_.exit, %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb18LogReaderContainerESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %if.then14
   %immutable_db_options_ = getelementptr inbounds nuw i8, ptr %this, i64 848
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7rocksdb18ImmutableDBOptions9GetWalDirB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(569) %immutable_db_options_)
   call void @_ZN7rocksdb11LogFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fname, ptr noundef nonnull align 8 dereferenceable(32) %call19, i64 noundef %log_number)

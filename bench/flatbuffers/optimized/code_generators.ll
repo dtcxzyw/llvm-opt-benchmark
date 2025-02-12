@@ -590,9 +590,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %if.end, label %while.body.i, !llvm.loop !10
 
 if.end:                                           ; preds = %while.body.i, %if.then, %land.lhs.true, %entry
-  %call212 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull @.str.4, i64 noundef 0) #13
-  %cmp13 = icmp eq i64 %call212, -1
-  br i1 %cmp13, label %while.end, label %if.end4.lr.ph
+  %call211 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull @.str.4, i64 noundef 0) #13
+  %cmp12 = icmp eq i64 %call211, -1
+  br i1 %cmp12, label %while.end, label %if.end4.lr.ph
 
 if.end4.lr.ph:                                    ; preds = %if.end
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -601,18 +601,18 @@ if.end4.lr.ph:                                    ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end4.lr.ph, %invoke.cont32
-  %call214 = phi i64 [ %call212, %if.end4.lr.ph ], [ %call2, %invoke.cont32 ]
+  %call213 = phi i64 [ %call211, %if.end4.lr.ph ], [ %call2, %invoke.cont32 ]
   %call5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull @.str.5, i64 noundef 0) #13
   %cmp6 = icmp eq i64 %call5, -1
-  %cmp7 = icmp ult i64 %call5, %call214
+  %cmp7 = icmp ult i64 %call5, %call213
   %or.cond = or i1 %cmp6, %cmp7
   br i1 %or.cond, label %while.end, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
   %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #13
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %call11, i64 noundef %call214)
-  %add = add i64 %call214, 2
-  %reass.sub = sub nuw i64 %call5, %call214
+  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %call11, i64 noundef %call213)
+  %add = add i64 %call213, 2
+  %reass.sub = sub nuw i64 %call5, %call213
   %sub13 = add i64 %reass.sub, -2
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %key, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef %add, i64 noundef %sub13)
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8

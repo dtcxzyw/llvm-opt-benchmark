@@ -2160,10 +2160,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %__r.0.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
   %tobool.not = icmp eq ptr %result, null
-  %or.cond = or i1 %tobool.not, %cmp.i
+  %or.cond = or i1 %tobool.not, %cmp.i.i.i.i
   br i1 %or.cond, label %_ZNSt11unique_lockISt5mutexED2Ev.exit23, label %if.then6
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then6
@@ -2173,12 +2171,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then6
   resume { ptr, i32 } %7
 
 if.then6:                                         ; preds = %invoke.cont
-  %second = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit23 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit23:          ; preds = %if.then6, %invoke.cont, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %cmp.i31 = phi i1 [ %cmp.i, %invoke.cont ], [ false, %if.then6 ], [ true, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+  %cmp.i31 = phi i1 [ %cmp.i.i.i.i, %invoke.cont ], [ false, %if.then6 ], [ true, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %retval.0 = xor i1 %cmp.i31, true
   %call1.i.i.i.i22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #22
   ret i1 %retval.0

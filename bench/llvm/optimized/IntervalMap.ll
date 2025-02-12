@@ -168,53 +168,44 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread: ; preds = %2, %_ZNK4llvm15I
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %.not.i.i.i.i = icmp ugt i32 %18, %27
-  br i1 %.not.i.i.i.i, label %28, label %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i, !prof !22
+  br i1 %.not.i.i.i.i, label %28, label %.lr.ph.i.i.i.preheader.i.i, !prof !22
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %19, i64 noundef 16) #8
   %.pre.i.i = load i32, ptr %3, align 8, !tbaa !18
   %.pre5.i.i = zext i32 %.pre.i.i to i64
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
+  br label %.lr.ph.i.i.i.preheader.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i: ; preds = %28, %24
+.lr.ph.i.i.i.preheader.i.i:                       ; preds = %28, %24
   %.pre-phi.i.i = phi i64 [ %20, %24 ], [ %.pre5.i.i, %28 ]
-  %30 = phi i32 [ %4, %24 ], [ %.pre.i.i, %28 ]
-  %.not7.i.i.i.i.i = icmp eq i32 %18, %4
-  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6appendEmS3_.exit.i, label %.lr.ph.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.preheader.i.i:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
-  %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %31, i64 %.pre-phi.i.i
-  %33 = sub nsw i64 %19, %20
-  %34 = shl nsw i64 %33, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %34, i1 false)
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = getelementptr %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %30, i64 %.pre-phi.i.i
+  %32 = sub nsw i64 %19, %20
+  %33 = shl nsw i64 %32, 4
+  tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %33, i1 false)
   %.pre4.i.i = load i32, ptr %3, align 8, !tbaa !18
-  br label %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6appendEmS3_.exit.i
-
-_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6appendEmS3_.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
-  %35 = phi i32 [ %.pre4.i.i, %.lr.ph.i.i.i.preheader.i.i ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i ]
-  %36 = add i32 %35, %25
+  %34 = add i32 %.pre4.i.i, %25
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %22, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6appendEmS3_.exit.i
-  %.sink.i = phi i32 [ %36, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6appendEmS3_.exit.i ], [ %18, %22 ]
+.sink.split.i:                                    ; preds = %22, %.lr.ph.i.i.i.preheader.i.i
+  %.sink.i = phi i32 [ %34, %.lr.ph.i.i.i.preheader.i.i ], [ %18, %22 ]
   store i32 %.sink.i, ptr %3, align 8, !tbaa !18
   br label %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit
 
 _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit: ; preds = %.preheader, %.sink.split.i, %17, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread
   %.1 = phi i32 [ 0, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread ], [ 0, %17 ], [ 0, %.sink.split.i ], [ %.0, %.preheader ]
-  %37 = zext i32 %.1 to i64
-  %38 = load ptr, ptr %0, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %38, i64 %37
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %41 = load i32, ptr %40, align 4, !tbaa !11
-  %42 = add i32 %41, -1
-  store i32 %42, ptr %40, align 4, !tbaa !11
-  %43 = load ptr, ptr %39, align 8, !tbaa !13
-  %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %43, i64 %44
-  %storemerge30 = load i64, ptr %45, align 8, !tbaa !14
+  %35 = zext i32 %.1 to i64
+  %36 = load ptr, ptr %0, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %40 = add i32 %39, -1
+  store i32 %40, ptr %38, align 4, !tbaa !11
+  %41 = load ptr, ptr %37, align 8, !tbaa !13
+  %42 = zext i32 %40 to i64
+  %43 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %41, i64 %42
+  %storemerge30 = load i64, ptr %43, align 8, !tbaa !14
   %.231 = add i32 %.1, 1
   %.not32 = icmp eq i32 %.231, %1
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -222,22 +213,22 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit: ; 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit, %.lr.ph
   %.234 = phi i32 [ %.2, %.lr.ph ], [ %.231, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit ]
   %storemerge33 = phi i64 [ %storemerge, %.lr.ph ], [ %storemerge30, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit ]
-  %46 = trunc i64 %storemerge33 to i32
-  %47 = and i32 %46, 63
-  %48 = add nuw nsw i32 %47, 1
-  %49 = and i64 %storemerge33, -64
-  %50 = inttoptr i64 %49 to ptr
-  %51 = zext i32 %.234 to i64
-  %52 = load ptr, ptr %0, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %52, i64 %51
-  store ptr %50, ptr %53, align 8, !tbaa !9
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %48, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !10
-  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 %47, ptr %.sroa.521.0..sroa_idx, align 4, !tbaa !10
-  %54 = and i64 %storemerge33, 63
-  %55 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %50, i64 %54
-  %storemerge = load i64, ptr %55, align 8, !tbaa !14
+  %44 = trunc i64 %storemerge33 to i32
+  %45 = and i32 %44, 63
+  %46 = add nuw nsw i32 %45, 1
+  %47 = and i64 %storemerge33, -64
+  %48 = inttoptr i64 %47 to ptr
+  %49 = zext i32 %.234 to i64
+  %50 = load ptr, ptr %0, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %50, i64 %49
+  store ptr %48, ptr %51, align 8, !tbaa !9
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i32 %46, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 %45, ptr %.sroa.521.0..sroa_idx, align 4, !tbaa !10
+  %52 = and i64 %storemerge33, 63
+  %53 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %48, i64 %52
+  %storemerge = load i64, ptr %53, align 8, !tbaa !14
   %.2 = add i32 %.234, 1
   %.not = icmp eq i32 %.2, %1
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
@@ -247,20 +238,20 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit: ; 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit
-  %56 = phi ptr [ %38, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit ], [ %.pre, %._crit_edge.loopexit ]
+  %54 = phi ptr [ %36, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit ], [ %.pre, %._crit_edge.loopexit ]
   %storemerge.lcssa = phi i64 [ %storemerge30, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit ], [ %storemerge, %._crit_edge.loopexit ]
-  %57 = trunc i64 %storemerge.lcssa to i32
-  %58 = and i32 %57, 63
-  %59 = add nuw nsw i32 %58, 1
-  %60 = and i64 %storemerge.lcssa, -64
-  %61 = inttoptr i64 %60 to ptr
-  %62 = zext i32 %1 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %56, i64 %62
-  store ptr %61, ptr %63, align 8, !tbaa !9
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 %59, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 12
-  store i32 %58, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
+  %55 = trunc i64 %storemerge.lcssa to i32
+  %56 = and i32 %55, 63
+  %57 = add nuw nsw i32 %56, 1
+  %58 = and i64 %storemerge.lcssa, -64
+  %59 = inttoptr i64 %58 to ptr
+  %60 = zext i32 %1 to i64
+  %61 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %54, i64 %60
+  store ptr %59, ptr %61, align 8, !tbaa !9
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i32 %57, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 12
+  store i32 %56, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
   ret void
 }
 

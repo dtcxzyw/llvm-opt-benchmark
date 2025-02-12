@@ -8974,8 +8974,8 @@ define linkonce_odr void @_ZN7xgboost3gbm8GBLinear15PredictInstanceERKNS_6common
   %37 = fadd float %25, %36
   %38 = load i64, ptr %1, align 8
   %invariant.gep.i = getelementptr float, ptr %33, i64 %indvars.iv
-  %.not2326.i = icmp eq i64 %38, 0
-  br i1 %.not2326.i, label %.loopexit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i
+  %.not2325.i = icmp eq i64 %38, 0
+  br i1 %.not2325.i, label %.loopexit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i: ; preds = %20
   %39 = load ptr, ptr %19, align 8
@@ -8983,9 +8983,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i
-  %.028.i = phi float [ %37, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %.1.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
-  %.sroa.4.027.i = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %50, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
-  %41 = getelementptr inbounds %"struct.xgboost::Entry", ptr %39, i64 %.sroa.4.027.i
+  %.027.i = phi float [ %37, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %.1.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
+  %.sroa.4.026.i = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %50, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
+  %41 = getelementptr inbounds %"struct.xgboost::Entry", ptr %39, i64 %.sroa.4.026.i
   %42 = load i32, ptr %41, align 4
   %.not.i = icmp ult i32 %42, %28
   br i1 %.not.i, label %43, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i
@@ -8997,12 +8997,12 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   %47 = mul nuw i64 %46, %40
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %47
   %48 = load float, ptr %gep.i, align 4
-  %49 = call float @llvm.fmuladd.f32(float %45, float %48, float %.028.i)
+  %49 = call float @llvm.fmuladd.f32(float %45, float %48, float %.027.i)
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i: ; preds = %43, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
-  %.1.i = phi float [ %.028.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i ], [ %49, %43 ]
-  %50 = add nuw i64 %.sroa.4.027.i, 1
+  %.1.i = phi float [ %.027.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i ], [ %49, %43 ]
+  %50 = add nuw i64 %.sroa.4.026.i, 1
   %.not23.i = icmp eq i64 %50, %38
   br i1 %.not23.i, label %.loopexit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
 
@@ -14855,9 +14855,9 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i
-  %.028.i = phi float [ %71, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %.1.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
-  %.sroa.4.027.i = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %82, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
-  %73 = getelementptr inbounds %"struct.xgboost::Entry", ptr %49, i64 %.sroa.4.027.i
+  %.027.i = phi float [ %71, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %.1.i, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
+  %.sroa.4.026.i = phi i64 [ 0, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.lr.ph.i ], [ %82, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i ]
+  %73 = getelementptr inbounds %"struct.xgboost::Entry", ptr %49, i64 %.sroa.4.026.i
   %74 = load i32, ptr %73, align 4
   %.not.i = icmp ult i32 %74, %62
   br i1 %.not.i, label %75, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i
@@ -14869,12 +14869,12 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm1844674407370955
   %79 = mul nuw i64 %78, %72
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %79
   %80 = load float, ptr %gep.i, align 4
-  %81 = tail call float @llvm.fmuladd.f32(float %77, float %80, float %.028.i)
+  %81 = tail call float @llvm.fmuladd.f32(float %77, float %80, float %.027.i)
   br label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit.i: ; preds = %75, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
-  %.1.i = phi float [ %.028.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i ], [ %81, %75 ]
-  %82 = add nuw i64 %.sroa.4.027.i, 1
+  %.1.i = phi float [ %.027.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i ], [ %81, %75 ]
+  %82 = add nuw i64 %.sroa.4.026.i, 1
   %.not23.i = icmp eq i64 %82, %46
   br i1 %.not23.i, label %.loopexit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit.i
 

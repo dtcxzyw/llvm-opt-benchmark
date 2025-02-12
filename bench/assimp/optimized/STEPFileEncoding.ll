@@ -700,15 +700,15 @@ lpad198:                                          ; preds = %for.end225
 for.end225:                                       ; preds = %invoke.cont216
   %mul227 = mul nuw i64 %div188118, 5
   %call230 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul227) #9
-          to label %while.body.i283.preheader unwind label %lpad198
+          to label %invoke.cont229 unwind label %lpad198
 
-while.body.i283.preheader:                        ; preds = %for.end225
+invoke.cont229:                                   ; preds = %for.end225
   %add.ptr235 = getelementptr inbounds nuw i32, ptr %call190, i64 %div188118
   br label %while.body.i283
 
-while.body.i283:                                  ; preds = %while.body.i283.preheader, %call.i287.noexc
-  %result.addr.05.i284 = phi ptr [ %call.i287289, %call.i287.noexc ], [ %call230, %while.body.i283.preheader ]
-  %start.addr.04.i285 = phi ptr [ %incdec.ptr.i286, %call.i287.noexc ], [ %call190, %while.body.i283.preheader ]
+while.body.i283:                                  ; preds = %invoke.cont229, %call.i287.noexc
+  %result.addr.05.i284 = phi ptr [ %call.i287289, %call.i287.noexc ], [ %call230, %invoke.cont229 ]
+  %start.addr.04.i285 = phi ptr [ %incdec.ptr.i286, %call.i287.noexc ], [ %call190, %invoke.cont229 ]
   %81 = load i32, ptr %start.addr.04.i285, align 4
   %call.i287289 = invoke noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %81, ptr noundef %result.addr.05.i284)
           to label %call.i287.noexc unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297.loopexit

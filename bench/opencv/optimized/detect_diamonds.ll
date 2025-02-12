@@ -1625,7 +1625,7 @@ _ZNKSt6vectorIN2cv3VecIdLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i291: ; preds = %
   br i1 %136, label %.lr.ph438.preheader, label %.lr.ph.preheader
 
 .lr.ph438.preheader:                              ; preds = %549
-  %umax482 = call i64 @llvm.umax.i64(i64 %540, i64 1)
+  %umax480 = call i64 @llvm.umax.i64(i64 %540, i64 1)
   br label %586
 
 .lr.ph.preheader:                                 ; preds = %549
@@ -1888,8 +1888,8 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i: ; pre
 
 _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i, %621
   %622 = add nuw i64 %.0120437, 1
-  %exitcond483.not = icmp eq i64 %622, %umax482
-  br i1 %exitcond483.not, label %.loopexit369, label %586, !llvm.loop !14
+  %exitcond481.not = icmp eq i64 %622, %umax480
+  br i1 %exitcond481.not, label %.loopexit369, label %586, !llvm.loop !14
 
 .loopexit370:                                     ; preds = %586
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2045,8 +2045,8 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit243: ; preds = %.loopexit370, %623
 .preheader:                                       ; preds = %673
   %674 = load ptr, ptr %450, align 8
   %675 = load ptr, ptr %84, align 8
-  %.not444 = icmp eq ptr %674, %675
-  br i1 %.not444, label %.loopexit, label %.lr.ph440
+  %.not442 = icmp eq ptr %674, %675
+  br i1 %.not442, label %.loopexit, label %.lr.ph440
 
 .lr.ph440:                                        ; preds = %.preheader, %678
   %.071439 = phi i64 [ %679, %678 ], [ 0, %.preheader ]

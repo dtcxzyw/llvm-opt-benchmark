@@ -21580,14 +21580,14 @@ _ZN4llvm11SmallVectorIhLj64EEC2EmRKh.exit.i:      ; preds = %_ZN4llvm15SmallVect
   %1906 = sub nuw i64 %1900, %1901
   %1907 = load i64, ptr %1842, align 8, !tbaa !920
   %.not.i.i.i.i340.i = icmp ugt i64 %1900, %1907
-  br i1 %.not.i.i.i.i340.i, label %1908, label %_ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i, !prof !534
+  br i1 %.not.i.i.i.i340.i, label %1908, label %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE28reserveForParamAndGetAddressERhm.exit.i.i.i, !prof !534
 
 1908:                                             ; preds = %1905
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull %1840, i64 noundef %1900, i64 noundef 1) #23
   %.pre4.pre.i.i.i = load i64, ptr %1841, align 8, !tbaa !911
-  br label %_ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE28reserveForParamAndGetAddressERhm.exit.i.i.i
 
-_ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i:  ; preds = %1908, %1905
+_ZN4llvm23SmallVectorTemplateBaseIhLb1EE28reserveForParamAndGetAddressERhm.exit.i.i.i: ; preds = %1908, %1905
   %.pre4.i.i.i = phi i64 [ %1901, %1905 ], [ %.pre4.pre.i.i.i, %1908 ]
   %1909 = load ptr, ptr %49, align 8, !tbaa !910
   %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 %.pre4.i.i.i
@@ -21596,8 +21596,8 @@ _ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i:  ; preds = %1908, %1905
   %1911 = add i64 %.pre.i.i341.i, %1906
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %_ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i, %1903
-  %.sink.i342.i = phi i64 [ %1911, %_ZN4llvm15SmallVectorImplIhE6appendEmh.exit.i.i ], [ %1900, %1903 ]
+.sink.split.i.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE28reserveForParamAndGetAddressERhm.exit.i.i.i, %1903
+  %.sink.i342.i = phi i64 [ %1911, %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE28reserveForParamAndGetAddressERhm.exit.i.i.i ], [ %1900, %1903 ]
   store i64 %.sink.i342.i, ptr %1841, align 8, !tbaa !911
   br label %_ZN4llvm15SmallVectorImplIhE6resizeEmh.exit.i
 

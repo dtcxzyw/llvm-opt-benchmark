@@ -1700,8 +1700,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataE
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(33) %32, ptr noundef nonnull %64, i64 noundef range(i64 0, 4294967296) %740, i64 noundef 16) #15
   %.val.i.i.i.i.pre.i.i = load ptr, ptr %32, align 8, !tbaa !8
   %.pre6.pre.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !11
-  %.pre.i.i.i.i = zext i32 %.pre6.pre.i.i.i.i.i.i to i64
-  %741 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %.val.i.i.i.i.pre.i.i, i64 %.pre.i.i.i.i
+  %.pre.i.i.i.i.i = zext i32 %.pre6.pre.i.i.i.i.i.i to i64
+  %741 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %.val.i.i.i.i.pre.i.i, i64 %.pre.i.i.i.i.i
   %742 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %741, i64 %740
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 

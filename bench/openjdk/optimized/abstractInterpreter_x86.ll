@@ -147,7 +147,7 @@ define hidden void @_ZN19AbstractInterpreter17layout_activationEP6MethodiiiiiiP5
 41:                                               ; preds = %36
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %20
-  tail call void @_ZN5frame31set_interpreter_frame_sender_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %43) #7
+  tail call void @_ZN5frame31set_interpreter_frame_sender_spEPl(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %43) #7
   br label %44
 
 44:                                               ; preds = %41, %36, %11

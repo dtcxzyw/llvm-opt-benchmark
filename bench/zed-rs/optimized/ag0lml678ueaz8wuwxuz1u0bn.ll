@@ -13404,12 +13404,12 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17h6d56c125e1772e19E(p
 69:                                               ; preds = %65, %62, %.noexc.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !3535
   %.pre.i.i.i.i.i = load i64, ptr %12, align 8, !range !638, !alias.scope !3545, !noalias !3514
+  %70 = icmp eq i64 %.pre.i.i.i.i.i, -9223372036854775808
   store i64 %51, ptr %32, align 8, !alias.scope !3513, !noalias !3514
   store ptr %54, ptr %.sroa.64.0..sroa_idx5.i.i.i.i.i.i, align 8, !alias.scope !3513, !noalias !3514
   store i64 %.val8.i.i, ptr %.sroa.7.0..sroa_idx7.i.i.i.i.i.i, align 8, !alias.scope !3513, !noalias !3514
   call void @llvm.experimental.noalias.scope.decl(metadata !3548)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !3534
-  %70 = icmp eq i64 %.pre.i.i.i.i.i, -9223372036854775808
   br i1 %70, label %.invoke, label %72
 
 .invoke:                                          ; preds = %69, %41

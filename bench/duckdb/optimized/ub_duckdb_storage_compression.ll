@@ -4166,15 +4166,14 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 cleanup:                                          ; preds = %invoke.cont22
   %add24 = add i64 %call5, %offset.055
   %sub = sub i64 %count.addr.056, %call5
-  %cmp.not = icmp eq i64 %sub, 0
-  br i1 %cmp.not, label %cleanup25, label %while.body
+  br label %while.body
 
 lpad8:                                            ; preds = %invoke.cont22, %invoke.cont20, %invoke.cont17, %invoke.cont12, %invoke.cont9, %if.end
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup28
 
-cleanup25:                                        ; preds = %cleanup, %invoke.cont4, %while.cond.preheader
+cleanup25:                                        ; preds = %invoke.cont4, %while.cond.preheader
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %vdata, i64 64
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !110
   %cmp.not.i.i.i.i = icmp eq ptr %6, null

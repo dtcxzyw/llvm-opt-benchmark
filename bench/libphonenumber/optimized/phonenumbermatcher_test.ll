@@ -21612,247 +21612,247 @@ define internal fastcc void @_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110Nu
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %.not54.i.i = icmp ult i64 %20, %12
-  br i1 %.not54.i.i, label %73, label %21
+  br i1 %.not54.i.i, label %75, label %21
 
 21:                                               ; preds = %9
   %22 = sub i64 %19, %5
   %23 = ashr exact i64 %22, 6
   %24 = icmp ugt i64 %23, %13
-  br i1 %24, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
+  br i1 %24, label %25, label %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %21
-  %25 = sub nsw i64 0, %13
-  %26 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %17, i64 %25
+25:                                               ; preds = %21
+  %26 = sub nsw i64 0, %13
+  %27 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %17, i64 %26
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.013.i.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.sroa.010.012.i.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %25
+  %.013.i.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %25 ]
+  %.sroa.010.012.i.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %25 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %.013.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.010.012.i.i.i.i.i.i.i) #18
-  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28) #18
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 64
-  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 64
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %29, %17
+  %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29) #18
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i.i.i, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 64
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %30, %17
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.pre101.i.i = load ptr, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %.pre101.i.i, i64 %12
-  store ptr %31, ptr %16, align 8
-  %32 = ptrtoint ptr %26 to i64
-  %33 = sub i64 %32, %5
-  %34 = ashr exact i64 %33, 6
-  %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i
+  %32 = load ptr, ptr %16, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 %12
+  store ptr %33, ptr %16, align 8
+  %34 = ptrtoint ptr %27 to i64
+  %35 = sub i64 %34, %5
+  %36 = ashr exact i64 %35, 6
+  %37 = icmp sgt i64 %36, 0
+  br i1 %37, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i
 
 .lr.ph.i.i.i.i.i59.i.i:                           ; preds = %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, %.lr.ph.i.i.i.i.i59.i.i
-  %.010.i.i.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i59.i.i ], [ %34, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
-  %.069.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i59.i.i ], [ %17, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
-  %.078.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i59.i.i ], [ %26, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -64
-  %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -64
-  %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %36) #18
-  %39 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -32
-  %40 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -32
-  %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
-  %42 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %43 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
-  br i1 %43, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !23
+  %.010.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i59.i.i ], [ %36, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
+  %.069.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i59.i.i ], [ %17, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
+  %.078.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i59.i.i ], [ %27, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i ]
+  %38 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -64
+  %39 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -64
+  %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %38) #18
+  %41 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -32
+  %42 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -32
+  %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42) #18
+  %44 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
+  %45 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
+  br i1 %45, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !23
 
 _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i59.i.i, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
-  %44 = icmp sgt i64 %13, 0
-  br i1 %44, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
+  %46 = icmp sgt i64 %13, 0
+  br i1 %46, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
 .lr.ph.i.i.i.i.i60.i.i:                           ; preds = %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, %.lr.ph.i.i.i.i.i60.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i60.i.i ], [ %13, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i60.i.i ], [ %8, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i60.i.i ], [ %2, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
-  %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0910.i.i.i.i.i.i.i)
-  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
-  %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47)
-  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
-  %50 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
-  %51 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %52, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
+  %.012.i.i.i.i.i.i.i = phi i64 [ %53, %.lr.ph.i.i.i.i.i60.i.i ], [ %13, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i60.i.i ], [ %8, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i60.i.i ], [ %2, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i ]
+  %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0910.i.i.i.i.i.i.i)
+  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
+  %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  %51 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
+  %53 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %54, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
 
 _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i: ; preds = %21
-  %53 = getelementptr inbounds i8, ptr %2, i64 %22
-  %54 = tail call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %53, ptr noundef %3, ptr noundef %17)
-  %55 = sub nuw nsw i64 %13, %23
-  %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %56, i64 %55
-  store ptr %57, ptr %16, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 %22
+  %56 = tail call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %55, ptr noundef %3, ptr noundef %17)
+  %57 = sub nuw nsw i64 %13, %23
+  %58 = load ptr, ptr %16, align 8
+  %59 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %58, i64 %57
+  store ptr %59, ptr %16, align 8
   %.not11.i.i.i.i.i61.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i61.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.thread.i, label %.lr.ph.i.i.i.i.i62.i.i
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.thread.i: ; preds = %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
-  %58 = getelementptr inbounds i8, ptr %57, i64 %22
-  store ptr %58, ptr %16, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 %22
+  store ptr %60, ptr %16, align 8
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
 .lr.ph.i.i.i.i.i62.i.i:                           ; preds = %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i, %.lr.ph.i.i.i.i.i62.i.i
-  %.013.i.i.i.i.i63.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i62.i.i ], [ %57, %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i ]
-  %.sroa.010.012.i.i.i.i.i64.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i62.i.i ], [ %8, %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i ]
+  %.013.i.i.i.i.i63.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i62.i.i ], [ %59, %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i ]
+  %.sroa.010.012.i.i.i.i.i64.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i62.i.i ], [ %8, %_ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %.013.i.i.i.i.i63.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.010.012.i.i.i.i.i64.i.i) #18
-  %59 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 64
-  %62 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 64
-  %.not.i.i.i.i.i65.i.i = icmp eq ptr %61, %17
+  %61 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i64.i.i, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i63.i.i, i64 64
+  %.not.i.i.i.i.i65.i.i = icmp eq ptr %63, %17
   br i1 %.not.i.i.i.i.i65.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i, label %.lr.ph.i.i.i.i.i62.i.i, !llvm.loop !22
 
 _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i: ; preds = %.lr.ph.i.i.i.i.i62.i.i
   %.pre.i.i = load ptr, ptr %16, align 8
-  %63 = getelementptr inbounds i8, ptr %.pre.i.i, i64 %22
-  store ptr %63, ptr %16, align 8
-  %64 = icmp sgt i64 %23, 0
-  br i1 %64, label %.lr.ph.i.i.i.i.i69.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
+  %65 = getelementptr inbounds i8, ptr %.pre.i.i, i64 %22
+  store ptr %65, ptr %16, align 8
+  %66 = icmp sgt i64 %23, 0
+  br i1 %66, label %.lr.ph.i.i.i.i.i69.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
 .lr.ph.i.i.i.i.i69.i.i:                           ; preds = %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i, %.lr.ph.i.i.i.i.i69.i.i
-  %.012.i.i.i.i.i70.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i.i69.i.i ], [ %23, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
-  %.0811.i.i.i.i.i71.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i69.i.i ], [ %8, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
-  %.0910.i.i.i.i.i72.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i69.i.i ], [ %2, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
-  %65 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %.0811.i.i.i.i.i71.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0910.i.i.i.i.i72.i.i)
-  %66 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i71.i.i, i64 32
-  %67 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i72.i.i, i64 32
-  %68 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %67)
-  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i72.i.i, i64 64
-  %70 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i71.i.i, i64 64
-  %71 = add nsw i64 %.012.i.i.i.i.i70.i.i, -1
-  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i70.i.i, 1
-  br i1 %72, label %.lr.ph.i.i.i.i.i69.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
+  %.012.i.i.i.i.i70.i.i = phi i64 [ %73, %.lr.ph.i.i.i.i.i69.i.i ], [ %23, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
+  %.0811.i.i.i.i.i71.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i69.i.i ], [ %8, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
+  %.0910.i.i.i.i.i72.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i69.i.i ], [ %2, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i ]
+  %67 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %.0811.i.i.i.i.i71.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0910.i.i.i.i.i72.i.i)
+  %68 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i71.i.i, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i72.i.i, i64 32
+  %70 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %69)
+  %71 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i72.i.i, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i71.i.i, i64 64
+  %73 = add nsw i64 %.012.i.i.i.i.i70.i.i, -1
+  %74 = icmp samesign ugt i64 %.012.i.i.i.i.i70.i.i, 1
+  br i1 %74, label %.lr.ph.i.i.i.i.i69.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
 
-73:                                               ; preds = %9
-  %74 = sub i64 %19, %6
-  %75 = ashr exact i64 %74, 6
-  %76 = sub nsw i64 144115188075855871, %75
-  %77 = icmp ult i64 %76, %13
-  br i1 %77, label %78, label %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+75:                                               ; preds = %9
+  %76 = sub i64 %19, %6
+  %77 = ashr exact i64 %76, 6
+  %78 = sub nsw i64 144115188075855871, %77
+  %79 = icmp ult i64 %78, %13
+  br i1 %79, label %80, label %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-78:                                               ; preds = %73
+80:                                               ; preds = %75
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.411) #21
   unreachable
 
-_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %73
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %75, i64 %13)
-  %79 = add nsw i64 %.sroa.speculated.i.i.i, %75
-  %80 = icmp ult i64 %79, %75
-  %81 = tail call i64 @llvm.umin.i64(i64 %79, i64 144115188075855871)
-  %82 = select i1 %80, i64 144115188075855871, i64 %81
-  %.not.i.i.i = icmp eq i64 %82, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i, label %83
+_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %75
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %77, i64 %13)
+  %81 = add nsw i64 %.sroa.speculated.i.i.i, %77
+  %82 = icmp ult i64 %81, %77
+  %83 = tail call i64 @llvm.umin.i64(i64 %81, i64 144115188075855871)
+  %84 = select i1 %82, i64 144115188075855871, i64 %83
+  %.not.i.i.i = icmp eq i64 %84, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i, label %85
 
-83:                                               ; preds = %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %84 = shl nuw nsw i64 %82, 6
-  %85 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #20
+85:                                               ; preds = %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %86 = shl nuw nsw i64 %84, 6
+  %87 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #20
   br label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %83, %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %86 = phi ptr [ %85, %83 ], [ null, %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %85, %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %88 = phi ptr [ %87, %85 ], [ null, %_ZNKSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.not11.i.i.i.i.i74.i.i = icmp eq ptr %.val6, %1
   br i1 %.not11.i.i.i.i.i74.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i75.i.i
 
 .lr.ph.i.i.i.i.i75.i.i:                           ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i75.i.i
-  %.013.i.i.i.i.i76.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i.i75.i.i ], [ %86, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ]
-  %.sroa.010.012.i.i.i.i.i77.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i.i75.i.i ], [ %.val6, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.013.i.i.i.i.i76.i.i = phi ptr [ %92, %.lr.ph.i.i.i.i.i75.i.i ], [ %88, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.010.012.i.i.i.i.i77.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i.i75.i.i ], [ %.val6, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %.013.i.i.i.i.i76.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.010.012.i.i.i.i.i77.i.i) #18
-  %87 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76.i.i, i64 32
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i77.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %88) #18
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i77.i.i, i64 64
-  %90 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76.i.i, i64 64
-  %.not.i.i.i.i.i78.i.i = icmp eq ptr %89, %1
+  %89 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76.i.i, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i77.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %90) #18
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i77.i.i, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76.i.i, i64 64
+  %.not.i.i.i.i.i78.i.i = icmp eq ptr %91, %1
   br i1 %.not.i.i.i.i.i78.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i, label %.lr.ph.i.i.i.i.i75.i.i, !llvm.loop !22
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i75.i.i, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i79.i.i = phi ptr [ %86, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ], [ %90, %.lr.ph.i.i.i.i.i75.i.i ]
-  %91 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %2, ptr noundef %3, ptr noundef %.0.lcssa.i.i.i.i.i79.i.i)
-          to label %92 unwind label %101
+  %.0.lcssa.i.i.i.i.i79.i.i = phi ptr [ %88, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE11_M_allocateEm.exit.i.i ], [ %92, %.lr.ph.i.i.i.i.i75.i.i ]
+  %93 = invoke fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %2, ptr noundef %3, ptr noundef %.0.lcssa.i.i.i.i.i79.i.i)
+          to label %94 unwind label %103
 
-92:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
+94:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
   %.not11.i.i.i.i.i80.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i80.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i, label %.lr.ph.i.i.i.i.i81.i.i
 
-.lr.ph.i.i.i.i.i81.i.i:                           ; preds = %92, %.lr.ph.i.i.i.i.i81.i.i
-  %.013.i.i.i.i.i82.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i81.i.i ], [ %91, %92 ]
-  %.sroa.010.012.i.i.i.i.i83.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i81.i.i ], [ %8, %92 ]
+.lr.ph.i.i.i.i.i81.i.i:                           ; preds = %94, %.lr.ph.i.i.i.i.i81.i.i
+  %.013.i.i.i.i.i82.i.i = phi ptr [ %98, %.lr.ph.i.i.i.i.i81.i.i ], [ %93, %94 ]
+  %.sroa.010.012.i.i.i.i.i83.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i.i81.i.i ], [ %8, %94 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %.013.i.i.i.i.i82.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.010.012.i.i.i.i.i83.i.i) #18
-  %93 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82.i.i, i64 32
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i83.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %94) #18
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i83.i.i, i64 64
-  %96 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82.i.i, i64 64
-  %.not.i.i.i.i.i84.i.i = icmp eq ptr %95, %17
+  %95 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82.i.i, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i83.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %96) #18
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.010.012.i.i.i.i.i83.i.i, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82.i.i, i64 64
+  %.not.i.i.i.i.i84.i.i = icmp eq ptr %97, %17
   br i1 %.not.i.i.i.i.i84.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i, label %.lr.ph.i.i.i.i.i81.i.i, !llvm.loop !22
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i: ; preds = %.lr.ph.i.i.i.i.i81.i.i, %92
-  %.0.lcssa.i.i.i.i.i85.i.i = phi ptr [ %91, %92 ], [ %96, %.lr.ph.i.i.i.i.i81.i.i ]
+_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i: ; preds = %.lr.ph.i.i.i.i.i81.i.i, %94
+  %.0.lcssa.i.i.i.i.i85.i.i = phi ptr [ %93, %94 ], [ %98, %.lr.ph.i.i.i.i.i81.i.i ]
   %.not4.i.i.i.i.i = icmp eq ptr %.val6, %17
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %98, %.lr.ph.i.i.i.i.i ], [ %.val6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #18
+  %.05.i.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i.i ], [ %.val6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i ]
+  %99 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i) #18
-  %98 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
-  %.not.i.i.i.i.i = icmp eq ptr %98, %17
+  %100 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
+  %.not.i.i.i.i.i = icmp eq ptr %100, %17
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit86.i.i
   %.not.i87.i.i = icmp eq ptr %.val6, null
-  br i1 %.not.i87.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, label %99
+  br i1 %.not.i87.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, label %101
 
-99:                                               ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
+101:                                              ; preds = %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val6) #19
   br label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
 
-_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %99, %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
-  store ptr %86, ptr %0, align 8
+_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %101, %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
+  store ptr %88, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i85.i.i, ptr %16, align 8
-  %100 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %86, i64 %82
-  store ptr %100, ptr %14, align 8
+  %102 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %88, i64 %84
+  store ptr %102, ptr %14, align 8
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
-101:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
-  %102 = landingpad { ptr, i32 }
+103:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  %104 = tail call ptr @__cxa_begin_catch(ptr %103) #18
-  tail call fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E(ptr noundef %86, ptr noundef %.0.lcssa.i.i.i.i.i79.i.i)
-  %.not.i88.i.i = icmp eq ptr %86, null
-  br i1 %.not.i88.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i, label %105
+  %105 = extractvalue { ptr, i32 } %104, 0
+  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #18
+  tail call fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E(ptr noundef %88, ptr noundef %.0.lcssa.i.i.i.i.i79.i.i)
+  %.not.i88.i.i = icmp eq ptr %88, null
+  br i1 %.not.i88.i.i, label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i, label %107
 
-105:                                              ; preds = %101
-  tail call void @_ZdlPv(ptr noundef nonnull %86) #19
+107:                                              ; preds = %103
+  tail call void @_ZdlPv(ptr noundef nonnull %88) #19
   br label %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i
 
-_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i: ; preds = %105, %101
+_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i: ; preds = %107, %103
   invoke void @__cxa_rethrow() #21
-          to label %112 unwind label %106
+          to label %114 unwind label %108
 
-106:                                              ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i
-  %107 = landingpad { ptr, i32 }
+108:                                              ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i
+  %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %108 unwind label %109
+          to label %110 unwind label %111
 
-108:                                              ; preds = %106
-  resume { ptr, i32 } %107
+110:                                              ; preds = %108
+  resume { ptr, i32 } %109
 
-109:                                              ; preds = %106
-  %110 = landingpad { ptr, i32 }
+111:                                              ; preds = %108
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #22
+  %113 = extractvalue { ptr, i32 } %112, 0
+  tail call void @__clang_call_terminate(ptr %113) #22
   unreachable
 
-112:                                              ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i
+114:                                              ; preds = %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit89.i.i
   unreachable
 
 _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit: ; preds = %.lr.ph.i.i.i.i.i69.i.i, %.lr.ph.i.i.i.i.i60.i.i, %4, %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.thread.i, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit67.i.i, %_ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i

@@ -3037,7 +3037,7 @@ do.body5.i:                                       ; preds = %do.body.i
 do.end6.i:                                        ; preds = %do.body.i
   %sub.i = sub nuw i64 %call90, %conv86
   %add.ptr.i45 = getelementptr inbounds i8, ptr %call88, i64 %sub.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i45, ptr align 1 %call88, i64 %conv86, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i45, ptr align 1 %call88, i64 %conv86, i1 false)
   call void @llvm.memset.p0.i64(ptr align 1 %call88, i8 0, i64 %sub.i, i1 false)
   br label %_ZN4node6crypto12_GLOBAL__N_126ZeroPadDiffieHellmanSecretEmPcm.exit
 
@@ -5128,7 +5128,7 @@ do.body5.i:                                       ; preds = %do.body.i
 do.end6.i:                                        ; preds = %do.body.i
   %sub.i = sub nuw i64 %0, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %call1.i.i, i64 %sub.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %call1.i.i, i64 %1, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %call1.i.i, i64 %1, i1 false)
   call void @llvm.memset.p0.i64(ptr align 1 %call1.i.i, i8 0, i64 %sub.i, i1 false)
   br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 

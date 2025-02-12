@@ -530,9 +530,6 @@ _ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread: ; preds = %75
   store ptr null, ptr %8, align 8
   br label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit, %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread
-  br label %.preheader.i.i
-
 79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.5)
@@ -567,6 +564,9 @@ _ZN6google12Check_LTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   store ptr %85, ptr %8, align 8
   %.not60 = icmp eq ptr %85, null
   br i1 %.not60, label %.preheader.i.i.preheader, label %88
+
+.preheader.i.i.preheader:                         ; preds = %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread, %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit
+  br label %.preheader.i.i
 
 88:                                               ; preds = %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit
   invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull @.str.3, i32 noundef 170, ptr noundef nonnull align 8 dereferenceable(8) %8)

@@ -36359,7 +36359,7 @@ _ZSt22__uninitialized_move_aIPN4llvm2gi10LLTCodeGenES3_SaIS2_EET0_T_S6_S5_RT1_.e
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %.lr.ph.i.i.i.i.i44.preheader
 
-.lr.ph.i.i.i.i.i44.preheader:                     ; preds = %28, %_ZSt22__uninitialized_move_aIPN4llvm2gi10LLTCodeGenES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+.lr.ph.i.i.i.i.i44.preheader:                     ; preds = %_ZSt22__uninitialized_move_aIPN4llvm2gi10LLTCodeGenES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %28
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44.preheader, %.lr.ph.i.i.i.i.i44

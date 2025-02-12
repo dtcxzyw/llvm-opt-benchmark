@@ -36651,7 +36651,7 @@ _ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm1
   %75 = getelementptr inbounds nuw %"class.clang::QualType", ptr %38, i64 %74
   %76 = sub nsw i64 0, %42
   %77 = getelementptr inbounds %"class.clang::QualType", ptr %75, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
@@ -36856,7 +36856,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2
   %72 = getelementptr inbounds nuw %"class.clang::QualType", ptr %34, i64 %71
   %73 = sub nsw i64 0, %38
   %74 = getelementptr inbounds %"class.clang::QualType", ptr %72, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %35, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 8 %35, i64 %gepdiff, i1 false)
   br label %.lr.ph.i.i.i.i41
 
 .lr.ph.i.i.i.i41:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, %.lr.ph.i.i.i.i41

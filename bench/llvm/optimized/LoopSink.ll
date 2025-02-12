@@ -4207,7 +4207,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i.i.i.i: ; preds = %
   %90 = getelementptr inbounds nuw ptr, ptr %51, i64 %89
   %91 = sub nsw i64 0, %55
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %52, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %52, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit, %86

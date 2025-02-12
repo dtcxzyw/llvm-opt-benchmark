@@ -3266,8 +3266,8 @@ define internal fastcc void @_ZN2cv4rgbdL18preparePyramidMaskERKNS_3MatERKSt6vec
 .preheader:                                       ; preds = %128
   %143 = load ptr, ptr %50, align 8
   %144 = load ptr, ptr %5, align 8
-  %.not144 = icmp eq ptr %143, %144
-  br i1 %.not144, label %._crit_edge, label %.lr.ph142
+  %.not143 = icmp eq ptr %143, %144
+  br i1 %.not143, label %._crit_edge, label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %.preheader
   %145 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -4273,8 +4273,8 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidSobelERKSt6vectorINS_3M
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %0, align 8
-  %.not56 = icmp eq ptr %71, %72
-  br i1 %.not56, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %73
+  %.not55 = icmp eq ptr %71, %72
+  br i1 %.not55, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %73
 
 73:                                               ; preds = %69
   %74 = ptrtoint ptr %71 to i64
@@ -4283,14 +4283,14 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidSobelERKSt6vectorINS_3M
   %77 = sdiv exact i64 %76, 96
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %77)
   %.pre = load ptr, ptr %70, align 8
-  %.pre55 = load ptr, ptr %0, align 8
+  %.pre54 = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %69, %73
-  %78 = phi ptr [ %.pre55, %73 ], [ %72, %69 ]
+  %78 = phi ptr [ %.pre54, %73 ], [ %72, %69 ]
   %79 = phi ptr [ %.pre, %73 ], [ %71, %69 ]
-  %.not53 = icmp eq ptr %79, %78
-  br i1 %.not53, label %.loopexit, label %.lr.ph51
+  %.not52 = icmp eq ptr %79, %78
+  br i1 %.not52, label %.loopexit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4486,8 +4486,8 @@ define internal fastcc void @_ZN2cv4rgbdL26preparePyramidTexturedMaskERKSt6vecto
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %0, align 8
-  %.not108 = icmp eq ptr %77, %78
-  br i1 %.not108, label %.loopexit, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
+  %.not107 = icmp eq ptr %77, %78
+  br i1 %.not107, label %.loopexit, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %75
   %79 = ptrtoint ptr %77 to i64
@@ -4496,9 +4496,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %75
   %82 = sdiv exact i64 %81, 96
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %82)
   %.pre = load ptr, ptr %17, align 8
-  %.pre105 = load ptr, ptr %5, align 8
-  %.not98 = icmp eq ptr %.pre, %.pre105
-  br i1 %.not98, label %.loopexit, label %.lr.ph96
+  %.pre104 = load ptr, ptr %5, align 8
+  %.not97 = icmp eq ptr %.pre, %.pre104
+  br i1 %.not97, label %.loopexit, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -4550,21 +4550,21 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %75
   %114 = phi i32 [ %153, %._crit_edge ], [ %104, %.lr.ph93 ]
   %115 = phi i32 [ %154, %._crit_edge ], [ %112, %.lr.ph93 ]
   %116 = phi i32 [ %155, %._crit_edge ], [ %112, %.lr.ph93 ]
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %._crit_edge ], [ 0, %.lr.ph93 ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %._crit_edge ], [ 0, %.lr.ph93 ]
   %117 = load ptr, ptr %107, align 8
   %118 = load ptr, ptr %108, align 8
   %119 = load i64, ptr %118, align 8
-  %120 = mul i64 %119, %indvars.iv102
+  %120 = mul i64 %119, %indvars.iv101
   %121 = getelementptr inbounds i8, ptr %117, i64 %120
   %122 = load ptr, ptr %109, align 8
   %123 = load ptr, ptr %110, align 8
   %124 = load i64, ptr %123, align 8
-  %125 = mul i64 %124, %indvars.iv102
+  %125 = mul i64 %124, %indvars.iv101
   %126 = getelementptr inbounds i8, ptr %122, i64 %125
   %127 = load ptr, ptr %83, align 8
   %128 = load ptr, ptr %84, align 8
   %129 = load i64, ptr %128, align 8
-  %130 = mul i64 %129, %indvars.iv102
+  %130 = mul i64 %129, %indvars.iv101
   %131 = getelementptr inbounds i8, ptr %127, i64 %130
   %132 = icmp sgt i32 %116, 0
   br i1 %132, label %.lr.ph90, label %._crit_edge
@@ -4588,7 +4588,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %75
 145:                                              ; preds = %.lr.ph90
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv
   store i8 -1, ptr %146, align 1
-  %.pre106 = load i32, ptr %111, align 4
+  %.pre105 = load i32, ptr %111, align 4
   br label %149
 
 147:                                              ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %._crit_edge94
@@ -4597,23 +4597,23 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %75
   br label %180
 
 149:                                              ; preds = %.lr.ph90, %145
-  %150 = phi i32 [ %133, %.lr.ph90 ], [ %.pre106, %145 ]
+  %150 = phi i32 [ %133, %.lr.ph90 ], [ %.pre105, %145 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next, %151
   br i1 %152, label %.lr.ph90, label %._crit_edge.loopexit, !llvm.loop !84
 
 ._crit_edge.loopexit:                             ; preds = %149
-  %.pre107 = load i32, ptr %103, align 8
+  %.pre106 = load i32, ptr %103, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph93.split
-  %153 = phi i32 [ %.pre107, %._crit_edge.loopexit ], [ %114, %.lr.ph93.split ]
+  %153 = phi i32 [ %.pre106, %._crit_edge.loopexit ], [ %114, %.lr.ph93.split ]
   %154 = phi i32 [ %150, %._crit_edge.loopexit ], [ %115, %.lr.ph93.split ]
   %155 = phi i32 [ %150, %._crit_edge.loopexit ], [ %116, %.lr.ph93.split ]
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %156 = sext i32 %153 to i64
-  %157 = icmp slt i64 %indvars.iv.next103, %156
+  %157 = icmp slt i64 %indvars.iv.next102, %156
   br i1 %157, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !85
 
 ._crit_edge94:                                    ; preds = %._crit_edge, %.lr.ph93, %89
@@ -8391,11 +8391,11 @@ define internal fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6
 .lr.ph9.split:                                    ; preds = %.lr.ph9, %._crit_edge
   %94 = phi i32 [ %124, %._crit_edge ], [ %87, %.lr.ph9 ]
   %95 = phi i32 [ %125, %._crit_edge ], [ %92, %.lr.ph9 ]
-  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %._crit_edge ], [ 0, %.lr.ph9 ]
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %._crit_edge ], [ 0, %.lr.ph9 ]
   %96 = load ptr, ptr %89, align 8
   %97 = load ptr, ptr %90, align 8
   %98 = load i64, ptr %97, align 8
-  %99 = mul i64 %98, %indvars.iv18
+  %99 = mul i64 %98, %indvars.iv17
   %100 = getelementptr inbounds i8, ptr %96, i64 %99
   %101 = icmp sgt i32 %95, 0
   br i1 %101, label %.lr.ph6, label %._crit_edge
@@ -8438,19 +8438,19 @@ define internal fastcc void @_ZN2cv4rgbdL21preparePyramidNormalsERKNS_3MatERKSt6
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph9.split
   %124 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %94, %.lr.ph9.split ]
   %125 = phi i32 [ %121, %._crit_edge.loopexit ], [ %95, %.lr.ph9.split ]
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %126 = sext i32 %124 to i64
-  %127 = icmp slt i64 %indvars.iv.next19, %126
+  %127 = icmp slt i64 %indvars.iv.next18, %126
   br i1 %127, label %.lr.ph9.split, label %._crit_edge10.loopexit, !llvm.loop !145
 
 ._crit_edge10.loopexit:                           ; preds = %._crit_edge
-  %.pre21 = load ptr, ptr %12, align 8
-  %.pre22 = load ptr, ptr %1, align 8
+  %.pre20 = load ptr, ptr %12, align 8
+  %.pre21 = load ptr, ptr %1, align 8
   br label %._crit_edge10
 
 ._crit_edge10:                                    ; preds = %.lr.ph9, %._crit_edge10.loopexit, %.lr.ph13
-  %128 = phi ptr [ %.pre22, %._crit_edge10.loopexit ], [ %83, %.lr.ph13 ], [ %83, %.lr.ph9 ]
-  %129 = phi ptr [ %.pre21, %._crit_edge10.loopexit ], [ %84, %.lr.ph13 ], [ %84, %.lr.ph9 ]
+  %128 = phi ptr [ %.pre21, %._crit_edge10.loopexit ], [ %83, %.lr.ph13 ], [ %83, %.lr.ph9 ]
+  %129 = phi ptr [ %.pre20, %._crit_edge10.loopexit ], [ %84, %.lr.ph13 ], [ %84, %.lr.ph9 ]
   %130 = add nuw i64 %.04211, 1
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %128 to i64
@@ -8622,8 +8622,8 @@ define internal fastcc void @_ZN2cv4rgbdL25preparePyramidNormalsMaskERKSt6vector
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %1, align 8
-  %.not89 = icmp eq ptr %76, %77
-  br i1 %.not89, label %.loopexit, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
+  %.not88 = icmp eq ptr %76, %77
+  br i1 %.not88, label %.loopexit, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %74
   %78 = ptrtoint ptr %76 to i64
@@ -8632,9 +8632,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %74
   %81 = sdiv exact i64 %80, 96
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %81)
   %.pre = load ptr, ptr %13, align 8
-  %.pre86 = load ptr, ptr %3, align 8
-  %.not81 = icmp eq ptr %.pre, %.pre86
-  br i1 %.not81, label %.loopexit, label %.lr.ph79
+  %.pre85 = load ptr, ptr %3, align 8
+  %.not80 = icmp eq ptr %.pre, %.pre85
+  br i1 %.not80, label %.loopexit, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %82 = fptrunc double %2 to float
@@ -8706,7 +8706,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %74
 123:                                              ; preds = %.lr.ph72
   %124 = getelementptr inbounds nuw i8, ptr %109, i64 %indvar
   store i8 0, ptr %124, align 1
-  %.pre87 = load i32, ptr %95, align 4
+  %.pre86 = load i32, ptr %95, align 4
   br label %127
 
 125:                                              ; preds = %83
@@ -8716,18 +8716,18 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %74
   br label %144
 
 127:                                              ; preds = %.lr.ph72, %123
-  %128 = phi i32 [ %120, %.lr.ph72 ], [ %.pre87, %123 ]
+  %128 = phi i32 [ %120, %.lr.ph72 ], [ %.pre86, %123 ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvar.next, %129
   br i1 %130, label %.lr.ph72, label %._crit_edge.loopexit, !llvm.loop !148
 
 ._crit_edge.loopexit:                             ; preds = %127
-  %.pre88 = load i32, ptr %92, align 8
+  %.pre87 = load i32, ptr %92, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph75.split
-  %131 = phi i32 [ %.pre88, %._crit_edge.loopexit ], [ %98, %.lr.ph75.split ]
+  %131 = phi i32 [ %.pre87, %._crit_edge.loopexit ], [ %98, %.lr.ph75.split ]
   %132 = phi i32 [ %128, %._crit_edge.loopexit ], [ %99, %.lr.ph75.split ]
   %133 = phi i32 [ %128, %._crit_edge.loopexit ], [ %100, %.lr.ph75.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

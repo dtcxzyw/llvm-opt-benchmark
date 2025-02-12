@@ -1211,16 +1211,16 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit25._crit_edge: ; preds = %_ZN5boost11
   br label %155
 
 64:                                               ; preds = %56, %.loopexit
-  %.084 = phi i32 [ 1, %56 ], [ %78, %.loopexit ]
-  %65 = and i32 %.084, %59
-  %.not81 = icmp eq i32 %65, 0
-  br i1 %.not81, label %.loopexit, label %select.unfold.preheader
+  %.082 = phi i32 [ 1, %56 ], [ %78, %.loopexit ]
+  %65 = and i32 %.082, %59
+  %.not79 = icmp eq i32 %65, 0
+  br i1 %.not79, label %.loopexit, label %select.unfold.preheader
 
 select.unfold.preheader:                          ; preds = %64, %select.unfold
-  %.07583 = phi i32 [ %spec.select, %select.unfold ], [ 1, %64 ]
-  %66 = and i32 %.07583, %61
-  %.not82 = icmp eq i32 %66, 0
-  br i1 %.not82, label %select.unfold, label %67
+  %.07581 = phi i32 [ %spec.select, %select.unfold ], [ 1, %64 ]
+  %66 = and i32 %.07581, %61
+  %.not80 = icmp eq i32 %66, 0
+  br i1 %.not80, label %select.unfold, label %67
 
 67:                                               ; preds = %select.unfold.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
@@ -1228,7 +1228,7 @@ select.unfold.preheader:                          ; preds = %64, %select.unfold
   %69 = load ptr, ptr %68, align 8, !tbaa !66
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load ptr, ptr %70, align 8
-  invoke void %71(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.084, i32 noundef %.07583)
+  invoke void %71(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.082, i32 noundef %.07581)
           to label %72 unwind label %74
 
 72:                                               ; preds = %67
@@ -1244,15 +1244,15 @@ select.unfold.preheader:                          ; preds = %64, %select.unfold
   br label %149
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %72
-  %.not.i = icmp eq i32 %.07583, 0
-  %76 = shl nuw nsw i32 %.07583, 1
+  %.not.i = icmp eq i32 %.07581, 0
+  %76 = shl nuw nsw i32 %.07581, 1
   %spec.select = select i1 %.not.i, i32 1, i32 %76
   %77 = icmp samesign ult i32 %spec.select, 3
   br i1 %77, label %select.unfold.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %64
-  %78 = shl nuw nsw i32 %.084, 1
-  %79 = icmp samesign ult i32 %.084, 33
+  %78 = shl nuw nsw i32 %.082, 1
+  %79 = icmp samesign ult i32 %.082, 33
   br i1 %79, label %64, label %.preheader, !llvm.loop !68
 
 80:                                               ; preds = %95
@@ -1263,10 +1263,10 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %84, label %98, label %150
 
 .preheader:                                       ; preds = %.loopexit, %95
-  %.07685 = phi i32 [ %96, %95 ], [ 65536, %.loopexit ]
-  %85 = and i32 %.07685, %59
-  %.not80 = icmp eq i32 %85, 0
-  br i1 %.not80, label %95, label %86
+  %.07683 = phi i32 [ %96, %95 ], [ 65536, %.loopexit ]
+  %85 = and i32 %.07683, %59
+  %.not = icmp eq i32 %85, 0
+  br i1 %.not, label %95, label %86
 
 86:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
@@ -1274,7 +1274,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %88 = load ptr, ptr %87, align 8, !tbaa !66
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8
-  invoke void %90(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.07685, i32 noundef 0)
+  invoke void %90(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.07683, i32 noundef 0)
           to label %91 unwind label %93
 
 91:                                               ; preds = %86
@@ -1290,8 +1290,8 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %149
 
 95:                                               ; preds = %.preheader, %91
-  %96 = shl nuw nsw i32 %.07685, 1
-  %97 = icmp ult i32 %.07685, 65537
+  %96 = shl nuw nsw i32 %.07683, 1
+  %97 = icmp ult i32 %.07683, 65537
   br i1 %97, label %.preheader, label %80, !llvm.loop !69
 
 98:                                               ; preds = %80

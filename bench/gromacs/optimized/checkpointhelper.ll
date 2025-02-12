@@ -1174,7 +1174,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpoi
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = icmp sgt i32 %63, 1
-  br i1 %64, label %.thread64, label %65
+  br i1 %64, label %.thread61, label %65
 
 65:                                               ; preds = %61, %55
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1230,28 +1230,28 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpoi
 82:                                               ; preds = %65
   %.pre = load ptr, ptr %56, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 52
-  %.pre62 = load i32, ptr %.phi.trans.insert, align 4
-  %83 = icmp eq i32 %.pre62, 0
-  br i1 %83, label %88, label %.thread64
+  %.pre59 = load i32, ptr %.phi.trans.insert, align 4
+  %83 = icmp eq i32 %.pre59, 0
+  br i1 %83, label %88, label %.thread61
 
-.thread64:                                        ; preds = %61, %82
+.thread61:                                        ; preds = %61, %82
   %84 = phi ptr [ %.pre, %82 ], [ %57, %61 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %86 = load i32, ptr %85, align 8
   %87 = icmp sgt i32 %86, 1
   br i1 %87, label %92, label %88
 
-88:                                               ; preds = %.thread64, %82
+88:                                               ; preds = %.thread61, %82
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr @_ZNK3gmx24ReadCheckpointDataHolder14checkpointDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %90, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %.pre63 = load ptr, ptr %56, align 8
+  %.pre60 = load ptr, ptr %56, align 8
   br label %92
 
-92:                                               ; preds = %.thread64, %88
-  %93 = phi ptr [ %.pre63, %88 ], [ %84, %.thread64 ]
-  %.sroa.038.0 = phi ptr [ %91, %88 ], [ undef, %.thread64 ]
-  %.sroa.2.0 = phi i8 [ 1, %88 ], [ 0, %.thread64 ]
+92:                                               ; preds = %.thread61, %88
+  %93 = phi ptr [ %.pre60, %88 ], [ %84, %.thread61 ]
+  %.sroa.038.0 = phi ptr [ %91, %88 ], [ undef, %.thread61 ]
+  %.sroa.2.0 = phi i8 [ 1, %88 ], [ 0, %.thread61 ]
   %94 = load ptr, ptr %1, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8

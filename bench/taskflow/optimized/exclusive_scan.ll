@@ -20805,7 +20805,7 @@ if.then.i.i:                                      ; preds = %if.end18
   unreachable
 
 _ZNSt6vectorIN2tf16CachelineAlignedIiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %if.end18
-  %cmp.not.i.i.i.i = icmp eq i64 %spec.select, 0
+  %cmp.not.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN2tf16CachelineAlignedIiEESaIS2_EEC2EmRKS3_.exit.thread.i, label %if.then.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN2tf16CachelineAlignedIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIN2tf16CachelineAlignedIiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i

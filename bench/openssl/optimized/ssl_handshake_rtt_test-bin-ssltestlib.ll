@@ -1983,12 +1983,12 @@ while.end:                                        ; preds = %if.else, %if.end36
   %sfd.2.lcssa = phi i32 [ %call1, %if.end36 ], [ %call44, %if.else ]
   %call60 = call i32 @BIO_socket_nbio(i32 noundef %call28, i32 noundef 1) #13
   %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %if.then68.thread58, label %lor.lhs.false
+  br i1 %tobool61.not, label %if.then68, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end
   %call62 = call i32 @BIO_socket_nbio(i32 noundef %sfd.2.lcssa, i32 noundef 1) #13
   %tobool63.not = icmp eq i32 %call62, 0
-  br i1 %tobool63.not, label %if.then68.thread58, label %if.end65
+  br i1 %tobool63.not, label %if.then68, label %if.end65
 
 if.end65:                                         ; preds = %lor.lhs.false
   store i32 %call28, ptr %cfdp, align 4
@@ -2000,18 +2000,14 @@ if.then68.thread:                                 ; preds = %land.lhs.true47, %i
   %call6955 = call i32 @close(i32 noundef %call28) #13
   br label %success
 
-if.then68.thread58:                               ; preds = %lor.lhs.false, %while.end
-  %call6961 = call i32 @close(i32 noundef %call28) #13
-  br label %if.then73
-
-if.then68:                                        ; preds = %land.lhs.true54
+if.then68:                                        ; preds = %land.lhs.true54, %lor.lhs.false, %while.end
+  %sfd.040 = phi i32 [ %sfd.2.lcssa, %lor.lhs.false ], [ %sfd.2.lcssa, %while.end ], [ %call44, %land.lhs.true54 ]
   %call69 = call i32 @close(i32 noundef %call28) #13
-  %cmp71.not = icmp eq i32 %call44, -1
+  %cmp71.not = icmp eq i32 %sfd.040, -1
   br i1 %cmp71.not, label %success, label %if.then73
 
-if.then73:                                        ; preds = %if.then68.thread58, %if.then68
-  %sfd.04063 = phi i32 [ %sfd.2.lcssa, %if.then68.thread58 ], [ %call44, %if.then68 ]
-  %call74 = call i32 @close(i32 noundef %sfd.04063) #13
+if.then73:                                        ; preds = %if.then68
+  %call74 = call i32 @close(i32 noundef %sfd.040) #13
   br label %success
 
 success:                                          ; preds = %if.then68.thread, %if.then68, %if.then73, %if.end65

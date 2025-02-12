@@ -10599,7 +10599,7 @@ _ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendISt13move_i
   %56 = sub i64 %40, %34
   %.neg.i.i.i.i.i = sdiv exact i64 %56, -3
   %57 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %33, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %57, ptr align 1 %32, i64 %56, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %32, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %55
@@ -10626,7 +10626,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18unin
   %63 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %31, i64 %62
   %64 = sub nsw i64 0, %35
   %65 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %63, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %32, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr align 1 %32, i64 %gepdiff, i1 false)
   br label %.lr.ph.i.i.i.i39
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %.lr.ph.i.i.i.i39
@@ -12574,7 +12574,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28rese
   %44 = sub i64 %42, %43
   %.neg.i.i.i.i.i = sdiv exact i64 %44, -3
   %45 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %39, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr nonnull align 1 %34, i64 %44, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %34, i64 %44, i1 false)
   %.pre13 = load i64, ptr %5, align 8, !tbaa !307
   br label %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit
 

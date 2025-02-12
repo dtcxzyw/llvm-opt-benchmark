@@ -20003,7 +20003,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.ex
   %72 = getelementptr inbounds nuw i32, ptr %35, i64 %71
   %73 = sub nsw i64 0, %39
   %74 = getelementptr inbounds i32, ptr %72, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 4 %36, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 4 %36, i64 %gepdiff, i1 false)
   br label %.lr.ph.i.i.i.i35
 
 .lr.ph.i.i.i.i35:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit, %.lr.ph.i.i.i.i35

@@ -2725,21 +2725,21 @@ if.then80:                                        ; preds = %invoke.cont70
   %60 = extractvalue { i64, i1 } %57, 0
   %61 = select i1 %59, i64 -1, i64 %60
   %call84 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %61) #23
-          to label %new.ctorloop86 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %invoke.cont83 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-new.ctorloop86:                                   ; preds = %if.then80
+invoke.cont83:                                    ; preds = %if.then80
   store i64 %sub.ptr.div.i296, ptr %call84, align 16
-  %62 = getelementptr i8, ptr %call84, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %call84, i64 8
   %63 = mul nsw i64 %sub.ptr.div.i296, 24
   %64 = add nsw i64 %63, -24
   %65 = urem i64 %64, 24
   %66 = sub nuw nsw i64 %64, %65
   %67 = add nsw i64 %66, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %62, i8 0, i64 %67, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %62, i8 0, i64 %67, i1 false)
   br label %if.end93
 
-if.end93:                                         ; preds = %new.ctorloop86, %invoke.cont70
-  %avOutputBones.0 = phi ptr [ null, %invoke.cont70 ], [ %62, %new.ctorloop86 ]
+if.end93:                                         ; preds = %invoke.cont83, %invoke.cont70
+  %avOutputBones.0 = phi ptr [ null, %invoke.cont70 ], [ %62, %invoke.cont83 ]
   %conv95 = and i64 %sub.ptr.div.i284, 4294967295
   %68 = shl nuw nsw i64 %conv95, 4
   %69 = or disjoint i64 %68, 8
@@ -3491,7 +3491,7 @@ if.end461:                                        ; preds = %lor.lhs.false
   store i64 %conv471, ptr %call472, align 16
   %176 = getelementptr inbounds nuw i8, ptr %call472, i64 8
   %isempty473 = icmp eq i64 %conv471, 0
-  br i1 %isempty473, label %arrayctor.cont492, label %new.ctorloop474
+  br i1 %isempty473, label %arrayctor.cont480, label %new.ctorloop474
 
 new.ctorloop474:                                  ; preds = %if.end461
   %arrayctor.end475 = getelementptr inbounds nuw %struct.aiFace, ptr %176, i64 %conv471
@@ -3504,9 +3504,9 @@ arrayctor.loop476:                                ; preds = %arrayctor.loop476, 
   store ptr null, ptr %mIndices.i460, align 8
   %arrayctor.next478 = getelementptr inbounds nuw i8, ptr %arrayctor.cur477, i64 16
   %arrayctor.done479 = icmp eq ptr %arrayctor.next478, %arrayctor.end475
-  br i1 %arrayctor.done479, label %arrayctor.cont492, label %arrayctor.loop476
+  br i1 %arrayctor.done479, label %arrayctor.cont480, label %arrayctor.loop476
 
-arrayctor.cont492:                                ; preds = %arrayctor.loop476, %if.end461
+arrayctor.cont480:                                ; preds = %arrayctor.loop476, %if.end461
   %mFaces481 = getelementptr inbounds nuw i8, ptr %call441, i64 208
   store ptr %176, ptr %mFaces481, align 8
   %177 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %sub.ptr.div.i454, i64 12)
@@ -3539,7 +3539,7 @@ arrayctor.cont492:                                ; preds = %arrayctor.loop476, 
   %isempty503 = icmp eq ptr %186, %187
   br i1 %isempty503, label %arrayctor.cont510, label %new.ctorloop504
 
-new.ctorloop504:                                  ; preds = %arrayctor.cont492
+new.ctorloop504:                                  ; preds = %arrayctor.cont480
   %192 = add i64 %sub.ptr.lhs.cast.i475, -12
   %193 = sub i64 %192, %sub.ptr.rhs.cast.i476
   %.fr856 = freeze i64 %193
@@ -3549,7 +3549,7 @@ new.ctorloop504:                                  ; preds = %arrayctor.cont492
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call502, i8 0, i64 %196, i1 false)
   br label %arrayctor.cont510
 
-arrayctor.cont510:                                ; preds = %new.ctorloop504, %arrayctor.cont492
+arrayctor.cont510:                                ; preds = %new.ctorloop504, %arrayctor.cont480
   %mNormals511 = getelementptr inbounds nuw i8, ptr %call441, i64 24
   store ptr %call502, ptr %mNormals511, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call502, ptr nonnull align 4 %187, i64 %sub.ptr.sub.i477, i1 false)
@@ -3697,9 +3697,9 @@ for.body655.preheader:                            ; preds = %if.then639
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %sub.ptr.div.i526, 24
   %call5.i.i.i.i2.i.i533 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
   store ptr %call5.i.i.i.i2.i.i533, ptr %avBonesOut, align 8
+  %add.ptr.i.i.i529 = getelementptr inbounds nuw %"class.std::vector.133", ptr %call5.i.i.i.i2.i.i533, i64 %sub.ptr.div.i526
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i533, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i533, i64 %mul.i.i.i.i.i.i
-  %add.ptr.i.i.i529 = getelementptr inbounds nuw %"class.std::vector.133", ptr %call5.i.i.i.i2.i.i533, i64 %sub.ptr.div.i526
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %avBonesOut, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %avBonesOut, i64 16
   store ptr %add.ptr.i.i.i529, ptr %236, align 8
@@ -10158,7 +10158,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, -12
   %add.ptr.i.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %1, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont

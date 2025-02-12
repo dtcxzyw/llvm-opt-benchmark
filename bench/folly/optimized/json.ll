@@ -11865,10 +11865,6 @@ if.end.i178:                                      ; preds = %for.body.i.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %integral.i) #28, !noalias !383
   %sub.ptr.rhs.cast.i.i.i143.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i.i144.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i143.i
-  %cmp26.not.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i144.i, 0
-  br i1 %cmp26.not.i.i.i, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180, label %for.body.i.preheader.i.i
-
-for.body.i.preheader.i.i:                         ; preds = %if.end.i178
   %222 = load i8, ptr %add.ptr.i.i, align 1, !tbaa !7, !noalias !383
   %223 = add i8 %222, -48
   %or.cond.i.i.peel.i.i = icmp ult i8 %223, 10
@@ -11876,7 +11872,7 @@ for.body.i.preheader.i.i:                         ; preds = %if.end.i178
   %or.cond.peel.i.i = or i1 %cmp5.i.i.peel.i.i, %or.cond.i.i.peel.i.i
   br i1 %or.cond.peel.i.i, label %for.inc.i.peel.i.i, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180
 
-for.inc.i.peel.i.i:                               ; preds = %for.body.i.preheader.i.i
+for.inc.i.peel.i.i:                               ; preds = %if.end.i178
   %exitcond.not.i.peel.i.i = icmp eq i64 %sub.ptr.sub.i.i.i144.i, 1
   br i1 %exitcond.not.i.peel.i.i, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180, label %for.body.i.i.i
 
@@ -11897,8 +11893,8 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %cmp.i.i.i146.i = icmp ult i64 %sub.ptr.sub.i.i.i144.i, %skipped.027.i.i.i
   br i1 %cmp.i.i.i146.i, label %if.then.i.i1173.invoke, label %_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180, !prof !390
 
-_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180:     ; preds = %for.inc.i.i.i, %for.end.i.i.i, %for.inc.i.peel.i.i, %for.body.i.preheader.i.i, %if.end.i178
-  %skipped.0.lcssa37.i.i.i = phi i64 [ %skipped.027.i.i.i, %for.end.i.i.i ], [ 0, %if.end.i178 ], [ 1, %for.inc.i.peel.i.i ], [ 0, %for.body.i.preheader.i.i ], [ %sub.ptr.sub.i.i.i144.i, %for.inc.i.i.i ]
+_ZN5folly5RangeIPKcE7advanceEm.exit.i.i.i180:     ; preds = %for.inc.i.i.i, %for.end.i.i.i, %for.inc.i.peel.i.i, %if.end.i178
+  %skipped.0.lcssa37.i.i.i = phi i64 [ %skipped.027.i.i.i, %for.end.i.i.i ], [ 1, %for.inc.i.peel.i.i ], [ 0, %if.end.i178 ], [ %sub.ptr.sub.i.i.i144.i, %for.inc.i.i.i ]
   %add.ptr.i.i.i.i181 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %skipped.0.lcssa37.i.i.i
   store ptr %add.ptr.i.i.i.i181, ptr %in, align 8, !tbaa !327, !noalias !383
   %cmp.i.i.i.i145.i = icmp eq ptr %add.ptr.i.i.i.i181, %3

@@ -1085,8 +1085,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %3
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %339 = load i32, ptr %338, align 8, !tbaa !108
   %340 = and i32 %339, 5
-  %.not157 = icmp eq i32 %340, 0
-  br i1 %.not157, label %368, label %341
+  %.not156 = icmp eq i32 %340, 0
+  br i1 %.not156, label %368, label %341
 
 341:                                              ; preds = %333
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #23

@@ -17549,9 +17549,9 @@ _ZSt10_ConstructIN12_GLOBAL__N_17RegInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %767 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i, i64 96
   %768 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %767, %556
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEC2IS2_vEENS_8ArrayRefIT_EE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !661
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE18uninitialized_copyIPKS2_PS2_EEvT_S8_T0_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !661
 
-_ZN4llvm11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEC2IS2_vEENS_8ArrayRefIT_EE.exit.i.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_17RegInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE18uninitialized_copyIPKS2_PS2_EEvT_S8_T0_.exit.loopexit.i.i.i.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_17RegInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i
   %.pre.i.i.i.i114 = load i32, ptr %748, align 8, !tbaa !26
   %769 = trunc i64 %563 to i32
   %770 = add i32 %.pre.i.i.i.i114, %769
@@ -17566,14 +17566,14 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEC2IS2_vEENS_8ArrayRefIT_EE.ex
   %775 = icmp ugt i64 %745, 8
   br i1 %775, label %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.thread.i.i.i, label %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.i.i.i
 
-_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.thread.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEC2IS2_vEENS_8ArrayRefIT_EE.exit.i.i
+_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.thread.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE18uninitialized_copyIPKS2_PS2_EEvT_S8_T0_.exit.loopexit.i.i.i.i
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %771, ptr noundef nonnull %772, i64 noundef %745, i64 noundef 8) #25
   %.pre10.pre.i.i.i.i = load i32, ptr %773, align 8, !tbaa !26
   %776 = zext i32 %.pre10.pre.i.i.i.i to i64
   %.val.i.i7.pre.i.i = load ptr, ptr %771, align 8, !tbaa !25
   br label %777
 
-_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEC2IS2_vEENS_8ArrayRefIT_EE.exit.i.i
+_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE18uninitialized_copyIPKS2_PS2_EEvT_S8_T0_.exit.loopexit.i.i.i.i
   %.not.i.i.i.i53.i = icmp eq ptr %742, %.0.i.i.i113
   br i1 %.not.i.i.i.i53.i, label %_ZSt4moveIPN12_GLOBAL__N_17RegInfoES2_ET0_T_S4_S3_.exit.i.i, label %777
 

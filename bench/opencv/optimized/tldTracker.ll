@@ -2229,12 +2229,12 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %_ZSt8_DestroyIPN2c
   store ptr %217, ptr %216, align 8
   %223 = getelementptr inbounds nuw i8, ptr %217, i64 9600
   store ptr %223, ptr %215, align 8
-  %.pre193 = load ptr, ptr %21, align 8
+  %.pre191 = load ptr, ptr %21, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %224 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %225 = ptrtoint ptr %.pre to i64
-  %226 = ptrtoint ptr %.pre193 to i64
+  %226 = ptrtoint ptr %.pre191 to i64
   %227 = sub i64 %225, %226
   %228 = sdiv exact i64 %227, 96
   %229 = icmp ult i64 %228, 100
@@ -2245,7 +2245,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %_ZSt8_DestroyIPN2c
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
   %234 = sub i64 %233, %226
-  %235 = invoke noundef ptr @_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 100, ptr noundef %.pre193, ptr noundef %232)
+  %235 = invoke noundef ptr @_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 100, ptr noundef %.pre191, ptr noundef %232)
           to label %.noexc111 unwind label %.loopexit.split-lp
 
 .noexc111:                                        ; preds = %230
@@ -2313,7 +2313,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit112: ; preds = %_ZNSt6vectorIN2
 _ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit: ; preds = %257
   %259 = fcmp uge double %258, 2.000000e-01
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %.pre194 = load ptr, ptr %16, align 8
+  %.pre192 = load ptr, ptr %16, align 8
   br label %261
 
 .loopexit:                                        ; preds = %257
@@ -2333,7 +2333,7 @@ _ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit: ; preds =
   br label %.body97
 
 261:                                              ; preds = %.lr.ph, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit
-  %262 = phi ptr [ %.pre194, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit ], [ %252, %.lr.ph ]
+  %262 = phi ptr [ %.pre192, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit ], [ %252, %.lr.ph ]
   %.0.in = phi i1 [ %259, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit ], [ false, %.lr.ph ]
   %263 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %262, i64 %indvars.iv
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 33
@@ -2414,11 +2414,11 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit:  ; preds = %289, %_ZSt8_Destroy
 
 _ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i119: ; preds = %.lr.ph.i.i.i.i.i116
   store ptr %294, ptr %295, align 8
-  %.pre195 = load ptr, ptr %291, align 8
+  %.pre193 = load ptr, ptr %291, align 8
   br label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120
 
 _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120: ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit, %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i119
-  %298 = phi ptr [ %290, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit ], [ %.pre195, %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i119 ]
+  %298 = phi ptr [ %290, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit ], [ %.pre193, %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i119 ]
   %299 = load ptr, ptr %20, align 8
   %.not.i.i.i121 = icmp eq ptr %298, %299
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit.i, label %.lr.ph.i.i.i.i.i.i122
@@ -2432,11 +2432,11 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120: ; preds = %_ZNSt6vectorIN2cv
 
 _ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i122
   store ptr %299, ptr %291, align 8
-  %.pre196 = load ptr, ptr %295, align 8
+  %.pre194 = load ptr, ptr %295, align 8
   br label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit.i
 
 _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit.i: ; preds = %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i.i, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120
-  %301 = phi ptr [ %.pre196, %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i.i ], [ %294, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120 ]
+  %301 = phi ptr [ %.pre194, %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i.i.i ], [ %294, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE5clearEv.exit120 ]
   %302 = load ptr, ptr %21, align 8
   %.not.i.i2.i = icmp eq ptr %301, %302
   br i1 %.not.i.i2.i, label %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7Nexpert18additionalExamplesERSt6vectorINS_4Mat_IhEESaIS7_EESA_.exit, label %.lr.ph.i.i.i.i.i3.i

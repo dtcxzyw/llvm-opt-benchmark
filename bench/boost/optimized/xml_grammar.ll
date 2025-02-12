@@ -6743,7 +6743,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i.i: ; preds = %80
   %81 = sub i64 %8, %77
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %76, ptr align 4 %79, i64 %81, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %76, ptr align 4 %79, i64 %81, i1 false)
   %.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !10
   %.pre13.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %._crit_edge.i.i.i

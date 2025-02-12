@@ -1291,18 +1291,18 @@ if.end66:                                         ; preds = %land.lhs.true, %ent
   %51 = load i64, ptr %block_size69, align 8
   %block_type.i102 = getelementptr inbounds nuw i8, ptr %access, i64 40
   %52 = load i8, ptr %block_type.i102, align 8
-  %switch.tableidx110 = add i8 %52, -7
-  %53 = icmp ult i8 %switch.tableidx110, 4
-  br i1 %53, label %switch.lookup109, label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105
+  %switch.tableidx109 = add i8 %52, -7
+  %53 = icmp ult i8 %switch.tableidx109, 4
+  br i1 %53, label %switch.lookup108, label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105
 
-switch.lookup109:                                 ; preds = %if.end66
-  %54 = zext nneg i8 %switch.tableidx110 to i64
-  %switch.gep111 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %54
-  %switch.load112 = load i32, ptr %switch.gep111, align 4
+switch.lookup108:                                 ; preds = %if.end66
+  %54 = zext nneg i8 %switch.tableidx109 to i64
+  %switch.gep110 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %54
+  %switch.load111 = load i32, ptr %switch.gep110, align 4
   br label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105
 
-_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105: ; preds = %if.end66, %switch.lookup109
-  %retval.0.i103 = phi i32 [ %switch.load112, %switch.lookup109 ], [ 1, %if.end66 ]
+_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105: ; preds = %if.end66, %switch.lookup108
+  %retval.0.i103 = phi i32 [ %switch.load111, %switch.lookup108 ], [ 1, %if.end66 ]
   %no_insert71 = getelementptr inbounds nuw i8, ptr %access, i64 114
   %55 = load i8, ptr %no_insert71, align 2
   %tobool72 = trunc i8 %55 to i1

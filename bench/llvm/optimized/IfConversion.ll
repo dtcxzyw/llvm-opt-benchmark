@@ -8374,8 +8374,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i: ; preds
 
 _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit: ; preds = %.lr.ph.i160, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i
   %.sroa.03.0.lcssa.i164 = phi ptr [ %.sroa.03.08.i161, %.lr.ph.i160 ], [ %.sroa.0.0.i.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i ]
-  %.not7.i168 = icmp eq ptr %.sroa.0237.2286, %.sroa.0.0.i.i.i.i.i.i.i131
-  br i1 %.not7.i168, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit187, label %.lr.ph.i169
+  br label %.lr.ph.i169
 
 .lr.ph.i169:                                      ; preds = %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178
   %.sroa.03.08.i170 = phi ptr [ %.sroa.0.0.i.i.i.i.i179, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178 ], [ %.sroa.0237.2286, %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit ]
@@ -8417,8 +8416,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178: ; pr
   %.not.i180 = icmp eq ptr %.sroa.0.0.i.i.i.i.i179, %.sroa.0.0.i.i.i.i.i.i.i131
   br i1 %.not.i180, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit187, label %.lr.ph.i169, !llvm.loop !562
 
-_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit187: ; preds = %.lr.ph.i169, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178, %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit
-  %.sroa.03.0.lcssa.i173 = phi ptr [ %.sroa.0237.2286, %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit ], [ %.sroa.0.0.i.i.i.i.i179, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178 ], [ %.sroa.03.08.i170, %.lr.ph.i169 ]
+_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEET_S4_S4_b.exit187: ; preds = %.lr.ph.i169, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178
+  %.sroa.03.0.lcssa.i173 = phi ptr [ %.sroa.03.08.i170, %.lr.ph.i169 ], [ %.sroa.0.0.i.i.i.i.i179, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i178 ]
   %218 = icmp eq ptr %.sroa.03.0.lcssa.i164, %.sroa.0.0.i.i.i.i.i.i.i115
   %219 = icmp eq ptr %.sroa.03.0.lcssa.i173, %.sroa.0.0.i.i.i.i.i.i.i131
   %or.cond252 = or i1 %218, %219

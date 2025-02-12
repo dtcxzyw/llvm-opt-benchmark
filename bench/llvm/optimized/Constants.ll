@@ -1154,8 +1154,8 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.us.i ], [ 1, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Use", ptr %39, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !72
-  %.not39.i = icmp eq ptr %42, %40
-  br i1 %.not39.i, label %.thread.us.i, label %.critedge3
+  %.not.i61 = icmp eq ptr %42, %40
+  br i1 %.not.i61, label %.thread.us.i, label %.critedge3
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1163,12 +1163,12 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
   br i1 %exitcond.not.i, label %.critedge3, label %.lr.ph.split.us.i, !llvm.loop !77
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread.i
-  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.thread.i ], [ 1, %.lr.ph.i ]
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.thread.i ], [ 1, %.lr.ph.i ]
   %.032.i = phi ptr [ %.222.i, %.thread.i ], [ %40, %.lr.ph.i ]
-  %43 = getelementptr inbounds nuw %"class.llvm::Use", ptr %39, i64 %indvars.iv44.i
+  %43 = getelementptr inbounds nuw %"class.llvm::Use", ptr %39, i64 %indvars.iv43.i
   %44 = load ptr, ptr %43, align 8, !tbaa !72
-  %.not40.i = icmp eq ptr %44, %.032.i
-  br i1 %.not40.i, label %.thread.i, label %45
+  %.not39.i = icmp eq ptr %44, %.032.i
+  br i1 %.not39.i, label %.thread.i, label %45
 
 45:                                               ; preds = %.lr.ph.split.i
   %46 = load i8, ptr %44, align 8, !tbaa !56
@@ -1182,9 +1182,9 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
 
 .thread.i:                                        ; preds = %48, %45, %.lr.ph.split.i
   %.222.i = phi ptr [ %.032.i, %45 ], [ %44, %48 ], [ %.032.i, %.lr.ph.split.i ]
-  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %37
-  br i1 %exitcond48.not.i, label %.critedge3, label %.lr.ph.split.i, !llvm.loop !77
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
+  %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %37
+  br i1 %exitcond47.not.i, label %.critedge3, label %.lr.ph.split.i, !llvm.loop !77
 
 51:                                               ; preds = %2
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1209,8 +1209,8 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
 66:                                               ; preds = %55
   %67 = load ptr, ptr %61, align 8, !tbaa !72
   %68 = load i8, ptr %67, align 8, !tbaa !56
-  %.not85 = icmp eq i8 %68, 5
-  br i1 %.not85, label %69, label %.critedge3.thread
+  %.not86 = icmp eq i8 %68, 5
+  br i1 %.not86, label %69, label %.critedge3.thread
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 2
@@ -1228,8 +1228,8 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
   %80 = load ptr, ptr %79, align 8, !tbaa !72
   %81 = load i8, ptr %80, align 8, !tbaa !56
   %82 = and i8 %81, -2
-  %spec.select.i.i.i.i.i.i.i.i63 = icmp eq i8 %82, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i63, label %83, label %.critedge3.thread
+  %spec.select.i.i.i.i.i.i.i.i64 = icmp eq i8 %82, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i64, label %83, label %.critedge3.thread
 
 83:                                               ; preds = %73
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1242,8 +1242,8 @@ _ZNK4llvm18ConstantDataVector7isSplatEv.exit.i:   ; preds = %22, %18
   %91 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %92 = load ptr, ptr %91, align 8, !tbaa !72
   %93 = load i8, ptr %92, align 8, !tbaa !56
-  %.not87 = icmp eq i8 %93, 17
-  br i1 %.not87, label %94, label %.critedge3.thread
+  %.not88 = icmp eq i8 %93, 17
+  br i1 %.not88, label %94, label %.critedge3.thread
 
 94:                                               ; preds = %83
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -14833,8 +14833,8 @@ define dso_local noundef ptr @_ZNK4llvm14ConstantVector13getSplatValueEb(ptr nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 1, %.lr.ph ]
   %10 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !72
-  %.not39 = icmp eq ptr %11, %9
-  br i1 %.not39, label %.thread.us, label %.thread23
+  %.not = icmp eq ptr %11, %9
+  br i1 %.not, label %.thread.us, label %.thread23
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14842,12 +14842,12 @@ define dso_local noundef ptr @_ZNK4llvm14ConstantVector13getSplatValueEb(ptr nou
   br i1 %exitcond.not, label %.thread23, label %.lr.ph.split.us, !llvm.loop !77
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.thread ], [ 1, %.lr.ph ]
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.thread ], [ 1, %.lr.ph ]
   %.032 = phi ptr [ %.222, %.thread ], [ %9, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %indvars.iv44
+  %12 = getelementptr inbounds nuw %"class.llvm::Use", ptr %8, i64 %indvars.iv43
   %13 = load ptr, ptr %12, align 8, !tbaa !72
-  %.not40 = icmp eq ptr %13, %.032
-  br i1 %.not40, label %.thread, label %14
+  %.not39 = icmp eq ptr %13, %.032
+  br i1 %.not39, label %.thread, label %14
 
 14:                                               ; preds = %.lr.ph.split
   %15 = load i8, ptr %13, align 8, !tbaa !56
@@ -14861,9 +14861,9 @@ define dso_local noundef ptr @_ZNK4llvm14ConstantVector13getSplatValueEb(ptr nou
 
 .thread:                                          ; preds = %.lr.ph.split, %17, %14
   %.222 = phi ptr [ %.032, %14 ], [ %13, %17 ], [ %.032, %.lr.ph.split ]
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %6
-  br i1 %exitcond48.not, label %.thread23, label %.lr.ph.split, !llvm.loop !77
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %6
+  br i1 %exitcond47.not, label %.thread23, label %.lr.ph.split, !llvm.loop !77
 
 .thread23:                                        ; preds = %.thread.us, %.lr.ph.split.us, %.thread, %17, %2
   %spec.select = phi ptr [ %9, %2 ], [ null, %17 ], [ %.222, %.thread ], [ null, %.lr.ph.split.us ], [ %9, %.thread.us ]
@@ -29498,7 +29498,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   %53 = sub i64 %51, %52
   %54 = sub i64 0, %53
   %55 = getelementptr inbounds i8, ptr %46, i64 %54
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50

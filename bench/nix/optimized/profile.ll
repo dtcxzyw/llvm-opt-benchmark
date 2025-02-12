@@ -27044,8 +27044,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %10, align 8
-  %.not10.i.i.i22 = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i22, label %.thread, label %.lr.ph.i.i.i.lr.ph
+  %.not10.i.i.i21 = icmp eq ptr %12, null
+  br i1 %.not10.i.i.i21, label %.thread, label %.lr.ph.i.i.i.lr.ph
 
 .lr.ph.i.i.i.lr.ph:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_.exit
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27060,7 +27060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
   %21 = phi ptr [ %12, %.lr.ph.i.i.i.lr.ph ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
-  %.0723 = phi i32 [ 1, %.lr.ph.i.i.i.lr.ph ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
+  %.0722 = phi i32 [ 1, %.lr.ph.i.i.i.lr.ph ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
   %22 = load i64, ptr %13, align 8
   %23 = load ptr, ptr %5, align 8
   br label %24
@@ -27133,7 +27133,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
           to label %45 unwind label %.loopexit
 
 45:                                               ; preds = %44
-  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i32 noundef %.0723) #32
+  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i32 noundef %.0722) #32
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %46 unwind label %89
 
@@ -27262,7 +27262,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #32
-  %85 = add nuw nsw i32 %.0723, 1
+  %85 = add nuw nsw i32 %.0722, 1
   %86 = load ptr, ptr %10, align 8
   %.not10.i.i.i = icmp eq ptr %86, null
   br i1 %.not10.i.i.i, label %.thread, label %.lr.ph.i.i.i, !llvm.loop !162

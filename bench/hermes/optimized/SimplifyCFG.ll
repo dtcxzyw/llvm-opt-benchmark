@@ -968,8 +968,8 @@ _ZN6hermes12PredIteratorIKNS_10BasicBlockEPKPNS_11InstructionEEppEv.exit.i.i.i.i
 
 _ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i: ; preds = %_ZN6hermes12PredIteratorIKNS_10BasicBlockEPKPNS_11InstructionEEppEv.exit.i.i.i.i, %_ZN6hermes12PredIteratorIKNS_10BasicBlockEPKPNS_11InstructionEEppEv.exit.i.i.thread.i.i
   %__n.0.lcssa.i.i.i.i = phi i32 [ %inc.i.i20.i.i, %_ZN6hermes12PredIteratorIKNS_10BasicBlockEPKPNS_11InstructionEEppEv.exit.i.i.thread.i.i ], [ %inc.i.i.i93.i, %_ZN6hermes12PredIteratorIKNS_10BasicBlockEPKPNS_11InstructionEEppEv.exit.i.i.i.i ]
-  %cmp79.not.i = icmp eq i32 %__n.0.lcssa.i.i.i.i, 1
-  br i1 %cmp79.not.i, label %while.cond.preheader.i, label %for.inc101.i
+  %cmp79.i = icmp eq i32 %__n.0.lcssa.i.i.i.i, 1
+  br i1 %cmp79.i, label %while.cond.preheader.i, label %for.inc101.i
 
 while.cond.preheader.i:                           ; preds = %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i
   %125 = getelementptr i8, ptr %20, i64 64

@@ -282,8 +282,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc37
   %26 = getelementptr i64, ptr %23, i64 %20
   %27 = add nsw i64 %22, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %27, i1 false)
-  %.not = icmp eq ptr %15, %16
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.noexc37, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   %28 = phi i64 [ %20, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 1, %.noexc37 ]
@@ -299,11 +298,10 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc37
   %exitcond.not = icmp eq i64 %30, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
-  %.not80 = phi i1 [ true, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ true, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ false, %.lr.ph ]
-  %31 = phi i64 [ 0, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
-  %.0.i.i.i.i.i79 = phi ptr [ %26, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i86, %.lr.ph ]
-  %.sroa.051.074 = phi ptr [ %23, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+  %31 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
+  %.0.i.i.i.i.i79 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i86, %.lr.ph ]
+  %.sroa.051.074 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %.lr.ph ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_T0_(ptr %.sroa.051.074, ptr %.0.i.i.i.i.i79, ptr nonnull %0)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4perf18KeypointIdxCompareEEvT_S9_T0_.exit unwind label %71
 
@@ -417,7 +415,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
   br label %121
 
 77:                                               ; preds = %63, %54
-  br i1 %.not80, label %._crit_edge67, label %.lr.ph66
+  br i1 %.not.i.i.i.i, label %._crit_edge67, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4

@@ -1395,13 +1395,9 @@ _ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__unin
 
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %341
   %344 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %340) #23
-          to label %.noexc77 unwind label %.loopexit144
+          to label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %.loopexit144
 
-.noexc77:                                         ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i = icmp eq ptr %337, %336
-  br i1 %.not7.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc77
+_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
   %345 = add i64 %338, -8
   %346 = sub i64 %345, %339
   %347 = and i64 %346, -8
@@ -1409,8 +1405,8 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %344, ptr align 4 %337, i64 %348, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %335, %.lr.ph.i.i.i.i.preheader.i.i, %.noexc77
-  %.sroa.2.5 = phi ptr [ %344, %.noexc77 ], [ %344, %.lr.ph.i.i.i.i.preheader.i.i ], [ null, %335 ]
+.loopexit:                                        ; preds = %335, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
+  %.sroa.2.5 = phi ptr [ %344, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %335 ]
   %349 = getelementptr inbounds i8, ptr %.sroa.2.5, i64 %340
   %.not.i.i.i = icmp eq ptr %337, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit, label %350

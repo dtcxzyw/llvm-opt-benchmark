@@ -51546,7 +51546,7 @@ define internal range(i32 -17, 1) i32 @ma_decoder__on_read_memory(ptr noundef ca
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %6
-  %.not22 = icmp eq i64 %spec.select, 0
+  %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %20, label %15
 
 15:                                               ; preds = %14

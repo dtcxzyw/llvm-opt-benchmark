@@ -4332,7 +4332,7 @@ _ZN5boost6nowide3utf6strlenIcEEmPKT_.exit.i:      ; preds = %13
   %.02336.in.i.i.i = phi i64 [ %.02336.i.i.i, %22 ], [ 50, %_ZN5boost6nowide3utf6strlenIcEEmPKT_.exit.i ]
   %.02035.i.i.i = phi ptr [ %23, %22 ], [ %5, %_ZN5boost6nowide3utf6strlenIcEEmPKT_.exit.i ]
   %.02336.i.i.i = add nsw i64 %.02336.in.i.i.i, -1
-  %20 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %19)
+  %20 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %19)
   %21 = icmp eq i64 %.02336.i.i.i, 0
   br i1 %21, label %25, label %22
 

@@ -2568,17 +2568,10 @@ if.then.i.i362:                                   ; preds = %if.then.i360
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %if.then.i360
   %call5.i.i.i.i.i364 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #25
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.i.thread
+          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %lpad.i.thread
 
-call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %54, %53
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i364, ptr align 8 %53, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
-
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i364, ptr %vect_.i124, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i364, i64 %sub.ptr.sub.i.i.i.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i359, align 8
@@ -3766,17 +3759,10 @@ if.then.i.i323:                                   ; preds = %if.then.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %if.then.i
   %call5.i.i.i.i.i325 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i307) #25
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.i
+          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %lpad.i
 
-call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %4
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i325, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i.i307, i1 false)
-  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
-
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i.i.i.i
   %_M_finish.i320 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 88
   store ptr %call5.i.i.i.i.i325, ptr %vect_.i, align 8
   %add.ptr.i322 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i325, i64 %sub.ptr.sub.i.i.i.i307
@@ -4267,17 +4253,10 @@ if.then.i.i395:                                   ; preds = %if.then.i384
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i386: ; preds = %if.then.i384
   %call5.i.i.i.i.i398 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i341) #25
-          to label %call5.i.i.i.i.i.noexc397 unwind label %lpad.i.i.thread
+          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i393 unwind label %lpad.i.i.thread
 
-call5.i.i.i.i.i.noexc397:                         ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i386
-  %tobool.not.i.i.i.i.i.i.i.i.i.i387 = icmp eq ptr %79, %78
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i387, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i393, label %if.then.i.i.i.i.i.i.i.i.i.i388
-
-if.then.i.i.i.i.i.i.i.i.i.i388:                   ; preds = %call5.i.i.i.i.i.noexc397
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i393: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i386
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i398, ptr align 8 %78, i64 %sub.ptr.sub.i.i.i.i341, i1 false)
-  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i393
-
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i393: ; preds = %call5.i.i.i.i.i.noexc397, %if.then.i.i.i.i.i.i.i.i.i.i388
   store ptr %call5.i.i.i.i.i398, ptr %vect_.i.i157, align 8
   %add.ptr.i394 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i398, i64 %sub.ptr.sub.i.i.i.i341
   store ptr %add.ptr.i394, ptr %_M_finish.i.i349, align 8
@@ -5487,17 +5466,10 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %if.then.i
   %call5.i.i.i.i.i9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #25
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.i.i.i
+          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %lpad.i.i.i
 
-call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i9, ptr align 8 %0, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
-
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i.i.i.i
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 96
   store ptr %call5.i.i.i.i.i9, ptr %vect_.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i9, i64 %sub.ptr.sub.i.i.i.i

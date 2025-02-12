@@ -1621,116 +1621,109 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner14InitElimi
 
 33:                                               ; preds = %31
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
-          to label %.noexc unwind label %69
+          to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %33
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %31
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #23
-          to label %.noexc3 unwind label %69
+          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %68
 
-.noexc3:                                          ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %26
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, label %35
-
-35:                                               ; preds = %.noexc3
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %26, i64 %29, i1 false)
-  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
-
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %.noexc3, %35
   store ptr %34, ptr %13, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %29
-  store ptr %36, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %29
+  store ptr %35, ptr %30, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i: ; preds = %23, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
-  %37 = phi ptr [ %34, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %23 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 %29
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %38, ptr %39, align 8
+  %36 = phi ptr [ %34, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %23 ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 %29
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr %37, ptr %38, align 8
   br label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
 
 _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i, %2
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %12, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %43 = load i32, ptr %42, align 4
-  store i32 %43, ptr %16, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %45 = load i32, ptr %44, align 8
-  store i32 %45, ptr %17, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %47 = load i32, ptr %46, align 8
-  store i32 %47, ptr %15, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %21, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %40 = load i32, ptr %39, align 4
+  store i32 %40, ptr %12, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %42 = load i32, ptr %41, align 4
+  store i32 %42, ptr %16, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %44 = load i32, ptr %43, align 8
+  store i32 %44, ptr %17, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %46 = load i32, ptr %45, align 8
+  store i32 %46, ptr %15, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %21, align 8
   invoke void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %3)
-          to label %50 unwind label %69
+          to label %49 unwind label %68
 
-50:                                               ; preds = %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %52 = load ptr, ptr %4, align 8
+49:                                               ; preds = %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %51 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
-  %53 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %51, align 8
-  %.not.i.i.i.i = icmp eq ptr %53, null
+  %52 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %50, align 8
+  %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit
 
-_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %50
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(8) %53) #20
+_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %49
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #20
   %.pr = load ptr, ptr %4, align 8
   %.not.i4 = icmp eq ptr %.pr, null
   br i1 %.not.i4, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit
-  %57 = load ptr, ptr %.pr, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
+  %56 = load ptr, ptr %.pr, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
   br label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %50, %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %49, %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
   store ptr null, ptr %4, align 8
-  %60 = load ptr, ptr %51, align 8
-  %61 = load ptr, ptr %13, align 8
-  %62 = load i32, ptr %61, align 4
-  %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef %62, i1 noundef zeroext true, ptr noundef nonnull %1)
-          to label %66 unwind label %69
+  %59 = load ptr, ptr %50, align 8
+  %60 = load ptr, ptr %13, align 8
+  %61 = load i32, ptr %60, align 4
+  %62 = load ptr, ptr %59, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(8) %59, i32 noundef %61, i1 noundef zeroext true, ptr noundef nonnull %1)
+          to label %65 unwind label %68
 
-66:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit
-  %67 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i5 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i5, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit, label %68
+65:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit
+  %66 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i5 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i5, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit, label %67
 
-68:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef nonnull %67) #22
+67:                                               ; preds = %65
+  call void @_ZdlPv(ptr noundef nonnull %66) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
-_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %66, %68
+_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %65, %67
   ret void
 
-69:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %33, %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %33, %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %71 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i6, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7, label %72
+  %70 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i6 = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i6, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7, label %71
 
-72:                                               ; preds = %69
-  call void @_ZdlPv(ptr noundef nonnull %71) #22
+71:                                               ; preds = %68
+  call void @_ZdlPv(ptr noundef nonnull %70) #22
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7
 
-_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %69, %72
-  resume { ptr, i32 } %70
+_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %68, %71
+  resume { ptr, i32 } %69
 }
 
 declare void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.32") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1

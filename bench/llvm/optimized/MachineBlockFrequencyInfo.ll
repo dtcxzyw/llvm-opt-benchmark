@@ -5438,9 +5438,9 @@ define linkonce_odr void @_ZN4llvm22BlockFrequencyInfoImplINS_17MachineBasicBloc
   %23 = shl nuw nsw i64 %19, 1
   %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
   store ptr %24, ptr %9, align 8, !tbaa !554
+  %25 = getelementptr inbounds nuw %"class.llvm::ScaledNumber", ptr %24, i64 %20
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %23, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %24, i64 %23
-  %25 = getelementptr inbounds nuw %"class.llvm::ScaledNumber", ptr %24, i64 %20
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %25, ptr %27, align 8, !tbaa !557

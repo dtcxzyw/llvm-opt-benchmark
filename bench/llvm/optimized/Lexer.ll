@@ -1046,7 +1046,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.
   %38 = sub i64 %36, %37
   %39 = sub i64 0, %38
   %40 = getelementptr inbounds i8, ptr %33, i64 %39
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %27, i64 %38, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %27, i64 %38, i1 false)
   %.pre12.i.i.i = load i64, ptr %2, align 8, !tbaa !385
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i.i.i
 
@@ -1155,7 +1155,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.
   %92 = sub i64 %90, %91
   %93 = sub i64 0, %92
   %94 = getelementptr inbounds i8, ptr %87, i64 %93
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %94, ptr nonnull align 1 %81, i64 %92, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %81, i64 %92, i1 false)
   %.pre12.i.i43.i = load i64, ptr %2, align 8, !tbaa !385
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i.i44.i
 

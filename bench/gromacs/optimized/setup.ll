@@ -602,7 +602,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc56.i, 
   %354 = call noundef float @sqrtf(float noundef %353) #26, !noalias !5
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %352, %359
+.preheader.i:                                     ; preds = %359, %352
   %.sroa.058.085.i = phi ptr [ %360, %359 ], [ %110, %352 ]
   br label %355
 

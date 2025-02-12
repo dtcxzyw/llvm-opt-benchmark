@@ -11218,16 +11218,9 @@ if.then24.i.i.i:                                  ; preds = %if.then22.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %__t.sroa.0.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %__p.sroa.0.0.i.i.i, i64 32, i1 false)
   %add.ptr.i32.idx.i.i.i = shl nsw i64 %__n.0.i.i.i, 5
   %add.ptr.i32.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.0.i.i.i, i64 %add.ptr.i32.idx.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %__n.0.i.i.i, 1
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then24.i.i.i
   %add.ptr.i31.i.i.i = getelementptr inbounds nuw i8, ptr %__p.sroa.0.0.i.i.i, i64 32
   %gepdiff.i.i.i = add nsw i64 %add.ptr.i32.idx.i.i.i, -32
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %__p.sroa.0.0.i.i.i, ptr nonnull align 1 %add.ptr.i31.i.i.i, i64 %gepdiff.i.i.i, i1 false)
-  br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
-
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then24.i.i.i
   %add.ptr.i34.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr.i34.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %__t.sroa.0.i.i.i, i64 32, i1 false)
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i
@@ -11323,7 +11316,7 @@ for.cond.i.i.i.backedge:                          ; preds = %for.end110.i.i.i, %
   %__n.0.i.i.i.be = phi i64 [ %__k.0.i.i.i, %if.end59.i.i.i ], [ %sub20.i.i.i, %for.end110.i.i.i ]
   br label %for.cond.i.i.i, !llvm.loop !199
 
-_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i: ; preds = %for.end110.i.i.i, %for.end.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
+_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i: ; preds = %for.end110.i.i.i, %for.end.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %if.then24.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__t.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__t65.sroa.0.i.i.i)
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -15849,7 +15842,7 @@ if.end87:                                         ; preds = %if.else83, %if.then
   %cond.i205 = select i1 %tobool.i.i199, ptr %add.ptr.i.i201, ptr %add.ptr.i1.i204
   %sub.ptr.lhs.cast.i206 = ptrtoint ptr %cond.i205 to i64
   %sub.ptr.sub.i208 = sub i64 %sub.ptr.lhs.cast.i206, %sub.ptr.lhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
   %add.ptr.i209 = getelementptr inbounds i8, ptr %add.ptr.i197, i64 %sub.ptr.sub.i208
   store i8 0, ptr %add.ptr.i209, align 1
   %37 = load i8, ptr %mRemainingSizeField.i.i, align 1

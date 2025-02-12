@@ -2526,7 +2526,7 @@ define noundef i64 @_ZN3nix12StringSource4readEPcm(ptr noundef nonnull align 8 c
 _ZSt10__sv_checkmmPKc.exit.i:                     ; preds = %19
   %22 = sub nuw i64 %9, %7
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %2)
-  %23 = icmp eq i64 %.sroa.speculated.i, 0
+  %23 = icmp eq i64 %2, 0
   br i1 %23, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit, label %24
 
 24:                                               ; preds = %_ZSt10__sv_checkmmPKc.exit.i

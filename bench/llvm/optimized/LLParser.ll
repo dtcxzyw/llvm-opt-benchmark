@@ -29095,8 +29095,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %100
   %bcmp.i.i = call i32 @bcmp(ptr %96, ptr %98, i64 %97)
-  %.not50 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not50, label %_ZN4llvmneENS_9StringRefES0_.exit.thread46, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not49 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not49, label %_ZN4llvmneENS_9StringRefES0_.exit.thread46, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %94, %_ZN4llvmneENS_9StringRefES0_.exit
   %102 = load ptr, ptr %0, align 8, !tbaa !996
@@ -30081,8 +30081,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIPN4llvm5Va
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %251
   %bcmp.i.i = call i32 @bcmp(ptr %247, ptr %249, i64 %248)
-  %.not117 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not117, label %_ZN4llvmneENS_9StringRefES0_.exit.thread111, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not116 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not116, label %_ZN4llvmneENS_9StringRefES0_.exit.thread111, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIPN4llvm5ValueENS7_5SMLocEESt4lessIS5_ESaIS6_IKS5_SB_EEE4findERSE_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit
   %253 = load ptr, ptr %0, align 8, !tbaa !996

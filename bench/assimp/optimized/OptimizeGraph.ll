@@ -1606,9 +1606,7 @@ if.end294:                                        ; preds = %lor.lhs.false275.if
   %conv296 = trunc i64 %350 to i32
   store i32 %conv296, ptr %mNumChildren, align 8
   %tobool299.not = icmp eq ptr %349, null
-  %cmp.i267.not508 = icmp eq ptr %it303.sroa.0.0507, %child_nodes
-  %or.cond511 = or i1 %tobool299.not, %cmp.i267.not508
-  br i1 %or.cond511, label %if.end317, label %for.body311
+  br i1 %tobool299.not, label %if.end317, label %for.body311
 
 for.body311:                                      ; preds = %if.end294, %for.body311
   %it303.sroa.0.0510 = phi ptr [ %it303.sroa.0.0, %for.body311 ], [ %it303.sroa.0.0507, %if.end294 ]

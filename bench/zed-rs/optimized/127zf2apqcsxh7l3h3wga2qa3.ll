@@ -112708,10 +112708,10 @@ define hidden void @_ZN9assistant15assistant_panel13ContextEditor18show_workflow
 
 .thread75:                                        ; preds = %.noexc47
   %.pre = load i64, ptr %31, align 8, !range !120
+  %109 = icmp eq i64 %.pre, -9223372036854775808
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %.val7.i, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.6)
-  %109 = icmp eq i64 %.pre, -9223372036854775808
   br i1 %109, label %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h96ccbc7aa70aef81E.exit55", label %110
 
 .thread:                                          ; preds = %95, %103, %38, %34, %30, %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$core..result..Result$LT$assistant..workflow..WorkflowStepResolution$C$anyhow..Error$GT$$GT$$GT$$GT$17he116291d288b52c0E.exit", %24, %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h96ccbc7aa70aef81E.exit55"

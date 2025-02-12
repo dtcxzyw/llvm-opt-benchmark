@@ -359,8 +359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
 
 119:                                              ; preds = %116
   %120 = sub nsw i32 %102, %118
-  %switch.tableidx = add i32 %120, -1
-  %121 = icmp ult i32 %switch.tableidx, 7
+  %121 = icmp ult i32 %120, 8
   br i1 %121, label %switch.lookup, label %122
 
 122:                                              ; preds = %119
@@ -368,11 +367,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
   unreachable
 
 switch.lookup:                                    ; preds = %119
-  %123 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %123
+  %switch.tableidx = add nsw i32 %120, -1
+  %123 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
-  %124 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep86 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
+  %124 = sext i32 %switch.tableidx to i64
+  %switch.gep86 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
   %switch.load87 = load i64, ptr %switch.gep86, align 8
   %125 = lshr i64 %.1.lcssa.i.i, 32
   %126 = and i64 %.1.lcssa.i.i, 4294967295

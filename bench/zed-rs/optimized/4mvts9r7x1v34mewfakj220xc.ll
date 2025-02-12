@@ -17680,9 +17680,9 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit.thread281: ; preds = %_ZN4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
   br label %196
 
-.thread255:                                       ; preds = %192, %186, %.thread243.thread, %.thread243
-  %.sroa.8.4267 = phi i64 [ %.sroa.8.4, %.thread243 ], [ %.sroa.8.4387, %.thread243.thread ], [ %.sroa.028.2, %186 ], [ %.sroa.028.2, %192 ]
-  %.sroa.040.3228254265 = phi i32 [ %.sroa.040.3227, %.thread243 ], [ %.sroa.040.0, %.thread243.thread ], [ %.sroa.040.3227, %186 ], [ %.sroa.040.3227, %192 ]
+.thread255:                                       ; preds = %.thread243.thread, %192, %186, %.thread243
+  %.sroa.8.4267 = phi i64 [ %.sroa.8.4, %.thread243 ], [ %.sroa.028.2, %186 ], [ %.sroa.028.2, %192 ], [ %.sroa.8.4387, %.thread243.thread ]
+  %.sroa.040.3228254265 = phi i32 [ %.sroa.040.3227, %.thread243 ], [ %.sroa.040.3227, %186 ], [ %.sroa.040.3227, %192 ], [ %.sroa.040.0, %.thread243.thread ]
   %168 = trunc nuw nsw i32 %.sroa.081.0 to i8
   %169 = load i64, ptr %.sroa.558.0..sroa_idx, align 8, !alias.scope !3699, !noundef !4
   %170 = load i64, ptr %11, align 8, !alias.scope !3699, !noundef !4

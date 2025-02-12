@@ -5833,7 +5833,7 @@ if.then.i:                                        ; preds = %if.then
   %24 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
-  br label %for.end
+  br label %for.inc29
 
 if.else.i:                                        ; preds = %if.then
   %25 = load ptr, ptr %pSrcBones, align 8
@@ -5889,13 +5889,9 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cx
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr28.i.i = getelementptr inbounds nuw %"struct.std::pair.34", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8
-  br label %for.end
+  br label %for.inc29
 
-for.end:                                          ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
-  %cmp.i12 = icmp eq ptr %asBones, %it2.sroa.0.0
-  br i1 %cmp.i12, label %if.then21, label %for.inc29
-
-if.then21:                                        ; preds = %for.cond12, %for.end
+if.then21:                                        ; preds = %for.cond12
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, i8 0, i64 40, i1 false)
@@ -5981,7 +5977,7 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cx
   store ptr %add.ptr28.i.i49, ptr %_M_end_of_storage.i15, align 8
   br label %for.inc29
 
-for.inc29:                                        ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i48, %if.then.i17, %for.end
+for.inc29:                                        ; preds = %if.then.i, %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i48, %if.then.i17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %it.sroa.0.080, align 8
   %mNumBones = getelementptr inbounds nuw i8, ptr %34, i64 216

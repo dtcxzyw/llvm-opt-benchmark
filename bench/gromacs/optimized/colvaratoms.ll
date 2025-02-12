@@ -6134,7 +6134,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %76, label %.lr.ph70.preheader, label %89
 
 .lr.ph70.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
-  %umax79 = call i64 @llvm.umax.i64(i64 %46, i64 1)
+  %umax77 = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %87
@@ -6155,8 +6155,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 87:                                               ; preds = %85
   %88 = add nuw i64 %.01169, 1
-  %exitcond80.not = icmp eq i64 %88, %umax79
-  br i1 %exitcond80.not, label %.thread81, label %.lr.ph70, !llvm.loop !64
+  %exitcond78.not = icmp eq i64 %88, %umax77
+  br i1 %exitcond78.not, label %.thread79, label %.lr.ph70, !llvm.loop !64
 
 89:                                               ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -6244,7 +6244,7 @@ _ZNSt12_Vector_baseIN12colvarmodule4atomESaIS1_EE13_M_deallocateEPS1_m.exit.i: ;
   call void @_ZN12colvarmodule4atomD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #26
   %121 = add nuw i64 %.068, 1
   %exitcond.not = icmp eq i64 %121, %umax
-  br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond.not, label %.thread79, label %.lr.ph, !llvm.loop !65
 
 .thread:                                          ; preds = %118
   %122 = landingpad { ptr, i32 }
@@ -6252,7 +6252,7 @@ _ZNSt12_Vector_baseIN12colvarmodule4atomESaIS1_EE13_M_deallocateEPS1_m.exit.i: ;
   call void @_ZN12colvarmodule4atomD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #26
   br label %.loopexit.split-lp.thread
 
-.thread81:                                        ; preds = %120, %87
+.thread79:                                        ; preds = %120, %87
   %123 = load i32, ptr @_ZN12colvarmodule9errorCodeE, align 4
   %.not18 = icmp ne i32 %123, 0
   %. = zext i1 %.not18 to i32
@@ -6303,14 +6303,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not.i.i.i28 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %134
 
-134:                                              ; preds = %.thread81, %133
-  %.01584 = phi i32 [ %., %.thread81 ], [ 1, %133 ]
+134:                                              ; preds = %.thread79, %133
+  %.01582 = phi i32 [ %., %.thread79 ], [ 1, %133 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %133, %134
-  %.01585 = phi i32 [ 1, %133 ], [ %.01584, %134 ]
-  ret i32 %.01585
+  %.01583 = phi i32 [ 1, %133 ], [ %.01582, %134 ]
+  ret i32 %.01583
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %.body, %40
   %.sroa.0.3 = phi ptr [ %.sroa.0.0, %.body ], [ %.sroa.0.2, %40 ], [ %.sroa.0.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]

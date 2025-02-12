@@ -5899,21 +5899,14 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit505:              ; preds = %2471
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %2498
   %2501 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2497) #22
-          to label %.noexc1261 unwind label %.loopexit2850
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i unwind label %.loopexit2850
 
-.noexc1261:                                       ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i1258 = icmp eq ptr %2494, %2493
-  br i1 %.not7.i.i.i.i.i.i1258, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc1261
+_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
   %2502 = add i64 %2495, -16
   %2503 = sub i64 %2502, %2496
   %2504 = and i64 %2503, -16
   %2505 = add i64 %2504, 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2501, ptr align 8 %2494, i64 %2505, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %.noexc1261, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %2501, ptr %247, align 8
   %2506 = getelementptr inbounds nuw i8, ptr %2501, i64 %2497
   store ptr %2506, ptr %248, align 8

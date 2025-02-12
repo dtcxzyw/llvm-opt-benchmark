@@ -1643,7 +1643,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h8810d865c93b4dd7E(p
   store i64 %21, ptr %6, align 8, !alias.scope !194, !noalias !205
   store ptr %19, ptr %0, align 8, !alias.scope !191, !noalias !194
   store i64 %18, ptr %7, align 8, !alias.scope !191, !noalias !194
-  %22 = icmp eq i64 %.0.sroa.speculated.i.i, 0
+  %22 = icmp eq i64 %11, 0
   br i1 %22, label %23, label %10
 
 .loopexit:                                        ; preds = %10, %23

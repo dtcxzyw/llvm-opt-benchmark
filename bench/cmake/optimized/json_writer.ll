@@ -11459,11 +11459,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 %.fca.1.extract4, ptr %.sroa.26.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #26
   %57 = call { ptr, i8 } @_ZNK4Json5Value3endEv(ptr noundef nonnull align 8 dereferenceable(40) %55)
-  %.fca.0.extract95 = extractvalue { ptr, i8 } %57, 0
-  %.fca.1.extract96 = extractvalue { ptr, i8 } %57, 1
-  store ptr %.fca.0.extract95, ptr %15, align 8
+  %.fca.0.extract92 = extractvalue { ptr, i8 } %57, 0
+  %.fca.1.extract93 = extractvalue { ptr, i8 } %57, 1
+  store ptr %.fca.0.extract92, ptr %15, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i8 %.fca.1.extract96, ptr %.sroa.2.0..sroa_idx, align 8
+  store i8 %.fca.1.extract93, ptr %.sroa.2.0..sroa_idx, align 8
   %58 = call noundef zeroext i1 @_ZNK4Json17ValueIteratorBase7isEqualERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %14, ptr noundef nonnull align 8 dereferenceable(9) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #26
   br i1 %58, label %.thread87, label %.lr.ph
@@ -11523,7 +11523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 76:                                               ; preds = %36
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit94
+  br label %.loopexit91
 
 78:                                               ; preds = %38
   %79 = landingpad { ptr, i32 }
@@ -11556,18 +11556,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
   %92 = icmp eq ptr %83, %3
-  br i1 %92, label %.loopexit94, label %81
+  br i1 %92, label %.loopexit91, label %81
 
-.loopexit94:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %76
+.loopexit91:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %76
   %93 = phi i1 [ false, %76 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ]
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #26
   br label %94
 
-94:                                               ; preds = %.loopexit94, %74
-  %.648 = phi i1 [ %93, %.loopexit94 ], [ false, %74 ]
-  %.641 = phi ptr [ %37, %.loopexit94 ], [ %35, %74 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit94 ], [ %75, %74 ]
+94:                                               ; preds = %.loopexit91, %74
+  %.648 = phi i1 [ %93, %.loopexit91 ], [ false, %74 ]
+  %.641 = phi ptr [ %37, %.loopexit91 ], [ %35, %74 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit91 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #26
   br label %95
 

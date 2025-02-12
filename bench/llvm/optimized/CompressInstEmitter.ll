@@ -680,9 +680,9 @@ _ZL16verifyDagOpCountRKN4llvm18CodeGenInstructionEPKNS_7DagInitEb.exit39.i.i: ; 
   %209 = trunc i64 %208 to i32
   %210 = add i32 %209, 1
   %.not159.i.i = icmp eq i32 %210, 0
-  br i1 %.not159.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i.i.i
+  br i1 %.not159.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i, label %.lr.ph.i.i.i.preheader.i.i.i.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i.i.i: ; preds = %202
+.lr.ph.i.i.i.preheader.i.i.i.i.i.i:               ; preds = %202
   %211 = zext i32 %210 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(41) %33, ptr noundef nonnull %.ptr.i.i, i64 noundef range(i64 0, 4294967296) %211, i64 noundef 24) #20
   %.val5.i.i.i.i.pre.i.i = load i32, ptr %54, align 8, !tbaa !11
@@ -691,22 +691,22 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb
   %213 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val.pre.i.i.i.i.i.i, i64 %212
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %215, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %213, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i.i.i ]
-  %.068.i.i.i.i.i.i.i.i.i = phi i64 [ %214, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %211, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %215, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %213, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
+  %.068.i.i.i.i.i.i.i.i.i = phi i64 [ %214, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %211, %.lr.ph.i.i.i.preheader.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.ptr.i.i, i64 24, i1 false), !tbaa.struct !169
   %214 = add nsw i64 %.068.i.i.i.i.i.i.i.i.i, -1
   %215 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %214, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !171
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !171
 
-_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i = load i32, ptr %54, align 8, !tbaa !11
   %216 = add i32 %.pre.i.i.i.i.i.i, %210
   store i32 %216, ptr %54, align 8, !tbaa !11
   br label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
 
-_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i: ; preds = %_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %202
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i: ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i.i.i, %202
   call fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter20addDagOperandMappingEPKN4llvm6RecordEPKNS1_7DagInitERKNS1_18CodeGenInstructionERNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEEb(ptr noundef nonnull align 8 dereferenceable(3224) %39, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull align 8 dereferenceable(236) %24, ptr noundef nonnull align 8 dereferenceable(41) %33, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34) #20
   store ptr %.ptr141.i.i, ptr %34, align 8, !tbaa !8
@@ -721,9 +721,9 @@ _ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjE
   %223 = trunc i64 %222 to i32
   %224 = add i32 %223, 1
   %.not160.i.i = icmp eq i32 %224, 0
-  br i1 %.not160.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit62.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i49.i.i
+  br i1 %.not160.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit62.i.i, label %.lr.ph.i.i.i.preheader.i.i.i.i49.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i49.i.i: ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
+.lr.ph.i.i.i.preheader.i.i.i.i49.i.i:             ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
   %225 = zext i32 %224 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(41) %34, ptr noundef nonnull %.ptr141.i.i, i64 noundef range(i64 0, 4294967296) %225, i64 noundef 24) #20
   %.val5.i.i.i.i52.pre.i.i = load i32, ptr %56, align 8, !tbaa !11
@@ -732,22 +732,22 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb
   %227 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val.pre.i.i.i.i60.i.i, i64 %226
   br label %.lr.ph.i.i.i.i.i.i.i53.i.i
 
-.lr.ph.i.i.i.i.i.i.i53.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i53.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i49.i.i
-  %.09.i.i.i.i.i.i.i54.i.i = phi ptr [ %229, %.lr.ph.i.i.i.i.i.i.i53.i.i ], [ %227, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i49.i.i ]
-  %.068.i.i.i.i.i.i.i55.i.i = phi i64 [ %228, %.lr.ph.i.i.i.i.i.i.i53.i.i ], [ %225, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119CompressInstEmitter6OpDataELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i.i.i49.i.i ]
+.lr.ph.i.i.i.i.i.i.i53.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i53.i.i, %.lr.ph.i.i.i.preheader.i.i.i.i49.i.i
+  %.09.i.i.i.i.i.i.i54.i.i = phi ptr [ %229, %.lr.ph.i.i.i.i.i.i.i53.i.i ], [ %227, %.lr.ph.i.i.i.preheader.i.i.i.i49.i.i ]
+  %.068.i.i.i.i.i.i.i55.i.i = phi i64 [ %228, %.lr.ph.i.i.i.i.i.i.i53.i.i ], [ %225, %.lr.ph.i.i.i.preheader.i.i.i.i49.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i.i54.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.ptr141.i.i, i64 24, i1 false), !tbaa.struct !169
   %228 = add nsw i64 %.068.i.i.i.i.i.i.i55.i.i, -1
   %229 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i54.i.i, i64 24
   %.not.i.i.i.i.i.i.i56.i.i = icmp eq i64 %228, 0
-  br i1 %.not.i.i.i.i.i.i.i56.i.i, label %_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i57.i.i, label %.lr.ph.i.i.i.i.i.i.i53.i.i, !llvm.loop !171
+  br i1 %.not.i.i.i.i.i.i.i56.i.i, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i57.i.i, label %.lr.ph.i.i.i.i.i.i.i53.i.i, !llvm.loop !171
 
-_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i57.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i53.i.i
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i57.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i53.i.i
   %.pre.i.i.i.i58.i.i = load i32, ptr %56, align 8, !tbaa !11
   %230 = add i32 %.pre.i.i.i.i58.i.i, %224
   store i32 %230, ptr %56, align 8, !tbaa !11
   br label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit62.i.i
 
-_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit62.i.i: ; preds = %_ZSt20uninitialized_fill_nIPN12_GLOBAL__N_119CompressInstEmitter6OpDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i57.i.i, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit62.i.i: ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE6resizeEm.exit.i57.i.i, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEE4growEj.exit.i.i
   call fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter20addDagOperandMappingEPKN4llvm6RecordEPKNS1_7DagInitERKNS1_18CodeGenInstructionERNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEEb(ptr noundef nonnull align 8 dereferenceable(3224) %39, ptr noundef nonnull %83, ptr noundef nonnull %115, ptr noundef nonnull align 8 dereferenceable(236) %25, ptr noundef nonnull align 8 dereferenceable(41) %34, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 20, i1 false)

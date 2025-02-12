@@ -12271,7 +12271,7 @@ return.sink.split.i:                              ; preds = %_ZSt4moveIP6tripleI
   %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
   %sub.ptr.div.neg.i.i.i.i.i25.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i24.i, -24
   %add.ptr.i.i.i.i.i26.i = getelementptr inbounds %struct.triple, ptr %incdec.ptr8.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i26.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i26.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
   br label %if.end50
 
 if.else12:                                        ; preds = %if.else
@@ -12881,7 +12881,7 @@ if.then.i.i.i.i.i25:                              ; preds = %_ZSt4moveIP6tripleI
   %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i27
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i28, -24
   %add.ptr.i.i.i.i.i29 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29, ptr align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i29, ptr align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
   br label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i25
@@ -12930,7 +12930,7 @@ _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50: ; preds = %_ZSt4moveIP6tr
 if.then.i.i.i.i.i52:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50
   %sub.ptr.div.neg.i.i.i.i.i56 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i39, -24
   %add.ptr.i.i.i.i.i57 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i56
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i57, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i57, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i39, i1 false)
   br label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60
 
 _ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50, %if.then.i.i.i.i.i52

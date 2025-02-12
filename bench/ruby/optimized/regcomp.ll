@@ -8027,7 +8027,7 @@ onig_is_code_in_cc.exit:                          ; preds = %.thread.i, %._crit_
   %243 = load i32, ptr %242, align 8
   %244 = and i32 %243, 2
   %.not130 = icmp eq i32 %244, 0
-  %245 = icmp ne i64 %spec.select, 0
+  %245 = icmp ne ptr %232, %234
   %or.cond = select i1 %.not130, i1 %245, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 

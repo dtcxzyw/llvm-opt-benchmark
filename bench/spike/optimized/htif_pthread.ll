@@ -389,7 +389,7 @@ _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i: ; preds = %59, %52
   br label %_ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit
 
 64:                                               ; preds = %46
-  %.not.i.i.i15.i.i.i.i = icmp eq i64 %.sroa.speculated, 0
+  %.not.i.i.i15.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i15.i.i.i.i, label %_ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit, label %65
 
 65:                                               ; preds = %64

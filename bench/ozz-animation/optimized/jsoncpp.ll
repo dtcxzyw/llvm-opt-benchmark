@@ -18344,12 +18344,12 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i: ; preds = %50
   %spec.select.i.i.i = select i1 %.not8.i.i.i, i1 %59, i1 false
   br i1 %spec.select.i.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit15, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit
 
-_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit: ; preds = %46, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i
+_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %46
   %60 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 48
   br label %_ZN4Json5Value8CZStringD2Ev.exit15
 
-_ZN4Json5Value8CZStringD2Ev.exit15:               ; preds = %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i, %18, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit, %50, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %3, %46
-  %.08 = phi ptr [ null, %46 ], [ null, %3 ], [ null, %50 ], [ null, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i ], [ null, %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i ], [ null, %18 ], [ %60, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit ]
+_ZN4Json5Value8CZStringD2Ev.exit15:               ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit, %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i, %18, %50, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %3, %46
+  %.08 = phi ptr [ null, %46 ], [ null, %3 ], [ null, %50 ], [ null, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i ], [ %60, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit ], [ null, %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i ], [ null, %18 ]
   ret ptr %.08
 }
 
@@ -18535,7 +18535,7 @@ _ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessI
   %38 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 40
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %14, %39
-  br i1 %40, label %_ZN4Json5Value8CZStringD2Ev.exit9, label %51
+  br i1 %40, label %_ZN4Json5Value8CZStringD2Ev.exit9, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 32
@@ -18553,63 +18553,63 @@ _ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i: ; preds = %41
   %.not8.i.i.i = icmp eq i32 %48, 0
   %50 = icmp samesign ult i32 %19, %45
   %spec.select.i.i.i = select i1 %.not8.i.i.i, i1 %50, i1 false
-  br i1 %spec.select.i.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit9, label %51
+  br i1 %spec.select.i.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit9, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit
 
-51:                                               ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %37
-  %52 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 48
+_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit: ; preds = %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %37
+  %51 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %52)
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = load i16, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i16, ptr %55, align 8
-  %57 = and i16 %54, -512
-  %58 = and i16 %56, -512
+  call void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %51)
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %53 = load i16, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %55 = load i16, ptr %54, align 8
+  %56 = and i16 %53, -512
+  %57 = and i16 %55, -512
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %3, align 8
-  %59 = load i64, ptr %5, align 8
-  store i64 %59, ptr %3, align 8
+  %58 = load i64, ptr %5, align 8
+  store i64 %58, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8
-  %60 = and i16 %56, 511
-  %61 = or disjoint i16 %60, %57
-  store i16 %61, ptr %53, align 8
-  %62 = and i16 %54, 511
-  %63 = or disjoint i16 %58, %62
-  store i16 %63, ptr %55, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %59 = and i16 %55, 511
+  %60 = or disjoint i16 %59, %56
+  store i16 %60, ptr %52, align 8
+  %61 = and i16 %53, 511
+  %62 = or disjoint i16 %57, %61
+  store i16 %62, ptr %54, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
-  %67 = load ptr, ptr %65, align 8
-  store ptr %67, ptr %64, align 8
-  store ptr %66, ptr %65, align 8
+  store ptr %66, ptr %63, align 8
+  store ptr %65, ptr %64, align 8
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i, ptr noundef nonnull align 8 dereferenceable(32) %69) #42
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  tail call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #42
-  %73 = load ptr, ptr %71, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit, label %74
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i, ptr noundef nonnull align 8 dereferenceable(32) %68) #42
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  tail call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #42
+  %72 = load ptr, ptr %70, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit, label %73
 
-74:                                               ; preds = %51
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %76 = load i32, ptr %75, align 8
-  %77 = and i32 %76, 3
-  %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit
+73:                                               ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %75 = load i32, ptr %74, align 8
+  %76 = and i32 %75, 3
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %78, label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit
 
-79:                                               ; preds = %74
-  tail call void @free(ptr noundef nonnull %73) #42
+78:                                               ; preds = %73
+  tail call void @free(ptr noundef nonnull %72) #42
   br label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit
 
-_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit: ; preds = %51, %74, %79
-  tail call void @_ZdlPv(ptr noundef nonnull %70) #43
-  %80 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %81 = load i64, ptr %80, align 8
-  %82 = add i64 %81, -1
-  store i64 %82, ptr %80, align 8
+_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit: ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE4findERS6_.exit, %73, %78
+  tail call void @_ZdlPv(ptr noundef nonnull %69) #43
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %80 = load i64, ptr %79, align 8
+  %81 = add i64 %80, -1
+  store i64 %81, ptr %79, align 8
   br label %_ZN4Json5Value8CZStringD2Ev.exit9
 
 _ZN4Json5Value8CZStringD2Ev.exit9:                ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit, %_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i, %9, %41, %_ZNKSt4lessIN4Json5Value8CZStringEEclERKS2_S5_.exit.i, %37, %4

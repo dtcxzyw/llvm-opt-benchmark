@@ -17506,21 +17506,21 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %40
 .noexc65:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %44, align 4
   %45 = icmp eq i64 %38, 8
-  br i1 %45, label %.lr.ph.i.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  br i1 %45, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc65
   %46 = getelementptr i8, ptr %44, i64 4
   %47 = add nsw i64 %43, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %46, i8 0, i64 %47, i1 false)
-  br label %.lr.ph.i.preheader
+  br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-.lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc65
+_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %.noexc65, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
   %48 = getelementptr inbounds nuw i32, ptr %44, i64 %39
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.07.i = phi i32 [ %49, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.06.i = phi ptr [ %50, %.lr.ph.i ], [ %44, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %.lr.ph.i
+  %.07.i = phi i32 [ %49, %.lr.ph.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
+  %.sroa.02.06.i = phi ptr [ %50, %.lr.ph.i ], [ %44, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   store i32 %.07.i, ptr %.sroa.02.06.i, align 4
   %49 = add nuw nsw i32 %.07.i, 1
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
@@ -20281,7 +20281,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T_S5_S4_RT1_.
   %24 = sub i64 %23, %15
   %25 = sub i64 0, %24
   %26 = getelementptr inbounds i8, ptr %9, i64 %25
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr align 1 %1, i64 %24, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %24, i1 false)
   br label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZSt22__uninitialized_move_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %22
@@ -32681,8 +32681,8 @@ _ZNKSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE5countERS9_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.19.i.i.i17, i64 32
   %39 = load i32, ptr %38, align 4
-  %.not42 = icmp slt i32 %.pre, %39
-  br i1 %.not42, label %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE5countERS9_.exit.thread, label %40
+  %.not39 = icmp slt i32 %.pre, %39
+  br i1 %.not39, label %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE5countERS9_.exit.thread, label %40
 
 40:                                               ; preds = %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE5countERS9_.exit, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5countERS9_.exit
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
@@ -32722,16 +32722,16 @@ _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.not4344 = icmp eq ptr %59, %60
-  br i1 %.not4344, label %._crit_edge, label %.lr.ph
+  %.not4041 = icmp eq ptr %59, %60
+  br i1 %.not4041, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %73
-  %.sroa.026.045 = phi ptr [ %74, %73 ], [ %59, %57 ]
+  %.sroa.026.042 = phi ptr [ %74, %73 ], [ %59, %57 ]
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.197)
           to label %62 unwind label %.loopexit
 
 62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.026.045, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.026.042, i64 32
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(32) %63)
           to label %65 unwind label %.loopexit
 
@@ -32740,7 +32740,7 @@ _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4
           to label %67 unwind label %.loopexit
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.026.045, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.026.042, i64 64
   %69 = load i32, ptr %68, align 8
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef %69)
           to label %71 unwind label %.loopexit
@@ -32750,9 +32750,9 @@ _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4
           to label %73 unwind label %.loopexit
 
 73:                                               ; preds = %71
-  %74 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.026.045) #37
-  %.not43 = icmp eq ptr %74, %60
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !383
+  %74 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.026.042) #37
+  %.not40 = icmp eq ptr %74, %60
+  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !383
 
 .loopexit:                                        ; preds = %.lr.ph, %62, %65, %67, %71
   %lpad.loopexit = landingpad { ptr, i32 }

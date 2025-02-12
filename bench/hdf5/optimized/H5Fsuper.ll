@@ -2590,7 +2590,7 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
 372:                                              ; preds = %248, %339, %307, %.critedge228, %369, %365, %353, %346, %335, %300, %291, %280, %263, %252, %226, %215, %177, %169, %161, %155, %135, %128, %110, %103, %93, %42, %34, %26, %13
   %.0181 = phi i1 [ false, %13 ], [ false, %26 ], [ false, %34 ], [ false, %42 ], [ false, %93 ], [ false, %103 ], [ false, %110 ], [ false, %128 ], [ false, %135 ], [ false, %155 ], [ false, %161 ], [ false, %169 ], [ false, %177 ], [ false, %215 ], [ false, %226 ], [ false, %252 ], [ false, %263 ], [ false, %280 ], [ false, %291 ], [ false, %300 ], [ false, %335 ], [ false, %346 ], [ false, %339 ], [ false, %307 ], [ false, %353 ], [ false, %365 ], [ true, %369 ], [ false, %.critedge228 ], [ false, %248 ]
   %.0180 = phi ptr [ null, %13 ], [ null, %26 ], [ null, %34 ], [ null, %42 ], [ null, %93 ], [ null, %103 ], [ null, %110 ], [ null, %128 ], [ null, %135 ], [ null, %155 ], [ null, %161 ], [ null, %169 ], [ null, %177 ], [ null, %215 ], [ null, %226 ], [ null, %252 ], [ null, %263 ], [ null, %280 ], [ null, %291 ], [ null, %300 ], [ null, %335 ], [ null, %346 ], [ null, %339 ], [ null, %307 ], [ null, %353 ], [ %351, %365 ], [ %351, %369 ], [ null, %.critedge228 ], [ null, %248 ]
-  %.0178 = phi i64 [ -1, %13 ], [ -1, %26 ], [ -1, %34 ], [ -1, %42 ], [ -1, %93 ], [ -1, %103 ], [ -1, %110 ], [ -1, %128 ], [ -1, %135 ], [ -1, %155 ], [ -1, %161 ], [ -1, %169 ], [ -1, %177 ], [ -1, %215 ], [ -1, %226 ], [ %224, %252 ], [ %224, %263 ], [ %224, %280 ], [ %224, %291 ], [ %224, %300 ], [ %224, %335 ], [ %224, %346 ], [ %224, %339 ], [ %224, %307 ], [ %224, %353 ], [ %224, %365 ], [ %224, %369 ], [ %224, %.critedge228 ], [ %224, %248 ]
+  %.0178 = phi i1 [ false, %13 ], [ false, %26 ], [ false, %34 ], [ false, %42 ], [ false, %93 ], [ false, %103 ], [ false, %110 ], [ false, %128 ], [ false, %135 ], [ false, %155 ], [ false, %161 ], [ false, %169 ], [ false, %177 ], [ false, %215 ], [ false, %226 ], [ true, %252 ], [ true, %263 ], [ true, %280 ], [ true, %291 ], [ true, %300 ], [ true, %335 ], [ true, %346 ], [ true, %339 ], [ true, %307 ], [ true, %353 ], [ true, %365 ], [ true, %369 ], [ true, %.critedge228 ], [ true, %248 ]
   %.0174 = phi i1 [ false, %13 ], [ false, %26 ], [ false, %34 ], [ false, %42 ], [ false, %93 ], [ false, %103 ], [ false, %110 ], [ false, %128 ], [ false, %135 ], [ false, %155 ], [ false, %161 ], [ false, %169 ], [ false, %177 ], [ false, %215 ], [ false, %226 ], [ false, %252 ], [ true, %263 ], [ true, %280 ], [ true, %291 ], [ true, %300 ], [ true, %335 ], [ true, %346 ], [ true, %339 ], [ true, %307 ], [ false, %353 ], [ false, %365 ], [ false, %369 ], [ false, %.critedge228 ], [ false, %248 ]
   %.0172 = phi i8 [ 0, %13 ], [ 0, %26 ], [ 0, %34 ], [ 0, %42 ], [ %.1173, %93 ], [ %.1173, %103 ], [ %.1173, %110 ], [ %.1173, %128 ], [ %.1173, %135 ], [ %.1173, %155 ], [ %.1173, %161 ], [ %.1173, %169 ], [ %.1173, %177 ], [ %.1173, %215 ], [ %.1173, %226 ], [ %.1173, %252 ], [ %.1173, %263 ], [ %.1173, %280 ], [ %.1173, %291 ], [ %.1173, %300 ], [ 1, %335 ], [ 1, %346 ], [ 1, %339 ], [ 0, %307 ], [ 0, %353 ], [ 0, %365 ], [ 0, %369 ], [ 0, %.critedge228 ], [ 0, %248 ]
   %373 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %34 ], [ true, %42 ], [ true, %93 ], [ true, %103 ], [ true, %110 ], [ true, %128 ], [ true, %135 ], [ true, %155 ], [ true, %161 ], [ true, %169 ], [ true, %177 ], [ true, %215 ], [ true, %226 ], [ true, %252 ], [ true, %263 ], [ true, %280 ], [ true, %291 ], [ true, %300 ], [ true, %335 ], [ true, %346 ], [ false, %339 ], [ false, %307 ], [ true, %353 ], [ true, %365 ], [ false, %369 ], [ false, %.critedge228 ], [ false, %248 ]
@@ -2618,7 +2618,7 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   br label %384
 
 383:                                              ; preds = %377, %376
-  br i1 %373, label %384, label %438
+  br i1 %373, label %384, label %437
 
 384:                                              ; preds = %.thread231, %383
   %.not222 = icmp eq ptr %.0180, null
@@ -2656,69 +2656,68 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   br label %404
 
 404:                                              ; preds = %402, %384
-  br i1 %12, label %438, label %.thread234
+  br i1 %12, label %437, label %.thread234
 
 .thread234:                                       ; preds = %393, %398, %404
   %405 = trunc nuw i8 %.0172 to i1
-  %406 = icmp ne i64 %.0178, -1
-  %or.cond = and i1 %406, %405
-  br i1 %or.cond, label %407, label %414
+  %or.cond = and i1 %.0178, %405
+  br i1 %or.cond, label %406, label %413
 
-407:                                              ; preds = %.thread234
-  %408 = call i32 @H5MF_try_close(ptr noundef %0) #6
-  %409 = icmp slt i32 %408, 0
-  br i1 %409, label %410, label %414
+406:                                              ; preds = %.thread234
+  %407 = call i32 @H5MF_try_close(ptr noundef %0) #6
+  %408 = icmp slt i32 %407, 0
+  br i1 %408, label %409, label %413
 
-410:                                              ; preds = %407
-  %411 = load i64, ptr @H5E_FILE_g, align 8
-  %412 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %413 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1482, i64 noundef %411, i64 noundef %412, ptr noundef nonnull @.str.86) #6
-  br label %414
+409:                                              ; preds = %406
+  %410 = load i64, ptr @H5E_FILE_g, align 8
+  %411 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %412 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1482, i64 noundef %410, i64 noundef %411, ptr noundef nonnull @.str.86) #6
+  br label %413
 
-414:                                              ; preds = %407, %410, %.thread234
-  br i1 %.0170, label %415, label %429
+413:                                              ; preds = %406, %409, %.thread234
+  br i1 %.0170, label %414, label %428
 
-415:                                              ; preds = %414
-  %416 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %11) #6
-  %417 = icmp slt i32 %416, 0
-  br i1 %417, label %418, label %422
+414:                                              ; preds = %413
+  %415 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %11) #6
+  %416 = icmp slt i32 %415, 0
+  br i1 %416, label %417, label %421
 
-418:                                              ; preds = %415
-  %419 = load i64, ptr @H5E_FILE_g, align 8
-  %420 = load i64, ptr @H5E_CANTUNPIN_g, align 8
-  %421 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1489, i64 noundef %419, i64 noundef %420, ptr noundef nonnull @.str.65) #6
-  br label %422
+417:                                              ; preds = %414
+  %418 = load i64, ptr @H5E_FILE_g, align 8
+  %419 = load i64, ptr @H5E_CANTUNPIN_g, align 8
+  %420 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1489, i64 noundef %418, i64 noundef %419, ptr noundef nonnull @.str.65) #6
+  br label %421
 
-422:                                              ; preds = %418, %415
-  %423 = call i32 @H5AC_expunge_entry(ptr noundef %0, ptr noundef nonnull @H5AC_SUPERBLOCK, i64 noundef 0, i32 noundef 0) #6
-  %424 = icmp slt i32 %423, 0
-  br i1 %424, label %425, label %434
+421:                                              ; preds = %417, %414
+  %422 = call i32 @H5AC_expunge_entry(ptr noundef %0, ptr noundef nonnull @H5AC_SUPERBLOCK, i64 noundef 0, i32 noundef 0) #6
+  %423 = icmp slt i32 %422, 0
+  br i1 %423, label %424, label %433
 
-425:                                              ; preds = %422
-  %426 = load i64, ptr @H5E_FILE_g, align 8
-  %427 = load i64, ptr @H5E_CANTEXPUNGE_g, align 8
-  %428 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1493, i64 noundef %426, i64 noundef %427, ptr noundef nonnull @.str.66) #6
-  br label %434
+424:                                              ; preds = %421
+  %425 = load i64, ptr @H5E_FILE_g, align 8
+  %426 = load i64, ptr @H5E_CANTEXPUNGE_g, align 8
+  %427 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_init, i32 noundef 1493, i64 noundef %425, i64 noundef %426, ptr noundef nonnull @.str.66) #6
+  br label %433
 
-429:                                              ; preds = %414
-  %430 = getelementptr inbounds nuw i8, ptr %11, i64 304
-  %431 = load ptr, ptr %430, align 8
-  %432 = call ptr @H5MM_xfree(ptr noundef %431) #6
-  store ptr %432, ptr %430, align 8
-  %433 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_super_t_reg_free_list, ptr noundef nonnull %11) #6
-  br label %434
+428:                                              ; preds = %413
+  %429 = getelementptr inbounds nuw i8, ptr %11, i64 304
+  %430 = load ptr, ptr %429, align 8
+  %431 = call ptr @H5MM_xfree(ptr noundef %430) #6
+  store ptr %431, ptr %429, align 8
+  %432 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_super_t_reg_free_list, ptr noundef nonnull %11) #6
+  br label %433
 
-434:                                              ; preds = %429, %422, %425
-  %435 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
-  store ptr null, ptr %437, align 8
-  br label %438
+433:                                              ; preds = %428, %421, %424
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %435 = load ptr, ptr %434, align 8
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
+  store ptr null, ptr %436, align 8
+  br label %437
 
-438:                                              ; preds = %404, %434, %383
-  %.2 = phi i32 [ -1, %434 ], [ -1, %404 ], [ 0, %383 ]
-  %439 = load i64, ptr %6, align 8
-  call void @H5AC_tag(i64 noundef %439, ptr noundef null) #6
+437:                                              ; preds = %404, %433, %383
+  %.2 = phi i32 [ -1, %433 ], [ -1, %404 ], [ 0, %383 ]
+  %438 = load i64, ptr %6, align 8
+  call void @H5AC_tag(i64 noundef %438, ptr noundef null) #6
   ret i32 %.2
 }
 

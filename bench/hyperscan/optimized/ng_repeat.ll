@@ -3159,7 +3159,7 @@ if.then.i.i.i184:                                 ; preds = %do.end19.i
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i: ; preds = %if.then.i.i.i184
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %281 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i1.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %280, ptr align 8 %add.ptr.i5.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %280, ptr nonnull align 8 %add.ptr.i5.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i185 = load ptr, ptr %_M_finish.i.i.i163, align 8
   %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i185 to i64
   br label %if.end.i.i.i186

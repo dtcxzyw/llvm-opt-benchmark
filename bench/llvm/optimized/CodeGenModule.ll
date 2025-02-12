@@ -61134,7 +61134,7 @@ _ZSt13move_backwardIPN5clang7CodeGen13CodeGenModule8StructorEN9__gnu_cxx17__norm
   %49 = sub i64 %47, %48
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %49, -24
   %50 = getelementptr inbounds %"struct.clang::CodeGen::CodeGenModule::Structor", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr align 8 %5, i64 %49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %5, i64 %49, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN5clang7CodeGen13CodeGenModule8StructorEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIZNS2_7ReleaseEvE3$_0EEEvT_SF_T0_SG_T1_T2_.exit"
 
 51:                                               ; preds = %26
@@ -61274,7 +61274,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8Structo
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -24
   %21 = getelementptr inbounds %"struct.clang::CodeGen::CodeGenModule::Structor", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit, %18
@@ -61323,7 +61323,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8Structo
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
   %35 = getelementptr inbounds %"struct.clang::CodeGen::CodeGenModule::Structor", ptr %2, i64 %.neg.i.i.i.i.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN5clang7CodeGen13CodeGenModule8StructorEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
 
 _ZSt13move_backwardIPN5clang7CodeGen13CodeGenModule8StructorEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %34
@@ -66331,7 +66331,7 @@ _ZSt22__uninitialized_move_aIPN5clang10GlobalDeclES2_SaIS1_EET0_T_S5_S4_RT1_.exi
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %1, i64 %33, i1 false)
   br label %.lr.ph.i.i.i.i.i54.preheader
 
-.lr.ph.i.i.i.i.i54.preheader:                     ; preds = %31, %_ZSt22__uninitialized_move_aIPN5clang10GlobalDeclES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+.lr.ph.i.i.i.i.i54.preheader:                     ; preds = %_ZSt22__uninitialized_move_aIPN5clang10GlobalDeclES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %31
   br label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %.lr.ph.i.i.i.i.i54.preheader, %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8IteratorppEv.exit.i.i.i.i.i

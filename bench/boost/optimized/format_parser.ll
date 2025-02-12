@@ -800,10 +800,10 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4
   br i1 %.not.i.i.i.i161, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit, label %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i
 
 _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i.i: ; preds = %151, %146
-  %.sink149.i = phi i32 [ %148, %146 ], [ %152, %151 ]
-  %.sink148.i = phi i32 [ %147, %146 ], [ %153, %151 ]
-  %155 = add i32 %.sink149.i, -48
-  %156 = add i32 %155, %.sink148.i
+  %.sink148.i = phi i32 [ %148, %146 ], [ %152, %151 ]
+  %.sink147.i = phi i32 [ %147, %146 ], [ %153, %151 ]
+  %155 = add i32 %.sink148.i, -48
+  %156 = add i32 %155, %.sink147.i
   %157 = getelementptr inbounds nuw i8, ptr %.151109.i, i64 1
   %158 = add i64 %.1110.i, 1
   %159 = icmp eq ptr %157, %2
@@ -836,10 +836,10 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bo
   br i1 %.not.i.i.i60.i, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit, label %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i
 
 _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i61.i: ; preds = %170, %165
-  %.sink151.i = phi i32 [ %167, %165 ], [ %171, %170 ]
-  %.sink150.i = phi i32 [ %166, %165 ], [ %172, %170 ]
-  %174 = add i32 %.sink151.i, -48
-  %175 = add i32 %174, %.sink150.i
+  %.sink150.i = phi i32 [ %167, %165 ], [ %171, %170 ]
+  %.sink149.i = phi i32 [ %166, %165 ], [ %172, %170 ]
+  %174 = add i32 %.sink150.i, -48
+  %175 = add i32 %174, %.sink149.i
   %176 = getelementptr inbounds nuw i8, ptr %.151109.i, i64 2
   %177 = add i64 %.1110.i, 2
   %178 = icmp eq ptr %176, %2
@@ -872,10 +872,10 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bo
   br i1 %.not.i.i.i67.i, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit, label %_ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i
 
 _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIjcEEbRT_T0_N4mpl_5bool_ILb1EEE.exit.i.i68.i: ; preds = %189, %184
-  %.sink153.i = phi i32 [ %186, %184 ], [ %190, %189 ]
-  %.sink152.i = phi i32 [ %185, %184 ], [ %191, %189 ]
-  %193 = add i32 %.sink153.i, -48
-  %194 = add i32 %193, %.sink152.i
+  %.sink152.i = phi i32 [ %186, %184 ], [ %190, %189 ]
+  %.sink151.i = phi i32 [ %185, %184 ], [ %191, %189 ]
+  %193 = add i32 %.sink152.i, -48
+  %194 = add i32 %193, %.sink151.i
   %195 = getelementptr inbounds nuw i8, ptr %.151109.i, i64 3
   %196 = add i64 %.1110.i, 3
   %197 = icmp eq ptr %195, %2

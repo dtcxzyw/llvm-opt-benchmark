@@ -13034,50 +13034,49 @@ Py_DECREF.exit104:                                ; preds = %200, %202, %205
   %241 = load i64, ptr %11, align 8, !tbaa !47
   %242 = add i64 %241, 1
   store i64 %242, ptr %11, align 8, !tbaa !47
-  %243 = icmp eq i32 %206, 1000
-  br i1 %243, label %92, label %Py_DECREF.exit112, !llvm.loop !152
+  br i1 %207, label %92, label %Py_DECREF.exit112, !llvm.loop !152
 
 _Pickler_Write.exit133.thread:                    ; preds = %146, %.lr.ph.i127, %144, %103, %108, %110, %120, %122, %171
   %.181.ph = phi ptr [ %106, %171 ], [ null, %122 ], [ null, %120 ], [ null, %110 ], [ null, %108 ], [ null, %103 ], [ %106, %144 ], [ %106, %.lr.ph.i127 ], [ %106, %146 ]
-  %244 = load i32, ptr %93, align 8, !tbaa !42
-  %.not.i.i = icmp sgt i32 %244, -1
-  br i1 %.not.i.i, label %245, label %Py_XDECREF.exit
+  %243 = load i32, ptr %93, align 8, !tbaa !42
+  %.not.i.i = icmp sgt i32 %243, -1
+  br i1 %.not.i.i, label %244, label %Py_XDECREF.exit
 
-245:                                              ; preds = %_Pickler_Write.exit133.thread
-  %246 = add nsw i32 %244, -1
-  store i32 %246, ptr %93, align 8, !tbaa !42
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %Py_XDECREF.exit
+244:                                              ; preds = %_Pickler_Write.exit133.thread
+  %245 = add nsw i32 %243, -1
+  store i32 %245, ptr %93, align 8, !tbaa !42
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %Py_XDECREF.exit
 
-248:                                              ; preds = %245
+247:                                              ; preds = %244
   tail call void @_Py_Dealloc(ptr noundef nonnull %93) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit.thread:                           ; preds = %211, %227, %95, %225
   br label %Py_DECREF.exit112
 
-Py_XDECREF.exit:                                  ; preds = %_Pickler_Write.exit133.thread, %245, %248
+Py_XDECREF.exit:                                  ; preds = %_Pickler_Write.exit133.thread, %244, %247
   %.not.i146 = icmp eq ptr %.181.ph, null
   br i1 %.not.i146, label %Py_DECREF.exit112, label %Py_XDECREF.exit.thread161
 
 Py_XDECREF.exit.thread161:                        ; preds = %187, %197, %185, %Py_XDECREF.exit
   %.181156164 = phi ptr [ %.181.ph, %Py_XDECREF.exit ], [ %.2, %185 ], [ %.2, %197 ], [ %.2, %187 ]
-  %249 = load i32, ptr %.181156164, align 8, !tbaa !42
-  %.not.i.i147 = icmp sgt i32 %249, -1
-  br i1 %.not.i.i147, label %250, label %Py_DECREF.exit112
+  %248 = load i32, ptr %.181156164, align 8, !tbaa !42
+  %.not.i.i147 = icmp sgt i32 %248, -1
+  br i1 %.not.i.i147, label %249, label %Py_DECREF.exit112
 
-250:                                              ; preds = %Py_XDECREF.exit.thread161
-  %251 = add nsw i32 %249, -1
-  store i32 %251, ptr %.181156164, align 8, !tbaa !42
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %Py_DECREF.exit112
+249:                                              ; preds = %Py_XDECREF.exit.thread161
+  %250 = add nsw i32 %248, -1
+  store i32 %250, ptr %.181156164, align 8, !tbaa !42
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %252, label %Py_DECREF.exit112
 
-253:                                              ; preds = %250
+252:                                              ; preds = %249
   tail call void @_Py_Dealloc(ptr noundef nonnull %.181156164) #13
   br label %Py_DECREF.exit112
 
-Py_DECREF.exit112:                                ; preds = %.lr.ph.i138, %69, %67, %253, %250, %Py_XDECREF.exit.thread161, %Py_XDECREF.exit, %Py_XDECREF.exit.thread, %130, %127, %125, %91, %88, %.critedge, %35, %32, %29, %95, %._crit_edge
-  %.0 = phi i32 [ %., %._crit_edge ], [ 0, %95 ], [ -1, %29 ], [ -1, %32 ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %88 ], [ -1, %91 ], [ 0, %125 ], [ 0, %127 ], [ 0, %130 ], [ -1, %Py_XDECREF.exit.thread ], [ -1, %Py_XDECREF.exit ], [ -1, %Py_XDECREF.exit.thread161 ], [ -1, %250 ], [ -1, %253 ], [ -1, %67 ], [ -1, %69 ], [ 0, %.lr.ph.i138 ]
+Py_DECREF.exit112:                                ; preds = %.lr.ph.i138, %69, %67, %252, %249, %Py_XDECREF.exit.thread161, %Py_XDECREF.exit, %Py_XDECREF.exit.thread, %130, %127, %125, %91, %88, %.critedge, %35, %32, %29, %95, %._crit_edge
+  %.0 = phi i32 [ %., %._crit_edge ], [ 0, %95 ], [ -1, %29 ], [ -1, %32 ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %88 ], [ -1, %91 ], [ 0, %125 ], [ 0, %127 ], [ 0, %130 ], [ -1, %Py_XDECREF.exit.thread ], [ -1, %Py_XDECREF.exit ], [ -1, %Py_XDECREF.exit.thread161 ], [ -1, %249 ], [ -1, %252 ], [ -1, %67 ], [ -1, %69 ], [ 0, %.lr.ph.i138 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 %.0
 }
@@ -13390,7 +13389,7 @@ Py_DECREF.exit80:                                 ; preds = %123, %125, %128
 
 Py_XDECREF.exit.thread126:                        ; preds = %131
   tail call void (ptr, ...) @_PyErr_FormatNote(ptr noundef nonnull @.str.43, ptr noundef %3, i64 noundef %.2) #13
-  br label %185
+  br label %184
 
 134:                                              ; preds = %131
   %135 = load i32, ptr %.265, align 8, !tbaa !42
@@ -13488,49 +13487,48 @@ Py_DECREF.exit:                                   ; preds = %134, %136, %139
   %177 = load i64, ptr %11, align 8, !tbaa !47
   %178 = add i64 %177, 1
   store i64 %178, ptr %11, align 8, !tbaa !47
-  %179 = icmp eq i32 %140, 1000
-  br i1 %179, label %66, label %Py_DECREF.exit82, !llvm.loop !154
+  br i1 %141, label %66, label %Py_DECREF.exit82, !llvm.loop !154
 
 _Pickler_Write.exit99.thread:                     ; preds = %104, %102, %74, %79, %80, %122
-  %180 = load i32, ptr %67, align 8, !tbaa !42
-  %.not.i.i = icmp sgt i32 %180, -1
-  br i1 %.not.i.i, label %181, label %Py_XDECREF.exit
+  %179 = load i32, ptr %67, align 8, !tbaa !42
+  %.not.i.i = icmp sgt i32 %179, -1
+  br i1 %.not.i.i, label %180, label %Py_XDECREF.exit
 
-181:                                              ; preds = %_Pickler_Write.exit99.thread
-  %182 = add nsw i32 %180, -1
-  store i32 %182, ptr %67, align 8, !tbaa !42
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %Py_XDECREF.exit
+180:                                              ; preds = %_Pickler_Write.exit99.thread
+  %181 = add nsw i32 %179, -1
+  store i32 %181, ptr %67, align 8, !tbaa !42
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %Py_XDECREF.exit
 
-184:                                              ; preds = %181
+183:                                              ; preds = %180
   tail call void @_Py_Dealloc(ptr noundef nonnull %67) #13
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit.thread:                           ; preds = %146, %163, %69, %161
   br label %Py_DECREF.exit82
 
-Py_XDECREF.exit:                                  ; preds = %_Pickler_Write.exit99.thread, %181, %184
+Py_XDECREF.exit:                                  ; preds = %_Pickler_Write.exit99.thread, %180, %183
   %.not.i112 = icmp eq ptr %72, null
-  br i1 %.not.i112, label %Py_DECREF.exit82, label %185
+  br i1 %.not.i112, label %Py_DECREF.exit82, label %184
 
-185:                                              ; preds = %Py_XDECREF.exit.thread126, %Py_XDECREF.exit
+184:                                              ; preds = %Py_XDECREF.exit.thread126, %Py_XDECREF.exit
   %.164122129 = phi ptr [ %.265, %Py_XDECREF.exit.thread126 ], [ %72, %Py_XDECREF.exit ]
-  %186 = load i32, ptr %.164122129, align 8, !tbaa !42
-  %.not.i.i113 = icmp sgt i32 %186, -1
-  br i1 %.not.i.i113, label %187, label %Py_DECREF.exit82
+  %185 = load i32, ptr %.164122129, align 8, !tbaa !42
+  %.not.i.i113 = icmp sgt i32 %185, -1
+  br i1 %.not.i.i113, label %186, label %Py_DECREF.exit82
 
-187:                                              ; preds = %185
-  %188 = add nsw i32 %186, -1
-  store i32 %188, ptr %.164122129, align 8, !tbaa !42
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %Py_DECREF.exit82
+186:                                              ; preds = %184
+  %187 = add nsw i32 %185, -1
+  store i32 %187, ptr %.164122129, align 8, !tbaa !42
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %189, label %Py_DECREF.exit82
 
-190:                                              ; preds = %187
+189:                                              ; preds = %186
   tail call void @_Py_Dealloc(ptr noundef nonnull %.164122129) #13
   br label %Py_DECREF.exit82
 
-Py_DECREF.exit82:                                 ; preds = %.lr.ph.i104, %47, %45, %190, %187, %185, %Py_XDECREF.exit, %Py_XDECREF.exit.thread, %88, %85, %83, %69, %._crit_edge, %31
-  %.0 = phi i32 [ -1, %31 ], [ %., %._crit_edge ], [ 0, %69 ], [ 0, %83 ], [ 0, %85 ], [ 0, %88 ], [ -1, %Py_XDECREF.exit.thread ], [ -1, %Py_XDECREF.exit ], [ -1, %185 ], [ -1, %187 ], [ -1, %190 ], [ -1, %45 ], [ -1, %47 ], [ 0, %.lr.ph.i104 ]
+Py_DECREF.exit82:                                 ; preds = %.lr.ph.i104, %47, %45, %189, %186, %184, %Py_XDECREF.exit, %Py_XDECREF.exit.thread, %88, %85, %83, %69, %._crit_edge, %31
+  %.0 = phi i32 [ -1, %31 ], [ %., %._crit_edge ], [ 0, %69 ], [ 0, %83 ], [ 0, %85 ], [ 0, %88 ], [ -1, %Py_XDECREF.exit.thread ], [ -1, %Py_XDECREF.exit ], [ -1, %184 ], [ -1, %186 ], [ -1, %189 ], [ -1, %45 ], [ -1, %47 ], [ 0, %.lr.ph.i104 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 %.0
 }

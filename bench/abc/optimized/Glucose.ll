@@ -10064,10 +10064,8 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 182:                                              ; preds = %181
   %183 = getelementptr inbounds %"struct.Gluco::Solver::VarData", ptr %158, i64 %175
   %184 = load i32, ptr %183, align 4, !tbaa !156
-  %.not24.i = icmp ne i32 %184, -1
   %185 = icmp eq i32 %184, %161
-  %or.cond = and i1 %.not24.i, %185
-  br i1 %or.cond, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread
+  br i1 %185, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread
 
 186:                                              ; preds = %168
   br i1 %180, label %187, label %191
@@ -10075,10 +10073,8 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 187:                                              ; preds = %186
   %188 = getelementptr inbounds %"struct.Gluco::Solver::VarData", ptr %158, i64 %175
   %189 = load i32, ptr %188, align 4, !tbaa !156
-  %.not.i61 = icmp ne i32 %189, -1
   %190 = icmp eq i32 %189, %161
-  %or.cond.i = and i1 %.not.i61, %190
-  br i1 %or.cond.i, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %191
+  br i1 %190, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %191
 
 191:                                              ; preds = %187, %186
   %192 = getelementptr inbounds nuw i8, ptr %165, i64 16
@@ -10095,10 +10091,8 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 200:                                              ; preds = %191
   %201 = getelementptr inbounds %"struct.Gluco::Solver::VarData", ptr %158, i64 %194
   %202 = load i32, ptr %201, align 4, !tbaa !156
-  %.not23.i = icmp ne i32 %202, -1
   %203 = icmp eq i32 %202, %161
-  %or.cond70 = and i1 %.not23.i, %203
-  br i1 %or.cond70, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread
+  br i1 %203, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64, label %_ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread
 
 _ZNK5Gluco6Solver6lockedERKNS_6ClauseE.exit.thread64: ; preds = %200, %182, %187, %162
   tail call void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef nonnull align 8 dereferenceable(21) %119, ptr noundef nonnull align 4 dereferenceable(4) %160, ptr noundef nonnull align 8 dereferenceable(21) %1)

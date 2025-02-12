@@ -141,10 +141,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   %cmp13 = icmp slt i64 %call1, 0
@@ -201,10 +201,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   %cmp13 = icmp slt i64 %call1, 0
@@ -252,10 +252,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   store i64 %call1, ptr %out, align 8
@@ -295,10 +295,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   %cmp13 = icmp slt i64 %call1, 0
@@ -350,10 +350,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   %conv13 = trunc i64 %call1 to i32
@@ -393,10 +393,10 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp8 = icmp ne i8 %3, 0
-  %or.cond = and i1 %cmp8, %tobool.not
-  br i1 %or.cond, label %return, label %if.then12
+  %tobool.not = icmp ne i16 %5, 0
+  %cmp8 = icmp eq i8 %3, 0
+  %or.cond = or i1 %cmp8, %tobool.not
+  br i1 %or.cond, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end
   store double %call1, ptr %out, align 8

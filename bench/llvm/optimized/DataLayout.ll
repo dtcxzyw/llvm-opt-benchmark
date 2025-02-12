@@ -7605,7 +7605,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10DataLayout11PointerSpecELb1EE28reserveFor
   %68 = sub i64 %66, %67
   %.neg.i.i.i.i.i = sdiv exact i64 %68, -20
   %69 = getelementptr inbounds %"struct.llvm::DataLayout::PointerSpec", ptr %63, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %69, ptr nonnull align 4 %55, i64 %68, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %69, ptr nonnull align 4 %55, i64 %68, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !87
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !85
   br label %_ZSt13move_backwardIPN4llvm10DataLayout11PointerSpecES3_ET0_T_S5_S4_.exit

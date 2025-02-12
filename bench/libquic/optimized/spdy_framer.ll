@@ -1783,7 +1783,7 @@ sw.bb115:                                         ; preds = %do.body
 if.then.i111:                                     ; preds = %sw.bb115
   %sub.i112 = sub i64 %41, %42
   %.sroa.speculated.i113 = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 %sub.i112)
-  %tobool.not.i114 = icmp eq i64 %.sroa.speculated.i113, 0
+  %tobool.not.i114 = icmp eq i64 %len.addr.0, 0
   br i1 %tobool.not.i114, label %if.end13.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then.i111
@@ -3489,12 +3489,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.end46, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %sub = sub i64 %add3.i, %2
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select18)
-  %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
+  %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
+  %sub = sub i64 %add3.i, %2
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select18)
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
@@ -3648,12 +3648,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.end41, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %sub = sub i64 %add.i, %2
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select16)
-  %cmp.not.i = icmp eq i64 %.sroa.speculated.i, 0
+  %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %_ZN3net10SpdyFramer24UpdateCurrentFrameBufferEPPKcPmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
+  %sub = sub i64 %add.i, %2
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select16)
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
@@ -4444,7 +4444,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub i64 %0, %1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len, i64 %sub)
-  %tobool.not = icmp eq i64 %.sroa.speculated, 0
+  %tobool.not = icmp eq i64 %len, 0
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %state_, align 8
   %cmp5.not = icmp eq i32 %2, 7

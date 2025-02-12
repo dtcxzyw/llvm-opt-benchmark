@@ -2693,7 +2693,7 @@ define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_
   %33 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i, i64 %34
-  call void @_Z27gmx_tng_setup_atom_subgroupP18gmx_tng_trajectoryN3gmx8ArrayRefIKiEEPKc(ptr noundef %31, ptr %.sroa.01.0.copyload.i, ptr %35, ptr noundef %7)
+  call void @_Z27gmx_tng_setup_atom_subgroupP18gmx_tng_trajectoryN3gmx8ArrayRefIKiEEPKc(ptr noundef %31, ptr %.sroa.01.0.copyload.i, ptr nonnull %35, ptr noundef %7)
   br label %36
 
 36:                                               ; preds = %30, %18
@@ -2800,7 +2800,7 @@ define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_
   %98 = ptrtoint ptr %.sroa.01.0.copyload.i68 to i64
   %99 = sub i64 %97, %98
   %100 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i68, i64 %99
-  tail call void @_Z27gmx_tng_setup_atom_subgroupP18gmx_tng_trajectoryN3gmx8ArrayRefIKiEEPKc(ptr noundef %96, ptr %.sroa.01.0.copyload.i68, ptr %100, ptr noundef %7)
+  tail call void @_Z27gmx_tng_setup_atom_subgroupP18gmx_tng_trajectoryN3gmx8ArrayRefIKiEEPKc(ptr noundef %96, ptr %.sroa.01.0.copyload.i68, ptr nonnull %100, ptr noundef %7)
   br label %101
 
 101:                                              ; preds = %95, %90

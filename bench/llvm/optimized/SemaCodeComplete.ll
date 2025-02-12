@@ -102792,7 +102792,7 @@ _ZN5clang17ObjCInterfaceDecl26filtered_category_iteratorIXadL_ZNS0_17isVisibleCa
   %114 = getelementptr inbounds nuw ptr, ptr %69, i64 %113
   %115 = sub nsw i64 0, %73
   %116 = getelementptr inbounds ptr, ptr %114, i64 %115
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 8 %70, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr align 8 %70, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang17ObjCInterfaceDecl26filtered_category_iteratorIXadL_ZNS0_17isVisibleCategoryEPNS_16ObjCCategoryDeclEEEEppEv.exit, %110

@@ -5710,9 +5710,9 @@ Dam_ObjHand.exit:                                 ; preds = %39
   %44 = getelementptr inbounds nuw i32, ptr %.val3.i, i64 %indvars.iv80
   %45 = load i32, ptr %44, align 4, !tbaa !11
   %.not33 = icmp eq i32 %45, 0
-  br i1 %.not33, label %Dam_ObjHand.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %.not33, label %Dam_ObjHand.exit.thread, label %Dam_ObjSet.exit
 
-Gia_ObjIsXor.exit:                                ; preds = %Dam_ObjHand.exit
+Dam_ObjSet.exit:                                  ; preds = %Dam_ObjHand.exit
   %46 = load ptr, ptr %32, align 8, !tbaa !95
   %47 = getelementptr i8, ptr %46, i64 8
   %.val.i53 = load ptr, ptr %47, align 8, !tbaa !10
@@ -5726,7 +5726,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Dam_ObjHand.exit
   %.not63 = icmp samesign ult i32 %51, %54
   br i1 %.not63, label %.preheader, label %65
 
-.preheader:                                       ; preds = %Gia_ObjIsXor.exit
+.preheader:                                       ; preds = %Dam_ObjSet.exit
   %55 = load i32, ptr %49, align 4, !tbaa !11
   %.not3768 = icmp slt i32 %55, 1
   br i1 %.not3768, label %Dam_ObjHand.exit.thread, label %.lr.ph70
@@ -5747,7 +5747,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Dam_ObjHand.exit
   %.not37.not = icmp slt i64 %indvars.iv77, %64
   br i1 %.not37.not, label %.lr.ph70, label %Dam_ObjHand.exit.thread, !llvm.loop !100
 
-65:                                               ; preds = %Gia_ObjIsXor.exit
+65:                                               ; preds = %Dam_ObjSet.exit
   %66 = icmp samesign ugt i32 %51, %54
   br i1 %66, label %67, label %Dam_ObjHand.exit.thread
 

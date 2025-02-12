@@ -13300,9 +13300,9 @@ default.unreachable355:                           ; preds = %"_ZN3png7decoder15R
 .critedge166:                                     ; preds = %.critedge168
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   %.pre = load i64, ptr %25, align 8, !range !101, !alias.scope !1945
+  %49 = icmp eq i64 %.pre, -9223372036854775808
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1950)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1951)
-  %49 = icmp eq i64 %.pre, -9223372036854775808
   br i1 %49, label %50, label %"_ZN3png7decoder15Reader$LT$R$GT$18output_buffer_size17h3d15d9a91305536cE.exit"
 
 50:                                               ; preds = %.critedge166
@@ -14098,9 +14098,9 @@ default.unreachable355:                           ; preds = %"_ZN3png7decoder15R
 .critedge166:                                     ; preds = %.critedge168
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   %.pre = load i64, ptr %25, align 8, !range !101, !alias.scope !2061
+  %49 = icmp eq i64 %.pre, -9223372036854775808
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2066)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2067)
-  %49 = icmp eq i64 %.pre, -9223372036854775808
   br i1 %49, label %50, label %"_ZN3png7decoder15Reader$LT$R$GT$18output_buffer_size17h6f30f3c062d73b7eE.exit"
 
 50:                                               ; preds = %.critedge166

@@ -5898,14 +5898,14 @@ _ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo20defusechain_iterator
 1422:                                             ; preds = %1413
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %1398, ptr noundef nonnull %1417, i64 noundef %1415, i64 noundef 8) #20
   %.pre.i.i.i.i.i.i = load i32, ptr %1395, align 8, !tbaa !26
-  %.pre.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i to i64
+  %.pre.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i: ; preds = %1422, %1413
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %1422 ], [ %1416, %1413 ]
-  %1423 = phi i32 [ %.pre.i.i.i.i.i.i, %1422 ], [ %1396, %1413 ]
+  %.pre-phi.i.i.i.i.i = phi i64 [ %1416, %1413 ], [ %.pre.i.i.i.i.i, %1422 ]
+  %1423 = phi i32 [ %1396, %1413 ], [ %.pre.i.i.i.i.i.i, %1422 ]
   %1424 = load ptr, ptr %1398, align 8, !tbaa !25
-  %1425 = getelementptr inbounds nuw ptr, ptr %1424, i64 %.pre-phi.i.i.i.i
+  %1425 = getelementptr inbounds nuw ptr, ptr %1424, i64 %.pre-phi.i.i.i.i.i
   %1426 = getelementptr inbounds nuw ptr, ptr %1425, i64 %1419
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -7869,14 +7869,14 @@ _ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo20defusechain_iterator
 815:                                              ; preds = %806
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %791, ptr noundef nonnull %810, i64 noundef %808, i64 noundef 8) #20
   %.pre.i.i.i.i.i.i = load i32, ptr %788, align 8, !tbaa !26
-  %.pre.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i to i64
+  %.pre.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i: ; preds = %815, %806
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %815 ], [ %809, %806 ]
-  %816 = phi i32 [ %.pre.i.i.i.i.i.i, %815 ], [ %789, %806 ]
+  %.pre-phi.i.i.i.i.i = phi i64 [ %809, %806 ], [ %.pre.i.i.i.i.i, %815 ]
+  %816 = phi i32 [ %789, %806 ], [ %.pre.i.i.i.i.i.i, %815 ]
   %817 = load ptr, ptr %791, align 8, !tbaa !25
-  %818 = getelementptr inbounds nuw ptr, ptr %817, i64 %.pre-phi.i.i.i.i
+  %818 = getelementptr inbounds nuw ptr, ptr %817, i64 %.pre-phi.i.i.i.i.i
   %819 = getelementptr inbounds nuw ptr, ptr %818, i64 %812
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -11526,14 +11526,14 @@ _ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo20defusechain_iterator
 45:                                               ; preds = %36
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %21, ptr noundef nonnull %40, i64 noundef %38, i64 noundef 8) #20
   %.pre.i.i.i.i.i = load i32, ptr %18, align 8, !tbaa !26
-  %.pre.i.i.i = zext i32 %.pre.i.i.i.i.i to i64
+  %.pre.i.i.i.i = zext i32 %.pre.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i: ; preds = %45, %36
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %45 ], [ %39, %36 ]
-  %46 = phi i32 [ %.pre.i.i.i.i.i, %45 ], [ %19, %36 ]
+  %.pre-phi.i.i.i.i = phi i64 [ %39, %36 ], [ %.pre.i.i.i.i, %45 ]
+  %46 = phi i32 [ %19, %36 ], [ %.pre.i.i.i.i.i, %45 ]
   %47 = load ptr, ptr %21, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre-phi.i.i.i
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre-phi.i.i.i.i
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %42
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
@@ -19573,9 +19573,9 @@ _ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i: ; pred
   %314 = add i64 %.068.i.i.i.i.i.i, -1
   %315 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq i64 %314, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !762
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !762
 
-_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
+_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre4.i.i.i = load i32, ptr %48, align 8, !tbaa !26
   %316 = add i32 %.pre4.i.i.i, %296
   store i32 %316, ptr %48, align 8, !tbaa !26
@@ -19586,11 +19586,11 @@ _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-sp
   %.pr.i = load i32, ptr %48, align 8, !tbaa !26, !noalias !763
   br label %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.thread.i
 
-_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.thread.i: ; preds = %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i
-  %317 = phi i32 [ %.pr.i, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ %316, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i ], [ %292, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
-  %318 = phi i32 [ %.ph.i, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ %280, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i ], [ %280, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
-  %.sroa.0107.0.i = phi i32 [ undef, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ undef, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i ], [ %.sroa.0107.0.extract.trunc.i, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
-  %.sroa.4.0.i = phi i1 [ false, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ false, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE6appendEmS3_.exit.i.i ], [ %294, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
+_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.thread.i: ; preds = %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i, %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i
+  %317 = phi i32 [ %.pr.i, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ %316, %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %292, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
+  %318 = phi i32 [ %.ph.i, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ %280, %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %280, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
+  %.sroa.0107.0.i = phi i32 [ undef, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ undef, %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %.sroa.0107.0.extract.trunc.i, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
+  %.sroa.4.0.i = phi i1 [ false, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit86.threadthread-pre-split.i ], [ false, %_ZSt20uninitialized_fill_nIPSt8optionalIN4llvm8RegisterEEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %294, %_ZN4llvm15SmallVectorImplISt8optionalINS_8RegisterEEE5eraseEPKS3_.exit.i ]
   %.not112117.i = icmp eq i32 %317, 0
   br i1 %.not112117.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -25133,14 +25133,14 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit: ; preds = %._crit_edge
 155:                                              ; preds = %146
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %139, ptr noundef nonnull %150, i64 noundef %148, i64 noundef 8) #20
   %.pre.i.i.i.i.i = load i32, ptr %136, align 8, !tbaa !26
-  %.pre.i.i.i = zext i32 %.pre.i.i.i.i.i to i64
+  %.pre.i.i.i.i = zext i32 %.pre.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i: ; preds = %155, %146
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %155 ], [ %149, %146 ]
-  %156 = phi i32 [ %.pre.i.i.i.i.i, %155 ], [ %137, %146 ]
+  %.pre-phi.i.i.i.i = phi i64 [ %149, %146 ], [ %.pre.i.i.i.i, %155 ]
+  %156 = phi i32 [ %137, %146 ], [ %.pre.i.i.i.i.i, %155 ]
   %157 = load ptr, ptr %139, align 8, !tbaa !25
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %.pre-phi.i.i.i
+  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %.pre-phi.i.i.i.i
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %152
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 

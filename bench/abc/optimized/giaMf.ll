@@ -10490,13 +10490,13 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntA
 98:                                               ; preds = %94
   %.val108 = load ptr, ptr %89, align 8, !tbaa !156
   %.not.i120 = icmp eq ptr %.val108, null
-  br i1 %.not.i120, label %Gia_ObjIsXor.exit, label %Gia_ObjIsMuxId.exit
+  br i1 %.not.i120, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
 Gia_ObjIsMuxId.exit:                              ; preds = %98
   %99 = getelementptr inbounds nuw i32, ptr %.val108, i64 %indvars.iv164
   %100 = load i32, ptr %99, align 4, !tbaa !12
   %.not144 = icmp eq i32 %100, 0
-  br i1 %.not144, label %Gia_ObjIsXor.exit, label %Gia_ObjFanin2Copy.exit
+  br i1 %.not144, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFanin2Copy.exit
 
 Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjIsMuxId.exit
   %sext.i.i = shl nuw nsw i64 %indvars.iv164, 2
@@ -10533,7 +10533,7 @@ Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjIsMuxId.exit
   %131 = xor i32 %130, 1
   br label %161
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit, %98
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %98, %Gia_ObjIsMuxId.exit
   %132 = trunc i64 %.val94 to i32
   %133 = and i32 %132, 536870911
   %134 = lshr i64 %.val94, 32
@@ -10556,7 +10556,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %150 = xor i32 %146, %149
   br i1 %.not145, label %151, label %Gia_ObjIsXor.exit.thread
 
-151:                                              ; preds = %Gia_ObjIsXor.exit
+151:                                              ; preds = %Gia_ObjIsMuxId.exit.thread
   %152 = xor i32 %150, 1
   %153 = xor i32 %142, 1
   %154 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %5, i32 noundef %153, i32 noundef %150)
@@ -10567,7 +10567,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %159 = xor i32 %158, 1
   br label %161
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
+Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit.thread
   %160 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %5, i32 noundef %142, i32 noundef %150)
   br label %161
 
@@ -10614,11 +10614,11 @@ Vec_IntPush.exit.sink.split:                      ; preds = %165
   %187 = shl nuw nsw i32 %.val90, 1
   %188 = zext nneg i32 %187 to i64
   %189 = shl nuw nsw i64 %188, 2
-  %.sink176 = select i1 %186, i64 64, i64 %189
-  %.sink174 = select i1 %186, i32 16, i32 %187
-  %190 = tail call ptr @realloc(ptr noundef nonnull %.val98, i64 noundef %.sink176) #30
+  %.sink173 = select i1 %186, i64 64, i64 %189
+  %.sink171 = select i1 %186, i32 16, i32 %187
+  %190 = tail call ptr @realloc(ptr noundef nonnull %.val98, i64 noundef %.sink173) #30
   store ptr %190, ptr %180, align 8, !tbaa !26
-  store i32 %.sink174, ptr %176, align 8, !tbaa !23
+  store i32 %.sink171, ptr %176, align 8, !tbaa !23
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %165

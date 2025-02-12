@@ -4682,9 +4682,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not10.i.i.i10, label %.thread, label %.lr.ph.i.i.i11
 
 .lr.ph.i.i.i11:                                   ; preds = %.lr.ph, %79
-  %.sroa.041.054 = phi ptr [ %80, %79 ], [ %45, %.lr.ph ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.041.054, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.041.054, i64 40
+  %.sroa.041.049 = phi ptr [ %80, %79 ], [ %45, %.lr.ph ]
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.041.049, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.041.049, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   br label %59
@@ -4753,7 +4753,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i32: ; preds = %_ZNSt1
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %77
-  %80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.041.054) #37
+  %80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.041.049) #37
   %81 = icmp eq ptr %80, %46
   br i1 %81, label %.thread, label %.lr.ph.i.i.i11
 

@@ -7681,7 +7681,7 @@ _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %29, ptr align 8 %1, i64 %26, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %24, %_ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, %24
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -7802,53 +7802,53 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIdSaId
   %71 = ptrtoint ptr %1 to i64
   %72 = sub i64 %71, %58
   %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %57
-  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %.lr.ph.i.i.i.i.i.i.i.i65.preheader, label %73
+  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
 
 73:                                               ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %70, ptr align 8 %57, i64 %72, i1 false)
-  br label %.lr.ph.i.i.i.i.i.i.i.i65.preheader
+  br label %74
 
-.lr.ph.i.i.i.i.i.i.i.i65.preheader:               ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit, %73
-  %74 = getelementptr inbounds i8, ptr %70, i64 %72
+74:                                               ; preds = %73, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit
+  %75 = getelementptr inbounds i8, ptr %70, i64 %72
   br label %.lr.ph.i.i.i.i.i.i.i.i65
 
-.lr.ph.i.i.i.i.i.i.i.i65:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i65.preheader, %.lr.ph.i.i.i.i.i.i.i.i65
-  %.08.i.i.i.i.i.i.i.i66 = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i.i.i65 ], [ %74, %.lr.ph.i.i.i.i.i.i.i.i65.preheader ]
-  %.sroa.03.07.i.i.i.i.i.i.i.i67 = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i.i.i65 ], [ %2, %.lr.ph.i.i.i.i.i.i.i.i65.preheader ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i67, i64 32
-  %76 = load double, ptr %75, align 8
-  store double %76, ptr %.08.i.i.i.i.i.i.i.i66, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i66, i64 8
-  %78 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i.i.i.i67) #24
-  %.not.i.i.i.i.i.i.i.i68 = icmp eq ptr %78, %3
+.lr.ph.i.i.i.i.i.i.i.i65:                         ; preds = %74, %.lr.ph.i.i.i.i.i.i.i.i65
+  %.08.i.i.i.i.i.i.i.i66 = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i.i.i65 ], [ %75, %74 ]
+  %.sroa.03.07.i.i.i.i.i.i.i.i67 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i.i.i65 ], [ %2, %74 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i67, i64 32
+  %77 = load double, ptr %76, align 8
+  store double %77, ptr %.08.i.i.i.i.i.i.i.i66, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i66, i64 8
+  %79 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i.i.i.i.i.i.i67) #24
+  %.not.i.i.i.i.i.i.i.i68 = icmp eq ptr %79, %3
   br i1 %.not.i.i.i.i.i.i.i.i68, label %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70, label %.lr.ph.i.i.i.i.i.i.i.i65, !llvm.loop !74
 
 _ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70: ; preds = %.lr.ph.i.i.i.i.i.i.i.i65
-  %79 = sub i64 %12, %71
+  %80 = sub i64 %12, %71
   %.not.i.i.i.i.i.i.i.i.i71 = icmp eq ptr %10, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i71, label %81, label %80
+  br i1 %.not.i.i.i.i.i.i.i.i.i71, label %82, label %81
 
-80:                                               ; preds = %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %77, ptr align 8 %1, i64 %79, i1 false)
-  br label %81
+81:                                               ; preds = %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %78, ptr align 8 %1, i64 %80, i1 false)
+  br label %82
 
-81:                                               ; preds = %80, %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70
-  %82 = getelementptr inbounds i8, ptr %77, i64 %79
+82:                                               ; preds = %81, %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIdEPddET0_T_S4_S3_RSaIT1_E.exit70
+  %83 = getelementptr inbounds i8, ptr %78, i64 %80
   %.not.i73 = icmp eq ptr %57, null
-  br i1 %.not.i73, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit, label %83
+  br i1 %.not.i73, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit, label %84
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %7, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %86 = sub i64 %85, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %86) #22
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %7, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = sub i64 %86, %58
+  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %87) #22
   br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
 
-_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %81, %83
+_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %82, %84
   store ptr %70, ptr %0, align 8
-  store ptr %82, ptr %9, align 8
-  %87 = getelementptr inbounds nuw double, ptr %70, i64 %66
-  store ptr %87, ptr %7, align 8
+  store ptr %83, ptr %9, align 8
+  %88 = getelementptr inbounds nuw double, ptr %70, i64 %66
+  store ptr %88, ptr %7, align 8
   br label %_ZSt4copyISt23_Rb_tree_const_iteratorIdEN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET0_T_SA_S9_.exit
 
 _ZSt4copyISt23_Rb_tree_const_iteratorIdEN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i57, %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit55, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit, %4
@@ -11163,7 +11163,7 @@ _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN
   %49 = sub i64 %47, %48
   %.neg.i.i.i.i.i19.i = sdiv exact i64 %49, -24
   %50 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr align 8 %5, i64 %49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit
 
 51:                                               ; preds = %26
@@ -11455,7 +11455,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Us
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -24
   %21 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, %18
@@ -11504,7 +11504,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Us
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
   %35 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %2, i64 %.neg.i.i.i.i.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %34

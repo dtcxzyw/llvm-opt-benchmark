@@ -3500,7 +3500,7 @@ default.unreachable2868:                          ; preds = %481
   %1153 = zext i32 %1151 to i64
   %1154 = sub nsw i64 0, %1153
   %1155 = getelementptr inbounds i8, ptr %.01052, i64 %1154
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1152, ptr readonly align 1 %1155, i64 %1153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1152, ptr nonnull readonly align 1 %1155, i64 %1153, i1 false)
   store i32 %1151, ptr %1141, align 4, !tbaa !38
   %1156 = load i32, ptr %1122, align 4, !tbaa !36
   %1157 = getelementptr inbounds nuw i8, ptr %1107, i64 64

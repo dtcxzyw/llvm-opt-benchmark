@@ -63626,7 +63626,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %cmp8.not = icmp eq i64 %spec.select, 0
+  %cmp8.not = icmp eq i64 %bytesToRead, 0
   br i1 %cmp8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end7

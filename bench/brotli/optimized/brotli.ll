@@ -404,7 +404,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
     i8 116, label %133
     i8 118, label %137
     i8 75, label %144
-    i8 86, label %ParseParams.exit.thread.thread100
+    i8 86, label %ParseParams.exit.thread.thread101
     i8 90, label %149
     i8 119, label %157
     i8 113, label %157
@@ -621,14 +621,14 @@ ParseInt.exit.i:                                  ; preds = %201
 
 207:                                              ; preds = %175
   %.not441.i = icmp eq i32 %.23291223.i, 0
-  br i1 %.not441.i, label %.preheader1264.i, label %208
+  br i1 %.not441.i, label %.preheader1263.i, label %208
 
 208:                                              ; preds = %207
   %209 = load ptr, ptr @stderr, align 8, !tbaa !30
   %210 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %209) #23
   br label %ParseParams.exit.thread.thread
 
-.preheader1264.i:                                 ; preds = %207, %216
+.preheader1263.i:                                 ; preds = %207, %216
   %indvars.iv.i470.i = phi i64 [ %indvars.iv.next.i474.i, %216 ], [ 0, %207 ]
   %.02540.i471.i = phi i32 [ %219, %216 ], [ 0, %207 ]
   %211 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv.i470.i
@@ -636,7 +636,7 @@ ParseInt.exit.i:                                  ; preds = %201
   %213 = icmp eq i8 %212, 0
   br i1 %213, label %220, label %214
 
-214:                                              ; preds = %.preheader1264.i
+214:                                              ; preds = %.preheader1263.i
   %215 = add i8 %212, -58
   %or.cond.i472.i = icmp ult i8 %215, -10
   br i1 %or.cond.i472.i, label %.loopexit557.i, label %216
@@ -648,9 +648,9 @@ ParseInt.exit.i:                                  ; preds = %201
   %219 = add nsw i32 %217, %218
   %indvars.iv.next.i474.i = add nuw nsw i64 %indvars.iv.i470.i, 1
   %exitcond.not.i475.i = icmp eq i64 %indvars.iv.next.i474.i, 5
-  br i1 %exitcond.not.i475.i, label %.thread43.i476.i, label %.preheader1264.i, !llvm.loop !36
+  br i1 %exitcond.not.i475.i, label %.thread43.i476.i, label %.preheader1263.i, !llvm.loop !36
 
-220:                                              ; preds = %.preheader1264.i
+220:                                              ; preds = %.preheader1263.i
   %221 = trunc nuw nsw i64 %indvars.iv.i470.i to i32
   switch i32 %221, label %.thread43.i476.i [
     i32 0, label %.loopexit557.i
@@ -974,16 +974,16 @@ sub_0.i:                                          ; preds = %336
   %345 = load i8, ptr %293, align 1
   %346 = zext i8 %345 to i32
   %347 = sub nsw i32 114, %346
-  %.not1262.i = icmp eq i8 %345, 114
-  br i1 %.not1262.i, label %sub_1.i, label %.tail.i
+  %.not.i = icmp eq i8 %345, 114
+  br i1 %.not.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
   %348 = getelementptr inbounds nuw i8, ptr %56, i64 3
   %349 = load i8, ptr %348, align 1
   %350 = zext i8 %349 to i32
   %351 = sub nsw i32 109, %350
-  %.not1263.i = icmp eq i8 %349, 109
-  br i1 %.not1263.i, label %sub_2.i, label %.tail.i
+  %.not1262.i = icmp eq i8 %349, 109
+  br i1 %.not1262.i, label %sub_2.i, label %.tail.i
 
 sub_2.i:                                          ; preds = %sub_1.i
   %352 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -1082,7 +1082,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 396:                                              ; preds = %386
   %397 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.40, ptr noundef nonnull dereferenceable(1) %293) #22
   %398 = icmp eq i32 %397, 0
-  br i1 %398, label %ParseParams.exit.thread.thread100, label %399
+  br i1 %398, label %ParseParams.exit.thread.thread101, label %399
 
 399:                                              ; preds = %396
   %400 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %293, i32 noundef 61) #22
@@ -1336,8 +1336,8 @@ sub_2.i:                                          ; preds = %sub_1.i
 511:                                              ; preds = %508
   %512 = load i32, ptr %11, align 4, !tbaa !33
   %.not400.i = icmp eq i32 %512, 0
-  %or.cond102 = select i1 %.not400.i, i1 true, i1 %.not399.i
-  br i1 %or.cond102, label %.thread, label %ParseParams.exit.thread.thread
+  %or.cond103 = select i1 %.not400.i, i1 true, i1 %.not399.i
+  br i1 %or.cond103, label %.thread, label %ParseParams.exit.thread.thread
 
 .thread:                                          ; preds = %509, %511
   %513 = load ptr, ptr %19, align 8, !tbaa !19
@@ -1351,8 +1351,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not403.i, label %517, label %ParseParams.exit.thread.thread
 
 517:                                              ; preds = %515
-  %.pre1367.i = load i32, ptr %16, align 4, !tbaa !28
-  %518 = icmp eq i32 %.pre1367.i, 0
+  %.pre1366.i = load i32, ptr %16, align 4, !tbaa !28
+  %518 = icmp eq i32 %.pre1366.i, 0
   br i1 %502, label %520, label %519
 
 519:                                              ; preds = %517
@@ -1361,21 +1361,21 @@ sub_2.i:                                          ; preds = %sub_1.i
 520:                                              ; preds = %517
   %521 = load i64, ptr %8, align 8
   %.not407.i = icmp eq i64 %521, 0
-  %or.cond103 = select i1 %518, i1 true, i1 %.not407.i
-  br i1 %or.cond103, label %ParseParams.exit.thread79, label %ParseParams.exit.thread.thread
+  %or.cond104 = select i1 %518, i1 true, i1 %.not407.i
+  br i1 %or.cond104, label %ParseParams.exit.thread80, label %ParseParams.exit.thread.thread
 
 ParseParams.exit:                                 ; preds = %519
   switch i32 %.1295.lcssa.i, label %ParseParams.exit.thread.thread [
-    i32 4, label %ParseParams.exit.thread79
-    i32 0, label %ParseParams.exit.thread79
+    i32 4, label %ParseParams.exit.thread80
+    i32 0, label %ParseParams.exit.thread80
   ]
 
-ParseParams.exit.thread79:                        ; preds = %ParseParams.exit, %ParseParams.exit, %520
+ParseParams.exit.thread80:                        ; preds = %ParseParams.exit, %ParseParams.exit, %520
   %522 = load ptr, ptr %18, align 8, !tbaa !40
   %523 = icmp eq ptr %522, null
   br i1 %523, label %ReadDictionary.exit, label %524
 
-524:                                              ; preds = %ParseParams.exit.thread79
+524:                                              ; preds = %ParseParams.exit.thread80
   %525 = tail call noalias ptr @fopen(ptr noundef nonnull %522, ptr noundef nonnull @.str.51)
   %526 = icmp eq ptr %525, null
   br i1 %526, label %527, label %533
@@ -1429,8 +1429,8 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
 553:                                              ; preds = %547
   store i64 %541, ptr %26, align 8, !tbaa !45
   %554 = tail call noalias ptr @malloc(i64 noundef %541) #26
-  %.not.i = icmp eq ptr %554, null
-  br i1 %.not.i, label %555, label %559
+  %.not.i31 = icmp eq ptr %554, null
+  br i1 %.not.i31, label %555, label %559
 
 555:                                              ; preds = %553
   %556 = load ptr, ptr @stderr, align 8, !tbaa !30
@@ -1470,7 +1470,7 @@ FileSize.exit.thread.i:                           ; preds = %540, %538, %533
   %576 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %575, ptr noundef nonnull @.str.57, ptr noundef nonnull %522) #24
   br label %CompressFiles.exit
 
-ReadDictionary.exit:                              ; preds = %571, %568, %ParseParams.exit.thread79
+ReadDictionary.exit:                              ; preds = %571, %568, %ParseParams.exit.thread80
   %577 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %513) #22
   %578 = add i64 %501, 1
   %579 = add i64 %578, %577
@@ -1500,7 +1500,7 @@ ParseParams.exit.thread:                          ; preds = %ReadDictionary.exit
     i32 0, label %592
   ]
 
-ParseParams.exit.thread.thread100:                ; preds = %396, %121
+ParseParams.exit.thread.thread101:                ; preds = %396, %121
   %590 = load ptr, ptr @stdout, align 8, !tbaa !30
   %591 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %590, ptr noundef nonnull @.str.59, i32 noundef 1, i32 noundef 1, i32 noundef 0) #21
   br label %CompressFiles.exit
@@ -1520,15 +1520,15 @@ ParseParams.exit.thread.thread100:                ; preds = %396, %121
 
 603:                                              ; preds = %768, %592
   %604 = call fastcc i32 @NextFile(ptr noundef nonnull %5)
-  %.not.i32.not.not = icmp ne i32 %604, 0
-  br i1 %.not.i32.not.not, label %605, label %CompressFiles.exit
+  %.not.i33.not.not = icmp ne i32 %604, 0
+  br i1 %.not.i33.not.not, label %605, label %CompressFiles.exit
 
 605:                                              ; preds = %603
   %606 = call ptr @BrotliEncoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #21
   %.not61.i = icmp eq ptr %606, null
-  br i1 %.not61.i, label %.thread.i38, label %609
+  br i1 %.not61.i, label %.thread.i39, label %609
 
-.thread.i38:                                      ; preds = %605
+.thread.i39:                                      ; preds = %605
   %607 = load ptr, ptr @stderr, align 8, !tbaa !30
   %608 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %607) #23
   br label %CompressFiles.exit
@@ -1542,48 +1542,48 @@ ParseParams.exit.thread.thread100:                ; preds = %396, %121
 
 614:                                              ; preds = %609
   %615 = icmp samesign ugt i32 %612, 24
-  br i1 %615, label %616, label %.loopexit.i33
+  br i1 %615, label %616, label %.loopexit.i34
 
 616:                                              ; preds = %614
   %617 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 6, i32 noundef 1) #21
   %.pre.i = load i32, ptr %6, align 4, !tbaa !16
-  br label %.loopexit.i33
+  br label %.loopexit.i34
 
 618:                                              ; preds = %609
   %619 = load i64, ptr %593, align 8, !tbaa !51
   %620 = icmp sgt i64 %619, -1
-  br i1 %620, label %.preheader.i37, label %.loopexit.i33
+  br i1 %620, label %.preheader.i38, label %.loopexit.i34
 
-.preheader.i37:                                   ; preds = %618, %624
+.preheader.i38:                                   ; preds = %618, %624
   %indvars.iv = phi i64 [ %indvars.iv.next, %624 ], [ 10, %618 ]
   %621 = shl nuw i64 1, %indvars.iv
   %622 = add i64 %621, -16
   %623 = icmp ult i64 %622, %619
-  br i1 %623, label %624, label %.loopexit.i33.loopexit.split.loop.exit
+  br i1 %623, label %624, label %.loopexit.i34.loopexit.split.loop.exit
 
-624:                                              ; preds = %.preheader.i37
+624:                                              ; preds = %.preheader.i38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %625 = icmp eq i64 %indvars.iv.next, 24
-  br i1 %625, label %.loopexit.i33, label %.preheader.i37, !llvm.loop !52
+  br i1 %625, label %.loopexit.i34, label %.preheader.i38, !llvm.loop !52
 
-.loopexit.i33.loopexit.split.loop.exit:           ; preds = %.preheader.i37
+.loopexit.i34.loopexit.split.loop.exit:           ; preds = %.preheader.i38
   %626 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit.i33
+  br label %.loopexit.i34
 
-.loopexit.i33:                                    ; preds = %624, %.loopexit.i33.loopexit.split.loop.exit, %618, %616, %614
-  %.045.sink.i = phi i32 [ %.pre.i, %616 ], [ %612, %614 ], [ 24, %618 ], [ %626, %.loopexit.i33.loopexit.split.loop.exit ], [ 24, %624 ]
+.loopexit.i34:                                    ; preds = %624, %.loopexit.i34.loopexit.split.loop.exit, %618, %616, %614
+  %.045.sink.i = phi i32 [ %.pre.i, %616 ], [ %612, %614 ], [ 24, %618 ], [ %626, %.loopexit.i34.loopexit.split.loop.exit ], [ 24, %624 ]
   %627 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 2, i32 noundef %.045.sink.i) #21
   %628 = load i64, ptr %593, align 8, !tbaa !51
   %629 = icmp sgt i64 %628, 0
   br i1 %629, label %630, label %632
 
-630:                                              ; preds = %.loopexit.i33
+630:                                              ; preds = %.loopexit.i34
   %spec.select87.i = call i64 @llvm.umin.i64(i64 %628, i64 1073741824)
   %spec.select.i = trunc nuw nsw i64 %spec.select87.i to i32
   %631 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 5, i32 noundef %spec.select.i) #21
   br label %632
 
-632:                                              ; preds = %630, %.loopexit.i33
+632:                                              ; preds = %630, %.loopexit.i34
   %633 = load ptr, ptr %25, align 8, !tbaa !46
   %.not62.i = icmp eq ptr %633, null
   br i1 %.not62.i, label %637, label %634
@@ -1603,8 +1603,8 @@ ParseParams.exit.thread.thread100:                ; preds = %396, %121
   %.not64.i = icmp eq ptr %640, null
   %641 = load i32, ptr %9, align 4
   %.not65.i = icmp eq i32 %641, 0
-  %or.cond104 = select i1 %.not64.i, i1 %.not65.i, i1 false
-  br i1 %or.cond104, label %642, label %.critedge.i
+  %or.cond105 = select i1 %.not64.i, i1 %.not65.i, i1 false
+  br i1 %or.cond105, label %642, label %.critedge.i
 
 642:                                              ; preds = %639
   %643 = call i32 @isatty(i32 noundef 1) #21
@@ -1642,8 +1642,8 @@ InitializeBuffers.exit.i.i:                       ; preds = %InitializeBuffers.e
   %653 = load i64, ptr %594, align 8, !tbaa !57
   %654 = icmp ne i64 %653, 0
   %655 = icmp ne i32 %.031.i.i, 0
-  %or.cond.i.i34 = select i1 %654, i1 true, i1 %655
-  br i1 %or.cond.i.i34, label %674, label %656
+  %or.cond.i.i35 = select i1 %654, i1 true, i1 %655
+  br i1 %or.cond.i.i35, label %674, label %656
 
 656:                                              ; preds = %InitializeBuffers.exit.i.i
   %657 = load ptr, ptr %587, align 8, !tbaa !49
@@ -1657,8 +1657,8 @@ InitializeBuffers.exit.i.i:                       ; preds = %InitializeBuffers.e
   store ptr %662, ptr %599, align 8, !tbaa !60
   %663 = load ptr, ptr %34, align 8, !tbaa !58
   %664 = call i32 @ferror(ptr noundef %663) #21
-  %.not.i.i.i35 = icmp eq i32 %664, 0
-  br i1 %.not.i.i.i35, label %ProvideInput.exit.i.i, label %ProvideInput.exit.thread.i.i
+  %.not.i.i.i36 = icmp eq i32 %664, 0
+  br i1 %.not.i.i.i36, label %ProvideInput.exit.i.i, label %ProvideInput.exit.thread.i.i
 
 ProvideInput.exit.thread.i.i:                     ; preds = %656
   %665 = load ptr, ptr @stderr, align 8, !tbaa !30
@@ -1730,9 +1730,9 @@ ProvideInput.exit.i.i:                            ; preds = %656
   store i64 %698, ptr %601, align 8, !tbaa !62
   %699 = icmp ne ptr %692, %693
   %700 = load i32, ptr %13, align 8
-  %.not.i.i36 = icmp eq i32 %700, 0
-  %or.cond105 = select i1 %699, i1 %.not.i.i36, i1 false
-  br i1 %or.cond105, label %701, label %ProvideOutput.exit.i.i
+  %.not.i.i37 = icmp eq i32 %700, 0
+  %or.cond106 = select i1 %699, i1 %.not.i.i37, i1 false
+  br i1 %or.cond106, label %701, label %ProvideOutput.exit.i.i
 
 701:                                              ; preds = %691
   %702 = load ptr, ptr %35, align 8, !tbaa !63
@@ -1779,9 +1779,9 @@ ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit
   store i64 %723, ptr %601, align 8, !tbaa !62
   %724 = icmp ne ptr %717, %718
   %725 = load i32, ptr %13, align 8
-  %.not.i58 = icmp eq i32 %725, 0
-  %or.cond106 = select i1 %724, i1 %.not.i58, i1 false
-  br i1 %or.cond106, label %726, label %738
+  %.not.i59 = icmp eq i32 %725, 0
+  %or.cond107 = select i1 %724, i1 %.not.i59, i1 false
+  br i1 %or.cond107, label %726, label %738
 
 726:                                              ; preds = %716
   %727 = load ptr, ptr %35, align 8, !tbaa !63
@@ -1789,25 +1789,25 @@ ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit
   %729 = load ptr, ptr %35, align 8, !tbaa !63
   %730 = call i32 @ferror(ptr noundef %729) #21
   %.not12.i = icmp eq i32 %730, 0
-  br i1 %.not12.i, label %._crit_edge345, label %WriteOutput.exit
+  br i1 %.not12.i, label %._crit_edge346, label %WriteOutput.exit
 
-._crit_edge345:                                   ; preds = %726
-  %.pre346 = load ptr, ptr %589, align 8, !tbaa !50
+._crit_edge346:                                   ; preds = %726
+  %.pre347 = load ptr, ptr %589, align 8, !tbaa !50
   br label %738
 
 WriteOutput.exit:                                 ; preds = %726
   %731 = load ptr, ptr @stderr, align 8, !tbaa !30
   %732 = load ptr, ptr %33, align 8, !tbaa !53
-  %.not.i.i60 = icmp eq ptr %732, null
-  %733 = select i1 %.not.i.i60, ptr @.str.58, ptr %732
+  %.not.i.i61 = icmp eq ptr %732, null
+  %733 = select i1 %.not.i.i61, ptr @.str.58, ptr %732
   %734 = tail call ptr @__errno_location() #25
   %735 = load i32, ptr %734, align 4, !tbaa !20
   %736 = call ptr @strerror(i32 noundef %735) #21
   %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %731, ptr noundef nonnull @.str.72, ptr noundef nonnull %733, ptr noundef %736) #24
   br label %CompressFile.exit.thread.i
 
-738:                                              ; preds = %._crit_edge345, %716
-  %739 = phi ptr [ %.pre346, %._crit_edge345 ], [ %718, %716 ]
+738:                                              ; preds = %._crit_edge346, %716
+  %739 = phi ptr [ %.pre347, %._crit_edge346 ], [ %718, %716 ]
   store i64 0, ptr %595, align 8, !tbaa !54
   store ptr %739, ptr %596, align 8, !tbaa !55
   %740 = load i32, ptr %7, align 8, !tbaa !34
@@ -1895,14 +1895,14 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
 
 781:                                              ; preds = %1001, %769
   %782 = call fastcc i32 @NextFile(ptr noundef nonnull %5)
-  %.not.i39.not.not = icmp ne i32 %782, 0
-  br i1 %.not.i39.not.not, label %783, label %CompressFiles.exit
+  %.not.i40.not.not = icmp ne i32 %782, 0
+  br i1 %.not.i40.not.not, label %783, label %CompressFiles.exit
 
 783:                                              ; preds = %781
   %784 = call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #21
   store ptr %784, ptr %27, align 8, !tbaa !65
-  %.not.i.i40 = icmp eq ptr %784, null
-  br i1 %.not.i.i40, label %.thread.i54, label %785
+  %.not.i.i41 = icmp eq ptr %784, null
+  br i1 %.not.i.i41, label %.thread.i55, label %785
 
 785:                                              ; preds = %783
   %786 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %784, i32 noundef 1, i32 noundef 1) #21
@@ -1916,7 +1916,7 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   %791 = call i32 @BrotliDecoderAttachDictionary(ptr noundef %789, i32 noundef 0, i64 noundef %790, ptr noundef nonnull %787) #21
   br label %794
 
-.thread.i54:                                      ; preds = %783
+.thread.i55:                                      ; preds = %783
   %792 = load ptr, ptr @stderr, align 8, !tbaa !30
   %793 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %792) #23
   br label %CompressFiles.exit
@@ -1931,31 +1931,31 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   %.not28.i = icmp eq ptr %797, null
   %798 = load i32, ptr %9, align 4
   %.not29.i = icmp eq i32 %798, 0
-  %or.cond107 = select i1 %.not28.i, i1 %.not29.i, i1 false
-  br i1 %or.cond107, label %799, label %.critedge.i41
+  %or.cond108 = select i1 %.not28.i, i1 %.not29.i, i1 false
+  br i1 %or.cond108, label %799, label %.critedge.i42
 
 799:                                              ; preds = %796
   %800 = call i32 @isatty(i32 noundef 0) #21
   %.not30.i = icmp eq i32 %800, 0
-  br i1 %.not30.i, label %.critedge.i41, label %801
+  br i1 %.not30.i, label %.critedge.i42, label %801
 
 801:                                              ; preds = %799
   %802 = load ptr, ptr @stderr, align 8, !tbaa !30
   %803 = call i64 @fwrite(ptr nonnull @.str.84, i64 52, i64 1, ptr %802) #23
   br label %DecompressFile.exit.i
 
-.critedge.i41:                                    ; preds = %799, %796
+.critedge.i42:                                    ; preds = %799, %796
   %804 = load ptr, ptr %27, align 8, !tbaa !65
   %805 = load i64, ptr %8, align 8, !tbaa !17
   %.not.i37.i = icmp eq i64 %805, 0
   br i1 %.not.i37.i, label %807, label %806
 
-806:                                              ; preds = %.critedge.i41
+806:                                              ; preds = %.critedge.i42
   store i32 0, ptr %770, align 8, !tbaa !66
   call void @BrotliDecoderSetMetadataCallbacks(ptr noundef %804, ptr noundef nonnull @OnMetadataStart, ptr noundef nonnull @OnMetadataChunk, ptr noundef nonnull %5) #21
   br label %808
 
-807:                                              ; preds = %.critedge.i41
+807:                                              ; preds = %.critedge.i42
   store i32 2, ptr %770, align 8, !tbaa !66
   br label %808
 
@@ -1967,43 +1967,43 @@ CompressFile.exit.thread.i:                       ; preds = %WriteOutput.exit, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %775, i8 0, i64 16, i1 false)
   %810 = load i32, ptr %7, align 8, !tbaa !34
   %811 = icmp sgt i32 %810, 0
-  br i1 %811, label %812, label %InitializeBuffers.exit.i.i42
+  br i1 %811, label %812, label %InitializeBuffers.exit.i.i43
 
 812:                                              ; preds = %808
   %813 = call i64 @clock() #21
   store i64 %813, ptr %776, align 8, !tbaa !56
-  br label %InitializeBuffers.exit.i.i42
+  br label %InitializeBuffers.exit.i.i43
 
-InitializeBuffers.exit.i.i42:                     ; preds = %812, %808
+InitializeBuffers.exit.i.i43:                     ; preds = %812, %808
   %814 = load i32, ptr %770, align 8, !tbaa !66
   %815 = icmp eq i32 %814, 3
-  br i1 %815, label %._crit_edge.i.i46, label %.lr.ph.i.i43
+  br i1 %815, label %._crit_edge.i.i47, label %.lr.ph.i.i44
 
-._crit_edge.i.i46:                                ; preds = %ProvideInput.exit.i.i45, %InitializeBuffers.exit.i.i42
+._crit_edge.i.i47:                                ; preds = %ProvideInput.exit.i.i46, %InitializeBuffers.exit.i.i43
   %816 = load ptr, ptr @stderr, align 8, !tbaa !30
   %817 = load ptr, ptr %32, align 8, !tbaa !61
-  %.not.i.i.i47 = icmp eq ptr %817, null
-  %818 = select i1 %.not.i.i.i47, ptr @.str.58, ptr %817
+  %.not.i.i.i48 = icmp eq ptr %817, null
+  %818 = select i1 %.not.i.i.i48, ptr @.str.58, ptr %817
   %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.85, ptr noundef nonnull %818) #24
   %820 = load i32, ptr %7, align 8, !tbaa !34
   %821 = icmp sgt i32 %820, 0
   br i1 %821, label %822, label %DecompressFile.exit.i
 
-822:                                              ; preds = %._crit_edge.i.i46
+822:                                              ; preds = %._crit_edge.i.i47
   %823 = load ptr, ptr @stderr, align 8, !tbaa !30
   %824 = call i64 @fwrite(ptr nonnull @.str.86, i64 25, i64 1, ptr %823) #23
   br label %DecompressFile.exit.i
 
-.lr.ph.i.i43:                                     ; preds = %InitializeBuffers.exit.i.i42, %ProvideInput.exit.i.i45
-  %.056118.i.i = phi ptr [ %.157.i.i, %ProvideInput.exit.i.i45 ], [ %804, %InitializeBuffers.exit.i.i42 ]
-  %.061117.i.i = phi i32 [ %993, %ProvideInput.exit.i.i45 ], [ 2, %InitializeBuffers.exit.i.i42 ]
+.lr.ph.i.i44:                                     ; preds = %InitializeBuffers.exit.i.i43, %ProvideInput.exit.i.i46
+  %.056118.i.i = phi ptr [ %.157.i.i, %ProvideInput.exit.i.i46 ], [ %804, %InitializeBuffers.exit.i.i43 ]
+  %.061117.i.i = phi i32 [ %993, %ProvideInput.exit.i.i46 ], [ 2, %InitializeBuffers.exit.i.i43 ]
   switch i32 %.061117.i.i, label %981 [
     i32 2, label %825
     i32 3, label %853
     i32 1, label %876
   ]
 
-825:                                              ; preds = %.lr.ph.i.i43
+825:                                              ; preds = %.lr.ph.i.i44
   %.val.i.i = load ptr, ptr %34, align 8, !tbaa !58
   %826 = call i32 @feof(ptr noundef %.val.i.i) #21
   %.not.i74.not.i.i = icmp eq i32 %826, 0
@@ -2037,20 +2037,20 @@ InitializeBuffers.exit.i.i42:                     ; preds = %812, %808
   %844 = load ptr, ptr %34, align 8, !tbaa !58
   %845 = call i32 @ferror(ptr noundef %844) #21
   %.not.i76.i.i = icmp eq i32 %845, 0
-  br i1 %.not.i76.i.i, label %ProvideInput.exit.i.i45, label %ProvideInput.exit.thread.i.i52
+  br i1 %.not.i76.i.i, label %ProvideInput.exit.i.i46, label %ProvideInput.exit.thread.i.i53
 
-ProvideInput.exit.thread.i.i52:                   ; preds = %837
+ProvideInput.exit.thread.i.i53:                   ; preds = %837
   %846 = load ptr, ptr @stderr, align 8, !tbaa !30
   %847 = load ptr, ptr %32, align 8, !tbaa !61
-  %.not.i.i.i.i53 = icmp eq ptr %847, null
-  %848 = select i1 %.not.i.i.i.i53, ptr @.str.58, ptr %847
+  %.not.i.i.i.i54 = icmp eq ptr %847, null
+  %848 = select i1 %.not.i.i.i.i54, ptr @.str.58, ptr %847
   %849 = tail call ptr @__errno_location() #25
   %850 = load i32, ptr %849, align 4, !tbaa !20
   %851 = call ptr @strerror(i32 noundef %850) #21
   %852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %846, ptr noundef nonnull @.str.71, ptr noundef nonnull %848, ptr noundef %851) #24
   br label %DecompressFile.exit.i
 
-853:                                              ; preds = %.lr.ph.i.i43
+853:                                              ; preds = %.lr.ph.i.i44
   %854 = load ptr, ptr %774, align 8, !tbaa !55
   %855 = load ptr, ptr %773, align 8, !tbaa !50
   %856 = ptrtoint ptr %854 to i64
@@ -2061,40 +2061,40 @@ ProvideInput.exit.thread.i.i52:                   ; preds = %837
   store i64 %860, ptr %780, align 8, !tbaa !62
   %861 = icmp ne ptr %854, %855
   %862 = load i32, ptr %13, align 8
-  %.not.i71 = icmp eq i32 %862, 0
-  %or.cond108 = select i1 %861, i1 %.not.i71, i1 false
-  br i1 %or.cond108, label %863, label %ProvideOutput.exit.i.i51
+  %.not.i72 = icmp eq i32 %862, 0
+  %or.cond109 = select i1 %861, i1 %.not.i72, i1 false
+  br i1 %or.cond109, label %863, label %ProvideOutput.exit.i.i52
 
 863:                                              ; preds = %853
   %864 = load ptr, ptr %35, align 8, !tbaa !63
   %865 = call i64 @fwrite(ptr noundef %855, i64 noundef 1, i64 noundef %858, ptr noundef %864)
   %866 = load ptr, ptr %35, align 8, !tbaa !63
   %867 = call i32 @ferror(ptr noundef %866) #21
-  %.not12.i73 = icmp eq i32 %867, 0
-  br i1 %.not12.i73, label %.ProvideOutput.exit.i.i51_crit_edge, label %WriteOutput.exit75
+  %.not12.i74 = icmp eq i32 %867, 0
+  br i1 %.not12.i74, label %.ProvideOutput.exit.i.i52_crit_edge, label %WriteOutput.exit76
 
-.ProvideOutput.exit.i.i51_crit_edge:              ; preds = %863
-  %.pre344 = load ptr, ptr %773, align 8, !tbaa !50
-  br label %ProvideOutput.exit.i.i51
+.ProvideOutput.exit.i.i52_crit_edge:              ; preds = %863
+  %.pre345 = load ptr, ptr %773, align 8, !tbaa !50
+  br label %ProvideOutput.exit.i.i52
 
-WriteOutput.exit75:                               ; preds = %863
+WriteOutput.exit76:                               ; preds = %863
   %868 = load ptr, ptr @stderr, align 8, !tbaa !30
   %869 = load ptr, ptr %33, align 8, !tbaa !53
-  %.not.i.i74 = icmp eq ptr %869, null
-  %870 = select i1 %.not.i.i74, ptr @.str.58, ptr %869
+  %.not.i.i75 = icmp eq ptr %869, null
+  %870 = select i1 %.not.i.i75, ptr @.str.58, ptr %869
   %871 = tail call ptr @__errno_location() #25
   %872 = load i32, ptr %871, align 4, !tbaa !20
   %873 = call ptr @strerror(i32 noundef %872) #21
   %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %868, ptr noundef nonnull @.str.72, ptr noundef nonnull %870, ptr noundef %873) #24
   br label %DecompressFile.exit.i
 
-ProvideOutput.exit.i.i51:                         ; preds = %.ProvideOutput.exit.i.i51_crit_edge, %853
-  %875 = phi ptr [ %.pre344, %.ProvideOutput.exit.i.i51_crit_edge ], [ %855, %853 ]
+ProvideOutput.exit.i.i52:                         ; preds = %.ProvideOutput.exit.i.i52_crit_edge, %853
+  %875 = phi ptr [ %.pre345, %.ProvideOutput.exit.i.i52_crit_edge ], [ %855, %853 ]
   store i64 524288, ptr %772, align 8, !tbaa !54
   store ptr %875, ptr %774, align 8, !tbaa !55
-  br label %ProvideInput.exit.i.i45
+  br label %ProvideInput.exit.i.i46
 
-876:                                              ; preds = %.lr.ph.i.i43
+876:                                              ; preds = %.lr.ph.i.i44
   %877 = load ptr, ptr %774, align 8, !tbaa !55
   %878 = load ptr, ptr %773, align 8, !tbaa !50
   %879 = ptrtoint ptr %877 to i64
@@ -2105,27 +2105,27 @@ ProvideOutput.exit.i.i51:                         ; preds = %.ProvideOutput.exit
   store i64 %883, ptr %780, align 8, !tbaa !62
   %884 = icmp ne ptr %877, %878
   %885 = load i32, ptr %13, align 8
-  %.not.i66 = icmp eq i32 %885, 0
-  %or.cond109 = select i1 %884, i1 %.not.i66, i1 false
-  br i1 %or.cond109, label %886, label %898
+  %.not.i67 = icmp eq i32 %885, 0
+  %or.cond110 = select i1 %884, i1 %.not.i67, i1 false
+  br i1 %or.cond110, label %886, label %898
 
 886:                                              ; preds = %876
   %887 = load ptr, ptr %35, align 8, !tbaa !63
   %888 = call i64 @fwrite(ptr noundef %878, i64 noundef 1, i64 noundef %881, ptr noundef %887)
   %889 = load ptr, ptr %35, align 8, !tbaa !63
   %890 = call i32 @ferror(ptr noundef %889) #21
-  %.not12.i68 = icmp eq i32 %890, 0
-  br i1 %.not12.i68, label %._crit_edge, label %WriteOutput.exit70
+  %.not12.i69 = icmp eq i32 %890, 0
+  br i1 %.not12.i69, label %._crit_edge, label %WriteOutput.exit71
 
 ._crit_edge:                                      ; preds = %886
-  %.pre341 = load ptr, ptr %773, align 8, !tbaa !50
+  %.pre342 = load ptr, ptr %773, align 8, !tbaa !50
   br label %898
 
-WriteOutput.exit70:                               ; preds = %886
+WriteOutput.exit71:                               ; preds = %886
   %891 = load ptr, ptr @stderr, align 8, !tbaa !30
   %892 = load ptr, ptr %33, align 8, !tbaa !53
-  %.not.i.i69 = icmp eq ptr %892, null
-  %893 = select i1 %.not.i.i69, ptr @.str.58, ptr %892
+  %.not.i.i70 = icmp eq ptr %892, null
+  %893 = select i1 %.not.i.i70, ptr @.str.58, ptr %892
   %894 = tail call ptr @__errno_location() #25
   %895 = load i32, ptr %894, align 4, !tbaa !20
   %896 = call ptr @strerror(i32 noundef %895) #21
@@ -2133,7 +2133,7 @@ WriteOutput.exit70:                               ; preds = %886
   br label %DecompressFile.exit.i
 
 898:                                              ; preds = %._crit_edge, %876
-  %899 = phi ptr [ %.pre341, %._crit_edge ], [ %878, %876 ]
+  %899 = phi ptr [ %.pre342, %._crit_edge ], [ %878, %876 ]
   store i64 0, ptr %772, align 8, !tbaa !54
   store ptr %899, ptr %774, align 8, !tbaa !55
   %900 = load i64, ptr %771, align 8, !tbaa !57
@@ -2144,9 +2144,9 @@ WriteOutput.exit70:                               ; preds = %886
   %902 = load ptr, ptr %34, align 8, !tbaa !58
   %903 = call i32 @fgetc(ptr noundef %902)
   %.not64.i.i = icmp eq i32 %903, -1
-  br i1 %.not64.i.i, label %959, label %.critedge.i.i49
+  br i1 %.not64.i.i, label %959, label %.critedge.i.i50
 
-.critedge.i.i49:                                  ; preds = %901
+.critedge.i.i50:                                  ; preds = %901
   %904 = trunc i32 %903 to i8
   %905 = load ptr, ptr %777, align 8, !tbaa !49
   store i8 %904, ptr %905, align 1, !tbaa !27
@@ -2155,7 +2155,7 @@ WriteOutput.exit70:                               ; preds = %886
   store i64 1, ptr %771, align 8, !tbaa !57
   br label %.critedge73.i.i
 
-.critedge73.i.i:                                  ; preds = %.critedge.i.i49, %898
+.critedge73.i.i:                                  ; preds = %.critedge.i.i50, %898
   %907 = load i32, ptr %16, align 4, !tbaa !28
   %.not66.i.i = icmp eq i32 %907, 0
   br i1 %.not66.i.i, label %949, label %908
@@ -2181,35 +2181,35 @@ WriteOutput.exit70:                               ; preds = %886
   store i64 %921, ptr %780, align 8, !tbaa !62
   %922 = icmp ne ptr %915, %916
   %923 = load i32, ptr %13, align 8
-  %.not.i61 = icmp eq i32 %923, 0
-  %or.cond110 = select i1 %922, i1 %.not.i61, i1 false
-  br i1 %or.cond110, label %924, label %936
+  %.not.i62 = icmp eq i32 %923, 0
+  %or.cond111 = select i1 %922, i1 %.not.i62, i1 false
+  br i1 %or.cond111, label %924, label %936
 
 924:                                              ; preds = %914
   %925 = load ptr, ptr %35, align 8, !tbaa !63
   %926 = call i64 @fwrite(ptr noundef %916, i64 noundef 1, i64 noundef %919, ptr noundef %925)
   %927 = load ptr, ptr %35, align 8, !tbaa !63
   %928 = call i32 @ferror(ptr noundef %927) #21
-  %.not12.i63 = icmp eq i32 %928, 0
-  br i1 %.not12.i63, label %._crit_edge342, label %WriteOutput.exit65
+  %.not12.i64 = icmp eq i32 %928, 0
+  br i1 %.not12.i64, label %._crit_edge343, label %WriteOutput.exit66
 
-._crit_edge342:                                   ; preds = %924
-  %.pre343 = load ptr, ptr %773, align 8, !tbaa !50
+._crit_edge343:                                   ; preds = %924
+  %.pre344 = load ptr, ptr %773, align 8, !tbaa !50
   br label %936
 
-WriteOutput.exit65:                               ; preds = %924
+WriteOutput.exit66:                               ; preds = %924
   %929 = load ptr, ptr @stderr, align 8, !tbaa !30
   %930 = load ptr, ptr %33, align 8, !tbaa !53
-  %.not.i.i64 = icmp eq ptr %930, null
-  %931 = select i1 %.not.i.i64, ptr @.str.58, ptr %930
+  %.not.i.i65 = icmp eq ptr %930, null
+  %931 = select i1 %.not.i.i65, ptr @.str.58, ptr %930
   %932 = tail call ptr @__errno_location() #25
   %933 = load i32, ptr %932, align 4, !tbaa !20
   %934 = call ptr @strerror(i32 noundef %933) #21
   %935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %929, ptr noundef nonnull @.str.72, ptr noundef nonnull %931, ptr noundef %934) #24
   br label %DecompressFile.exit.i
 
-936:                                              ; preds = %._crit_edge342, %914
-  %937 = phi ptr [ %.pre343, %._crit_edge342 ], [ %916, %914 ]
+936:                                              ; preds = %._crit_edge343, %914
+  %937 = phi ptr [ %.pre344, %._crit_edge343 ], [ %916, %914 ]
   store i64 524288, ptr %772, align 8, !tbaa !54
   store ptr %937, ptr %774, align 8, !tbaa !55
   %938 = load ptr, ptr %27, align 8, !tbaa !65
@@ -2223,8 +2223,8 @@ WriteOutput.exit65:                               ; preds = %924
 940:                                              ; preds = %936
   %941 = call i32 @BrotliDecoderSetParameter(ptr noundef nonnull %939, i32 noundef 1, i32 noundef 1) #21
   %942 = load ptr, ptr %25, align 8, !tbaa !46
-  %.not9.i.i.i44 = icmp eq ptr %942, null
-  br i1 %.not9.i.i.i44, label %979, label %943
+  %.not9.i.i.i45 = icmp eq ptr %942, null
+  br i1 %.not9.i.i.i45, label %979, label %943
 
 943:                                              ; preds = %940
   %944 = load ptr, ptr %27, align 8, !tbaa !65
@@ -2264,7 +2264,7 @@ InitDecoder.exit.i.i:                             ; preds = %936
   %965 = call i64 @fwrite(ptr nonnull @.str.90, i64 13, i64 1, ptr %964) #23
   call fastcc void @PrintFileProcessingProgress(ptr noundef nonnull %5)
   %966 = load ptr, ptr @stderr, align 8, !tbaa !30
-  %fputc.i.i50 = call i32 @fputc(i32 10, ptr %966)
+  %fputc.i.i51 = call i32 @fputc(i32 10, ptr %966)
   br label %967
 
 967:                                              ; preds = %962, %959
@@ -2289,9 +2289,9 @@ InitDecoder.exit.i.i:                             ; preds = %936
 
 979:                                              ; preds = %943, %940
   %980 = load ptr, ptr %27, align 8, !tbaa !65
-  br label %ProvideInput.exit.i.i45
+  br label %ProvideInput.exit.i.i46
 
-981:                                              ; preds = %.lr.ph.i.i43
+981:                                              ; preds = %.lr.ph.i.i44
   %982 = load ptr, ptr @stderr, align 8, !tbaa !30
   %983 = load ptr, ptr %32, align 8, !tbaa !61
   %.not.i88.i.i = icmp eq ptr %983, null
@@ -2308,15 +2308,15 @@ InitDecoder.exit.i.i:                             ; preds = %936
   %992 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.91, ptr noundef %990, i32 noundef %989) #24
   br label %DecompressFile.exit.i
 
-ProvideInput.exit.i.i45:                          ; preds = %979, %ProvideOutput.exit.i.i51, %837
-  %.157.i.i = phi ptr [ %.056118.i.i, %ProvideOutput.exit.i.i51 ], [ %980, %979 ], [ %.056118.i.i, %837 ]
+ProvideInput.exit.i.i46:                          ; preds = %979, %ProvideOutput.exit.i.i52, %837
+  %.157.i.i = phi ptr [ %.056118.i.i, %ProvideOutput.exit.i.i52 ], [ %980, %979 ], [ %.056118.i.i, %837 ]
   %993 = call i32 @BrotliDecoderDecompressStream(ptr noundef %.157.i.i, ptr noundef nonnull %771, ptr noundef nonnull %778, ptr noundef nonnull %772, ptr noundef nonnull %774, ptr noundef null) #21
   %994 = load i32, ptr %770, align 8, !tbaa !66
   %995 = icmp eq i32 %994, 3
-  br i1 %995, label %._crit_edge.i.i46, label %.lr.ph.i.i43
+  br i1 %995, label %._crit_edge.i.i47, label %.lr.ph.i.i44
 
-DecompressFile.exit.i:                            ; preds = %WriteOutput.exit65, %WriteOutput.exit70, %WriteOutput.exit75, %988, %981, %976, %969, %967, %956, %949, %InitDecoder.exit.i.i, %ProvideInput.exit.thread.i.i52, %834, %827, %822, %._crit_edge.i.i46, %801, %794
-  %.not33.i = phi i1 [ true, %801 ], [ true, %794 ], [ true, %822 ], [ true, %._crit_edge.i.i46 ], [ true, %834 ], [ true, %827 ], [ true, %988 ], [ true, %981 ], [ true, %ProvideInput.exit.thread.i.i52 ], [ false, %967 ], [ false, %976 ], [ false, %969 ], [ true, %949 ], [ true, %956 ], [ true, %InitDecoder.exit.i.i ], [ true, %WriteOutput.exit75 ], [ true, %WriteOutput.exit70 ], [ true, %WriteOutput.exit65 ]
+DecompressFile.exit.i:                            ; preds = %WriteOutput.exit66, %WriteOutput.exit71, %WriteOutput.exit76, %988, %981, %976, %969, %967, %956, %949, %InitDecoder.exit.i.i, %ProvideInput.exit.thread.i.i53, %834, %827, %822, %._crit_edge.i.i47, %801, %794
+  %.not33.i = phi i1 [ true, %801 ], [ true, %794 ], [ true, %822 ], [ true, %._crit_edge.i.i47 ], [ true, %834 ], [ true, %827 ], [ true, %988 ], [ true, %981 ], [ true, %ProvideInput.exit.thread.i.i53 ], [ false, %967 ], [ false, %976 ], [ false, %969 ], [ true, %949 ], [ true, %956 ], [ true, %InitDecoder.exit.i.i ], [ true, %WriteOutput.exit76 ], [ true, %WriteOutput.exit71 ], [ true, %WriteOutput.exit66 ]
   %996 = load ptr, ptr %27, align 8, !tbaa !65
   %.not32.i = icmp eq ptr %996, null
   br i1 %.not32.i, label %998, label %997
@@ -2343,17 +2343,17 @@ DecompressFile.exit.i:                            ; preds = %WriteOutput.exit65,
   br i1 %.not34.i, label %CompressFiles.exit, label %781
 
 ParseParams.exit.thread.thread:                   ; preds = %325, %96, %ParseParams.exit, %520, %511, %._crit_edge.i, %509, %515, %.thread, %519, %91, %98, %103, %108, %116, %124, %129, %134, %140, %145, %150, %154, %159, %172, %180, %185, %.loopexit.i, %208, %232, %.loopexit557.i, %236, %.loopexit558.i, %280, %285, %392, %383, %375, %367, %359, %341, %332, %321, %313, %305, %297, %65, %405, %415, %420, %428, %436, %447, %441, %454, %465, %459, %472, %480, %485, %492, %496, %ParseParams.exit.thread
-  %.7.i77.ph98 = phi i32 [ %.1295.lcssa.i, %ParseParams.exit.thread ], [ 3, %._crit_edge.i ], [ 3, %509 ], [ 3, %515 ], [ 3, %.thread ], [ 3, %519 ], [ 3, %91 ], [ 3, %98 ], [ 3, %103 ], [ 3, %108 ], [ 3, %116 ], [ 3, %124 ], [ 3, %129 ], [ 3, %134 ], [ 3, %140 ], [ 3, %145 ], [ 3, %150 ], [ 3, %154 ], [ 3, %159 ], [ 3, %172 ], [ 3, %180 ], [ 3, %185 ], [ 3, %.loopexit.i ], [ 3, %208 ], [ 3, %232 ], [ 3, %.loopexit557.i ], [ 3, %236 ], [ 3, %.loopexit558.i ], [ 3, %280 ], [ 3, %285 ], [ 3, %392 ], [ 3, %383 ], [ 3, %375 ], [ 3, %367 ], [ 3, %359 ], [ 3, %341 ], [ 3, %332 ], [ 3, %321 ], [ 3, %313 ], [ 3, %305 ], [ 3, %297 ], [ 3, %65 ], [ 3, %405 ], [ 3, %415 ], [ 3, %420 ], [ 3, %428 ], [ 3, %436 ], [ 3, %447 ], [ 3, %441 ], [ 3, %454 ], [ 3, %465 ], [ 3, %459 ], [ 3, %472 ], [ 3, %480 ], [ 3, %485 ], [ 3, %492 ], [ 3, %496 ], [ 3, %511 ], [ 3, %520 ], [ %.1295.lcssa.i, %ParseParams.exit ], [ 2, %96 ], [ 2, %325 ]
-  %1006 = icmp ne i32 %.7.i77.ph98, 2
+  %.7.i78.ph99 = phi i32 [ %.1295.lcssa.i, %ParseParams.exit.thread ], [ 3, %._crit_edge.i ], [ 3, %509 ], [ 3, %515 ], [ 3, %.thread ], [ 3, %519 ], [ 3, %91 ], [ 3, %98 ], [ 3, %103 ], [ 3, %108 ], [ 3, %116 ], [ 3, %124 ], [ 3, %129 ], [ 3, %134 ], [ 3, %140 ], [ 3, %145 ], [ 3, %150 ], [ 3, %154 ], [ 3, %159 ], [ 3, %172 ], [ 3, %180 ], [ 3, %185 ], [ 3, %.loopexit.i ], [ 3, %208 ], [ 3, %232 ], [ 3, %.loopexit557.i ], [ 3, %236 ], [ 3, %.loopexit558.i ], [ 3, %280 ], [ 3, %285 ], [ 3, %392 ], [ 3, %383 ], [ 3, %375 ], [ 3, %367 ], [ 3, %359 ], [ 3, %341 ], [ 3, %332 ], [ 3, %321 ], [ 3, %313 ], [ 3, %305 ], [ 3, %297 ], [ 3, %65 ], [ 3, %405 ], [ 3, %415 ], [ 3, %420 ], [ 3, %428 ], [ 3, %436 ], [ 3, %447 ], [ 3, %441 ], [ 3, %454 ], [ 3, %465 ], [ 3, %459 ], [ 3, %472 ], [ 3, %480 ], [ 3, %485 ], [ 3, %492 ], [ 3, %496 ], [ 3, %511 ], [ 3, %520 ], [ %.1295.lcssa.i, %ParseParams.exit ], [ 2, %96 ], [ 2, %325 ]
+  %1006 = icmp ne i32 %.7.i78.ph99, 2
   %1007 = load ptr, ptr %1, align 8, !tbaa !26
   %1008 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1007, i32 noundef 47) #22
-  %.not.i55 = icmp eq ptr %1008, null
+  %.not.i56 = icmp eq ptr %1008, null
   %1009 = getelementptr inbounds nuw i8, ptr %1008, i64 1
-  %spec.select.i56 = select i1 %.not.i55, ptr %1007, ptr %1009
-  %1010 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i56, i32 noundef 92) #22
+  %spec.select.i57 = select i1 %.not.i56, ptr %1007, ptr %1009
+  %1010 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i57, i32 noundef 92) #22
   %.not9.i = icmp eq ptr %1010, null
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 1
-  %.1.i = select i1 %.not9.i, ptr %spec.select.i56, ptr %1011
+  %.1.i = select i1 %.not9.i, ptr %spec.select.i57, ptr %1011
   %1012 = load ptr, ptr @stderr, align 8
   %1013 = load ptr, ptr @stdout, align 8
   %1014 = select i1 %1006, ptr %1013, ptr %1012
@@ -2370,8 +2370,8 @@ ParseParams.exit.thread.thread:                   ; preds = %325, %96, %ParsePar
   %1025 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 304, i64 1, ptr %1014)
   br label %CompressFiles.exit
 
-CompressFiles.exit:                               ; preds = %768, %603, %1001, %781, %555, %574, %561, %549, %FileSize.exit.thread.i, %527, %584, %.thread57.i, %.thread.i54, %.thread.i38, %ParseParams.exit.thread.thread, %ParseParams.exit.thread.thread100
-  %.3 = phi i1 [ %1006, %ParseParams.exit.thread.thread ], [ false, %ParseParams.exit.thread.thread100 ], [ true, %.thread.i38 ], [ true, %.thread.i54 ], [ true, %.thread57.i ], [ true, %584 ], [ true, %527 ], [ true, %FileSize.exit.thread.i ], [ true, %549 ], [ true, %561 ], [ true, %574 ], [ true, %555 ], [ %.not.i39.not.not, %781 ], [ %.not.i39.not.not, %1001 ], [ %.not.i32.not.not, %603 ], [ %.not.i32.not.not, %768 ]
+CompressFiles.exit:                               ; preds = %768, %603, %1001, %781, %555, %574, %561, %549, %FileSize.exit.thread.i, %527, %584, %.thread57.i, %.thread.i55, %.thread.i39, %ParseParams.exit.thread.thread, %ParseParams.exit.thread.thread101
+  %.3 = phi i1 [ %1006, %ParseParams.exit.thread.thread ], [ false, %ParseParams.exit.thread.thread101 ], [ true, %.thread.i39 ], [ true, %.thread.i55 ], [ true, %.thread57.i ], [ true, %584 ], [ true, %527 ], [ true, %FileSize.exit.thread.i ], [ true, %549 ], [ true, %561 ], [ true, %574 ], [ true, %555 ], [ %.not.i40.not.not, %781 ], [ %.not.i40.not.not, %1001 ], [ %.not.i33.not.not, %603 ], [ %.not.i33.not.not, %768 ]
   %1026 = load i32, ptr %30, align 8, !tbaa !67
   %.not27 = icmp ne i32 %1026, 0
   %1027 = load ptr, ptr %28, align 8, !tbaa !47

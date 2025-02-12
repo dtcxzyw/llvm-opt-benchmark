@@ -439,8 +439,8 @@ thread-pre-split:                                 ; preds = %68
   %.pre420 = load i8, ptr %124, align 1
   %.pre421 = sext i8 %.pre420 to i32
   %.pre422 = add nsw i32 %.pre421, -48
-  %isdigit221354364 = icmp ult i32 %.pre422, 10
   %131 = icmp eq i8 %.pre420, 95
+  %isdigit221354364 = icmp ult i32 %.pre422, 10
   %or.cond241355365 = or i1 %131, %isdigit221354364
   br i1 %or.cond241355365, label %.critedge11.lr.ph.preheader, label %.outer._crit_edge
 

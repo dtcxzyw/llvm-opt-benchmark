@@ -10892,7 +10892,7 @@ _ZNSt6vectorI13DisulfideBondSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP13Di
   %3261 = getelementptr inbounds nuw %struct.t_resinfo, ptr %3260, i64 %indvars.iv22.i, i32 5
   %3262 = load ptr, ptr %3261, align 8
   %3263 = load ptr, ptr %3262, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %30, ptr %3229, ptr %3242, ptr noundef %3263, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %30, ptr %3229, ptr nonnull %3242, ptr noundef %3263, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext false)
           to label %.noexc958 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc958:                                        ; preds = %._crit_edge.i947
@@ -10909,7 +10909,7 @@ _ZNSt6vectorI13DisulfideBondSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP13Di
   %3268 = getelementptr inbounds nuw %struct.t_resinfo, ptr %3267, i64 %indvars.iv22.i, i32 5
   %3269 = load ptr, ptr %3268, align 8
   %3270 = load ptr, ptr %3269, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %31, ptr %3229, ptr %3242, ptr noundef %3270, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbb(ptr dead_on_unwind noalias writable align 8 %31, ptr %3229, ptr nonnull %3242, ptr noundef %3270, i1 noundef zeroext %.040.lcssa26.i, i1 noundef zeroext %.039.lcssa.i, i1 noundef zeroext true)
           to label %3271 unwind label %3273
 
 3271:                                             ; preds = %3266
@@ -11185,7 +11185,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3401 = ptrtoint ptr %3343 to i64
   %3402 = sub i64 %3400, %3401
   %3403 = getelementptr inbounds i8, ptr %3343, i64 %3402
-  %3404 = invoke noundef ptr @_Z10choose_terN3gmx8ArrayRefIP21MoleculePatchDatabaseEEPKc(ptr %3343, ptr %3403, ptr noundef nonnull %138)
+  %3404 = invoke noundef ptr @_Z10choose_terN3gmx8ArrayRefIP21MoleculePatchDatabaseEEPKc(ptr %3343, ptr nonnull %3403, ptr noundef nonnull %138)
           to label %3405 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 3405:                                             ; preds = %3386
@@ -11561,7 +11561,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3576 = ptrtoint ptr %3518 to i64
   %3577 = sub i64 %3575, %3576
   %3578 = getelementptr inbounds i8, ptr %3518, i64 %3577
-  %3579 = invoke noundef ptr @_Z10choose_terN3gmx8ArrayRefIP21MoleculePatchDatabaseEEPKc(ptr %3518, ptr %3578, ptr noundef nonnull %138)
+  %3579 = invoke noundef ptr @_Z10choose_terN3gmx8ArrayRefIP21MoleculePatchDatabaseEEPKc(ptr %3518, ptr nonnull %3578, ptr noundef nonnull %138)
           to label %3580 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 3580:                                             ; preds = %3561

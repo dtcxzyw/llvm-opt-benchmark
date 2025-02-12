@@ -1408,7 +1408,8 @@ for.body273.preheader.i:                          ; preds = %encrypt_xor_block.e
 
 for.end286.i:                                     ; preds = %for.body273.preheader.i, %encrypt_xor_block.exit576.i
   %243 = getelementptr i8, ptr %c, i64 %i.6.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %243, ptr nonnull align 16 %last_blocks.i, i64 %sub253.i, i1 false)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub253.i, i64 1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %243, ptr noundef nonnull align 16 dereferenceable(1) %last_blocks.i, i64 %umax.i, i1 false)
   br label %aes_gcm_encrypt_generic.exit
 
 if.else.i:                                        ; preds = %encrypt.exit.i
@@ -2465,7 +2466,8 @@ for.body206.lr.ph.i:                              ; preds = %for.body.i391.i
   %xor.i.i398.i = xor <2 x i64> %191, %190
   store <2 x i64> %xor.i.i398.i, ptr %last_blocks.i, align 16
   %192 = getelementptr i8, ptr %m, i64 %i.4.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr nonnull align 16 %last_blocks.i, i64 %sub178.i, i1 false)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub178.i, i64 1)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %192, ptr noundef nonnull align 16 dereferenceable(1) %last_blocks.i, i64 %umax.i, i1 false)
   br label %aes_gcm_decrypt_generic.exit
 
 if.else.i:                                        ; preds = %encrypt.exit.i30
@@ -2917,6 +2919,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -3953,8 +3953,8 @@ _ZNK2cv3MatclEPKNS_5RangeE.exit:                  ; preds = %._crit_edge
   %51 = load ptr, ptr %7, align 8
   %.not.i.i73 = icmp eq ptr %51, %scevgep.i
   %52 = icmp eq ptr %51, null
-  %or.cond98 = or i1 %.not.i.i73, %52
-  br i1 %or.cond98, label %_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit, label %53
+  %or.cond97 = or i1 %.not.i.i73, %52
+  br i1 %or.cond97, label %_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit, label %53
 
 53:                                               ; preds = %50
   call void @_ZdaPv(ptr noundef nonnull %51) #26
@@ -3971,8 +3971,8 @@ _ZNK2cv3MatclEPKNS_5RangeE.exit:                  ; preds = %._crit_edge
   %57 = load ptr, ptr %7, align 8
   %.not.i.i74 = icmp eq ptr %57, %scevgep.i
   %58 = icmp eq ptr %57, null
-  %or.cond99 = or i1 %.not.i.i74, %58
-  br i1 %or.cond99, label %_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit75, label %59
+  %or.cond98 = or i1 %.not.i.i74, %58
+  br i1 %or.cond98, label %_ZN2cv10AutoBufferINS_5RangeELm136EED2Ev.exit75, label %59
 
 59:                                               ; preds = %56
   call void @_ZdaPv(ptr noundef nonnull %57) #26

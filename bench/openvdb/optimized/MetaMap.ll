@@ -1241,21 +1241,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i118, label %if.end91.sink.split, label %if.end91
 
 if.end91.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i43, %if.then.i.i.i.i124
-  %.sink140 = phi ptr [ %70, %if.then.i.i.i.i124 ], [ %27, %if.then.i.i.i.i43 ]
-  %_M_weak_count.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %.sink140, i64 12
+  %.sink139 = phi ptr [ %70, %if.then.i.i.i.i124 ], [ %27, %if.then.i.i.i.i43 ]
+  %_M_weak_count.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %.sink139, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i125, align 4
-  %vtable.i.i.i.i126 = load ptr, ptr %.sink140, align 8
+  %vtable.i.i.i.i126 = load ptr, ptr %.sink139, align 8
   %vfn.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i126, i64 16
   %79 = load ptr, ptr %vfn.i.i.i.i127, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %.sink140) #17
+  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %.sink139) #17
   br label %if.end91.sink.split
 
 if.end91.sink.split:                              ; preds = %if.end91.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35
-  %.sink137 = phi ptr [ %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35 ], [ %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116 ], [ %.sink140, %if.end91.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i120 = load ptr, ptr %.sink137, align 8
+  %.sink136 = phi ptr [ %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35 ], [ %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116 ], [ %.sink139, %if.end91.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i120 = load ptr, ptr %.sink136, align 8
   %vfn3.i.i.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i120, i64 24
   %80 = load ptr, ptr %vfn3.i.i.i.i.i.i121, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %.sink137) #17
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %.sink136) #17
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end91.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106, %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEEaSERKS3_.exit96, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25, %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEEaSERKS3_.exit

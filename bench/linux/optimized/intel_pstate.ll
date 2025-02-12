@@ -3581,14 +3581,14 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #25, !srcloc !61
   %9 = load i32, ptr %4, align 8
   %10 = icmp eq i32 %8, %9
-  br i1 %10, label %11, label %86
+  br i1 %10, label %11, label %82
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %0, i64 160
   store i64 %1, ptr %12, align 8
   %13 = and i32 %7, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %66, label %15
+  br i1 %14, label %62, label %15
 
 15:                                               ; preds = %11
   store i32 0, ptr %5, align 8
@@ -3598,7 +3598,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %19 = sub i64 %18, %17
   %20 = icmp slt i64 %19, 0
   store i64 %1, ptr %16, align 8
-  br i1 %20, label %21, label %86
+  br i1 %20, label %21, label %82
 
 21:                                               ; preds = %15
   %22 = getelementptr i8, ptr %0, i64 304
@@ -3610,13 +3610,13 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %28 = and i32 %27, 255
   %29 = and i32 %26, 255
   %30 = icmp eq i32 %28, %29
-  br i1 %30, label %86, label %31
+  br i1 %30, label %82, label %31
 
 31:                                               ; preds = %21
   %32 = getelementptr i8, ptr %0, i64 332
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, %28
-  br i1 %34, label %35, label %86
+  br i1 %34, label %35, label %82
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %33, 0
@@ -3635,7 +3635,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %44 = lshr i64 %43, 1
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = icmp samesign ult i32 %39, %45
-  br i1 %46, label %57, label %47
+  br i1 %46, label %53, label %47
 
 47:                                               ; preds = %38
   %48 = zext nneg i32 %39 to i64
@@ -3644,71 +3644,68 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
 
 50:                                               ; preds = %47
   %51 = trunc nuw nsw i64 %41 to i32
-  br label %57
+  br label %53
 
 52:                                               ; preds = %47
-  %53 = icmp ne i64 %41, %48
-  %54 = zext nneg i32 %28 to i64
-  %55 = icmp eq i64 %41, %54
-  %56 = select i1 %53, i1 true, i1 %55
-  br i1 %56, label %86, label %57
+  %.not = icmp eq i64 %41, %48
+  br i1 %.not, label %53, label %82
 
-57:                                               ; preds = %52, %50, %38
-  %58 = phi i32 [ %51, %50 ], [ %45, %38 ], [ %28, %52 ]
-  store i32 %58, ptr %32, align 4
-  %59 = and i64 %23, -256
-  %60 = zext nneg i32 %58 to i64
-  %61 = or i64 %59, %60
-  %62 = trunc i64 %61 to i32
-  %63 = lshr i64 %23, 32
-  %64 = trunc nuw i64 %63 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %62, i32 %64) #26, !srcloc !17
+53:                                               ; preds = %52, %50, %38
+  %54 = phi i32 [ %51, %50 ], [ %45, %38 ], [ %28, %52 ]
+  store i32 %54, ptr %32, align 4
+  %55 = and i64 %23, -256
+  %56 = zext nneg i32 %54 to i64
+  %57 = or i64 %55, %56
+  %58 = trunc i64 %57 to i32
+  %59 = lshr i64 %23, 32
+  %60 = trunc nuw i64 %59 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %58, i32 %60) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #26
-          to label %83 [label %65], !srcloc !8
+          to label %79 [label %61], !srcloc !8
 
-65:                                               ; preds = %57
-  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %61, i32 noundef 0) #26
-  br label %83
+61:                                               ; preds = %53
+  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %57, i32 noundef 0) #26
+  br label %79
 
-66:                                               ; preds = %11
-  %67 = getelementptr i8, ptr %0, i64 332
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %83, label %70
+62:                                               ; preds = %11
+  %63 = getelementptr i8, ptr %0, i64 332
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %79, label %66
 
-70:                                               ; preds = %66
-  %71 = getelementptr i8, ptr %0, i64 72
-  %72 = load i64, ptr %71, align 8
-  %reass.sub = sub i64 %72, %1
-  %73 = add i64 %reass.sub, 3000000
-  %74 = icmp slt i64 %73, 0
-  br i1 %74, label %75, label %83
+66:                                               ; preds = %62
+  %67 = getelementptr i8, ptr %0, i64 72
+  %68 = load i64, ptr %67, align 8
+  %reass.sub = sub i64 %68, %1
+  %69 = add i64 %reass.sub, 3000000
+  %70 = icmp slt i64 %69, 0
+  br i1 %70, label %71, label %79
 
-75:                                               ; preds = %70
-  %76 = getelementptr i8, ptr %0, i64 304
-  %77 = load i64, ptr %76, align 8
-  %78 = trunc i64 %77 to i32
-  %79 = lshr i64 %77, 32
-  %80 = trunc nuw i64 %79 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %78, i32 %80) #26, !srcloc !17
+71:                                               ; preds = %66
+  %72 = getelementptr i8, ptr %0, i64 304
+  %73 = load i64, ptr %72, align 8
+  %74 = trunc i64 %73 to i32
+  %75 = lshr i64 %73, 32
+  %76 = trunc nuw i64 %75 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %74, i32 %76) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #26
-          to label %82 [label %81], !srcloc !8
+          to label %78 [label %77], !srcloc !8
 
-81:                                               ; preds = %75
-  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %77, i32 noundef 0) #26
+77:                                               ; preds = %71
+  tail call void @do_trace_write_msr(i32 noundef 1908, i64 noundef %73, i32 noundef 0) #26
+  br label %78
+
+78:                                               ; preds = %77, %71
+  store i32 0, ptr %63, align 4
+  br label %79
+
+79:                                               ; preds = %78, %66, %62, %61, %53
+  %80 = load i64, ptr %12, align 8
+  %81 = getelementptr i8, ptr %0, i64 72
+  store i64 %80, ptr %81, align 8
   br label %82
 
-82:                                               ; preds = %81, %75
-  store i32 0, ptr %67, align 4
-  br label %83
-
-83:                                               ; preds = %82, %70, %66, %65, %57
-  %84 = load i64, ptr %12, align 8
-  %85 = getelementptr i8, ptr %0, i64 72
-  store i64 %84, ptr %85, align 8
-  br label %86
-
-86:                                               ; preds = %83, %52, %31, %21, %15, %3
+82:                                               ; preds = %79, %52, %31, %21, %15, %3
   ret void
 }
 

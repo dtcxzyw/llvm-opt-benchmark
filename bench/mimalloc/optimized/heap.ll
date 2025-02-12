@@ -428,7 +428,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
   %page_count.i.i = getelementptr inbounds nuw i8, ptr %heap, i64 3024
   %1 = load i64, ptr %page_count.i.i, align 8
   %cmp1.i.i = icmp eq i64 %1, 0
-  br i1 %cmp1.i.i, label %if.end.i, label %for.cond.preheader.i.i
+  br i1 %cmp1.i.i, label %_mi_heap_destroy_pages.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
   %pages.i.i = getelementptr inbounds nuw i8, ptr %heap, i64 1040
@@ -474,9 +474,9 @@ _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %whi
 for.inc.i.i:                                      ; preds = %_mi_heap_page_destroy.exit.i, %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 75
-  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_mi_heap_destroy_pages.exit, label %for.body.i.i, !llvm.loop !6
 
-if.end.i:                                         ; preds = %for.inc.i.i, %lor.lhs.false.i.i
+_mi_heap_destroy_pages.exit:                      ; preds = %for.inc.i.i, %lor.lhs.false.i.i
   %pages_free_direct.i.i = getelementptr inbounds nuw i8, ptr %heap, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
   %pages.i2.i = getelementptr inbounds nuw i8, ptr %heap, i64 1040
@@ -492,7 +492,7 @@ if.end.i:                                         ; preds = %for.inc.i.i, %lor.l
   %cmp.i17.i = icmp eq ptr %9, %heap
   br i1 %cmp.i17.i, label %if.end2, label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.end.i
+if.end3.i:                                        ; preds = %_mi_heap_destroy_pages.exit
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %11 = load ptr, ptr %10, align 8
   %cmp.i18.i = icmp eq ptr %heap, %11
@@ -541,7 +541,7 @@ if.end20.i:                                       ; preds = %if.else.i, %if.then
   call void @mi_free(ptr noundef nonnull %heap) #9
   br label %if.end2
 
-if.end2:                                          ; preds = %if.end20.i, %if.end.i, %entry, %if.then1
+if.end2:                                          ; preds = %if.end20.i, %_mi_heap_destroy_pages.exit, %entry, %if.then1
   ret void
 }
 

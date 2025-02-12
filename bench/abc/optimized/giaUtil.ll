@@ -4837,14 +4837,14 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %.val53 = load ptr, ptr %16, align 8, !tbaa !53
   %.not.i.i74 = icmp eq ptr %.val53, null
-  br i1 %.not.i.i74, label %Gia_ObjIsXor.exit, label %Gia_ObjIsMux.exit
+  br i1 %.not.i.i74, label %Gia_ObjIsMux.exit.thread, label %Gia_ObjIsMux.exit
 
 Gia_ObjIsMux.exit:                                ; preds = %22
   %sext.i = shl nuw nsw i64 %indvars.iv.next, 2
   %25 = getelementptr inbounds nuw i8, ptr %.val53, i64 %sext.i
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %.not88 = icmp eq i32 %26, 0
-  br i1 %.not88, label %Gia_ObjIsXor.exit, label %27
+  br i1 %.not88, label %Gia_ObjIsMux.exit.thread, label %27
 
 27:                                               ; preds = %Gia_ObjIsMux.exit
   %28 = and i64 %.val51, 536870911
@@ -4890,7 +4890,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Vec_IntUpdateEntry.
   store i32 %30, ptr %46, align 4, !tbaa !3
   br label %Vec_IntUpdateEntry.exit77
 
-Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, %22
+Gia_ObjIsMux.exit.thread:                         ; preds = %22, %Gia_ObjIsMux.exit
   %50 = trunc i64 %.val51 to i32
   %51 = and i32 %50, 536870911
   %52 = lshr i64 %.val51, 32
@@ -4899,7 +4899,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, 
   %.not89 = icmp samesign ult i32 %51, %54
   br i1 %.not89, label %55, label %Gia_ObjIsXor.exit.thread
 
-55:                                               ; preds = %Gia_ObjIsXor.exit
+55:                                               ; preds = %Gia_ObjIsMux.exit.thread
   %56 = and i64 %.val51, 536870911
   %57 = sub nsw i64 %indvars.iv.next, %56
   %58 = add nsw i32 %24, 2
@@ -4911,14 +4911,14 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMux.exit, 
 62:                                               ; preds = %55
   store i32 %58, ptr %59, align 4, !tbaa !3
   %.val62.pre = load i64, ptr %18, align 4
-  %.pre114 = lshr i64 %.val62.pre, 32
-  %.pre116 = trunc nuw i64 %.pre114 to i32
-  %.pre118 = and i32 %.pre116, 536870911
+  %.pre = lshr i64 %.val62.pre, 32
+  %.pre100 = trunc nuw i64 %.pre to i32
+  %.pre102 = and i32 %.pre100, 536870911
   br label %Vec_IntUpdateEntry.exit79
 
 Vec_IntUpdateEntry.exit79:                        ; preds = %55, %62
-  %.pre-phi119 = phi i32 [ %54, %55 ], [ %.pre118, %62 ]
-  %63 = zext nneg i32 %.pre-phi119 to i64
+  %.pre-phi103 = phi i32 [ %54, %55 ], [ %.pre102, %62 ]
+  %63 = zext nneg i32 %.pre-phi103 to i64
   %64 = sub nsw i64 %indvars.iv.next, %63
   %65 = getelementptr inbounds i32, ptr %.val55, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !3
@@ -4929,7 +4929,7 @@ Vec_IntUpdateEntry.exit79:                        ; preds = %55, %62
   store i32 %58, ptr %65, align 4, !tbaa !3
   br label %Vec_IntUpdateEntry.exit77
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
+Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMux.exit.thread
   %69 = icmp eq i32 %51, %54
   %.not.i81 = icmp ne i32 %51, 536870911
   %or.cond.not.i = and i1 %.not.i81, %69
@@ -4957,14 +4957,14 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit
 81:                                               ; preds = %77
   store i32 %78, ptr %79, align 4, !tbaa !3
   %.val61.pre = load i64, ptr %18, align 4
-  %.pre108 = lshr i64 %.val61.pre, 32
-  %.pre110 = trunc nuw i64 %.pre108 to i32
-  %.pre112 = and i32 %.pre110, 536870911
+  %.pre104 = lshr i64 %.val61.pre, 32
+  %.pre106 = trunc nuw i64 %.pre104 to i32
+  %.pre108 = and i32 %.pre106, 536870911
   br label %Vec_IntUpdateEntry.exit84
 
 Vec_IntUpdateEntry.exit84:                        ; preds = %77, %81
-  %.pre-phi113 = phi i32 [ %54, %77 ], [ %.pre112, %81 ]
-  %82 = zext nneg i32 %.pre-phi113 to i64
+  %.pre-phi109 = phi i32 [ %54, %77 ], [ %.pre108, %81 ]
+  %82 = zext nneg i32 %.pre-phi109 to i64
   %83 = sub nsw i64 %indvars.iv.next, %82
   %84 = getelementptr inbounds i32, ptr %.val55, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3

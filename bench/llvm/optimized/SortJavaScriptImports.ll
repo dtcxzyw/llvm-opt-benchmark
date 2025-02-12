@@ -11215,7 +11215,7 @@ _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.
   %53 = sub i64 %51, %52
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %53, -40
   %54 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %54, ptr align 8 %5, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit
 
 55:                                               ; preds = %31
@@ -11678,7 +11678,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit: ; preds = %13,
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -40
   %21 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %0, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit, %18
@@ -11727,7 +11727,7 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42: ; preds = %_
 34:                                               ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42
   %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -40
   %35 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.neg.i.i.i.i.i44
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46
 
 _ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit46: ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit42, %34

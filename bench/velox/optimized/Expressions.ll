@@ -17442,7 +17442,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i: ; preds = %if.then.i.i, %whil
   %5 = phi i64 [ %2, %while.body.i ], [ %.pre13.i, %if.then.i.i ]
   %sub.i = sub i64 %5, %4
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i
@@ -18057,7 +18057,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %if.then.i.i.i.
   %13 = phi i64 [ %10, %while.body.i.i.i ], [ %.pre13.i.i.i, %if.then.i.i.i.i ]
   %sub.i.i.i = sub i64 %13, %12
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, %12
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -18119,7 +18119,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i25: ; preds = %if.then.i.i.
   %23 = phi i64 [ %20, %while.body.i.i.i19 ], [ %.pre13.i.i.i38, %if.then.i.i.i.i36 ]
   %sub.i.i.i26 = sub i64 %23, %22
   %spec.select.i.i.i27 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i26, i64 %sub.ptr.sub.i.i.i22)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq i64 %spec.select.i.i.i27, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq i64 %23, %22
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i32, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i29
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i29:                ; preds = %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i25
@@ -18222,7 +18222,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i63: ; preds = %if.then.i.i.
   %37 = phi i64 [ %34, %while.body.i.i.i57 ], [ %.pre13.i.i.i79, %if.then.i.i.i.i77 ]
   %sub.i.i.i64 = sub i64 %37, %36
   %spec.select.i.i.i65 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i64, i64 %sub.ptr.sub.i.i.i60)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i66 = icmp eq i64 %spec.select.i.i.i65, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i66 = icmp eq i64 %37, %36
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i66, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i70, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i67
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i67:                ; preds = %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.i.i.i63

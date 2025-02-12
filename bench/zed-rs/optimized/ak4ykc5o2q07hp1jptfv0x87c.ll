@@ -18778,8 +18778,6 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
 
 22:                                               ; preds = %5
   %23 = sub i64 %1, %.sroa.01.0
-  %24 = icmp ne i64 %23, 0
-  tail call void @llvm.assume(i1 %24)
   br label %.loopexit
 }
 
@@ -18795,7 +18793,7 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit.i": ; preds = %17, %2
   %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %6, %17 ]
   %exitcond.not.i = icmp eq i64 %.sroa.01.0.i, %1
-  br i1 %exitcond.not.i, label %22, label %5
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h34cc6317acd49e39E.exit.thread, label %5
 
 5:                                                ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit.i"
   %6 = add i64 %.sroa.01.0.i, 1
@@ -18824,34 +18822,34 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5e91410699303b5b6d155d93a1948aa6.167.llvm.18085547703137025253) #44, !noalias !3585
   unreachable
 
-22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit.i"
-  %23 = load ptr, ptr %4, align 8, !invariant.load !4, !noalias !3591, !nonnull !4
-  %24 = tail call { ptr, ptr } %23(ptr noundef nonnull align 1 %.val.i.i), !noalias !3591
-  %25 = extractvalue { ptr, ptr } %24, 0
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit", label %27
+_ZN4core4iter6traits8iterator8Iterator10advance_by17h34cc6317acd49e39E.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit.i"
+  %22 = load ptr, ptr %4, align 8, !invariant.load !4, !noalias !3591, !nonnull !4
+  %23 = tail call { ptr, ptr } %22(ptr noundef nonnull align 1 %.val.i.i), !noalias !3591
+  %24 = extractvalue { ptr, ptr } %23, 0
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit", label %26
 
-27:                                               ; preds = %22
-  %28 = extractvalue { ptr, ptr } %24, 1
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %31 = load i64, ptr %30, align 8, !noalias !3594, !noundef !4
-  %32 = icmp eq i64 %31, 1804179699424012778
-  br i1 %32, label %33, label %37
+26:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h34cc6317acd49e39E.exit.thread
+  %27 = extractvalue { ptr, ptr } %23, 1
+  %28 = icmp ne ptr %27, null
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %30 = load i64, ptr %29, align 8, !noalias !3594, !noundef !4
+  %31 = icmp eq i64 %30, 1804179699424012778
+  br i1 %31, label %32, label %36
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %35 = load i64, ptr %34, align 8, !noalias !3594, !noundef !4
-  %36 = icmp eq i64 %35, -1558820416752632709
-  br i1 %36, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit", label %37
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %34 = load i64, ptr %33, align 8, !noalias !3594, !noundef !4
+  %35 = icmp eq i64 %34, -1558820416752632709
+  br i1 %35, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit", label %36
 
-37:                                               ; preds = %33, %27
+36:                                               ; preds = %32, %26
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5e91410699303b5b6d155d93a1948aa6.167.llvm.18085547703137025253) #44, !noalias !3591
   unreachable
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit": ; preds = %5, %33, %22
-  %.sroa.0.0 = phi ptr [ null, %22 ], [ %28, %33 ], [ null, %5 ]
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0bca117474df2a35E.exit": ; preds = %5, %32, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h34cc6317acd49e39E.exit.thread
+  %.sroa.0.0 = phi ptr [ null, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h34cc6317acd49e39E.exit.thread ], [ %27, %32 ], [ null, %5 ]
   ret ptr %.sroa.0.0
 }
 

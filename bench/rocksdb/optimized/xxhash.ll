@@ -3187,15 +3187,15 @@ if.then:                                          ; preds = %entry
   %cmp4.not.i = icmp ugt i64 %sub.i, %conv
   %mul12.i = shl i64 %1, 3
   %add.ptr13.i = getelementptr inbounds i8, ptr %secret, i64 %mul12.i
-  br i1 %cmp4.not.i, label %if.else.i, label %if.then5.i
+  br i1 %cmp4.not.i, label %if.else.i, label %for.body.lr.ph.i.i
 
-if.then5.i:                                       ; preds = %if.then
+for.body.lr.ph.i.i:                               ; preds = %if.then
   %acc.promoted.i.i = load <8 x i64>, ptr %acc, align 64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %if.then5.i
-  %add.i.i7.i.i = phi <8 x i64> [ %acc.promoted.i.i, %if.then5.i ], [ %add.i.i.i.i, %for.body.i.i ]
-  %n.06.i.i = phi i64 [ 0, %if.then5.i ], [ %inc.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
+  %add.i.i7.i.i = phi <8 x i64> [ %acc.promoted.i.i, %for.body.lr.ph.i.i ], [ %add.i.i.i.i, %for.body.i.i ]
+  %n.06.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %mul.i.i = shl i64 %n.06.i.i, 6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer, i64 %mul.i.i
   %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 320

@@ -9977,10 +9977,8 @@ for.cond:                                         ; preds = %for.cond, %if.then2
   br i1 %cmp5, label %for.cond, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %for.cond
-  %cmp8 = icmp ne i32 %0, %c
-  %cmp1621.not = icmp eq i64 %indvars.iv, 49
-  %or.cond25 = or i1 %cmp8, %cmp1621.not
-  br i1 %or.cond25, label %if.end32, label %do.body.preheader
+  %cmp8.not = icmp eq i32 %0, %c
+  br i1 %cmp8.not, label %do.body.preheader, label %if.end32
 
 do.body.preheader:                                ; preds = %for.end
   %arrayidx13 = getelementptr inbounds nuw [50 x i16], ptr @_ZZN6icu_7512RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 0, i64 %indvars.iv

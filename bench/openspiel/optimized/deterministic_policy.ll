@@ -1056,8 +1056,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10al
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %35 = load ptr, ptr %34, align 8
-  %.not2636 = icmp eq ptr %31, %35
-  br i1 %.not2636, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %31, %35
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1066,9 +1066,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10al
 
 38:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit
   %39 = phi ptr [ null, %.lr.ph ], [ %66, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
-  %.sroa.017.037 = phi ptr [ %31, %.lr.ph ], [ %68, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
+  %.sroa.017.035 = phi ptr [ %31, %.lr.ph ], [ %68, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
   %40 = phi ptr [ null, %.lr.ph ], [ %67, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
-  %41 = load i64, ptr %.sroa.017.037, align 8
+  %41 = load i64, ptr %.sroa.017.035, align 8
   %42 = icmp eq i64 %41, %33
   %43 = select i1 %42, double 1.000000e+00, double 0.000000e+00
   %44 = load ptr, ptr %37, align 8
@@ -1147,9 +1147,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %45
   %66 = phi ptr [ %63, %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %46, %45 ]
   %67 = phi ptr [ %59, %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %40, %45 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.017.037, i64 8
-  %.not26 = icmp eq ptr %68, %35
-  br i1 %.not26, label %._crit_edge, label %38
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.017.035, i64 8
+  %.not = icmp eq ptr %68, %35
+  br i1 %.not, label %._crit_edge, label %38
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1172,8 +1172,8 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit, %26
-  %.lcssa33 = phi ptr [ null, %26 ], [ %67, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
-  store ptr %.lcssa33, ptr %0, align 8
+  %.lcssa31 = phi ptr [ null, %26 ], [ %67, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
+  store ptr %.lcssa31, ptr %0, align 8
   ret void
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %70, %69, %24

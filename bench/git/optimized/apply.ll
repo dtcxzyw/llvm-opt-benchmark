@@ -9364,7 +9364,7 @@ define internal fastcc ptr @find_name_traditional(ptr noundef readonly captures(
 7:                                                ; preds = %4
   %8 = tail call fastcc ptr @find_name_gnu(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %282
+  br i1 %.not, label %9, label %278
 
 9:                                                ; preds = %7, %4
   %10 = tail call ptr @strchrnul(ptr noundef nonnull %1, i32 noundef 10) #22
@@ -9800,54 +9800,48 @@ date_len.exit.i:                                  ; preds = %255, %248, %244
   %266 = load i8, ptr %265, align 1, !tbaa !53
   switch i8 %266, label %diff_timestamp_len.exit.thread [
     i8 9, label %diff_timestamp_len.exit
-    i8 32, label %267
+    i8 32, label %.preheader.i76.i
   ]
 
-267:                                              ; preds = %264
-  %268 = sub i64 %.pre-phi.i.i, %12
-  %.not.i75.i = icmp eq i64 %268, 0
-  br i1 %.not.i75.i, label %trailing_spaces_len.exit.i, label %.preheader.i76.i
-
-.preheader.i76.i:                                 ; preds = %267, %269
-  %.0.i77.i = phi ptr [ %270, %269 ], [ %262, %267 ]
+.preheader.i76.i:                                 ; preds = %264, %267
+  %.0.i77.i = phi ptr [ %268, %267 ], [ %262, %264 ]
   %.not16.i.i = icmp eq ptr %.0.i77.i, %1
-  br i1 %.not16.i.i, label %trailing_spaces_len.exit.i, label %269
+  br i1 %.not16.i.i, label %trailing_spaces_len.exit.i, label %267
 
-269:                                              ; preds = %.preheader.i76.i
-  %270 = getelementptr inbounds i8, ptr %.0.i77.i, i64 -1
-  %271 = load i8, ptr %270, align 1, !tbaa !53
-  %.not17.i.i = icmp eq i8 %271, 32
-  br i1 %.not17.i.i, label %.preheader.i76.i, label %272, !llvm.loop !219
+267:                                              ; preds = %.preheader.i76.i
+  %268 = getelementptr inbounds i8, ptr %.0.i77.i, i64 -1
+  %269 = load i8, ptr %268, align 1, !tbaa !53
+  %.not17.i.i = icmp eq i8 %269, 32
+  br i1 %.not17.i.i, label %.preheader.i76.i, label %270, !llvm.loop !219
 
-272:                                              ; preds = %269
-  %273 = ptrtoint ptr %.0.i77.i to i64
-  %274 = sub i64 %.pre-phi.i.i, %273
+270:                                              ; preds = %267
+  %271 = ptrtoint ptr %.0.i77.i to i64
   br label %trailing_spaces_len.exit.i
 
-trailing_spaces_len.exit.i:                       ; preds = %.preheader.i76.i, %272, %267
-  %.013.i.i = phi i64 [ %274, %272 ], [ 0, %267 ], [ %268, %.preheader.i76.i ]
-  %275 = sub i64 0, %.013.i.i
-  %276 = getelementptr inbounds i8, ptr %262, i64 %275
+trailing_spaces_len.exit.i:                       ; preds = %.preheader.i76.i, %270
+  %.pn.i = phi i64 [ %271, %270 ], [ %12, %.preheader.i76.i ]
+  %.013.i.neg.i = sub i64 %.pn.i, %.pre-phi.i.i
+  %272 = getelementptr inbounds i8, ptr %262, i64 %.013.i.neg.i
   br label %diff_timestamp_len.exit
 
 diff_timestamp_len.exit:                          ; preds = %264, %trailing_spaces_len.exit.i
-  %.pn.in = phi ptr [ %276, %trailing_spaces_len.exit.i ], [ %265, %264 ]
+  %.pn.in = phi ptr [ %272, %trailing_spaces_len.exit.i ], [ %265, %264 ]
   %.not26 = icmp eq ptr %10, %.pn.in
-  br i1 %.not26, label %diff_timestamp_len.exit.thread, label %278
+  br i1 %.not26, label %diff_timestamp_len.exit.thread, label %274
 
 diff_timestamp_len.exit.thread:                   ; preds = %199, %206, %213, %216, %223, %230, %237, %short_time_len.exit.i, %196, %264, %date_len.exit.i, %9, %diff_timestamp_len.exit
-  %277 = tail call fastcc ptr @find_name_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 2)
-  br label %282
+  %273 = tail call fastcc ptr @find_name_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef 2)
+  br label %278
 
-278:                                              ; preds = %diff_timestamp_len.exit
+274:                                              ; preds = %diff_timestamp_len.exit
   %.pn = ptrtoint ptr %.pn.in to i64
-  %279 = sub i64 %.pn, %12
-  %280 = getelementptr inbounds nuw i8, ptr %1, i64 %279
-  %281 = tail call fastcc ptr @find_name_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %280, i32 noundef 0)
-  br label %282
+  %275 = sub i64 %.pn, %12
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %275
+  %277 = tail call fastcc ptr @find_name_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %276, i32 noundef 0)
+  br label %278
 
-282:                                              ; preds = %7, %278, %diff_timestamp_len.exit.thread
-  %.1 = phi ptr [ %281, %278 ], [ %277, %diff_timestamp_len.exit.thread ], [ %8, %7 ]
+278:                                              ; preds = %7, %274, %diff_timestamp_len.exit.thread
+  %.1 = phi ptr [ %277, %274 ], [ %273, %diff_timestamp_len.exit.thread ], [ %8, %7 ]
   ret ptr %.1
 }
 

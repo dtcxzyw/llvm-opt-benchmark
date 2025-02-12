@@ -7177,8 +7177,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb8IOStatusD2Ev.exit80
 
 _ZN7rocksdb8IOStatusD2Ev.exit80:                  ; preds = %ehcleanup95.thread, %ehcleanup95, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79
-  %.pn16.pn108 = phi { ptr, i32 } [ %15, %ehcleanup95.thread ], [ %.pn16, %ehcleanup95 ], [ %.pn16, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79 ]
-  resume { ptr, i32 } %.pn16.pn108
+  %.pn16.pn107 = phi { ptr, i32 } [ %15, %ehcleanup95.thread ], [ %.pn16, %ehcleanup95 ], [ %.pn16, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i79 ]
+  resume { ptr, i32 } %.pn16.pn107
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i71, %_ZN7rocksdb8IOStatusD2Ev.exit68, %cleanup, %if.then3, %if.then
   ret void

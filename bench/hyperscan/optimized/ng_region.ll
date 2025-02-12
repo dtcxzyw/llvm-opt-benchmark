@@ -1343,7 +1343,7 @@ do.end83.i.i:                                     ; preds = %_ZSt4findIN9__gnu_c
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i183.i.i: ; preds = %do.end83.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i185.i.i = ptrtoint ptr %add.ptr.i.i.i180.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i186.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i115.pre-phi.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i185.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i179.i.i, ptr nonnull align 8 %add.ptr.i.i.i180.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i186.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i179.i.i, ptr nonnull align 8 %add.ptr.i.i.i180.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i186.i.i, i1 false)
   %.pre.i.i187.i.i = load ptr, ptr %_M_finish.i.i35.i, align 8, !alias.scope !20
   %.pre334.i.i = load ptr, ptr %topoOrder, align 8, !alias.scope !20
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS8_SA_EE.exit189.i.i

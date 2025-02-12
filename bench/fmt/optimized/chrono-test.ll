@@ -54502,7 +54502,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -54511,15 +54511,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -60912,7 +60912,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i: ; preds = %if.then.i.i, %whi
   %5 = phi i64 [ %2, %while.body.i ], [ %.pre12.i, %if.then.i.i ]
   %sub.i = sub i64 %5, %4
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i
@@ -62092,7 +62092,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %if.then.i.i.i
   %14 = phi i64 [ %11, %while.body.i.i.i ], [ %.pre12.i.i.i, %if.then.i.i.i.i ]
   %sub.i.i.i = sub i64 %14, %13
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %14, %13
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -62168,7 +62168,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i25: ; preds = %if.then.i.i
   %27 = phi i64 [ %24, %while.body.i.i.i19 ], [ %.pre12.i.i.i38, %if.then.i.i.i.i36 ]
   %sub.i.i.i26 = sub i64 %27, %26
   %spec.select.i.i.i27 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i26, i64 %sub.ptr.sub.i.i.i22)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq i64 %spec.select.i.i.i27, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq i64 %27, %26
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i28, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i32, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i29
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i29:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i25
@@ -62272,7 +62272,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i64: ; preds = %if.then.i.i
   %41 = phi i64 [ %38, %while.body.i.i.i58 ], [ %.pre12.i.i.i80, %if.then.i.i.i.i78 ]
   %sub.i.i.i65 = sub i64 %41, %40
   %spec.select.i.i.i66 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i65, i64 %sub.ptr.sub.i.i.i61)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i67 = icmp eq i64 %spec.select.i.i.i66, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i67 = icmp eq i64 %41, %40
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i67, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i71, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i68
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i68:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i64
@@ -63098,7 +63098,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %if.then.i.i.i12
   %46 = phi i64 [ %43, %while.body.i.i ], [ %.pre12.i.i, %if.then.i.i.i12 ]
   %sub.i.i = sub i64 %46, %45
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %46, %45
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -63445,7 +63445,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %if.then.i.i.i21
   %15 = phi i64 [ %12, %while.body.i.i ], [ %.pre12.i.i, %if.then.i.i.i21 ]
   %sub.i.i = sub i64 %15, %14
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %gepdiff)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %15, %14
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -63560,7 +63560,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %if.then.i.i.i21
   %15 = phi i64 [ %12, %while.body.i.i ], [ %.pre12.i.i, %if.then.i.i.i21 ]
   %sub.i.i = sub i64 %15, %14
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %gepdiff)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %15, %14
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -63675,7 +63675,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %if.then.i.i.i21
   %15 = phi i64 [ %12, %while.body.i.i ], [ %.pre12.i.i, %if.then.i.i.i21 ]
   %sub.i.i = sub i64 %15, %14
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %gepdiff)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %15, %14
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -64776,16 +64776,16 @@ if.then4:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp10 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
-  br i1 %cmp10, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit
+  br i1 %cmp10, label %if.then11, label %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit
 
-for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
+if.then11:                                        ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
+  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then11 ]
+  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %if.then11 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i) #30
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 32
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i, i64 32
@@ -64793,8 +64793,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !2443
 
 _ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %for.body.i.i.i.i.i
-  %.pre145 = load ptr, ptr %_M_finish, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %.pre145, i64 %sub.ptr.sub.i.i
+  %2 = load ptr, ptr %_M_finish, align 8
+  %add.ptr22 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr22, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -64846,10 +64846,10 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !317
 
 lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #30
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #30
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %1, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -64865,20 +64865,20 @@ invoke.cont3.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i unwind label %lpad2.i.i.i.i
 
 lpad2.i.i.i.i:                                    ; preds = %invoke.cont3.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad68, %lpad2.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad2.i.i.i.i ], [ %20, %lpad68 ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad2.i.i.i.i ], [ %21, %lpad68 ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad2.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #31
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #31
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.i
@@ -64889,9 +64889,9 @@ _ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit
-  %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
+  %9 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  %add.ptr36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %sub
+  %add.ptr36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i49 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57, label %for.body.i.i.i.i.i50
@@ -64910,8 +64910,8 @@ _ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57
 
 _ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57: ; preds = %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57.loopexit, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit
-  %9 = phi ptr [ %.pre144, %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57.loopexit ], [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit ]
-  %add.ptr44 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i
+  %10 = phi ptr [ %.pre144, %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit57.loopexit ], [ %add.ptr36, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit ]
+  %add.ptr44 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i
   store ptr %add.ptr44, ptr %_M_finish, align 8
   %sub.ptr.div.i.i.i.i.i61 = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp6.i.i.i.i.i62 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i61, 0
@@ -64929,8 +64929,8 @@ for.body.i.i.i.i.i68:                             ; preds = %_ZSt22__uninitializ
   br i1 %cmp.i.i.i.i.i76, label %for.body.i.i.i.i.i68, label %if.end87, !llvm.loop !2445
 
 if.else50:                                        ; preds = %if.then
-  %10 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i79 = ptrtoint ptr %10 to i64
+  %11 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i.i79 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i80 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i79
   %sub.ptr.div.i.i81 = ashr exact i64 %sub.ptr.sub.i.i80, 5
   %sub.i = sub nsw i64 288230376151711743, %sub.ptr.div.i.i81
@@ -64945,8 +64945,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i81, i64 %sub.ptr.div.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i81
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i81
-  %11 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %11
+  %12 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %12
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -64957,12 +64957,12 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorINSt7_
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i82 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %cmp.i.i.not7.i.i.i.i.i83 = icmp eq ptr %10, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i83 = icmp eq ptr %11, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i83, label %invoke.cont, label %for.body.i.i.i.i.i84
 
 for.body.i.i.i.i.i84:                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i84
   %__cur.09.i.i.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i.i.i88, %for.body.i.i.i.i.i84 ], [ %cond.i82, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
-  %__first.sroa.0.08.i.i.i.i.i86 = phi ptr [ %incdec.ptr.i.i.i.i.i.i87, %for.body.i.i.i.i.i84 ], [ %10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
+  %__first.sroa.0.08.i.i.i.i.i86 = phi ptr [ %incdec.ptr.i.i.i.i.i.i87, %for.body.i.i.i.i.i84 ], [ %11, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i86) #30
   %incdec.ptr.i.i.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i.i.i86, i64 32
   %incdec.ptr.i.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i85, i64 32
@@ -64986,10 +64986,10 @@ for.inc.i.i.i.i106:                               ; preds = %for.body.i.i.i.i92
   br i1 %cmp.not.i.i.i.i109, label %invoke.cont61, label %for.body.i.i.i.i92, !llvm.loop !317
 
 lpad.i.i.i.i95:                                   ; preds = %for.body.i.i.i.i92
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #30
+  %14 = extractvalue { ptr, i32 } %13, 0
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #30
   %cmp.not3.i.i.i.i.i.i96 = icmp eq ptr %__cur.0.lcssa.i.i.i.i.i90, %__cur.010.i.i.i.i93
   br i1 %cmp.not3.i.i.i.i.i.i96, label %invoke.cont3.i.i.i.i101, label %for.body.i.i.i.i.i.i97
 
@@ -65005,16 +65005,16 @@ invoke.cont3.i.i.i.i101:                          ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i105 unwind label %lpad2.i.i.i.i102
 
 lpad2.i.i.i.i102:                                 ; preds = %invoke.cont3.i.i.i.i101
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i103
 
 terminate.lpad.i.i.i.i103:                        ; preds = %lpad2.i.i.i.i102
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #31
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #31
   unreachable
 
 unreachable.i.i.i.i105:                           ; preds = %invoke.cont3.i.i.i.i101
@@ -65035,22 +65035,22 @@ for.body.i.i.i.i.i113:                            ; preds = %invoke.cont61, %for
 
 invoke.cont65:                                    ; preds = %for.body.i.i.i.i.i113, %invoke.cont61
   %__cur.0.lcssa.i.i.i.i.i119 = phi ptr [ %incdec.ptr1.i.i.i.i108, %invoke.cont61 ], [ %incdec.ptr.i.i.i.i.i117, %for.body.i.i.i.i.i113 ]
-  %cmp.not3.i.i.i = icmp eq ptr %10, %1
+  %cmp.not3.i.i.i = icmp eq ptr %11, %1
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont65, %for.body.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %10, %invoke.cont65 ]
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %11, %invoke.cont65 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #30
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !318
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %for.body.i.i.i, %invoke.cont65
-  %tobool.not.i = icmp eq ptr %10, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %if.then.i121
 
 if.then.i121:                                     ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #32
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %if.then.i121
@@ -65061,8 +65061,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %if.end87
 
 lpad.body:                                        ; preds = %lpad2.i.i.i.i102
-  %18 = extractvalue { ptr, i32 } %15, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #30
+  %19 = extractvalue { ptr, i32 } %16, 0
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #30
   %cmp.not3.i.i.i122 = icmp eq ptr %cond.i82, %__cur.0.lcssa.i.i.i.i.i90
   br i1 %cmp.not3.i.i.i122, label %invoke.cont69, label %for.body.i.i.i123
 
@@ -65086,7 +65086,7 @@ invoke.cont70:                                    ; preds = %if.then.i129, %invo
           to label %unreachable unwind label %lpad68
 
 lpad68:                                           ; preds = %invoke.cont70
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
@@ -65095,10 +65095,10 @@ if.end87:                                         ; preds = %for.body.i.i.i.i.i6
   ret void
 
 terminate.lpad:                                   ; preds = %lpad68
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #31
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #31
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont70
@@ -66929,7 +66929,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -66938,15 +66938,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -69837,7 +69837,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -69846,15 +69846,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -72291,7 +72291,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -72300,15 +72300,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -74668,7 +74668,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -74677,15 +74677,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -77045,7 +77045,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -77054,15 +77054,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -79434,7 +79434,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -79443,15 +79443,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -81823,7 +81823,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -81832,15 +81832,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -84203,7 +84203,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -84212,15 +84212,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -86586,7 +86586,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -86595,15 +86595,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -88969,7 +88969,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -88978,15 +88978,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -91017,7 +91017,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -91026,15 +91026,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -93065,7 +93065,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -93074,15 +93074,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -95113,7 +95113,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -95122,15 +95122,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -97161,7 +97161,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -97170,15 +97170,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -99209,7 +99209,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -99218,15 +99218,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -101267,7 +101267,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -101276,15 +101276,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -103325,7 +103325,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -103334,15 +103334,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -105383,7 +105383,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -105392,15 +105392,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -107455,7 +107455,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -107464,15 +107464,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -109503,7 +109503,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -109512,15 +109512,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -111551,7 +111551,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -111560,15 +111560,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -113698,7 +113698,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -113707,15 +113707,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -122397,7 +122397,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -122406,15 +122406,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -124159,7 +124159,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i: ; preds = %if.then.i.i78, %w
   %36 = phi i64 [ %33, %while.body.i ], [ %.pre12.i, %if.then.i.i78 ]
   %sub.i = sub i64 %36, %35
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %36, %35
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i
@@ -124364,7 +124364,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %if.then.i.i
   %68 = phi i64 [ %65, %while.body.i.i.i.i ], [ %.pre12.i.i.i.i, %if.then.i.i.i.i.i ]
   %sub.i.i.i.i = sub i64 %68, %67
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %68, %67
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i
@@ -125200,7 +125200,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %if.then.i.i
   %19 = phi i64 [ %16, %while.body.i.i.i.i ], [ %.pre12.i.i.i.i, %if.then.i.i.i.i.i ]
   %sub.i.i.i.i = sub i64 %19, %18
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %19, %18
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i
@@ -125375,7 +125375,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %if.then.i.i
   %16 = phi i64 [ %13, %while.body.i.i.i.i ], [ %.pre12.i.i.i.i, %if.then.i.i.i.i.i ]
   %sub.i.i.i.i = sub i64 %16, %15
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, %15
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i
@@ -129579,7 +129579,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %.noexc, %whil
   %4 = phi i64 [ %1, %while.body.i.i.i ], [ %.pre12.i.i.i, %.noexc ]
   %sub.i.i.i = sub i64 %4, %3
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, %3
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -130198,7 +130198,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %if.then.i.i.i
   %4 = phi i64 [ %1, %while.body.i.i.i ], [ %.pre12.i.i.i, %if.then.i.i.i.i ]
   %sub.i.i.i = sub i64 %4, %3
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, %3
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -130278,7 +130278,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i18: ; preds = %if.then.i.i
   %16 = phi i64 [ %13, %while.body.i.i.i12 ], [ %.pre12.i.i.i31, %if.then.i.i.i.i29 ]
   %sub.i.i.i19 = sub i64 %16, %15
   %spec.select.i.i.i20 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i19, i64 %sub.ptr.sub.i.i.i15)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp eq i64 %spec.select.i.i.i20, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp eq i64 %16, %15
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i21, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i25, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i22
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i22:                ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i18
@@ -131940,7 +131940,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -131949,15 +131949,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -134418,7 +134418,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -134427,15 +134427,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -137218,7 +137218,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -137227,15 +137227,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -139848,7 +139848,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -139857,15 +139857,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -142239,7 +142239,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -142248,15 +142248,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -144311,7 +144311,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -144320,15 +144320,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -146813,7 +146813,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -146822,15 +146822,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -149280,7 +149280,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -149289,15 +149289,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -151276,7 +151276,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -151285,15 +151285,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -153743,7 +153743,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -153752,15 +153752,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -155804,7 +155804,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i.i: ; preds = %.noexc,
   %16 = phi i64 [ %13, %while.body.i.i.i.i.i.i ], [ %.pre12.i.i.i.i.i.i, %.noexc ]
   %sub.i.i.i.i.i.i = sub i64 %16, %15
   %spec.select.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, %15
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i.i
@@ -156068,7 +156068,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %.noexc19, %whil
   %18 = phi i64 [ %15, %while.body.i.i ], [ %.pre12.i.i, %.noexc19 ]
   %sub.i.i = sub i64 %18, %17
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i.i)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %18, %17
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -156144,7 +156144,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i36: ; preds = %if.then.i.i.i
   %26 = phi i64 [ %23, %while.body.i.i30 ], [ %.pre12.i.i49, %if.then.i.i.i47 ]
   %sub.i.i37 = sub i64 %26, %25
   %spec.select.i.i38 = tail call i64 @llvm.umin.i64(i64 %sub.i.i37, i64 %sub.ptr.sub.i.i33)
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i39 = icmp eq i64 %spec.select.i.i38, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i39 = icmp eq i64 %26, %25
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i39, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i43, label %if.then.i.i.i.i.i.i.i.i.i.i.i40
 
 if.then.i.i.i.i.i.i.i.i.i.i.i40:                  ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i36
@@ -156259,7 +156259,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -156268,15 +156268,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -159187,7 +159187,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -159196,15 +159196,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -161729,7 +161729,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -161738,15 +161738,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -164181,7 +164181,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -164190,15 +164190,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -166633,7 +166633,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -166642,15 +166642,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -168562,7 +168562,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -168571,15 +168571,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i
@@ -218003,7 +218003,7 @@ if.then7.i:                                       ; preds = %for.cond.i, %if.the
   br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  switch i8 %2, label %for.body.i.preheader.i [
+  switch i8 %2, label %if.end17.i [
     i8 125, label %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit
     i8 123, label %if.then16.i
   ]
@@ -218012,15 +218012,15 @@ if.then16.i:                                      ; preds = %if.then9.i
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.980) #34
   unreachable
 
-for.body.i.preheader.i:                           ; preds = %if.then9.i
+if.end17.i:                                       ; preds = %if.then9.i
   %sub.ptr.lhs.cast18.i = ptrtoint ptr %p.1.i to i64
   %sub.ptr.rhs.cast19.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub20.i = sub i64 %sub.ptr.lhs.cast18.i, %sub.ptr.rhs.cast19.i
   %fill.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end17.i
+  %i.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end17.i ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fill.i, i64 0, i64 %i.07.i.i

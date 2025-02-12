@@ -9813,8 +9813,8 @@ entry:
 
 if.end.i6:                                        ; preds = %entry
   %conv2.i = sext i32 %end to i64
-  %conv.i = sext i32 %start to i64
   %mul3.i = mul nsw i64 %conv2.i, 86400
+  %conv.i = sext i32 %start to i64
   %mul.i = mul nsw i64 %conv.i, 86400
   %cmp.i44 = icmp slt i32 %start, %end
   %.sroa.speculated170 = tail call i64 @llvm.smin.i64(i64 %mul3.i, i64 %mul.i)

@@ -11300,12 +11300,12 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %14, align 8
-  %cmp158.not = icmp eq ptr %15, %16
-  br i1 %cmp158.not, label %if.then56, label %for.body
+  %cmp157.not = icmp eq ptr %15, %16
+  br i1 %cmp157.not, label %if.then56, label %for.body
 
 for.body:                                         ; preds = %invoke.cont16, %for.inc
-  %i.0159 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont16 ]
-  %cmp19.not = icmp eq i64 %i.0159, 0
+  %i.0158 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont16 ]
+  %cmp19.not = icmp eq i64 %i.0158, 0
   br i1 %cmp19.not, label %cond.true20, label %cond.false24
 
 cond.true20:                                      ; preds = %for.body
@@ -11369,7 +11369,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
 for.inc:                                          ; preds = %invoke.cont35, %cleanup.action
   %ref.tmp26.sink = phi ptr [ %ref.tmp26, %cleanup.action ], [ %ref.tmp21, %invoke.cont35 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26.sink) #23
-  %inc = add nuw i64 %i.0159, 1
+  %inc = add nuw i64 %i.0158, 1
   %19 = load ptr, ptr %_M_finish.i, align 8
   %20 = load ptr, ptr %14, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
@@ -12373,12 +12373,12 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %10, align 8
-  %cmp141.not = icmp eq ptr %11, %12
-  br i1 %cmp141.not, label %if.then57, label %for.body
+  %cmp140.not = icmp eq ptr %11, %12
+  br i1 %cmp140.not, label %if.then57, label %for.body
 
 for.body:                                         ; preds = %invoke.cont17, %for.inc
-  %i.0142 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont17 ]
-  %cmp20.not = icmp eq i64 %i.0142, 0
+  %i.0141 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont17 ]
+  %cmp20.not = icmp eq i64 %i.0141, 0
   br i1 %cmp20.not, label %cond.true21, label %cond.false25
 
 cond.true21:                                      ; preds = %for.body
@@ -12442,7 +12442,7 @@ cleanup.action:                                   ; preds = %invoke.cont36
 for.inc:                                          ; preds = %invoke.cont36, %cleanup.action
   %ref.tmp27.sink = phi ptr [ %ref.tmp27, %cleanup.action ], [ %ref.tmp22, %invoke.cont36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27.sink) #23
-  %inc = add nuw i64 %i.0142, 1
+  %inc = add nuw i64 %i.0141, 1
   %15 = load ptr, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %10, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64

@@ -5061,21 +5061,14 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit224: ; preds = %.body527, %.bo
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i: ; preds = %1707
   %1710 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1706) #30
-          to label %.noexc435 unwind label %.loopexit1127
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i unwind label %.loopexit1127
 
-.noexc435:                                        ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i432 = icmp eq ptr %1703, %1702
-  br i1 %.not7.i.i.i.i.i.i432, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc435
+_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE11_M_allocateEm.exit.i.i
   %1711 = add i64 %1704, -32
   %1712 = sub i64 %1711, %1705
   %1713 = and i64 %1712, -32
   %1714 = add i64 %1713, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1710, ptr align 8 %1703, i64 %1714, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPNS3_4CellENS1_8hash_opsIS4_EEE7entry_tESaISA_EE13_M_deallocateEPSA_m.exit.i: ; preds = %.noexc435, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %1710, ptr %152, align 8
   %1715 = getelementptr inbounds nuw i8, ptr %1710, i64 %1706
   store ptr %1715, ptr %153, align 8
@@ -68521,21 +68514,14 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i193:           ; preds = %413, %398
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %436
   %438 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %435) #30
-          to label %.noexc367 unwind label %.loopexit.split-lp645.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i unwind label %.loopexit.split-lp645.loopexit.split-lp.loopexit
 
-.noexc367:                                        ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i = icmp eq ptr %432, %431
-  br i1 %.not7.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc367
+_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE11_M_allocateEm.exit.i.i
   %439 = add i64 %433, -16
   %440 = sub i64 %439, %434
   %441 = and i64 %440, -16
   %442 = add i64 %441, 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %438, ptr align 8 %432, i64 %442, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESaIS9_EE13_M_deallocateEPS9_m.exit.i: ; preds = %.noexc367, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %438, ptr %300, align 8
   %443 = getelementptr inbounds nuw i8, ptr %438, i64 %435
   store ptr %443, ptr %302, align 8

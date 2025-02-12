@@ -1161,7 +1161,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exi
   %88 = add i32 %.02451, 1
   %89 = zext i32 %88 to i64
   %90 = icmp ugt i64 %33, %89
-  br i1 %90, label %34, label %._crit_edge, !llvm.loop !27
+  br i1 %90, label %34, label %.lr.ph.i.i.i.i31, !llvm.loop !27
 
 .loopexit:                                        ; preds = %34, %_ZNKSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1183,12 +1183,8 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exi
   call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   resume { ptr, i32 } %lpad.phi
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exit
-  %.not4.i.i.i.i30 = icmp eq ptr %26, %27
-  br i1 %.not4.i.i.i.i30, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38, label %.lr.ph.i.i.i.i31
-
-.lr.ph.i.i.i.i31:                                 ; preds = %._crit_edge, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34
-  %.05.i.i.i.i32 = phi ptr [ %93, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34 ], [ %26, %._crit_edge ]
+.lr.ph.i.i.i.i31:                                 ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exit, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34
+  %.05.i.i.i.i32 = phi ptr [ %93, %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34 ], [ %26, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE9push_backERKS3_.exit ]
   %91 = load ptr, ptr %.05.i.i.i.i32, align 8
   %.not.i.i.i.i.i.i.i.i33 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i.i.i.i.i33, label %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34, label %92
@@ -1202,7 +1198,7 @@ _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34: ; preds = %92, %.lr.ph.i.i.
   %.not.i.i.i.i35 = icmp eq ptr %93, %27
   br i1 %.not.i.i.i.i35, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38, label %.lr.ph.i.i.i.i31, !llvm.loop !28
 
-_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38: ; preds = %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit, %._crit_edge
+_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38: ; preds = %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit
   %.not.i.i.i39 = icmp eq ptr %26, null
   br i1 %.not.i.i.i39, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40, label %94
 

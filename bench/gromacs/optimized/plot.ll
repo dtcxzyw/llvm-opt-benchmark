@@ -408,7 +408,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit14:        ; preds = %49, %54
   %95 = sub i64 %93, %94
   %96 = getelementptr inbounds i8, ptr %86, i64 %95
   %97 = load ptr, ptr %5, align 8
-  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %92, ptr %86, ptr %96, ptr noundef %97)
+  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %92, ptr %86, ptr nonnull %96, ptr noundef %97)
           to label %98 unwind label %64
 
 98:                                               ; preds = %90, %83, %82

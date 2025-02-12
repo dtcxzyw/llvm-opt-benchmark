@@ -26703,14 +26703,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN20cmFindPackageCommand11ReadPack
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not10.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   %10 = and i64 %4, -128
-  %scevgep275.i.i.i.i.i = getelementptr i8, ptr %.0.val.0.val.72.val, i64 %10
+  %scevgep262.i.i.i.i.i = getelementptr i8, ptr %.0.val.0.val.72.val, i64 %10
   br i1 %.not10.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i"
-  %.0269.i.i.i.i.i = phi i64 [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ], [ %5, %.lr.ph.i.i.i.i.i ]
-  %.sroa.0223.0268.i.i.i.i.i = phi ptr [ %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ], [ %.0.val.0.val.72.val, %.lr.ph.i.i.i.i.i ]
-  %.val1.i.i.i.i.i.i = load ptr, ptr %.sroa.0223.0268.i.i.i.i.i, align 8
-  %11 = getelementptr i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 8
+  %.0256.i.i.i.i.i = phi i64 [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ], [ %5, %.lr.ph.i.i.i.i.i ]
+  %.sroa.0223.0255.i.i.i.i.i = phi ptr [ %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ], [ %.0.val.0.val.72.val, %.lr.ph.i.i.i.i.i ]
+  %.val1.i.i.i.i.i.i = load ptr, ptr %.sroa.0223.0255.i.i.i.i.i, align 8
+  %11 = getelementptr i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 8
   %.val2.i.i.i.i.i.i = load i64, ptr %11, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
@@ -26778,9 +26778,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %29, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.i.i.i.i.i", %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i.i.i.i.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 32
   %.val1.i22.i.i.i.i.i = load ptr, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 40
+  %31 = getelementptr i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 40
   %.val2.i23.i.i.i.i.i = load i64, ptr %31, align 8
   br label %.lr.ph.i.i.i.i.i.i25.i.i.i.i.i
 
@@ -26848,9 +26848,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i46.i.i.i.i.i: ;
   br i1 %49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit54.thread.i.i.i.i.i", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit54.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit54.i.i.i.i.i", %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i.i.i38.i.i.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 64
   %.val1.i55.i.i.i.i.i = load ptr, ptr %50, align 8
-  %51 = getelementptr i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 72
+  %51 = getelementptr i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 72
   %.val2.i56.i.i.i.i.i = load i64, ptr %51, align 8
   br label %.lr.ph.i.i.i.i.i.i58.i.i.i.i.i
 
@@ -26918,9 +26918,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i79.i.i.i.i.i: ;
   br i1 %69, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit87.thread.i.i.i.i.i", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit13"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit87.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit87.i.i.i.i.i", %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i.i.i71.i.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 96
   %.val1.i88.i.i.i.i.i = load ptr, ptr %70, align 8
-  %71 = getelementptr i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 104
+  %71 = getelementptr i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 104
   %.val2.i89.i.i.i.i.i = load i64, ptr %71, align 8
   br label %.lr.ph.i.i.i.i.i.i91.i.i.i.i.i
 
@@ -26988,25 +26988,25 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i112.i.i.i.i.i: 
   br i1 %89, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i", label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit15"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.i.i.i.i.i", %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i.i.i.i104.i.i.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 128
-  %91 = add nsw i64 %.0269.i.i.i.i.i, -1
-  %92 = icmp sgt i64 %.0269.i.i.i.i.i, 1
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 128
+  %91 = add nsw i64 %.0256.i.i.i.i.i, -1
+  %92 = icmp sgt i64 %.0256.i.i.i.i.i, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !1302
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i", %.lr.ph.i.i.i.i.i, %1
-  %.sroa.0223.0.lcssa.i.i.i.i.i = phi ptr [ %.0.val.0.val.72.val, %1 ], [ %scevgep275.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %scevgep275.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ]
+  %.sroa.0223.0.lcssa.i.i.i.i.i = phi ptr [ %.0.val.0.val.72.val, %1 ], [ %scevgep262.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %scevgep262.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.thread.i.i.i.i.i" ]
   %93 = ptrtoint ptr %.sroa.0223.0.lcssa.i.i.i.i.i to i64
   %94 = sub i64 %2, %93
   %95 = ashr exact i64 %94, 5
   switch i64 %95, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit" [
     i64 3, label %96
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
-    i64 1, label %._crit_edge._crit_edge276.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge263.i.i.i.i.i
   ]
 
-._crit_edge._crit_edge276.i.i.i.i.i:              ; preds = %._crit_edge.i.i.i.i.i
-  %.phi.trans.insert277.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre278.i.i.i.i.i = load ptr, ptr %.phi.trans.insert277.i.i.i.i.i, align 8, !tbaa !26
+._crit_edge._crit_edge263.i.i.i.i.i:              ; preds = %._crit_edge.i.i.i.i.i
+  %.phi.trans.insert264.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre265.i.i.i.i.i = load ptr, ptr %.phi.trans.insert264.i.i.i.i.i, align 8, !tbaa !26
   br label %143
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i
@@ -27168,9 +27168,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i178.i.i.i.i.i: 
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.0223.1.i.i.i.i.i, i64 32
   br label %143
 
-143:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i", %._crit_edge._crit_edge276.i.i.i.i.i
-  %144 = phi ptr [ %.pre278.i.i.i.i.i, %._crit_edge._crit_edge276.i.i.i.i.i ], [ %121, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i" ]
-  %.sroa.0223.2.i.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge276.i.i.i.i.i ], [ %142, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i" ]
+143:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i", %._crit_edge._crit_edge263.i.i.i.i.i
+  %144 = phi ptr [ %.pre265.i.i.i.i.i, %._crit_edge._crit_edge263.i.i.i.i.i ], [ %121, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i" ]
+  %.sroa.0223.2.i.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge263.i.i.i.i.i ], [ %142, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.thread.i.i.i.i.i" ]
   %.val1.i187.i.i.i.i.i = load ptr, ptr %.sroa.0223.2.i.i.i.i.i, align 8
   %145 = getelementptr i8, ptr %.sroa.0223.2.i.i.i.i.i, i64 8
   %.val2.i188.i.i.i.i.i = load i64, ptr %145, align 8
@@ -27245,19 +27245,19 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i211.i.i.i.i.i: 
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit54.i.i.i.i.i"
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 32
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit87.i.i.i.i.i"
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 64
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 64
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit120.i.i.i.i.i"
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0268.i.i.i.i.i, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0255.i.i.i.i.i, i64 96
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit15", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit153.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.thread.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit153.i.i.i.i.i" ], [ %.sroa.0223.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.i.i.i.i.i" ], [ %.sroa.0223.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.i.i.i.i.i" ], [ %.0.val.0.val.80.val, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.thread.i.i.i.i.i" ], [ %.0.val.0.val.80.val, %._crit_edge.i.i.i.i.i ], [ %165, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit" ], [ %166, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit13" ], [ %167, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit15" ], [ %.sroa.0223.0268.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.i.i.i.i.i" ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit153.i.i.i.i.i" ], [ %.sroa.0223.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit186.i.i.i.i.i" ], [ %.sroa.0223.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.i.i.i.i.i" ], [ %.0.val.0.val.80.val, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit219.thread.i.i.i.i.i" ], [ %.0.val.0.val.80.val, %._crit_edge.i.i.i.i.i ], [ %165, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit" ], [ %166, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit13" ], [ %167, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setIS7_St4lessIS7_ESA_EEUlRKS7_E_EbT_SO_T0_.exit.loopexit.split.loop.exit15" ], [ %.sroa.0223.0255.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN20cmFindPackageCommand11ReadPackageEvENK3$_0clERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEUlRKSA_E_EclINS_17__normal_iteratorIPSA_St6vectorISA_SD_EEEEEbT_.exit.i.i.i.i.i" ]
   %168 = icmp ne ptr %.0.val.0.val.80.val, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   ret i1 %168
 }

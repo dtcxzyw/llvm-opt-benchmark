@@ -1041,14 +1041,14 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i: ; preds = %2
 23:                                               ; preds = %14
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull %18, i64 noundef %16, i64 noundef 8) #22
   %.pre.i.i.i.i.i.i.i = load i32, ptr %6, align 8, !tbaa !50
-  %.pre.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i.i to i64
+  %.pre.i.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i.i: ; preds = %23, %14
-  %.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %23 ], [ %17, %14 ]
-  %24 = phi i32 [ %.pre.i.i.i.i.i.i.i, %23 ], [ %7, %14 ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %17, %14 ], [ %.pre.i.i.i.i.i.i, %23 ]
+  %24 = phi i32 [ %7, %14 ], [ %.pre.i.i.i.i.i.i.i, %23 ]
   %25 = load ptr, ptr %9, align 8, !tbaa !48
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.pre-phi.i.i.i.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.pre-phi.i.i.i.i.i.i
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %20
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1154,14 +1154,14 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i: ; preds = %10
 30:                                               ; preds = %21
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %17, ptr noundef nonnull %25, i64 noundef %23, i64 noundef 8) #22
   %.pre.i.i.i.i.i.i.i = load i32, ptr %14, align 8, !tbaa !50
-  %.pre.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i.i to i64
+  %.pre.i.i.i.i.i.i = zext i32 %.pre.i.i.i.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i.i: ; preds = %30, %21
-  %.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %30 ], [ %24, %21 ]
-  %31 = phi i32 [ %.pre.i.i.i.i.i.i.i, %30 ], [ %15, %21 ]
+  %.pre-phi.i.i.i.i.i.i = phi i64 [ %24, %21 ], [ %.pre.i.i.i.i.i.i, %30 ]
+  %31 = phi i32 [ %15, %21 ], [ %.pre.i.i.i.i.i.i.i, %30 ]
   %32 = load ptr, ptr %17, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.pre-phi.i.i.i.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.pre-phi.i.i.i.i.i.i
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 

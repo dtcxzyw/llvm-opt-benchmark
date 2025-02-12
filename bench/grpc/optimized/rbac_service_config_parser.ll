@@ -926,10 +926,6 @@ invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i7.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !7
   %add.ptr21.i.i = getelementptr inbounds nuw %"struct.grpc_core::Rbac", ptr %call5.i.i.i.i7.i, i64 %sub.ptr.div.i.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !7
-  %cmp.i8.not156.i = icmp eq ptr %this.val.i3, %this.val3.i
-  br i1 %cmp.i8.not156.i, label %invoke.cont8.thread, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %5 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i, i64 8
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i, i64 24
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i, i64 32
@@ -982,8 +978,8 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rbac_policies, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN9grpc_core4RbacD2Ev.exit.i, %for.body.lr.ph.i
-  %__begin2.sroa.0.0157.i = phi ptr [ %this.val.i3, %for.body.lr.ph.i ], [ %incdec.ptr.i19.i, %_ZN9grpc_core4RbacD2Ev.exit.i ]
+for.body.i:                                       ; preds = %_ZN9grpc_core4RbacD2Ev.exit.i, %invoke.cont.i
+  %__begin2.sroa.0.0157.i = phi ptr [ %this.val.i3, %invoke.cont.i ], [ %incdec.ptr.i19.i, %_ZN9grpc_core4RbacD2Ev.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
@@ -1867,7 +1863,7 @@ lpad9.i:                                          ; preds = %if.else.i.i
   call void @_ZN9grpc_core4RbacD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp.i) #25
   br label %ehcleanup
 
-invoke.cont8.thread:                              ; preds = %invoke.cont.i, %if.end.i.i
+invoke.cont8.thread:                              ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp.i)
   br label %cleanup
 

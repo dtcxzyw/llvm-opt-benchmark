@@ -10378,119 +10378,119 @@ define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal11SortImports10ImportEl
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %70, label %17
+  br i1 %.not, label %72, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = sdiv exact i64 %19, 232
   %21 = icmp ugt i64 %20, %9
-  br i1 %21, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
+  br i1 %21, label %22, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
-  %22 = sub nsw i64 0, %9
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %13, i64 %22
+22:                                               ; preds = %17
+  %23 = sub nsw i64 0, %9
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %13, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
+  %.013.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
   tail call void @_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.013.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.012.i.i.i.i.i) #25
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 232
-  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 232
-  %.not.i.i.i.i.i = icmp eq ptr %24, %13
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 232
+  %.not.i.i.i.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
 _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre114 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %.pre114, i64 %8
-  store ptr %26, ptr %12, align 8
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %27, %18
-  %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit
+  %27 = load ptr, ptr %12, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %8
+  store ptr %28, ptr %12, align 8
+  %29 = ptrtoint ptr %24 to i64
+  %30 = sub i64 %29, %18
+  %31 = icmp sgt i64 %30, 0
+  br i1 %31, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %30 = udiv exact i64 %28, 232
+  %32 = udiv exact i64 %30, 232
   br label %.lr.ph.i.i.i.i.i51
 
 .lr.ph.i.i.i.i.i51:                               ; preds = %.lr.ph.i.i.i.i.i51, %.lr.ph.preheader.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i51 ], [ %30, %.lr.ph.preheader.i.i.i.i.i ]
-  %.069.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i51 ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
-  %.078.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i51 ], [ %23, %.lr.ph.preheader.i.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -232
-  %32 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -232
-  %33 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %32, ptr noundef nonnull align 8 dereferenceable(232) %31) #25
-  %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, !llvm.loop !108
+  %.010.i.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i.i51 ], [ %32, %.lr.ph.preheader.i.i.i.i.i ]
+  %.069.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i51 ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
+  %.078.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i51 ], [ %24, %.lr.ph.preheader.i.i.i.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -232
+  %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -232
+  %35 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %34, ptr noundef nonnull align 8 dereferenceable(232) %33) #25
+  %36 = add nsw i64 %.010.i.i.i.i.i, -1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
+  br i1 %37, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, !llvm.loop !108
 
 _ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %36 = icmp sgt i64 %8, 0
-  br i1 %36, label %.lr.ph.preheader.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %38 = icmp sgt i64 %8, 0
+  br i1 %38, label %.lr.ph.preheader.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 .lr.ph.preheader.i.i.i.i.i52:                     ; preds = %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit
-  %37 = udiv exact i64 %8, 232
+  %39 = udiv exact i64 %8, 232
   br label %.lr.ph.i.i.i.i.i53
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %.lr.ph.i.i.i.i.i53, %.lr.ph.preheader.i.i.i.i.i52
-  %.012.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i53 ], [ %37, %.lr.ph.preheader.i.i.i.i.i52 ]
-  %.0811.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i53 ], [ %1, %.lr.ph.preheader.i.i.i.i.i52 ]
-  %.0910.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i53 ], [ %2, %.lr.ph.preheader.i.i.i.i.i52 ]
-  %38 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(232) %.0910.i.i.i.i.i)
-  %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 232
-  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 232
-  %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %42, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
+  %.012.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i53 ], [ %39, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %.0811.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i53 ], [ %1, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %.0910.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i53 ], [ %2, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %40 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(232) %.0910.i.i.i.i.i)
+  %41 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 232
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 232
+  %43 = add nsw i64 %.012.i.i.i.i.i, -1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %44, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
-  %43 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not12.i.i.i.i = icmp eq ptr %43, %3
+  %45 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not12.i.i.i.i = icmp eq ptr %45, %3
   br i1 %.not12.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
-  %.014.i.i.i.i = phi ptr [ %45, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %.sroa.08.013.i.i.i.i = phi ptr [ %44, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %43, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %.014.i.i.i.i = phi ptr [ %47, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %.sroa.08.013.i.i.i.i = phi ptr [ %46, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   invoke void @_ZN7jsonnet8internal11SortImports10ImportElemC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.013.i.i.i.i)
-          to label %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i unwind label %46
+          to label %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i unwind label %48
 
 _ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 232
-  %45 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 232
-  %.not.i.i.i.i = icmp eq ptr %44, %3
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 232
+  %47 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 232
+  %.not.i.i.i.i = icmp eq ptr %46, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !110
 
-46:                                               ; preds = %.lr.ph.i.i.i.i
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %.lr.ph.i.i.i.i
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #25
+  %50 = extractvalue { ptr, i32 } %49, 0
+  %51 = tail call ptr @__cxa_begin_catch(ptr %50) #25
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
-          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i unwind label %50
+          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i unwind label %52
 
-_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i: ; preds = %46
+_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i: ; preds = %48
   invoke void @__cxa_rethrow() #29
-          to label %55 unwind label %50
+          to label %57 unwind label %52
 
-50:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i, %46
-  %51 = landingpad { ptr, i32 }
+52:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i, %48
+  %53 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %52
+          to label %common.resume unwind label %54
 
-common.resume:                                    ; preds = %107, %50
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %108, %107 ]
+common.resume:                                    ; preds = %109, %52
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %110, %109 ]
   resume { ptr, i32 } %common.resume.op
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #24
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #24
   unreachable
 
-55:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i
+57:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i
   unreachable
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit: ; preds = %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
@@ -10498,20 +10498,20 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal1
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
-  %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %57 = sub nuw nsw i64 %9, %20
-  %58 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %56, i64 %57
-  store ptr %58, ptr %12, align 8
+  %58 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %59 = sub nuw nsw i64 %9, %20
+  %60 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %58, i64 %59
+  store ptr %60, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60, label %.lr.ph.i.i.i.i.i55
 
 .lr.ph.i.i.i.i.i55:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i55
-  %.013.i.i.i.i.i56 = phi ptr [ %60, %.lr.ph.i.i.i.i.i55 ], [ %58, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
-  %.sroa.08.012.i.i.i.i.i57 = phi ptr [ %59, %.lr.ph.i.i.i.i.i55 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
+  %.013.i.i.i.i.i56 = phi ptr [ %62, %.lr.ph.i.i.i.i.i55 ], [ %60, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
+  %.sroa.08.012.i.i.i.i.i57 = phi ptr [ %61, %.lr.ph.i.i.i.i.i55 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
   tail call void @_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.013.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.012.i.i.i.i.i57) #25
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 232
-  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 232
-  %.not.i.i.i.i.i58 = icmp eq ptr %59, %13
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 232
+  %.not.i.i.i.i.i58 = icmp eq ptr %61, %13
   br i1 %.not.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit, label %.lr.ph.i.i.i.i.i55, !llvm.loop !107
 
 _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit: ; preds = %.lr.ph.i.i.i.i.i55
@@ -10519,110 +10519,110 @@ _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaI
   br label %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60
 
 _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60: ; preds = %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
-  %61 = phi ptr [ %.pre113, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit ], [ %58, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 %19
-  store ptr %62, ptr %12, align 8
-  %63 = icmp sgt i64 %19, 0
-  br i1 %63, label %.lr.ph.preheader.i.i.i.i.i62, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %63 = phi ptr [ %.pre113, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60.loopexit ], [ %60, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 %19
+  store ptr %64, ptr %12, align 8
+  %65 = icmp sgt i64 %19, 0
+  br i1 %65, label %.lr.ph.preheader.i.i.i.i.i62, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 .lr.ph.preheader.i.i.i.i.i62:                     ; preds = %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60
-  %64 = udiv exact i64 %19, 232
+  %66 = udiv exact i64 %19, 232
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63, %.lr.ph.preheader.i.i.i.i.i62
-  %.012.i.i.i.i.i64 = phi i64 [ %68, %.lr.ph.i.i.i.i.i63 ], [ %64, %.lr.ph.preheader.i.i.i.i.i62 ]
-  %.0811.i.i.i.i.i65 = phi ptr [ %67, %.lr.ph.i.i.i.i.i63 ], [ %1, %.lr.ph.preheader.i.i.i.i.i62 ]
-  %.0910.i.i.i.i.i66 = phi ptr [ %66, %.lr.ph.i.i.i.i.i63 ], [ %2, %.lr.ph.preheader.i.i.i.i.i62 ]
-  %65 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.0811.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(232) %.0910.i.i.i.i.i66)
-  %66 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i66, i64 232
-  %67 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i65, i64 232
-  %68 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
-  br i1 %69, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
+  %.012.i.i.i.i.i64 = phi i64 [ %70, %.lr.ph.i.i.i.i.i63 ], [ %66, %.lr.ph.preheader.i.i.i.i.i62 ]
+  %.0811.i.i.i.i.i65 = phi ptr [ %69, %.lr.ph.i.i.i.i.i63 ], [ %1, %.lr.ph.preheader.i.i.i.i.i62 ]
+  %.0910.i.i.i.i.i66 = phi ptr [ %68, %.lr.ph.i.i.i.i.i63 ], [ %2, %.lr.ph.preheader.i.i.i.i.i62 ]
+  %67 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.0811.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(232) %.0910.i.i.i.i.i66)
+  %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i66, i64 232
+  %69 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i65, i64 232
+  %70 = add nsw i64 %.012.i.i.i.i.i64, -1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
+  br i1 %71, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
-70:                                               ; preds = %5
-  %71 = load ptr, ptr %0, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = sub i64 %15, %72
-  %74 = sdiv exact i64 %73, 232
-  %75 = sub nsw i64 39755913951960240, %74
-  %76 = icmp ult i64 %75, %9
-  br i1 %76, label %77, label %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit
+72:                                               ; preds = %5
+  %73 = load ptr, ptr %0, align 8
+  %74 = ptrtoint ptr %73 to i64
+  %75 = sub i64 %15, %74
+  %76 = sdiv exact i64 %75, 232
+  %77 = sub nsw i64 39755913951960240, %76
+  %78 = icmp ult i64 %77, %9
+  br i1 %78, label %79, label %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit
 
-77:                                               ; preds = %70
+79:                                               ; preds = %72
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %70
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %74, i64 %9)
-  %78 = add nsw i64 %.sroa.speculated.i, %74
-  %79 = icmp ult i64 %78, %74
-  %80 = tail call i64 @llvm.umin.i64(i64 %78, i64 39755913951960240)
-  %81 = select i1 %79, i64 39755913951960240, i64 %80
-  %.not.i = icmp eq i64 %81, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit, label %82
+_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %72
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %76, i64 %9)
+  %80 = add nsw i64 %.sroa.speculated.i, %76
+  %81 = icmp ult i64 %80, %76
+  %82 = tail call i64 @llvm.umin.i64(i64 %80, i64 39755913951960240)
+  %83 = select i1 %81, i64 39755913951960240, i64 %82
+  %.not.i = icmp eq i64 %83, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit, label %84
 
-82:                                               ; preds = %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit
-  %83 = mul nuw nsw i64 %81, 232
-  %84 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #28
+84:                                               ; preds = %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit
+  %85 = mul nuw nsw i64 %83, 232
+  %86 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #28
   br label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit, %82
-  %85 = phi ptr [ %84, %82 ], [ null, %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i68 = icmp eq ptr %71, %1
-  br i1 %.not11.i.i.i.i.i68, label %.lr.ph.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i.i69
+_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit, %84
+  %87 = phi ptr [ %86, %84 ], [ null, %_ZNKSt6vectorIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i68 = icmp eq ptr %73, %1
+  br i1 %.not11.i.i.i.i.i68, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i69
 
 .lr.ph.i.i.i.i.i69:                               ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i69
-  %.013.i.i.i.i.i70 = phi ptr [ %87, %.lr.ph.i.i.i.i.i69 ], [ %85, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i71 = phi ptr [ %86, %.lr.ph.i.i.i.i.i69 ], [ %71, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ]
+  %.013.i.i.i.i.i70 = phi ptr [ %89, %.lr.ph.i.i.i.i.i69 ], [ %87, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i71 = phi ptr [ %88, %.lr.ph.i.i.i.i.i69 ], [ %73, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ]
   tail call void @_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.013.i.i.i.i.i70, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.012.i.i.i.i.i71) #25
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i71, i64 232
-  %87 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i70, i64 232
-  %.not.i.i.i.i.i72 = icmp eq ptr %86, %1
-  br i1 %.not.i.i.i.i.i72, label %.lr.ph.i.i.i.i75.preheader, label %.lr.ph.i.i.i.i.i69, !llvm.loop !107
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i71, i64 232
+  %89 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i70, i64 232
+  %.not.i.i.i.i.i72 = icmp eq ptr %88, %1
+  br i1 %.not.i.i.i.i.i72, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i69, !llvm.loop !107
 
-.lr.ph.i.i.i.i75.preheader:                       ; preds = %.lr.ph.i.i.i.i.i69, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i.i73 = phi ptr [ %85, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ], [ %87, %.lr.ph.i.i.i.i.i69 ]
+_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i69, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit
+  %.0.lcssa.i.i.i.i.i73 = phi ptr [ %87, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE11_M_allocateEm.exit ], [ %89, %.lr.ph.i.i.i.i.i69 ]
   br label %.lr.ph.i.i.i.i75
 
-.lr.ph.i.i.i.i75:                                 ; preds = %.lr.ph.i.i.i.i75.preheader, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79
-  %.014.i.i.i.i76 = phi ptr [ %89, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 ], [ %.0.lcssa.i.i.i.i.i73, %.lr.ph.i.i.i.i75.preheader ]
-  %.sroa.08.013.i.i.i.i77 = phi ptr [ %88, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 ], [ %2, %.lr.ph.i.i.i.i75.preheader ]
+.lr.ph.i.i.i.i75:                                 ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79
+  %.014.i.i.i.i76 = phi ptr [ %91, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 ], [ %.0.lcssa.i.i.i.i.i73, %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %.sroa.08.013.i.i.i.i77 = phi ptr [ %90, %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 ], [ %2, %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   invoke void @_ZN7jsonnet8internal11SortImports10ImportElemC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %.014.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.013.i.i.i.i77)
-          to label %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 unwind label %90
+          to label %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79 unwind label %92
 
 _ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79: ; preds = %.lr.ph.i.i.i.i75
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i77, i64 232
-  %89 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i76, i64 232
-  %.not.i.i.i.i80 = icmp eq ptr %88, %3
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i77, i64 232
+  %91 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i76, i64 232
+  %.not.i.i.i.i80 = icmp eq ptr %90, %3
   br i1 %.not.i.i.i.i80, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82, label %.lr.ph.i.i.i.i75, !llvm.loop !110
 
-90:                                               ; preds = %.lr.ph.i.i.i.i75
-  %91 = landingpad { ptr, i32 }
+92:                                               ; preds = %.lr.ph.i.i.i.i75
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  %93 = tail call ptr @__cxa_begin_catch(ptr %92) #25
+  %94 = extractvalue { ptr, i32 } %93, 0
+  %95 = tail call ptr @__cxa_begin_catch(ptr %94) #25
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %.0.lcssa.i.i.i.i.i73, ptr noundef nonnull %.014.i.i.i.i76)
-          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78 unwind label %94
+          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78 unwind label %96
 
-_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78: ; preds = %90
+_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78: ; preds = %92
   invoke void @__cxa_rethrow() #29
-          to label %99 unwind label %94
+          to label %101 unwind label %96
 
-94:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78, %90
-  %95 = landingpad { ptr, i32 }
-          catch ptr null
-  invoke void @__cxa_end_catch()
-          to label %.body unwind label %96
-
-96:                                               ; preds = %94
+96:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78, %92
   %97 = landingpad { ptr, i32 }
           catch ptr null
-  %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #24
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %98
+
+98:                                               ; preds = %96
+  %99 = landingpad { ptr, i32 }
+          catch ptr null
+  %100 = extractvalue { ptr, i32 } %99, 0
+  tail call void @__clang_call_terminate(ptr %100) #24
   unreachable
 
-99:                                               ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78
+101:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemEEvT_S5_.exit.i.i.i.i78
   unreachable
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82: ; preds = %_ZSt10_ConstructIN7jsonnet8internal11SortImports10ImportElemEJRS3_EEvPT_DpOT0_.exit.i.i.i.i79
@@ -10630,66 +10630,66 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal1
   br i1 %.not11.i.i.i.i.i83, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, label %.lr.ph.i.i.i.i.i84
 
 .lr.ph.i.i.i.i.i84:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82, %.lr.ph.i.i.i.i.i84
-  %.013.i.i.i.i.i85 = phi ptr [ %101, %.lr.ph.i.i.i.i.i84 ], [ %89, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ]
-  %.sroa.08.012.i.i.i.i.i86 = phi ptr [ %100, %.lr.ph.i.i.i.i.i84 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ]
+  %.013.i.i.i.i.i85 = phi ptr [ %103, %.lr.ph.i.i.i.i.i84 ], [ %91, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ]
+  %.sroa.08.012.i.i.i.i.i86 = phi ptr [ %102, %.lr.ph.i.i.i.i.i84 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ]
   tail call void @_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_(ptr noundef nonnull align 8 dereferenceable(232) %.013.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.08.012.i.i.i.i.i86) #25
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i86, i64 232
-  %101 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i85, i64 232
-  %.not.i.i.i.i.i87 = icmp eq ptr %100, %13
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i86, i64 232
+  %103 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i85, i64 232
+  %.not.i.i.i.i.i87 = icmp eq ptr %102, %13
   br i1 %.not.i.i.i.i.i87, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, label %.lr.ph.i.i.i.i.i84, !llvm.loop !107
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89: ; preds = %.lr.ph.i.i.i.i.i84, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82
-  %.0.lcssa.i.i.i.i.i88 = phi ptr [ %89, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ], [ %101, %.lr.ph.i.i.i.i.i84 ]
-  tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %71, ptr noundef %13)
-  %.not.i90 = icmp eq ptr %71, null
-  br i1 %.not.i90, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit, label %102
+  %.0.lcssa.i.i.i.i.i88 = phi ptr [ %91, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit82 ], [ %103, %.lr.ph.i.i.i.i.i84 ]
+  tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %73, ptr noundef %13)
+  %.not.i90 = icmp eq ptr %73, null
+  br i1 %.not.i90, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit, label %104
 
-102:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89
-  tail call void @_ZdlPv(ptr noundef nonnull %71) #26
+104:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89
+  tail call void @_ZdlPv(ptr noundef nonnull %73) #26
   br label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, %102
-  store ptr %85, ptr %0, align 8
+_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit89, %104
+  store ptr %87, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i88, ptr %12, align 8
-  %103 = getelementptr inbounds nuw %"struct.jsonnet::internal::SortImports::ImportElem", ptr %85, i64 %81
-  store ptr %103, ptr %10, align 8
+  %105 = getelementptr inbounds nuw %"struct.jsonnet::internal::SortImports::ImportElem", ptr %87, i64 %83
+  store ptr %105, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-.body:                                            ; preds = %94
-  %104 = extractvalue { ptr, i32 } %95, 0
-  %105 = tail call ptr @__cxa_begin_catch(ptr %104) #25
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %85, ptr noundef %.0.lcssa.i.i.i.i.i73)
-          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit unwind label %107
+.body:                                            ; preds = %96
+  %106 = extractvalue { ptr, i32 } %97, 0
+  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #25
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal11SortImports10ImportElemEEEvT_S7_(ptr noundef %87, ptr noundef %.0.lcssa.i.i.i.i.i73)
+          to label %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit unwind label %109
 
 _ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit: ; preds = %.body
-  %.not.i91 = icmp eq ptr %85, null
-  br i1 %.not.i91, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92, label %106
+  %.not.i91 = icmp eq ptr %87, null
+  br i1 %.not.i91, label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92, label %108
 
-106:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %85) #26
+108:                                              ; preds = %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %87) #26
   br label %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92
 
-_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92: ; preds = %106, %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit
+_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92: ; preds = %108, %_ZSt8_DestroyIPN7jsonnet8internal11SortImports10ImportElemES3_EvT_S5_RSaIT0_E.exit
   invoke void @__cxa_rethrow() #29
-          to label %112 unwind label %107
+          to label %114 unwind label %109
 
-107:                                              ; preds = %.body, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92
-  %108 = landingpad { ptr, i32 }
+109:                                              ; preds = %.body, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92
+  %110 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %109
+          to label %common.resume unwind label %111
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i63, %.lr.ph.i.i.i.i.i53, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit60, %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit, %4
   ret void
 
-109:                                              ; preds = %107
-  %110 = landingpad { ptr, i32 }
+111:                                              ; preds = %109
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #24
+  %113 = extractvalue { ptr, i32 } %112, 0
+  tail call void @__clang_call_terminate(ptr %113) #24
   unreachable
 
-112:                                              ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92
+114:                                              ; preds = %_ZNSt12_Vector_baseIN7jsonnet8internal11SortImports10ImportElemESaIS3_EE13_M_deallocateEPS3_m.exit92
   unreachable
 }
 

@@ -8177,7 +8177,7 @@ _ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4
   %75 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %38, i64 %74
   %76 = sub nsw i64 0, %42
   %77 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %75, i64 %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 4 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 4 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71

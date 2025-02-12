@@ -2427,10 +2427,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %732, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %734 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %.not432 = icmp eq ptr %.19.i.i.i, %716
-  %.not = select i1 %734, i1 true, i1 %.not432
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #17
-  br i1 %.not, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit235, label %735
+  br i1 %734, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit235, label %735
 
 735:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213
   %736 = load i64, ptr %322, align 8, !tbaa !151
@@ -2717,10 +2715,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i259, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i265
   %.0.i.i.i.i.i262 = phi i32 [ %836, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i259 ], [ %.0.i6.i.i.i.i.i268, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i265 ]
   %838 = icmp slt i32 %.0.i.i.i.i.i262, 0
-  %.not424433 = icmp eq ptr %.19.i.i.i252, %820
-  %.not424 = select i1 %838, i1 true, i1 %.not424433
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
-  br i1 %.not424, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit299, label %839
+  br i1 %838, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit299, label %839
 
 839:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %840 = load i64, ptr %322, align 8, !tbaa !151
@@ -3007,10 +3003,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i323, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i329
   %.0.i.i.i.i.i326 = phi i32 [ %940, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i323 ], [ %.0.i6.i.i.i.i.i332, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i329 ]
   %942 = icmp slt i32 %.0.i.i.i.i.i326, 0
-  %.not425434 = icmp eq ptr %.19.i.i.i316, %924
-  %.not425 = select i1 %942, i1 true, i1 %.not425434
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #17
-  br i1 %.not425, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit363, label %943
+  br i1 %942, label %_ZN10cmMakefile18AddCMakeOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit363, label %943
 
 943:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340
   %944 = load i64, ptr %322, align 8, !tbaa !151

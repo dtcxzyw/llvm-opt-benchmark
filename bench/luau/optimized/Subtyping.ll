@@ -20194,8 +20194,8 @@ _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8eq
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not164 = icmp eq ptr %66, %67
-  br i1 %.not164, label %._crit_edge, label %.lr.ph
+  %.not163 = icmp eq ptr %66, %67
+  br i1 %.not163, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20226,9 +20226,9 @@ _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8eq
   br label %93
 
 93:                                               ; preds = %.lr.ph, %435
-  %.sroa.0131.0165 = phi ptr [ %66, %.lr.ph ], [ %436, %435 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 32
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 64
+  %.sroa.0131.0164 = phi ptr [ %66, %.lr.ph ], [ %436, %435 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %96 = load ptr, ptr %68, align 8
   %.not11.i.i.i = icmp eq ptr %96, null
@@ -20468,13 +20468,13 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   br label %439
 
 186:                                              ; preds = %131
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 216
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 216
   %188 = load i8, ptr %187, align 8
   %189 = trunc i8 %188 to i1
   br i1 %189, label %190, label %245
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 208
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 208
   %192 = load ptr, ptr %72, align 8
   %193 = load ptr, ptr %191, align 8
   invoke void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_4TypeES5_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SubtypingResult") align 8 %16, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %192, ptr noundef %193)
@@ -20616,13 +20616,13 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   br label %439
 
 245:                                              ; preds = %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit72, %186
-  %246 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 232
+  %246 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 232
   %247 = load i8, ptr %246, align 8
   %248 = trunc i8 %247 to i1
   br i1 %248, label %249, label %302
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 224
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0164, i64 224
   invoke void @_ZN4Luau9Subtyping19isContravariantWithIRKPKNS_4TypeES6_EENS_15SubtypingResultERNS_20SubtypingEnvironmentEOT_OT0_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SubtypingResult") align 8 %21, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(8) %250)
           to label %251 unwind label %115
 
@@ -21117,7 +21117,7 @@ _ZNSt6vectorIN4Luau15SubtypingResultESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
   br i1 %305, label %.loopexit, label %435
 
 435:                                              ; preds = %_ZNSt6vectorIN4Luau15SubtypingResultESaIS1_EED2Ev.exit
-  %436 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0131.0165) #28
+  %436 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0131.0164) #28
   %.not = icmp eq ptr %436, %67
   br i1 %.not, label %._crit_edge, label %93
 

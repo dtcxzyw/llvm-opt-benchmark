@@ -206,17 +206,17 @@ define noundef ptr @_ZNK6casadi7Options4findERKNSt7__cxx1112basic_stringIcSt11ch
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not1720 = icmp eq ptr %3, %5
-  br i1 %.not1720, label %._crit_edge, label %.lr.ph
+  %.not1719 = icmp eq ptr %3, %5
+  br i1 %.not1719, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.013.020, i64 8
   %.not17 = icmp eq ptr %7, %5
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
-  %.sroa.013.021 = phi ptr [ %7, %6 ], [ %3, %2 ]
-  %8 = load ptr, ptr %.sroa.013.021, align 8
+  %.sroa.013.020 = phi ptr [ %7, %6 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.sroa.013.020, align 8
   %9 = tail call noundef ptr @_ZNK6casadi7Options4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %6, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi7Options5EntryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread

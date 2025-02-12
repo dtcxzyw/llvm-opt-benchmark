@@ -3017,7 +3017,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit: ; preds = %.preheader10.i, %_
   %1185 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1182, i1 true)
   %1186 = shl nuw nsw i64 %1185, 1
   %1187 = xor i64 %1186, 126
-  invoke void @_ZSt16__introsort_loopIN3gmx12ArrayRefIterI17InteractionOfTypeEElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_T0_T1_(ptr %1177, ptr %1181, i64 noundef %1187, ptr nonnull @_ZL6idcompRK17InteractionOfTypeS1_)
+  invoke void @_ZSt16__introsort_loopIN3gmx12ArrayRefIterI17InteractionOfTypeEElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_T0_T1_(ptr %1177, ptr nonnull %1181, i64 noundef %1187, ptr nonnull @_ZL6idcompRK17InteractionOfTypeS1_)
           to label %.noexc535 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc535:                                        ; preds = %._crit_edge.i531
@@ -3044,7 +3044,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit: ; preds = %.preheader10.i, %_
   br i1 %.not.i.i.i.i.i533, label %_ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit, label %.lr.ph.i.i.i.i.i532, !llvm.loop !36
 
 1192:                                             ; preds = %.noexc535
-  invoke void @_ZSt16__insertion_sortIN3gmx12ArrayRefIterI17InteractionOfTypeEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_T0_(ptr %1177, ptr %1181, ptr nonnull @_ZL6idcompRK17InteractionOfTypeS1_)
+  invoke void @_ZSt16__insertion_sortIN3gmx12ArrayRefIterI17InteractionOfTypeEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_T0_(ptr %1177, ptr nonnull %1181, ptr nonnull @_ZL6idcompRK17InteractionOfTypeS1_)
           to label %_ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit: ; preds = %.noexc537, %.noexc536, %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit, %1192

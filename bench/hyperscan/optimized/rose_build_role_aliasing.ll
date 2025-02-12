@@ -20418,7 +20418,7 @@ if.then.i:                                        ; preds = %_ZSt11lower_boundIN
 if.then.i.thread:                                 ; preds = %lor.rhs.i
   %12 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !561
   %cmp.not.i13114 = icmp eq i64 %12, %4
-  br i1 %cmp.not.i13114, label %if.then.i22, label %if.then7.i.i
+  br i1 %cmp.not.i13114, label %if.then.i22, label %if.else.i.i15
 
 if.then.i22:                                      ; preds = %if.then.i.thread, %if.then.i
   %sub.ptr.lhs.cast.i85 = ptrtoint ptr %9 to i64
@@ -20532,20 +20532,20 @@ if.then4.i.i:                                     ; preds = %if.then.i
   store i64 %add.i.i21, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !558
   br label %invoke.cont29
 
-if.then7.i.i:                                     ; preds = %if.then.i.thread
+if.else.i.i15:                                    ; preds = %if.then.i.thread
   %sub.ptr.lhs.cast.i115 = ptrtoint ptr %9 to i64
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i206, i64 -4
   %tobool.i.i.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.i.i.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i, label %if.then.i.i.i.i18, !prof !80
 
-if.then.i.i.i.i18:                                ; preds = %if.then7.i.i
+if.then.i.i.i.i18:                                ; preds = %if.else.i.i15
   %19 = load i32, ptr %add.ptr.i.i17, align 4, !noalias !558
   store i32 %19, ptr %add.ptr.i.i206, align 4, !noalias !558
   %.pre.i.i = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !558
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i: ; preds = %if.then.i.i.i.i18, %if.then7.i.i
-  %20 = phi i64 [ %4, %if.then7.i.i ], [ %.pre.i.i, %if.then.i.i.i.i18 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i: ; preds = %if.then.i.i.i.i18, %if.else.i.i15
+  %20 = phi i64 [ %4, %if.else.i.i15 ], [ %.pre.i.i, %if.then.i.i.i.i18 ]
   %add13.i.i = add i64 %20, 1
   store i64 %add13.i.i, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !558
   %tobool.not.i.i.i19 = icmp eq ptr %add.ptr.i.i17, %9
@@ -20691,7 +20691,7 @@ if.then.i.i.i.i.i.thread:                         ; preds = %lor.rhs.i.i.i.i.i
   store ptr %35, ptr %agg.tmp14.i.i.i.i.i, align 8, !noalias !588
   %38 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i216, align 8, !noalias !599
   %cmp.not.i26123 = icmp eq i64 %38, %30
-  br i1 %cmp.not.i26123, label %if.then.i64, label %if.then7.i.i38
+  br i1 %cmp.not.i26123, label %if.then.i64, label %if.else.i.i35
 
 if.then.i64:                                      ; preds = %if.then.i.i.i.i.i.thread, %if.then.i.i.i.i.i
   invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pruned_tops, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i.i.i.i, i64 noundef 1, ptr nonnull %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.9.i)
@@ -20705,20 +20705,20 @@ if.then4.i.i62:                                   ; preds = %if.then.i.i.i.i.i
   store i64 %add.i.i63, ptr %m_size.i.i.i.i.i.i.i.i.i215, align 8, !noalias !596
   br label %_ZNSt15insert_iteratorIN3ue28flat_setIjSt4lessIjESaIjEEEEaSERKj.exit.i.i
 
-if.then7.i.i38:                                   ; preds = %if.then.i.i.i.i.i.thread
+if.else.i.i35:                                    ; preds = %if.then.i.i.i.i.i.thread
   %sub.ptr.lhs.cast.i28124 = ptrtoint ptr %35 to i64
   %add.ptr.i.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -4
   %tobool.i.i.not.i.i40 = icmp eq ptr %29, null
   br i1 %tobool.i.i.not.i.i40, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i44, label %if.then.i.i.i.i41, !prof !80
 
-if.then.i.i.i.i41:                                ; preds = %if.then7.i.i38
+if.then.i.i.i.i41:                                ; preds = %if.else.i.i35
   %41 = load i32, ptr %add.ptr.i.i39, align 4, !noalias !596
   store i32 %41, ptr %add.ptr.i.i.i.i.i.i, align 4, !noalias !596
   %.pre.i.i43 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i215, align 8, !noalias !596
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i44
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i44: ; preds = %if.then.i.i.i.i41, %if.then7.i.i38
-  %42 = phi i64 [ %30, %if.then7.i.i38 ], [ %.pre.i.i43, %if.then.i.i.i.i41 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i44: ; preds = %if.then.i.i.i.i41, %if.else.i.i35
+  %42 = phi i64 [ %30, %if.else.i.i35 ], [ %.pre.i.i43, %if.then.i.i.i.i41 ]
   %add13.i.i45 = add i64 %42, 1
   store i64 %add13.i.i45, ptr %m_size.i.i.i.i.i.i.i.i.i215, align 8, !noalias !596
   %tobool.not.i.i.i46 = icmp eq ptr %add.ptr.i.i39, %35
@@ -23754,7 +23754,7 @@ if.then.i29.thread:                               ; preds = %lor.rhs.i24
   %m_capacity.i.i1255 = getelementptr inbounds nuw i8, ptr %call7.pn.i, i64 32
   %32 = load i64, ptr %m_capacity.i.i1255, align 8, !noalias !678
   %cmp.not.i1557 = icmp eq i64 %32, %22
-  br i1 %cmp.not.i1557, label %if.then.i53, label %if.then7.i.i27
+  br i1 %cmp.not.i1557, label %if.then.i53, label %if.else.i.i24
 
 if.then.i53:                                      ; preds = %if.then.i29.thread, %if.then.i29
   call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i17, ptr noundef nonnull align 8 dereferenceable(24) %retval.1.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i18, i64 noundef 1, ptr nonnull %top), !noalias !667
@@ -23768,20 +23768,20 @@ if.then4.i.i51:                                   ; preds = %if.then.i29
   store i64 %add.i.i52, ptr %m_size.i.i19, align 8, !noalias !675
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit43
 
-if.then7.i.i27:                                   ; preds = %if.then.i29.thread
+if.else.i.i24:                                    ; preds = %if.then.i29.thread
   %sub.ptr.lhs.cast.i1758 = ptrtoint ptr %28 to i64
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i20, i64 -4
   %tobool.i.i.not.i.i29 = icmp eq ptr %21, null
   br i1 %tobool.i.i.not.i.i29, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i33, label %if.then.i.i.i.i30, !prof !80
 
-if.then.i.i.i.i30:                                ; preds = %if.then7.i.i27
+if.then.i.i.i.i30:                                ; preds = %if.else.i.i24
   %35 = load i32, ptr %add.ptr.i.i28, align 4, !noalias !675
   store i32 %35, ptr %add.ptr.i.i20, align 4, !noalias !675
   %.pre.i.i32 = load i64, ptr %m_size.i.i19, align 8, !noalias !675
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i33
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i33: ; preds = %if.then.i.i.i.i30, %if.then7.i.i27
-  %36 = phi i64 [ %22, %if.then7.i.i27 ], [ %.pre.i.i32, %if.then.i.i.i.i30 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i33: ; preds = %if.then.i.i.i.i30, %if.else.i.i24
+  %36 = phi i64 [ %22, %if.else.i.i24 ], [ %.pre.i.i32, %if.then.i.i.i.i30 ]
   %add13.i.i34 = add i64 %36, 1
   store i64 %add13.i.i34, ptr %m_size.i.i19, align 8, !noalias !675
   %tobool.not.i.i.i35 = icmp eq ptr %add.ptr.i.i28, %28
@@ -28074,7 +28074,7 @@ if.then:                                          ; preds = %_ZNKSt4lessIN3ue212
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %10 = load i64, ptr %m_capacity.i.i, align 8, !noalias !806
   %cmp.not.i = icmp eq i64 %10, %1
-  br i1 %cmp.not.i, label %if.then.i, label %if.then7.i.i
+  br i1 %cmp.not.i, label %if.then.i, label %if.else.i
 
 if.then.thread:                                   ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit
   store ptr %7, ptr %agg.tmp14, align 8
@@ -28096,7 +28096,7 @@ if.then.i:                                        ; preds = %if.then.thread, %if
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %cleanup
 
-if.then7.i.i:                                     ; preds = %if.then
+if.else.i:                                        ; preds = %if.then
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -28104,13 +28104,13 @@ if.then7.i.i:                                     ; preds = %if.then
   %tobool.i.i.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.i.i.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i, label %if.then.i.i.i.i, !prof !80
 
-if.then.i.i.i.i:                                  ; preds = %if.then7.i.i
+if.then.i.i.i.i:                                  ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !noalias !806
   %.pre.i.i = load i64, ptr %m_size.i, align 8, !noalias !806
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then7.i.i
-  %13 = phi i64 [ %1, %if.then7.i.i ], [ %.pre.i.i, %if.then.i.i.i.i ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i: ; preds = %if.then.i.i.i.i, %if.else.i
+  %13 = phi i64 [ %1, %if.else.i ], [ %.pre.i.i, %if.then.i.i.i.i ]
   %add13.i.i = add i64 %13, 1
   store i64 %add13.i.i, ptr %m_size.i, align 8, !noalias !806
   %tobool.not.i.i.i = icmp eq ptr %add.ptr.i.i, %7

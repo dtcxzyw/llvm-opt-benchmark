@@ -16862,14 +16862,14 @@ invoke.cont:
   store ptr null, ptr %state_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handle, i8 -1, i64 16, i1 false)
-  %ref.tmp18.i.sink203.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp18.i, i64 8
-  %ref.tmp18.i.sink203.sroa.gep204 = getelementptr inbounds nuw i8, ptr %ref.tmp40.i, i64 8
-  %ref.tmp18.i.sink203.sroa.gep205 = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 8
-  %ref.tmp18.i.sink203.sroa.gep206 = getelementptr inbounds nuw i8, ptr %ref.tmp80.i, i64 8
+  %ref.tmp18.i.sink202.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp18.i, i64 8
+  %ref.tmp18.i.sink202.sroa.gep203 = getelementptr inbounds nuw i8, ptr %ref.tmp40.i, i64 8
+  %ref.tmp18.i.sink202.sroa.gep204 = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 8
+  %ref.tmp18.i.sink202.sroa.gep205 = getelementptr inbounds nuw i8, ptr %ref.tmp80.i, i64 8
   %ref.tmp16.i.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp16.i, i64 8
-  %ref.tmp16.i.sink.sroa.gep207 = getelementptr inbounds nuw i8, ptr %ref.tmp38.i, i64 8
-  %ref.tmp16.i.sink.sroa.gep208 = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 8
-  %ref.tmp16.i.sink.sroa.gep209 = getelementptr inbounds nuw i8, ptr %ref.tmp78.i, i64 8
+  %ref.tmp16.i.sink.sroa.gep206 = getelementptr inbounds nuw i8, ptr %ref.tmp38.i, i64 8
+  %ref.tmp16.i.sink.sroa.gep207 = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 8
+  %ref.tmp16.i.sink.sroa.gep208 = getelementptr inbounds nuw i8, ptr %ref.tmp78.i, i64 8
   invoke void @_ZN7rocksdb21FindOptionalMetaBlockEPNS_20InternalIteratorBaseINS_5SliceEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_11BlockHandleE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef %meta_iter, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb20kPropertiesBlockNameB5cxx11E, ptr noundef nonnull %handle)
           to label %invoke.cont2 unwind label %lpad
 
@@ -16912,7 +16912,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %invoke.cont2
   %6 = load ptr, ptr %state_.i16, align 8
   store ptr null, ptr %state_.i16, align 8
   store ptr %6, ptr %state_.i, align 8
-  %state_.i17198 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %state_.i17197 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   br label %invoke.cont3
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont2
@@ -16928,13 +16928,13 @@ invoke.cont3.thread:                              ; preds = %_ZN7rocksdb6Statusa
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @_ZdaPv(ptr noundef nonnull %.pre) #31
-  %.pre197 = load i8, ptr %agg.result, align 8
+  %.pre196 = load i8, ptr %agg.result, align 8
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.thread, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  %state_.i17200 = phi ptr [ %state_.i17, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %state_.i17198, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ]
-  %7 = phi i8 [ %.pre197, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %0, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ]
-  store ptr null, ptr %state_.i17200, align 8
+  %state_.i17199 = phi ptr [ %state_.i17, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %state_.i17197, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ]
+  %7 = phi i8 [ %.pre196, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %0, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ]
+  store ptr null, ptr %state_.i17199, align 8
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %if.else, label %if.then
 
@@ -17817,15 +17817,15 @@ if.then73.i:                                      ; preds = %if.end71.i
 
 if.then73.i.invoke:                               ; preds = %if.then10.i, %if.then30.i, %if.then59.i, %if.then73.i
   %msg_buf.i.sink = phi ptr [ %msg_buf.i, %if.then10.i ], [ %msg_buf31.i, %if.then30.i ], [ %msg_buf60.i, %if.then59.i ], [ %msg_buf74.i, %if.then73.i ]
-  %ref.tmp16.i.sink.sroa.phi = phi ptr [ %ref.tmp16.i.sink.sroa.gep, %if.then10.i ], [ %ref.tmp16.i.sink.sroa.gep207, %if.then30.i ], [ %ref.tmp16.i.sink.sroa.gep208, %if.then59.i ], [ %ref.tmp16.i.sink.sroa.gep209, %if.then73.i ]
+  %ref.tmp16.i.sink.sroa.phi = phi ptr [ %ref.tmp16.i.sink.sroa.gep, %if.then10.i ], [ %ref.tmp16.i.sink.sroa.gep206, %if.then30.i ], [ %ref.tmp16.i.sink.sroa.gep207, %if.then59.i ], [ %ref.tmp16.i.sink.sroa.gep208, %if.then73.i ]
   %ref.tmp16.i.sink = phi ptr [ %ref.tmp16.i, %if.then10.i ], [ %ref.tmp38.i, %if.then30.i ], [ %ref.tmp67.i, %if.then59.i ], [ %ref.tmp78.i, %if.then73.i ]
-  %ref.tmp18.i.sink203.sroa.phi = phi ptr [ %ref.tmp18.i.sink203.sroa.gep, %if.then10.i ], [ %ref.tmp18.i.sink203.sroa.gep204, %if.then30.i ], [ %ref.tmp18.i.sink203.sroa.gep205, %if.then59.i ], [ %ref.tmp18.i.sink203.sroa.gep206, %if.then73.i ]
-  %ref.tmp18.i.sink203 = phi ptr [ %ref.tmp18.i, %if.then10.i ], [ %ref.tmp40.i, %if.then30.i ], [ %ref.tmp69.i, %if.then59.i ], [ %ref.tmp80.i, %if.then73.i ]
+  %ref.tmp18.i.sink202.sroa.phi = phi ptr [ %ref.tmp18.i.sink202.sroa.gep, %if.then10.i ], [ %ref.tmp18.i.sink202.sroa.gep203, %if.then30.i ], [ %ref.tmp18.i.sink202.sroa.gep204, %if.then59.i ], [ %ref.tmp18.i.sink202.sroa.gep205, %if.then73.i ]
+  %ref.tmp18.i.sink202 = phi ptr [ %ref.tmp18.i, %if.then10.i ], [ %ref.tmp40.i, %if.then30.i ], [ %ref.tmp69.i, %if.then59.i ], [ %ref.tmp80.i, %if.then73.i ]
   %call.i.i156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg_buf.i.sink) #36, !noalias !116
   store i64 %call.i.i156, ptr %ref.tmp16.i.sink.sroa.phi, align 8, !noalias !116
-  store ptr @.str.31, ptr %ref.tmp18.i.sink203, align 8, !noalias !116
-  store i64 0, ptr %ref.tmp18.i.sink203.sroa.phi, align 8, !noalias !116
-  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp172, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16.i.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.i.sink203, i8 noundef zeroext 0)
+  store ptr @.str.31, ptr %ref.tmp18.i.sink202, align 8, !noalias !116
+  store i64 0, ptr %ref.tmp18.i.sink202.sroa.phi, align 8, !noalias !116
+  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp172, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16.i.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.i.sink202, i8 noundef zeroext 0)
           to label %invoke.cont177 unwind label %lpad
 
 invoke.cont177.sink.split.sink.split:             ; preds = %if.end52.thread.i, %if.end71.thread.i, %if.end165

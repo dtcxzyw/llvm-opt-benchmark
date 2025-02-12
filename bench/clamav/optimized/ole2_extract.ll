@@ -5720,9 +5720,9 @@ fmap_readn.exit.thread:                           ; preds = %33, %30, %fmap_read
   %47 = load ptr, ptr %34, align 8, !tbaa !69
   %48 = call ptr %47(ptr noundef nonnull %15, i64 noundef %.050, i64 noundef %spec.select.i81, i32 noundef 0) #22
   %.not26.i82 = icmp eq ptr %48, null
-  br i1 %.not26.i82, label %fmap_readn.exit84.thread, label %.thread100
+  br i1 %.not26.i82, label %fmap_readn.exit84.thread, label %fmap_readn.exit84
 
-.thread100:                                       ; preds = %45
+fmap_readn.exit84:                                ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %48, i64 %spec.select.i81, i1 false)
   %49 = trunc nuw nsw i64 %spec.select.i81 to i32
   store i32 %49, ptr %26, align 8, !tbaa !143
@@ -5733,8 +5733,8 @@ fmap_readn.exit84.thread:                         ; preds = %45, %43
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.177) #22
   br label %79
 
-51:                                               ; preds = %.thread100, %38
-  %.151 = phi i64 [ %.050, %38 ], [ %50, %.thread100 ]
+51:                                               ; preds = %fmap_readn.exit84, %38
+  %.151 = phi i64 [ %.050, %38 ], [ %50, %fmap_readn.exit84 ]
   %52 = call i32 @inflate(ptr noundef nonnull %4, i32 noundef 2) #22
   %53 = load i32, ptr %27, align 8, !tbaa !142
   %54 = sub i32 8192, %53

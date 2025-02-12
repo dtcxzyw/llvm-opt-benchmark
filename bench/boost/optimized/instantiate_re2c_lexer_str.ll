@@ -43031,7 +43031,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i: ; preds = 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i
   %151 = phi ptr [ %112, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread ], [ %131, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit ], [ %131, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i ]
   %152 = phi ptr [ %101, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread ], [ %.pre91, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit ], [ %.pre91, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i ]
-  tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %151, ptr noundef %152)
+  tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %151, ptr noundef %152)
   %153 = ptrtoint ptr %.0 to i64
   %154 = ptrtoint ptr %151 to i64
   %.neg.i.i.i.i.i.i.i = sub i64 %154, %153
@@ -43468,7 +43468,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i: ; preds = 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i
   %152 = phi ptr [ %113, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread ], [ %132, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit ], [ %132, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i ]
   %153 = phi ptr [ %102, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread ], [ %.pre75, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit ], [ %.pre75, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i ]
-  tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %152, ptr noundef %153)
+  tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %152, ptr noundef %153)
   %154 = ptrtoint ptr %.0 to i64
   %155 = ptrtoint ptr %152 to i64
   %.neg.i.i.i.i.i.i.i = sub i64 %155, %154

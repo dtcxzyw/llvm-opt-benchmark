@@ -13671,12 +13671,12 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i.i.i
   br label %ehcleanup35.i.i.i.i.i.i.i
 
 lpad2.loopexit.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit14.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit13.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i.i.i.i
 
 lpad2.loopexit.split-lp.i.i.i.i.i.i.i:            ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit.split-lp15.i.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp14.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i.i.i.i
 
@@ -14270,7 +14270,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN4absl12lts_20230
   unreachable
 
 ehcleanup.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i39.i.i.i.i.i.i.i, %if.then.i36.i.i.i.i.i.i.i, %lpad24.body.i.i.i.i.i.i.i, %if.then.i.i31.i.i.i.i.i.i.i, %if.then.i28.i.i.i.i.i.i.i, %lpad20.body.thread.i.i.i.i.i.i.i, %lpad2.loopexit.split-lp.i.i.i.i.i.i.i, %lpad2.loopexit.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %29, %lpad20.body.thread.i.i.i.i.i.i.i ], [ %58, %if.then.i28.i.i.i.i.i.i.i ], [ %58, %if.then.i.i31.i.i.i.i.i.i.i ], [ %41, %lpad24.body.i.i.i.i.i.i.i ], [ %eh.lpad-body26.i42.i.i.i.i.i.i, %if.then.i36.i.i.i.i.i.i.i ], [ %eh.lpad-body26.i42.i.i.i.i.i.i, %if.then.i.i39.i.i.i.i.i.i.i ], [ %lpad.loopexit14.i.i.i.i.i.i.i, %lpad2.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp15.i.i.i.i.i.i.i, %lpad2.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %29, %lpad20.body.thread.i.i.i.i.i.i.i ], [ %58, %if.then.i28.i.i.i.i.i.i.i ], [ %58, %if.then.i.i31.i.i.i.i.i.i.i ], [ %41, %lpad24.body.i.i.i.i.i.i.i ], [ %eh.lpad-body26.i42.i.i.i.i.i.i, %if.then.i36.i.i.i.i.i.i.i ], [ %eh.lpad-body26.i42.i.i.i.i.i.i, %if.then.i.i39.i.i.i.i.i.i.i ], [ %lpad.loopexit13.i.i.i.i.i.i.i, %lpad2.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp14.i.i.i.i.i.i.i, %lpad2.loopexit.split-lp.i.i.i.i.i.i.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %endpoint_weight_map_mu_.i.i.i.i.i.i.i)
           to label %ehcleanup35.i.i.i.i.i.i.i unwind label %terminate.lpad.i45.i.i.i.i.i.i.i, !noalias !180
 

@@ -580,9 +580,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.i: ; preds 
   br label %_ZN12_GLOBAL__N_130findSuffixFromNoAppendPositionESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN12_GLOBAL__N_130findSuffixFromNoAppendPositionESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %34, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.i
-  %.0.i = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.i ], [ %14, %34 ]
-  %38 = icmp ne i64 %.0.i, -1
-  ret i1 %38
+  %.0.i = phi i1 [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.i ], [ true, %34 ]
+  ret i1 %.0.i
 }
 
 declare i32 @__gxx_personality_v0(...)

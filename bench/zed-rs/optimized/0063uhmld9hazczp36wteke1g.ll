@@ -33840,8 +33840,8 @@ define hidden noalias noundef ptr @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as
   store i64 %27, ptr %7, align 8, !alias.scope !12401, !noalias !12402
   %28 = add i64 %.sroa.0.0.sroa.speculated.i.i11.i, %16
   store i64 %28, ptr %15, align 8, !alias.scope !12387, !noalias !12390
-  %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i11.i, 0
-  br i1 %.not, label %62, label %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h423978338888e92cE.exit"
+  %.not.not = icmp ugt i64 %19, %16
+  br i1 %.not.not, label %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h423978338888e92cE.exit", label %62
 
 29:                                               ; preds = %62, %10
   %30 = phi i64 [ %27, %62 ], [ %8, %10 ]

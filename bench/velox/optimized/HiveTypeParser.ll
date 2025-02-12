@@ -7160,30 +7160,30 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr noalias writeonly sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr %sp.coerce0, ptr %sp.coerce1, i1 noundef zeroext %ignorePredefined) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sp.coerce195 = ptrtoint ptr %sp.coerce1 to i64
+  %sp.coerce193 = ptrtoint ptr %sp.coerce1 to i64
   %ref.tmp.i = alloca [3 x i8], align 1
   %ref.tmp2.i = alloca %"struct.std::hash", align 1
   %ref.tmp3.i = alloca %"struct.std::equal_to", align 1
   %ref.tmp4.i = alloca %"class.std::allocator.5", align 1
-  %cmp.i78 = icmp eq ptr %sp.coerce0, %sp.coerce1
-  br i1 %cmp.i78, label %if.then, label %land.rhs.preheader
+  %cmp.i77 = icmp eq ptr %sp.coerce0, %sp.coerce1
+  br i1 %cmp.i77, label %if.then, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
-  %sp.coerce096 = ptrtoint ptr %sp.coerce0 to i64
-  %0 = sub i64 %sp.coerce195, %sp.coerce096
+  %sp.coerce094 = ptrtoint ptr %sp.coerce0 to i64
+  %0 = sub i64 %sp.coerce193, %sp.coerce094
   %scevgep = getelementptr i8, ptr %sp.coerce0, i64 %0
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %sp.sroa.0.079 = phi ptr [ %add.ptr.i, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %sp.coerce0, %land.rhs.preheader ]
-  %1 = load i8, ptr %sp.sroa.0.079, align 1
+  %sp.sroa.0.078 = phi ptr [ %add.ptr.i, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %sp.coerce0, %land.rhs.preheader ]
+  %1 = load i8, ptr %sp.sroa.0.078, align 1
   %conv = sext i8 %1 to i32
   %call3 = tail call i32 @isspace(i32 noundef %conv) #30
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end, label %_ZN5folly5RangeIPKcE7advanceEm.exit
 
 _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %land.rhs
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %sp.sroa.0.079, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %sp.sroa.0.078, i64 1
   %cmp.i = icmp eq ptr %add.ptr.i, %sp.coerce1
   br i1 %cmp.i, label %if.then, label %land.rhs, !llvm.loop !146
 
@@ -7202,39 +7202,39 @@ if.then7:                                         ; preds = %if.end
   %3 = load ptr, ptr %metadata_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i12.not82 = icmp eq ptr %3, %4
-  br i1 %cmp.i12.not82, label %if.end35, label %for.body.lr.ph
+  %cmp.i12.not81 = icmp eq ptr %3, %4
+  br i1 %cmp.i12.not81, label %if.end35, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then7
-  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %sp.sroa.0.079 to i64
-  %sub.ptr.sub.i.i21 = sub i64 %sp.coerce195, %sub.ptr.rhs.cast.i.i20
+  %sub.ptr.rhs.cast.i.i20 = ptrtoint ptr %sp.sroa.0.078 to i64
+  %sub.ptr.sub.i.i21 = sub i64 %sp.coerce193, %sub.ptr.rhs.cast.i.i20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc32
-  %__begin4.sroa.0.083 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i35, %for.inc32 ]
-  %5 = load ptr, ptr %__begin4.sroa.0.083, align 8
+  %__begin4.sroa.0.082 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i35, %for.inc32 ]
+  %5 = load ptr, ptr %__begin4.sroa.0.082, align 8
   %tokenString = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %tokenString, align 8
   %_M_finish.i13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i13, align 8
-  %cmp.i14.not80 = icmp eq ptr %6, %7
-  br i1 %cmp.i14.not80, label %for.inc32, label %for.body20
+  %cmp.i14.not79 = icmp eq ptr %6, %7
+  br i1 %cmp.i14.not79, label %for.inc32, label %for.body20
 
 for.body20:                                       ; preds = %for.body, %for.inc
-  %__begin5.sroa.0.081 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %6, %for.body ]
-  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.081) #25
-  %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.081) #25
+  %__begin5.sroa.0.080 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %6, %for.body ]
+  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.080) #25
+  %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.080) #25
   %8 = add i64 %call3.i, -1
   %or.cond.not = icmp ult i64 %8, %sub.ptr.sub.i.i21
   br i1 %or.cond.not, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %for.body20
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %sp.sroa.0.079, i64 %call3.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %sp.sroa.0.078, i64 %call3.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.inc.i.i
   %__first2.addr.09.i.i = phi ptr [ %incdec.ptr1.i.i, %for.inc.i.i ], [ %call.i, %if.end.i ]
-  %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %sp.sroa.0.079, %if.end.i ]
+  %__first1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %sp.sroa.0.078, %if.end.i ]
   %9 = load i8, ptr %__first1.addr.08.i.i, align 1
   %10 = load i8, ptr %__first2.addr.09.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %9, %10
@@ -7258,12 +7258,12 @@ for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !147
 
 for.inc:                                          ; preds = %if.end.i.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %for.body20
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.081, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.080, i64 32
   %cmp.i14.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i14.not, label %for.inc32, label %for.body20
 
 for.inc32:                                        ; preds = %for.inc, %for.body
-  %incdec.ptr.i35 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.083, i64 8
+  %incdec.ptr.i35 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.082, i64 8
   %cmp.i12.not = icmp eq ptr %incdec.ptr.i35, %4
   br i1 %cmp.i12.not, label %if.end35, label %for.body
 
@@ -7275,7 +7275,7 @@ if.end35:                                         ; preds = %for.inc32, %if.then
 
 while.cond37:                                     ; preds = %while.body42, %if.end35
   %len.0 = phi i64 [ 0, %if.end35 ], [ %inc, %while.body42 ]
-  %iter.0 = phi ptr [ %sp.sroa.0.079, %if.end35 ], [ %incdec.ptr, %while.body42 ]
+  %iter.0 = phi ptr [ %sp.sroa.0.078, %if.end35 ], [ %incdec.ptr, %while.body42 ]
   %13 = load i8, ptr %iter.0, align 1
   %conv38 = sext i8 %13 to i32
   %call39 = call i32 @isalnum(i32 noundef %conv38) #30
@@ -7390,8 +7390,8 @@ while.end43:                                      ; preds = %if.end15.i.i.i.i, %
   br i1 %cmp44.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %while.end43
-  %sub.ptr.rhs.cast.i.i.i39 = ptrtoint ptr %sp.sroa.0.079 to i64
-  %sub.ptr.sub.i.i.i40 = sub i64 %sp.coerce195, %sub.ptr.rhs.cast.i.i.i39
+  %sub.ptr.rhs.cast.i.i.i39 = ptrtoint ptr %sp.sroa.0.078 to i64
+  %sub.ptr.sub.i.i.i40 = sub i64 %sp.coerce193, %sub.ptr.rhs.cast.i.i.i39
   %cmp.i.i41 = icmp ugt i64 %len.0, %sub.ptr.sub.i.i.i40
   br i1 %cmp.i.i41, label %if.then.i.i47, label %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48
 
@@ -7403,7 +7403,7 @@ _ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenM
   %metadata_.i36 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %27 = load ptr, ptr %metadata_.i36, align 8
   %add.ptr.i.i37 = getelementptr inbounds nuw i8, ptr %27, i64 152
-  %add.ptr.i42 = getelementptr inbounds i8, ptr %sp.sroa.0.079, i64 %len.0
+  %add.ptr.i42 = getelementptr inbounds i8, ptr %sp.sroa.0.078, i64 %len.0
   br label %return
 
 if.end48:                                         ; preds = %while.end43
@@ -7411,17 +7411,17 @@ if.end48:                                         ; preds = %while.end43
   unreachable
 
 return:                                           ; preds = %for.inc.i.i, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48, %if.then
-  %.sink.in = phi ptr [ %add.ptr.i.i37, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %add.ptr.i.i, %if.then ], [ %__begin4.sroa.0.083, %for.inc.i.i ]
-  %sp.sroa.0.079.lcssa.sink = phi ptr [ %sp.sroa.0.079, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %sp.sroa.0.079, %for.inc.i.i ]
-  %add.ptr.i42.sink106 = phi ptr [ %add.ptr.i42, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %add.ptr.i.i.i, %for.inc.i.i ]
+  %.sink.in = phi ptr [ %add.ptr.i.i37, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %add.ptr.i.i, %if.then ], [ %__begin4.sroa.0.082, %for.inc.i.i ]
+  %sp.sroa.0.078.lcssa.sink = phi ptr [ %sp.sroa.0.078, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %sp.sroa.0.078, %for.inc.i.i ]
+  %add.ptr.i42.sink104 = phi ptr [ %add.ptr.i42, %_ZNK8facebook5velox4type6fbhive14HiveTypeParser17makeExtendedTokenEPNS2_13TokenMetadataEN5folly5RangeIPKcEEm.exit48 ], [ %sp.sroa.0.0.lcssa, %if.then ], [ %add.ptr.i.i.i, %for.inc.i.i ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %value.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %agg.result, align 8
-  store ptr %sp.sroa.0.079.lcssa.sink, ptr %value.i.i.i43, align 8
+  store ptr %sp.sroa.0.078.lcssa.sink, ptr %value.i.i.i43, align 8
   %spmatch.sroa.2.0.value.sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i42.sink106, ptr %spmatch.sroa.2.0.value.sroa_idx.i44, align 8
+  store ptr %add.ptr.i42.sink104, ptr %spmatch.sroa.2.0.value.sroa_idx.i44, align 8
   %remaining.i45 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store ptr %add.ptr.i42.sink106, ptr %remaining.i45, align 8
+  store ptr %add.ptr.i42.sink104, ptr %remaining.i45, align 8
   %sp.sroa.6.0.remaining.sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %sp.coerce1, ptr %sp.sroa.6.0.remaining.sroa_idx.i46, align 8
   ret void

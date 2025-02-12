@@ -74,7 +74,7 @@ Curl_dyn_reset.exit:                              ; preds = %9, %10
   %13 = load ptr, ptr %0, align 8, !tbaa !12
   %14 = sub i64 %4, %1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %15, i64 %1, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %15, i64 %1, i1 false)
   store i64 %1, ptr %3, align 8, !tbaa !13
   %16 = load ptr, ptr %0, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %1

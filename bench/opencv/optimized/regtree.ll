@@ -1410,21 +1410,14 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImpl14createLeafNodeERNS0_7regtre
 
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %15
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-          to label %.noexc3 unwind label %33
+          to label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %33
 
-.noexc3:                                          ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not7.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc3
+_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
   %19 = add i64 %11, -8
   %20 = sub i64 %19, %12
   %21 = and i64 %20, -8
   %22 = add i64 %21, 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %10, i64 %22, i1 false)
-  br label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
-
-_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %.noexc3, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %18, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %13
   store ptr %23, ptr %14, align 8

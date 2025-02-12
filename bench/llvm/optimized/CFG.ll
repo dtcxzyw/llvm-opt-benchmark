@@ -21325,13 +21325,13 @@ _ZN12_GLOBAL__N_110LocalScope14const_iterator8distanceES1_.exit.i: ; preds = %.l
   %163 = icmp ugt i32 %162, 10
   br i1 %163, label %164, label %.lr.ph.i.preheader
 
+.lr.ph.i.preheader:                               ; preds = %164, %_ZN12_GLOBAL__N_110LocalScope14const_iterator8distanceES1_.exit.i
+  br label %.lr.ph.i
+
 164:                                              ; preds = %_ZN12_GLOBAL__N_110LocalScope14const_iterator8distanceES1_.exit.i
   %165 = sext i32 %162 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %56, i64 noundef %165, i64 noundef 8) #26
   br label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %_ZN12_GLOBAL__N_110LocalScope14const_iterator8distanceES1_.exit.i, %164
-  br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN12_GLOBAL__N_110LocalScope14const_iteratorppEv.exit.i
   %166 = load i32, ptr %57, align 8, !tbaa !112
@@ -23253,7 +23253,7 @@ _ZSt4copyIN5clang12StmtIteratorEPPNS0_4StmtEET0_T_S6_S5_.exit: ; preds = %_ZN5cl
   %110 = getelementptr inbounds nuw ptr, ptr %49, i64 %109
   %111 = sub nsw i64 0, %53
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 8 %50, i64 %gepdiff, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr align 8 %50, i64 %gepdiff, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %141
 

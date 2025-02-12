@@ -3735,13 +3735,13 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load i32, ptr %arrayidx.i12.i, align 4
   %cmp3.i = icmp ugt i32 %sub.i, %6
-  br i1 %cmp3.i, label %while.body.i, label %invoke.cont5thread-pre-split
+  br i1 %cmp3.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorImLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %fact)
           to label %while.condthread-pre-split.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont5thread-pre-split:                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i
+while.end.i:                                      ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -4
   store i32 %sub.i, ptr %arrayidx.i, align 4
   %idx.ext6.i = zext i32 %sub.i to i64
@@ -3751,8 +3751,8 @@ invoke.cont5thread-pre-split:                     ; preds = %_ZNK6vectorImLb0EjE
   %.pr = load i32, ptr %m_functional_columns.i, align 8
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %invoke.cont5thread-pre-split, %_ZNK6vectorImLb0EjE4sizeEv.exit.i
-  %9 = phi i32 [ %.pr, %invoke.cont5thread-pre-split ], [ %retval.0.i.i, %_ZNK6vectorImLb0EjE4sizeEv.exit.i ]
+invoke.cont5:                                     ; preds = %while.end.i, %_ZNK6vectorImLb0EjE4sizeEv.exit.i
+  %9 = phi i32 [ %.pr, %while.end.i ], [ %retval.0.i.i, %_ZNK6vectorImLb0EjE4sizeEv.exit.i ]
   %cmp3.not.i = icmp eq i32 %9, 0
   br i1 %cmp3.not.i, label %invoke.cont8, label %for.body.preheader.i19
 

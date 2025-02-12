@@ -5324,8 +5324,8 @@ define dso_local range(i32 0, 2) i32 @repo_file_exists(ptr noundef readnone %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @dir_inside_of(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = load i8, ptr %1, align 1, !tbaa !4
-  %.not42 = icmp eq i8 %3, 0
-  br i1 %.not42, label %.critedge, label %.lr.ph
+  %.not43 = icmp eq i8 %3, 0
+  br i1 %.not43, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = load i32, ptr @ignore_case, align 4
@@ -5334,105 +5334,105 @@ define dso_local i32 @dir_inside_of(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %cmp_icase.exit.thread.us
-  %5 = phi i8 [ %10, %cmp_icase.exit.thread.us ], [ %3, %.lr.ph ]
-  %.045.us = phi i32 [ %9, %cmp_icase.exit.thread.us ], [ 0, %.lr.ph ]
-  %.01744.us = phi ptr [ %7, %cmp_icase.exit.thread.us ], [ %1, %.lr.ph ]
-  %.01843.us = phi ptr [ %8, %cmp_icase.exit.thread.us ], [ %0, %.lr.ph ]
-  %6 = load i8, ptr %.01843.us, align 1, !tbaa !4
-  %.not21.us = icmp eq i8 %5, %6
-  br i1 %.not21.us, label %cmp_icase.exit.thread.us, label %.critedge.thread34
+  %5 = phi i8 [ %11, %cmp_icase.exit.thread.us ], [ %3, %.lr.ph ]
+  %.046.us = phi i32 [ %10, %cmp_icase.exit.thread.us ], [ 0, %.lr.ph ]
+  %.01745.us = phi ptr [ %8, %cmp_icase.exit.thread.us ], [ %1, %.lr.ph ]
+  %.01844.us = phi ptr [ %9, %cmp_icase.exit.thread.us ], [ %0, %.lr.ph ]
+  %6 = load i8, ptr %.01844.us, align 1, !tbaa !4
+  %7 = icmp eq i8 %5, %6
+  br i1 %7, label %cmp_icase.exit.thread.us, label %.critedge.thread34
 
 cmp_icase.exit.thread.us:                         ; preds = %.lr.ph.split.us
-  %7 = getelementptr inbounds nuw i8, ptr %.01744.us, i64 1
-  %8 = getelementptr inbounds nuw i8, ptr %.01843.us, i64 1
-  %9 = add nuw nsw i32 %.045.us, 1
-  %10 = load i8, ptr %7, align 1, !tbaa !4
-  %.not.us = icmp eq i8 %10, 0
+  %8 = getelementptr inbounds nuw i8, ptr %.01745.us, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01844.us, i64 1
+  %10 = add nuw nsw i32 %.046.us, 1
+  %11 = load i8, ptr %8, align 1, !tbaa !4
+  %.not.us = icmp eq i8 %11, 0
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !184
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cmp_icase.exit.thread
-  %11 = phi i8 [ %30, %cmp_icase.exit.thread ], [ %3, %.lr.ph ]
-  %.045 = phi i32 [ %29, %cmp_icase.exit.thread ], [ 0, %.lr.ph ]
-  %.01744 = phi ptr [ %27, %cmp_icase.exit.thread ], [ %1, %.lr.ph ]
-  %.01843 = phi ptr [ %28, %cmp_icase.exit.thread ], [ %0, %.lr.ph ]
-  %12 = load i8, ptr %.01843, align 1, !tbaa !4
-  %.not20 = icmp eq i8 %12, 0
-  br i1 %.not20, label %.critedge.thread34, label %13
+  %12 = phi i8 [ %32, %cmp_icase.exit.thread ], [ %3, %.lr.ph ]
+  %.046 = phi i32 [ %31, %cmp_icase.exit.thread ], [ 0, %.lr.ph ]
+  %.01745 = phi ptr [ %29, %cmp_icase.exit.thread ], [ %1, %.lr.ph ]
+  %.01844 = phi ptr [ %30, %cmp_icase.exit.thread ], [ %0, %.lr.ph ]
+  %13 = load i8, ptr %.01844, align 1, !tbaa !4
+  %.not20 = icmp eq i8 %13, 0
+  br i1 %.not20, label %.critedge.thread34, label %14
 
-13:                                               ; preds = %.lr.ph.split
-  %14 = icmp eq i8 %11, %12
-  br i1 %14, label %cmp_icase.exit.thread, label %cmp_icase.exit
+14:                                               ; preds = %.lr.ph.split
+  %15 = icmp eq i8 %12, %13
+  br i1 %15, label %cmp_icase.exit.thread, label %cmp_icase.exit
 
-cmp_icase.exit:                                   ; preds = %13
-  %15 = zext i8 %11 to i32
-  %16 = zext i8 %11 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !4
-  %19 = and i8 %18, 4
-  %.not.i.i = icmp eq i8 %19, 0
-  %20 = and i32 %15, 223
-  %spec.select.i.i = select i1 %.not.i.i, i32 %15, i32 %20
-  %21 = zext i8 %12 to i32
-  %22 = zext i8 %12 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !4
-  %25 = and i8 %24, 4
-  %.not.i9.i = icmp eq i8 %25, 0
-  %26 = and i32 %21, 223
-  %spec.select.i10.i = select i1 %.not.i9.i, i32 %21, i32 %26
-  %.not21 = icmp eq i32 %spec.select.i.i, %spec.select.i10.i
-  br i1 %.not21, label %cmp_icase.exit.thread, label %.critedge.thread34
+cmp_icase.exit:                                   ; preds = %14
+  %16 = zext i8 %12 to i32
+  %17 = zext i8 %12 to i64
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !4
+  %20 = and i8 %19, 4
+  %.not.i.i = icmp eq i8 %20, 0
+  %21 = and i32 %16, 223
+  %spec.select.i.i = select i1 %.not.i.i, i32 %16, i32 %21
+  %22 = zext i8 %13 to i32
+  %23 = zext i8 %13 to i64
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !4
+  %26 = and i8 %25, 4
+  %.not.i9.i = icmp eq i8 %26, 0
+  %27 = and i32 %22, 223
+  %spec.select.i10.i = select i1 %.not.i9.i, i32 %22, i32 %27
+  %28 = icmp eq i32 %spec.select.i.i, %spec.select.i10.i
+  br i1 %28, label %cmp_icase.exit.thread, label %.critedge.thread34
 
-cmp_icase.exit.thread:                            ; preds = %13, %cmp_icase.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.01744, i64 1
-  %28 = getelementptr inbounds nuw i8, ptr %.01843, i64 1
-  %29 = add nuw nsw i32 %.045, 1
-  %30 = load i8, ptr %27, align 1, !tbaa !4
-  %.not = icmp eq i8 %30, 0
+cmp_icase.exit.thread:                            ; preds = %14, %cmp_icase.exit
+  %29 = getelementptr inbounds nuw i8, ptr %.01745, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.01844, i64 1
+  %31 = add nuw nsw i32 %.046, 1
+  %32 = load i8, ptr %29, align 1, !tbaa !4
+  %.not = icmp eq i8 %32, 0
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !184
 
 .critedge:                                        ; preds = %cmp_icase.exit.thread, %cmp_icase.exit.thread.us, %2
-  %.018.lcssa = phi ptr [ %0, %2 ], [ %8, %cmp_icase.exit.thread.us ], [ %28, %cmp_icase.exit.thread ]
-  %.017.lcssa = phi ptr [ %1, %2 ], [ %7, %cmp_icase.exit.thread.us ], [ %27, %cmp_icase.exit.thread ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %cmp_icase.exit.thread.us ], [ %29, %cmp_icase.exit.thread ]
+  %.018.lcssa = phi ptr [ %0, %2 ], [ %9, %cmp_icase.exit.thread.us ], [ %30, %cmp_icase.exit.thread ]
+  %.017.lcssa = phi ptr [ %1, %2 ], [ %8, %cmp_icase.exit.thread.us ], [ %29, %cmp_icase.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %cmp_icase.exit.thread.us ], [ %31, %cmp_icase.exit.thread ]
   %.pr32 = load i8, ptr %.018.lcssa, align 1, !tbaa !4
   %.not24 = icmp eq i8 %.pr32, 0
-  br i1 %.not24, label %.critedge.thread34, label %31
+  br i1 %.not24, label %.critedge.thread34, label %33
 
-31:                                               ; preds = %.critedge
-  %32 = getelementptr inbounds i8, ptr %.017.lcssa, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !4
-  %.not36 = icmp eq i8 %33, 47
-  br i1 %.not36, label %34, label %38
+33:                                               ; preds = %.critedge
+  %34 = getelementptr inbounds i8, ptr %.017.lcssa, i64 -1
+  %35 = load i8, ptr %34, align 1, !tbaa !4
+  %.not36 = icmp eq i8 %35, 47
+  br i1 %.not36, label %36, label %40
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.018.lcssa, i64 -1
-  %36 = load i8, ptr %35, align 1, !tbaa !4
-  %.not37 = icmp eq i8 %36, 47
-  %37 = select i1 %.not37, i32 %.0.lcssa, i32 -1
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %.018.lcssa, i64 -1
+  %38 = load i8, ptr %37, align 1, !tbaa !4
+  %.not37 = icmp eq i8 %38, 47
+  %39 = select i1 %.not37, i32 %.0.lcssa, i32 -1
   br label %.critedge.thread34
 
-38:                                               ; preds = %31
+40:                                               ; preds = %33
   %.not38 = icmp eq i8 %.pr32, 47
-  %39 = add nuw nsw i32 %.0.lcssa, 1
-  %40 = select i1 %.not38, i32 %39, i32 -1
+  %41 = add nuw nsw i32 %.0.lcssa, 1
+  %42 = select i1 %.not38, i32 %41, i32 -1
   br label %.critedge.thread34
 
-.critedge.thread34:                               ; preds = %.lr.ph.split, %cmp_icase.exit, %.lr.ph.split.us, %.critedge, %38, %34
-  %.019 = phi i32 [ %37, %34 ], [ %40, %38 ], [ %.0.lcssa, %.critedge ], [ -1, %.lr.ph.split.us ], [ -1, %cmp_icase.exit ], [ -1, %.lr.ph.split ]
+.critedge.thread34:                               ; preds = %.lr.ph.split, %cmp_icase.exit, %.lr.ph.split.us, %.critedge, %40, %36
+  %.019 = phi i32 [ %39, %36 ], [ %42, %40 ], [ %.0.lcssa, %.critedge ], [ -1, %.lr.ph.split.us ], [ -1, %cmp_icase.exit ], [ -1, %.lr.ph.split ]
   ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_inside_dir(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %2
+  br i1 %.not, label %46, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @xgetcwd() #27
   %4 = load i8, ptr %0, align 1, !tbaa !4
-  %.not42.i = icmp eq i8 %4, 0
-  br i1 %.not42.i, label %.critedge.i, label %.lr.ph.i
+  %.not43.i = icmp eq i8 %4, 0
+  br i1 %.not43.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %5 = load i32, ptr @ignore_case, align 4
@@ -5441,99 +5441,99 @@ define dso_local range(i32 0, 2) i32 @is_inside_dir(ptr noundef readonly %0) loc
   br i1 %.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %cmp_icase.exit.thread.us.i
-  %6 = phi i8 [ %11, %cmp_icase.exit.thread.us.i ], [ %4, %.lr.ph.i ]
-  %.045.us.i = phi i32 [ %10, %cmp_icase.exit.thread.us.i ], [ 0, %.lr.ph.i ]
-  %.01744.us.i = phi ptr [ %8, %cmp_icase.exit.thread.us.i ], [ %0, %.lr.ph.i ]
-  %.01843.us.i = phi ptr [ %9, %cmp_icase.exit.thread.us.i ], [ %3, %.lr.ph.i ]
-  %7 = load i8, ptr %.01843.us.i, align 1, !tbaa !4
-  %.not21.us.i = icmp eq i8 %6, %7
-  br i1 %.not21.us.i, label %cmp_icase.exit.thread.us.i, label %dir_inside_of.exit
+  %6 = phi i8 [ %12, %cmp_icase.exit.thread.us.i ], [ %4, %.lr.ph.i ]
+  %.046.us.i = phi i32 [ %11, %cmp_icase.exit.thread.us.i ], [ 0, %.lr.ph.i ]
+  %.01745.us.i = phi ptr [ %9, %cmp_icase.exit.thread.us.i ], [ %0, %.lr.ph.i ]
+  %.01844.us.i = phi ptr [ %10, %cmp_icase.exit.thread.us.i ], [ %3, %.lr.ph.i ]
+  %7 = load i8, ptr %.01844.us.i, align 1, !tbaa !4
+  %8 = icmp eq i8 %6, %7
+  br i1 %8, label %cmp_icase.exit.thread.us.i, label %dir_inside_of.exit
 
 cmp_icase.exit.thread.us.i:                       ; preds = %.lr.ph.split.us.i
-  %8 = getelementptr inbounds nuw i8, ptr %.01744.us.i, i64 1
-  %9 = getelementptr inbounds nuw i8, ptr %.01843.us.i, i64 1
-  %10 = add nuw nsw i32 %.045.us.i, 1
-  %11 = load i8, ptr %8, align 1, !tbaa !4
-  %.not.us.i = icmp eq i8 %11, 0
+  %9 = getelementptr inbounds nuw i8, ptr %.01745.us.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01844.us.i, i64 1
+  %11 = add nuw nsw i32 %.046.us.i, 1
+  %12 = load i8, ptr %9, align 1, !tbaa !4
+  %.not.us.i = icmp eq i8 %12, 0
   br i1 %.not.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !184
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %cmp_icase.exit.thread.i
-  %12 = phi i8 [ %31, %cmp_icase.exit.thread.i ], [ %4, %.lr.ph.i ]
-  %.045.i = phi i32 [ %30, %cmp_icase.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.01744.i = phi ptr [ %28, %cmp_icase.exit.thread.i ], [ %0, %.lr.ph.i ]
-  %.01843.i = phi ptr [ %29, %cmp_icase.exit.thread.i ], [ %3, %.lr.ph.i ]
-  %13 = load i8, ptr %.01843.i, align 1, !tbaa !4
-  %.not20.i = icmp eq i8 %13, 0
-  br i1 %.not20.i, label %dir_inside_of.exit, label %14
+  %13 = phi i8 [ %33, %cmp_icase.exit.thread.i ], [ %4, %.lr.ph.i ]
+  %.046.i = phi i32 [ %32, %cmp_icase.exit.thread.i ], [ 0, %.lr.ph.i ]
+  %.01745.i = phi ptr [ %30, %cmp_icase.exit.thread.i ], [ %0, %.lr.ph.i ]
+  %.01844.i = phi ptr [ %31, %cmp_icase.exit.thread.i ], [ %3, %.lr.ph.i ]
+  %14 = load i8, ptr %.01844.i, align 1, !tbaa !4
+  %.not20.i = icmp eq i8 %14, 0
+  br i1 %.not20.i, label %dir_inside_of.exit, label %15
 
-14:                                               ; preds = %.lr.ph.split.i
-  %15 = icmp eq i8 %12, %13
-  br i1 %15, label %cmp_icase.exit.thread.i, label %cmp_icase.exit.i
+15:                                               ; preds = %.lr.ph.split.i
+  %16 = icmp eq i8 %13, %14
+  br i1 %16, label %cmp_icase.exit.thread.i, label %cmp_icase.exit.i
 
-cmp_icase.exit.i:                                 ; preds = %14
-  %16 = zext i8 %12 to i32
-  %17 = zext i8 %12 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !4
-  %20 = and i8 %19, 4
-  %.not.i.i.i = icmp eq i8 %20, 0
-  %21 = and i32 %16, 223
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %16, i32 %21
-  %22 = zext i8 %13 to i32
-  %23 = zext i8 %13 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !4
-  %26 = and i8 %25, 4
-  %.not.i9.i.i = icmp eq i8 %26, 0
-  %27 = and i32 %22, 223
-  %spec.select.i10.i.i = select i1 %.not.i9.i.i, i32 %22, i32 %27
-  %.not21.i = icmp eq i32 %spec.select.i.i.i, %spec.select.i10.i.i
-  br i1 %.not21.i, label %cmp_icase.exit.thread.i, label %dir_inside_of.exit
+cmp_icase.exit.i:                                 ; preds = %15
+  %17 = zext i8 %13 to i32
+  %18 = zext i8 %13 to i64
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !4
+  %21 = and i8 %20, 4
+  %.not.i.i.i = icmp eq i8 %21, 0
+  %22 = and i32 %17, 223
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %17, i32 %22
+  %23 = zext i8 %14 to i32
+  %24 = zext i8 %14 to i64
+  %25 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = and i8 %26, 4
+  %.not.i9.i.i = icmp eq i8 %27, 0
+  %28 = and i32 %23, 223
+  %spec.select.i10.i.i = select i1 %.not.i9.i.i, i32 %23, i32 %28
+  %29 = icmp eq i32 %spec.select.i.i.i, %spec.select.i10.i.i
+  br i1 %29, label %cmp_icase.exit.thread.i, label %dir_inside_of.exit
 
-cmp_icase.exit.thread.i:                          ; preds = %cmp_icase.exit.i, %14
-  %28 = getelementptr inbounds nuw i8, ptr %.01744.i, i64 1
-  %29 = getelementptr inbounds nuw i8, ptr %.01843.i, i64 1
-  %30 = add nuw nsw i32 %.045.i, 1
-  %31 = load i8, ptr %28, align 1, !tbaa !4
-  %.not.i = icmp eq i8 %31, 0
+cmp_icase.exit.thread.i:                          ; preds = %cmp_icase.exit.i, %15
+  %30 = getelementptr inbounds nuw i8, ptr %.01745.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.01844.i, i64 1
+  %32 = add nuw nsw i32 %.046.i, 1
+  %33 = load i8, ptr %30, align 1, !tbaa !4
+  %.not.i = icmp eq i8 %33, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !184
 
 .critedge.i:                                      ; preds = %cmp_icase.exit.thread.i, %cmp_icase.exit.thread.us.i, %2
-  %.018.lcssa.i = phi ptr [ %3, %2 ], [ %9, %cmp_icase.exit.thread.us.i ], [ %29, %cmp_icase.exit.thread.i ]
-  %.017.lcssa.i = phi ptr [ %0, %2 ], [ %8, %cmp_icase.exit.thread.us.i ], [ %28, %cmp_icase.exit.thread.i ]
-  %.0.lcssa.i = phi i32 [ 0, %2 ], [ %10, %cmp_icase.exit.thread.us.i ], [ %30, %cmp_icase.exit.thread.i ]
+  %.018.lcssa.i = phi ptr [ %3, %2 ], [ %10, %cmp_icase.exit.thread.us.i ], [ %31, %cmp_icase.exit.thread.i ]
+  %.017.lcssa.i = phi ptr [ %0, %2 ], [ %9, %cmp_icase.exit.thread.us.i ], [ %30, %cmp_icase.exit.thread.i ]
+  %.0.lcssa.i = phi i32 [ 0, %2 ], [ %11, %cmp_icase.exit.thread.us.i ], [ %32, %cmp_icase.exit.thread.i ]
   %.pr32.i = load i8, ptr %.018.lcssa.i, align 1, !tbaa !4
   %.not24.i = icmp eq i8 %.pr32.i, 0
-  br i1 %.not24.i, label %dir_inside_of.exit, label %32
+  br i1 %.not24.i, label %dir_inside_of.exit, label %34
 
-32:                                               ; preds = %.critedge.i
-  %33 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 -1
-  %34 = load i8, ptr %33, align 1, !tbaa !4
-  %.not36.i = icmp eq i8 %34, 47
-  br i1 %.not36.i, label %35, label %39
+34:                                               ; preds = %.critedge.i
+  %35 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 -1
+  %36 = load i8, ptr %35, align 1, !tbaa !4
+  %.not36.i = icmp eq i8 %36, 47
+  br i1 %.not36.i, label %37, label %41
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.018.lcssa.i, i64 -1
-  %37 = load i8, ptr %36, align 1, !tbaa !4
-  %.not37.i = icmp eq i8 %37, 47
-  %38 = select i1 %.not37.i, i32 %.0.lcssa.i, i32 -1
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %.018.lcssa.i, i64 -1
+  %39 = load i8, ptr %38, align 1, !tbaa !4
+  %.not37.i = icmp eq i8 %39, 47
+  %40 = select i1 %.not37.i, i32 %.0.lcssa.i, i32 -1
   br label %dir_inside_of.exit
 
-39:                                               ; preds = %32
+41:                                               ; preds = %34
   %.not38.i = icmp eq i8 %.pr32.i, 47
-  %40 = add nuw nsw i32 %.0.lcssa.i, 1
-  %41 = select i1 %.not38.i, i32 %40, i32 -1
+  %42 = add nuw nsw i32 %.0.lcssa.i, 1
+  %43 = select i1 %.not38.i, i32 %42, i32 -1
   br label %dir_inside_of.exit
 
-dir_inside_of.exit:                               ; preds = %.lr.ph.split.i, %cmp_icase.exit.i, %.lr.ph.split.us.i, %.critedge.i, %35, %39
-  %.019.i = phi i32 [ %38, %35 ], [ %41, %39 ], [ %.0.lcssa.i, %.critedge.i ], [ -1, %.lr.ph.split.us.i ], [ -1, %cmp_icase.exit.i ], [ -1, %.lr.ph.split.i ]
-  %42 = icmp sgt i32 %.019.i, -1
-  %43 = zext i1 %42 to i32
+dir_inside_of.exit:                               ; preds = %.lr.ph.split.i, %cmp_icase.exit.i, %.lr.ph.split.us.i, %.critedge.i, %37, %41
+  %.019.i = phi i32 [ %40, %37 ], [ %43, %41 ], [ %.0.lcssa.i, %.critedge.i ], [ -1, %.lr.ph.split.us.i ], [ -1, %cmp_icase.exit.i ], [ -1, %.lr.ph.split.i ]
+  %44 = icmp sgt i32 %.019.i, -1
+  %45 = zext i1 %44 to i32
   tail call void @free(ptr noundef %3) #27
-  br label %44
+  br label %46
 
-44:                                               ; preds = %1, %dir_inside_of.exit
-  %.0 = phi i32 [ %43, %dir_inside_of.exit ], [ 0, %1 ]
+46:                                               ; preds = %1, %dir_inside_of.exit
+  %.0 = phi i32 [ %45, %dir_inside_of.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 

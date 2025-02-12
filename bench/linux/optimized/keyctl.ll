@@ -2543,7 +2543,7 @@ define dso_local noundef range(i64 -14, 3) i64 @keyctl_capabilities(ptr noundef 
   %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 2)
   %6 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull @keyrings_capabilities, i64 noundef %5) #11
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %.thread
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %4
   %9 = icmp ugt i64 %1, 2
@@ -2557,7 +2557,7 @@ define dso_local noundef range(i64 -14, 3) i64 @keyctl_capabilities(ptr noundef 
   %15 = icmp sgt i64 %14, -1
   %16 = icmp uge i64 %14, %13
   %17 = and i1 %15, %16
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %10
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
@@ -2568,12 +2568,12 @@ define dso_local noundef range(i64 -14, 3) i64 @keyctl_capabilities(ptr noundef 
   tail call void @llvm.write_register.i64(metadata !0, i64 %22)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %23 = icmp eq i64 %21, 0
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %18, %8, %2
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %10, %24, %18, %4
+.critedge:                                        ; preds = %10, %24, %18, %4
   %25 = phi i64 [ 2, %24 ], [ -14, %4 ], [ -14, %18 ], [ -14, %10 ]
   ret i64 %25
 }
@@ -2601,7 +2601,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %8 = alloca %struct.iov_iter, align 8
   %9 = alloca %struct.iov_iter, align 8
   %10 = trunc i64 %0 to i32
-  switch i32 %10, label %keyctl_keyring_clear.exit [
+  switch i32 %10, label %.critedge [
     i32 0, label %11
     i32 1, label %25
     i32 2, label %42
@@ -2642,7 +2642,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %16 = tail call ptr @lookup_user_key(i32 noundef %12, i64 noundef %15, i32 noundef 4) #11
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
   %18 = ptrtoint ptr %16 to i64
-  br i1 %17, label %keyctl_keyring_clear.exit, label %19
+  br i1 %17, label %.critedge, label %19
 
 19:                                               ; preds = %11
   %20 = and i64 %18, -2
@@ -2651,7 +2651,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   tail call void @key_put(ptr noundef %21) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 25:                                               ; preds = %5
   %26 = icmp eq i64 %1, 0
@@ -2665,7 +2665,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 31:                                               ; preds = %27
   %32 = ptrtoint ptr %29 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 33:                                               ; preds = %27
   %34 = load i8, ptr %29, align 1
@@ -2681,13 +2681,13 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %40 = phi ptr [ %29, %33 ], [ %37, %36 ]
   %41 = phi i64 [ -1, %33 ], [ %38, %36 ]
   tail call void @kfree(ptr noundef %40) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 42:                                               ; preds = %5
   %43 = trunc i64 %1 to i32
   %44 = inttoptr i64 %2 to ptr
   %45 = tail call i64 @keyctl_update_key(i32 noundef %43, ptr noundef %44, i64 noundef %3)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 46:                                               ; preds = %5
   %47 = trunc i64 %1 to i32
@@ -2698,7 +2698,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 50:                                               ; preds = %46
   %51 = ptrtoint ptr %48 to i64
   %52 = icmp eq ptr %48, inttoptr (i64 -13 to ptr)
-  br i1 %52, label %53, label %keyctl_keyring_clear.exit
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %50
   %54 = tail call ptr @lookup_user_key(i32 noundef %47, i64 noundef 0, i32 noundef 6) #11
@@ -2707,7 +2707,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 56:                                               ; preds = %53
   %57 = ptrtoint ptr %54 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 58:                                               ; preds = %53, %46
   %59 = phi ptr [ %54, %53 ], [ %48, %46 ]
@@ -2727,14 +2727,14 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 68:                                               ; preds = %67, %58
   %69 = phi i64 [ 0, %67 ], [ -1, %58 ]
   tail call void @key_put(ptr noundef %62) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 70:                                               ; preds = %5
   %71 = trunc i64 %1 to i32
   %72 = inttoptr i64 %2 to ptr
   %73 = and i64 %3, 4294967295
   %74 = tail call i64 @keyctl_describe_key(i32 noundef %71, ptr noundef %72, i64 noundef %73)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 75:                                               ; preds = %5
   %76 = trunc i64 %1 to i32
@@ -2750,12 +2750,12 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 80:                                               ; preds = %75
   %81 = tail call zeroext i1 @capable(i32 noundef 21) #11
-  br i1 %81, label %82, label %keyctl_keyring_clear.exit
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %80
   %83 = tail call ptr @lookup_user_key(i32 noundef %76, i64 noundef 0, i32 noundef 8) #11
   %84 = icmp ugt ptr %83, inttoptr (i64 -4096 to ptr)
-  br i1 %84, label %keyctl_keyring_clear.exit, label %85
+  br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %82
   %86 = ptrtoint ptr %83 to i64
@@ -2784,7 +2784,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %.pre-phi3.i = phi ptr [ %.pre-phi8.i, %98 ], [ %.pre-phi8.i, %93 ], [ %88, %85 ]
   %102 = phi i64 [ %100, %98 ], [ -1, %93 ], [ %79, %85 ]
   tail call void @key_put(ptr noundef %.pre-phi3.i) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 103:                                              ; preds = %5
   %104 = trunc i64 %2 to i32
@@ -2794,7 +2794,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 107:                                              ; preds = %103
   %108 = ptrtoint ptr %105 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 109:                                              ; preds = %103
   %110 = trunc i64 %1 to i32
@@ -2825,7 +2825,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %.pre-phi24 = phi ptr [ %118, %115 ], [ %.pre23, %113 ]
   %125 = phi i64 [ %123, %115 ], [ %114, %113 ]
   tail call void @key_put(ptr noundef %.pre-phi24) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 126:                                              ; preds = %5
   %127 = trunc i64 %2 to i32
@@ -2835,7 +2835,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 130:                                              ; preds = %126
   %131 = ptrtoint ptr %128 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 132:                                              ; preds = %126
   %133 = trunc i64 %1 to i32
@@ -2884,7 +2884,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %.pre-phi6.i = phi ptr [ %141, %157 ], [ %.pre5.i15, %136 ]
   %160 = phi i64 [ %158, %157 ], [ %137, %136 ]
   tail call void @key_put(ptr noundef %.pre-phi6.i) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 161:                                              ; preds = %5
   %162 = trunc i64 %1 to i32
@@ -2892,33 +2892,33 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %164 = inttoptr i64 %3 to ptr
   %165 = trunc i64 %4 to i32
   %166 = tail call i64 @keyctl_keyring_search(i32 noundef %162, ptr noundef %163, ptr noundef %164, i32 noundef %165)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 167:                                              ; preds = %5
   %168 = trunc i64 %1 to i32
   %169 = inttoptr i64 %2 to ptr
   %170 = tail call i64 @keyctl_read_key(i32 noundef %168, ptr noundef %169, i64 noundef %3)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 171:                                              ; preds = %5
   %172 = trunc i64 %1 to i32
   %173 = trunc i64 %2 to i32
   %174 = trunc i64 %3 to i32
   %175 = tail call i64 @keyctl_chown_key(i32 noundef %172, i32 noundef %173, i32 noundef %174)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 176:                                              ; preds = %5
   %177 = trunc i64 %2 to i32
   %178 = and i32 %177, -1061109568
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %keyctl_keyring_clear.exit
+  br i1 %179, label %180, label %.critedge
 
 180:                                              ; preds = %176
   %181 = trunc i64 %1 to i32
   %182 = tail call ptr @lookup_user_key(i32 noundef %181, i64 noundef 3, i32 noundef 6) #11
   %183 = icmp ugt ptr %182, inttoptr (i64 -4096 to ptr)
   %184 = ptrtoint ptr %182 to i64
-  br i1 %183, label %keyctl_keyring_clear.exit, label %185
+  br i1 %183, label %.critedge, label %185
 
 185:                                              ; preds = %180
   %186 = and i64 %184, -2
@@ -2949,7 +2949,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %203 = phi i64 [ 0, %200 ], [ -13, %198 ]
   tail call void @up_write(ptr noundef nonnull %188) #11
   tail call void @key_put(ptr noundef %187) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 204:                                              ; preds = %5
   %205 = trunc i64 %1 to i32
@@ -2978,18 +2978,18 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 218:                                              ; preds = %216, %214
   %219 = phi i64 [ %215, %214 ], [ %217, %216 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 220:                                              ; preds = %204
   %221 = tail call fastcc i64 @keyctl_instantiate_key_common(i32 noundef %205, ptr noundef null, i32 noundef %206), !range !18
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 222:                                              ; preds = %5
   %223 = trunc i64 %1 to i32
   %224 = trunc i64 %2 to i32
   %225 = trunc i64 %3 to i32
   %226 = tail call i64 @keyctl_reject_key(i32 noundef %223, i32 noundef %224, i32 noundef 126, i32 noundef %225)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 227:                                              ; preds = %5
   %228 = trunc i64 %1 to i32
@@ -3004,12 +3004,12 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 236:                                              ; preds = %227
   %237 = zext i8 %234 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 238:                                              ; preds = %227
   %239 = tail call ptr @prepare_creds() #11
   %240 = icmp eq ptr %239, null
-  br i1 %240, label %keyctl_keyring_clear.exit, label %241
+  br i1 %240, label %.critedge, label %241
 
 241:                                              ; preds = %238
   switch i32 %228, label %253 [
@@ -3038,34 +3038,34 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   store i8 %249, ptr %250, align 8
   %251 = tail call i32 @commit_creds(ptr noundef nonnull %239) #11
   %252 = zext i8 %234 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 253:                                              ; preds = %245, %242, %241
   %254 = phi i32 [ %246, %245 ], [ %243, %242 ], [ -22, %241 ]
   tail call void @abort_creds(ptr noundef nonnull %239) #11
   %255 = sext i32 %254 to i64
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 256:                                              ; preds = %5
   %257 = trunc i64 %1 to i32
   %258 = trunc i64 %2 to i32
   %259 = tail call i64 @keyctl_set_timeout(i32 noundef %257, i32 noundef %258)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 260:                                              ; preds = %5
   %261 = trunc i64 %1 to i32
   %262 = tail call i64 @keyctl_assume_authority(i32 noundef %261)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 263:                                              ; preds = %5
   %264 = trunc i64 %1 to i32
   %265 = inttoptr i64 %2 to ptr
   %266 = tail call i64 @keyctl_get_security(i32 noundef %264, ptr noundef %265, i64 noundef %3)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 267:                                              ; preds = %5
   %268 = tail call i64 @keyctl_session_to_parent()
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 269:                                              ; preds = %5
   %270 = trunc i64 %1 to i32
@@ -3073,7 +3073,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %272 = trunc i64 %3 to i32
   %273 = trunc i64 %4 to i32
   %274 = tail call i64 @keyctl_reject_key(i32 noundef %270, i32 noundef %271, i32 noundef %272, i32 noundef %273)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 275:                                              ; preds = %5
   %276 = inttoptr i64 %2 to ptr
@@ -3103,7 +3103,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 289:                                              ; preds = %5
   %290 = trunc i64 %1 to i32
@@ -3119,12 +3119,12 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
 
 294:                                              ; preds = %289
   %295 = tail call zeroext i1 @capable(i32 noundef 21) #11
-  br i1 %295, label %296, label %keyctl_keyring_clear.exit
+  br i1 %295, label %296, label %.critedge
 
 296:                                              ; preds = %294
   %297 = tail call ptr @lookup_user_key(i32 noundef %290, i64 noundef 0, i32 noundef 8) #11
   %298 = icmp ugt ptr %297, inttoptr (i64 -4096 to ptr)
-  br i1 %298, label %keyctl_keyring_clear.exit, label %299
+  br i1 %298, label %.critedge, label %299
 
 299:                                              ; preds = %296
   %300 = ptrtoint ptr %297 to i64
@@ -3152,25 +3152,25 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %.pre-phi3.i20 = phi ptr [ %.pre-phi8.i19, %312 ], [ %.pre-phi8.i19, %307 ], [ %302, %299 ]
   %314 = phi i64 [ 0, %312 ], [ -1, %307 ], [ %293, %299 ]
   tail call void @key_put(ptr noundef %.pre-phi3.i20) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 315:                                              ; preds = %5
   %316 = trunc i64 %1 to i32
   %317 = inttoptr i64 %2 to ptr
   %318 = inttoptr i64 %3 to ptr
   %319 = tail call i64 @keyctl_restrict_keyring(i32 noundef %316, ptr noundef %317, ptr noundef %318)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 320:                                              ; preds = %5
   %321 = icmp eq i64 %2, 0
-  br i1 %321, label %322, label %keyctl_keyring_clear.exit
+  br i1 %321, label %322, label %.critedge
 
 322:                                              ; preds = %320
   %323 = trunc i64 %1 to i32
   %324 = inttoptr i64 %3 to ptr
   %325 = inttoptr i64 %4 to ptr
   %326 = tail call i64 @keyctl_pkey_query(i32 noundef %323, ptr noundef %324, ptr noundef %325) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 327:                                              ; preds = %5, %5, %5
   %328 = inttoptr i64 %1 to ptr
@@ -3178,7 +3178,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %330 = inttoptr i64 %3 to ptr
   %331 = inttoptr i64 %4 to ptr
   %332 = tail call i64 @keyctl_pkey_e_d_s(i32 noundef %10, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 333:                                              ; preds = %5
   %334 = inttoptr i64 %1 to ptr
@@ -3186,7 +3186,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %336 = inttoptr i64 %3 to ptr
   %337 = inttoptr i64 %4 to ptr
   %338 = tail call i64 @keyctl_pkey_verify(ptr noundef %334, ptr noundef %335, ptr noundef %336, ptr noundef %337) #11
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 339:                                              ; preds = %5
   %340 = trunc i64 %1 to i32
@@ -3194,7 +3194,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %342 = trunc i64 %3 to i32
   %343 = trunc i64 %4 to i32
   %344 = tail call i64 @keyctl_keyring_move(i32 noundef %340, i32 noundef %341, i32 noundef %342, i32 noundef %343)
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
 345:                                              ; preds = %5
   %346 = inttoptr i64 %1 to ptr
@@ -3205,7 +3205,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %349 = tail call i64 @llvm.umin.i64(i64 %2, i64 2)
   %350 = tail call i64 @_copy_to_user(ptr noundef %346, ptr noundef nonnull @keyrings_capabilities, i64 noundef %349) #11
   %351 = icmp eq i64 %350, 0
-  br i1 %351, label %352, label %keyctl_keyring_clear.exit
+  br i1 %351, label %352, label %.critedge
 
 352:                                              ; preds = %348
   %353 = icmp ugt i64 %2, 2
@@ -3219,7 +3219,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %359 = icmp sgt i64 %358, -1
   %360 = icmp uge i64 %358, %357
   %361 = and i1 %359, %360
-  br i1 %361, label %362, label %keyctl_keyring_clear.exit
+  br i1 %361, label %362, label %.critedge
 
 362:                                              ; preds = %354
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
@@ -3230,13 +3230,13 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   tail call void @llvm.write_register.i64(metadata !0, i64 %366)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %367 = icmp eq i64 %365, 0
-  br i1 %367, label %368, label %keyctl_keyring_clear.exit
+  br i1 %367, label %368, label %.critedge
 
 368:                                              ; preds = %362, %352, %345
-  br label %keyctl_keyring_clear.exit
+  br label %.critedge
 
-keyctl_keyring_clear.exit:                        ; preds = %354, %313, %296, %294, %253, %248, %238, %236, %159, %130, %101, %82, %80, %368, %362, %348, %339, %333, %327, %322, %320, %315, %287, %269, %267, %263, %260, %256, %222, %220, %218, %202, %180, %176, %171, %167, %161, %124, %107, %70, %68, %56, %50, %42, %39, %31, %19, %11, %5
-  %369 = phi i64 [ %344, %339 ], [ %338, %333 ], [ %332, %327 ], [ %326, %322 ], [ %319, %315 ], [ %288, %287 ], [ %274, %269 ], [ %268, %267 ], [ %266, %263 ], [ %262, %260 ], [ %259, %256 ], [ %226, %222 ], [ %175, %171 ], [ %170, %167 ], [ %166, %161 ], [ %74, %70 ], [ %45, %42 ], [ -22, %320 ], [ %24, %19 ], [ %32, %31 ], [ %41, %39 ], [ %51, %50 ], [ %57, %56 ], [ %69, %68 ], [ %108, %107 ], [ %125, %124 ], [ -22, %176 ], [ %203, %202 ], [ %219, %218 ], [ %221, %220 ], [ 2, %368 ], [ -14, %348 ], [ -14, %362 ], [ -95, %5 ], [ %18, %11 ], [ %184, %180 ], [ %79, %82 ], [ %102, %101 ], [ %79, %80 ], [ %131, %130 ], [ %160, %159 ], [ %237, %236 ], [ %255, %253 ], [ %252, %248 ], [ -12, %238 ], [ %293, %296 ], [ %314, %313 ], [ %293, %294 ], [ -14, %354 ]
+.critedge:                                        ; preds = %313, %296, %294, %253, %248, %238, %236, %159, %130, %101, %82, %80, %354, %368, %362, %348, %339, %333, %327, %322, %320, %315, %287, %269, %267, %263, %260, %256, %222, %220, %218, %202, %180, %176, %171, %167, %161, %124, %107, %70, %68, %56, %50, %42, %39, %31, %19, %11, %5
+  %369 = phi i64 [ %344, %339 ], [ %338, %333 ], [ %332, %327 ], [ %326, %322 ], [ %319, %315 ], [ %288, %287 ], [ %274, %269 ], [ %268, %267 ], [ %266, %263 ], [ %262, %260 ], [ %259, %256 ], [ %226, %222 ], [ %175, %171 ], [ %170, %167 ], [ %166, %161 ], [ %74, %70 ], [ %45, %42 ], [ -22, %320 ], [ %24, %19 ], [ %32, %31 ], [ %41, %39 ], [ %51, %50 ], [ %57, %56 ], [ %69, %68 ], [ %108, %107 ], [ %125, %124 ], [ -22, %176 ], [ %203, %202 ], [ %219, %218 ], [ %221, %220 ], [ 2, %368 ], [ -14, %348 ], [ -14, %362 ], [ -95, %5 ], [ %18, %11 ], [ %184, %180 ], [ -14, %354 ], [ %79, %82 ], [ %102, %101 ], [ %79, %80 ], [ %131, %130 ], [ %160, %159 ], [ %237, %236 ], [ %255, %253 ], [ %252, %248 ], [ -12, %238 ], [ %293, %296 ], [ %314, %313 ], [ %293, %294 ]
   ret i64 %369
 }
 

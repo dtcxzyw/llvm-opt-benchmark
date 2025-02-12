@@ -1598,7 +1598,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %gepdiff = shl nsw i64 %2, 1
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i5, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i.i.i.i, ptr align 2 %add.ptr.i, i64 %gepdiff, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr.i.i.i.i.i, ptr align 2 %add.ptr.i, i64 %gepdiff, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i.i.i, %entry

@@ -849,7 +849,7 @@ if.then.i.i:                                      ; preds = %if.then74
   %36 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %36, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %.pre239 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %.pre238 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont76
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.then74
@@ -877,7 +877,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i
-  %37 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.pre239, %if.then.i.i ]
+  %37 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.pre238, %if.then.i.i ]
   %38 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %39 = load ptr, ptr %_M_finish.i.i, align 8
   %40 = load ptr, ptr %frames, align 8
@@ -997,7 +997,7 @@ if.else.i206:                                     ; preds = %if.else
   store ptr %incdec.ptr.i.i208, ptr %_M_finish.i, align 8
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %50, i64 -4
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i.i, %34
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont84thread-pre-split, label %if.then.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i206
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i.i to i64
@@ -1006,7 +1006,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i206
   %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %50, i64 %idx.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i, ptr align 4 %34, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
-  br label %invoke.cont84thread-pre-split
+  br label %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i
+
+_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i206
+  store i32 0, ptr %34, align 4
+  %.pr = load ptr, ptr %cuts26, align 8
+  %.pre = load ptr, ptr %_M_finish.i, align 8
+  br label %invoke.cont84
 
 if.else21.i:                                      ; preds = %if.else
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i, 9223372036854775804
@@ -1050,15 +1056,9 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont84
 
-invoke.cont84thread-pre-split:                    ; preds = %if.else.i206, %if.then.i.i.i.i.i.i.i
-  store i32 0, ptr %34, align 4
-  %.pre.pre = load ptr, ptr %_M_finish.i, align 8
-  %.pr.pre = load ptr, ptr %cuts26, align 8
-  br label %invoke.cont84
-
-invoke.cont84:                                    ; preds = %invoke.cont84thread-pre-split, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
-  %52 = phi ptr [ %.pre.pre, %invoke.cont84thread-pre-split ], [ %add.ptr.i.i.i15.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %53 = phi ptr [ %.pr.pre, %invoke.cont84thread-pre-split ], [ %call5.i.i.i.i.i212, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+invoke.cont84:                                    ; preds = %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
+  %52 = phi ptr [ %.pre, %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i ], [ %add.ptr.i.i.i15.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %53 = phi ptr [ %.pr, %_ZNSt6vectorIjSaIjEE13_M_insert_auxIjEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEOT_.exit.i ], [ %call5.i.i.i.i.i212, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 -4
   %54 = load i32, ptr %add.ptr.i.i, align 4
   %conv88 = zext i32 %54 to i64

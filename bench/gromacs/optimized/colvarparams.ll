@@ -475,17 +475,17 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSt4lessIS5_ESa
   br label %41
 
 40:                                               ; preds = %34, %27
-  %.sink20 = phi ptr [ %4, %27 ], [ %6, %34 ]
+  %.sink17 = phi ptr [ %4, %27 ], [ %6, %34 ]
   %.sink = phi ptr [ %5, %27 ], [ %7, %34 ]
   %.09 = phi i32 [ %28, %27 ], [ %35, %34 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink20) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #18
   ret i32 %.09
 
 41:                                               ; preds = %36, %38, %29, %31
-  %.sink21 = phi ptr [ %5, %31 ], [ %5, %29 ], [ %7, %38 ], [ %7, %36 ]
+  %.sink18 = phi ptr [ %5, %31 ], [ %5, %29 ], [ %7, %38 ], [ %7, %36 ]
   %.pn11.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ], [ %39, %38 ], [ %37, %36 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink21) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink18) #18
   resume { ptr, i32 } %.pn11.pn
 }
 

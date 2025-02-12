@@ -2367,7 +2367,7 @@ _ZN4llvm15SmallVectorImplIN5clang12FunctionType16ExtParameterInfoEE6appendISt13m
   %52 = sub i64 %36, %31
   %53 = sub i64 0, %52
   %54 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %30, i64 %53
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %54, ptr align 1 %29, i64 %52, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr align 1 %29, i64 %52, i1 false)
   br label %_ZSt13move_backwardIPN5clang12FunctionType16ExtParameterInfoES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang12FunctionType16ExtParameterInfoES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang12FunctionType16ExtParameterInfoEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %51
@@ -2387,7 +2387,7 @@ _ZSt13move_backwardIPN5clang12FunctionType16ExtParameterInfoES3_ET0_T_S5_S4_.exi
   %57 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %28, i64 %56
   %58 = sub i64 0, %gepdiff
   %59 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %57, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %29, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %29, i64 %gepdiff, i1 false)
   tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 %3, i64 %gepdiff, i1 false), !tbaa !37
   br label %.lr.ph.preheader.i.i.i
 
@@ -33729,7 +33729,7 @@ _ZSt13move_backwardIPPKN5clang16CXXBaseSpecifierES4_ET0_T_S6_S5_.exit: ; preds =
   %84 = getelementptr inbounds nuw ptr, ptr %44, i64 %83
   %85 = sub nsw i64 0, %48
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

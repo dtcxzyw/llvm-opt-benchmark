@@ -3137,10 +3137,6 @@ do.end:                                           ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %begin.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !130
-  %cmp.i.not.i.i = icmp eq ptr %end.coerce, %begin.coerce
-  br i1 %cmp.i.not.i.i, label %do.body47, label %if.then.i.i55
-
-if.then.i.i55:                                    ; preds = %do.end
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i1.i to i64
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
@@ -3149,7 +3145,7 @@ if.then.i.i55:                                    ; preds = %do.end
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr nonnull %call5.i.i.i.i1.i, ptr nonnull %add.ptr.i.i, i64 noundef %mul.i.i)
           to label %.noexc unwind label %lpad45
 
-.noexc:                                           ; preds = %if.then.i.i55
+.noexc:                                           ; preds = %do.end
   %cmp.i1.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 128
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 8
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
@@ -3262,7 +3258,7 @@ for.inc.i21.i.i.i:                                ; preds = %while.body.i.i25.i.
   %cmp.i1.not.i24.i.i.i = icmp eq ptr %__i.sroa.0.0.i23.i.i.i, %add.ptr.i.i
   br i1 %cmp.i1.not.i24.i.i.i, label %do.body47, label %for.body.i15.i.i.i, !llvm.loop !133
 
-do.body47:                                        ; preds = %for.inc.i21.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, %if.else.i.i.i, %do.end
+do.body47:                                        ; preds = %for.inc.i21.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, %if.else.i.i.i
   %40 = load ptr, ptr %mandatoryTimes_, align 8, !tbaa !18
   %41 = load double, ptr %40, align 8, !tbaa !131
   %cmp = fcmp ult double %41, 0.000000e+00
@@ -3303,7 +3299,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
   invoke void @__cxa_throw(ptr nonnull %exception57, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #26
           to label %unreachable unwind label %lpad69
 
-lpad45:                                           ; preds = %if.then.i.i55
+lpad45:                                           ; preds = %do.end
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup333

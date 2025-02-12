@@ -91,10 +91,6 @@ define i32 @mca_coll_base_alltoallv_intra_basic_inplace(ptr noundef %0, ptr noun
 
 .preheader:                                       ; preds = %30
   %36 = lshr i32 %.val.val, 1
-  %.not131 = icmp eq i32 %.val.val, 1
-  br i1 %.not131, label %.thread125, label %.lr.ph133
-
-.lr.ph133:                                        ; preds = %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %38 = add nsw i32 %.val115, %.val.val
   %39 = getelementptr i8, ptr %4, i64 256
@@ -105,8 +101,8 @@ define i32 @mca_coll_base_alltoallv_intra_basic_inplace(ptr noundef %0, ptr noun
   %exitcond150.not = icmp eq i32 %.187132, %36
   br i1 %exitcond150.not, label %.thread125, label %42, !llvm.loop !6
 
-42:                                               ; preds = %.lr.ph133, %40
-  %.187132 = phi i32 [ 1, %.lr.ph133 ], [ %41, %40 ]
+42:                                               ; preds = %.preheader, %40
+  %.187132 = phi i32 [ 1, %.preheader ], [ %41, %40 ]
   store ptr %34, ptr %10, align 8
   store i64 %.1, ptr %37, align 8
   store i32 1, ptr %11, align 4
@@ -250,8 +246,8 @@ ompi_comm_peer_lookup.exit:                       ; preds = %50, %57, %71, %73
   %.not113 = icmp eq i32 %132, 0
   br i1 %.not113, label %40, label %.thread125
 
-.thread125:                                       ; preds = %126, %130, %115, %112, %103, %89, %ompi_comm_peer_lookup.exit, %40, %.preheader
-  %.088127 = phi i32 [ 0, %.preheader ], [ 0, %40 ], [ %88, %ompi_comm_peer_lookup.exit ], [ %97, %89 ], [ %111, %103 ], [ %114, %112 ], [ %123, %115 ], [ %132, %130 ], [ %129, %126 ]
+.thread125:                                       ; preds = %126, %130, %115, %112, %103, %89, %ompi_comm_peer_lookup.exit, %40
+  %.088127 = phi i32 [ 0, %40 ], [ %88, %ompi_comm_peer_lookup.exit ], [ %97, %89 ], [ %111, %103 ], [ %114, %112 ], [ %123, %115 ], [ %132, %130 ], [ %129, %126 ]
   call void @free(ptr noundef nonnull %34) #6
   br label %.thread
 

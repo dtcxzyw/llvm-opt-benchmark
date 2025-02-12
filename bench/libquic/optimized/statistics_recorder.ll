@@ -2747,12 +2747,12 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end5, label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i
-  %lpad.loopexit35 = landingpad { ptr, i32 }
+  %lpad.loopexit34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %if.then18, %if.end5, %invoke.cont8, %lor.lhs.false.i.i
-  %lpad.loopexit.split-lp36 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp35 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -2902,7 +2902,7 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i, %lpad7
-  %.pn = phi { ptr, i32 } [ %19, %lpad7 ], [ %9, %lpad.i.i ], [ %lpad.loopexit35, %lpad.loopexit ], [ %lpad.loopexit.split-lp36, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad7 ], [ %9, %lpad.i.i ], [ %lpad.loopexit34, %lpad.loopexit ], [ %lpad.loopexit.split-lp35, %lpad.loopexit.split-lp ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %_ZN4base8AutoLockD2Ev.exit29 unwind label %terminate.lpad.i28
 

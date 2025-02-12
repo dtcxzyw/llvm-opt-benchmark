@@ -241,8 +241,8 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE11at_put_growEiRKjS4_.exit: 
 define hidden void @_ZN12LiveRangeMap25compress_uf_map_for_nodesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %.not9 = icmp eq i32 %3, 0
-  br i1 %.not9, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1452,8 +1452,8 @@ _ZN12ResourceMark13reset_to_markEv.exit69:        ; preds = %156, %158
   call void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %12) #14
   %167 = load i32, ptr %33, align 8
-  %.not9.i = icmp eq i32 %167, 0
-  br i1 %.not9.i, label %_ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit, label %.lr.ph.i
+  %.not.i = icmp eq i32 %167, 0
+  br i1 %.not.i, label %_ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN12ResourceMark13reset_to_markEv.exit69
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1640,8 +1640,8 @@ _ZN12ResourceMark13reset_to_markEv.exit75:        ; preds = %237, %239
   call void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %15) #14
   %248 = load i32, ptr %33, align 8
-  %.not9.i76 = icmp eq i32 %248, 0
-  br i1 %.not9.i76, label %_ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93, label %.lr.ph.i77
+  %.not.i76 = icmp eq i32 %248, 0
+  br i1 %.not.i76, label %_ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93, label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %_ZN12ResourceMark13reset_to_markEv.exit75, %_ZN12LiveRangeMap4findEj.exit.thread.i91
   %.08.i78 = phi i32 [ %264, %_ZN12LiveRangeMap4findEj.exit.thread.i91 ], [ 0, %_ZN12ResourceMark13reset_to_markEv.exit75 ]
@@ -1877,8 +1877,8 @@ _ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93: ; preds = %_ZN12LiveRange
   %385 = zext i32 %.0712.i to i64
   %386 = getelementptr inbounds nuw [11 x i64], ptr %371, i64 0, i64 %385
   %387 = load i64, ptr %386, align 8
-  %.not9.i95 = icmp eq i64 %387, 0
-  br i1 %.not9.i95, label %394, label %388
+  %.not9.i = icmp eq i64 %387, 0
+  br i1 %.not9.i, label %394, label %388
 
 388:                                              ; preds = %.lr.ph.i94
   %389 = shl i32 %.0712.i, 6
@@ -1890,11 +1890,11 @@ _ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93: ; preds = %_ZN12LiveRange
 
 394:                                              ; preds = %.lr.ph.i94
   %395 = add i32 %.0712.i, 1
-  %.not.i = icmp ugt i32 %395, %384
-  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i94, !llvm.loop !22
+  %.not.i96 = icmp ugt i32 %395, %384
+  br i1 %.not.i96, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i94, !llvm.loop !22
 
 _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %394, %370, %388
-  %.0.i96 = phi i16 [ %393, %388 ], [ -1, %370 ], [ -1, %394 ]
+  %.0.i95 = phi i16 [ %393, %388 ], [ -1, %370 ], [ -1, %394 ]
   %396 = load ptr, ptr %325, align 8
   %397 = zext i32 %.045150 to i64
   %398 = getelementptr inbounds nuw %class.OptoRegPair, ptr %396, i64 %397
@@ -1904,7 +1904,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %394, %370, %388
 
 400:                                              ; preds = %349, %362, %_ZNK7RegMask15find_first_elemEv.exit, %341
   %.sink161 = phi ptr [ %354, %349 ], [ %365, %362 ], [ %398, %_ZNK7RegMask15find_first_elemEv.exit ], [ %344, %341 ]
-  %.sink159 = phi i16 [ %355, %349 ], [ %368, %362 ], [ %.0.i96, %_ZNK7RegMask15find_first_elemEv.exit ], [ -1, %341 ]
+  %.sink159 = phi i16 [ %355, %349 ], [ %368, %362 ], [ %.0.i95, %_ZNK7RegMask15find_first_elemEv.exit ], [ -1, %341 ]
   %401 = getelementptr inbounds nuw i8, ptr %.sink161, i64 2
   store i16 %.sink159, ptr %401, align 2
   %402 = getelementptr inbounds nuw i8, ptr %338, i64 166

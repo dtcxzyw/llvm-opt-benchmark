@@ -785,17 +785,17 @@ define dso_local void @get_share_path(ptr noundef %0, ptr noundef %1) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
-  %.not8 = icmp eq i8 %4, 0
-  br i1 %.not8, label %dir_strcmp.exit.thread, label %.lr.ph
+  %.not2 = icmp eq i8 %4, 0
+  br i1 %.not2, label %dir_strcmp.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %15
   %5 = phi i8 [ %18, %15 ], [ %4, %3 ]
   %6 = phi i64 [ %16, %15 ], [ 0, %3 ]
-  %.010 = phi i32 [ %.pre-phi, %15 ], [ 0, %3 ]
-  %.0409 = phi i32 [ %.1, %15 ], [ 0, %3 ]
+  %.04 = phi i32 [ %.pre-phi, %15 ], [ 0, %3 ]
+  %.0403 = phi i32 [ %.1, %15 ], [ 0, %3 ]
   %7 = getelementptr i8, ptr @.str.10, i64 %6
   %8 = load i8, ptr %7, align 1
-  %exitcond = icmp eq i32 %.010, 20
+  %exitcond = icmp eq i32 %.04, 20
   br i1 %exitcond, label %.critedge, label %9
 
 9:                                                ; preds = %.lr.ph
@@ -805,7 +805,7 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = add nuw nsw i32 %.010, 1
+  %13 = add nuw nsw i32 %.04, 1
   br label %15
 
 14:                                               ; preds = %9
@@ -813,12 +813,12 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
   br i1 %.not45, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = add nuw nsw i32 %.010, 1
+  %.pre = add nuw nsw i32 %.04, 1
   br label %15
 
 15:                                               ; preds = %._crit_edge, %12
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %13, %12 ]
-  %.1 = phi i32 [ %.0409, %._crit_edge ], [ %13, %12 ]
+  %.1 = phi i32 [ %.0403, %._crit_edge ], [ %13, %12 ]
   %16 = sext i32 %.pre-phi to i64
   %17 = getelementptr i8, ptr %1, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -826,7 +826,7 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %14, %15
-  %.040.lcssa = phi i32 [ %.0409, %.lr.ph ], [ %.0409, %14 ], [ %.1, %15 ]
+  %.040.lcssa = phi i32 [ %.0403, %.lr.ph ], [ %.0403, %14 ], [ %.1, %15 ]
   %19 = icmp eq i32 %.040.lcssa, 0
   br i1 %19, label %dir_strcmp.exit.thread, label %20
 
@@ -903,92 +903,80 @@ trim_directory.exit:                              ; preds = %20, %.critedge.i
   %.not26.i = icmp eq i8 %57, 0
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55, %68
-  %58 = phi i8 [ %71, %68 ], [ %57, %55 ]
-  %.028.i = phi ptr [ %70, %68 ], [ %56, %55 ]
-  %.01227.i = phi ptr [ %69, %68 ], [ %51, %55 ]
+.lr.ph.i:                                         ; preds = %55, %64
+  %58 = phi i8 [ %67, %64 ], [ %57, %55 ]
+  %.028.i = phi ptr [ %66, %64 ], [ %56, %55 ]
+  %.01227.i = phi ptr [ %65, %64 ], [ %51, %55 ]
   %59 = load i8, ptr %.028.i, align 1
   %.not16.i = icmp eq i8 %59, 0
   br i1 %.not16.i, label %dir_strcmp.exit.thread, label %60
 
 60:                                               ; preds = %.lr.ph.i
   %.not19.i = icmp eq i8 %58, %59
-  br i1 %.not19.i, label %68, label %61
+  br i1 %.not19.i, label %64, label %61
 
 61:                                               ; preds = %60
   %62 = icmp eq i8 %58, 47
   %63 = icmp eq i8 %59, 47
   %or.cond.i = and i1 %62, %63
-  br i1 %or.cond.i, label %68, label %64
+  br i1 %or.cond.i, label %64, label %dir_strcmp.exit.thread
 
-64:                                               ; preds = %61
-  %65 = sext i8 %58 to i32
-  %66 = sext i8 %59 to i32
-  %67 = sub nsw i32 %65, %66
-  br label %dir_strcmp.exit
-
-68:                                               ; preds = %61, %60
-  %69 = getelementptr i8, ptr %.01227.i, i64 1
-  %70 = getelementptr i8, ptr %.028.i, i64 1
-  %71 = load i8, ptr %69, align 1
-  %.not.i = icmp eq i8 %71, 0
+64:                                               ; preds = %61, %60
+  %65 = getelementptr i8, ptr %.01227.i, i64 1
+  %66 = getelementptr i8, ptr %.028.i, i64 1
+  %67 = load i8, ptr %65, align 1
+  %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
-._crit_edge.i:                                    ; preds = %68, %55
-  %.0.lcssa.i = phi ptr [ %56, %55 ], [ %70, %68 ]
-  %72 = load i8, ptr %.0.lcssa.i, align 1
-  %.not18.i = icmp ne i8 %72, 0
-  %..i = sext i1 %.not18.i to i32
-  br label %dir_strcmp.exit
+._crit_edge.i:                                    ; preds = %64, %55
+  %.0.lcssa.i = phi ptr [ %56, %55 ], [ %66, %64 ]
+  %68 = load i8, ptr %.0.lcssa.i, align 1
+  %.not18.i.not = icmp eq i8 %68, 0
+  br i1 %.not18.i.not, label %69, label %dir_strcmp.exit.thread
 
-dir_strcmp.exit:                                  ; preds = %64, %._crit_edge.i
-  %.013.i = phi i32 [ %67, %64 ], [ %..i, %._crit_edge.i ]
-  %73 = icmp eq i32 %.013.i, 0
-  br i1 %73, label %74, label %dir_strcmp.exit.thread
-
-74:                                               ; preds = %dir_strcmp.exit
+69:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %51, align 1
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %76 = getelementptr i8, ptr %0, i64 %75
-  %77 = icmp ugt ptr %76, %0
-  %.013.i47 = getelementptr i8, ptr %76, i64 -1
-  %78 = icmp ugt ptr %.013.i47, %0
-  %or.cond.i48 = and i1 %77, %78
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %71 = getelementptr i8, ptr %0, i64 %70
+  %72 = icmp ugt ptr %71, %0
+  %.013.i47 = getelementptr i8, ptr %71, i64 -1
+  %73 = icmp ugt ptr %.013.i47, %0
+  %or.cond.i48 = and i1 %72, %73
   br i1 %or.cond.i48, label %.lr.ph.i50, label %trim_trailing_separator.exit
 
-.lr.ph.i50:                                       ; preds = %74, %81
-  %.014.i = phi ptr [ %.0.i51, %81 ], [ %.013.i47, %74 ]
-  %79 = load i8, ptr %.014.i, align 1
-  %80 = icmp eq i8 %79, 47
-  br i1 %80, label %81, label %trim_trailing_separator.exit
+.lr.ph.i50:                                       ; preds = %69, %76
+  %.014.i = phi ptr [ %.0.i51, %76 ], [ %.013.i47, %69 ]
+  %74 = load i8, ptr %.014.i, align 1
+  %75 = icmp eq i8 %74, 47
+  br i1 %75, label %76, label %trim_trailing_separator.exit
 
-81:                                               ; preds = %.lr.ph.i50
+76:                                               ; preds = %.lr.ph.i50
   store i8 0, ptr %.014.i, align 1
   %.0.i51 = getelementptr i8, ptr %.014.i, i64 -1
-  %82 = icmp ugt ptr %.0.i51, %0
-  br i1 %82, label %.lr.ph.i50, label %trim_trailing_separator.exit, !llvm.loop !9
+  %77 = icmp ugt ptr %.0.i51, %0
+  br i1 %77, label %.lr.ph.i50, label %trim_trailing_separator.exit, !llvm.loop !9
 
-trim_trailing_separator.exit:                     ; preds = %.lr.ph.i50, %81, %74
-  %83 = getelementptr i8, ptr %1, i64 %21
-  %84 = load i8, ptr %83, align 1
-  %.not11.i = icmp eq i8 %84, 0
-  br i1 %.not11.i, label %join_path_components.exit, label %85
+trim_trailing_separator.exit:                     ; preds = %.lr.ph.i50, %76, %69
+  %78 = getelementptr i8, ptr %1, i64 %21
+  %79 = load i8, ptr %78, align 1
+  %.not11.i = icmp eq i8 %79, 0
+  br i1 %.not11.i, label %join_path_components.exit, label %80
 
-85:                                               ; preds = %trim_trailing_separator.exit
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %87 = getelementptr i8, ptr %0, i64 %86
-  %88 = sub i64 1024, %86
-  %89 = load i8, ptr %0, align 1
-  %.not12.i = icmp eq i8 %89, 0
-  %90 = select i1 %.not12.i, ptr @.str.2, ptr @.str.1
-  %91 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull %90, ptr noundef nonnull %83) #18
+80:                                               ; preds = %trim_trailing_separator.exit
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %82 = getelementptr i8, ptr %0, i64 %81
+  %83 = sub i64 1024, %81
+  %84 = load i8, ptr %0, align 1
+  %.not12.i = icmp eq i8 %84, 0
+  %85 = select i1 %.not12.i, ptr @.str.2, ptr @.str.1
+  %86 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %82, i64 noundef %83, ptr noundef nonnull @.str, ptr noundef nonnull %85, ptr noundef nonnull %78) #18
   br label %join_path_components.exit
 
-dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim_directory.exit, %49, %dir_strcmp.exit, %.critedge
-  %92 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #18
+dir_strcmp.exit.thread:                           ; preds = %61, %.lr.ph.i, %3, %trim_directory.exit, %49, %._crit_edge.i, %.critedge
+  %87 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #18
   br label %join_path_components.exit
 
-join_path_components.exit:                        ; preds = %85, %trim_trailing_separator.exit, %dir_strcmp.exit.thread
+join_path_components.exit:                        ; preds = %80, %trim_trailing_separator.exit, %dir_strcmp.exit.thread
   tail call void @canonicalize_path(ptr noundef nonnull %0)
   ret void
 }

@@ -8157,7 +8157,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %3651 = sub i64 %3647, %3648
   %3652 = getelementptr inbounds i8, ptr %.025953287, i64 %3651
   %3653 = add i64 %.025963286, 1
-  %3654 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef %.62758, ptr noundef %3652, i64 noundef %3642, ptr noundef nonnull %3638, i32 noundef 2, ptr noundef nonnull %3639, i32 noundef 1000, i32 noundef %38, ptr noundef nonnull %.03103)
+  %3654 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef %.62758, ptr noundef nonnull %3652, i64 noundef %3642, ptr noundef nonnull %3638, i32 noundef 2, ptr noundef nonnull %3639, i32 noundef 1000, i32 noundef %38, ptr noundef nonnull %.03103)
   %3655 = icmp slt i32 %3654, 0
   br i1 %3655, label %._crit_edge3290, label %3646
 

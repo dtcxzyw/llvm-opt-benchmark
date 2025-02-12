@@ -15553,7 +15553,7 @@ _ZSt22__uninitialized_move_aIPN2cv2ml7SVMImpl6Solver9KernelRowES5_SaIS4_EET0_T_S
   %28 = sub i64 %27, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %28, -12
   %29 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %9, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %1, i64 %28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %29, ptr align 4 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPN2cv2ml7SVMImpl6Solver9KernelRowES5_ET0_T_S7_S6_.exit
 
 _ZSt13move_backwardIPN2cv2ml7SVMImpl6Solver9KernelRowES5_ET0_T_S7_S6_.exit: ; preds = %26, %_ZSt22__uninitialized_move_aIPN2cv2ml7SVMImpl6Solver9KernelRowES5_SaIS4_EET0_T_S8_S7_RT1_.exit

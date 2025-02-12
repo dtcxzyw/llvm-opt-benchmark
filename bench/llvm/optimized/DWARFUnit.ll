@@ -7629,10 +7629,8 @@ define dso_local { ptr, ptr } @_ZN4llvm9DWARFUnit18getPreviousSiblingEPKNS_19DWA
   %17 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %8, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !324
-  %.not.i11.not.i = icmp eq i32 %19, -1
-  %20 = icmp ne i32 %19, %5
-  %21 = or i1 %.not.i11.not.i, %20
-  br i1 %21, label %.preheader.i, label %_ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_19DWARFDebugInfoEntryE.exit, !llvm.loop !565
+  %.not25.i = icmp eq i32 %19, %5
+  br i1 %.not25.i, label %_ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_19DWARFDebugInfoEntryE.exit, label %.preheader.i, !llvm.loop !565
 
 _ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_19DWARFDebugInfoEntryE.exit: ; preds = %.preheader.i, %6, %3, %2
   %.sroa.0.1 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %6 ], [ %0, %.preheader.i ]
@@ -7671,10 +7669,8 @@ define dso_local noundef ptr @_ZNK4llvm9DWARFUnit23getPreviousSiblingEntryEPKNS_
   %17 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %8, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !324
-  %.not.i11.not = icmp eq i32 %19, -1
-  %20 = icmp ne i32 %19, %5
-  %21 = or i1 %.not.i11.not, %20
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !565
+  %.not25 = icmp eq i32 %19, %5
+  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !565
 
 .loopexit:                                        ; preds = %.preheader, %3, %6, %2
   %.08 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %6 ], [ %17, %.preheader ]

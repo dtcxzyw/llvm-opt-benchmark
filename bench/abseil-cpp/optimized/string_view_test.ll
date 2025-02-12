@@ -4097,13 +4097,13 @@ invoke.cont142.thread:                            ; preds = %_ZNSt8_Rb_treeISt17
 
 invoke.cont142:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %if.then.i.i.i.i.i
   %__ret.0.i.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
-  %cmp.i.i.i.i = icmp slt i32 %__ret.0.i.i.i.i.i, 0
   %__ret.0.i.i.i.i.i.lobit = lshr i32 %__ret.0.i.i.i.i.i, 31
   %frombool151 = trunc nuw nsw i32 %__ret.0.i.i.i.i.i.lobit to i8
   store i8 %frombool151, ptr %gtest_ar_145, align 8
   %message_.i172 = getelementptr inbounds nuw i8, ptr %gtest_ar_145, i64 8
   store ptr null, ptr %message_.i172, align 8
-  br i1 %cmp.i.i.i.i, label %_ZN7testing15AssertionResultD2Ev.exit187, label %if.else155
+  %tobool.i173 = trunc nuw i32 %__ret.0.i.i.i.i.i.lobit to i1
+  br i1 %tobool.i173, label %_ZN7testing15AssertionResultD2Ev.exit187, label %if.else155
 
 ehcleanup140:                                     ; preds = %_ZN7testing7MessageD2Ev.exit163, %lpad125
   %.pn12.pn.pn = phi { ptr, i32 } [ %.pn12.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %61, %lpad125 ]

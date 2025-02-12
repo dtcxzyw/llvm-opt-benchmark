@@ -613,14 +613,14 @@ uv__read.exit:                                    ; preds = %89, %91, %94, %105,
 261:                                              ; preds = %257
   %262 = and i32 %2, 16
   %.not18 = icmp eq i32 %262, 0
-  br i1 %.not18, label %285, label %263
+  br i1 %.not18, label %286, label %263
 
 263:                                              ; preds = %261
   %264 = getelementptr inbounds i8, ptr %1, i64 -48
   %265 = load i32, ptr %264, align 8, !tbaa !48
   %266 = and i32 %265, 7168
   %or.cond23 = icmp eq i32 %266, 5120
-  br i1 %or.cond23, label %267, label %285
+  br i1 %or.cond23, label %267, label %286
 
 267:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
@@ -657,17 +657,17 @@ uv__stream_eof.exit:                              ; preds = %267, %275, %278
   call void %284(ptr noundef nonnull %10, i64 noundef -4095, ptr noundef nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   %.pre = load i32, ptr %258, align 8, !tbaa !37
-  br label %285
+  %285 = icmp eq i32 %.pre, -1
+  br label %286
 
-285:                                              ; preds = %uv__stream_eof.exit, %263, %261
-  %286 = phi i32 [ %.pre, %uv__stream_eof.exit ], [ %259, %263 ], [ %259, %261 ]
-  %287 = icmp eq i32 %286, -1
+286:                                              ; preds = %uv__stream_eof.exit, %263, %261
+  %287 = phi i1 [ %285, %uv__stream_eof.exit ], [ false, %263 ], [ false, %261 ]
   %288 = and i32 %2, 28
   %.not22 = icmp eq i32 %288, 0
   %or.cond24 = or i1 %.not22, %287
   br i1 %or.cond24, label %294, label %289
 
-289:                                              ; preds = %285
+289:                                              ; preds = %286
   call fastcc void @uv__write(ptr noundef nonnull %10)
   call fastcc void @uv__write_callbacks(ptr noundef nonnull %10)
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -679,7 +679,7 @@ uv__stream_eof.exit:                              ; preds = %267, %275, %278
   call fastcc void @uv__drain(ptr noundef nonnull %10)
   br label %294
 
-294:                                              ; preds = %293, %289, %285, %257, %uv__stream_connect.exit
+294:                                              ; preds = %293, %289, %286, %257, %uv__stream_connect.exit
   ret void
 }
 

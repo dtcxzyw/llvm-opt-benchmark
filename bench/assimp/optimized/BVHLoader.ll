@@ -2836,15 +2836,15 @@ if.then65:                                        ; preds = %while.end
   store i32 %conv, ptr %mNumChildren, align 8
   %13 = and i64 %sub.ptr.sub.i, 34359738360
   %call70 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #25
-          to label %if.then.i.i.i.i.i71 unwind label %lpad20.loopexit.split-lp
+          to label %invoke.cont69 unwind label %lpad20.loopexit.split-lp
 
-if.then.i.i.i.i.i71:                              ; preds = %if.then65
+invoke.cont69:                                    ; preds = %if.then65
   %mChildren = getelementptr inbounds nuw i8, ptr %.pre133, i64 1112
   store ptr %call70, ptr %mChildren, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call70, ptr align 8 %childNodes.sroa.0.0, i64 %sub.ptr.sub.i, i1 false)
   br label %if.end80
 
-if.end80:                                         ; preds = %if.then.i.i.i.i.i71, %while.end
+if.end80:                                         ; preds = %invoke.cont69, %while.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %siteToken) #22
   %tobool.not.i.i.i72 = icmp eq ptr %childNodes.sroa.0.0, null
   br i1 %tobool.not.i.i.i72, label %_ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit, label %if.then.i.i.i73

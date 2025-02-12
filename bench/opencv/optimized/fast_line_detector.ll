@@ -1419,7 +1419,7 @@ _ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit113: ; preds = %_ZNSt6vectorI7
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit115
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit115: ; preds = %373, %._crit_edge
-  %374 = phi ptr [ %159, %._crit_edge ], [ %157, %373 ]
+  %374 = phi ptr [ %157, %373 ], [ %159, %._crit_edge ]
   store ptr %281, ptr %87, align 8
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit
 

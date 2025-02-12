@@ -52317,7 +52317,7 @@ if.end270:                                        ; preds = %sw.bb229
   %93 = load ptr, ptr %m_traits, align 8, !tbaa !1710
   %94 = load ptr, ptr %m_position, align 8, !tbaa !1687
   %add.ptr274 = getelementptr inbounds i8, ptr %94, i64 %.sroa.speculated
-  %call275 = call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef %add.ptr274, i32 noundef 8)
+  %call275 = call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef nonnull %add.ptr274, i32 noundef 8)
   %cmp280 = icmp ugt i64 %call275, 127
   br i1 %cmp280, label %while.cond284.preheader, label %if.end309
 
@@ -83917,7 +83917,7 @@ for.cond.preheader.i.i170:                        ; preds = %entry
 
 for.body.i.i174.preheader:                        ; preds = %for.cond.preheader.i.i170
   %30 = load i8, ptr %value.coerce0, align 1, !tbaa !16
-  switch i8 %30, label %for.cond.preheader.i.i25 [
+  switch i8 %30, label %for.body.i.i.preheader64 [
     i8 110, label %for.cond.i.i179
     i8 111, label %for.cond.i.i323
   ]
@@ -83926,31 +83926,34 @@ for.cond.i.i179:                                  ; preds = %for.body.i.i174.pre
   %arrayidx.i.i.i176.1 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 1
   %31 = load i8, ptr %arrayidx.i.i.i176.1, align 1, !tbaa !16
   %cmp.i.i.i178.1 = icmp eq i8 %31, 117
-  br i1 %cmp.i.i.i178.1, label %for.cond.i.i179.1, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i178.1, label %for.cond.i.i179.1, label %for.body.i.i.preheader64
 
 for.cond.i.i179.1:                                ; preds = %for.cond.i.i179
   %arrayidx.i.i.i176.2 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 2
   %32 = load i8, ptr %arrayidx.i.i.i176.2, align 1, !tbaa !16
   %cmp.i.i.i178.2 = icmp eq i8 %32, 109
-  br i1 %cmp.i.i.i178.2, label %for.cond.i.i179.2, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i178.2, label %for.cond.i.i179.2, label %for.body.i.i.preheader64
 
 for.cond.i.i179.2:                                ; preds = %for.cond.i.i179.1
   %arrayidx.i.i.i176.3 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 3
   %33 = load i8, ptr %arrayidx.i.i.i176.3, align 1, !tbaa !16
   %cmp.i.i.i178.3 = icmp eq i8 %33, 98
-  br i1 %cmp.i.i.i178.3, label %for.cond.i.i179.3, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i178.3, label %for.cond.i.i179.3, label %for.body.i.i.preheader64
 
 for.cond.i.i179.3:                                ; preds = %for.cond.i.i179.2
   %arrayidx.i.i.i176.4 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 4
   %34 = load i8, ptr %arrayidx.i.i.i176.4, align 1, !tbaa !16
   %cmp.i.i.i178.4 = icmp eq i8 %34, 101
-  br i1 %cmp.i.i.i178.4, label %for.cond.i.i179.4, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i178.4, label %for.cond.i.i179.4, label %for.body.i.i.preheader64
 
 for.cond.i.i179.4:                                ; preds = %for.cond.i.i179.3
   %arrayidx.i.i.i176.5 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 5
   %35 = load i8, ptr %arrayidx.i.i.i176.5, align 1, !tbaa !16
   %cmp.i.i.i178.5 = icmp eq i8 %35, 114
-  br i1 %cmp.i.i.i178.5, label %if.then13, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i178.5, label %if.then13, label %for.body.i.i.preheader64
+
+for.body.i.i.preheader64:                         ; preds = %for.cond.i.i323, %for.cond.i.i323.1, %for.cond.i.i323.2, %for.cond.i.i323.3, %for.cond.i.i323.4, %for.body.i.i174.preheader, %for.cond.i.i179, %for.cond.i.i179.1, %for.cond.i.i179.2, %for.cond.i.i179.3, %for.cond.i.i179.4
+  br label %for.body.i.i
 
 if.then13:                                        ; preds = %for.cond.i.i179.4, %for.cond.preheader.i.i170
   %allowedTypes_14 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -84169,31 +84172,31 @@ for.cond.i.i323:                                  ; preds = %for.body.i.i174.pre
   %arrayidx.i.i.i320.1 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 1
   %52 = load i8, ptr %arrayidx.i.i.i320.1, align 1, !tbaa !16
   %cmp.i.i.i322.1 = icmp eq i8 %52, 98
-  br i1 %cmp.i.i.i322.1, label %for.cond.i.i323.1, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i322.1, label %for.cond.i.i323.1, label %for.body.i.i.preheader64
 
 for.cond.i.i323.1:                                ; preds = %for.cond.i.i323
   %arrayidx.i.i.i320.2 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 2
   %53 = load i8, ptr %arrayidx.i.i.i320.2, align 1, !tbaa !16
   %cmp.i.i.i322.2 = icmp eq i8 %53, 106
-  br i1 %cmp.i.i.i322.2, label %for.cond.i.i323.2, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i322.2, label %for.cond.i.i323.2, label %for.body.i.i.preheader64
 
 for.cond.i.i323.2:                                ; preds = %for.cond.i.i323.1
   %arrayidx.i.i.i320.3 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 3
   %54 = load i8, ptr %arrayidx.i.i.i320.3, align 1, !tbaa !16
   %cmp.i.i.i322.3 = icmp eq i8 %54, 101
-  br i1 %cmp.i.i.i322.3, label %for.cond.i.i323.3, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i322.3, label %for.cond.i.i323.3, label %for.body.i.i.preheader64
 
 for.cond.i.i323.3:                                ; preds = %for.cond.i.i323.2
   %arrayidx.i.i.i320.4 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 4
   %55 = load i8, ptr %arrayidx.i.i.i320.4, align 1, !tbaa !16
   %cmp.i.i.i322.4 = icmp eq i8 %55, 99
-  br i1 %cmp.i.i.i322.4, label %for.cond.i.i323.4, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i322.4, label %for.cond.i.i323.4, label %for.body.i.i.preheader64
 
 for.cond.i.i323.4:                                ; preds = %for.cond.i.i323.3
   %arrayidx.i.i.i320.5 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 5
   %56 = load i8, ptr %arrayidx.i.i.i320.5, align 1, !tbaa !16
   %cmp.i.i.i322.5 = icmp eq i8 %56, 116
-  br i1 %cmp.i.i.i322.5, label %if.then25, label %for.cond.preheader.i.i25
+  br i1 %cmp.i.i.i322.5, label %if.then25, label %for.body.i.i.preheader64
 
 if.then25:                                        ; preds = %for.cond.i.i323.4
   %allowedTypes_26 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -84203,12 +84206,8 @@ if.then25:                                        ; preds = %for.cond.i.i323.4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp27) #41
   br label %if.end39
 
-for.cond.preheader.i.i25:                         ; preds = %for.cond.i.i323, %for.cond.i.i323.1, %for.cond.i.i323.2, %for.cond.i.i323.3, %for.cond.i.i323.4, %for.body.i.i174.preheader, %for.cond.i.i179, %for.cond.i.i179.1, %for.cond.i.i179.2, %for.cond.i.i179.3, %for.cond.i.i179.4
-  %cmp324.i.i26 = icmp eq ptr %value.coerce1, %value.coerce0
-  br i1 %cmp324.i.i26, label %if.then30, label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %for.cond.preheader.i.i25, %for.body.i.i
-  %i.025.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.cond.preheader.i.i25 ]
+for.body.i.i:                                     ; preds = %for.body.i.i.preheader64, %for.body.i.i
+  %i.025.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader64 ]
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 %i.025.i.i
   %arrayidx.i23.i.i = getelementptr inbounds nuw i8, ptr @.str.342, i64 %i.025.i.i
   %57 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !16
@@ -84222,7 +84221,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 _ZN5follyeqINS_5RangeIPKcEEA7_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit: ; preds = %for.body.i.i
   br i1 %cmp.i.i.i27, label %if.then30, label %return
 
-if.then30:                                        ; preds = %for.cond.preheader.i.i25, %_ZN5follyeqINS_5RangeIPKcEEA7_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit
+if.then30:                                        ; preds = %_ZN5follyeqINS_5RangeIPKcEEA7_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit
   %allowedTypes_31 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %59 = load ptr, ptr %_M_finish.i.i28, align 8, !tbaa !22

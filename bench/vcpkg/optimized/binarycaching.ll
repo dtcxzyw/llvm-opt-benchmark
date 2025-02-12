@@ -2631,13 +2631,13 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph:
   br label %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader
 
 _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader: ; preds = %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph, %.loopexit
-  %.sroa.0115.0280 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0115.1.lcssa368, %.loopexit ]
-  %.sroa.19.0279 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.19.1.lcssa367, %.loopexit ]
-  %.sroa.0105.0278 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0105.1.lcssa366, %.loopexit ]
-  %.sroa.16.0277 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.16.1.lcssa365, %.loopexit ]
+  %.sroa.0115.0280 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0115.1.lcssa367, %.loopexit ]
+  %.sroa.19.0279 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.19.1.lcssa366, %.loopexit ]
+  %.sroa.0105.0278 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.0105.1.lcssa365, %.loopexit ]
+  %.sroa.16.0277 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.16.1.lcssa364, %.loopexit ]
   %.sroa.096.0276 = phi ptr [ %46, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %270, %.loopexit ]
-  %.sroa.12.0275 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.12.1.lcssa364, %.loopexit ]
-  %.sroa.099.0274 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.099.1.lcssa363, %.loopexit ]
+  %.sroa.12.0275 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.12.1.lcssa363, %.loopexit ]
+  %.sroa.099.0274 = phi ptr [ null, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader.lr.ph ], [ %.sroa.099.1.lcssa362, %.loopexit ]
   br i1 %.not4.i, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader, %_ZNSt6vectorImSaImEE9push_backERKm.exit
@@ -2696,13 +2696,13 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader: ; pre
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, %52
-  br i1 %75, label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit411, label %76
+  br i1 %75, label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit410, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %52
-  br i1 %79, label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit413, label %80
+  br i1 %79, label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit412, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 32
@@ -2780,16 +2780,16 @@ _ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exi
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
   br label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit
 
-_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit411: ; preds = %72
+_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit410: ; preds = %72
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   br label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit
 
-_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit413: ; preds = %76
+_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit412: ; preds = %76
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   br label %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit
 
-_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit: ; preds = %65, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit411, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit413, %85, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %85 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %102, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit ], [ %103, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit411 ], [ %104, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit413 ], [ %.sroa.032.051.i.i.i.i.i, %65 ]
+_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit: ; preds = %65, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit410, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit412, %85, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %85 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %102, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit ], [ %103, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit410 ], [ %104, %_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE.exit.loopexit.split.loop.exit412 ], [ %.sroa.032.051.i.i.i.i.i, %65 ]
   %.not.i19 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %.not.i19, label %105, label %_ZNSt6vectorImSaImEE9push_backERKm.exit
@@ -3166,13 +3166,13 @@ _ZN5vcpkg11CacheStatus14mark_availableEPKNS_19IReadBinaryProviderE.exit: ; preds
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 16
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, %203
-  br i1 %224, label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit419, label %225
+  br i1 %224, label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit418, label %225
 
 225:                                              ; preds = %221
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 24
   %227 = load ptr, ptr %226, align 8
   %228 = icmp eq ptr %227, %203
-  br i1 %228, label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit421, label %229
+  br i1 %228, label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit420, label %229
 
 229:                                              ; preds = %225
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 32
@@ -3225,16 +3225,16 @@ _ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 8
   br label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i
 
-_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit419: ; preds = %221
+_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit418: ; preds = %221
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 16
   br label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i
 
-_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit421: ; preds = %225
+_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit420: ; preds = %225
   %247 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i56, i64 24
   br label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i
 
-_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i: ; preds = %214, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit419, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit421, %._crit_edge._crit_edge57.i.i.i.i.i42, %._crit_edge._crit_edge.i.i.i.i.i51, %234
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i45 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i41, %234 ], [ %.sroa.032.1.i.i.i.i.i52, %._crit_edge._crit_edge.i.i.i.i.i51 ], [ %spec.select.i.i.i.i.i44, %._crit_edge._crit_edge57.i.i.i.i.i42 ], [ %245, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %246, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit419 ], [ %247, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit421 ], [ %.sroa.032.051.i.i.i.i.i56, %214 ]
+_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i: ; preds = %214, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit418, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit420, %._crit_edge._crit_edge57.i.i.i.i.i42, %._crit_edge._crit_edge.i.i.i.i.i51, %234
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i45 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i41, %234 ], [ %.sroa.032.1.i.i.i.i.i52, %._crit_edge._crit_edge.i.i.i.i.i51 ], [ %spec.select.i.i.i.i.i44, %._crit_edge._crit_edge57.i.i.i.i.i42 ], [ %245, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %246, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit418 ], [ %247, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i.loopexit.split.loop.exit420 ], [ %.sroa.032.051.i.i.i.i.i56, %214 ]
   %.not.i46 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i45, %207
   br i1 %.not.i46, label %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.thread.i, label %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit
 
@@ -3303,24 +3303,24 @@ _ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE17_M_realloc_insertIJRKS3_EE
 
 _ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit: ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg11CacheStatusESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEixERSD_.exit, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %250, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i, %_ZN5vcpkg11CacheStatus14mark_availableEPKNS_19IReadBinaryProviderE.exit
   %269 = add nuw i64 %.0271, 1
-  %exitcond354.not = icmp eq i64 %269, %umax
-  br i1 %exitcond354.not, label %.loopexit, label %.lr.ph272, !llvm.loop !27
+  %exitcond353.not = icmp eq i64 %269, %umax
+  br i1 %exitcond353.not, label %.loopexit, label %.lr.ph272, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge
-  %.sroa.0115.1.lcssa368 = phi ptr [ %.sroa.0115.3, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.0115.0280, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.0115.3, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
-  %.sroa.19.1.lcssa367 = phi ptr [ %.sroa.19.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.19.0279, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.19.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
-  %.sroa.0105.1.lcssa366 = phi ptr [ %.sroa.0105.3, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.0105.0278, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.0105.3, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
-  %.sroa.16.1.lcssa365 = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.16.0277, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.16.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
-  %.sroa.12.1.lcssa364 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.12.0275, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.12.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
-  %.sroa.099.1.lcssa363 = phi ptr [ %.sroa.099.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.099.0274, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.099.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.0115.1.lcssa367 = phi ptr [ %.sroa.0115.3, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.0115.0280, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.0115.3, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.19.1.lcssa366 = phi ptr [ %.sroa.19.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.19.0279, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.19.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.0105.1.lcssa365 = phi ptr [ %.sroa.0105.3, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.0105.0278, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.0105.3, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.16.1.lcssa364 = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.16.0277, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.16.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.12.1.lcssa363 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.12.0275, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.12.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
+  %.sroa.099.1.lcssa362 = phi ptr [ %.sroa.099.2, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge ], [ %.sroa.099.0274, %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader ], [ %.sroa.099.2, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ]
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.096.0276, i64 8
   %.not = icmp eq ptr %270, %48
   br i1 %.not, label %._crit_edge, label %_ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit.preheader
 
 ._crit_edge:                                      ; preds = %.loopexit, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
-  %.sroa.099.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.099.1.lcssa363, %.loopexit ]
-  %.sroa.0105.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.0105.1.lcssa366, %.loopexit ]
-  %.sroa.0115.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.0115.1.lcssa368, %.loopexit ]
+  %.sroa.099.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.099.1.lcssa362, %.loopexit ]
+  %.sroa.0105.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.0105.1.lcssa365, %.loopexit ]
+  %.sroa.0115.0.lcssa = phi ptr [ null, %"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNS_17InstallPlanActionEEEZNS_19ReadOnlyBinaryCache8precheckES5_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit" ], [ %.sroa.0115.1.lcssa367, %.loopexit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !28
   %271 = ptrtoint ptr %.sroa.9135.1 to i64
@@ -3461,8 +3461,8 @@ _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__
 _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76, %299
   %318 = phi ptr [ %312, %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76 ], [ %283, %299 ]
   %319 = phi ptr [ %317, %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76 ], [ %284, %299 ]
-  %.pn300 = phi ptr [ %313, %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76 ], [ %285, %299 ]
-  %320 = getelementptr inbounds nuw i8, ptr %.pn300, i64 1
+  %.pn299 = phi ptr [ %313, %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76 ], [ %285, %299 ]
+  %320 = getelementptr inbounds nuw i8, ptr %.pn299, i64 1
   %321 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
   %.not.i67 = icmp eq ptr %321, %.sroa.9135.1
   br i1 %.not.i67, label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit", label %282
@@ -19784,7 +19784,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
   %57 = phi i64 [ %51, %46 ], [ %.pre19.i.i.i, %53 ]
   %58 = sub i64 %57, %56
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %58, i64 %49)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %57, %56
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i, label %59
 
 59:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i
@@ -19860,7 +19860,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i34: ; preds = %88, %81
   %92 = phi i64 [ %86, %81 ], [ %.pre19.i.i.i40, %88 ]
   %93 = sub i64 %92, %91
   %spec.select.i.i.i35 = tail call i64 @llvm.umin.i64(i64 %93, i64 %84)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq i64 %spec.select.i.i.i35, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq i64 %92, %91
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i36, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i38, label %94
 
 94:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i34
@@ -19964,7 +19964,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i52: ; preds = %132, %125
   %136 = phi i64 [ %130, %125 ], [ %.pre19.i.i.i60, %132 ]
   %137 = sub i64 %136, %135
   %spec.select.i.i.i53 = tail call i64 @llvm.umin.i64(i64 %137, i64 %128)
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq i64 %spec.select.i.i.i53, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq i64 %136, %135
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i54, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i56, label %138
 
 138:                                              ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i.i52
@@ -20579,7 +20579,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %187, %180
   %191 = phi i64 [ %185, %180 ], [ %.pre19.i.i, %187 ]
   %192 = sub i64 %191, %190
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %192, i64 %183)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %191, %190
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %193
 
 193:                                              ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -20924,7 +20924,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -21038,7 +21038,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i
@@ -21152,7 +21152,7 @@ _ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %41, %36
   %45 = phi i64 [ %39, %36 ], [ %.pre19.i.i, %41 ]
   %46 = sub i64 %45, %44
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %gepdiff)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select.i.i, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZN3fmt3v106detail6bufferIcE11try_reserveEm.exit.i.i

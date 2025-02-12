@@ -3244,18 +3244,14 @@ if.then3.i.i.i.i.i:                               ; preds = %cond.true.i.i.i
 
 _ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i
   %call5.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #31
-          to label %call5.i.i.i.i.i.noexc unwind label %lpad.thread
+          to label %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i unwind label %lpad.thread
 
-call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.end69.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
+_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i8, ptr align 8 %6, i64 %sub.ptr.sub.i.i, i1 false)
   br label %if.end69.i
 
-if.end69.i:                                       ; preds = %if.then.i, %if.then.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc
-  %expected_copy.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i8, %call5.i.i.i.i.i.noexc ], [ %call5.i.i.i.i.i8, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then.i ]
+if.end69.i:                                       ; preds = %if.then.i, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i
+  %expected_copy.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i8, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %if.then.i ]
   %7 = load ptr, ptr %actual, align 8
   %_M_finish.i9 = getelementptr inbounds nuw i8, ptr %actual, i64 8
   %8 = load ptr, ptr %_M_finish.i9, align 8

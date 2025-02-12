@@ -18554,198 +18554,198 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN7doctest16SubcaseSignatureESaI
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %144, label %17
+  br i1 %.not, label %146, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %15, %18
   %20 = sdiv exact i64 %19, 40
   %21 = icmp ugt i64 %20, %9
-  br i1 %21, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
+  br i1 %21, label %22, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
-  %22 = sub nsw i64 0, %9
-  %23 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %13, i64 %22
+22:                                               ; preds = %17
+  %23 = sub nsw i64 0, %9
+  %24 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %13, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
+  %.013.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.013.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.08.012.i.i.i.i.i, i64 24, i1 false)
   store i8 0, ptr %.sroa.08.012.i.i.i.i.i, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 23
-  store i8 23, ptr %24, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %25, ptr noundef nonnull align 8 dereferenceable(12) %26, i64 12, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i = icmp eq ptr %27, %13
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 23
+  store i8 23, ptr %25, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i = icmp eq ptr %28, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !146
 
 _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre110 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %.pre110, i64 %8
-  store ptr %29, ptr %12, align 8
-  %30 = ptrtoint ptr %23 to i64
-  %31 = sub i64 %30, %18
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit
+  %30 = load ptr, ptr %12, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  store ptr %31, ptr %12, align 8
+  %32 = ptrtoint ptr %24 to i64
+  %33 = sub i64 %32, %18
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %33 = udiv exact i64 %31, 40
+  %35 = udiv exact i64 %33, 40
   br label %.lr.ph.i.i.i.i.i51
 
 .lr.ph.i.i.i.i.i51:                               ; preds = %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %48, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %33, %.lr.ph.preheader.i.i.i.i.i ]
-  %.069.i.i.i.i.i = phi ptr [ %35, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
-  %.078.i.i.i.i.i = phi ptr [ %34, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %23, %.lr.ph.preheader.i.i.i.i.i ]
-  %34 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
-  %35 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
+  %.010.i.i.i.i.i = phi i64 [ %50, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %35, %.lr.ph.preheader.i.i.i.i.i ]
+  %.069.i.i.i.i.i = phi ptr [ %37, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
+  %.078.i.i.i.i.i = phi ptr [ %36, %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i ], [ %24, %.lr.ph.preheader.i.i.i.i.i ]
+  %36 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -40
+  %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -40
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.069.i.i.i.i.i, %.078.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i, label %36
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i, label %38
 
-36:                                               ; preds = %.lr.ph.i.i.i.i.i51
-  %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -17
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp sgt i8 %38, -1
-  br i1 %39, label %44, label %40
+38:                                               ; preds = %.lr.ph.i.i.i.i.i51
+  %39 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -17
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp sgt i8 %40, -1
+  br i1 %41, label %46, label %42
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %35, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %44, label %43
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %37, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %46, label %45
 
-43:                                               ; preds = %40
-  tail call void @_ZdaPv(ptr noundef nonnull %41) #49
-  br label %44
+45:                                               ; preds = %42
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #49
+  br label %46
 
-44:                                               ; preds = %43, %40, %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %35, ptr noundef nonnull align 8 dereferenceable(36) %34, i64 24, i1 false)
-  store i8 0, ptr %34, align 8
-  %45 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -17
-  store i8 23, ptr %45, align 1
+46:                                               ; preds = %45, %42, %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %37, ptr noundef nonnull align 8 dereferenceable(36) %36, i64 24, i1 false)
+  store i8 0, ptr %36, align 8
+  %47 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -17
+  store i8 23, ptr %47, align 1
   br label %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i
 
-_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i: ; preds = %44, %.lr.ph.i.i.i.i.i51
-  %46 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  %47 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %46, ptr noundef nonnull align 8 dereferenceable(12) %47, i64 12, i1 false)
-  %48 = add nsw i64 %.010.i.i.i.i.i, -1
-  %49 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %49, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit, !llvm.loop !147
+_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i: ; preds = %46, %.lr.ph.i.i.i.i.i51
+  %48 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
+  %49 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %49, i64 12, i1 false)
+  %50 = add nsw i64 %.010.i.i.i.i.i, -1
+  %51 = icmp sgt i64 %.010.i.i.i.i.i, 1
+  br i1 %51, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit, !llvm.loop !147
 
 _ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit: ; preds = %_ZN7doctest16SubcaseSignatureaSEOS0_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %50 = icmp sgt i64 %8, 0
-  br i1 %50, label %.lr.ph.preheader.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
+  %52 = icmp sgt i64 %8, 0
+  br i1 %52, label %.lr.ph.preheader.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 .lr.ph.preheader.i.i.i.i.i52:                     ; preds = %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit
-  %51 = udiv exact i64 %8, 40
+  %53 = udiv exact i64 %8, 40
   br label %.lr.ph.i.i.i.i.i53
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i52
-  %.013.i.i.i.i.i54 = phi i64 [ %89, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %51, %.lr.ph.preheader.i.i.i.i.i52 ]
-  %.0811.i.i.i.i.i = phi ptr [ %88, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %1, %.lr.ph.preheader.i.i.i.i.i52 ]
-  %.0910.i.i.i.i.i = phi ptr [ %87, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %2, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %.013.i.i.i.i.i54 = phi i64 [ %91, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %53, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %.0811.i.i.i.i.i = phi ptr [ %90, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %1, %.lr.ph.preheader.i.i.i.i.i52 ]
+  %.0910.i.i.i.i.i = phi ptr [ %89, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i ], [ %2, %.lr.ph.preheader.i.i.i.i.i52 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq ptr %.0811.i.i.i.i.i, %.0910.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i55, label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i, label %52
+  br i1 %.not.i.i.i.i.i.i.i55, label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i, label %54
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i53
-  %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 23
-  %54 = load i8, ptr %53, align 1
-  %55 = icmp sgt i8 %54, -1
-  br i1 %55, label %60, label %56
+54:                                               ; preds = %.lr.ph.i.i.i.i.i53
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 23
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp sgt i8 %56, -1
+  br i1 %57, label %62, label %58
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %.0811.i.i.i.i.i, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %60, label %59
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %.0811.i.i.i.i.i, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %62, label %61
 
-59:                                               ; preds = %56
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #49
-  br label %60
+61:                                               ; preds = %58
+  tail call void @_ZdaPv(ptr noundef nonnull %59) #49
+  br label %62
 
-60:                                               ; preds = %59, %56, %52
-  %61 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 23
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp sgt i8 %62, -1
-  br i1 %63, label %64, label %65
+62:                                               ; preds = %61, %58, %54
+  %63 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 23
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp sgt i8 %64, -1
+  br i1 %65, label %66, label %67
 
-64:                                               ; preds = %60
+66:                                               ; preds = %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0811.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %.0910.i.i.i.i.i, i64 24, i1 false)
   br label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp ult i32 %67, 24
-  br i1 %68, label %69, label %74
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ult i32 %69, 24
+  br i1 %70, label %71, label %76
 
-69:                                               ; preds = %65
-  %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i, i64 0, i64 %70
-  store i8 0, ptr %71, align 1
-  %72 = trunc nuw i32 %67 to i8
-  %73 = sub nuw nsw i8 23, %72
-  store i8 %73, ptr %53, align 1
+71:                                               ; preds = %67
+  %72 = zext nneg i32 %69 to i64
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i, i64 0, i64 %72
+  store i8 0, ptr %73, align 1
+  %74 = trunc nuw i32 %69 to i8
+  %75 = sub nuw nsw i8 23, %74
+  store i8 %75, ptr %55, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i
 
-74:                                               ; preds = %65
-  store i8 -128, ptr %53, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i32 %67, ptr %75, align 8
-  %76 = add i32 %67, 1
-  %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 12
-  store i32 %76, ptr %77, align 4
-  %78 = zext i32 %76 to i64
-  %79 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #51
-  store ptr %79, ptr %.0811.i.i.i.i.i, align 8
-  %80 = zext i32 %67 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
-  store i8 0, ptr %81, align 1
+76:                                               ; preds = %67
+  store i8 -128, ptr %55, align 1
+  %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  store i32 %69, ptr %77, align 8
+  %78 = add i32 %69, 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 12
+  store i32 %78, ptr %79, align 4
+  %80 = zext i32 %78 to i64
+  %81 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #51
+  store ptr %81, ptr %.0811.i.i.i.i.i, align 8
+  %82 = zext i32 %69 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
+  store i8 0, ptr %83, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i
 
-_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i: ; preds = %74, %69
-  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %.0811.i.i.i.i.i, %69 ], [ %79, %74 ]
-  %82 = load ptr, ptr %.0910.i.i.i.i.i, align 8
-  %83 = load i32, ptr %66, align 8
-  %84 = zext i32 %83 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i.i.i.i.i, ptr align 1 %82, i64 %84, i1 false)
+_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i: ; preds = %76, %71
+  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %.0811.i.i.i.i.i, %71 ], [ %81, %76 ]
+  %84 = load ptr, ptr %.0910.i.i.i.i.i, align 8
+  %85 = load i32, ptr %68, align 8
+  %86 = zext i32 %85 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i.i.i.i.i, ptr align 1 %84, i64 %86, i1 false)
   br label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i
 
-_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i: ; preds = %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i, %64, %.lr.ph.i.i.i.i.i53
-  %85 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
-  %86 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %85, ptr noundef nonnull align 8 dereferenceable(12) %86, i64 12, i1 false)
-  %87 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 40
-  %88 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 40
-  %89 = add nsw i64 %.013.i.i.i.i.i54, -1
-  %90 = icmp sgt i64 %.013.i.i.i.i.i54, 1
-  br i1 %90, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !148
+_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i: ; preds = %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i, %66, %.lr.ph.i.i.i.i.i53
+  %87 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %87, ptr noundef nonnull align 8 dereferenceable(12) %88, i64 12, i1 false)
+  %89 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 40
+  %91 = add nsw i64 %.013.i.i.i.i.i54, -1
+  %92 = icmp sgt i64 %.013.i.i.i.i.i54, 1
+  br i1 %92, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !148
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
-  %91 = getelementptr inbounds i8, ptr %2, i64 %19
-  %92 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %91, ptr %3, ptr noundef %13)
-  %93 = sub nuw nsw i64 %9, %20
-  %94 = load ptr, ptr %12, align 8
-  %95 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %94, i64 %93
-  store ptr %95, ptr %12, align 8
+  %93 = getelementptr inbounds i8, ptr %2, i64 %19
+  %94 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %93, ptr %3, ptr noundef %13)
+  %95 = sub nuw nsw i64 %9, %20
+  %96 = load ptr, ptr %12, align 8
+  %97 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %96, i64 %95
+  store ptr %97, ptr %12, align 8
   %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i57
-  %.013.i.i.i.i.i58 = phi ptr [ %100, %.lr.ph.i.i.i.i.i57 ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %99, %.lr.ph.i.i.i.i.i57 ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  %.013.i.i.i.i.i58 = phi ptr [ %102, %.lr.ph.i.i.i.i.i57 ], [ %97, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %101, %.lr.ph.i.i.i.i.i57 ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.013.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.08.012.i.i.i.i.i59, i64 24, i1 false)
   store i8 0, ptr %.sroa.08.012.i.i.i.i.i59, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 23
-  store i8 23, ptr %96, align 1
-  %97 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 24
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %97, ptr noundef nonnull align 8 dereferenceable(12) %98, i64 12, i1 false)
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 40
-  %100 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 40
-  %.not.i.i.i.i.i60 = icmp eq ptr %99, %13
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 23
+  store i8 23, ptr %98, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(12) %100, i64 12, i1 false)
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 40
+  %.not.i.i.i.i.i60 = icmp eq ptr %101, %13
   br i1 %.not.i.i.i.i.i60, label %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62.loopexit, label %.lr.ph.i.i.i.i.i57, !llvm.loop !146
 
 _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62.loopexit: ; preds = %.lr.ph.i.i.i.i.i57
@@ -18753,273 +18753,273 @@ _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_
   br label %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62
 
 _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62: ; preds = %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
-  %101 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %102 = getelementptr inbounds i8, ptr %101, i64 %19
-  store ptr %102, ptr %12, align 8
-  %103 = icmp sgt i64 %19, 0
-  br i1 %103, label %.lr.ph.preheader.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
+  %103 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62.loopexit ], [ %97, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+  %104 = getelementptr inbounds i8, ptr %103, i64 %19
+  store ptr %104, ptr %12, align 8
+  %105 = icmp sgt i64 %19, 0
+  br i1 %105, label %.lr.ph.preheader.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 .lr.ph.preheader.i.i.i.i.i64:                     ; preds = %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62
-  %104 = udiv exact i64 %19, 40
+  %106 = udiv exact i64 %19, 40
   br label %.lr.ph.i.i.i.i.i65
 
 .lr.ph.i.i.i.i.i65:                               ; preds = %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72, %.lr.ph.preheader.i.i.i.i.i64
-  %.013.i.i.i.i.i66 = phi i64 [ %142, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %104, %.lr.ph.preheader.i.i.i.i.i64 ]
-  %.0811.i.i.i.i.i67 = phi ptr [ %141, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %1, %.lr.ph.preheader.i.i.i.i.i64 ]
-  %.0910.i.i.i.i.i68 = phi ptr [ %140, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %2, %.lr.ph.preheader.i.i.i.i.i64 ]
+  %.013.i.i.i.i.i66 = phi i64 [ %144, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %106, %.lr.ph.preheader.i.i.i.i.i64 ]
+  %.0811.i.i.i.i.i67 = phi ptr [ %143, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %1, %.lr.ph.preheader.i.i.i.i.i64 ]
+  %.0910.i.i.i.i.i68 = phi ptr [ %142, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72 ], [ %2, %.lr.ph.preheader.i.i.i.i.i64 ]
   %.not.i.i.i.i.i.i.i69 = icmp eq ptr %.0811.i.i.i.i.i67, %.0910.i.i.i.i.i68
-  br i1 %.not.i.i.i.i.i.i.i69, label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72, label %105
+  br i1 %.not.i.i.i.i.i.i.i69, label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72, label %107
 
-105:                                              ; preds = %.lr.ph.i.i.i.i.i65
-  %106 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 23
-  %107 = load i8, ptr %106, align 1
-  %108 = icmp sgt i8 %107, -1
-  br i1 %108, label %113, label %109
+107:                                              ; preds = %.lr.ph.i.i.i.i.i65
+  %108 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 23
+  %109 = load i8, ptr %108, align 1
+  %110 = icmp sgt i8 %109, -1
+  br i1 %110, label %115, label %111
 
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %.0811.i.i.i.i.i67, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %113, label %112
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %.0811.i.i.i.i.i67, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %115, label %114
 
-112:                                              ; preds = %109
-  tail call void @_ZdaPv(ptr noundef nonnull %110) #49
-  br label %113
+114:                                              ; preds = %111
+  tail call void @_ZdaPv(ptr noundef nonnull %112) #49
+  br label %115
 
-113:                                              ; preds = %112, %109, %105
-  %114 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 23
-  %115 = load i8, ptr %114, align 1
-  %116 = icmp sgt i8 %115, -1
-  br i1 %116, label %117, label %118
+115:                                              ; preds = %114, %111, %107
+  %116 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 23
+  %117 = load i8, ptr %116, align 1
+  %118 = icmp sgt i8 %117, -1
+  br i1 %118, label %119, label %120
 
-117:                                              ; preds = %113
+119:                                              ; preds = %115
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0811.i.i.i.i.i67, ptr noundef nonnull readonly align 8 dereferenceable(36) %.0910.i.i.i.i.i68, i64 24, i1 false)
   br label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 8
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp ult i32 %120, 24
-  br i1 %121, label %122, label %127
+120:                                              ; preds = %115
+  %121 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp ult i32 %122, 24
+  br i1 %123, label %124, label %129
 
-122:                                              ; preds = %118
-  %123 = zext nneg i32 %120 to i64
-  %124 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i67, i64 0, i64 %123
-  store i8 0, ptr %124, align 1
-  %125 = trunc nuw i32 %120 to i8
-  %126 = sub nuw nsw i8 23, %125
-  store i8 %126, ptr %106, align 1
+124:                                              ; preds = %120
+  %125 = zext nneg i32 %122 to i64
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i67, i64 0, i64 %125
+  store i8 0, ptr %126, align 1
+  %127 = trunc nuw i32 %122 to i8
+  %128 = sub nuw nsw i8 23, %127
+  store i8 %128, ptr %108, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70
 
-127:                                              ; preds = %118
-  store i8 -128, ptr %106, align 1
-  %128 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 8
-  store i32 %120, ptr %128, align 8
-  %129 = add i32 %120, 1
-  %130 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 12
-  store i32 %129, ptr %130, align 4
-  %131 = zext i32 %129 to i64
-  %132 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %131) #51
-  store ptr %132, ptr %.0811.i.i.i.i.i67, align 8
-  %133 = zext i32 %120 to i64
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 %133
-  store i8 0, ptr %134, align 1
+129:                                              ; preds = %120
+  store i8 -128, ptr %108, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 8
+  store i32 %122, ptr %130, align 8
+  %131 = add i32 %122, 1
+  %132 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 12
+  store i32 %131, ptr %132, align 4
+  %133 = zext i32 %131 to i64
+  %134 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %133) #51
+  store ptr %134, ptr %.0811.i.i.i.i.i67, align 8
+  %135 = zext i32 %122 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
+  store i8 0, ptr %136, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70
 
-_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70: ; preds = %127, %122
-  %.0.i.i.i.i.i.i.i.i.i71 = phi ptr [ %.0811.i.i.i.i.i67, %122 ], [ %132, %127 ]
-  %135 = load ptr, ptr %.0910.i.i.i.i.i68, align 8
-  %136 = load i32, ptr %119, align 8
-  %137 = zext i32 %136 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i.i.i.i.i71, ptr align 1 %135, i64 %137, i1 false)
+_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70: ; preds = %129, %124
+  %.0.i.i.i.i.i.i.i.i.i71 = phi ptr [ %.0811.i.i.i.i.i67, %124 ], [ %134, %129 ]
+  %137 = load ptr, ptr %.0910.i.i.i.i.i68, align 8
+  %138 = load i32, ptr %121, align 8
+  %139 = zext i32 %138 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i.i.i.i.i71, ptr align 1 %137, i64 %139, i1 false)
   br label %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72
 
-_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72: ; preds = %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70, %117, %.lr.ph.i.i.i.i.i65
-  %138 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 24
-  %139 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %138, ptr noundef nonnull align 8 dereferenceable(12) %139, i64 12, i1 false)
-  %140 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 40
-  %141 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 40
-  %142 = add nsw i64 %.013.i.i.i.i.i66, -1
-  %143 = icmp sgt i64 %.013.i.i.i.i.i66, 1
-  br i1 %143, label %.lr.ph.i.i.i.i.i65, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !148
+_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72: ; preds = %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70, %119, %.lr.ph.i.i.i.i.i65
+  %140 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %140, ptr noundef nonnull align 8 dereferenceable(12) %141, i64 12, i1 false)
+  %142 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i68, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 40
+  %144 = add nsw i64 %.013.i.i.i.i.i66, -1
+  %145 = icmp sgt i64 %.013.i.i.i.i.i66, 1
+  br i1 %145, label %.lr.ph.i.i.i.i.i65, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !148
 
-144:                                              ; preds = %5
-  %145 = load ptr, ptr %0, align 8
-  %146 = ptrtoint ptr %145 to i64
-  %147 = sub i64 %15, %146
-  %148 = sdiv exact i64 %147, 40
-  %149 = sub nsw i64 230584300921369395, %148
-  %150 = icmp ult i64 %149, %9
-  br i1 %150, label %151, label %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit
+146:                                              ; preds = %5
+  %147 = load ptr, ptr %0, align 8
+  %148 = ptrtoint ptr %147 to i64
+  %149 = sub i64 %15, %148
+  %150 = sdiv exact i64 %149, 40
+  %151 = sub nsw i64 230584300921369395, %150
+  %152 = icmp ult i64 %151, %9
+  br i1 %152, label %153, label %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit
 
-151:                                              ; preds = %144
+153:                                              ; preds = %146
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.274) #50
   unreachable
 
-_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %144
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %148, i64 %9)
-  %152 = add nsw i64 %.sroa.speculated.i, %148
-  %153 = icmp ult i64 %152, %148
-  %154 = tail call i64 @llvm.umin.i64(i64 %152, i64 230584300921369395)
-  %155 = select i1 %153, i64 230584300921369395, i64 %154
-  %.not.i = icmp eq i64 %155, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit, label %156
+_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %146
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %150, i64 %9)
+  %154 = add nsw i64 %.sroa.speculated.i, %150
+  %155 = icmp ult i64 %154, %150
+  %156 = tail call i64 @llvm.umin.i64(i64 %154, i64 230584300921369395)
+  %157 = select i1 %155, i64 230584300921369395, i64 %156
+  %.not.i = icmp eq i64 %157, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit, label %158
 
-156:                                              ; preds = %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit
-  %157 = mul nuw nsw i64 %155, 40
-  %158 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %157) #51
+158:                                              ; preds = %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit
+  %159 = mul nuw nsw i64 %157, 40
+  %160 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %159) #51
   br label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit, %156
-  %159 = phi ptr [ %158, %156 ], [ null, %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i74 = icmp eq ptr %145, %1
+_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit, %158
+  %161 = phi ptr [ %160, %158 ], [ null, %_ZNKSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i74 = icmp eq ptr %147, %1
   br i1 %.not11.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i75
 
 .lr.ph.i.i.i.i.i75:                               ; preds = %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i75
-  %.013.i.i.i.i.i76 = phi ptr [ %164, %.lr.ph.i.i.i.i.i75 ], [ %159, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i77 = phi ptr [ %163, %.lr.ph.i.i.i.i.i75 ], [ %145, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ]
+  %.013.i.i.i.i.i76 = phi ptr [ %166, %.lr.ph.i.i.i.i.i75 ], [ %161, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i77 = phi ptr [ %165, %.lr.ph.i.i.i.i.i75 ], [ %147, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.013.i.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.08.012.i.i.i.i.i77, i64 24, i1 false)
   store i8 0, ptr %.sroa.08.012.i.i.i.i.i77, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 23
-  store i8 23, ptr %160, align 1
-  %161 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 24
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %161, ptr noundef nonnull align 8 dereferenceable(12) %162, i64 12, i1 false)
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 40
-  %164 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 40
-  %.not.i.i.i.i.i78 = icmp eq ptr %163, %1
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 23
+  store i8 23, ptr %162, align 1
+  %163 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %163, ptr noundef nonnull align 8 dereferenceable(12) %164, i64 12, i1 false)
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 40
+  %.not.i.i.i.i.i78 = icmp eq ptr %165, %1
   br i1 %.not.i.i.i.i.i78, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i75, !llvm.loop !146
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i75, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i.i79 = phi ptr [ %159, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ], [ %164, %.lr.ph.i.i.i.i.i75 ]
-  %165 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %2, ptr %3, ptr noundef %.0.lcssa.i.i.i.i.i79)
-          to label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit unwind label %184
+  %.0.lcssa.i.i.i.i.i79 = phi ptr [ %161, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit ], [ %166, %.lr.ph.i.i.i.i.i75 ]
+  %167 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %2, ptr %3, ptr noundef %.0.lcssa.i.i.i.i.i79)
+          to label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit unwind label %186
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.not11.i.i.i.i.i80 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, label %.lr.ph.i.i.i.i.i81
 
 .lr.ph.i.i.i.i.i81:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i81
-  %.013.i.i.i.i.i82 = phi ptr [ %170, %.lr.ph.i.i.i.i.i81 ], [ %165, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ]
-  %.sroa.08.012.i.i.i.i.i83 = phi ptr [ %169, %.lr.ph.i.i.i.i.i81 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ]
+  %.013.i.i.i.i.i82 = phi ptr [ %172, %.lr.ph.i.i.i.i.i81 ], [ %167, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ]
+  %.sroa.08.012.i.i.i.i.i83 = phi ptr [ %171, %.lr.ph.i.i.i.i.i81 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.013.i.i.i.i.i82, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.08.012.i.i.i.i.i83, i64 24, i1 false)
   store i8 0, ptr %.sroa.08.012.i.i.i.i.i83, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 23
-  store i8 23, ptr %166, align 1
-  %167 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82, i64 24
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %167, ptr noundef nonnull align 8 dereferenceable(12) %168, i64 12, i1 false)
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 40
-  %170 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82, i64 40
-  %.not.i.i.i.i.i84 = icmp eq ptr %169, %13
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 23
+  store i8 23, ptr %168, align 1
+  %169 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %169, ptr noundef nonnull align 8 dereferenceable(12) %170, i64 12, i1 false)
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i83, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i82, i64 40
+  %.not.i.i.i.i.i84 = icmp eq ptr %171, %13
   br i1 %.not.i.i.i.i.i84, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, label %.lr.ph.i.i.i.i.i81, !llvm.loop !146
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86: ; preds = %.lr.ph.i.i.i.i.i81, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
-  %.0.lcssa.i.i.i.i.i85 = phi ptr [ %165, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ], [ %170, %.lr.ph.i.i.i.i.i81 ]
-  %.not4.i.i.i = icmp eq ptr %145, %13
+  %.0.lcssa.i.i.i.i.i85 = phi ptr [ %167, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ], [ %172, %.lr.ph.i.i.i.i.i81 ]
+  %.not4.i.i.i = icmp eq ptr %147, %13
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %178, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i ], [ %145, %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86 ]
-  %171 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 23
-  %172 = load i8, ptr %171, align 1
-  %173 = icmp sgt i8 %172, -1
-  br i1 %173, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i, label %174
+  %.05.i.i.i = phi ptr [ %180, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i ], [ %147, %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 23
+  %174 = load i8, ptr %173, align 1
+  %175 = icmp sgt i8 %174, -1
+  br i1 %175, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i, label %176
 
-174:                                              ; preds = %.lr.ph.i.i.i
-  %175 = load ptr, ptr %.05.i.i.i, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i, label %177
+176:                                              ; preds = %.lr.ph.i.i.i
+  %177 = load ptr, ptr %.05.i.i.i, align 8
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i, label %179
 
-177:                                              ; preds = %174
-  tail call void @_ZdaPv(ptr noundef nonnull %175) #49
+179:                                              ; preds = %176
+  tail call void @_ZdaPv(ptr noundef nonnull %177) #49
   br label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i: ; preds = %177, %174, %.lr.ph.i.i.i
-  %178 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %.not.i.i.i = icmp eq ptr %178, %13
+_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i: ; preds = %179, %176, %.lr.ph.i.i.i
+  %180 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
+  %.not.i.i.i = icmp eq ptr %180, %13
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !66
 
 _ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit86
-  %.not.i87 = icmp eq ptr %145, null
-  br i1 %.not.i87, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit, label %179
+  %.not.i87 = icmp eq ptr %147, null
+  br i1 %.not.i87, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit, label %181
 
-179:                                              ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit
-  %180 = load ptr, ptr %10, align 8
-  %181 = ptrtoint ptr %180 to i64
-  %182 = sub i64 %181, %146
-  tail call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef %182) #49
+181:                                              ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit
+  %182 = load ptr, ptr %10, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %184 = sub i64 %183, %148
+  tail call void @_ZdlPvm(ptr noundef nonnull %147, i64 noundef %184) #49
   br label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit, %179
-  store ptr %159, ptr %0, align 8
+_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit, %181
+  store ptr %161, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i85, ptr %12, align 8
-  %183 = getelementptr inbounds nuw %"struct.doctest::SubcaseSignature", ptr %159, i64 %155
-  store ptr %183, ptr %10, align 8
+  %185 = getelementptr inbounds nuw %"struct.doctest::SubcaseSignature", ptr %161, i64 %157
+  store ptr %185, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
-184:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %185 = landingpad { ptr, i32 }
+186:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %186 = extractvalue { ptr, i32 } %185, 0
-  %187 = tail call ptr @__cxa_begin_catch(ptr %186) #9
-  %.not4.i.i.i88 = icmp eq ptr %159, %.0.lcssa.i.i.i.i.i79
+  %188 = extractvalue { ptr, i32 } %187, 0
+  %189 = tail call ptr @__cxa_begin_catch(ptr %188) #9
+  %.not4.i.i.i88 = icmp eq ptr %161, %.0.lcssa.i.i.i.i.i79
   br i1 %.not4.i.i.i88, label %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93, label %.lr.ph.i.i.i89
 
-.lr.ph.i.i.i89:                                   ; preds = %184, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91
-  %.05.i.i.i90 = phi ptr [ %195, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91 ], [ %159, %184 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.05.i.i.i90, i64 23
-  %189 = load i8, ptr %188, align 1
-  %190 = icmp sgt i8 %189, -1
-  br i1 %190, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, label %191
+.lr.ph.i.i.i89:                                   ; preds = %186, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91
+  %.05.i.i.i90 = phi ptr [ %197, %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91 ], [ %161, %186 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.05.i.i.i90, i64 23
+  %191 = load i8, ptr %190, align 1
+  %192 = icmp sgt i8 %191, -1
+  br i1 %192, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, label %193
 
-191:                                              ; preds = %.lr.ph.i.i.i89
-  %192 = load ptr, ptr %.05.i.i.i90, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, label %194
+193:                                              ; preds = %.lr.ph.i.i.i89
+  %194 = load ptr, ptr %.05.i.i.i90, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, label %196
 
-194:                                              ; preds = %191
-  tail call void @_ZdaPv(ptr noundef nonnull %192) #49
+196:                                              ; preds = %193
+  tail call void @_ZdaPv(ptr noundef nonnull %194) #49
   br label %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91
 
-_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91: ; preds = %194, %191, %.lr.ph.i.i.i89
-  %195 = getelementptr inbounds nuw i8, ptr %.05.i.i.i90, i64 40
-  %.not.i.i.i92 = icmp eq ptr %195, %.0.lcssa.i.i.i.i.i79
+_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91: ; preds = %196, %193, %.lr.ph.i.i.i89
+  %197 = getelementptr inbounds nuw i8, ptr %.05.i.i.i90, i64 40
+  %.not.i.i.i92 = icmp eq ptr %197, %.0.lcssa.i.i.i.i.i79
   br i1 %.not.i.i.i92, label %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93, label %.lr.ph.i.i.i89, !llvm.loop !66
 
-_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93: ; preds = %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, %184
-  %.not.i94 = icmp eq ptr %159, null
-  br i1 %.not.i94, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95, label %196
+_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93: ; preds = %_ZSt8_DestroyIN7doctest16SubcaseSignatureEEvPT_.exit.i.i.i91, %186
+  %.not.i94 = icmp eq ptr %161, null
+  br i1 %.not.i94, label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95, label %198
 
-196:                                              ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93
-  %197 = mul nuw nsw i64 %155, 40
-  tail call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %197) #49
+198:                                              ; preds = %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93
+  %199 = mul nuw nsw i64 %157, 40
+  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef %199) #49
   br label %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95
 
-_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95: ; preds = %196, %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93
+_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95: ; preds = %198, %_ZSt8_DestroyIPN7doctest16SubcaseSignatureES1_EvT_S3_RSaIT0_E.exit93
   invoke void @__cxa_rethrow() #50
-          to label %204 unwind label %198
+          to label %206 unwind label %200
 
-198:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95
-  %199 = landingpad { ptr, i32 }
+200:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95
+  %201 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %200 unwind label %201
+          to label %202 unwind label %203
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i72, %_ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, %_ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit, %4
   ret void
 
-200:                                              ; preds = %198
-  resume { ptr, i32 } %199
+202:                                              ; preds = %200
+  resume { ptr, i32 } %201
 
-201:                                              ; preds = %198
-  %202 = landingpad { ptr, i32 }
+203:                                              ; preds = %200
+  %204 = landingpad { ptr, i32 }
           catch ptr null
-  %203 = extractvalue { ptr, i32 } %202, 0
-  tail call void @__clang_call_terminate(ptr %203) #53
+  %205 = extractvalue { ptr, i32 } %204, 0
+  tail call void @__clang_call_terminate(ptr %205) #53
   unreachable
 
-204:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95
+206:                                              ; preds = %_ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE13_M_deallocateEPS1_m.exit95
   unreachable
 }
 

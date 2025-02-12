@@ -3880,7 +3880,7 @@ do.end83.i:                                       ; preds = %_ZSt4findIN9__gnu_c
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i184.i: ; preds = %do.end83.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i186.i = ptrtoint ptr %add.ptr.i.i.i181.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i187.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i116.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i186.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i180.i, ptr nonnull align 8 %add.ptr.i.i.i181.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i187.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i180.i, ptr nonnull align 8 %add.ptr.i.i.i181.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i187.i, i1 false)
   %.pre.i.i188.i = load ptr, ptr %_M_finish.i.i118, align 8
   %.pre335.i = load ptr, ptr %agg.result, align 8
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS8_SA_EE.exit190.i

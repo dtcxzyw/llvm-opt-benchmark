@@ -4589,7 +4589,7 @@ invoke.cont.i:                                    ; preds = %call5.i.i.i.i2.i.i4
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %14, i1 false), !noalias !46
   br label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %invoke.cont.i, %call5.i.i.i.i2.i.i4.i.noexc
+for.body.preheader.i:                             ; preds = %call5.i.i.i.i2.i.i4.i.noexc, %invoke.cont.i
   %__first.addr.0.i.i.i.i.i22.i = phi ptr [ %add.ptr.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i.noexc ]
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i22.i to i64
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %call5.i.i.i.i2.i.i4.i33 to i64

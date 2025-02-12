@@ -91135,7 +91135,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i45:  ; preds = %46, %37
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i45
   %49 = load ptr, ptr %0, align 8, !tbaa !153
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.pre9.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %40, i64 %42, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %40, i64 %42, i1 false)
   %.pre.i46 = load i64, ptr %9, align 8, !tbaa !155
   br label %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
 
@@ -91150,7 +91150,7 @@ _ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds
   %54 = sub i64 %41, %36
   %55 = sub i64 0, %54
   %56 = getelementptr inbounds i8, ptr %35, i64 %55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr align 1 %34, i64 %54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr align 1 %34, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit, %53
@@ -91170,7 +91170,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 %59
   %61 = sub i64 0, %gepdiff
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %34, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %34, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58

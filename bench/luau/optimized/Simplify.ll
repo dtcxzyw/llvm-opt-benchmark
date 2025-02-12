@@ -4519,7 +4519,7 @@ _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit91: ; preds = %13, %_ZN4Luau3getI
 
 .thread265:                                       ; preds = %.thread266
   %70 = icmp eq i32 %9, 4
-  br i1 %70, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread330, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread.thread.thread
+  br i1 %70, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread329, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread.thread.thread
 
 _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4527,13 +4527,13 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %65
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %_ZN4Luau4get2INS_9TableTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, label %.thread211.thread260
 
-_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread330: ; preds = %.thread265
+_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread329: ; preds = %.thread265
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 1
   br i1 %76, label %.thread, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread.thread.thread
 
-.thread:                                          ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread330
+.thread:                                          ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread329
   switch i32 %.pr306, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i.thread.sink.split [
     i32 5, label %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit
     i32 18, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit
@@ -4581,8 +4581,8 @@ _ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit: ;
   %96 = load ptr, ptr %95, align 8
   br label %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread.thread.thread: ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread330, %.thread265, %13
-  %97 = phi i32 [ %.pr, %13 ], [ %.pr306, %.thread265 ], [ %.pr306, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread330 ]
+_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread.thread.thread: ; preds = %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread329, %.thread265, %13
+  %97 = phi i32 [ %.pr, %13 ], [ %.pr306, %.thread265 ], [ %.pr306, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.thread329 ]
   %98 = icmp eq i32 %97, 4
   br i1 %98, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit114, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit114.thread
 

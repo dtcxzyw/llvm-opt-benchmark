@@ -426,10 +426,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 35:                                               ; preds = %22
   %36 = icmp ult i32 %24, %23
   %.not91 = icmp eq i32 %30, 0
-  br i1 %36, label %37, label %100
+  br i1 %36, label %37, label %99
 
 37:                                               ; preds = %35
-  br i1 %.not91, label %85, label %38
+  br i1 %.not91, label %84, label %38
 
 38:                                               ; preds = %37
   %39 = sub i32 64, %30
@@ -473,96 +473,97 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 65:                                               ; preds = %59
   %66 = sub i32 64, %62
   %67 = icmp ult i32 %62, 32
-  br i1 %67, label %68, label %71
+  br i1 %67, label %.thread, label %70
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %1, align 4, !tbaa !30
-  %70 = shl i32 %69, %62
-  br label %71
+.thread:                                          ; preds = %65
+  %68 = load i32, ptr %1, align 4, !tbaa !30
+  %69 = shl i32 %68, %62
+  store i32 %69, ptr %1, align 4, !tbaa !30
+  br label %72
 
-71:                                               ; preds = %65, %68
-  %72 = phi i32 [ %70, %68 ], [ 0, %65 ]
-  store i32 %72, ptr %1, align 4, !tbaa !30
-  %73 = icmp ult i32 %66, 64
-  br i1 %73, label %74, label %82
+70:                                               ; preds = %65
+  store i32 0, ptr %1, align 4, !tbaa !30
+  %71 = icmp ult i32 %62, 65
+  br i1 %71, label %72, label %82
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %19, align 4, !tbaa !16
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %40, i64 %76
-  %78 = load i64, ptr %77, align 8, !tbaa !21
-  %79 = zext nneg i32 %66 to i64
-  %80 = lshr i64 %78, %79
-  %81 = trunc i64 %80 to i32
+72:                                               ; preds = %.thread, %70
+  %73 = phi i32 [ %69, %.thread ], [ 0, %70 ]
+  %74 = load i32, ptr %19, align 4, !tbaa !16
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i64, ptr %40, i64 %75
+  %77 = load i64, ptr %76, align 8, !tbaa !21
+  %78 = zext nneg i32 %66 to i64
+  %79 = lshr i64 %77, %78
+  %80 = trunc i64 %79 to i32
+  %81 = or i32 %73, %80
   br label %82
 
-82:                                               ; preds = %71, %74
-  %83 = phi i32 [ %81, %74 ], [ 0, %71 ]
-  %84 = or i32 %83, %72
-  store i32 %84, ptr %1, align 4, !tbaa !30
+82:                                               ; preds = %70, %72
+  %83 = phi i32 [ %81, %72 ], [ 0, %70 ]
+  store i32 %83, ptr %1, align 4, !tbaa !30
   store i32 %62, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
-85:                                               ; preds = %37
-  %86 = load ptr, ptr %0, align 8, !tbaa !3
-  %87 = zext i32 %24 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
-  %89 = load i64, ptr %88, align 8, !tbaa !21
-  %90 = icmp ult i32 %2, 64
-  br i1 %90, label %91, label %96
+84:                                               ; preds = %37
+  %85 = load ptr, ptr %0, align 8, !tbaa !3
+  %86 = zext i32 %24 to i64
+  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %88 = load i64, ptr %87, align 8, !tbaa !21
+  %89 = icmp ult i32 %2, 64
+  br i1 %89, label %90, label %95
 
-91:                                               ; preds = %85
-  %92 = sub nuw nsw i32 64, %2
-  %93 = zext nneg i32 %92 to i64
-  %94 = lshr i64 %89, %93
-  %95 = trunc i64 %94 to i32
-  store i32 %95, ptr %1, align 4, !tbaa !30
+90:                                               ; preds = %84
+  %91 = sub nuw nsw i32 64, %2
+  %92 = zext nneg i32 %91 to i64
+  %93 = lshr i64 %88, %92
+  %94 = trunc i64 %93 to i32
+  store i32 %94, ptr %1, align 4, !tbaa !30
   store i32 %2, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
-96:                                               ; preds = %85
-  %97 = trunc i64 %89 to i32
-  store i32 %97, ptr %1, align 4, !tbaa !30
-  %98 = load i32, ptr %19, align 4, !tbaa !16
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %19, align 4, !tbaa !16
+95:                                               ; preds = %84
+  %96 = trunc i64 %88 to i32
+  store i32 %96, ptr %1, align 4, !tbaa !30
+  %97 = load i32, ptr %19, align 4, !tbaa !16
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %19, align 4, !tbaa !16
   br label %.loopexit
 
-100:                                              ; preds = %35
-  %101 = load ptr, ptr %0, align 8, !tbaa !3
-  %102 = zext i32 %24 to i64
-  %103 = getelementptr inbounds nuw i64, ptr %101, i64 %102
-  %104 = load i64, ptr %103, align 8, !tbaa !21
-  br i1 %.not91, label %116, label %105
+99:                                               ; preds = %35
+  %100 = load ptr, ptr %0, align 8, !tbaa !3
+  %101 = zext i32 %24 to i64
+  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %101
+  %103 = load i64, ptr %102, align 8, !tbaa !21
+  br i1 %.not91, label %115, label %104
 
-105:                                              ; preds = %100
-  %106 = zext nneg i32 %30 to i64
-  %107 = lshr i64 -1, %106
-  %108 = and i64 %104, %107
-  %109 = add i32 %2, %30
-  %110 = sub i32 64, %109
-  %111 = zext nneg i32 %110 to i64
-  %112 = lshr i64 %108, %111
-  %113 = trunc i64 %112 to i32
-  store i32 %113, ptr %1, align 4, !tbaa !30
-  %114 = load i32, ptr %21, align 8, !tbaa !17
-  %115 = add i32 %114, %2
-  store i32 %115, ptr %21, align 8, !tbaa !17
+104:                                              ; preds = %99
+  %105 = zext nneg i32 %30 to i64
+  %106 = lshr i64 -1, %105
+  %107 = and i64 %103, %106
+  %108 = add i32 %2, %30
+  %109 = sub i32 64, %108
+  %110 = zext nneg i32 %109 to i64
+  %111 = lshr i64 %107, %110
+  %112 = trunc i64 %111 to i32
+  store i32 %112, ptr %1, align 4, !tbaa !30
+  %113 = load i32, ptr %21, align 8, !tbaa !17
+  %114 = add i32 %113, %2
+  store i32 %114, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
-116:                                              ; preds = %100
-  %117 = sub i32 64, %2
-  %118 = zext nneg i32 %117 to i64
-  %119 = lshr i64 %104, %118
-  %120 = trunc i64 %119 to i32
-  store i32 %120, ptr %1, align 4, !tbaa !30
-  %121 = load i32, ptr %21, align 8, !tbaa !17
-  %122 = add i32 %121, %2
-  store i32 %122, ptr %21, align 8, !tbaa !17
+115:                                              ; preds = %99
+  %116 = sub i32 64, %2
+  %117 = zext nneg i32 %116 to i64
+  %118 = lshr i64 %103, %117
+  %119 = trunc i64 %118 to i32
+  store i32 %119, ptr %1, align 4, !tbaa !30
+  %120 = load i32, ptr %21, align 8, !tbaa !17
+  %121 = add i32 %120, %2
+  store i32 %121, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %91, %96, %49, %82, %59, %116, %105, %14, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %14 ], [ 1, %105 ], [ 1, %116 ], [ 1, %59 ], [ 1, %82 ], [ 1, %49 ], [ 1, %96 ], [ 1, %91 ], [ 0, %33 ]
+.loopexit:                                        ; preds = %33, %90, %95, %49, %82, %59, %115, %104, %14, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %14 ], [ 1, %104 ], [ 1, %115 ], [ 1, %59 ], [ 1, %82 ], [ 1, %49 ], [ 1, %95 ], [ 1, %90 ], [ 0, %33 ]
   ret i32 %.0
 }
 

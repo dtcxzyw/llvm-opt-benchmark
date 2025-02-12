@@ -2980,11 +2980,11 @@ default.unreachable2829:                          ; preds = %444
   br i1 %.not1158, label %987, label %985
 
 985:                                              ; preds = %980
-  %986 = call i64 @crc32(i64 noundef %982, ptr noundef %984, i32 noundef %974) #9
+  %986 = call i64 @crc32(i64 noundef %982, ptr noundef nonnull %984, i32 noundef %974) #9
   br label %989
 
 987:                                              ; preds = %980
-  %988 = call i64 @adler32(i64 noundef %982, ptr noundef %984, i32 noundef %974) #9
+  %988 = call i64 @adler32(i64 noundef %982, ptr noundef nonnull %984, i32 noundef %974) #9
   br label %989
 
 989:                                              ; preds = %987, %985
@@ -3319,7 +3319,7 @@ default.unreachable2829:                          ; preds = %444
   %1111 = zext i32 %1109 to i64
   %1112 = sub nsw i64 0, %1111
   %1113 = getelementptr inbounds i8, ptr %1062, i64 %1112
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1110, ptr readonly align 1 %1113, i64 %1111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1110, ptr nonnull readonly align 1 %1113, i64 %1111, i1 false)
   store i32 %1109, ptr %1099, align 4
   %1114 = load i32, ptr %1080, align 4
   %1115 = getelementptr inbounds nuw i8, ptr %1064, i64 56

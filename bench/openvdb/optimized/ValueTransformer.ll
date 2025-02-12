@@ -28089,8 +28089,8 @@ if.else19:                                        ; preds = %if.else
   %tobool.i.i = trunc i8 %20 to i1
   %21 = load i32, ptr %op, align 4
   %cmp.i49.not = icmp eq i32 %21, 0
-  %or.cond87 = select i1 %tobool.i.i, i1 %cmp.i49.not, i1 false
-  br i1 %or.cond87, label %if.end39, label %invoke.cont31
+  %or.cond = select i1 %tobool.i.i, i1 %cmp.i49.not, i1 false
+  br i1 %or.cond, label %if.end39, label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.else19
   %call27 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
@@ -28685,8 +28685,8 @@ if.else19:                                        ; preds = %if.else
   %tobool.i.i = trunc i8 %20 to i1
   %21 = load i64, ptr %op, align 8
   %cmp.i49.not = icmp eq i64 %21, 0
-  %or.cond87 = select i1 %tobool.i.i, i1 %cmp.i49.not, i1 false
-  br i1 %or.cond87, label %if.end39, label %invoke.cont31
+  %or.cond = select i1 %tobool.i.i, i1 %cmp.i49.not, i1 false
+  br i1 %or.cond, label %if.end39, label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.else19
   %call27 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21

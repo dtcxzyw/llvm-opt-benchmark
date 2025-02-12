@@ -1656,7 +1656,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 if.then.i154:                                     ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i, %if.then.i.i23.i
   %173 = load i64, ptr %m_capacity.i.i.i.i, align 8, !noalias !10
   %cmp.not.i.i = icmp eq i64 %173, %164
-  br i1 %cmp.not.i.i, label %if.then.i.i161, label %if.then7.i.i.i
+  br i1 %cmp.not.i.i, label %if.then.i.i161, label %if.else.i.i
 
 if.then.thread.i:                                 ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i
   %174 = load i64, ptr %m_capacity.i.i.i.i, align 8, !noalias !10
@@ -1777,19 +1777,19 @@ if.then.i.i.i.i.i418:                             ; preds = %_ZN5boost9container
   store i64 %177, ptr %m_capacity.i.i.i.i, align 8, !noalias !85
   br label %.noexc.i
 
-if.then7.i.i.i:                                   ; preds = %if.then.i154
+if.else.i.i:                                      ; preds = %if.then.i154
   %sub.ptr.lhs.cast.i.i155 = ptrtoint ptr %170 to i64
   %add.ptr.i.i.i158 = getelementptr inbounds i8, ptr %add.ptr.i.i148, i64 -16
   %tobool.i.i.not.i.i.i = icmp eq ptr %163, null
   br i1 %tobool.i.i.not.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i, label %if.then.i.i.i.i.i159, !prof !84
 
-if.then.i.i.i.i.i159:                             ; preds = %if.then7.i.i.i
+if.then.i.i.i.i.i159:                             ; preds = %if.else.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i148, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i158, i64 16, i1 false), !noalias !81
   %.pre.i.i.i = load i64, ptr %m_size.i.i809, align 8, !noalias !81
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i159, %if.then7.i.i.i
-  %178 = phi i64 [ %164, %if.then7.i.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i.i159 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i159, %if.else.i.i
+  %178 = phi i64 [ %164, %if.else.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i.i159 ]
   %add13.i.i.i = add i64 %178, 1
   store i64 %add13.i.i.i, ptr %m_size.i.i809, align 8, !noalias !81
   %tobool.not.i.i.i.i160 = icmp eq ptr %add.ptr.i.i.i158, %170
@@ -1954,7 +1954,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraph
 if.then.i186:                                     ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit.i181, %if.then.i.i23.i212
   %199 = load i64, ptr %m_capacity.i.i.i.i, align 8, !noalias !10
   %cmp.not.i.i188 = icmp eq i64 %199, %190
-  br i1 %cmp.not.i.i188, label %if.then.i.i210, label %if.then7.i.i.i189
+  br i1 %cmp.not.i.i188, label %if.then.i.i210, label %if.else.i.i189
 
 if.then.thread.i217:                              ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i174
   %200 = load i64, ptr %m_capacity.i.i.i.i, align 8, !noalias !10
@@ -2075,19 +2075,19 @@ if.then.i.i.i.i.i465:                             ; preds = %_ZN5boost9container
   store i64 %203, ptr %m_capacity.i.i.i.i, align 8, !noalias !120
   br label %.noexc68.i
 
-if.then7.i.i.i189:                                ; preds = %if.then.i186
+if.else.i.i189:                                   ; preds = %if.then.i186
   %sub.ptr.lhs.cast.i.i190 = ptrtoint ptr %196 to i64
   %add.ptr.i.i.i193 = getelementptr inbounds i8, ptr %add.ptr.i.i172, i64 -16
   %tobool.i.i.not.i.i.i194 = icmp eq ptr %189, null
   br i1 %tobool.i.i.not.i.i.i194, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i197, label %if.then.i.i.i.i.i195, !prof !84
 
-if.then.i.i.i.i.i195:                             ; preds = %if.then7.i.i.i189
+if.then.i.i.i.i.i195:                             ; preds = %if.else.i.i189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i172, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i193, i64 16, i1 false), !noalias !117
   %.pre.i.i.i196 = load i64, ptr %m_size.i.i809, align 8, !noalias !117
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i197
 
-_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i197: ; preds = %if.then.i.i.i.i.i195, %if.then7.i.i.i189
-  %204 = phi i64 [ %190, %if.then7.i.i.i189 ], [ %.pre.i.i.i196, %if.then.i.i.i.i.i195 ]
+_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEPSB_SE_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SI_E4typeERT_SH_SH_SI_.exit.i.i.i197: ; preds = %if.then.i.i.i.i.i195, %if.else.i.i189
+  %204 = phi i64 [ %190, %if.else.i.i189 ], [ %.pre.i.i.i196, %if.then.i.i.i.i.i195 ]
   %add13.i.i.i198 = add i64 %204, 1
   store i64 %add13.i.i.i198, ptr %m_size.i.i809, align 8, !noalias !117
   %tobool.not.i.i.i.i199 = icmp eq ptr %add.ptr.i.i.i193, %196

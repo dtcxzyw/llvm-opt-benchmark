@@ -920,10 +920,10 @@ lpad34:                                           ; preds = %if.then.i189
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers24AlphaEquivalenceTypeNodeESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31) #22
   br label %ehcleanup
 
-if.end:                                           ; preds = %lor.rhs.i.i.i.i, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i, %invoke.cont39
-  %bf.load.i.i.i245 = phi i64 [ %bf.load.i.i.i245.pre, %invoke.cont39 ], [ %bf.load3.i.i.i.i.i.i161, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ], [ %bf.load3.i.i.i.i.i.i161, %lor.rhs.i.i.i.i ]
-  %43 = phi ptr [ %.pre455, %invoke.cont39 ], [ %13, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ], [ %13, %lor.rhs.i.i.i.i ]
-  %__i.sroa.0.0.i237.pn = phi ptr [ %__i.sroa.0.0.i237, %invoke.cont39 ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs.i.i.i.i ]
+if.end:                                           ; preds = %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i, %lor.rhs.i.i.i.i, %invoke.cont39
+  %bf.load.i.i.i245 = phi i64 [ %bf.load.i.i.i245.pre, %invoke.cont39 ], [ %bf.load3.i.i.i.i.i.i161, %lor.rhs.i.i.i.i ], [ %bf.load3.i.i.i.i.i.i161, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ]
+  %43 = phi ptr [ %.pre455, %invoke.cont39 ], [ %13, %lor.rhs.i.i.i.i ], [ %13, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ]
+  %__i.sroa.0.0.i237.pn = phi ptr [ %__i.sroa.0.0.i237, %invoke.cont39 ], [ %__y.addr.1.i.i.i, %lor.rhs.i.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNKSt4lessISt4pairIN4cvc58internal8TypeNodeEmEEclERKS4_S7_.exit.i.i ]
   %aetn.1.in = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i237.pn, i64 48
   %aetn.1 = load ptr, ptr %aetn.1.in, align 8
   %add = add nuw i64 %index.0443, 1

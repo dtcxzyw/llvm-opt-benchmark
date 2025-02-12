@@ -297,9 +297,9 @@ if.then:                                          ; preds = %entry
   store i32 %0, ptr %this, align 8
   switch i32 %0, label %if.end [
     i32 0, label %sw.bb
-    i32 1, label %if.end.i
+    i32 1, label %sw.bb4
     i32 2, label %sw.bb5
-    i32 3, label %if.then.i
+    i32 3, label %sw.bb7
     i32 4, label %sw.bb9
   ]
 
@@ -311,7 +311,7 @@ sw.bb:                                            ; preds = %if.then
   store i8 %frombool, ptr %3, align 8
   br label %if.end
 
-if.end.i:                                         ; preds = %if.then
+sw.bb4:                                           ; preds = %if.then
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %4, align 8
   %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -352,7 +352,7 @@ if.end.i9:                                        ; preds = %sw.bb5
   tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11)
   br label %if.end
 
-if.then.i:                                        ; preds = %if.then
+sw.bb7:                                           ; preds = %if.then
   %12 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %other, i64 8
@@ -365,7 +365,7 @@ sw.bb9:                                           ; preds = %if.then
   tail call void @_ZN4cvc58internal22UninterpretedSortValueC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i, %if.end.i9, %if.end.i, %if.then, %sw.bb, %sw.bb9, %entry
+if.end:                                           ; preds = %sw.bb7, %if.end.i9, %sw.bb4, %if.then, %sw.bb, %sw.bb9, %entry
   ret ptr %this
 }
 
@@ -2264,8 +2264,7 @@ call5.i.i.i.i.i.noexc577:                         ; preds = %_ZNKSt6vectorIN4cvc
   %add.ptr.i.i560 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i578, i64 %sub.ptr.sub.i7614
   %116 = load ptr, ptr %op, align 8
   store ptr %116, ptr %add.ptr.i.i560, align 8
-  %cmp.not7.i.i.i.i.i.i.i561 = icmp eq ptr %queue.sroa.0.17613, %queue.sroa.10.07611
-  br i1 %cmp.not7.i.i.i.i.i.i.i561, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i573, label %for.inc.i.i.i.i.i.i.i562
+  br label %for.inc.i.i.i.i.i.i.i562
 
 for.inc.i.i.i.i.i.i.i562:                         ; preds = %call5.i.i.i.i.i.noexc577, %for.inc.i.i.i.i.i.i.i562
   %__cur.09.i.i.i.i.i.i.i563 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i566, %for.inc.i.i.i.i.i.i.i562 ], [ %call5.i.i.i.i.i578, %call5.i.i.i.i.i.noexc577 ]
@@ -2277,9 +2276,8 @@ for.inc.i.i.i.i.i.i.i562:                         ; preds = %call5.i.i.i.i.i.noe
   %cmp.not.i.i.i.i.i.i.i567 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i565, %queue.sroa.10.07611
   br i1 %cmp.not.i.i.i.i.i.i.i567, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i573, label %for.inc.i.i.i.i.i.i.i562, !llvm.loop !15
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i573: ; preds = %for.inc.i.i.i.i.i.i.i562, %call5.i.i.i.i.i.noexc577
-  %__cur.0.lcssa.i.i.i.i.i.i.i569 = phi ptr [ %call5.i.i.i.i.i578, %call5.i.i.i.i.i.noexc577 ], [ %incdec.ptr1.i.i.i.i.i.i.i566, %for.inc.i.i.i.i.i.i.i562 ]
-  %incdec.ptr.i.i570 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i569, i64 8
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i573: ; preds = %for.inc.i.i.i.i.i.i.i562
+  %incdec.ptr.i.i570 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i.i.i563, i64 16
   call void @_ZdlPv(ptr noundef nonnull %queue.sroa.0.17613) #23
   %add.ptr29.i.i574 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.79", ptr %call5.i.i.i.i.i578, i64 %cond.i.i.i557
   br label %if.end51

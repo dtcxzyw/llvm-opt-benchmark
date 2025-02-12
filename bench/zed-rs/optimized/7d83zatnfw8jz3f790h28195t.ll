@@ -2198,11 +2198,11 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17hec14fdfc14e0564dE(p
 70:                                               ; preds = %66, %63, %.noexc.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !655
   %.pre.i.i.i.i.i = load i64, ptr %13, align 8, !range !27, !alias.scope !665, !noalias !634
+  %71 = icmp eq i64 %.pre.i.i.i.i.i, -9223372036854775808
   store i64 %52, ptr %33, align 8, !alias.scope !633, !noalias !634
   store ptr %55, ptr %.sroa.64.0..sroa_idx5.i.i.i.i.i.i, align 8, !alias.scope !633, !noalias !634
   store i64 %.val8.i.i, ptr %.sroa.7.0..sroa_idx7.i.i.i.i.i.i, align 8, !alias.scope !633, !noalias !634
   call void @llvm.experimental.noalias.scope.decl(metadata !668)
-  %71 = icmp eq i64 %.pre.i.i.i.i.i, -9223372036854775808
   br i1 %71, label %.invoke, label %73
 
 .invoke:                                          ; preds = %70, %42

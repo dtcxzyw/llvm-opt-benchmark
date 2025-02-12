@@ -3082,7 +3082,7 @@ _Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11ch
   %23 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
   %24 = sub i64 %22, %23
   %25 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i, i64 %24
-  call void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %18, ptr %.sroa.01.0.copyload.i, ptr %25, ptr noundef %6)
+  call void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %18, ptr %.sroa.01.0.copyload.i, ptr nonnull %25, ptr noundef %6)
   br label %32
 
 26:                                               ; preds = %.noexc, %7

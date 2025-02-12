@@ -6691,7 +6691,7 @@ _ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4ll
   %76 = getelementptr inbounds nuw ptr, ptr %37, i64 %75
   %77 = sub nsw i64 0, %41
   %78 = getelementptr inbounds ptr, ptr %76, i64 %77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 8 %38, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 8 %38, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %73

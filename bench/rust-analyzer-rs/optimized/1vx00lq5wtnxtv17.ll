@@ -420,33 +420,33 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   %154 = load i64, ptr %153, align 8, !alias.scope !58, !noundef !14
   %155 = add i64 %147, %141
   %.not15.i = icmp ugt i64 %154, %155
-  br i1 %.not15.i, label %149, label %.thread19.i
+  br i1 %.not15.i, label %149, label %.thread18.i
 
 156:                                              ; preds = %149
   %157 = add i64 %136, -4
   %158 = getelementptr inbounds [0 x { i64, i64 }], ptr %.pre, i64 0, i64 %157
   %159 = load i64, ptr %158, align 8, !alias.scope !58, !noundef !14
   %160 = add i64 %154, %147
-  %.not17.i = icmp ugt i64 %159, %160
-  br i1 %.not17.i, label %._crit_edge, label %.thread19.i
+  %.not16.i = icmp ugt i64 %159, %160
+  br i1 %.not16.i, label %._crit_edge, label %.thread18.i
 
 161:                                              ; preds = %144, %.lr.ph
-  %.not18.i = icmp eq i64 %136, 2
-  br i1 %.not18.i, label %162, label %..thread19_crit_edge.i
+  %.not17.i = icmp eq i64 %136, 2
+  br i1 %.not17.i, label %162, label %..thread18_crit_edge.i
 
-..thread19_crit_edge.i:                           ; preds = %161
+..thread18_crit_edge.i:                           ; preds = %161
   %.pre.i47 = add i64 %136, -3
   %.phi.trans.insert.i = getelementptr inbounds [0 x { i64, i64 }], ptr %.pre, i64 0, i64 %.pre.i47
-  %.pre21.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !58
-  br label %.thread19.i
+  %.pre20.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !58
+  br label %.thread18.i
 
-162:                                              ; preds = %.thread19.i, %161
+162:                                              ; preds = %.thread18.i, %161
   %163 = add i64 %136, -2
   br label %168
 
-.thread19.i:                                      ; preds = %..thread19_crit_edge.i, %156, %151
-  %164 = phi i64 [ %.pre21.i, %..thread19_crit_edge.i ], [ %154, %156 ], [ %154, %151 ]
-  %.pre-phi.i = phi i64 [ %.pre.i47, %..thread19_crit_edge.i ], [ %152, %156 ], [ %152, %151 ]
+.thread18.i:                                      ; preds = %..thread18_crit_edge.i, %156, %151
+  %164 = phi i64 [ %.pre20.i, %..thread18_crit_edge.i ], [ %154, %156 ], [ %154, %151 ]
+  %.pre-phi.i = phi i64 [ %.pre.i47, %..thread18_crit_edge.i ], [ %152, %156 ], [ %152, %151 ]
   %165 = icmp ult i64 %164, %141
   br i1 %165, label %168, label %162
 
@@ -456,8 +456,8 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   %167 = icmp ult i64 %.0.i, %1
   br i1 %167, label %46, label %29
 
-168:                                              ; preds = %162, %.thread19.i
-  %.sroa.4.0.i45.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %163, %162 ]
+168:                                              ; preds = %162, %.thread18.i
+  %.sroa.4.0.i45.ph = phi i64 [ %.pre-phi.i, %.thread18.i ], [ %163, %162 ]
   %169 = icmp ult i64 %.sroa.4.0.i45.ph, %136
   br i1 %169, label %172, label %170
 

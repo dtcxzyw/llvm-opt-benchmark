@@ -1912,18 +1912,18 @@ if.then.i.i.i.i.i120:                             ; preds = %if.then.i.i.i117
 
 if.else.i.i.i.i.i122:                             ; preds = %if.then.i.i.i117
   %80 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i118, i32 1 acq_rel, align 4
-  %.pre334.pre = load ptr, ptr %cdl99, align 8
+  %.pre333.pre = load ptr, ptr %cdl99, align 8
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123: ; preds = %if.end98, %if.then.i.i.i.i.i120, %if.else.i.i.i.i.i122
-  %.pre334 = phi ptr [ %76, %if.end98 ], [ %76, %if.then.i.i.i.i.i120 ], [ %.pre334.pre, %if.else.i.i.i.i.i122 ]
+  %.pre333 = phi ptr [ %76, %if.end98 ], [ %76, %if.then.i.i.i.i.i120 ], [ %.pre333.pre, %if.else.i.i.i.i.i122 ]
   %cmp104.not = icmp eq i32 %call27, 1
   br i1 %cmp104.not, label %if.end118, label %if.then105
 
 if.then105:                                       ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123
-  %vtable109 = load ptr, ptr %.pre334, align 8
+  %vtable109 = load ptr, ptr %.pre333, align 8
   %81 = load ptr, ptr %vtable109, align 8
-  invoke void %81(ptr nonnull sret(%"class.std::shared_ptr.32") align 8 %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(8) %.pre334)
+  invoke void %81(ptr nonnull sret(%"class.std::shared_ptr.32") align 8 %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(8) %.pre333)
           to label %invoke.cont112 unwind label %lpad111
 
 invoke.cont112:                                   ; preds = %if.then105
@@ -2124,7 +2124,7 @@ lpad111:                                          ; preds = %if.end118, %_ZNSt10
   br label %ehcleanup156
 
 if.end118:                                        ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev.exit234, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123
-  %114 = phi ptr [ %111, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev.exit234 ], [ %.pre334, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123 ]
+  %114 = phi ptr [ %111, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev.exit234 ], [ %.pre333, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit123 ]
   invoke void @_ZN19OpenColorIO_v2_4dev10BuildCDLOpERNS_10OpRcPtrVecERKNS_6ConfigERKNS_12CDLTransformENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(8) %114, i32 noundef %call13)
           to label %invoke.cont120 unwind label %lpad111
 
@@ -2263,21 +2263,21 @@ ehcleanup154:                                     ; preds = %ehcleanup150, %clea
   br label %ehcleanup156
 
 if.end155.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i109, %if.then.i.i.i.i262
-  %.sink341 = phi ptr [ %115, %if.then.i.i.i.i262 ], [ %59, %if.then.i.i.i.i109 ]
-  %_M_weak_count.i.i.i.i263 = getelementptr inbounds nuw i8, ptr %.sink341, i64 12
+  %.sink340 = phi ptr [ %115, %if.then.i.i.i.i262 ], [ %59, %if.then.i.i.i.i109 ]
+  %_M_weak_count.i.i.i.i263 = getelementptr inbounds nuw i8, ptr %.sink340, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i263, align 4
-  %vtable.i.i.i.i264 = load ptr, ptr %.sink341, align 8
+  %vtable.i.i.i.i264 = load ptr, ptr %.sink340, align 8
   %vfn.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i264, i64 16
   %128 = load ptr, ptr %vfn.i.i.i.i265, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %.sink341) #18
+  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %.sink340) #18
   br label %if.end155.sink.split
 
 if.end155.sink.split:                             ; preds = %if.end155.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101
-  %.sink338 = phi ptr [ %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101 ], [ %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i254 ], [ %.sink341, %if.end155.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i105 = load ptr, ptr %.sink338, align 8
+  %.sink337 = phi ptr [ %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101 ], [ %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i254 ], [ %.sink340, %if.end155.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i105 = load ptr, ptr %.sink337, align 8
   %vfn3.i.i.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i105, i64 24
   %129 = load ptr, ptr %vfn3.i.i.i.i.i.i106, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(16) %.sink338) #18
+  call void %129(ptr noundef nonnull align 8 dereferenceable(16) %.sink337) #18
   br label %if.end155
 
 if.end155:                                        ; preds = %if.end155.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i91, %invoke.cont56, %invoke.cont120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i244, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i254

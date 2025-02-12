@@ -6622,7 +6622,7 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.sub.i41.i
   %defaultValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %143, i32 noundef %144, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
+  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %143, i32 noundef %144, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr nonnull %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
           to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
 
 for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i
@@ -11057,7 +11057,7 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.sub.i41.i
   %defaultValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %147, i32 noundef %148, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
+  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %147, i32 noundef %148, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr nonnull %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
           to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
 
 for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i

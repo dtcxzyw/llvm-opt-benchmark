@@ -20408,7 +20408,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl22uninitia
   %sub.i.i.i.i.i = sub i64 %41, %40
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr3.i108, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr.i107, i64 %sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr.i107, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i
 
 _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit.i
@@ -20430,7 +20430,7 @@ for.body.preheader.i.i29.i:                       ; preds = %_ZN5eastl24uninitia
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr3.i108, i64 %n
   %idx.neg11.i = sub i64 0, %sub.i109
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 %idx.neg11.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr12.i, ptr align 1 %add.ptr.i107, i64 %sub.i109, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr12.i, ptr align 1 %add.ptr.i107, i64 %sub.i109, i1 false)
   br label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %for.body.preheader.i.i29.i, %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i
@@ -20508,7 +20508,7 @@ _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit28.i: ; preds = %_ZN
   %idx.neg11.i119 = sub i64 0, %sub.i109
   %add.ptr12.i120 = getelementptr inbounds float, ptr %add.ptr10.i118, i64 %idx.neg11.i119
   %gepdiff.i121 = sub nsw i64 %add.ptr3.idx.i, %add.ptr.idx.i110
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr12.i120, ptr align 4 %add.ptr.i111, i64 %gepdiff.i121, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr12.i120, ptr align 4 %add.ptr.i111, i64 %gepdiff.i121, i1 false)
   br label %for.body.i.i30.i
 
 for.body.i.i30.i:                                 ; preds = %for.body.i.i30.i, %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit28.i
@@ -21106,7 +21106,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i
   %40 = ptrtoint ptr %add.ptr.i133 to i64
   %41 = ptrtoint ptr %add.ptr6.i to i64
   %sub.i.i.i.i.i.i.i = sub i64 %40, %41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i133, ptr align 1 %add.ptr6.i, i64 %sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i133, ptr nonnull align 1 %add.ptr6.i, i64 %sub.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i
@@ -21118,7 +21118,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl22uninitia
   %sub.i.i.i.i.i = sub i64 %42, %sub.ptr.lhs.cast.i
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i133, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr81, i64 %sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr81, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i
 
 _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit.i
@@ -21133,7 +21133,7 @@ if.else.i:                                        ; preds = %if.else
 
 if.end.i.i.i136:                                  ; preds = %if.else.i
   %diff.neg.i = sub i64 0, %sub11.neg.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i133, ptr align 1 %add.ptr13.i, i64 %diff.neg.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i133, ptr nonnull align 1 %add.ptr13.i, i64 %diff.neg.i, i1 false)
   br label %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
 
 _ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.end.i.i.i136, %if.else.i
@@ -21143,7 +21143,7 @@ if.end.i.i.i.i.i.i31.i:                           ; preds = %_ZN5eastl18uninitia
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i133, i64 %sub.i67
   %idx.neg16.i = sub i64 0, %sub.i134
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 %idx.neg16.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr17.i, ptr align 1 %add.ptr81, i64 %sub.i134, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr17.i, ptr align 1 %add.ptr81, i64 %sub.i134, i1 false)
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i, %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
@@ -21219,7 +21219,7 @@ if.else.i145:                                     ; preds = %_ZN5eastl16TupleVec
 
 if.end.i.i.i147:                                  ; preds = %if.else.i145
   %add.ptr14.idx.neg.i = mul i64 %sub12.neg.i, -4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i142, ptr align 4 %add.ptr14.i, i64 %add.ptr14.idx.neg.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i142, ptr nonnull align 4 %add.ptr14.i, i64 %add.ptr14.idx.neg.i, i1 false)
   br label %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
 
 _ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i: ; preds = %if.end.i.i.i147, %if.else.i145
@@ -21230,7 +21230,7 @@ if.end.i.i.i.i.i.i31.i149:                        ; preds = %_ZN5eastl18uninitia
   %idx.neg17.i = sub i64 0, %sub.i134
   %add.ptr18.i = getelementptr inbounds float, ptr %add.ptr16.i, i64 %idx.neg17.i
   %gepdiff230 = sub nsw i64 %add.ptr.i142.idx, %add.ptr99.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr18.i, ptr align 4 %add.ptr99, i64 %gepdiff230, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr18.i, ptr align 4 %add.ptr99, i64 %gepdiff230, i1 false)
   br label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i149, %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
@@ -24106,7 +24106,7 @@ if.then.i.i.i.i160:                               ; preds = %_ZN5eastl22uninitia
   %sub.i.i.i.i = sub i64 %50, %49
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr58, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %add.ptr58, i64 %sub.i.i.i.i, i1 false)
   br label %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit
 
 _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit: ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit, %if.then.i.i.i.i160

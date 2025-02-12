@@ -1991,7 +1991,7 @@ if.then9.i.i3043:                                 ; preds = %_ZN5eastl29CharType
   %113 = icmp eq i64 %sub.ptr.sub.i5.i3047, 22
   br label %land.rhs.i.i3380
 
-land.rhs.i.i3380:                                 ; preds = %for.inc9.i.i.i3049, %if.then9.i.i3043, %_ZN5eastl29CharTypeStringRFindFirstNotOfIcEEPKT_S3_S3_S3_S3_.exit.i.i3040
+land.rhs.i.i3380:                                 ; preds = %for.inc9.i.i.i3049, %_ZN5eastl29CharTypeStringRFindFirstNotOfIcEEPKT_S3_S3_S3_S3_.exit.i.i3040, %if.then9.i.i3043
   %retval.0.i.i3048 = phi i1 [ %113, %if.then9.i.i3043 ], [ false, %_ZN5eastl29CharTypeStringRFindFirstNotOfIcEEPKT_S3_S3_S3_S3_.exit.i.i3040 ], [ false, %for.inc9.i.i.i3049 ]
   %call663 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i3048, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 453, ptr noundef nonnull @.str.208)
   %call666 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 456, ptr noundef nonnull @.str.209)
@@ -3918,7 +3918,7 @@ if.then9.i.i3566:                                 ; preds = %_ZN5eastl29CharType
   %143 = icmp eq i64 %sub.ptr.sub.i5.i3570, 88
   br label %for.body.i.i.i.i3630.preheader
 
-for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc8.i.i.i3573, %_ZN5eastl29CharTypeStringRFindFirstNotOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3563, %if.then9.i.i3566
+for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc8.i.i.i3573, %if.then9.i.i3566, %_ZN5eastl29CharTypeStringRFindFirstNotOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3563
   %retval.0.i.i3572 = phi i1 [ %143, %if.then9.i.i3566 ], [ false, %_ZN5eastl29CharTypeStringRFindFirstNotOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3563 ], [ false, %for.inc8.i.i.i3573 ]
   %call635 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i3572, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 453, ptr noundef nonnull @.str.208)
   %call638 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 456, ptr noundef nonnull @.str.209)
@@ -6502,7 +6502,7 @@ if.then9.i.i3474:                                 ; preds = %_ZN5eastl29CharType
   %145 = icmp eq i64 %sub.ptr.sub.i5.i3478, 22
   br label %for.body.i.i.i.i3533.preheader
 
-for.body.i.i.i.i3533.preheader:                   ; preds = %for.inc9.i.i.i3480, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3471, %if.then9.i.i3474
+for.body.i.i.i.i3533.preheader:                   ; preds = %for.inc9.i.i.i3480, %if.then9.i.i3474, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3471
   %retval.0.i.i3479 = phi i1 [ %145, %if.then9.i.i3474 ], [ false, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3471 ], [ false, %for.inc9.i.i.i3480 ]
   %call663 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i3479, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 453, ptr noundef nonnull @.str.208)
   %call666 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 456, ptr noundef nonnull @.str.209)
@@ -9032,7 +9032,7 @@ if.then9.i.i3566:                                 ; preds = %_ZN5eastl29CharType
   %143 = icmp eq i64 %sub.ptr.sub.i5.i3570, 44
   br label %for.body.i.i.i.i3630.preheader
 
-for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc9.i.i.i3573, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3563, %if.then9.i.i3566
+for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc9.i.i.i3573, %if.then9.i.i3566, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3563
   %retval.0.i.i3572 = phi i1 [ %143, %if.then9.i.i3566 ], [ false, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3563 ], [ false, %for.inc9.i.i.i3573 ]
   %call663 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i3572, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 453, ptr noundef nonnull @.str.208)
   %call666 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 456, ptr noundef nonnull @.str.209)
@@ -11584,7 +11584,7 @@ if.then9.i.i3566:                                 ; preds = %_ZN5eastl29CharType
   %143 = icmp eq i64 %sub.ptr.sub.i5.i3570, 88
   br label %for.body.i.i.i.i3630.preheader
 
-for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc8.i.i.i3573, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3563, %if.then9.i.i3566
+for.body.i.i.i.i3630.preheader:                   ; preds = %for.inc8.i.i.i3573, %if.then9.i.i3566, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3563
   %retval.0.i.i3572 = phi i1 [ %143, %if.then9.i.i3566 ], [ false, %_ZN5eastl29CharTypeStringRFindFirstNotOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3563 ], [ false, %for.inc8.i.i.i3573 ]
   %call635 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i3572, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 453, ptr noundef nonnull @.str.208)
   %call638 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 456, ptr noundef nonnull @.str.209)

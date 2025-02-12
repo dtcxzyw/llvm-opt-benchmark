@@ -146,16 +146,16 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
 
 73:                                               ; preds = %67
   %74 = sub nsw i32 %54, %72
-  %switch.tableidx = add i32 %74, -1
-  %75 = icmp ult i32 %switch.tableidx, 7
+  %75 = icmp ult i32 %74, 8
   br i1 %75, label %switch.lookup, label %lexbor_strtod_adjust_pow10.exit.i
 
 switch.lookup:                                    ; preds = %73
-  %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %76
+  %switch.tableidx = add nsw i32 %74, -1
+  %76 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
-  %77 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %77
+  %77 = sext i32 %switch.tableidx to i64
+  %switch.gep72 = getelementptr inbounds [7 x i32], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %77
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   br label %lexbor_strtod_adjust_pow10.exit.i
 

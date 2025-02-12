@@ -1861,10 +1861,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %392, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %394 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %.not818869 = icmp eq ptr %.19.i.i.i, %378
-  %.not818 = select i1 %394, i1 true, i1 %.not818869
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #34
-  br i1 %.not818, label %._crit_edge.i.i222, label %._crit_edge.i.i205
+  br i1 %394, label %._crit_edge.i.i222, label %._crit_edge.i.i205
 
 ._crit_edge.i.i205:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #34
@@ -2142,10 +2140,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i242, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i248
   %.0.i.i.i.i.i245 = phi i32 [ %486, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i242 ], [ %.0.i6.i.i.i.i.i251, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i248 ]
   %488 = icmp slt i32 %.0.i.i.i.i.i245, 0
-  %.not870 = icmp eq ptr %.19.i.i.i235, %378
-  %.not = select i1 %488, i1 true, i1 %.not870
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #34
-  br i1 %.not, label %.noexc.i288, label %._crit_edge.i.i260
+  br i1 %488, label %.noexc.i288, label %._crit_edge.i.i260
 
 ._crit_edge.i.i260:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #34
@@ -3116,10 +3112,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i428, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i434
   %.0.i.i.i.i.i431 = phi i32 [ %821, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i428 ], [ %.0.i6.i.i.i.i.i437, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i434 ]
   %823 = icmp slt i32 %.0.i.i.i.i.i431, 0
-  %.not820871 = icmp eq ptr %.19.i.i.i421, %378
-  %.not820 = select i1 %823, i1 true, i1 %.not820871
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #34
-  br i1 %.not820, label %850, label %824
+  br i1 %823, label %850, label %824
 
 824:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #34

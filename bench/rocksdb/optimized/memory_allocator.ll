@@ -5862,7 +5862,7 @@ if.then.i.i.i.i257:                               ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt8weak_ptrIN7rocksdb12CustomizableEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit: ; preds = %if.end.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i254, %if.then.i.i.i.i257
   store ptr %102, ptr %_M_refcount3.i.i, align 8
-  %.pre446 = load ptr, ptr %c, align 8
+  %.pre445 = load ptr, ptr %c, align 8
   br label %if.end75
 
 lpad65:                                           ; preds = %invoke.cont115, %if.end75, %if.then70, %_ZSt19static_pointer_castIN7rocksdb12CustomizableENS0_15MemoryAllocatorEESt10shared_ptrIT_ERKS3_IT0_E.exit
@@ -5871,7 +5871,7 @@ lpad65:                                           ; preds = %invoke.cont115, %if
   br label %ehcleanup126
 
 if.end75:                                         ; preds = %_ZNSt8weak_ptrIN7rocksdb12CustomizableEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit, %invoke.cont66
-  %112 = phi ptr [ %.pre446, %_ZNSt8weak_ptrIN7rocksdb12CustomizableEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit ], [ %100, %invoke.cont66 ]
+  %112 = phi ptr [ %.pre445, %_ZNSt8weak_ptrIN7rocksdb12CustomizableEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit ], [ %100, %invoke.cont66 ]
   %vtable78 = load ptr, ptr %112, align 8
   %vfn79 = getelementptr inbounds nuw i8, ptr %vtable78, i64 120
   %113 = load ptr, ptr %vfn79, align 8
@@ -6365,21 +6365,21 @@ ehcleanup131:                                     ; preds = %_ZN7rocksdb6StatusD
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit426
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split.sink.split: ; preds = %if.then.i.i.i.i191, %if.then.i.i.i.i407
-  %.sink454 = phi ptr [ %163, %if.then.i.i.i.i407 ], [ %39, %if.then.i.i.i.i191 ]
-  %_M_weak_count.i.i.i.i408 = getelementptr inbounds nuw i8, ptr %.sink454, i64 12
+  %.sink453 = phi ptr [ %163, %if.then.i.i.i.i407 ], [ %39, %if.then.i.i.i.i191 ]
+  %_M_weak_count.i.i.i.i408 = getelementptr inbounds nuw i8, ptr %.sink453, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i408, align 4
-  %vtable.i.i.i.i409 = load ptr, ptr %.sink454, align 8
+  %vtable.i.i.i.i409 = load ptr, ptr %.sink453, align 8
   %vfn.i.i.i.i410 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i409, i64 16
   %173 = load ptr, ptr %vfn.i.i.i.i410, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %.sink454) #23
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %.sink453) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i399, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i183
-  %.sink451 = phi ptr [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i183 ], [ %163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i399 ], [ %.sink454, %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i187 = load ptr, ptr %.sink451, align 8
+  %.sink450 = phi ptr [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i183 ], [ %163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i399 ], [ %.sink453, %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i187 = load ptr, ptr %.sink450, align 8
   %vfn3.i.i.i.i.i.i188 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i187, i64 24
   %174 = load ptr, ptr %vfn3.i.i.i.i.i.i188, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %.sink451) #23
+  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %.sink450) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i173, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i183, %nrvo.skipdtor, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i389, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i399

@@ -1681,7 +1681,7 @@ default.unreachable2225:                          ; preds = %132
 644:                                              ; preds = %._crit_edge
   %645 = sub nsw i64 0, %639
   %646 = getelementptr inbounds i8, ptr %.0683, i64 %645
-  %647 = tail call i64 @adler32(i64 noundef %.pre2211, ptr noundef %646, i32 noundef %638) #12
+  %647 = tail call i64 @adler32(i64 noundef %.pre2211, ptr noundef nonnull %646, i32 noundef %638) #12
   store i64 %647, ptr %34, align 8, !tbaa !33
   store i64 %647, ptr %35, align 8, !tbaa !17
   br label %648
@@ -1915,7 +1915,7 @@ default.unreachable2225:                          ; preds = %132
   %737 = zext i32 %734 to i64
   %738 = sub nsw i64 0, %737
   %739 = getelementptr inbounds i8, ptr %736, i64 %738
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %735, ptr align 1 %739, i64 %737, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %735, ptr nonnull align 1 %739, i64 %737, i1 false)
   store i32 %734, ptr %723, align 4, !tbaa !44
   %740 = load i32, ptr %701, align 4, !tbaa !45
   %741 = getelementptr inbounds nuw i8, ptr %688, i64 48

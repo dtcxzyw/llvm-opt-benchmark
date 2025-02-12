@@ -13021,7 +13021,7 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   %10 = load ptr, ptr %9, align 8
   %.not = icmp ult ptr %8, %10
   %.082.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br i1 %.not, label %11, label %.loopexit132
+  br i1 %.not, label %11, label %.thread
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -13029,12 +13029,12 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   store i32 0, ptr %1, align 4
   %14 = zext i8 %13 to i32
   %15 = icmp eq i8 %13, 123
-  br i1 %15, label %16, label %46
+  br i1 %15, label %16, label %45
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %9, align 8
   %.not106 = icmp ult ptr %12, %17
-  br i1 %.not106, label %18, label %.loopexit132
+  br i1 %.not106, label %18, label %.thread
 
 18:                                               ; preds = %16
   %19 = load i8, ptr %12, align 1
@@ -13054,21 +13054,21 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   br label %26
 
 26:                                               ; preds = %23, %36
-  %.084155 = phi ptr [ null, %23 ], [ %spec.select, %36 ]
-  %.288154 = phi ptr [ %.187, %23 ], [ %.4, %36 ]
-  %.093153 = phi i64 [ 0, %23 ], [ %44, %36 ]
-  %.not107 = icmp ult ptr %.288154, %24
-  br i1 %.not107, label %.preheader.preheader, label %.loopexit132
+  %.084141 = phi ptr [ null, %23 ], [ %spec.select, %36 ]
+  %.288140 = phi ptr [ %.187, %23 ], [ %.4, %36 ]
+  %.093139 = phi i64 [ 0, %23 ], [ %44, %36 ]
+  %.not107 = icmp ult ptr %.288140, %24
+  br i1 %.not107, label %.preheader.preheader, label %.thread
 
 .preheader.preheader:                             ; preds = %26
-  %.288154173 = ptrtoint ptr %.288154 to i64
-  %scevgep = getelementptr i8, ptr %.288154, i64 %25
-  %27 = sub i64 0, %.288154173
-  %scevgep174 = getelementptr i8, ptr %scevgep, i64 %27
+  %.288140153 = ptrtoint ptr %.288140 to i64
+  %scevgep = getelementptr i8, ptr %.288140, i64 %25
+  %27 = sub i64 0, %.288140153
+  %scevgep154 = getelementptr i8, ptr %scevgep, i64 %27
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge
-  %.297.in = phi ptr [ %.4, %.critedge ], [ %.288154, %.preheader.preheader ]
+  %.297.in = phi ptr [ %.4, %.critedge ], [ %.288140, %.preheader.preheader ]
   %.4 = getelementptr inbounds nuw i8, ptr %.297.in, i64 1
   %.297 = load i8, ptr %.297.in, align 1
   switch i8 %.297, label %28 [
@@ -13087,64 +13087,58 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   br i1 %.not108, label %35, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %28
-  %exitcond.not = icmp eq ptr %.4, %scevgep174
-  br i1 %exitcond.not, label %.loopexit132, label %.preheader
+  %exitcond.not = icmp eq ptr %.4, %scevgep154
+  br i1 %exitcond.not, label %.thread, label %.preheader
 
 35:                                               ; preds = %28
   switch i8 %.297, label %36 [
-    i8 0, label %.loopexit132
-    i8 125, label %.thread
+    i8 0, label %.thread
+    i8 125, label %55
   ]
 
 36:                                               ; preds = %35
   %37 = zext i8 %.297 to i32
   %38 = call i32 @tolower(i32 noundef %37) #18
   %39 = trunc i32 %38 to i8
-  %40 = getelementptr inbounds nuw [50 x i8], ptr %7, i64 0, i64 %.093153
+  %40 = getelementptr inbounds nuw [50 x i8], ptr %7, i64 0, i64 %.093139
   store i8 %39, ptr %40, align 1
   %41 = icmp eq i8 %.297, 58
   %42 = icmp eq i8 %.297, 61
   %or.cond5 = or i1 %41, %42
-  %43 = icmp eq ptr %.084155, null
+  %43 = icmp eq ptr %.084141, null
   %or.cond7 = select i1 %or.cond5, i1 %43, i1 false
-  %spec.select = select i1 %or.cond7, ptr %40, ptr %.084155
-  %44 = add nuw nsw i64 %.093153, 1
-  %exitcond175.not = icmp eq i64 %44, 49
-  br i1 %exitcond175.not, label %45, label %26
+  %spec.select = select i1 %or.cond7, ptr %40, ptr %.084141
+  %44 = add nuw nsw i64 %.093139, 1
+  %exitcond155.not = icmp eq i64 %44, 49
+  br i1 %exitcond155.not, label %.thread, label %26
 
-45:                                               ; preds = %36
-  %.not109 = icmp eq i8 %.297, 125
-  br i1 %.not109, label %.thread, label %.loopexit132
+45:                                               ; preds = %11
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = zext i8 %13 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = and i8 %50, 2
+  %.not105 = icmp eq i8 %51, 0
+  br i1 %.not105, label %.thread, label %.thread118
 
-46:                                               ; preds = %11
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = zext i8 %13 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 2
-  %.not105 = icmp eq i8 %52, 0
-  br i1 %.not105, label %.loopexit132, label %.thread121
-
-.thread121:                                       ; preds = %46
-  %53 = tail call i32 @tolower(i32 noundef %14) #18
-  %54 = trunc i32 %53 to i8
-  store i8 %54, ptr %7, align 16
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %55, align 1
+.thread118:                                       ; preds = %45
+  %52 = tail call i32 @tolower(i32 noundef %14) #18
+  %53 = trunc i32 %52 to i8
+  store i8 %53, ptr %7, align 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 0, ptr %54, align 1
   store ptr %12, ptr %0, align 8
   br label %85
 
-.thread:                                          ; preds = %35, %45
-  %.093148 = phi i64 [ 49, %45 ], [ %.093153, %35 ]
-  %.084141 = phi ptr [ %spec.select, %45 ], [ %.084155, %35 ]
-  %56 = getelementptr inbounds nuw [50 x i8], ptr %7, i64 0, i64 %.093148
+55:                                               ; preds = %35
+  %56 = getelementptr inbounds nuw [50 x i8], ptr %7, i64 0, i64 %.093139
   store i8 0, ptr %56, align 1
   store ptr %.4, ptr %0, align 8
   %.not110 = icmp eq ptr %.084141, null
   br i1 %.not110, label %85, label %57
 
-57:                                               ; preds = %.thread
+57:                                               ; preds = %55
   store i8 0, ptr %.084141, align 1
   %58 = call i32 @_pcre2_strcmp_c8_8(ptr noundef nonnull %7, ptr noundef nonnull @.str.27) #17
   %59 = icmp eq i32 %58, 0
@@ -13158,28 +13152,28 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
 63:                                               ; preds = %60
   %64 = call i32 @_pcre2_strcmp_c8_8(ptr noundef nonnull %7, ptr noundef nonnull @.str.29) #17
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.thread127, label %66
+  br i1 %65, label %.thread124, label %66
 
 66:                                               ; preds = %63
   %67 = call i32 @_pcre2_strcmp_c8_8(ptr noundef nonnull %7, ptr noundef nonnull @.str.30) #17
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.thread127, label %69
+  br i1 %68, label %.thread124, label %69
 
 69:                                               ; preds = %66
   %70 = call i32 @_pcre2_strcmp_c8_8(ptr noundef nonnull %7, ptr noundef nonnull @.str.31) #17
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.thread127, label %72
+  br i1 %71, label %.thread124, label %72
 
 72:                                               ; preds = %69
   %73 = call i32 @_pcre2_strcmp_c8_8(ptr noundef nonnull %7, ptr noundef nonnull @.str.32) #17
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread127, label %75
+  br i1 %74, label %.thread124, label %75
 
 75:                                               ; preds = %72
   store i32 147, ptr %4, align 4
   br label %109
 
-.thread127:                                       ; preds = %66, %63, %72, %69
+.thread124:                                       ; preds = %66, %63, %72, %69
   %.1.ph = phi i16 [ 5, %69 ], [ 5, %72 ], [ 4, %63 ], [ 4, %66 ]
   %76 = getelementptr inbounds nuw i8, ptr %.084141, i64 1
   %77 = ptrtoint ptr %56 to i64
@@ -13197,17 +13191,17 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   store i32 1768188258, ptr %7, align 16
   br label %85
 
-85:                                               ; preds = %.thread127, %.thread121, %80, %.thread
-  %.not110126 = phi i1 [ false, %80 ], [ true, %.thread ], [ true, %.thread121 ], [ false, %.thread127 ]
-  %.083 = phi i16 [ 255, %80 ], [ 255, %.thread ], [ 255, %.thread121 ], [ %.1.ph, %.thread127 ]
+85:                                               ; preds = %.thread124, %.thread118, %80, %55
+  %.not110123 = phi i1 [ false, %80 ], [ true, %55 ], [ true, %.thread118 ], [ false, %.thread124 ]
+  %.083 = phi i16 [ 255, %80 ], [ 255, %55 ], [ 255, %.thread118 ], [ %.1.ph, %.thread124 ]
   %86 = load i64, ptr @_pcre2_utt_size_8, align 8
-  %.not158 = icmp eq i64 %86, 0
-  br i1 %.not158, label %.loopexit, label %.lr.ph
+  %.not144 = icmp eq i64 %86, 0
+  br i1 %.not144, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %85, %105
-  %.089157 = phi i64 [ %.190, %105 ], [ %86, %85 ]
-  %.091156 = phi i64 [ %.192, %105 ], [ 0, %85 ]
-  %87 = add i64 %.089157, %.091156
+  %.089143 = phi i64 [ %.190, %105 ], [ %86, %85 ]
+  %.091142 = phi i64 [ %.192, %105 ], [ 0, %85 ]
+  %87 = add i64 %.089143, %.091142
   %88 = lshr i64 %87, 1
   %89 = getelementptr inbounds nuw [0 x %struct.ucp_type_table], ptr @_pcre2_utt_8, i64 0, i64 %88
   %90 = load i16, ptr %89, align 2
@@ -13222,7 +13216,7 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   %97 = load i16, ptr %96, align 2
   store i16 %97, ptr %3, align 2
   %98 = icmp eq i16 %.083, 255
-  %or.cond10 = or i1 %.not110126, %98
+  %or.cond10 = or i1 %.not110123, %98
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %100 = load i16, ptr %99, align 2
   br i1 %or.cond10, label %101, label %102
@@ -13248,8 +13242,8 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
 105:                                              ; preds = %.lr.ph
   %106 = icmp sgt i32 %93, 0
   %107 = add nuw i64 %88, 1
-  %.192 = select i1 %106, i64 %107, i64 %.091156
-  %.190 = select i1 %106, i64 %.089157, i64 %88
+  %.192 = select i1 %106, i64 %107, i64 %.091142
+  %.190 = select i1 %106, i64 %.089143, i64 %88
   %108 = icmp ult i64 %.192, %.190
   br i1 %108, label %.lr.ph, label %.loopexit
 
@@ -13257,14 +13251,14 @@ define internal fastcc range(i32 0, 2) i32 @get_ucp(ptr noundef nonnull captures
   store i32 147, ptr %4, align 4
   br label %109
 
-.loopexit132:                                     ; preds = %35, %26, %.critedge, %46, %45, %16, %6
-  %.086 = phi ptr [ %8, %6 ], [ %12, %16 ], [ %.4, %45 ], [ %12, %46 ], [ %scevgep174, %.critedge ], [ %.4, %35 ], [ %.288154, %26 ]
+.thread:                                          ; preds = %36, %35, %26, %.critedge, %45, %16, %6
+  %.086 = phi ptr [ %8, %6 ], [ %12, %16 ], [ %12, %45 ], [ %scevgep154, %.critedge ], [ %.4, %36 ], [ %.4, %35 ], [ %.288140, %26 ]
   store i32 146, ptr %4, align 4
   store ptr %.086, ptr %0, align 8
   br label %109
 
-109:                                              ; preds = %.loopexit132, %.loopexit, %104, %103, %101, %75
-  %.0 = phi i32 [ 0, %.loopexit132 ], [ 1, %101 ], [ 0, %.loopexit ], [ 1, %104 ], [ 1, %103 ], [ 0, %75 ]
+109:                                              ; preds = %.thread, %.loopexit, %104, %103, %101, %75
+  %.0 = phi i32 [ 0, %.thread ], [ 1, %101 ], [ 0, %.loopexit ], [ 1, %104 ], [ 1, %103 ], [ 0, %75 ]
   ret i32 %.0
 }
 

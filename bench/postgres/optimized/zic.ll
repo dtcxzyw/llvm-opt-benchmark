@@ -8140,50 +8140,49 @@ define internal fastcc noundef zeroext i1 @componentcheck(ptr noundef %0, ptr no
 
 18:                                               ; preds = %3
   %19 = icmp sgt i64 %6, 0
-  %20 = add i64 %6, -1
-  %or.cond = icmp ult i64 %20, 2
-  br i1 %or.cond, label %21, label %30
+  %or.cond = icmp ult i64 %6, 3
+  br i1 %or.cond, label %20, label %29
 
-21:                                               ; preds = %18
-  %22 = load i8, ptr %1, align 1
-  %23 = icmp eq i8 %22, 46
-  br i1 %23, label %24, label %30
+20:                                               ; preds = %18
+  %21 = load i8, ptr %1, align 1
+  %22 = icmp eq i8 %21, 46
+  br i1 %22, label %23, label %29
 
-24:                                               ; preds = %21
-  %25 = getelementptr i8, ptr %2, i64 -1
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, 46
-  br i1 %27, label %28, label %30
+23:                                               ; preds = %20
+  %24 = getelementptr i8, ptr %2, i64 -1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 46
+  br i1 %26, label %27, label %29
 
-28:                                               ; preds = %24
-  %29 = trunc nuw nsw i64 %6 to i32
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %0, i32 noundef %29, ptr noundef nonnull %1)
+27:                                               ; preds = %23
+  %28 = trunc nuw nsw i64 %6 to i32
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %0, i32 noundef %28, ptr noundef nonnull %1)
   br label %.thread
 
-30:                                               ; preds = %24, %21, %18
+29:                                               ; preds = %23, %20, %18
   %.b24 = load i1, ptr @noise, align 1
   %brmerge.not = and i1 %19, %.b24
-  br i1 %brmerge.not, label %31, label %.thread
+  br i1 %brmerge.not, label %30, label %.thread
 
-31:                                               ; preds = %30
-  %32 = load i8, ptr %1, align 1
-  %33 = icmp eq i8 %32, 45
-  br i1 %33, label %34, label %35
+30:                                               ; preds = %29
+  %31 = load i8, ptr %1, align 1
+  %32 = icmp eq i8 %31, 45
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.84, ptr noundef %0)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %34, %31
-  %36 = icmp samesign ugt i64 %6, 14
-  br i1 %36, label %37, label %.thread
+34:                                               ; preds = %33, %30
+  %35 = icmp samesign ugt i64 %6, 14
+  br i1 %35, label %36, label %.thread
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.85, ptr noundef %0, i32 noundef 14, ptr noundef nonnull %1)
   br label %.thread
 
-.thread:                                          ; preds = %30, %37, %35, %10, %16, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %16 ], [ false, %10 ], [ true, %35 ], [ true, %37 ], [ true, %30 ]
+.thread:                                          ; preds = %29, %36, %34, %10, %16, %27
+  %.0 = phi i1 [ false, %27 ], [ false, %16 ], [ false, %10 ], [ true, %34 ], [ true, %36 ], [ true, %29 ]
   ret i1 %.0
 }
 

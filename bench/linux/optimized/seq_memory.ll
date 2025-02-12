@@ -147,7 +147,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 12
   %10 = icmp eq i8 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -167,7 +167,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
 22:                                               ; preds = %16, %11
   %23 = phi i32 [ %21, %16 ], [ %14, %11 ]
   %24 = icmp sgt i32 %23, %1
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %22
   %26 = icmp eq i32 %3, 0
@@ -190,23 +190,23 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
 .thread4:                                         ; preds = %28, %29
   %.ph = phi i32 [ -14, %29 ], [ -22, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.thread
+  br label %.critedge
 
 35:                                               ; preds = %25
   %36 = select i1 %26, ptr @seq_copy_in_user, ptr @seq_copy_in_kernel
   %37 = call fastcc i32 @dump_var_event(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %6, i32 noundef %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %35
   %40 = icmp eq i32 %14, %23
-  br i1 %40, label %67, label %45
+  br i1 %40, label %65, label %45
 
 .thread6:                                         ; preds = %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %41 = icmp eq i32 %14, %23
-  br i1 %41, label %67, label %.thread7
+  br i1 %41, label %65, label %.thread7
 
 .thread7:                                         ; preds = %.thread6
   %42 = getelementptr i8, ptr %2, i64 %30
@@ -225,7 +225,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
   %51 = phi i64 [ %44, %.thread7 ], [ %49, %45 ]
   %52 = phi ptr [ %42, %.thread7 ], [ %47, %45 ]
   call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %51, i1 false)
-  br label %67
+  br label %65
 
 53:                                               ; preds = %45
   %54 = ptrtoint ptr %47 to i64
@@ -233,7 +233,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
   %56 = icmp sgt i64 %55, -1
   %57 = icmp uge i64 %55, %54
   %58 = and i1 %56, %57
-  br i1 %58, label %59, label %64
+  br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %53
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
@@ -243,19 +243,15 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
   %63 = extractvalue { i64, ptr, i64 } %61, 2
   call void @llvm.write_register.i64(metadata !0, i64 %63)
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  br label %64
+  %64 = icmp eq i64 %62, 0
+  br i1 %64, label %65, label %.critedge
 
-64:                                               ; preds = %59, %53
-  %65 = phi i64 [ %62, %59 ], [ %49, %53 ]
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %.thread
+65:                                               ; preds = %.thread6, %59, %50, %39
+  br label %.critedge
 
-67:                                               ; preds = %.thread6, %64, %50, %39
-  br label %.thread
-
-.thread:                                          ; preds = %5, %.thread4, %67, %64, %35, %22
-  %68 = phi i32 [ %23, %67 ], [ -11, %22 ], [ %37, %35 ], [ -14, %64 ], [ %.ph, %.thread4 ], [ -22, %5 ]
-  ret i32 %68
+.critedge:                                        ; preds = %5, %.thread4, %53, %65, %59, %35, %22
+  %66 = phi i32 [ %23, %65 ], [ -11, %22 ], [ %37, %35 ], [ -14, %59 ], [ -14, %53 ], [ %.ph, %.thread4 ], [ -22, %5 ]
+  ret i32 %66
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

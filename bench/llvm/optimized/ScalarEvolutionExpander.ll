@@ -19121,9 +19121,9 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.029 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not30 = icmp eq ptr %.029, %1
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+  %.028 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.not29 = icmp eq ptr %.028, %1
+  br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr i8, ptr %0, i64 8
@@ -19131,10 +19131,10 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
   br label %9
 
 9:                                                ; preds = %.lr.ph, %76
-  %.032 = phi ptr [ %.029, %.lr.ph ], [ %.0, %76 ]
-  %.pn31 = phi ptr [ %0, %.lr.ph ], [ %.032, %76 ]
-  %.0.val = load ptr, ptr %.032, align 8
-  %10 = getelementptr i8, ptr %.pn31, i64 24
+  %.031 = phi ptr [ %.028, %.lr.ph ], [ %.0, %76 ]
+  %.pn30 = phi ptr [ %0, %.lr.ph ], [ %.031, %76 ]
+  %.0.val = load ptr, ptr %.031, align 8
+  %10 = getelementptr i8, ptr %.pn30, i64 24
   %.0.val17 = load ptr, ptr %10, align 8
   %.val = load ptr, ptr %0, align 8
   %.val18 = load ptr, ptr %7, align 8
@@ -19142,22 +19142,22 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %9
-  %.sroa.0.0.copyload20 = load ptr, ptr %.032, align 8
+  %.sroa.0.0.copyload20 = load ptr, ptr %.031, align 8
   %.sroa.4.0.copyload = load ptr, ptr %10, align 8
-  %13 = ptrtoint ptr %.032 to i64
+  %13 = ptrtoint ptr %.031 to i64
   %14 = sub i64 %13, %8
   %15 = ashr exact i64 %14, 4
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.pn31, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.pn30, i64 32
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
   %.010.i.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i.i.preheader ]
   %.069.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.preheader ]
-  %.078.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %.032, %.lr.ph.i.i.i.i.i.preheader ]
+  %.078.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %.031, %.lr.ph.i.i.i.i.i.preheader ]
   %18 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %19 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %20 = load ptr, ptr %18, align 8, !tbaa !288
@@ -19178,10 +19178,10 @@ _ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; 
 26:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %2, ptr %4, align 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %.032, align 8
+  %.sroa.0.0.copyload.i = load ptr, ptr %.031, align 8
   %.sroa.5.0.copyload.i = load ptr, ptr %10, align 8
-  %.0.val13.i = load ptr, ptr %.pn31, align 8
-  %27 = getelementptr i8, ptr %.pn31, i64 8
+  %.0.val13.i = load ptr, ptr %.pn30, align 8
+  %27 = getelementptr i8, ptr %.pn30, i64 8
   %.0.val1114.i = load ptr, ptr %27, align 8
   %28 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr %.sroa.0.0.copyload.i, ptr %.sroa.5.0.copyload.i, ptr %.0.val13.i, ptr %.0.val1114.i)
   br i1 %28, label %.lr.ph.i.preheader, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
@@ -19193,8 +19193,8 @@ _ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
   %30 = phi ptr [ %27, %.lr.ph.i.preheader ], [ %34, %.lr.ph.i.backedge ]
-  %.016.i = phi ptr [ %.pn31, %.lr.ph.i.preheader ], [ %.0.i, %.lr.ph.i.backedge ]
-  %.0915.i = phi ptr [ %.032, %.lr.ph.i.preheader ], [ %.016.i, %.lr.ph.i.backedge ]
+  %.016.i = phi ptr [ %.pn30, %.lr.ph.i.preheader ], [ %.0.i, %.lr.ph.i.backedge ]
+  %.0915.i = phi ptr [ %.031, %.lr.ph.i.preheader ], [ %.016.i, %.lr.ph.i.backedge ]
   %31 = load ptr, ptr %.016.i, align 8, !tbaa !288
   store ptr %31, ptr %.0915.i, align 8, !tbaa !378
   %32 = load ptr, ptr %30, align 8, !tbaa !308
@@ -19285,7 +19285,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit28.i.i: ; preds
   br i1 %brmerge, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit, label %.lr.ph.i.backedge
 
 _ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit: ; preds = %72, %54, %46, %tailrecurse.i26.i.i, %65, %26
-  %.09.lcssa.i = phi ptr [ %.032, %26 ], [ %.016.i, %65 ], [ %.016.i, %tailrecurse.i26.i.i ], [ %.016.i, %46 ], [ %.016.i, %54 ], [ %.016.i, %72 ]
+  %.09.lcssa.i = phi ptr [ %.031, %26 ], [ %.016.i, %65 ], [ %.016.i, %tailrecurse.i26.i.i ], [ %.016.i, %46 ], [ %.016.i, %54 ], [ %.016.i, %72 ]
   store ptr %.sroa.0.0.copyload.i, ptr %.09.lcssa.i, align 8, !tbaa !378
   %75 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
   store ptr %.sroa.5.0.copyload.i, ptr %75, align 8, !tbaa !381
@@ -19293,7 +19293,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5
   br label %76
 
 76:                                               ; preds = %_ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
-  %.0 = getelementptr inbounds nuw i8, ptr %.032, i64 16
+  %.0 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !693
 
@@ -20077,23 +20077,23 @@ define internal fastcc void @_ZSt17__merge_sort_loopIPSt4pairIPKN4llvm4LoopEPKNS
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %.not71 = icmp slt i64 %11, %7
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp slt i64 %11, %7
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.not63 = icmp eq i64 %3, 0
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit
-  %.073 = phi ptr [ %0, %.lr.ph ], [ %14, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.01972 = phi ptr [ %2, %.lr.ph ], [ %.08.lcssa.i.i.i.i.i23.i, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %13 = getelementptr inbounds %"struct.std::pair.200", ptr %.073, i64 %3
-  %14 = getelementptr inbounds %"struct.std::pair.200", ptr %.073, i64 %7
+  %.072 = phi ptr [ %0, %.lr.ph ], [ %14, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
+  %.01971 = phi ptr [ %2, %.lr.ph ], [ %.08.lcssa.i.i.i.i.i23.i, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
+  %13 = getelementptr inbounds %"struct.std::pair.200", ptr %.072, i64 %3
+  %14 = getelementptr inbounds %"struct.std::pair.200", ptr %.072, i64 %7
   br i1 %.not63, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %59
-  %.032.i = phi ptr [ %61, %59 ], [ %.01972, %12 ]
-  %.01831.i = phi ptr [ %.1.i, %59 ], [ %.073, %12 ]
+  %.032.i = phi ptr [ %61, %59 ], [ %.01971, %12 ]
+  %.01831.i = phi ptr [ %.1.i, %59 ], [ %.072, %12 ]
   %.01930.i = phi ptr [ %.120.i, %59 ], [ %13, %12 ]
   %.019.val.i = load ptr, ptr %.01930.i, align 8
   %15 = getelementptr i8, ptr %.01930.i, i64 8
@@ -20205,8 +20205,8 @@ _ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit.th
 
 ._crit_edge.i:                                    ; preds = %59, %12
   %.019.lcssa.i = phi ptr [ %13, %12 ], [ %.120.i, %59 ]
-  %.018.lcssa.i = phi ptr [ %.073, %12 ], [ %.1.i, %59 ]
-  %.0.lcssa.i = phi ptr [ %.01972, %12 ], [ %61, %59 ]
+  %.018.lcssa.i = phi ptr [ %.072, %12 ], [ %.1.i, %59 ]
+  %.0.lcssa.i = phi ptr [ %.01971, %12 ], [ %61, %59 ]
   %65 = ptrtoint ptr %13 to i64
   %66 = ptrtoint ptr %.018.lcssa.i to i64
   %67 = sub i64 %65, %66
@@ -20265,8 +20265,8 @@ _ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_It
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit, %5
   %.019.lcssa = phi ptr [ %2, %5 ], [ %.08.lcssa.i.i.i.i.i23.i, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %14, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.lcssa69 = phi i64 [ %11, %5 ], [ %92, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa69)
+  %.lcssa68 = phi i64 [ %11, %5 ], [ %92, %_ZSt12__move_mergeIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET0_T_SH_SH_SH_SG_T1_.exit ]
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa68)
   %93 = getelementptr inbounds %"struct.std::pair.200", ptr %.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %4, ptr %6, align 8

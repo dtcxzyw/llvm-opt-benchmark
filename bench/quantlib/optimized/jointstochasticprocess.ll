@@ -4469,7 +4469,7 @@ ehcleanup285:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cov) #27
   br label %ehcleanup431
 
-if.else286:                                       ; preds = %lor.rhs.i.i.i.i, %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit.i.i
+if.else286:                                       ; preds = %_ZNKSt4lessIN8QuantLib22JointStochasticProcess10CachingKeyEEclERKS2_S5_.exit.i.i, %lor.rhs.i.i.i.i
   %vtable287 = load ptr, ptr %this, align 8, !tbaa !28
   %vfn288 = getelementptr inbounds nuw i8, ptr %vtable287, i64 144
   %151 = load ptr, ptr %vfn288, align 8

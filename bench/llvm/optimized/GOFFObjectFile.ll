@@ -1608,14 +1608,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
 584:                                              ; preds = %579
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(25) %36, ptr noundef nonnull %37, i64 noundef %576, i64 noundef 8) #23
   %.pre.i.i.i.i = load i32, ptr %38, align 8, !tbaa !18
-  %.pre.i.i = zext i32 %.pre.i.i.i.i to i64
+  %.pre.i.i.i = zext i32 %.pre.i.i.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKhLb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPKhLb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i: ; preds = %584, %579
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %584 ], [ %580, %579 ]
-  %585 = phi i32 [ %.pre.i.i.i.i, %584 ], [ %577, %579 ]
+  %.pre-phi.i.i.i = phi i64 [ %580, %579 ], [ %.pre.i.i.i, %584 ]
+  %585 = phi i32 [ %577, %579 ], [ %.pre.i.i.i.i, %584 ]
   %586 = load ptr, ptr %36, align 8, !tbaa !15
-  %587 = getelementptr inbounds nuw ptr, ptr %586, i64 %.pre-phi.i.i
+  %587 = getelementptr inbounds nuw ptr, ptr %586, i64 %.pre-phi.i.i.i
   %588 = getelementptr inbounds nuw ptr, ptr %587, i64 %582
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

@@ -26338,8 +26338,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %.critedge.i
   %68 = ptrtoint ptr %.019.i to i64
   %69 = sub i64 %67, %68
   %invariant.gep.i = getelementptr i8, ptr %.019.i, i64 -1
-  %.not302549.i = icmp eq i64 %69, 0
-  br i1 %.not302549.i, label %.thread480.i, label %.lr.ph552.i
+  br label %.lr.ph552.i
 
 .lr.ph552.i:                                      ; preds = %66, %72
   %.0270550.i = phi i64 [ %73, %72 ], [ %69, %66 ]
@@ -26366,8 +26365,8 @@ ruby_nonempty_memcpy.exit345.i.thread:            ; preds = %.critedge3.i
   %74 = shl nsw i32 %spec.select.i, 1
   br label %bary_pack.exit
 
-.thread480.i:                                     ; preds = %72, %rbimpl_size_mul_or_raise.exit341.i, %66
-  %.0270.lcssa578586.i = phi i64 [ %.0270550.i, %rbimpl_size_mul_or_raise.exit341.i ], [ 0, %66 ], [ 0, %72 ]
+.thread480.i:                                     ; preds = %72, %rbimpl_size_mul_or_raise.exit341.i
+  %.0270.lcssa578586.i = phi i64 [ %.0270550.i, %rbimpl_size_mul_or_raise.exit341.i ], [ 0, %72 ]
   %75 = sub nuw nsw i64 16, %.0270.lcssa578586.i
   %76 = getelementptr i8, ptr %7, i64 %.0270.lcssa578586.i
   call void @llvm.memset.p0.i64(ptr align 1 %76, i8 0, i64 %75, i1 false)

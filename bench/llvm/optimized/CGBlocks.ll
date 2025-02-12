@@ -15402,7 +15402,7 @@ _ZSt13move_backwardIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit.sink
   %93 = sub i64 %91, %92
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %93, -56
   %94 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %94, ptr align 8 %5, i64 %93, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr align 8 %5, i64 %93, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_116BlockLayoutChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
 
 95:                                               ; preds = %52
@@ -15661,7 +15661,7 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit.i109: ; preds 
   %175 = sub i64 %170, %174
   %.neg.i.i.i.i.i.i = sdiv exact i64 %175, -56
   %176 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.0121, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %176, ptr align 8 %.0122, i64 %175, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %176, ptr align 8 %.0122, i64 %175, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit.i: ; preds = %173, %_ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit.i109
@@ -15710,7 +15710,7 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit42.i: ; preds =
 189:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit42.i
   %.neg.i.i.i.i.i44.i = sdiv exact i64 %184, -56
   %190 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.0121, i64 %.neg.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %190, ptr align 8 %5, i64 %184, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %190, ptr align 8 %5, i64 %184, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit46.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit46.i: ; preds = %189, %_ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit42.i
@@ -19455,7 +19455,7 @@ _ZSt13move_backwardIPPN4llvm4TypeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sma
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

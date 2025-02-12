@@ -4817,18 +4817,14 @@ if.then3.i.i.i.i.i:                               ; preds = %cond.true.i.i.i
 
 _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i
   %call5.i.i.i.i.i244 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i237) #23
-          to label %call5.i.i.i.i.i.noexc243 unwind label %lpad257
+          to label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %lpad257
 
-call5.i.i.i.i.i.noexc243:                         ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %86, %87
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.end69.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.noexc243
+_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i244, ptr align 8 %87, i64 %sub.ptr.sub.i.i237, i1 false)
   br label %if.end69.i
 
-if.end69.i:                                       ; preds = %if.then251, %if.then.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc243
-  %grandparents.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i244, %call5.i.i.i.i.i.noexc243 ], [ %call5.i.i.i.i.i244, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then251 ]
+if.end69.i:                                       ; preds = %if.then251, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i
+  %grandparents.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i244, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %if.then251 ]
   %add.ptr72.i = getelementptr inbounds i8, ptr %grandparents.sroa.0.3, i64 %sub.ptr.sub.i.i237
   br label %if.end260
 

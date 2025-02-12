@@ -21910,7 +21910,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIiE6resizeEmi(ptr noun
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %1, %6
-  br i1 %7, label %26, label %8
+  br i1 %7, label %25, label %8
 
 8:                                                ; preds = %3
   %9 = icmp ult i64 %1, %6
@@ -21932,35 +21932,35 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIiE6resizeEmi(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %1, i64 noundef 4) #26
   %.pre4.pre.i = load i32, ptr %4, align 8, !tbaa !26
+  %.pre = zext i32 %.pre4.pre.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i: ; preds = %12, %17
-  %.pre4.i = phi i32 [ %5, %12 ], [ %.pre4.pre.i, %17 ]
+  %.pre-phi = phi i64 [ %6, %12 ], [ %.pre, %17 ]
   %19 = load ptr, ptr %0, align 8, !tbaa !25
-  %20 = zext i32 %.pre4.i to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %13
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %13
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
-  %.06.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i ]
+  %.06.i.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i, align 4, !tbaa !66
-  %23 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %23, %22
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIiE6appendEmi.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !543
+  %22 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %22, %21
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !543
 
-_ZN4llvm15SmallVectorImplIiE6appendEmi.exit:      ; preds = %.lr.ph.i.i.i.i.i.i.i
+_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre.i = load i32, ptr %4, align 8, !tbaa !26
-  %24 = trunc i64 %13 to i32
-  %25 = add i32 %.pre.i, %24
+  %23 = trunc i64 %13 to i32
+  %24 = add i32 %.pre.i, %23
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %_ZN4llvm15SmallVectorImplIiE6appendEmi.exit
-  %.sink = phi i32 [ %25, %_ZN4llvm15SmallVectorImplIiE6appendEmi.exit ], [ %11, %10 ]
+.sink.split:                                      ; preds = %10, %_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i
+  %.sink = phi i32 [ %24, %_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i ], [ %11, %10 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !26
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.sink.split, %3
+25:                                               ; preds = %.sink.split, %3
   ret void
 }
 

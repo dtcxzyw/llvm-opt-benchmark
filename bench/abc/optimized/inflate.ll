@@ -2981,11 +2981,11 @@ default.unreachable2904:                          ; preds = %437
   br i1 %.not1162, label %990, label %988
 
 988:                                              ; preds = %984
-  %989 = call i64 @crc32(i64 noundef %985, ptr noundef %987, i32 noundef %978) #10
+  %989 = call i64 @crc32(i64 noundef %985, ptr noundef nonnull %987, i32 noundef %978) #10
   br label %992
 
 990:                                              ; preds = %984
-  %991 = call i64 @adler32(i64 noundef %985, ptr noundef %987, i32 noundef %978) #10
+  %991 = call i64 @adler32(i64 noundef %985, ptr noundef nonnull %987, i32 noundef %978) #10
   br label %992
 
 992:                                              ; preds = %990, %988
@@ -3431,7 +3431,7 @@ define internal fastcc range(i32 0, 2) i32 @updatewindow(ptr noundef nonnull rea
   %59 = zext i32 %56 to i64
   %60 = sub nsw i64 0, %59
   %61 = getelementptr inbounds i8, ptr %58, i64 %60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %61, i64 %59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr nonnull align 1 %61, i64 %59, i1 false)
   store i32 %56, ptr %44, align 4, !tbaa !24
   %62 = load i32, ptr %20, align 4, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 56

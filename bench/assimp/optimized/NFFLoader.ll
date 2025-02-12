@@ -15931,16 +15931,16 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 456
   %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  br i1 %cmp15, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
+  br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
 
-for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
+if.then16:                                        ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
   %add.ptr = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.inc.i.i.i.i.i
-  %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
-  %__first.sroa.0.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i:                               ; preds = %if.then16, %for.inc.i.i.i.i.i
+  %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %if.then16 ]
+  %__first.sroa.0.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr, %if.then16 ]
   invoke void @_ZN6Assimp11NFFImporter8MeshInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(452) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(452) %__first.sroa.0.09.i.i.i.i.i)
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
@@ -15976,7 +15976,7 @@ lpad7.i.i.i.i.i:                                  ; preds = %invoke.cont8.i.i.i.
           to label %common.resume unwind label %terminate.lpad.i.i.i.i.i
 
 common.resume:                                    ; preds = %lpad90, %lpad7.i.i.i.i.i55, %lpad4.i.i.i.i, %lpad7.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad7.i.i.i.i.i ], [ %11, %lpad4.i.i.i.i ], [ %18, %lpad7.i.i.i.i.i55 ], [ %44, %lpad90 ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad7.i.i.i.i.i ], [ %12, %lpad4.i.i.i.i ], [ %19, %lpad7.i.i.i.i.i55 ], [ %45, %lpad90 ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad7.i.i.i.i.i
@@ -15990,8 +15990,8 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
   unreachable
 
 _ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.inc.i.i.i.i.i
-  %.pre181 = load ptr, ptr %_M_finish, align 8
-  %add.ptr27 = getelementptr inbounds i8, ptr %.pre181, i64 %sub.ptr.sub.i.i.i
+  %8 = load ptr, ptr %_M_finish, align 8
+  %add.ptr27 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -16050,10 +16050,10 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !112
 
 lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #25
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %1, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -16069,16 +16069,16 @@ invoke.cont5.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i unwind label %lpad4.i.i.i.i
 
 lpad4.i.i.i.i:                                    ; preds = %invoke.cont5.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #30
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #30
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.i
@@ -16089,9 +16089,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImport
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
-  %14 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
+  %15 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %14, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %15, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not8.i.i.i.i.i44 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not8.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, label %for.body.i.i.i.i.i45
@@ -16109,10 +16109,10 @@ for.inc.i.i.i.i.i59:                              ; preds = %for.body.i.i.i.i.i4
   br i1 %cmp.i.i.not.i.i.i.i.i62, label %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit, label %for.body.i.i.i.i.i45, !llvm.loop !109
 
 lpad.i.i.i.i.i48:                                 ; preds = %for.body.i.i.i.i.i45
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #25
+  %17 = extractvalue { ptr, i32 } %16, 0
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #25
   %cmp.not3.i.i.i.i.i.i.i49 = icmp eq ptr %add.ptr50, %__cur.010.i.i.i.i.i46
   br i1 %cmp.not3.i.i.i.i.i.i.i49, label %invoke.cont8.i.i.i.i.i54, label %for.body.i.i.i.i.i.i.i50
 
@@ -16128,28 +16128,28 @@ invoke.cont8.i.i.i.i.i54:                         ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i58 unwind label %lpad7.i.i.i.i.i55
 
 lpad7.i.i.i.i.i55:                                ; preds = %invoke.cont8.i.i.i.i.i54
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i.i56
 
 terminate.lpad.i.i.i.i.i56:                       ; preds = %lpad7.i.i.i.i.i55
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #30
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #30
   unreachable
 
 unreachable.i.i.i.i.i58:                          ; preds = %invoke.cont8.i.i.i.i.i54
   unreachable
 
 _ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit: ; preds = %for.inc.i.i.i.i.i59
-  %.pre180 = load ptr, ptr %_M_finish, align 8
+  %.pre181 = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64
 
 _ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64: ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit
-  %21 = phi ptr [ %.pre180, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit ]
-  %add.ptr58 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub.i
+  %22 = phi ptr [ %.pre181, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit ]
+  %add.ptr58 = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i68 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp6.i.i.i.i.i68, label %for.body.preheader.i.i.i.i.i74, label %if.end109
@@ -16170,8 +16170,8 @@ for.body.i.i.i.i.i76:                             ; preds = %for.body.i.i.i.i.i7
   br i1 %cmp.i.i.i.i.i84, label %for.body.i.i.i.i.i76, label %if.end109, !llvm.loop !111
 
 if.else68:                                        ; preds = %if.then
-  %22 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %22 to i64
+  %23 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 456
   %sub.i = sub nsw i64 20226693063278017, %sub.ptr.div.i.i
@@ -16186,8 +16186,8 @@ _ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %23 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 20226693063278017)
-  %cond.i = select i1 %cmp7.i, i64 20226693063278017, i64 %23
+  %24 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 20226693063278017)
+  %cond.i = select i1 %cmp7.i, i64 20226693063278017, i64 %24
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -16198,12 +16198,12 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Ass
 
 _ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i87 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %cmp.not8.i.i.i.i.i = icmp eq ptr %22, %__position.coerce
-  br i1 %cmp.not8.i.i.i.i.i, label %for.body.i.i.i.i104.preheader, label %for.body.i.i.i.i.i88
+  %cmp.not8.i.i.i.i.i = icmp eq ptr %23, %__position.coerce
+  br i1 %cmp.not8.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i88
 
 for.body.i.i.i.i.i88:                             ; preds = %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit, %for.inc.i.i.i.i.i99
   %__cur.010.i.i.i.i.i89 = phi ptr [ %incdec.ptr1.i.i.i.i.i101, %for.inc.i.i.i.i.i99 ], [ %cond.i87, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
-  %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.inc.i.i.i.i.i99 ], [ %22, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
+  %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.inc.i.i.i.i.i99 ], [ %23, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
   invoke void @_ZN6Assimp11NFFImporter8MeshInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(452) %__cur.010.i.i.i.i.i89, ptr noundef nonnull align 8 dereferenceable(452) %__first.addr.09.i.i.i.i.i)
           to label %for.inc.i.i.i.i.i99 unwind label %lpad.i.i.i.i.i90
 
@@ -16211,13 +16211,13 @@ for.inc.i.i.i.i.i99:                              ; preds = %for.body.i.i.i.i.i8
   %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i, i64 456
   %incdec.ptr1.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i.i89, i64 456
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i100, %__position.coerce
-  br i1 %cmp.not.i.i.i.i.i, label %for.body.i.i.i.i104.preheader, label %for.body.i.i.i.i.i88, !llvm.loop !104
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i88, !llvm.loop !104
 
 lpad.i.i.i.i.i90:                                 ; preds = %for.body.i.i.i.i.i88
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = tail call ptr @__cxa_begin_catch(ptr %25) #25
+  %26 = extractvalue { ptr, i32 } %25, 0
+  %27 = tail call ptr @__cxa_begin_catch(ptr %26) #25
   %cmp.not3.i.i.i.i.i.i.i91 = icmp eq ptr %cond.i87, %__cur.010.i.i.i.i.i89
   br i1 %cmp.not3.i.i.i.i.i.i.i91, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i92
 
@@ -16233,28 +16233,28 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i98 unwind label %lpad2.i.i.i.i.i
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.i.i
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i96
 
 terminate.lpad.i.i.i.i.i96:                       ; preds = %lpad2.i.i.i.i.i
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #30
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #30
   unreachable
 
 unreachable.i.i.i.i.i98:                          ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
-for.body.i.i.i.i104.preheader:                    ; preds = %for.inc.i.i.i.i.i99, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit
+invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i99, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i.i102 = phi ptr [ %cond.i87, %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i101, %for.inc.i.i.i.i.i99 ]
   br label %for.body.i.i.i.i104
 
-for.body.i.i.i.i104:                              ; preds = %for.body.i.i.i.i104.preheader, %for.inc.i.i.i.i118
-  %__cur.010.i.i.i.i105 = phi ptr [ %incdec.ptr.i.i.i.i120.ptr, %for.inc.i.i.i.i118 ], [ %__cur.0.lcssa.i.i.i.i.i102, %for.body.i.i.i.i104.preheader ]
-  %__first.sroa.0.09.i.i.i.i106 = phi ptr [ %incdec.ptr.i.i.i.i.i119, %for.inc.i.i.i.i118 ], [ %__first.coerce, %for.body.i.i.i.i104.preheader ]
+for.body.i.i.i.i104:                              ; preds = %invoke.cont, %for.inc.i.i.i.i118
+  %__cur.010.i.i.i.i105 = phi ptr [ %incdec.ptr.i.i.i.i120.ptr, %for.inc.i.i.i.i118 ], [ %__cur.0.lcssa.i.i.i.i.i102, %invoke.cont ]
+  %__first.sroa.0.09.i.i.i.i106 = phi ptr [ %incdec.ptr.i.i.i.i.i119, %for.inc.i.i.i.i118 ], [ %__first.coerce, %invoke.cont ]
   invoke void @_ZN6Assimp11NFFImporter8MeshInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(452) %__cur.010.i.i.i.i105, ptr noundef nonnull align 8 dereferenceable(452) %__first.sroa.0.09.i.i.i.i106)
           to label %for.inc.i.i.i.i118 unwind label %lpad.i.i.i.i107
 
@@ -16265,10 +16265,10 @@ for.inc.i.i.i.i118:                               ; preds = %for.body.i.i.i.i104
   br i1 %cmp.i.not.i.i.i.i121, label %invoke.cont83, label %for.body.i.i.i.i104, !llvm.loop !112
 
 lpad.i.i.i.i107:                                  ; preds = %for.body.i.i.i.i104
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  %32 = tail call ptr @__cxa_begin_catch(ptr %31) #25
+  %32 = extractvalue { ptr, i32 } %31, 0
+  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #25
   %cmp.not3.i.i.i.i.i.i108 = icmp eq ptr %__cur.0.lcssa.i.i.i.i.i102, %__cur.010.i.i.i.i105
   br i1 %cmp.not3.i.i.i.i.i.i108, label %invoke.cont5.i.i.i.i113, label %for.body.i.i.i.i.i.i109
 
@@ -16284,16 +16284,16 @@ invoke.cont5.i.i.i.i113:                          ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i117 unwind label %lpad4.i.i.i.i114
 
 lpad4.i.i.i.i114:                                 ; preds = %invoke.cont5.i.i.i.i113
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i115
 
 terminate.lpad.i.i.i.i115:                        ; preds = %lpad4.i.i.i.i114
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #30
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #30
   unreachable
 
 unreachable.i.i.i.i117:                           ; preds = %invoke.cont5.i.i.i.i113
@@ -16317,10 +16317,10 @@ for.inc.i.i.i.i.i142:                             ; preds = %for.body.i.i.i.i.i1
   br i1 %cmp.not.i.i.i.i.i145, label %invoke.cont87.loopexit, label %for.body.i.i.i.i.i128, !llvm.loop !104
 
 lpad.i.i.i.i.i131:                                ; preds = %for.body.i.i.i.i.i128
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #25
+  %38 = extractvalue { ptr, i32 } %37, 0
+  %39 = tail call ptr @__cxa_begin_catch(ptr %38) #25
   %cmp.not3.i.i.i.i.i.i.i132 = icmp eq i64 %__cur.010.i.i.i.i.i129.idx, 456
   br i1 %cmp.not3.i.i.i.i.i.i.i132, label %invoke.cont3.i.i.i.i.i137, label %for.body.i.i.i.i.i.i.i133
 
@@ -16336,16 +16336,16 @@ invoke.cont3.i.i.i.i.i137:                        ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i.i141 unwind label %lpad2.i.i.i.i.i138
 
 lpad2.i.i.i.i.i138:                               ; preds = %invoke.cont3.i.i.i.i.i137
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i139
 
 terminate.lpad.i.i.i.i.i139:                      ; preds = %lpad2.i.i.i.i.i138
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #30
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #30
   unreachable
 
 unreachable.i.i.i.i.i141:                         ; preds = %invoke.cont3.i.i.i.i.i137
@@ -16357,22 +16357,22 @@ invoke.cont87.loopexit:                           ; preds = %for.inc.i.i.i.i.i14
 
 invoke.cont87:                                    ; preds = %invoke.cont87.loopexit, %invoke.cont83
   %__cur.0.lcssa.i.i.i.i.i146 = phi ptr [ %incdec.ptr.i.i.i.i120.ptr, %invoke.cont83 ], [ %incdec.ptr1.i.i.i.i.i144.ptr, %invoke.cont87.loopexit ]
-  %cmp.not3.i.i.i = icmp eq ptr %22, %1
+  %cmp.not3.i.i.i = icmp eq ptr %23, %1
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN6Assimp11NFFImporter8MeshInfoES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont87, %for.body.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i150, %for.body.i.i.i ], [ %22, %invoke.cont87 ]
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i150, %for.body.i.i.i ], [ %23, %invoke.cont87 ]
   tail call void @_ZN6Assimp11NFFImporter8MeshInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %__first.addr.04.i.i.i) #25
   %incdec.ptr.i.i.i150 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 456
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i150, %1
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN6Assimp11NFFImporter8MeshInfoES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !81
 
 _ZSt8_DestroyIPN6Assimp11NFFImporter8MeshInfoES2_EvT_S4_RSaIT0_E.exit: ; preds = %for.body.i.i.i, %invoke.cont87
-  %tobool.not.i = icmp eq ptr %22, null
+  %tobool.not.i = icmp eq ptr %23, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i151
 
 if.then.i151:                                     ; preds = %_ZSt8_DestroyIPN6Assimp11NFFImporter8MeshInfoES2_EvT_S4_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #28
   br label %_ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp11NFFImporter8MeshInfoES2_EvT_S4_RSaIT0_E.exit, %if.then.i151
@@ -16384,9 +16384,9 @@ _ZNSt12_Vector_baseIN6Assimp11NFFImporter8MeshInfoESaIS2_EE13_M_deallocateEPS2_m
 
 lpad.body:                                        ; preds = %lpad4.i.i.i.i114, %lpad2.i.i.i.i.i138, %lpad2.i.i.i.i.i
   %__new_finish.0.lpad-body = phi ptr [ %cond.i87, %lpad2.i.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i102, %lpad4.i.i.i.i114 ], [ %incdec.ptr.i.i.i.i120.ptr, %lpad2.i.i.i.i.i138 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %lpad2.i.i.i.i.i ], [ %33, %lpad4.i.i.i.i114 ], [ %39, %lpad2.i.i.i.i.i138 ]
-  %42 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #25
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %lpad2.i.i.i.i.i ], [ %34, %lpad4.i.i.i.i114 ], [ %40, %lpad2.i.i.i.i.i138 ]
+  %43 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #25
   %cmp.not3.i.i.i152 = icmp eq ptr %cond.i87, %__new_finish.0.lpad-body
   br i1 %cmp.not3.i.i.i152, label %invoke.cont91, label %for.body.i.i.i153
 
@@ -16410,7 +16410,7 @@ invoke.cont92:                                    ; preds = %if.then.i159, %invo
           to label %unreachable unwind label %lpad90
 
 lpad90:                                           ; preds = %invoke.cont92
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
@@ -16419,10 +16419,10 @@ if.end109:                                        ; preds = %for.body.i.i.i.i.i7
   ret void
 
 terminate.lpad:                                   ; preds = %lpad90
-  %45 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #30
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #30
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont92

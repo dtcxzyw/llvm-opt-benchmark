@@ -11229,7 +11229,7 @@ if.then5:                                         ; preds = %if.then
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %if.then5
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
   %add.ptr = getelementptr inbounds i64, ptr %3, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %add.ptr, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr nonnull align 8 %add.ptr, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   %.pre95 = load ptr, ptr %_M_finish, align 8
   %add.ptr23 = getelementptr inbounds i8, ptr %.pre95, i64 %sub.ptr.sub.i.i.i.i
   store ptr %add.ptr23, ptr %_M_finish, align 8

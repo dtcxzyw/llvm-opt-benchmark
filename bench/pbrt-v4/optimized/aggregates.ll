@@ -593,7 +593,7 @@ land.end:                                         ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.i.i17 = icmp ugt i64 %sub.ptr.div.i, 288230376151711743
-  br i1 %cmp.i.i17, label %if.then.i.i, label %_ZNSt12_Vector_baseIN4pbrt12BVHPrimitiveESaIS1_EEC2EmRKS2_.exit.i
+  br i1 %cmp.i.i17, label %if.then.i.i, label %_ZNSt6vectorIN4pbrt12BVHPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i:                                      ; preds = %land.end
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.79) #26
@@ -602,13 +602,13 @@ if.then.i.i:                                      ; preds = %land.end
 .noexc:                                           ; preds = %if.then.i.i
   unreachable
 
-_ZNSt12_Vector_baseIN4pbrt12BVHPrimitiveESaIS1_EEC2EmRKS2_.exit.i: ; preds = %land.end
+_ZNSt6vectorIN4pbrt12BVHPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %land.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.sub.i, 2
   %call5.i.i.i.i2.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad9
 
-call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt12_Vector_baseIN4pbrt12BVHPrimitiveESaIS1_EEC2EmRKS2_.exit.i
+call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIN4pbrt12BVHPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   store ptr %call5.i.i.i.i2.i.i18, ptr %bvhPrimitives, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %call5.i.i.i.i2.i.i18, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %bvhPrimitives, i64 16
@@ -664,7 +664,7 @@ invoke.cont18:                                    ; preds = %for.body
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i23
   br i1 %cmp, label %for.body, label %invoke.cont21, !llvm.loop !7
 
-lpad9:                                            ; preds = %_ZNSt12_Vector_baseIN4pbrt12BVHPrimitiveESaIS1_EEC2EmRKS2_.exit.i, %if.then.i.i
+lpad9:                                            ; preds = %_ZNSt6vectorIN4pbrt12BVHPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %if.then.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup93

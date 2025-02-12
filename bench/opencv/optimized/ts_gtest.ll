@@ -51471,16 +51471,16 @@ _ZN7testing8internalL18SplitIntoTestNamesB5cxx11EPKc.exit: ; preds = %_ZNSt6vect
   store i64 0, ptr %54, align 8
   %55 = load ptr, ptr %7, align 8
   %56 = load ptr, ptr %17, align 8
-  %.not6484 = icmp eq ptr %55, %56
-  br i1 %.not6484, label %._crit_edge, label %.lr.ph86
+  %.not6478 = icmp eq ptr %55, %56
+  br i1 %.not6478, label %._crit_edge, label %.lr.ph80
 
-.lr.ph86:                                         ; preds = %49
+.lr.ph80:                                         ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %59
 
-59:                                               ; preds = %.lr.ph86, %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit
-  %.sroa.055.085 = phi ptr [ %55, %.lr.ph86 ], [ %107, %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit ]
+59:                                               ; preds = %.lr.ph80, %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit
+  %.sroa.055.079 = phi ptr [ %55, %.lr.ph80 ], [ %107, %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit ]
   %60 = load ptr, ptr %51, align 8
   %.not11.i.i.i = icmp eq ptr %60, null
   br i1 %.not11.i.i.i, label %.thread, label %.lr.ph.i.i.i
@@ -51489,7 +51489,7 @@ _ZN7testing8internalL18SplitIntoTestNamesB5cxx11EPKc.exit: ; preds = %_ZNSt6vect
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %60, %59 ]
   %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %50, %59 ]
   %61 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
-  %62 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085)
+  %62 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %63
 
 63:                                               ; preds = %.lr.ph.i.i.i
@@ -51515,7 +51515,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 68:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i
   %.0812.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.0812.i.i.i, i64 32
   %.19.i.i.i.sroa.sel = select i1 %66, ptr %.0812.i.i.i.sroa.gep, ptr %61
-  %69 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085, ptr noundef nonnull align 8 dereferenceable(32) %.19.i.i.i.sroa.sel)
+  %69 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079, ptr noundef nonnull align 8 dereferenceable(32) %.19.i.i.i.sroa.sel)
           to label %73 unwind label %70
 
 70:                                               ; preds = %68
@@ -51538,7 +51538,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 _ZN7testing7MessagelsIA6_cEERS0_RKT_.exit:        ; preds = %75
   %79 = load ptr, ptr %8, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085)
+  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079)
           to label %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit20.invoke unwind label %.loopexit.split-lp.loopexit
 
 82:                                               ; preds = %_ZN7testing8internalL18SplitIntoTestNamesB5cxx11EPKc.exit
@@ -51552,32 +51552,32 @@ _ZN7testing7MessagelsIA6_cEERS0_RKT_.exit:        ; preds = %75
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit20.invoke, %_ZN7testing7MessagelsIA15_cEERS0_RKT_.exit, %.critedge, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZN7testing7MessagelsIA6_cEERS0_RKT_.exit, %75
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+  %lpad.loopexit67 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge91
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge85
+  %lpad.loopexit.split-lp68 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .thread:                                          ; preds = %59, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, %73
   %84 = load ptr, ptr %57, align 8
-  %.not82 = icmp eq ptr %84, %58
-  br i1 %.not82, label %.critedge, label %.lr.ph
+  %.not76 = icmp eq ptr %84, %58
+  br i1 %.not76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60
-  %.sroa.050.083 = phi ptr [ %95, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60 ], [ %84, %.thread ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.050.083, i64 32
-  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085) #50
+  %.sroa.050.077 = phi ptr [ %95, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60 ], [ %84, %.thread ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.050.077, i64 32
+  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079) #50
   %87 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #50
   %88 = icmp eq i64 %86, %87
   br i1 %88, label %89, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60
 
 89:                                               ; preds = %.lr.ph
-  %90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085) #50
+  %90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079) #50
   %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #50
-  %92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085) #50
+  %92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079) #50
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
@@ -51587,12 +51587,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %94, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.050.083) #56
+  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.050.077) #56
   %.not = icmp eq ptr %95, %58
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !1008
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %89, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %96 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085)
+  %96 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079)
           to label %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit unwind label %.loopexit.split-lp.loopexit
 
 .critedge:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60, %.thread
@@ -51604,7 +51604,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZN7testing7MessagelsIA15_cEERS0_RKT_.exit:       ; preds = %.critedge
   %100 = load ptr, ptr %8, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.085)
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.055.079)
           to label %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit20.invoke unwind label %.loopexit.split-lp.loopexit
 
 _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit20.invoke: ; preds = %_ZN7testing7MessagelsIA15_cEERS0_RKT_.exit, %_ZN7testing7MessagelsIA6_cEERS0_RKT_.exit
@@ -51615,7 +51615,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN7testing7MessagelsIA28_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit20.invoke, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.055.085, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.055.079, i64 32
   %108 = load ptr, ptr %17, align 8
   %.not64 = icmp eq ptr %107, %108
   br i1 %.not64, label %._crit_edge, label %59, !llvm.loop !1009
@@ -51624,19 +51624,19 @@ _ZN7testing7MessagelsIA28_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7Message
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not6587 = icmp eq ptr %110, %111
-  br i1 %.not6587, label %._crit_edge91, label %.lr.ph90
+  %.not6581 = icmp eq ptr %110, %111
+  br i1 %.not6581, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph90:                                         ; preds = %._crit_edge, %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit
-  %.sroa.043.088 = phi ptr [ %137, %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit ], [ %110, %._crit_edge ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.043.088, i64 32
+.lr.ph84:                                         ; preds = %._crit_edge, %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit
+  %.sroa.043.082 = phi ptr [ %137, %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit ], [ %110, %._crit_edge ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.043.082, i64 32
   %113 = load ptr, ptr %51, align 8
   %.not11.i.i.i21 = icmp eq ptr %113, null
   br i1 %.not11.i.i.i21, label %.thread62, label %.lr.ph.i.i.i22
 
-.lr.ph.i.i.i22:                                   ; preds = %.lr.ph90, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25
-  %.013.i.i.i23 = phi ptr [ %.1.i.i.i29, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25 ], [ %113, %.lr.ph90 ]
-  %.0812.i.i.i24 = phi ptr [ %.19.i.i.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25 ], [ %50, %.lr.ph90 ]
+.lr.ph.i.i.i22:                                   ; preds = %.lr.ph84, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25
+  %.013.i.i.i23 = phi ptr [ %.1.i.i.i29, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25 ], [ %113, %.lr.ph84 ]
+  %.0812.i.i.i24 = phi ptr [ %.19.i.i.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25 ], [ %50, %.lr.ph84 ]
   %114 = getelementptr inbounds nuw i8, ptr %.013.i.i.i23, i64 32
   %115 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %112)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i25 unwind label %116
@@ -51678,7 +51678,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   %127 = icmp slt i32 %122, 0
   br i1 %127, label %.thread62, label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit
 
-.thread62:                                        ; preds = %.lr.ph90, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i31, %126
+.thread62:                                        ; preds = %.lr.ph84, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i31, %126
   %128 = load ptr, ptr %8, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull @.str.374)
@@ -51697,16 +51697,16 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit unwind label %.loopexit
 
 _ZN7testing7MessagelsIA3_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit36, %126
-  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.088) #56
+  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.082) #56
   %.not65 = icmp eq ptr %137, %111
-  br i1 %.not65, label %._crit_edge91, label %.lr.ph90, !llvm.loop !1010
+  br i1 %.not65, label %._crit_edge85, label %.lr.ph84, !llvm.loop !1010
 
-._crit_edge91:                                    ; preds = %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit, %._crit_edge
+._crit_edge85:                                    ; preds = %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit, %._crit_edge
   %138 = load ptr, ptr %8, align 8, !noalias !1011
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef %138)
           to label %139 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-139:                                              ; preds = %._crit_edge91
+139:                                              ; preds = %._crit_edge85
   %140 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.51) #50
   %.not66 = icmp eq i32 %140, 0
   br i1 %.not66, label %151, label %141
@@ -51788,7 +51788,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret ptr %3
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %149
-  %.pn = phi { ptr, i32 } [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit73, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #50
   %166 = load ptr, ptr %8, align 8
   %.not.i.i.i39 = icmp eq ptr %166, null

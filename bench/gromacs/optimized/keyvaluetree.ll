@@ -464,15 +464,15 @@ define noundef zeroext i1 @_ZNK3gmx18KeyValueTreeObject21hasDistinctPropertiesER
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
-  %.not6495 = icmp eq ptr %4, %6
-  br i1 %.not6495, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph
+  %.not6394 = icmp eq ptr %4, %6
+  br i1 %.not6394, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44
   %7 = phi ptr [ %146, %_ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44 ], [ %6, %2 ]
   %8 = phi ptr [ %144, %_ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44 ], [ %4, %2 ]
-  %.tr96 = phi ptr [ %125, %_ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44 ], [ %0, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.tr96, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %.tr95 = phi ptr [ %125, %_ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44 ], [ %0, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.tr95, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.tr95, i64 8
   %11 = load ptr, ptr %9, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph.split
@@ -483,8 +483,8 @@ define noundef zeroext i1 @_ZNK3gmx18KeyValueTreeObject21hasDistinctPropertiesER
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %13 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %11, %.lr.ph ]
-  %.sroa.045.065 = phi ptr [ %147, %.lr.ph.splitthread-pre-split ], [ %8, %.lr.ph ]
-  %14 = load ptr, ptr %.sroa.045.065, align 8
+  %.sroa.045.064 = phi ptr [ %147, %.lr.ph.splitthread-pre-split ], [ %8, %.lr.ph ]
+  %14 = load ptr, ptr %.sroa.045.064, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.not11.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not11.i.i.i.i, label %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i.i.i
@@ -533,7 +533,7 @@ _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %29, label %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %30
 
 30:                                               ; preds = %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %31 = load ptr, ptr %.sroa.045.065, align 8
+  %31 = load ptr, ptr %.sroa.045.064, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i11 = icmp eq ptr %33, null
@@ -564,7 +564,7 @@ _ZNK3gmx17KeyValueTreeValue7isArrayEv.exit.thread49: ; preds = %34, %_ZNK3gmx17K
   unreachable
 
 _ZNK3gmx17KeyValueTreeValue7isArrayEv.exit.thread: ; preds = %42, %30, %_ZNK3gmx17KeyValueTreeValue7isArrayEv.exit
-  %46 = load ptr, ptr %.sroa.045.065, align 8
+  %46 = load ptr, ptr %.sroa.045.064, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i12 = icmp eq ptr %48, null
@@ -591,7 +591,7 @@ _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit:      ; preds = %57
   br i1 %60, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread50, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread
 
 _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread50: ; preds = %49, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit
-  %61 = load ptr, ptr %.sroa.045.065, align 8
+  %61 = load ptr, ptr %.sroa.045.064, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %9, align 8
   %.not11.i.i.i.i14 = icmp eq ptr %63, null
@@ -671,7 +671,7 @@ _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit26:    ; preds = %88
   br i1 %91, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit26.thread51, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread
 
 _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit26.thread51: ; preds = %80, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit26
-  %92 = load ptr, ptr %.sroa.045.065, align 8
+  %92 = load ptr, ptr %.sroa.045.064, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %9, align 8
   %.not11.i.i.i.i27 = icmp eq ptr %94, null
@@ -757,7 +757,7 @@ _ZNK3gmx3Any6isTypeINS_18KeyValueTreeObjectEEEbv.exit.i.i.i: ; preds = %119
 _ZNK3gmx17KeyValueTreeValue8asObjectEv.exit:      ; preds = %111, %_ZNK3gmx3Any6isTypeINS_18KeyValueTreeObjectEEEbv.exit.i.i.i
   %124 = load ptr, ptr %109, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %.sroa.045.065, align 8
+  %126 = load ptr, ptr %.sroa.045.064, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 64
   %128 = load ptr, ptr %127, align 8
   %.not.i.i.i.i.i.i41 = icmp eq ptr %128, null
@@ -793,11 +793,11 @@ _ZNK3gmx17KeyValueTreeValue8asObjectEv.exit44:    ; preds = %129, %_ZNK3gmx3Any6
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 64
   %146 = load ptr, ptr %145, align 8
-  %.not64 = icmp eq ptr %144, %146
-  br i1 %.not64, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph
+  %.not63 = icmp eq ptr %144, %146
+  br i1 %.not63, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph
 
 _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.split, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.045.065, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 8
   %.not = icmp eq ptr %147, %7
   br i1 %.not, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !17
 
@@ -1621,8 +1621,8 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_113CompareHelper14compareObject
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %.not126 = icmp eq ptr %18, %20
-  br i1 %.not126, label %._crit_edge, label %.lr.ph
+  %.not124 = icmp eq ptr %18, %20
+  br i1 %.not124, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1635,8 +1635,8 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_113CompareHelper14compareObject
   br label %28
 
 28:                                               ; preds = %.lr.ph, %715
-  %.sroa.094.0127 = phi ptr [ %18, %.lr.ph ], [ %718, %715 ]
-  %29 = load ptr, ptr %.sroa.094.0127, align 8
+  %.sroa.094.0125 = phi ptr [ %18, %.lr.ph ], [ %718, %715 ]
+  %29 = load ptr, ptr %.sroa.094.0125, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %21, align 8
   %32 = load ptr, ptr %22, align 8
@@ -1655,7 +1655,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_113CompareHelper14compareObject
   br label %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %33, %36
-  %37 = load ptr, ptr %.sroa.094.0127, align 8
+  %37 = load ptr, ptr %.sroa.094.0125, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %23, align 8
   %.not11.i.i.i.i = icmp eq ptr %39, null
@@ -1689,7 +1689,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %46, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i._ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread_crit_edge, label %47
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i._ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread_crit_edge: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %.pre = load ptr, ptr %.sroa.094.0127, align 8
+  %.pre = load ptr, ptr %.sroa.094.0125, align 8
   br label %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 47:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
@@ -1706,12 +1706,12 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %47
   %53 = icmp slt i32 %49, 0
-  %.pre133 = load ptr, ptr %.sroa.094.0127, align 8
+  %.pre131 = load ptr, ptr %.sroa.094.0125, align 8
   br i1 %53, label %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %55 = getelementptr inbounds nuw i8, ptr %.pre133, i64 64
-  %56 = getelementptr inbounds nuw i8, ptr %.pre133, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.pre131, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %.pre131, i64 32
   %57 = load ptr, ptr %23, align 8
   %.not11.i.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not11.i.i.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i.i.i
@@ -3011,7 +3011,7 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper13compareValuesERKNS_17KeyValueTreeValueES4_
   br label %715
 
 _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i._ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread_crit_edge, %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %702 = phi ptr [ %.pre, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i._ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread_crit_edge ], [ %37, %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.pre133, %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %702 = phi ptr [ %.pre, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i._ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread_crit_edge ], [ %37, %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.pre131, %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -3061,7 +3061,7 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper30handleMissingKeyInSecondObjectERKNS_17KeyV
   %717 = getelementptr inbounds i8, ptr %716, i64 -32
   store ptr %717, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %717) #15
-  %718 = getelementptr inbounds nuw i8, ptr %.sroa.094.0127, i64 8
+  %718 = getelementptr inbounds nuw i8, ptr %.sroa.094.0125, i64 8
   %.not = icmp eq ptr %718, %20
   br i1 %.not, label %._crit_edge, label %28
 
@@ -3070,10 +3070,10 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper30handleMissingKeyInSecondObjectERKNS_17KeyV
   %720 = load ptr, ptr %719, align 8
   %721 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %722 = load ptr, ptr %721, align 8
-  %.not121128 = icmp eq ptr %720, %722
-  br i1 %.not121128, label %._crit_edge132, label %.lr.ph131
+  %.not121126 = icmp eq ptr %720, %722
+  br i1 %.not121126, label %._crit_edge130, label %.lr.ph129
 
-.lr.ph131:                                        ; preds = %._crit_edge
+.lr.ph129:                                        ; preds = %._crit_edge
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %725 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3081,9 +3081,9 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper30handleMissingKeyInSecondObjectERKNS_17KeyV
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %728
 
-728:                                              ; preds = %.lr.ph131, %767
-  %.sroa.090.0129 = phi ptr [ %720, %.lr.ph131 ], [ %770, %767 ]
-  %729 = load ptr, ptr %.sroa.090.0129, align 8
+728:                                              ; preds = %.lr.ph129, %767
+  %.sroa.090.0127 = phi ptr [ %720, %.lr.ph129 ], [ %770, %767 ]
+  %729 = load ptr, ptr %.sroa.090.0127, align 8
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 32
   %731 = load ptr, ptr %723, align 8
   %732 = load ptr, ptr %724, align 8
@@ -3102,7 +3102,7 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper30handleMissingKeyInSecondObjectERKNS_17KeyV
   br label %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19
 
 _ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %733, %736
-  %737 = load ptr, ptr %.sroa.090.0129, align 8
+  %737 = load ptr, ptr %.sroa.090.0127, align 8
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 32
   %739 = load ptr, ptr %725, align 8
   %.not11.i.i.i.i20 = icmp eq ptr %739, null
@@ -3152,7 +3152,7 @@ _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %753, label %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit34.thread, label %767
 
 _ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit34.thread: ; preds = %_ZN3gmx16KeyValueTreePath6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i30, %_ZNK3gmx18KeyValueTreeObject9keyExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit34
-  %754 = load ptr, ptr %.sroa.090.0129, align 8
+  %754 = load ptr, ptr %.sroa.090.0127, align 8
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -3202,11 +3202,11 @@ _ZN3gmx12_GLOBAL__N_113CompareHelper29handleMissingKeyInFirstObjectERKNS_17KeyVa
   %769 = getelementptr inbounds i8, ptr %768, i64 -32
   store ptr %769, ptr %723, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %769) #15
-  %770 = getelementptr inbounds nuw i8, ptr %.sroa.090.0129, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %.sroa.090.0127, i64 8
   %.not121 = icmp eq ptr %770, %722
-  br i1 %.not121, label %._crit_edge132, label %728
+  br i1 %.not121, label %._crit_edge130, label %728
 
-._crit_edge132:                                   ; preds = %767, %._crit_edge
+._crit_edge130:                                   ; preds = %767, %._crit_edge
   ret void
 }
 

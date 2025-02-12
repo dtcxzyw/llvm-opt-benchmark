@@ -31283,16 +31283,16 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %105, %111
 ._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge: ; preds = %125
   %.pre = load i32, ptr %102, align 4
   %.pre51 = and i32 %.pre, 127
+  %129 = icmp ne i32 %.pre51, 41
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
 
 _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge, %101, %116, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit
-  %.pre-phi = phi i32 [ %.pre51, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ 41, %101 ], [ %104, %116 ], [ %104, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ]
-  %129 = icmp ne i32 %.pre-phi, 41
+  %.pre-phi = phi i1 [ %129, %._ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread_crit_edge ], [ false, %101 ], [ true, %116 ], [ true, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ]
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %131 = load i16, ptr %130, align 8
   %132 = and i16 %131, 2048
   %133 = icmp ne i16 %132, 0
-  %134 = select i1 %129, i1 %133, i1 false
+  %134 = select i1 %.pre-phi, i1 %133, i1 false
   %135 = and i16 %131, 4096
   %136 = icmp ne i16 %135, 0
   %or.cond = select i1 %134, i1 true, i1 %136
@@ -39852,7 +39852,7 @@ _ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sm
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
@@ -91212,7 +91212,7 @@ _ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sm
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

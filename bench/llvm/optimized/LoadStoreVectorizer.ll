@@ -3090,8 +3090,8 @@ _ZN4llvm5APIntD2Ev.exit.i50.i.i.i:                ; preds = %1060, %_ZN4llvm24Sp
   %1077 = zext i32 %.029.us19.i.i.i.i.i.i to i64
   %1078 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sroa.052.1.i, i64 %1077
   %1079 = load ptr, ptr %1078, align 8, !tbaa !301, !noalias !303
-  %magicptr59.i.i.i.i.i.i = ptrtoint ptr %1079 to i64
-  switch i64 %magicptr59.i.i.i.i.i.i, label %1080 [
+  %magicptr58.i.i.i.i.i.i = ptrtoint ptr %1079 to i64
+  switch i64 %magicptr58.i.i.i.i.i.i, label %1080 [
     i64 -8192, label %_ZN4llvm6detail12DenseSetImplIPZN12_GLOBAL__N_110Vectorizer12gatherChainsENS_8ArrayRefIPNS_11InstructionEEEE13InstrListElemNS_8DenseMapIS9_NS0_13DenseSetEmptyEZNS3_12gatherChainsES7_E25InstrListElemDenseMapInfoNS0_12DenseSetPairIS9_EEEESC_E6insertERKS9_.exit.i.i.i
     i64 -4096, label %.split13.us.i.i.i.i.i.i.loopexit288
   ], !prof !308
@@ -3333,8 +3333,8 @@ _ZZN12_GLOBAL__N_110Vectorizer12gatherChainsEN4llvm8ArrayRefIPNS1_11InstructionE
   %1172 = zext i32 %.029.us19.i.i to i64
   %1173 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %1122, i64 %1172
   %1174 = load ptr, ptr %1173, align 8, !tbaa !301, !noalias !313
-  %magicptr59.i.i = ptrtoint ptr %1174 to i64
-  switch i64 %magicptr59.i.i, label %1175 [
+  %magicptr58.i.i = ptrtoint ptr %1174 to i64
+  switch i64 %magicptr58.i.i, label %1175 [
     i64 -8192, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPZN12_GLOBAL__N_110Vectorizer12gatherChainsENS_8ArrayRefIPNS_11InstructionEEEE13InstrListElemNS_6detail13DenseSetEmptyEZNS3_12gatherChainsES7_E25InstrListElemDenseMapInfoNSA_12DenseSetPairIS9_EEEES9_SB_SC_SE_E15LookupBucketForIS9_EEbRKT_RPSE_.exit.i.loopexit
     i64 -4096, label %.split13.us.i.i.loopexit286
   ], !prof !308

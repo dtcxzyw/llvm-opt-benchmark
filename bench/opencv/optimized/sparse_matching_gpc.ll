@@ -4806,15 +4806,15 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %41, %._crit_edge72
 
 ._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge: ; preds = %41
   %.pre = load ptr, ptr %2, align 8
-  %.pre74 = load ptr, ptr %0, align 8
+  %.pre73 = load ptr, ptr %0, align 8
   br label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit
 
 _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit: ; preds = %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge, %._crit_edge
-  %45 = phi ptr [ %.pre74, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %4, %._crit_edge ]
+  %45 = phi ptr [ %.pre73, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %4, %._crit_edge ]
   %46 = phi ptr [ %.pre, %._ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit_crit_edge ], [ %3, %._crit_edge ]
   %47 = load float, ptr %38, align 4
-  %.not73 = icmp eq ptr %46, %45
-  br i1 %.not73, label %._crit_edge72, label %.lr.ph71
+  %.not = icmp eq ptr %46, %45
+  br i1 %.not, label %._crit_edge72, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit, %67
   %48 = phi ptr [ %68, %67 ], [ %45, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_.exit ]
@@ -4846,13 +4846,13 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEEvT_S7_S7_
   %65 = load i64, ptr %51, align 4
   store i64 %65, ptr %64, align 4
   %66 = add i64 %.070, 1
-  %.pre75 = load ptr, ptr %2, align 8
-  %.pre76 = load ptr, ptr %0, align 8
+  %.pre74 = load ptr, ptr %2, align 8
+  %.pre75 = load ptr, ptr %0, align 8
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph71
-  %68 = phi ptr [ %.pre76, %61 ], [ %48, %.lr.ph71 ]
-  %69 = phi ptr [ %.pre75, %61 ], [ %49, %.lr.ph71 ]
+  %68 = phi ptr [ %.pre75, %61 ], [ %48, %.lr.ph71 ]
+  %69 = phi ptr [ %.pre74, %61 ], [ %49, %.lr.ph71 ]
   %.1 = phi i64 [ %66, %61 ], [ %.070, %.lr.ph71 ]
   %70 = add nuw i64 %.03069, 1
   %71 = ptrtoint ptr %69 to i64

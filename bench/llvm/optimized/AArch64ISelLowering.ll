@@ -105687,97 +105687,97 @@ define internal fastcc noundef ptr @_ZL23createTblShuffleForZExtRN4llvm13IRBuild
 38:                                               ; preds = %37
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %25, i64 noundef %35, i64 noundef 4) #35
   %.pre4.pre.i.i.i = load i32, ptr %26, align 8, !tbaa !28
-  %39 = zext i32 %.pre4.pre.i.i.i to i64
+  %.pre.i.i = zext i32 %.pre4.pre.i.i.i to i64
   %.pre = load ptr, ptr %6, align 8, !tbaa !27
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i: ; preds = %38, %37
-  %40 = phi ptr [ %25, %37 ], [ %.pre, %38 ]
-  %.pre4.i.i.i = phi i64 [ 0, %37 ], [ %39, %38 ]
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %.pre4.i.i.i
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %35
+  %39 = phi ptr [ %25, %37 ], [ %.pre, %38 ]
+  %.pre-phi.i.i = phi i64 [ 0, %37 ], [ %.pre.i.i, %38 ]
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %.pre-phi.i.i
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %35
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %41, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i ]
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %40, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i ]
   store i32 %14, ptr %.06.i.i.i.i.i.i.i.i.i, align 4, !tbaa !68
-  %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %43, %42
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, %41
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.sink.split.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !1145
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i = load i32, ptr %26, align 8, !tbaa !28
-  %44 = add i32 %.pre.i.i.i, %34
-  store i32 %44, ptr %26, align 8, !tbaa !28
+  %43 = add i32 %.pre.i.i.i, %34
+  store i32 %43, ptr %26, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i
 
 _ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i:    ; preds = %.sink.split.i.i, %32
-  %45 = phi ptr [ %40, %.sink.split.i.i ], [ %25, %32 ]
-  %46 = add nsw i32 %33, -1
-  %47 = select i1 %4, i32 0, i32 %46
-  %48 = icmp ult i32 %47, %34
-  br i1 %48, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit
+  %44 = phi ptr [ %39, %.sink.split.i.i ], [ %25, %32 ]
+  %45 = add nsw i32 %33, -1
+  %46 = select i1 %4, i32 0, i32 %45
+  %47 = icmp ult i32 %46, %34
+  br i1 %47, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i, %.lr.ph.i
-  %.028.i = phi i32 [ %52, %.lr.ph.i ], [ %47, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
-  %.02327.i = phi i32 [ %49, %.lr.ph.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
-  %49 = add i32 %.02327.i, 1
-  %50 = zext i32 %.028.i to i64
-  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %50
-  store i32 %.02327.i, ptr %51, align 4, !tbaa !68
-  %52 = add i32 %.028.i, %33
-  %53 = icmp ult i32 %52, %34
-  br i1 %53, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit, !llvm.loop !1714
+  %.028.i = phi i32 [ %51, %.lr.ph.i ], [ %46, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
+  %.02327.i = phi i32 [ %48, %.lr.ph.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
+  %48 = add i32 %.02327.i, 1
+  %49 = zext i32 %.028.i to i64
+  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %49
+  store i32 %.02327.i, ptr %50, align 4, !tbaa !68
+  %51 = add i32 %.028.i, %33
+  %52 = icmp ult i32 %51, %34
+  br i1 %52, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit, !llvm.loop !1714
 
 _ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit: ; preds = %.lr.ph.i, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i
-  %54 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef nonnull %12) #35
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %56 = load ptr, ptr %55, align 8, !tbaa !1715
-  %57 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %19) #35
-  %58 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %57, i64 noundef 0, i1 noundef zeroext false) #35
+  %53 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef nonnull %12) #35
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %55 = load ptr, ptr %54, align 8, !tbaa !1715
+  %56 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %19) #35
+  %57 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %56, i64 noundef 0, i1 noundef zeroext false) #35
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #35
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i16 257, ptr %59, align 8
-  %60 = load ptr, ptr %55, align 8, !tbaa !1715
-  %61 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %60) #35
-  %62 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %61, i64 noundef 0, i1 noundef zeroext false) #35
-  %63 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %54, ptr noundef %58, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i16 257, ptr %58, align 8
+  %59 = load ptr, ptr %54, align 8, !tbaa !1715
+  %60 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %59) #35
+  %61 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %60, i64 noundef 0, i1 noundef zeroext false) #35
+  %62 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %53, ptr noundef %57, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #35
-  %64 = load ptr, ptr %6, align 8, !tbaa !27
-  %65 = load i32, ptr %26, align 8, !tbaa !28
-  %66 = zext i32 %65 to i64
+  %63 = load ptr, ptr %6, align 8, !tbaa !27
+  %64 = load i32, ptr %26, align 8, !tbaa !28
+  %65 = zext i32 %64 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #35
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i16 257, ptr %67, align 8
-  %68 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef %63, ptr %64, i64 %66, ptr noundef nonnull align 8 dereferenceable(34) %8)
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i16 257, ptr %66, align 8
+  %67 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef %62, ptr %63, i64 %65, ptr noundef nonnull align 8 dereferenceable(34) %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #35
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #35
-  %69 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i16 257, ptr %69, align 8
-  %70 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %68, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef null, i64 0)
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i16 257, ptr %68, align 8
+  %69 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %67, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef null, i64 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #35
   %.not = icmp eq ptr %3, %2
-  br i1 %.not, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, label %71
+  br i1 %.not, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, label %70
 
-71:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit
+70:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #35
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i16 257, ptr %72, align 8
-  %73 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %70, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false)
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i16 257, ptr %71, align 8
+  %72 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %69, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #35
   br label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
 
-_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread: ; preds = %5, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit, %71
-  %.024 = phi ptr [ %73, %71 ], [ %70, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit ], [ null, %5 ]
-  %74 = load ptr, ptr %6, align 8, !tbaa !27
-  %75 = icmp eq ptr %74, %25
-  br i1 %75, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %76
+_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread: ; preds = %5, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit, %70
+  %.024 = phi ptr [ %72, %70 ], [ %69, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit ], [ null, %5 ]
+  %73 = load ptr, ptr %6, align 8, !tbaa !27
+  %74 = icmp eq ptr %73, %25
+  br i1 %74, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %75
 
-76:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
-  call void @free(ptr noundef %74) #35
+75:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
+  call void @free(ptr noundef %73) #35
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, %76
+_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, %75
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #35
   ret ptr %.024
 }
@@ -105947,80 +105947,80 @@ define internal fastcc noundef ptr @_ZL23createTblShuffleForSExtRN4llvm13IRBuild
 30:                                               ; preds = %29
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %15, i64 noundef %27, i64 noundef 4) #35
   %.pre4.pre.i.i.i = load i32, ptr %16, align 8, !tbaa !28
-  %31 = zext i32 %.pre4.pre.i.i.i to i64
+  %.pre.i.i = zext i32 %.pre4.pre.i.i.i to i64
   %.pre = load ptr, ptr %4, align 8, !tbaa !27
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i: ; preds = %30, %29
-  %32 = phi ptr [ %15, %29 ], [ %.pre, %30 ]
-  %.pre4.i.i.i = phi i64 [ 0, %29 ], [ %31, %30 ]
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre4.i.i.i
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %27
+  %31 = phi ptr [ %15, %29 ], [ %.pre, %30 ]
+  %.pre-phi.i.i = phi i64 [ 0, %29 ], [ %.pre.i.i, %30 ]
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.pre-phi.i.i
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %33, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i ]
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %32, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i.i ]
   store i32 %19, ptr %.06.i.i.i.i.i.i.i.i.i, align 4, !tbaa !68
-  %35 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, %34
+  %34 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, %33
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.sink.split.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !1145
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i = load i32, ptr %16, align 8, !tbaa !28
-  %36 = add i32 %.pre.i.i.i, %26
-  store i32 %36, ptr %16, align 8, !tbaa !28
+  %35 = add i32 %.pre.i.i.i, %26
+  store i32 %35, ptr %16, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i
 
 _ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i:    ; preds = %.sink.split.i.i, %24
-  %37 = phi ptr [ %32, %.sink.split.i.i ], [ %15, %24 ]
-  %38 = add nsw i32 %25, -1
-  %39 = select i1 %2, i32 %38, i32 0
-  %40 = icmp ult i32 %39, %26
-  br i1 %40, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
+  %36 = phi ptr [ %31, %.sink.split.i.i ], [ %15, %24 ]
+  %37 = add nsw i32 %25, -1
+  %38 = select i1 %2, i32 %37, i32 0
+  %39 = icmp ult i32 %38, %26
+  br i1 %39, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i, %.lr.ph.i
-  %.028.i = phi i32 [ %44, %.lr.ph.i ], [ %39, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
-  %.02327.i = phi i32 [ %41, %.lr.ph.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
-  %41 = add i32 %.02327.i, 1
-  %42 = zext i32 %.028.i to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
-  store i32 %.02327.i, ptr %43, align 4, !tbaa !68
-  %44 = add i32 %.028.i, %25
-  %45 = icmp ult i32 %44, %26
-  br i1 %45, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, !llvm.loop !1714
+  %.028.i = phi i32 [ %43, %.lr.ph.i ], [ %38, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
+  %.02327.i = phi i32 [ %40, %.lr.ph.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i ]
+  %40 = add i32 %.02327.i, 1
+  %41 = zext i32 %.028.i to i64
+  %42 = getelementptr inbounds nuw i32, ptr %36, i64 %41
+  store i32 %.02327.i, ptr %42, align 4, !tbaa !68
+  %43 = add i32 %.028.i, %25
+  %44 = icmp ult i32 %43, %26
+  br i1 %44, label %.lr.ph.i, label %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, !llvm.loop !1714
 
 _ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread: ; preds = %.lr.ph.i, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit.i
-  %46 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef nonnull %8) #35
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %48 = load ptr, ptr %47, align 8, !tbaa !1715
-  %49 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %13) #35
-  %50 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %49, i64 noundef 0, i1 noundef zeroext false) #35
+  %45 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef nonnull %8) #35
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %47 = load ptr, ptr %46, align 8, !tbaa !1715
+  %48 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %13) #35
+  %49 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %48, i64 noundef 0, i1 noundef zeroext false) #35
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #35
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i16 257, ptr %51, align 8
-  %52 = load ptr, ptr %47, align 8, !tbaa !1715
-  %53 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %52) #35
-  %54 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %53, i64 noundef 0, i1 noundef zeroext false) #35
-  %55 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %46, ptr noundef %50, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i16 257, ptr %50, align 8
+  %51 = load ptr, ptr %46, align 8, !tbaa !1715
+  %52 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %51) #35
+  %53 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %52, i64 noundef 0, i1 noundef zeroext false) #35
+  %54 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %45, ptr noundef %49, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(34) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #35
-  %56 = load ptr, ptr %4, align 8, !tbaa !27
-  %57 = load i32, ptr %16, align 8, !tbaa !28
-  %58 = zext i32 %57 to i64
+  %55 = load ptr, ptr %4, align 8, !tbaa !27
+  %56 = load i32, ptr %16, align 8, !tbaa !28
+  %57 = zext i32 %56 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #35
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i16 257, ptr %59, align 8
-  %60 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef %55, ptr %56, i64 %58, ptr noundef nonnull align 8 dereferenceable(34) %6)
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i16 257, ptr %58, align 8
+  %59 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef %54, ptr %55, i64 %57, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #35
   %.pre1 = load ptr, ptr %4, align 8, !tbaa !27
-  %61 = icmp eq ptr %.pre1, %15
-  br i1 %61, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %62
+  %60 = icmp eq ptr %.pre1, %15
+  br i1 %60, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, label %61
 
-62:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
+61:                                               ; preds = %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread
   call void @free(ptr noundef %.pre1) #35
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %3, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, %62
-  %.03 = phi ptr [ %60, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread ], [ %60, %62 ], [ null, %3 ]
+_ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %3, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread, %61
+  %.03 = phi ptr [ %59, %_ZL20createTblShuffleMaskjjjbRN4llvm15SmallVectorImplIiEE.exit.thread ], [ %59, %61 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #35
   ret ptr %.03
 }

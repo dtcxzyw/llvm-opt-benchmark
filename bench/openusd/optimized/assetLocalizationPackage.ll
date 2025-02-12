@@ -3134,7 +3134,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackage23_AddDependencyToPackageERKNS_8TfRefPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %.loopexit unwind label %.loopexit.split-lp
 
-.loopexit43:                                      ; preds = %.preheader
+.loopexit41:                                      ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3144,20 +3144,20 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit43, %.loopexit.split-lp, %114
-  %eh.lpad-body = phi { ptr, i32 } [ %115, %114 ], [ %lpad.loopexit, %.loopexit43 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit41, %.loopexit.split-lp, %114
+  %eh.lpad-body = phi { ptr, i32 } [ %115, %114 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   br label %116
 
 .preheader:                                       ; preds = %104, %111
-  %.sroa.034.044 = phi ptr [ %112, %111 ], [ %106, %104 ]
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackage23_AddDependencyToPackageERKNS_8TfRefPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.044, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %111 unwind label %.loopexit43
+  %.sroa.034.042 = phi ptr [ %112, %111 ], [ %106, %104 ]
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdUtils_AssetLocalizationPackage23_AddDependencyToPackageERKNS_8TfRefPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(640) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034.042, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %111 unwind label %.loopexit41
 
 111:                                              ; preds = %.preheader
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.034.044, i64 32
-  %.not42 = icmp eq ptr %112, %108
-  br i1 %.not42, label %.loopexit, label %.preheader
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.034.042, i64 32
+  %.not = icmp eq ptr %112, %108
+  br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %111, %110
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)

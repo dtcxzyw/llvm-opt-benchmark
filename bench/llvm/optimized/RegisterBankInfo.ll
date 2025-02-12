@@ -3041,19 +3041,19 @@ define dso_local void @_ZN4llvm16RegisterBankInfo14OperandsMapperC2ERNS_12Machin
 20:                                               ; preds = %19
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef %17, i64 noundef 4) #16
   %.pre4.pre.i.i = load i32, ptr %6, align 8, !tbaa !36
-  %21 = zext i32 %.pre4.pre.i.i to i64
+  %.pre.i = zext i32 %.pre4.pre.i.i to i64
   %.pre = load ptr, ptr %0, align 8, !tbaa !34
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i: ; preds = %20, %19
-  %22 = phi ptr [ %5, %19 ], [ %.pre, %20 ]
-  %.pre4.i.i = phi i64 [ 0, %19 ], [ %21, %20 ]
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.pre4.i.i
-  %24 = shl nuw nsw i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 -1, i64 %24, i1 false), !tbaa !26
+  %21 = phi ptr [ %5, %19 ], [ %.pre, %20 ]
+  %.pre-phi.i = phi i64 [ 0, %19 ], [ %.pre.i, %20 ]
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %.pre-phi.i
+  %23 = shl nuw nsw i64 %17, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 -1, i64 %23, i1 false), !tbaa !26
   %.pre.i.i = load i32, ptr %6, align 8, !tbaa !36
-  %25 = add i32 %.pre.i.i, %16
-  store i32 %25, ptr %6, align 8, !tbaa !36
+  %24 = add i32 %.pre.i.i, %16
+  store i32 %24, ptr %6, align 8, !tbaa !36
   br label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit
 
 _ZN4llvm15SmallVectorImplIiE6resizeEmi.exit:      ; preds = %4, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i.i
@@ -4787,7 +4787,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   %53 = sub i64 %51, %52
   %54 = sub i64 0, %53
   %55 = getelementptr inbounds i8, ptr %46, i64 %54
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
@@ -6732,7 +6732,7 @@ _ZSt13move_backwardIPPKN4llvm16RegisterBankInfo18InstructionMappingES5_ET0_T_S7_
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

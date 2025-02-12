@@ -8567,13 +8567,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit67.i:             ; preds = %1181, %_ZSt8_Destro
 
 _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i: ; preds = %1187
   %1191 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1186) #25
-          to label %.noexc670 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit
+          to label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
-.noexc670:                                        ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i667 = icmp eq ptr %1183, %1182
-  br i1 %.not7.i.i.i.i.i.i667, label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc670
+_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE11_M_allocateEm.exit.i.i
   %1192 = add i64 %1184, -24
   %1193 = sub i64 %1192, %1185
   %.fr.i.i = freeze i64 %1193
@@ -8581,9 +8577,6 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7
   %1195 = add i64 %.fr.i.i, 24
   %1196 = sub i64 %1195, %1194
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1191, ptr align 8 %1183, i64 %1196, i1 false)
-  br label %_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i
-
-_ZNSt12_Vector_baseIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_tESaIS8_EE13_M_deallocateEPS8_m.exit.i: ; preds = %.noexc670, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %1191, ptr %145, align 8
   %1197 = getelementptr inbounds i8, ptr %1191, i64 %1186
   store ptr %1197, ptr %147, align 8

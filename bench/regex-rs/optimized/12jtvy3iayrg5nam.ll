@@ -4910,29 +4910,27 @@ define { i64, i64 } @_ZN12regex_syntax3ast5Flags8add_item17h0d9afd9057af5b77E(pt
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge"
-  %.sroa.0.01017 = phi ptr [ %29, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge" ], [ %4, %.lr.ph ]
-  %.sroa.8.016 = phi i64 [ %28, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge" ], [ 0, %.lr.ph ]
+  %.sroa.0.01017 = phi ptr [ %27, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge" ], [ %4, %.lr.ph ]
+  %.sroa.8.016 = phi i64 [ %26, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge" ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.01017, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !887)
   %25 = load i8, ptr %24, align 1, !range !522, !alias.scope !890, !noalias !887, !noundef !7
-  %26 = icmp ne i8 %25, 7
-  %27 = icmp eq i8 %25, %10
-  %or.cond.not = and i1 %27, %26
-  br i1 %or.cond.not, label %.loopexit, label %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge"
+  %.not20 = icmp eq i8 %25, %10
+  br i1 %.not20, label %.loopexit, label %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge"
 
 "_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit.backedge": ; preds = %.lr.ph.split
-  %28 = add nuw nsw i64 %.sroa.8.016, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.01017, i64 56
-  %30 = icmp eq ptr %29, %7
-  br i1 %30, label %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit._crit_edge", label %.lr.ph.split
+  %26 = add nuw nsw i64 %.sroa.8.016, 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.01017, i64 56
+  %28 = icmp eq ptr %27, %7
+  br i1 %28, label %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02072ecc26040ff4E.llvm.16653392013706621149.exit._crit_edge", label %.lr.ph.split
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb848f3d4f131e4adE.llvm.16653392013706621149.exit"
   %.sroa.3.0 = phi i64 [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb848f3d4f131e4adE.llvm.16653392013706621149.exit" ], [ %.sroa.8.016.us, %.lr.ph.split.us ], [ %.sroa.8.016, %.lr.ph.split ]
   %.sroa.0.0 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb848f3d4f131e4adE.llvm.16653392013706621149.exit" ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split ]
-  %31 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %32 = insertvalue { i64, i64 } %31, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %32
+  %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %30 = insertvalue { i64, i64 } %29, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable

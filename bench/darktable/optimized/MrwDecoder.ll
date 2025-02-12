@@ -1718,10 +1718,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.thread: ; preds
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %42 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
-  %.not3140 = icmp eq ptr %.19.i.i.i.i, %24
-  %.not31 = select i1 %42, i1 true, i1 %.not3140
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  br i1 %.not31, label %58, label %43
+  br i1 %42, label %58, label %43
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136

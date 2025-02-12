@@ -7437,7 +7437,7 @@ if.end.i61:                                       ; preds = %if.end10
   %sub.ptr.rhs.cast.i23.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i24.i = sub i64 %sub.ptr.lhs.cast.i22.i, %sub.ptr.rhs.cast.i23.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i24.i, i64 %sub.ptr.sub.i.i)
-  %cmp.not.i62 = icmp eq i64 %.sroa.speculated.i, 0
+  %cmp.not.i62 = icmp eq ptr %14, %15
   br i1 %cmp.not.i62, label %_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec17flushVarintBufferERNS_5RangeIPhEE.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i61

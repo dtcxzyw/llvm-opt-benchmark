@@ -9562,7 +9562,7 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
 35:                                               ; preds = %38, %_RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4folduNCINvNvB2f_8for_each4callB1i_NCINvMsi_NtBc_3vecINtB3S_3VecB1i_E14extend_trustedINtNtNtB2l_8adapters5chain5ChainIB4y_B13_B13_EB13_EE0E0EB1o_.exit
   ret void
 
-36:                                               ; preds = %42
+36:                                               ; preds = %43
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #26
@@ -9575,9 +9575,9 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
   store i64 %.val16, ptr %.val, align 8
   br label %35
 
-.body.thread:                                     ; preds = %13, %18, %22, %.body, %42
-  %.pn3041 = phi { ptr, i32 } [ %40, %.body ], [ %40, %42 ], [ %14, %13 ], [ %19, %18 ], [ %19, %22 ]
-  resume { ptr, i32 } %.pn3041
+.body.thread:                                     ; preds = %13, %18, %22, %.body, %43
+  %.pn3039 = phi { ptr, i32 } [ %40, %.body ], [ %40, %43 ], [ %14, %13 ], [ %19, %18 ], [ %19, %22 ]
+  resume { ptr, i32 } %.pn3039
 
 .body:                                            ; preds = %8
   %40 = landingpad { ptr, i32 }
@@ -9587,10 +9587,10 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
   %.val18 = load i64, ptr %41, align 8, !noundef !8
   store i64 %.val18, ptr %.val17, align 8
   %.pre = load i64, ptr %0, align 8, !range !17
-  %.not9 = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %.not9, label %.body.thread, label %42
+  %42 = icmp eq i64 %.pre, -9223372036854775808
+  br i1 %42, label %.body.thread, label %43
 
-42:                                               ; preds = %.body
+43:                                               ; preds = %.body
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iter8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1V_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #25
           to label %.body.thread unwind label %36
 }

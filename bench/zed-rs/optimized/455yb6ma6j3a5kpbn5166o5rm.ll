@@ -9783,10 +9783,10 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store ptr %213, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1793, !noalias !1796
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %211, i64 40, i1 false), !noalias !1798
   %.pre165.i = load i8, ptr %.sroa.437.0..sroa_idx.i, align 4, !range !1799, !alias.scope !1800, !noalias !1695
+  %214 = icmp eq i8 %.pre165.i, 2
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.030.i)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.534.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1800)
-  %214 = icmp eq i8 %.pre165.i, 2
   br i1 %214, label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$multi_buffer..MultiBuffer..edit..BufferEdit$GT$$GT$17h0bea6c6bc5ee8879E.exit77.i", label %215
 
 215:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fbe51636edf7827E.exit75.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fbe51636edf7827E.exit75.thread175.i"

@@ -18313,21 +18313,21 @@ _ZSt4nextIN5QListI7QStringE8iteratorEET_S4_NSt15iterator_traitsIS4_E15difference
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i34: ; preds = %62
   %64 = load atomic i32, ptr %63 monotonic, align 4
   %65 = icmp sgt i32 %64, 1
-  br i1 %65, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36, label %.lr.ph.i.i.i.i.i.preheader.i
+  br i1 %65, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36, label %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
 
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36: ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i34, %62
   tail call void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i = load ptr, ptr %3, align 8
-  br label %.lr.ph.i.i.i.i.i.preheader.i
+  br label %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i34
+_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i34
   %66 = phi ptr [ %.pre.i, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i36 ], [ %54, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i34 ]
   %67 = getelementptr i8, ptr %66, i64 %60
   %68 = getelementptr i8, ptr %67, i64 %57
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.05.i.i.i.i.i.i = phi ptr [ %73, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %67, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %73, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %67, %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i ]
   %69 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i
@@ -18345,9 +18345,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %71, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %73 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %73, %68
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !55
 
-_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i:         ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
+_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %3, align 8
   %74 = icmp ne ptr %67, %.pre.i.i
   %75 = load i64, ptr %5, align 8
@@ -18356,11 +18356,11 @@ _ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i:         ; preds = %_ZSt8_DestroyI7QStr
   %or.cond.i.i.i35 = select i1 %74, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i35, label %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, label %77
 
-77:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i
+77:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i
   store ptr %68, ptr %3, align 8
   br label %_ZN9QtPrivate16QMovableArrayOpsI7QStringE5eraseEPS1_x.exit.i.i
 
-_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i
+_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i
   br i1 %.not.i.i.i, label %_ZN9QtPrivate16QMovableArrayOpsI7QStringE5eraseEPS1_x.exit.i.i, label %78
 
 78:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i
@@ -21320,7 +21320,7 @@ _ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i: ; preds = %19
   %32 = add i64 %30, %14
   %33 = sub i64 %24, %32
   %.not17.i = icmp slt i64 %33, %10
-  br i1 %.not17.i, label %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i, label %82
+  br i1 %.not17.i, label %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i, label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
 
 _ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i: ; preds = %22
   %.not.i26.i = icmp slt i64 %30, %10
@@ -21350,11 +21350,11 @@ _ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i: ; preds = %22
   %46 = shl i64 %14, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %12, i64 %46, i1 false)
   %.pre = load ptr, ptr %11, align 8
-  %.pre30 = load i64, ptr %13, align 8
+  %.pre29 = load i64, ptr %13, align 8
   br label %_ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i
 
 _ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i: ; preds = %45, %41, %38
-  %47 = phi i64 [ %.pre30, %45 ], [ %14, %41 ], [ 0, %38 ]
+  %47 = phi i64 [ %.pre29, %45 ], [ %14, %41 ], [ 0, %38 ]
   %48 = phi ptr [ %.pre, %45 ], [ %12, %41 ], [ %12, %38 ]
   %49 = getelementptr %class.QFileInfo, ptr %48, i64 %47
   %50 = icmp uge ptr %1, %48
@@ -21362,14 +21362,14 @@ _ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i: ; pred
   %spec.select.i.i.i35.i = and i1 %50, %51
   %spec.select.idx = select i1 %spec.select.i.i.i35.i, i64 %31, i64 0
   %spec.select = getelementptr %class.QFileInfo, ptr %1, i64 %spec.select.idx
-  br label %.sink.split
+  br label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split
 
 .critedge.i.invoke:                               ; preds = %19, %_ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i, %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i, %34, %54, %_ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i9, %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12, %69
   %52 = phi ptr [ null, %69 ], [ null, %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12 ], [ null, %_ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i9 ], [ null, %54 ], [ %4, %34 ], [ %4, %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i ], [ %4, %_ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i ], [ %4, %19 ]
   invoke void @_ZN17QArrayDataPointerI9QFileInfoE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef %10, ptr noundef %52)
-          to label %82 unwind label %.loopexit.split-lp
+          to label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %86
+.loopexit:                                        ; preds = %85
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %53
@@ -21405,7 +21405,7 @@ _ZNK17QArrayDataPointerI9QFileInfoE11needsDetachEv.exit.i9: ; preds = %54
   %67 = add i64 %65, %14
   %68 = sub i64 %59, %67
   %.not17.i11 = icmp slt i64 %68, %10
-  br i1 %.not17.i11, label %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12, label %82
+  br i1 %.not17.i11, label %_ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12, label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
 
 _ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12: ; preds = %57
   %.not.i26.i13 = icmp slt i64 %65, %10
@@ -21420,7 +21420,7 @@ _ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12: ; preds = %5
 73:                                               ; preds = %69
   %74 = getelementptr %class.QFileInfo, ptr %12, i64 %66
   %75 = icmp eq i64 %14, 0
-  br i1 %75, label %.sink.split, label %76
+  br i1 %75, label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split, label %76
 
 76:                                               ; preds = %73
   %.idx.mask.i.i30.i15 = and i64 %66, 2305843009213693951
@@ -21429,75 +21429,75 @@ _ZNK17QArrayDataPointerI9QFileInfoE14freeSpaceAtEndEv.exit.i23.i12: ; preds = %5
   %or.cond.i.i.i31.i16 = or i1 %78, %77
   %79 = icmp eq ptr %74, null
   %or.cond3.i.i.i32.i17 = or i1 %79, %or.cond.i.i.i31.i16
-  br i1 %or.cond3.i.i.i32.i17, label %.sink.split, label %80
+  br i1 %or.cond3.i.i.i32.i17, label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split, label %80
 
 80:                                               ; preds = %76
   %81 = shl i64 %14, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %12, i64 %81, i1 false)
-  br label %.sink.split
+  br label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split
 
-.sink.split:                                      ; preds = %73, %76, %80, %_ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i
+_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split: ; preds = %73, %76, %80, %_ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i
   %.sink = phi ptr [ %39, %_ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i ], [ %74, %80 ], [ %74, %76 ], [ %74, %73 ]
   %.0.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI9QFileInfoxEEvPT_T0_S3_.exit.i.i33.i ], [ %1, %80 ], [ %1, %76 ], [ %1, %73 ]
   store ptr %.sink, ptr %11, align 8
-  br label %82
+  br label %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
 
-82:                                               ; preds = %.sink.split, %.critedge.i.invoke, %22, %57
-  %.0 = phi ptr [ %1, %22 ], [ %1, %57 ], [ %1, %.critedge.i.invoke ], [ %.0.ph, %.sink.split ]
-  %83 = getelementptr i8, ptr %.0, i64 %9
-  %84 = load ptr, ptr %11, align 8
-  %85 = icmp ult ptr %.0, %83
-  br i1 %85, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit
+_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit: ; preds = %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split, %.critedge.i.invoke, %57, %22
+  %.0 = phi ptr [ %1, %22 ], [ %1, %57 ], [ %1, %.critedge.i.invoke ], [ %.0.ph, %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit.sink.split ]
+  %82 = getelementptr i8, ptr %.0, i64 %9
+  %83 = load ptr, ptr %11, align 8
+  %84 = icmp ult ptr %.0, %82
+  br i1 %84, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit
 
-.lr.ph.i:                                         ; preds = %82
+.lr.ph.i:                                         ; preds = %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
   %.pre.i = load i64, ptr %13, align 8
-  br label %86
+  br label %85
 
-86:                                               ; preds = %.noexc22, %.lr.ph.i
-  %87 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %91, %.noexc22 ]
-  %.010.i = phi ptr [ %.0, %.lr.ph.i ], [ %89, %.noexc22 ]
-  %88 = getelementptr %class.QFileInfo, ptr %84, i64 %87
-  invoke void @_ZN9QFileInfoC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(8) %.010.i)
+85:                                               ; preds = %.noexc22, %.lr.ph.i
+  %86 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %90, %.noexc22 ]
+  %.010.i = phi ptr [ %.0, %.lr.ph.i ], [ %88, %.noexc22 ]
+  %87 = getelementptr %class.QFileInfo, ptr %83, i64 %86
+  invoke void @_ZN9QFileInfoC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(8) %.010.i)
           to label %.noexc22 unwind label %.loopexit
 
-.noexc22:                                         ; preds = %86
-  %89 = getelementptr i8, ptr %.010.i, i64 8
-  %90 = load i64, ptr %13, align 8
-  %91 = add i64 %90, 1
-  store i64 %91, ptr %13, align 8
-  %92 = icmp ult ptr %89, %83
-  br i1 %92, label %86, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit, !llvm.loop !177
+.noexc22:                                         ; preds = %85
+  %88 = getelementptr i8, ptr %.010.i, i64 8
+  %89 = load i64, ptr %13, align 8
+  %90 = add i64 %89, 1
+  store i64 %90, ptr %13, align 8
+  %91 = icmp ult ptr %88, %82
+  br i1 %91, label %85, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit, !llvm.loop !177
 
-_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit: ; preds = %.noexc22, %82
-  %93 = load ptr, ptr %4, align 8
-  %.not.i.i23 = icmp eq ptr %93, null
+_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit: ; preds = %.noexc22, %_ZN17QArrayDataPointerI9QFileInfoE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit
+  %92 = load ptr, ptr %4, align 8
+  %.not.i.i23 = icmp eq ptr %92, null
   br i1 %.not.i.i23, label %_ZN17QArrayDataPointerI9QFileInfoED2Ev.exit, label %_ZN17QArrayDataPointerI9QFileInfoE5derefEv.exit.i
 
 _ZN17QArrayDataPointerI9QFileInfoE5derefEv.exit.i: ; preds = %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit
-  %94 = atomicrmw sub ptr %93, i32 1 seq_cst, align 4
-  %.not.i24 = icmp eq i32 %94, 1
-  br i1 %.not.i24, label %95, label %_ZN17QArrayDataPointerI9QFileInfoED2Ev.exit
+  %93 = atomicrmw sub ptr %92, i32 1 seq_cst, align 4
+  %.not.i24 = icmp eq i32 %93, 1
+  br i1 %.not.i24, label %94, label %_ZN17QArrayDataPointerI9QFileInfoED2Ev.exit
 
-95:                                               ; preds = %_ZN17QArrayDataPointerI9QFileInfoE5derefEv.exit.i
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr %class.QFileInfo, ptr %97, i64 %99
-  %.idx.mask.i.i = and i64 %99, 2305843009213693951
+94:                                               ; preds = %_ZN17QArrayDataPointerI9QFileInfoE5derefEv.exit.i
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr %class.QFileInfo, ptr %96, i64 %98
+  %.idx.mask.i.i = and i64 %98, 2305843009213693951
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.mask.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %95, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i.i.i ], [ %97, %95 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %94, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i.i.i ], [ %96, %94 ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #22
-  %101 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %101, %100
+  %100 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %100, %99
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !97
 
-_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %95
-  %102 = load ptr, ptr %4, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %102, i64 noundef 8, i64 noundef 8) #22
+_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %94
+  %101 = load ptr, ptr %4, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %101, i64 noundef 8, i64 noundef 8) #22
   br label %_ZN17QArrayDataPointerI9QFileInfoED2Ev.exit
 
 _ZN17QArrayDataPointerI9QFileInfoED2Ev.exit:      ; preds = %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10destroyAllEv.exit.i, %_ZN17QArrayDataPointerI9QFileInfoE5derefEv.exit.i, %_ZN9QtPrivate16QGenericArrayOpsI9QFileInfoE10copyAppendEPKS1_S4_.exit, %3

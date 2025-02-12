@@ -1475,13 +1475,13 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h63768ac15d1be8d0E(p
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8, !nonnull !5, !align !32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.promoted19 = load i64, ptr %7, align 8
-  %.promoted20 = load i64, ptr %12, align 8
+  %.promoted20 = load i64, ptr %7, align 8
+  %.promoted21 = load i64, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %19, %3
-  %.0.sroa.speculated.i.i.i.i21 = phi i64 [ %.0.sroa.speculated.i.i.i.i, %19 ], [ %.promoted20, %3 ]
-  %14 = phi i64 [ %25, %19 ], [ %.promoted19, %3 ]
+  %.0.sroa.speculated.i.i.i.i22 = phi i64 [ %.0.sroa.speculated.i.i.i.i, %19 ], [ %.promoted21, %3 ]
+  %14 = phi i64 [ %25, %19 ], [ %.promoted20, %3 ]
   %15 = phi i64 [ %24, %19 ], [ %.promoted, %3 ]
   %.not = icmp eq i64 %5, %15
   br i1 %.not, label %.loopexit, label %16
@@ -1497,8 +1497,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h63768ac15d1be8d0E(p
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %15, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.46) #36, !noalias !191
   unreachable
 
-.loopexit:                                        ; preds = %13, %27
-  %.011 = phi ptr [ %28, %27 ], [ null, %13 ]
+.loopexit:                                        ; preds = %13, %26
+  %.011 = phi ptr [ %27, %26 ], [ null, %13 ]
   ret ptr %.011
 
 19:                                               ; preds = %16
@@ -1510,16 +1510,16 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h63768ac15d1be8d0E(p
   %23 = getelementptr inbounds i8, ptr %11, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %20, i64 %.0.sroa.speculated.i.i20.i, i1 false), !alias.scope !197, !noalias !201
   %24 = add i64 %.0.sroa.speculated.i.i20.i, %15
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i.i21, i64 %24)
+  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i.i22, i64 %24)
   store i64 %.0.sroa.speculated.i.i.i.i, ptr %12, align 8, !alias.scope !203, !noalias !204
   store i64 %24, ptr %6, align 8, !alias.scope !203, !noalias !204
   %25 = add i64 %.0.sroa.speculated.i.i20.i, %14
   store i64 %25, ptr %7, align 8, !alias.scope !183, !noalias !186
-  %26 = icmp eq i64 %.0.sroa.speculated.i.i20.i, 0
-  br i1 %26, label %27, label %13
+  %.not14 = icmp ugt i64 %10, %14
+  br i1 %.not14, label %13, label %26
 
-27:                                               ; preds = %19
-  %28 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.11, i64 noundef 21)
+26:                                               ; preds = %19
+  %27 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.11, i64 noundef 21)
   br label %.loopexit
 }
 
@@ -1536,13 +1536,13 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he6d9f7ddd3fa9b7dE(p
   %11 = load i64, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8, !nonnull !5, !align !32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.promoted19 = load i64, ptr %7, align 8
-  %.promoted20 = load i64, ptr %13, align 8
+  %.promoted20 = load i64, ptr %7, align 8
+  %.promoted21 = load i64, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %20, %3
-  %.0.sroa.speculated.i.i.i.i21 = phi i64 [ %.0.sroa.speculated.i.i.i.i, %20 ], [ %.promoted20, %3 ]
-  %15 = phi i64 [ %26, %20 ], [ %.promoted19, %3 ]
+  %.0.sroa.speculated.i.i.i.i22 = phi i64 [ %.0.sroa.speculated.i.i.i.i, %20 ], [ %.promoted21, %3 ]
+  %15 = phi i64 [ %26, %20 ], [ %.promoted20, %3 ]
   %16 = phi i64 [ %25, %20 ], [ %.promoted, %3 ]
   %.not = icmp eq i64 %5, %16
   br i1 %.not, label %.loopexit, label %17
@@ -1558,8 +1558,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he6d9f7ddd3fa9b7dE(p
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %16, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.46) #36, !noalias !213
   unreachable
 
-.loopexit:                                        ; preds = %14, %28
-  %.011 = phi ptr [ %29, %28 ], [ null, %14 ]
+.loopexit:                                        ; preds = %14, %27
+  %.011 = phi ptr [ %28, %27 ], [ null, %14 ]
   ret ptr %.011
 
 20:                                               ; preds = %17
@@ -1571,16 +1571,16 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he6d9f7ddd3fa9b7dE(p
   %24 = getelementptr inbounds i8, ptr %12, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %21, i64 %.0.sroa.speculated.i.i20.i, i1 false), !alias.scope !219, !noalias !223
   %25 = add i64 %.0.sroa.speculated.i.i20.i, %16
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i.i21, i64 %25)
+  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i.i.i22, i64 %25)
   store i64 %.0.sroa.speculated.i.i.i.i, ptr %13, align 8, !alias.scope !225, !noalias !226
   store i64 %25, ptr %6, align 8, !alias.scope !225, !noalias !226
   %26 = add i64 %.0.sroa.speculated.i.i20.i, %15
   store i64 %26, ptr %7, align 8, !alias.scope !205, !noalias !208
-  %27 = icmp eq i64 %.0.sroa.speculated.i.i20.i, 0
-  br i1 %27, label %28, label %14
+  %.not14 = icmp ugt i64 %11, %15
+  br i1 %.not14, label %14, label %27
 
-28:                                               ; preds = %20
-  %29 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.11, i64 noundef 21)
+27:                                               ; preds = %20
+  %28 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.11, i64 noundef 21)
   br label %.loopexit
 }
 

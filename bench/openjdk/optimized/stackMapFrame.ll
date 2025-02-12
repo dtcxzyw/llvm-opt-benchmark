@@ -171,76 +171,76 @@ define hidden void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 8
   %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %.preheader, label %_ZNK16VerificationType6equalsERKS_.exit.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph
 
-_ZNK16VerificationType6equalsERKS_.exit.lr.ph:    ; preds = %3
+.lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = ptrtoint ptr %1 to i64
-  br label %_ZNK16VerificationType6equalsERKS_.exit
+  br label %13
 
-.preheader:                                       ; preds = %19, %3
+.preheader:                                       ; preds = %20, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %_ZNK16VerificationType6equalsERKS_.exit9.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph14, label %._crit_edge
 
-_ZNK16VerificationType6equalsERKS_.exit9.lr.ph:   ; preds = %.preheader
+.lr.ph14:                                         ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = ptrtoint ptr %1 to i64
-  br label %_ZNK16VerificationType6equalsERKS_.exit9
+  br label %24
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %_ZNK16VerificationType6equalsERKS_.exit.lr.ph, %19
-  %13 = phi i16 [ %5, %_ZNK16VerificationType6equalsERKS_.exit.lr.ph ], [ %20, %19 ]
-  %indvars.iv = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit.lr.ph ], [ %indvars.iv.next, %19 ]
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds nuw %class.VerificationType, ptr %14, i64 %indvars.iv
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %7
-  br i1 %17, label %18, label %19
+13:                                               ; preds = %.lr.ph, %20
+  %14 = phi i16 [ %5, %.lr.ph ], [ %21, %20 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %class.VerificationType, ptr %15, i64 %indvars.iv
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, %7
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit
-  store ptr %2, ptr %15, align 8
+19:                                               ; preds = %13
+  store ptr %2, ptr %16, align 8
   %.pre = load i16, ptr %4, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit, %18
-  %20 = phi i16 [ %13, %_ZNK16VerificationType6equalsERKS_.exit ], [ %.pre, %18 ]
+20:                                               ; preds = %13, %19
+  %21 = phi i16 [ %14, %13 ], [ %.pre, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = zext i16 %20 to i64
-  %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %_ZNK16VerificationType6equalsERKS_.exit, label %.preheader, !llvm.loop !9
+  %22 = zext i16 %21 to i64
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
+  br i1 %23, label %13, label %.preheader, !llvm.loop !9
 
-_ZNK16VerificationType6equalsERKS_.exit9:         ; preds = %_ZNK16VerificationType6equalsERKS_.exit9.lr.ph, %29
-  %23 = phi i32 [ %9, %_ZNK16VerificationType6equalsERKS_.exit9.lr.ph ], [ %30, %29 ]
-  %indvars.iv16 = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit9.lr.ph ], [ %indvars.iv.next17, %29 ]
-  %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr inbounds nuw %class.VerificationType, ptr %24, i64 %indvars.iv16
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp eq i64 %26, %12
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %.lr.ph14, %31
+  %25 = phi i32 [ %9, %.lr.ph14 ], [ %32, %31 ]
+  %indvars.iv16 = phi i64 [ 0, %.lr.ph14 ], [ %indvars.iv.next17, %31 ]
+  %26 = load ptr, ptr %11, align 8
+  %27 = getelementptr inbounds nuw %class.VerificationType, ptr %26, i64 %indvars.iv16
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, %12
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit9
-  store ptr %2, ptr %25, align 8
+30:                                               ; preds = %24
+  store ptr %2, ptr %27, align 8
   %.pre19 = load i32, ptr %8, align 8
-  br label %29
+  br label %31
 
-29:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit9, %28
-  %30 = phi i32 [ %23, %_ZNK16VerificationType6equalsERKS_.exit9 ], [ %.pre19, %28 ]
+31:                                               ; preds = %24, %30
+  %32 = phi i32 [ %25, %24 ], [ %.pre19, %30 ]
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next17, %31
-  br i1 %32, label %_ZNK16VerificationType6equalsERKS_.exit9, label %._crit_edge, !llvm.loop !10
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next17, %33
+  br i1 %34, label %24, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %29, %.preheader
-  %33 = icmp eq ptr %1, inttoptr (i64 16776962 to ptr)
-  br i1 %33, label %34, label %36
+._crit_edge:                                      ; preds = %31, %.preheader
+  %35 = icmp eq ptr %1, inttoptr (i64 16776962 to ptr)
+  br i1 %35, label %36, label %38
 
-34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %35, align 4
-  br label %36
+36:                                               ; preds = %._crit_edge
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %37, align 4
+  br label %38
 
-36:                                               ; preds = %34, %._crit_edge
+38:                                               ; preds = %36, %._crit_edge
   ret void
 }
 

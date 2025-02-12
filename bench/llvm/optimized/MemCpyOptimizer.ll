@@ -12779,7 +12779,7 @@ _ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sma
   %86 = getelementptr inbounds nuw ptr, ptr %47, i64 %85
   %87 = sub nsw i64 0, %51
   %88 = getelementptr inbounds ptr, ptr %86, i64 %87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 8 %48, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 8 %48, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %82

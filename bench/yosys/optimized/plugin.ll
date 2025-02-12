@@ -373,12 +373,12 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %71 = load ptr, ptr %1, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
-  %.not26 = icmp eq ptr %71, %73
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq ptr %71, %73
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70, %77
-  %.sroa.013.027 = phi ptr [ %78, %77 ], [ %71, %70 ]
-  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.027)
+  %.sroa.013.024 = phi ptr [ %78, %77 ], [ %71, %70 ]
+  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.024)
           to label %75 unwind label %.loopexit
 
 75:                                               ; preds = %.lr.ph
@@ -386,7 +386,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.013.027, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.013.024, i64 32
   %.not = icmp eq ptr %78, %73
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

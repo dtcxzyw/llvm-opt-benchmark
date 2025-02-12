@@ -2752,18 +2752,11 @@ define void @_ZN2cv12GaussianBlurERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Siz
 
 _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %186
   %189 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #26
-          to label %.noexc296 unwind label %.loopexit.split-lp486.loopexit.split-lp
+          to label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i unwind label %.loopexit.split-lp486.loopexit.split-lp
 
-.noexc296:                                        ; preds = %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %.not12.i.i.i.i.i.i.i = icmp eq ptr %.val30.i.i, %.val31.i.i
-  br i1 %.not12.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %.noexc296
+_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE11_M_allocateEm.exit.i.i.i
   %190 = and i64 %184, 9223372036854775806
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %189, ptr readonly align 2 %.val30.i.i, i64 %190, i1 false)
-  br label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
-
-_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %.noexc296, %.lr.ph.i.i.i.i.preheader.i.i.i
   store ptr %189, ptr %36, align 8
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 %184
   store ptr %191, ptr %185, align 8
@@ -3519,18 +3512,11 @@ _ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EED2Ev.exit341: ; preds = %
 
 _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %464
   %467 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %462) #26
-          to label %.noexc391 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc391:                                        ; preds = %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %.not12.i.i.i.i.i.i.i383 = icmp eq ptr %.val30.i.i354, %.val31.i.i355
-  br i1 %.not12.i.i.i.i.i.i.i383, label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i384
-
-.lr.ph.i.i.i.i.preheader.i.i.i384:                ; preds = %.noexc391
+_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE11_M_allocateEm.exit.i.i.i
   %468 = and i64 %462, 9223372036854775804
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %467, ptr readonly align 4 %.val30.i.i354, i64 %468, i1 false)
-  br label %_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
-
-_ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; preds = %.noexc391, %.lr.ph.i.i.i.i.preheader.i.i.i384
   store ptr %467, ptr %53, align 8
   %469 = getelementptr inbounds nuw i8, ptr %467, i64 %462
   store ptr %469, ptr %463, align 8

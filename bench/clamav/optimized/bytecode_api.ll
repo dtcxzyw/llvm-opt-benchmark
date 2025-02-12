@@ -185,7 +185,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr noundef captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @cli_event_error_str(ptr noundef %8, ptr noundef nonnull @.str) #28
-  br label %39
+  br label %38
 
 9:                                                ; preds = %3
   %10 = icmp slt i32 %2, 0
@@ -196,7 +196,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr noundef captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   tail call void @cli_event_error_str(ptr noundef %13, ptr noundef nonnull @.str.2) #28
-  br label %39
+  br label %38
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -220,32 +220,32 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr noundef captures(none)
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = tail call ptr %27(ptr noundef nonnull %5, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #28
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %fmap_readn.exit.thread, label %31
+  br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
+
+fmap_readn.exit:                                  ; preds = %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = load i64, ptr %15, align 8, !tbaa !35
+  tail call void @cli_event_int(ptr noundef %30, i32 noundef 3, i64 noundef %31) #28
+  %32 = load ptr, ptr %29, align 8, !tbaa !34
+  tail call void @cli_event_fastdata(ptr noundef %32, i32 noundef 4, ptr noundef %1, i32 noundef %2) #28
+  %33 = load i64, ptr %15, align 8, !tbaa !35
+  %34 = add i64 %33, %spec.select.i
+  store i64 %34, ptr %15, align 8, !tbaa !35
+  %35 = trunc nuw nsw i64 %spec.select.i to i32
+  br label %38
 
 fmap_readn.exit.thread:                           ; preds = %24, %22, %14
   %.0.i28 = phi i32 [ -1, %24 ], [ -1, %22 ], [ 0, %14 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %2) #28
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %30 = load ptr, ptr %29, align 8, !tbaa !34
-  tail call void @cli_event_count(ptr noundef %30, i32 noundef 13) #28
-  br label %39
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %37 = load ptr, ptr %36, align 8, !tbaa !34
+  tail call void @cli_event_count(ptr noundef %37, i32 noundef 13) #28
+  br label %38
 
-31:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %33 = load ptr, ptr %32, align 8, !tbaa !34
-  %34 = load i64, ptr %15, align 8, !tbaa !35
-  tail call void @cli_event_int(ptr noundef %33, i32 noundef 3, i64 noundef %34) #28
-  %35 = load ptr, ptr %32, align 8, !tbaa !34
-  tail call void @cli_event_fastdata(ptr noundef %35, i32 noundef 4, ptr noundef %1, i32 noundef %2) #28
-  %36 = load i64, ptr %15, align 8, !tbaa !35
-  %37 = add i64 %36, %spec.select.i
-  store i64 %37, ptr %15, align 8, !tbaa !35
-  %38 = trunc nuw nsw i64 %spec.select.i to i32
-  br label %39
-
-39:                                               ; preds = %31, %fmap_readn.exit.thread, %11, %6
-  %.0 = phi i32 [ -1, %11 ], [ %.0.i28, %fmap_readn.exit.thread ], [ %38, %31 ], [ -1, %6 ]
+38:                                               ; preds = %fmap_readn.exit, %fmap_readn.exit.thread, %11, %6
+  %.0 = phi i32 [ -1, %11 ], [ %.0.i28, %fmap_readn.exit.thread ], [ %35, %fmap_readn.exit ], [ -1, %6 ]
   ret i32 %.0
 }
 

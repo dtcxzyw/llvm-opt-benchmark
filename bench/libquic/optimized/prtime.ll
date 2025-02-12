@@ -2186,14 +2186,14 @@ if.then1531:                                      ; preds = %if.end1529
 
 if.end1532:                                       ; preds = %if.then1531, %if.end1529
   %cmp1533.not = icmp eq i32 %hour.0.lcssa644, -1
-  br i1 %cmp1533.not, label %if.end1546, label %if.then1534
+  br i1 %cmp1533.not, label %if.then1537, label %if.then1534
 
 if.then1534:                                      ; preds = %if.end1532
   %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 12
   store i32 %hour.0.lcssa644, ptr %tm_hour, align 4
-  br label %if.end1546
+  br label %if.then1537
 
-if.end1546:                                       ; preds = %if.end1532, %if.then1534
+if.then1537:                                      ; preds = %if.end1532, %if.then1534
   %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 16
   store i32 %date.0.lcssa642, ptr %tm_mday, align 4
   %sub1541 = add nsw i32 %month.0.lcssa640, -8
@@ -2205,14 +2205,14 @@ if.end1546:                                       ; preds = %if.end1532, %if.the
   %cmp1547.not = icmp eq i32 %dotw.0.lcssa648, 0
   br i1 %cmp1547.not, label %if.end1551, label %if.then1548
 
-if.then1548:                                      ; preds = %if.end1546
+if.then1548:                                      ; preds = %if.then1537
   %164 = trunc nsw i32 %dotw.0.lcssa648 to i8
   %conv1550 = add nsw i8 %164, -1
   %tm_wday = getelementptr inbounds nuw i8, ptr %tm, i64 26
   store i8 %conv1550, ptr %tm_wday, align 2
   br label %if.end1551
 
-if.end1551:                                       ; preds = %if.then1548, %if.end1546
+if.end1551:                                       ; preds = %if.then1548, %if.then1537
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %tm, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
   %cmp1552 = icmp eq i32 %zone.0.lcssa641, 0
   %tobool1554 = icmp ne i32 %default_to_gmt, 0

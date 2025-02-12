@@ -8027,8 +8027,8 @@ default.unreachable344:                           ; preds = %268, %266
 47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   %.pre = load i64, ptr %22, align 8, !range !170, !alias.scope !1251
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1251)
   %48 = icmp eq i64 %.pre, -9223372036854775808
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1251)
   br i1 %48, label %49, label %"_ZN3png7decoder15Reader$LT$R$GT$18output_buffer_size17h04bd44bdaea42d11E.exit"
 
 49:                                               ; preds = %47

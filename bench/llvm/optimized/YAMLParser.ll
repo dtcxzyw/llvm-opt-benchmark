@@ -9039,17 +9039,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21findBlockScalarInden
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %14
 
-14:                                               ; preds = %79, %5
-  %.0.i.ph.i57 = phi ptr [ %.promoted, %5 ], [ %.0.i.ph.i, %79 ]
-  %.012 = phi ptr [ undef, %5 ], [ %.1133975, %79 ]
-  %.011 = phi i32 [ 0, %5 ], [ %.14077, %79 ]
+14:                                               ; preds = %73, %5
+  %.0.i.ph.i57 = phi ptr [ %.promoted, %5 ], [ %.0.i.ph.i, %73 ]
+  %.012 = phi ptr [ undef, %5 ], [ %.1133975, %73 ]
+  %.011 = phi i32 [ 0, %5 ], [ %.14077, %73 ]
   %.0.i.ph.i5766 = ptrtoint ptr %.0.i.ph.i57 to i64
   br label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit, %14
   %.012.us.i.i = phi ptr [ %spec.select.i23, %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit ], [ %.0.i.ph.i57, %14 ]
   %15 = icmp eq ptr %.012.us.i.i, %10
-  br i1 %15, label %66, label %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit
+  br i1 %15, label %62, label %_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit
 
 _ZN4llvm4yaml7Scanner12skip_s_spaceEPKc.exit:     ; preds = %.split.us.i.i
   %16 = load i8, ptr %.012.us.i.i, align 1, !tbaa !24
@@ -9105,12 +9105,12 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread29: ; preds = %33, %18
 
 38:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread29
   store i8 1, ptr %4, align 1, !tbaa !164
-  br label %84
+  br label %78
 
 39:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread29
   store i32 %23, ptr %1, align 4, !tbaa !136
   %40 = icmp ugt i32 %.011, %23
-  br i1 %40, label %41, label %84
+  br i1 %40, label %41, label %78
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
@@ -9154,86 +9154,70 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread29: ; preds = %33, %18
 _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %49, %53
   store i8 1, ptr %50, align 1, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
-  br label %84
+  br label %78
 
 .thread:                                          ; preds = %33, %28, %27
   switch i8 %24, label %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit [
-    i8 13, label %58
+    i8 13, label %.thread68
     i8 10, label %.thread79
   ]
 
-58:                                               ; preds = %.thread
+.thread68:                                        ; preds = %.thread
+  %58 = icmp ugt i32 %23, %.011
+  %spec.select3771 = select i1 %58, ptr %.012.us.i.i, ptr %.012
+  %spec.select203872 = tail call i32 @llvm.umax.i32(i32 %23, i32 %.011)
   %59 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 1
-  %.not.i21 = icmp eq ptr %59, %10
-  br i1 %.not.i21, label %.thread68, label %60
-
-60:                                               ; preds = %58
-  %61 = load i8, ptr %59, align 1, !tbaa !24
-  %62 = icmp eq i8 %61, 10
-  %63 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 2
-  %spec.select.i22 = select i1 %62, ptr %63, ptr %59
-  br label %.thread68
+  %.not.i.i = icmp eq ptr %59, %10
+  br i1 %.not.i.i, label %73, label %69
 
 .thread79:                                        ; preds = %.thread
-  %64 = icmp ugt i32 %23, %.011
-  %spec.select3782 = select i1 %64, ptr %.012.us.i.i, ptr %.012
+  %60 = icmp ugt i32 %23, %.011
+  %spec.select3782 = select i1 %60, ptr %.012.us.i.i, ptr %.012
   %spec.select203883 = tail call i32 @llvm.umax.i32(i32 %23, i32 %.011)
-  %65 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 1
-  br label %79
+  %61 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 1
+  br label %73
 
-66:                                               ; preds = %.split.us.i.i
+62:                                               ; preds = %.split.us.i.i
   %scevgep.le = getelementptr i8, ptr %.0.i.ph.i57, i64 %11
-  %67 = sub i64 0, %.0.i.ph.i5766
-  %scevgep67.le = getelementptr i8, ptr %scevgep.le, i64 %67
-  %68 = ptrtoint ptr %scevgep67.le to i64
-  %69 = sub i64 %68, %.0.i.ph.i5766
-  %70 = load i32, ptr %12, align 4, !tbaa !117
-  %71 = trunc i64 %69 to i32
-  %72 = add i32 %70, %71
-  store i32 %72, ptr %12, align 4, !tbaa !117
+  %63 = sub i64 0, %.0.i.ph.i5766
+  %scevgep67.le = getelementptr i8, ptr %scevgep.le, i64 %63
+  %64 = ptrtoint ptr %scevgep67.le to i64
+  %65 = sub i64 %64, %.0.i.ph.i5766
+  %66 = load i32, ptr %12, align 4, !tbaa !117
+  %67 = trunc i64 %65 to i32
+  %68 = add i32 %66, %67
+  store i32 %68, ptr %12, align 4, !tbaa !117
   store ptr %scevgep67.le, ptr %8, align 8, !tbaa !113
   store i8 1, ptr %4, align 1, !tbaa !164
-  br label %84
-
-.thread68:                                        ; preds = %60, %58
-  %.0.i.ph.ph = phi ptr [ %10, %58 ], [ %spec.select.i22, %60 ]
-  %.not183670 = icmp eq ptr %.0.i.ph.ph, %.012.us.i.i
-  %73 = icmp ugt i32 %23, %.011
-  %spec.select3771 = select i1 %73, ptr %.012.us.i.i, ptr %.012
-  %spec.select203872 = tail call i32 @llvm.umax.i32(i32 %23, i32 %.011)
-  %.1133973 = select i1 %.not183670, ptr %.012, ptr %spec.select3771
-  %.14074 = select i1 %.not183670, i32 %.011, i32 %spec.select203872
-  %74 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 1
-  %.not.i.i = icmp eq ptr %74, %10
-  br i1 %.not.i.i, label %79, label %75
+  br label %78
 
 _ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit: ; preds = %.thread
   store i8 1, ptr %4, align 1, !tbaa !164
-  br label %84
+  br label %78
 
-75:                                               ; preds = %.thread68
-  %76 = load i8, ptr %74, align 1, !tbaa !24
-  %77 = icmp eq i8 %76, 10
-  %78 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 2
-  %spec.select.i.i = select i1 %77, ptr %78, ptr %74
-  br label %79
+69:                                               ; preds = %.thread68
+  %70 = load i8, ptr %59, align 1, !tbaa !24
+  %71 = icmp eq i8 %70, 10
+  %72 = getelementptr inbounds nuw i8, ptr %.012.us.i.i, i64 2
+  %spec.select.i.i = select i1 %71, ptr %72, ptr %59
+  br label %73
 
-79:                                               ; preds = %.thread68, %75, %.thread79
-  %.14077 = phi i32 [ %.14074, %75 ], [ %.14074, %.thread68 ], [ %spec.select203883, %.thread79 ]
-  %.1133975 = phi ptr [ %.1133973, %75 ], [ %.1133973, %.thread68 ], [ %spec.select3782, %.thread79 ]
-  %.0.i.ph.i = phi ptr [ %spec.select.i.i, %75 ], [ %74, %.thread68 ], [ %65, %.thread79 ]
+73:                                               ; preds = %.thread68, %69, %.thread79
+  %.14077 = phi i32 [ %spec.select203872, %69 ], [ %spec.select203872, %.thread68 ], [ %spec.select203883, %.thread79 ]
+  %.1133975 = phi ptr [ %spec.select3771, %69 ], [ %spec.select3771, %.thread68 ], [ %spec.select3782, %.thread79 ]
+  %.0.i.ph.i = phi ptr [ %spec.select.i.i, %69 ], [ %59, %.thread68 ], [ %61, %.thread79 ]
   store i32 0, ptr %12, align 4, !tbaa !117
-  %80 = load i32, ptr %13, align 8, !tbaa !118
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %13, align 8, !tbaa !118
+  %74 = load i32, ptr %13, align 8, !tbaa !118
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %13, align 8, !tbaa !118
   store ptr %.0.i.ph.i, ptr %8, align 8, !tbaa !113
-  %82 = load i32, ptr %3, align 4, !tbaa !136
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %3, align 4, !tbaa !136
+  %76 = load i32, ptr %3, align 4, !tbaa !136
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %3, align 4, !tbaa !136
   br label %14, !llvm.loop !165
 
-84:                                               ; preds = %39, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit, %66, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit ], [ true, %66 ], [ true, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit ], [ true, %39 ]
+78:                                               ; preds = %39, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit, %62, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit, %38
+  %.0 = phi i1 [ true, %38 ], [ false, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit ], [ true, %62 ], [ true, %_ZN4llvm4yaml7Scanner25consumeLineBreakIfPresentEv.exit ], [ true, %39 ]
   ret i1 %.0
 }
 
@@ -10767,8 +10751,8 @@ define dso_local void @_ZNK4llvm4yaml4Node14getVerbatimTagB5cxx11Ev(ptr dead_on_
   ]
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %2
-  %lhsc192 = load i8, ptr %.sroa.0.0.copyload.i, align 1
-  %.not = icmp eq i8 %lhsc192, 33
+  %lhsc191 = load i8, ptr %.sroa.0.0.copyload.i, align 1
+  %.not = icmp eq i8 %lhsc191, 33
   br i1 %.not, label %302, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %2, %_ZN4llvmneENS_9StringRefES0_.exit
@@ -10852,8 +10836,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %37
   br i1 %.not.not.i.i.i.i.i, label %.thread.i.i.i.i.i, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.not195 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, 1
-  br i1 %.not195, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread.i.i, label %_ZNKSt3mapIN4llvm9StringRefES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit
+  %.not193 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, 1
+  br i1 %.not193, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread.i.i, label %_ZNKSt3mapIN4llvm9StringRefES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %39 = icmp ugt i8 %rhsc.fr, 33
@@ -11365,8 +11349,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i98: ; preds = %200
   br i1 %.not.not.i.i.i.i.i101, label %.thread.i.i.i.i.i105, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i102
 
 .thread.i.i.i.i.i105:                             ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i98, %200
-  %.not194 = icmp ult i64 %.sroa.speculated.i, %.sroa.2.0.copyload.i.i.i96
-  br i1 %.not194, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %205
+  %.not189 = icmp ult i64 %.sroa.speculated.i, %.sroa.2.0.copyload.i.i.i96
+  br i1 %.not189, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %205
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i102: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i98
   %204 = icmp sgt i32 %.fr.i.i.i.i.i100, -1
@@ -16384,7 +16368,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i45:  ; preds = %46, %37
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i45
   %49 = load ptr, ptr %0, align 8, !tbaa !78
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.pre9.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %40, i64 %42, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %40, i64 %42, i1 false)
   %.pre.i46 = load i64, ptr %9, align 8, !tbaa !80
   br label %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
 
@@ -16399,7 +16383,7 @@ _ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds
   %54 = sub i64 %41, %36
   %55 = sub i64 0, %54
   %56 = getelementptr inbounds i8, ptr %35, i64 %55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr align 1 %34, i64 %54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr align 1 %34, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit, %53
@@ -16419,7 +16403,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 %59
   %61 = sub i64 0, %gepdiff
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %34, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %34, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58

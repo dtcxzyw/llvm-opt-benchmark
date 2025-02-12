@@ -2632,23 +2632,17 @@ call5.i.i.i.i2.i.i.noexc302:                      ; preds = %if.then.i.i.i.i.i29
   store ptr null, ptr %call5.i.i.i.i2.i.i303, align 8
   %incdec.ptr.i.i.i.i.i295 = getelementptr i8, ptr %call5.i.i.i.i2.i.i303, i64 8
   %cmp.i.i.i.i.i.i.i296 = icmp eq i64 %sub.ptr.sub.i287, 32
-  br i1 %cmp.i.i.i.i.i.i.i296, label %invoke.cont229.thread549, label %invoke.cont229
-
-invoke.cont229.thread549:                         ; preds = %call5.i.i.i.i2.i.i.noexc302
-  %_M_finish.i.i7.i299551 = getelementptr inbounds nuw i8, ptr %names, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i295, ptr %_M_finish.i.i7.i299551, align 8
-  br label %for.body234.preheader
+  br i1 %cmp.i.i.i.i.i.i.i296, label %for.body234.preheader, label %invoke.cont229
 
 invoke.cont229:                                   ; preds = %call5.i.i.i.i2.i.i.noexc302
   %128 = add nsw i64 %mul.i.i.i.i.i.i292, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i295, i8 0, i64 %128, i1 false)
-  %_M_finish.i.i7.i299 = getelementptr inbounds nuw i8, ptr %names, i64 8
-  store ptr %add.ptr.i.i.i293, ptr %_M_finish.i.i7.i299, align 8
-  %cmp233514.not = icmp eq ptr %126, %127
-  br i1 %cmp233514.not, label %for.end242, label %for.body234.preheader
+  br label %for.body234.preheader
 
-for.body234.preheader:                            ; preds = %invoke.cont229.thread549, %invoke.cont229
-  %_M_finish.i.i7.i299553 = phi ptr [ %_M_finish.i.i7.i299551, %invoke.cont229.thread549 ], [ %_M_finish.i.i7.i299, %invoke.cont229 ]
+for.body234.preheader:                            ; preds = %call5.i.i.i.i2.i.i.noexc302, %invoke.cont229
+  %add.ptr.i.i.i293.sink = phi ptr [ %add.ptr.i.i.i293, %invoke.cont229 ], [ %incdec.ptr.i.i.i.i.i295, %call5.i.i.i.i2.i.i.noexc302 ]
+  %_M_finish.i.i7.i299 = getelementptr inbounds nuw i8, ptr %names, i64 8
+  store ptr %add.ptr.i.i.i293.sink, ptr %_M_finish.i.i7.i299, align 8
   br label %for.body234
 
 for.body234:                                      ; preds = %for.body234.preheader, %for.body234
@@ -2662,7 +2656,7 @@ for.body234:                                      ; preds = %for.body234.prehead
   %add.ptr.i310 = getelementptr inbounds ptr, ptr %129, i64 %i230.0515
   store ptr %call238, ptr %add.ptr.i310, align 8
   %inc241 = add nuw i64 %i230.0515, 1
-  %132 = load ptr, ptr %_M_finish.i.i7.i299553, align 8
+  %132 = load ptr, ptr %_M_finish.i.i7.i299, align 8
   %133 = load ptr, ptr %names, align 8
   %sub.ptr.lhs.cast.i305 = ptrtoint ptr %132 to i64
   %sub.ptr.rhs.cast.i306 = ptrtoint ptr %133 to i64
@@ -2680,9 +2674,9 @@ for.end242.loopexit:                              ; preds = %for.body234
   %.pre535 = load ptr, ptr %_Data, align 8
   br label %for.end242
 
-for.end242:                                       ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %for.end242.loopexit, %invoke.cont229
-  %135 = phi ptr [ %.lcssa423, %invoke.cont229 ], [ %.pre535, %for.end242.loopexit ], [ %.lcssa423, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %.lcssa = phi ptr [ %call5.i.i.i.i2.i.i303, %invoke.cont229 ], [ %133, %for.end242.loopexit ], [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+for.end242:                                       ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %for.end242.loopexit
+  %135 = phi ptr [ %.pre535, %for.end242.loopexit ], [ %.lcssa423, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.lcssa = phi ptr [ %133, %for.end242.loopexit ], [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %_zback244 = getelementptr inbounds nuw i8, ptr %135, i64 96
   %136 = load i8, ptr %_zback244, align 8
   %tobool245 = trunc i8 %136 to i1

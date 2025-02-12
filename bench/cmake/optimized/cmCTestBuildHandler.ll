@@ -25014,7 +25014,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit: ; preds = %43, %47
   %51 = sub i64 %46, %40
   %52 = sub i64 0, %51
   %53 = getelementptr inbounds i8, ptr %35, i64 %52
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %53, ptr align 1 %1, i64 %51, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr align 1 %1, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit, %50

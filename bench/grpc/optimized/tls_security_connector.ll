@@ -3371,15 +3371,14 @@ if.then128:                                       ; preds = %if.end124
   %21 = icmp ugt i64 %sub.ptr.div.i, 2305843009213693951
   %22 = select i1 %21, i64 -1, i64 %sub.ptr.sub.i
   %call133 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #20
-          to label %invoke.cont132 unwind label %lpad.loopexit.split-lp
+          to label %for.body143.preheader unwind label %lpad.loopexit.split-lp
 
-invoke.cont132:                                   ; preds = %if.then128
+for.body143.preheader:                            ; preds = %if.then128
   store ptr %call133, ptr %san_names, align 8
-  %cmp142381.not = icmp eq ptr %uri_names.sroa.8.0.lcssa434450476484, %uri_names.sroa.0.0.lcssa436448478482
-  br i1 %cmp142381.not, label %if.end156, label %for.body143
+  br label %for.body143
 
-for.body143:                                      ; preds = %invoke.cont132, %for.body143
-  %i137.0382 = phi i64 [ %inc150, %for.body143 ], [ 0, %invoke.cont132 ]
+for.body143:                                      ; preds = %for.body143.preheader, %for.body143
+  %i137.0382 = phi i64 [ %inc150, %for.body143 ], [ 0, %for.body143.preheader ]
   %add.ptr.i = getelementptr inbounds ptr, ptr %uri_names.sroa.0.0.lcssa436448478482, i64 %i137.0382
   %23 = load ptr, ptr %add.ptr.i, align 8
   %24 = load ptr, ptr %san_names, align 8
@@ -3394,7 +3393,7 @@ if.else152:                                       ; preds = %if.end124
   store ptr null, ptr %san_names, align 8
   br label %if.end156
 
-if.end156:                                        ; preds = %for.body143, %invoke.cont132, %if.else152
+if.end156:                                        ; preds = %for.body143, %if.else152
   %sub.ptr.lhs.cast.i211 = ptrtoint ptr %dns_names.sroa.8.0.lcssa422462464496 to i64
   %sub.ptr.rhs.cast.i212 = ptrtoint ptr %dns_names.sroa.0.0.lcssa432452474486 to i64
   %sub.ptr.sub.i213 = sub i64 %sub.ptr.lhs.cast.i211, %sub.ptr.rhs.cast.i212
@@ -3408,16 +3407,15 @@ if.then161:                                       ; preds = %if.end156
   %26 = icmp ugt i64 %sub.ptr.div.i214, 2305843009213693951
   %27 = select i1 %26, i64 -1, i64 %sub.ptr.sub.i213
   %call166 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %27) #20
-          to label %invoke.cont165 unwind label %lpad.loopexit.split-lp
+          to label %for.body176.preheader unwind label %lpad.loopexit.split-lp
 
-invoke.cont165:                                   ; preds = %if.then161
+for.body176.preheader:                            ; preds = %if.then161
   %dns_names169 = getelementptr inbounds nuw i8, ptr %request, i64 32
   store ptr %call166, ptr %dns_names169, align 8
-  %cmp175383.not = icmp eq ptr %dns_names.sroa.8.0.lcssa422462464496, %dns_names.sroa.0.0.lcssa432452474486
-  br i1 %cmp175383.not, label %if.end189, label %for.body176
+  br label %for.body176
 
-for.body176:                                      ; preds = %invoke.cont165, %for.body176
-  %i170.0384 = phi i64 [ %inc183, %for.body176 ], [ 0, %invoke.cont165 ]
+for.body176:                                      ; preds = %for.body176.preheader, %for.body176
+  %i170.0384 = phi i64 [ %inc183, %for.body176 ], [ 0, %for.body176.preheader ]
   %add.ptr.i217 = getelementptr inbounds ptr, ptr %dns_names.sroa.0.0.lcssa432452474486, i64 %i170.0384
   %28 = load ptr, ptr %add.ptr.i217, align 8
   %29 = load ptr, ptr %dns_names169, align 8
@@ -3433,7 +3431,7 @@ if.else185:                                       ; preds = %if.end156
   store ptr null, ptr %dns_names188, align 8
   br label %if.end189
 
-if.end189:                                        ; preds = %for.body176, %invoke.cont165, %if.else185
+if.end189:                                        ; preds = %for.body176, %if.else185
   %sub.ptr.lhs.cast.i219 = ptrtoint ptr %email_names.sroa.8.0.lcssa426458468492 to i64
   %sub.ptr.rhs.cast.i220 = ptrtoint ptr %email_names.sroa.0.0.lcssa424460466494 to i64
   %sub.ptr.sub.i221 = sub i64 %sub.ptr.lhs.cast.i219, %sub.ptr.rhs.cast.i220
@@ -3447,16 +3445,15 @@ if.then194:                                       ; preds = %if.end189
   %31 = icmp ugt i64 %sub.ptr.div.i222, 2305843009213693951
   %32 = select i1 %31, i64 -1, i64 %sub.ptr.sub.i221
   %call199 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #20
-          to label %invoke.cont198 unwind label %lpad.loopexit.split-lp
+          to label %for.body209.preheader unwind label %lpad.loopexit.split-lp
 
-invoke.cont198:                                   ; preds = %if.then194
+for.body209.preheader:                            ; preds = %if.then194
   %email_names202 = getelementptr inbounds nuw i8, ptr %request, i64 48
   store ptr %call199, ptr %email_names202, align 8
-  %cmp208385.not = icmp eq ptr %email_names.sroa.8.0.lcssa426458468492, %email_names.sroa.0.0.lcssa424460466494
-  br i1 %cmp208385.not, label %if.end222, label %for.body209
+  br label %for.body209
 
-for.body209:                                      ; preds = %invoke.cont198, %for.body209
-  %i203.0386 = phi i64 [ %inc216, %for.body209 ], [ 0, %invoke.cont198 ]
+for.body209:                                      ; preds = %for.body209.preheader, %for.body209
+  %i203.0386 = phi i64 [ %inc216, %for.body209 ], [ 0, %for.body209.preheader ]
   %add.ptr.i225 = getelementptr inbounds ptr, ptr %email_names.sroa.0.0.lcssa424460466494, i64 %i203.0386
   %33 = load ptr, ptr %add.ptr.i225, align 8
   %34 = load ptr, ptr %email_names202, align 8
@@ -3472,7 +3469,7 @@ if.else218:                                       ; preds = %if.end189
   store ptr null, ptr %email_names221, align 8
   br label %if.end222
 
-if.end222:                                        ; preds = %for.body209, %invoke.cont198, %if.else218
+if.end222:                                        ; preds = %for.body209, %if.else218
   %sub.ptr.lhs.cast.i227 = ptrtoint ptr %ip_names.sroa.8.0.lcssa430454472488 to i64
   %sub.ptr.rhs.cast.i228 = ptrtoint ptr %ip_names.sroa.0.0.lcssa428456470490 to i64
   %sub.ptr.sub.i229 = sub i64 %sub.ptr.lhs.cast.i227, %sub.ptr.rhs.cast.i228
@@ -3480,22 +3477,21 @@ if.end222:                                        ; preds = %for.body209, %invok
   %ip_names_size = getelementptr inbounds nuw i8, ptr %request, i64 72
   store i64 %sub.ptr.div.i230, ptr %ip_names_size, align 8
   %cmp.i.i232 = icmp eq ptr %ip_names.sroa.0.0.lcssa428456470490, %ip_names.sroa.8.0.lcssa430454472488
-  br i1 %cmp.i.i232, label %if.else251, label %if.then227
+  br i1 %cmp.i.i232, label %if.end255, label %if.then227
 
 if.then227:                                       ; preds = %if.end222
   %36 = icmp ugt i64 %sub.ptr.div.i230, 2305843009213693951
   %37 = select i1 %36, i64 -1, i64 %sub.ptr.sub.i229
   %call232 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %37) #20
-          to label %invoke.cont231 unwind label %lpad.loopexit.split-lp
+          to label %for.body242.preheader unwind label %lpad.loopexit.split-lp
 
-invoke.cont231:                                   ; preds = %if.then227
+for.body242.preheader:                            ; preds = %if.then227
   %ip_names235 = getelementptr inbounds nuw i8, ptr %request, i64 64
   store ptr %call232, ptr %ip_names235, align 8
-  %cmp241387.not = icmp eq ptr %ip_names.sroa.8.0.lcssa430454472488, %ip_names.sroa.0.0.lcssa428456470490
-  br i1 %cmp241387.not, label %if.end255, label %for.body242
+  br label %for.body242
 
-for.body242:                                      ; preds = %invoke.cont231, %for.body242
-  %i236.0388 = phi i64 [ %inc249, %for.body242 ], [ 0, %invoke.cont231 ]
+for.body242:                                      ; preds = %for.body242.preheader, %for.body242
+  %i236.0388 = phi i64 [ %inc249, %for.body242 ], [ 0, %for.body242.preheader ]
   %add.ptr.i233 = getelementptr inbounds ptr, ptr %ip_names.sroa.0.0.lcssa428456470490, i64 %i236.0388
   %38 = load ptr, ptr %add.ptr.i233, align 8
   %39 = load ptr, ptr %ip_names235, align 8
@@ -3506,12 +3502,9 @@ for.body242:                                      ; preds = %invoke.cont231, %fo
   %cmp241 = icmp ult i64 %inc249, %40
   br i1 %cmp241, label %for.body242, label %if.then.i.i.i235, !llvm.loop !23
 
-if.else251:                                       ; preds = %if.end222
+if.end255:                                        ; preds = %if.end222
   %ip_names254 = getelementptr inbounds nuw i8, ptr %request, i64 64
   store ptr null, ptr %ip_names254, align 8
-  br label %if.end255
-
-if.end255:                                        ; preds = %invoke.cont231, %if.else251
   %tobool.not.i.i.i234 = icmp eq ptr %ip_names.sroa.0.0.lcssa428456470490, null
   br i1 %tobool.not.i.i.i234, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit236, label %if.then.i.i.i235
 

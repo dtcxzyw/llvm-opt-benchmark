@@ -3062,7 +3062,7 @@ sw.default.i141:                                  ; preds = %if.then29.i
   %shr14.i148 = lshr i64 %rv7.i122.0.copyload, %mul13.i147
   br label %cond.true.i224
 
-cond.true.i224:                                   ; preds = %sw.bb.i139, %sw.bb1.i136, %sw.bb3.i126, %sw.default.i141
+cond.true.i224:                                   ; preds = %sw.default.i141, %sw.bb3.i126, %sw.bb1.i136, %sw.bb.i139
   %retval.i117.0 = phi i64 [ %shr14.i148, %sw.default.i141 ], [ %conv6.i135, %sw.bb3.i126 ], [ %conv2.i138, %sw.bb1.i136 ], [ %conv.i140, %sw.bb.i139 ]
   %sh_prom.i.i = zext nneg i32 %sub.i65 to i64
   %notmask853 = shl nsw i64 -1, %sh_prom.i.i
@@ -3080,8 +3080,8 @@ if.then3.i214:                                    ; preds = %cond.true.i224
   br label %get_flat_masks.exit227
 
 get_flat_masks.exit227:                           ; preds = %cond.true.i224, %if.then3.i214
-  %retval.i197.0 = phi i64 [ %and.i220, %if.then3.i214 ], [ %sub.i237, %cond.true.i224 ]
-  %and37.i = and i64 %retval.i197.0, %retval.i117.0
+  %mask.i202.0 = phi i64 [ %and.i220, %if.then3.i214 ], [ %sub.i237, %cond.true.i224 ]
+  %and37.i = and i64 %mask.i202.0, %retval.i117.0
   %tobool38.i.not = icmp eq i64 %and37.i, 0
   br i1 %tobool38.i.not, label %if.end, label %if.then39.i
 
@@ -6988,7 +6988,7 @@ sw.default.i103:                                  ; preds = %if.then29.i
   %shr14.i110 = lshr i64 %rv7.i84.0.copyload, %mul13.i109
   br label %cond.true.i186
 
-cond.true.i186:                                   ; preds = %sw.bb.i101, %sw.bb1.i98, %sw.bb3.i88, %sw.default.i103
+cond.true.i186:                                   ; preds = %sw.default.i103, %sw.bb3.i88, %sw.bb1.i98, %sw.bb.i101
   %retval.i79.0 = phi i64 [ %shr14.i110, %sw.default.i103 ], [ %conv6.i97, %sw.bb3.i88 ], [ %conv2.i100, %sw.bb1.i98 ], [ %conv.i102, %sw.bb.i101 ]
   %sh_prom.i.i = zext nneg i32 %sub.i27 to i64
   %notmask816 = shl nsw i64 -1, %sh_prom.i.i
@@ -7006,8 +7006,8 @@ if.then3.i176:                                    ; preds = %cond.true.i186
   br label %get_flat_masks.exit189
 
 get_flat_masks.exit189:                           ; preds = %cond.true.i186, %if.then3.i176
-  %retval.i159.0 = phi i64 [ %and.i182, %if.then3.i176 ], [ %sub.i199, %cond.true.i186 ]
-  %and37.i = and i64 %retval.i159.0, %retval.i79.0
+  %mask.i164.0 = phi i64 [ %and.i182, %if.then3.i176 ], [ %sub.i199, %cond.true.i186 ]
+  %and37.i = and i64 %mask.i164.0, %retval.i79.0
   %tobool38.i.not = icmp eq i64 %and37.i, 0
   br i1 %tobool38.i.not, label %if.end, label %if.then39.i
 

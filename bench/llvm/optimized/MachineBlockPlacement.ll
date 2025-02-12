@@ -19432,7 +19432,7 @@ _ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0
   %54 = sub i64 %52, %53
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %54, -24
   %55 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr align 8 %5, i64 %54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %5, i64 %54, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
 
 56:                                               ; preds = %33
@@ -19551,7 +19551,7 @@ _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.
   %98 = sub i64 %93, %97
   %.neg.i.i.i.i.i.i = sdiv exact i64 %98, -24
   %99 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %99, ptr align 8 %.0110, i64 %98, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %.0110, i64 %98, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit.i: ; preds = %96, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit.i98
@@ -19600,7 +19600,7 @@ _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.
 112:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i
   %.neg.i.i.i.i.i44.i = sdiv exact i64 %107, -24
   %113 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.neg.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %113, ptr align 8 %5, i64 %107, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %113, ptr align 8 %5, i64 %107, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i: ; preds = %112, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i

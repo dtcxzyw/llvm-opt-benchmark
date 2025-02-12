@@ -5381,8 +5381,8 @@ _ZN12_GLOBAL__N_116X86PreTileConfig14isLoopBackEdgeEPN4llvm17MachineBasicBlockES
   br i1 %.not.i.i.i770, label %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread, label %.lr.ph.i.i.i766, !llvm.loop !340
 
 _ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5vfindERKS2_.exit.i.i771: ; preds = %.lr.ph.i.i.i766
-  %.not2119 = icmp eq ptr %.099.i.i.i767, %2010
-  br i1 %.not2119, label %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread, label %.loopexit
+  %.not2118 = icmp eq ptr %.099.i.i.i767, %2010
+  br i1 %.not2118, label %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread, label %.loopexit
 
 2017:                                             ; preds = %2001
   %.val10.i.i = load ptr, ptr %1970, align 8
@@ -5434,9 +5434,7 @@ _ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit: ; p
   %2030 = icmp eq ptr %.val10.i.i, %.val4.i.i.i.i
   %2031 = icmp ult i64 %.val11.i.i, %.val5.i.i.i.i
   %spec.select.i.i.i.i.i.i761 = select i1 %2030, i1 %2031, i1 false
-  %.not21172118 = icmp eq ptr %.19.i.i.i.i.i, %1947
-  %.not2117 = select i1 %spec.select.i.i.i.i.i.i761, i1 true, i1 %.not21172118
-  br i1 %.not2117, label %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread, label %.loopexit
+  br i1 %spec.select.i.i.i.i.i.i761, label %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread, label %.loopexit
 
 _ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit.thread: ; preds = %2015, %2008, %2026, %2017, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_15MIRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i.i, %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5vfindERKS2_.exit.i.i771, %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit
   %.val5.i7741906 = phi ptr [ %.val9.i.i, %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5vfindERKS2_.exit.i.i771 ], [ %.val10.i.i, %_ZNK4llvm8SmallSetIN12_GLOBAL__N_15MIRefELj8ESt4lessIS2_EE5countERKS2_.exit ], [ %.val10.i.i, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_15MIRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i.i ], [ %.val10.i.i, %2017 ], [ %.val10.i.i, %2026 ], [ %.val9.i.i, %2008 ], [ %.val9.i.i, %2015 ]
@@ -8236,7 +8234,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15MIRefELb1EE28reserveForParamAn
   %96 = sub i64 %94, %95
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %96, -24
   %97 = getelementptr inbounds %"struct.(anonymous namespace)::MIRef", ptr %91, i64 %.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %97, ptr nonnull align 8 %86, i64 %96, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %86, i64 %96, i1 false)
   %.pre.i.i = load i32, ptr %46, align 8, !tbaa !246
   %.val16.pre.i.i = load ptr, ptr %45, align 8, !tbaa !41
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_15MIRefES2_ET0_T_S4_S3_.exit.i.i

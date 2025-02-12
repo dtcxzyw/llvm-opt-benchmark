@@ -2968,8 +2968,8 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 
 46:                                               ; preds = %.lr.ph114
   %47 = add nuw i64 %.070112, 1
-  %exitcond137.not = icmp eq i64 %47, %18
-  br i1 %exitcond137.not, label %.thread, label %.lr.ph114, !llvm.loop !44
+  %exitcond136.not = icmp eq i64 %47, %18
+  br i1 %exitcond136.not, label %.thread, label %.lr.ph114, !llvm.loop !44
 
 .lr.ph114:                                        ; preds = %._crit_edge, %46
   %.070112 = phi i64 [ %47, %46 ], [ 2, %._crit_edge ]

@@ -2556,9 +2556,9 @@ define hidden void @zif_min(ptr noundef %0, ptr noundef writeonly captures(none)
   br i1 %.not186, label %42, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %32
-  %.sink233 = phi i32 [ %36, %32 ], [ %27, %29 ]
+  %.sink232 = phi i32 [ %36, %32 ], [ %27, %29 ]
   %.sink.in = phi ptr [ %34, %32 ], [ %24, %29 ]
-  %38 = and i32 %.sink233, 65280
+  %38 = and i32 %.sink232, 65280
   %39 = icmp ne i32 %38, 0
   tail call void @llvm.assume(i1 %39)
   %.sink = load ptr, ptr %.sink.in, align 8
@@ -2967,9 +2967,9 @@ define hidden void @zif_max(ptr noundef %0, ptr noundef writeonly captures(none)
   br i1 %.not186, label %42, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %32
-  %.sink233 = phi i32 [ %36, %32 ], [ %27, %29 ]
+  %.sink232 = phi i32 [ %36, %32 ], [ %27, %29 ]
   %.sink.in = phi ptr [ %34, %32 ], [ %24, %29 ]
-  %38 = and i32 %.sink233, 65280
+  %38 = and i32 %.sink232, 65280
   %39 = icmp ne i32 %38, 0
   tail call void @llvm.assume(i1 %39)
   %.sink = load ptr, ptr %.sink.in, align 8

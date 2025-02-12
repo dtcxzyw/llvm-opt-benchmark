@@ -2305,13 +2305,13 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %headers, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %headers, align 8
-  %cmp21.not = icmp eq ptr %1, %2
-  br i1 %cmp21.not, label %for.end, label %for.body
+  %cmp20.not = icmp eq ptr %1, %2
+  br i1 %cmp20.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %invoke.cont15
   %3 = phi ptr [ %12, %invoke.cont15 ], [ %2, %entry ]
-  %i.022 = phi i64 [ %inc, %invoke.cont15 ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds %"class.Imf_3_2::Header", ptr %3, i64 %i.022
+  %i.021 = phi i64 [ %inc, %invoke.cont15 ], [ 0, %entry ]
+  %add.ptr.i = getelementptr inbounds %"class.Imf_3_2::Header", ptr %3, i64 %i.021
   %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i)
           to label %invoke.cont unwind label %lpad.loopexit
 
@@ -2374,12 +2374,12 @@ invoke.cont11:                                    ; preds = %if.then
           to label %unreachable unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %for.body, %if.end, %invoke.cont13
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont11
-  %lpad.loopexit.split-lp14 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -2391,7 +2391,7 @@ lpad10:                                           ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i, %invoke.cont4
   %10 = load ptr, ptr %headers, align 8
-  %add.ptr.i7 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %10, i64 %i.022
+  %add.ptr.i7 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %10, i64 %i.021
   %call14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i7)
           to label %invoke.cont13 unwind label %lpad.loopexit
 
@@ -2400,7 +2400,7 @@ invoke.cont13:                                    ; preds = %if.end
           to label %invoke.cont15 unwind label %lpad.loopexit
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %inc = add nuw i64 %i.022, 1
+  %inc = add nuw i64 %i.021, 1
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %headers, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
@@ -2430,7 +2430,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad10
-  %.pn = phi { ptr, i32 } [ %9, %lpad10 ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad10 ], [ %lpad.loopexit12, %lpad.loopexit ], [ %lpad.loopexit.split-lp13, %lpad.loopexit.split-lp ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %names) #25
   resume { ptr, i32 } %.pn
 

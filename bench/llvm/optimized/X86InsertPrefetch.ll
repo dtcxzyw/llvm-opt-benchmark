@@ -2782,7 +2782,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   %53 = sub i64 %51, %52
   %54 = sub i64 0, %53
   %55 = getelementptr inbounds i8, ptr %46, i64 %54
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
@@ -2937,7 +2937,7 @@ _ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocatio
   %54 = load ptr, ptr %53, align 8, !tbaa !503
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.not11.i.i.i = icmp eq ptr %54, null
-  br i1 %.not11.i.i.i, label %79, label %.lr.ph.i.i.i
+  br i1 %.not11.i.i.i, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit
   %56 = load i32, ptr %.0.i, align 4, !tbaa !478
@@ -2976,47 +2976,47 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i: ;
 
 _ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i: ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i
   %69 = icmp eq ptr %.19.i.i.i, %55
-  br i1 %69, label %79, label %70
+  br i1 %69, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %70
 
 70:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %72 = load i32, ptr %71, align 4, !tbaa !478
   %73 = icmp ult i32 %56, %72
-  br i1 %73, label %79, label %74
+  br i1 %73, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %74
 
 74:                                               ; preds = %70
   %75 = icmp eq i32 %56, %72
-  br i1 %75, label %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, label %84
+  br i1 %75, label %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
 
 _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i: ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 36
   %77 = load i32, ptr %76, align 4, !tbaa !480
   %78 = icmp ult i32 %58, %77
-  br i1 %78, label %79, label %84
+  br i1 %78, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
 
-79:                                               ; preds = %70, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit, %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i
+_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread: ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNK4llvm10sampleprof15FunctionSamples20mapIRLocToProfileLocERKNS0_12LineLocationE.exit, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #22
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load i8, ptr %81, align 8
-  %83 = or i8 %82, 1
-  store i8 %83, ptr %81, align 8
+  %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #22
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %81 = load i8, ptr %80, align 8
+  %82 = or i8 %81, 1
+  store i8 %82, ptr %80, align 8
   store i32 0, ptr %0, align 8, !tbaa !157
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %80, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !158
-  br label %89
+  store ptr %79, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !158
+  br label %87
 
-84:                                               ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, %74
+_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit: ; preds = %74, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  %85 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, -2
-  store i8 %88, ptr %86, align 8
-  store ptr %85, ptr %0, align 8, !tbaa !383
-  br label %89
+  %83 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %85 = load i8, ptr %84, align 8
+  %86 = and i8 %85, -2
+  store i8 %86, ptr %84, align 8
+  store ptr %83, ptr %0, align 8, !tbaa !383
+  br label %87
 
-89:                                               ; preds = %84, %79
+87:                                               ; preds = %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit, %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_12SampleRecordESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread
   ret void
 }
 

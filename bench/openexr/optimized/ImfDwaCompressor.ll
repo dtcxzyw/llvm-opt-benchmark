@@ -17475,17 +17475,17 @@ lpad79:                                           ; preds = %invoke.cont75
   br label %ehcleanup
 
 lpad85.loopexit:                                  ; preds = %for.body115, %if.then.i99
-  %lpad.loopexit189 = landingpad { ptr, i32 }
+  %lpad.loopexit188 = landingpad { ptr, i32 }
           cleanup
   br label %lpad85
 
 lpad85.loopexit.split-lp:                         ; preds = %if.then83, %invoke.cont86, %if.then99
-  %lpad.loopexit.split-lp190 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp189 = landingpad { ptr, i32 }
           cleanup
   br label %lpad85
 
 lpad85:                                           ; preds = %lpad85.loopexit.split-lp, %lpad85.loopexit
-  %lpad.phi191 = phi { ptr, i32 } [ %lpad.loopexit189, %lpad85.loopexit ], [ %lpad.loopexit.split-lp190, %lpad85.loopexit.split-lp ]
+  %lpad.phi190 = phi { ptr, i32 } [ %lpad.loopexit188, %lpad85.loopexit ], [ %lpad.loopexit.split-lp189, %lpad85.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #36
   br label %ehcleanup
 
@@ -17553,31 +17553,31 @@ invoke.cont104:                                   ; preds = %if.then99
 if.end106:                                        ; preds = %invoke.cont104, %invoke.cont92
   %24 = load ptr, ptr %_channelRules, align 8
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i92.not209 = icmp eq ptr %24, %25
-  br i1 %cmp.i92.not209, label %for.end140, label %for.body115.preheader
+  %cmp.i92.not208 = icmp eq ptr %24, %25
+  br i1 %cmp.i92.not208, label %for.end140, label %for.body115.preheader
 
 for.body115.preheader:                            ; preds = %if.end106
   %26 = trunc nuw i64 %indvars.iv to i32
   br label %for.body115
 
 for.body115:                                      ; preds = %for.body115.preheader, %for.inc138
-  %i.sroa.0.0210 = phi ptr [ %incdec.ptr.i, %for.inc138 ], [ %24, %for.body115.preheader ]
+  %i.sroa.0.0209 = phi ptr [ %incdec.ptr.i, %for.inc138 ], [ %24, %for.body115.preheader ]
   %27 = load ptr, ptr %chanData, align 8
   %type119 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::ChannelData", ptr %27, i64 %indvars.iv, i32 4
   %28 = load i32, ptr %type119, align 4
-  %call121 = invoke noundef zeroext i1 @_ZNK7Imf_3_213DwaCompressor10Classifier5matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(45) %i.sroa.0.0210, ptr noundef nonnull align 8 dereferenceable(32) %suffix, i32 noundef %28)
+  %call121 = invoke noundef zeroext i1 @_ZNK7Imf_3_213DwaCompressor10Classifier5matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(45) %i.sroa.0.0209, ptr noundef nonnull align 8 dereferenceable(32) %suffix, i32 noundef %28)
           to label %invoke.cont120 unwind label %lpad85.loopexit
 
 invoke.cont120:                                   ; preds = %for.body115
   br i1 %call121, label %if.then122, label %for.inc138
 
 if.then122:                                       ; preds = %invoke.cont120
-  %_scheme = getelementptr inbounds nuw i8, ptr %i.sroa.0.0210, i64 32
+  %_scheme = getelementptr inbounds nuw i8, ptr %i.sroa.0.0209, i64 32
   %29 = load i32, ptr %_scheme, align 8
   %30 = load ptr, ptr %chanData, align 8
   %compression126 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::ChannelData", ptr %30, i64 %indvars.iv, i32 1
   store i32 %29, ptr %compression126, align 8
-  %_cscIdx = getelementptr inbounds nuw i8, ptr %i.sroa.0.0210, i64 40
+  %_cscIdx = getelementptr inbounds nuw i8, ptr %i.sroa.0.0209, i64 40
   %31 = load i32, ptr %_cscIdx, align 8
   %cmp128 = icmp sgt i32 %31, -1
   br i1 %cmp128, label %if.then129, label %for.inc138
@@ -17651,7 +17651,7 @@ invoke.cont130:                                   ; preds = %_ZNKSt4lessINSt7__c
   br label %for.inc138
 
 for.inc138:                                       ; preds = %invoke.cont120, %invoke.cont130, %if.then122
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0210, i64 48
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0209, i64 48
   %38 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i92.not = icmp eq ptr %incdec.ptr.i, %38
   br i1 %cmp.i92.not, label %for.end140, label %for.body115, !llvm.loop !151
@@ -17664,25 +17664,25 @@ for.end140:                                       ; preds = %for.inc138, %if.end
   br i1 %exitcond.not, label %for.end143, label %for.body72, !llvm.loop !152
 
 ehcleanup:                                        ; preds = %lpad85, %lpad79
-  %.pn = phi { ptr, i32 } [ %lpad.phi191, %lpad85 ], [ %18, %lpad79 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi190, %lpad85 ], [ %18, %lpad79 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #36
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151
 
 for.end143:                                       ; preds = %for.end140, %for.cond71.preheader
   %39 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i102.not213 = icmp eq ptr %39, %0
-  br i1 %cmp.i102.not213, label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit, label %for.body151
+  %cmp.i102.not212 = icmp eq ptr %39, %0
+  br i1 %cmp.i102.not212, label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit, label %for.body151
 
 for.body151:                                      ; preds = %for.end143, %for.inc221
-  %tmpCscSet.sroa.0.2217 = phi ptr [ %tmpCscSet.sroa.0.3, %for.inc221 ], [ null, %for.end143 ]
-  %theItem.sroa.0.0216 = phi ptr [ %call.i, %for.inc221 ], [ %39, %for.end143 ]
-  %tmpCscSet.sroa.7.0215 = phi ptr [ %tmpCscSet.sroa.7.1, %for.inc221 ], [ null, %for.end143 ]
-  %tmpCscSet.sroa.12.0214 = phi ptr [ %tmpCscSet.sroa.12.1, %for.inc221 ], [ null, %for.end143 ]
-  %second = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0216, i64 64
+  %tmpCscSet.sroa.0.2216 = phi ptr [ %tmpCscSet.sroa.0.3, %for.inc221 ], [ null, %for.end143 ]
+  %theItem.sroa.0.0215 = phi ptr [ %call.i, %for.inc221 ], [ %39, %for.end143 ]
+  %tmpCscSet.sroa.7.0214 = phi ptr [ %tmpCscSet.sroa.7.1, %for.inc221 ], [ null, %for.end143 ]
+  %tmpCscSet.sroa.12.0213 = phi ptr [ %tmpCscSet.sroa.12.1, %for.inc221 ], [ null, %for.end143 ]
+  %second = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0215, i64 64
   %40 = load i32, ptr %second, align 8
-  %arrayidx158 = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0216, i64 68
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0215, i64 68
   %41 = load i32, ptr %arrayidx158, align 4
-  %arrayidx162 = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0216, i64 72
+  %arrayidx162 = getelementptr inbounds nuw i8, ptr %theItem.sroa.0.0215, i64 72
   %42 = load i32, ptr %arrayidx162, align 8
   %cmp163 = icmp slt i32 %40, 0
   %cmp164 = icmp slt i32 %41, 0
@@ -17727,17 +17727,17 @@ lor.lhs.false200:                                 ; preds = %lor.lhs.false192
   br i1 %cmp207.not, label %if.end217, label %for.inc221
 
 if.end217:                                        ; preds = %lor.lhs.false200
-  %cmp.not.i = icmp eq ptr %tmpCscSet.sroa.7.0215, %tmpCscSet.sroa.12.0214
+  %cmp.not.i = icmp eq ptr %tmpCscSet.sroa.7.0214, %tmpCscSet.sroa.12.0213
   br i1 %cmp.not.i, label %if.else.i121, label %if.then.i119
 
 if.then.i119:                                     ; preds = %if.end217
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tmpCscSet.sroa.7.0215, ptr noundef nonnull align 4 dereferenceable(12) %second, i64 12, i1 false)
-  %incdec.ptr.i120 = getelementptr inbounds nuw i8, ptr %tmpCscSet.sroa.7.0215, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %tmpCscSet.sroa.7.0214, ptr noundef nonnull align 4 dereferenceable(12) %second, i64 12, i1 false)
+  %incdec.ptr.i120 = getelementptr inbounds nuw i8, ptr %tmpCscSet.sroa.7.0214, i64 12
   br label %for.inc221
 
 if.else.i121:                                     ; preds = %if.end217
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %tmpCscSet.sroa.7.0215 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %tmpCscSet.sroa.0.2217 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %tmpCscSet.sroa.7.0214 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %tmpCscSet.sroa.0.2216 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i122 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i122, label %if.then.i.i.i, label %_ZNKSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -17769,16 +17769,16 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN7Imf
   br i1 %cmp.i.i.i.i.i125, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.noexc
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i127, ptr align 4 %tmpCscSet.sroa.0.2217, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i127, ptr align 4 %tmpCscSet.sroa.0.2216, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
 
 _ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %call5.i.i.i.i.i.noexc
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i124, i64 12
-  %tobool.not.i.i.i = icmp eq ptr %tmpCscSet.sroa.0.2217, null
+  %tobool.not.i.i.i = icmp eq ptr %tmpCscSet.sroa.0.2216, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %tmpCscSet.sroa.0.2217) #37
+  call void @_ZdlPv(ptr noundef nonnull %tmpCscSet.sroa.0.2216) #37
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
@@ -17786,10 +17786,10 @@ _ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insert
   br label %for.inc221
 
 for.inc221:                                       ; preds = %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i119, %if.end168, %lor.lhs.false176, %lor.lhs.false192, %lor.lhs.false200, %for.body151
-  %tmpCscSet.sroa.12.1 = phi ptr [ %tmpCscSet.sroa.12.0214, %for.body151 ], [ %tmpCscSet.sroa.12.0214, %lor.lhs.false200 ], [ %tmpCscSet.sroa.12.0214, %lor.lhs.false192 ], [ %tmpCscSet.sroa.12.0214, %lor.lhs.false176 ], [ %tmpCscSet.sroa.12.0214, %if.end168 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %tmpCscSet.sroa.12.0214, %if.then.i119 ]
-  %tmpCscSet.sroa.7.1 = phi ptr [ %tmpCscSet.sroa.7.0215, %for.body151 ], [ %tmpCscSet.sroa.7.0215, %lor.lhs.false200 ], [ %tmpCscSet.sroa.7.0215, %lor.lhs.false192 ], [ %tmpCscSet.sroa.7.0215, %lor.lhs.false176 ], [ %tmpCscSet.sroa.7.0215, %if.end168 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i120, %if.then.i119 ]
-  %tmpCscSet.sroa.0.3 = phi ptr [ %tmpCscSet.sroa.0.2217, %for.body151 ], [ %tmpCscSet.sroa.0.2217, %lor.lhs.false200 ], [ %tmpCscSet.sroa.0.2217, %lor.lhs.false192 ], [ %tmpCscSet.sroa.0.2217, %lor.lhs.false176 ], [ %tmpCscSet.sroa.0.2217, %if.end168 ], [ %call5.i.i.i.i.i127, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %tmpCscSet.sroa.0.2217, %if.then.i119 ]
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %theItem.sroa.0.0216) #41
+  %tmpCscSet.sroa.12.1 = phi ptr [ %tmpCscSet.sroa.12.0213, %for.body151 ], [ %tmpCscSet.sroa.12.0213, %lor.lhs.false200 ], [ %tmpCscSet.sroa.12.0213, %lor.lhs.false192 ], [ %tmpCscSet.sroa.12.0213, %lor.lhs.false176 ], [ %tmpCscSet.sroa.12.0213, %if.end168 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %tmpCscSet.sroa.12.0213, %if.then.i119 ]
+  %tmpCscSet.sroa.7.1 = phi ptr [ %tmpCscSet.sroa.7.0214, %for.body151 ], [ %tmpCscSet.sroa.7.0214, %lor.lhs.false200 ], [ %tmpCscSet.sroa.7.0214, %lor.lhs.false192 ], [ %tmpCscSet.sroa.7.0214, %lor.lhs.false176 ], [ %tmpCscSet.sroa.7.0214, %if.end168 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i120, %if.then.i119 ]
+  %tmpCscSet.sroa.0.3 = phi ptr [ %tmpCscSet.sroa.0.2216, %for.body151 ], [ %tmpCscSet.sroa.0.2216, %lor.lhs.false200 ], [ %tmpCscSet.sroa.0.2216, %lor.lhs.false192 ], [ %tmpCscSet.sroa.0.2216, %lor.lhs.false176 ], [ %tmpCscSet.sroa.0.2216, %if.end168 ], [ %call5.i.i.i.i.i127, %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %tmpCscSet.sroa.0.2216, %if.then.i119 ]
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %theItem.sroa.0.0215) #41
   %cmp.i102.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i102.not, label %for.end223, label %for.body151, !llvm.loop !153
 
@@ -17834,13 +17834,13 @@ for.body232.preheader:                            ; preds = %invoke.cont.i.i140,
   br label %for.body232
 
 for.body232:                                      ; preds = %for.body232.preheader, %for.body232
-  %conv230221 = phi i64 [ %conv230, %for.body232 ], [ 0, %for.body232.preheader ]
-  %offset.2220 = phi i32 [ %inc238, %for.body232 ], [ 0, %for.body232.preheader ]
-  %add.ptr.i144 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::CscChannelSet", ptr %tmpCscSet.sroa.0.3, i64 %conv230221
+  %conv230220 = phi i64 [ %conv230, %for.body232 ], [ 0, %for.body232.preheader ]
+  %offset.2219 = phi i32 [ %inc238, %for.body232 ], [ 0, %for.body232.preheader ]
+  %add.ptr.i144 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::CscChannelSet", ptr %tmpCscSet.sroa.0.3, i64 %conv230220
   %53 = load ptr, ptr %cscData, align 8
-  %add.ptr.i145 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::CscChannelSet", ptr %53, i64 %conv230221
+  %add.ptr.i145 = getelementptr inbounds nuw %"struct.Imf_3_2::DwaCompressor::CscChannelSet", ptr %53, i64 %conv230220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i145, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i144, i64 12, i1 false)
-  %inc238 = add i32 %offset.2220, 1
+  %inc238 = add i32 %offset.2219, 1
   %conv230 = zext i32 %inc238 to i64
   %cmp231 = icmp ugt i64 %sub.ptr.div.i, %conv230
   br i1 %cmp231, label %for.body232, label %for.end239, !llvm.loop !154
@@ -17869,17 +17869,17 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7Imf_3_213DwaComp
   ret void
 
 ehcleanup240.thread182.loopexit:                  ; preds = %for.cond21
-  %lpad.loopexit192 = landingpad { ptr, i32 }
+  %lpad.loopexit191 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151
 
 ehcleanup240.thread182.loopexit.split-lp.loopexit: ; preds = %for.cond
-  %lpad.loopexit195 = landingpad { ptr, i32 }
+  %lpad.loopexit194 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151
 
 ehcleanup240.thread182.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end, %if.then.i, %entry
-  %lpad.loopexit.split-lp196 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp195 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151
 
@@ -17889,23 +17889,23 @@ ehcleanup240.loopexit:                            ; preds = %_ZNKSt6vectorIN7Imf
   br label %ehcleanup240
 
 ehcleanup240.loopexit.split-lp:                   ; preds = %if.then.i141, %if.then.i.i.i
-  %tmpCscSet.sroa.0.2201 = phi ptr [ %tmpCscSet.sroa.0.3, %if.then.i141 ], [ %tmpCscSet.sroa.0.2217, %if.then.i.i.i ]
+  %tmpCscSet.sroa.0.2200 = phi ptr [ %tmpCscSet.sroa.0.3, %if.then.i141 ], [ %tmpCscSet.sroa.0.2216, %if.then.i.i.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup240
 
 ehcleanup240:                                     ; preds = %ehcleanup240.loopexit.split-lp, %ehcleanup240.loopexit
-  %tmpCscSet.sroa.0.2200 = phi ptr [ %tmpCscSet.sroa.0.2217, %ehcleanup240.loopexit ], [ %tmpCscSet.sroa.0.2201, %ehcleanup240.loopexit.split-lp ]
+  %tmpCscSet.sroa.0.2199 = phi ptr [ %tmpCscSet.sroa.0.2216, %ehcleanup240.loopexit ], [ %tmpCscSet.sroa.0.2200, %ehcleanup240.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %ehcleanup240.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup240.loopexit.split-lp ]
-  %tobool.not.i.i.i149 = icmp eq ptr %tmpCscSet.sroa.0.2200, null
+  %tobool.not.i.i.i149 = icmp eq ptr %tmpCscSet.sroa.0.2199, null
   br i1 %tobool.not.i.i.i149, label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151, label %if.then.i.i.i150
 
 if.then.i.i.i150:                                 ; preds = %ehcleanup240
-  call void @_ZdlPv(ptr noundef nonnull %tmpCscSet.sroa.0.2200) #37
+  call void @_ZdlPv(ptr noundef nonnull %tmpCscSet.sroa.0.2199) #37
   br label %_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151
 
 _ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EED2Ev.exit151: ; preds = %ehcleanup240.thread182.loopexit, %ehcleanup240.thread182.loopexit.split-lp.loopexit.split-lp, %ehcleanup240.thread182.loopexit.split-lp.loopexit, %lpad74.body, %ehcleanup, %lpad38.body, %ehcleanup240, %if.then.i.i.i150
-  %.pn62180 = phi { ptr, i32 } [ %lpad.phi, %ehcleanup240 ], [ %lpad.phi, %if.then.i.i.i150 ], [ %eh.lpad-body87, %lpad74.body ], [ %.pn, %ehcleanup ], [ %eh.lpad-body, %lpad38.body ], [ %lpad.loopexit192, %ehcleanup240.thread182.loopexit ], [ %lpad.loopexit195, %ehcleanup240.thread182.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp196, %ehcleanup240.thread182.loopexit.split-lp.loopexit.split-lp ]
+  %.pn62180 = phi { ptr, i32 } [ %lpad.phi, %ehcleanup240 ], [ %lpad.phi, %if.then.i.i.i150 ], [ %eh.lpad-body87, %lpad74.body ], [ %.pn, %ehcleanup ], [ %eh.lpad-body, %lpad38.body ], [ %lpad.loopexit191, %ehcleanup240.thread182.loopexit ], [ %lpad.loopexit194, %ehcleanup240.thread182.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp195, %ehcleanup240.thread182.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7Imf_3_213DwaCompressor13CscChannelSetESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %prefixMap) #36
   resume { ptr, i32 } %.pn62180
 }

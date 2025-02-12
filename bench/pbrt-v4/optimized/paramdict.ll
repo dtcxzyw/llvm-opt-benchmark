@@ -5239,8 +5239,8 @@ entry:
   %nStored.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %2
-  %cmp.not15 = icmp eq i64 %2, 0
-  br i1 %cmp.not15, label %for.end, label %for.body.lr.ph
+  %cmp.not14 = icmp eq i64 %2, 0
+  br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %m, i64 16
@@ -5248,8 +5248,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.016 = phi ptr [ %cond.i, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %3 = load ptr, ptr %__begin1.016, align 8
+  %__begin1.015 = phi ptr [ %cond.i, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %3 = load ptr, ptr %__begin1.015, align 8
   %call.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.8) #23
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i.not, label %do.body, label %for.inc
@@ -5323,7 +5323,7 @@ if.then14:                                        ; preds = %_ZNKSt3mapINSt7__cx
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit, %if.then14, %for.body
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.016, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.015, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -6892,12 +6892,12 @@ cond.end7:                                        ; preds = %cond.true3, %cond.f
   %nStored.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %5
-  %cmp10.not105 = icmp eq i64 %5, 0
-  br i1 %cmp10.not105, label %return, label %for.body
+  %cmp10.not104 = icmp eq i64 %5, 0
+  br i1 %cmp10.not104, label %return, label %for.body
 
 for.body:                                         ; preds = %cond.end7, %for.inc
-  %__begin1.0106 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %cond.end7 ]
-  %6 = load ptr, ptr %__begin1.0106, align 8
+  %__begin1.0105 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %cond.end7 ]
+  %6 = load ptr, ptr %__begin1.0105, align 8
   %name11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name11) #23
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
@@ -7108,9 +7108,9 @@ if.end90:                                         ; preds = %land.end
 
 if.end97:                                         ; preds = %if.then71, %if.end90, %if.then63
   %call.i.i.i.i54.sink = phi ptr [ %call.i.i.i.i54, %if.then71 ], [ %call.i.i.i.i62, %if.end90 ], [ %call.i.i.i.i50, %if.then63 ]
-  %.sink119 = phi i64 [ 720575940379279360, %if.then71 ], [ 576460752303423488, %if.end90 ], [ 864691128455135232, %if.then63 ]
+  %.sink118 = phi i64 [ 720575940379279360, %if.then71 ], [ 576460752303423488, %if.end90 ], [ 864691128455135232, %if.then63 ]
   %30 = ptrtoint ptr %call.i.i.i.i54.sink to i64
-  %or.i.i58 = or i64 %.sink119, %30
+  %or.i.i58 = or i64 %.sink118, %30
   %vtable.i.i.i.i67 = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i67, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i68, align 8
@@ -7156,7 +7156,7 @@ land.end111:                                      ; preds = %if.then105
   br label %return
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false102, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0106, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0105, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp10.not, label %return, label %for.body
 

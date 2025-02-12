@@ -3249,7 +3249,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__n
 22:                                               ; preds = %18
   %23 = sub i64 0, %9
   %24 = getelementptr inbounds i8, ptr %13, i64 %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %24, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %24, i64 %9, i1 false)
   %25 = load ptr, ptr %12, align 8, !tbaa !26
   %26 = getelementptr inbounds i8, ptr %25, i64 %9
   store ptr %26, ptr %12, align 8, !tbaa !26
@@ -3261,7 +3261,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__n
   %30 = sub i64 %29, %19
   %31 = sub i64 0, %30
   %32 = getelementptr inbounds i8, ptr %13, i64 %31
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr align 1 %1, i64 %30, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %1, i64 %30, i1 false)
   br label %33
 
 33:                                               ; preds = %28, %22

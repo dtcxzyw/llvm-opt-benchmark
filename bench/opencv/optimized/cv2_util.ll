@@ -497,7 +497,7 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
           to label %.lr.ph39.preheader unwind label %.loopexit.split-lp
 
 .lr.ph39.preheader:                               ; preds = %32
-  %umax43 = call i64 @llvm.umax.i64(i64 %21, i64 1)
+  %umax41 = call i64 @llvm.umax.i64(i64 %21, i64 1)
   br label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %40
@@ -513,8 +513,8 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
 
 40:                                               ; preds = %36
   %41 = add nuw i64 %.038, 1
-  %exitcond44.not = icmp eq i64 %41, %umax43
-  br i1 %exitcond44.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !7
+  %exitcond42.not = icmp eq i64 %41, %umax41
+  br i1 %exitcond42.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !7
 
 42:                                               ; preds = %._crit_edge
   %43 = landingpad { ptr, i32 }

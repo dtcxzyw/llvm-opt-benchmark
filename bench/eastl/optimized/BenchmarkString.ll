@@ -8088,7 +8088,7 @@ if.end87:                                         ; preds = %if.else83, %if.then
   %cond.i205 = select i1 %tobool.i.i199, ptr %add.ptr.i.i201, ptr %add.ptr.i1.i204
   %sub.ptr.lhs.cast.i206 = ptrtoint ptr %cond.i205 to i64
   %sub.ptr.sub.i208 = sub i64 %sub.ptr.lhs.cast.i206, %sub.ptr.lhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i197, ptr align 1 %p, i64 %sub.ptr.sub.i208, i1 false)
   %add.ptr.i209 = getelementptr inbounds i8, ptr %add.ptr.i197, i64 %sub.ptr.sub.i208
   store i8 0, ptr %add.ptr.i209, align 1
   %37 = load i8, ptr %mRemainingSizeField.i.i, align 1
@@ -8296,7 +8296,7 @@ _ZN5eastl12basic_stringIDsNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %cond
   %sub = sub nuw nsw i64 %sub.ptr.div34, %sub.ptr.div6
   %add52 = shl i64 %sub, 1
   %mul = add i64 %add52, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr51, ptr align 2 %p, i64 %mul, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr51, ptr align 2 %p, i64 %mul, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %p, ptr align 2 %pBegin, i64 %sub.ptr.sub5, i1 false)
   br label %if.end104
 
@@ -8407,7 +8407,7 @@ if.end89:                                         ; preds = %if.else85, %if.then
   %cond.i206 = select i1 %tobool.i.i200, ptr %add.ptr.i.i202, ptr %add.ptr.i1.i205
   %sub.ptr.lhs.cast.i207 = ptrtoint ptr %cond.i206 to i64
   %sub.ptr.sub.i209 = sub i64 %sub.ptr.lhs.cast.i207, %sub.ptr.lhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i198, ptr align 2 %p, i64 %sub.ptr.sub.i209, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr.i198, ptr align 2 %p, i64 %sub.ptr.sub.i209, i1 false)
   %add.ptr.i210 = getelementptr inbounds i8, ptr %add.ptr.i198, i64 %sub.ptr.sub.i209
   store i16 0, ptr %add.ptr.i210, align 2
   %37 = load i8, ptr %mnRemainingSize.i.i, align 1

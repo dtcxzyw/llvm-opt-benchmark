@@ -2451,8 +2451,8 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L29_Dir
   %29 = icmp ugt i64 %28, 7
   %30 = add nuw i64 %.024, 1
   %exitcond.not = icmp ne i64 %30, %umax
-  %or.cond29.not = select i1 %29, i1 %exitcond.not, i1 false
-  br i1 %or.cond29.not, label %24, label %.loopexit, !llvm.loop !19
+  %or.cond28.not = select i1 %29, i1 %exitcond.not, i1 false
+  br i1 %or.cond28.not, label %24, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %11
   %switch = phi i1 [ false, %11 ], [ %29, %24 ]

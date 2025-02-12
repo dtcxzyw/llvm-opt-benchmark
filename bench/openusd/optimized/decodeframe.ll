@@ -11510,7 +11510,7 @@ av1_is_scaled.exit.i.i:                           ; preds = %219, %av1_is_valid_
   %314 = getelementptr i8, ptr %313, i64 -2
   %315 = load i16, ptr %314, align 2
   %316 = zext i16 %315 to i32
-  %317 = call ptr @aom_memset16(ptr noundef %312, i32 noundef %316, i64 noundef %286) #16
+  %317 = call ptr @aom_memset16(ptr noundef nonnull %312, i32 noundef %316, i64 noundef %286) #16
   %318 = getelementptr inbounds i16, ptr %.062.us.i.i, i64 %287
   %319 = add nsw i32 %.058.us.i.i, 1
   %320 = icmp sgt i32 %.058.us.i.i, -1
@@ -11779,7 +11779,7 @@ av1_is_scaled.exit.i.i:                           ; preds = %219, %av1_is_valid_
   %435 = getelementptr i8, ptr %.159.us81.i.i, i64 %394
   %436 = getelementptr i8, ptr %435, i64 -1
   %437 = load i8, ptr %436, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %434, i8 %437, i64 %395, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %434, i8 %437, i64 %395, i1 false)
   %438 = getelementptr inbounds i8, ptr %.056.us82.i.i, i64 %390
   %439 = add nsw i32 %.060.us80.i.i, 1
   %440 = icmp sgt i32 %.060.us80.i.i, -1

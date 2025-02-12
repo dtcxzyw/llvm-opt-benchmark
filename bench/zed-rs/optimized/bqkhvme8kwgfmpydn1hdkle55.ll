@@ -11610,7 +11610,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN7channel13channel_stor
 11:                                               ; preds = %12, %2
   %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %13, %12 ]
   %exitcond.not.i = icmp eq i64 %.sroa.01.0.i, %1
-  br i1 %exitcond.not.i, label %20, label %12
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit.thread, label %12
 
 12:                                               ; preds = %11
   %13 = add i64 %.sroa.01.0.i, 1
@@ -11622,16 +11622,16 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN7channel13channel_stor
   %19 = select i1 %16, i1 true, i1 %18
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit, label %11
 
-20:                                               ; preds = %11
-  %21 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10de235af6c2c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
-  %22 = extractvalue { ptr, ptr } %21, 0
-  %23 = icmp eq ptr %22, null
-  %24 = extractvalue { ptr, ptr } %21, 1
-  %spec.select = select i1 %23, ptr null, ptr %24
+_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit.thread: ; preds = %11
+  %20 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10de235af6c2c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
+  %21 = extractvalue { ptr, ptr } %20, 0
+  %22 = icmp eq ptr %21, null
+  %23 = extractvalue { ptr, ptr } %20, 1
+  %spec.select = select i1 %22, ptr null, ptr %23
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit: ; preds = %12, %20
-  %.sroa.0.0 = phi ptr [ %spec.select, %20 ], [ null, %12 ]
+_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit: ; preds = %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit.thread
+  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hbd0d3b79f55c66cbE.exit.thread ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret ptr %.sroa.0.0
 }

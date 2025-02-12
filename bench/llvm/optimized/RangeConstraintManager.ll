@@ -919,7 +919,7 @@ _ZSt13move_backwardIPN5clang4ento5RangeES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.
   %88 = getelementptr inbounds nuw %"class.clang::ento::Range", ptr %38, i64 %87
   %89 = sub nsw i64 0, %42
   %90 = getelementptr inbounds %"class.clang::ento::Range", ptr %88, i64 %89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84

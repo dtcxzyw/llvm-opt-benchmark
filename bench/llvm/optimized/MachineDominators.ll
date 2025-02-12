@@ -14700,7 +14700,7 @@ _ZSt13move_backwardIPN4llvm3cfg6UpdateIPNS0_17MachineBasicBlockEEES6_ET0_T_S8_S7
   %74 = getelementptr inbounds nuw %"class.llvm::cfg::Update", ptr %38, i64 %73
   %75 = sub nsw i64 0, %42
   %76 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %74, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
@@ -16569,7 +16569,7 @@ _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = 
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

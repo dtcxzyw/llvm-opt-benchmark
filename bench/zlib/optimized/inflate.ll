@@ -3478,7 +3478,7 @@ if.then37.i:                                      ; preds = %if.else.i
   %idx.ext39.i = zext i32 %sub36.i to i64
   %idx.neg40.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %263, i64 %idx.neg40.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr nonnull readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
   store i32 %sub36.i, ptr %wnext23.i, align 4
   %276 = load i32, ptr %wsize.i, align 4
   %whave45.i = getelementptr inbounds nuw i8, ptr %264, i64 64

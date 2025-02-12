@@ -1210,8 +1210,8 @@ lpad31:                                           ; preds = %if.then29
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end84
   %24 = phi ptr [ %22, %for.body.lr.ph ], [ %39, %if.end84 ]
-  %i.0138 = phi i64 [ 0, %for.body.lr.ph ], [ %inc101, %if.end84 ]
-  %add.ptr.i = getelementptr inbounds %"class.Imf_3_2::Header", ptr %24, i64 %i.0138
+  %i.0137 = phi i64 [ 0, %for.body.lr.ph ], [ %inc101, %if.end84 ]
+  %add.ptr.i = getelementptr inbounds %"class.Imf_3_2::Header", ptr %24, i64 %i.0137
   %call41 = call noundef zeroext i1 @_ZNK7Imf_3_26Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i)
   br i1 %call41, label %if.else, label %if.then44
 
@@ -1252,7 +1252,7 @@ if.end70.sink.split:                              ; preds = %land.lhs.true56, %i
   %.sink = phi ptr [ %26, %if.end50 ], [ %27, %land.lhs.true56 ]
   %_headers62 = getelementptr inbounds nuw i8, ptr %.sink, i64 144
   %29 = load ptr, ptr %_headers62, align 8
-  %add.ptr.i58 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %29, i64 %i.0138
+  %add.ptr.i58 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %29, i64 %i.0137
   call void @_ZN7Imf_3_26Header7setTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i58, ptr noundef nonnull align 8 dereferenceable(32) %_ZN7Imf_3_2L10TILEDIMAGEB5cxx11E._ZN7Imf_3_2L13SCANLINEIMAGEB5cxx11E)
   br label %if.end70
 
@@ -1260,7 +1260,7 @@ if.end70:                                         ; preds = %if.end70.sink.split
   %30 = load ptr, ptr %_data, align 8
   %_headers72 = getelementptr inbounds nuw i8, ptr %30, i64 144
   %31 = load ptr, ptr %_headers72, align 8
-  %add.ptr.i59 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %31, i64 %i.0138
+  %add.ptr.i59 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %31, i64 %i.0137
   %call74 = call noundef zeroext i1 @_ZNK7Imf_3_26Header7hasNameEv(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i59)
   %brmerge45 = or i1 %call74, %call.not
   br i1 %brmerge45, label %if.end84, label %if.then79
@@ -1284,15 +1284,15 @@ if.end84:                                         ; preds = %if.end70
   %33 = load ptr, ptr %_data, align 8
   %_headers86 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %34 = load ptr, ptr %_headers86, align 8
-  %add.ptr.i60 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %34, i64 %i.0138
+  %add.ptr.i60 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %34, i64 %i.0137
   %call88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_26Header4typeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i60)
   %call89 = call noundef zeroext i1 @_ZN7Imf_3_27isTiledERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %call88)
   %35 = load ptr, ptr %_data, align 8
   %_headers92 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %36 = load ptr, ptr %_headers92, align 8
-  %add.ptr.i61 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %36, i64 %i.0138
+  %add.ptr.i61 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %36, i64 %i.0137
   call void @_ZNK7Imf_3_26Header11sanityCheckEbb(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i61, i1 noundef zeroext %call89, i1 noundef zeroext %tobool.i)
-  %inc101 = add nuw i64 %i.0138, 1
+  %inc101 = add nuw i64 %i.0137, 1
   %37 = load ptr, ptr %_data, align 8
   %_headers35 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %_M_finish.i50 = getelementptr inbounds nuw i8, ptr %37, i64 152
@@ -1319,13 +1319,13 @@ if.then103:                                       ; preds = %for.end
   store ptr %40, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %cmp109145.not = icmp eq ptr %38, %39
-  br i1 %cmp109145.not, label %for.end150, label %for.body110
+  %cmp109144.not = icmp eq ptr %38, %39
+  br i1 %cmp109144.not, label %for.end150, label %for.body110
 
 for.body110:                                      ; preds = %if.then103, %invoke.cont146
   %41 = phi ptr [ %57, %invoke.cont146 ], [ %39, %if.then103 ]
-  %i104.0146 = phi i64 [ %inc149, %invoke.cont146 ], [ 0, %if.then103 ]
-  %add.ptr.i68 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %41, i64 %i104.0146
+  %i104.0145 = phi i64 [ %inc149, %invoke.cont146 ], [ 0, %if.then103 ]
+  %add.ptr.i68 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %41, i64 %i104.0145
   %call117 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i68)
           to label %invoke.cont116 unwind label %lpad115
 
@@ -1383,7 +1383,7 @@ if.then124:                                       ; preds = %invoke.cont118
   %47 = load ptr, ptr %_data, align 8
   %_headers129 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %48 = load ptr, ptr %_headers129, align 8
-  %add.ptr.i69 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %48, i64 %i104.0146
+  %add.ptr.i69 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %48, i64 %i104.0145
   %call133 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i69)
           to label %invoke.cont132 unwind label %ehcleanup139.thread
 
@@ -1437,7 +1437,7 @@ if.end140:                                        ; preds = %invoke.cont116, %_Z
   %53 = load ptr, ptr %_data, align 8
   %_headers142 = getelementptr inbounds nuw i8, ptr %53, i64 144
   %54 = load ptr, ptr %_headers142, align 8
-  %add.ptr.i71 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %54, i64 %i104.0146
+  %add.ptr.i71 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %54, i64 %i104.0145
   %call145 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i71)
           to label %invoke.cont144 unwind label %lpad115
 
@@ -1446,7 +1446,7 @@ invoke.cont144:                                   ; preds = %if.end140
           to label %invoke.cont146 unwind label %lpad115
 
 invoke.cont146:                                   ; preds = %invoke.cont144
-  %inc149 = add nuw i64 %i104.0146, 1
+  %inc149 = add nuw i64 %i104.0145, 1
   %55 = load ptr, ptr %_data, align 8
   %_headers107 = getelementptr inbounds nuw i8, ptr %55, i64 144
   %_M_finish.i63 = getelementptr inbounds nuw i8, ptr %55, i64 152
@@ -1470,16 +1470,16 @@ for.end150:                                       ; preds = %for.end150.loopexit
 
 for.cond156.preheader:                            ; preds = %for.end150
   %59 = load ptr, ptr %_data, align 8
-  %_headers158147 = getelementptr inbounds nuw i8, ptr %59, i64 144
-  %_M_finish.i74148 = getelementptr inbounds nuw i8, ptr %59, i64 152
-  %60 = load ptr, ptr %_M_finish.i74148, align 8
-  %61 = load ptr, ptr %_headers158147, align 8
-  %sub.ptr.lhs.cast.i75149 = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i76150 = ptrtoint ptr %61 to i64
-  %sub.ptr.sub.i77151 = sub i64 %sub.ptr.lhs.cast.i75149, %sub.ptr.rhs.cast.i76150
-  %sub.ptr.div.i78152 = sdiv exact i64 %sub.ptr.sub.i77151, 56
-  %cmp160153 = icmp ugt i64 %sub.ptr.div.i78152, 1
-  br i1 %cmp160153, label %for.body161.lr.ph, label %if.end219
+  %_headers158146 = getelementptr inbounds nuw i8, ptr %59, i64 144
+  %_M_finish.i74147 = getelementptr inbounds nuw i8, ptr %59, i64 152
+  %60 = load ptr, ptr %_M_finish.i74147, align 8
+  %61 = load ptr, ptr %_headers158146, align 8
+  %sub.ptr.lhs.cast.i75148 = ptrtoint ptr %60 to i64
+  %sub.ptr.rhs.cast.i76149 = ptrtoint ptr %61 to i64
+  %sub.ptr.sub.i77150 = sub i64 %sub.ptr.lhs.cast.i75148, %sub.ptr.rhs.cast.i76149
+  %sub.ptr.div.i78151 = sdiv exact i64 %sub.ptr.sub.i77150, 56
+  %cmp160152 = icmp ugt i64 %sub.ptr.div.i78151, 1
+  br i1 %cmp160152, label %for.body161.lr.ph, label %if.end219
 
 for.body161.lr.ph:                                ; preds = %for.cond156.preheader
   %_M_finish.i91 = getelementptr inbounds nuw i8, ptr %attrs, i64 8
@@ -1499,9 +1499,9 @@ ehcleanup151:                                     ; preds = %ehcleanup139, %clea
 
 for.body161:                                      ; preds = %for.body161.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %64 = phi ptr [ %61, %for.body161.lr.ph ], [ %84, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %i155.0154 = phi i64 [ 1, %for.body161.lr.ph ], [ %inc217, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %i155.0153 = phi i64 [ 1, %for.body161.lr.ph ], [ %inc217, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attrs, i8 0, i64 24, i1 false)
-  %add.ptr.i80 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %64, i64 %i155.0154
+  %add.ptr.i80 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %64, i64 %i155.0153
   %call171 = invoke noundef zeroext i1 @_ZNK7Imf_3_218MultiPartInputFile4Data27checkSharedAttributesValuesERKNS_6HeaderES4_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(49) %64, ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i80, ptr noundef nonnull align 8 dereferenceable(24) %attrs)
           to label %invoke.cont170 unwind label %lpad169
 
@@ -1512,13 +1512,13 @@ if.then172:                                       ; preds = %invoke.cont170
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %attrNames) #24
   %65 = load ptr, ptr %_M_finish.i91, align 8
   %66 = load ptr, ptr %attrs, align 8
-  %cmp175168.not = icmp eq ptr %65, %66
-  br i1 %cmp175168.not, label %for.end187, label %for.body176
+  %cmp175167.not = icmp eq ptr %65, %66
+  br i1 %cmp175167.not, label %for.end187, label %for.body176
 
 for.body176:                                      ; preds = %if.then172, %invoke.cont182
   %67 = phi ptr [ %69, %invoke.cont182 ], [ %66, %if.then172 ]
-  %j.0169 = phi i64 [ %inc186, %invoke.cont182 ], [ 0, %if.then172 ]
-  %add.ptr.i86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %67, i64 %j.0169
+  %j.0168 = phi i64 [ %inc186, %invoke.cont182 ], [ 0, %if.then172 ]
+  %add.ptr.i86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %67, i64 %j.0168
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp177, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i86)
           to label %invoke.cont180 unwind label %lpad179
 
@@ -1528,7 +1528,7 @@ invoke.cont180:                                   ; preds = %for.body176
 
 invoke.cont182:                                   ; preds = %invoke.cont180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #24
-  %inc186 = add nuw i64 %j.0169, 1
+  %inc186 = add nuw i64 %j.0168, 1
   %68 = load ptr, ptr %_M_finish.i91, align 8
   %69 = load ptr, ptr %attrs, align 8
   %sub.ptr.lhs.cast.i82 = ptrtoint ptr %68 to i64
@@ -1559,7 +1559,7 @@ for.end187:                                       ; preds = %invoke.cont182, %if
   %73 = load ptr, ptr %_data, align 8
   %_headers193 = getelementptr inbounds nuw i8, ptr %73, i64 144
   %74 = load ptr, ptr %_headers193, align 8
-  %add.ptr.i87 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %74, i64 %i155.0154
+  %add.ptr.i87 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %74, i64 %i155.0153
   %call197 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_26Header4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i87)
           to label %invoke.cont196 unwind label %ehcleanup209.thread
 
@@ -1652,7 +1652,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %inc217 = add nuw i64 %i155.0154, 1
+  %inc217 = add nuw i64 %i155.0153, 1
   %82 = load ptr, ptr %_data, align 8
   %_headers158 = getelementptr inbounds nuw i8, ptr %82, i64 144
   %_M_finish.i74 = getelementptr inbounds nuw i8, ptr %82, i64 152
@@ -1674,21 +1674,21 @@ if.end219:                                        ; preds = %_ZNSt6vectorINSt7__
   %85 = phi ptr [ %61, %for.cond156.preheader ], [ %39, %for.end ], [ %84, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %86 = phi ptr [ %60, %for.cond156.preheader ], [ %38, %for.end ], [ %83, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %87 = phi ptr [ %59, %for.cond156.preheader ], [ %37, %for.end ], [ %82, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %cmp225161.not = icmp eq ptr %86, %85
-  br i1 %cmp225161.not, label %for.end243, label %for.body226.preheader
+  %cmp225160.not = icmp eq ptr %86, %85
+  br i1 %cmp225160.not, label %for.end243, label %for.body226.preheader
 
 for.body226.preheader:                            ; preds = %if.end219
-  %_headers223155 = getelementptr inbounds nuw i8, ptr %87, i64 144
+  %_headers223154 = getelementptr inbounds nuw i8, ptr %87, i64 144
   br label %for.body226
 
 for.body226:                                      ; preds = %for.body226.preheader, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit
-  %_headers223163 = phi ptr [ %_headers223, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit ], [ %_headers223155, %for.body226.preheader ]
+  %_headers223162 = phi ptr [ %_headers223, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit ], [ %_headers223154, %for.body226.preheader ]
   %88 = phi ptr [ %97, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit ], [ %87, %for.body226.preheader ]
-  %i220.0162 = phi i64 [ %inc242, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit ], [ 0, %for.body226.preheader ]
+  %i220.0161 = phi i64 [ %inc242, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit ], [ 0, %for.body226.preheader ]
   %call229 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26
-  %89 = load ptr, ptr %_headers223163, align 8
-  %add.ptr.i97 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %89, i64 %i220.0162
-  %conv234 = trunc i64 %i220.0162 to i32
+  %89 = load ptr, ptr %_headers223162, align 8
+  %add.ptr.i97 = getelementptr inbounds %"class.Imf_3_2::Header", ptr %89, i64 %i220.0161
+  %conv234 = trunc i64 %i220.0161 to i32
   %numThreads = getelementptr inbounds nuw i8, ptr %88, i64 88
   %90 = load i32, ptr %numThreads, align 8
   %version237 = getelementptr inbounds nuw i8, ptr %88, i64 56
@@ -1761,7 +1761,7 @@ _ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__g
   br label %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE9push_backEOS2_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIPN7Imf_3_213InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %inc242 = add nuw i64 %i220.0162, 1
+  %inc242 = add nuw i64 %i220.0161, 1
   %97 = load ptr, ptr %_data, align 8
   %_headers223 = getelementptr inbounds nuw i8, ptr %97, i64 144
   %_M_finish.i92 = getelementptr inbounds nuw i8, ptr %97, i64 152

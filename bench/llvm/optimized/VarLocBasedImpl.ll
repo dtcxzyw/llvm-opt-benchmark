@@ -28887,7 +28887,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_
   %113 = getelementptr inbounds nuw %"class.llvm::Register", ptr %53, i64 %112
   %114 = sub nsw i64 0, %57
   %115 = getelementptr inbounds %"class.llvm::Register", ptr %113, i64 %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 4 %54, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr align 4 %54, i64 %gepdiff, i1 false)
   %.pre63 = load i8, ptr %28, align 8, !tbaa !744, !range !363
   %116 = trunc nuw i8 %.pre63 to i1
   %.idx.i = select i1 %116, i64 0, i64 32

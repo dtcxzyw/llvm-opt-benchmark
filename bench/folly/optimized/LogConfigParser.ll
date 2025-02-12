@@ -859,7 +859,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont29.i
   %44 = getelementptr i8, ptr %43, i64 %sub.ptr.sub.i.i.i
   %add.ptr.i240.i = getelementptr i8, ptr %44, i64 1
   %add.ptr.i.i241.i = getelementptr inbounds i8, ptr %43, i64 %sub.ptr.sub.i.i238.i
-  %cmp.i.i245.i = icmp eq i64 %.sroa.speculated.i.i, 0
+  %cmp.i.i245.i = icmp eq ptr %call3.i.i.i, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i245.i, label %if.end39.i, label %invoke.cont35.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont33.i

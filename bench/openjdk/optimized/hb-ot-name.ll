@@ -3200,17 +3200,13 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.us.i: ; preds = %_ZN2OTL
 _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i: ; preds = %77, %64
   %.0.i.i = phi i32 [ %65, %64 ], [ %75, %77 ]
   %80 = icmp slt i32 %.0.i.i, 0
-  br i1 %80, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i
+  br i1 %80, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i
 
 _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i: ; preds = %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i
   %81 = add nsw i32 %59, -1
   br label %83
 
-_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i: ; preds = %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i
-  %.not24.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not24.i, label %.loopexit, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i
-
-_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i: ; preds = %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i, %70
+_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i: ; preds = %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i, %70
   %82 = add nuw nsw i32 %59, 1
   br label %83
 
@@ -3220,9 +3216,9 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i: ; preds = %_ZN
   %.not.not.i = icmp sgt i32 %.1.i, %.122.i
   br i1 %.not.not.i, label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit, label %.lr.ph.split.i, !llvm.loop !75
 
-.loopexit:                                        ; preds = %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i, %77, %66, %71, %14, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i, %44, %29
-  %.pre-phi24 = phi i64 [ %24, %29 ], [ %39, %44 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %9, %14 ], [ %61, %71 ], [ %61, %66 ], [ %61, %77 ], [ %61, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi24
+.loopexit:                                        ; preds = %77, %66, %71, %14, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i, %44, %29
+  %.pre-phi22 = phi i64 [ %24, %29 ], [ %39, %44 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %9, %14 ], [ %61, %71 ], [ %61, %66 ], [ %61, %77 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi22
   br label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit
 
 _ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit: ; preds = %83, %20, %57, %35, %3, %.loopexit

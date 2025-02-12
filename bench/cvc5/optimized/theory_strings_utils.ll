@@ -10112,7 +10112,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4cvc
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i71 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %cmp.not7.i.i.i.i.i = icmp eq ptr %21, %__position.coerce
-  br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont, label %for.inc.i.i.i.i.i72
+  br i1 %cmp.not7.i.i.i.i.i, label %for.inc.i.i.i.i79.preheader, label %for.inc.i.i.i.i.i72
 
 for.inc.i.i.i.i.i72:                              ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit, %for.inc.i.i.i.i.i72
   %__cur.09.i.i.i.i.i73 = phi ptr [ %incdec.ptr1.i.i.i.i.i75, %for.inc.i.i.i.i.i72 ], [ %cond.i71, %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit ]
@@ -10122,16 +10122,15 @@ for.inc.i.i.i.i.i72:                              ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i73, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i74, %__position.coerce
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.inc.i.i.i.i.i72, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i, label %for.inc.i.i.i.i79.preheader, label %for.inc.i.i.i.i.i72, !llvm.loop !12
 
-invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i72, %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit
-  %__cur.0.lcssa.i.i.i.i.i76 = phi ptr [ %cond.i71, %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i75, %for.inc.i.i.i.i.i72 ]
-  %cmp.i.i.i.not8.i.i.i.i77 = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i1.i.i
-  br i1 %cmp.i.i.i.not8.i.i.i.i77, label %invoke.cont71, label %for.inc.i.i.i.i79
+for.inc.i.i.i.i79.preheader:                      ; preds = %for.inc.i.i.i.i.i72, %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit
+  %__cur.09.i.i.i.i81.ph = phi ptr [ %cond.i71, %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i75, %for.inc.i.i.i.i.i72 ]
+  br label %for.inc.i.i.i.i79
 
-for.inc.i.i.i.i79:                                ; preds = %invoke.cont, %for.inc.i.i.i.i79
-  %agg.tmp.sroa.0.0.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i.i82, %for.inc.i.i.i.i79 ], [ %retval.sroa.0.0.copyload.i.i.i, %invoke.cont ]
-  %__cur.09.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i83, %for.inc.i.i.i.i79 ], [ %__cur.0.lcssa.i.i.i.i.i76, %invoke.cont ]
+for.inc.i.i.i.i79:                                ; preds = %for.inc.i.i.i.i79.preheader, %for.inc.i.i.i.i79
+  %agg.tmp.sroa.0.0.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i.i82, %for.inc.i.i.i.i79 ], [ %retval.sroa.0.0.copyload.i.i.i, %for.inc.i.i.i.i79.preheader ]
+  %__cur.09.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i83, %for.inc.i.i.i.i79 ], [ %__cur.09.i.i.i.i81.ph, %for.inc.i.i.i.i79.preheader ]
   %incdec.ptr.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i80, i64 -8
   %24 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i82, align 8
   store ptr %24, ptr %__cur.09.i.i.i.i81, align 8
@@ -10139,13 +10138,12 @@ for.inc.i.i.i.i79:                                ; preds = %invoke.cont, %for.i
   %cmp.i.i.i.not.i.i.i.i84 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i82, %retval.sroa.0.0.copyload.i1.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i84, label %invoke.cont71, label %for.inc.i.i.i.i79, !llvm.loop !180
 
-invoke.cont71:                                    ; preds = %for.inc.i.i.i.i79, %invoke.cont
-  %__cur.0.lcssa.i.i.i.i85 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i76, %invoke.cont ], [ %incdec.ptr.i.i.i.i83, %for.inc.i.i.i.i79 ]
+invoke.cont71:                                    ; preds = %for.inc.i.i.i.i79
   %cmp.not7.i.i.i.i.i87 = icmp eq ptr %__position.coerce, %3
   br i1 %cmp.not7.i.i.i.i.i87, label %invoke.cont75, label %for.inc.i.i.i.i.i88
 
 for.inc.i.i.i.i.i88:                              ; preds = %invoke.cont71, %for.inc.i.i.i.i.i88
-  %__cur.09.i.i.i.i.i89 = phi ptr [ %incdec.ptr1.i.i.i.i.i92, %for.inc.i.i.i.i.i88 ], [ %__cur.0.lcssa.i.i.i.i85, %invoke.cont71 ]
+  %__cur.09.i.i.i.i.i89 = phi ptr [ %incdec.ptr1.i.i.i.i.i92, %for.inc.i.i.i.i.i88 ], [ %incdec.ptr.i.i.i.i83, %invoke.cont71 ]
   %__first.addr.08.i.i.i.i.i90 = phi ptr [ %incdec.ptr.i.i.i.i.i91, %for.inc.i.i.i.i.i88 ], [ %__position.coerce, %invoke.cont71 ]
   %25 = load ptr, ptr %__first.addr.08.i.i.i.i.i90, align 8
   store ptr %25, ptr %__cur.09.i.i.i.i.i89, align 8
@@ -10155,7 +10153,7 @@ for.inc.i.i.i.i.i88:                              ; preds = %invoke.cont71, %for
   br i1 %cmp.not.i.i.i.i.i93, label %invoke.cont75, label %for.inc.i.i.i.i.i88, !llvm.loop !12
 
 invoke.cont75:                                    ; preds = %for.inc.i.i.i.i.i88, %invoke.cont71
-  %__cur.0.lcssa.i.i.i.i.i94 = phi ptr [ %__cur.0.lcssa.i.i.i.i85, %invoke.cont71 ], [ %incdec.ptr1.i.i.i.i.i92, %for.inc.i.i.i.i.i88 ]
+  %__cur.0.lcssa.i.i.i.i.i94 = phi ptr [ %incdec.ptr.i.i.i.i83, %invoke.cont71 ], [ %incdec.ptr1.i.i.i.i.i92, %for.inc.i.i.i.i.i88 ]
   %tobool.not.i = icmp eq ptr %21, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i96
 

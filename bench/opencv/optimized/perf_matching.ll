@@ -772,15 +772,15 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_112generateDataERN2cv3
   store i32 33619968, ptr %11, align 8
   store ptr %0, ptr %22, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 0, double noundef 1.000000e+00, double noundef 0.000000e+00)
-          to label %.preheader42 unwind label %134
+          to label %.preheader43 unwind label %134
 
-.preheader42:                                     ; preds = %21
+.preheader43:                                     ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.preheader.lr.ph, label %._crit_edge
 
-.preheader.lr.ph:                                 ; preds = %.preheader42
+.preheader.lr.ph:                                 ; preds = %.preheader43
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -789,12 +789,12 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_112generateDataERN2cv3
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %138
-  %indvars.iv61 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next62, %138 ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %32 = shl i64 %indvars.iv61, 2
+  %indvars.iv62 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next63, %138 ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %32 = shl i64 %indvars.iv62, 2
   %33 = and i64 %32, 4294967292
-  %34 = trunc nuw nsw i64 %indvars.iv61 to i32
-  %35 = trunc nuw nsw i64 %indvars.iv.next62 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv62 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next63 to i32
   br label %36
 
 36:                                               ; preds = %.preheader, %.loopexit
@@ -820,7 +820,7 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_112generateDataERN2cv3
   %41 = load ptr, ptr %28, align 8
   %42 = load ptr, ptr %29, align 8
   %43 = load i64, ptr %42, align 8
-  %44 = mul i64 %43, %indvars.iv61
+  %44 = mul i64 %43, %indvars.iv62
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = sext i32 %40 to i64
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
@@ -1089,10 +1089,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit41.i:                ; preds = %_ZNKSt6vectorIiSaIi
 138:                                              ; preds = %.loopexit
   %139 = load i32, ptr %24, align 8
   %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next62, %140
+  %141 = icmp slt i64 %indvars.iv.next63, %140
   br i1 %141, label %.preheader, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %138, %.preheader42
+._crit_edge:                                      ; preds = %138, %.preheader43
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
   ret void
 

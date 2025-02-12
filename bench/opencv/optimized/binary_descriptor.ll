@@ -5105,11 +5105,11 @@ define void @_ZNK2cv15line_descriptor16BinaryDescriptor11computeImplERKNS_3MatER
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre214 = add nsw i32 %.193, 1
+  %.pre213 = add nsw i32 %.193, 1
   br i1 %5, label %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, label %64
 
 64:                                               ; preds = %._crit_edge
-  invoke void @_ZN2cv15line_descriptor16BinaryDescriptor12computeSobelERKNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %.pre214)
+  invoke void @_ZN2cv15line_descriptor16BinaryDescriptor12computeSobelERKNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %.pre213)
           to label %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i unwind label %28
 
 _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %._crit_edge, %64
@@ -5117,10 +5117,10 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i32 %.pre214, ptr %66, align 8
-  %67 = zext nneg i32 %.pre214 to i64
+  store i32 %.pre213, ptr %66, align 8
+  %67 = zext nneg i32 %.pre213 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i = icmp eq i32 %.pre214, 0
+  %.not.i.i.i.i = icmp eq i32 %.pre213, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EEC2EmRKS4_.exit.i, label %_ZNSt16allocator_traitsISaIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineEEE8allocateERS4_m.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -5189,8 +5189,8 @@ _ZNSt12_Vector_baseISt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSin
   store i64 0, ptr %94, align 8
   %95 = load ptr, ptr %46, align 8
   %96 = load ptr, ptr %2, align 8
-  %.not188 = icmp eq ptr %95, %96
-  br i1 %.not188, label %.preheader161, label %.lr.ph169
+  %.not187 = icmp eq ptr %95, %96
+  br i1 %.not187, label %.preheader161, label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %89
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -5210,8 +5210,8 @@ _ZNSt12_Vector_baseISt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSin
   br label %111
 
 .preheader161:                                    ; preds = %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit, %89
-  %.not189 = icmp eq ptr %86, %82
-  br i1 %.not189, label %._crit_edge174, label %.preheader160
+  %.not188 = icmp eq ptr %86, %82
+  br i1 %.not188, label %._crit_edge174, label %.preheader160
 
 111:                                              ; preds = %.lr.ph169, %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit
   %112 = phi ptr [ %96, %.lr.ph169 ], [ %126, %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit ]
@@ -5332,8 +5332,8 @@ _ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit: ; preds = 
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %142, align 8
-  %.not190 = icmp eq ptr %144, %145
-  br i1 %.not190, label %._crit_edge172, label %.lr.ph171.preheader
+  %.not189 = icmp eq ptr %144, %145
+  br i1 %.not189, label %._crit_edge172, label %.lr.ph171.preheader
 
 .lr.ph171.preheader:                              ; preds = %.preheader160
   %146 = ptrtoint ptr %144 to i64
@@ -5511,8 +5511,8 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE5
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge183
-  %indvars.iv204 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next205, %._crit_edge183 ]
-  %232 = getelementptr inbounds nuw %"class.std::vector.61", ptr %.pr.i, i64 %indvars.iv204
+  %indvars.iv203 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next204, %._crit_edge183 ]
+  %232 = getelementptr inbounds nuw %"class.std::vector.61", ptr %.pr.i, i64 %indvars.iv203
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = load ptr, ptr %232, align 8
@@ -5528,9 +5528,9 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE5
   br i1 %4, label %.lr.ph182.split.us, label %.lr.ph182.split
 
 .lr.ph182.split.us:                               ; preds = %.lr.ph182, %_ZNSt6vectorIfSaIfEED2Ev.exit.us
-  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %_ZNSt6vectorIfSaIfEED2Ev.exit.us ], [ 0, %.lr.ph182 ]
+  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %_ZNSt6vectorIfSaIfEED2Ev.exit.us ], [ 0, %.lr.ph182 ]
   %242 = phi ptr [ %294, %_ZNSt6vectorIfSaIfEED2Ev.exit.us ], [ %235, %.lr.ph182 ]
-  %243 = getelementptr inbounds nuw %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %242, i64 %indvars.iv201
+  %243 = getelementptr inbounds nuw %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %242, i64 %indvars.iv200
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 48
   %245 = load i32, ptr %244, align 8
   %246 = load ptr, ptr %91, align 8
@@ -5543,11 +5543,11 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE5
   %247 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.us, i64 32
   %248 = load i32, ptr %247, align 4
   %249 = sext i32 %248 to i64
-  %250 = icmp sgt i64 %indvars.iv204, %249
+  %250 = icmp sgt i64 %indvars.iv203, %249
   br i1 %250, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.i.us, label %251
 
 251:                                              ; preds = %.lr.ph.i.i.i.us
-  %252 = icmp slt i64 %indvars.iv204, %249
+  %252 = icmp slt i64 %indvars.iv203, %249
   br i1 %252, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread10.i.i.i.us, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.i.us
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.i.us: ; preds = %251
@@ -5575,11 +5575,11 @@ _ZNSt8_Rb_treeISt4pairIiiES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE14_M_
   %259 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.us, i64 32
   %260 = load i32, ptr %259, align 4
   %261 = sext i32 %260 to i64
-  %262 = icmp slt i64 %indvars.iv204, %261
+  %262 = icmp slt i64 %indvars.iv203, %261
   br i1 %262, label %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us, label %263
 
 263:                                              ; preds = %258
-  %264 = icmp sgt i64 %indvars.iv204, %261
+  %264 = icmp sgt i64 %indvars.iv203, %261
   br i1 %264, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread6.i.i.us, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.us
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.us:  ; preds = %263
@@ -5621,27 +5621,27 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us: ; preds = %283
           to label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge unwind label %.loopexit.split.us
 
 _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge: ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us
-  %.pre207 = load ptr, ptr %276, align 8
-  %.pre208 = load ptr, ptr %277, align 8
-  %.pre209 = ptrtoint ptr %.pre208 to i64
-  %.pre210 = ptrtoint ptr %.pre207 to i64
-  %.pre212 = sub i64 %.pre209, %.pre210
+  %.pre206 = load ptr, ptr %276, align 8
+  %.pre207 = load ptr, ptr %277, align 8
+  %.pre208 = ptrtoint ptr %.pre207 to i64
+  %.pre209 = ptrtoint ptr %.pre206 to i64
+  %.pre211 = sub i64 %.pre208, %.pre209
   br label %.noexc120.us
 
 .noexc120.us:                                     ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us
-  %.pre-phi213 = phi i64 [ %.pre212, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ 0, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
-  %286 = phi ptr [ %.pre208, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ %278, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
-  %287 = phi ptr [ %.pre207, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ %279, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
+  %.pre-phi212 = phi i64 [ %.pre211, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ 0, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
+  %286 = phi ptr [ %.pre207, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ %278, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
+  %287 = phi ptr [ %.pre206, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ %279, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
   %288 = phi ptr [ %285, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us..noexc120.us_crit_edge ], [ null, %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit.us ]
   %.not.i.i.i.i.i.i.i.i.i.us = icmp eq ptr %286, %287
   br i1 %.not.i.i.i.i.i.i.i.i.i.us, label %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit.us, label %289
 
 289:                                              ; preds = %.noexc120.us
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %288, ptr align 4 %287, i64 %.pre-phi213, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %288, ptr align 4 %287, i64 %.pre-phi212, i1 false)
   br label %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit.us
 
 _ZNSt6vectorIfSaIfEEC2ERKS1_.exit.us:             ; preds = %289, %.noexc120.us
-  %290 = lshr exact i64 %.pre-phi213, 2
+  %290 = lshr exact i64 %.pre-phi212, 2
   %291 = trunc i64 %290 to i32
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %.lr.ph179.us.preheader, label %._crit_edge180.us
@@ -5659,28 +5659,28 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit.us:             ; preds = %289, %.noexc120.us
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.us
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %._crit_edge180.us.thread, %._crit_edge180.us
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %293 = load ptr, ptr %233, align 8
   %294 = load ptr, ptr %232, align 8
   %295 = ptrtoint ptr %293 to i64
   %296 = ptrtoint ptr %294 to i64
   %297 = sub i64 %295, %296
   %298 = sdiv exact i64 %297, 80
-  %sext217 = shl i64 %298, 32
-  %299 = ashr exact i64 %sext217, 32
-  %300 = icmp slt i64 %indvars.iv.next202, %299
+  %sext216 = shl i64 %298, 32
+  %299 = ashr exact i64 %sext216, 32
+  %300 = icmp slt i64 %indvars.iv.next201, %299
   br i1 %300, label %.lr.ph182.split.us, label %._crit_edge183, !llvm.loop !65
 
 .lr.ph179.us:                                     ; preds = %.lr.ph179.us.preheader, %.lr.ph179.us
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph179.us.preheader ], [ %indvars.iv.next198, %.lr.ph179.us ]
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph179.us.preheader ], [ %indvars.iv.next197, %.lr.ph179.us ]
   %.076177.us = phi ptr [ %275, %.lr.ph179.us.preheader ], [ %303, %.lr.ph179.us ]
-  %301 = getelementptr inbounds nuw float, ptr %288, i64 %indvars.iv197
+  %301 = getelementptr inbounds nuw float, ptr %288, i64 %indvars.iv196
   %302 = load float, ptr %301, align 4
   store float %302, ptr %.076177.us, align 4
   %303 = getelementptr inbounds nuw i8, ptr %.076177.us, i64 4
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond200.not, label %._crit_edge180.us.thread, label %.lr.ph179.us, !llvm.loop !66
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond199.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count
+  br i1 %exitcond199.not, label %._crit_edge180.us.thread, label %.lr.ph179.us, !llvm.loop !66
 
 .loopexit.split.us:                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -5688,9 +5688,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %._crit_edge180.us.t
   br label %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit116
 
 .lr.ph182.split:                                  ; preds = %.lr.ph182, %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit ], [ 0, %.lr.ph182 ]
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit ], [ 0, %.lr.ph182 ]
   %304 = phi ptr [ %363, %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit ], [ %235, %.lr.ph182 ]
-  %305 = getelementptr inbounds nuw %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %304, i64 %indvars.iv194
+  %305 = getelementptr inbounds nuw %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %304, i64 %indvars.iv193
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 48
   %307 = load i32, ptr %306, align 8
   %308 = load ptr, ptr %91, align 8
@@ -5703,11 +5703,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %._crit_edge180.us.t
   %309 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %310 = load i32, ptr %309, align 4
   %311 = sext i32 %310 to i64
-  %312 = icmp sgt i64 %indvars.iv204, %311
+  %312 = icmp sgt i64 %indvars.iv203, %311
   br i1 %312, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread.i.i.i, label %313
 
 313:                                              ; preds = %.lr.ph.i.i.i
-  %314 = icmp slt i64 %indvars.iv204, %311
+  %314 = icmp slt i64 %indvars.iv203, %311
   br i1 %314, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread10.i.i.i, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i.i:   ; preds = %313
@@ -5735,11 +5735,11 @@ _ZNSt8_Rb_treeISt4pairIiiES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE14_M_
   %321 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %322 = load i32, ptr %321, align 4
   %323 = sext i32 %322 to i64
-  %324 = icmp slt i64 %indvars.iv204, %323
+  %324 = icmp slt i64 %indvars.iv203, %323
   br i1 %324, label %_ZNSt3mapISt4pairIiiEmSt4lessIS1_ESaIS0_IKS1_mEEE4findERS4_.exit, label %325
 
 325:                                              ; preds = %320
-  %326 = icmp sgt i64 %indvars.iv204, %323
+  %326 = icmp sgt i64 %indvars.iv203, %323
   br i1 %326, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread6.i.i, label %_ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.i.i:     ; preds = %325
@@ -5802,8 +5802,8 @@ _ZN2cv15line_descriptor16BinaryDescriptor16binaryConversionEPfS2_.exit: ; preds 
   store i8 %.1.i, ptr %.079175, align 1
   %361 = getelementptr inbounds nuw i8, ptr %.079175, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond193.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond193.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit, label %340, !llvm.loop !67
+  %exitcond192.not = icmp eq i64 %indvars.iv.next, 32
+  br i1 %exitcond192.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit, label %340, !llvm.loop !67
 
 .noexc.i.i:                                       ; preds = %283
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
@@ -5813,21 +5813,21 @@ _ZN2cv15line_descriptor16BinaryDescriptor16binaryConversionEPfS2_.exit: ; preds 
   unreachable
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.loopexit:           ; preds = %_ZN2cv15line_descriptor16BinaryDescriptor16binaryConversionEPfS2_.exit
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %362 = load ptr, ptr %233, align 8
   %363 = load ptr, ptr %232, align 8
   %364 = ptrtoint ptr %362 to i64
   %365 = ptrtoint ptr %363 to i64
   %366 = sub i64 %364, %365
   %367 = sdiv exact i64 %366, 80
-  %sext216 = shl i64 %367, 32
-  %368 = ashr exact i64 %sext216, 32
-  %369 = icmp slt i64 %indvars.iv.next195, %368
+  %sext215 = shl i64 %367, 32
+  %368 = ashr exact i64 %sext215, 32
+  %369 = icmp slt i64 %indvars.iv.next194, %368
   br i1 %369, label %.lr.ph182.split, label %._crit_edge183, !llvm.loop !65
 
 ._crit_edge183:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.loopexit, %_ZNSt6vectorIfSaIfEED2Ev.exit.us, %.preheader
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %370 = icmp samesign ult i64 %indvars.iv.next205, %231
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %370 = icmp samesign ult i64 %indvars.iv.next204, %231
   br i1 %370, label %.preheader, label %._crit_edge186, !llvm.loop !68
 
 ._crit_edge186:                                   ; preds = %._crit_edge183, %222

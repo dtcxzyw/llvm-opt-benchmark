@@ -4681,7 +4681,7 @@ for.body.preheader:                               ; preds = %if.end25
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %8, i64 %conv.i68
   %idx.neg35 = sub nsw i64 0, %sub.ptr.div33
   %add.ptr36 = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %idx.neg35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr36, ptr align 8 %add.ptr7, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr align 8 %add.ptr7, i64 %gepdiff, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

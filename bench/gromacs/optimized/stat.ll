@@ -473,7 +473,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %194 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
   %195 = sub i64 %193, %194
   %196 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i, i64 %195
-  %197 = call noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr noundef %28, ptr %.sroa.01.0.copyload.i, ptr %196)
+  %197 = call noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr noundef %28, ptr %.sroa.01.0.copyload.i, ptr nonnull %196)
   br label %198
 
 198:                                              ; preds = %192, %189
@@ -817,7 +817,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit302:           ; preds = %304, %311, %318, %2
   %347 = ptrtoint ptr %.sroa.01.0.copyload.i303 to i64
   %348 = sub i64 %346, %347
   %349 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i303, i64 %348
-  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %28, i32 noundef %.0248, ptr %.sroa.01.0.copyload.i303, ptr %349)
+  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %28, i32 noundef %.0248, ptr %.sroa.01.0.copyload.i303, ptr nonnull %349)
   br label %350
 
 350:                                              ; preds = %345, %343

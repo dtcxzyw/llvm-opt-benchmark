@@ -20666,7 +20666,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %.thread233, %97, %_
   %.not148 = icmp eq ptr %108, %72
   br i1 %.not148, label %.critedge.thread, label %84, !llvm.loop !42
 
-.critedge:                                        ; preds = %.lr.ph, %84
+.critedge:                                        ; preds = %84, %.lr.ph
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.114) #16
   br label %365
 
@@ -20800,7 +20800,7 @@ _ZN16StackFrameStream4nextEv.exit166:             ; preds = %.thread237, %148, %
   %.not150 = icmp eq ptr %159, %72
   br i1 %.not150, label %.critedge2.thread, label %135, !llvm.loop !46
 
-.critedge2:                                       ; preds = %.lr.ph201, %135
+.critedge2:                                       ; preds = %135, %.lr.ph201
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.116) #16
   br label %365
 

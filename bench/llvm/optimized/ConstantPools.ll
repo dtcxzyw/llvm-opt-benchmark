@@ -204,8 +204,8 @@ _ZNSt8_Rb_treeISt4pairIljES0_IKS1_PKN4llvm15MCSymbolRefExprEESt10_Select1stIS7_E
 _ZNKSt4lessISt4pairIljEEclERKS1_S4_.exit.i.i:     ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %35 = load i32, ptr %34, align 8, !tbaa !34
-  %.not74 = icmp ult i32 %3, %35
-  br i1 %.not74, label %.thread, label %_ZNSt3mapISt4pairIljEPKN4llvm15MCSymbolRefExprESt4lessIS1_ESaIS0_IKS1_S5_EEE4findERS8_.exit
+  %.not73 = icmp ult i32 %3, %35
+  br i1 %.not73, label %.thread, label %_ZNSt3mapISt4pairIljEPKN4llvm15MCSymbolRefExprESt4lessIS1_ESaIS0_IKS1_S5_EEE4findERS8_.exit
 
 _ZNSt3mapISt4pairIljEPKN4llvm15MCSymbolRefExprESt4lessIS1_ESaIS0_IKS1_S5_EEE4findERS8_.exit: ; preds = %32, %_ZNKSt4lessISt4pairIljEEclERKS1_S4_.exit.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
@@ -286,8 +286,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8MCSymbolEjEPKNS_15MCSymbolRefE
   %.sroa.0.1.i = phi ptr [ %89, %.loopexit.i ], [ %64, %46 ], [ %81, %76 ]
   %90 = zext i32 %44 to i64
   %91 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %90
-  %.not73 = icmp eq ptr %.sroa.0.1.i, %91
-  br i1 %.not73, label %94, label %.thread71
+  %.not74 = icmp eq ptr %.sroa.0.1.i, %91
+  br i1 %.not74, label %94, label %.thread71
 
 .thread71:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8MCSymbolEjEPKNS_15MCSymbolRefExprENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S9_EEEES6_S9_SB_SE_E4findERKS6_.exit
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16

@@ -4502,21 +4502,14 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S
 
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %578
   %580 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %576) #23
-          to label %.noexc265 unwind label %424
+          to label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %424
 
-.noexc265:                                        ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
-  %.not7.i.i.i.i.i.i = icmp eq ptr %573, %572
-  br i1 %.not7.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %.noexc265
+_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i
   %581 = add i64 %574, -8
   %582 = sub i64 %581, %575
   %583 = and i64 %582, -8
   %584 = add i64 %583, 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %580, ptr align 4 %573, i64 %584, i1 false)
-  br label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
-
-_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %.noexc265, %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %580, ptr %23, align 8
   %585 = getelementptr inbounds nuw i8, ptr %580, i64 %576
   store ptr %585, ptr %577, align 8
@@ -4549,21 +4542,14 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
 
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i283: ; preds = %595
   %597 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %593) #23
-          to label %.noexc290 unwind label %424
+          to label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i288 unwind label %424
 
-.noexc290:                                        ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i283
-  %.not7.i.i.i.i.i.i284 = icmp eq ptr %590, %589
-  br i1 %.not7.i.i.i.i.i.i284, label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i288, label %.lr.ph.i.i.i.i.preheader.i.i285
-
-.lr.ph.i.i.i.i.preheader.i.i285:                  ; preds = %.noexc290
+_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i288: ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i283
   %598 = add i64 %591, -8
   %599 = sub i64 %598, %592
   %600 = and i64 %599, -8
   %601 = add i64 %600, 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %597, ptr align 4 %590, i64 %601, i1 false)
-  br label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i288
-
-_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i288: ; preds = %.noexc290, %.lr.ph.i.i.i.i.preheader.i.i285
   store ptr %597, ptr %24, align 8
   %602 = getelementptr inbounds nuw i8, ptr %597, i64 %593
   store ptr %602, ptr %594, align 8

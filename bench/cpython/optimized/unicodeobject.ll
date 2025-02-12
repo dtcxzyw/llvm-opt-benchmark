@@ -14942,8 +14942,8 @@ _PyUnicodeWriter_WriteCharInline.exit161:         ; preds = %133, %136, %139
   %.0113352.lcssa387.lcssa = phi i64 [ 0, %149 ], [ %.0113352, %144 ]
   %153 = icmp ne i32 %.0108353, 0
   %154 = icmp sgt i8 %33, -1
-  %or.cond19 = select i1 %153, i1 %154, i1 false
-  br i1 %or.cond19, label %155, label %176
+  %or.cond17 = select i1 %153, i1 %154, i1 false
+  br i1 %or.cond17, label %155, label %176
 
 155:                                              ; preds = %152
   %156 = load i32, ptr %20, align 4, !tbaa !222

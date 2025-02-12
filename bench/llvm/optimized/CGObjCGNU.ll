@@ -33538,7 +33538,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   %90 = getelementptr inbounds nuw ptr, ptr %41, i64 %89
   %91 = sub nsw i64 0, %45
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit, %86
@@ -33828,7 +33828,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13
   %90 = getelementptr inbounds nuw ptr, ptr %41, i64 %89
   %91 = sub nsw i64 0, %45
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit, %86
@@ -39021,7 +39021,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   %90 = getelementptr inbounds nuw ptr, ptr %41, i64 %89
   %91 = sub nsw i64 0, %45
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit, %86
@@ -39311,7 +39311,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13
   %90 = getelementptr inbounds nuw ptr, ptr %41, i64 %89
   %91 = sub nsw i64 0, %45
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_13isClassMethodEvEEEppEv.exit, %86
@@ -40534,7 +40534,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE6appendISt13move_iteratorIPS3
   %65 = sub i64 %47, %41
   %.neg.i.i.i.i.i = sdiv exact i64 %65, -152
   %66 = getelementptr inbounds %"struct.clang::CodeGen::CallArg", ptr %40, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %39, i64 %65, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr align 8 %39, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPN5clang7CodeGen7CallArgES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang7CodeGen7CallArgES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %64
@@ -40556,7 +40556,7 @@ _ZSt13move_backwardIPN5clang7CodeGen7CallArgES3_ET0_T_S5_S4_.exit: ; preds = %_Z
   %72 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %38, i64 %71
   %73 = sub nsw i64 0, %42
   %74 = getelementptr inbounds %"struct.clang::CodeGen::CallArg", ptr %72, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
@@ -40721,7 +40721,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEE6appendISt13mo
   %65 = sub i64 %47, %41
   %.neg.i.i.i.i.i = sdiv exact i64 %65, -208
   %66 = getelementptr inbounds %"struct.clang::CodeGen::CallArgList::Writeback", ptr %40, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %39, i64 %65, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr align 8 %39, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPN5clang7CodeGen11CallArgList9WritebackES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPN5clang7CodeGen11CallArgList9WritebackES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEE6appendISt13move_iteratorIPS4_EvEEvT_SA_.exit, %64
@@ -40743,7 +40743,7 @@ _ZSt13move_backwardIPN5clang7CodeGen11CallArgList9WritebackES4_ET0_T_S6_S5_.exit
   %72 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArgList::Writeback", ptr %38, i64 %71
   %73 = sub nsw i64 0, %42
   %74 = getelementptr inbounds %"struct.clang::CodeGen::CallArgList::Writeback", ptr %72, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
@@ -40931,7 +40931,7 @@ _ZSt13move_backwardIPN5clang7CodeGen11CallArgList14CallArgCleanupES4_ET0_T_S6_S5
   %74 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArgList::CallArgCleanup", ptr %38, i64 %73
   %75 = sub nsw i64 0, %42
   %76 = getelementptr inbounds %"struct.clang::CodeGen::CallArgList::CallArgCleanup", ptr %74, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70

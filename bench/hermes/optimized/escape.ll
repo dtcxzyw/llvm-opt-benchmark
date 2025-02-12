@@ -4443,7 +4443,7 @@ for.body.preheader:                               ; preds = %if.end31
   %add.ptr.i = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i61
   %idx.neg41 = sub nsw i64 0, %sub.ptr.div15
   %add.ptr42 = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.neg41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 2 %add.ptr10, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr42, ptr align 2 %add.ptr10, i64 %gepdiff, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit

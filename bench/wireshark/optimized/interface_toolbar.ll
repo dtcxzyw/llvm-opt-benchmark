@@ -20699,21 +20699,21 @@ _ZSt4nextIN5QListI10QByteArrayE8iteratorEET_S4_NSt15iterator_traitsIS4_E15differ
 _ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.i.i.i33: ; preds = %58
   %60 = load atomic i32, ptr %59 monotonic, align 4
   %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35, label %.lr.ph.i.i.i.i.i.preheader.i
+  br i1 %61, label %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35, label %_ZN17QArrayDataPointerI10QByteArrayE6detachEPS1_.exit.i.i
 
 _ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35: ; preds = %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.i.i.i33, %58
   tail call void @_ZN17QArrayDataPointerI10QByteArrayE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i = load ptr, ptr %3, align 8
-  br label %.lr.ph.i.i.i.i.i.preheader.i
+  br label %_ZN17QArrayDataPointerI10QByteArrayE6detachEPS1_.exit.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35, %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.i.i.i33
+_ZN17QArrayDataPointerI10QByteArrayE6detachEPS1_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35, %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.i.i.i33
   %62 = phi ptr [ %.pre.i, %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.thread.i.i.i35 ], [ %50, %_ZNK17QArrayDataPointerI10QByteArrayE11needsDetachEv.exit.i.i.i33 ]
   %63 = getelementptr i8, ptr %62, i64 %56
   %64 = getelementptr i8, ptr %63, i64 %53
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.05.i.i.i.i.i.i = phi ptr [ %69, %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i ], [ %63, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i, %_ZN17QArrayDataPointerI10QByteArrayE6detachEPS1_.exit.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %69, %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i ], [ %63, %_ZN17QArrayDataPointerI10QByteArrayE6detachEPS1_.exit.i.i ]
   %65 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i.i.i.i.i.i.i
@@ -20731,9 +20731,9 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.
 _ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i: ; preds = %67, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %69 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %69, %64
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !96
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !96
 
-_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i:     ; preds = %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i
+_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.loopexit.i.i: ; preds = %_ZSt8_DestroyI10QByteArrayEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %3, align 8
   %70 = icmp ne ptr %63, %.pre.i.i
   %71 = load i64, ptr %5, align 8
@@ -20742,11 +20742,11 @@ _ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i:     ; preds = %_ZSt8_DestroyI10QBy
   %or.cond.i.i.i34 = select i1 %70, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %_ZSt7destroyIP10QByteArrayEvT_S2_.exit._crit_edge.i.i.i, label %73
 
-73:                                               ; preds = %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i
+73:                                               ; preds = %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.loopexit.i.i
   store ptr %64, ptr %3, align 8
   br label %_ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i
 
-_ZSt7destroyIP10QByteArrayEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.i.i
+_ZSt7destroyIP10QByteArrayEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP10QByteArrayEvT_S2_.exit.i.loopexit.i.i
   br i1 %.not.i.i.i, label %_ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i, label %74
 
 74:                                               ; preds = %_ZSt7destroyIP10QByteArrayEvT_S2_.exit._crit_edge.i.i.i

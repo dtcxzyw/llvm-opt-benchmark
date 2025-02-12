@@ -4102,7 +4102,7 @@ _ZNSt5queueISt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorI
   %270 = getelementptr inbounds nuw ptr, ptr %187, i64 %269
   %271 = sub nsw i64 0, %191
   %272 = getelementptr inbounds ptr, ptr %270, i64 %271
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %272, ptr align 8 %188, i64 %gepdiff, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %272, ptr align 8 %188, i64 %gepdiff, i1 false)
   %273 = getelementptr inbounds nuw i8, ptr %2, i64 104
   br label %322
 

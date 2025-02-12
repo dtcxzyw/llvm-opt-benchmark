@@ -2036,32 +2036,32 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit85.i:    ; preds = %48
   %81 = fadd double %80, %78
   %82 = fdiv double %63, %81
   %83 = fdiv double %72, %81
-  %84 = ptrtoint ptr %39 to i64
-  %85 = ptrtoint ptr %37 to i64
-  %86 = sub i64 %84, %85
-  %87 = sdiv exact i64 %86, 96
-  %88 = fptrunc double %83 to float
-  %89 = fptrunc double %82 to float
-  %90 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = add nsw i32 %93, -1
-  %95 = load i32, ptr %91, align 4
-  %96 = add nsw i32 %95, -1
-  %97 = sitofp i32 %94 to float
-  %98 = sitofp i32 %96 to float
-  %99 = fcmp oge float %89, 0.000000e+00
-  %100 = fcmp olt float %89, %97
-  %or.cond202.not222.not227.i = select i1 %99, i1 %100, i1 false
-  %101 = fcmp oge float %88, 0.000000e+00
-  %or.cond208.not224.i = select i1 %or.cond202.not222.not227.i, i1 %101, i1 false
-  %102 = fcmp olt float %88, %98
-  %or.cond209.i = select i1 %or.cond208.not224.i, i1 %102, i1 false
+  %84 = fptrunc double %83 to float
+  %85 = fptrunc double %82 to float
+  %86 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = add nsw i32 %89, -1
+  %91 = load i32, ptr %87, align 4
+  %92 = add nsw i32 %91, -1
+  %93 = sitofp i32 %90 to float
+  %94 = sitofp i32 %92 to float
+  %95 = fcmp oge float %85, 0.000000e+00
+  %96 = fcmp olt float %85, %93
+  %or.cond202.not222.not227.i = select i1 %95, i1 %96, i1 false
+  %97 = fcmp oge float %84, 0.000000e+00
+  %or.cond208.not224.i = select i1 %or.cond202.not222.not227.i, i1 %97, i1 false
+  %98 = fcmp olt float %84, %94
+  %or.cond209.i = select i1 %or.cond208.not224.i, i1 %98, i1 false
   br i1 %or.cond209.i, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit87.i, label %.loopexit43
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit87.i:    ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit85.i
-  %103 = trunc i64 %87 to i32
+  %99 = ptrtoint ptr %39 to i64
+  %100 = ptrtoint ptr %37 to i64
+  %101 = sub i64 %99, %100
+  %102 = sdiv exact i64 %101, 96
+  %103 = trunc i64 %102 to i32
   %104 = load i32, ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, align 16
   %105 = load i32, ptr %27, align 8
   %106 = and i32 %105, 16384
@@ -2188,9 +2188,9 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit89.i:    ; preds = %.noexc
   br i1 %175, label %.lr.ph.us.preheader.i, label %.loopexit43
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph215.i
-  %190 = sext i32 %95 to i64
+  %190 = sext i32 %91 to i64
   %191 = zext nneg i32 %9 to i64
-  %wide.trip.count237.i = and i64 %87, 2147483647
+  %wide.trip.count237.i = and i64 %102, 2147483647
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -2981,33 +2981,33 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit112.i:   ; preds = %613
   %646 = fadd double %645, %643
   %647 = fdiv double %628, %646
   %648 = fdiv double %637, %646
-  %649 = ptrtoint ptr %604 to i64
-  %650 = ptrtoint ptr %602 to i64
-  %651 = sub i64 %649, %650
-  %652 = sdiv exact i64 %651, 96
-  %653 = fptrunc double %648 to float
-  %654 = fptrunc double %647 to float
-  %655 = getelementptr inbounds nuw i8, ptr %602, i64 64
-  %656 = load ptr, ptr %655, align 8
-  %657 = getelementptr inbounds nuw i8, ptr %656, i64 4
-  %658 = load i32, ptr %657, align 4
-  %659 = add nsw i32 %658, -1
-  %660 = load i32, ptr %656, align 4
-  %661 = add nsw i32 %660, -1
-  %662 = sitofp i32 %659 to float
-  %663 = sitofp i32 %661 to float
-  %664 = fcmp oge float %654, 0.000000e+00
-  %665 = fcmp olt float %654, %662
-  %or.cond161.not184.not189.i = select i1 %664, i1 %665, i1 false
-  %666 = fcmp oge float %653, 0.000000e+00
-  %or.cond171.not186.i = select i1 %or.cond161.not184.not189.i, i1 %666, i1 false
-  %667 = fcmp olt float %653, %663
-  %or.cond172.i = select i1 %or.cond171.not186.i, i1 %667, i1 false
+  %649 = fptrunc double %648 to float
+  %650 = fptrunc double %647 to float
+  %651 = getelementptr inbounds nuw i8, ptr %602, i64 64
+  %652 = load ptr, ptr %651, align 8
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 4
+  %654 = load i32, ptr %653, align 4
+  %655 = add nsw i32 %654, -1
+  %656 = load i32, ptr %652, align 4
+  %657 = add nsw i32 %656, -1
+  %658 = sitofp i32 %655 to float
+  %659 = sitofp i32 %657 to float
+  %660 = fcmp oge float %650, 0.000000e+00
+  %661 = fcmp olt float %650, %658
+  %or.cond161.not184.not189.i = select i1 %660, i1 %661, i1 false
+  %662 = fcmp oge float %649, 0.000000e+00
+  %or.cond171.not186.i = select i1 %or.cond161.not184.not189.i, i1 %662, i1 false
+  %663 = fcmp olt float %649, %659
+  %or.cond172.i = select i1 %or.cond171.not186.i, i1 %663, i1 false
   br i1 %or.cond172.i, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit114.i, label %_ZN2cv11xfeatures2dL19ni_get_descriptor_hEddiPdPfPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdi.exit
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit114.i:   ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit112.i
-  %668 = trunc i64 %652 to i32
-  %669 = getelementptr inbounds nuw i8, ptr %656, i64 8
+  %664 = ptrtoint ptr %604 to i64
+  %665 = ptrtoint ptr %602 to i64
+  %666 = sub i64 %664, %665
+  %667 = sdiv exact i64 %666, 96
+  %668 = trunc i64 %667 to i32
+  %669 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %670 = load i32, ptr %669, align 4
   %671 = zext nneg i32 %2 to i64
   %672 = getelementptr inbounds nuw double, ptr %8, i64 %671
@@ -3192,7 +3192,7 @@ _ZN2cv11xfeatures2dL16ni_get_histogramEPfiiiPKNS_3MatE.exit.i: ; preds = %.lr.ph
 .lr.ph.us.preheader.i34:                          ; preds = %.lr.ph177.i
   %800 = sext i32 %670 to i64
   %801 = zext nneg i32 %9 to i64
-  %wide.trip.count198.i = and i64 %652, 2147483647
+  %wide.trip.count198.i = and i64 %667, 2147483647
   br label %.lr.ph.us.i36
 
 .lr.ph.us.i36:                                    ; preds = %._crit_edge.us.i40, %.lr.ph.us.preheader.i34
@@ -9009,13 +9009,13 @@ _ZN2cv3Mat2atIfEERT_i.exit.i:                     ; preds = %184, %177, %169
   %199 = load i32, ptr %12, align 8
   %200 = and i32 %199, 16384
   %.not.i18.i = icmp eq i32 %200, 0
-  br i1 %.not.i18.i, label %201, label %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i
+  br i1 %.not.i18.i, label %201, label %_ZN2cv3Mat2atIfEERT_i.exit26.i
 
 201:                                              ; preds = %198
   %202 = load ptr, ptr %54, align 8
   %203 = load i32, ptr %202, align 4
   %204 = icmp eq i32 %203, 1
-  br i1 %204, label %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i, label %205
+  br i1 %204, label %_ZN2cv3Mat2atIfEERT_i.exit26.i, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
@@ -9023,7 +9023,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.i:                     ; preds = %184, %177, %169
   %208 = icmp eq i32 %207, 1
   br i1 %208, label %220, label %238
 
-_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i:     ; preds = %198, %201
+_ZN2cv3Mat2atIfEERT_i.exit26.i:                   ; preds = %201, %198
   %209 = load ptr, ptr %56, align 8
   %210 = sext i32 %.037.i to i64
   %211 = getelementptr inbounds float, ptr %209, i64 %210
@@ -9034,8 +9034,8 @@ _ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i:     ; preds = %198, %201
   %216 = select i1 %215, i32 0, i32 %214
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds float, ptr %209, i64 %217
-  %.pn48.i = load float, ptr %218, align 4
-  %.in3549.i = fadd float %213, %.pn48.i
+  %.pn.i = load float, ptr %218, align 4
+  %.in35.i = fadd float %213, %.pn.i
   %219 = getelementptr inbounds float, ptr %209, i64 %210
   br label %_ZN2cv3Mat2atIfEERT_i.exit29.i
 
@@ -9054,8 +9054,8 @@ _ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i:     ; preds = %198, %201
   %232 = sext i32 %231 to i64
   %233 = mul i64 %223, %232
   %234 = getelementptr inbounds i8, ptr %221, i64 %233
-  %.pn50.pn.i111 = load float, ptr %234, align 4
-  %.in.i112 = fadd float %228, %.pn50.pn.i111
+  %.pn48.i112 = load float, ptr %234, align 4
+  %.in3549.i113 = fadd float %228, %.pn48.i112
   %235 = sext i32 %.037.i to i64
   %236 = mul i64 %223, %235
   %237 = getelementptr inbounds i8, ptr %221, i64 %236
@@ -9088,8 +9088,8 @@ _ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i:     ; preds = %198, %201
   %260 = getelementptr inbounds i8, ptr %242, i64 %259
   %261 = sext i32 %.recomposed182 to i64
   %262 = getelementptr inbounds float, ptr %260, i64 %261
-  %.pn50.pn.i = load float, ptr %262, align 4
-  %.in.i = fadd float %251, %.pn50.pn.i
+  %.pn48.i = load float, ptr %262, align 4
+  %.in3549.i = fadd float %251, %.pn48.i
   %263 = sdiv i32 %.037.i, %255
   %264 = mul nsw i32 %263, %255
   %.recomposed183 = srem i32 %.037.i, %255
@@ -9100,12 +9100,12 @@ _ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i:     ; preds = %198, %201
   %269 = getelementptr inbounds float, ptr %267, i64 %268
   br label %_ZN2cv3Mat2atIfEERT_i.exit29.i
 
-_ZN2cv3Mat2atIfEERT_i.exit29.i:                   ; preds = %238, %220, %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i
-  %.in120 = phi float [ %.in3549.i, %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i ], [ %.in.i112, %220 ], [ %.in.i, %238 ]
-  %270 = phi float [ %212, %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i ], [ %227, %220 ], [ %250, %238 ]
-  %271 = phi i32 [ %214, %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i ], [ %229, %220 ], [ %252, %238 ]
-  %.0.i28.i = phi ptr [ %219, %_ZN2cv3Mat2atIfEERT_i.exit26.thread.thread.i ], [ %237, %220 ], [ %269, %238 ]
-  %272 = fdiv float %.in120, 3.000000e+00
+_ZN2cv3Mat2atIfEERT_i.exit29.i:                   ; preds = %238, %220, %_ZN2cv3Mat2atIfEERT_i.exit26.i
+  %.in50.i = phi float [ %.in35.i, %_ZN2cv3Mat2atIfEERT_i.exit26.i ], [ %.in3549.i113, %220 ], [ %.in3549.i, %238 ]
+  %270 = phi float [ %212, %_ZN2cv3Mat2atIfEERT_i.exit26.i ], [ %227, %220 ], [ %250, %238 ]
+  %271 = phi i32 [ %214, %_ZN2cv3Mat2atIfEERT_i.exit26.i ], [ %229, %220 ], [ %252, %238 ]
+  %.0.i28.i = phi ptr [ %219, %_ZN2cv3Mat2atIfEERT_i.exit26.i ], [ %237, %220 ], [ %269, %238 ]
+  %272 = fdiv float %.in50.i, 3.000000e+00
   store float %272, ptr %.0.i28.i, align 4
   %273 = icmp slt i32 %271, %161
   br i1 %273, label %198, label %_ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit, !llvm.loop !106
@@ -9307,8 +9307,8 @@ _ZN2cv3Mat2atIfEERT_i.exit98:                     ; preds = %332, %._crit_edge.t
   br label %_ZN2cv3Mat2atIfEERT_i.exit101
 
 390:                                              ; preds = %370, %364
-  %.in117.ph = phi ptr [ %369, %364 ], [ %380, %370 ]
-  %391 = load float, ptr %.in117.ph, align 4
+  %.in119.ph = phi ptr [ %369, %364 ], [ %380, %370 ]
+  %391 = load float, ptr %.in119.ph, align 4
   %392 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %393 = load i32, ptr %392, align 4
   %394 = icmp eq i32 %393, 1
@@ -9379,7 +9379,7 @@ _ZN2cv3Mat2atIfEERT_i.exit101:                    ; preds = %_ZN2cv3Mat2atIfEERT
   br label %428
 
 428:                                              ; preds = %426, %424
-  %.pn.i = phi { ptr, i32 } [ %427, %426 ], [ %425, %424 ]
+  %.pn.i103 = phi { ptr, i32 } [ %427, %426 ], [ %425, %424 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   br label %.body
 
@@ -9455,7 +9455,7 @@ _ZN2cv3Mat2atIfEERT_i.exit101:                    ; preds = %_ZN2cv3Mat2atIfEERT
   ret void
 
 .body:                                            ; preds = %.loopexit122, %.loopexit.split-lp, %73, %428, %99
-  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %74, %73 ], [ %.pn.i, %428 ], [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %74, %73 ], [ %.pn.i103, %428 ], [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #24
   br label %473
 

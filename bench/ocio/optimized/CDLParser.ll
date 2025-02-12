@@ -11904,8 +11904,8 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %1, align 8
-  %cmp32.not = icmp eq ptr %2, %3
-  br i1 %cmp32.not, label %for.end, label %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph
+  %cmp31.not = icmp eq ptr %2, %3
+  br i1 %cmp31.not, label %for.end, label %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph
 
 _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph: ; preds = %entry
   %_M_finish.i13 = getelementptr inbounds nuw i8, ptr %transformVec, i64 8
@@ -11916,8 +11916,8 @@ _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2
 
 _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph, %for.inc
   %4 = phi ptr [ %3, %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph ], [ %41, %for.inc ]
-  %i.033 = phi i64 [ 0, %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.25", ptr %4, i64 %i.033
+  %i.032 = phi i64 [ 0, %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.25", ptr %4, i64 %i.032
   %5 = load ptr, ptr %_M_finish.i13, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
@@ -12194,7 +12194,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9.i.i.i, %if.end, %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE9push_backERKS3_.exit
-  %inc = add nuw i64 %i.033, 1
+  %inc = add nuw i64 %i.032, 1
   %40 = load ptr, ptr %_M_finish.i, align 8
   %41 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %40 to i64
@@ -12207,11 +12207,11 @@ for.inc:                                          ; preds = %if.end9.i.i.i, %if.
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %m_impl, align 8
   %m_parsingInfo.i17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre37 = load ptr, ptr %m_parsingInfo.i17.phi.trans.insert, align 8
+  %.pre36 = load ptr, ptr %m_parsingInfo.i17.phi.trans.insert, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %42 = phi ptr [ %.pre37, %for.end.loopexit ], [ %1, %entry ]
+  %42 = phi ptr [ %.pre36, %for.end.loopexit ], [ %1, %entry ]
   %m_metadata = getelementptr inbounds nuw i8, ptr %42, i64 24
   %call36 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplaSERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %metadata, ptr noundef nonnull align 8 dereferenceable(120) %m_metadata)
   ret void

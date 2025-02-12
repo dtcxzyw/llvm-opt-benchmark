@@ -9537,8 +9537,8 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit: ; preds = %"_ZN
 
 18:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit
   %.pre = load i64, ptr %1, align 8, !range !228, !alias.scope !2115
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.5)
   %19 = icmp eq i64 %.pre, -9223372036854775808
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.5)
   br i1 %19, label %"_ZN4core3ptr286drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$tokenizers..tokenizer..Token$GT$$C$tokenizers..tokenizer..pre_tokenizer..PreTokenizedString..into_encoding..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf8c7331bb0b5a585E.exit", label %20
 
 20:                                               ; preds = %.thread, %18
@@ -20834,8 +20834,8 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit.i: ; preds = %"_
 
 101:                                              ; preds = %.noexc37
   %.pre.i36 = load i64, ptr %11, align 8, !range !228, !alias.scope !4439, !noalias !4442
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.5.i)
   %102 = icmp eq i64 %.pre.i36, -9223372036854775808
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.5.i)
   br i1 %102, label %"_ZN4core3ptr286drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$tokenizers..tokenizer..Token$GT$$C$tokenizers..tokenizer..pre_tokenizer..PreTokenizedString..into_encoding..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf8c7331bb0b5a585E.exit.i", label %103
 
 103:                                              ; preds = %101, %.thread.i

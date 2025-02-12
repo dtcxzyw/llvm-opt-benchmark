@@ -298,8 +298,8 @@ RB_SYMBOL_P.exit.thread60:                        ; preds = %47, %40, %RB_SYMBOL
   %57 = zext i1 %.not to i32
   br label %RB_SYMBOL_P.exit59.thread
 
-RB_SYMBOL_P.exit59.thread:                        ; preds = %RB_SYMBOL_P.exit59, %RB_SYMBOL_P.exit.thread, %.critedge, %2, %RB_SYMBOL_P.exit.thread60, %33
-  %.053 = phi i32 [ %34, %33 ], [ %57, %RB_SYMBOL_P.exit.thread60 ], [ 0, %2 ], [ -1, %.critedge ], [ 1, %RB_SYMBOL_P.exit.thread ], [ 1, %RB_SYMBOL_P.exit59 ]
+RB_SYMBOL_P.exit59.thread:                        ; preds = %RB_SYMBOL_P.exit.thread, %RB_SYMBOL_P.exit59, %.critedge, %2, %RB_SYMBOL_P.exit.thread60, %33
+  %.053 = phi i32 [ %34, %33 ], [ %57, %RB_SYMBOL_P.exit.thread60 ], [ 0, %2 ], [ -1, %.critedge ], [ 1, %RB_SYMBOL_P.exit59 ], [ 1, %RB_SYMBOL_P.exit.thread ]
   ret i32 %.053
 }
 

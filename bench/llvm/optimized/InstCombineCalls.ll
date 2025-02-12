@@ -13437,27 +13437,26 @@ _ZNK4llvm17RetainedKnowledgeeqES0_.exit.thread:   ; preds = %3559
   %3749 = getelementptr inbounds nuw i8, ptr %315, i64 12
   store i32 8, ptr %3749, align 4, !tbaa !27
   %.not17043705 = icmp eq i32 %3737, 0
-  br i1 %.not17043705, label %.preheader3698, label %.lr.ph3708
-
-.preheader3698:                                   ; preds = %.lr.ph3708, %3746
-  %.not17053709 = icmp eq i32 %3737, %3735
-  br i1 %.not17053709, label %._crit_edge3712, label %.lr.ph3711
+  br i1 %.not17043705, label %.lr.ph3711.preheader, label %.lr.ph3708
 
 .lr.ph3708:                                       ; preds = %3746, %.lr.ph3708
   %.015473706 = phi i32 [ %3750, %.lr.ph3708 ], [ 0, %3746 ]
   call void @_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi(ptr noundef nonnull align 8 dereferenceable(16) %315, i32 noundef %.015473706)
   %3750 = add nuw i32 %.015473706, 1
   %.not1704 = icmp eq i32 %3750, %3737
-  br i1 %.not1704, label %.preheader3698, label %.lr.ph3708, !llvm.loop !585
+  br i1 %.not1704, label %.lr.ph3711.preheader, label %.lr.ph3708, !llvm.loop !585
 
-.lr.ph3711:                                       ; preds = %.preheader3698, %.lr.ph3711
-  %.115483710 = phi i32 [ %3751, %.lr.ph3711 ], [ %3737, %.preheader3698 ]
+.lr.ph3711.preheader:                             ; preds = %.lr.ph3708, %3746
+  br label %.lr.ph3711
+
+.lr.ph3711:                                       ; preds = %.lr.ph3711.preheader, %.lr.ph3711
+  %.115483710 = phi i32 [ %3751, %.lr.ph3711 ], [ %3737, %.lr.ph3711.preheader ]
   call void @_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi(ptr noundef nonnull align 8 dereferenceable(16) %315, i32 noundef -1)
   %3751 = add i32 %.115483710, 1
   %.not1705 = icmp eq i32 %3751, %3735
   br i1 %.not1705, label %._crit_edge3712, label %.lr.ph3711, !llvm.loop !586
 
-._crit_edge3712:                                  ; preds = %.lr.ph3711, %.preheader3698
+._crit_edge3712:                                  ; preds = %.lr.ph3711
   %3752 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3753 = load ptr, ptr %3752, align 8, !tbaa !140
   %3754 = load ptr, ptr %315, align 8, !tbaa !25

@@ -2997,8 +2997,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash4RingEED2Ev.exit: ; preds
   store i64 0, ptr %_M_node_count.i.i.i.i.i27, align 8
   %101 = load ptr, ptr %_M_finish.i.i.i, align 8
   %102 = load ptr, ptr %endpoints_.i.i, align 8
-  %cmp146.not = icmp eq ptr %101, %102
-  br i1 %cmp146.not, label %for.end, label %for.body.lr.ph
+  %cmp145.not = icmp eq ptr %101, %102
+  br i1 %cmp145.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash4RingEED2Ev.exit
   %103 = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -3009,8 +3009,8 @@ for.body.lr.ph:                                   ; preds = %_ZN9grpc_core13RefC
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit
   %104 = phi ptr [ %102, %for.body.lr.ph ], [ %125, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit ]
-  %storemerge147 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %104, i64 %storemerge147
+  %storemerge146 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit ]
+  %add.ptr.i = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %104, i64 %storemerge146
   %105 = load ptr, ptr %add.ptr.i, align 8
   %_M_finish.i.i28 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %106 = load ptr, ptr %_M_finish.i.i28, align 8
@@ -3053,7 +3053,7 @@ if.then49:                                        ; preds = %invoke.cont42
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 80
   %second.val = load ptr, ptr %second, align 8
   %index_.i = getelementptr inbounds nuw i8, ptr %second.val, i64 24
-  store i64 %storemerge147, ptr %index_.i, align 8
+  store i64 %storemerge146, ptr %index_.i, align 8
   %child_policy_.i = getelementptr inbounds nuw i8, ptr %second.val, i64 32
   %107 = load ptr, ptr %child_policy_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %107, null
@@ -3068,12 +3068,12 @@ invoke.cont52:                                    ; preds = %if.then49, %if.then
           to label %if.end67 unwind label %lpad41.loopexit.split-lp
 
 lpad37.loopexit:                                  ; preds = %for.body
-  %lpad.loopexit125 = landingpad { ptr, i32 }
+  %lpad.loopexit124 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup115
 
 lpad37.loopexit.split-lp:                         ; preds = %invoke.cont80
-  %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp125 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup115
 
@@ -3100,7 +3100,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   %ring_hash_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 16
   store ptr %this, ptr %ring_hash_.i.i, align 8, !noalias !46
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 24
-  store i64 %storemerge147, ptr %index_.i.i, align 8, !noalias !46
+  store i64 %storemerge146, ptr %index_.i.i, align 8, !noalias !46
   %child_policy_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 32
   store ptr null, ptr %child_policy_.i.i, align 8, !noalias !46
   %connectivity_state_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 40
@@ -3184,7 +3184,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end67
   unreachable
 
 _ZN9grpc_core18EndpointAddressSetD2Ev.exit:       ; preds = %if.end67
-  %inc = add nuw i64 %storemerge147, 1
+  %inc = add nuw i64 %storemerge146, 1
   %124 = load ptr, ptr %_M_finish.i.i.i, align 8
   %125 = load ptr, ptr %endpoints_.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %124 to i64
@@ -3449,7 +3449,7 @@ terminate.lpad.i.i110:                            ; preds = %cleanup
   unreachable
 
 ehcleanup115:                                     ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp, %cleanup.action93, %lpad111, %ehcleanup107, %ehcleanup68
-  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup68 ], [ %.pn, %ehcleanup107 ], [ %162, %cleanup.action93 ], [ %168, %lpad111 ], [ %lpad.loopexit125, %lpad37.loopexit ], [ %lpad.loopexit.split-lp126, %lpad37.loopexit.split-lp ]
+  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup68 ], [ %.pn, %ehcleanup107 ], [ %162, %cleanup.action93 ], [ %168, %lpad111 ], [ %lpad.loopexit124, %lpad37.loopexit ], [ %lpad.loopexit.split-lp125, %lpad37.loopexit.split-lp ]
   %endpoint_map.val = load ptr, ptr %_M_parent.i.i.i.i.i24, align 8
   invoke fastcc void @_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetESt4pairIKS1_St10unique_ptrINS0_12_GLOBAL__N_18RingHash16RingHashEndpointENS0_16OrphanableDeleteEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %endpoint_map.val)
           to label %common.resume unwind label %terminate.lpad.i.i111

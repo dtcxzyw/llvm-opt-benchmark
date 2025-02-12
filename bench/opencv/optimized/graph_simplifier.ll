@@ -6497,9 +6497,9 @@ define hidden void @_ZN2cv3dnn17simplifySubgraphsERKNS_3PtrINS0_18ImportGraphWra
   %53 = ptrtoint ptr %.sroa.22.1219.us to i64
   %54 = sub i64 %53, %45
   %.not.i.us = icmp ult i64 %54, %51
-  br i1 %.not.i.us, label %56, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us
+  br i1 %.not.i.us, label %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us: ; preds = %48
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us: ; preds = %48
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.10.1220.us, ptr align 4 %42, i64 %51, i1 false)
   %55 = getelementptr inbounds i8, ptr %.sroa.10.1220.us, i64 %51
   br label %_ZNSt6vectorIiSaIiEE6insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEES6_NS4_IPKiS1_EET_SA_.exit.us
@@ -6548,10 +6548,10 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us: ; preds = %72, %69
   %73 = getelementptr inbounds nuw i32, ptr %67, i64 %63
   br label %_ZNSt6vectorIiSaIiEE6insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEES6_NS4_IPKiS1_EET_SA_.exit.us
 
-_ZNSt6vectorIiSaIiEE6insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEES6_NS4_IPKiS1_EET_SA_.exit.us: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us, %41, %36
-  %.sroa.22.2.us = phi ptr [ %.sroa.22.1219.us, %36 ], [ %.sroa.22.1219.us, %41 ], [ %73, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %.sroa.22.1219.us, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us ]
-  %.sroa.10.2.us = phi ptr [ %.sroa.10.1220.us, %36 ], [ %.sroa.10.1220.us, %41 ], [ %71, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %55, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us ]
-  %.sroa.0155.4.us = phi ptr [ %.sroa.0155.1221.us, %36 ], [ %.sroa.0155.1221.us, %41 ], [ %67, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %.sroa.0155.1221.us, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit.i.us ]
+_ZNSt6vectorIiSaIiEE6insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEES6_NS4_IPKiS1_EET_SA_.exit.us: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us, %41, %36
+  %.sroa.22.2.us = phi ptr [ %.sroa.22.1219.us, %36 ], [ %.sroa.22.1219.us, %41 ], [ %73, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %.sroa.22.1219.us, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us ]
+  %.sroa.10.2.us = phi ptr [ %.sroa.10.1220.us, %36 ], [ %.sroa.10.1220.us, %41 ], [ %71, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us ]
+  %.sroa.0155.4.us = phi ptr [ %.sroa.0155.1221.us, %36 ], [ %.sroa.0155.1221.us, %41 ], [ %67, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.us ], [ %.sroa.0155.1221.us, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.us ]
   %74 = add nuw nsw i32 %.049222.us, 1
   %exitcond.not = icmp eq i32 %74, %22
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !53

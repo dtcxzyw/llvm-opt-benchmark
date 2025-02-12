@@ -404,12 +404,12 @@ define internal ptr @composite_memcpy(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse
-  %10 = phi i32 [ %7, %.lr.ph.lr.ph ], [ %50, %tailrecurse ]
+  %10 = phi i32 [ %7, %.lr.ph.lr.ph ], [ %49, %tailrecurse ]
   %ret.known.tr112 = phi i1 [ false, %.lr.ph.lr.ph ], [ true, %tailrecurse ]
   %ret.tr111 = phi ptr [ poison, %.lr.ph.lr.ph ], [ %current.ret.tr, %tailrecurse ]
-  %.tr61110 = phi i32 [ %3, %.lr.ph.lr.ph ], [ %46, %tailrecurse ]
-  %.tr60109 = phi i32 [ %2, %.lr.ph.lr.ph ], [ %47, %tailrecurse ]
-  %.tr59108 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %48, %tailrecurse ]
+  %.tr61110 = phi i32 [ %3, %.lr.ph.lr.ph ], [ %45, %tailrecurse ]
+  %.tr60109 = phi i32 [ %2, %.lr.ph.lr.ph ], [ %46, %tailrecurse ]
+  %.tr59108 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %47, %tailrecurse ]
   %11 = load ptr, ptr %8, align 8
   %wide.trip.count = zext i32 %10 to i64
   br label %12
@@ -432,79 +432,79 @@ define internal ptr @composite_memcpy(ptr noundef readonly captures(none) %0, pt
   %19 = tail call ptr @g_slist_nth(ptr noundef %18, i32 noundef %17) #7
   %20 = load ptr, ptr %19, align 8
   %.not52 = icmp eq ptr %20, null
-  br i1 %.not52, label %.thread, label %26
+  br i1 %.not52, label %.thread, label %25
 
-.thread:                                          ; preds = %16, %tailrecurse, %15, %4
-  %.tr5991 = phi ptr [ %1, %4 ], [ %.tr59108, %15 ], [ %48, %tailrecurse ], [ %.tr59108, %16 ]
-  %.tr6086 = phi i32 [ %2, %4 ], [ %.tr60109, %15 ], [ %47, %tailrecurse ], [ %.tr60109, %16 ]
-  %.tr6181 = phi i32 [ %3, %4 ], [ %.tr61110, %15 ], [ %46, %tailrecurse ], [ %.tr61110, %16 ]
-  %ret.tr76 = phi ptr [ poison, %4 ], [ %ret.tr111, %15 ], [ %current.ret.tr, %tailrecurse ], [ %ret.tr111, %16 ]
-  %ret.known.tr70 = phi i1 [ false, %4 ], [ %ret.known.tr112, %15 ], [ true, %tailrecurse ], [ %ret.known.tr112, %16 ]
+.thread:                                          ; preds = %16, %15, %4
+  %.tr5991 = phi ptr [ %1, %4 ], [ %.tr59108, %15 ], [ %.tr59108, %16 ]
+  %.tr6086 = phi i32 [ %2, %4 ], [ %.tr60109, %15 ], [ %.tr60109, %16 ]
+  %.tr6181 = phi i32 [ %3, %4 ], [ %.tr61110, %15 ], [ %.tr61110, %16 ]
+  %ret.tr76 = phi ptr [ poison, %4 ], [ %ret.tr111, %15 ], [ %ret.tr111, %16 ]
+  %ret.known.tr70 = phi i1 [ false, %4 ], [ %ret.known.tr112, %15 ], [ %ret.known.tr112, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %.tr6086, %22
   %24 = icmp eq i32 %.tr6181, 0
   %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %.loopexit, label %25
+  br i1 %or.cond, label %.loopexit, label %.thread.thread
 
-25:                                               ; preds = %.thread
+.thread.thread:                                   ; preds = %tailrecurse, %.thread
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 134, ptr noundef nonnull @.str.9) #8
   unreachable
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %9, align 8
-  %28 = and i64 %indvars.iv, 4294967295
-  %29 = getelementptr i32, ptr %27, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = sub i32 %.tr60109, %30
-  %32 = tail call i32 @tvb_bytes_exist(ptr noundef nonnull %20, i32 noundef %31, i32 noundef %.tr61110) #7
-  %.not53 = icmp eq i32 %32, 0
-  br i1 %.not53, label %40, label %33
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %9, align 8
+  %27 = and i64 %indvars.iv, 4294967295
+  %28 = getelementptr i32, ptr %26, i64 %27
+  %29 = load i32, ptr %28, align 4
+  %30 = sub i32 %.tr60109, %29
+  %31 = tail call i32 @tvb_bytes_exist(ptr noundef nonnull %20, i32 noundef %30, i32 noundef %.tr61110) #7
+  %.not53 = icmp eq i32 %31, 0
+  br i1 %.not53, label %39, label %32
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %.not56 = icmp eq ptr %35, null
-  br i1 %.not56, label %37, label %36
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %.not56 = icmp eq ptr %34, null
+  br i1 %.not56, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @.str.11) #8
   unreachable
 
-37:                                               ; preds = %33
-  %38 = zext i32 %.tr61110 to i64
-  %39 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %.tr59108, i32 noundef %31, i64 noundef %38) #7
+36:                                               ; preds = %32
+  %37 = zext i32 %.tr61110 to i64
+  %38 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %.tr59108, i32 noundef %30, i64 noundef %37) #7
   br label %.loopexit
 
-40:                                               ; preds = %26
-  %41 = tail call i32 @tvb_captured_length_remaining(ptr noundef nonnull %20, i32 noundef %31) #7
-  %.not54 = icmp eq i32 %41, 0
-  br i1 %.not54, label %42, label %43
+39:                                               ; preds = %25
+  %40 = tail call i32 @tvb_captured_length_remaining(ptr noundef nonnull %20, i32 noundef %30) #7
+  %.not54 = icmp eq i32 %40, 0
+  br i1 %.not54, label %41, label %42
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @.str.12) #8
   unreachable
 
-43:                                               ; preds = %40
-  %44 = zext i32 %41 to i64
-  %45 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %.tr59108, i32 noundef %31, i64 noundef %44) #7
-  %.not55 = icmp eq i32 %.tr61110, %41
+42:                                               ; preds = %39
+  %43 = zext i32 %40 to i64
+  %44 = tail call ptr @tvb_memcpy(ptr noundef nonnull %20, ptr noundef %.tr59108, i32 noundef %30, i64 noundef %43) #7
+  %.not55 = icmp eq i32 %.tr61110, %40
   br i1 %.not55, label %.loopexit, label %tailrecurse
 
-tailrecurse:                                      ; preds = %43
-  %46 = sub i32 %.tr61110, %41
-  %47 = add i32 %41, %.tr60109
-  %48 = getelementptr i8, ptr %.tr59108, i64 %44
+tailrecurse:                                      ; preds = %42
+  %45 = sub i32 %.tr61110, %40
+  %46 = add i32 %40, %.tr60109
+  %47 = getelementptr i8, ptr %.tr59108, i64 %43
   %current.ret.tr = select i1 %ret.known.tr112, ptr %ret.tr111, ptr %.tr59108
-  %49 = load ptr, ptr %5, align 8
-  %50 = tail call i32 @g_slist_length(ptr noundef %49) #7
-  %.not119 = icmp eq i32 %50, 0
-  br i1 %.not119, label %.thread, label %.lr.ph
+  %48 = load ptr, ptr %5, align 8
+  %49 = tail call i32 @g_slist_length(ptr noundef %48) #7
+  %.not119 = icmp eq i32 %49, 0
+  br i1 %.not119, label %.thread.thread, label %.lr.ph
 
-.loopexit:                                        ; preds = %43, %.thread, %37
-  %ret.tr75 = phi ptr [ %ret.tr111, %37 ], [ %ret.tr76, %.thread ], [ %ret.tr111, %43 ]
-  %ret.known.tr69 = phi i1 [ %ret.known.tr112, %37 ], [ %ret.known.tr70, %.thread ], [ %ret.known.tr112, %43 ]
-  %.0 = phi ptr [ %39, %37 ], [ %.tr5991, %.thread ], [ %.tr59108, %43 ]
+.loopexit:                                        ; preds = %42, %.thread, %36
+  %ret.tr75 = phi ptr [ %ret.tr111, %36 ], [ %ret.tr76, %.thread ], [ %ret.tr111, %42 ]
+  %ret.known.tr69 = phi i1 [ %ret.known.tr112, %36 ], [ %ret.known.tr70, %.thread ], [ %ret.known.tr112, %42 ]
+  %.0 = phi ptr [ %38, %36 ], [ %.tr5991, %.thread ], [ %.tr59108, %42 ]
   %current.ret.tr62 = select i1 %ret.known.tr69, ptr %ret.tr75, ptr %.0
   ret ptr %current.ret.tr62
 }

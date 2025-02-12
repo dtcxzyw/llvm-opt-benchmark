@@ -4707,14 +4707,10 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %_ZNK5boost10shared_
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !18
   %n_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %cond.i.i1721, ptr %n_.i, align 8, !tbaa !140
-  %cmp22.not = icmp eq i64 %cond.i.i1721, 0
-  br i1 %cmp22.not, label %nrvo.skipdtor, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %_ZN8QuantLib5ArrayC2Em.exit
   %9 = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
+for.body.lr.ph.split.us:                          ; preds = %_ZN8QuantLib5ArrayC2Em.exit
   br i1 %9, label %for.body.us, label %for.body.lr.ph.split.us.split.us
 
 for.body.lr.ph.split.us.split.us:                 ; preds = %for.body.lr.ph.split.us
@@ -4759,7 +4755,7 @@ lpad.split.us:                                    ; preds = %cond.false.i.i12.us
           cleanup
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
-for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
+for.body.lr.ph.split:                             ; preds = %_ZN8QuantLib5ArrayC2Em.exit
   br i1 %9, label %for.body, label %for.body.lr.ph.split.split.us
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
@@ -4836,7 +4832,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %lpad.split.us, %lpa
   store ptr null, ptr %agg.result, align 8, !tbaa !18
   resume { ptr, i32 } %.us-phi
 
-nrvo.skipdtor:                                    ; preds = %for.body.us24, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8, %for.body.us.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us, %_ZN8QuantLib5ArrayC2Em.exit.thread, %_ZN8QuantLib5ArrayC2Em.exit
+nrvo.skipdtor:                                    ; preds = %for.body.us24, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8, %for.body.us.us, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i8.us, %_ZN8QuantLib5ArrayC2Em.exit.thread
   ret void
 }
 

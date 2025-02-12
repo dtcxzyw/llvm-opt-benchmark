@@ -1625,23 +1625,19 @@ if.then78:                                        ; preds = %if.end76
   %7 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i64 %mul82, ptr %7, align 8
   %switch.tableidx = add nsw i64 %sub72, -1
-  %8 = icmp ult i64 %switch.tableidx, 3
-  br i1 %8, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %if.then78
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.parser_number, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.parser_number, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %switch.lookup, %if.then34
-  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
-  %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %switch.lookup ]
+return.sink.split:                                ; preds = %if.then78, %if.then34
+  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %if.then78 ]
+  %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %if.then78 ]
   %denom88 = getelementptr inbounds nuw i8, ptr %dest, i64 %.sink106
   store i64 %.sink, ptr %denom88, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb, %sw.bb52, %if.then78, %return.sink.split, %if.end76, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %for.end, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.then78 ], [ 0, %if.end76 ], [ 0, %return.sink.split ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
+return:                                           ; preds = %sw.bb, %sw.bb52, %return.sink.split, %if.end76, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %for.end, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.end76 ], [ 0, %return.sink.split ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
   ret i32 %retval.0
 }
 

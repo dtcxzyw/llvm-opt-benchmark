@@ -2652,11 +2652,9 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br label %.thread
 
 42:                                               ; preds = %36
-  %43 = icmp slt i32 %38, 0
-  %spec.select.i.i = select i1 %43, ptr %28, ptr %.19.i.i.i
+  %43 = icmp sgt i32 %38, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  %.not47.not = icmp eq ptr %spec.select.i.i, %28
-  br i1 %.not47.not, label %.thread, label %.thread43
+  br i1 %43, label %.thread43, label %.thread
 
 .thread:                                          ; preds = %4, %.thread40, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2731,11 +2729,10 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 74:                                               ; preds = %68
   %75 = icmp slt i32 %70, 0
   %spec.select.i.i30 = select i1 %75, ptr %60, ptr %.19.i.i.i23
-  %.not48.not = icmp eq ptr %spec.select.i.i30, %60
-  br i1 %.not48.not, label %.thread49, label %.thread43
+  br i1 %75, label %.thread49, label %.thread43
 
 .thread43:                                        ; preds = %42, %74
-  %.sroa.034.146 = phi ptr [ %spec.select.i.i30, %74 ], [ %spec.select.i.i, %42 ]
+  %.sroa.034.146 = phi ptr [ %spec.select.i.i30, %74 ], [ %.19.i.i.i, %42 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.034.146, i64 64
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.034.146, i64 96
   %78 = load i32, ptr %77, align 8, !noalias !20

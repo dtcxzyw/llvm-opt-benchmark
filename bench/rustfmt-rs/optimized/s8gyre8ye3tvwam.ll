@@ -17167,11 +17167,11 @@ _ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit: ; pred
   %55 = ptrtoint ptr %54 to i64
   br label %56
 
-56:                                               ; preds = %109, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread"
-  %.sroa.01.0.i = phi ptr [ %.val.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %.sroa.01.112.i, %109 ]
-  %.sroa.10.0.i = phi i64 [ %41, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ 0, %109 ]
-  %.05.i = phi i1 [ true, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ false, %109 ]
-  %.0.i35 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %spec.store.select.i, %109 ]
+56:                                               ; preds = %110, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread"
+  %.sroa.01.0.i = phi ptr [ %.val.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %.sroa.01.112.i, %110 ]
+  %.sroa.10.0.i = phi i64 [ %41, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ 0, %110 ]
+  %.05.i = phi i1 [ true, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ false, %110 ]
+  %.0.i35 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %spec.store.select.i, %110 ]
   %.not.i.i36 = icmp eq i64 %.sroa.10.0.i, 0
   br i1 %.not.i.i36, label %57, label %59
 
@@ -17201,7 +17201,7 @@ _ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit: ; pred
   %.pn4.i.i.i = select i1 %66, i64 0, i64 %70
   %71 = getelementptr inbounds i8, ptr %.pn6.i.i.i, i64 %.pn4.i.i.i
   %72 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.pn6.i.i.i, ptr noundef nonnull readonly %71, i64 noundef 0)
-  br i1 %.05.i, label %109, label %73
+  br i1 %.05.i, label %110, label %73
 
 73:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.thread7.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3018)
@@ -17283,25 +17283,25 @@ _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit
 
 _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17_crit_edge.i: ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i
   %.pre.i = load i64, ptr %91, align 8, !range !154
+  %109 = icmp eq i64 %.pre.i, -9223372036854775808
   br label %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i
 
-109:                                              ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.thread7.i"
+110:                                              ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.thread7.i"
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %.0.i35, i64 %72)
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i14.i, i64 72
-  %111 = load i8, ptr %110, align 8, !range !158, !noundef !9
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit, label %56
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i14.i, i64 72
+  %112 = load i8, ptr %111, align 8, !range !158, !noundef !9
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit, label %56
 
 _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i: ; preds = %104, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17_crit_edge.i, %100
-  %113 = phi i64 [ %.pre.i, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17_crit_edge.i ], [ %92, %100 ], [ %92, %104 ]
-  %.not.i = icmp eq i64 %113, -9223372036854775808
+  %.not.i = phi i1 [ %109, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17_crit_edge.i ], [ false, %100 ], [ false, %104 ]
   %114 = add i64 %72, %44
   %115 = icmp ugt i64 %114, %51
   %or.cond.i = or i1 %115, %.not.i
-  br i1 %or.cond.i, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit, label %109
+  br i1 %or.cond.i, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit, label %110
 
-_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit: ; preds = %57, %59, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i", %90, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i, %109, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.1.i = phi i64 [ %.0.i35, %.lr.ph.i.i.i.i.i.i ], [ %.0.i35, %.lr.ph.i.i.i.i ], [ %spec.store.select.i, %109 ], [ %.0.i35, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i ], [ %.0.i35, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i ], [ %.0.i35, %57 ], [ %.0.i35, %59 ], [ %.0.i35, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i" ], [ %.0.i35, %90 ]
+_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17ha4e8aaba082cf6ecE.exit: ; preds = %57, %59, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i", %90, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i, %110, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.1.i = phi i64 [ %.0.i35, %.lr.ph.i.i.i.i.i.i ], [ %.0.i35, %.lr.ph.i.i.i.i ], [ %spec.store.select.i, %110 ], [ %.0.i35, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i ], [ %.0.i35, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread17.i ], [ %.0.i35, %57 ], [ %.0.i35, %59 ], [ %.0.i35, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i" ], [ %.0.i35, %90 ]
   store i64 1, ptr %2, align 8
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.1.i, ptr %116, align 8
@@ -17568,11 +17568,11 @@ _ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit: ; pred
   %54 = ptrtoint ptr %53 to i64
   br label %55
 
-55:                                               ; preds = %108, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread"
-  %.sroa.01.0.i = phi ptr [ %.val, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %.sroa.01.1.i, %108 ]
-  %.sroa.10.0.i = phi i64 [ %41, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ 0, %108 ]
-  %.05.i = phi i1 [ true, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ false, %108 ]
-  %.0.i36 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %spec.store.select.i, %108 ]
+55:                                               ; preds = %109, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread"
+  %.sroa.01.0.i = phi ptr [ %.val, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %.sroa.01.1.i, %109 ]
+  %.sroa.10.0.i = phi i64 [ %41, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ 0, %109 ]
+  %.05.i = phi i1 [ true, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ false, %109 ]
+  %.0.i36 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.exit.thread" ], [ %spec.store.select.i, %109 ]
   %.not.i.i37 = icmp eq i64 %.sroa.10.0.i, 0
   br i1 %.not.i.i37, label %56, label %58
 
@@ -17602,7 +17602,7 @@ _ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit: ; pred
   %.pn4.i.i.i = select i1 %65, i64 0, i64 %69
   %70 = getelementptr inbounds i8, ptr %.pn6.i.i.i, i64 %.pn4.i.i.i
   %71 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.pn6.i.i.i, ptr noundef nonnull readonly %70, i64 noundef 0)
-  br i1 %.05.i, label %108, label %72
+  br i1 %.05.i, label %109, label %72
 
 72:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3093)
@@ -17684,25 +17684,25 @@ _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit
 
 _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9_crit_edge.i: ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i
   %.pre.i = load i64, ptr %90, align 8, !range !154
+  %108 = icmp eq i64 %.pre.i, -9223372036854775808
   br label %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i
 
-108:                                              ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.i"
+109:                                              ; preds = %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77e4716b283b8f10E.exit.i"
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %.0.i36, i64 %71)
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %110 = load i8, ptr %109, align 8, !range !158, !noundef !9
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit, label %55
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
+  %111 = load i8, ptr %110, align 8, !range !158, !noundef !9
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit, label %55
 
 _ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i: ; preds = %103, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9_crit_edge.i, %99
-  %112 = phi i64 [ %.pre.i, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9_crit_edge.i ], [ %91, %99 ], [ %91, %103 ]
-  %.not.i = icmp eq i64 %112, -9223372036854775808
+  %.not.i = phi i1 [ %108, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit._ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9_crit_edge.i ], [ false, %99 ], [ false, %103 ]
   %113 = add i64 %71, %44
   %114 = icmp ugt i64 %113, %51
   %or.cond.i = or i1 %114, %.not.i
-  br i1 %or.cond.i, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit, label %108
+  br i1 %or.cond.i, label %_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit, label %109
 
-_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit: ; preds = %56, %58, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i", %89, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i, %108, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.1.i = phi i64 [ %.0.i36, %.lr.ph.i.i.i.i.i.i ], [ %.0.i36, %.lr.ph.i.i.i.i ], [ %spec.store.select.i, %108 ], [ %.0.i36, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i ], [ %.0.i36, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i ], [ %.0.i36, %56 ], [ %.0.i36, %58 ], [ %.0.i36, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i" ], [ %.0.i36, %89 ]
+_ZN15rustfmt_nightly5lists35max_width_of_item_with_post_comment17h249817e87dc06edcE.exit: ; preds = %56, %58, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i", %89, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i, %109, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.1.i = phi i64 [ %.0.i36, %.lr.ph.i.i.i.i.i.i ], [ %.0.i36, %.lr.ph.i.i.i.i ], [ %spec.store.select.i, %109 ], [ %.0.i36, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.i ], [ %.0.i36, %_ZN15rustfmt_nightly5lists8ListItem18is_different_group17hfb3281c83ba332e5E.exit.thread9.i ], [ %.0.i36, %56 ], [ %.0.i36, %58 ], [ %.0.i36, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.7442130522521287225.exit.i.i" ], [ %.0.i36, %89 ]
   store i64 1, ptr %2, align 8
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.1.i, ptr %115, align 8

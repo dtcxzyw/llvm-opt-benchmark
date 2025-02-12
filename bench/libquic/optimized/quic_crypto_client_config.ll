@@ -2689,8 +2689,8 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %canonical_suffixes_, align 8
-  %cmp152.not = icmp eq ptr %0, %1
-  br i1 %cmp152.not, label %for.end, label %for.body.lr.ph
+  %cmp151.not = icmp eq ptr %0, %1
+  br i1 %cmp151.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
@@ -2698,10 +2698,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0153 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0152 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %server_id)
   %4 = load ptr, ptr %canonical_suffixes_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 %i.0153
+  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 %i.0152
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %5 = load ptr, ptr %agg.tmp, align 8
   %6 = load i64, ptr %2, align 8
@@ -2709,22 +2709,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load i64, ptr %3, align 8
   %call6 = call noundef zeroext i1 @_ZN4base8EndsWithENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_11CompareCaseE(ptr %5, i64 %6, ptr %7, i64 %8, i32 noundef 1)
   %.pre.pre = load ptr, ptr %_M_finish.i, align 8
-  %.pre157.pre = load ptr, ptr %canonical_suffixes_, align 8
+  %.pre156.pre = load ptr, ptr %canonical_suffixes_, align 8
   br i1 %call6, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.0153, 1
+  %inc = add nuw i64 %i.0152, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.pre.pre to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre157.pre to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre156.pre to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
-  %9 = phi ptr [ %1, %entry ], [ %.pre157.pre, %for.body ], [ %.pre157.pre, %for.inc ]
+  %9 = phi ptr [ %1, %entry ], [ %.pre156.pre, %for.body ], [ %.pre156.pre, %for.inc ]
   %10 = phi ptr [ %0, %entry ], [ %.pre.pre, %for.body ], [ %.pre.pre, %for.inc ]
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.inc ], [ %i.0153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.inc ], [ %i.0152, %for.body ]
   %sub.ptr.lhs.cast.i11 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i12 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
@@ -2836,37 +2836,37 @@ _ZN3net12QuicServerIdaSERKS0_.exit:               ; preds = %invoke.cont19
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i20
-  %lpad.loopexit134 = landingpad { ptr, i32 }
+  %lpad.loopexit133 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %while.body.i.i.i.i99
-  %lpad.loopexit136 = landingpad { ptr, i32 }
+  %lpad.loopexit135 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i72
-  %lpad.loopexit139 = landingpad { ptr, i32 }
+  %lpad.loopexit138 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i43
-  %lpad.loopexit142 = landingpad { ptr, i32 }
+  %lpad.loopexit141 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit145 = landingpad { ptr, i32 }
+  %lpad.loopexit144 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont35, %lor.lhs.false.i.i.i, %lor.rhs.i, %if.then.i, %invoke.cont19, %lor.rhs.i54, %if.then.i58, %lor.rhs.i82, %if.then.i86, %lor.rhs.i110, %if.then.i114, %invoke.cont33
-  %lpad.loopexit.split-lp146 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp145 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit134, %lpad.loopexit ], [ %lpad.loopexit136, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit139, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit142, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit145, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp146, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit133, %lpad.loopexit ], [ %lpad.loopexit135, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit138, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit141, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit144, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp145, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %suffix_server_id) #22
   resume { ptr, i32 } %lpad.phi
 

@@ -6778,7 +6778,7 @@ for.body714:                                      ; preds = %for.end706, %for.in
 if.then718:                                       ; preds = %for.body714
   %sub716 = sub i64 %364, %363
   %cmp.i.i1425 = icmp ugt i64 %sub716, 1152921504606846975
-  br i1 %cmp.i.i1425, label %if.then.i.i1431, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i
+  br i1 %cmp.i.i1425, label %if.then.i.i1431, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
 
 if.then.i.i1431:                                  ; preds = %if.then718
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.40) #26
@@ -6787,13 +6787,13 @@ if.then.i.i1431:                                  ; preds = %if.then718
 .noexc1432:                                       ; preds = %if.then.i.i1431
   unreachable
 
-_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %if.then718
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %if.then718
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vec, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub716, 3
   %call5.i.i.i.i2.i.i1433 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #24
           to label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2EmRKS4_.exit.i unwind label %lpad720.loopexit
 
-_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i
+_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %call5.i.i.i.i2.i.i1433, ptr %vec, align 8
   store ptr %call5.i.i.i.i2.i.i1433, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %call5.i.i.i.i2.i.i1433, i64 %sub716
@@ -6942,7 +6942,7 @@ if.then.i.i.i1472:                                ; preds = %invoke.cont.i1470
   call void @_ZdlPv(ptr noundef nonnull %382) #27
   br label %for.inc732
 
-lpad720.loopexit:                                 ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i
+lpad720.loopexit:                                 ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %lpad.loopexit2846 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup814

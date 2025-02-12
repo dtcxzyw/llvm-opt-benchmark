@@ -33279,10 +33279,9 @@ _ZN4core4hash11BuildHasher8hash_one17hb649557adbcc5f1cE.exit.i: ; preds = %24, %
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
 
 "_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit.thread", %69, %64, %63, %62, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit"
-  %70 = phi i8 [ 27, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit.thread" ], [ 24, %69 ], [ 24, %64 ], [ %.pre, %63 ], [ 26, %62 ], [ 27, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit" ]
-  %71 = icmp ne i8 %70, 27
+  %70 = phi i1 [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit.thread" ], [ true, %69 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h586b094fcba92e29E.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  ret i1 %71
+  ret i1 %70
 }
 
 ; Function Attrs: nonlazybind uwtable

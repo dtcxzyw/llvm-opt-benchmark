@@ -80714,21 +80714,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp.i = icmp slt i32 %1, %0
-  br i1 %cmp.i, label %if.then.i, label %nk_textedit_sortselection.exit
+  br i1 %cmp.i, label %if.then.i, label %if.then.i11
 
 if.then.i:                                        ; preds = %if.then
   store i32 %0, ptr %select_end, align 8
-  br label %nk_textedit_sortselection.exit
+  br label %if.then.i11
 
-nk_textedit_sortselection.exit:                   ; preds = %if.then, %if.then.i
+if.then.i11:                                      ; preds = %if.then.i, %if.then
   %2 = phi i32 [ %1, %if.then ], [ %0, %if.then.i ]
   %3 = phi i32 [ %0, %if.then ], [ %1, %if.then.i ]
   %len.i = getelementptr inbounds nuw i8, ptr %state, i64 144
   %4 = load i32, ptr %len.i, align 8
-  %cmp.not.i = icmp eq i32 %0, %1
-  br i1 %cmp.not.i, label %if.end16.i, label %if.then.i11
-
-if.then.i11:                                      ; preds = %nk_textedit_sortselection.exit
   %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %cmp6.i = icmp sgt i32 %2, %4
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
@@ -80747,8 +80743,8 @@ if.then13.i:                                      ; preds = %if.end9.i
   store i32 %spec.select, ptr %cursor.i, align 8
   br label %if.end16.i
 
-if.end16.i:                                       ; preds = %if.then13.i, %if.end9.i, %nk_textedit_sortselection.exit
-  %6 = phi i32 [ %spec.select, %if.then13.i ], [ %5, %if.end9.i ], [ %2, %nk_textedit_sortselection.exit ]
+if.end16.i:                                       ; preds = %if.then13.i, %if.end9.i
+  %6 = phi i32 [ %spec.select, %if.then13.i ], [ %5, %if.end9.i ]
   %cursor17.i = getelementptr inbounds nuw i8, ptr %state, i64 168
   store i32 %6, ptr %cursor17.i, align 8
   store i32 %6, ptr %select_start, align 4

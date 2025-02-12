@@ -570,14 +570,14 @@ _ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %140
   %.idx224226 = sub nsw i64 %120, %122
   %gepdiff = mul nsw i64 %.idx224226, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %144, ptr nonnull align 8 %143, i64 %gepdiff, i1 false)
-  %.pre252.pre = load i8, ptr %19, align 8
   %.pre.i = load i32, ptr %7, align 8, !tbaa !346
   %145 = add i32 %.pre.i, -1
   store i32 %145, ptr %7, align 8, !tbaa !346
+  %.pre252 = load i8, ptr %19, align 8
   br label %146
 
 146:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit, %140
-  %147 = phi i8 [ %.pre252.pre, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit ], [ %114, %140 ]
+  %147 = phi i8 [ %.pre252, %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit ], [ %114, %140 ]
   %148 = and i8 %147, 16
   %.not227 = icmp eq i8 %148, 0
   br i1 %.not227, label %157, label %149
@@ -624,23 +624,23 @@ _ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %140
   %169 = getelementptr inbounds nuw %"class.clang::Token", ptr %166, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load i16, ptr %170, align 8, !tbaa !359
-  %switch.tableidx272 = add i16 %171, -1
-  %172 = icmp ult i16 %switch.tableidx272, 19
-  br i1 %172, label %switch.hole_check273, label %173
+  %switch.tableidx271 = add i16 %171, -1
+  %172 = icmp ult i16 %switch.tableidx271, 19
+  br i1 %172, label %switch.hole_check272, label %173
 
-173:                                              ; preds = %switch.hole_check273, %164
+173:                                              ; preds = %switch.hole_check272, %164
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !360
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
-switch.hole_check273:                             ; preds = %164
-  %switch.maskindex274 = zext nneg i16 %switch.tableidx272 to i32
-  %switch.shifted275 = lshr i32 524225, %switch.maskindex274
-  %switch.lobit276 = trunc i32 %switch.shifted275 to i1
-  br i1 %switch.lobit276, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %173
+switch.hole_check272:                             ; preds = %164
+  %switch.maskindex273 = zext nneg i16 %switch.tableidx271 to i32
+  %switch.shifted274 = lshr i32 524225, %switch.maskindex273
+  %switch.lobit275 = trunc i32 %switch.shifted274 to i1
+  br i1 %switch.lobit275, label %_ZNK5clang5Token17getIdentifierInfoEv.exit, label %173
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check273, %173
-  %.0.i = phi ptr [ %175, %173 ], [ null, %switch.hole_check273 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check272, %173
+  %.0.i = phi ptr [ %175, %173 ], [ null, %switch.hole_check272 ]
   %176 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !362
   %178 = getelementptr inbounds nuw i8, ptr %165, i64 24
@@ -955,8 +955,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit174: ;
   %.not24.i = icmp ne i16 %343, 0
   %344 = add i32 %283, -1
   %.not.i175 = icmp eq i32 %344, %294
-  %or.cond269 = and i1 %.not24.i, %.not.i175
-  br i1 %or.cond269, label %345, label %_ZN5clang10TokenLexer28MaybeRemoveCommaBeforeVaArgsERN4llvm15SmallVectorImplINS_5TokenEEEbPNS_9MacroInfoEjRNS_12PreprocessorE.exit.thread
+  %or.cond268 = and i1 %.not24.i, %.not.i175
+  br i1 %or.cond268, label %345, label %_ZN5clang10TokenLexer28MaybeRemoveCommaBeforeVaArgsERN4llvm15SmallVectorImplINS_5TokenEEEbPNS_9MacroInfoEjRNS_12PreprocessorE.exit.thread
 
 345:                                              ; preds = %340
   %346 = load ptr, ptr %9, align 8, !tbaa !16
@@ -1283,11 +1283,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %498, %496, %_ZNSt7_
 506:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, i64 noundef %502, i64 noundef 24) #17
   %.pre8.pre.i186 = load i32, ptr %7, align 8, !tbaa !346
-  %.pre259 = zext i32 %.pre8.pre.i186 to i64
+  %.pre258 = zext i32 %.pre8.pre.i186 to i64
   br label %.lr.ph234.preheader
 
 .lr.ph234.preheader:                              ; preds = %506, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.pre-phi = phi i64 [ %501, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %.pre259, %506 ]
+  %.pre-phi = phi i64 [ %501, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %.pre258, %506 ]
   %507 = load ptr, ptr %2, align 8, !tbaa !345
   %508 = getelementptr inbounds nuw %"class.clang::Token", ptr %507, i64 %.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %508, ptr align 8 %453, i64 %.idx216, i1 false)
@@ -1372,10 +1372,10 @@ _ZN5clang21VAOptExpansionContext26hasPlaceholderBeforeRParenEv.exit190.thread: ;
   %544 = load i8, ptr %19, align 8
   %545 = or i8 %544, 16
   store i8 %545, ptr %19, align 8
-  br i1 %256, label %.thread262, label %555
+  br i1 %256, label %.thread261, label %555
 
-.thread262:                                       ; preds = %_ZN5clang21VAOptExpansionContext26hasPlaceholderBeforeRParenEv.exit190.thread
-  %.pre257264 = load i32, ptr %7, align 8, !tbaa !346
+.thread261:                                       ; preds = %_ZN5clang21VAOptExpansionContext26hasPlaceholderBeforeRParenEv.exit190.thread
+  %.pre257263 = load i32, ptr %7, align 8, !tbaa !346
   br label %547
 
 546:                                              ; preds = %_ZN5clang21VAOptExpansionContext26hasPlaceholderBeforeRParenEv.exit190
@@ -1383,15 +1383,15 @@ _ZN5clang21VAOptExpansionContext26hasPlaceholderBeforeRParenEv.exit190.thread: ;
   %.pre257 = load i32, ptr %7, align 8, !tbaa !346
   br i1 %.not221, label %550, label %547
 
-547:                                              ; preds = %.thread262, %546
-  %.pre257265 = phi i32 [ %.pre257264, %.thread262 ], [ %.pre257, %546 ]
+547:                                              ; preds = %.thread261, %546
+  %.pre257264 = phi i32 [ %.pre257263, %.thread261 ], [ %.pre257, %546 ]
   %548 = load i32, ptr %18, align 4, !tbaa !357
-  %549 = icmp ugt i32 %.pre257265, %548
+  %549 = icmp ugt i32 %.pre257264, %548
   br i1 %549, label %550, label %552
 
 550:                                              ; preds = %547, %546
-  %.pre257266 = phi i32 [ %.pre257265, %547 ], [ %.pre257, %546 ]
-  %551 = add i32 %.pre257266, -1
+  %.pre257265 = phi i32 [ %.pre257264, %547 ], [ %.pre257, %546 ]
+  %551 = add i32 %.pre257265, -1
   store i32 %551, ptr %7, align 8, !tbaa !346
   br label %555
 

@@ -3481,14 +3481,14 @@ define void @_ZN3nix19drvOutputReferencesERKSt3setINS_11RealisationESt4lessIS1_E
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %25 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %23, %.lr.ph ]
-  %.sroa.013.021 = phi ptr [ %73, %.lr.ph.splitthread-pre-split ], [ %12, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 144
+  %.sroa.013.018 = phi ptr [ %73, %.lr.ph.splitthread-pre-split ], [ %12, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 144
   %.not10.i.i.i = icmp eq ptr %25, null
   br i1 %.not10.i.i.i, label %.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 152
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %27, align 8
   br label %31
@@ -3558,7 +3558,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
 
 51:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(112) %26, i64 80, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 112
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %52)
           to label %.noexc unwind label %69
 
@@ -3636,7 +3636,7 @@ _ZNSt4pairIKN3nix9DrvOutputENS0_9StorePathEED2Ev.exit: ; preds = %_ZNKSt7__cxx11
   br label %.body
 
 .thread:                                          ; preds = %.lr.ph.split, %_ZNKSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %49, %_ZNSt4pairIKN3nix9DrvOutputENS0_9StorePathEED2Ev.exit
-  %73 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.021) #36
+  %73 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.018) #36
   %74 = icmp eq ptr %73, %13
   br i1 %74, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !15
 
@@ -31563,9 +31563,9 @@ _ZNKSt8functionIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EEclES8_.exit: 
   br label %68
 
 68:                                               ; preds = %.lr.ph, %_ZNK3nix9StorePathneERKS0_.exit.thread75
-  %.sroa.066.084 = phi ptr [ %62, %.lr.ph ], [ %112, %_ZNK3nix9StorePathneERKS0_.exit.thread75 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.066.084, i64 32
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.066.084, i64 40
+  %.sroa.066.078 = phi ptr [ %62, %.lr.ph ], [ %112, %_ZNK3nix9StorePathneERKS0_.exit.thread75 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.066.078, i64 40
   %71 = load i64, ptr %70, align 8
   %72 = load i64, ptr %65, align 8
   %73 = icmp eq i64 %71, %72
@@ -31699,7 +31699,7 @@ _ZNKSt8functionIFvRKN3nix9StorePathEPS2_EEclES3_S4_.exit: ; preds = %108
   br label %134
 
 _ZNK3nix9StorePathneERKS0_.exit.thread75:         ; preds = %_ZNK3nix9StorePathneERKS0_.exit.thread, %_ZNKSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i43, %74, %_ZNKSt8functionIFvRKN3nix9StorePathEPS2_EEclES3_S4_.exit, %_ZNK3nix9StorePathneERKS0_.exit, %101
-  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.066.084) #36
+  %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.066.078) #36
   %113 = icmp eq ptr %112, %63
   br i1 %113, label %._crit_edge, label %68
 

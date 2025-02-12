@@ -5416,8 +5416,8 @@ define linkonce_odr dso_local void @_ZN12ScopeVisitor14cleanupVarRefsEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.not2938 = icmp eq ptr %3, %4
-  br i1 %.not2938, label %._crit_edge, label %.lr.ph
+  %.not2939 = icmp eq ptr %3, %4
+  br i1 %.not2939, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5429,10 +5429,10 @@ define linkonce_odr dso_local void @_ZN12ScopeVisitor14cleanupVarRefsEv(ptr noun
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit
-  %.sroa.024.039 = phi ptr [ %3, %.lr.ph ], [ %75, %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 32
+  %.sroa.024.040 = phi ptr [ %3, %.lr.ph ], [ %75, %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.024.040, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.024.040, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -5557,8 +5557,8 @@ _ZNSt8_Rb_treeISt4pairIP6AstVarP8AstScopeES0_IKS5_P11AstVarScopeESt10_Select1stI
 _ZNKSt4lessISt4pairIP6AstVarP8AstScopeEEclERKS5_S8_.exit.i.i: ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %68 = load ptr, ptr %67, align 8
-  %.not49 = icmp ult ptr %.0, %68
-  br i1 %.not49, label %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit.thread, label %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit
+  %.not30 = icmp ult ptr %.0, %68
+  br i1 %.not30, label %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit.thread, label %_ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit
 
 _ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE4findERSA_.exit.thread: ; preds = %61, %47, %_ZNSt8_Rb_treeISt4pairIP6AstVarP8AstScopeES0_IKS5_P11AstVarScopeESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNKSt4lessISt4pairIP6AstVarP8AstScopeEEclERKS5_S8_.exit.i.i
   %69 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.1, i32 noundef 73, i1 noundef zeroext true)
@@ -5572,7 +5572,7 @@ _ZNSt3mapISt4pairIP6AstVarP8AstScopeEP11AstVarScopeSt4lessIS5_ESaIS0_IKS5_S7_EEE
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store ptr %73, ptr %74, align 8
-  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.039) #22
+  %75 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.040) #22
   %.not29 = icmp eq ptr %75, %4
   br i1 %.not29, label %._crit_edge, label %11
 

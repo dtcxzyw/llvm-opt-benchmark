@@ -1120,7 +1120,7 @@ _ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit: ; preds = %_ZL12gradient_map
   %351 = ptrtoint ptr %345 to i64
   %352 = sub i64 %350, %351
   %353 = getelementptr inbounds i8, ptr %345, i64 %352
-  call fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE(ptr %345, ptr %353)
+  call fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE(ptr %345, ptr nonnull %353)
   br label %354
 
 354:                                              ; preds = %349, %_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit, %.loopexit180
@@ -1147,7 +1147,7 @@ _ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE.exit: ; preds = %_ZL12gradient_map
   %369 = ptrtoint ptr %363 to i64
   %370 = sub i64 %368, %369
   %371 = getelementptr inbounds i8, ptr %363, i64 %370
-  call fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noundef zeroext %356, ptr %363, ptr %371)
+  call fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noundef zeroext %356, ptr %363, ptr nonnull %371)
   br label %372
 
 372:                                              ; preds = %367, %355, %354

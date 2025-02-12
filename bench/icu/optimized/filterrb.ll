@@ -690,9 +690,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit: ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i29 = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i29, label %if.then52, label %if.end71
+  br i1 %cmp.i.i.i.i, label %if.then52, label %if.end71
 
 if.then52:                                        ; preds = %if.else, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N25SimpleRuleBasedPathFilter4TreeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
   %fWildcard53 = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -880,7 +878,7 @@ lpad66:                                           ; preds = %if.then.i72
   br label %eh.resume
 
 if.end71:                                         ; preds = %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i80, %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  %search.sroa.0.0 = phi ptr [ %spec.select.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit ], [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i ], [ %retval.sroa.0.0.i68, %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i80 ]
+  %search.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit ], [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i ], [ %retval.sroa.0.0.i68, %_ZNSt10unique_ptrIN25SimpleRuleBasedPathFilter4TreeESt14default_deleteIS1_EED2Ev.exit.i80 ]
   %42 = load ptr, ptr %it.coerce, align 8
   %second76 = getelementptr inbounds nuw i8, ptr %search.sroa.0.0, i64 64
   call void @_ZN25SimpleRuleBasedPathFilter4Tree9applyRuleERK10ResKeyPathSt20_List_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %second76, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr %42, i1 noundef zeroext %inclusionRule, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -903,18 +901,18 @@ entry:
   %0 = load i32, ptr %fRoot, align 8
   %cmp.not = icmp eq i32 %0, 1
   %spec.select = select i1 %cmp.not, i32 0, i32 %0
-  %__begin1.sroa.0.032 = load ptr, ptr %path, align 8
-  %cmp.i33.not = icmp eq ptr %__begin1.sroa.0.032, %path
-  br i1 %cmp.i33.not, label %for.end, label %for.body
+  %__begin1.sroa.0.031 = load ptr, ptr %path, align 8
+  %cmp.i32.not = icmp eq ptr %__begin1.sroa.0.031, %path
+  br i1 %cmp.i32.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end22
-  %__begin1.sroa.0.036 = phi ptr [ %__begin1.sroa.0.0, %if.end22 ], [ %__begin1.sroa.0.032, %entry ]
-  %node.035 = phi ptr [ %node.1, %if.end22 ], [ %fRoot, %entry ]
-  %defaultResult.134 = phi i32 [ %spec.select14, %if.end22 ], [ %spec.select, %entry ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.036, i64 16
-  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %node.035, i64 24
+  %__begin1.sroa.0.035 = phi ptr [ %__begin1.sroa.0.0, %if.end22 ], [ %__begin1.sroa.0.031, %entry ]
+  %node.034 = phi ptr [ %node.1, %if.end22 ], [ %fRoot, %entry ]
+  %defaultResult.133 = phi i32 [ %spec.select14, %if.end22 ], [ %spec.select, %entry ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.035, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %node.034, i64 24
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %node.035, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %node.034, i64 16
   %cmp.not6.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i.i.i, label %if.then14, label %while.body.i.i.i
 
@@ -962,7 +960,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBase
   br i1 %cmp.i.i.i.i, label %if.then14, label %if.else20
 
 if.then14:                                        ; preds = %for.body, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N25SimpleRuleBasedPathFilter4TreeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN25SimpleRuleBasedPathFilter4TreeESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  %fWildcard = getelementptr inbounds nuw i8, ptr %node.035, i64 56
+  %fWildcard = getelementptr inbounds nuw i8, ptr %node.034, i64 56
   %6 = load ptr, ptr %fWildcard, align 8
   %cmp.i17.not = icmp eq ptr %6, null
   br i1 %cmp.i17.not, label %if.end33, label %if.end22
@@ -975,8 +973,8 @@ if.end22:                                         ; preds = %if.then14, %if.else
   %node.1 = phi ptr [ %second, %if.else20 ], [ %6, %if.then14 ]
   %7 = load i32, ptr %node.1, align 8
   %cmp24.not = icmp eq i32 %7, 1
-  %spec.select14 = select i1 %cmp24.not, i32 %defaultResult.134, i32 %7
-  %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.036, align 8
+  %spec.select14 = select i1 %cmp24.not, i32 %defaultResult.133, i32 %7
+  %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.035, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %path
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -993,11 +991,11 @@ for.end:                                          ; preds = %if.end22, %entry
   br i1 %10, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then14, %for.end
-  %node.0.lcssa52 = phi ptr [ %node.0.lcssa, %for.end ], [ %node.035, %if.then14 ]
-  %defaultResult.1.lcssa51 = phi i32 [ %defaultResult.1.lcssa, %for.end ], [ %defaultResult.134, %if.then14 ]
-  %11 = load i32, ptr %node.0.lcssa52, align 8
+  %node.0.lcssa51 = phi ptr [ %node.0.lcssa, %for.end ], [ %node.034, %if.then14 ]
+  %defaultResult.1.lcssa50 = phi i32 [ %defaultResult.1.lcssa, %for.end ], [ %defaultResult.133, %if.then14 ]
+  %11 = load i32, ptr %node.0.lcssa51, align 8
   %cmp35 = icmp eq i32 %11, 1
-  %defaultResult.1. = select i1 %cmp35, i32 %defaultResult.1.lcssa51, i32 %11
+  %defaultResult.1. = select i1 %cmp35, i32 %defaultResult.1.lcssa50, i32 %11
   br label %return
 
 return:                                           ; preds = %if.end33, %for.end

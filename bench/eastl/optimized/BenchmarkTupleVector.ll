@@ -6651,7 +6651,7 @@ if.end.i.i.i.i.i.i24.i:                           ; preds = %_ZN5eastl24uninitia
   %idx.neg11.i = sub i64 0, %sub.i59
   %add.ptr12.i = getelementptr inbounds i64, ptr %add.ptr10.i, i64 %idx.neg11.i
   %gepdiff.i60 = sub nsw i64 %add.ptr3.idx.i, %add.ptr.idx.i57
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr12.i, ptr align 8 %add.ptr.i58, i64 %gepdiff.i60, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr12.i, ptr align 8 %add.ptr.i58, i64 %gepdiff.i60, i1 false)
   %21 = ashr exact i64 %gepdiff.i60, 3
   br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EmE15DoInsertAndFillEmmmRKm.exit
 
@@ -6685,7 +6685,7 @@ if.then.i.i.i.i.i88:                              ; preds = %_ZN5eastl22uninitia
   %sub.i.i.i.i.i89 = sub i64 %25, %24
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.i.i.i.i.i89, -56
   %add.ptr.i.i.i.i.i90 = getelementptr inbounds %struct.PaddingStruct, ptr %add.ptr3.i64117, i64 %sub.ptr.div.neg.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i90, ptr align 1 %add.ptr.i62115, i64 %sub.i.i.i.i.i89, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i90, ptr align 1 %add.ptr.i62115, i64 %sub.i.i.i.i.i89, i1 false)
   br label %_ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i
 
 _ZN5eastl13move_backwardIP13PaddingStructS2_EET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i88, %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i
@@ -6716,7 +6716,7 @@ _ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit28.i: 
   %idx.neg11.i78 = sub i64 0, %sub.i59
   %add.ptr12.i79 = getelementptr inbounds %struct.PaddingStruct, ptr %add.ptr10.i77, i64 %idx.neg11.i78
   %gepdiff.i80 = sub nsw i64 %add.ptr3.idx.i63, %add.ptr.idx.i61
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr12.i79, ptr align 1 %add.ptr.i62, i64 %gepdiff.i80, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr12.i79, ptr align 1 %add.ptr.i62, i64 %gepdiff.i80, i1 false)
   br label %for.body.i.i30.i
 
 for.body.i.i30.i:                                 ; preds = %for.body.i.i30.i, %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit28.i

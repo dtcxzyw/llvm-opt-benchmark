@@ -6236,21 +6236,21 @@ _ZZN9QtPrivate16sequential_eraseI5QListI7QStringES2_EEDaRT_RKT0_ENKUlS5_E_clIS2_
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i33: ; preds = %66
   %68 = load atomic i32, ptr %67 monotonic, align 4
   %69 = icmp sgt i32 %68, 1
-  br i1 %69, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35, label %.lr.ph.i.i.i.i.i.preheader.i
+  br i1 %69, label %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35, label %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
 
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35: ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i33, %66
   tail call void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i = load ptr, ptr %3, align 8
-  br label %.lr.ph.i.i.i.i.i.preheader.i
+  br label %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i33
+_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i33
   %70 = phi ptr [ %.pre.i, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i35 ], [ %58, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.i.i.i33 ]
   %71 = getelementptr i8, ptr %70, i64 %64
   %72 = getelementptr i8, ptr %71, i64 %61
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.05.i.i.i.i.i.i = phi ptr [ %77, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %71, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %77, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %71, %_ZN17QArrayDataPointerI7QStringE6detachEPS1_.exit.i.i ]
   %73 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i
@@ -6268,9 +6268,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %75, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %77 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %77, %72
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
 
-_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i:         ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
+_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %3, align 8
   %78 = icmp ne ptr %71, %.pre.i.i
   %79 = load i64, ptr %5, align 8
@@ -6279,11 +6279,11 @@ _ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i:         ; preds = %_ZSt8_DestroyI7QStr
   %or.cond.i.i.i34 = select i1 %78, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i, label %81
 
-81:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i
+81:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i
   store ptr %72, ptr %3, align 8
   br label %_ZN9QtPrivate16QMovableArrayOpsI7QStringE5eraseEPS1_x.exit.i.i
 
-_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.i.i
+_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i: ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit.i.loopexit.i.i
   br i1 %.not.i.i.i, label %_ZN9QtPrivate16QMovableArrayOpsI7QStringE5eraseEPS1_x.exit.i.i, label %82
 
 82:                                               ; preds = %_ZSt7destroyIP7QStringEvT_S2_.exit._crit_edge.i.i.i

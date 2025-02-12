@@ -9593,11 +9593,11 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_feature_get_name_ids(ptr noundef
 _ZL18get_gsubgpos_tableP9hb_face_tj.exit:         ; preds = %8, %.sink.split.i
   %.0.i = phi ptr [ @_hb_NullPool, %8 ], [ %spec.select.i.i1.i.i5.i, %.sink.split.i ]
   %21 = icmp eq i32 %2, 65535
-  %.pre93 = load i8, ptr %.0.i, align 1
+  %.pre94 = load i8, ptr %.0.i, align 1
   br i1 %21, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit, label %22
 
 22:                                               ; preds = %_ZL18get_gsubgpos_tableP9hb_face_tj.exit
-  %23 = zext i8 %.pre93 to i32
+  %23 = zext i8 %.pre94 to i32
   %24 = shl nuw nsw i32 %23, 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %26 = load i8, ptr %25, align 1
@@ -9642,7 +9642,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %29, %22
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %48, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  %.pre = phi i8 [ %.pre.pre, %48 ], [ %.pre93, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i ]
+  %.pre = phi i8 [ %.pre.pre, %48 ], [ %.pre94, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i ]
   %.0.i.i.i = phi ptr [ %51, %48 ], [ @_hb_NullPool, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i ]
   %52 = load i8, ptr %.0.i.i.i, align 1
   %53 = zext i8 %52 to i32
@@ -9655,7 +9655,7 @@ _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %48, %_ZNK2OT8G
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZL18get_gsubgpos_tableP9hb_face_tj.exit, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
-  %60 = phi i8 [ %.pre, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i ], [ %.pre93, %_ZL18get_gsubgpos_tableP9hb_face_tj.exit ]
+  %60 = phi i8 [ %.pre, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i ], [ %.pre94, %_ZL18get_gsubgpos_tableP9hb_face_tj.exit ]
   %61 = phi i32 [ %59, %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i ], [ 0, %_ZL18get_gsubgpos_tableP9hb_face_tj.exit ]
   %62 = zext i8 %60 to i32
   %63 = shl nuw nsw i32 %62, 8

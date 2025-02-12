@@ -15075,9 +15075,9 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc i32 @matchArgs(ptr noundef nonnull readonly captures(none) %words, i32 noundef %numwords, ptr noundef captures(none) %args, i32 noundef %numargs) unnamed_addr #11 {
 entry:
-  %cmp66 = icmp ne i32 %numwords, 0
-  %cmp167 = icmp ne i32 %numargs, 0
-  %0 = and i1 %cmp66, %cmp167
+  %cmp48 = icmp ne i32 %numwords, 0
+  %cmp149 = icmp ne i32 %numargs, 0
+  %0 = and i1 %cmp48, %cmp149
   br i1 %0, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %entry
@@ -15085,9 +15085,9 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end26
-  %nextarg.069 = phi i32 [ %inc28, %if.end26 ], [ 0, %for.body.preheader ]
-  %nextword.068 = phi i32 [ %add, %if.end26 ], [ 0, %for.body.preheader ]
-  %idxprom = sext i32 %nextarg.069 to i64
+  %nextarg.051 = phi i32 [ %inc28, %if.end26 ], [ 0, %for.body.preheader ]
+  %nextword.050 = phi i32 [ %add, %if.end26 ], [ 0, %for.body.preheader ]
+  %idxprom = sext i32 %nextarg.051 to i64
   %arrayidx = getelementptr inbounds %struct.cliCommandArg, ptr %args, i64 %idxprom
   %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %2 = load i32, ptr %flags, align 8
@@ -15096,7 +15096,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not, label %if.else, label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %for.body
-  %cmp337 = icmp slt i32 %nextarg.069, %numargs
+  %cmp337 = icmp slt i32 %nextarg.051, %numargs
   br i1 %cmp337, label %for.body4, label %matchOptionalArgs.exit
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
@@ -15105,92 +15105,92 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %3 = load i32, ptr %flags7, align 8
   %and8 = and i32 %3, 1
   %tobool9.not = icmp eq i32 %and8, 0
-  br i1 %tobool9.not, label %for.end.split.loop.exit90, label %for.inc
+  br i1 %tobool9.not, label %for.end.split.loop.exit72, label %for.inc
 
 for.inc:                                          ; preds = %for.body4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !133
 
-for.end.split.loop.exit90:                        ; preds = %for.body4
+for.end.split.loop.exit72:                        ; preds = %for.body4
   %4 = trunc nsw i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit90
-  %lastoptional.0.lcssa = phi i32 [ %4, %for.end.split.loop.exit90 ], [ %numargs, %for.inc ]
-  %idxprom11 = sext i32 %nextword.068 to i64
+for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit72
+  %lastoptional.0.lcssa = phi i32 [ %4, %for.end.split.loop.exit72 ], [ %numargs, %for.inc ]
+  %idxprom11 = sext i32 %nextword.050 to i64
   %arrayidx12 = getelementptr inbounds ptr, ptr %words, i64 %idxprom11
-  %sub = sub nsw i32 %numwords, %nextword.068
-  %cmp.not.i50 = icmp ne i32 %numwords, %nextword.068
-  %cmp1.i2540 = icmp ne i32 %lastoptional.0.lcssa, %nextarg.069
-  %or.cond = and i1 %cmp.not.i50, %cmp1.i2540
-  br i1 %or.cond, label %while.body.i.us.preheader, label %matchOptionalArgs.exit
+  %sub = sub nsw i32 %numwords, %nextword.050
+  %cmp.not.i44 = icmp eq i32 %numwords, %nextword.050
+  %cmp1.i25.not40 = icmp eq i32 %lastoptional.0.lcssa, %nextarg.051
+  %or.cond = or i1 %cmp.not.i44, %cmp1.i25.not40
+  br i1 %or.cond, label %matchOptionalArgs.exit, label %while.body.i.preheader
 
-while.body.i.us.preheader:                        ; preds = %for.end
-  %sub15 = sub nsw i32 %lastoptional.0.lcssa, %nextarg.069
+while.body.i.preheader:                           ; preds = %for.end
+  %sub15 = sub nsw i32 %lastoptional.0.lcssa, %nextarg.051
   %5 = zext i32 %sub15 to i64
-  br label %while.body.i.us
+  br label %while.body.i
 
-while.body.i.us:                                  ; preds = %while.body.i.us.preheader, %if.end6.i.us
-  %nextword.0.i52.us = phi i32 [ %add.i.us, %if.end6.i.us ], [ 0, %while.body.i.us.preheader ]
-  %lastmatchedarg.0.i51.us = phi i32 [ %7, %if.end6.i.us ], [ -1, %while.body.i.us.preheader ]
-  %idxprom.i.us = sext i32 %nextword.0.i52.us to i64
-  %arrayidx.i.us = getelementptr inbounds ptr, ptr %arrayidx12, i64 %idxprom.i.us
-  %sub.i.us = sub nsw i32 %sub, %nextword.0.i52.us
-  br label %for.body.i.us
+while.body.i:                                     ; preds = %while.body.i.preheader, %if.end6.i
+  %nextword.0.i46 = phi i32 [ %add.i, %if.end6.i ], [ 0, %while.body.i.preheader ]
+  %lastmatchedarg.0.i45 = phi i32 [ %7, %if.end6.i ], [ -1, %while.body.i.preheader ]
+  %idxprom.i = sext i32 %nextword.0.i46 to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %arrayidx12, i64 %idxprom.i
+  %sub.i = sub nsw i32 %sub, %nextword.0.i46
+  br label %for.body.i
 
-for.body.i.us:                                    ; preds = %while.body.i.us, %for.inc.i.us60
-  %indvars.iv76 = phi i64 [ 0, %while.body.i.us ], [ %indvars.iv.next77, %for.inc.i.us60 ]
-  %arrayidx.i27.us = getelementptr inbounds nuw %struct.cliCommandArg, ptr %arrayidx, i64 %indvars.iv76
-  %matched.i.us54 = getelementptr inbounds nuw i8, ptr %arrayidx.i27.us, i64 56
-  %6 = load i32, ptr %matched.i.us54, align 8
-  %tobool.not.i.us55 = icmp eq i32 %6, 0
-  br i1 %tobool.not.i.us55, label %if.end.i28.us56, label %for.inc.i.us60
+for.body.i:                                       ; preds = %while.body.i, %for.inc.i
+  %indvars.iv58 = phi i64 [ 0, %while.body.i ], [ %indvars.iv.next59, %for.inc.i ]
+  %arrayidx.i27 = getelementptr inbounds nuw %struct.cliCommandArg, ptr %arrayidx, i64 %indvars.iv58
+  %matched.i = getelementptr inbounds nuw i8, ptr %arrayidx.i27, i64 56
+  %6 = load i32, ptr %matched.i, align 8
+  %tobool.not.i = icmp eq i32 %6, 0
+  br i1 %tobool.not.i, label %if.end.i28, label %for.inc.i
 
-if.end.i28.us56:                                  ; preds = %for.body.i.us
-  %call.i29.us57 = tail call fastcc i32 @matchArg(ptr noundef nonnull %arrayidx.i.us, i32 noundef %sub.i.us, ptr noundef nonnull %arrayidx.i27.us)
-  %cmp6.not.i.us58 = icmp eq i32 %call.i29.us57, 0
-  br i1 %cmp6.not.i.us58, label %for.inc.i.us60, label %if.end.i.us
+if.end.i28:                                       ; preds = %for.body.i
+  %call.i29 = tail call fastcc i32 @matchArg(ptr noundef nonnull %arrayidx.i, i32 noundef %sub.i, ptr noundef nonnull %arrayidx.i27)
+  %cmp6.not.i = icmp eq i32 %call.i29, 0
+  br i1 %cmp6.not.i, label %for.inc.i, label %if.end.i
 
-if.then3.i.us:                                    ; preds = %if.end.i.us
-  %idxprom4.i.us = sext i32 %lastmatchedarg.0.i51.us to i64
-  %matched_all.i.us = getelementptr inbounds %struct.cliCommandArg, ptr %arrayidx, i64 %idxprom4.i.us, i32 11
-  store i32 1, ptr %matched_all.i.us, align 4
-  br label %if.end6.i.us
+for.inc.i:                                        ; preds = %if.end.i28, %for.body.i
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %cmp1.i25.not = icmp eq i64 %indvars.iv.next59, %5
+  br i1 %cmp1.i25.not, label %matchOptionalArgs.exit, label %for.body.i, !llvm.loop !134
 
-if.end6.i.us:                                     ; preds = %if.end.i.us, %if.then3.i.us
-  %add.i.us = add nsw i32 %call.i29.us57, %nextword.0.i52.us
-  %cmp.not.i.us = icmp eq i32 %add.i.us, %sub
-  br i1 %cmp.not.i.us, label %matchOptionalArgs.exit, label %while.body.i.us, !llvm.loop !134
+if.end.i:                                         ; preds = %if.end.i28
+  %7 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %cmp2.not.i = icmp eq i32 %lastmatchedarg.0.i45, -1
+  br i1 %cmp2.not.i, label %if.end6.i, label %if.then3.i
 
-for.inc.i.us60:                                   ; preds = %if.end.i28.us56, %for.body.i.us
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %cmp1.i25.us.not = icmp eq i64 %indvars.iv.next77, %5
-  br i1 %cmp1.i25.us.not, label %matchOptionalArgs.exit, label %for.body.i.us, !llvm.loop !135
+if.then3.i:                                       ; preds = %if.end.i
+  %idxprom4.i = sext i32 %lastmatchedarg.0.i45 to i64
+  %matched_all.i = getelementptr inbounds %struct.cliCommandArg, ptr %arrayidx, i64 %idxprom4.i, i32 11
+  store i32 1, ptr %matched_all.i, align 4
+  br label %if.end6.i
 
-if.end.i.us:                                      ; preds = %if.end.i28.us56
-  %7 = trunc nuw nsw i64 %indvars.iv76 to i32
-  %cmp2.not.i.us = icmp eq i32 %lastmatchedarg.0.i51.us, -1
-  br i1 %cmp2.not.i.us, label %if.end6.i.us, label %if.then3.i.us
+if.end6.i:                                        ; preds = %if.then3.i, %if.end.i
+  %add.i = add nsw i32 %call.i29, %nextword.0.i46
+  %cmp.not.i = icmp eq i32 %add.i, %sub
+  br i1 %cmp.not.i, label %matchOptionalArgs.exit, label %while.body.i, !llvm.loop !135
 
-matchOptionalArgs.exit:                           ; preds = %if.end6.i.us, %for.inc.i.us60, %for.cond2.preheader, %for.end
-  %lastoptional.0.lcssa86 = phi i32 [ %lastoptional.0.lcssa, %for.end ], [ %nextarg.069, %for.cond2.preheader ], [ %lastoptional.0.lcssa, %for.inc.i.us60 ], [ %lastoptional.0.lcssa, %if.end6.i.us ]
-  %nextword.0.i36 = phi i32 [ 0, %for.end ], [ 0, %for.cond2.preheader ], [ %nextword.0.i52.us, %for.inc.i.us60 ], [ %sub, %if.end6.i.us ]
-  %sub16 = add nsw i32 %lastoptional.0.lcssa86, -1
+matchOptionalArgs.exit:                           ; preds = %if.end6.i, %for.inc.i, %for.cond2.preheader, %for.end
+  %lastoptional.0.lcssa68 = phi i32 [ %lastoptional.0.lcssa, %for.end ], [ %nextarg.051, %for.cond2.preheader ], [ %lastoptional.0.lcssa, %for.inc.i ], [ %lastoptional.0.lcssa, %if.end6.i ]
+  %nextword.0.i36 = phi i32 [ 0, %for.end ], [ 0, %for.cond2.preheader ], [ %nextword.0.i46, %for.inc.i ], [ %sub, %if.end6.i ]
+  %sub16 = add nsw i32 %lastoptional.0.lcssa68, -1
   br label %if.end26
 
 if.else:                                          ; preds = %for.body
-  %idxprom17 = sext i32 %nextword.068 to i64
+  %idxprom17 = sext i32 %nextword.050 to i64
   %arrayidx18 = getelementptr inbounds ptr, ptr %words, i64 %idxprom17
-  %sub19 = sub nsw i32 %numwords, %nextword.068
+  %sub19 = sub nsw i32 %numwords, %nextword.050
   %call22 = tail call fastcc i32 @matchArg(ptr noundef %arrayidx18, i32 noundef %sub19, ptr noundef nonnull %arrayidx)
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.else, %matchOptionalArgs.exit
-  %nextarg.1 = phi i32 [ %sub16, %matchOptionalArgs.exit ], [ %nextarg.069, %if.else ]
+  %nextarg.1 = phi i32 [ %sub16, %matchOptionalArgs.exit ], [ %nextarg.051, %if.else ]
   %matchedWords.0 = phi i32 [ %nextword.0.i36, %matchOptionalArgs.exit ], [ %call22, %if.else ]
-  %add = add nsw i32 %matchedWords.0, %nextword.068
+  %add = add nsw i32 %matchedWords.0, %nextword.050
   %inc28 = add nsw i32 %nextarg.1, 1
   %cmp = icmp ne i32 %add, %numwords
   %cmp1 = icmp ne i32 %inc28, %numargs

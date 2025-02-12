@@ -2842,7 +2842,7 @@ define hidden noundef zeroext i1 @"_ZN4text12subscription7publish28_$u7b$$u7b$cl
 "_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit": ; preds = %25, %28, %17
   %.pn5 = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %28 ], [ %.pn, %25 ]
   invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E"(ptr nonnull %.val) #34
-          to label %71 unwind label %69
+          to label %70 unwind label %68
 
 17:                                               ; preds = %50, %23
   %18 = landingpad { ptr, i32 }
@@ -2867,7 +2867,7 @@ define hidden noundef zeroext i1 @"_ZN4text12subscription7publish28_$u7b$$u7b$cl
 
 28:                                               ; preds = %25
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %20, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit" unwind label %69
+          to label %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit" unwind label %68
 
 29:                                               ; preds = %31
   %30 = landingpad { ptr, i32 }
@@ -2934,42 +2934,42 @@ define hidden noundef zeroext i1 @"_ZN4text12subscription7publish28_$u7b$$u7b$cl
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load i64, ptr %54, align 8, !range !11, !noalias !571, !noundef !4
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %63, label %57
+  br i1 %56, label %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i", label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %59 = load i64, ptr %58, align 8, !noalias !571, !noundef !4
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %63, label %61
+  br i1 %60, label %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i", label %61
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %3, align 8, !noalias !571, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %62, i64 noundef %59, i64 noundef %55) #23, !noalias !586
-  br label %63
+  br label %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i"
 
-63:                                               ; preds = %53, %57, %61
+"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i": ; preds = %61, %57, %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !571
-  %64 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %65 = atomicrmw sub ptr %64, i64 1 release, align 8, !noalias !587
-  %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit"
+  %63 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %64 = atomicrmw sub ptr %63, i64 1 release, align 8, !noalias !587
+  %65 = icmp eq i64 %64, 1
+  br i1 %65, label %66, label %"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit"
 
-67:                                               ; preds = %63
+66:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i"
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 48, i64 noundef 8) #23, !noalias !587
   br label %"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit"
 
-"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit": ; preds = %9, %2, %67, %63, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13"
-  %68 = phi i1 [ true, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13" ], [ true, %63 ], [ true, %67 ], [ false, %2 ], [ false, %9 ]
-  ret i1 %68
+"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$$GT$17he4f0779e7c6c55a6E.exit": ; preds = %9, %2, %66, %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i", %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13"
+  %67 = phi i1 [ true, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit13" ], [ true, %"_ZN4core3ptr117drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h3e65e2d9ba7d810aE.exit.i.i.i" ], [ true, %66 ], [ false, %2 ], [ false, %9 ]
+  ret i1 %67
 
-69:                                               ; preds = %28, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit"
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %28, %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit"
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
 
-71:                                               ; preds = %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit"
+70:                                               ; preds = %"_ZN4core3ptr122drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$text..patch..Patch$LT$usize$GT$$GT$$GT$17h7bc3a28cacc50690E.exit"
   resume { ptr, i32 } %.pn5
 }
 

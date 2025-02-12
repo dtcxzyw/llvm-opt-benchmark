@@ -3722,10 +3722,10 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12analyzeFrame
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %34, align 8
-  %.not142.i = icmp eq ptr %36, %37
-  br i1 %.not142.i, label %.loopexit153, label %.lr.ph141.i
+  %.not141.i = icmp eq ptr %36, %37
+  br i1 %.not141.i, label %.loopexit153, label %.lr.ph140.i
 
-.lr.ph141.i:                                      ; preds = %29
+.lr.ph140.i:                                      ; preds = %29
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
@@ -3755,10 +3755,10 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12analyzeFrame
   %umax.i = call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %56
 
-56:                                               ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i, %.lr.ph141.i
-  %indvars.iv146.i = phi i64 [ 0, %.lr.ph141.i ], [ %indvars.iv.next147.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph141.i ], [ %indvars.iv.next.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
-  %.022139.i = phi i64 [ 0, %.lr.ph141.i ], [ %159, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
+56:                                               ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i, %.lr.ph140.i
+  %indvars.iv145.i = phi i64 [ 0, %.lr.ph140.i ], [ %indvars.iv.next146.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph140.i ], [ %indvars.iv.next.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
+  %.022138.i = phi i64 [ 0, %.lr.ph140.i ], [ %159, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i ]
   %57 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.val.val.i, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 292
@@ -3770,7 +3770,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12analyzeFrame
   br i1 %.not.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.val31.val.i, i64 %indvars.iv146.i
+  %64 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.val31.val.i, i64 %indvars.iv145.i
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 292
   %67 = load i8, ptr %66, align 4
@@ -3778,27 +3778,27 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12analyzeFrame
   br i1 %68, label %69, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i
 
 69:                                               ; preds = %63, %56
-  %70 = getelementptr inbounds i32, ptr %37, i64 %.022139.i
+  %70 = getelementptr inbounds i32, ptr %37, i64 %.022138.i
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i
 
 .lr.ph.i:                                         ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 96
-  %74 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.val31.val.i, i64 %indvars.iv146.i
-  %.not143.i = icmp eq i32 %71, 1
+  %74 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.val31.val.i, i64 %indvars.iv145.i
+  %.not142.i = icmp eq i32 %71, 1
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 112
   br label %76
 
 76:                                               ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i, %.lr.ph.i
-  %.021135.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i ]
-  %.sroa.25.1132.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.25.2.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i ]
+  %.021134.i = phi i32 [ 0, %.lr.ph.i ], [ %150, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i ]
+  %.sroa.25.1131.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.25.2.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i ]
   %.sroa.27.1130.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.27.2.i, %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i ]
   br i1 %43, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsistentlySelectedEv.exit.i, label %77
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %73, align 8
-  %79 = sext i32 %.sroa.25.1132.i to i64
+  %79 = sext i32 %.sroa.25.1131.i to i64
   %80 = getelementptr inbounds i32, ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4
   br label %82
@@ -3842,7 +3842,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsist
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsistentlySelectedEv.exit45.i: ; preds = %95, %94, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsistentlySelectedEv.exit.i
   %99 = phi i1 [ %86, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsistentlySelectedEv.exit.i ], [ false, %95 ], [ %86, %94 ]
-  br i1 %.not143.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.i, label %100
+  br i1 %.not142.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.i, label %100
 
 100:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator29allValuesConsistentlySelectedEv.exit45.i
   br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i
@@ -3854,7 +3854,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i
   %103 = load ptr, ptr %73, align 8
-  %104 = sext i32 %.sroa.25.1132.i to i64
+  %104 = sext i32 %.sroa.25.1131.i to i64
   %105 = getelementptr inbounds i32, ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = icmp sgt i32 %106, -1
@@ -3863,9 +3863,9 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSel
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i, %100
   %.3.i = phi i1 [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i ], [ %spec.select25.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit.i ], [ %99, %100 ]
-  br i1 %.not.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread154.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.i
+  br i1 %.not.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread153.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.i
 
-_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread154.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i
+_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread153.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i
   br i1 %.3.i, label %149, label %134
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i
@@ -3889,7 +3889,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv
   br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i
 
 .thread192:                                       ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.i
-  br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i
+  br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i: ; preds = %.thread192, %112
   %.220.ph.i194 = phi i1 [ %.3.i, %.thread192 ], [ %spec.select26.i, %112 ]
@@ -3899,19 +3899,19 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv
   br i1 %brmerge, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.i
-  br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199
+  br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i
-  %.220153158.i201 = phi i1 [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i ], [ %.220.ph.i194, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i ]
+  %.220152157.i201 = phi i1 [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i ], [ %.220.ph.i194, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i ]
   %121 = load ptr, ptr %73, align 8
-  %122 = sext i32 %.sroa.25.1132.i to i64
+  %122 = sext i32 %.sroa.25.1131.i to i64
   %123 = getelementptr inbounds i32, ptr %121, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = icmp sgt i32 %124, -1
-  br label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i
+  br label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i
 
-_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i: ; preds = %.thread192, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i
-  %.220153158.i198 = phi i1 [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i ], [ %.220153158.i201, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199 ], [ %.3.i, %.thread192 ]
+_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i: ; preds = %.thread192, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i
+  %.220152157.i198 = phi i1 [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i ], [ %.220152157.i201, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199 ], [ %.3.i, %.thread192 ]
   %126 = phi i1 [ true, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i ], [ %125, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.thread.i.thread199 ], [ true, %.thread192 ]
   %127 = load ptr, ptr %74, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 96
@@ -3921,15 +3921,15 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSel
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %132, 0
   %not..i = xor i1 %126, %133
-  %spec.select27.i = select i1 %not..i, i1 %.220153158.i198, i1 false
+  %spec.select27.i = select i1 %not..i, i1 %.220152157.i198, i1 false
   br i1 %spec.select27.i, label %149, label %134
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i: ; preds = %112, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.i
   %.4.i = phi i1 [ %.220.ph.i194, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit60.i ], [ %99, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.i ], [ %spec.select26.i, %112 ]
   br i1 %.4.i, label %149, label %134
 
-134:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread154.i
-  %135 = trunc i64 %.022139.i to i32
+134:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread153.i
+  %135 = trunc i64 %.022138.i to i32
   %136 = add i32 %135, 1
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.97, i32 noundef %136)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3991,8 +3991,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   br label %.body
 
-149:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit70.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread154.i
-  %150 = add nuw nsw i32 %.021135.i, 1
+149:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit66.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator21currentValuesSelectedEv.exit68.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit52.thread.thread153.i
+  %150 = add nuw nsw i32 %.021134.i, 1
   br i1 %.not.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i: ; preds = %149
@@ -4001,11 +4001,11 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv
   br i1 %152, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i, %149
-  %153 = add nsw i32 %.sroa.25.1132.i, %31
+  %153 = add nsw i32 %.sroa.25.1131.i, %31
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit.i
 
 _ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i
-  %.sroa.25.2.i = phi i32 [ %153, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i ], [ %.sroa.25.1132.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i ]
+  %.sroa.25.2.i = phi i32 [ %153, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i.i ], [ %.sroa.25.1131.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i.i ]
   br i1 %.not.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.thread.i78.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i76.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator14hasSingleValueEv.exit.i76.i: ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit.i
@@ -4025,11 +4025,11 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82
   br i1 %exitcond.not.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i, label %76, !llvm.loop !22
 
 _ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextGroupEv.exit.i: ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator9nextValueEv.exit82.i, %69, %63, %62
-  %159 = add nuw i64 %.022139.i, 1
+  %159 = add nuw i64 %.022138.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %54
-  %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, %55
-  %exitcond151.not.i = icmp eq i64 %159, %umax.i
-  br i1 %exitcond151.not.i, label %.loopexit153, label %56, !llvm.loop !23
+  %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, %55
+  %exitcond150.not.i = icmp eq i64 %159, %umax.i
+  br i1 %exitcond150.not.i, label %.loopexit153, label %56, !llvm.loop !23
 
 160:                                              ; preds = %142
   unreachable

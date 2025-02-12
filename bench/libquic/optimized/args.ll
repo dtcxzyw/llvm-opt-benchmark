@@ -67,26 +67,26 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %args, align 8
-  %cmp98.not = icmp eq ptr %3, %4
-  br i1 %cmp98.not, label %for.cond45.preheader, label %for.body
+  %cmp97.not = icmp eq ptr %3, %4
+  br i1 %cmp97.not, label %for.cond45.preheader, label %for.body
 
 for.cond45.preheader:                             ; preds = %for.inc41, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit
   %5 = load ptr, ptr %templates, align 8
   %6 = load i8, ptr %5, align 1
-  %cmp50.not100 = icmp eq i8 %6, 0
-  br i1 %cmp50.not100, label %return, label %for.body51
+  %cmp50.not99 = icmp eq i8 %6, 0
+  br i1 %cmp50.not99, label %return, label %for.body51
 
 for.body:                                         ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit, %for.inc41
   %7 = phi ptr [ %25, %for.inc41 ], [ %4, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit ]
-  %i.099 = phi i64 [ %inc42, %for.inc41 ], [ 0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %i.099
+  %i.098 = phi i64 [ %inc42, %for.inc41 ], [ 0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE5clearEv.exit ]
+  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %i.098
   %8 = load ptr, ptr %templates, align 8
   %9 = load i8, ptr %8, align 1
-  %cmp4.not90 = icmp eq i8 %9, 0
-  br i1 %cmp4.not90, label %if.then13, label %for.body5
+  %cmp4.not89 = icmp eq i8 %9, 0
+  br i1 %cmp4.not89, label %if.then13, label %for.body5
 
 for.cond2:                                        ; preds = %for.body5
-  %inc = add i64 %j.091, 1
+  %inc = add i64 %j.090, 1
   %arrayidx = getelementptr inbounds %struct.argument, ptr %templates, i64 %inc
   %10 = load ptr, ptr %arrayidx, align 8
   %11 = load i8, ptr %10, align 1
@@ -94,10 +94,10 @@ for.cond2:                                        ; preds = %for.body5
   br i1 %cmp4.not, label %if.then13, label %for.body5, !llvm.loop !7
 
 for.body5:                                        ; preds = %for.body, %for.cond2
-  %j.091 = phi i64 [ %inc, %for.cond2 ], [ 0, %for.body ]
-  %arrayidx92 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j.091
+  %j.090 = phi i64 [ %inc, %for.cond2 ], [ 0, %for.body ]
+  %arrayidx91 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j.090
   %call6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #14
-  %12 = load ptr, ptr %arrayidx92, align 8
+  %12 = load ptr, ptr %arrayidx91, align 8
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call6, ptr noundef nonnull dereferenceable(1) %12) #15
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %if.end16, label %for.cond2
@@ -163,7 +163,7 @@ if.then22:                                        ; preds = %_ZNSt3mapINSt7__cxx
   br label %return
 
 if.end25:                                         ; preds = %if.end16, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit
-  %type = getelementptr inbounds nuw i8, ptr %arrayidx92, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx91, i64 8
   %20 = load i32, ptr %type, align 8
   %cmp26 = icmp eq i32 %20, 2
   br i1 %cmp26, label %if.then27, label %if.else
@@ -174,7 +174,7 @@ if.then27:                                        ; preds = %if.end25
   br label %for.inc41
 
 if.else:                                          ; preds = %if.end25
-  %add = add i64 %i.099, 1
+  %add = add i64 %i.098, 1
   %21 = load ptr, ptr %_M_finish.i, align 8
   %22 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %21 to i64
@@ -197,7 +197,7 @@ if.end35:                                         ; preds = %if.else
   br label %for.inc41
 
 for.inc41:                                        ; preds = %if.then27, %if.end35
-  %i.1 = phi i64 [ %i.099, %if.then27 ], [ %add, %if.end35 ]
+  %i.1 = phi i64 [ %i.098, %if.then27 ], [ %add, %if.end35 ]
   %inc42 = add i64 %i.1, 1
   %24 = load ptr, ptr %_M_finish.i, align 8
   %25 = load ptr, ptr %args, align 8
@@ -210,9 +210,9 @@ for.inc41:                                        ; preds = %if.then27, %if.end3
 
 for.body51:                                       ; preds = %for.cond45.preheader, %for.inc82
   %26 = phi ptr [ %36, %for.inc82 ], [ %5, %for.cond45.preheader ]
-  %j44.0101 = phi i64 [ %inc83, %for.inc82 ], [ 0, %for.cond45.preheader ]
-  %arrayidx46102 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j44.0101
-  %type54 = getelementptr inbounds nuw i8, ptr %arrayidx46102, i64 8
+  %j44.0100 = phi i64 [ %inc83, %for.inc82 ], [ 0, %for.cond45.preheader ]
+  %arrayidx46101 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j44.0100
+  %type54 = getelementptr inbounds nuw i8, ptr %arrayidx46101, i64 8
   %27 = load i32, ptr %type54, align 8
   %cmp55 = icmp eq i32 %27, 0
   br i1 %cmp55, label %land.rhs, label %for.inc82
@@ -285,7 +285,7 @@ if.then78.critedge:                               ; preds = %invoke.cont
 
 if.then78:                                        ; preds = %cleanup.action, %if.then78.critedge
   %33 = load ptr, ptr @stderr, align 8
-  %34 = load ptr, ptr %arrayidx46102, align 8
+  %34 = load ptr, ptr %arrayidx46101, align 8
   %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.4, ptr noundef %34) #16
   br label %return
 
@@ -296,7 +296,7 @@ lpad:                                             ; preds = %land.rhs
   resume { ptr, i32 } %35
 
 for.inc82:                                        ; preds = %for.body51, %cleanup.action
-  %inc83 = add i64 %j44.0101, 1
+  %inc83 = add i64 %j44.0100, 1
   %arrayidx46 = getelementptr inbounds %struct.argument, ptr %templates, i64 %inc83
   %36 = load ptr, ptr %arrayidx46, align 8
   %37 = load i8, ptr %36, align 1

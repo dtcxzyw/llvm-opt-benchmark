@@ -1214,7 +1214,7 @@ for.inc75:                                        ; preds = %for.body
   br i1 %cmp43, label %for.body, label %for.end76, !llvm.loop !31
 
 for.end76:                                        ; preds = %for.inc75, %if.end38, %if.end22, %if.end
-  %size.1245 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ %sub.ptr.sub19, %if.end22 ], [ 3, %for.inc75 ]
+  %size.1245 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ 3, %if.end22 ], [ 3, %for.inc75 ]
   %b.addr.3.lcssa = phi ptr [ %b.addr.1219, %if.end38 ], [ %b.addr.0.ph, %if.end ], [ %storemerge, %if.end22 ], [ %add.ptr, %for.inc75 ]
   %result.0.lcssa = phi i8 [ 0, %if.end38 ], [ 0, %if.end ], [ 0, %if.end22 ], [ %conv70, %for.inc75 ]
   %sub.ptr.sub42.lcssa = phi i64 [ %.pre240, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub42, %for.inc75 ]
@@ -1468,7 +1468,7 @@ for.inc75:                                        ; preds = %for.body
   br i1 %cmp43, label %for.body, label %for.end76, !llvm.loop !33
 
 for.end76:                                        ; preds = %for.inc75, %if.end38, %if.end22, %if.end
-  %size.1245 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ %sub.ptr.sub19, %if.end22 ], [ 3, %for.inc75 ]
+  %size.1245 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ 3, %if.end22 ], [ 3, %for.inc75 ]
   %b.addr.3.lcssa = phi ptr [ %b.addr.1219, %if.end38 ], [ %b.addr.0.ph, %if.end ], [ %storemerge, %if.end22 ], [ %add.ptr, %for.inc75 ]
   %result.0.lcssa = phi i8 [ 0, %if.end38 ], [ 0, %if.end ], [ 0, %if.end22 ], [ %conv70, %for.inc75 ]
   %sub.ptr.sub42.lcssa = phi i64 [ %.pre240, %if.end38 ], [ %sub.ptr.sub, %if.end ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub42, %for.inc75 ]
@@ -1692,7 +1692,7 @@ for.inc75:                                        ; preds = %for.body
   br i1 %cmp43, label %for.body, label %for.end76, !llvm.loop !35
 
 for.end76:                                        ; preds = %for.inc75, %if.end38, %if.end22, %entry
-  %size.1232 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %entry ], [ %sub.ptr.sub19, %if.end22 ], [ 3, %for.inc75 ]
+  %size.1232 = phi i64 [ 3, %if.end38 ], [ %sub.ptr.sub, %entry ], [ 3, %if.end22 ], [ 3, %for.inc75 ]
   %b.addr.2.lcssa = phi ptr [ %b.addr.0206, %if.end38 ], [ %b, %entry ], [ %storemerge, %if.end22 ], [ %add.ptr, %for.inc75 ]
   %result.0.lcssa = phi i8 [ 0, %if.end38 ], [ 0, %entry ], [ 0, %if.end22 ], [ %conv70, %for.inc75 ]
   %sub.ptr.sub42.lcssa = phi i64 [ %.pre227, %if.end38 ], [ %sub.ptr.sub, %entry ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub42, %for.inc75 ]
@@ -1867,7 +1867,7 @@ invoke.cont33:                                    ; preds = %lor.lhs.false, %lan
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %if.end
   %sub.ptr.sub42231.pre-phi = phi i64 [ %.pre240, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %b.addr.2 = phi ptr [ %b.addr.1219, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %if.end ]
-  %size.1 = phi i64 [ 5, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
+  %size.1 = phi i64 [ 5, %lor.lhs.false.if.end38_crit_edge ], [ 5, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %cmp43232 = icmp sgt i64 %sub.ptr.sub42231.pre-phi, 3
   br i1 %cmp43232, label %for.body, label %for.end76
 
@@ -2077,7 +2077,7 @@ lor.lhs.false.if.end38_crit_edge:                 ; preds = %lor.lhs.false
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %entry
   %sub.ptr.sub42218.pre-phi = phi i64 [ %.pre227, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %b.addr.1 = phi ptr [ %b.addr.0206, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b, %entry ]
-  %size.1 = phi i64 [ 5, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
+  %size.1 = phi i64 [ 5, %lor.lhs.false.if.end38_crit_edge ], [ 5, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %cmp43219 = icmp sgt i64 %sub.ptr.sub42218.pre-phi, 3
   br i1 %cmp43219, label %for.body, label %for.end76
 
@@ -2292,7 +2292,7 @@ invoke.cont33:                                    ; preds = %lor.lhs.false, %lan
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %if.end
   %sub.ptr.sub42220.pre-phi = phi i64 [ %.pre229, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %b.addr.2 = phi ptr [ %b.addr.1208, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %if.end ]
-  %size.1 = phi i64 [ 10, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
+  %size.1 = phi i64 [ 10, %lor.lhs.false.if.end38_crit_edge ], [ 10, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %cmp43221 = icmp sgt i64 %sub.ptr.sub42220.pre-phi, 3
   br i1 %cmp43221, label %for.body, label %for.end70
 
@@ -2498,7 +2498,7 @@ lor.lhs.false.if.end38_crit_edge:                 ; preds = %lor.lhs.false
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %entry
   %sub.ptr.sub42207.pre-phi = phi i64 [ %.pre216, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %b.addr.1 = phi ptr [ %b.addr.0195, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b, %entry ]
-  %size.1 = phi i64 [ 10, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
+  %size.1 = phi i64 [ 10, %lor.lhs.false.if.end38_crit_edge ], [ 10, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %cmp43208 = icmp sgt i64 %sub.ptr.sub42207.pre-phi, 3
   br i1 %cmp43208, label %for.body, label %for.end70
 
@@ -2709,7 +2709,7 @@ invoke.cont33:                                    ; preds = %lor.lhs.false, %lan
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %if.end
   %sub.ptr.sub42223.pre-phi = phi i64 [ %.pre232, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %b.addr.2 = phi ptr [ %b.addr.1211, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %if.end ]
-  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
+  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ 20, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %cmp43224 = icmp sgt i64 %sub.ptr.sub42223.pre-phi, 3
   br i1 %cmp43224, label %for.body, label %for.end71
 
@@ -2910,7 +2910,7 @@ lor.lhs.false.if.end38_crit_edge:                 ; preds = %lor.lhs.false
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %entry
   %sub.ptr.sub42210.pre-phi = phi i64 [ %.pre219, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %b.addr.1 = phi ptr [ %b.addr.0198, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b, %entry ]
-  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
+  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ 20, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %cmp43211 = icmp sgt i64 %sub.ptr.sub42210.pre-phi, 3
   br i1 %cmp43211, label %for.body, label %for.end71
 
@@ -3125,7 +3125,7 @@ invoke.cont33:                                    ; preds = %lor.lhs.false, %lan
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %if.end
   %sub.ptr.sub42223.pre-phi = phi i64 [ %.pre232, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %b.addr.2 = phi ptr [ %b.addr.1211, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %if.end ]
-  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %if.end ]
+  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ 20, %if.end22 ], [ %sub.ptr.sub, %if.end ]
   %cmp43224 = icmp sgt i64 %sub.ptr.sub42223.pre-phi, 3
   br i1 %cmp43224, label %for.body, label %for.end71
 
@@ -3326,7 +3326,7 @@ lor.lhs.false.if.end38_crit_edge:                 ; preds = %lor.lhs.false
 if.end38:                                         ; preds = %lor.lhs.false.if.end38_crit_edge, %if.end22, %entry
   %sub.ptr.sub42210.pre-phi = phi i64 [ %.pre219, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %b.addr.1 = phi ptr [ %b.addr.0198, %lor.lhs.false.if.end38_crit_edge ], [ %storemerge, %if.end22 ], [ %b, %entry ]
-  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %entry ]
+  %size.1 = phi i64 [ 20, %lor.lhs.false.if.end38_crit_edge ], [ 20, %if.end22 ], [ %sub.ptr.sub, %entry ]
   %cmp43211 = icmp sgt i64 %sub.ptr.sub42210.pre-phi, 3
   br i1 %cmp43211, label %for.body, label %for.end71
 

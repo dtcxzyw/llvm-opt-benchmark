@@ -15296,15 +15296,15 @@ if.then20:                                        ; preds = %land.lhs.true
   %nStored.i = getelementptr inbounds nuw i8, ptr %params, i64 88
   %14 = load i64, ptr %nStored.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i, i64 %14
-  %cmp.not246 = icmp eq i64 %14, 0
+  %cmp.not245 = icmp eq i64 %14, 0
   br i1 %cmp.i76, label %if.then22, label %if.else37
 
 if.then22:                                        ; preds = %if.then20
-  br i1 %cmp.not246, label %if.end98, label %for.body
+  br i1 %cmp.not245, label %if.end98, label %for.body
 
 for.body:                                         ; preds = %if.then22, %for.inc
-  %__begin3.0247 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %if.then22 ]
-  %15 = load ptr, ptr %__begin3.0247, align 8
+  %__begin3.0246 = phi ptr [ %incdec.ptr, %for.inc ], [ %cond.i, %if.then22 ]
+  %15 = load ptr, ptr %__begin3.0246, align 8
   %name25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %call.i77 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name25, ptr noundef nonnull @.str.159) #34
   %cmp.i78 = icmp eq i32 %call.i77, 0
@@ -15324,18 +15324,18 @@ if.then33:                                        ; preds = %if.end30
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end30, %if.then33
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0247, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0246, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.end98, label %for.body
 
 if.else37:                                        ; preds = %if.then20
-  br i1 %cmp.not246, label %if.end98, label %for.body45
+  br i1 %cmp.not245, label %if.end98, label %for.body45
 
 for.body45:                                       ; preds = %if.else37, %for.inc94
-  %__begin339.0245 = phi ptr [ %incdec.ptr95, %for.inc94 ], [ %cond.i, %if.else37 ]
-  %foundTexture.0244 = phi i1 [ %foundTexture.1, %for.inc94 ], [ false, %if.else37 ]
-  %foundRGB.0243 = phi i1 [ %foundRGB.1, %for.inc94 ], [ false, %if.else37 ]
-  %16 = load ptr, ptr %__begin339.0245, align 8
+  %__begin339.0244 = phi ptr [ %incdec.ptr95, %for.inc94 ], [ %cond.i, %if.else37 ]
+  %foundTexture.0243 = phi i1 [ %foundTexture.1, %for.inc94 ], [ false, %if.else37 ]
+  %foundRGB.0242 = phi i1 [ %foundRGB.1, %for.inc94 ], [ false, %if.else37 ]
+  %16 = load ptr, ptr %__begin339.0244, align 8
   %name47 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name47, ptr noundef nonnull @.str.159) #34
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
@@ -15352,7 +15352,7 @@ if.end53:                                         ; preds = %land.lhs.true49, %f
   br i1 %cmp.i92, label %if.then56, label %if.else86
 
 if.then56:                                        ; preds = %if.end53
-  br i1 %foundRGB.0243, label %if.then58, label %if.end60
+  br i1 %foundRGB.0242, label %if.then58, label %if.end60
 
 if.then58:                                        ; preds = %if.then56
   %loc59 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -15493,7 +15493,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit: ; preds = %f
   br label %for.inc94
 
 if.else86:                                        ; preds = %if.end53
-  br i1 %foundTexture.0244, label %if.then88, label %if.end90
+  br i1 %foundTexture.0243, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.else86
   %loc89 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -15505,9 +15505,9 @@ if.end90:                                         ; preds = %if.else86
   br label %for.inc94
 
 for.inc94:                                        ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit, %if.end90, %land.lhs.true49
-  %foundRGB.1 = phi i1 [ %foundRGB.0243, %land.lhs.true49 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %foundRGB.0243, %if.end90 ]
-  %foundTexture.1 = phi i1 [ %foundTexture.0244, %land.lhs.true49 ], [ %foundTexture.0244, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ true, %if.end90 ]
-  %incdec.ptr95 = getelementptr inbounds nuw i8, ptr %__begin339.0245, i64 8
+  %foundRGB.1 = phi i1 [ %foundRGB.0242, %land.lhs.true49 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %foundRGB.0242, %if.end90 ]
+  %foundTexture.1 = phi i1 [ %foundTexture.0243, %land.lhs.true49 ], [ %foundTexture.0243, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ true, %if.end90 ]
+  %incdec.ptr95 = getelementptr inbounds nuw i8, ptr %__begin339.0244, i64 8
   %cmp44.not = icmp eq ptr %incdec.ptr95, %add.ptr.i
   br i1 %cmp44.not, label %if.end98, label %for.body45
 

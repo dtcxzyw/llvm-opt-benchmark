@@ -2987,11 +2987,11 @@ if.then1717:                                      ; preds = %do.end1710
   br i1 %tobool1719.not, label %cond.false1726, label %cond.true1720
 
 cond.true1720:                                    ; preds = %if.then1717
-  %call1725 = call i64 @MOZ_Z_crc32(i64 noundef %200, ptr noundef %add.ptr1730, i32 noundef %sub1711) #9
+  %call1725 = call i64 @MOZ_Z_crc32(i64 noundef %200, ptr noundef nonnull %add.ptr1730, i32 noundef %sub1711) #9
   br label %cond.end1732
 
 cond.false1726:                                   ; preds = %if.then1717
-  %call1731 = call i64 @MOZ_Z_adler32(i64 noundef %200, ptr noundef %add.ptr1730, i32 noundef %sub1711) #9
+  %call1731 = call i64 @MOZ_Z_adler32(i64 noundef %200, ptr noundef nonnull %add.ptr1730, i32 noundef %sub1711) #9
   br label %cond.end1732
 
 cond.end1732:                                     ; preds = %cond.false1726, %cond.true1720
@@ -3326,7 +3326,7 @@ if.then37.i:                                      ; preds = %if.else.i
   %idx.ext39.i = zext i32 %sub36.i to i64
   %idx.neg40.i = sub nsw i64 0, %idx.ext39.i
   %add.ptr41.i = getelementptr inbounds i8, ptr %246, i64 %idx.neg40.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr nonnull readonly align 1 %add.ptr41.i, i64 %idx.ext39.i, i1 false)
   store i32 %sub36.i, ptr %wnext23.i, align 4
   %259 = load i32, ptr %wsize.i, align 4
   %whave45.i = getelementptr inbounds nuw i8, ptr %247, i64 56

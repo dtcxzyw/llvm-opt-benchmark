@@ -472,9 +472,9 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.
   %25 = phi ptr [ %.pre155, %if.then.i ], [ %22, %if.else.i ], [ %22, %if.then5.i ], [ %22, %invoke.cont.i.i ]
   %add.ptr.i69 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %25, i64 %ofs.0
   %cmp114137.not = icmp eq i32 %conv, 0
-  br i1 %cmp114137.not, label %for.end, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit78
+  br i1 %cmp114137.not, label %for.end, label %for.body115
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit78: ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit, %for.inc
+for.body115:                                      ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit ]
   %i.0138 = phi i32 [ %add117, %for.inc ], [ 0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit ]
   %indvars153 = trunc i32 %i.0138 to i1
@@ -488,7 +488,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
   %brmerge = select i1 %cmp135, i1 true, i1 %indvars153
   br i1 %brmerge, label %for.inc, label %if.then139
 
-if.then139:                                       ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit78
+if.then139:                                       ; preds = %for.body115
   %add.ptr.i80 = getelementptr inbounds i8, ptr %add.ptr.i70, i64 %sub.ptr.sub.i
   %add.ptr.i81 = getelementptr inbounds i8, ptr %add.ptr.i80, i64 -40
   %cmp.i.i.i82 = icmp ne ptr %add.ptr.i70, %add.ptr.i81
@@ -510,9 +510,9 @@ while.body.i.i:                                   ; preds = %if.then139, %while.
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i2.i.i, %__last.sroa.0.0.i.i
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %for.inc, !llvm.loop !9
 
-for.inc:                                          ; preds = %while.body.i.i, %if.then139, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit78
+for.inc:                                          ; preds = %while.body.i.i, %if.then139, %for.body115
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv104
-  br i1 %exitcond.not, label %for.end, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit78, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body115, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit
   %idx.neg.i85 = xor i64 %sub.ptr.div.i, -1
@@ -2535,7 +2535,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, -40
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %1, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont

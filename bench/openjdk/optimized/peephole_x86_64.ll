@@ -306,7 +306,7 @@ _ZNK5Block8get_nodeEj.exit102:                    ; preds = %51, %54
   %70 = load ptr, ptr %69, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit104
 
-_ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %62, %66
+_ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %66, %62
   %.094.ph = phi ptr [ %64, %62 ], [ %70, %66 ]
   %71 = lshr i32 %48, 1
   %72 = getelementptr inbounds nuw i8, ptr %.094.ph, i64 40
@@ -346,13 +346,13 @@ _ZN7OptoReg8as_VMRegEi.exit106:                   ; preds = %_ZN7OptoReg8as_VMRe
   %.094127 = phi ptr [ null, %61 ], [ %.094.ph, %_ZN7OptoReg8as_VMRegEi.exit106 ], [ %.094.ph, %84 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load i32, ptr %90, align 8
-  %.090135 = add nuw i32 %1, 1
-  %92 = icmp ult i32 %.090135, %91
+  %.090134 = add nuw i32 %1, 1
+  %92 = icmp ult i32 %.090134, %91
   br i1 %92, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %94 = zext i32 %.090135 to i64
+  %94 = zext i32 %.090134 to i64
   %95 = zext i32 %8 to i64
   br label %96
 

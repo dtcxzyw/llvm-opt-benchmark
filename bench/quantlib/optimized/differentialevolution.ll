@@ -682,8 +682,8 @@ _ZN8QuantLib5ArrayD2Ev.exit143:                   ; preds = %_ZN8QuantLib5ArrayC
 
 if.then.i:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit143
   %_M_finish.i.i146 = getelementptr inbounds nuw i8, ptr %population, i64 8
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %78 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %79 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %78 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   invoke void @_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %population, i64 noundef %sub.ptr.div.i)

@@ -6015,16 +6015,16 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i44.i: ; preds = %for.end.i
 if.end.i.i.i.i.i.i.i46.i:                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i44.i
   %mul.i.i.i.i.i.i47.i = ashr exact i64 %sub.ptr.sub.i41.i, 1
   %call5.i.i.i.i2.i.i62.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i47.i) #39
-          to label %for.body40.preheader.i unwind label %ehcleanup155.thread.i.loopexit
+          to label %invoke.cont35.i unwind label %ehcleanup155.thread.i.loopexit
 
-for.body40.preheader.i:                           ; preds = %if.end.i.i.i.i.i.i.i46.i
+invoke.cont35.i:                                  ; preds = %if.end.i.i.i.i.i.i.i46.i
   %83 = and i64 %mul.i.i.i.i.i.i47.i, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i62.i, i8 0, i64 %83, i1 false)
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i42.i, i64 1)
   br label %for.body40.i
 
-for.body40.i:                                     ; preds = %for.body40.i, %for.body40.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body40.preheader.i ], [ %indvars.iv.next.i, %for.body40.i ]
+for.body40.i:                                     ; preds = %for.body40.i, %invoke.cont35.i
+  %indvars.iv.i = phi i64 [ 0, %invoke.cont35.i ], [ %indvars.iv.next.i, %for.body40.i ]
   %add.ptr.i69.i = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv.i
   %84 = load double, ptr %add.ptr.i69.i, align 8
   %mul.i = fmul double %84, 2.000000e+03

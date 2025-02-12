@@ -14703,9 +14703,7 @@ _ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult
   %25 = trunc nuw i8 %.sroa.010.048 to i1
   %26 = icmp ne i32 %8, 4
   %.not = xor i1 %26, %25
-  %.not1.i = icmp eq ptr %.sroa.030.045, %5
-  %or.cond = or i1 %.not1.i, %.not
-  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i
+  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %35
   %.sroa.030.2 = phi ptr [ %36, %35 ], [ %.sroa.030.045, %24 ]

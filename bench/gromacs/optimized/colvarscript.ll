@@ -5918,9 +5918,9 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   ret void
 
 63:                                               ; preds = %49, %55, %60, %47
-  %.sink21 = phi ptr [ %6, %47 ], [ %5, %60 ], [ %5, %55 ], [ %5, %49 ]
+  %.sink18 = phi ptr [ %6, %47 ], [ %5, %60 ], [ %5, %55 ], [ %5, %49 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %61, %60 ], [ %.pn, %55 ], [ %50, %49 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink21) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink18) #18
   resume { ptr, i32 } %.pn.pn.pn
 }
 

@@ -437,12 +437,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit: ; pre
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %27, %28
-  %.094 = phi i32 [ %29, %28 ], [ 0, %27 ]
+  %.091 = phi i32 [ %29, %28 ], [ 0, %27 ]
   invoke void @_Z12TestCountersv()
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %.preheader
-  %29 = add nuw nsw i32 %.094, 1
+  %29 = add nuw nsw i32 %.091, 1
   %exitcond.not = icmp eq i32 %29, 3
   br i1 %exitcond.not, label %38, label %.preheader, !llvm.loop !9
 

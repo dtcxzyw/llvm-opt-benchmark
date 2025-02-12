@@ -49985,7 +49985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-.lr.ph.preheader.i:                               ; preds = %30, %36
+.lr.ph.preheader.i:                               ; preds = %36, %30
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %48, ptr %0, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8

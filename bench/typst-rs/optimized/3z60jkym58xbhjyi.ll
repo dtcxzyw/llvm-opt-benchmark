@@ -6216,11 +6216,11 @@ switch.lookup:
 
 109:                                              ; preds = %36
   %.pre = load i8, ptr %22, align 8, !range !859, !alias.scope !907
+  %110 = icmp eq i8 %.pre, 10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !853
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !907)
-  %110 = icmp eq i8 %.pre, 10
   br i1 %110, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdbfe9cd2284ac618E.exit", label %111
 
 111:                                              ; preds = %.thread31, %109

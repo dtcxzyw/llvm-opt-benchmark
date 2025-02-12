@@ -7519,7 +7519,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %5 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x double> %3, ptr %next.gep, align 8, !tbaa !197
   store <2 x double> %4, ptr %5, align 8, !tbaa !197
-  %index.next = add nuw i64 %index, 4
+  %index.next = add nuw nsw i64 %index, 4
   %6 = icmp eq i64 %index.next, %n.vec
   br i1 %6, label %middle.block, label %vector.body, !llvm.loop !228
 

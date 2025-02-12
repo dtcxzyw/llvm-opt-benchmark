@@ -6370,8 +6370,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i33.i:           ; preds = %872, %870
   %.val14.i.i = load i32, ptr %37, align 8, !tbaa !23
   %880 = zext i32 %.val14.i.i to i64
   %881 = getelementptr inbounds nuw ptr, ptr %.val.i34.i, i64 %880
-  %.not11.i.i = icmp eq i32 %.val14.i.i, 0
-  br i1 %.not11.i.i, label %._crit_edge.i40.i, label %.lr.ph.i35.i
+  %.not10.i.i = icmp eq i32 %.val14.i.i, 0
+  br i1 %.not10.i.i, label %._crit_edge.i40.i, label %.lr.ph.i35.i
 
 .lr.ph.i35.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i33.i
   %882 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -6399,8 +6399,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i33.i:           ; preds = %872, %870
   br label %_ZN12_GLOBAL__N_111NeonEmitter29genStreamingSVECompatibleListERN4llvm11raw_ostreamERNS1_15SmallVectorImplIPNS_9IntrinsicEEE.exit.i
 
 895:                                              ; preds = %958, %.lr.ph.i35.i
-  %.012.i.i = phi ptr [ %.val.i34.i, %.lr.ph.i35.i ], [ %959, %958 ]
-  %896 = load ptr, ptr %.012.i.i, align 8, !tbaa !43
+  %.011.i.i = phi ptr [ %.val.i34.i, %.lr.ph.i35.i ], [ %959, %958 ]
+  %896 = load ptr, ptr %.011.i.i, align 8, !tbaa !43
   %897 = getelementptr i8, ptr %896, i64 112
   %.val15.i.i = load ptr, ptr %897, align 8, !tbaa !81
   %.not.i.i36.i = icmp eq ptr %.val15.i.i, null
@@ -6571,7 +6571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53.i: ; preds = 
   br label %958
 
 958:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53.i, %_ZNK12_GLOBAL__N_19Intrinsic7hasBodyEv.exit.i37.i
-  %959 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
+  %959 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %.not.i39.i = icmp eq ptr %959, %881
   br i1 %.not.i39.i, label %._crit_edge.i40.i, label %895
 

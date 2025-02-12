@@ -36926,7 +36926,7 @@ _ZSt13move_backwardIPN4llvm10MCRegisterES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llv
   %82 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %39, i64 %81
   %83 = sub nsw i64 0, %43
   %84 = getelementptr inbounds %"class.llvm::MCRegister", ptr %82, i64 %83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 4 %40, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 4 %40, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %78

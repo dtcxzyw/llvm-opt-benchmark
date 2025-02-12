@@ -61575,18 +61575,18 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
 12:                                               ; preds = %10
   store i8 1, ptr %2, align 1, !tbaa !158
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %.preheader338
+  br label %.preheader337
 
 14:                                               ; preds = %10
   store i8 0, ptr %2, align 1, !tbaa !158
-  br label %.preheader338
+  br label %.preheader337
 
-.preheader338:                                    ; preds = %14, %12
+.preheader337:                                    ; preds = %14, %12
   %.1.ph = phi ptr [ %0, %14 ], [ %13, %12 ]
   br label %15
 
-15:                                               ; preds = %.preheader338, %15
-  %.1 = phi ptr [ %20, %15 ], [ %.1.ph, %.preheader338 ]
+15:                                               ; preds = %.preheader337, %15
+  %.1 = phi ptr [ %20, %15 ], [ %.1.ph, %.preheader337 ]
   %16 = load i8, ptr %.1, align 1, !tbaa !15
   %17 = icmp eq i8 %16, 48
   %18 = icmp ne ptr %.1, %1
@@ -61620,10 +61620,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
   %_ZN5boost4json6detail8charconv6detail15is_integer_charEc._ZN5boost4json6detail8charconv6detail11is_hex_charEc = select i1 %.not, ptr @_ZN5boost4json6detail8charconv6detail11is_hex_charEc, ptr @_ZN5boost4json6detail8charconv6detail15is_integer_charEc
   %29 = select i1 %.not, i32 16, i32 10
   %30 = tail call noundef zeroext i1 %_ZN5boost4json6detail8charconv6detail15is_integer_charEc._ZN5boost4json6detail8charconv6detail11is_hex_charEc(i8 noundef signext %16) #48, !callees !765
-  %.not346 = xor i1 %30, true
-  %.not332 = icmp eq ptr %.1, %1
-  %or.cond347 = or i1 %.not346, %.not332
-  br i1 %or.cond347, label %.critedge, label %.lr.ph326
+  br i1 %30, label %.lr.ph326, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph326
   %31 = icmp ne ptr %35, %1
@@ -61645,7 +61642,6 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph326, %28
   %.0212.lcssa = phi i64 [ 0, %28 ], [ %36, %.lr.ph326 ], [ %36, %.lr.ph ]
-  %.0207.lcssa = phi i1 [ true, %28 ], [ false, %.lr.ph326 ], [ false, %.lr.ph ]
   %.2.lcssa = phi ptr [ %.1, %28 ], [ %35, %.lr.ph326 ], [ %35, %.lr.ph ]
   %39 = icmp eq ptr %.2.lcssa, %1
   br i1 %39, label %40, label %48
@@ -61678,7 +61674,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !15
-  br i1 %.0207.lcssa, label %.preheader275, label %._crit_edge309
+  br i1 %30, label %._crit_edge309, label %.preheader275
 
 .preheader275:                                    ; preds = %51
   %54 = icmp eq i8 %53, 48

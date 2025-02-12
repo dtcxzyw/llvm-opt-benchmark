@@ -10100,20 +10100,16 @@ for.end:                                          ; preds = %_ZSt4nextIN9__gnu_c
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
-  %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
   %cmp.i23 = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  br i1 %cmp.i23, label %if.then.i, label %if.else.i
+  br i1 %cmp.i23, label %if.then.i, label %if.then5.i
 
 if.then.i:                                        ; preds = %for.end
   %sub.i = sub nsw i64 0, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
-if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ult i64 %sub, %sub.ptr.div.i
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
-
-if.then5.i:                                       ; preds = %if.else.i
+if.then5.i:                                       ; preds = %for.end
+  %sub = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %sub
   %tobool.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit, label %for.body.i.i.i.i.i
@@ -10131,7 +10127,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
-_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit: ; preds = %if.then.i, %if.then5.i, %invoke.cont.i.i
   %3 = load ptr, ptr %this, align 8
   %add.ptr.i24 = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i.i5
   br label %return

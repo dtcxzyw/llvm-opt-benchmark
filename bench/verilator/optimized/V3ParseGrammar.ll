@@ -79488,16 +79488,16 @@ _ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7VSymEntSt4
 27:                                               ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load ptr, ptr %28, align 8
-  %.not1821 = icmp eq ptr %29, %6
-  br i1 %.not1821, label %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7VSymEntSt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread, label %.lr.ph
+  %.not1820 = icmp eq ptr %29, %6
+  br i1 %.not1820, label %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7VSymEntSt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.sroa.09.022 = phi ptr [ %33, %.lr.ph ], [ %29, %27 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.022, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.022, i64 64
+  %.sroa.09.021 = phi ptr [ %33, %.lr.ph ], [ %29, %27 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.021, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.021, i64 64
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN7VSymEnt15importOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_b(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %32, i1 noundef zeroext true)
-  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.09.022) #34
+  %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.09.021) #34
   %.not18 = icmp eq ptr %33, %6
   br i1 %.not18, label %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7VSymEntSt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread, label %.lr.ph, !llvm.loop !168
 
@@ -80789,8 +80789,8 @@ _ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
 55:                                               ; preds = %4
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %57 = load ptr, ptr %56, align 8
-  %.not3336 = icmp eq ptr %57, %6
-  br i1 %.not3336, label %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit, label %.lr.ph
+  %.not3335 = icmp eq ptr %57, %6
+  br i1 %.not3335, label %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -80798,9 +80798,9 @@ _ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %60
 
 60:                                               ; preds = %.lr.ph, %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit23
-  %.sroa.024.037 = phi ptr [ %57, %.lr.ph ], [ %89, %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit23 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.024.037, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.024.037, i64 64
+  %.sroa.024.036 = phi ptr [ %57, %.lr.ph ], [ %89, %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit23 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.024.036, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.024.036, i64 64
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 112
   %65 = load i8, ptr %64, align 8
@@ -80870,7 +80870,7 @@ _ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit23
 
 _ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit23: ; preds = %60, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P7VSymEntESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i19, %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7VSymEntSt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i.i20, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i21, %84, %88
-  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.037) #34
+  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.036) #34
   %.not33 = icmp eq ptr %89, %6
   br i1 %.not33, label %_ZNK7VSymEnt15exportOneSymbolEP9VSymGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS_.exit, label %60, !llvm.loop !175
 

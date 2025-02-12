@@ -3203,24 +3203,24 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %.noexc83
 
 .noexc83:                                         ; preds = %153, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
-  %.pre29.i.pre-phi = phi i64 [ %125, %153 ], [ %.pre, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %125, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ]
+  %.pre28.i.pre-phi = phi i64 [ %125, %153 ], [ %.pre, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %125, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ]
   %.sroa.0116.2 = phi ptr [ %.sroa.0116.0144, %153 ], [ %145, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.0116.0144, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ]
   %.sroa.11.2 = phi ptr [ %spec.select, %153 ], [ %151, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %scevgep.i.i.i.i.i109, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ]
   %.sroa.18.2 = phi ptr [ %.sroa.18.0146, %153 ], [ %152, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.18.0146, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ]
-  %.pre30.i = ptrtoint ptr %.sroa.11.2 to i64
+  %.pre29.i = ptrtoint ptr %.sroa.11.2 to i64
   br label %156
 
 156:                                              ; preds = %.noexc83, %117
   %.sroa.0116.1 = phi ptr [ %.sroa.0116.0144, %117 ], [ %.sroa.0116.2, %.noexc83 ]
   %.sroa.11.1 = phi ptr [ %.sroa.11.0145, %117 ], [ %.sroa.11.2, %.noexc83 ]
   %.sroa.18.1 = phi ptr [ %.sroa.18.0146, %117 ], [ %.sroa.18.2, %.noexc83 ]
-  %.pre-phi31.i = phi i64 [ %124, %117 ], [ %.pre30.i, %.noexc83 ]
-  %.pre-phi.i = phi i64 [ %125, %117 ], [ %.pre29.i.pre-phi, %.noexc83 ]
+  %.pre-phi30.i = phi i64 [ %124, %117 ], [ %.pre29.i, %.noexc83 ]
+  %.pre-phi.i = phi i64 [ %125, %117 ], [ %.pre28.i.pre-phi, %.noexc83 ]
   %.not5.i.i.i.i.i = icmp eq ptr %.sroa.0116.1, %.sroa.11.1
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %156
-  %157 = add i64 %.pre-phi31.i, -8
+  %157 = add i64 %.pre-phi30.i, -8
   %158 = sub i64 %157, %.pre-phi.i
   %159 = and i64 %158, -8
   %160 = add i64 %159, 8
@@ -3627,21 +3627,21 @@ define hidden void @_ZN2cv3mcc24transform_points_forwardERKNS_4MatxIfLi3ELi3EEER
 19:                                               ; preds = %3
   tail call void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %12)
   %.pre = load ptr, ptr %2, align 8
-  %.pre28 = load ptr, ptr %13, align 8
-  %.pre29 = ptrtoint ptr %.pre to i64
-  %.pre30 = ptrtoint ptr %.pre28 to i64
+  %.pre27 = load ptr, ptr %13, align 8
+  %.pre28 = ptrtoint ptr %.pre to i64
+  %.pre29 = ptrtoint ptr %.pre27 to i64
   br label %20
 
 20:                                               ; preds = %19, %3
-  %.pre-phi31 = phi i64 [ %.pre30, %19 ], [ %16, %3 ]
-  %.pre-phi = phi i64 [ %.pre29, %19 ], [ %17, %3 ]
-  %21 = phi ptr [ %.pre28, %19 ], [ %14, %3 ]
+  %.pre-phi30 = phi i64 [ %.pre29, %19 ], [ %16, %3 ]
+  %.pre-phi = phi i64 [ %.pre28, %19 ], [ %17, %3 ]
+  %21 = phi ptr [ %.pre27, %19 ], [ %14, %3 ]
   %22 = phi ptr [ %.pre, %19 ], [ %15, %3 ]
   %.not5.i.i.i.i = icmp eq ptr %22, %21
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %20
-  %23 = add i64 %.pre-phi31, -8
+  %23 = add i64 %.pre-phi30, -8
   %24 = sub i64 %23, %.pre-phi
   %25 = and i64 %24, -8
   %26 = add i64 %25, 8

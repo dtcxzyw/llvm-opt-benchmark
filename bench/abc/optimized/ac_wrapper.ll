@@ -2027,20 +2027,20 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5
   %65 = add nsw i32 %36, -6
   %66 = shl nuw i32 1, %65
   %67 = shl nuw nsw i32 1, %62
-  %.not113 = icmp eq i32 %65, 31
+  %.not112 = icmp eq i32 %65, 31
   %68 = zext nneg i32 %67 to i64
   %69 = sext i32 %66 to i64
   %70 = shl i32 2, %65
   %71 = sext i32 %70 to i64
-  br i1 %.not113, label %_ZSt9transformIPmS0_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
+  br i1 %.not112, label %_ZSt9transformIPmS0_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %72 = zext nneg i8 %spec.select to i64
   %73 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !49
   %75 = xor i64 %74, -1
-  %smax130 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
-  %wide.trip.count131 = zext nneg i32 %smax130 to i64
+  %smax129 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
+  %wide.trip.count130 = zext nneg i32 %smax129 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -2048,8 +2048,8 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5
   br label %76
 
 76:                                               ; preds = %.preheader.us, %76
-  %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %.066109.us, i64 %indvars.iv127
+  %indvars.iv126 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next127, %76 ]
+  %77 = getelementptr inbounds nuw i64, ptr %.066109.us, i64 %indvars.iv126
   %78 = load i64, ptr %77, align 8, !tbaa !49
   %79 = and i64 %74, %78
   %80 = lshr i64 %79, %68
@@ -2063,9 +2063,9 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5
   %87 = and i64 %82, %74
   %88 = or i64 %87, %80
   store i64 %88, ptr %81, align 8, !tbaa !49
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge.us, label %76, !llvm.loop !118
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count130
+  br i1 %exitcond131.not, label %._crit_edge.us, label %76, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %76
   %89 = getelementptr inbounds i64, ptr %.066109.us, i64 %71
@@ -2098,8 +2098,8 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5
   br label %.preheader94.us.us.us
 
 .preheader94.us.us.us:                            ; preds = %._crit_edge.us.us.us, %.preheader95.us.us
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge.us.us.us ], [ 0, %.preheader95.us.us ]
-  %100 = getelementptr inbounds i64, ptr %.065101.us.us, i64 %indvars.iv124
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %._crit_edge.us.us.us ], [ 0, %.preheader95.us.us ]
+  %100 = getelementptr inbounds i64, ptr %.065101.us.us, i64 %indvars.iv123
   br label %101
 
 101:                                              ; preds = %101, %.preheader94.us.us.us
@@ -2116,8 +2116,8 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %101, !llvm.loop !120
 
 ._crit_edge.us.us.us:                             ; preds = %101
-  %indvars.iv.next125 = add nsw i64 %indvars.iv124, %99
-  %107 = icmp slt i64 %indvars.iv.next125, %95
+  %indvars.iv.next124 = add nsw i64 %indvars.iv123, %99
+  %107 = icmp slt i64 %indvars.iv.next124, %95
   br i1 %107, label %.preheader94.us.us.us, label %._crit_edge99.split.us.us.us, !llvm.loop !121
 
 ._crit_edge99.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
@@ -3761,20 +3761,20 @@ _ZN3acd21ac_decomposition_impl20column_multiplicity2ERKN5kitty18static_truth_tab
   %152 = add nsw i32 %125, -6
   %153 = shl nuw i32 1, %152
   %154 = shl nuw nsw i32 1, %150
-  %.not113.i = icmp eq i32 %152, 31
+  %.not112.i = icmp eq i32 %152, 31
   %155 = zext nneg i32 %154 to i64
   %156 = sext i32 %153 to i64
   %157 = shl i32 2, %152
   %158 = sext i32 %157 to i64
-  br i1 %.not113.i, label %_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not112.i, label %_ZN3acd21ac_decomposition_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %159 = zext nneg i8 %spec.select.i22 to i64
   %160 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !49
   %162 = xor i64 %161, -1
-  %smax130.i = call i32 @llvm.smax.i32(i32 %153, i32 1)
-  %wide.trip.count131.i = zext nneg i32 %smax130.i to i64
+  %smax129.i = call i32 @llvm.smax.i32(i32 %153, i32 1)
+  %wide.trip.count130.i = zext nneg i32 %smax129.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i27, %.preheader.lr.ph.split.us.i
@@ -3782,8 +3782,8 @@ _ZN3acd21ac_decomposition_impl20column_multiplicity2ERKN5kitty18static_truth_tab
   br label %163
 
 163:                                              ; preds = %163, %.preheader.us.i
-  %indvars.iv127.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next128.i, %163 ]
-  %164 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv127.i
+  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %163 ]
+  %164 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv126.i
   %165 = load i64, ptr %164, align 8, !tbaa !49
   %166 = and i64 %165, %161
   %167 = lshr i64 %166, %155
@@ -3797,9 +3797,9 @@ _ZN3acd21ac_decomposition_impl20column_multiplicity2ERKN5kitty18static_truth_tab
   %174 = and i64 %169, %161
   %175 = or i64 %174, %167
   store i64 %175, ptr %168, align 8, !tbaa !49
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count131.i
-  br i1 %exitcond132.not.i, label %._crit_edge.us.i27, label %163, !llvm.loop !118
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count130.i
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i27, label %163, !llvm.loop !118
 
 ._crit_edge.us.i27:                               ; preds = %163
   %176 = getelementptr inbounds i64, ptr %.066109.us.i, i64 %158
@@ -3832,8 +3832,8 @@ _ZN3acd21ac_decomposition_impl20column_multiplicity2ERKN5kitty18static_truth_tab
   br label %.preheader94.us.us.us.i
 
 .preheader94.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader95.us.us.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
-  %187 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv124.i
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
+  %187 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv123.i
   br label %188
 
 188:                                              ; preds = %188, %.preheader94.us.us.us.i
@@ -3850,8 +3850,8 @@ _ZN3acd21ac_decomposition_impl20column_multiplicity2ERKN5kitty18static_truth_tab
   br i1 %exitcond.not.i26, label %._crit_edge.us.us.us.i, label %188, !llvm.loop !120
 
 ._crit_edge.us.us.us.i:                           ; preds = %188
-  %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, %186
-  %194 = icmp slt i64 %indvars.iv.next125.i, %182
+  %indvars.iv.next124.i = add nsw i64 %indvars.iv123.i, %186
+  %194 = icmp slt i64 %indvars.iv.next124.i, %182
   br i1 %194, label %.preheader94.us.us.us.i, label %._crit_edge99.split.us.us.us.i, !llvm.loop !121
 
 ._crit_edge99.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -11128,20 +11128,20 @@ define linkonce_odr void @_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18stat
   %65 = add nsw i32 %36, -6
   %66 = shl nuw i32 1, %65
   %67 = shl nuw nsw i32 1, %62
-  %.not113 = icmp eq i32 %65, 31
+  %.not112 = icmp eq i32 %65, 31
   %68 = zext nneg i32 %67 to i64
   %69 = sext i32 %66 to i64
   %70 = shl i32 2, %65
   %71 = sext i32 %70 to i64
-  br i1 %.not113, label %_ZSt9transformIPmS0_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
+  br i1 %.not112, label %_ZSt9transformIPmS0_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %72 = zext nneg i8 %spec.select to i64
   %73 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !49
   %75 = xor i64 %74, -1
-  %smax130 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
-  %wide.trip.count131 = zext nneg i32 %smax130 to i64
+  %smax129 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
+  %wide.trip.count130 = zext nneg i32 %smax129 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -11149,8 +11149,8 @@ define linkonce_odr void @_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18stat
   br label %76
 
 76:                                               ; preds = %.preheader.us, %76
-  %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %.066109.us, i64 %indvars.iv127
+  %indvars.iv126 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next127, %76 ]
+  %77 = getelementptr inbounds nuw i64, ptr %.066109.us, i64 %indvars.iv126
   %78 = load i64, ptr %77, align 8, !tbaa !49
   %79 = and i64 %74, %78
   %80 = lshr i64 %79, %68
@@ -11164,9 +11164,9 @@ define linkonce_odr void @_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18stat
   %87 = and i64 %82, %74
   %88 = or i64 %87, %80
   store i64 %88, ptr %81, align 8, !tbaa !49
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge.us, label %76, !llvm.loop !433
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count130
+  br i1 %exitcond131.not, label %._crit_edge.us, label %76, !llvm.loop !433
 
 ._crit_edge.us:                                   ; preds = %76
   %89 = getelementptr inbounds i64, ptr %.066109.us, i64 %71
@@ -11199,8 +11199,8 @@ define linkonce_odr void @_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18stat
   br label %.preheader94.us.us.us
 
 .preheader94.us.us.us:                            ; preds = %._crit_edge.us.us.us, %.preheader95.us.us
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge.us.us.us ], [ 0, %.preheader95.us.us ]
-  %100 = getelementptr inbounds i64, ptr %.065101.us.us, i64 %indvars.iv124
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %._crit_edge.us.us.us ], [ 0, %.preheader95.us.us ]
+  %100 = getelementptr inbounds i64, ptr %.065101.us.us, i64 %indvars.iv123
   br label %101
 
 101:                                              ; preds = %101, %.preheader94.us.us.us
@@ -11217,8 +11217,8 @@ define linkonce_odr void @_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18stat
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %101, !llvm.loop !435
 
 ._crit_edge.us.us.us:                             ; preds = %101
-  %indvars.iv.next125 = add nsw i64 %indvars.iv124, %99
-  %107 = icmp slt i64 %indvars.iv.next125, %95
+  %indvars.iv.next124 = add nsw i64 %indvars.iv123, %99
+  %107 = icmp slt i64 %indvars.iv.next124, %95
   br i1 %107, label %.preheader94.us.us.us, label %._crit_edge99.split.us.us.us, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
@@ -11850,20 +11850,20 @@ _ZN3acd10acdXX_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   %303 = add nsw i32 %276, -6
   %304 = shl nuw i32 1, %303
   %305 = shl nuw nsw i32 1, %301
-  %.not113.i = icmp eq i32 %303, 31
+  %.not112.i = icmp eq i32 %303, 31
   %306 = zext nneg i32 %305 to i64
   %307 = sext i32 %304 to i64
   %308 = shl i32 2, %303
   %309 = sext i32 %308 to i64
-  br i1 %.not113.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not112.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %310 = zext nneg i8 %spec.select.i130 to i64
   %311 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %310
   %312 = load i64, ptr %311, align 8, !tbaa !49
   %313 = xor i64 %312, -1
-  %smax130.i = call i32 @llvm.smax.i32(i32 %304, i32 1)
-  %wide.trip.count131.i = zext nneg i32 %smax130.i to i64
+  %smax129.i = call i32 @llvm.smax.i32(i32 %304, i32 1)
+  %wide.trip.count130.i = zext nneg i32 %smax129.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i135, %.preheader.lr.ph.split.us.i
@@ -11871,8 +11871,8 @@ _ZN3acd10acdXX_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br label %314
 
 314:                                              ; preds = %314, %.preheader.us.i
-  %indvars.iv127.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next128.i, %314 ]
-  %315 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv127.i
+  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %314 ]
+  %315 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv126.i
   %316 = load i64, ptr %315, align 8, !tbaa !49
   %317 = and i64 %316, %312
   %318 = lshr i64 %317, %306
@@ -11886,9 +11886,9 @@ _ZN3acd10acdXX_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   %325 = and i64 %320, %312
   %326 = or i64 %325, %318
   store i64 %326, ptr %319, align 8, !tbaa !49
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count131.i
-  br i1 %exitcond132.not.i, label %._crit_edge.us.i135, label %314, !llvm.loop !433
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count130.i
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i135, label %314, !llvm.loop !433
 
 ._crit_edge.us.i135:                              ; preds = %314
   %327 = getelementptr inbounds i64, ptr %.066109.us.i, i64 %309
@@ -11921,8 +11921,8 @@ _ZN3acd10acdXX_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br label %.preheader94.us.us.us.i
 
 .preheader94.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader95.us.us.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
-  %338 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv124.i
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
+  %338 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv123.i
   br label %339
 
 339:                                              ; preds = %339, %.preheader94.us.us.us.i
@@ -11939,8 +11939,8 @@ _ZN3acd10acdXX_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br i1 %exitcond.not.i134, label %._crit_edge.us.us.us.i, label %339, !llvm.loop !435
 
 ._crit_edge.us.us.us.i:                           ; preds = %339
-  %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, %337
-  %345 = icmp slt i64 %indvars.iv.next125.i, %333
+  %indvars.iv.next124.i = add nsw i64 %indvars.iv123.i, %337
+  %345 = icmp slt i64 %indvars.iv.next124.i, %333
   br i1 %345, label %.preheader94.us.us.us.i, label %._crit_edge99.split.us.us.us.i, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -12725,20 +12725,20 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %332 = add nsw i32 %305, -6
   %333 = shl nuw i32 1, %332
   %334 = shl nuw nsw i32 1, %330
-  %.not113.i = icmp eq i32 %332, 31
+  %.not112.i = icmp eq i32 %332, 31
   %335 = zext nneg i32 %334 to i64
   %336 = sext i32 %333 to i64
   %337 = shl i32 2, %332
   %338 = sext i32 %337 to i64
-  br i1 %.not113.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not112.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %339 = zext nneg i8 %spec.select.i144 to i64
   %340 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %339
   %341 = load i64, ptr %340, align 8, !tbaa !49
   %342 = xor i64 %341, -1
-  %smax130.i = call i32 @llvm.smax.i32(i32 %333, i32 1)
-  %wide.trip.count131.i = zext nneg i32 %smax130.i to i64
+  %smax129.i = call i32 @llvm.smax.i32(i32 %333, i32 1)
+  %wide.trip.count130.i = zext nneg i32 %smax129.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i149, %.preheader.lr.ph.split.us.i
@@ -12746,8 +12746,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %343
 
 343:                                              ; preds = %343, %.preheader.us.i
-  %indvars.iv127.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next128.i, %343 ]
-  %344 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv127.i
+  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %343 ]
+  %344 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv126.i
   %345 = load i64, ptr %344, align 8, !tbaa !49
   %346 = and i64 %345, %341
   %347 = lshr i64 %346, %335
@@ -12761,9 +12761,9 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %354 = and i64 %349, %341
   %355 = or i64 %354, %347
   store i64 %355, ptr %348, align 8, !tbaa !49
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count131.i
-  br i1 %exitcond132.not.i, label %._crit_edge.us.i149, label %343, !llvm.loop !433
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count130.i
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i149, label %343, !llvm.loop !433
 
 ._crit_edge.us.i149:                              ; preds = %343
   %356 = getelementptr inbounds i64, ptr %.066109.us.i, i64 %338
@@ -12796,8 +12796,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %.preheader94.us.us.us.i
 
 .preheader94.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader95.us.us.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
-  %367 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv124.i
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
+  %367 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv123.i
   br label %368
 
 368:                                              ; preds = %368, %.preheader94.us.us.us.i
@@ -12814,8 +12814,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br i1 %exitcond.not.i148, label %._crit_edge.us.us.us.i, label %368, !llvm.loop !435
 
 ._crit_edge.us.us.us.i:                           ; preds = %368
-  %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, %366
-  %374 = icmp slt i64 %indvars.iv.next125.i, %362
+  %indvars.iv.next124.i = add nsw i64 %indvars.iv123.i, %366
+  %374 = icmp slt i64 %indvars.iv.next124.i, %362
   br i1 %374, label %.preheader94.us.us.us.i, label %._crit_edge99.split.us.us.us.i, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -14696,20 +14696,20 @@ _ZN3acd10acd66_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   %118 = add nsw i32 %91, -6
   %119 = shl nuw i32 1, %118
   %120 = shl nuw nsw i32 1, %116
-  %.not100.i = icmp eq i32 %118, 31
+  %.not99.i = icmp eq i32 %118, 31
   %121 = zext nneg i32 %120 to i64
   %122 = sext i32 %119 to i64
   %123 = shl i32 2, %118
   %124 = sext i32 %123 to i64
-  br i1 %.not100.i, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not99.i, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %125 = zext nneg i8 %spec.select.i52 to i64
   %126 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !49
   %128 = xor i64 %127, -1
-  %smax117.i = call i32 @llvm.smax.i32(i32 %119, i32 1)
-  %wide.trip.count118.i = zext nneg i32 %smax117.i to i64
+  %smax116.i = call i32 @llvm.smax.i32(i32 %119, i32 1)
+  %wide.trip.count117.i = zext nneg i32 %smax116.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i57, %.preheader.lr.ph.split.us.i
@@ -14717,8 +14717,8 @@ _ZN3acd10acd66_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br label %129
 
 129:                                              ; preds = %129, %.preheader.us.i
-  %indvars.iv114.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next115.i, %129 ]
-  %130 = getelementptr inbounds nuw i64, ptr %.05796.us.i, i64 %indvars.iv114.i
+  %indvars.iv113.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next114.i, %129 ]
+  %130 = getelementptr inbounds nuw i64, ptr %.05796.us.i, i64 %indvars.iv113.i
   %131 = load i64, ptr %130, align 8, !tbaa !49
   %132 = and i64 %131, %127
   %133 = lshr i64 %132, %121
@@ -14732,9 +14732,9 @@ _ZN3acd10acd66_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   %140 = and i64 %135, %127
   %141 = or i64 %140, %133
   store i64 %141, ptr %134, align 8, !tbaa !49
-  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %exitcond119.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count118.i
-  br i1 %exitcond119.not.i, label %._crit_edge.us.i57, label %129, !llvm.loop !509
+  %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
+  %exitcond118.not.i = icmp eq i64 %indvars.iv.next114.i, %wide.trip.count117.i
+  br i1 %exitcond118.not.i, label %._crit_edge.us.i57, label %129, !llvm.loop !509
 
 ._crit_edge.us.i57:                               ; preds = %129
   %142 = getelementptr inbounds i64, ptr %.05796.us.i, i64 %124
@@ -14767,8 +14767,8 @@ _ZN3acd10acd66_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br label %.preheader81.us.us.us.i
 
 .preheader81.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader82.us.us.i
-  %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader82.us.us.i ]
-  %153 = getelementptr inbounds i64, ptr %.05688.us.us.i, i64 %indvars.iv111.i
+  %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader82.us.us.i ]
+  %153 = getelementptr inbounds i64, ptr %.05688.us.us.i, i64 %indvars.iv110.i
   br label %154
 
 154:                                              ; preds = %154, %.preheader81.us.us.us.i
@@ -14785,8 +14785,8 @@ _ZN3acd10acd66_impl20column_multiplicity2ERKN5kitty18static_truth_tableILj11ELb0
   br i1 %exitcond.not.i56, label %._crit_edge.us.us.us.i, label %154, !llvm.loop !511
 
 ._crit_edge.us.us.us.i:                           ; preds = %154
-  %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, %152
-  %160 = icmp slt i64 %indvars.iv.next112.i, %148
+  %indvars.iv.next111.i = add nsw i64 %indvars.iv110.i, %152
+  %160 = icmp slt i64 %indvars.iv.next111.i, %148
   br i1 %160, label %.preheader81.us.us.us.i, label %._crit_edge86.split.us.us.us.i, !llvm.loop !512
 
 ._crit_edge86.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -14931,20 +14931,20 @@ _ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %245 = add nsw i32 %218, -6
   %246 = shl nuw i32 1, %245
   %247 = shl nuw nsw i32 1, %243
-  %.not100.i82 = icmp eq i32 %245, 31
+  %.not99.i82 = icmp eq i32 %245, 31
   %248 = zext nneg i32 %247 to i64
   %249 = sext i32 %246 to i64
   %250 = shl i32 2, %245
   %251 = sext i32 %250 to i64
-  br i1 %.not100.i82, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit97, label %.preheader.lr.ph.split.us.i83
+  br i1 %.not99.i82, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit97, label %.preheader.lr.ph.split.us.i83
 
 .preheader.lr.ph.split.us.i83:                    ; preds = %.preheader.lr.ph.i81
   %252 = zext nneg i8 %spec.select.i61 to i64
   %253 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %252
   %254 = load i64, ptr %253, align 8, !tbaa !49
   %255 = xor i64 %254, -1
-  %smax117.i84 = call i32 @llvm.smax.i32(i32 %246, i32 1)
-  %wide.trip.count118.i85 = zext nneg i32 %smax117.i84 to i64
+  %smax116.i84 = call i32 @llvm.smax.i32(i32 %246, i32 1)
+  %wide.trip.count117.i85 = zext nneg i32 %smax116.i84 to i64
   br label %.preheader.us.i86
 
 .preheader.us.i86:                                ; preds = %._crit_edge.us.i91, %.preheader.lr.ph.split.us.i83
@@ -14952,8 +14952,8 @@ _ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %256
 
 256:                                              ; preds = %256, %.preheader.us.i86
-  %indvars.iv114.i88 = phi i64 [ 0, %.preheader.us.i86 ], [ %indvars.iv.next115.i89, %256 ]
-  %257 = getelementptr inbounds nuw i64, ptr %.05796.us.i87, i64 %indvars.iv114.i88
+  %indvars.iv113.i88 = phi i64 [ 0, %.preheader.us.i86 ], [ %indvars.iv.next114.i89, %256 ]
+  %257 = getelementptr inbounds nuw i64, ptr %.05796.us.i87, i64 %indvars.iv113.i88
   %258 = load i64, ptr %257, align 8, !tbaa !49
   %259 = and i64 %258, %254
   %260 = lshr i64 %259, %248
@@ -14967,9 +14967,9 @@ _ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %267 = and i64 %262, %254
   %268 = or i64 %267, %260
   store i64 %268, ptr %261, align 8, !tbaa !49
-  %indvars.iv.next115.i89 = add nuw nsw i64 %indvars.iv114.i88, 1
-  %exitcond119.not.i90 = icmp eq i64 %indvars.iv.next115.i89, %wide.trip.count118.i85
-  br i1 %exitcond119.not.i90, label %._crit_edge.us.i91, label %256, !llvm.loop !509
+  %indvars.iv.next114.i89 = add nuw nsw i64 %indvars.iv113.i88, 1
+  %exitcond118.not.i90 = icmp eq i64 %indvars.iv.next114.i89, %wide.trip.count117.i85
+  br i1 %exitcond118.not.i90, label %._crit_edge.us.i91, label %256, !llvm.loop !509
 
 ._crit_edge.us.i91:                               ; preds = %256
   %269 = getelementptr inbounds i64, ptr %.05796.us.i87, i64 %251
@@ -15002,8 +15002,8 @@ _ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %.preheader81.us.us.us.i72
 
 .preheader81.us.us.us.i72:                        ; preds = %._crit_edge.us.us.us.i77, %.preheader82.us.us.i70
-  %indvars.iv111.i73 = phi i64 [ %indvars.iv.next112.i78, %._crit_edge.us.us.us.i77 ], [ 0, %.preheader82.us.us.i70 ]
-  %280 = getelementptr inbounds i64, ptr %.05688.us.us.i71, i64 %indvars.iv111.i73
+  %indvars.iv110.i73 = phi i64 [ %indvars.iv.next111.i78, %._crit_edge.us.us.us.i77 ], [ 0, %.preheader82.us.us.i70 ]
+  %280 = getelementptr inbounds i64, ptr %.05688.us.us.i71, i64 %indvars.iv110.i73
   br label %281
 
 281:                                              ; preds = %281, %.preheader81.us.us.us.i72
@@ -15020,8 +15020,8 @@ _ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br i1 %exitcond.not.i76, label %._crit_edge.us.us.us.i77, label %281, !llvm.loop !511
 
 ._crit_edge.us.us.us.i77:                         ; preds = %281
-  %indvars.iv.next112.i78 = add nsw i64 %indvars.iv111.i73, %279
-  %287 = icmp slt i64 %indvars.iv.next112.i78, %275
+  %indvars.iv.next111.i78 = add nsw i64 %indvars.iv110.i73, %279
+  %287 = icmp slt i64 %indvars.iv.next111.i78, %275
   br i1 %287, label %.preheader81.us.us.us.i72, label %._crit_edge86.split.us.us.us.i79, !llvm.loop !512
 
 ._crit_edge86.split.us.us.us.i79:                 ; preds = %._crit_edge.us.us.us.i77
@@ -15473,20 +15473,20 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %184 = add nsw i32 %157, -6
   %185 = shl nuw i32 1, %184
   %186 = shl nuw nsw i32 1, %182
-  %.not100.i = icmp eq i32 %184, 31
+  %.not99.i = icmp eq i32 %184, 31
   %187 = zext nneg i32 %186 to i64
   %188 = sext i32 %185 to i64
   %189 = shl i32 2, %184
   %190 = sext i32 %189 to i64
-  br i1 %.not100.i, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not99.i, label %_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %191 = zext nneg i8 %spec.select.i46 to i64
   %192 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %191
   %193 = load i64, ptr %192, align 8, !tbaa !49
   %194 = xor i64 %193, -1
-  %smax117.i = call i32 @llvm.smax.i32(i32 %185, i32 1)
-  %wide.trip.count118.i = zext nneg i32 %smax117.i to i64
+  %smax116.i = call i32 @llvm.smax.i32(i32 %185, i32 1)
+  %wide.trip.count117.i = zext nneg i32 %smax116.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i51, %.preheader.lr.ph.split.us.i
@@ -15494,8 +15494,8 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %195
 
 195:                                              ; preds = %195, %.preheader.us.i
-  %indvars.iv114.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next115.i, %195 ]
-  %196 = getelementptr inbounds nuw i64, ptr %.05796.us.i, i64 %indvars.iv114.i
+  %indvars.iv113.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next114.i, %195 ]
+  %196 = getelementptr inbounds nuw i64, ptr %.05796.us.i, i64 %indvars.iv113.i
   %197 = load i64, ptr %196, align 8, !tbaa !49
   %198 = and i64 %197, %193
   %199 = lshr i64 %198, %187
@@ -15509,9 +15509,9 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %206 = and i64 %201, %193
   %207 = or i64 %206, %199
   store i64 %207, ptr %200, align 8, !tbaa !49
-  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %exitcond119.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count118.i
-  br i1 %exitcond119.not.i, label %._crit_edge.us.i51, label %195, !llvm.loop !509
+  %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
+  %exitcond118.not.i = icmp eq i64 %indvars.iv.next114.i, %wide.trip.count117.i
+  br i1 %exitcond118.not.i, label %._crit_edge.us.i51, label %195, !llvm.loop !509
 
 ._crit_edge.us.i51:                               ; preds = %195
   %208 = getelementptr inbounds i64, ptr %.05796.us.i, i64 %190
@@ -15544,8 +15544,8 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %.preheader81.us.us.us.i
 
 .preheader81.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader82.us.us.i
-  %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader82.us.us.i ]
-  %219 = getelementptr inbounds i64, ptr %.05688.us.us.i, i64 %indvars.iv111.i
+  %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader82.us.us.i ]
+  %219 = getelementptr inbounds i64, ptr %.05688.us.us.i, i64 %indvars.iv110.i
   br label %220
 
 220:                                              ; preds = %220, %.preheader81.us.us.us.i
@@ -15562,8 +15562,8 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br i1 %exitcond.not.i50, label %._crit_edge.us.us.us.i, label %220, !llvm.loop !511
 
 ._crit_edge.us.us.us.i:                           ; preds = %220
-  %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, %218
-  %226 = icmp slt i64 %indvars.iv.next112.i, %214
+  %indvars.iv.next111.i = add nsw i64 %indvars.iv110.i, %218
+  %226 = icmp slt i64 %indvars.iv.next111.i, %214
   br i1 %226, label %.preheader81.us.us.us.i, label %._crit_edge86.split.us.us.us.i, !llvm.loop !512
 
 ._crit_edge86.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -15898,20 +15898,20 @@ define linkonce_odr void @_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18stat
   %42 = add nsw i32 %11, -6
   %43 = shl nuw i32 1, %42
   %44 = shl nuw nsw i32 1, %38
-  %.not100 = icmp eq i32 %42, 31
+  %.not99 = icmp eq i32 %42, 31
   %45 = zext nneg i32 %44 to i64
   %46 = sext i32 %43 to i64
   %47 = shl i32 2, %42
   %48 = sext i32 %47 to i64
-  br i1 %.not100, label %_ZSt9transformIPmS0_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
+  br i1 %.not99, label %_ZSt9transformIPmS0_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhhEUlmE_ET0_T_S9_S8_T1_.exit, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %49 = zext nneg i8 %spec.select to i64
   %50 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !49
   %52 = xor i64 %51, -1
-  %smax117 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
-  %wide.trip.count118 = zext nneg i32 %smax117 to i64
+  %smax116 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
+  %wide.trip.count117 = zext nneg i32 %smax116 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
@@ -15919,8 +15919,8 @@ define linkonce_odr void @_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18stat
   br label %53
 
 53:                                               ; preds = %.preheader.us, %53
-  %indvars.iv114 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next115, %53 ]
-  %54 = getelementptr inbounds nuw i64, ptr %.05796.us, i64 %indvars.iv114
+  %indvars.iv113 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next114, %53 ]
+  %54 = getelementptr inbounds nuw i64, ptr %.05796.us, i64 %indvars.iv113
   %55 = load i64, ptr %54, align 8, !tbaa !49
   %56 = and i64 %51, %55
   %57 = lshr i64 %56, %45
@@ -15934,9 +15934,9 @@ define linkonce_odr void @_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18stat
   %64 = and i64 %59, %51
   %65 = or i64 %64, %57
   store i64 %65, ptr %58, align 8, !tbaa !49
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge.us, label %53, !llvm.loop !509
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
+  br i1 %exitcond118.not, label %._crit_edge.us, label %53, !llvm.loop !509
 
 ._crit_edge.us:                                   ; preds = %53
   %66 = getelementptr inbounds i64, ptr %.05796.us, i64 %48
@@ -15969,8 +15969,8 @@ define linkonce_odr void @_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18stat
   br label %.preheader81.us.us.us
 
 .preheader81.us.us.us:                            ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %77 = getelementptr inbounds i64, ptr %.05688.us.us, i64 %indvars.iv111
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
+  %77 = getelementptr inbounds i64, ptr %.05688.us.us, i64 %indvars.iv110
   br label %78
 
 78:                                               ; preds = %78, %.preheader81.us.us.us
@@ -15987,8 +15987,8 @@ define linkonce_odr void @_ZN3acd10acd66_impl18swap_inplace_localERN5kitty18stat
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %78, !llvm.loop !511
 
 ._crit_edge.us.us.us:                             ; preds = %78
-  %indvars.iv.next112 = add nsw i64 %indvars.iv111, %76
-  %84 = icmp slt i64 %indvars.iv.next112, %72
+  %indvars.iv.next111 = add nsw i64 %indvars.iv110, %76
+  %84 = icmp slt i64 %indvars.iv.next111, %72
   br i1 %84, label %.preheader81.us.us.us, label %._crit_edge86.split.us.us.us, !llvm.loop !512
 
 ._crit_edge86.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
@@ -16535,20 +16535,20 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %173 = add nsw i32 %146, -6
   %174 = shl nuw i32 1, %173
   %175 = shl nuw nsw i32 1, %171
-  %.not113.i = icmp eq i32 %173, 31
+  %.not112.i = icmp eq i32 %173, 31
   %176 = zext nneg i32 %175 to i64
   %177 = sext i32 %174 to i64
   %178 = shl i32 2, %173
   %179 = sext i32 %178 to i64
-  br i1 %.not113.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not112.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %180 = zext nneg i8 %spec.select.i53 to i64
   %181 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !49
   %183 = xor i64 %182, -1
-  %smax130.i = call i32 @llvm.smax.i32(i32 %174, i32 1)
-  %wide.trip.count131.i = zext nneg i32 %smax130.i to i64
+  %smax129.i = call i32 @llvm.smax.i32(i32 %174, i32 1)
+  %wide.trip.count130.i = zext nneg i32 %smax129.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i58, %.preheader.lr.ph.split.us.i
@@ -16556,8 +16556,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %184
 
 184:                                              ; preds = %184, %.preheader.us.i
-  %indvars.iv127.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next128.i, %184 ]
-  %185 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv127.i
+  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %184 ]
+  %185 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv126.i
   %186 = load i64, ptr %185, align 8, !tbaa !49
   %187 = and i64 %186, %182
   %188 = lshr i64 %187, %176
@@ -16571,9 +16571,9 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %195 = and i64 %190, %182
   %196 = or i64 %195, %188
   store i64 %196, ptr %189, align 8, !tbaa !49
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count131.i
-  br i1 %exitcond132.not.i, label %._crit_edge.us.i58, label %184, !llvm.loop !433
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count130.i
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i58, label %184, !llvm.loop !433
 
 ._crit_edge.us.i58:                               ; preds = %184
   %197 = getelementptr inbounds i64, ptr %.066109.us.i, i64 %179
@@ -16606,8 +16606,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %.preheader94.us.us.us.i
 
 .preheader94.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader95.us.us.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
-  %208 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv124.i
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
+  %208 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv123.i
   br label %209
 
 209:                                              ; preds = %209, %.preheader94.us.us.us.i
@@ -16624,8 +16624,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br i1 %exitcond.not.i57, label %._crit_edge.us.us.us.i, label %209, !llvm.loop !435
 
 ._crit_edge.us.us.us.i:                           ; preds = %209
-  %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, %207
-  %215 = icmp slt i64 %indvars.iv.next125.i, %203
+  %indvars.iv.next124.i = add nsw i64 %indvars.iv123.i, %207
+  %215 = icmp slt i64 %indvars.iv.next124.i, %203
   br i1 %215, label %.preheader94.us.us.us.i, label %._crit_edge99.split.us.us.us.i, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
@@ -16800,20 +16800,20 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %324 = add nsw i32 %297, -6
   %325 = shl nuw i32 1, %324
   %326 = shl nuw nsw i32 1, %322
-  %.not113.i83 = icmp eq i32 %324, 31
+  %.not112.i83 = icmp eq i32 %324, 31
   %327 = zext nneg i32 %326 to i64
   %328 = sext i32 %325 to i64
   %329 = shl i32 2, %324
   %330 = sext i32 %329 to i64
-  br i1 %.not113.i83, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit99, label %.preheader.lr.ph.split.us.i84
+  br i1 %.not112.i83, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit99, label %.preheader.lr.ph.split.us.i84
 
 .preheader.lr.ph.split.us.i84:                    ; preds = %.preheader.lr.ph.i82
   %331 = zext nneg i8 %spec.select.i62 to i64
   %332 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %331
   %333 = load i64, ptr %332, align 8, !tbaa !49
   %334 = xor i64 %333, -1
-  %smax130.i85 = call i32 @llvm.smax.i32(i32 %325, i32 1)
-  %wide.trip.count131.i86 = zext nneg i32 %smax130.i85 to i64
+  %smax129.i85 = call i32 @llvm.smax.i32(i32 %325, i32 1)
+  %wide.trip.count130.i86 = zext nneg i32 %smax129.i85 to i64
   br label %.preheader.us.i87
 
 .preheader.us.i87:                                ; preds = %._crit_edge.us.i92, %.preheader.lr.ph.split.us.i84
@@ -16821,8 +16821,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %335
 
 335:                                              ; preds = %335, %.preheader.us.i87
-  %indvars.iv127.i89 = phi i64 [ 0, %.preheader.us.i87 ], [ %indvars.iv.next128.i90, %335 ]
-  %336 = getelementptr inbounds nuw i64, ptr %.066109.us.i88, i64 %indvars.iv127.i89
+  %indvars.iv126.i89 = phi i64 [ 0, %.preheader.us.i87 ], [ %indvars.iv.next127.i90, %335 ]
+  %336 = getelementptr inbounds nuw i64, ptr %.066109.us.i88, i64 %indvars.iv126.i89
   %337 = load i64, ptr %336, align 8, !tbaa !49
   %338 = and i64 %337, %333
   %339 = lshr i64 %338, %327
@@ -16836,9 +16836,9 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   %346 = and i64 %341, %333
   %347 = or i64 %346, %339
   store i64 %347, ptr %340, align 8, !tbaa !49
-  %indvars.iv.next128.i90 = add nuw nsw i64 %indvars.iv127.i89, 1
-  %exitcond132.not.i91 = icmp eq i64 %indvars.iv.next128.i90, %wide.trip.count131.i86
-  br i1 %exitcond132.not.i91, label %._crit_edge.us.i92, label %335, !llvm.loop !433
+  %indvars.iv.next127.i90 = add nuw nsw i64 %indvars.iv126.i89, 1
+  %exitcond131.not.i91 = icmp eq i64 %indvars.iv.next127.i90, %wide.trip.count130.i86
+  br i1 %exitcond131.not.i91, label %._crit_edge.us.i92, label %335, !llvm.loop !433
 
 ._crit_edge.us.i92:                               ; preds = %335
   %348 = getelementptr inbounds i64, ptr %.066109.us.i88, i64 %330
@@ -16871,8 +16871,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br label %.preheader94.us.us.us.i73
 
 .preheader94.us.us.us.i73:                        ; preds = %._crit_edge.us.us.us.i78, %.preheader95.us.us.i71
-  %indvars.iv124.i74 = phi i64 [ %indvars.iv.next125.i79, %._crit_edge.us.us.us.i78 ], [ 0, %.preheader95.us.us.i71 ]
-  %359 = getelementptr inbounds i64, ptr %.065101.us.us.i72, i64 %indvars.iv124.i74
+  %indvars.iv123.i74 = phi i64 [ %indvars.iv.next124.i79, %._crit_edge.us.us.us.i78 ], [ 0, %.preheader95.us.us.i71 ]
+  %359 = getelementptr inbounds i64, ptr %.065101.us.us.i72, i64 %indvars.iv123.i74
   br label %360
 
 360:                                              ; preds = %360, %.preheader94.us.us.us.i73
@@ -16889,8 +16889,8 @@ _ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEE
   br i1 %exitcond.not.i77, label %._crit_edge.us.us.us.i78, label %360, !llvm.loop !435
 
 ._crit_edge.us.us.us.i78:                         ; preds = %360
-  %indvars.iv.next125.i79 = add nsw i64 %indvars.iv124.i74, %358
-  %366 = icmp slt i64 %indvars.iv.next125.i79, %354
+  %indvars.iv.next124.i79 = add nsw i64 %indvars.iv123.i74, %358
+  %366 = icmp slt i64 %indvars.iv.next124.i79, %354
   br i1 %366, label %.preheader94.us.us.us.i73, label %._crit_edge99.split.us.us.us.i80, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us.i80:                 ; preds = %._crit_edge.us.us.us.i78
@@ -17389,20 +17389,20 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %220 = add nsw i32 %193, -6
   %221 = shl nuw i32 1, %220
   %222 = shl nuw nsw i32 1, %218
-  %.not113.i = icmp eq i32 %220, 31
+  %.not112.i = icmp eq i32 %220, 31
   %223 = zext nneg i32 %222 to i64
   %224 = sext i32 %221 to i64
   %225 = shl i32 2, %220
   %226 = sext i32 %225 to i64
-  br i1 %.not113.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
+  br i1 %.not112.i, label %_ZN3acd10acdXX_impl18swap_inplace_localERN5kitty18static_truth_tableILj11ELb0EEEhh.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %227 = zext nneg i8 %spec.select.i48 to i64
   %228 = getelementptr inbounds nuw [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %227
   %229 = load i64, ptr %228, align 8, !tbaa !49
   %230 = xor i64 %229, -1
-  %smax130.i = call i32 @llvm.smax.i32(i32 %221, i32 1)
-  %wide.trip.count131.i = zext nneg i32 %smax130.i to i64
+  %smax129.i = call i32 @llvm.smax.i32(i32 %221, i32 1)
+  %wide.trip.count130.i = zext nneg i32 %smax129.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i53, %.preheader.lr.ph.split.us.i
@@ -17410,8 +17410,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %231
 
 231:                                              ; preds = %231, %.preheader.us.i
-  %indvars.iv127.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next128.i, %231 ]
-  %232 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv127.i
+  %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %231 ]
+  %232 = getelementptr inbounds nuw i64, ptr %.066109.us.i, i64 %indvars.iv126.i
   %233 = load i64, ptr %232, align 8, !tbaa !49
   %234 = and i64 %233, %229
   %235 = lshr i64 %234, %223
@@ -17425,9 +17425,9 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %242 = and i64 %237, %229
   %243 = or i64 %242, %235
   store i64 %243, ptr %236, align 8, !tbaa !49
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
-  %exitcond132.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count131.i
-  br i1 %exitcond132.not.i, label %._crit_edge.us.i53, label %231, !llvm.loop !433
+  %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count130.i
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i53, label %231, !llvm.loop !433
 
 ._crit_edge.us.i53:                               ; preds = %231
   %244 = getelementptr inbounds i64, ptr %.066109.us.i, i64 %226
@@ -17460,8 +17460,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br label %.preheader94.us.us.us.i
 
 .preheader94.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader95.us.us.i
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
-  %255 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv124.i
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader95.us.us.i ]
+  %255 = getelementptr inbounds i64, ptr %.065101.us.us.i, i64 %indvars.iv123.i
   br label %256
 
 256:                                              ; preds = %256, %.preheader94.us.us.us.i
@@ -17478,8 +17478,8 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   br i1 %exitcond.not.i52, label %._crit_edge.us.us.us.i, label %256, !llvm.loop !435
 
 ._crit_edge.us.us.us.i:                           ; preds = %256
-  %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, %254
-  %262 = icmp slt i64 %indvars.iv.next125.i, %250
+  %indvars.iv.next124.i = add nsw i64 %indvars.iv123.i, %254
+  %262 = icmp slt i64 %indvars.iv.next124.i, %250
   br i1 %262, label %.preheader94.us.us.us.i, label %._crit_edge99.split.us.us.us.i, !llvm.loop !436
 
 ._crit_edge99.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i

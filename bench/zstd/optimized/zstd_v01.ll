@@ -348,19 +348,19 @@ if.end13.i.i.i.i.i:                               ; preds = %if.end6.i.i.i.i.i
   %DTableH.sroa.1.0.copyload.i.i.i.i.i.i = load i16, ptr %DTableH.sroa.1.0..sroa_idx.i.i.i.i.i.i, align 2
   %tobool.not.i.i.i.i.i.i = icmp eq i16 %DTableH.sroa.1.0.copyload.i.i.i.i.i.i, 0
   %cmp1.i342.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 7
-  br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i341.i.i.i.i.i.i, label %if.end.i64.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
-if.end.i64.i.i.i.i.i.i:                           ; preds = %if.end13.i.i.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %if.end13.i.i.i.i.i
   br i1 %cmp1.i342.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
-if.then2.i.i.i.i.i.i.i:                           ; preds = %if.end.i64.i.i.i.i.i.i
+if.then2.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr41.i.i.i.i, i64 %conv.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i.ptr.i.i.i.i.i.i, i64 -1
   %18 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %cmp5.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %cmp5.i.i.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %FSE_initDStream.exit.i.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i64.i.i.i.i.i.i
+if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %19 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
   %conv16.i.i.i.i.i.i.i = zext i8 %19 to i64
   switch i64 %sub.i.i.i.i.i, label %sw.epilog.i.i.i.i.i.i.i [
@@ -868,17 +868,17 @@ while.end.i70.i.i.i.i.i.i:                        ; preds = %lor.lhs.false74.i49
   %or.cond944.i.i.i.i.i.i = select i1 %or.cond943.i.i.i.i.i.i, i1 %cmp.i338.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond944.i.i.i.i.i.i, label %FSE_decompress.exit.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i
 
-if.end.i341.i.i.i.i.i.i:                          ; preds = %if.end13.i.i.i.i.i
+if.end.i.i.i.i.i.i:                               ; preds = %if.end13.i.i.i.i.i
   br i1 %cmp1.i342.i.i.i.i.i.i, label %if.then2.i385.i.i.i.i.i.i, label %if.else.i344.i.i.i.i.i.i
 
-if.then2.i385.i.i.i.i.i.i:                        ; preds = %if.end.i341.i.i.i.i.i.i
+if.then2.i385.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i
   %add.ptr.i386.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr41.i.i.i.i, i64 %conv.i.i.i.i
   %arrayidx.i390.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i386.ptr.i.i.i.i.i.i, i64 -1
   %45 = load i8, ptr %arrayidx.i390.i.i.i.i.i.i, align 1
   %cmp5.i391.i.i.i.i.i.i = icmp eq i8 %45, 0
   br i1 %cmp5.i391.i.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %FSE_initDStream.exit397.i.i.i.i.i.i
 
-if.else.i344.i.i.i.i.i.i:                         ; preds = %if.end.i341.i.i.i.i.i.i
+if.else.i344.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i
   %46 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
   %conv16.i346.i.i.i.i.i.i = zext i8 %46 to i64
   switch i64 %sub.i.i.i.i.i, label %sw.epilog.i352.i.i.i.i.i.i [

@@ -845,10 +845,10 @@ entry:
   %ref.tmp55 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp66 = alloca %"class.rocksdb::Status", align 8
   %cmp = icmp ugt i64 %file_size, 2147483647
-  %ref.tmp23.sink145.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
-  %ref.tmp23.sink145.sroa.gep146 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
+  %ref.tmp23.sink144.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
+  %ref.tmp23.sink144.sroa.gep145 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
   %ref.tmp21.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
-  %ref.tmp21.sink.sroa.gep147 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
+  %ref.tmp21.sink.sroa.gep146 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -994,15 +994,15 @@ if.then29:                                        ; preds = %invoke.cont27
   br label %if.then29.invoke
 
 if.then29.invoke:                                 ; preds = %if.then20, %if.then29
-  %ref.tmp21.sink.sroa.phi = phi ptr [ %ref.tmp21.sink.sroa.gep, %if.then20 ], [ %ref.tmp21.sink.sroa.gep147, %if.then29 ]
+  %ref.tmp21.sink.sroa.phi = phi ptr [ %ref.tmp21.sink.sroa.gep, %if.then20 ], [ %ref.tmp21.sink.sroa.gep146, %if.then29 ]
   %ref.tmp21.sink = phi ptr [ %ref.tmp21, %if.then20 ], [ %ref.tmp30, %if.then29 ]
   %.sink = phi i64 [ 84, %if.then20 ], [ 69, %if.then29 ]
-  %ref.tmp23.sink145.sroa.phi = phi ptr [ %ref.tmp23.sink145.sroa.gep, %if.then20 ], [ %ref.tmp23.sink145.sroa.gep146, %if.then29 ]
-  %ref.tmp23.sink145 = phi ptr [ %ref.tmp23, %if.then20 ], [ %ref.tmp32, %if.then29 ]
+  %ref.tmp23.sink144.sroa.phi = phi ptr [ %ref.tmp23.sink144.sroa.gep, %if.then20 ], [ %ref.tmp23.sink144.sroa.gep145, %if.then29 ]
+  %ref.tmp23.sink144 = phi ptr [ %ref.tmp23, %if.then20 ], [ %ref.tmp32, %if.then29 ]
   store i64 %.sink, ptr %ref.tmp21.sink.sroa.phi, align 8
-  store ptr @.str.15, ptr %ref.tmp23.sink145, align 8
-  store i64 0, ptr %ref.tmp23.sink145.sroa.phi, align 8
-  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23.sink145, i8 noundef zeroext 0)
+  store ptr @.str.15, ptr %ref.tmp23.sink144, align 8
+  store i64 0, ptr %ref.tmp23.sink144.sroa.phi, align 8
+  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23.sink144, i8 noundef zeroext 0)
           to label %cleanup93 unwind label %lpad15
 
 if.end37:                                         ; preds = %invoke.cont27, %invoke.cont16, %land.lhs.true, %invoke.cont12

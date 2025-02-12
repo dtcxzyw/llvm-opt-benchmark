@@ -6277,11 +6277,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread: ; preds = %37, %26
   %39 = load i32, ptr %8, align 4
   %40 = and i32 %39, 125
   %or.cond.i = icmp eq i32 %40, 41
-  br i1 %or.cond.i, label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread._ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread_crit_edge, label %41
-
-_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread._ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread_crit_edge: ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread
-  %.pre = and i32 %39, 43
-  br label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
+  br i1 %or.cond.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread, label %41
 
 41:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6332,14 +6328,14 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit:         ; preds = %57, %62
   %65 = load i16, ptr %64, align 8
   %66 = and i16 %65, 124
   %spec.select.i.i.i = icmp eq i16 %66, 56
-  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread31, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
+  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread31, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45
 
-_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread._ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread_crit_edge, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit
-  %.pre-phi = phi i32 [ %.pre, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread._ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread_crit_edge ], [ %56, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit ]
-  %.not.i18 = icmp eq i32 %.pre-phi, 41
-  br i1 %.not.i18, label %.critedge, label %67
+_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread
+  %.pre = and i32 %39, 43
+  %67 = icmp eq i32 %.pre, 41
+  br i1 %67, label %.critedge, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45
 
-67:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
+_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45: ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i19 = load i64, ptr %68, align 8
   %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i19, 4
@@ -6348,12 +6344,12 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %_ZNK5clang4Decl7has
   %72 = inttoptr i64 %71 to ptr
   br i1 %70, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, label %73
 
-73:                                               ; preds = %67
+73:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45
   %74 = load ptr, ptr %72, align 8, !tbaa !438
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %67, %73
-  %.0.i.i.i20 = phi ptr [ %74, %73 ], [ %72, %67 ]
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45, %73
+  %.0.i.i.i20 = phi ptr [ %74, %73 ], [ %72, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread45 ]
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 8
   %76 = load i16, ptr %75, align 8
   %77 = and i16 %76, 124
@@ -10350,7 +10346,7 @@ _ZSt13move_backwardIPPKN5clang16CXXBaseSpecifierES4_ET0_T_S6_S5_.exit: ; preds =
   %84 = getelementptr inbounds nuw ptr, ptr %44, i64 %83
   %85 = sub nsw i64 0, %48
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

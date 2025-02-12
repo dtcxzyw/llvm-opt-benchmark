@@ -4563,8 +4563,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %74
   br i1 %.not.not.i.i.i.i.i, label %.thread.i.i.i.i.i, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %74
-  %.not75 = icmp ult i64 %62, %.sroa.2.0.copyload.i.i.i
-  br i1 %.not75, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread, label %134
+  %.not73 = icmp ult i64 %62, %.sroa.2.0.copyload.i.i.i
+  br i1 %.not73, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread, label %134
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %78 = icmp sgt i32 %.fr.i.i.i.i.i, -1
@@ -4625,21 +4625,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; pred
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
   %95 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.67, i64 noundef 0, i64 noundef 3) #27
-  %.not1473 = icmp eq i64 %95, -1
-  br i1 %.not1473, label %._crit_edge, label %.lr.ph
+  %.not1475 = icmp eq i64 %95, -1
+  br i1 %.not1475, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %.lr.ph
-  %.074 = phi i64 [ %105, %.lr.ph ], [ %95, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
+  %.076 = phi i64 [ %105, %.lr.ph ], [ %95, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
   %96 = load ptr, ptr %10, align 8, !tbaa !611
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.074
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.076
   store i8 115, ptr %97, align 1, !tbaa !37
   %98 = load ptr, ptr %10, align 8, !tbaa !611
-  %99 = getelementptr i8, ptr %98, i64 %.074
+  %99 = getelementptr i8, ptr %98, i64 %.076
   %100 = getelementptr i8, ptr %99, i64 1
   store i8 116, ptr %100, align 1, !tbaa !37
-  %101 = add i64 %.074, 3
+  %101 = add i64 %.076, 3
   %102 = load ptr, ptr %10, align 8, !tbaa !611
-  %103 = getelementptr i8, ptr %102, i64 %.074
+  %103 = getelementptr i8, ptr %102, i64 %.076
   %104 = getelementptr i8, ptr %103, i64 2
   store i8 114, ptr %104, align 1, !tbaa !37
   %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.67, i64 noundef %101, i64 noundef 3) #27
@@ -4713,8 +4713,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i40: ; preds = %120
   br i1 %.not.not.i.i.i.i.i43, label %.thread.i.i.i.i.i47, label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i44
 
 .thread.i.i.i.i.i47:                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i40, %120
-  %.not76 = icmp ult i64 %109, %.sroa.2.0.copyload.i.i.i38
-  br i1 %.not76, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE4findERKS1_.exit50.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit
+  %.not74 = icmp ult i64 %109, %.sroa.2.0.copyload.i.i.i38
+  br i1 %.not74, label %_ZNSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE4findERKS1_.exit50.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i44: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i40
   %124 = icmp sgt i32 %.fr.i.i.i.i.i42, -1

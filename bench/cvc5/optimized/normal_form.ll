@@ -10276,13 +10276,9 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
 
 call3.i.i.i.i.i.i.i.i.noexc:                      ; preds = %for.body.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i.i.i230, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZN4cvc58internal6theory5arith6linear8Monomial8isSortedERKSt6vectorIS4_SaIS4_EE.exit.i, label %for.cond.i.i.i.i.i, !llvm.loop !68
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i228, label %for.cond.i.i.i.i.i, !llvm.loop !68
 
-_ZN4cvc58internal6theory5arith6linear8Monomial8isSortedERKSt6vectorIS4_SaIS4_EE.exit.i: ; preds = %call3.i.i.i.i.i.i.i.i.noexc
-  %cmp.i.i.i.i227 = icmp eq ptr %retval.sroa.0.1.i.i.i.i.i, %.pre296
-  br i1 %cmp.i.i.i.i227, label %invoke.cont85, label %if.then.i228
-
-if.then.i228:                                     ; preds = %_ZN4cvc58internal6theory5arith6linear8Monomial8isSortedERKSt6vectorIS4_SaIS4_EE.exit.i
+if.then.i228:                                     ; preds = %call3.i.i.i.i.i.i.i.i.noexc
   %114 = load ptr, ptr %monos, align 8
   %115 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %114, %115
@@ -10303,8 +10299,8 @@ if.then.i.i.i229:                                 ; preds = %if.then.i228
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear8MonomialESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %114, ptr %115)
           to label %invoke.cont85 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont85:                                    ; preds = %for.cond.i.i.i.i.i, %for.end48, %for.end84, %if.then.i228, %_ZN4cvc58internal6theory5arith6linear8Monomial8isSortedERKSt6vectorIS4_SaIS4_EE.exit.i, %.noexc231
-  %_M_finish.i.i.i301 = phi ptr [ %_M_finish.i.i.i, %if.then.i228 ], [ %_M_finish.i.i.i, %_ZN4cvc58internal6theory5arith6linear8Monomial8isSortedERKSt6vectorIS4_SaIS4_EE.exit.i ], [ %_M_finish.i.i.i, %.noexc231 ], [ %_M_finish.i.i.i, %for.end84 ], [ %_M_finish.i.i.i298, %for.end48 ], [ %_M_finish.i.i.i, %for.cond.i.i.i.i.i ]
+invoke.cont85:                                    ; preds = %for.cond.i.i.i.i.i, %for.end48, %for.end84, %if.then.i228, %.noexc231
+  %_M_finish.i.i.i301 = phi ptr [ %_M_finish.i.i.i, %if.then.i228 ], [ %_M_finish.i.i.i, %.noexc231 ], [ %_M_finish.i.i.i, %for.end84 ], [ %_M_finish.i.i.i298, %for.end48 ], [ %_M_finish.i.i.i, %for.cond.i.i.i.i.i ]
   invoke void @_ZN4cvc58internal6theory5arith6linear8Monomial24combineAdjacentMonomialsERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %monos)
           to label %invoke.cont86 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp
 

@@ -18268,11 +18268,11 @@ invoke.cont2.i34:                                 ; preds = %if.else18, %invoke.
 
 _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit41: ; preds = %invoke.cont2.i34
   %call.i4243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %pos, ptr noundef nonnull align 8 dereferenceable(32) %insert_range_proxy.coerce)
-          to label %invoke.cont unwind label %while.body.i44.preheader
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %insert_range_proxy.coerce)
-          to label %invoke.cont27 unwind label %while.body.i44.preheader
+          to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont
   %4 = load i64, ptr %m_size.i, align 8
@@ -18280,16 +18280,16 @@ invoke.cont27:                                    ; preds = %invoke.cont
   store i64 %add30, ptr %m_size.i, align 8
   br label %if.end37
 
-while.body.i44.preheader:                         ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit41, %invoke.cont
+lpad:                                             ; preds = %invoke.cont, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit41
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   br label %while.body.i44
 
-while.body.i44:                                   ; preds = %while.body.i44.preheader, %while.body.i44
-  %n.addr.05.i = phi i64 [ %dec.i, %while.body.i44 ], [ %sub.ptr.div, %while.body.i44.preheader ]
-  %storemerge4.i = phi ptr [ %incdec.ptr.i45, %while.body.i44 ], [ %add.ptr21, %while.body.i44.preheader ]
+while.body.i44:                                   ; preds = %lpad, %while.body.i44
+  %n.addr.05.i = phi i64 [ %dec.i, %while.body.i44 ], [ %sub.ptr.div, %lpad ]
+  %storemerge4.i = phi ptr [ %incdec.ptr.i45, %while.body.i44 ], [ %add.ptr21, %lpad ]
   %dec.i = add i64 %n.addr.05.i, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %storemerge4.i) #21
   %incdec.ptr.i45 = getelementptr inbounds nuw i8, ptr %storemerge4.i, i64 32

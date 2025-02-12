@@ -888,7 +888,7 @@ define internal i32 @rtl8139_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %9 = tail call i32 @ioread16(ptr noundef %8) #14
   %10 = and i32 %9, 81
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %151, label %12, !prof !5
+  br i1 %11, label %150, label %12, !prof !5
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %3, align 8
@@ -997,7 +997,7 @@ define internal i32 @rtl8139_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 .thread6:                                         ; preds = %69, %81, %.thread5
   tail call fastcc void @rtl8139_rx_err(i32 noundef %44, ptr noundef %5, ptr noundef %3, ptr noundef %13)
-  br label %151
+  br label %150
 
 84:                                               ; preds = %81, %76
   %85 = phi ptr [ %23, %76 ], [ %24, %81 ]
@@ -1085,53 +1085,51 @@ define internal i32 @rtl8139_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %139 = icmp ne i64 %138, 0
   %140 = icmp slt i32 %108, %1
   %141 = select i1 %139, i1 %140, i1 false
-  br i1 %141, label %.lr.ph, label %._crit_edge
+  br i1 %141, label %.lr.ph, label %._crit_edge.thread34
 
-._crit_edge:                                      ; preds = %136, %.lr.ph
-  %.lcssa14.ph = phi i32 [ %108, %136 ], [ %36, %.lr.ph ]
-  %.lcssa11.ph = phi i32 [ %111, %136 ], [ %35, %.lr.ph ]
-  %142 = icmp eq i32 %.lcssa14.ph, 0
-  br i1 %142, label %._crit_edge.thread, label %145, !prof !20
+._crit_edge:                                      ; preds = %.lr.ph
+  %142 = icmp eq i32 %36, 0
+  br i1 %142, label %._crit_edge.thread, label %._crit_edge.thread34, !prof !20
 
 ._crit_edge.thread:                               ; preds = %12, %.thread8, %._crit_edge
-  %143 = phi i32 [ %36, %.thread8 ], [ %.lcssa14.ph, %._crit_edge ], [ 0, %12 ]
-  %144 = phi i32 [ %35, %.thread8 ], [ %.lcssa11.ph, %._crit_edge ], [ %17, %12 ]
+  %143 = phi i32 [ %36, %.thread8 ], [ 0, %._crit_edge ], [ 0, %12 ]
+  %144 = phi i32 [ %35, %.thread8 ], [ %35, %._crit_edge ], [ %17, %12 ]
   tail call fastcc void @rtl8139_isr_ack(ptr noundef %3)
-  br label %145
+  br label %._crit_edge.thread34
 
-145:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %146 = phi i32 [ %143, %._crit_edge.thread ], [ %.lcssa14.ph, %._crit_edge ]
-  %147 = phi i32 [ %144, %._crit_edge.thread ], [ %.lcssa11.ph, %._crit_edge ]
-  store i32 %147, ptr %16, align 8
-  %148 = load i64, ptr %21, align 8
-  %149 = icmp eq i64 %148, 0
-  %150 = select i1 %149, i32 %146, i32 %1
-  br label %151
+._crit_edge.thread34:                             ; preds = %136, %._crit_edge.thread, %._crit_edge
+  %145 = phi i32 [ %143, %._crit_edge.thread ], [ %36, %._crit_edge ], [ %108, %136 ]
+  %146 = phi i32 [ %144, %._crit_edge.thread ], [ %35, %._crit_edge ], [ %111, %136 ]
+  store i32 %146, ptr %16, align 8
+  %147 = load i64, ptr %21, align 8
+  %148 = icmp eq i64 %147, 0
+  %149 = select i1 %148, i32 %145, i32 %1
+  br label %150
 
-151:                                              ; preds = %.thread6, %145, %2
-  %152 = phi i32 [ 0, %2 ], [ %150, %145 ], [ -1, %.thread6 ]
-  %153 = icmp slt i32 %152, %1
-  br i1 %153, label %154, label %162
+150:                                              ; preds = %.thread6, %._crit_edge.thread34, %2
+  %151 = phi i32 [ 0, %2 ], [ %149, %._crit_edge.thread34 ], [ -1, %.thread6 ]
+  %152 = icmp slt i32 %151, %1
+  br i1 %152, label %153, label %161
 
-154:                                              ; preds = %151
-  %155 = getelementptr i8, ptr %0, i64 544
-  %156 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %155) #14
-  %157 = tail call zeroext i1 @napi_complete_done(ptr noundef %0, i32 noundef %152) #14
-  br i1 %157, label %158, label %161
+153:                                              ; preds = %150
+  %154 = getelementptr i8, ptr %0, i64 544
+  %155 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %154) #14
+  %156 = tail call zeroext i1 @napi_complete_done(ptr noundef %0, i32 noundef %151) #14
+  br i1 %156, label %157, label %160
 
-158:                                              ; preds = %154
-  %159 = getelementptr i8, ptr %6, i64 60
-  tail call void @iowrite16(i16 noundef zeroext -16257, ptr noundef %159) #14
-  %160 = tail call i32 @ioread16(ptr noundef %159) #14
+157:                                              ; preds = %153
+  %158 = getelementptr i8, ptr %6, i64 60
+  tail call void @iowrite16(i16 noundef zeroext -16257, ptr noundef %158) #14
+  %159 = tail call i32 @ioread16(ptr noundef %158) #14
+  br label %160
+
+160:                                              ; preds = %157, %153
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %154, i64 noundef %155) #14
   br label %161
 
-161:                                              ; preds = %158, %154
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %155, i64 noundef %156) #14
-  br label %162
-
-162:                                              ; preds = %161, %151
+161:                                              ; preds = %160, %150
   tail call void @_raw_spin_unlock(ptr noundef %7) #14
-  ret i32 %152
+  ret i32 %151
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

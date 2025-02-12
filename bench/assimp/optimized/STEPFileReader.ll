@@ -2633,10 +2633,10 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i, label %cleanup.thread, label %for.cond43
 
 for.cond43:                                       ; preds = %invoke.cont40, %for.cond43
-  %incdec.ptr44359 = phi ptr [ %incdec.ptr44, %for.cond43 ], [ %t.0.pn, %invoke.cont40 ]
-  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %incdec.ptr44359, i64 1
+  %incdec.ptr44358 = phi ptr [ %incdec.ptr44, %for.cond43 ], [ %t.0.pn, %invoke.cont40 ]
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %incdec.ptr44358, i64 1
   store ptr %incdec.ptr44, ptr %cur, align 8
-  %13 = load i8, ptr %incdec.ptr44359, align 1
+  %13 = load i8, ptr %incdec.ptr44358, align 1
   %cmp46.not = icmp eq i8 %13, 40
   br i1 %cmp46.not, label %for.end48, label %for.cond43, !llvm.loop !16
 
@@ -2658,8 +2658,8 @@ for.end48:                                        ; preds = %for.cond43
 
 cleanup.thread:                                   ; preds = %invoke.cont40, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFPN6Assimp4STEP6ObjectERKNS9_2DBERKNS9_7EXPRESS4LISTEEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISL_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %invoke.cont37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #21
-  %.pre371 = load ptr, ptr %cur, align 8
-  %.pre372 = load i8, ptr %.pre371, align 1
+  %.pre370 = load ptr, ptr %cur, align 8
+  %.pre371 = load i8, ptr %.pre370, align 1
   br label %if.end61
 
 cleanup:                                          ; preds = %for.end48
@@ -2682,8 +2682,8 @@ if.else:                                          ; preds = %for.cond
   br label %for.cond, !llvm.loop !17
 
 if.end61:                                         ; preds = %for.cond, %for.cond, %for.cond, %cleanup.thread, %if.then14, %if.end
-  %18 = phi i8 [ %.pre372, %cleanup.thread ], [ %1, %if.then14 ], [ %1, %if.end ], [ %1, %for.cond ], [ %1, %for.cond ], [ %1, %for.cond ]
-  %cur.promoted364 = phi ptr [ %.pre371, %cleanup.thread ], [ %in.addr.0.i.i, %if.then14 ], [ %in.addr.0.i.i, %if.end ], [ %in.addr.0.i.i, %for.cond ], [ %in.addr.0.i.i, %for.cond ], [ %in.addr.0.i.i, %for.cond ]
+  %18 = phi i8 [ %.pre371, %cleanup.thread ], [ %1, %if.then14 ], [ %1, %if.end ], [ %1, %for.cond ], [ %1, %for.cond ], [ %1, %for.cond ]
+  %cur.promoted363 = phi ptr [ %.pre370, %cleanup.thread ], [ %in.addr.0.i.i, %if.then14 ], [ %in.addr.0.i.i, %if.end ], [ %in.addr.0.i.i, %for.cond ], [ %in.addr.0.i.i, %for.cond ], [ %in.addr.0.i.i, %for.cond ]
   switch i8 %18, label %for.cond239 [
     i8 42, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS9ISDERIVEDEED2Ev.exit
     i8 36, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS5UNSETEED2Ev.exit
@@ -2695,7 +2695,7 @@ if.end61:                                         ; preds = %for.cond, %for.cond
   ]
 
 _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS9ISDERIVEDEED2Ev.exit: ; preds = %if.end61
-  %add.ptr65 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 1
+  %add.ptr65 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 1
   store ptr %add.ptr65, ptr %inout, align 8
   %call5.i.i.i2.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22, !noalias !18
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 8
@@ -2711,7 +2711,7 @@ _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS9ISDERIVEDEED2Ev.exit: ; preds = %if.end6
   br label %return
 
 _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS5UNSETEED2Ev.exit: ; preds = %if.end61
-  %add.ptr71 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 1
+  %add.ptr71 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 1
   store ptr %add.ptr71, ptr %inout, align 8
   %call5.i.i.i2.i.i.i.i60 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22, !noalias !21
   %_M_use_count.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i60, i64 8
@@ -2727,7 +2727,7 @@ _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS5UNSETEED2Ev.exit: ; preds = %if.end61
   br label %return
 
 _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEED2Ev.exit: ; preds = %if.end61
-  store ptr %cur.promoted364, ptr %inout, align 8
+  store ptr %cur.promoted363, ptr %inout, align 8
   call void @_ZN6Assimp4STEP7EXPRESS4LIST5ParseERPKcmPKNS1_16ConversionSchemaE(ptr nonnull sret(%"class.std::shared_ptr.46") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(8) %inout, i64 noundef %line, ptr noundef %schema)
   %19 = load ptr, ptr %ref.tmp77, align 8
   store ptr %19, ptr %agg.result, align 8
@@ -2738,7 +2738,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEED2Ev.exit: ; preds = %if.end61
   br label %return
 
 if.then81:                                        ; preds = %if.end61
-  %incdec.ptr82 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 1
+  %incdec.ptr82 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 1
   br label %for.cond83
 
 for.cond83:                                       ; preds = %for.inc105, %if.then81
@@ -2849,7 +2849,7 @@ ehcleanup120:                                     ; preds = %lpad117.body, %lpad
   br label %eh.resume
 
 _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS6ENTITYEED2Ev.exit: ; preds = %if.end61
-  %incdec.ptr127 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 1
+  %incdec.ptr127 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 1
   store ptr %incdec.ptr127, ptr %cur, align 8
   %call128 = call noundef i64 @_ZN6Assimp12strtoul10_64I17DeadlyImportErrorEEmPKcPS3_Pj(ptr noundef nonnull %incdec.ptr127, ptr noundef nonnull %inout, ptr noundef null)
   %call5.i.i.i3.i.i.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !28
@@ -2868,13 +2868,13 @@ _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS6ENTITYEED2Ev.exit: ; preds = %if.end61
   br label %return
 
 if.then132:                                       ; preds = %if.end61
-  %incdec.ptr134 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 1
+  %incdec.ptr134 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 1
   br label %for.cond135
 
 for.cond135:                                      ; preds = %for.inc157, %if.then132
-  %cur.promoted360 = phi ptr [ %incdec.ptr134, %if.then132 ], [ %incdec.ptr158, %for.inc157 ]
-  store ptr %cur.promoted360, ptr %cur, align 8
-  %27 = load i8, ptr %cur.promoted360, align 1
+  %cur.promoted359 = phi ptr [ %incdec.ptr134, %if.then132 ], [ %incdec.ptr158, %for.inc157 ]
+  store ptr %cur.promoted359, ptr %cur, align 8
+  %27 = load i8, ptr %cur.promoted359, align 1
   switch i8 %27, label %for.inc157 [
     i8 39, label %for.end159
     i8 0, label %if.then141
@@ -2914,18 +2914,18 @@ cleanup.action154:                                ; preds = %ehcleanup151.thread
   br label %eh.resume
 
 for.inc157:                                       ; preds = %for.cond135
-  %incdec.ptr158 = getelementptr inbounds nuw i8, ptr %cur.promoted360, i64 1
+  %incdec.ptr158 = getelementptr inbounds nuw i8, ptr %cur.promoted359, i64 1
   br label %for.cond135, !llvm.loop !31
 
 for.end159:                                       ; preds = %for.cond135
-  %arrayidx = getelementptr inbounds nuw i8, ptr %cur.promoted360, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cur.promoted359, i64 1
   %30 = load i8, ptr %arrayidx, align 1
   %cmp161 = icmp eq i8 %30, 39
   br i1 %cmp161, label %do.body, label %if.end192
 
 do.body:                                          ; preds = %for.end159, %do.cond
-  %storemerge38361 = phi ptr [ %storemerge38, %do.cond ], [ %cur.promoted360, %for.end159 ]
-  %add.ptr163 = getelementptr inbounds nuw i8, ptr %storemerge38361, i64 2
+  %storemerge38360 = phi ptr [ %storemerge38, %do.cond ], [ %cur.promoted359, %for.end159 ]
+  %add.ptr163 = getelementptr inbounds nuw i8, ptr %storemerge38360, i64 2
   br label %for.cond164
 
 for.cond164:                                      ; preds = %for.inc186, %do.body
@@ -2981,7 +2981,7 @@ do.cond:                                          ; preds = %for.cond164
   br i1 %cmp191, label %do.body, label %if.end192, !llvm.loop !33
 
 if.end192:                                        ; preds = %do.cond, %for.end159
-  %35 = phi ptr [ %cur.promoted360, %for.end159 ], [ %storemerge38, %do.cond ]
+  %35 = phi ptr [ %cur.promoted359, %for.end159 ], [ %storemerge38, %do.cond ]
   %add.ptr193 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %add.ptr193, ptr %inout, align 8
   %sub.ptr.lhs.cast194 = ptrtoint ptr %35 to i64
@@ -3086,8 +3086,8 @@ cleanup.action229:                                ; preds = %ehcleanup226.thread
   br label %eh.resume
 
 for.cond239:                                      ; preds = %if.end61, %for.inc257
-  %41 = phi i8 [ %.pre373, %for.inc257 ], [ %18, %if.end61 ]
-  %incdec.ptr258365 = phi ptr [ %incdec.ptr258, %for.inc257 ], [ %cur.promoted364, %if.end61 ]
+  %41 = phi i8 [ %.pre372, %for.inc257 ], [ %18, %if.end61 ]
+  %incdec.ptr258364 = phi ptr [ %incdec.ptr258, %for.inc257 ], [ %cur.promoted363, %if.end61 ]
   switch i8 %41, label %for.inc257 [
     i8 0, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIlEEED2Ev.exit
     i8 44, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIlEEED2Ev.exit
@@ -3098,7 +3098,7 @@ for.cond239:                                      ; preds = %if.end61, %for.inc2
   ]
 
 _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIdEEED2Ev.exit: ; preds = %for.cond239
-  %call254 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveId17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %cur.promoted364, ptr noundef nonnull align 8 dereferenceable(8) %f, i1 noundef zeroext true)
+  %call254 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveId17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %cur.promoted363, ptr noundef nonnull align 8 dereferenceable(8) %f, i1 noundef zeroext true)
   store ptr %call254, ptr %inout, align 8
   %call5.i.i.i3.i.i.i.i249 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !37
   %_M_use_count.i.i.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i249, i64 8
@@ -3117,18 +3117,18 @@ _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIdEEED2Ev.exit: ; pred
   br label %return
 
 for.inc257:                                       ; preds = %for.cond239
-  %incdec.ptr258 = getelementptr inbounds nuw i8, ptr %incdec.ptr258365, i64 1
+  %incdec.ptr258 = getelementptr inbounds nuw i8, ptr %incdec.ptr258364, i64 1
   store ptr %incdec.ptr258, ptr %cur, align 8
-  %.pre373 = load i8, ptr %incdec.ptr258, align 1
+  %.pre372 = load i8, ptr %incdec.ptr258, align 1
   br label %for.cond239, !llvm.loop !40
 
 _ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIlEEED2Ev.exit: ; preds = %for.cond239, %for.cond239, %for.cond239, %for.cond239, %for.cond239
-  %43 = load i8, ptr %cur.promoted364, align 1
+  %43 = load i8, ptr %cur.promoted363, align 1
   %cmp261 = icmp eq i8 %43, 45
   %cmp266 = icmp eq i8 %43, 43
   %44 = or i1 %cmp261, %cmp266
   %start238.0.idx = zext i1 %44 to i64
-  %start238.0 = getelementptr inbounds nuw i8, ptr %cur.promoted364, i64 %start238.0.idx
+  %start238.0 = getelementptr inbounds nuw i8, ptr %cur.promoted363, i64 %start238.0.idx
   %call271 = call noundef i64 @_ZN6Assimp12strtoul10_64I17DeadlyImportErrorEEmPKcPS3_Pj(ptr noundef nonnull %start238.0, ptr noundef nonnull %inout, ptr noundef null)
   %sub = sub nsw i64 0, %call271
   %cond278 = select i1 %cmp261, i64 %sub, i64 %call271

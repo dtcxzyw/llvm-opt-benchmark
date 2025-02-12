@@ -17876,18 +17876,18 @@ if.then2.i.i.i100:                                ; preds = %if.then.i.i.i95
           to label %cleanup.sink.split unwind label %lpad2
 
 invoke.cont66:                                    ; preds = %cond.false.i, %sw.bb, %invoke.cont3, %cond.end, %if.end
-  %cmp28245 = phi i1 [ false, %if.end ], [ false, %cond.false.i ], [ false, %sw.bb ], [ false, %invoke.cont3 ], [ true, %cond.end ]
   %cond224231244 = phi i32 [ %4, %if.end ], [ 0, %cond.false.i ], [ 0, %sw.bb ], [ 0, %invoke.cont3 ], [ %4, %cond.end ]
-  %cond16233243 = phi i32 [ %6, %if.end ], [ 0, %cond.false.i ], [ 0, %sw.bb ], [ 0, %invoke.cont3 ], [ %4, %cond.end ]
-  %cmp17234242 = phi i1 [ %cmp17, %if.end ], [ false, %cond.false.i ], [ false, %sw.bb ], [ false, %invoke.cont3 ], [ false, %cond.end ]
-  %cmp44246 = icmp eq i32 %cond224231244, 0
+  %cond.i219223232243 = phi i1 [ false, %if.end ], [ false, %cond.false.i ], [ false, %sw.bb ], [ false, %invoke.cont3 ], [ true, %cond.end ]
+  %cond16233242 = phi i32 [ %6, %if.end ], [ 0, %cond.false.i ], [ 0, %sw.bb ], [ 0, %invoke.cont3 ], [ %4, %cond.end ]
+  %cmp17234241 = phi i1 [ %cmp17, %if.end ], [ false, %cond.false.i ], [ false, %sw.bb ], [ false, %invoke.cont3 ], [ false, %cond.end ]
+  %cmp44245 = icmp eq i32 %cond224231244, 0
   %re.i103 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %24 = load ptr, ptr %args, align 8
   %call70 = invoke noundef zeroext i1 @_ZNK8seq_util3rex7is_loopEPK4exprRPS1_Rj(ptr noundef nonnull align 8 dereferenceable(80) %re.i103, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 4 dereferenceable(4) %lo)
           to label %invoke.cont69 unwind label %lpad2
 
 invoke.cont69:                                    ; preds = %invoke.cont66
-  %or.cond4 = and i1 %cmp28245, %call70
+  %or.cond4 = and i1 %cond.i219223232243, %call70
   br i1 %or.cond4, label %invoke.cont74, label %invoke.cont81
 
 invoke.cont74:                                    ; preds = %invoke.cont69
@@ -17933,27 +17933,27 @@ invoke.cont81:                                    ; preds = %invoke.cont69
           to label %invoke.cont84 unwind label %lpad2
 
 invoke.cont84:                                    ; preds = %invoke.cont81
-  %or.cond5 = and i1 %cmp17234242, %call85
+  %or.cond5 = and i1 %cmp17234241, %call85
   br i1 %or.cond5, label %land.lhs.true88, label %if.end101
 
 land.lhs.true88:                                  ; preds = %invoke.cont84
   %32 = load i32, ptr %lo, align 4
   %33 = load i32, ptr %hi, align 4
   %cmp89 = icmp eq i32 %32, %33
-  %cmp91 = icmp eq i32 %cond224231244, %cond16233243
+  %cmp91 = icmp eq i32 %cond224231244, %cond16233242
   %or.cond55 = and i1 %cmp91, %cmp89
   br i1 %or.cond55, label %invoke.cont93, label %if.end101
 
 invoke.cont93:                                    ; preds = %land.lhs.true88
   %34 = load ptr, ptr %a, align 8
-  %mul95 = mul i32 %32, %cond16233243
+  %mul95 = mul i32 %32, %cond16233242
   br label %invoke.cont182.invoke
 
 if.end101:                                        ; preds = %land.lhs.true88, %invoke.cont84
   %cmp104 = icmp eq i32 %cond224231244, 1
-  %cmp106 = icmp eq i32 %cond16233243, 1
+  %cmp106 = icmp eq i32 %cond16233242, 1
   %35 = and i1 %cmp106, %cmp104
-  %or.cond7 = and i1 %cmp17234242, %35
+  %or.cond7 = and i1 %cmp17234241, %35
   br i1 %or.cond7, label %if.then107, label %if.end111
 
 if.then107:                                       ; preds = %if.end101
@@ -17961,7 +17961,7 @@ if.then107:                                       ; preds = %if.end101
   br label %invoke.cont119.invoke
 
 if.end111:                                        ; preds = %if.end101
-  %or.cond8 = and i1 %cmp28245, %cmp44246
+  %or.cond8 = and i1 %cond.i219223232243, %cmp44245
   br i1 %or.cond8, label %invoke.cont116, label %cleanup
 
 invoke.cont116:                                   ; preds = %if.end111

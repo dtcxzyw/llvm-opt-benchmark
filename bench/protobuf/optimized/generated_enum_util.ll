@@ -636,7 +636,7 @@ if.else65:                                        ; preds = %if.else61
   %sub.ptr.div.i113 = ashr exact i64 %sub.ptr.sub.i112, 2
   %add68 = add nsw i64 %sub.ptr.div.i108, %sub.ptr.div.i113
   %cmp.i119.not = icmp eq i64 %add68, 0
-  br i1 %cmp.i119.not, label %while.body.i.i.preheader, label %if.else.i239
+  br i1 %cmp.i119.not, label %invoke.cont70, label %if.else.i239
 
 if.else.i239:                                     ; preds = %if.else65
   %cmp.i.i240 = icmp ugt i64 %add68, 2305843009213693951
@@ -667,17 +667,17 @@ if.end.i.i.i.i.i25.i246:                          ; preds = %call5.i.i.i.i.noexc
 
 .noexc128:                                        ; preds = %if.end.i.i.i.i.i25.i246, %call5.i.i.i.i.noexc257
   %add.ptr37.i252 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i258, i64 %add68
-  br label %while.body.i.i.preheader
+  br label %invoke.cont70
 
-while.body.i.i.preheader:                         ; preds = %if.else65, %.noexc128
+invoke.cont70:                                    ; preds = %.noexc128, %if.else65
   %fallback_values.sroa.0.2 = phi ptr [ %call5.i.i.i.i258, %.noexc128 ], [ null, %if.else65 ]
   %fallback_values.sroa.15.1 = phi ptr [ %add.ptr37.i252, %.noexc128 ], [ null, %if.else65 ]
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
-  %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i132, %while.body.i.i ], [ %fallback_values.sroa.0.2, %while.body.i.i.preheader ]
-  %__first1.sroa.0.022.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_too_large.sroa.0.1, %while.body.i.i.preheader ]
-  %__first2.sroa.0.021.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_after_bitmap.sroa.0.1, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %invoke.cont70, %while.body.i.i
+  %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i132, %while.body.i.i ], [ %fallback_values.sroa.0.2, %invoke.cont70 ]
+  %__first1.sroa.0.022.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_too_large.sroa.0.1, %invoke.cont70 ]
+  %__first2.sroa.0.021.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_after_bitmap.sroa.0.1, %invoke.cont70 ]
   %20 = load i32, ptr %__first2.sroa.0.021.i.i, align 4
   %21 = load i32, ptr %__first1.sroa.0.022.i.i, align 4
   %cmp.i5.i.i = icmp slt i32 %20, %21

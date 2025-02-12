@@ -5933,7 +5933,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   %126 = getelementptr inbounds nuw ptr, ptr %76, i64 %125
   %127 = sub nsw i64 0, %80
   %128 = getelementptr inbounds ptr, ptr %126, i64 %127
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr align 8 %77, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr align 8 %77, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit, %122

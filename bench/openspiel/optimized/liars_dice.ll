@@ -6591,27 +6591,27 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   store i32 -1, ptr %214, align 8
   %215 = load ptr, ptr %70, align 8
   %216 = load ptr, ptr %151, align 8
-  %.not8892 = icmp eq ptr %215, %216
-  br i1 %.not8892, label %._crit_edge96, label %.lr.ph95
+  %.not8891 = icmp eq ptr %215, %216
+  br i1 %.not8891, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph95:                                         ; preds = %._crit_edge, %221
-  %.sroa.065.093 = phi ptr [ %223, %221 ], [ %215, %._crit_edge ]
+.lr.ph94:                                         ; preds = %._crit_edge, %221
+  %.sroa.065.092 = phi ptr [ %223, %221 ], [ %215, %._crit_edge ]
   %217 = phi i32 [ %222, %221 ], [ -1, %._crit_edge ]
-  %218 = load i32, ptr %.sroa.065.093, align 4
+  %218 = load i32, ptr %.sroa.065.092, align 4
   %219 = icmp sgt i32 %218, %217
   br i1 %219, label %220, label %221
 
-220:                                              ; preds = %.lr.ph95
+220:                                              ; preds = %.lr.ph94
   store i32 %218, ptr %214, align 8
   br label %221
 
-221:                                              ; preds = %.lr.ph95, %220
-  %222 = phi i32 [ %217, %.lr.ph95 ], [ %218, %220 ]
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.065.093, i64 4
+221:                                              ; preds = %.lr.ph94, %220
+  %222 = phi i32 [ %217, %.lr.ph94 ], [ %218, %220 ]
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.065.092, i64 4
   %.not88 = icmp eq ptr %223, %216
-  br i1 %.not88, label %._crit_edge96, label %.lr.ph95
+  br i1 %.not88, label %._crit_edge95, label %.lr.ph94
 
-._crit_edge96:                                    ; preds = %221, %._crit_edge
+._crit_edge95:                                    ; preds = %221, %._crit_edge
   ret void
 
 224:                                              ; preds = %.loopexit, %.loopexit.split-lp, %205, %.body59, %140, %132, %125, %.body50, %.body45

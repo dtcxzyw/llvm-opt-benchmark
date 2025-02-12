@@ -3014,7 +3014,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.
   %592 = sub i64 %590, %591
   %593 = sub i64 0, %592
   %594 = getelementptr inbounds i8, ptr %587, i64 %593
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %594, ptr nonnull align 1 %581, i64 %592, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %594, ptr nonnull align 1 %581, i64 %592, i1 false)
   %.pre12.i.i = load i64, ptr %22, align 8, !tbaa !84
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i.i
 

@@ -590,20 +590,20 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr noundef readonly capt
 
 .lr.ph73.preheader:                               ; preds = %.preheader61
   %18 = and i64 %1, 7
-  %scevgep = getelementptr i8, ptr %5, i64 %18
+  %scevgep93 = getelementptr i8, ptr %5, i64 %18
   %19 = add i64 %3, -1
   %20 = and i64 %1, 7
   %21 = xor i64 %20, 7
   %umin = tail call i64 @llvm.umin.i64(i64 %19, i64 %21)
   %22 = add nuw nsw i64 %umin, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, i64 %22, i1 false)
   %23 = add i64 %1, %umin
-  %scevgep94 = getelementptr i8, ptr %2, i64 %22
+  %scevgep95 = getelementptr i8, ptr %2, i64 %22
   %24 = add i64 %23, 1
   br label %.loopexit62
 
 .loopexit62:                                      ; preds = %.lr.ph73.preheader, %.preheader61, %4
-  %.046 = phi ptr [ %2, %4 ], [ %2, %.preheader61 ], [ %scevgep94, %.lr.ph73.preheader ]
+  %.046 = phi ptr [ %2, %4 ], [ %2, %.preheader61 ], [ %scevgep95, %.lr.ph73.preheader ]
   %.043 = phi i64 [ %1, %4 ], [ %1, %.preheader61 ], [ %24, %.lr.ph73.preheader ]
   %25 = sub i64 %6, %.043
   %.not87 = icmp ult i64 %25, 8

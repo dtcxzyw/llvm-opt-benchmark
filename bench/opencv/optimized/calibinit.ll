@@ -4701,16 +4701,16 @@ _ZN2cv10AutoBufferINS_14ChessBoardQuadELm19EE10deallocateEv.exit: ; preds = %4, 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %50
   %57 = shl nuw nsw i64 %54, 2
   %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #35
-          to label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit unwind label %90
+          to label %.noexc142 unwind label %90
 
-_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+.noexc142:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %58, i8 0, i64 %57, i1 false)
   %59 = trunc i64 %54 to i32
   %.092280 = add i32 %59, -1
   %60 = icmp sgt i32 %.092280, -1
   br i1 %60, label %.lr.ph286, label %._crit_edge287
 
-.lr.ph286:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
+.lr.ph286:                                        ; preds = %.noexc142
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5144,10 +5144,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %231, %_ZNSt6vectorI
   call void @_ZdlPv(ptr noundef nonnull %234) #36
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit161
 
-._crit_edge287:                                   ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-  %.sroa.7.0.lcssa = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.sroa.7.1, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
-  %.sroa.0213.0.lcssa = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.sroa.0213.1, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
-  %.087.lcssa = phi i32 [ -1, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %.188, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
+._crit_edge287:                                   ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, %.noexc142
+  %.sroa.7.0.lcssa = phi ptr [ null, %.noexc142 ], [ %.sroa.7.1, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
+  %.sroa.0213.0.lcssa = phi ptr [ null, %.noexc142 ], [ %.sroa.0213.1, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
+  %.087.lcssa = phi i32 [ -1, %.noexc142 ], [ %.188, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
   %236 = ptrtoint ptr %.sroa.7.0.lcssa to i64
   %237 = ptrtoint ptr %.sroa.0213.0.lcssa to i64
   %238 = sub i64 %236, %237

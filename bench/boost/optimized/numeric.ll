@@ -3616,7 +3616,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 0, i64 %62, i1 false)
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %64, %.noexc36
+_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %.noexc36, %64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %.sroa.039.070, i64 %31, i1 false)
   %66 = sub i64 %50, %32
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.070, i64 noundef %66) #25
@@ -10331,7 +10331,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 0, i64 %48, i1 false)
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %50, %.noexc30
+_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %.noexc30, %50
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %.sroa.033.062, i64 %24, i1 false)
   %52 = sub i64 %36, %25
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.062, i64 noundef %52) #25

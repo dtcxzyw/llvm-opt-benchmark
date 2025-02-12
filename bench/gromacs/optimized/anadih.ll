@@ -1429,12 +1429,12 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
   %6 = alloca [4 x i8], align 1
   %7 = add i32 %1, 3
   %8 = icmp sgt i32 %1, -3
-  br i1 %8, label %.preheader.lr.ph, label %._crit_edge78
+  br i1 %8, label %.preheader.lr.ph, label %._crit_edge77
 
 .preheader.lr.ph:                                 ; preds = %5
-  %.not73 = icmp eq ptr %2, %3
+  %.not72 = icmp eq ptr %2, %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  br i1 %.not73, label %._crit_edge78, label %.preheader.preheader
+  br i1 %.not72, label %._crit_edge77, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
@@ -1443,7 +1443,7 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.077 = phi i32 [ 0, %.preheader.preheader ], [ %.2, %._crit_edge ]
+  %.076 = phi i32 [ 0, %.preheader.preheader ], [ %.2, %._crit_edge ]
   %10 = icmp samesign ult i64 %indvars.iv, 2
   %cond = icmp eq i64 %indvars.iv, 2
   %11 = icmp eq i64 %indvars.iv, 4
@@ -1452,14 +1452,14 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
   br label %14
 
 14:                                               ; preds = %.preheader, %66
-  %.175 = phi i32 [ %.077, %.preheader ], [ %.2, %66 ]
-  %.sroa.0.074 = phi ptr [ %2, %.preheader ], [ %67, %66 ]
-  %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %.sroa.0.074, i64 noundef 3) #22
+  %.174 = phi i32 [ %.076, %.preheader ], [ %.2, %66 ]
+  %.sroa.0.073 = phi ptr [ %2, %.preheader ], [ %67, %66 ]
+  %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %.sroa.0.073, i64 noundef 3) #22
   store i8 0, ptr %9, align 1
   br i1 %10, label %.thread70, label %18
 
 .thread70:                                        ; preds = %14
-  %16 = sext i32 %.175 to i64
+  %16 = sext i32 %.174 to i64
   %17 = getelementptr inbounds i32, ptr %0, i64 %16
   store i32 3, ptr %17, align 4
   br label %.thread71
@@ -1468,21 +1468,21 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
   br i1 %cond, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = call noundef zeroext i1 @_Z12has_dihedraliRK7t_dlist(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(400) %.sroa.0.074)
+  %20 = call noundef zeroext i1 @_Z12has_dihedraliRK7t_dlist(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(400) %.sroa.0.073)
   br i1 %20, label %25, label %66
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 112
   %23 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %24, -1
   br i1 %.not65, label %66, label %30
 
 25:                                               ; preds = %19
-  %26 = sext i32 %.175 to i64
+  %26 = sext i32 %.174 to i64
   %27 = getelementptr inbounds i32, ptr %0, i64 %26
   store i32 3, ptr %27, align 4
-  %28 = call noundef zeroext i1 @_Z12has_dihedraliRK7t_dlist(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(400) %.sroa.0.074)
+  %28 = call noundef zeroext i1 @_Z12has_dihedraliRK7t_dlist(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(400) %.sroa.0.073)
   br i1 %28, label %29, label %.thread71
 
 29:                                               ; preds = %25
@@ -1490,7 +1490,7 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
   br label %.thread71
 
 30:                                               ; preds = %21
-  %31 = sext i32 %.175 to i64
+  %31 = sext i32 %.174 to i64
   %32 = getelementptr inbounds i32, ptr %0, i64 %31
   store i32 3, ptr %32, align 4
   %33 = load i32, ptr %23, align 4
@@ -1562,41 +1562,41 @@ define void @_Z22mk_multiplicity_lookupPiiN3gmx8ArrayRefIK7t_dlistEEi(ptr nounde
   br label %.thread71
 
 .thread71:                                        ; preds = %25, %29, %.thread70, %61, %64, %30
-  %65 = add nsw i32 %.175, 1
+  %65 = add nsw i32 %.174, 1
   br label %66
 
 66:                                               ; preds = %19, %21, %.thread71
-  %.2 = phi i32 [ %65, %.thread71 ], [ %.175, %21 ], [ %.175, %19 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 400
+  %.2 = phi i32 [ %65, %.thread71 ], [ %.174, %21 ], [ %.174, %19 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 400
   %.not = icmp eq ptr %67, %3
   br i1 %.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge78, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge77, label %.preheader, !llvm.loop !23
 
-._crit_edge78:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
+._crit_edge77:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
   %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %.preheader.lr.ph ], [ %.2, %._crit_edge ]
   %68 = icmp slt i32 %.0.lcssa, %4
-  br i1 %68, label %.lr.ph.preheader, label %._crit_edge82
+  br i1 %68, label %.lr.ph.preheader, label %._crit_edge81
 
-.lr.ph.preheader:                                 ; preds = %._crit_edge78
+.lr.ph.preheader:                                 ; preds = %._crit_edge77
   %69 = load ptr, ptr @stderr, align 8
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.30, i32 noundef %.0.lcssa, i32 noundef %4) #23
   %71 = sext i32 %.0.lcssa to i64
-  %wide.trip.count88 = sext i32 %4 to i64
+  %wide.trip.count87 = sext i32 %4 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv85 = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next86, %.lr.ph ]
-  %72 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv85
+  %indvars.iv84 = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next85, %.lr.ph ]
+  %72 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv84
   store i32 3, ptr %72, align 4
-  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %._crit_edge82, label %.lr.ph, !llvm.loop !24
+  %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge81, label %.lr.ph, !llvm.loop !24
 
-._crit_edge82:                                    ; preds = %.lr.ph, %._crit_edge78
+._crit_edge81:                                    ; preds = %.lr.ph, %._crit_edge77
   ret void
 }
 

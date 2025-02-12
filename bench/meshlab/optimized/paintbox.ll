@@ -9434,11 +9434,7 @@ define void @_ZN8Paintbox12setUndoStackEP7QWidget(ptr noundef nonnull align 8 de
   %31 = select i1 %27, i1 %30, i1 false
   br i1 %31, label %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit, label %22, !llvm.loop !5
 
-_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit: ; preds = %24
-  %.not = icmp eq ptr %23, %6
-  br i1 %.not, label %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread, label %37
-
-_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread: ; preds = %22, %2, %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit
+_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread: ; preds = %22, %2
   %32 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   invoke void @_ZN10QUndoStackC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %1)
           to label %33 unwind label %35
@@ -9446,7 +9442,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread: ; preds = %22, %2
 33:                                               ; preds = %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread
   store ptr %32, ptr %4, align 8
   %34 = call ptr @_ZN5QHashIP7QWidgetP10QUndoStackE6insertERKS1_RKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %37
+  br label %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit
 
 35:                                               ; preds = %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread
   %36 = landingpad { ptr, i32 }
@@ -9454,12 +9450,12 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit.thread: ; preds = %22, %2
   tail call void @_ZdlPv(ptr noundef nonnull %32) #20
   resume { ptr, i32 } %36
 
-37:                                               ; preds = %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit, %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %39 = load ptr, ptr %38, align 8
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QHashIP7QWidgetP10QUndoStackEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %41 = load ptr, ptr %40, align 8
-  call void @_ZN10QUndoGroup14setActiveStackEP10QUndoStack(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef %41)
+_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit: ; preds = %24, %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QHashIP7QWidgetP10QUndoStackEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %40 = load ptr, ptr %39, align 8
+  call void @_ZN10QUndoGroup14setActiveStackEP10QUndoStack(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %40)
   ret void
 }
 

@@ -9327,8 +9327,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 41:                                               ; preds = %38
   %42 = load ptr, ptr %36, align 8
   %.not12.i.i.i = icmp ne ptr %42, null
-  %or.cond42.not = select i1 %40, i1 %.not12.i.i.i, i1 false
-  br i1 %or.cond42.not, label %.lr.ph.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES_IS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS4_EESt4lessIS1_ESaISt4pairIKS1_S7_EEES9_SaISA_ISB_SE_EEE4findERSB_.exit.thread
+  %or.cond.not = select i1 %40, i1 %.not12.i.i.i, i1 false
+  br i1 %or.cond.not, label %.lr.ph.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES_IS1_St10unique_ptrINS0_47UsdImagingPiPrototypePropagatingSceneIndex_Impl18_InstancerObserverESt14default_deleteIS4_EESt4lessIS1_ESaISt4pairIKS1_S7_EEES9_SaISA_ISB_SE_EEE4findERSB_.exit.thread
 
 43:                                               ; preds = %23, %21, %19
   %44 = landingpad { ptr, i32 }

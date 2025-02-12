@@ -2324,16 +2324,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %281
   %284 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %280) #20
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %422
+          to label %.noexc307 unwind label %422
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+.noexc307:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %284, ptr align 4 %274, i64 %280, i1 false)
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 %280
   br label %_ZNSt6vectorIiSaIiEE6assignIPKivEEvT_S5_.exit
 
-_ZNSt6vectorIiSaIiEE6assignIPKivEEvT_S5_.exit:    ; preds = %277, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
-  %.sroa.0.2 = phi ptr [ %284, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %277 ]
-  %.sroa.17.2 = phi ptr [ %285, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ null, %277 ]
+_ZNSt6vectorIiSaIiEE6assignIPKivEEvT_S5_.exit:    ; preds = %277, %.noexc307
+  %.sroa.0.2 = phi ptr [ %284, %.noexc307 ], [ null, %277 ]
+  %.sroa.17.2 = phi ptr [ %285, %.noexc307 ], [ null, %277 ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %.sroa.0.2, ptr %.sroa.17.2)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit unwind label %422
 

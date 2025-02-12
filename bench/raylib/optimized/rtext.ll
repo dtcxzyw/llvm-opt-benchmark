@@ -4617,7 +4617,7 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1032, %._crit_edge1
   %1058 = sitofp i32 %.07531.i.i.i.i.i.i to float
   %1059 = fadd float %1058, 1.000000e+00
   call void @llvm.memset.p0.i64(ptr align 4 %.079.i.i.i.i.i.i, i8 0, i64 %1051, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 4 %1042, i8 0, i64 %1054, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %1042, i8 0, i64 %1054, i1 false)
   %.not908.i.i.i.i.i.i = icmp eq ptr %.0..i.i.i.i.i.i, null
   br i1 %.not908.i.i.i.i.i.i, label %.preheader7.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 

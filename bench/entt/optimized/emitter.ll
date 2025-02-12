@@ -1142,7 +1142,7 @@ _ZN7testing7MessageD2Ev.exit512:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp116) #23
   %63 = load ptr, ptr %message_.i500781, align 8, !tbaa !37
   %cmp.not.i.i514 = icmp eq ptr %63, null
-  br i1 %cmp.not.i.i514, label %for.body.i.i.i.i.i.i.i.i.preheader, label %delete.notnull.i.i.i515
+  br i1 %cmp.not.i.i514, label %cleanup292, label %delete.notnull.i.i.i515
 
 delete.notnull.i.i.i515:                          ; preds = %_ZN7testing7MessageD2Ev.exit512
   %64 = load ptr, ptr %63, align 8, !tbaa !48
@@ -1163,7 +1163,7 @@ if.then.i.i.i.i.i517:                             ; preds = %delete.notnull.i.i.
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i518: ; preds = %if.then.i.i.i.i.i517, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i519
   call void @_ZdlPv(ptr noundef nonnull %63) #24
-  br label %for.body.i.i.i.i.i.i.i.i.preheader
+  br label %cleanup292
 
 lpad117:                                          ; preds = %if.else115
   %67 = landingpad { ptr, i32 }
@@ -1416,14 +1416,14 @@ _ZN7testing15AssertionResultD2Ev.exit746:         ; preds = %invoke.cont220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_217) #23
   br label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %_ZN7testing7MessageD2Ev.exit512, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i518
+cleanup292:                                       ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i518, %_ZN7testing7MessageD2Ev.exit512
   store ptr null, ptr %message_.i500781, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_103) #23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 16), ptr %other, align 8, !tbaa !4
   br label %for.body.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i.preheader, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %cleanup292, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %6, %cleanup292 ]
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 32
   %96 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !36
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %96, null
@@ -1444,18 +1444,18 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %7
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !61
 
-invoke.cont.i.i.i.i.i:                            ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
+invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i = load ptr, ptr %packed.i.i.i.i.i426, align 8, !tbaa !58
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i.i
+if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.contthread-pre-split.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.pr.i.i.i.i.i) #24
   br label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i
 
-_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit746, %_ZN7testing15AssertionResultD2Ev.exit688
+_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit746, %_ZN7testing15AssertionResultD2Ev.exit688
   %99 = load ptr, ptr %handlers.i.i, align 8, !tbaa !32
   %tobool.not.i.i.i.i2.i.i.i = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i.i2.i.i.i, label %_ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit, label %if.then.i.i.i.i3.i.i.i

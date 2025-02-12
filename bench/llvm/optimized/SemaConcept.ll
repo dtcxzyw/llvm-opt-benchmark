@@ -2101,7 +2101,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE6appendISt13move_iteratorIP
   %65 = sub i64 %47, %41
   %.neg.i.i.i.i.i = sdiv exact i64 %65, -24
   %66 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %40, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %39, i64 %65, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr align 8 %39, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPN5clang16TemplateArgumentES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN5clang16TemplateArgumentES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %64
@@ -2123,7 +2123,7 @@ _ZSt13move_backwardIPN5clang16TemplateArgumentES2_ET0_T_S4_S3_.exit: ; preds = %
   %72 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %38, i64 %71
   %73 = sub nsw i64 0, %42
   %74 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %72, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
@@ -71579,7 +71579,7 @@ _ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15Sm
   %73 = getelementptr inbounds nuw ptr, ptr %38, i64 %72
   %74 = sub nsw i64 0, %42
   %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 8 %39, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69

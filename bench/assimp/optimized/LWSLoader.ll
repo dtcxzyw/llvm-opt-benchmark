@@ -5268,15 +5268,15 @@ invoke.cont845:                                   ; preds = %invoke.cont843
   store i32 %conv857, ptr %mNumChannels.i, align 8
   %245 = and i64 %sub.ptr.sub.i, 34359738360
   %call860 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %245) #21
-          to label %if.then.i.i.i.i.i unwind label %lpad808.loopexit.split-lp
+          to label %invoke.cont859 unwind label %lpad808.loopexit.split-lp
 
-if.then.i.i.i.i.i:                                ; preds = %invoke.cont845
+invoke.cont859:                                   ; preds = %invoke.cont845
   store ptr %call860, ptr %mChannels.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call860, ptr align 8 %.pre823, i64 %sub.ptr.sub.i, i1 false)
   br label %if.end871
 
-if.end871:                                        ; preds = %invoke.cont811, %if.then.i.i.i.i.i, %for.end839
-  %246 = phi ptr [ %.pre823, %if.then.i.i.i.i.i ], [ %.pre823, %for.end839 ], [ null, %invoke.cont811 ]
+if.end871:                                        ; preds = %invoke.cont811, %invoke.cont859, %for.end839
+  %246 = phi ptr [ %.pre823, %invoke.cont859 ], [ %.pre823, %for.end839 ], [ null, %invoke.cont811 ]
   call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monster_cheat) #22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp21MakeLeftHandedProcessE, i64 16), ptr %monster_cheat, align 8
   invoke void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24) %monster_cheat, ptr noundef nonnull %call785)

@@ -5472,15 +5472,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %17, %20
 
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %27
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #25
-          to label %.noexc128 unwind label %.loopexit.split-lp222.loopexit.split-lp
+          to label %.lr.ph.i.i.i.i.i.i unwind label %.loopexit.split-lp222.loopexit.split-lp
 
-.noexc128:                                        ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE11_M_allocateEm.exit.i.i
-  %.not17.i.i.i.i.i.i = icmp eq ptr %.val30.i, %.val31.i
-  br i1 %.not17.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE13_M_deallocateEPS3_m.exit.i, label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc128, %.loopexit.i.i.i.i.i.i
-  %.019.i.i.i.i.i.i = phi ptr [ %51, %.loopexit.i.i.i.i.i.i ], [ %30, %.noexc128 ]
-  %.sroa.012.018.i.i.i.i.i.i = phi ptr [ %50, %.loopexit.i.i.i.i.i.i ], [ %.val30.i, %.noexc128 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE11_M_allocateEm.exit.i.i, %.loopexit.i.i.i.i.i.i
+  %.019.i.i.i.i.i.i = phi ptr [ %51, %.loopexit.i.i.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.012.018.i.i.i.i.i.i = phi ptr [ %50, %.loopexit.i.i.i.i.i.i ], [ %.val30.i, %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE11_M_allocateEm.exit.i.i ]
   %31 = load i32, ptr %.sroa.012.018.i.i.i.i.i.i, align 8
   store i32 %31, ptr %.019.i.i.i.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i, i64 8
@@ -5624,7 +5620,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS
 71:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
   unreachable
 
-_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %.loopexit.i.i.i.i.i.i, %.noexc128
+_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117HbondStorageFrameESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %.loopexit.i.i.i.i.i.i
   store ptr %30, ptr %3, align 8
   %72 = getelementptr inbounds nuw i8, ptr %30, i64 %25
   store ptr %72, ptr %26, align 8

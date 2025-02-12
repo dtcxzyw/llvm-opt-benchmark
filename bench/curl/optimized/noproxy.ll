@@ -171,7 +171,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %67, label %68, label %.critedge139.us.preheader
 
 68:                                               ; preds = %62
-  %69 = call i32 @curl_strnequal(ptr noundef nonnull %.097.us, ptr noundef %64, i64 noundef %.296.us) #9
+  %69 = call i32 @curl_strnequal(ptr noundef nonnull %.097.us, ptr noundef nonnull %64, i64 noundef %.296.us) #9
   %.not183.us = icmp eq i32 %69, 0
   br i1 %.not183.us, label %.critedge139.us.preheader, label %.thread165
 

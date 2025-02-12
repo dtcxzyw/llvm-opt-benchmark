@@ -1029,8 +1029,8 @@ invoke.cont9.i:                                   ; preds = %land.lhs.true.i
   br i1 %cmp12.i, label %invoke.cont18.i, label %if.else.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont9.i
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.i = add i64 %sub.ptr.sub.i.i, -2
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -1126,8 +1126,8 @@ invoke.cont9:                                     ; preds = %land.lhs.true
   br i1 %cmp12, label %invoke.cont18, label %if.else
 
 invoke.cont18:                                    ; preds = %invoke.cont9
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub = add i64 %sub.ptr.sub.i, -2
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 1

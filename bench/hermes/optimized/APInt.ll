@@ -4448,7 +4448,7 @@ for.end:                                          ; preds = %for.body, %_ZN4llvh
 
 if.then45:                                        ; preds = %for.end
   %sub48 = sub i32 %mul, %0
-  br i1 %cmp.i.i20, label %if.then.i, label %if.end.i.i.i
+  br i1 %cmp.i.i20, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %if.then45
   br i1 %cmp35.not52, label %if.then2.i, label %if.else.i51
@@ -4463,7 +4463,7 @@ if.else.i51:                                      ; preds = %if.then.i
   store i64 %shr.i, ptr %agg.result, align 8
   br label %_ZN4llvh5APInt11lshrInPlaceEj.exit
 
-if.end.i.i.i:                                     ; preds = %if.then45
+if.end4.i:                                        ; preds = %if.then45
   %19 = and i32 %conv1.i.i, 67108863
   %div24.i.i.i = lshr i32 %sub48, 6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %div24.i.i.i)
@@ -4472,7 +4472,7 @@ if.end.i.i.i:                                     ; preds = %if.then45
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %for.cond.preheader.i.i.i
 
-for.cond.preheader.i.i.i:                         ; preds = %if.end.i.i.i
+for.cond.preheader.i.i.i:                         ; preds = %if.end4.i
   %invariant.op.i.i.i = add nuw nsw i32 %.sroa.speculated.i.i.i, 1
   %cmp2.not28.not.i.i.i = icmp samesign ult i32 %div24.i.i.i, %19
   br i1 %cmp2.not28.not.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end17.i.i.i
@@ -4490,7 +4490,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.
   %cmp6.not.i4.i.i = icmp eq i32 %sub.i.i.i, 1
   br i1 %cmp6.not.i4.i.i, label %if.end17.i.i.i, label %for.inc.i.i.i
 
-if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
+if.then1.i.i.i:                                   ; preds = %if.end4.i
   %idx.ext.i.i.i = zext nneg i32 %.sroa.speculated.i.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %idx.ext.i.i.i
   %mul.i.i.i = shl nsw i32 %sub.i.i.i, 3

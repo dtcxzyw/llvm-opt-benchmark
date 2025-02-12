@@ -944,54 +944,54 @@ define weak_odr void @_ZNK7mitsuba10MergeShapeIfN5drjit6MatrixINS_8SpectrumIfLm4
 
 16:                                               ; preds = %14
   invoke void @_ZNKSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
-          to label %.noexc.i.i unwind label %29
+          to label %.noexc.i.i unwind label %30
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
 
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i.i.i: ; preds = %14
   %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #24
-          to label %.lr.ph.i.i.i.i.preheader.i unwind label %29
+          to label %18 unwind label %30
 
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i.i.i
+18:                                               ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i.i.i
   store ptr %17, ptr %0, align 8
   store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %12
-  store ptr %18, ptr %6, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %12
+  store ptr %19, ptr %6, align 8
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.0.i.i.i.i.i = phi ptr [ %24, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.preheader.i ]
-  %.010.i.i.i.i.i = phi ptr [ %23, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.preheader.i ]
-  %19 = load ptr, ptr %.010.i.i.i.i.i, align 8
-  store ptr %19, ptr %.0.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i, label %20
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i, %18
+  %.0.i.i.i.i.i = phi ptr [ %25, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i ], [ %17, %18 ]
+  %.010.i.i.i.i.i = phi ptr [ %24, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i ], [ %7, %18 ]
+  %20 = load ptr, ptr %.010.i.i.i.i.i, align 8
+  store ptr %20, ptr %.0.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i, label %21
 
-20:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = atomicrmw add ptr %21, i32 1 seq_cst, align 4
+21:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = atomicrmw add ptr %22, i32 1 seq_cst, align 4
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i
 
-_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i: ; preds = %20, %.lr.ph.i.i.i.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i.i, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %23, %9
+_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %24, %9
   br i1 %.not.i.i.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE18__construct_at_endIPS4_S9_EEvT_T0_m.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 _ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE18__construct_at_endIPS4_S9_EEvT_T0_m.exit.i.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constructB8ne190000IS5_JRS5_ETnNS_9enable_ifIXsr15__has_constructIS6_PT_DpT0_EE5valueEiE4typeELi0EEEvRS6_SC_DpOSD_.exit.i.i.i.i.i
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %17 to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds i8, ptr %17, i64 %27
-  store ptr %28, ptr %5, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %17 to i64
+  %28 = sub i64 %26, %27
+  %29 = getelementptr inbounds i8, ptr %17, i64 %28
+  store ptr %29, ptr %5, align 8
   br label %_ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEEC2ERKS7_.exit
 
-29:                                               ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i.i.i, %16
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i.i.i, %16
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__128__exception_guard_exceptionsINS_6vectorIN7mitsuba3refINS2_6ObjectEEENS_9allocatorIS5_EEE16__destroy_vectorEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #21
-  resume { ptr, i32 } %30
+  resume { ptr, i32 } %31
 
 _ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEEC2ERKS7_.exit: ; preds = %2, %_ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE18__construct_at_endIPS4_S9_EEvT_T0_m.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)

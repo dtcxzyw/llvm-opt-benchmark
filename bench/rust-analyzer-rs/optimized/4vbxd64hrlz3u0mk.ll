@@ -13569,36 +13569,36 @@ _ZN4core3ptr19swap_nonoverlapping17hf1c5d2b0b672054aE.exit.i.i: ; preds = %200
   %241 = load i64, ptr %240, align 8, !alias.scope !3033, !noundef !11
   %242 = add i64 %234, %232
   %.not15.i = icmp ugt i64 %241, %242
-  br i1 %.not15.i, label %236, label %.thread19.i
+  br i1 %.not15.i, label %236, label %.thread18.i
 
 243:                                              ; preds = %236
   %244 = add i64 %storemerge357, -4
   %245 = getelementptr inbounds [0 x { i64, i64 }], ptr %224, i64 0, i64 %244, i32 1
   %246 = load i64, ptr %245, align 8, !alias.scope !3033, !noundef !11
   %247 = add i64 %241, %232
-  %.not17.i = icmp ugt i64 %246, %247
-  br i1 %.not17.i, label %._crit_edge359, label %.thread19.i
+  %.not16.i = icmp ugt i64 %246, %247
+  br i1 %.not16.i, label %._crit_edge359, label %.thread18.i
 
 248:                                              ; preds = %229, %.lr.ph358
-  %.not18.i = icmp eq i64 %storemerge357, 2
-  br i1 %.not18.i, label %249, label %..thread19_crit_edge.i
+  %.not17.i = icmp eq i64 %storemerge357, 2
+  br i1 %.not17.i, label %249, label %..thread18_crit_edge.i
 
-..thread19_crit_edge.i:                           ; preds = %248
+..thread18_crit_edge.i:                           ; preds = %248
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %226, i64 8
   %.pre.i133 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !3033
-  %.pre21.i = add i64 %storemerge357, -3
-  %.phi.trans.insert22.i = getelementptr inbounds [0 x { i64, i64 }], ptr %224, i64 0, i64 %.pre21.i, i32 1
-  %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !alias.scope !3033
-  br label %.thread19.i
+  %.pre20.i = add i64 %storemerge357, -3
+  %.phi.trans.insert21.i = getelementptr inbounds [0 x { i64, i64 }], ptr %224, i64 0, i64 %.pre20.i, i32 1
+  %.pre22.i = load i64, ptr %.phi.trans.insert21.i, align 8, !alias.scope !3033
+  br label %.thread18.i
 
-249:                                              ; preds = %.thread19.i, %248
+249:                                              ; preds = %.thread18.i, %248
   %250 = add i64 %storemerge357, -2
   br label %254
 
-.thread19.i:                                      ; preds = %..thread19_crit_edge.i, %243, %238
-  %251 = phi i64 [ %.pre23.i, %..thread19_crit_edge.i ], [ %241, %243 ], [ %241, %238 ]
-  %.pre-phi.i = phi i64 [ %.pre21.i, %..thread19_crit_edge.i ], [ %239, %243 ], [ %239, %238 ]
-  %252 = phi i64 [ %.pre.i133, %..thread19_crit_edge.i ], [ %234, %243 ], [ %234, %238 ]
+.thread18.i:                                      ; preds = %..thread18_crit_edge.i, %243, %238
+  %251 = phi i64 [ %.pre22.i, %..thread18_crit_edge.i ], [ %241, %243 ], [ %241, %238 ]
+  %.pre-phi.i = phi i64 [ %.pre20.i, %..thread18_crit_edge.i ], [ %239, %243 ], [ %239, %238 ]
+  %252 = phi i64 [ %.pre.i133, %..thread18_crit_edge.i ], [ %234, %243 ], [ %234, %238 ]
   %253 = icmp ult i64 %251, %252
   br i1 %253, label %254, label %249
 
@@ -13606,8 +13606,8 @@ _ZN4core3ptr19swap_nonoverlapping17hf1c5d2b0b672054aE.exit.i.i: ; preds = %200
   %.not = icmp eq i64 %.181.lcssa, 0
   br i1 %.not, label %._crit_edge367, label %23
 
-254:                                              ; preds = %249, %.thread19.i
-  %.sroa.4.0.i.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %250, %249 ]
+254:                                              ; preds = %249, %.thread18.i
+  %.sroa.4.0.i.ph = phi i64 [ %.pre-phi.i, %.thread18.i ], [ %250, %249 ]
   %255 = add nuw i64 %.sroa.4.0.i.ph, 1
   %256 = icmp ult i64 %255, %storemerge357
   br i1 %256, label %257, label %.invoke637, !prof !2804

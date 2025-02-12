@@ -1953,21 +1953,21 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   br i1 %28, label %._crit_edge.thread.i, label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %.049.lcssa119.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
-  %.153.lcssa118.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
+  %.049.lcssa120.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
+  %.153.lcssa119.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
   %.not64.i = icmp eq ptr %0, null
   br i1 %.not64.i, label %33, label %29
 
 29:                                               ; preds = %._crit_edge.thread.i
   store i8 1, ptr %0, align 8, !tbaa !69
   %30 = sext i32 %.051.i to i64
-  %31 = mul nsw i64 %.049.lcssa119.i, %30
+  %31 = mul nsw i64 %.049.lcssa120.i, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !16
   br label %33
 
 33:                                               ; preds = %29, %._crit_edge.thread.i
-  %34 = ptrtoint ptr %.153.lcssa118.i to i64
+  %34 = ptrtoint ptr %.153.lcssa119.i to i64
   %35 = ptrtoint ptr %1 to i64
   %36 = sub i64 %34, %35
   br label %sf_parse_integer_or_decimal.exit
@@ -1987,31 +1987,29 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
 
 41:                                               ; preds = %38
   %.not62.i = icmp eq ptr %0, null
-  br i1 %.not62.i, label %51, label %42
+  br i1 %.not62.i, label %51, label %.lr.ph101.i
 
-42:                                               ; preds = %41
+.lr.ph101.i:                                      ; preds = %41
   store i8 2, ptr %0, align 8, !tbaa !69
-  %43 = sitofp i64 %.04978.i to double
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not6398.i = icmp eq i64 %39, 0
-  br i1 %.not6398.i, label %._crit_edge102.i, label %.lr.ph101.i
+  %42 = sitofp i64 %.04978.i to double
+  br label %43
 
-.lr.ph101.i:                                      ; preds = %42, %.lr.ph101.i
-  %45 = phi double [ %46, %.lr.ph101.i ], [ %43, %42 ]
-  %.099.i = phi i64 [ %47, %.lr.ph101.i ], [ %39, %42 ]
-  %46 = fdiv double %45, 1.000000e+01
-  %47 = add nsw i64 %.099.i, -1
-  %.not63.i = icmp eq i64 %47, 0
-  br i1 %.not63.i, label %._crit_edge102.i, label %.lr.ph101.i, !llvm.loop !73
+43:                                               ; preds = %43, %.lr.ph101.i
+  %44 = phi double [ %42, %.lr.ph101.i ], [ %45, %43 ]
+  %.099.i = phi i64 [ %39, %.lr.ph101.i ], [ %46, %43 ]
+  %45 = fdiv double %44, 1.000000e+01
+  %46 = add nsw i64 %.099.i, -1
+  %.not63.i = icmp eq i64 %46, 0
+  br i1 %.not63.i, label %47, label %43, !llvm.loop !73
 
-._crit_edge102.i:                                 ; preds = %.lr.ph101.i, %42
-  %48 = phi double [ %43, %42 ], [ %46, %.lr.ph101.i ]
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = sitofp i32 %.051.i to double
-  %50 = fmul double %48, %49
-  store double %50, ptr %44, align 8, !tbaa !16
+  %50 = fmul double %45, %49
+  store double %50, ptr %48, align 8, !tbaa !16
   br label %51
 
-51:                                               ; preds = %._crit_edge102.i, %41
+51:                                               ; preds = %47, %41
   %52 = ptrtoint ptr %.15381.i to i64
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %52, %53

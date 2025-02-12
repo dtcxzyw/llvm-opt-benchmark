@@ -654,8 +654,8 @@ _ZN8rawspeed10NefDecoder20NEFIsUncompressedRGBEPKNS_7TiffIFDE.exit.thread: ; pre
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %146 = load i32, ptr %145, align 8, !tbaa !18
   %147 = zext i32 %146 to i64
-  %.not104 = icmp samesign ugt i64 %144, %147
-  br i1 %.not104, label %148, label %149
+  %.not103 = icmp samesign ugt i64 %144, %147
+  br i1 %.not103, label %148, label %149
 
 148:                                              ; preds = %138
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10NefDecoder17decodeRawInternalEv) #22
@@ -1788,10 +1788,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %199, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %201 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
-  %.not324418 = icmp eq ptr %.19.i.i.i.i, %143
-  %.not324 = select i1 %201, i1 true, i1 %.not324418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
-  br i1 %.not324, label %._crit_edge.i.i145, label %202
+  br i1 %201, label %._crit_edge.i.i145, label %202
 
 202:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #28
@@ -2044,10 +2042,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i169, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i175
   %.0.i.i.i.i.i.i.i172 = phi i32 [ %283, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i169 ], [ %.0.i6.i.i.i.i.i.i.i178, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i175 ]
   %285 = icmp slt i32 %.0.i.i.i.i.i.i.i172, 0
-  %.not325419 = icmp eq ptr %.19.i.i.i.i162, %143
-  %.not325 = select i1 %285, i1 true, i1 %.not325419
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #28
-  br i1 %.not325, label %287, label %286
+  br i1 %285, label %287, label %286
 
 286:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186
   store ptr %181, ptr %11, align 8
@@ -5071,10 +5067,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %351, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %353 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
-  %.not222240 = icmp eq ptr %.19.i.i.i.i, %335
-  %.not222 = select i1 %353, i1 true, i1 %.not222240
   call void @_ZdlPvm(ptr noundef nonnull %331, i64 noundef 20) #29
-  br i1 %.not222, label %363, label %354
+  br i1 %353, label %363, label %354
 
 354:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 8

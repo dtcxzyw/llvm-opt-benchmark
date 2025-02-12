@@ -8062,10 +8062,8 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %86, %_ZN7Minisat15C
 206:                                              ; preds = %189
   %207 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %178, i64 %192
   %208 = load i32, ptr %207, align 4
-  %.not.i47 = icmp ne i32 %208, -1
   %209 = icmp eq i32 %208, %181
-  %or.cond = and i1 %.not.i47, %209
-  br i1 %or.cond, label %211, label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49
+  br i1 %209, label %211, label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit49
 
 210:                                              ; preds = %182
   store i32 %.sroa.0.0.copyload.i.i46, ptr %180, align 4

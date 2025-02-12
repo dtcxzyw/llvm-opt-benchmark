@@ -18897,12 +18897,12 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17hbe385de862cb305fE(p
 74:                                               ; preds = %70, %67, %.noexc.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !3622
   %.pre.i.i.i.i = load i64, ptr %12, align 8, !range !536, !alias.scope !3632, !noalias !3598
+  %75 = icmp eq i64 %.pre.i.i.i.i, -9223372036854775808
   store i64 %55, ptr %32, align 8, !alias.scope !3597, !noalias !3598
   store ptr %59, ptr %.sroa.64.0..sroa_idx5.i.i.i.i.i.i, align 8, !alias.scope !3597, !noalias !3598
   store i64 %.val8.i.i, ptr %.sroa.7.0..sroa_idx7.i.i.i.i.i.i, align 8, !alias.scope !3597, !noalias !3598
   call void @llvm.experimental.noalias.scope.decl(metadata !3635)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !3621
-  %75 = icmp eq i64 %.pre.i.i.i.i, -9223372036854775808
   br i1 %75, label %.invoke, label %77
 
 .invoke:                                          ; preds = %74, %46

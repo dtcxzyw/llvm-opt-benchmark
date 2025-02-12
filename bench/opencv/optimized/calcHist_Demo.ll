@@ -472,19 +472,19 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %227 = sub nsw i32 400, %226
   %.pre = load ptr, ptr %152, align 8
   %.pre145 = load i32, ptr %.pre, align 4
-  %228 = mul i32 %112, %indvars143
-  %229 = icmp eq i32 %.pre145, 1
-  br i1 %229, label %230, label %235
+  %228 = icmp eq i32 %.pre145, 1
+  %229 = mul i32 %112, %indvars143
+  br i1 %228, label %230, label %235
 
 230:                                              ; preds = %212, %221
   %231 = phi ptr [ %222, %221 ], [ %213, %212 ]
-  %232 = phi i32 [ %228, %221 ], [ %220, %212 ]
+  %232 = phi i32 [ %229, %221 ], [ %220, %212 ]
   %233 = phi i32 [ %227, %221 ], [ %218, %212 ]
   %234 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv
   br label %260
 
 235:                                              ; preds = %.thread148, %221
-  %236 = phi i32 [ %211, %.thread148 ], [ %228, %221 ]
+  %236 = phi i32 [ %211, %.thread148 ], [ %229, %221 ]
   %237 = phi i32 [ %209, %.thread148 ], [ %227, %221 ]
   %238 = phi ptr [ %178, %.thread148 ], [ %.pre, %221 ]
   %239 = phi ptr [ %205, %.thread148 ], [ %222, %221 ]
