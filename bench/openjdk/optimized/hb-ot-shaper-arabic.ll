@@ -10488,28 +10488,28 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
   %27 = and i64 %3, 4294967295
   %28 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %2, i64 %27
   %.not2960 = icmp eq i64 %27, 0
-  br i1 %.not2960, label %._crit_edge, label %.lr.ph
+  br i1 %.not2960, label %36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit, %.lr.ph._crit_edge
   %.02265 = phi i32 [ %spec.select34, %.lr.ph._crit_edge ], [ 0, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ]
-  %.02364 = phi i32 [ %.pre67, %.lr.ph._crit_edge ], [ -2, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ]
+  %.02364 = phi i32 [ %.pre68, %.lr.ph._crit_edge ], [ -2, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ]
   %.02662 = phi i1 [ %.127, %.lr.ph._crit_edge ], [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ]
   %.02861 = phi ptr [ %34, %.lr.ph._crit_edge ], [ %2, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ]
   %29 = load i16, ptr %.02861, align 1
   %.not32 = icmp eq i32 %.02364, -2
   %.pre = tail call i16 @llvm.bswap.i16(i16 %29)
-  %.pre67 = zext i16 %.pre to i32
+  %.pre68 = zext i16 %.pre to i32
   br i1 %.not32, label %.lr.ph._crit_edge, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = icmp ugt i32 %.02364, %.pre67
+  %31 = icmp ugt i32 %.02364, %.pre68
   %spec.select = select i1 %31, i1 true, i1 %.02662
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %30
   %.127 = phi i1 [ %spec.select, %30 ], [ %.02662, %.lr.ph ]
   %32 = add nsw i32 %.02364, 1
-  %.not33 = icmp ne i32 %32, %.pre67
+  %.not33 = icmp ne i32 %32, %.pre68
   %33 = zext i1 %.not33 to i32
   %spec.select34 = add i32 %.02265, %33
   %34 = getelementptr inbounds nuw i8, ptr %.02861, i64 2
@@ -10518,25 +10518,25 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph._crit_edge
   %35 = mul i32 %spec.select34, 3
-  br label %._crit_edge
+  br label %36
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit
+36:                                               ; preds = %._crit_edge.loopexit, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit
   %.026.lcssa = phi i1 [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ], [ %.127, %._crit_edge.loopexit ]
   %.022.lcssa = phi i32 [ 0, %_ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exit ], [ %35, %._crit_edge.loopexit ]
-  %36 = icmp ult i32 %.022.lcssa, %.sroa.5.8.extract.trunc
-  %.not31 = select i1 %.026.lcssa, i1 true, i1 %36
-  %37 = select i1 %.not31, i16 512, i16 256
-  store i16 %37, ptr %0, align 1
-  br i1 %.not31, label %82, label %38
+  %37 = icmp ult i32 %.022.lcssa, %.sroa.5.8.extract.trunc
+  %.not31 = select i1 %.026.lcssa, i1 true, i1 %37
+  %38 = select i1 %.not31, i16 512, i16 256
+  store i16 %38, ptr %0, align 1
+  br i1 %.not31, label %83, label %39
 
-38:                                               ; preds = %._crit_edge
-  %39 = load i32, ptr %5, align 4
-  %.not.i.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i.i.i.i, label %40, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit
+39:                                               ; preds = %36
+  %40 = load i32, ptr %5, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %40, 0
+  br i1 %.not.i.i.i.i.i, label %41, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %42 = load ptr, ptr %9, align 8
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %43 = load ptr, ptr %9, align 8
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
@@ -10560,39 +10560,39 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
   br label %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i
 
 _ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i:             ; preds = %53, %52
-  %54 = phi ptr [ %.pre.i.i.i.i.i.i.i, %53 ], [ %42, %52 ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %45
-  store ptr %55, ptr %9, align 8
-  %56 = icmp eq ptr %54, null
-  br i1 %56, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit, label %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11HBGlyphID16ENS1_7IntTypeItLj2EEEEEEEPT_S8_.exit.i.i.i.i
+  %55 = phi ptr [ %.pre.i.i.i.i.i.i.i, %53 ], [ %43, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %45
+  store ptr %56, ptr %9, align 8
+  %57 = icmp eq ptr %55, null
+  br i1 %57, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit, label %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11HBGlyphID16ENS1_7IntTypeItLj2EEEEEEEPT_S8_.exit.i.i.i.i
 
 _ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11HBGlyphID16ENS1_7IntTypeItLj2EEEEEEEPT_S8_.exit.i.i.i.i: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i
-  %57 = trunc i64 %3 to i16
-  %.sroa.0.0.insert.insert.i.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %57)
+  %58 = trunc i64 %3 to i16
+  %.sroa.0.0.insert.insert.i.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %58)
   store i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i, ptr %8, align 1
   %.not.i.i.i.i.i.i = icmp ult i32 %.sroa.5.8.extract.trunc, 65536
   %.pre.i.i.i.i = load i32, ptr %5, align 4
   br i1 %.not.i.i.i.i.i.i, label %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i, label %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i.i.i.i
 
 _ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i.i.i.i: ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11HBGlyphID16ENS1_7IntTypeItLj2EEEEEEEPT_S8_.exit.i.i.i.i
-  %58 = or i32 %.pre.i.i.i.i, 16
+  %59 = or i32 %.pre.i.i.i.i, 16
   br label %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i
 
 _ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i: ; preds = %_ZN22hb_serialize_context_t10extend_minIN2OT7ArrayOfINS1_11HBGlyphID16ENS1_7IntTypeItLj2EEEEEEEPT_S8_.exit.i.i.i.i
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %59, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit
 
-59:                                               ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i
-  %60 = lshr i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 7
-  %61 = and i16 %60, 510
-  %62 = zext nneg i16 %61 to i64
-  %63 = and i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 255
-  %64 = zext nneg i16 %63 to i64
+75:                                               ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i
+  %76 = lshr i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 7
+  %77 = and i16 %76, 510
+  %78 = zext nneg i16 %77 to i64
+  %79 = and i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 255
+  %64 = zext nneg i16 %79 to i64
   %65 = shl nuw nsw i64 %64, 9
   %66 = or disjoint i64 %65, %62
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %66
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %69 = load ptr, ptr %9, align 8
+  %.not.i.i.i = load ptr, ptr %9, align 8
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
@@ -10626,9 +10626,9 @@ _ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i: ; p
   %.sroa.0.014.i.i.i = phi ptr [ %2, %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.lr.ph.i.i.i ], [ %.sroa.0.1.i.i.i, %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i ]
   %.not.i.i8.not.i.i.i = icmp eq i32 %.sroa.4.015.i.i.i, 0
   %spec.select.i.i.i.i.i = select i1 %.not.i.i8.not.i.i.i, ptr @_hb_NullPool, ptr %.sroa.0.014.i.i.i
-  %80 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %41, i64 0, i64 %indvars.iv.i.i.i
-  %81 = load i16, ptr %spec.select.i.i.i.i.i, align 1
-  store i16 %81, ptr %80, align 1
+  %81 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %42, i64 0, i64 %indvars.iv.i.i.i
+  %82 = load i16, ptr %spec.select.i.i.i.i.i, align 1
+  store i16 %82, ptr %81, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.sroa.0.1.idx.i.i.i = select i1 %.not.i.i8.not.i.i.i, i64 0, i64 2
   %.sroa.0.1.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i.i.i, i64 %.sroa.0.1.idx.i.i.i
@@ -10637,16 +10637,16 @@ _ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i: ; p
   br i1 %exitcond.not.i.i.i, label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit, label %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i, !llvm.loop !175
 
 _ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i: ; preds = %74, %59, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i.i.i.i, %47, %40
-  %.sink.i.i.i = phi i32 [ %58, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i.i.i.i ], [ 4, %47 ], [ 4, %40 ], [ 4, %74 ], [ 4, %59 ]
+  %.sink.i.i.i = phi i32 [ %59, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i.i.i.i ], [ 4, %47 ], [ 4, %41 ], [ 4, %74 ], [ 4, %59 ]
   store i32 %.sink.i.i.i, ptr %5, align 4
   br label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit
 
-82:                                               ; preds = %._crit_edge
-  %83 = tail call noundef zeroext i1 @_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI17hb_sorted_array_tIKNS_11HBGlyphID16EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSB_18is_sorted_iteratorEvE4typeELPv0EEEbP22hb_serialize_context_tSB_(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1, ptr %2, i64 %3)
+83:                                               ; preds = %36
+  %84 = tail call noundef zeroext i1 @_ZN2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE9serializeI17hb_sorted_array_tIKNS_11HBGlyphID16EETnPN12hb_enable_ifIXaasr15hb_is_source_ofIT_jEE5valuesrSB_18is_sorted_iteratorEvE4typeELPv0EEEbP22hb_serialize_context_tSB_(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1, ptr %2, i64 %3)
   br label %_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit
 
-_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit: ; preds = %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i, %.preheader.i.i.i, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i, %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i, %38, %_ZL9hb_memsetPvij.exit.i.i.i, %21, %4, %82
-  %.0 = phi i1 [ %83, %82 ], [ false, %4 ], [ false, %21 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i ], [ false, %38 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i ], [ true, %.preheader.i.i.i ], [ false, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i ], [ true, %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i ]
+_ZN22hb_serialize_context_t13check_successEb20hb_serialize_error_t.exit: ; preds = %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i, %.preheader.i.i.i, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i, %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i, %39, %_ZL9hb_memsetPvij.exit.i.i.i, %21, %4, %83
+  %.0 = phi i1 [ %84, %83 ], [ false, %4 ], [ false, %21 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.i.i.i ], [ false, %39 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i.i.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i.i.i.i ], [ true, %.preheader.i.i.i ], [ false, %_ZN2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE9serializeEP22hb_serialize_context_tjb.exit.thread.sink.split.i.i.i ], [ true, %_ZNR9hb_iter_tI17hb_sorted_array_tIKN2OT11HBGlyphID16EERS3_EppEv.exit.i.i.i ]
   ret i1 %.0
 }
 
