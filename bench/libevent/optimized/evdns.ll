@@ -165,7 +165,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   store i32 %socket, ptr %call, align 8
   %refcnt = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 1, ptr %refcnt, align 4
@@ -453,7 +453,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   store i32 %socket, ptr %call.i, align 8
   %refcnt.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %refcnt.i, align 4
@@ -4869,7 +4869,7 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
   %6 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
   %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
@@ -4942,7 +4942,7 @@ search_state_decref.exit.i.i:                     ; preds = %for.end.i.i.i, %if.
 
 if.end.i3.i.i:                                    ; preds = %search_state_decref.exit.i.i
   %7 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i.i, align 8
   %ndots.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 4
   store i32 1, ptr %ndots.i.i.i, align 4
@@ -5004,7 +5004,7 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
 
 if.end9.i:                                        ; preds = %if.then6.i
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
   %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
@@ -5089,7 +5089,7 @@ if.end6.thread11:                                 ; preds = %if.then3
 
 if.end6:                                          ; preds = %if.then3
   %3 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i, align 8
   %ndots.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %ndots.i, align 4
@@ -5147,7 +5147,7 @@ if.end6.thread11.i:                               ; preds = %if.then3.i
 
 if.end6.i:                                        ; preds = %if.then3.i
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
   %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
@@ -5266,7 +5266,7 @@ if.end16.thread202:                               ; preds = %if.then13
 
 if.end16:                                         ; preds = %if.then13
   %4 = getelementptr inbounds nuw i8, ptr %call.i104, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i104, align 8
   %ndots.i = getelementptr inbounds nuw i8, ptr %call.i104, i64 4
   store i32 1, ptr %ndots.i, align 4
@@ -7675,7 +7675,7 @@ do.end112:                                        ; preds = %if.else100
 
 if.then115:                                       ; preds = %do.end112
   %36 = getelementptr inbounds nuw i8, ptr %sin, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, i8 0, i64 12, i1 false)
   store i16 2, ptr %sin, align 4
   %37 = load i16, ptr %port, align 8
   %call116 = tail call zeroext i16 @htons(i16 noundef zeroext %37) #19
@@ -7686,7 +7686,7 @@ if.then115:                                       ; preds = %do.end112
 
 if.else117:                                       ; preds = %do.end112
   %38 = getelementptr inbounds nuw i8, ptr %sin6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   store i16 10, ptr %sin6, align 4
   %39 = load i16, ptr %port, align 8
   %call119 = tail call zeroext i16 @htons(i16 noundef zeroext %39) #19
@@ -12687,7 +12687,7 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
   %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
@@ -12719,7 +12719,7 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
 
 if.end9.i:                                        ; preds = %if.then6.i
   %6 = getelementptr inbounds nuw i8, ptr %call.i.i22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i22, align 8
   %ndots.i.i24 = getelementptr inbounds nuw i8, ptr %call.i.i22, i64 4
   store i32 1, ptr %ndots.i.i24, align 4
@@ -12796,7 +12796,7 @@ search_state_decref.exit.i30:                     ; preds = %for.end.i.i42, %if.
 
 if.end.i3.i33:                                    ; preds = %search_state_decref.exit.i30
   %16 = getelementptr inbounds nuw i8, ptr %call.i.i31, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i31, align 8
   %ndots.i.i34 = getelementptr inbounds nuw i8, ptr %call.i.i31, i64 4
   store i32 1, ptr %ndots.i.i34, align 4
@@ -12836,7 +12836,7 @@ if.end9.thread17.i69:                             ; preds = %if.then6.i64
 
 if.end9.i67:                                      ; preds = %if.then6.i64
   %19 = getelementptr inbounds nuw i8, ptr %call.i.i65, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i65, align 8
   %ndots.i.i68 = getelementptr inbounds nuw i8, ptr %call.i.i65, i64 4
   store i32 1, ptr %ndots.i.i68, align 4
@@ -12967,7 +12967,7 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
   %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
@@ -13008,7 +13008,7 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
 
 if.end9.i:                                        ; preds = %if.then6.i
   %7 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i5, align 8
   %ndots.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 4
   store i32 1, ptr %ndots.i.i7, align 4

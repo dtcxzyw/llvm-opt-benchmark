@@ -14075,7 +14075,7 @@ GC_build_fl4.exit.i:                              ; preds = %328
 
 335:                                              ; preds = %334
   %336 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %336, i8 0, i64 4088, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4088) %336, i8 0, i64 4088, i1 false)
   br label %337
 
 337:                                              ; preds = %335, %334
@@ -14303,7 +14303,7 @@ GC_build_fl4.exit.i168:                           ; preds = %406
 
 413:                                              ; preds = %412
   %414 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %414, i8 0, i64 4088, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4088) %414, i8 0, i64 4088, i1 false)
   br label %415
 
 415:                                              ; preds = %413, %412
@@ -41131,7 +41131,7 @@ GC_build_fl4.exit.i.i:                            ; preds = %157
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %165, i8 0, i64 4088, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4088) %165, i8 0, i64 4088, i1 false)
   br label %166
 
 166:                                              ; preds = %164, %163

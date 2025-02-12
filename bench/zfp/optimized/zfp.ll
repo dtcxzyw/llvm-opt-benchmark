@@ -68,7 +68,7 @@ define noalias noundef ptr @zfp_field_1d(ptr noundef %0, i32 noundef %1, i64 nou
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 %1, ptr %4, align 8
   store i64 %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -88,7 +88,7 @@ define noalias noundef ptr @zfp_field_2d(ptr noundef %0, i32 noundef %1, i64 nou
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store i32 %1, ptr %5, align 8
   store i64 %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -110,7 +110,7 @@ define noalias noundef ptr @zfp_field_3d(ptr noundef %0, i32 noundef %1, i64 nou
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store i32 %1, ptr %6, align 8
   store i64 %2, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -134,7 +134,7 @@ define noalias noundef ptr @zfp_field_4d(ptr noundef %0, i32 noundef %1, i64 nou
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 %1, ptr %7, align 8
   store i64 %2, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16

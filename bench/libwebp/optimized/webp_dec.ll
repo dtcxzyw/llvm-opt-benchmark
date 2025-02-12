@@ -81,7 +81,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr %0, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %1, ptr %23, align 8
@@ -389,7 +389,7 @@ define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 0, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -428,7 +428,7 @@ define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 1, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -467,7 +467,7 @@ define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 4, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -506,7 +506,7 @@ define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 2, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -545,7 +545,7 @@ define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 3, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -582,7 +582,7 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, i8 0, i64 104, i1 false)
   store ptr %13, ptr %12, align 8
   store i32 11, ptr %13, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -812,7 +812,7 @@ define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 0, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -886,7 +886,7 @@ define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 1, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -960,7 +960,7 @@ define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 4, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1034,7 +1034,7 @@ define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 2, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1108,7 +1108,7 @@ define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %7, ptr %6, align 8
   store i32 3, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1193,7 +1193,7 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, i8 0, i64 104, i1 false)
   store ptr %11, ptr %10, align 8
   store i32 11, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1386,7 +1386,7 @@ GetFeatures.exit:                                 ; preds = %3
 
 14:                                               ; preds = %GetFeatures.exit
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, i8 0, i64 104, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %16, ptr %17, align 8

@@ -2311,7 +2311,7 @@ define void @_ZN10socketif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(120
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   %19 = call noundef zeroext i16 @htons(i16 noundef zeroext 0) #36
   store i16 2, ptr %7, align 4
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -2370,7 +2370,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %43, i8 0, i64 20, i1 false), !noalias !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, i8 0, i64 20, i1 false), !noalias !12
   store i16 2, ptr %4, align 4, !noalias !12
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %44, align 2, !noalias !12
@@ -48919,7 +48919,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %41, %43
   br i1 %129, label %130, label %.preheader.i
 
 130:                                              ; preds = %127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %127, %.preheader.i
@@ -48951,7 +48951,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %41, %43
   br i1 %139, label %140, label %.preheader.i241
 
 140:                                              ; preds = %137
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %.loopexit.i247
 
 .preheader.i241:                                  ; preds = %137, %.preheader.i241
@@ -49264,7 +49264,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit264.thread316: ; preds = %249, %2
   br i1 %290, label %291, label %.preheader.i266
 
 291:                                              ; preds = %289
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit273
 
 .preheader.i266:                                  ; preds = %289, %.preheader.i266
@@ -49427,7 +49427,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %364, label %365, label %.preheader.i278
 
 365:                                              ; preds = %362
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %.loopexit.i284
 
 .preheader.i278:                                  ; preds = %362, %.preheader.i278
@@ -49545,7 +49545,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %412, label %413, label %.preheader.i287
 
 413:                                              ; preds = %410
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %.loopexit.i293
 
 .preheader.i287:                                  ; preds = %410, %.preheader.i287
@@ -49658,7 +49658,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %464, label %465, label %.preheader.i296
 
 465:                                              ; preds = %462
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %25, i8 %4, i64 255, i1 false)
   br label %.loopexit.i302
 
 .preheader.i296:                                  ; preds = %462, %.preheader.i296
@@ -66617,7 +66617,7 @@ _ZN5boost16re_detail_10740019string_out_iteratorINSt7__cxx1112basic_stringIcSt11
   store ptr %2, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %41, i8 0, i64 13, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %41, i8 0, i64 13, i1 false)
   store ptr %8, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %37, ptr %42, align 8
